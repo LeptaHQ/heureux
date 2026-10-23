@@ -1594,17 +1594,6 @@ def annotation_create(request):
                         .first()
                     )
                     if exact_retry:
-                        if exact_retry.quote != quote:
-                            return JsonResponse(
-                                {
-                                    "error": (
-                                        "Les surlignages de cette page ont changé. "
-                                        "Supprimez le passage en conflit avant de "
-                                        "réessayer."
-                                    )
-                                },
-                                status=409,
-                            )
                         overlapping.append(exact_retry)
                 annotation = next(
                     (

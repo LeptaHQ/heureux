@@ -15,6 +15,7 @@ from elevenlabs.types import VoiceSettings
 
 from django.conf import settings
 from django.db import transaction
+from django.views.decorators.debug import sensitive_variables
 from django.urls import reverse
 
 from .models import EO3Narration, FrenchNarration, FrenchNarrationBudget
@@ -387,15 +388,25 @@ def synthesize(spec, *, timing=False):
 
 
 @transaction.atomic
-def generate_narration(spec):
-    # The unique reservation serializes concurrent generators before a paid call.
-    recording, created = EO3Narration.objects.select_for_update().get_or_create(
+@sensitive_variables("pin")
+def generate_narration(spec, *, pin=None):
+    from .audio_pin import require_generation_pin
+
+    recording = EO3Narration.objects.select_for_update().filter(
         fingerprint=spec.fingerprint,
-        defaults={
-            "group": spec.group, "voice_id": spec.voice_id,
-            "model_id": spec.model_id, "audio": b"",
-        },
-    )
+    ).first()
+    if recording is None:
+        require_generation_pin(pin)
+        # The unique reservation serializes concurrent generators before a paid call.
+        recording, created = EO3Narration.objects.select_for_update().get_or_create(
+            fingerprint=spec.fingerprint,
+            defaults={
+                "group": spec.group, "voice_id": spec.voice_id,
+                "model_id": spec.model_id, "audio": b"",
+            },
+        )
+    else:
+        created = False
     if not created:
         if not recording.audio:
             raise NarrationError("The cached recording is empty; inspect it before regenerating.")

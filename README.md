@@ -60,6 +60,7 @@ Set the server environment (Render: **Environment**, not Build Command):
 
 ```text
 ELEVENLABS_API_KEY=<server secret>
+ELEVENLABS_PIN=<separate server-side generation PIN>
 ELEVENLABS_VOICE_ID=kENkNtk0xyzG09WW40xE
 ELEVENLABS_MODEL_ID=eleven_multilingual_v2
 EO3_AUDIO_ENABLED=True
@@ -147,6 +148,17 @@ its own explicit **Préparer cet enregistrement** cost confirmation. Ordinary
 read clicks only look up the cache; a missing/error recording never silently
 switches engines. **Voix de l’appareil** is an explicit alternative.
 
+Every **new** ElevenLabs recording also requires the separate server-side
+`ELEVENLABS_PIN`. Set it in Render's Environment settings; leaving it empty blocks
+new generation, not playback of cached audio. The app requests it in a masked
+dialog for each recording, including edited EO3 responses and general French
+read-aloud. It does not remember the PIN or unlock later requests. Incorrect
+attempts use the existing database-backed IP/account throttles. The PIN is never
+included in a URL, saved in an audio record, rendered in HTML or sent to ElevenLabs.
+Operator generation commands also request it through a masked interactive terminal;
+`--dry-run` and already-cached recordings need no PIN. Do not put the PIN in command
+arguments or reuse an account login PIN.
+
 The server accepts only user-bound, signed, server-rendered French source
 snapshots, valid for one hour, or a verified substring for selected text.
 Reload after editing/expiry. It rejects arbitrary unsigned text, forged or
@@ -212,6 +224,12 @@ unchanged. If translation is unavailable, the translation dialog can still save
 the selected French passage as a note without highlighting it; no translation
 is invented or fetched from Google automatically. The **Nouvelle note** dialog
 also saves without creating a highlight.
+
+Saving a new selection can overwrite an older visible highlight at the exact same
+source surface and character range, even if the stored text differs after an edit.
+The surviving highlight keeps its identity and study flag; notes, hidden highlights,
+other surfaces and other users are not overwritten. Revision checks still protect
+against an outdated tab replacing a concurrent edit.
 
 The EO3 subject reset returns its status to **À commencer** and clears its
 existing highlight paint, including after reloading or reopening practice.

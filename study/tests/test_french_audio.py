@@ -23,7 +23,7 @@ from study.models import EO3Narration, FrenchNarration, FrenchNarrationBudget, W
 from study.oral_highlights import AnnotationRootText
 
 from . import factories
-from .test_eo3_audio import AUDIO, AUDIO_SETTINGS, TIMING
+from .test_eo3_audio import AUDIO, AUDIO_PIN, AUDIO_SETTINGS, TIMING
 
 
 SETTINGS = {
@@ -127,7 +127,7 @@ class FrenchAudioTests(TestCase):
 
     def post(self, **kwargs):
         return self.client.post(
-            self.endpoint, {"sources": [self.source], **kwargs}, content_type="application/json",
+            self.endpoint, {"sources": [self.source], "pin": AUDIO_PIN, **kwargs}, content_type="application/json",
         )
 
     def ready(self, private=False):
@@ -148,7 +148,7 @@ class FrenchAudioTests(TestCase):
         response = self.post()
         self.assertEqual(response.json()["state"], "ready")
         self.assertEqual(response.json()["url"], reverse("study:french_audio", args=[recording.pk]))
-        self.assertEqual(self.post(prepare=True).status_code, 403)
+        self.assertEqual(self.post(prepare=True, pin=None).status_code, 200)
         self.assertEqual(self.client.get(response.json()["url"]).status_code, 200)
         provider.assert_not_called()
 
@@ -240,7 +240,8 @@ class FrenchAudioTests(TestCase):
             enqueue(self.spec, self.user.pk, None)
 
     @patch("study.french_audio.synthesize", return_value=AUDIO)
-    def test_operator_requires_exact_id_confirmation_feature_gate_and_budget(self, provider):
+    @patch("study.management.commands.prepare_french_audio.command_generation_pin", return_value=AUDIO_PIN)
+    def test_operator_requires_exact_id_confirmation_feature_gate_and_budget(self, pin_prompt, provider):
         recording = enqueue(self.spec, self.user.pk, None)
         call_command("prepare_french_audio", id=recording.pk, dry_run=True, stdout=StringIO())
         with self.assertRaisesMessage(CommandError, "--confirm-cost"):
@@ -249,14 +250,14 @@ class FrenchAudioTests(TestCase):
             call_command("prepare_french_audio", id=recording.pk, confirm_cost=True, stdout=StringIO())
         with self.settings(FRENCH_AUDIO_GENERATION_ENABLED=True):
             with self.assertRaisesMessage(NarrationError, "ceiling"):
-                generate_prepared(recording.pk)
+                generate_prepared(recording.pk, pin=AUDIO_PIN)
         provider.assert_not_called()
 
     @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=500)
     @patch("study.french_audio.synthesize", return_value=AUDIO)
     def test_operator_reserves_once_persists_audio_and_reuses_without_key(self, provider):
         recording = enqueue(self.spec, self.user.pk, None)
-        self.assertTrue(generate_prepared(recording.pk))
+        self.assertTrue(generate_prepared(recording.pk, pin=AUDIO_PIN))
         with self.settings(ELEVENLABS_API_KEY=""):
             self.assertFalse(generate_prepared(recording.pk))
         recording.refresh_from_db()
@@ -270,11 +271,11 @@ class FrenchAudioTests(TestCase):
     def test_uncertain_failure_is_not_refunded_or_automatically_retried(self, provider):
         recording = enqueue(self.spec, self.user.pk, None)
         with self.assertRaisesMessage(NarrationError, "Provider failed"):
-            generate_prepared(recording.pk)
+            generate_prepared(recording.pk, pin=AUDIO_PIN)
         self.assertEqual(FrenchNarration.objects.get().status, "failed")
         self.assertEqual(FrenchNarrationBudget.objects.get().reserved_characters, len(self.text))
         with self.assertRaisesMessage(NarrationError, "already attempted"):
-            generate_prepared(recording.pk)
+            generate_prepared(recording.pk, pin=AUDIO_PIN)
         provider.assert_called_once()
 
     @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=500)
@@ -283,15 +284,15 @@ class FrenchAudioTests(TestCase):
         recording = enqueue(self.spec, self.user.pk, None)
         with self.settings(ELEVENLABS_VOICE_ID="OtherVoice"):
             with self.assertRaisesMessage(NarrationError, "changed"):
-                generate_prepared(recording.pk)
+                generate_prepared(recording.pk, pin=AUDIO_PIN)
         FrenchNarration.objects.filter(pk=recording.pk).update(created_at=timezone.now() - timedelta(days=2))
         with self.assertRaisesMessage(NarrationError, "expired"):
-            generate_prepared(recording.pk)
+            generate_prepared(recording.pk, pin=AUDIO_PIN)
         FrenchNarration.objects.filter(pk=recording.pk).update(created_at=timezone.now())
         busy = enqueue(speech_spec("En cours."), self.user.pk, None)
         FrenchNarration.objects.filter(pk=busy.pk).update(status="working")
         with self.assertRaisesMessage(NarrationError, "in progress"):
-            generate_prepared(recording.pk)
+            generate_prepared(recording.pk, pin=AUDIO_PIN)
         provider.assert_not_called()
         self.assertEqual(FrenchNarrationBudget.objects.get().reserved_characters, 0)
 
@@ -354,7 +355,7 @@ class InAppSampleTests(TestCase):
         self.url = reverse("study:eo3_audio_prepare", args=["culture-p1", self.spec.fingerprint])
 
     def prepare(self, **kwargs):
-        return self.client.post(self.url, {"confirm_cost": True, **kwargs}, content_type="application/json")
+        return self.client.post(self.url, {"confirm_cost": True, "pin": AUDIO_PIN, **kwargs}, content_type="application/json")
 
     @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
     def test_one_authorized_public_sample_writes_current_eo3_cache_and_reuses(self, provider):

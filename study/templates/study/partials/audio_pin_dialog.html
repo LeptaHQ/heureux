@@ -1,0 +1,33 @@
+<dialog class="form-dialog audio-pin-dialog" aria-labelledby="audio-pin-title" data-audio-pin-dialog>
+  <form data-audio-pin-form>
+    <header class="form-dialog__header">
+      <div class="form-dialog__heading">
+        <span class="form-dialog__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M7 10V7a5 5 0 0 1 10 0v3M5 10h14v11H5zM12 14v3"></path></svg>
+        </span>
+        <h2 id="audio-pin-title">Nouvel audio ElevenLabs</h2>
+      </div>
+      <button class="icon-button form-dialog__close" type="button" aria-label="Annuler" title="Annuler" data-audio-pin-cancel>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+      </button>
+    </header>
+    <div class="form-dialog__body">
+      <p>Ce nouvel enregistrement consomme des crédits ElevenLabs. Les audios déjà préparés restent accessibles sans code.</p>
+      <label class="audio-pin-dialog__field" for="elevenlabs-generation-pin">
+        <span>Code PIN ElevenLabs</span>
+        <input id="elevenlabs-generation-pin" type="password" autocomplete="off" maxlength="128" required
+          aria-describedby="audio-pin-help audio-pin-error" data-audio-pin-input>
+      </label>
+      <p class="muted" id="audio-pin-help">Code défini par l'administrateur, distinct de votre code de connexion. Il n'est pas mémorisé.</p>
+      <p class="form-dialog__paste-status is-error" id="audio-pin-error" role="alert" data-audio-pin-error></p>
+    </div>
+    <footer class="form-dialog__actions">
+      <button class="icon-button confirm-dialog__action" type="button" aria-label="Annuler" title="Annuler" data-audio-pin-cancel>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+      </button>
+      <button class="icon-button confirm-dialog__action audio-pin-dialog__submit" type="submit" aria-label="Autoriser et générer l'audio" title="Autoriser et générer l'audio">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>
+      </button>
+    </footer>
+  </form>
+</dialog>

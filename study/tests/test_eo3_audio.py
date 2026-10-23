@@ -35,9 +35,11 @@ from . import factories
 
 AUDIO = b"ID3\x04\x00\x00\x00\x00\x00\x00" + b"\xff\xfb" + b"\x00" * 200
 TIMING = [[["Bonjour", 0, 400]], [["Merci", 500, 900]]]
+AUDIO_PIN = "test-audio-pin"
 AUDIO_SETTINGS = {
     "EO3_AUDIO_ENABLED": True,
     "ELEVENLABS_API_KEY": "test-secret-do-not-render",
+    "ELEVENLABS_PIN": AUDIO_PIN,
     "ELEVENLABS_VOICE_ID": "FrenchFemaleVoice",
     "ELEVENLABS_MODEL_ID": "eleven_multilingual_v2",
 }
@@ -360,7 +362,7 @@ class EO3AudioTests(TestCase):
 
     @patch("study.eo3_audio.synthesize", return_value=(AUDIO, TIMING))
     def test_generation_is_persistent_and_reuses_without_another_paid_call(self, provider):
-        self.assertTrue(generate_narration(self.spec))
+        self.assertTrue(generate_narration(self.spec, pin=AUDIO_PIN))
         self.assertFalse(generate_narration(self.spec))
         self.assertEqual(bytes(EO3Narration.objects.get().audio), AUDIO)
         self.assertEqual(EO3Narration.objects.get().timing, TIMING)
@@ -369,7 +371,7 @@ class EO3AudioTests(TestCase):
     @patch("study.eo3_audio.synthesize", side_effect=NarrationError("Provider failed."))
     def test_failure_rolls_back_the_reservation(self, provider):
         with self.assertRaisesMessage(NarrationError, "Provider failed"):
-            generate_narration(self.spec)
+            generate_narration(self.spec, pin=AUDIO_PIN)
         self.assertFalse(EO3Narration.objects.exists())
 
     @patch("study.eo3_audio.synthesize")
@@ -388,11 +390,13 @@ class EO3AudioTests(TestCase):
         self.assertFalse(EO3Narration.objects.exists())
 
     @patch("study.eo3_audio.synthesize", return_value=(AUDIO, TIMING))
-    def test_confirmed_command_generates_one_and_skips_cached_audio_without_key(self, provider):
+    @patch("study.management.commands.generate_eo3_audio.command_generation_pin", return_value=AUDIO_PIN)
+    def test_confirmed_command_generates_one_and_skips_cached_audio_without_key(self, pin_prompt, provider):
         call_command("generate_eo3_audio", group="culture-p1", confirm_cost=True, stdout=StringIO())
-        with self.settings(ELEVENLABS_API_KEY=""):
+        with self.settings(ELEVENLABS_API_KEY="", ELEVENLABS_PIN=""):
             call_command("generate_eo3_audio", group="culture-p1", confirm_cost=True, stdout=StringIO())
         provider.assert_called_once()
+        pin_prompt.assert_called_once()
         self.assertEqual(EO3Narration.objects.count(), 1)
 
     @patch("study.eo3_audio.synthesize")
@@ -584,7 +588,7 @@ class EO3OnDemandNarrationTests(TestCase):
 
     def prepare(self):
         return self.client.post(
-            self.url, data=json.dumps({"confirm_cost": True, "player_id": "eo3-response-player"}),
+            self.url, data=json.dumps({"confirm_cost": True, "player_id": "eo3-response-player", "pin": AUDIO_PIN}),
             content_type="application/json",
         )
 
@@ -646,7 +650,7 @@ class EO3OnDemandNarrationTests(TestCase):
 
         with patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING)) as provider:
             prepared = self.client.post(
-                presentation["prepare_url"], data=json.dumps({"confirm_cost": True}),
+                presentation["prepare_url"], data=json.dumps({"confirm_cost": True, "pin": AUDIO_PIN}),
                 content_type="application/json",
             )
         self.assertEqual(prepared.status_code, 200, prepared.content)
@@ -672,15 +676,15 @@ class EO3OnDemandNarrationTests(TestCase):
     def test_a_new_edit_frees_the_previous_private_recording(self):
         first = self.edit(self.user, "Première version.")[1]
         with patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING)):
-            self.client.post(first["prepare_url"], data=json.dumps({"confirm_cost": True}),
+            self.client.post(first["prepare_url"], data=json.dumps({"confirm_cost": True, "pin": AUDIO_PIN}),
                              content_type="application/json")
             second = self.edit(self.user, "Deuxième version.")[1]
             self.assertFalse(second["ready"])
             self.assertEqual(self.client.post(
-                first["prepare_url"], data=json.dumps({"confirm_cost": True}),
+                first["prepare_url"], data=json.dumps({"confirm_cost": True, "pin": AUDIO_PIN}),
                 content_type="application/json",
             ).status_code, 409)
-            self.client.post(second["prepare_url"], data=json.dumps({"confirm_cost": True}),
+            self.client.post(second["prepare_url"], data=json.dumps({"confirm_cost": True, "pin": AUDIO_PIN}),
                              content_type="application/json")
         self.assertEqual(EO3Narration.objects.count(), 1)
         self.assertTrue(self.edit(self.user, "Deuxième version.")[1]["ready"])
@@ -693,7 +697,7 @@ class EO3OnDemandNarrationTests(TestCase):
             closed = self.edit(self.user, "Mon introduction privée.")[1]
             self.assertEqual(closed["prepare_url"], "")
             self.assertEqual(self.client.post(
-                presentation["prepare_url"], data=json.dumps({"confirm_cost": True}),
+                presentation["prepare_url"], data=json.dumps({"confirm_cost": True, "pin": AUDIO_PIN}),
                 content_type="application/json",
             ).status_code, 404)
 

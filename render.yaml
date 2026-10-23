@@ -73,6 +73,11 @@ services:
       # Required for any natural-voice audio (EO3 narration + read-aloud).
       - key: ELEVENLABS_API_KEY
         sync: false
+      # Required for every NEW paid recording. Entered separately each time;
+      # not the account login PIN. Unset = new generation blocked, cached audio
+      # still plays. Keep this server secret out of browser code.
+      - key: ELEVENLABS_PIN
+        sync: false
       # Required. The ElevenLabs voice used for every recording.
       - key: ELEVENLABS_VOICE_ID
         sync: false

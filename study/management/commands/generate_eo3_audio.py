@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 
 from study import catalogue
+from study.audio_pin import AudioPinError, command_generation_pin
 from study.eo3_audio import NarrationError, generate_narration, narration_spec
 from study.models import EO3Narration
 
@@ -39,7 +40,8 @@ class Command(BaseCommand):
             if options["dry_run"]:
                 return
             for spec in specs:
-                created = generate_narration(spec)
+                pin = command_generation_pin() if spec.fingerprint not in cached else None
+                created = generate_narration(spec, pin=pin)
                 self.stdout.write(f"{spec.group}: {'generated' if created else 'cached'}")
-        except NarrationError as exc:
+        except (NarrationError, AudioPinError) as exc:
             raise CommandError(str(exc)) from None

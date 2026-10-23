@@ -10,6 +10,9 @@
     var status = player.querySelector("[data-eo3-prepare-status]");
     var toggle = player.querySelector("[data-eo3-toggle]") ||
       (player.id && document.querySelector('[data-eo3-toggle="' + player.id + '"]'));
+    var previousToggle = toggle && {
+      disabled: toggle.disabled, title: toggle.title, label: toggle.getAttribute("aria-label")
+    };
     var onDemand = button.hasAttribute("data-eo3-on-demand");
     (onDemand ? Promise.resolve(true) : window.HeureuxConfirm({
       message: "Préparer uniquement le premier extrait Culture, sujet 1 (" +
@@ -30,7 +33,7 @@
         "Préparation en cours… Cela peut prendre jusqu’à deux minutes. " +
         "Ne relancez pas l’action : un délai dépassé peut tout de même être facturé.";
       var csrf = document.querySelector("[name=csrfmiddlewaretoken]");
-      return fetch(button.dataset.eo3Prepare, {
+      return window.HeureuxAudioRequest(button.dataset.eo3Prepare, {
         method: "POST", credentials: "same-origin",
         headers: { "Content-Type": "application/json", "X-CSRFToken": csrf ? csrf.value : "" },
         body: JSON.stringify({confirm_cost: true, player_id: player.id || ""})
@@ -51,6 +54,17 @@
         }
       }).catch(function (error) {
         if (!player.isConnected) return;
+        if (error.name === "AbortError") {
+          status.textContent = "Préparation annulée.";
+          button.disabled = false;
+          if (toggle) {
+            toggle.removeAttribute("aria-busy");
+            toggle.disabled = previousToggle.disabled;
+            toggle.title = previousToggle.title;
+            toggle.setAttribute("aria-label", previousToggle.label);
+          }
+          return;
+        }
         status.textContent = onDemand ? error.message :
           error.message + " Rechargez la page pour vérifier le résultat. Ne répétez pas une préparation incertaine.";
         button.disabled = !onDemand;

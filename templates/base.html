@@ -399,10 +399,11 @@
     <button class="btn btn--primary" type="button" data-pwa-update>Mettre à jour</button>
   </div>
 
-  {% if request.user.is_authenticated %}{% include "study/partials/narrator.html" %}{% endif %}
+  {% if request.user.is_authenticated %}{% include "study/partials/narrator.html" %}{% include "study/partials/audio_pin_dialog.html" %}{% endif %}
   <script src="{% static 'study/js/speech.js' %}?v=5"></script>
-  <script src="{% static 'study/js/narration.js' %}?v=1"></script>
-  <script src="{% static 'study/js/audio-preparation.js' %}?v=4"></script>
+  <script src="{% static 'study/js/audio-pin.js' %}?v=1"></script>
+  <script src="{% static 'study/js/narration.js' %}?v=2"></script>
+  <script src="{% static 'study/js/audio-preparation.js' %}?v=5"></script>
   <script src="{% static 'study/js/eo3-audio.js' %}?v=10"></script>
   <script src="{% static 'study/js/flashcards.js' %}?v=5"></script>
   <script src="{% static 'study/js/app.js' %}?v=70"></script>

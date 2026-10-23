@@ -293,6 +293,7 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
 
     @override_settings(
         ELEVENLABS_API_KEY="test-key",
+        ELEVENLABS_PIN="test-audio-pin",
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1_000_000,
     )
     @patch("study.french_audio.synthesize", return_value=(b"ID3-test", []))
@@ -312,6 +313,10 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         self.page.get_by_role("link", name="Sujet suivant et lecture").click()
         self.page.wait_for_url(lambda url: url != start)
         dialog.locator("[data-confirm-accept]").click()
+        pin_dialog = self.page.locator("[data-audio-pin-dialog]")
+        expect(pin_dialog).to_be_visible()
+        pin_dialog.locator("[data-audio-pin-input]").fill("test-audio-pin")
+        pin_dialog.get_by_role("button", name="Autoriser et générer l'audio", exact=True).click()
         expect(self.page.locator("[data-eo3-seek]")).to_be_visible()
         provider.assert_called_once()
         self.assertFalse(self.errors, self.errors)

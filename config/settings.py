@@ -269,6 +269,8 @@ DEEPL_TARGET_LANG = os.environ.get("DEEPL_TARGET_LANG", "EN-GB").strip().upper()
 
 # Narration is generated only after explicit cost confirmation, never on visits.
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "").strip()
+ELEVENLABS_PIN = os.environ.get("ELEVENLABS_PIN", "").strip()
+DEFAULT_EXCEPTION_REPORTER_FILTER = "study.audio_pin.PinExceptionReporterFilter"
 ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "").strip()
 ELEVENLABS_MODEL_ID = os.environ.get(
     "ELEVENLABS_MODEL_ID", "eleven_multilingual_v2",

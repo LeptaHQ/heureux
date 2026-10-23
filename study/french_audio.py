@@ -11,7 +11,9 @@ from django.db import transaction
 from django.db.models import Q
 from django.urls import reverse
 from django.utils import timezone
+from django.views.decorators.debug import sensitive_variables
 
+from .audio_pin import require_generation_pin
 from .eo3_audio import (
     NarrationError, NarrationSpec, OUTPUT_FORMAT, PreSynthesisRejection, SAMPLE_GROUP,
     VOICE_SETTINGS, narration_spec, on_demand_enabled, sample_rejection_message, synthesize,
@@ -132,13 +134,15 @@ def enqueue(spec, user_id, owner_id):
     )
 
 
-def generate_prepared(fingerprint):
+@sensitive_variables("pin")
+def generate_prepared(fingerprint, *, pin=None):
     with transaction.atomic():
         budget, _ = FrenchNarrationBudget.objects.get_or_create(pk=1)
         budget = FrenchNarrationBudget.objects.select_for_update().get(pk=budget.pk)
         recording = FrenchNarration.objects.select_for_update().get(pk=fingerprint)
         if recording.status == "ready":
             return False
+        require_generation_pin(pin)
         on_demand = bool(recording.target_group) and on_demand_enabled()
         if on_demand:
             if not settings.EO3_AUDIO_ENABLED:

@@ -1005,7 +1005,7 @@ class AnnotationTests(TestCase):
             Annotation.objects.filter(pk=stale_collision.id).exists()
         )
 
-    def test_resolved_ids_do_not_overwrite_exact_stale_collision(self):
+    def test_resolved_ids_overwrite_exact_stale_collision(self):
         resolved = Annotation.objects.create(
             user=self.user,
             task=self.task,
@@ -1014,6 +1014,7 @@ class AnnotationTests(TestCase):
             source_path=self.source_path,
             start_offset=100,
             end_offset=115,
+            study_later=True,
         )
         stale_collision = Annotation.objects.create(
             user=self.user,
@@ -1037,13 +1038,58 @@ class AnnotationTests(TestCase):
             },
         )
 
-        self.assertEqual(response.status_code, 409)
-        self.assertIn("passage en conflit", response.json()["error"])
-        resolved.refresh_from_db()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()["id"], stale_collision.id)
+        self.assertEqual(response.json()["removed_ids"], [resolved.id])
         stale_collision.refresh_from_db()
-        self.assertEqual(resolved.start_offset, 100)
-        self.assertEqual(resolved.end_offset, 115)
-        self.assertEqual(stale_collision.quote, "Autre passage déplacé")
+        self.assertEqual(stale_collision.start_offset, 24)
+        self.assertEqual(stale_collision.end_offset, 58)
+        self.assertEqual(stale_collision.quote, self.selection["quote"])
+        self.assertTrue(stale_collision.study_later)
+        self.assertFalse(Annotation.objects.filter(pk=resolved.id).exists())
+
+    def test_exact_position_overwrite_keeps_notes_other_surfaces_and_other_users(self):
+        stale = Annotation.objects.create(
+            user=self.user, task=self.task, kind=AnnotationKind.HIGHLIGHT,
+            quote="Ancien texte à cet emplacement",
+            source_path=self.source_path, start_offset=24, end_offset=58,
+            study_later=True,
+        )
+        note = Annotation.objects.create(
+            user=self.user, task=self.task, kind=AnnotationKind.NOTE,
+            quote=stale.quote, body="My existing translation.",
+            source_path=self.source_path, start_offset=24, end_offset=58,
+        )
+        other_user = factories.make_user("unrelated-highlight-owner")
+        unrelated = [
+            Annotation.objects.create(
+                user=other_user, kind=AnnotationKind.HIGHLIGHT,
+                quote=stale.quote, source_path=self.source_path,
+                start_offset=24, end_offset=58,
+            ),
+            Annotation.objects.create(
+                user=self.user, kind=AnnotationKind.HIGHLIGHT,
+                quote=stale.quote, source_path=self.source_path,
+                source_key="another-surface", start_offset=24, end_offset=58,
+            ),
+        ]
+        preserved_ids = [note.pk, *(item.pk for item in unrelated)]
+        before = list(Annotation.objects.filter(pk__in=preserved_ids).order_by("pk").values())
+        created_at = stale.created_at
+        reply = self.client.post(reverse("study:annotation_create"), {
+            **self.selection, "kind": AnnotationKind.HIGHLIGHT,
+            "overlap_ids": "", "overlap_revisions": "{}",
+        })
+        self.assertEqual(reply.status_code, 200)
+        self.assertEqual(reply.json()["id"], stale.pk)
+        self.assertEqual(reply.json()["removed_ids"], [])
+        stale.refresh_from_db()
+        self.assertEqual(stale.quote, self.selection["quote"])
+        self.assertEqual(stale.created_at, created_at)
+        self.assertTrue(stale.study_later)
+        self.assertEqual(before, list(
+            Annotation.objects.filter(pk__in=preserved_ids).order_by("pk").values(),
+        ))
 
     def test_stale_expansion_cannot_overwrite_a_concurrent_expansion(self):
         highlight = Annotation.objects.create(

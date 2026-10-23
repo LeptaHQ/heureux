@@ -213,7 +213,7 @@
     message(prepare ? "Préparation ElevenLabs en cours, jusqu’à deux minutes. Fermer le lecteur n’annule pas une préparation facturable…" :
       "Recherche de l’enregistrement, sans génération…");
     var csrf = document.querySelector("[name=csrfmiddlewaretoken]");
-    fetch(document.body.dataset.frenchAudioResolveUrl, {
+    window.HeureuxAudioRequest(document.body.dataset.frenchAudioResolveUrl, {
       method: "POST", credentials: "same-origin", signal: controller.signal,
       headers: { "Content-Type": "application/json", "X-CSRFToken": csrf ? csrf.value : "" },
       body: JSON.stringify({
@@ -243,8 +243,15 @@
         preparation.hidden = !data.can_request;
       }
     }).catch(function (error) {
-      if (current !== item || item.request !== controller || error.name === "AbortError") return;
+      if (current !== item || item.request !== controller) return;
       item.request = null;
+      if (error.name === "AbortError") {
+        state("unavailable");
+        message("Préparation annulée.");
+        panel.querySelector("[data-narrator-options]").open = true;
+        preparation.hidden = !prepare;
+        return;
+      }
       failed(error.message || "Lecture naturelle indisponible. Vérifiez votre connexion.");
     });
   }

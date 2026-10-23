@@ -8125,6 +8125,42 @@ a.qrow:focus-visible {
 }
 
 /* ---------- Confirm dialog ---------- */
+.audio-pin-dialog {
+  width: min(calc(100% - 2rem), 440px);
+}
+.audio-pin-dialog form {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  max-height: inherit;
+}
+.audio-pin-dialog .form-dialog__body > p {
+  margin: 0;
+}
+.audio-pin-dialog [data-audio-pin-error]:empty {
+  display: none;
+}
+.audio-pin-dialog__field {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  font-weight: 650;
+}
+.audio-pin-dialog__field input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: max(1rem, 16px);
+}
+.audio-pin-dialog .audio-pin-dialog__submit,
+.audio-pin-dialog .audio-pin-dialog__submit:hover {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--primary-ink);
+}
 .confirm-dialog {
   width: min(calc(100% - 2rem), 440px);
 }

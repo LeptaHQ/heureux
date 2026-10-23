@@ -5933,6 +5933,50 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator("#card-front")).to_be_visible()
         self.assertEqual(ReviewLog.objects.filter(user=self.user).count(), 1)
 
+    def test_current_selection_overwrites_an_unseen_stale_highlight_at_the_same_position(self):
+        from study.views.notes import _annotation_source_scope
+
+        self.page.goto(self.live_server_url + reverse("study:review") + "?kind=spine&reset=1")
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+        anchor = prompt.evaluate("""element => {
+          const root = element.closest("[data-annotation-root]");
+          function text(node) {
+            const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, {
+              acceptNode: n => n.parentElement && n.parentElement.closest("[data-annotation-exclude]")
+                ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
+            });
+            let value = "";
+            while (walker.nextNode()) value += walker.currentNode.data;
+            return value;
+          }
+          const before = document.createRange();
+          before.selectNodeContents(root);
+          before.setEnd(element, 0);
+          const raw = element.textContent;
+          const quote = raw.trim();
+          const start = text(before.cloneContents()).length + raw.length - raw.trimStart().length;
+          return {key: root.dataset.annotationSourceKey, quote, start, end: start + quote.length};
+        }""")
+        source_path, _ = _annotation_source_scope(
+            self.page.evaluate("location.pathname + location.search"),
+        )
+        stale = Annotation.objects.create(
+            user=self.user, task=self.task, kind=AnnotationKind.HIGHLIGHT,
+            source_path=source_path, source_key=anchor["key"],
+            quote="Un ancien texte qui ne correspond plus.",
+            start_offset=anchor["start"], end_offset=anchor["end"], study_later=True,
+        )
+        saved_id = self.save_current_prompt_highlight(prompt)
+        self.assertEqual(saved_id, stale.pk)
+        stale.refresh_from_db()
+        self.assertEqual(stale.quote, anchor["quote"])
+        self.assertTrue(stale.study_later)
+        self.assertEqual(Annotation.objects.filter(
+            user=self.user, kind=AnnotationKind.HIGHLIGHT,
+        ).count(), 1)
+
     def test_mobile_highlight_expands_then_toggles_off(self):
         self.page.goto(
             self.live_server_url

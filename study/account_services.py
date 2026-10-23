@@ -10,6 +10,7 @@ from django.db import connection, transaction
 from django.db.models import Q
 from django.utils import timezone
 from django.utils.crypto import salted_hmac
+from django.views.decorators.debug import sensitive_variables
 
 from .models import (
     AccountRecoveryCode,
@@ -425,6 +426,43 @@ def reserve_throttled_action(key_hash: str, now=None) -> bool:
             return True
         _record_throttled_attempt(throttle, now)
         return False
+
+
+@sensitive_variables("pin")
+def authorize_audio_generation(request, pin):
+    from .audio_pin import AudioPinError, require_generation_pin
+
+    if not django_settings.ELEVENLABS_PIN or pin is None or pin == "":
+        require_generation_pin(pin)
+    now = timezone.now()
+    error = None
+    with transaction.atomic():
+        throttles, locked = _acquire_throttle_tiers(
+            request, str(request.user.pk), now,
+            ip_purpose="elevenlabs-pin-ip",
+            pair_purpose="elevenlabs-pin",
+            account_purpose="elevenlabs-pin",
+        )
+        if locked:
+            error = AudioPinError(
+                "pin_locked",
+                "Trop d'essais de code PIN ElevenLabs. Réessayez plus tard.",
+                429,
+            )
+        else:
+            try:
+                require_generation_pin(pin)
+            except AudioPinError as exc:
+                error = exc
+                if exc.code == "pin_invalid":
+                    _record_throttle_tier_failure(throttles, now)
+            else:
+                _, pair_throttle, account_throttle = throttles
+                pair_throttle.delete()
+                account_throttle.delete()
+    # Failed-attempt counters must commit before the error leaves this function.
+    if error is not None:
+        raise error
 
 
 def _normalize_recovery_code(code: str) -> str:

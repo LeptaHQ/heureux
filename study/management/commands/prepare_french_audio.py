@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 
 from study.eo3_audio import NarrationError
+from study.audio_pin import AudioPinError, command_generation_pin
 from study.french_audio import SpeechError, generate_prepared
 from study.models import FrenchNarration, FrenchNarrationBudget
 
@@ -31,7 +32,8 @@ class Command(BaseCommand):
         if not options["confirm_cost"]:
             raise CommandError("Inspect --dry-run, then use --confirm-cost to authorize ONE paid request.")
         try:
-            created = generate_prepared(recording.pk)
-        except (NarrationError, SpeechError) as exc:
+            pin = command_generation_pin() if recording.status != "ready" else None
+            created = generate_prepared(recording.pk, pin=pin)
+        except (NarrationError, SpeechError, AudioPinError) as exc:
             raise CommandError(str(exc)) from None
         self.stdout.write("Generated." if created else "Already cached; no provider call.")

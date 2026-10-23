@@ -80,7 +80,7 @@ class CultureEditorialTests(SimpleTestCase):
             (19, 2, ("en français", "une ancienne usine", "devenue un lieu culturel", "poser des questions")),
             (20, 1, ("sans passer par un texte",)),
             (24, 1, ("association de quartier", "chacun apporte un plat", "dans la langue du pays", "d'autres rencontres")),
-            (26, 2, ("prévoir leurs visites à l'avance", "manque de sympathie")),
+            (26, 2, ("prévoir leurs visites à l'avance", "question d'organisation", "pas un refus de me voir")),
             (30, 2, ("profession est réglementée", "avant d'exercer", "ne remplace ni")),
             (31, 1, ("moquerie", "humiliée", "relation réelle")),
             (35, 2, ("distribution alimentaire", "La famille comprend", "comme les autres bénévoles, il contribue")),
@@ -264,6 +264,10 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("2 500 dollars nets par mois", response.arguments[0].exemple)
         self.assertIn("ne me resterait que 500 dollars", response.arguments[0].exemple)
         self.assertIn("reporterais le départ", response.arguments[0].exemple)
+        self.assertIn("croire qu'une personne m'évite", response.arguments[2].developpement)
+        self.assertIn("alors qu'elle a simplement d'autres habitudes", response.arguments[2].developpement)
+        self.assertIn("comprendre son comportement", response.arguments[2].developpement)
+        self.assertIn("un rejet", response.arguments[2].developpement)
         self.assertIn("qui convienne à chacun", response.arguments[2].consequence)
         self.assertNotIn("me laissant mes propres habitudes", response.arguments[2].consequence)
 
@@ -324,7 +328,7 @@ class CultureEditorialTests(SimpleTestCase):
         for number, index, claim, explanation, example in (
             (5, 2, "contacts sur place", "Des conseils précis", "relire son CV"),
             (14, 2, "approfondir sa connaissance", "poser une question précise", "formules de politesse"),
-            (26, 2, "éviter des malentendus", "mal interpréter", "prévoir leurs visites"),
+            (26, 2, "éviter des malentendus", "comprendre son comportement", "prévoir leurs visites"),
             (30, 2, "obstacles administratifs", "faire reconnaître un diplôme", "profession est réglementée"),
             (31, 1, "banaliser les comportements agressifs", "peut sembler valorisée", "moquerie"),
             (33, 1, "mobiliser le public", "informations vérifiées", "réunion publique"),

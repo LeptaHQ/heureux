@@ -194,7 +194,6 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn(question, child.developpement)
         self.assertIn(question, self.response("culture-p14").arguments[2].developpement)
         self.assertIn(question, self.response("culture-p19").arguments[2].developpement)
-        self.assertIn(question, self.response("culture-p26").arguments[2].developpement)
         for example in (child.exemple, self.response("culture-p27").arguments[2].exemple):
             self.assertIn("chaque semaine à", example)
             self.assertIn("dans leur langue familiale", example)

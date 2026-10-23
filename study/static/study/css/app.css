@@ -7759,10 +7759,42 @@ a.qrow:focus-visible {
 }
 .eo3-cached-reader__bar { height: 3px; background: var(--border); }
 .eo3-cached-reader__bar span { display: block; height: 100%; width: 0; background: var(--primary); }
+.eo3-cached-reader__controls { flex-wrap: wrap; }
 .eo3-cached-reader__controls > div { display: flex; align-items: center; gap: 0.4rem; }
+.eo3-cached-reader__controls > div:last-child { margin-left: auto; }
 .eo3-cached-reader__controls button { width: 32px; height: 32px; }
 .eo3-cached-reader__controls svg { width: 14px; height: 14px; }
-.eo3-cached-reader__time { font-size: 0.74rem; font-variant-numeric: tabular-nums; color: var(--text-soft); }
+.eo3-cached-reader__time { font-size: 0.74rem; font-variant-numeric: tabular-nums; color: var(--text-soft); white-space: nowrap; }
+.eo3-cached-reader__speed {
+  width: auto;
+  height: 32px;
+  padding: 0 0.3rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  color: var(--primary);
+  font: inherit;
+  font-size: 0.74rem;
+  cursor: pointer;
+}
+.eo3-cached-reader__repeat { position: relative; }
+.eo3-cached-reader__repeat[aria-pressed="true"] {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-ink);
+}
+.eo3-cached-reader__repeat span {
+  position: absolute;
+  right: -1px;
+  bottom: -2px;
+  padding: 0.05rem 0.15rem;
+  border-radius: 0.4rem;
+  background: var(--surface);
+  color: var(--primary);
+  font-size: 0.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
 .eo3-cached-reader__skips:empty,
 .eo3-cached-reader [data-eo3-series-play-icon],
 .eo3-cached-reader.is-paused [data-eo3-series-pause-icon] { display: none; }

@@ -7,8 +7,25 @@
   <a class="eo3-cached-reader__title" data-eo3-series-title target="_blank" rel="noopener noreferrer"></a>
   <div class="eo3-cached-reader__bar" role="progressbar" aria-label="Position de lecture" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-eo3-series-progress><span></span></div>
   <div class="eo3-cached-reader__controls">
-    <span class="eo3-cached-reader__time" data-eo3-series-time>0:00 / –:–– · 0,85×</span>
     <div>
+      <span class="eo3-cached-reader__time" data-eo3-series-time>0:00 / –:––</span>
+      <select class="eo3-cached-reader__speed" data-eo3-series-speed aria-label="Vitesse de lecture continue" title="Vitesse de lecture">
+        <option value="0.5">0,5×</option>
+        <option value="0.6">0,6×</option>
+        <option value="0.75">0,75×</option>
+        <option value="0.85" selected>0,85×</option>
+        <option value="1">1×</option>
+        <option value="1.25">1,25×</option>
+        <option value="1.5">1,5×</option>
+        <option value="1.75">1,75×</option>
+        <option value="2">2×</option>
+      </select>
+    </div>
+    <div>
+      <button class="icon-button eo3-cached-reader__repeat" type="button" data-eo3-series-repeat aria-pressed="false" aria-label="Lire chaque audio deux fois" title="Lire chaque audio deux fois">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m17 3 4 4-4 4M3 11V9a2 2 0 0 1 2-2h16M7 21l-4-4 4-4m14 0v2a2 2 0 0 1-2 2H3"></path></svg>
+        <span aria-hidden="true">2</span>
+      </button>
       <button class="icon-button" type="button" data-eo3-series-pause aria-label="Mettre en pause" title="Mettre en pause">
         <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3"><path d="M8 5v14M16 5v14" data-eo3-series-pause-icon></path><path d="m8 5 11 7-11 7z" fill="currentColor" stroke="none" data-eo3-series-play-icon></path></svg>
       </button>

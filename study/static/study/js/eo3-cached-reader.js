@@ -7,6 +7,8 @@
   var audio = panel.querySelector("[data-eo3-series-audio]");
   var pause = panel.querySelector("[data-eo3-series-pause]");
   var next = panel.querySelector("[data-eo3-series-next]");
+  var speed = panel.querySelector("[data-eo3-series-speed]");
+  var repeat = panel.querySelector("[data-eo3-series-repeat]");
   var title = panel.querySelector("[data-eo3-series-title]");
   var status = document.querySelector("[data-eo3-series-status]");
   var label = panel.querySelector("[data-eo3-series-state]");
@@ -23,6 +25,8 @@
   var request = null;
   var source = "eo3-cached-series";
   var rate = 0.85;
+  var repeatTwice = false;
+  var playNumber = 1;
   // A 10 ms local silent WAV preserves Safari's per-element user-gesture grant.
   var unlock = "data:audio/wav;base64,UklGRsQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 
@@ -38,11 +42,18 @@
   function renderTime() {
     if (index < 0) return;
     panel.querySelector("[data-eo3-series-time]").textContent =
-      clock(audio.currentTime / rate) + " / " + clock(audio.duration / rate) + " · 0,85×";
+      clock(audio.currentTime / rate) + " / " + clock(audio.duration / rate);
     var percent = isFinite(audio.duration) && audio.duration > 0
       ? Math.min(100, audio.currentTime / audio.duration * 100) : 0;
     progress.setAttribute("aria-valuenow", String(Math.round(percent)));
     progress.querySelector("span").style.width = percent + "%";
+  }
+  function applyRate() {
+    audio.defaultPlaybackRate = rate;
+    audio.playbackRate = rate;
+    audio.preservesPitch = true;
+    if ("webkitPreservesPitch" in audio) audio.webkitPreservesPitch = true;
+    renderTime();
   }
   function render() {
     toggle.setAttribute("aria-pressed", String(active));
@@ -57,8 +68,10 @@
     pause.setAttribute("aria-label", playing ? "Mettre en pause" : "Reprendre la lecture");
     pause.title = pause.getAttribute("aria-label");
     panel.classList.toggle("is-paused", !playing);
+    repeat.setAttribute("aria-pressed", String(repeatTwice));
     label.textContent = playing ? "En lecture" : phase === "paused"
       ? "En pause" : phase === "blocked" ? "En attente" : "Chargement…";
+    if (repeatTwice && index >= 0) label.textContent += " · écoute " + playNumber + "/2";
     skips.textContent = skipped
       ? skipped + (skipped === 1 ? " sujet sans audio ignoré." : " sujets sans audio ignorés.")
       : "";
@@ -114,6 +127,7 @@
   function loadTrack(number) {
     if (!active) return;
     index = number;
+    playNumber = 1;
     var track = tracks[index];
     phase = "track-loading";
     title.textContent = "Sujet " + track.position + " · " + track.title;
@@ -124,10 +138,7 @@
     audio.loop = false;
     audio.src = track.audio_url;
     audio.load();
-    audio.defaultPlaybackRate = rate;
-    audio.playbackRate = rate;
-    audio.preservesPitch = true;
-    if ("webkitPreservesPitch" in audio) audio.webkitPreservesPitch = true;
+    applyRate();
     play();
   }
   function validate(data) {
@@ -221,6 +232,20 @@
     } else play();
   });
   next.addEventListener("click", function () { advance(false); });
+  speed.addEventListener("change", function () {
+    var selected = Number(speed.value);
+    if ([0.5, 0.6, 0.75, 0.85, 1, 1.25, 1.5, 1.75, 2].indexOf(selected) === -1) {
+      speed.value = String(rate);
+      message("Cette vitesse de lecture n’est pas disponible.");
+      return;
+    }
+    rate = selected;
+    applyRate();
+  });
+  repeat.addEventListener("click", function () {
+    repeatTwice = !repeatTwice;
+    render();
+  });
   ["loadedmetadata", "durationchange", "timeupdate", "ratechange"].forEach(function (name) {
     audio.addEventListener(name, renderTime);
   });
@@ -233,7 +258,14 @@
       render();
     }
   });
-  audio.addEventListener("ended", function () { if (active && index >= 0 && audio.ended) advance(false); });
+  audio.addEventListener("ended", function () {
+    if (!active || index < 0 || !audio.ended) return;
+    if (repeatTwice && playNumber === 1) {
+      playNumber = 2;
+      audio.currentTime = 0;
+      play();
+    } else advance(false);
+  });
   audio.addEventListener("error", function () { if (active && index >= 0 && audio.error) advance(true); });
   document.addEventListener("heureux:speech-start", function (event) {
     if (active && (!event.detail || event.detail.source !== source)) stop();

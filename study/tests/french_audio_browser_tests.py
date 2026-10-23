@@ -133,6 +133,20 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
             )
         return prompts, specs
 
+    def cached_audio(self, spec, seconds):
+        buffer = BytesIO()
+        with wave.open(buffer, "wb") as recording:
+            recording.setnchannels(1)
+            recording.setsampwidth(2)
+            recording.setframerate(8000)
+            recording.writeframes(b"\x00\x00" * 8000 * seconds)
+        self.page.route(
+            re.compile(r".*/" + spec.fingerprint + r"/$"),
+            lambda route, _request, body=buffer.getvalue(): route.fulfill(
+                body=body, content_type="audio/wav",
+            ),
+        )
+
     def writing(self, task="tache-1"):
         task = factories.make_task(factories.make_part("ee"), task)
         sujet = factories.make_writing_sujet(task, versions=("Bonjour, je vous invite à découvrir ma ville.",))
@@ -600,18 +614,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
     def test_cached_series_advances_skips_and_finishes_without_generation(self, provider):
         prompts, specs = self.cached_theme(ready=(0, 2))
         for entry, seconds in ((0, 3), (2, 1)):
-            buffer = BytesIO()
-            with wave.open(buffer, "wb") as recording:
-                recording.setnchannels(1)
-                recording.setsampwidth(2)
-                recording.setframerate(8000)
-                recording.writeframes(b"\x00\x00" * 8000 * seconds)
-            self.page.route(
-                re.compile(r".*/" + specs[entry].fingerprint + r"/$"),
-                lambda route, _request, body=buffer.getvalue(): route.fulfill(
-                    body=body, content_type="audio/wav",
-                ),
-            )
+            self.cached_audio(specs[entry], seconds)
         start = self.live_server_url + prompt_detail_url(prompts[0])
         self.page.goto(start)
         self.page.wait_for_load_state("networkidle")
@@ -623,6 +626,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         self.page.wait_for_function("() => document.querySelector('[data-eo3-series-audio]').currentTime > 0")
         expect(self.page.locator("[data-eo3-series-title]")).to_contain_text(prompts[0].text)
         self.assertEqual(audio.evaluate("a => a.playbackRate"), 0.85)
+        expect(self.page.locator("[data-eo3-series-repeat]")).to_have_attribute("aria-pressed", "false")
         self.assertTrue(audio.evaluate("a => a.preservesPitch"))
         audio.evaluate("a => a.dataset.samePlayer = 'yes'")
         pause = self.page.locator("[data-eo3-series-pause]")
@@ -645,6 +649,105 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         self.assertFalse(FrenchNarration.objects.exists())
         self.assertFalse(FrenchNarrationBudget.objects.exists())
         provider.assert_not_called()
+
+    @override_settings(
+        FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,
+        ELEVENLABS_PIN="",
+    )
+    @patch("study.french_audio.synthesize")
+    def test_cached_series_speed_and_twice_mode_repeat_each_track_exactly_twice(self, provider):
+        prompts, specs = self.cached_theme(ready=(0, 2))
+        self.cached_audio(specs[0], 3)
+        self.cached_audio(specs[2], 2)
+        self.page.add_init_script("""
+            window.__seriesEnded = [];
+            document.addEventListener("ended", event => {
+                const audio = event.target;
+                if (audio.matches && audio.matches("[data-eo3-series-audio]") &&
+                    audio.ended && audio.currentSrc.includes("/audio/")) {
+                    window.__seriesEnded.push(audio.currentSrc);
+                }
+            }, true);
+        """)
+        start = self.live_server_url + prompt_detail_url(prompts[0])
+        self.page.goto(start)
+        requests = []
+        self.page.on("request", lambda r: requests.append((r.method, r.url)))
+        toggle = self.page.locator("[data-eo3-series-toggle]")
+        toggle.click()
+        self.page.locator("[data-eo3-series-speed]").select_option("2")
+        repeat = self.page.locator("[data-eo3-series-repeat]")
+        repeat.click()
+        expect(repeat).to_have_attribute("aria-pressed", "true")
+        state = self.page.locator("[data-eo3-series-state]")
+        expect(state).to_contain_text("écoute 2/2")
+        expect(self.page.locator("[data-eo3-series-title]")).to_contain_text(prompts[0].text)
+        expect(self.page.locator("[data-eo3-series-title]")).to_contain_text(prompts[2].text)
+        expect(state).to_contain_text("écoute 1/2")
+        expect(self.page.locator("[data-eo3-series-skips]")).to_contain_text("1 sujet sans audio ignoré")
+        audio = self.page.locator("[data-eo3-series-audio]")
+        self.assertEqual(audio.evaluate("a => a.playbackRate"), 2)
+        self.assertTrue(audio.evaluate("a => a.preservesPitch"))
+        self.assertFalse(audio.evaluate("a => a.loop"))
+        expect(toggle).to_have_attribute("aria-pressed", "false", timeout=10000)
+        ended = self.page.evaluate("window.__seriesEnded")
+        self.assertEqual(len(ended), 4, ended)
+        self.assertEqual([
+            next(index for index, spec in specs.items() if spec.fingerprint in url)
+            for url in ended
+        ], [0, 0, 2, 2])
+        self.assertEqual(self.page.url, start)
+        expect(self.page.locator("[data-eo3-series-status]")).to_contain_text("Fin des enregistrements")
+        self.assertTrue(all(method == "GET" for method, _ in requests), requests)
+        self.assertEqual(sum("/audios-enregistres/" in url for _, url in requests), 1)
+        self.assertFalse(any("/preparer/" in url or self.resolve_path in url for _, url in requests))
+        expect(self.page.locator("[data-audio-pin-dialog]")).to_be_hidden()
+        self.assertFalse(FrenchNarration.objects.exists())
+        self.assertFalse(FrenchNarrationBudget.objects.exists())
+        provider.assert_not_called()
+
+    def test_cached_series_speed_while_paused_repeat_toggle_next_and_restart(self):
+        prompts, specs = self.cached_theme(ready=(0, 1, 2))
+        self.cached_audio(specs[0], 3)
+        self.page.goto(self.live_server_url + prompt_detail_url(prompts[0]))
+        toggle = self.page.locator("[data-eo3-series-toggle]")
+        toggle.click()
+        speed = self.page.locator("[data-eo3-series-speed]")
+        speed.select_option("2")
+        repeat = self.page.locator("[data-eo3-series-repeat]")
+        repeat.click()
+        state = self.page.locator("[data-eo3-series-state]")
+        expect(state).to_contain_text("écoute 2/2")
+        pause = self.page.locator("[data-eo3-series-pause]")
+        pause.click()
+        audio = self.page.locator("[data-eo3-series-audio]")
+        position = audio.evaluate("a => a.currentTime")
+        speed.select_option("1.25")
+        self.assertEqual(audio.evaluate("a => a.playbackRate"), 1.25)
+        self.assertTrue(audio.evaluate("a => a.paused"))
+        self.assertAlmostEqual(audio.evaluate("a => a.currentTime"), position, delta=0.05)
+        repeat.click()
+        expect(repeat).to_have_attribute("aria-pressed", "false")
+        expect(state).to_have_text("En pause")
+        repeat.click()
+        expect(state).to_contain_text("écoute 2/2")
+        pause.click()
+        expect(self.page.locator("[data-eo3-series-title]")).to_contain_text(prompts[1].text)
+        expect(state).to_contain_text("écoute 1/2")
+        self.assertEqual(audio.evaluate("a => a.playbackRate"), 1.25)
+        self.page.locator("[data-eo3-series-next]").click()
+        expect(self.page.locator("[data-eo3-series-title]")).to_contain_text(prompts[2].text)
+        expect(state).to_contain_text("écoute 1/2")
+        toggle.click()
+        expect(self.page.locator("[data-eo3-series-panel]")).to_be_hidden()
+        self.assertIsNone(audio.get_attribute("src"))
+        toggle.click()
+        expect(self.page.locator("[data-eo3-series-title]")).to_contain_text(prompts[0].text)
+        expect(state).to_contain_text("écoute 1/2")
+        expect(speed).to_have_value("1.25")
+        expect(repeat).to_have_attribute("aria-pressed", "true")
+        self.assertEqual(audio.evaluate("a => a.playbackRate"), 1.25)
+        toggle.click()
 
     @override_settings(
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,

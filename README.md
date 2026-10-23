@@ -167,8 +167,13 @@ same publication order/deduplication as the sujet navigation. Missing, empty,
 outdated or unavailable recordings are skipped. Edited responses require their
 own matching private recording; a public model never replaces an uncached edit.
 One reusable audio element advances without reloading the page, with a now-playing
-source link, pause, next and stop controls. It requests only cached media and a
-small read-only playlist; it never prepares audio, calls ElevenLabs or asks for a
+source link, pause, next and stop controls. Playback speed is adjustable from
+0.5× to 2× (default 0.85×), retaining the chosen speed across tracks. The optional
+repeat-two toggle plays each recording twice before advancing; it is not an
+infinite loop. Changing speed does not restart the audio, and next skips straight
+to the next available recording. These settings last until the page is reloaded.
+It requests only cached media and a small read-only playlist; it never prepares
+audio, calls ElevenLabs or asks for a
 generation PIN. Playback does not mark subjects complete.
 
 The server accepts only user-bound, signed, server-rendered French source

@@ -526,8 +526,8 @@
         "culture:p23": "6e46829977bd6e97661a14a2b695aa5ec6515da6da1f13e625c7520baaf474c6"
       },
       "reformulation": "La diminution des lettres et des cartes personnelles est-elle regrettable ?",
-      "position": "Je regrette la raréfaction de ce geste, sans condamner les échanges numériques.",
-      "position_claire": "Je trouve un peu regrettable que les lettres et les cartes personnelles deviennent moins présentes. Ce n'est pas parce que le numérique serait sans valeur, mais parce que le courrier offre une forme particulière d'attention, un temps de réflexion et un souvenir matériel.",
+      "position": "Je regrette qu'on écrive moins de lettres et de cartes, sans rejeter les échanges numériques.",
+      "position_claire": "Les messages numériques sont utiles, mais je trouve dommage qu'on s'envoie moins de lettres et de cartes personnelles. Elles peuvent montrer qu'on a pris du temps pour quelqu'un, aider à réfléchir à ce qu'on veut dire et laisser un souvenir à transmettre.",
       "arguments": [
         {
           "idea": "Tout d'abord, une lettre personnelle peut montrer qu'on a pris du temps pour quelqu'un.",
@@ -549,7 +549,7 @@
         }
       ],
       "nuance": "Cependant, un message numérique peut aussi être réfléchi, attentionné, sauvegardé et accessible. Le courrier coûte parfois cher, arrive lentement et peut se perdre. Je ne voudrais pas l'imposer : le garder pour certaines occasions compléterait utilement les échanges rapides.",
-      "conclusion": "En conclusion, je regrette surtout la disparition d'une possibilité d'attention et de souvenir. Il n'est pas nécessaire de revenir à tout le courrier d'autrefois, mais conserver quelques lettres ou cartes choisies enrichit nos façons de communiquer."
+      "conclusion": "En conclusion, je trouve dommage qu'on écrive moins de lettres et de cartes. Sans renoncer aux messages rapides, on peut garder ce geste pour remercier quelqu'un, expliquer ce qu'on ressent ou laisser un souvenir."
     },
     "culture-p19": {
       "prompt_signatures": {

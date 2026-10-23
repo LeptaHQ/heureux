@@ -286,7 +286,7 @@
       "arguments": [
         {
           "idea": "Tout d'abord, les traditions aident à se sentir chez soi dans un nouveau pays.",
-          "developpement": "Quand on s'installe à l'étranger, beaucoup de choses changent à la fois. Garder une habitude familière permet de retrouver une partie de sa vie d'avant dans son nouveau quotidien.",
+          "developpement": "Quand beaucoup de choses changent autour de nous, retrouver des gestes familiers aide à se sentir chez soi. On retrouve ainsi une partie de sa vie d'avant dans son nouveau quotidien.",
           "exemple": "Après une journée fatigante, une personne peut préparer un plat de son pays qu'elle mangeait souvent en famille. Retrouver ces saveurs lui apporte du réconfort et l'aide à se sentir chez elle, sans l'empêcher de découvrir la cuisine locale.",
           "consequence": "Ces repères aident à se sentir bien, tout en continuant à apprendre la langue et les habitudes locales."
         },
@@ -294,7 +294,7 @@
           "idea": "Ensuite, la transmission culturelle donne aux enfants accès à leur histoire familiale.",
           "developpement": "Les enfants ne peuvent pas deviner les souvenirs et les pratiques que leurs parents n'expliquent jamais. Les transmettre leur permet de comprendre leurs origines et peut leur donner un sentiment de double appartenance : à leur culture familiale et à celle du pays où ils grandissent.",
           "exemple": "Pendant une fête, des parents peuvent raconter pourquoi la famille prépare un repas particulier et appeler les grands-parents pour écouter leurs souvenirs. L'enfant découvre cette tradition familiale tout en participant aux fêtes.",
-          "consequence": "L'héritage devient une histoire accessible, pas une consigne à suivre sans explication."
+          "consequence": "L'enfant sait ainsi d'où vient cette tradition, au lieu de la suivre sans explication."
         },
         {
           "idea": "Enfin, des traditions partagées peuvent tisser des liens entre les cultures.",
@@ -304,7 +304,7 @@
         }
       ],
       "nuance": "Cependant, une tradition ne justifie ni de forcer un enfant à la suivre ni de porter atteinte aux droits des autres. Elle peut évoluer avec le contexte et les choix de chacun. Garder un héritage vivant n'exige pas que chaque pratique soit reproduite exactement.",
-      "conclusion": "En conclusion, je suis favorable à la préservation des traditions lorsqu'elle apporte des repères, une transmission et des échanges. Le bon équilibre consiste à connaître son histoire tout en restant libre de la faire évoluer et de s'ouvrir aux autres."
+      "conclusion": "En conclusion, je trouve important de garder ses traditions pour se sentir chez soi, transmettre son histoire et créer des échanges. Mais chacun doit rester libre de les faire évoluer et de découvrir d'autres façons de vivre."
     },
     "culture-p11": {
       "prompt_signatures": {

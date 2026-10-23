@@ -160,6 +160,7 @@ class TacheThreeReuseTests(SimpleTestCase):
 
     def test_familiar_routines_help_without_copying_a_cultural_identity_argument(self):
         shared = self.response("culture-p1").arguments[1].developpement.split(". ")[0] + "."
+        self.assertTrue(self.response("culture-p10").arguments[0].developpement.startswith(shared))
         self.assertTrue(self.response("famille-p16").arguments[2].developpement.startswith(shared))
         self.assertIn("Après une séparation", self.response("famille-p16").arguments[2].exemple)
         self.assertIn("parler sa langue", self.response("culture-p1").arguments[1].exemple)

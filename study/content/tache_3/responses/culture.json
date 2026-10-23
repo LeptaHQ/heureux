@@ -587,7 +587,7 @@
       },
       "reformulation": "Faut-il nécessairement lire pour être cultivé ?",
       "position": "La lecture est une voie très utile, mais la culture ne se limite pas aux livres.",
-      "position_claire": "J'associe volontiers la lecture à la culture, sans en faire une condition obligatoire. Pour moi, être cultivé signifie acquérir des connaissances, les relier et rester ouvert à d'autres expériences. La lecture y contribue fortement, mais l'écoute et la pratique peuvent aussi y conduire.",
+      "position_claire": "La lecture aide beaucoup à se cultiver, mais je ne pense pas qu'elle soit indispensable. On peut aussi apprendre en écoutant une conférence ou en pratiquant une activité. Ce qui compte, c'est de comprendre ce qu'on découvre et de faire des liens.",
       "arguments": [
         {
           "idea": "Tout d'abord, la lecture permet de développer la réflexion et la concentration.",
@@ -599,7 +599,7 @@
           "idea": "Ensuite, l'écoute permet aussi d'approfondir ses connaissances.",
           "developpement": "La profondeur ne dépend pas uniquement du support écrit. Une conférence, un entretien ou un livre audio peut présenter une réflexion complète, à condition que l'auditeur prenne le temps de la comprendre.",
           "exemple": "Une conférence sur le jazz peut faire entendre la même mélodie jouée de deux façons. En réécoutant les extraits et les explications, une auditrice comprend ce que change l'improvisation et apprend à la reconnaître, sans passer par un texte.",
-          "consequence": "Il serait réducteur de confondre culture et quantité de pages lues."
+          "consequence": "On peut donc acquérir une vraie connaissance musicale sans avoir lu de livre sur le sujet."
         },
         {
           "idea": "Enfin, la pratique et la transmission orale font aussi vivre des savoirs culturels.",
@@ -608,8 +608,8 @@
           "consequence": "La culture comprend donc aussi des connaissances que l'on apprend en faisant."
         }
       ],
-      "nuance": "Cela ne signifie pas que toutes les activités se valent ou que lire serait inutile. Un livre peut compléter une pratique et en élargir le contexte. Inversement, lire beaucoup sans vérifier, réfléchir ou écouter d'autres points de vue ne garantit pas une culture solide.",
-      "conclusion": "En conclusion, la lecture n'est pas indispensable pour être cultivé. Elle reste une ressource précieuse, mais l'écoute, les rencontres et la pratique permettent aussi d'acquérir des connaissances : c'est la qualité de la démarche qui compte."
+      "nuance": "Cela ne signifie pas que toutes les activités se valent ou que lire serait inutile. Un livre peut compléter une pratique et en expliquer l'histoire. Inversement, lire beaucoup sans vérifier, réfléchir ou écouter d'autres points de vue ne garantit pas une culture solide.",
+      "conclusion": "En conclusion, la lecture n'est pas indispensable pour être cultivé. Elle reste très utile, mais l'écoute, les échanges et la pratique permettent aussi de comprendre et d'apprendre. Ces façons de se cultiver peuvent se compléter."
     },
     "culture-p21": {
       "prompt_signatures": {
@@ -617,13 +617,13 @@
       },
       "reformulation": "Que peut apporter le choix de voyager seul ?",
       "position": "C'est un choix intéressant, s'il correspond aux envies et aux conditions du voyage.",
-      "position_claire": "Je comprends les personnes qui préfèrent voyager seules. Ce choix peut offrir de l'autonomie, davantage de liberté dans le programme et des occasions de rencontre. Pour moi, ce n'est pas une meilleure façon de voyager dans tous les cas, mais une possibilité qui mérite d'être respectée.",
+      "position_claire": "Je comprends qu'on préfère voyager seul : on peut décider de son programme et faire de nouvelles rencontres. Cela peut aussi aider à prendre confiance en soi. Mais je ne dirais pas que cette façon de voyager convient à tout le monde.",
       "arguments": [
         {
           "idea": "Tout d'abord, organiser seul son voyage peut renforcer la confiance dans ses décisions.",
-          "developpement": "Il faut vérifier des informations, choisir entre plusieurs solutions et ajuster ses plans. On peut demander de l'aide, mais on reste responsable de décider ce qui convient à sa situation.",
+          "developpement": "Il faut vérifier des informations, choisir entre plusieurs solutions et ajuster ses plans. On peut demander de l'aide, mais c'est à nous de choisir la suite.",
           "exemple": "Si son train est annulé, un voyageur peut se renseigner au guichet, comparer les trajets et les horaires proposés, puis prévenir son hébergement. Résoudre cet imprévu lui montre qu'il peut agir sans attendre qu'un compagnon décide.",
-          "consequence": "On apprend ainsi à décider et à gérer un imprévu, sans devoir tout savoir ni tout faire sans aide."
+          "consequence": "On prend ainsi confiance parce qu'on a trouvé une solution, même avec l'aide d'autres personnes."
         },
         {
           "idea": "Ensuite, voyager seul permet d'adapter plus directement le programme à ses envies.",
@@ -632,13 +632,13 @@
           "consequence": "Le voyage peut ainsi suivre ses priorités personnelles."
         },
         {
-          "idea": "Enfin, être seul peut encourager à entrer en conversation avec d'autres personnes.",
+          "idea": "Enfin, voyager seul peut encourager à aller vers les autres.",
           "developpement": "Sans compagnon habituel, on peut être davantage disposé à rejoindre une activité collective. Les rencontres ne sont pas garanties, mais on crée des occasions de parler à des personnes différentes.",
           "exemple": "Un voyageur seul peut s'inscrire à une visite guidée et discuter avec d'autres participants pendant la promenade. S'ils s'entendent bien, ils peuvent prolonger l'échange autour d'un café, tout en restant libres de poursuivre leur séjour séparément.",
           "consequence": "Voyager seul ne signifie donc pas nécessairement passer tout son temps isolé."
         }
       ],
-      "nuance": "Cependant, les réservations et le budget peuvent limiter la liberté. Certaines personnes préfèrent partager les émotions et les frais avec un proche. Il faut aussi préparer les questions de sécurité et prévoir comment demander de l'aide, sans croire que l'autonomie impose de prendre des risques.",
+      "nuance": "Cependant, les réservations et le budget peuvent limiter la liberté. Certaines personnes préfèrent partager les émotions et les frais avec un proche. Il faut aussi se renseigner sur les précautions à prendre et savoir qui contacter en cas de problème.",
       "conclusion": "En conclusion, le voyage en solitaire peut développer la confiance, laisser plus de liberté et favoriser des rencontres. Je le vois comme un choix personnel à préparer, pas comme une épreuve à réussir ni une formule supérieure au voyage accompagné."
     },
     "culture-p24": {

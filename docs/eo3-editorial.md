@@ -393,6 +393,15 @@ housing-cost comparison, an identified calculation error, or seeking help with
 a damaged library book. Trust between relatives must be demonstrated by keeping
 a confidence and respecting a differing choice, not assumed from kinship.
 
+Compare Culture before inventing alternative wording. The family-distance answer
+reuses Culture's Sunday call followed by a meal alone, with the same bilingual
+example cues and qualified limit on remote contact. Familiar gestures can help
+both adaptation abroad and a return to one's parents after a separation, without
+making these the same question. Precise questions and regular family-language
+calls also fit conversations with grandparents; teaching a child is not the same
+as preventing an adult from forgetting. Reuse trust and affinity wording without
+making either common origins or kinship a guarantee of friendship.
+
 ## Prompt explanations
 
 EO3 subject pages and practice fronts use a collapsed English **Comprendre la

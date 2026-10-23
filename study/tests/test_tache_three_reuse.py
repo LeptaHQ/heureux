@@ -135,3 +135,66 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("dîner sans compagnie", self.response("culture-p9").arguments[1].exemple)
         self.assertIn("quelques courses", self.response("culture-p24").arguments[0].exemple)
         self.assertIn("après une opération", self.response("culture-p29").arguments[1].exemple)
+
+    def test_famille_distance_reuses_the_same_call_case_and_bilingual_example(self):
+        self.assertEqual(
+            self.response("famille-p5").arguments[0].exemple,
+            self.response("culture-p9").arguments[1].exemple,
+        )
+        self.assertEqual(
+            self.cue("famille-p5", 0).example,
+            self.cue("culture-p9", 1).example,
+        )
+        shared = (
+            "Les appels entretiennent le lien, mais ne remplacent pas toujours "
+            "une présence physique."
+        )
+        for group, index in (
+            ("famille-p5", 0), ("culture-p9", 1),
+            ("culture-p24", 0), ("culture-p29", 1),
+        ):
+            self.assertTrue(self.response(group).arguments[index].developpement.startswith(shared))
+        self.assertIn("au quotidien", self.response("famille-p5").arguments[0].idea)
+        self.assertIn("les débuts", self.response("culture-p9").arguments[1].idea)
+        self.assertIn("récupérer son enfant", self.response("famille-p5").arguments[1].exemple)
+
+    def test_familiar_routines_help_without_copying_a_cultural_identity_argument(self):
+        shared = self.response("culture-p1").arguments[1].developpement.split(". ")[0] + "."
+        self.assertTrue(self.response("famille-p16").arguments[2].developpement.startswith(shared))
+        self.assertIn("Après une séparation", self.response("famille-p16").arguments[2].exemple)
+        self.assertIn("parler sa langue", self.response("culture-p1").arguments[1].exemple)
+        self.assertIn("sans leur confier toutes ses décisions", self.response("famille-p16").arguments[2].developpement)
+
+    def test_friendship_partial_reuse_keeps_practical_help_and_discovery_distinct(self):
+        shared = "Pouvoir se retrouver régulièrement permet de partager son quotidien"
+        for group, index in (("famille-p9", 1), ("culture-p24", 0)):
+            self.assertIn(shared, self.response(group).arguments[index].developpement)
+        self.assertNotIn("s'entraider", self.response("famille-p9").arguments[1].developpement)
+        self.assertIn("s'entraider", self.response("culture-p24").arguments[0].developpement)
+        self.assertIn("cartons", self.response("famille-p9").arguments[0].exemple)
+        self.assertIn("chorale", self.response("famille-p9").arguments[2].exemple)
+
+    def test_family_and_compatriot_trust_share_words_not_an_identity_guarantee(self):
+        for group, text, distinct in (
+            ("famille-p10", self.response("famille-p10").conclusion, "lien de parenté"),
+            ("culture-p11", self.response("culture-p11").nuance, "l'origine"),
+        ):
+            self.assertIn("L'essentiel est de choisir ses", text)
+            self.assertIn("selon la confiance et les affinités, pas seulement selon", text)
+            self.assertIn(distinct, text)
+        self.assertIn("respecte son choix", self.response("famille-p10").arguments[2].exemple)
+
+    def test_child_language_reuses_precise_questions_and_regular_family_calls(self):
+        question = (
+            "Quand on discute avec quelqu'un, on peut lui poser une question précise "
+            "ou vérifier ce qu'on a compris."
+        )
+        child = self.response("famille-p13").arguments[1]
+        self.assertIn(question, child.developpement)
+        self.assertIn("question précise", self.response("culture-p14").arguments[2].developpement)
+        for example in (child.exemple, self.response("culture-p27").arguments[2].exemple):
+            self.assertIn("chaque semaine à", example)
+            self.assertIn("dans leur langue familiale", example)
+        self.assertIn("ses grands-parents", child.exemple)
+        self.assertIn("sa sœur", self.response("culture-p27").arguments[2].exemple)
+        self.assertIn("bilinguisme parfait n'est pas garanti", self.response("famille-p13").nuance)

@@ -1556,8 +1556,8 @@
         },
         {
           "point": {
-            "french": "Il faut vérifier si le conseil convient à la situation actuelle.",
-            "english": "Check whether the advice fits the current situation."
+            "french": "Un conseil fondé sur une ancienne méthode peut ne plus convenir aujourd'hui.",
+            "english": "Advice based on an old method may no longer fit today's requirements."
           },
           "example": {
             "french": "Vérifier la procédure de candidature demandée dans l'offre.",
@@ -1618,8 +1618,8 @@
         "english": "When family relationships are good, living far apart can make shared moments and practical help harder."
       },
       "nuance": {
-        "french": "D'autres liens soutiennent aussi ; une famille n'est pas toujours rassurante.",
-        "english": "Other relationships also help; family is not always reassuring."
+        "french": "D'autres liens soutiennent aussi ; une famille n'apporte pas toujours du soutien.",
+        "english": "Other relationships can also help; family does not always provide support."
       },
       "conclusion": {
         "french": "Entretenir les liens et construire des appuis sur place.",
@@ -1628,12 +1628,12 @@
       "arguments": [
         {
           "point": {
-            "french": "Les petits moments partagés ne se retrouvent pas exactement à distance.",
-            "english": "Everyday shared moments cannot be reproduced exactly at a distance."
+            "french": "L'éloignement peut créer un manque affectif au quotidien.",
+            "english": "Living far away can make us miss our family in everyday life."
           },
           "example": {
-            "french": "Un appel ne remplace pas la préparation du repas avec sa sœur.",
-            "english": "A call does not replace preparing a meal with one's sister."
+            "french": "Appeler sa famille le dimanche, puis dîner seul : le contact à distance ne remplace pas le repas partagé.",
+            "english": "Call family on Sunday, then eat alone: remote contact does not replace a shared meal."
           }
         },
         {
@@ -1648,8 +1648,8 @@
         },
         {
           "point": {
-            "french": "Entretenir les rencontres demande du temps et des moyens.",
-            "english": "Maintaining visits requires time and money."
+            "french": "La distance peut rendre les retrouvailles difficiles à organiser.",
+            "english": "Distance can make family visits difficult to arrange."
           },
           "example": {
             "french": "Revoir une visite selon le travail et le coût du trajet.",
@@ -1688,8 +1688,8 @@
             "english": "A final grade does not show all the work accomplished."
           },
           "example": {
-            "french": "Reconnaître une méthode améliorée, même sous le seuil récompensé.",
-            "english": "Recognize an improved method, even below the reward threshold."
+            "french": "Un élève améliore ses calculs, mais reste sous la note donnant droit à l'argent.",
+            "english": "A pupil improves their calculations but stays below the grade required for payment."
           }
         },
         {
@@ -1802,12 +1802,12 @@
         "english": "Kinship does not automatically make someone our best friend."
       },
       "nuance": {
-        "french": "Une famille peut être très proche, sans que cette proximité soit obligatoire.",
-        "english": "Family may be very close, but that closeness cannot be compulsory."
+        "french": "La famille peut être un cercle d'amis, sans imposer ce rôle à chaque proche.",
+        "english": "Family can also be a circle of friends, without every relative having to be a friend."
       },
       "conclusion": {
-        "french": "Juger les liens sur le partage, la liberté et la confiance.",
-        "english": "Judge relationships by sharing, freedom and trust."
+        "french": "Privilégier la confiance et les affinités, pas seulement la parenté.",
+        "english": "Choose friends based on trust and how well you get along, not just family ties."
       },
       "arguments": [
         {
@@ -1836,8 +1836,8 @@
             "english": "Close friendship is demonstrated through behavior, including within family."
           },
           "example": {
-            "french": "Une sœur garde une confidence et aide à comparer des logements malgré sa tristesse.",
-            "english": "A sister keeps a confidence and helps compare homes despite being sad about the move."
+            "french": "Une sœur garde une confidence, respecte le choix de déménager et aide à comparer les logements.",
+            "english": "A sister keeps a confidence, respects the decision to move and helps compare homes."
           }
         }
       ]
@@ -1924,8 +1924,8 @@
         },
         {
           "point": {
-            "french": "Des choix adaptés à l'âge permettent d'exercer sa responsabilité.",
-            "english": "Age-appropriate choices allow responsibility to develop."
+            "french": "Des choix adaptés à l'âge apprennent à décider par soi-même.",
+            "english": "Age-appropriate choices teach children to make their own decisions."
           },
           "example": {
             "french": "Laisser l'adolescent proposer son organisation pour les devoirs.",
@@ -1964,14 +1964,14 @@
             "english": "The family language can maintain relationships across generations."
           },
           "example": {
-            "french": "Raconter une sortie aux grands-parents sans traduction constante.",
-            "english": "Tell grandparents about an outing without constant translation."
+            "french": "Téléphoner chaque semaine aux grands-parents dans la langue familiale et parler de leur enfance.",
+            "english": "Call grandparents each week in the family language and ask about their childhood."
           }
         },
         {
           "point": {
-            "french": "Il faut aussi créer de vraies occasions d'utiliser la langue locale.",
-            "english": "Children also need real opportunities to use the local language."
+            "french": "Pratiquer la langue locale aide l'enfant à participer à la vie du pays.",
+            "english": "Practising the local language helps the child take part in life in the host country."
           },
           "example": {
             "french": "Chercher avec l'enseignant une activité adaptée à la bibliothèque.",
@@ -2016,8 +2016,8 @@
         },
         {
           "point": {
-            "french": "Il faut partager la préparation des tâches, pas seulement leur exécution.",
-            "english": "Planning must be shared as well as execution."
+            "french": "Partager l'organisation permet d'éviter les oublis.",
+            "english": "Sharing the planning helps prevent things being forgotten."
           },
           "example": {
             "french": "Vérifier le stock et acheter les produits avant qu'ils manquent pour ne pas interrompre le ménage.",

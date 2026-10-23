@@ -2968,6 +2968,11 @@ class BrowserTests(StaticLiveServerTestCase):
             "famille", "education", "sante", "technologie", "environnement", "economie",
         }, 100)
 
+    def test_each_famille_model_keeps_unchanged_annotations_after_a_public_example_edit(self):
+        self._assert_theme_models_preserve_public_example_edits(
+            {"famille"}, 15, groups={"eo/tache-3/culture-p16"},
+        )
+
     def test_eo3_adjacent_rewrites_preserve_browser_saved_sections_and_note_anchors(self):
         from study import catalogue
         from study.public_response_annotations import render_current_response
@@ -3102,7 +3107,7 @@ class BrowserTests(StaticLiveServerTestCase):
                     cards_before,
                 )
 
-    def _assert_theme_models_preserve_public_example_edits(self, themes, expected_count):
+    def _assert_theme_models_preserve_public_example_edits(self, themes, expected_count, *, groups=()):
         from study import catalogue
 
         self._import_eo_tache_three_content()
@@ -3110,6 +3115,7 @@ class BrowserTests(StaticLiveServerTestCase):
         selected = [
             model for model in models.values()
             if model.group.rsplit("/", 1)[1].split("-p", 1)[0] in themes
+            or model.group in groups
         ]
         self.assertEqual(len(selected), expected_count)
         for model in selected:
@@ -3519,11 +3525,26 @@ class BrowserTests(StaticLiveServerTestCase):
             for key, _ in model.source_prompts
         )
         self.assertEqual(len(culture_keys), 35)
-        for key in (
+        self._assert_eo3_learning_aids_match_on_detail_and_practice((
             *culture_keys,
             "famille:p5", "education:p13",
             "sante:p23", "technologie:p11", "environnement:p4", "economie:p14",
-        ):
+        ))
+
+    def test_famille_learning_aids_match_on_detail_and_practice(self):
+        keys = tuple(
+            prompt.content_key
+            for source in content.parse_responses()
+            for prompt in source.prompts if prompt.theme == "Famille"
+        )
+        self.assertEqual(len(keys), 17)
+        self._assert_eo3_learning_aids_match_on_detail_and_practice(keys)
+
+    def _assert_eo3_learning_aids_match_on_detail_and_practice(self, keys):
+        from study import catalogue
+
+        self._import_eo_tache_three_content()
+        for key in keys:
             with self.subTest(prompt=key):
                 prompt = Prompt.objects.select_related(
                     "response", "theme__task__part",

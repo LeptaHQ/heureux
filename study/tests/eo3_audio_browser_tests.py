@@ -510,6 +510,16 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         return target
 
     def test_response_edits_keep_unchanged_highlights_notes_and_practice_pistes(self):
+        self._assert_response_edits_keep_unchanged_highlights_notes_and_practice_pistes()
+
+    @override_settings(EO3_AUDIO_ENABLED=False)
+    def test_famille_response_edits_keep_highlights_notes_and_practice_pistes(self):
+        self.prompt = Prompt.objects.select_related(
+            "response", "theme__task__part",
+        ).get(content_key="famille:p13")
+        self._assert_response_edits_keep_unchanged_highlights_notes_and_practice_pistes()
+
+    def _assert_response_edits_keep_unchanged_highlights_notes_and_practice_pistes(self):
         path = prompt_detail_url(self.prompt)
         self.page.goto(self.live_server_url + path)
         self.page.wait_for_load_state("networkidle")

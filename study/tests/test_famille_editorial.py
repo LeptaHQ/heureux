@@ -1,6 +1,11 @@
+from dataclasses import asdict
+from hashlib import sha256
+import json
+
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
+from study.tache_three_models import spoken_text
 
 
 class FamilleEditorialTests(SimpleTestCase):
@@ -20,6 +25,37 @@ class FamilleEditorialTests(SimpleTestCase):
 
     def response(self, number):
         return self.models[f"eo/tache-3/famille-p{number}"].response
+
+    def test_explicitly_excluded_canadian_cohabitation_is_unchanged(self):
+        directory = content.CONTENT_DIR / "tache_3"
+        for filename, expected in (
+            ("responses/famille.json", "870c863086dcae67336853076b5408c3db89028b3c30e07572fce9e683323c7f"),
+            ("hints.json", "5ddc21b9b69a3f3fa715d2464df8fc14306310726c64eafe037ec51ad39681cd"),
+            ("prompt_notes.json", "1421a647b36b31652e877a8703a8269b9e7e759a06e4658dfa8e47216aa097f9"),
+        ):
+            with self.subTest(file=filename):
+                text = (directory / filename).read_text()
+                start = text.index("{", text.index('"famille-p2":'))
+                _, end = json.JSONDecoder().raw_decode(text[start:])
+                self.assertEqual(
+                    sha256(text[start:start + end].encode()).hexdigest(), expected,
+                )
+        source = next(
+            source for source in self.sources
+            if source.semantic_group == "eo/tache-3/famille-p2"
+        )
+        self.assertEqual(
+            tuple((prompt.content_key, prompt.text) for prompt in source.prompts),
+            ((
+                "famille:p2",
+                "De jeunes adultes canadiens préfèrent rester vivre chez leurs parents "
+                "parce qu'ils s'y sentent bien. Quel regard porterez-vous sur cette situation ?",
+            ),),
+        )
+        self.assertEqual(
+            sha256(json.dumps(asdict(source), ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
+            "61b617cf7b6ea45f02d61ec0edb82b467d92a3ce9cf4296072099baf5c3a914d",
+        )
 
     def test_every_famille_consigne_matches_its_model_and_bilingual_plan(self):
         self.assertEqual(len(self.sources), 15)
@@ -43,6 +79,44 @@ class FamilleEditorialTests(SimpleTestCase):
                         argument.idea.removeprefix(prefix).casefold(),
                         cue.point.french.casefold(),
                     )
+                self.assertEqual(len(model.response.arguments), 3)
+                self.assertEqual(len(plan.arguments), 3)
+                self.assertTrue(300 <= len(spoken_text(model.response).split()) <= 430)
+                cues = (
+                    plan.introduction,
+                    *(cue for argument in plan.arguments for cue in (
+                        argument.point, argument.example,
+                    )),
+                    plan.nuance, plan.conclusion,
+                )
+                self.assertEqual(len(cues), 9)
+                self.assertLessEqual(sum(len(cue.french.split()) for cue in cues), 140)
+                self.assertEqual(
+                    model.argument_ids,
+                    (1, 4, 5) if model.group == "eo/tache-3/culture-p16" else (1, 2, 3),
+                )
+
+    def test_consequences_explain_results_instead_of_adding_fresh_advice(self):
+        for number, index, result in (
+            (1, 1, "se reposer sans devoir répondre"),
+            (3, 0, "une démarche à essayer"),
+            (4, 0, "continuant à croire les explications"),
+            (5, 0, "ressentir le manque de sa famille"),
+            (6, 1, "un progrès réel sans récompense"),
+            (7, 1, "gâcher un repas"),
+            (10, 2, "respect montré"),
+            (11, 1, "augmenter la dépense de chacune"),
+            (12, 2, "organiser son travail"),
+            (13, 2, "participer aux activités"),
+            (14, 0, "du temps pour se reposer"),
+        ):
+            with self.subTest(model=number, argument=index + 1):
+                self.assertIn(result, self.response(number).arguments[index].consequence)
+        self.assertIn("Une personne sans amis", self.response(9).nuance)
+        self.assertIn("son conjoint", self.response(9).nuance)
+        self.assertIn("un coup de main", self.response(9).nuance)
+        self.assertIn("respecte son choix", self.response(10).arguments[2].exemple)
+        self.assertNotIn("indépendance", self.response(11).arguments[1].consequence)
 
     def test_equivalence_does_not_merge_related_but_distinct_questions(self):
         groups = {

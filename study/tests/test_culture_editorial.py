@@ -405,6 +405,21 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("d'être à leurs côtés", response.arguments[1].idea)
         self.assertIn("après une opération", response.arguments[1].exemple)
 
+    def test_work_authorisation_example_keeps_the_condition_and_possible_housing_delay(self):
+        argument = self.response(29).arguments[2]
+        self.assertIn("Selon le pays et le statut", argument.developpement)
+        self.assertIn("reçoit une offre d'emploi", argument.exemple)
+        self.assertIn("liée à son employeur actuel", argument.exemple)
+        self.assertIn("Si elle doit attendre une nouvelle autorisation pour commencer", argument.exemple)
+        self.assertIn("ne peut pas encore compter sur ce salaire", argument.exemple)
+        self.assertIn("Elle devra peut-être reporter son déménagement", argument.exemple)
+        cue = self.plans["eo/tache-3/culture-p29"].arguments[2].example
+        self.assertIn("Attendre une nouvelle autorisation", cue.french)
+        self.assertIn("peut retarder", cue.french)
+        self.assertIn("un déménagement", cue.french)
+        self.assertIn("new work authorisation", cue.english)
+        self.assertIn("can delay expected pay and a move", cue.english)
+
     def test_memory_cues_explain_abstract_terms_in_their_actual_context(self):
         poverty = self.plans["eo/tache-3/culture-p4"].conclusion
         self.assertIn("Répondre aux besoins essentiels", poverty.french)

@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand, CommandError
 
 from study.eo3_audio import NarrationError
 from study.audio_pin import AudioPinError, command_generation_pin
-from study.french_audio import SpeechError, generate_prepared
+from study.french_audio import SpeechError, generate_prepared, has_saved_recording
 from study.models import FrenchNarration, FrenchNarrationBudget
 
 
@@ -32,7 +32,9 @@ class Command(BaseCommand):
         if not options["confirm_cost"]:
             raise CommandError("Inspect --dry-run, then use --confirm-cost to authorize ONE paid request.")
         try:
-            pin = command_generation_pin() if recording.status != "ready" else None
+            pin = command_generation_pin() if (
+                recording.status != "ready" and not has_saved_recording(recording)
+            ) else None
             created = generate_prepared(recording.pk, pin=pin)
         except (NarrationError, SpeechError, AudioPinError) as exc:
             raise CommandError(str(exc)) from None

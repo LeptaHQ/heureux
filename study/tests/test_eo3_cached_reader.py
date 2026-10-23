@@ -112,11 +112,14 @@ class CachedReaderTests(TestCase):
         self.assertEqual(data["tracks"], [])
         self.assertTrue(EO3Narration.objects.filter(pk=empty.fingerprint).exists())
 
-    def test_private_copy_never_falls_back_to_the_public_recording(self):
+    def test_private_copy_can_reuse_saved_public_audio_and_prefers_its_own_recording(self):
         prompt = self.prompts[0]
-        self.cache(prompt)
+        public = self.cache(prompt)
         personal = self.edit(prompt, self.user)
-        self.assertEqual(self.client.get(self.url(prompt)).json()["tracks"], [])
+        previous = self.client.get(self.url(prompt)).json()["tracks"]
+        self.assertEqual(len(previous), 1)
+        self.assertIn(public.fingerprint, previous[0]["audio_url"])
+        self.assertTrue(previous[0]["previous_version"])
         own = self.cache(prompt, personal, self.user)
         reply = self.client.get(self.url(prompt))
         self.assertEqual(len(reply.json()["tracks"]), 1)
@@ -163,10 +166,10 @@ class CachedReaderTests(TestCase):
         self.assertEqual(self.client.get(url).status_code, 302)
 
     @override_settings(ELEVENLABS_VOICE_ID="")
-    def test_invalid_voice_configuration_is_explicit(self):
+    def test_cached_reader_does_not_require_a_generation_voice(self):
         reply = self.client.get(self.url(self.prompts[0]))
-        self.assertEqual(reply.status_code, 503)
-        self.assertIn("ELEVENLABS_VOICE_ID", reply.json()["message"])
+        self.assertEqual(reply.status_code, 200)
+        self.assertEqual(reply.json()["tracks"], [])
 
 
 class BatchedPreferredPersonalTests(TestCase):

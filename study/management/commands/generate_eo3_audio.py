@@ -2,8 +2,9 @@ from django.core.management.base import BaseCommand, CommandError
 
 from study import catalogue
 from study.audio_pin import AudioPinError, command_generation_pin
-from study.eo3_audio import NarrationError, generate_narration, narration_spec
-from study.models import EO3Narration
+from study.eo3_audio import (
+    NarrationError, generate_narration, narration_source, narration_spec, saved_narrations,
+)
 
 
 class Command(BaseCommand):
@@ -15,6 +16,7 @@ class Command(BaseCommand):
         selection.add_argument("--all", action="store_true", help="All approved models.")
         parser.add_argument("--dry-run", action="store_true", help="Estimate only; no paid calls.")
         parser.add_argument("--confirm-cost", action="store_true", help="Allow paid generation.")
+        parser.add_argument("--refresh", action="store_true", help="Use current text/voice instead of an older saved take.")
 
     def handle(self, *args, **options):
         models = catalogue.tache_three_models()
@@ -29,9 +31,9 @@ class Command(BaseCommand):
             raise CommandError("Use --dry-run first, then --confirm-cost to permit paid generation.")
         try:
             specs = [narration_spec(model) for model in models.values()]
-            cached = set(EO3Narration.objects.filter(
-                fingerprint__in=[spec.fingerprint for spec in specs],
-            ).values_list("fingerprint", flat=True))
+            sources = [narration_source(model) for model in models.values()]
+            saved = saved_narrations(sources, current_only=options["refresh"])
+            cached = {spec.fingerprint for spec, source in zip(specs, sources) if source in saved}
             missing = [spec for spec in specs if spec.fingerprint not in cached]
             self.stdout.write(
                 f"{len(specs)} models; {len(cached)} cached; {len(missing)} to generate; "
@@ -41,7 +43,7 @@ class Command(BaseCommand):
                 return
             for spec in specs:
                 pin = command_generation_pin() if spec.fingerprint not in cached else None
-                created = generate_narration(spec, pin=pin)
+                created = generate_narration(spec, pin=pin, refresh=options["refresh"])
                 self.stdout.write(f"{spec.group}: {'generated' if created else 'cached'}")
         except (NarrationError, AudioPinError) as exc:
             raise CommandError(str(exc)) from None

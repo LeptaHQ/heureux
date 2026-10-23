@@ -15,6 +15,7 @@ from elevenlabs.types import VoiceSettings
 
 from django.conf import settings
 from django.db import transaction
+from django.db.models import OuterRef, Q, Subquery
 from django.views.decorators.debug import sensitive_variables
 from django.urls import reverse
 
@@ -136,16 +137,33 @@ class NarrationSpec:
     fingerprint: str
 
 
-def narration_spec(model, personal=None, owner_id=None):
-    """Spec for the reviewed model, or for ``owner_id``'s edited copy of it."""
+@dataclass(frozen=True)
+class NarrationSource:
+    group: str
+    text: str
+    owner_id: int | None = None
+
+
+@dataclass(frozen=True)
+class SavedNarration:
+    recording: EO3Narration
+    matches_text: bool
+
+
+def narration_source(model, personal=None, owner_id=None):
     response = model.response
     if personal is not None:
         if not personal.is_personal or owner_id is None:
             raise NarrationError("An edited response needs its owner.")
-        response = personal
     elif response.is_personal:
         raise NarrationError("Only reviewed public EO3 models can be narrated.")
-    return text_narration_spec(model.group, narration_text(model, personal), owner_id)
+    return NarrationSource(model.group, narration_text(model, personal), owner_id)
+
+
+def narration_spec(model, personal=None, owner_id=None):
+    """Spec for the reviewed model, or for ``owner_id``'s edited copy of it."""
+    source = narration_source(model, personal, owner_id)
+    return text_narration_spec(source.group, source.text, source.owner_id)
 
 
 def narration_text(model, personal=None):
@@ -176,18 +194,87 @@ def text_narration_spec(group, text, owner_id=None):
         raise NarrationError("Set ELEVENLABS_MODEL_ID to a supported text-to-speech model ID.")
     if not text.strip() or len(text) > 10000:
         raise NarrationError("The response exceeds the 10,000-character narration limit.")
+    fingerprint = narration_fingerprint(group, text, owner_id, voice, model_id)
+    return NarrationSpec(group, text, voice, model_id, fingerprint)
+
+
+def narration_fingerprint(group, text, owner_id, voice_id, model_id):
     identity = {
         "version": 2, "group": group, "text": text,
-        "voice_id": voice, "model_id": model_id,
+        "voice_id": voice_id, "model_id": model_id,
         "output_format": OUTPUT_FORMAT, "voice_settings": VOICE_SETTINGS,
     }
     if owner_id is not None:
         # Edited copies are private: the owner is part of the recording's identity.
         identity["owner"] = owner_id
-    fingerprint = hashlib.sha256(
+    return hashlib.sha256(
         json.dumps(identity, sort_keys=True, ensure_ascii=False).encode("utf-8")
     ).hexdigest()
-    return NarrationSpec(group, text, voice, model_id, fingerprint)
+
+
+def saved_recordings(groups, owner_ids=()):
+    journal = FrenchNarration.objects.filter(
+        fingerprint=OuterRef("fingerprint"), target_group=OuterRef("group"),
+        status__in=("ready", "superseded"),
+    ).filter(Q(owner__isnull=True) | Q(owner_id__in=owner_ids))
+    return EO3Narration.objects.filter(group__in=groups).exclude(audio=b"").only(
+        "fingerprint", "group", "voice_id", "model_id",
+    ).annotate(
+        saved_text=Subquery(journal.values("text")[:1]),
+        saved_owner_id=Subquery(journal.values("owner_id")[:1]),
+    ).order_by("-created_at", "fingerprint")
+
+
+def source_matches_recording(source, recording):
+    return narration_fingerprint(
+        source.group, source.text, source.owner_id, recording.voice_id, recording.model_id,
+    ) == recording.fingerprint
+
+
+def saved_narrations(sources, *, public_sources=None, current_only=False):
+    """Use subject/owner-bound saved takes; unverifiable legacy takes require an exact text match."""
+    sources = list(dict.fromkeys(sources))
+    public_sources = public_sources or {}
+    rows = {}
+    for recording in saved_recordings(
+        {source.group for source in sources},
+        {source.owner_id for source in sources if source.owner_id is not None},
+    ):
+        rows.setdefault(recording.group, []).append(recording)
+    result = {}
+    for source in sources:
+        current = narration_fingerprint(
+            source.group, source.text, source.owner_id,
+            settings.ELEVENLABS_VOICE_ID, settings.ELEVENLABS_MODEL_ID,
+        )
+        best_rank = None
+        for recording in rows.get(source.group, ()):
+            if current_only and recording.fingerprint != current:
+                continue
+            if recording.saved_text is not None:
+                owner = recording.saved_owner_id
+                if owner is not None and owner != source.owner_id:
+                    continue
+                matches = recording.saved_text == source.text
+            elif source_matches_recording(source, recording):
+                owner, matches = source.owner_id, True
+            else:
+                public = public_sources.get(source.group)
+                if public is None or not source_matches_recording(public, recording):
+                    continue
+                owner, matches = None, public.text == source.text
+            rank = (owner != source.owner_id, not matches, recording.fingerprint != current)
+            if best_rank is None or rank < best_rank:
+                result[source] = SavedNarration(recording, matches)
+                best_rank = rank
+    return result
+
+
+def saved_narration(source, *, public_source=None, current_only=False):
+    return saved_narrations(
+        [source], public_sources={source.group: public_source} if public_source else None,
+        current_only=current_only,
+    ).get(source)
 
 
 def personal_narrations(model, user):
@@ -219,15 +306,37 @@ def on_demand_enabled():
 def narration_presentation(model, personal=None, owner_id=None):
     if not settings.EO3_AUDIO_ENABLED or model is None:
         return None
+    source = narration_source(model, personal, owner_id)
+    saved = saved_narration(source, public_source=narration_source(model))
+    if saved is not None:
+        recording = saved.recording
+        try:
+            current = text_narration_spec(source.group, source.text, source.owner_id)
+        except NarrationError:
+            current = None
+        timing = recording.timing if saved.matches_text else []
+        return {
+            "ready": True, "on_demand": False, "prepare_url": "",
+            "stale": not saved.matches_text,
+            "timing": json.dumps(timing, ensure_ascii=False, separators=(",", ":")) if timing else "",
+            "url": reverse("study:eo3_audio", args=[
+                model.group.removeprefix("eo/tache-3/"), recording.fingerprint,
+            ]),
+            "refresh_url": reverse("study:eo3_audio_prepare", args=[
+                model.group.removeprefix("eo/tache-3/"), current.fingerprint,
+            ]) if (
+                current is not None and current.fingerprint != recording.fingerprint
+                and on_demand_enabled()
+            ) else "",
+            "sample_issue": "", "sample_attempted": False, "sample_status": "",
+            "characters": len(source.text), "sample_voice": "",
+        }
     try:
         spec = narration_spec(model, personal, owner_id)
     except NarrationError:
         return {"ready": False, "unconfigured": True}
-    timing = EO3Narration.objects.filter(
-        fingerprint=spec.fingerprint,
-    ).values_list("timing", flat=True).first()
-    ready = timing is not None
-    timing_json = json.dumps(timing, ensure_ascii=False, separators=(",", ":")) if timing else ""
+    ready = False
+    timing_json = ""
     group_slug = model.group.removeprefix("eo/tache-3/")
     if on_demand_enabled():
         return {
@@ -394,9 +503,24 @@ def synthesize(spec, *, timing=False):
 
 @transaction.atomic
 @sensitive_variables("pin")
-def generate_narration(spec, *, pin=None):
+def generate_narration(spec, *, pin=None, refresh=False):
     from .audio_pin import require_generation_pin
 
+    source = NarrationSource(spec.group, spec.text)
+    if not source_matches_recording(source, spec):
+        raise NarrationError("This command only generates owner-free public narration.")
+    saved = saved_narration(source, current_only=refresh)
+    if saved is not None:
+        recording = saved.recording
+        if recording.saved_text is None:
+            FrenchNarration.objects.get_or_create(
+                pk=recording.fingerprint,
+                defaults={
+                    "text": source.text, "target_group": source.group, "status": "ready",
+                    "voice_id": recording.voice_id, "model_id": recording.model_id,
+                },
+            )
+        return False
     recording = EO3Narration.objects.select_for_update().filter(
         fingerprint=spec.fingerprint,
     ).first()
@@ -418,4 +542,11 @@ def generate_narration(spec, *, pin=None):
         return False
     recording.audio, recording.timing = synthesize(spec, timing=True)
     recording.save(update_fields=["audio", "timing"])
+    FrenchNarration.objects.update_or_create(
+        pk=spec.fingerprint,
+        defaults={
+            "text": spec.text, "target_group": spec.group, "status": "ready",
+            "voice_id": spec.voice_id, "model_id": spec.model_id,
+        },
+    )
     return True

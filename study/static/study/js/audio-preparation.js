@@ -13,8 +13,13 @@
     var previousToggle = toggle && {
       disabled: toggle.disabled, title: toggle.title, label: toggle.getAttribute("aria-label")
     };
-    var onDemand = button.hasAttribute("data-eo3-on-demand");
-    (onDemand ? Promise.resolve(true) : window.HeureuxConfirm({
+    var refreshing = button.hasAttribute("data-eo3-refresh");
+    var onDemand = refreshing || button.hasAttribute("data-eo3-on-demand");
+    (onDemand && !refreshing ? Promise.resolve(true) : window.HeureuxConfirm(refreshing ? {
+      message: "L’enregistrement conservé reste disponible. Créer un nouvel audio avec le texte " +
+        "et la voix actuels ? Cette action consomme des crédits ElevenLabs et nécessite votre code PIN.",
+      label: "Continuer avec le code PIN", tone: "safe", icon: "download", title: "Créer un nouvel audio"
+    } : {
       message: "Préparer uniquement le premier extrait Culture, sujet 1 (" +
         button.dataset.eo3Characters + " caractères), voix configurée " + button.dataset.eo3Voice +
         ", avec ElevenLabs ? Cette action consomme des crédits. " +
@@ -36,7 +41,7 @@
       return window.HeureuxAudioRequest(button.dataset.eo3Prepare, {
         method: "POST", credentials: "same-origin",
         headers: { "Content-Type": "application/json", "X-CSRFToken": csrf ? csrf.value : "" },
-        body: JSON.stringify({confirm_cost: true, player_id: player.id || ""})
+        body: JSON.stringify({confirm_cost: true, player_id: player.id || "", refresh: refreshing})
       }).then(function (response) {
         return response.json().then(function (data) {
           if (!response.ok) throw new Error(data.message || "Préparation indisponible.");
@@ -46,9 +51,21 @@
         if (!player.isConnected) return;
         player.insertAdjacentHTML("afterend", data.html);
         var fresh = player.nextElementSibling;
+        var oldAudio = player.querySelector("[data-eo3-audio]");
+        var wasPlaying = oldAudio && !oldAudio.paused && !oldAudio.ended;
+        var playback = oldAudio && {rate: oldAudio.playbackRate, loop: oldAudio.loop};
+        var row = fresh && fresh.querySelector(".eo3-audio__row");
+        if (row) player.querySelectorAll("[data-eo3-nav]").forEach(function (link) {
+          var copy = link.cloneNode(true);
+          if (link.previousElementSibling) {
+            row.querySelector("[data-eo3-toggle]").insertAdjacentElement("afterend", copy);
+          } else row.insertBefore(copy, row.firstChild);
+        });
         player.remove();
-        document.dispatchEvent(new CustomEvent("heureux:audio-prepared"));
-        if (onDemand && fresh) {
+        document.dispatchEvent(new CustomEvent("heureux:audio-prepared", {
+          detail: {player: fresh, playback: playback}
+        }));
+        if (onDemand && fresh && (!refreshing || wasPlaying)) {
           var freshToggle = fresh.querySelector("[data-eo3-toggle]") || toggle;
           if (freshToggle && fresh.querySelector("[data-eo3-audio]")) freshToggle.click();
         }

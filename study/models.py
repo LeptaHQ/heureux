@@ -17,6 +17,8 @@ from django.conf import settings as django_settings
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
+from django.db.models.signals import pre_delete
+from django.dispatch import receiver
 from django.utils import timezone
 
 
@@ -202,6 +204,14 @@ class FrenchNarration(models.Model):
     target_group = models.CharField(max_length=160, blank=True, default="")
     audio = models.BinaryField(default=bytes)
     created_at = models.DateTimeField(default=timezone.now)
+
+
+@receiver(pre_delete, sender=FrenchNarration)
+def delete_private_eo3_recording(sender, instance, **kwargs):
+    if instance.owner_id is not None and instance.target_group:
+        EO3Narration.objects.filter(
+            pk=instance.fingerprint, group=instance.target_group,
+        ).delete()
 
 
 class FrenchNarrationBudget(models.Model):

@@ -17,8 +17,9 @@ from .. import catalogue
 from ..account_services import authorize_audio_generation
 from ..audio_pin import AudioPinError
 from ..eo3_audio import (
-    NarrationError, SAMPLE_GROUP, narration_presentation, narration_spec, narration_text, on_demand_enabled,
-    personal_narrations,
+    NarrationError, NarrationSource, SAMPLE_GROUP, narration_presentation, narration_source,
+    narration_spec, on_demand_enabled, personal_narrations, saved_narration, saved_narrations,
+    saved_recordings, source_matches_recording,
 )
 from ..models import EO3Narration, FrenchNarration, Prompt
 from ..oral_history import preferred_personals
@@ -26,8 +27,8 @@ from ..response_personalization import effective_response
 from ..routing import prompt_detail_url, subject_selection_url
 from ..tache_three_models import reviewed_model
 from ..french_audio import (
-    MAX_TEXT, SpeechError, accessible_recordings, enqueue, generate_prepared, media_url,
-    resolve_sources, speech_spec,
+    SpeechError, accessible_recordings, enqueue, generate_prepared, media_url,
+    resolve_sources, saved_speech, speech_spec,
 )
 
 
@@ -79,11 +80,9 @@ def eo3_audio_playlist(request, prompt_id):
         return _audio_json({"message": "Les sujets ont changé. Rechargez la page."}, 409)
     remaining = prompts[start:]
     models = {prompt.pk: reviewed_model(prompt.response, prompt) for prompt in remaining}
-    try:
-        by_group = {model.group: model for model in models.values() if model is not None}
-        public_specs = {group: narration_spec(model) for group, model in by_group.items()}
-    except NarrationError as exc:
-        return _audio_json({"message": str(exc)}, 503)
+    public_sources = {
+        model.group: narration_source(model) for model in models.values() if model is not None
+    }
     personal = preferred_personals(
         {prompt.response_id: prompt.response for prompt in remaining}.values(), request.user,
     )
@@ -95,17 +94,12 @@ def eo3_audio_playlist(request, prompt_id):
         edited = personal[prompt.response_id]
         if edited is not None:
             content = effective_response(prompt.response, request.user, personal=edited)
-            # Oversized personal responses cannot have a valid narration.
-            if len(narration_text(model, content)) > MAX_TEXT:
-                continue
-            spec = narration_spec(model, content, request.user.pk)
+            source = narration_source(model, content, request.user.pk)
         else:
-            spec = public_specs[model.group]
-        candidates.append((position, prompt, spec))
-    ready = set(
-        EO3Narration.objects.filter(
-            fingerprint__in=[spec.fingerprint for _, _, spec in candidates],
-        ).exclude(audio=b"").values_list("fingerprint", "group")
+            source = public_sources[model.group]
+        candidates.append((position, prompt, source))
+    ready = saved_narrations(
+        [source for _, _, source in candidates], public_sources=public_sources,
     )
     return _audio_json({
         "theme": prompts[0].theme.display_name,
@@ -116,10 +110,12 @@ def eo3_audio_playlist(request, prompt_id):
                 "position": position, "title": prompt.text,
                 "source_url": subject_selection_url(prompt_detail_url(prompt), request),
                 "audio_url": reverse("study:eo3_audio", args=[
-                    spec.group.removeprefix("eo/tache-3/"), spec.fingerprint,
+                    source.group.removeprefix("eo/tache-3/"),
+                    ready[source].recording.fingerprint,
                 ]),
+                "previous_version": not ready[source].matches_text,
             }
-            for position, prompt, spec in candidates if (spec.fingerprint, spec.group) in ready
+            for position, prompt, source in candidates if source in ready
         ],
     })
 
@@ -136,7 +132,7 @@ def _requested_narration(model, fingerprint, user):
 
 
 @sensitive_variables("pin")
-def _prepare_on_demand(spec, group, user, owner=None, *, pin=None):
+def _prepare_on_demand(spec, group, user, owner=None, *, pin=None, refresh=False):
     now = timezone.now()
     with transaction.atomic():
         # A crashed worker must not block every later request forever.
@@ -161,7 +157,7 @@ def _prepare_on_demand(spec, group, user, owner=None, *, pin=None):
             FrenchNarration.objects.filter(pk=recording.pk).update(
                 status="pending", created_at=now, requested_by=user,
             )
-    generate_prepared(spec.fingerprint, pin=pin)
+    generate_prepared(spec.fingerprint, pin=pin, refresh=refresh)
 
 
 @login_required
@@ -192,14 +188,21 @@ def eo3_audio_prepare(request, group, fingerprint):
             raise Http404
         if spec is None:
             return _audio_json({"message": "La voix ou le texte a changé. Rechargez la page."}, 409)
-        if on_demand and not EO3Narration.objects.filter(pk=fingerprint).exists():
+        refresh = data.get("refresh") is True
+        source = NarrationSource(spec.group, spec.text, request.user.pk if personal is not None else None)
+        saved = saved_narration(
+            source, public_source=narration_source(model), current_only=refresh,
+        )
+        if saved is None and EO3Narration.objects.filter(pk=fingerprint).exists():
+            raise NarrationError("L’enregistrement est vide ou incohérent. Faites-le vérifier avant de le recréer.")
+        if saved is None and on_demand:
             authorize_audio_generation(request, data.get("pin"))
             _prepare_on_demand(
                 spec, model.group, request.user,
                 owner=request.user if personal is not None else None,
-                pin=data.get("pin"),
+                pin=data.get("pin"), refresh=refresh,
             )
-        elif not EO3Narration.objects.filter(pk=fingerprint).exists():
+        elif saved is None:
             if not settings.EO3_AUDIO_SAMPLE_ENABLED:
                 return _audio_json({"message": "La préparation du premier extrait est désactivée."}, 403)
             authorize_audio_generation(request, data.get("pin"))
@@ -210,7 +213,7 @@ def eo3_audio_prepare(request, group, fingerprint):
                     "target_group": SAMPLE_GROUP, "requested_by": request.user,
                 },
             )
-            generate_prepared(fingerprint, pin=data.get("pin"))
+            generate_prepared(fingerprint, pin=data.get("pin"), refresh=refresh)
     except AudioPinError as exc:
         return _audio_json({"error": exc.code, "message": str(exc)}, exc.status)
     except NarrationError as exc:
@@ -251,8 +254,14 @@ def french_audio_resolve(request):
         text, owner = resolve_sources(
             data.get("sources"), request.user.pk, consent=data.get("consent") is True,
         )
-        spec = speech_spec(text, owner)
-        recording = accessible_recordings(request.user.pk).filter(pk=spec.fingerprint).first()
+        recording = saved_speech(text, request.user.pk, owner)
+        if recording is None:
+            spec = speech_spec(text, owner)
+            recording = accessible_recordings(request.user.pk).filter(pk=spec.fingerprint).first()
+            if recording is not None and recording.status == "ready":
+                raise SpeechError(
+                    "cache", "L’enregistrement est vide. Faites-le vérifier avant de le recréer.", 409,
+                )
         can_request = (
             settings.FRENCH_AUDIO_GENERATION_ENABLED
             and settings.FRENCH_AUDIO_CHARACTER_BUDGET > 0
@@ -273,6 +282,10 @@ def french_audio_resolve(request):
             except NarrationError as exc:
                 raise SpeechError("preparation", f"Préparation non terminée : {exc}", 409) from None
             recording.refresh_from_db()
+            if recording.status == "superseded":
+                recording = saved_speech(text, request.user.pk, owner)
+                if recording is None:
+                    raise SpeechError("cache", "L’enregistrement conservé n’est plus disponible. Rechargez la page.", 409)
         if recording:
             if recording.status == "ready":
                 return reply({"state": "ready", "url": media_url(recording)})
@@ -280,6 +293,7 @@ def french_audio_resolve(request):
                 "pending": "Cet enregistrement attend votre confirmation explicite de préparation.",
                 "working": "Cet enregistrement est en cours de préparation. Aucune nouvelle génération n’a été lancée.",
                 "failed": "La préparation a échoué. Un opérateur doit vérifier la consommation avant toute nouvelle tentative.",
+                "superseded": "Une version déjà enregistrée avait été conservée. Rechargez la page pour vérifier sa disponibilité.",
             }
             return reply({
                 "state": recording.status,
@@ -301,14 +315,8 @@ def french_audio(request, fingerprint):
     if not settings.FRENCH_AUDIO_ENABLED:
         raise Http404
     recording = get_object_or_404(
-        accessible_recordings(request.user.pk), pk=fingerprint, status="ready",
+        accessible_recordings(request.user.pk).exclude(audio=b""), pk=fingerprint, status="ready",
     )
-    try:
-        current = speech_spec(recording.text, recording.owner_id)
-    except SpeechError:
-        raise Http404 from None
-    if current.fingerprint != fingerprint:
-        raise Http404
     response = audio_response(request, bytes(recording.audio), fingerprint)
     response["Cache-Control"] = "private, no-store"
     return response
@@ -322,15 +330,25 @@ def eo3_audio(request, group, fingerprint):
     model = catalogue.tache_three_models().get(f"eo/tache-3/{group}")
     if model is None:
         raise Http404
-    try:
-        spec, personal = _requested_narration(model, fingerprint, request.user)
-    except NarrationError:
-        raise Http404 from None
-    if spec is None:
+    recording = saved_recordings([model.group], [request.user.pk]).filter(pk=fingerprint).first()
+    if recording is None:
         raise Http404
-    recording = get_object_or_404(EO3Narration, fingerprint=fingerprint, group=model.group)
+    private = recording.saved_owner_id is not None
+    if recording.saved_text is None:
+        if source_matches_recording(narration_source(model), recording):
+            private = False
+        else:
+            try:
+                personal = personal_narrations(model, request.user)
+            except NarrationError:
+                raise Http404 from None
+            if not any(source_matches_recording(
+                NarrationSource(spec.group, spec.text, request.user.pk), recording,
+            ) for spec, _ in personal):
+                raise Http404
+            private = True
     response = audio_response(request, bytes(recording.audio), fingerprint)
-    if personal is not None:
+    if private:
         response["Cache-Control"] = "private, no-store"
     return response
 

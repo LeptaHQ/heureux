@@ -465,7 +465,10 @@
       else pendingSettings = null;
     });
   }
-  document.addEventListener("heureux:audio-prepared", function () {
+  document.addEventListener("heureux:audio-prepared", function (event) {
+    if (event.detail && event.detail.player && event.detail.playback) {
+      applySettings(event.detail.player, event.detail.playback);
+    }
     var player = document.getElementById("eo3-response-player");
     if (pendingSettings && player && applySettings(player, pendingSettings)) pendingSettings = null;
   });

@@ -1,4 +1,5 @@
 from io import BytesIO, StringIO
+from dataclasses import asdict
 import json
 import os
 import re
@@ -16,7 +17,7 @@ from playwright.sync_api import expect, sync_playwright
 
 from study.eo3_audio import NarrationError, narration_spec
 from study.french_audio import resolve_sources, speech_spec
-from study.models import Card, CardType, EO3Narration, FrenchNarration, FrenchNarrationBudget, PersonalTaskResponse, Prompt
+from study.models import Card, CardType, EO3Narration, FrenchNarration, FrenchNarrationBudget, PersonalResponse, PersonalTaskResponse, Prompt
 from study.routing import prompt_detail_url, review_url
 from study.tache_three_models import reviewed_model
 
@@ -113,7 +114,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         dialog.locator("[data-audio-pin-input]").fill(value)
         dialog.get_by_role("button", name="Autoriser et générer l'audio", exact=True).click()
 
-    def cached_theme(self, ready=()):
+    def cached_theme(self, ready=(), journal=False):
         call_command("import_content", stdout=StringIO())
         representatives = {}
         for prompt in Prompt.objects.filter(
@@ -131,7 +132,21 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
                 fingerprint=spec.fingerprint, group=spec.group, voice_id=spec.voice_id,
                 model_id=spec.model_id, audio=AUDIO,
             )
+            if journal:
+                FrenchNarration.objects.create(
+                    pk=spec.fingerprint, target_group=spec.group, text=spec.text,
+                    voice_id=spec.voice_id, model_id=spec.model_id, status="ready",
+                )
         return prompts, specs
+
+    def edit_cached_prompt(self, prompt):
+        content = reviewed_model(prompt.response, prompt).response
+        PersonalResponse.objects.create(
+            user=self.user, response=prompt.response, source_prompt=prompt,
+            position_claire="Une introduction personnelle modifiée.",
+            arguments=[asdict(argument) for argument in content.arguments],
+            nuance=content.nuance, conclusion=content.conclusion,
+        )
 
     def cached_audio(self, spec, seconds):
         buffer = BytesIO()
@@ -748,6 +763,79 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         expect(repeat).to_have_attribute("aria-pressed", "true")
         self.assertEqual(audio.evaluate("a => a.playbackRate"), 1.25)
         toggle.click()
+
+    @override_settings(
+        FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,
+    )
+    @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
+    def test_saved_subject_plays_after_edit_and_voice_change_refresh_needs_explicit_pin(self, provider):
+        prompts, specs = self.cached_theme(ready=(0,), journal=True)
+        self.edit_cached_prompt(prompts[0])
+        with self.settings(ELEVENLABS_VOICE_ID="NewVoice"):
+            self.page.goto(self.live_server_url + prompt_detail_url(prompts[0]))
+            player = self.page.locator("#eo3-response-player")
+            audio = player.locator("[data-eo3-audio]")
+            expect(audio).to_have_attribute("src", re.compile(specs[0].fingerprint))
+            expect(player.locator("[data-eo3-saved-version]")).to_be_visible()
+            self.assertIsNone(audio.get_attribute("data-eo3-timing"))
+            nav = player.locator("[data-eo3-nav]").evaluate_all("links => links.map(a => a.href)")
+            player.locator("[data-eo3-toggle]").click()
+            self.page.wait_for_function("() => document.querySelector('[data-eo3-audio]').currentTime > 0")
+            expect(self.page.locator("[data-audio-pin-dialog]")).to_be_hidden()
+            provider.assert_not_called()
+            player.locator("[data-eo3-toggle]").click()
+            player.locator("[data-eo3-speed-toggle]").click()
+            player.locator('[data-eo3-speed="1.25"]').click()
+            player.locator("[data-eo3-loop]").click()
+            player.locator("[data-eo3-refresh]").click()
+            confirm = self.page.locator("[data-confirm-dialog]")
+            expect(confirm.locator("[data-confirm-icon='download']")).to_be_visible()
+            confirm.get_by_role("button", name="Annuler", exact=True).click()
+            provider.assert_not_called()
+            player.locator("[data-eo3-refresh]").click()
+            confirm.locator("[data-confirm-accept]").click()
+            pin = self.page.locator("[data-audio-pin-dialog]")
+            expect(pin).to_be_visible()
+            pin.locator("[data-audio-pin-cancel]").first.click()
+            expect(audio).to_have_attribute("src", re.compile(specs[0].fingerprint))
+            provider.assert_not_called()
+            player.locator("[data-eo3-refresh]").click()
+            confirm.locator("[data-confirm-accept]").click()
+            self.enter_audio_pin()
+            expect(audio).not_to_have_attribute("src", re.compile(specs[0].fingerprint))
+            expect(player.locator("[data-eo3-saved-version]")).to_have_count(0)
+            self.assertEqual(audio.evaluate("a => a.playbackRate"), 1.25)
+            self.assertTrue(audio.evaluate("a => a.paused"))
+            self.assertTrue(audio.evaluate("a => a.loop"))
+            self.assertEqual(
+                player.locator("[data-eo3-nav]").evaluate_all("links => links.map(a => a.href)"), nav,
+            )
+            self.assertEqual(provider.call_args.args[0].voice_id, "NewVoice")
+            provider.assert_called_once()
+            self.assertTrue(EO3Narration.objects.filter(pk=specs[0].fingerprint).exists())
+
+    @override_settings(
+        FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,
+        ELEVENLABS_PIN="",
+    )
+    @patch("study.french_audio.synthesize")
+    def test_cached_series_reuses_previous_text_and_voice_without_preparing(self, provider):
+        prompts, specs = self.cached_theme(ready=(0,), journal=True)
+        self.edit_cached_prompt(prompts[0])
+        with self.settings(ELEVENLABS_VOICE_ID="NewVoice"):
+            self.page.goto(self.live_server_url + prompt_detail_url(prompts[0]))
+            requests = []
+            self.page.on("request", lambda r: requests.append((r.method, r.url)))
+            self.page.locator("[data-eo3-series-toggle]").click()
+            audio = self.page.locator("[data-eo3-series-audio]")
+            expect(audio).to_have_attribute("src", re.compile(specs[0].fingerprint))
+            self.page.wait_for_function("() => document.querySelector('[data-eo3-series-audio]').currentTime > 0")
+            expect(self.page.locator("[data-eo3-series-version]")).to_contain_text("Enregistrement précédent")
+            expect(self.page.locator("[data-audio-pin-dialog]")).to_be_hidden()
+            self.assertTrue(all(method == "GET" for method, _ in requests), requests)
+            self.assertFalse(any("/preparer/" in url or self.resolve_path in url for _, url in requests))
+            self.page.locator("[data-eo3-series-toggle]").click()
+        provider.assert_not_called()
 
     @override_settings(
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,

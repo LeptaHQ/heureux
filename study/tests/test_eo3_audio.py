@@ -441,7 +441,7 @@ class EO3AudioTests(TestCase):
                 self.assertEqual(response["Content-Range"], f"bytes */{len(AUDIO)}")
         self.assertEqual(self.client.post(self.url).status_code, 405)
 
-    def test_stale_text_voice_model_and_disabled_feature_do_not_serve_old_audio(self):
+    def test_unlinked_legacy_audio_needs_matching_text_but_not_the_current_voice(self):
         self.save_recording()
         updated = replace(self.model, response=replace(self.model.response, conclusion="Autre réponse."))
         with patch.object(catalogue, "tache_three_models", return_value={self.model.group: updated}):
@@ -449,10 +449,11 @@ class EO3AudioTests(TestCase):
         for change in (
             {"ELEVENLABS_VOICE_ID": "DifferentVoice"},
             {"ELEVENLABS_MODEL_ID": "eleven_v3"},
-            {"EO3_AUDIO_ENABLED": False},
         ):
             with self.settings(**change):
-                self.assertEqual(self.client.get(self.url).status_code, 404)
+                self.assertEqual(self.client.get(self.url).status_code, 200)
+        with self.settings(EO3_AUDIO_ENABLED=False):
+            self.assertEqual(self.client.get(self.url).status_code, 404)
         unknown = reverse("study:eo3_audio", args=["not-a-group", self.spec.fingerprint])
         self.assertEqual(self.client.get(unknown).status_code, 404)
 
@@ -539,7 +540,7 @@ class EO3AudioTests(TestCase):
         self.assertEqual(urls[0], urls[1])
         self.assertEqual(self.client.get(urls[0]).content, AUDIO)
 
-    def test_personal_response_does_not_offer_or_send_public_narration(self):
+    def test_an_edit_can_play_the_saved_public_version_without_generating_again(self):
         public = self.save_recording()
         PersonalResponse.objects.create(
             user=self.user, response=self.prompt.response, position_claire="Mon introduction privée.",
@@ -550,14 +551,15 @@ class EO3AudioTests(TestCase):
             nuance="Ma nuance.", conclusion="Ma conclusion.",
         )
         page = self.client.get(prompt_detail_url(self.prompt))
-        self.assertNotContains(page, public.fingerprint)
-        self.assertFalse(page.context["eo3_audio"]["ready"])
+        self.assertContains(page, public.fingerprint)
+        self.assertTrue(page.context["eo3_audio"]["ready"])
+        self.assertTrue(page.context["eo3_audio"]["stale"])
+        self.assertContains(page, "Enregistrement précédent")
         self.assertContains(page, 'data-eo3-player data-flashcard-ignore-toggle aria-label="Écouter la réponse"')
-        self.assertContains(page, " hidden data-eo3-player")
         card = Card.objects.get(user=self.user, response=self.prompt.response, card_type=CardType.SPINE)
         audio = card_payload(card, prompt=self.prompt)["eo3_audio"]
-        self.assertFalse(audio["ready"])
-        self.assertEqual(audio["url"], "")
+        self.assertTrue(audio["ready"])
+        self.assertEqual(audio["url"], self.url)
         self.assertEqual(audio["prepare_url"], "")
 
 
@@ -673,20 +675,23 @@ class EO3OnDemandNarrationTests(TestCase):
         self.edit(stranger, "Mon introduction privée.")
         self.assertEqual(self.client.get(ready["url"]).status_code, 404)
 
-    def test_a_new_edit_frees_the_previous_private_recording(self):
+    def test_an_edit_keeps_paid_audio_until_explicit_pin_protected_refresh(self):
         first = self.edit(self.user, "Première version.")[1]
         with patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING)):
             self.client.post(first["prepare_url"], data=json.dumps({"confirm_cost": True, "pin": AUDIO_PIN}),
                              content_type="application/json")
             second = self.edit(self.user, "Deuxième version.")[1]
-            self.assertFalse(second["ready"])
+            self.assertTrue(second["ready"])
+            self.assertTrue(second["stale"])
             self.assertEqual(self.client.post(
                 first["prepare_url"], data=json.dumps({"confirm_cost": True, "pin": AUDIO_PIN}),
                 content_type="application/json",
             ).status_code, 409)
-            self.client.post(second["prepare_url"], data=json.dumps({"confirm_cost": True, "pin": AUDIO_PIN}),
+            self.client.post(second["refresh_url"], data=json.dumps({
+                "confirm_cost": True, "pin": AUDIO_PIN, "refresh": True,
+            }),
                              content_type="application/json")
-        self.assertEqual(EO3Narration.objects.count(), 1)
+        self.assertEqual(EO3Narration.objects.count(), 2)
         self.assertTrue(self.edit(self.user, "Deuxième version.")[1]["ready"])
         old = first["prepare_url"].rstrip("/").rsplit("/", 2)[-2]
         self.assertEqual(FrenchNarration.objects.get(pk=old).status, "superseded")

@@ -163,9 +163,11 @@ arguments or reuse an account login PIN.
 
 The EO3 progress row also offers **cached-only continuous reading** (`≫`).
 It starts at the current sujet, stays within the current theme and follows the
-same publication order/deduplication as the sujet navigation. Missing, empty,
-outdated or unavailable recordings are skipped. Edited responses require their
-own matching private recording; a public model never replaces an uncached edit.
+same publication order/deduplication as the sujet navigation. Missing, empty
+or unavailable recordings are skipped. Saved sujet recordings remain playable
+after voice changes and response edits. Earlier-text versions are labelled;
+private takes remain accessible only to their owner. A saved public model can
+also be played when an edited response has not been recorded yet.
 One reusable audio element advances without reloading the page, with a now-playing
 source link, pause, next and stop controls. Playback speed is adjustable from
 0.5× to 2× (default 0.85×), retaining the chosen speed across tracks. The optional
@@ -204,8 +206,22 @@ device-only. Existing annotations, private responses and study state are unchang
 
 MP3s persist in PostgreSQL/SQLite, not Render's ephemeral disk. Cache identity
 includes exact text, voice, model, output format, synthesis settings and private
-owner; EO3 additionally pins its canonical group. Source/voice/model changes
-do not reuse stale audio. Authenticated same-origin media supports byte ranges,
+owner; EO3 additionally pins its canonical group. These immutable identities
+still prevent duplicate generation, but are not a reason to discard paid audio.
+EO3 playback first finds a saved take for the sujet and authorized owner, preferring
+matching text and the current voice when available. Earlier versions stay available
+and never paint word-by-word highlighting over changed text. Creating an updated
+recording is a separate download-icon action with explicit credit confirmation and
+a fresh PIN. The new configured voice applies to genuinely missing or explicitly
+refreshed recordings, not ordinary playback. General French read-aloud also reuses
+the same text/owner's recording across voice changes.
+
+The existing preparation journal binds earlier EO3 takes to their sujet and owner;
+legacy audio without this evidence is reused only when its text/owner fingerprint
+can still be verified. Operator `generate_eo3_audio` follows the same saved-sujet
+policy; `--refresh --dry-run` explicitly estimates a current-text/current-voice
+replacement before `--refresh --confirm-cost` and PIN authorization.
+Authenticated same-origin media supports byte ranges,
 uses identity encoding so gzip cannot corrupt offsets, and private audio is
 never stored by the service worker. At 64 kbps, a four-minute recording is about
 1.9 MB; budget database storage/backups accordingly. Tests use mocked providers

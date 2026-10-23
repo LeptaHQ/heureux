@@ -24,6 +24,7 @@
       {% if audio.timing and not no_read_along %}<button class="eo3-audio__restart eo3-audio__switch" type="button" data-eo3-read-along-toggle aria-pressed="true" aria-label="Surligner le mot lu" title="Surligner le mot lu"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg></button>{% endif %}
       <button class="eo3-audio__restart eo3-audio__loop" type="button" data-eo3-loop aria-pressed="false" aria-label="Répéter en boucle" title="Répéter en boucle"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 2l3 3-3 3"/><path d="M4 11V9a4 4 0 0 1 4-4h12"/><path d="M7 22l-3-3 3-3"/><path d="M20 13v2a4 4 0 0 1-4 4H4"/></svg></button>
       <button class="eo3-audio__restart" type="button" data-eo3-restart aria-label="Revenir au début" title="Revenir au début"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+      {% if audio.refresh_url %}{% spaceless %}<button class="eo3-audio__restart" type="button" data-annotation-exclude data-eo3-prepare="{{ audio.refresh_url }}" data-eo3-refresh aria-label="Créer un nouvel audio avec le texte et la voix actuels" title="Créer un nouvel audio · code PIN requis"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"></path></svg></button>{% endspaceless %}{% endif %}
     {% else %}
       <span class="eo3-audio__hint">Écouter la réponse</span>
     {% endif %}
@@ -31,6 +32,8 @@
   {% if audio.ready %}
     <span class="sr-only">Voix française de synthèse · ElevenLabs</span>
     <p class="sr-only" role="status" data-eo3-audio-status>Lecture à 0,85× par défaut.</p>
+    {% if audio.stale %}{% spaceless %}<p class="muted eo3-audio__note" data-annotation-exclude data-eo3-saved-version>Enregistrement précédent : il ne suit pas les dernières modifications du texte.</p>{% endspaceless %}{% endif %}
+    {% if audio.refresh_url %}{% spaceless %}<p class="muted eo3-audio__note" role="status" data-annotation-exclude data-eo3-prepare-status></p>{% endspaceless %}{% endif %}
   {% elif audio.unconfigured %}
     <div class="spine-label">Écouter la réponse</div>
     <p class="muted">La narration française n'est pas encore configurée.</p>

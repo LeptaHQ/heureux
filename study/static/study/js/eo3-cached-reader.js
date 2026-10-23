@@ -133,6 +133,10 @@
     title.textContent = "Sujet " + track.position + " · " + track.title;
     title.href = track.source_url;
     title.title = track.title;
+    var version = panel.querySelector("[data-eo3-series-version]");
+    version.hidden = !track.previous_version;
+    version.textContent = track.previous_version
+      ? "Enregistrement précédent · le texte a été modifié." : "";
     panel.querySelector("[data-eo3-series-counter]").textContent =
       (index + 1) + " / " + tracks.length + " audios";
     audio.loop = false;
@@ -151,7 +155,8 @@
     return data.tracks.map(function (track) {
       if (!Number.isInteger(track.position) || track.position <= previous ||
           track.position > data.total_subjects || typeof track.title !== "string" ||
-          typeof track.audio_url !== "string" || typeof track.source_url !== "string") {
+          typeof track.audio_url !== "string" || typeof track.source_url !== "string" ||
+          (track.previous_version !== undefined && typeof track.previous_version !== "boolean")) {
         throw new Error("Un enregistrement de la liste est invalide.");
       }
       previous = track.position;

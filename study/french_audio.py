@@ -8,16 +8,16 @@ import re
 from django.conf import settings
 from django.core import signing
 from django.db import transaction
-from django.db.models import Q
+from django.db.models import Case, Q, Value, When
 from django.urls import reverse
 from django.utils import timezone
 from django.views.decorators.debug import sensitive_variables
 
 from .audio_pin import require_generation_pin
 from .eo3_audio import (
-    NarrationError, NarrationSpec, OUTPUT_FORMAT, PreSynthesisRejection, SAMPLE_GROUP,
+    NarrationError, NarrationSource, NarrationSpec, OUTPUT_FORMAT, PreSynthesisRejection, SAMPLE_GROUP,
     VOICE_SETTINGS, narration_spec, on_demand_enabled, sample_rejection_message, synthesize,
-    text_narration_spec,
+    saved_narration, text_narration_spec,
 )
 from .models import EO3Narration, FrenchNarration, FrenchNarrationBudget
 
@@ -94,15 +94,18 @@ def speech_spec(text, owner_id=None):
     model = settings.ELEVENLABS_MODEL_ID
     if not all(re.fullmatch(r"[A-Za-z0-9_-]{1,128}", value) for value in (voice, model)):
         raise SpeechError("configuration", "La voix naturelle n’est pas encore configurée.", 503)
+    return NarrationSpec("", text, voice, model, speech_fingerprint(text, owner_id, voice, model))
+
+
+def speech_fingerprint(text, owner_id, voice_id, model_id):
     identity = {
         "version": 1, "text": text, "owner": owner_id,
-        "voice_id": voice, "model_id": model,
+        "voice_id": voice_id, "model_id": model_id,
         "output_format": OUTPUT_FORMAT, "voice_settings": VOICE_SETTINGS,
     }
-    fingerprint = hashlib.sha256(
+    return hashlib.sha256(
         json.dumps(identity, ensure_ascii=False, sort_keys=True).encode()
     ).hexdigest()
-    return NarrationSpec("", text, voice, model, fingerprint)
 
 
 def media_url(recording):
@@ -113,8 +116,33 @@ def accessible_recordings(user_id):
     return FrenchNarration.objects.filter(Q(owner_id=user_id) | Q(owner__isnull=True))
 
 
+def saved_speech(text, user_id, owner_id):
+    current = speech_fingerprint(
+        text, owner_id, settings.ELEVENLABS_VOICE_ID, settings.ELEVENLABS_MODEL_ID,
+    )
+    return accessible_recordings(user_id).filter(
+        text=text, owner_id=owner_id, target_group="", status="ready",
+    ).exclude(audio=b"").defer("audio").order_by(
+        Case(When(pk=current, then=Value(0)), default=Value(1)),
+        "-created_at", "fingerprint",
+    ).first()
+
+
+def has_saved_recording(recording, *, current_only=False):
+    if recording.target_group:
+        return saved_narration(NarrationSource(
+            recording.target_group, recording.text, recording.owner_id,
+        ), current_only=current_only) is not None
+    return saved_speech(
+        recording.text, recording.owner_id or recording.requested_by_id, recording.owner_id,
+    ) is not None
+
+
 @transaction.atomic
 def enqueue(spec, user_id, owner_id):
+    saved = saved_speech(spec.text, user_id, owner_id)
+    if saved is not None:
+        return saved
     # The same DB lock serializes queue limits and operator budget reservations.
     FrenchNarrationBudget.objects.get_or_create(pk=1)
     FrenchNarrationBudget.objects.select_for_update().get(pk=1)
@@ -135,12 +163,16 @@ def enqueue(spec, user_id, owner_id):
 
 
 @sensitive_variables("pin")
-def generate_prepared(fingerprint, *, pin=None):
+def generate_prepared(fingerprint, *, pin=None, refresh=False):
     with transaction.atomic():
         budget, _ = FrenchNarrationBudget.objects.get_or_create(pk=1)
         budget = FrenchNarrationBudget.objects.select_for_update().get(pk=budget.pk)
         recording = FrenchNarration.objects.select_for_update().get(pk=fingerprint)
         if recording.status == "ready":
+            return False
+        if recording.status == "pending" and has_saved_recording(recording, current_only=refresh):
+            recording.status = "superseded"
+            recording.save(update_fields=["status"])
             return False
         require_generation_pin(pin)
         on_demand = bool(recording.target_group) and on_demand_enabled()
@@ -236,11 +268,10 @@ def generate_prepared(fingerprint, *, pin=None):
                 },
             )
             if recording.owner_id is not None:
-                # Only the latest edit is playable, so earlier private takes are freed.
+                # Keep earlier owner-bound takes playable instead of wasting their paid generation.
                 superseded = FrenchNarration.objects.filter(
                     owner_id=recording.owner_id, target_group=recording.target_group, status="ready",
                 ).exclude(pk=fingerprint)
-                EO3Narration.objects.filter(pk__in=superseded.values("pk")).delete()
                 superseded.update(status="superseded")
         return True
     # A deleted account must not resurrect a private recording.

@@ -192,7 +192,7 @@ class FrenchAudioTests(TestCase):
         self.assertFalse(FrenchNarration.objects.filter(pk=recording.pk).exists())
         provider.assert_not_called()
 
-    def test_byte_ranges_head_gzip_and_stale_config(self):
+    def test_byte_ranges_head_gzip_and_saved_voice_are_preserved(self):
         recording = self.ready()
         url = reverse("study:french_audio", args=[recording.pk])
         data = bytes(recording.audio)
@@ -210,7 +210,7 @@ class FrenchAudioTests(TestCase):
             self.assertEqual(self.client.get(url, HTTP_RANGE=value).status_code, 416)
         self.assertEqual(self.client.post(url).status_code, 405)
         with self.settings(ELEVENLABS_VOICE_ID="OtherVoice"):
-            self.assertEqual(self.client.get(url).status_code, 404)
+            self.assertEqual(self.client.get(url).status_code, 200)
         with self.settings(FRENCH_AUDIO_ENABLED=False):
             self.assertEqual(self.client.get(url).status_code, 404)
 
@@ -413,7 +413,10 @@ class InAppSampleTests(TestCase):
         edited = replace(self.model, response=replace(self.model.response, conclusion="Autre conclusion."))
         with patch.object(catalogue, "tache_three_models", return_value={SAMPLE_GROUP: edited}):
             self.url = reverse("study:eo3_audio_prepare", args=["culture-p1", narration_spec(edited).fingerprint])
-            self.assertEqual(self.prepare().status_code, 409)
+            self.assertEqual(self.prepare().status_code, 200)
+            self.assertEqual(self.client.post(self.url, {
+                "confirm_cost": True, "pin": AUDIO_PIN, "refresh": True,
+            }, content_type="application/json").status_code, 409)
         provider.assert_called_once()
 
     @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))

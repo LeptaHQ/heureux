@@ -212,8 +212,13 @@ class CultureEditorialTests(SimpleTestCase):
             argument.developpement,
         )
         self.assertNotIn("le bilan tienne compte", argument.developpement)
-        self.assertIn("un parent devenu malade", argument.exemple)
-        self.assertIn("le coût et le calendrier empêchent les visites", argument.exemple)
+        self.assertIn("son père tombe malade", argument.exemple)
+        self.assertIn("Elle n'a pas l'argent pour aller le voir", argument.exemple)
+        self.assertIn("Malgré ses bons résultats", argument.exemple)
+        self.assertIn("ne pas pouvoir être auprès de lui", argument.exemple)
+        cue = self.plans["eo/tache-3/culture-p17"].arguments[2].example
+        self.assertIn("ne peut pas payer le voyage", cue.french)
+        self.assertIn("cannot afford to travel", cue.english)
 
     def test_living_abroad_nuance_distinguishes_learning_from_compensating_for_hardship(self):
         nuance = self.response(17).nuance

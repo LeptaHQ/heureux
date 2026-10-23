@@ -496,7 +496,7 @@
       },
       "reformulation": "Une expérience de vie à l'étranger peut-elle être positive dans tous les cas ?",
       "position": "La vie à l'étranger peut être enrichissante, mais le mot « toujours » est trop absolu.",
-      "position_claire": "Je ne suis pas d'accord avec le mot « toujours ». Une vie à l'étranger peut apporter beaucoup, mais elle comporte aussi des risques matériels et des sacrifices personnels. Son bilan dépend de ce que l'on cherche, des conditions rencontrées et de ce que l'on doit laisser de côté.",
+      "position_claire": "Je ne suis pas d'accord avec le mot « toujours ». Vivre à l'étranger peut offrir une bonne formation ou de nouvelles possibilités de travail. Mais le manque d'argent et l'éloignement des proches peuvent aussi peser sur le quotidien.",
       "arguments": [
         {
           "idea": "Tout d'abord, vivre à l'étranger peut permettre de se former et de développer ses compétences professionnelles.",
@@ -508,17 +508,17 @@
           "idea": "Ensuite, les difficultés financières peuvent rendre la vie à l'étranger éprouvante.",
           "developpement": "Quand les revenus sont insuffisants ou irréguliers, payer le logement et les dépenses courantes devient une source d'inquiétude. Cette pression peut empêcher de profiter des possibilités qui avaient motivé le départ.",
           "exemple": "Une personne peut partir en comptant sur un emploi qu'elle n'a pas encore obtenu. Si sa recherche dure plus longtemps que prévu et que ses économies diminuent, payer le loyer devient sa priorité.",
-          "consequence": "Le fait d'être à l'étranger ne transforme pas cette précarité en expérience forcément positive."
+          "consequence": "On peut donc passer son temps à chercher de quoi payer le loyer, au lieu de vivre l'expérience qu'on espérait."
         },
         {
           "idea": "Enfin, réussir à l'étranger n'efface pas la peine d'être loin des proches.",
           "developpement": "On peut apprécier son travail et regretter de manquer la vie de ses proches. Ces deux sentiments ne s'annulent pas : il arrive qu'on ne puisse pas rentrer quand un proche a besoin d'aide.",
-          "exemple": "Une personne peut suivre la formation qu'elle souhaitait, tout en étant loin d'un parent devenu malade. Si le coût et le calendrier empêchent les visites, la réussite scolaire ne supprime pas la peine de ne pas être présente.",
+          "exemple": "Une étudiante réussit ses examens à l'étranger, mais son père tombe malade dans son pays d'origine. Elle n'a pas l'argent pour aller le voir. Malgré ses bons résultats, elle souffre de ne pas pouvoir être auprès de lui.",
           "consequence": "Une expérience peut donc être avantageuse sur un plan et douloureuse sur un autre."
         }
       ],
       "nuance": "Bien sûr, une difficulté ponctuelle ne rend pas tout le séjour négatif. Un soutien ou un changement de projet peut améliorer la situation. Mais ce que l'on apprend d'une épreuve ne compense pas toujours la souffrance qu'elle a causée.",
-      "conclusion": "En conclusion, vivre à l'étranger peut ouvrir des possibilités, sans garantir un bilan positif. Il faut regarder les apprentissages, les conditions matérielles et les sacrifices personnels, plutôt que présenter le départ comme une chance dans tous les cas."
+      "conclusion": "En conclusion, vivre à l'étranger peut être enrichissant, mais ce n'est pas toujours une bonne expérience. Une formation réussie ne fait pas disparaître les problèmes d'argent ou la peine d'être loin des siens."
     },
     "culture-p18": {
       "prompt_signatures": {

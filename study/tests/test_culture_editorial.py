@@ -380,7 +380,7 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("une solitude choisie", happiness.nuance)
         integration = self.response(30).arguments[1]
         self.assertIn("chacun ait envie de poursuivre l'échange", integration.developpement)
-        self.assertIn("ne peuvent pas créer seuls une relation", integration.developpement)
+        self.assertIn("On ne peut pas construire une relation tout seul", integration.developpement)
         self.assertIn("le groupe l'invite", integration.exemple)
 
     def test_adaptation_introduction_keeps_the_preferred_living_abroad_wording(self):

@@ -801,7 +801,7 @@
       },
       "reformulation": "Est-il facile de trouver sa place dans une société étrangère ?",
       "position": "L'intégration est possible, mais demande du temps et un accueil réciproque.",
-      "position_claire": "Je ne dirais pas que s'intégrer dans un pays étranger est toujours facile. Parler et travailler sur place ne suffisent pas nécessairement à se sentir à sa place. Il faut comprendre les échanges, nouer des relations durables et participer à la vie locale.",
+      "position_claire": "S'intégrer dans un pays étranger n'est pas toujours facile. Même quand on parle la langue et qu'on travaille, on ne se sent pas forcément chez soi. Il faut aussi comprendre les échanges, créer des liens et pouvoir participer à la vie du pays.",
       "arguments": [
         {
           "idea": "Tout d'abord, comprendre une conversation ne se limite pas à connaître les mots.",
@@ -810,20 +810,20 @@
           "consequence": "L'intégration progresse grâce à des occasions d'apprendre et à l'attention de l'entourage."
         },
         {
-          "idea": "Ensuite, entrer dans des relations durables dépend aussi de l'ouverture des autres.",
-          "developpement": "Les habitants ont déjà leurs horaires et leurs cercles. Les liens se construisent au fil des rencontres, à condition que chacun ait envie de poursuivre l'échange. Les efforts du nouvel arrivant ne peuvent pas créer seuls une relation.",
+          "idea": "Ensuite, créer des liens durables dépend aussi de l'ouverture des autres.",
+          "developpement": "Les personnes qu'on rencontre ont déjà leurs habitudes et, souvent, leur groupe d'amis. Les liens se construisent au fil des rencontres, à condition que chacun ait envie de poursuivre l'échange. On ne peut pas construire une relation tout seul.",
           "exemple": "Dans un club, une nouvelle membre peut d'abord échanger quelques salutations sans vraiment connaître les autres. Si le groupe l'invite à préparer un événement pendant plusieurs semaines, elle peut discuter avec les mêmes personnes et apprendre à les connaître.",
           "consequence": "Un cadre accueillant peut donc transformer des contacts polis en liens plus personnels."
         },
         {
           "idea": "Enfin, des obstacles administratifs peuvent freiner l'intégration professionnelle.",
-          "developpement": "Des compétences acquises ailleurs ne sont pas toujours immédiatement utilisables. Il peut être nécessaire de faire reconnaître un diplôme ou de suivre une formation complémentaire. Cette attente rend plus difficile la construction d'une nouvelle place dans la société.",
+          "developpement": "On ne peut pas toujours exercer son métier dès l'arrivée, même avec de l'expérience. Il peut être nécessaire de faire reconnaître un diplôme ou de suivre une formation complémentaire. Cela peut retarder l'accès à un emploi dans son domaine.",
           "exemple": "Une personne dont la profession est réglementée peut devoir faire reconnaître son diplôme avant d'exercer. Pendant ces démarches, elle peut participer à une association, mais cette activité ne remplace ni son métier ni le revenu qu'elle espérait.",
           "consequence": "L'intégration dépend donc aussi de l'accès à des possibilités concrètes, pas seulement des efforts individuels."
         }
       ],
-      "nuance": "Cependant, le rythme varie selon la langue, les ressources, les rencontres et les obstacles rencontrés, y compris la discrimination. On peut aussi se sentir chez soi dans plusieurs cultures. Il ne faut donc ni imposer un calendrier unique ni faire de l'intégration l'effacement des origines.",
-      "conclusion": "En conclusion, s'intégrer est un processus possible, mais pas une simple formalité. La compréhension des échanges, la réciprocité des relations et la possibilité de contribuer comptent autant que les efforts personnels du nouvel arrivant."
+      "nuance": "Cependant, le rythme varie selon la langue, les ressources, les rencontres et les obstacles rencontrés, y compris la discrimination. On peut aussi se sentir chez soi dans plusieurs cultures. Il faut donc laisser à chacun le temps de s'intégrer, sans lui demander d'oublier ses origines.",
+      "conclusion": "En conclusion, on peut s'intégrer dans un nouveau pays, mais cela demande du temps. Les efforts personnels comptent, tout comme l'accueil des autres et la possibilité de travailler dans son domaine."
     },
     "culture-p31": {
       "prompt_signatures": {

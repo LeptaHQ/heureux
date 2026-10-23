@@ -433,29 +433,29 @@
       },
       "reformulation": "Que peut-on apprendre d'une culture à travers sa cuisine ?",
       "position": "La cuisine est une porte d'entrée concrète, mais ne résume pas une culture.",
-      "position_claire": "Oui, je pense que la cuisine permet de connaître une partie de la culture d'un pays. Elle renseigne sur les relations autour du repas, sur la transmission des pratiques et sur les échanges entre personnes. Mais goûter un plat ne suffit pas : il faut aussi s'intéresser à son contexte.",
+      "position_claire": "Oui, la cuisine peut nous faire découvrir une partie de la culture d'un pays. Les repas montrent certaines habitudes de vie, les recettes racontent une histoire, et cuisiner ensemble permet d'échanger. Mais goûter un plat ne suffit pas à tout comprendre.",
       "arguments": [
         {
           "idea": "Tout d'abord, les repas permettent de comprendre certaines habitudes de vie.",
-          "developpement": "Qui sert les plats, quand on commence et le temps qu'on prend peuvent en dire beaucoup sur les relations dans un groupe. Observer ces gestes et demander leur sens permet de mieux comprendre les habitudes des personnes présentes.",
-          "exemple": "Invité chez une famille, un voyageur peut se servir dès qu'un plat arrive, alors que les autres attendent. Son hôte lui explique qu'ils attendent que tout le monde soit assis avant de commencer : il comprend la place donnée au repas commun dans cette famille.",
-          "consequence": "La cuisine donne ainsi accès à des relations, pas seulement à des saveurs."
+          "developpement": "La façon de servir les plats et de commencer un repas peut montrer ce qui compte pour une famille. En observant et en posant des questions, on comprend mieux ses habitudes.",
+          "exemple": "Invité chez une famille, un voyageur commence à se servir alors que les autres attendent. Son hôte lui explique qu'ils attendent que tout le monde soit assis avant de manger. Le voyageur comprend qu'ils tiennent à commencer le repas ensemble.",
+          "consequence": "On comprend donc mieux la place du repas dans la vie de cette famille."
         },
         {
           "idea": "Ensuite, les recettes peuvent raconter l'histoire d'un lieu et de ses savoir-faire.",
-          "developpement": "Les ingrédients et les techniques sont liés aux ressources, aux saisons et aux échanges. Comprendre une recette transmise permet de découvrir les conditions de vie auxquelles elle répondait, pas seulement une préférence familiale.",
-          "exemple": "Dans un atelier de cuisine, une cuisinière peut montrer comment sa grand-mère faisait sécher des tomates pour les conserver jusqu'en hiver.",
+          "developpement": "Les ingrédients et les techniques sont liés aux produits disponibles, aux saisons et aux échanges. Une ancienne recette familiale peut ainsi aider à comprendre comment on vivait et comment on conservait la nourriture.",
+          "exemple": "Dans un atelier de cuisine, une cuisinière montre comment sa grand-mère faisait sécher des tomates pour les conserver jusqu'en hiver. Elle explique que sa famille pouvait ainsi en manger même quand le jardin n'en donnait plus.",
           "consequence": "On découvre ainsi comment cette famille s'adaptait aux saisons, pas seulement ce qu'elle aimait manger."
         },
         {
           "idea": "Enfin, cuisiner ensemble peut faciliter les échanges entre cultures.",
-          "developpement": "On peut commencer par des gestes, des objets et des questions simples, même lorsqu'on maîtrise mal une langue commune. L'activité partagée rend la conversation moins abstraite.",
-          "exemple": "Dans un repas de quartier, deux voisins peuvent comparer leurs façons de préparer du riz. Ils montrent les étapes, expliquent les occasions où ils le servent et découvrent des différences entre leurs familles, sans devoir faire un exposé sur leur pays.",
-          "consequence": "La cuisine devient un premier lien qui peut donner envie d'en savoir davantage."
+          "developpement": "On peut montrer un ingrédient ou un geste et poser une question simple, même lorsqu'on maîtrise mal une langue commune. On a ainsi quelque chose de concret à partager pour commencer la conversation.",
+          "exemple": "En préparant un repas de quartier, deux voisins d'origines différentes comparent leurs façons de cuisiner le riz. En parlant des épices et des occasions où ils servent ce plat, ils découvrent aussi les habitudes de l'autre.",
+          "consequence": "On apprend donc à se connaître à travers ce qu'on prépare et ce qu'on raconte."
         }
       ],
-      "nuance": "Cependant, une carte de restaurant ne décrit ni toute une société ni toutes ses familles. Les pratiques varient selon les régions, les moyens et les goûts. Il faut donc compléter cette découverte par des conversations, des œuvres et d'autres aspects de la vie quotidienne.",
-      "conclusion": "En conclusion, la cuisine aide à connaître une culture lorsqu'on s'intéresse aux repas, aux histoires et aux personnes qui la font vivre. C'est une entrée vivante et concrète, à condition de ne pas transformer un plat en portrait de tout un pays."
+      "nuance": "Cependant, un plat ou un restaurant ne représente pas tout un pays. Les habitudes varient selon les régions, les familles et leurs moyens. Pour aller plus loin, il faut aussi découvrir la langue, l'histoire et d'autres aspects de la vie quotidienne.",
+      "conclusion": "En conclusion, la cuisine aide à connaître une culture lorsqu'on s'intéresse aux repas, aux histoires et aux personnes qui la font vivre. C'est une bonne façon de commencer, mais pas de résumer toute une culture."
     },
     "culture-p16": {
       "prompt_signatures": {

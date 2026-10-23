@@ -679,19 +679,19 @@
       },
       "reformulation": "Qu'est-ce qui peut motiver le choix de vivre à l'étranger ?",
       "position": "Les projets professionnels, l'apprentissage personnel et les priorités familiales peuvent se combiner.",
-      "position_claire": "À mon avis, il n'y a pas une seule motivation pour choisir de vivre à l'étranger. Je distinguerais les possibilités professionnelles, l'envie d'apprendre et les projets familiaux. Ces raisons peuvent se combiner, et leur importance change selon la personne et le moment de sa vie.",
+      "position_claire": "À mon avis, on peut choisir de vivre à l'étranger pour son travail, pour apprendre ou pour un projet familial. Ces raisons peuvent se combiner, et leur importance peut changer avec le temps.",
       "arguments": [
         {
           "idea": "Tout d'abord, un départ peut répondre à un objectif professionnel précis.",
           "developpement": "Une personne peut chercher un poste, une spécialisation ou des conditions de travail qui correspondent mieux à son projet. Ce n'est pas nécessairement le pays entier qui l'attire, mais une possibilité identifiée.",
           "exemple": "Une technicienne peut rejoindre une entreprise étrangère pour apprendre à entretenir un type de machine qu'elle ne connaît pas encore. La formation proposée par l'entreprise donne alors une raison concrète de partir, au-delà de l'envie de changer de pays.",
-          "consequence": "La mobilité est alors un moyen d'avancer dans un métier, plutôt qu'une fin en soi."
+          "consequence": "Le départ est donc une étape dans un projet professionnel."
         },
         {
           "idea": "Ensuite, certaines personnes partent pour apprendre et devenir plus autonomes.",
-          "developpement": "Vivre ailleurs oblige à découvrir de nouveaux repères et offre des occasions d'utiliser une autre langue. Pour quelqu'un qui en a envie, ces apprentissages peuvent justifier le projet sans qu'un gain financier soit nécessaire.",
+          "developpement": "Vivre ailleurs donne des occasions de pratiquer une autre langue et de se débrouiller dans de nouvelles situations. Pour certaines personnes, c'est une raison suffisante de partir, sans qu'un gain financier soit nécessaire.",
           "exemple": "Un étudiant peut choisir un semestre dans une université étrangère pour suivre des cours dans une autre langue et apprendre à organiser sa vie quotidienne. Il accepte de sortir de ses habitudes, sans forcément chercher à s'installer définitivement.",
-          "consequence": "Le départ répond ici à une envie de découverte et de développement personnel."
+          "consequence": "Le but est donc aussi d'apprendre à se débrouiller, pas seulement de suivre des cours."
         },
         {
           "idea": "Enfin, les relations et le projet familial peuvent être au centre de la décision.",
@@ -701,7 +701,7 @@
         }
       ],
       "nuance": "Bien sûr, les motivations varient d'une personne à l'autre et peuvent se combiner. On peut partir à la fois pour étudier et pour rejoindre son conjoint, puis donner davantage de place à sa carrière. Les priorités peuvent donc changer au fil du parcours.",
-      "conclusion": "En conclusion, les personnes peuvent partir pour travailler, apprendre ou réaliser un projet familial. Comprendre leur motivation demande d'écouter leur projet concret, plutôt que de supposer que vivre ailleurs répond toujours au même désir."
+      "conclusion": "En conclusion, les personnes peuvent partir pour travailler, apprendre ou réaliser un projet familial. Un même départ peut répondre à plusieurs de ces besoins, et les priorités peuvent changer avec le temps."
     },
     "culture-p26": {
       "prompt_signatures": {

@@ -9,19 +9,24 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponse, HttpResponseNotModified, JsonResponse
 from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
-from django.views.decorators.http import require_POST, require_safe
+from django.urls import reverse
+from django.views.decorators.http import require_GET, require_POST, require_safe
 from django.views.decorators.debug import sensitive_post_parameters, sensitive_variables
 
 from .. import catalogue
 from ..account_services import authorize_audio_generation
 from ..audio_pin import AudioPinError
 from ..eo3_audio import (
-    NarrationError, SAMPLE_GROUP, narration_presentation, narration_spec, on_demand_enabled,
+    NarrationError, SAMPLE_GROUP, narration_presentation, narration_spec, narration_text, on_demand_enabled,
     personal_narrations,
 )
-from ..models import EO3Narration, FrenchNarration
+from ..models import EO3Narration, FrenchNarration, Prompt
+from ..oral_history import preferred_personals
+from ..response_personalization import effective_response
+from ..routing import prompt_detail_url, subject_selection_url
+from ..tache_three_models import reviewed_model
 from ..french_audio import (
-    SpeechError, accessible_recordings, enqueue, generate_prepared, media_url,
+    MAX_TEXT, SpeechError, accessible_recordings, enqueue, generate_prepared, media_url,
     resolve_sources, speech_spec,
 )
 
@@ -33,6 +38,90 @@ def _audio_json(data, status=200):
 
 
 ON_DEMAND_DAILY_LIMIT = 100
+
+
+@login_required
+@require_GET
+def eo3_audio_playlist(request, prompt_id):
+    """Compatible cached recordings only; never enqueue or generate audio."""
+    if not settings.EO3_AUDIO_ENABLED:
+        raise Http404
+    selected = get_object_or_404(
+        Prompt.objects.only("pk", "theme_id", "response_id"),
+        pk=prompt_id, is_active=True, response__is_active=True,
+        theme__is_active=True, theme__task__is_active=True,
+        theme__task__part__is_active=True,
+        theme__task__part__slug="eo", theme__task__slug="tache-3",
+    )
+    prompts = list(
+        Prompt.objects.filter(
+            theme_id=selected.theme_id, is_active=True, response__is_active=True,
+        ).select_related("theme__task__part", "response__semantic_owner").only(
+            "pk", "content_key", "text", "number", "theme_id", "response_id",
+            "theme__display_name", "theme__task__slug", "theme__task__part__slug",
+            "response__semantic_group", "response__semantic_owner_id",
+            "response__semantic_owner__semantic_group",
+        ).order_by("family__order", "family__name", "number", "pk")
+    )
+    deduplicate = request.GET.get("deduplicate", "1") == "1"
+    if deduplicate:
+        representatives = {}
+        for prompt in prompts:
+            representatives.setdefault(prompt.response_id, prompt)
+        prompts = list(representatives.values())
+    selected_key = selected.response_id if deduplicate else selected.pk
+    start = next(
+        (index for index, prompt in enumerate(prompts)
+         if (prompt.response_id if deduplicate else prompt.pk) == selected_key),
+        None,
+    )
+    if start is None:
+        return _audio_json({"message": "Les sujets ont changé. Rechargez la page."}, 409)
+    remaining = prompts[start:]
+    models = {prompt.pk: reviewed_model(prompt.response, prompt) for prompt in remaining}
+    try:
+        by_group = {model.group: model for model in models.values() if model is not None}
+        public_specs = {group: narration_spec(model) for group, model in by_group.items()}
+    except NarrationError as exc:
+        return _audio_json({"message": str(exc)}, 503)
+    personal = preferred_personals(
+        {prompt.response_id: prompt.response for prompt in remaining}.values(), request.user,
+    )
+    candidates = []
+    for position, prompt in enumerate(remaining, start + 1):
+        model = models[prompt.pk]
+        if model is None:
+            continue
+        edited = personal[prompt.response_id]
+        if edited is not None:
+            content = effective_response(prompt.response, request.user, personal=edited)
+            # Oversized personal responses cannot have a valid narration.
+            if len(narration_text(model, content)) > MAX_TEXT:
+                continue
+            spec = narration_spec(model, content, request.user.pk)
+        else:
+            spec = public_specs[model.group]
+        candidates.append((position, prompt, spec))
+    ready = set(
+        EO3Narration.objects.filter(
+            fingerprint__in=[spec.fingerprint for _, _, spec in candidates],
+        ).exclude(audio=b"").values_list("fingerprint", "group")
+    )
+    return _audio_json({
+        "theme": prompts[0].theme.display_name,
+        "start_position": start + 1,
+        "total_subjects": len(prompts),
+        "tracks": [
+            {
+                "position": position, "title": prompt.text,
+                "source_url": subject_selection_url(prompt_detail_url(prompt), request),
+                "audio_url": reverse("study:eo3_audio", args=[
+                    spec.group.removeprefix("eo/tache-3/"), spec.fingerprint,
+                ]),
+            }
+            for position, prompt, spec in candidates if (spec.fingerprint, spec.group) in ready
+        ],
+    })
 
 
 def _requested_narration(model, fingerprint, user):

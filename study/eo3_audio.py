@@ -145,6 +145,11 @@ def narration_spec(model, personal=None, owner_id=None):
         response = personal
     elif response.is_personal:
         raise NarrationError("Only reviewed public EO3 models can be narrated.")
+    return text_narration_spec(model.group, narration_text(model, personal), owner_id)
+
+
+def narration_text(model, personal=None):
+    response = model.response if personal is None else personal
     # Published texts keep their exact joins so existing recordings stay valid;
     # edited copies may leave fields empty.
     join = (lambda parts: " ".join(filter(None, parts))) if personal is not None else " ".join
@@ -159,7 +164,7 @@ def narration_spec(model, personal=None, owner_id=None):
     )
     if personal is not None:
         paragraphs = tuple(filter(None, paragraphs))
-    return text_narration_spec(model.group, "\n\n".join(paragraphs), owner_id)
+    return "\n\n".join(paragraphs)
 
 
 def text_narration_spec(group, text, owner_id=None):

@@ -102,6 +102,47 @@ def preferred_personal(response, user):
     return versions.filter(is_active=True).first()
 
 
+def preferred_personals(responses, user):
+    """Batch equivalent of preferred_personal, including explicit model resets."""
+    responses = list(responses)
+    owners = {response.pk: owner_response(response) for response in responses}
+    owner_ids = {owner.pk for owner in owners.values()}
+    versions = list(
+        PersonalResponse.objects.filter(user=user).filter(
+            Q(response_id__in=owner_ids)
+            | Q(response__semantic_owner_id__in=owner_ids)
+            | Q(source_prompt__response_id__in=owner_ids)
+        ).select_related("response", "source_prompt").only(
+            "id", "response_id", "source_prompt_id", "is_active", "updated_at",
+            "reformulation", "position", "position_claire", "arguments", "nuance", "conclusion",
+            "response__id", "response__semantic_owner_id",
+            "source_prompt__id", "source_prompt__response_id",
+        ).order_by("-updated_at", "-id")
+    ) if owner_ids else []
+    result = {}
+    for response in responses:
+        owner = owners[response.pk]
+        if owner.semantic_group:
+            candidates = [
+                version for version in versions
+                if (
+                    version.source_prompt.response_id == owner.pk
+                    if version.source_prompt_id else
+                    version.response_id == owner.pk
+                    or version.response.semantic_owner_id == owner.pk
+                )
+            ]
+        else:
+            candidates = [version for version in versions if version.response_id == owner.pk]
+        own = next((version for version in candidates if version.response_id == response.pk), None)
+        result[response.pk] = (
+            own if own.is_active else None
+        ) if own is not None else next(
+            (version for version in candidates if version.is_active), None,
+        )
+    return result
+
+
 def snapshot(instance, kind, *, response=None):
     response = response or instance.response
     values = {

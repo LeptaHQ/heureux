@@ -2,12 +2,14 @@
 
 import json
 
+from django.conf import settings
 from django.http import Http404
+from django.urls import reverse
 
 from ..oral_history import preferred_personal, variant_annotation_key
 from ..eo3_audio import narration_presentation
 from ..response_personalization import effective_response
-from ..routing import TACHE_TWO_PROMPT_KEY, review_url
+from ..routing import TACHE_TWO_PROMPT_KEY, review_url, subject_selection_url
 from ..tache_three_models import annotation_arguments, response_text, reviewed_model
 from ..tache_three_prompt_notes import prompt_note_for_response
 
@@ -50,6 +52,12 @@ def oral_response_context(request, prompt):
             narration_presentation(model, value, request.user.pk) if value.is_personal
             else narration_presentation(model)
         ) if structured_eo3 else None,
+        "eo3_cached_playlist_url": (
+            subject_selection_url(
+                reverse("study:eo3_audio_playlist", args=[prompt.pk]), request,
+            )
+            if structured_eo3 and settings.EO3_AUDIO_ENABLED else ""
+        ),
         "eo3_prompt_note": prompt_note_for_response(response, prompt),
         "oral_annotation_key": variant_annotation_key(prompt, value),
         "oral_legacy_annotation_keys": json.dumps(legacy_keys),

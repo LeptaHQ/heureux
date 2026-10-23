@@ -159,6 +159,16 @@ Operator generation commands also request it through a masked interactive termin
 `--dry-run` and already-cached recordings need no PIN. Do not put the PIN in command
 arguments or reuse an account login PIN.
 
+The EO3 progress row also offers **cached-only continuous reading** (`≫`).
+It starts at the current sujet, stays within the current theme and follows the
+same publication order/deduplication as the sujet navigation. Missing, empty,
+outdated or unavailable recordings are skipped. Edited responses require their
+own matching private recording; a public model never replaces an uncached edit.
+One reusable audio element advances without reloading the page, with a now-playing
+source link, pause, next and stop controls. It requests only cached media and a
+small read-only playlist; it never prepares audio, calls ElevenLabs or asks for a
+generation PIN. Playback does not mark subjects complete.
+
 The server accepts only user-bound, signed, server-rendered French source
 snapshots, valid for one hour, or a verified substring for selected text.
 Reload after editing/expiry. It rejects arbitrary unsigned text, forged or

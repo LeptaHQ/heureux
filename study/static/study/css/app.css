@@ -7703,6 +7703,71 @@ a.qrow:focus-visible {
 .subject-progress-control__action .subject-completion-check .ui-icon { width: 0.72rem; height: 0.72rem; }
 .subject-progress-control__action .subject-status-reset .ui-icon,
 .subject-progress-control__action .subject-practice-link .ui-icon { width: 0.9rem; height: 0.9rem; }
+.subject-progress-control.subject-progress-control--cached {
+  flex-wrap: wrap;
+  gap: 0.35rem 0.45rem;
+}
+.subject-progress-control--cached .subject-progress-control__action { gap: 0.1rem; }
+.subject-cached-reader-toggle {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.subject-cached-reader-toggle[aria-pressed="true"] {
+  color: var(--primary-ink);
+  --icon-color: var(--primary-ink);
+}
+.subject-cached-reader-toggle[aria-pressed="true"]::before {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+[data-eo3-series-stop-icon],
+[data-eo3-series-toggle][aria-pressed="true"] [data-eo3-series-start-icon] { display: none; }
+[data-eo3-series-toggle][aria-pressed="true"] [data-eo3-series-stop-icon] { display: initial; }
+.eo3-cached-reader {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+.eo3-cached-reader[hidden],
+.eo3-cached-reader__status[hidden] { display: none; }
+.eo3-cached-reader__head,
+.eo3-cached-reader__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.eo3-cached-reader__label { font-size: 0.72rem; font-weight: 700; color: var(--primary); }
+.eo3-cached-reader__counter,
+.eo3-cached-reader__safety,
+.eo3-cached-reader__skips { font-size: 0.72rem; color: var(--text-soft); line-height: 1.45; }
+.eo3-cached-reader__title {
+  color: var(--primary);
+  font-size: 0.86rem;
+  line-height: 1.45;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.eo3-cached-reader__bar { height: 3px; background: var(--border); }
+.eo3-cached-reader__bar span { display: block; height: 100%; width: 0; background: var(--primary); }
+.eo3-cached-reader__controls > div { display: flex; align-items: center; gap: 0.4rem; }
+.eo3-cached-reader__controls button { width: 32px; height: 32px; }
+.eo3-cached-reader__controls svg { width: 14px; height: 14px; }
+.eo3-cached-reader__time { font-size: 0.74rem; font-variant-numeric: tabular-nums; color: var(--text-soft); }
+.eo3-cached-reader__skips:empty,
+.eo3-cached-reader [data-eo3-series-play-icon],
+.eo3-cached-reader.is-paused [data-eo3-series-pause-icon] { display: none; }
+.eo3-cached-reader.is-paused [data-eo3-series-play-icon] { display: initial; }
+.eo3-cached-reader__status { margin: 0.7rem 0 0; font-size: 0.76rem; color: var(--text-soft); line-height: 1.45; }
 .response-sidebar-list {
   margin: 0.65rem 0 0;
   padding: 0;

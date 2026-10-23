@@ -38,6 +38,10 @@ app_name = "study"
 
 urlpatterns = [
     path(
+        "expression/orale/tache-3/sujets/<int:prompt_id>/audios-enregistres/",
+        audio.eo3_audio_playlist, name="eo3_audio_playlist",
+    ),
+    path(
         "expression/orale/tache-3/audio/<slug:group>/<str:fingerprint>/preparer/",
         audio.eo3_audio_prepare, name="eo3_audio_prepare",
     ),

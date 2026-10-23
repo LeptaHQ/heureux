@@ -76,6 +76,7 @@ class CultureEditorialTests(SimpleTestCase):
             (11, 1, ("Une infirmière", "compatriote", "fait reconnaître son diplôme", "quels documents", "à quel organisme")),
             (15, 1, ("sa grand-mère", "sécher des tomates", "conserver jusqu'en hiver", "jardin n'en donnait plus")),
             (15, 2, ("En préparant un repas de quartier", "voisins d'origines différentes", "épices", "habitudes de l'autre")),
+            (19, 1, ("une heure de marche", "dix minutes en bus", "sans généraliser ces deux expériences")),
             (19, 2, ("en français", "une ancienne usine", "devenue un lieu culturel", "poser des questions")),
             (20, 1, ("sans passer par un texte",)),
             (24, 1, ("association de quartier", "chacun apporte un plat", "dans la langue du pays", "d'autres rencontres")),

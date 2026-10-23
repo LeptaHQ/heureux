@@ -1749,25 +1749,94 @@
     var waitingRegistration = null;
     var reloadingForUpdate = false;
     var reloadOnControllerChange = false;
+    var currentController = navigator.serviceWorker.controller;
+    var updateMessage = updateBanner && updateBanner.querySelector("span");
+    var updateTimer = null;
+    var updateAttempt = 0;
+    var updateDeadline = 0;
+
+    function readyWorkerUpdate(message) {
+      updateAttempt += 1;
+      window.clearTimeout(updateTimer);
+      updateDeadline = 0;
+      reloadOnControllerChange = false;
+      if (updateButton) {
+        updateButton.disabled = false;
+        updateButton.removeAttribute("aria-busy");
+      }
+      if (updateMessage) updateMessage.textContent = message;
+      if (updateBanner) updateBanner.classList.remove("hidden");
+    }
+
+    function reloadWorkerUpdate() {
+      if (reloadingForUpdate) return;
+      reloadingForUpdate = true;
+      updateAttempt += 1;
+      window.clearTimeout(updateTimer);
+      window.location.reload();
+    }
 
     function showWorkerUpdate(registration) {
       if (!navigator.serviceWorker.controller || !registration.waiting) return;
       waitingRegistration = registration;
-      if (updateBanner) updateBanner.classList.remove("hidden");
+      if (!reloadOnControllerChange) readyWorkerUpdate("Une nouvelle version de Heureux est prête.");
+    }
+
+    function recoverWorkerUpdate() {
+      if (!reloadingForUpdate && updateDeadline && Date.now() >= updateDeadline) {
+        readyWorkerUpdate("La mise à jour prend du temps. Vous pouvez réessayer.");
+      }
     }
 
     if (updateButton) {
       updateButton.addEventListener("click", function () {
-        if (!waitingRegistration || !waitingRegistration.waiting) return;
+        if (reloadingForUpdate) return;
+        var attempt = ++updateAttempt;
         updateButton.disabled = true;
+        updateButton.setAttribute("aria-busy", "true");
+        if (updateMessage) updateMessage.textContent = "Mise à jour en cours…";
         reloadOnControllerChange = true;
-        waitingRegistration.waiting.postMessage({ type: "SKIP_WAITING" });
+        updateDeadline = Date.now() + 15000;
+        window.clearTimeout(updateTimer);
+        updateTimer = window.setTimeout(function () {
+          if (attempt === updateAttempt) {
+            readyWorkerUpdate("La mise à jour prend du temps. Vous pouvez réessayer.");
+          }
+        }, 15000);
+        Promise.resolve().then(function () {
+          return navigator.serviceWorker.getRegistration
+            ? navigator.serviceWorker.getRegistration() : waitingRegistration;
+        }).then(function (fresh) {
+          if (attempt !== updateAttempt || reloadingForUpdate) return;
+          waitingRegistration = fresh || null;
+          var worker = fresh && fresh.waiting;
+          if (!worker || worker.state !== "installed") {
+            reloadWorkerUpdate();
+            return;
+          }
+          worker.postMessage({ type: "SKIP_WAITING" });
+        }).catch(function (error) {
+          if (attempt !== updateAttempt || reloadingForUpdate) return;
+          readyWorkerUpdate("La mise à jour n’a pas abouti. Vous pouvez réessayer.");
+          console.warn("Mise à jour de Heureux indisponible.", error);
+        });
       });
     }
     navigator.serviceWorker.addEventListener("controllerchange", function () {
-      if (!reloadOnControllerChange || reloadingForUpdate) return;
-      reloadingForUpdate = true;
-      window.location.reload();
+      var controller = navigator.serviceWorker.controller;
+      if (!controller || controller === currentController) return;
+      var wasControlled = Boolean(currentController);
+      currentController = controller;
+      if (reloadOnControllerChange) {
+        reloadWorkerUpdate();
+      } else if (wasControlled && !reloadingForUpdate) {
+        readyWorkerUpdate("La nouvelle version est active. Rechargez pour l’utiliser.");
+      }
+    });
+    window.addEventListener("focus", recoverWorkerUpdate);
+    window.addEventListener("pageshow", recoverWorkerUpdate);
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) recoverWorkerUpdate();
     });
     window.addEventListener("load", function () {
       navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" })
@@ -1782,9 +1851,13 @@
               }
             });
           });
-          registration.update().catch(function () {});
+          registration.update().catch(function (error) {
+            console.warn("Vérification des mises à jour indisponible.", error);
+          });
         })
-        .catch(function () {});
+        .catch(function (error) {
+          console.warn("Service worker de Heureux indisponible.", error);
+        });
     });
   }
 

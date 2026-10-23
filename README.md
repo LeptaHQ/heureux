@@ -227,6 +227,11 @@ never stored by the service worker. At 64 kbps, a four-minute recording is about
 1.9 MB; budget database storage/backups accordingly. Tests use mocked providers
 and silent WAV fixtures, not paid calls or voice-quality claims.
 
+The PWA update banner rechecks the live worker when clicked. If another tab has
+already activated it, the button reloads rather than becoming a no-op. An
+unresponsive activation becomes retryable after 15 seconds, including after
+returning to the tab; another tab's update never forcibly reloads ongoing work.
+
 Optional trusted-operator recovery/preparation of one previously authorized
 app-wide request uses the same durable claims and ceiling:
 

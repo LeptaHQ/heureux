@@ -88,6 +88,19 @@ class CultureEditorialTests(SimpleTestCase):
                 for phrase in required:
                     self.assertIn(phrase, example)
 
+    def test_television_value_includes_shared_experiences_and_nonproductive_rest(self):
+        response = self.response(12)
+        self.assertIn("objets mal triés", response.arguments[0].exemple)
+        self.assertIn("consignes de tri de sa commune", response.arguments[0].exemple)
+        self.assertIn("Ils s'appellent ensuite", response.arguments[1].exemple)
+        self.assertIn("même si l'on n'apprend rien de nouveau", response.arguments[2].developpement)
+        self.assertIn("éteint la télévision à la fin de l'épisode", response.arguments[2].exemple)
+        plan = self.plans["eo/tache-3/culture-p12"]
+        self.assertIn("à la fin de l'épisode", plan.arguments[2].example.french)
+        self.assertIn("when the episode ends", plan.arguments[2].example.english)
+        self.assertIn("ses proches", plan.nuance.french)
+        self.assertIn("loved ones", plan.nuance.english)
+
     def test_compatriot_support_explains_new_social_ties_without_rewriting_the_example(self):
         argument = self.response(11).arguments[0]
         self.assertEqual(

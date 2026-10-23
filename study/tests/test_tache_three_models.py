@@ -706,13 +706,13 @@ class TacheThreeModelContentTests(SimpleTestCase):
 
     def test_culture_local_cultural_experience_is_not_a_second_question_session(self):
         response = catalogue.tache_three_models()["eo/tache-3/culture-p14"].response
-        self.assertIn("faire l'expérience", response.arguments[1].idea)
+        self.assertIn("en participant à des activités près de chez soi", response.arguments[1].idea)
         self.assertIn("En y participant", response.arguments[1].developpement)
         self.assertIn("préparer un plat de fête avec elle", response.arguments[1].exemple)
-        self.assertIn("on essaie une pratique", response.arguments[1].consequence)
+        self.assertIn("on participe et on comprend mieux le sens", response.arguments[1].consequence)
         self.assertIn("approfondir sa connaissance d'une culture", response.arguments[2].idea)
         self.assertIn("poser une question précise", response.arguments[2].developpement)
-        self.assertIn("corriger un malentendu", response.arguments[2].developpement)
+        self.assertIn("vérifier ce qu'on a compris", response.arguments[2].developpement)
 
     def test_culture_country_knowledge_has_distinct_material_legal_and_relational_reasons(self):
         model = catalogue.tache_three_models()["eo/tache-3/culture-p26"]
@@ -750,6 +750,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p12", 0, "objets mal triés", "objets mal triés", "incorrectly sorted items"),
             ("culture-p13", 1, "tableau", "tableau", "painting"),
             ("culture-p13", 1, "sourient", "sourires", "smiles"),
+            ("culture-p14", 0, "raviolis", "raviolis", "dumplings"),
             ("culture-p14", 1, "plat de fête", "plat de fête", "festive dish"),
             ("culture-p14", 2, "professeurs", "professeurs", "teachers"),
             ("culture-p15", 1, "tomates", "tomates", "tomatoes"),

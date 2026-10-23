@@ -514,8 +514,8 @@
         "english": "Television can inform, give access to films and performances, and help people relax."
       },
       "nuance": {
-        "french": "Laisser les programmes s'enchaîner peut empiéter sur le sommeil ou d'autres activités.",
-        "english": "Watching one programme after another can cut into sleep and other activities."
+        "french": "Enchaîner les programmes peut retarder le coucher ou réduire le temps passé avec ses proches.",
+        "english": "Watching programme after programme can mean a late bedtime or less time with loved ones."
       },
       "conclusion": {
         "french": "L'intérêt dépend du programme, du temps passé et de ce qu'on recherche.",
@@ -534,8 +534,8 @@
         },
         {
           "point": {
-            "french": "La télévision donne accès à des œuvres et à des moments partagés.",
-            "english": "Television gives access to films and performances and can provide shared experiences."
+            "french": "La télévision permet de découvrir des films ou des spectacles et d'en parler avec les autres.",
+            "english": "Television lets us discover films or performances and talk about them with others."
           },
           "example": {
             "french": "Deux proches qui vivent loin regardent le même film, puis en discutent au téléphone.",
@@ -548,8 +548,8 @@
             "english": "A chosen leisure activity need not be productive to have value."
           },
           "example": {
-            "french": "Un épisode de comédie peut constituer une pause limitée et appréciée.",
-            "english": "An episode of comedy can be an enjoyable, limited break."
+            "french": "Après le travail, une personne rit devant une comédie, puis éteint la télévision à la fin de l'épisode.",
+            "english": "After work, someone enjoys a comedy and switches off the television when the episode ends."
           }
         }
       ]
@@ -620,14 +620,14 @@
             "english": "Books and documentaries help people discover other ways of life."
           },
           "example": {
-            "french": "Croiser un roman et un documentaire sur le Nouvel An pour comprendre les retrouvailles du récit.",
-            "english": "Compare a novel and a New Year documentary to understand the reunion in the story."
+            "french": "Un roman montre une famille préparant des raviolis du Nouvel An lunaire ; un documentaire montre d'autres traditions.",
+            "english": "A novel shows a family making Lunar New Year dumplings; a documentary shows that traditions vary."
           }
         },
         {
           "point": {
-            "french": "On peut faire l'expérience de pratiques culturelles près de chez soi.",
-            "english": "You can experience cultural practices close to home."
+            "french": "On peut découvrir d'autres cultures en participant à des activités près de chez soi.",
+            "english": "Taking part in activities close to home can introduce us to other cultures."
           },
           "example": {
             "french": "Préparer un plat de fête avec une cuisinière et découvrir ses gestes et ses habitudes familiales.",

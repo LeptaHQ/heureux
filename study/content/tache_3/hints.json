@@ -1108,8 +1108,8 @@
     },
     "culture-p27": {
       "introduction": {
-        "french": "Une longue vie à l'étranger peut faire oublier certains mots et savoir-faire, mais pas automatiquement.",
-        "english": "A long life abroad can lead to forgetting some words and skills, but not inevitably."
+        "french": "Vivre longtemps à l'étranger peut entraîner des oublis, mais pratiquer sa langue et ses traditions peut limiter ce risque.",
+        "english": "Living abroad for years can lead to forgetting parts of one's culture. Practice and regular contact can help preserve them."
       },
       "nuance": {
         "french": "Le temps et les moyens comptent aussi ; changer ne signifie pas forcément oublier.",
@@ -1122,22 +1122,22 @@
       "arguments": [
         {
           "point": {
-            "french": "Moins utiliser sa langue d'origine peut faire oublier des mots et des expressions.",
+            "french": "Quand on utilise moins sa langue d'origine, on peut finir par oublier certains mots et certaines expressions.",
             "english": "Using one's original language less can lead to forgetting words and expressions."
           },
           "example": {
-            "french": "Ne plus se souvenir du sens d'un proverbe que l'on veut expliquer à son enfant.",
-            "english": "Forget the meaning of a once-familiar proverb when trying to explain it to one's child."
+            "french": "Un père répète un proverbe mais en a oublié le sens quand son enfant l'interroge.",
+            "english": "A father repeats a proverb but cannot recall its meaning when his child asks about it."
           }
         },
         {
           "point": {
-            "french": "L'éloignement peut faire oublier des gestes liés aux traditions familiales.",
-            "english": "Living far away can lead to forgetting skills used in family traditions."
+            "french": "On peut aussi perdre certains savoir-faire liés aux traditions familiales.",
+            "english": "Some skills involved in family traditions can be lost."
           },
           "example": {
-            "french": "Ne plus savoir tresser une brioche de fête et demander à sa mère de remontrer le geste.",
-            "english": "Forget how to braid a festive brioche and ask one's mother to demonstrate again."
+            "french": "Une mère reconnaît la musique mais oublie des pas de danse ; sa sœur les lui remontre.",
+            "english": "A mother recognises the music but forgets some dance steps. Her sister demonstrates them so the mother can teach her children."
           }
         },
         {
@@ -1146,8 +1146,8 @@
             "english": "Regular contact can preserve these cultural reference points despite the passing years."
           },
           "example": {
-            "french": "Des appels hebdomadaires avec sa sœur permettent de pratiquer et de retrouver une expression oubliée.",
-            "english": "Weekly calls with a sister provide practice and help recall a forgotten expression."
+            "french": "Des appels hebdomadaires avec sa sœur permettent de continuer à utiliser les expressions familiales après vingt ans à l'étranger.",
+            "english": "Weekly calls with a sister keep family expressions in use after twenty years abroad."
           }
         }
       ]

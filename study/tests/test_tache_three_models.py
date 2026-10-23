@@ -765,7 +765,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p26", 0, "ressources confirmées", "ressources confirmées", "confirmed resources"),
             ("culture-p26", 1, "propriétaire", "propriétaire", "landlord"),
             ("culture-p27", 0, "proverbe", "proverbe", "proverb"),
-            ("culture-p27", 1, "tresser une brioche de fête", "tresser une brioche de fête", "braid a festive brioche"),
+            ("culture-p27", 1, "danse traditionnelle", "pas de danse", "dance steps"),
+            ("culture-p27", 1, "Sa sœur", "sa sœur", "Her sister"),
             ("culture-p30", 1, "plusieurs semaines", "plusieurs semaines", "several weeks"),
             ("culture-p31", 2, "partenariat rémunéré", "partenariat rémunéré", "paid partnership"),
         ):

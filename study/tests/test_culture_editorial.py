@@ -245,10 +245,35 @@ class CultureEditorialTests(SimpleTestCase):
 
     def test_forgotten_traditional_skill_requires_relearning_before_transmission(self):
         argument = self.response(27).arguments[1]
-        self.assertIn("qui savait tresser", argument.exemple)
-        self.assertIn("après des années sans le refaire", argument.exemple)
-        self.assertIn("réapprendre ce geste", argument.consequence)
-        self.assertIn("pour pouvoir le transmettre à ses enfants", argument.consequence)
+        self.assertIn("une danse traditionnelle qu'elle connaissait bien", argument.exemple)
+        self.assertIn("Après des années sans la pratiquer", argument.exemple)
+        self.assertIn("ne retrouve plus certains pas", argument.exemple)
+        self.assertIn("Sa sœur les lui montre à nouveau", argument.exemple)
+        self.assertIn("réapprendre ces pas", argument.consequence)
+        self.assertIn("transmettre cette danse à ses enfants", argument.consequence)
+        self.assertNotIn("brioche", argument.exemple)
+
+    def test_cultural_forgetting_introduction_explains_practice_without_repeating_the_same_claim(self):
+        response = self.response(27)
+        self.assertIn("peut entraîner l'oubli", response.position_claire)
+        self.assertIn("cet oubli n'est pas automatique", response.position_claire)
+        self.assertIn("pratiquer certaines traditions avec ses proches", response.position_claire)
+        self.assertIn("on risque moins de les oublier", response.position_claire)
+        self.assertIn("on peut finir par oublier", response.arguments[0].idea)
+        self.assertIn("perdre certains savoir-faire", response.arguments[1].idea)
+
+    def test_regular_contact_keeps_cultural_expressions_in_use_after_twenty_years(self):
+        argument = self.response(27).arguments[2]
+        self.assertIn("depuis vingt ans à l'étranger", argument.exemple)
+        self.assertIn("chaque semaine à sa sœur", argument.exemple)
+        self.assertIn("continuer à utiliser des expressions", argument.exemple)
+        self.assertIn("qu'elle entend rarement au travail", argument.exemple)
+        cue = self.plans["eo/tache-3/culture-p27"].arguments[2].example
+        self.assertIn("continuer à utiliser les expressions familiales", cue.french)
+        self.assertIn("après vingt ans", cue.french)
+        self.assertIn("keep family expressions in use", cue.english)
+        self.assertIn("after twenty years abroad", cue.english)
+        self.assertNotIn("recall a forgotten expression", cue.english)
 
     def test_reality_tv_cues_keep_humiliation_and_spectacle_without_inventing_staging(self):
         response = self.response(31)
@@ -357,13 +382,13 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("elle lit peu", reading.arguments[1].exemple)
         forgetting = self.response(27)
         self.assertEqual(self.models["eo/tache-3/culture-p27"].argument_ids, (1, 4, 3))
-        self.assertIn("moins utiliser sa langue d'origine", forgetting.arguments[0].idea)
-        self.assertIn("Elle le connaissait bien autrefois", forgetting.arguments[0].exemple)
-        self.assertIn("ne se souvient plus de sa signification", forgetting.arguments[0].exemple)
+        self.assertIn("on utilise moins sa langue d'origine", forgetting.arguments[0].idea)
+        self.assertIn("sa grand-mère lui disait souvent", forgetting.arguments[0].exemple)
+        self.assertIn("il en a oublié le sens", forgetting.arguments[0].exemple)
         self.assertIn("même si l'on continue à parler sa langue d'origine", forgetting.arguments[1].developpement)
-        self.assertIn("qui savait tresser", forgetting.arguments[1].exemple)
-        self.assertIn("peut oublier le geste", forgetting.arguments[1].exemple)
-        self.assertIn("lui remontrer le geste", forgetting.arguments[1].exemple)
+        self.assertIn("une danse traditionnelle qu'elle connaissait bien", forgetting.arguments[1].exemple)
+        self.assertIn("ne retrouve plus certains pas", forgetting.arguments[1].exemple)
+        self.assertIn("Sa sœur les lui montre à nouveau", forgetting.arguments[1].exemple)
         self.assertNotIn("Les enfants", forgetting.arguments[1].developpement)
         self.assertIn("la durée du séjour", forgetting.arguments[2].consequence.casefold())
         self.assertIn("n'est pas nécessairement oublier", forgetting.nuance)

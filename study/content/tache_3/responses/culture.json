@@ -740,25 +740,25 @@
       },
       "reformulation": "Vivre longtemps à l'étranger peut-il faire oublier des éléments de sa culture d'origine ?",
       "position": "Oui, certains mots ou savoir-faire peuvent s'oublier, mais cet oubli n'est pas inévitable.",
-      "position_claire": "Oui, vivre longtemps à l'étranger peut faire oublier certains éléments de sa culture d'origine. Mais ce n'est pas automatique : l'usage de sa langue, les traditions partagées et les contacts entretenus influencent ce qu'on conserve.",
+      "position_claire": "Oui, vivre longtemps à l'étranger peut entraîner l'oubli de certains éléments de sa culture d'origine. Mais cet oubli n'est pas automatique. Quand on continue à parler sa langue et à pratiquer certaines traditions avec ses proches, on les garde dans sa vie quotidienne et on risque moins de les oublier.",
       "argument_ids": [1, 4, 3],
       "arguments": [
         {
-          "idea": "Tout d'abord, moins utiliser sa langue d'origine peut faire oublier des mots et des expressions.",
-          "developpement": "Quand le travail et les démarches se font surtout dans une autre langue, les expressions de l'enfance peuvent être moins souvent entendues ou employées. Elles peuvent alors devenir moins faciles à retrouver.",
-          "exemple": "Une personne peut vouloir expliquer à son enfant un proverbe appris de sa grand-mère. Elle le connaissait bien autrefois, mais ne se souvient plus de sa signification après des années sans l'utiliser.",
+          "idea": "Tout d'abord, quand on utilise moins sa langue d'origine, on peut finir par oublier certains mots et certaines expressions.",
+          "developpement": "Quand on utilise surtout une autre langue au quotidien, on peut avoir moins d'occasions d'employer les expressions de son enfance. Avec le temps, on risque d'en oublier le sens.",
+          "exemple": "Par exemple, un père répète à son enfant un proverbe que sa grand-mère lui disait souvent. Quand l'enfant lui demande ce qu'il signifie, le père hésite : après des années sans l'utiliser, il en a oublié le sens.",
           "consequence": "Ces oublis peuvent donc compliquer la transmission d'une partie de la culture familiale."
         },
         {
-          "idea": "Ensuite, l'éloignement peut faire oublier des gestes liés aux traditions familiales.",
-          "developpement": "Certains gestes se retiennent en les refaisant avec ses proches. Vivre loin d'eux peut réduire ces occasions, même si l'on continue à parler sa langue d'origine.",
-          "exemple": "Une personne qui savait tresser une brioche de fête avec sa mère peut oublier le geste après des années sans le refaire. Lorsqu'elle veut le montrer à ses enfants, elle doit demander à sa mère de lui remontrer le geste.",
-          "consequence": "Elle a donc besoin de réapprendre ce geste pour pouvoir le transmettre à ses enfants."
+          "idea": "Ensuite, on peut aussi perdre certains savoir-faire liés aux traditions familiales.",
+          "developpement": "On retient mieux certains gestes quand on les refait régulièrement avec ses proches. Loin d'eux, on peut avoir moins d'occasions de pratiquer et oublier peu à peu comment faire, même si l'on continue à parler sa langue d'origine.",
+          "exemple": "Par exemple, une mère essaie de montrer à ses enfants une danse traditionnelle qu'elle connaissait bien. Après des années sans la pratiquer, elle reconnaît la musique, mais ne retrouve plus certains pas. Sa sœur les lui montre à nouveau.",
+          "consequence": "Elle a donc besoin de réapprendre ces pas pour pouvoir transmettre cette danse à ses enfants."
         },
         {
           "idea": "Enfin, des contacts réguliers peuvent préserver ces repères malgré les années.",
           "developpement": "Les appels, les visites et les fêtes partagées offrent des occasions de pratiquer sa langue et ses traditions. On peut aussi demander une précision et retrouver un mot ou un geste oublié.",
-          "exemple": "Une personne installée depuis vingt ans ailleurs peut téléphoner chaque semaine à sa sœur dans leur langue familiale. Quand une expression lui échappe, sa sœur la lui rappelle : elle continue ainsi à pratiquer une langue qu'elle utilise peu au travail.",
+          "exemple": "Par exemple, une personne installée depuis vingt ans à l'étranger téléphone chaque semaine à sa sœur dans leur langue familiale. Ces échanges lui permettent de continuer à utiliser des expressions qu'elle entend rarement au travail.",
           "consequence": "La durée du séjour ne suffit donc pas à prévoir ce qui sera gardé ou oublié."
         }
       ],

@@ -617,11 +617,12 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("sauvegardé", response(18).nuance)
         self.assertIn("traductions", response(19).arguments[1].idea)
         self.assertIn("sans généraliser ces deux expériences", response(19).arguments[1].exemple)
-        self.assertIn("l'écoute", response(20).position_claire)
+        self.assertIn("en écoutant", response(20).position_claire)
+        self.assertIn("en pratiquant une activité", response(20).position_claire)
         self.assertIn("réservations", response(21).nuance)
         self.assertIn("relations de confiance", response(24).nuance)
         self.assertIn("conjoint", response(25).arguments[2].developpement)
-        self.assertIn("Si j'immigrais", response(26).position_claire)
+        self.assertIn("si j'immigrais", response(26).position_claire.casefold())
         self.assertIn("pas seulement de la volonté", response(27).nuance)
         self.assertIn("Selon le pays et le statut", response(29).arguments[2].developpement)
         self.assertIn("l'ouverture des autres", response(30).arguments[1].idea)
@@ -726,7 +727,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("règles locales", response.arguments[1].exemple)
         self.assertIn("ce qui est autorisé", response.arguments[1].exemple)
         self.assertIn("habitudes locales", response.arguments[2].idea)
-        self.assertIn("Si j'immigrais", response.position_claire)
+        self.assertIn("si j'immigrais", response.position_claire.casefold())
         self.assertIn("défendre mes droits", response.conclusion)
 
     def test_culture_preparation_positions_do_not_reverse_negative_source_claims(self):

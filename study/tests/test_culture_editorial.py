@@ -430,6 +430,13 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("la durée du séjour", forgetting.arguments[2].consequence.casefold())
         self.assertIn("n'est pas nécessairement oublier", forgetting.nuance)
 
+    def test_immigration_contributions_do_not_condition_dignity_on_economic_usefulness(self):
+        response = self.response(35)
+        self.assertIn("réutiliser cette solution", response.arguments[0].consequence)
+        self.assertIn("si la même panne se reproduit", response.arguments[0].consequence)
+        self.assertIn("sans qu'elle ait à prouver son utilité économique", response.nuance)
+        self.assertNotIn("immédiatement", response.nuance)
+
     def test_material_difficulty_includes_time_and_fatigue_not_only_expenses(self):
         response = self.response(29)
         material = response.arguments[0]

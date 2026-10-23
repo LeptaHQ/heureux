@@ -34,7 +34,7 @@ REVIEWED_CLAUSES = {
     "culture-p31": "pour que chacun puisse garder une distance",
     "culture-p33": "Il faut qu'une célébrité puisse être interrogée",
     "culture-p34": "Il faut qu'on juge l'ensemble de la pratique",
-    "culture-p35": "sans qu'elle ait à prouver immédiatement son utilité économique",
+    "culture-p35": "sans qu'elle ait à prouver son utilité économique",
     "culture-p4": "afin qu'elle puisse demander cette aide elle-même",
     "culture-p5": "il faut donc qu'on vérifie",
     "culture-p6": "Je ne pense pas que le livre soit devenu inutile",

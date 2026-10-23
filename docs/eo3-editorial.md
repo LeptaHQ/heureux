@@ -402,6 +402,11 @@ calls also fit conversations with grandparents; teaching a child is not the same
 as preventing an adult from forgetting. Reuse trust and affinity wording without
 making either common origins or kinship a guarantee of friendship.
 
+The country-knowledge answer also uses the precise-question sentence shared by
+Culture 14/19 and Famille 13. Culture 10/32 uses the familiar-gesture sentence
+shared by Culture 1 and Famille 16. Preserve the compatible sentence, not an
+interchangeable answer to these different questions.
+
 ## Prompt explanations
 
 EO3 subject pages and practice fronts use a collapsed English **Comprendre la

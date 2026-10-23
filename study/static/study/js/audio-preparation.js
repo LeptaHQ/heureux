@@ -19,7 +19,7 @@
         button.dataset.eo3Characters + " caractères), voix configurée " + button.dataset.eo3Voice +
         ", avec ElevenLabs ? Cette action consomme des crédits. " +
         "Un seul essai est autorisé pour toute l’application avant votre écoute. Aucun autre texte ne sera généré.",
-      label: "Confirmer et préparer cet extrait", tone: "safe"
+      label: "Confirmer et préparer cet extrait", tone: "safe", icon: "download", title: "Préparer l’audio"
     })).then(function (confirmed) {
       if (!confirmed) return;
       button.disabled = true;

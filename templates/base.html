@@ -390,6 +390,7 @@
       <button class="icon-button confirm-dialog__action confirm-dialog__action--danger" type="button" aria-label="Confirmer" title="Confirmer" data-confirm-accept>
         <svg viewBox="0 0 24 24" aria-hidden="true" data-confirm-icon="danger"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>
         <svg viewBox="0 0 24 24" aria-hidden="true" data-confirm-icon="safe" hidden><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true" data-confirm-icon="download" hidden><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"></path></svg>
       </button>
     </footer>
   </dialog>
@@ -402,12 +403,12 @@
   {% if request.user.is_authenticated %}{% include "study/partials/narrator.html" %}{% include "study/partials/audio_pin_dialog.html" %}{% endif %}
   <script src="{% static 'study/js/speech.js' %}?v=5"></script>
   <script src="{% static 'study/js/audio-pin.js' %}?v=1"></script>
-  <script src="{% static 'study/js/narration.js' %}?v=2"></script>
-  <script src="{% static 'study/js/audio-preparation.js' %}?v=5"></script>
-  <script src="{% static 'study/js/eo3-audio.js' %}?v=10"></script>
+  <script src="{% static 'study/js/narration.js' %}?v=3"></script>
+  <script src="{% static 'study/js/audio-preparation.js' %}?v=6"></script>
+  <script src="{% static 'study/js/eo3-audio.js' %}?v=11"></script>
   <script src="{% static 'study/js/eo3-cached-reader.js' %}?v=1"></script>
   <script src="{% static 'study/js/flashcards.js' %}?v=5"></script>
-  <script src="{% static 'study/js/app.js' %}?v=70"></script>
+  <script src="{% static 'study/js/app.js' %}?v=71"></script>
   <script src="{% static 'study/js/selection-toolbar.js' %}?v=17"></script>
   <script src="{% static 'study/js/annotations.js' %}?v=38"></script>
   {% block scripts %}{% endblock %}

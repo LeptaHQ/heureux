@@ -152,8 +152,10 @@ Every **new** ElevenLabs recording also requires the separate server-side
 `ELEVENLABS_PIN`. Set it in Render's Environment settings; leaving it empty blocks
 new generation, not playback of cached audio. The app requests it in a masked
 dialog for each recording, including edited EO3 responses and general French
-read-aloud. It does not remember the PIN or unlock later requests. Incorrect
-attempts use the existing database-backed IP/account throttles. The PIN is never
+read-aloud. Audio cost confirmations use a download icon to continue to the PIN
+step and a cross to cancel. The app does not remember the PIN or unlock later
+requests. Incorrect attempts use the existing database-backed IP/account
+throttles. The PIN is never
 included in a URL, saved in an audio record, rendered in HTML or sent to ElevenLabs.
 Operator generation commands also request it through a masked interactive terminal;
 `--dry-run` and already-cached recordings need no PIN. Do not put the PIN in command

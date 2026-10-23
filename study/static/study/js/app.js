@@ -1052,11 +1052,12 @@
           if (acceptBtn) {
             var label = opts.label || "Confirmer";
             var danger = opts.tone !== "safe";
+            var iconName = danger ? "danger" : opts.icon === "download" ? "download" : "safe";
             acceptBtn.setAttribute("aria-label", label);
             acceptBtn.title = label;
             acceptBtn.classList.toggle("confirm-dialog__action--danger", danger);
             acceptBtn.querySelectorAll("[data-confirm-icon]").forEach(function (icon) {
-              icon.hidden = icon.getAttribute("data-confirm-icon") !== (danger ? "danger" : "safe");
+              icon.toggleAttribute("hidden", icon.getAttribute("data-confirm-icon") !== iconName);
             });
           }
           if (cancelBtn) cancelBtn.hidden = !!opts.notice;

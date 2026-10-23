@@ -368,11 +368,16 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         completion.click()
         expect(completion).to_have_attribute("aria-checked", "true")
         button.click()
-        expect(self.page.locator("[data-confirm-dialog]")).to_be_visible()
+        dialog = self.page.locator("[data-confirm-dialog]")
+        expect(dialog).to_be_visible()
+        expect(dialog.locator("[data-confirm-icon='download']")).to_be_visible()
+        expect(dialog.locator("[data-confirm-icon='danger']")).to_be_hidden()
         self.page.get_by_role("button", name="Annuler", exact=True).click()
         provider.assert_not_called()
         button.click()
         self.page.get_by_role("button", name="Confirmer et préparer cet extrait").click()
+        expect(self.page.locator("[data-audio-pin-dialog]")).to_be_visible()
+        provider.assert_not_called()
         self.enter_audio_pin()
         audio = self.page.locator("[data-eo3-audio]")
         expect(self.page.locator("[data-eo3-seek]")).to_be_visible()
@@ -520,6 +525,9 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         request = self.page.locator("[data-narrator-request]")
         expect(request).to_be_visible()
         request.click()
+        dialog = self.page.locator("[data-confirm-dialog]")
+        expect(dialog.locator("[data-confirm-icon='download']")).to_be_visible()
+        expect(dialog.locator("[data-confirm-icon='danger']")).to_be_hidden()
         self.page.locator("[data-confirm-accept]").click()
         pin_dialog = self.page.locator("[data-audio-pin-dialog]")
         expect(pin_dialog).to_be_visible()
@@ -565,6 +573,24 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         expect(dialog.locator("[data-audio-pin-input]")).to_have_value("")
         provider.assert_not_called()
         self.assertFalse(FrenchNarration.objects.exists())
+
+    def test_confirmation_icons_match_the_action_and_reset_between_dialogs(self):
+        self.page.goto(self.live_server_url + "/")
+        dialog = self.page.locator("[data-confirm-dialog]")
+        for options, icon in (
+            ({"tone": "safe"}, "safe"),
+            ({"tone": "safe", "icon": "download"}, "download"),
+            ({"tone": "danger", "icon": "download"}, "danger"),
+            ({"tone": "safe"}, "safe"),
+        ):
+            with self.subTest(icon=icon):
+                self.page.evaluate("(options) => { window.HeureuxConfirm(options); }", options)
+                expect(dialog).to_be_visible()
+                visible = dialog.locator("[data-confirm-accept] svg:visible")
+                expect(visible).to_have_count(1)
+                expect(visible).to_have_attribute("data-confirm-icon", icon)
+                dialog.get_by_role("button", name="Annuler", exact=True).click()
+                expect(dialog).to_be_hidden()
 
     @override_settings(
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,

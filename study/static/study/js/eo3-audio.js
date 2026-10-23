@@ -459,7 +459,7 @@
     window.HeureuxConfirm({
       message: "L’audio de ce sujet n’est pas encore prêt. Le générer maintenant avec ElevenLabs ? " +
         "Cette action consomme des crédits ; les écoutes suivantes réutilisent le même enregistrement.",
-      label: "Générer et écouter", tone: "safe"
+      label: "Générer et écouter", tone: "safe", icon: "download", title: "Préparer l’audio"
     }).then(function (confirmed) {
       if (confirmed) toggle.click();
       else pendingSettings = null;

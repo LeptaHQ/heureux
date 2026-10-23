@@ -349,7 +349,7 @@
         (item.characters ? " (" + item.characters + " caractères)" : "") +
         " ? Cette action consomme des crédits, dans la limite du plafond global. " +
         "Un échec ou un délai dépassé peut être facturé. Aucun nouvel essai automatique.",
-      label: "Confirmer et préparer", tone: "safe"
+      label: "Confirmer et préparer", tone: "safe", icon: "download", title: "Préparer l’audio"
     }).then(function (confirmed) {
       if (confirmed && current === item) resolve(true);
     });

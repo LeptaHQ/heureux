@@ -709,14 +709,14 @@
       },
       "reformulation": "Pourquoi voudrais-je connaître le pays d'accueil si j'immigrais ?",
       "position": "Je voudrais préparer un projet réaliste, connaître mes droits et mieux comprendre les autres.",
-      "position_claire": "Si j'immigrais, oui, il serait important pour moi de bien connaître le pays d'accueil. Je voudrais préparer une installation réaliste, savoir comment faire respecter mes droits et mieux comprendre les habitudes des personnes avec qui je vivrais. Je ne chercherais pas à tout savoir avant de partir.",
+      "position_claire": "Oui, si j'immigrais, je voudrais bien connaître le pays d'accueil. Cela m'aiderait à prévoir mon budget, à connaître mes droits et à mieux comprendre les autres. Je ne chercherais pas à tout savoir avant de partir.",
       "argument_ids": [2, 4, 3],
       "arguments": [
         {
-          "idea": "Tout d'abord, connaître les conditions de vie m'aiderait à préparer une installation financièrement réaliste.",
-          "developpement": "Un salaire proposé ne dit pas à lui seul si l'on pourra vivre sur place. Il faut que je le compare au loyer, aux transports et aux autres dépenses, puis que je garde une marge pour les imprévus. On ne doit pas compter sur un revenu qui n'est pas confirmé.",
-          "exemple": "Je comparerais plusieurs offres de logement avec mes ressources confirmées, en ajoutant les transports et les autres charges. Si le total dépasse mes moyens, je pourrais revoir le quartier ou le calendrier avant de m'engager dans une installation trop coûteuse.",
-          "consequence": "Cette préparation réduirait le risque de m'engager dans une installation au-dessus de mes moyens."
+          "idea": "Tout d'abord, connaître le coût de la vie m'aiderait à savoir si mon projet est financièrement réaliste.",
+          "developpement": "Un salaire proposé ne suffit pas pour savoir si je pourrais vivre sur place. Il faut que je le compare au loyer, aux transports et aux autres dépenses. Je prévoirais aussi une marge pour les imprévus, sans compter sur un revenu incertain.",
+          "exemple": "Je regarderais plusieurs loyers, puis j'ajouterais les charges, les transports et les dépenses courantes. Je comparerais le total à mes ressources confirmées. S'il dépassait mon budget, je chercherais un quartier moins cher ou je reporterais le départ.",
+          "consequence": "Je réduirais ainsi le risque de manquer d'argent dès mon arrivée."
         },
         {
           "idea": "Ensuite, connaître mes droits m'aiderait à me protéger contre certains abus.",
@@ -726,12 +726,12 @@
         },
         {
           "idea": "Enfin, comprendre quelques habitudes locales m'aiderait à éviter des malentendus.",
-          "developpement": "Quand on ne connaît pas les habitudes des autres, on peut mal interpréter leur comportement. Poser une question permet de comprendre leurs attentes et d'éviter un malentendu.",
+          "developpement": "Sans connaître les habitudes des autres, on peut mal interpréter leur comportement. Quand on discute avec quelqu'un, on peut lui poser une question précise ou vérifier ce qu'on a compris.",
           "exemple": "Si de nouveaux voisins préfèrent prévoir leurs visites à l'avance, je pourrais leur proposer une date plutôt que passer à l'improviste. Comprendre cette préférence m'aiderait à les rencontrer sans la prendre pour un manque de sympathie.",
           "consequence": "Nous pourrions ainsi trouver une façon de nous voir qui convienne à chacun."
         }
       ],
-      "nuance": "Cependant, les expériences varient entre villes, milieux et personnes. Aucun guide ne décrit tout un pays, et les règles peuvent évoluer. Je garderais donc une part de souplesse et continuerais à me renseigner sur place au lieu de croire mon apprentissage terminé.",
+      "nuance": "Cependant, les habitudes varient selon les villes et les personnes, et les règles peuvent changer. Je ne pourrais donc pas tout apprendre dans un guide. Je continuerais à me renseigner sur place et à poser des questions.",
       "conclusion": "En conclusion, connaître le pays d'accueil m'aiderait à préparer une installation réaliste, à défendre mes droits et à mieux comprendre les autres. Ce serait le début d'un apprentissage, pas une garantie de vivre sans difficulté."
     },
     "culture-p27": {

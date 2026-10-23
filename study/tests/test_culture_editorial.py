@@ -258,8 +258,10 @@ class CultureEditorialTests(SimpleTestCase):
 
     def test_immigration_knowledge_consequences_explain_affordability_and_mutual_adjustment(self):
         response = self.response(26)
-        self.assertIn("réduirait le risque", response.arguments[0].consequence)
-        self.assertIn("au-dessus de mes moyens", response.arguments[0].consequence)
+        self.assertIn("réduirais ainsi le risque", response.arguments[0].consequence)
+        self.assertIn("manquer d'argent dès mon arrivée", response.arguments[0].consequence)
+        self.assertIn("ressources confirmées", response.arguments[0].exemple)
+        self.assertIn("reporterais le départ", response.arguments[0].exemple)
         self.assertIn("qui convienne à chacun", response.arguments[2].consequence)
         self.assertNotIn("me laissant mes propres habitudes", response.arguments[2].consequence)
 

@@ -336,6 +336,21 @@ class CultureEditorialTests(SimpleTestCase):
             "ses journées sans se mettre inutilement en difficulté.",
         )
 
+    def test_integration_example_keeps_shared_context_distinct_from_understanding_words(self):
+        argument = self.response(30).arguments[0]
+        self.assertIn("les mêmes références que les autres", argument.developpement)
+        self.assertIn("poser une question", argument.developpement)
+        self.assertNotIn("intervenir aussi spontanément", argument.developpement)
+        self.assertIn("une émission qu'un nouvel arrivant n'a jamais vue", argument.exemple)
+        self.assertIn("Il comprend les mots, mais pas la blague", argument.exemple)
+        self.assertIn("Un collègue lui explique ce qui s'est passé dans l'émission", argument.exemple)
+        self.assertIn("Le nouvel arrivant peut alors participer à la discussion", argument.exemple)
+        cue = self.plans["eo/tache-3/culture-p30"].arguments[0].example
+        self.assertIn("ce qui s'est passé dans une émission", cue.french)
+        self.assertIn("comprend la blague et peut participer", cue.french)
+        self.assertIn("what happened in a TV show", cue.english)
+        self.assertIn("understand the joke and join in", cue.english)
+
     def test_direct_framing_keeps_friendship_optional_and_integration_reciprocal(self):
         happiness = self.response(16)
         self.assertIn("on peut être heureux sans avoir d'amis", happiness.position_claire)

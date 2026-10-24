@@ -409,14 +409,17 @@ and practical cultural learning despite limited shared language. Explain what
 meal times reveal rather than adding generic instructions to observe and ask.
 A family's late dinner illustrates its own routine, not a national rule.
 Guided practice shares a sentence with the local-workshop answer, while retaining
-the separate cuisine question and its concrete cooking example. The practical
-learning reason has a fresh identity rather than reusing the retired social-
-exchange reason's annotations.
+the separate cuisine question and its concrete cooking example. The fufu example
+situates limited shared language in a visit to Ghana, with a host demonstrating
+the preparation of cooked cassava; see [Britannica's account](https://www.britannica.com/topic/fufu).
+The practical learning reason has a fresh identity rather than reusing the
+retired social-exchange reason's annotations.
 
 The cultural-discovery-without-travel answer must show what its resources teach,
-not merely name a recipe or describe a family meal. Its cookbook example connects
-preparing a dish with discovering local ingredients and the dish's history.
-A named city or dish is not needed to make that cultural learning clear.
+not merely name a recipe or describe a family meal. Its West African cookbook
+example connects preparing rice with peanut sauce to discovering local ingredients
+and the dish's history. Keep that regional setting without treating all African
+cuisines as identical or adding unnecessary city or dish names.
 Keep the local workshop's learned steps connected to joining the dance.
 For remote exchanges, develop choosing one's questions and asking for
 clarification, not a claim that documentaries cannot explain customs.

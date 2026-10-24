@@ -75,7 +75,7 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("ne représente pas tout un pays", argument.developpement)
         self.assertNotIn("croise les sources", argument.developpement)
         for phrase in (
-            "un livre de cuisine", "comment préparer un plat",
+            "un livre de cuisine ouest-africaine", "comment préparer du riz avec une sauce aux arachides",
             "les produits locaux utilisés dans la recette", "l'histoire de ce plat",
         ):
             self.assertIn(phrase, argument.exemple)
@@ -87,8 +87,8 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("pas seulement les étapes d'une recette", argument.consequence)
         cue = self.plans["eo/tache-3/culture-p14"].arguments[0].example
         for language, recipe, ingredients, history in (
-            ("french", "Livre de cuisine", "produits locaux", "histoire du plat"),
-            ("english", "A cookbook", "local ingredients", "history"),
+            ("french", "riz et sauce aux arachides", "produits locaux", "histoire du plat"),
+            ("english", "rice with peanut sauce", "local ingredients", "history"),
         ):
             text = getattr(cue, language)
             self.assertIn(recipe, text)
@@ -96,6 +96,8 @@ class CultureEditorialTests(SimpleTestCase):
             self.assertIn(history, text)
             self.assertNotIn("Marseille", text)
             self.assertNotIn("bouillabaisse", text.casefold())
+        self.assertIn("Cuisine ouest-africaine", cue.french)
+        self.assertIn("West African cookbook", cue.english)
 
     def test_local_dance_practice_leads_to_joining_the_dance(self):
         example = self.response(14).arguments[1].exemple
@@ -143,7 +145,7 @@ class CultureEditorialTests(SimpleTestCase):
             (11, 0, ("sa solitude en français", "une amie de son pays qui parle sa langue", "le dimanche ensemble")),
             (11, 1, ("Une infirmière", "compatriote", "fait reconnaître son diplôme", "quels documents", "à quel organisme")),
             (15, 1, ("sa grand-mère", "sécher les tomates du jardin", "en manger en hiver", "ce n'était plus la saison")),
-            (15, 2, ("atelier de cuisine mexicaine", "comprend encore mal le français", "former une tortilla", "réussit à refaire ce geste")),
+            (15, 2, ("séjour au Ghana", "même sans bien parler sa langue", "piler le manioc cuit", "En essayant à mon tour")),
             (19, 1, ("ne parle pas japonais", "documentaire sous-titré", "écoles au Japon", "des élèves nettoyer leur classe", "lieux qu'ils utilisent ensemble")),
             (19, 2, ("présentation traduite", "projet de logements", "réunion du quartier", "certains voisins sont pour et d'autres contre")),
             (20, 1, ("sans passer par un texte",)),
@@ -212,16 +214,24 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("En observant et en posant des questions", response.arguments[0].developpement)
         self.assertIn("l'histoire d'un lieu", response.arguments[1].idea)
         self.assertIn("par la pratique, même avec peu de mots", response.arguments[2].idea)
+        example = response.arguments[2].exemple
+        self.assertIn("avec mon hôte", example)
+        self.assertNotIn("français", example)
+        self.assertLess(example.index("Il me montrerait"), example.index("En essayant à mon tour"))
         self.assertIn("avant de pouvoir en discuter facilement", response.arguments[2].consequence)
         self.assertIn("en cuisinant soi-même", response.position_claire)
         self.assertIn("en cuisinant soi-même", response.conclusion)
         self.assertIn("ne représente pas tout un pays", response.nuance)
-        for language, time, activity in (
-            ("french", "vingt et une heures", "tortilla"),
-            ("english", "at nine", "tortilla"),
+        for language, time, activity, language_limit in (
+            ("french", "vingt et une heures", "fufu", "sans bien parler sa langue"),
+            ("english", "at nine", "fufu", "host's language"),
         ):
             self.assertIn(time, getattr(plan.arguments[0].example, language))
-            self.assertIn(activity, getattr(plan.arguments[2].example, language))
+            cue = getattr(plan.arguments[2].example, language)
+            self.assertIn(activity, cue)
+            self.assertIn(language_limit, cue)
+        self.assertNotIn("français", plan.arguments[2].example.french)
+        self.assertNotIn("French", plan.arguments[2].example.english)
 
     def test_country_knowledge_has_a_supported_limit_not_a_second_language_workaround(self):
         model = self.models["eo/tache-3/culture-p19"]

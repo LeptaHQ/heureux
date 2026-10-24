@@ -224,7 +224,8 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn(practice, self.response("culture-p14").arguments[1].developpement)
         self.assertIn(practice, self.response("culture-p15").arguments[2].developpement)
         self.assertIn("danse irlandaise", self.response("culture-p14").arguments[1].exemple)
-        self.assertIn("cuisine mexicaine", self.response("culture-p15").arguments[2].exemple)
+        self.assertIn("préparer du fufu", self.response("culture-p15").arguments[2].exemple)
+        self.assertIn("sans bien parler sa langue", self.response("culture-p15").arguments[2].exemple)
         self.assertNotEqual(
             self.models["eo/tache-3/culture-p14"].source_prompts,
             self.models["eo/tache-3/culture-p15"].source_prompts,

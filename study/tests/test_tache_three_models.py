@@ -613,8 +613,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("ne devraient pas constituer le seul cercle social", response(11).position_claire)
         self.assertIn("rencontrer d'autres habitants", response(11).position_claire)
         self.assertIn("ne comprend pas toutes les explications", response(15).arguments[2].developpement)
-        self.assertIn("comprend encore mal le français", response(15).arguments[2].exemple)
-        self.assertIn("réussit à refaire ce geste", response(15).arguments[2].exemple)
+        self.assertIn("même sans bien parler sa langue", response(15).arguments[2].exemple)
+        self.assertIn("En essayant à mon tour", response(15).arguments[2].exemple)
         self.assertIn("Ne pas avoir d'amis ne veut pas dire vivre sans aucun lien", response(16).arguments[1].developpement)
         self.assertIn("pas d'accord avec le mot", response(17).position_claire)
         self.assertIn("sauvegardé", response(18).nuance)
@@ -763,12 +763,16 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p12", 0, "objets mal triés", "objets mal triés", "incorrectly sorted items"),
             ("culture-p13", 1, "tableau", "tableau", "painting"),
             ("culture-p13", 1, "sourient", "sourires", "smiles"),
-            ("culture-p14", 0, "un livre de cuisine", "Livre de cuisine", "A cookbook"),
+            ("culture-p14", 0, "cuisine ouest-africaine", "Cuisine ouest-africaine", "West African cookbook"),
+            ("culture-p14", 0, "riz avec une sauce aux arachides", "riz et sauce aux arachides", "rice with peanut sauce"),
             ("culture-p14", 0, "produits locaux", "produits locaux", "local ingredients"),
             ("culture-p14", 0, "l'histoire de ce plat", "histoire du plat", "history"),
             ("culture-p14", 1, "danse irlandaise", "danse irlandaise", "Irish dance"),
             ("culture-p14", 2, "chaussures", "chaussures", "shoes"),
             ("culture-p15", 1, "tomates", "tomates", "tomatoes"),
+            ("culture-p15", 2, "séjour au Ghana", "Au Ghana", "In Ghana"),
+            ("culture-p15", 2, "fufu", "fufu", "fufu"),
+            ("culture-p15", 2, "manioc cuit", "manioc cuit", "cooked cassava"),
             ("culture-p16", 1, "conjoint", "conjoint", "partner"),
             ("culture-p16", 2, "récolte", "récolte", "harvest"),
             ("culture-p18", 1, "phrase trop brusque", "phrase trop brusque", "blunt sentence"),

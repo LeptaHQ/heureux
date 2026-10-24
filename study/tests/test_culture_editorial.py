@@ -75,24 +75,27 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("ne représente pas tout un pays", argument.developpement)
         self.assertNotIn("croise les sources", argument.developpement)
         for phrase in (
-            "un livre sur la cuisine de Marseille", "comment préparer une bouillabaisse",
-            "une soupe de poissons de Méditerranée", "les pêcheurs marseillais",
-            "préparaient autrefois ce plat pour leur famille",
+            "un livre de cuisine", "comment préparer un plat",
+            "les produits locaux utilisés dans la recette", "l'histoire de ce plat",
         ):
             self.assertIn(phrase, argument.exemple)
         self.assertNotIn("roman", argument.exemple)
         self.assertNotIn("raviolis", argument.exemple)
+        self.assertNotIn("Marseille", argument.exemple)
+        self.assertNotIn("bouillabaisse", argument.exemple)
         self.assertIn("des produits de la région et l'histoire d'un plat", argument.consequence)
         self.assertIn("pas seulement les étapes d'une recette", argument.consequence)
         cue = self.plans["eo/tache-3/culture-p14"].arguments[0].example
         for language, recipe, ingredients, history in (
-            ("french", "Bouillabaisse de Marseille", "poissons de Méditerranée", "les pêcheurs préparaient"),
-            ("english", "Marseille cookbook", "Mediterranean fish", "the fishermen who prepared"),
+            ("french", "Livre de cuisine", "produits locaux", "histoire du plat"),
+            ("english", "A cookbook", "local ingredients", "history"),
         ):
             text = getattr(cue, language)
             self.assertIn(recipe, text)
             self.assertIn(ingredients, text)
             self.assertIn(history, text)
+            self.assertNotIn("Marseille", text)
+            self.assertNotIn("bouillabaisse", text.casefold())
 
     def test_local_dance_practice_leads_to_joining_the_dance(self):
         example = self.response(14).arguments[1].exemple

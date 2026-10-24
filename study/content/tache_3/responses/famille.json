@@ -315,26 +315,26 @@
       "position_claire": "Si être autoritaire signifie imposer toutes les décisions sans écouter l'enfant, je ne suis pas d'accord. Cela ne veut pas dire renoncer aux limites. Pour moi, il faut expliquer les règles, écouter l'enfant et lui apprendre peu à peu à décider.",
       "arguments": [
         {
-          "idea": "Tout d'abord, une règle claire donne un repère sur lequel on peut s'appuyer.",
-          "developpement": "L'enfant ne doit pas deviner chaque jour ce que l'adulte acceptera. Expliquer une limite et l'appliquer de façon cohérente permet d'organiser la vie commune sans transformer chaque demande en conflit.",
-          "exemple": "Une famille peut prévoir que les jeux bruyants s'arrêtent pendant le repos d'un bébé. L'adulte explique le besoin et propose une autre activité, au lieu de crier seulement lorsque le bruit l'agace.",
-          "consequence": "La fermeté protège ici un besoin concret, avec une raison compréhensible."
+          "idea": "Tout d'abord, les enfants ont besoin de règles claires pour apprendre à vivre avec les autres.",
+          "developpement": "À la maison, chacun doit tenir compte du sommeil et des activités des autres. Le parent peut poser une règle compréhensible et la rappeler calmement, plutôt que de n'intervenir que lorsqu'il est en colère.",
+          "exemple": "Quand le bébé fait sa sieste, son frère de sept ans doit jouer sans faire trop de bruit. Son père lui explique pourquoi et lui propose de dessiner dans une autre pièce. L'enfant peut continuer à s'occuper pendant que le bébé dort.",
+          "consequence": "La règle aide donc l'enfant à respecter le sommeil de son petit frère."
         },
         {
-          "idea": "Ensuite, la peur d'une réaction excessive peut empêcher de demander de l'aide.",
-          "developpement": "Un enfant qui pense être humilié pour chaque erreur peut chercher à la cacher. Si le parent ne sait pas ce qui s'est passé, il ne peut pas l'aider à régler le problème.",
+          "idea": "Ensuite, un enfant qui craint d'être humilié peut hésiter à demander de l'aide.",
+          "developpement": "S'il s'attend à des cris avant même d'avoir pu s'expliquer, il risque de cacher ce qui s'est passé. Le problème reste alors sans solution, et le parent ne peut pas l'aider.",
           "exemple": "Après avoir abîmé un livre de bibliothèque, un enfant hésite à le montrer, puis en parle à son parent. Celui-ci l'écoute sans crier et l'aide à contacter la bibliothèque pour savoir comment le remplacer. L'enfant peut ainsi réparer son erreur au lieu de la cacher.",
-          "consequence": "L'enfant peut donc demander de l'aide sans devoir cacher ses erreurs pour éviter une humiliation."
+          "consequence": "Une réaction calme permet de régler le problème tout en gardant le dialogue avec l'enfant."
         },
         {
-          "idea": "Enfin, des choix adaptés à l'âge apprennent à décider par soi-même.",
-          "developpement": "L'objectif n'est pas que le parent décide de tout indéfiniment. On peut maintenir une obligation tout en laissant l'enfant apprendre à choisir comment la remplir.",
-          "exemple": "Pour les devoirs, un parent peut convenir avec son adolescent d'un travail à terminer avant le lendemain. L'adolescent propose le moment et les pauses, puis ils vérifient ensemble si cette organisation fonctionne avant de l'ajuster.",
+          "idea": "Enfin, laisser des choix adaptés à l'âge aide l'enfant à devenir autonome.",
+          "developpement": "Le parent peut fixer ce qui doit être fait sans décider de chaque détail. L'objectif n'est pas que le parent décide de tout indéfiniment, mais que l'enfant apprenne à s'organiser.",
+          "exemple": "Un adolescent veut souffler en rentrant du collège et propose de commencer ses devoirs à dix-sept heures. Sa mère accepte, à condition qu'ils soient terminés avant le dîner. Une semaine plus tard, il respecte cet horaire sans qu'elle ait à le lui rappeler chaque soir.",
           "consequence": "L'adolescent apprend ainsi à organiser son travail, au lieu d'attendre que son parent décide de chaque étape."
         }
       ],
       "nuance": "Cependant, discuter ne signifie pas que chaque règle doit être négociée sans fin. Devant un danger immédiat, l'adulte doit intervenir d'abord et expliquer ensuite. Une limite peut rester ferme sans menaces ni humiliation, et l'écoute n'oblige pas à accepter toute demande.",
-      "conclusion": "En conclusion, je préfère une autorité ferme, cohérente et expliquée à l'autoritarisme. Des règles compréhensibles, la possibilité de parler et des choix adaptés à l'âge apprennent à décider, pas seulement à obéir."
+      "conclusion": "En conclusion, je préfère une autorité ferme, cohérente et expliquée à l'autoritarisme. Des règles claires, la possibilité de parler et des choix adaptés à l'âge aident l'enfant à devenir autonome, pas seulement à obéir."
     },
     "famille-p13": {
       "prompt_signatures": {

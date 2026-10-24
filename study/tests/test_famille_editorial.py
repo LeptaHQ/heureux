@@ -206,7 +206,9 @@ class FamilleEditorialTests(SimpleTestCase):
             (10, 2, ("une autre ville", "sans répéter ses confidences", "comparer les logements")),
             (11, 1, ("Deux sœurs", "quarante euros par mois", "vingt euros chacune", "deux abonnements au lieu d'un")),
             (11, 2, ("Dans un couple", "prépare le dîner", "les courses le lendemain", "déjà prêt à son retour")),
+            (12, 0, ("sept ans", "sa sieste", "dessiner dans une autre pièce", "pendant que le bébé dort")),
             (12, 1, ("livre de bibliothèque", "en parle", "sans crier", "remplacer")),
+            (12, 2, ("propose", "dix-sept heures", "avant le dîner", "Une semaine plus tard", "sans qu'elle ait à le lui rappeler")),
             (16, 0, ("contribution financière", "si la cohabitation coûte moins cher", "la différence")),
         ):
             with self.subTest(response=number, argument=argument + 1):

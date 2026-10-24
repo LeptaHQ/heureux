@@ -283,7 +283,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("abonnement Internet", response(11).arguments[1].exemple)
         self.assertIn("n'empêche ni l'entraide", response(11).nuance)
         self.assertIn("sans menaces ni humiliation", response(12).nuance)
-        self.assertIn("propose le moment", response(12).arguments[2].exemple)
+        self.assertIn("propose de commencer ses devoirs à dix-sept heures", response(12).arguments[2].exemple)
         self.assertIn("bilinguisme parfait n'est pas garanti", response(13).nuance)
         self.assertIn("ressources", response(13).arguments[2].exemple)
         self.assertIn("voire aucune tâche", response(14).nuance)

@@ -1904,18 +1904,18 @@
       "arguments": [
         {
           "point": {
-            "french": "Une règle claire donne un repère sur lequel on peut s'appuyer.",
-            "english": "Clear rules provide understandable reference points."
+            "french": "Les enfants ont besoin de règles claires pour apprendre à vivre avec les autres.",
+            "english": "Children need clear rules to learn to live with others."
           },
           "example": {
-            "french": "Arrêter les jeux bruyants pendant le repos du bébé et proposer une alternative.",
-            "english": "Stop noisy games while the baby rests and suggest an alternative."
+            "french": "Un père propose à son fils de sept ans de dessiner dans une autre pièce pendant la sieste du bébé.",
+            "english": "A father suggests his seven-year-old draw in another room while the baby naps."
           }
         },
         {
           "point": {
-            "french": "La peur d'une réaction excessive peut empêcher de demander de l'aide.",
-            "english": "Fear of an excessive reaction can prevent asking for help."
+            "french": "Un enfant qui craint d'être humilié peut hésiter à demander de l'aide.",
+            "english": "A child afraid of being humiliated may hesitate to ask for help."
           },
           "example": {
             "french": "Un parent écoute sans crier et aide l'enfant à contacter la bibliothèque pour remplacer le livre abîmé.",
@@ -1924,12 +1924,12 @@
         },
         {
           "point": {
-            "french": "Des choix adaptés à l'âge apprennent à décider par soi-même.",
-            "english": "Age-appropriate choices teach children to make their own decisions."
+            "french": "Laisser des choix adaptés à l'âge aide l'enfant à devenir autonome.",
+            "english": "Letting children make age-appropriate choices helps them become independent."
           },
           "example": {
-            "french": "Laisser l'adolescent proposer son organisation pour les devoirs.",
-            "english": "Let a teenager propose a homework schedule."
+            "french": "Un adolescent propose ses devoirs à dix-sept heures et respecte cet horaire sans rappel chaque soir.",
+            "english": "A teenager proposes homework at five and follows the schedule without nightly reminders."
           }
         }
       ]

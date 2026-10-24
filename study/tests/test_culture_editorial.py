@@ -87,6 +87,7 @@ class CultureEditorialTests(SimpleTestCase):
 
     def test_remote_conversation_explains_a_specific_household_custom(self):
         argument = self.response(14).arguments[2]
+        self.assertIn("voir une habitude sans en comprendre la raison", argument.developpement)
         for phrase in (
             "Pendant un appel vidéo", "je pourrais demander", "une amie japonaise",
             "pourquoi elle enlève ses chaussures", "sa famille s'assoit parfois au sol",

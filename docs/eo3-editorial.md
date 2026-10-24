@@ -429,6 +429,12 @@ fluency alone guarantees understanding. The replacement limit uses a fresh
 identity; the retired common-language workaround is not a third version of
 translated access.
 
+In the solo-travel answer, confidence comes from coping with a difficulty despite
+an initial worry. The example shows a successful return to the hotel and greater
+willingness to explore the next day, not just a list of travel arrangements.
+Asking for directions is compatible with acting without a travelling companion;
+do not equate autonomy with refusing help or promise a change in personality.
+
 ## Famille learning consistency
 
 The 17 Famille consignes use 14 Famille models plus the shared Culture model

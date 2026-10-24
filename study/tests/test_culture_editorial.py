@@ -223,6 +223,31 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("une langue commune", response.position_claire)
         self.assertNotIn("une langue commune", response.conclusion)
 
+    def test_solo_travel_confidence_has_a_worry_action_and_observable_change(self):
+        response = self.response(21)
+        argument = response.arguments[0]
+        self.assertIn("prendre confiance en soi", argument.idea)
+        self.assertIn("attendre qu'un proche règle les problèmes", argument.developpement)
+        self.assertIn("plus capable qu'on ne le pensait", argument.developpement)
+        for phrase in (
+            "première fois et a peur de se perdre",
+            "se trompe de rue",
+            "demande son chemin à un commerçant et retrouve son logement",
+            "Le lendemain, elle ose visiter un autre quartier seule",
+        ):
+            self.assertIn(phrase, argument.exemple)
+        self.assertIn("peut lui donner confiance pour repartir", argument.consequence)
+        self.assertNotIn("train", argument.exemple)
+        cue = self.plans["eo/tache-3/culture-p21"].arguments[0].example
+        for language, before, resolution, after in (
+            ("french", "Inquiète au départ", "après s'être perdue", "ressortir seule le lendemain"),
+            ("english", "Worried at first", "after getting lost", "alone the next day"),
+        ):
+            text = getattr(cue, language)
+            self.assertIn(before, text)
+            self.assertIn(resolution, text)
+            self.assertIn(after, text)
+
     def test_compatriot_support_explains_new_social_ties_without_rewriting_the_example(self):
         argument = self.response(11).arguments[0]
         self.assertEqual(

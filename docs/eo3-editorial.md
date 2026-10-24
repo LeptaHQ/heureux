@@ -413,6 +413,17 @@ the separate cuisine question and its concrete cooking example. The practical
 learning reason has a fresh identity rather than reusing the retired social-
 exchange reason's annotations.
 
+The cultural-discovery-without-travel answer must show what its resources teach,
+not merely name a recipe or describe a family meal. Its cookbook example links
+bouillabaisse to Mediterranean fish and Marseille's fishing history; see the
+[Marseille tourist office's recipe](https://www.marseille-tourisme.com/en/discover-marseille/gastronomy-in-marseille/culinary-specialities-of-marseille/bouillabaisse/)
+and [Britannica's regional account](https://www.britannica.com/topic/bouillabaisse).
+Keep the local workshop's learned steps connected to joining the dance.
+For remote exchanges, develop choosing one's questions and asking for
+clarification, not a claim that documentaries cannot explain customs.
+Reuse that compatible question-and-clarification sentence in the shared-language
+family conversation; keep its intergenerational purpose and example distinct.
+
 The country-without-its-language answer retains observation and translated sources
 as two real routes to knowledge. Its documentary illustration explains a school
 practice and its purpose, rather than merely recounting an individual's

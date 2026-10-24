@@ -2975,8 +2975,11 @@ class BrowserTests(StaticLiveServerTestCase):
 
     def test_culture_followups_keep_unchanged_annotations_after_a_public_example_edit(self):
         self._assert_theme_models_preserve_public_example_edits(
-            set(), 5,
-            groups={f"eo/tache-3/culture-p{number}" for number in (14, 15, 16, 19, 21)},
+            set(), 6,
+            groups={
+                *(f"eo/tache-3/culture-p{number}" for number in (14, 15, 16, 19, 21)),
+                "eo/tache-3/famille-p13",
+            },
         )
 
     def test_selected_culture_subthemes_preserve_unchanged_annotations_after_public_example_edits(self):
@@ -3556,9 +3559,10 @@ class BrowserTests(StaticLiveServerTestCase):
         self._assert_eo3_learning_aids_match_on_detail_and_practice(keys)
 
     def test_culture_followup_learning_aids_match_on_detail_and_practice(self):
-        self._assert_eo3_learning_aids_match_on_detail_and_practice(
-            tuple(f"culture:p{number}" for number in (14, 15, 16, 19, 21)),
-        )
+        self._assert_eo3_learning_aids_match_on_detail_and_practice((
+            *(f"culture:p{number}" for number in (14, 15, 16, 19, 21)),
+            "famille:p13",
+        ))
 
     def test_selected_culture_subthemes_and_equivalents_show_matching_bilingual_learning_aids(self):
         self._assert_eo3_learning_aids_match_on_detail_and_practice((

@@ -15,7 +15,7 @@ REVIEWED_CLAUSES = {
     "culture-p11": "il faut que l'information soit vérifiée",
     "culture-p12": "à condition que le programme et la durée correspondent",
     "culture-p13": "sans que les parents aient à payer des cours privés",
-    "culture-p14": "Il faut qu'on garde en tête",
+    "culture-p14": "sans qu'on ait besoin de voyager",
     "culture-p15": "ils attendent qu'elle soit rentrée",
     "culture-p16": "sans qu'on ait d'amis",
     "culture-p17": "il arrive qu'on ne puisse pas rentrer",

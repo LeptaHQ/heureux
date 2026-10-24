@@ -720,12 +720,11 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertNotIn("autrement", response.arguments[1].developpement)
         self.assertIn("atelier de danse irlandaise dans mon quartier", response.arguments[1].exemple)
         self.assertIn("avec le groupe", response.arguments[1].exemple)
-        self.assertIn("Au bal organisé après l'atelier", response.arguments[1].exemple)
-        self.assertIn("au lieu de rester spectateur", response.arguments[1].exemple)
+        self.assertIn("Je pourrais ensuite danser avec les autres au bal", response.arguments[1].exemple)
         self.assertIn("en la partageant avec d'autres personnes", response.arguments[1].consequence)
         self.assertIn("approfondir sa connaissance d'une culture", response.arguments[2].idea)
-        self.assertIn("poser une question précise", response.arguments[2].developpement)
-        self.assertIn("vérifier ce qu'on a compris", response.arguments[2].developpement)
+        self.assertIn("poser ses propres questions", response.arguments[2].developpement)
+        self.assertIn("demander des précisions", response.arguments[2].developpement)
 
     def test_culture_country_knowledge_has_distinct_material_legal_and_relational_reasons(self):
         model = catalogue.tache_three_models()["eo/tache-3/culture-p26"]
@@ -764,7 +763,9 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p12", 0, "objets mal triés", "objets mal triés", "incorrectly sorted items"),
             ("culture-p13", 1, "tableau", "tableau", "painting"),
             ("culture-p13", 1, "sourient", "sourires", "smiles"),
-            ("culture-p14", 0, "raviolis", "raviolis", "dumplings"),
+            ("culture-p14", 0, "bouillabaisse", "Bouillabaisse", "bouillabaisse"),
+            ("culture-p14", 0, "poissons de Méditerranée", "poissons de Méditerranée", "Mediterranean fish"),
+            ("culture-p14", 0, "pêcheurs marseillais", "pêcheurs", "fishermen"),
             ("culture-p14", 1, "danse irlandaise", "danse irlandaise", "Irish dance"),
             ("culture-p14", 2, "chaussures", "chaussures", "shoes"),
             ("culture-p15", 1, "tomates", "tomates", "tomatoes"),

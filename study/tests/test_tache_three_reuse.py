@@ -38,13 +38,12 @@ class TacheThreeReuseTests(SimpleTestCase):
             self.assertEqual(getattr(comfort, field), getattr(practical, field))
         self.assertEqual(self.cue("famille-p2", 2), self.cue("famille-p16", 1))
 
-    def test_visual_habit_limit_fits_both_remote_questions_and_translated_explanations(self):
-        shared = "Dans une vidéo, on peut voir une habitude sans en comprendre la raison."
+    def test_live_questions_and_translated_explanations_keep_distinct_mechanisms(self):
         conversation = self.response("culture-p14").arguments[2]
         translation = self.response("culture-p19").arguments[1]
-        self.assertTrue(conversation.developpement.startswith(shared))
-        self.assertTrue(translation.developpement.startswith(shared))
-        self.assertIn("poser une question précise", conversation.developpement)
+        self.assertIn("poser ses propres questions", conversation.developpement)
+        self.assertIn("demander des précisions", conversation.developpement)
+        self.assertIn("voir une habitude sans en comprendre la raison", translation.developpement)
         self.assertIn("Avec des sous-titres", translation.developpement)
         self.assertIn("ne parle pas japonais", translation.exemple)
         self.assertNotEqual(
@@ -204,8 +203,8 @@ class TacheThreeReuseTests(SimpleTestCase):
 
     def test_child_language_reuses_precise_questions_and_regular_family_calls(self):
         question = (
-            "Quand on discute avec quelqu'un, on peut lui poser une question précise "
-            "ou vérifier ce qu'on a compris."
+            "On peut poser ses propres questions et demander des précisions "
+            "sur ce qu'on n'a pas compris."
         )
         child = self.response("famille-p13").arguments[1]
         self.assertIn(question, child.developpement)

@@ -70,24 +70,45 @@ class CultureEditorialTests(SimpleTestCase):
     def test_books_and_documentaries_show_cultural_discovery_without_travel(self):
         argument = self.response(14).arguments[0]
         self.assertIn("d'autres cultures sans voyager", argument.idea)
-        self.assertIn("garde en tête qu'une seule famille ne représente pas tout un pays", argument.developpement)
+        self.assertIn("l'histoire d'une tradition", argument.developpement)
+        self.assertIn("les produits d'une région", argument.developpement)
+        self.assertNotIn("ne représente pas tout un pays", argument.developpement)
         self.assertNotIn("croise les sources", argument.developpement)
         for phrase in (
-            "un livre de cuisine", "raviolis pour le Nouvel An lunaire",
-            "Un documentaire", "une famille chinoise", "les préparer et les manger ensemble",
+            "un livre sur la cuisine de Marseille", "comment préparer une bouillabaisse",
+            "une soupe de poissons de Méditerranée", "les pêcheurs marseillais",
+            "préparaient autrefois ce plat pour leur famille",
         ):
             self.assertIn(phrase, argument.exemple)
         self.assertNotIn("roman", argument.exemple)
-        self.assertIn("comprendre le sens d'une tradition", argument.consequence)
+        self.assertNotIn("raviolis", argument.exemple)
+        self.assertIn("des produits de la région et l'histoire d'un plat", argument.consequence)
+        self.assertIn("pas seulement les étapes d'une recette", argument.consequence)
         cue = self.plans["eo/tache-3/culture-p14"].arguments[0].example
-        self.assertIn("Livre de cuisine", cue.french)
-        self.assertIn("cookbook", cue.english)
-        self.assertIn("repas en famille", cue.french)
-        self.assertIn("making and sharing", cue.english)
+        for language, recipe, ingredients, history in (
+            ("french", "Bouillabaisse de Marseille", "poissons de Méditerranée", "les pêcheurs préparaient"),
+            ("english", "Marseille cookbook", "Mediterranean fish", "the fishermen who prepared"),
+        ):
+            text = getattr(cue, language)
+            self.assertIn(recipe, text)
+            self.assertIn(ingredients, text)
+            self.assertIn(history, text)
+
+    def test_local_dance_practice_leads_to_joining_the_dance(self):
+        example = self.response(14).arguments[1].exemple
+        stages = (
+            example.index("L'animateur me montrerait quelques pas"),
+            example.index("je les essaierais avec le groupe"),
+            example.index("Je pourrais ensuite danser avec les autres au bal"),
+        )
+        self.assertEqual(stages, tuple(sorted(stages)))
+        self.assertNotIn("au lieu de rester spectateur", example)
 
     def test_remote_conversation_explains_a_specific_household_custom(self):
         argument = self.response(14).arguments[2]
-        self.assertIn("voir une habitude sans en comprendre la raison", argument.developpement)
+        self.assertIn("point de vue de personnes d'une autre culture", argument.developpement)
+        self.assertIn("poser ses propres questions", argument.developpement)
+        self.assertIn("demander des précisions", argument.developpement)
         for phrase in (
             "Pendant un appel vidéo", "je pourrais demander", "une amie japonaise",
             "pourquoi elle enlève ses chaussures", "sa famille s'assoit parfois au sol",
@@ -476,7 +497,7 @@ class CultureEditorialTests(SimpleTestCase):
     def test_argument_claims_state_the_benefit_or_risk_before_explaining_its_mechanism(self):
         for number, index, claim, explanation, example in (
             (5, 2, "contacts sur place", "Des conseils précis", "relire son CV"),
-            (14, 2, "approfondir sa connaissance", "poser une question précise", "pourquoi elle enlève ses chaussures"),
+            (14, 2, "approfondir sa connaissance", "poser ses propres questions", "pourquoi elle enlève ses chaussures"),
             (26, 2, "éviter des malentendus", "comprendre son comportement", "prévoir leurs visites"),
             (30, 2, "obstacles administratifs", "faire reconnaître un diplôme", "profession est réglementée"),
             (31, 1, "banaliser les comportements agressifs", "l'humiliation peut passer pour une simple plaisanterie", "moquerie"),

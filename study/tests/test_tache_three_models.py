@@ -762,7 +762,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p13", 1, "sourient", "sourires", "smiles"),
             ("culture-p14", 0, "raviolis", "raviolis", "dumplings"),
             ("culture-p14", 1, "danse irlandaise", "danse irlandaise", "Irish dance"),
-            ("culture-p14", 2, "professeurs", "professeurs", "teachers"),
+            ("culture-p14", 2, "chaussures", "chaussures", "shoes"),
             ("culture-p15", 1, "tomates", "tomates", "tomatoes"),
             ("culture-p16", 1, "conjoint", "conjoint", "partner"),
             ("culture-p16", 2, "récolte", "récolte", "harvest"),

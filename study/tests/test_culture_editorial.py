@@ -85,6 +85,31 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("repas en famille", cue.french)
         self.assertIn("making and sharing", cue.english)
 
+    def test_remote_conversation_explains_a_specific_household_custom(self):
+        argument = self.response(14).arguments[2]
+        for phrase in (
+            "Pendant un appel vidéo", "je pourrais demander", "une amie japonaise",
+            "pourquoi elle enlève ses chaussures", "sa famille s'assoit parfois au sol",
+            "le garder propre",
+        ):
+            self.assertIn(phrase, argument.exemple)
+        cue = self.plans["eo/tache-3/culture-p14"].arguments[2].example
+        self.assertIn("Appel vidéo", cue.french)
+        self.assertIn("sa famille", cue.french)
+        self.assertIn("video call", cue.english)
+        self.assertIn("her family sometimes sits on it", cue.english)
+
+    def test_cultural_discovery_nuance_compares_learning_with_firsthand_experience(self):
+        response = self.response(14)
+        self.assertIn("ces moyens ne remplacent pas toutes les expériences", response.nuance)
+        self.assertIn("Un documentaire peut expliquer une fête", response.nuance)
+        self.assertIn("son ambiance dans les rues", response.nuance)
+        self.assertIn("mais ce n'est pas indispensable", response.conclusion)
+        self.assertNotIn("touristes", response.nuance)
+        cue = self.plans["eo/tache-3/culture-p14"].nuance
+        self.assertIn("vivre l'ambiance", cue.french)
+        self.assertIn("atmosphere firsthand", cue.english)
+
     def test_examples_demonstrate_concrete_prompt_faithful_mechanisms(self):
         for number, argument, required in (
             (1, 2, ("à 14 heures", "à midi", "une fois par semaine", "le week-end")),
@@ -345,7 +370,7 @@ class CultureEditorialTests(SimpleTestCase):
     def test_argument_claims_state_the_benefit_or_risk_before_explaining_its_mechanism(self):
         for number, index, claim, explanation, example in (
             (5, 2, "contacts sur place", "Des conseils précis", "relire son CV"),
-            (14, 2, "approfondir sa connaissance", "poser une question précise", "formules de politesse"),
+            (14, 2, "approfondir sa connaissance", "poser une question précise", "pourquoi elle enlève ses chaussures"),
             (26, 2, "éviter des malentendus", "comprendre son comportement", "prévoir leurs visites"),
             (30, 2, "obstacles administratifs", "faire reconnaître un diplôme", "profession est réglementée"),
             (31, 1, "banaliser les comportements agressifs", "peut sembler valorisée", "moquerie"),

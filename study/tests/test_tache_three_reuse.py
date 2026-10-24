@@ -38,6 +38,20 @@ class TacheThreeReuseTests(SimpleTestCase):
             self.assertEqual(getattr(comfort, field), getattr(practical, field))
         self.assertEqual(self.cue("famille-p2", 2), self.cue("famille-p16", 1))
 
+    def test_visual_habit_limit_fits_both_remote_questions_and_translated_explanations(self):
+        shared = "Dans une vidéo, on peut voir une habitude sans en comprendre la raison."
+        conversation = self.response("culture-p14").arguments[2]
+        translation = self.response("culture-p19").arguments[1]
+        self.assertTrue(conversation.developpement.startswith(shared))
+        self.assertTrue(translation.developpement.startswith(shared))
+        self.assertIn("poser une question précise", conversation.developpement)
+        self.assertIn("Avec des sous-titres", translation.developpement)
+        self.assertIn("ne parle pas japonais", translation.exemple)
+        self.assertNotEqual(
+            self.models["eo/tache-3/culture-p14"].source_prompts,
+            self.models["eo/tache-3/culture-p19"].source_prompts,
+        )
+
     def test_shared_cases_and_their_memory_cues_do_not_need_synonym_versions(self):
         for first, first_index, second, second_index in (
             ("culture-p5", 0, "culture-p17", 0),

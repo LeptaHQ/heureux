@@ -414,7 +414,14 @@ learning reason has a fresh identity rather than reusing the retired social-
 exchange reason's annotations.
 
 The country-without-its-language answer retains observation and translated sources
-as two real routes to knowledge. Its third paragraph develops a supported limit:
+as two real routes to knowledge. Its documentary illustration explains a school
+practice and its purpose, rather than merely recounting an individual's
+experience. The Japanese classroom-cleaning example draws on
+[JNTO's explanation of cleaning time](https://education.jnto.go.jp/en/school-in-japan/school-life-in-japan/cleaning-time-at-japanese-schools/):
+responsibility for shared spaces is an educational purpose, not a guarantee about
+every child's behaviour or a claim that all Japanese people act alike. Subtitles
+provide the explanation that watching the action alone would not give.
+Its third paragraph develops a supported limit:
 a translated project does not necessarily make spontaneous local debate accessible.
 The nuance distinguishes understanding words from knowing the local history
 behind an allusion. Do not imply that translations only convey facts or that

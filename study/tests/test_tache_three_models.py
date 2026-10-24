@@ -288,7 +288,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("conseils de l'enseignant", response(13).arguments[2].exemple)
         self.assertIn("demander du papier", response(13).arguments[2].exemple)
         self.assertIn("voire aucune tâche", response(14).nuance)
-        self.assertIn("vérifier le stock", response(14).arguments[2].exemple)
+        self.assertIn("vérifie le stock", response(14).arguments[2].exemple)
         self.assertIn("après 25 ans", response(16).position_claire)
         self.assertIn("sans devoir demander la permission", response(16).arguments[2].exemple)
         self.assertIn("cohabitation durable", response(16).nuance)

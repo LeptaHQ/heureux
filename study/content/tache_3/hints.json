@@ -1996,12 +1996,12 @@
       "arguments": [
         {
           "point": {
-            "french": "Une répartition équitable évite qu'une personne porte seule le travail commun.",
-            "english": "Fair sharing prevents one person carrying all the common work."
+            "french": "Partager les tâches évite qu'une seule personne se fatigue pour tout le monde.",
+            "english": "Sharing chores prevents one person doing all the work while others rest."
           },
           "example": {
-            "french": "Partager cuisine et vaisselle après la journée de travail.",
-            "english": "Share cooking and washing up after the working day."
+            "french": "Après le travail, un parent cuisine, l'autre met la table et fait la vaisselle; tous deux peuvent ensuite se reposer.",
+            "english": "After work, one parent cooks; the other sets the table and washes up, leaving both some time to rest."
           }
         },
         {
@@ -2016,12 +2016,12 @@
         },
         {
           "point": {
-            "french": "Partager l'organisation permet d'éviter les oublis.",
-            "english": "Sharing the planning helps prevent things being forgotten."
+            "french": "Une organisation claire évite les oublis et les disputes sur ce que chacun doit faire.",
+            "english": "Clear responsibilities help prevent forgotten tasks and arguments over who should do them."
           },
           "example": {
-            "french": "Vérifier le stock et acheter les produits avant qu'ils manquent pour ne pas interrompre le ménage.",
-            "english": "Check supplies and buy products before they run out so cleaning need not be interrupted."
+            "french": "L'un vérifie le stock et achète les produits à temps; l'autre peut lancer une lessive sans aller au magasin.",
+            "english": "One partner checks and buys supplies in time; the other can do the laundry without stopping to go shopping."
           }
         }
       ]

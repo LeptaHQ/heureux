@@ -212,6 +212,9 @@ class FamilleEditorialTests(SimpleTestCase):
             (13, 0, ("refusé de jouer avec lui", "sa mère", "langue familiale", "le rassurer", "langue qu'elle maîtrise mal")),
             (13, 1, ("chaque semaine", "ses grands-parents", "ses jeux d'enfance", "les mots qu'il ne comprend pas")),
             (13, 2, ("conseils de l'enseignant", "bibliothèque", "marionnette", "demander du papier", "langue locale")),
+            (14, 0, ("dix-huit heures", "l'un prépare le dîner", "l'autre met la table", "tous les deux un moment pour se reposer")),
+            (14, 1, ("trier le linge", "programme de lavage", "plusieurs essais accompagnés", "prendre en charge une lessive")),
+            (14, 2, ("Dans un couple", "Il vérifie le stock", "les achète avant qu'ils manquent", "laver le linge", "sans interrompre son travail")),
             (16, 0, ("contribution financière", "si la cohabitation coûte moins cher", "la différence")),
         ):
             with self.subTest(response=number, argument=argument + 1):
@@ -237,6 +240,6 @@ class FamilleEditorialTests(SimpleTestCase):
         self.assertIn("sans devoir demander la permission", cohabitation.arguments[2].exemple)
         self.assertIn("financière, pratique et affective", cohabitation.conclusion)
         planning = self.response(14).arguments[2]
-        self.assertIn("les oublis peuvent interrompre", planning.developpement)
+        self.assertIn("chacun peut croire que l'autre va la faire", planning.developpement)
         self.assertIn("avant qu'ils manquent", planning.exemple)
         self.assertIn("sans interrompre son travail", planning.exemple)

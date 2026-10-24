@@ -524,8 +524,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Certains programmes permettent de comprendre des réalités que l'on connaît mal.",
-            "english": "Some programmes help explain unfamiliar realities."
+            "french": "Certains programmes permettent de s'informer et d'apprendre.",
+            "english": "Some programmes let us stay informed and learn."
           },
           "example": {
             "french": "Voir les objets mal triés retirés avant le recyclage aide à comprendre l'importance des consignes locales.",
@@ -538,14 +538,14 @@
             "english": "Television lets us discover films or performances and talk about them with others."
           },
           "example": {
-            "french": "Deux proches qui vivent loin regardent le même film, puis en discutent au téléphone.",
-            "english": "Two loved ones living far apart watch the same film, then discuss it by phone."
+            "french": "Deux sœurs éloignées discutent au téléphone du choix d'un personnage parti travailler à l'étranger.",
+            "english": "Two sisters living apart discuss by phone a film character's decision to work abroad and leave his parents."
           }
         },
         {
           "point": {
-            "french": "Un loisir choisi n'a pas besoin d'être productif pour avoir de la valeur.",
-            "english": "A chosen leisure activity need not be productive to have value."
+            "french": "Se détendre n'est pas forcément perdre son temps.",
+            "english": "Relaxing is not necessarily a waste of time."
           },
           "example": {
             "french": "Après le travail, une personne rit devant une comédie, puis éteint la télévision à la fin de l'épisode.",
@@ -1264,8 +1264,8 @@
             "english": "These programmes can give a misleading image of success."
           },
           "example": {
-            "french": "Comparer son quotidien aux seuls séjours luxueux d'un candidat peut faire croire que sa propre vie est sans intérêt.",
-            "english": "Comparing everyday life with a contestant's luxury trips can make your own life seem uninteresting."
+            "french": "Un lycéen compare ses cours et son petit boulot aux vacances en villa d'un candidat ; sa vie lui paraît décevante.",
+            "english": "A pupil compares school and a weekend job with a contestant's villa holiday and finds their own life disappointing."
           }
         },
         {
@@ -1274,18 +1274,18 @@
             "english": "Some programmes can make aggressive behaviour seem normal."
           },
           "example": {
-            "french": "Reprendre une moquerie pour faire rire peut humilier un camarade et abîmer leur relation.",
-            "english": "Repeating a taunt to make others laugh can humiliate a classmate and damage their relationship."
+            "french": "Un adolescent reprend une moquerie pour faire rire ; le camarade humilié s'éloigne du groupe.",
+            "english": "A teenager repeats a taunt to make others laugh; the humiliated classmate moves away from the group."
           }
         },
         {
           "point": {
-            "french": "Les recommandations des candidats peuvent brouiller la frontière entre conseil et publicité.",
-            "english": "Contestants' recommendations can blur the line between advice and advertising."
+            "french": "Un jeune peut confondre les publicités des candidats avec des conseils personnels.",
+            "english": "A young viewer can mistake contestants' advertising for personal advice."
           },
           "example": {
-            "french": "Acheter des chaussures sur un conseil supposé personnel, puis découvrir un partenariat rémunéré.",
-            "english": "Buy shoes on supposedly personal advice, then discover a paid partnership."
+            "french": "Après avoir acheté les chaussures recommandées, un jeune remarque la mention « partenariat rémunéré ».",
+            "english": "After buying the recommended shoes, a teenager notices the paid partnership disclosure."
           }
         }
       ]

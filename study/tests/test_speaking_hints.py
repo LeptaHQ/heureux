@@ -120,8 +120,8 @@ class SpeakingHintsContentTests(SimpleTestCase):
             self.assertIn("moving abroad is not enough", abroad.english)
             self.assertNotIn("leaving alone", abroad.english)
             film = plans["eo/tache-3/culture-p12"].arguments[1].example
-            self.assertIn("proches qui vivent loin", film.french)
-            self.assertIn("loved ones living far apart", film.english)
+            self.assertIn("sœurs éloignées", film.french)
+            self.assertIn("sisters living apart", film.english)
             self.assertIn("au téléphone", film.french)
             self.assertIn("by phone", film.english)
             self.assertNotIn("relatives", film.english)

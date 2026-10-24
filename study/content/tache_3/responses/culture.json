@@ -345,19 +345,19 @@
       "position_claire": "Non, je ne pense pas que regarder la télévision soit forcément une perte de temps. Elle peut nous apprendre quelque chose, nous faire découvrir un film ou simplement nous détendre. Tout dépend de ce qu'on choisit de regarder et du temps qu'on y passe.",
       "arguments": [
         {
-          "idea": "Tout d'abord, certains programmes permettent de comprendre des réalités que l'on connaît mal.",
-          "developpement": "Les images montrent ce qui se passe, et les témoignages aident à comprendre ce que vivent les personnes concernées. On peut ainsi découvrir un sujet, sans croire qu'un seul reportage explique tout.",
-          "exemple": "Par exemple, un documentaire montre des employés qui retirent des objets mal triés avant le recyclage. On comprend alors à quoi servent les consignes de tri de sa commune.",
+          "idea": "Tout d'abord, certains programmes permettent de s'informer et d'apprendre.",
+          "developpement": "Les images montrent comment une activité se déroule, et les explications aident à comprendre pourquoi on procède ainsi. On peut découvrir le travail de personnes qu'on n'aurait pas l'occasion de rencontrer.",
+          "exemple": "Par exemple, une personne voit dans un documentaire des employés retirer des objets mal triés avant le recyclage. Elle réalise que ses déchets ne sont pas tous recyclés automatiquement et vérifie les consignes de tri de sa commune.",
           "consequence": "Ce qu'on apprend à l'écran peut donc être utile dans la vie quotidienne."
         },
         {
           "idea": "Ensuite, la télévision permet de découvrir des films ou des spectacles et d'en parler avec les autres.",
-          "developpement": "On ne peut pas toujours aller au cinéma ou au spectacle. À la télévision, on peut quand même découvrir des films et des concerts, puis en discuter avec ses proches.",
-          "exemple": "Deux proches qui vivent loin l'un de l'autre regardent le même film. Ils s'appellent ensuite pour parler de la fin et des décisions des personnages, même s'ils ne peuvent pas passer la soirée ensemble.",
+          "developpement": "Un film ou un concert peut donner envie de parler de ce qu'on a aimé ou de ce qui nous a surpris. Ce programme devient alors un sujet de conversation, même quand on ne peut pas le regarder ensemble.",
+          "exemple": "Deux sœurs qui vivent loin l'une de l'autre regardent le même film. Elles s'appellent ensuite pour discuter du personnage qui part travailler à l'étranger en laissant ses parents. Chacune explique ce qu'elle aurait fait à sa place.",
           "consequence": "Ce qu'on regarde peut donc nous rapprocher des autres, pas seulement nous apprendre quelque chose."
         },
         {
-          "idea": "Enfin, un loisir choisi n'a pas besoin d'être productif pour avoir de la valeur.",
+          "idea": "Enfin, se détendre n'est pas forcément perdre son temps.",
           "developpement": "Après une journée chargée, on peut avoir besoin de rire ou de penser à autre chose. Ce moment de détente compte aussi, même si l'on n'apprend rien de nouveau.",
           "exemple": "Une personne regarde un épisode de comédie après le travail. Elle rit, se change les idées, puis éteint la télévision à la fin de l'épisode.",
           "consequence": "Le repos et le plaisir font eux aussi partie d'une journée équilibrée."
@@ -833,29 +833,29 @@
       },
       "reformulation": "Quels risques certaines émissions de télé-réalité présentent-elles pour les jeunes ?",
       "position": "Une influence négative est possible, sans être automatique ni identique pour tous.",
-      "position_claire": "Je pense que certaines émissions de télé-réalité peuvent avoir une mauvaise influence sur les jeunes, surtout lorsqu'elles sont regardées sans recul. Je distinguerais trois risques : une image déformée de la réussite, la mise en spectacle des conflits et la confusion entre divertissement et publicité.",
+      "position_claire": "Je pense que certaines émissions de télé-réalité peuvent nuire aux jeunes. Je vois surtout trois risques : une fausse image de la réussite, l'imitation de comportements blessants et des achats encouragés par la publicité.",
       "arguments": [
         {
           "idea": "Tout d'abord, ces émissions peuvent donner une image trompeuse de la réussite.",
-          "developpement": "Si l'on ne voit que des vêtements coûteux, des voyages et de la célébrité, on peut oublier le travail ou les moyens nécessaires derrière cette image. Le montage ne montre pas toute une vie.",
-          "exemple": "Un adolescent peut comparer son quotidien aux séjours luxueux d'un candidat et avoir l'impression que sa propre vie est sans intérêt. Discuter du montage permet de rappeler qu'il voit des moments choisis, pas l'ensemble de la vie du candidat.",
-          "consequence": "Le risque est moins le plaisir de regarder que la comparaison avec un modèle incomplet."
+          "developpement": "On voit des voyages, de beaux vêtements et des moments de fête, mais beaucoup moins le travail ou les difficultés. Un jeune peut finir par croire qu'être connu et vivre dans le luxe, c'est cela, réussir.",
+          "exemple": "Un lycéen regarde un candidat en vacances dans une villa avec piscine. En comparant ces images à ses cours et à son petit boulot du week-end, il trouve sa propre vie décevante, alors qu'il voit seulement des moments choisis.",
+          "consequence": "Cela peut lui faire sous-estimer la valeur de ses études et de son travail."
         },
         {
           "idea": "Ensuite, certaines émissions peuvent banaliser les comportements agressifs.",
-          "developpement": "Lorsqu'une humiliation reçoit beaucoup d'attention et peu de critique, elle peut sembler valorisée. Le spectateur risque de retenir le succès médiatique du comportement plutôt que ses conséquences pour la personne visée.",
-          "exemple": "Un adolescent peut reprendre devant ses camarades une moquerie répétée dans l'émission, en pensant qu'elle fera rire comme à l'écran. Si la personne visée se sent humiliée, on voit que ce qui sert de spectacle peut abîmer une relation réelle.",
+          "developpement": "Quand un candidat fait rire les autres en se moquant de quelqu'un, l'humiliation peut passer pour une simple plaisanterie. Un jeune peut alors avoir envie d'imiter ce comportement pour faire rire ses amis.",
+          "exemple": "À la pause, un adolescent reprend une moquerie de l'émission pour faire rire ses amis. Mais le camarade visé se sent humilié et s'éloigne du groupe.",
           "consequence": "Ce qui fait le spectacle à l'écran n'est donc pas forcément acceptable dans la vie."
         },
         {
-          "idea": "Enfin, les recommandations des candidats peuvent brouiller la frontière entre conseil et publicité.",
-          "developpement": "À force de suivre un candidat à l'écran, un jeune peut lui faire confiance. Il risque alors de prendre une recommandation rémunérée pour un conseil personnel.",
-          "exemple": "Un adolescent peut commander les chaussures recommandées par un candidat qu'il apprécie, en croyant recevoir un conseil personnel. En découvrant ensuite la mention d'un partenariat rémunéré, il comprend que cette recommandation était aussi une publicité.",
-          "consequence": "Son choix peut donc être influencé par une publicité qu'il n'avait pas reconnue comme telle."
+          "idea": "Enfin, un jeune peut confondre les publicités des candidats avec des conseils personnels.",
+          "developpement": "Un jeune peut continuer à suivre un candidat sur les réseaux sociaux après l'émission. Comme il s'est attaché à lui, il peut faire confiance à ses recommandations sans voir qu'une marque le paie.",
+          "exemple": "Un adolescent commande les chaussures d'un candidat qu'il aime bien parce que celui-ci les présente comme ses préférées. Après l'achat, il remarque la mention « partenariat rémunéré » : la marque avait payé le candidat pour en parler.",
+          "consequence": "Il a donc fait un achat en croyant suivre un avis personnel, sans reconnaître la publicité."
         }
       ],
-      "nuance": "Cependant, toutes les émissions ne reposent pas sur ces mécanismes, et les jeunes peuvent garder un regard critique. Regarder ne conduit pas automatiquement à imiter. Une discussion sur le montage, les comportements et la publicité est plus utile qu'un jugement méprisant sur les spectateurs.",
-      "conclusion": "En conclusion, je vois des risques réels dans certains modèles de réussite, les conflits mis en spectacle et les publicités liées aux émissions. L'essentiel est d'apprendre à les reconnaître pour que chacun puisse garder une distance entre le programme et ses propres choix."
+      "nuance": "Cependant, tous les jeunes ne prennent pas ces émissions au sérieux. On peut les regarder pour se distraire sans vouloir imiter les candidats. Discuter du montage, des comportements et de la publicité aide aussi à garder un regard critique.",
+      "conclusion": "En conclusion, je ne condamnerais pas toutes ces émissions. Mais il faut en discuter pour que les jeunes puissent distinguer le spectacle de leur propre vie, dans leurs projets, leurs relations et leurs achats."
     },
     "culture-p33": {
       "prompt_signatures": {

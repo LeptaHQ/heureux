@@ -31,7 +31,7 @@ REVIEWED_CLAUSES = {
     "culture-p29": "Pour qu'une visite soit possible",
     "culture-p3": "sans que les habitants sachent les utiliser",
     "culture-p30": "à condition que chacun ait envie",
-    "culture-p31": "pour que chacun puisse garder une distance",
+    "culture-p31": "pour que les jeunes puissent distinguer",
     "culture-p33": "Il faut qu'une célébrité puisse être interrogée",
     "culture-p34": "Il faut qu'on juge l'ensemble de la pratique",
     "culture-p35": "sans qu'elle ait à prouver son utilité économique",

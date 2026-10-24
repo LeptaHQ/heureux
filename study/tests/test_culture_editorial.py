@@ -126,7 +126,7 @@ class CultureEditorialTests(SimpleTestCase):
             (24, 1, ("association de quartier", "chacun apporte un plat", "dans la langue du pays", "d'autres rencontres")),
             (26, 2, ("prévoir leurs visites à l'avance", "question d'organisation", "pas un refus de me voir")),
             (30, 2, ("profession est réglementée", "avant d'exercer", "ne remplace ni")),
-            (31, 1, ("moquerie", "humiliée", "relation réelle")),
+            (31, 1, ("moquerie", "camarade visé se sent humilié", "s'éloigne du groupe")),
             (35, 2, ("distribution alimentaire", "La famille comprend", "comme les autres bénévoles, il contribue")),
         ):
             with self.subTest(response=number, argument=argument + 1):
@@ -138,7 +138,8 @@ class CultureEditorialTests(SimpleTestCase):
         response = self.response(12)
         self.assertIn("objets mal triés", response.arguments[0].exemple)
         self.assertIn("consignes de tri de sa commune", response.arguments[0].exemple)
-        self.assertIn("Ils s'appellent ensuite", response.arguments[1].exemple)
+        self.assertIn("Elles s'appellent ensuite", response.arguments[1].exemple)
+        self.assertIn("Chacune explique ce qu'elle aurait fait", response.arguments[1].exemple)
         self.assertIn("même si l'on n'apprend rien de nouveau", response.arguments[2].developpement)
         self.assertIn("éteint la télévision à la fin de l'épisode", response.arguments[2].exemple)
         plan = self.plans["eo/tache-3/culture-p12"]
@@ -146,6 +147,19 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("when the episode ends", plan.arguments[2].example.english)
         self.assertIn("ses proches", plan.nuance.french)
         self.assertIn("loved ones", plan.nuance.english)
+
+    def test_reality_television_shows_distinct_comparison_imitation_and_advertising_risks(self):
+        response = self.response(31)
+        comparison, imitation, advertising = response.arguments
+        self.assertIn("ses cours et à son petit boulot du week-end", comparison.exemple)
+        self.assertIn("moments choisis", comparison.exemple)
+        self.assertIn("s'éloigne du groupe", imitation.exemple)
+        self.assertIn("réseaux sociaux après l'émission", advertising.developpement)
+        self.assertIn("une marque le paie", advertising.developpement)
+        self.assertIn("Après l'achat", advertising.exemple)
+        self.assertIn("partenariat rémunéré", advertising.exemple)
+        self.assertIn("sans reconnaître la publicité", advertising.consequence)
+        self.assertIn("sans vouloir imiter", response.nuance)
 
     def test_school_arts_show_corrected_expression_reasoned_interpretation_and_actual_access(self):
         response = self.response(13)
@@ -410,13 +424,13 @@ class CultureEditorialTests(SimpleTestCase):
         response = self.response(31)
         plan = self.plans["eo/tache-3/culture-p31"]
         self.assertIn("pour faire rire", plan.arguments[1].example.french)
-        self.assertIn("et abîmer leur relation", plan.arguments[1].example.french)
+        self.assertIn("le camarade humilié s'éloigne du groupe", plan.arguments[1].example.french)
         self.assertIn("to make others laugh", plan.arguments[1].example.english)
         self.assertNotIn("instead of", plan.arguments[1].example.english)
         self.assertIn("mis en spectacle", plan.conclusion.french)
         self.assertIn("conflicts turned into entertainment", plan.conclusion.english)
         self.assertNotIn("staged", plan.conclusion.english)
-        self.assertIn("Son choix peut donc être influencé par une publicité", response.arguments[2].consequence)
+        self.assertIn("fait un achat en croyant suivre un avis personnel", response.arguments[2].consequence)
         self.assertNotIn("Le regard critique doit", response.arguments[2].consequence)
 
     def test_celebrity_experience_and_scrutiny_explain_concrete_contributions(self):
@@ -433,7 +447,7 @@ class CultureEditorialTests(SimpleTestCase):
             (14, 2, "approfondir sa connaissance", "poser une question précise", "pourquoi elle enlève ses chaussures"),
             (26, 2, "éviter des malentendus", "comprendre son comportement", "prévoir leurs visites"),
             (30, 2, "obstacles administratifs", "faire reconnaître un diplôme", "profession est réglementée"),
-            (31, 1, "banaliser les comportements agressifs", "peut sembler valorisée", "moquerie"),
+            (31, 1, "banaliser les comportements agressifs", "l'humiliation peut passer pour une simple plaisanterie", "moquerie"),
             (33, 1, "mobiliser le public", "informations vérifiées", "réunion publique"),
         ):
             with self.subTest(response=number, argument=index + 1):

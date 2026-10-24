@@ -14,7 +14,7 @@ REVIEWED_CLAUSES = {
     "culture-p10": "n'exige pas que chaque pratique soit reproduite",
     "culture-p11": "il faut que l'information soit vérifiée",
     "culture-p12": "à condition que le programme et la durée correspondent",
-    "culture-p13": "sans qu'on attende d'eux une carrière artistique",
+    "culture-p13": "sans que les parents aient à payer des cours privés",
     "culture-p14": "Il faut qu'on garde en tête",
     "culture-p15": "ils attendent qu'elle soit rentrée",
     "culture-p16": "sans qu'on ait d'amis",

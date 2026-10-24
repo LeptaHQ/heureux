@@ -373,29 +373,29 @@
       },
       "reformulation": "Les matières culturelles doivent-elles garder une place à l'école ?",
       "position": "Les matières culturelles ont leur place à l'école et participent à une éducation complète et accessible.",
-      "position_claire": "Je pense que la musique, le dessin et le théâtre doivent garder leur place à l'école. Ces matières complètent les apprentissages fondamentaux : elles aident les élèves à s'exprimer, à observer les œuvres et à découvrir la culture, quel que soit le budget de leur famille.",
+      "position_claire": "À mon avis, supprimer les matières culturelles de l'école serait une erreur. Elles aident les élèves à s'exprimer, à réfléchir à ce qu'ils observent et à découvrir des activités que leur famille ne peut pas toujours leur proposer.",
       "arguments": [
         {
-          "idea": "Tout d'abord, les pratiques artistiques permettent d'apprendre à s'exprimer autrement.",
-          "developpement": "Dans une scène de théâtre ou un dessin, il faut trouver comment faire passer une idée ou une émotion. On essaie, on voit ce que les autres comprennent, puis on ajuste sa façon de faire.",
-          "exemple": "Lors d'une répétition, un élève peut parler si vite que son partenaire manque sa réplique. En reprenant la scène plus lentement et en écoutant la réponse, il rend le dialogue compréhensible pour ses camarades.",
-          "consequence": "L'élève apprend donc à adapter sa manière de s'exprimer pour être mieux compris."
+          "idea": "Tout d'abord, les pratiques artistiques aident les élèves à mieux s'exprimer.",
+          "developpement": "Au théâtre, il ne suffit pas de connaître son texte : il faut aussi se faire comprendre. Les répétitions permettent d'essayer, d'être corrigé et de recommencer.",
+          "exemple": "Lors d'une répétition, un élève parle trop vite et ses camarades ne comprennent pas son texte. Le professeur lui fait ralentir et marquer des pauses. Quand il reprend la scène, ils arrivent à suivre le dialogue.",
+          "consequence": "Il s'entraîne donc à parler devant les autres et à se faire comprendre."
         },
         {
-          "idea": "Ensuite, étudier des œuvres apprend à observer et à justifier un point de vue.",
-          "developpement": "Il ne suffit pas de dire qu'une œuvre nous plaît. Avec l'aide du professeur, les élèves apprennent à expliquer ce qu'ils remarquent et à écouter une autre interprétation.",
-          "exemple": "Devant un tableau représentant un repas de famille, un élève décrit une scène joyeuse en montrant les personnages qui sourient. Un autre remarque une personne assise à l'écart et y voit de la solitude. Ils justifient ainsi deux impressions différentes à partir de détails visibles.",
-          "consequence": "Ce travail peut aussi les aider à réfléchir aux images qu'ils voient en dehors de l'école."
+          "idea": "Ensuite, ces cours apprennent à expliquer un avis en s'appuyant sur ce qu'on observe.",
+          "developpement": "On peut avoir des impressions différentes devant la même peinture. Le professeur demande alors à chacun de montrer les détails qui expliquent son avis. On apprend à défendre une idée sans écarter celle des autres.",
+          "exemple": "Devant un tableau représentant un repas de famille, un élève décrit une scène joyeuse en montrant les personnages qui sourient. Un autre remarque une personne assise à l'écart et y voit de la solitude.",
+          "consequence": "On peut donc avoir des avis différents et en discuter avec des arguments."
         },
         {
           "idea": "Enfin, l'école peut rendre les activités culturelles accessibles aux enfants de tous les milieux.",
-          "developpement": "Les cours privés et les sorties culturelles ne sont pas à la portée de toutes les familles. L'école peut faire découvrir ces activités à des enfants qui n'y auraient pas accès autrement.",
-          "exemple": "Un enfant dont la famille ne peut pas acheter un instrument peut essayer la musique dans un atelier à l'école, avec du matériel partagé. Il découvre ainsi une activité qu'il n'aurait peut-être pas pu pratiquer ailleurs.",
-          "consequence": "L'école élargit donc leurs possibilités, sans qu'on attende d'eux une carrière artistique."
+          "developpement": "Toutes les familles ne peuvent pas payer des cours de musique ou acheter un instrument. L'école peut proposer ces activités sans que les parents aient à payer des cours privés.",
+          "exemple": "Un enfant dont les parents ne peuvent pas payer de cours privés essaie un clavier mis à disposition par l'école. Pendant le trimestre, il apprend une courte mélodie et la joue au concert de la classe.",
+          "consequence": "L'accès à cette activité dépend donc moins du budget de la famille."
         }
       ],
-      "nuance": "Bien sûr, le temps et les moyens sont limités à l'école. Il faut des activités adaptées à l'âge des élèves et des enseignants pour les accompagner, sans négliger la lecture ou le calcul. Cela demande de bien organiser les cours, pas de supprimer les arts.",
-      "conclusion": "En conclusion, les matières culturelles méritent leur place à l'école pour l'expression, l'observation et l'égalité d'accès. Une éducation complète peut associer ces apprentissages aux matières fondamentales, au lieu de les opposer systématiquement."
+      "nuance": "Bien sûr, l'école doit aussi donner assez de temps à la lecture et au calcul. Les arts demandent du matériel et des enseignants formés. Il faut donc organiser les cours selon les moyens disponibles, pas les supprimer.",
+      "conclusion": "En conclusion, je garderais ces matières à l'école pour l'expression, la réflexion et l'accès aux arts. Il ne s'agit pas de former uniquement des artistes, mais de donner à tous une éducation plus complète."
     },
     "culture-p14": {
       "prompt_signatures": {

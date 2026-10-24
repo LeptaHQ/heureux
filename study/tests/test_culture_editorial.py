@@ -147,6 +147,21 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("ses proches", plan.nuance.french)
         self.assertIn("loved ones", plan.nuance.english)
 
+    def test_school_arts_show_corrected_expression_reasoned_interpretation_and_actual_access(self):
+        response = self.response(13)
+        expression, observation, access = response.arguments
+        self.assertIn("d'essayer, d'être corrigé et de recommencer", expression.developpement)
+        self.assertIn("marquer des pauses", expression.exemple)
+        self.assertIn("ils arrivent à suivre le dialogue", expression.exemple)
+        self.assertIn("montrer les détails qui expliquent son avis", observation.developpement)
+        for phrase in ("tableau", "sourient", "personne assise à l'écart"):
+            self.assertIn(phrase, observation.exemple)
+        for phrase in ("ne peuvent pas payer", "clavier", "Pendant le trimestre", "la joue au concert"):
+            self.assertIn(phrase, access.exemple)
+        self.assertIn("moins du budget de la famille", access.consequence)
+        self.assertIn("lecture et au calcul", response.nuance)
+        self.assertIn("pas les supprimer", response.nuance)
+
     def test_cuisine_explains_mealtimes_and_accessible_learning_not_just_conversation(self):
         model = self.models["eo/tache-3/culture-p15"]
         response = model.response

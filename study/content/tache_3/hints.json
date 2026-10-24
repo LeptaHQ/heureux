@@ -556,32 +556,32 @@
     },
     "culture-p13": {
       "introduction": {
-        "french": "Les matières culturelles complètent les apprentissages fondamentaux à l'école.",
-        "english": "Cultural subjects complement fundamental learning at school."
+        "french": "Ne pas supprimer ces matières : expression, réflexion et accès aux arts.",
+        "english": "Keep these subjects at school: expression, reflection and access to activities families cannot always provide."
       },
       "nuance": {
-        "french": "Organiser le temps et les moyens, sans opposer systématiquement arts et fondamentaux.",
-        "english": "Organise time and resources without automatically opposing arts and core subjects."
+        "french": "Prévoir du matériel et des enseignants, sans négliger la lecture et le calcul.",
+        "english": "Provide equipment and teachers without neglecting reading and maths."
       },
       "conclusion": {
-        "french": "Ces matières ont leur place à l'école pour l'expression, la compréhension des œuvres et l'égalité d'accès.",
+        "french": "Une éducation complète, pas seulement la formation de futurs artistes.",
         "english": "Arts lessons help pupils express themselves, interpret art and discover culture whatever their family's income."
       },
       "arguments": [
         {
           "point": {
-            "french": "Les pratiques artistiques permettent d'apprendre à s'exprimer autrement.",
-            "english": "Artistic practice teaches other ways of expressing oneself."
+            "french": "Les pratiques artistiques aident les élèves à mieux s'exprimer.",
+            "english": "Artistic practice helps pupils express themselves more clearly."
           },
           "example": {
-            "french": "Un élève reprend plus lentement une scène pour que son partenaire puisse répondre.",
-            "english": "A pupil rehearses a scene more slowly so their partner can respond."
+            "french": "Un élève parle trop vite ; après les conseils du professeur, ses camarades arrivent à suivre la scène.",
+            "english": "A pupil speaks too fast; after the teacher's guidance, classmates can follow the scene."
           }
         },
         {
           "point": {
-            "french": "Étudier des œuvres apprend à observer et à justifier un point de vue.",
-            "english": "Studying works teaches observation and reasoned viewpoints."
+            "french": "Ces cours apprennent à expliquer un avis en s'appuyant sur ce qu'on observe.",
+            "english": "These lessons teach pupils to support an opinion with what they observe."
           },
           "example": {
             "french": "Dans un tableau, s'appuyer sur les sourires ou sur un personnage à l'écart pour justifier son impression.",
@@ -594,8 +594,8 @@
             "english": "School can make cultural activities accessible to children from all backgrounds."
           },
           "example": {
-            "french": "Du matériel partagé permet une initiation musicale sans cours privés.",
-            "english": "Shared equipment enables musical discovery without private lessons."
+            "french": "Sans cours privés, un enfant apprend une mélodie sur un clavier de l'école et la joue en concert.",
+            "english": "Unable to afford private lessons, a child learns a melody on a school keyboard and plays it at the class concert."
           }
         }
       ]

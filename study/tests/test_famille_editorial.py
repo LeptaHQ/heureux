@@ -215,7 +215,8 @@ class FamilleEditorialTests(SimpleTestCase):
             (14, 0, ("dix-huit heures", "l'un prépare le dîner", "l'autre met la table", "tous les deux un moment pour se reposer")),
             (14, 1, ("trier le linge", "programme de lavage", "plusieurs essais accompagnés", "prendre en charge une lessive")),
             (14, 2, ("Dans un couple", "Il vérifie le stock", "les achète avant qu'ils manquent", "laver le linge", "sans interrompre son travail")),
-            (16, 0, ("contribution financière", "si la cohabitation coûte moins cher", "la différence")),
+            (16, 0, ("vingt-sept ans", "neuf cents euros par mois avec les charges", "contribution financière de trois cents euros", "six cents euros économisés", "payer ses cours")),
+            (16, 2, ("Après une séparation", "se sent seule le soir", "des repas partagés", "quelqu'un avec qui parler", "sans devoir demander la permission")),
         ):
             with self.subTest(response=number, argument=argument + 1):
                 for phrase in required:
@@ -235,7 +236,7 @@ class FamilleEditorialTests(SimpleTestCase):
     def test_post_25_support_and_household_planning_are_actual_benefits(self):
         cohabitation = self.response(16)
         self.assertIn("cadre familier", cohabitation.arguments[2].idea)
-        self.assertIn("personnes avec qui parler", cohabitation.arguments[2].developpement)
+        self.assertIn("ne pas rester seul avec ses soucis", cohabitation.arguments[2].developpement)
         self.assertIn("Après une séparation", cohabitation.arguments[2].exemple)
         self.assertIn("sans devoir demander la permission", cohabitation.arguments[2].exemple)
         self.assertIn("financière, pratique et affective", cohabitation.conclusion)

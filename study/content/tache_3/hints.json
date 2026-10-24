@@ -1430,36 +1430,36 @@
     },
     "famille-p1": {
       "introduction": {
-        "french": "Préférer un accès progressif et accompagné aux réseaux sociaux.",
-        "english": "Prefer gradual, supported access to social media."
+        "french": "Garder ses amis grâce aux réseaux sociaux, avec des limites de temps et un adulte disponible.",
+        "english": "Keep friendships through social media, with time limits and an adult available for support."
       },
       "nuance": {
         "french": "Respecter l'âge et les règles d'accès, sans lire systématiquement les messages privés.",
         "english": "Respect age and access rules without routinely reading every private message."
       },
       "conclusion": {
-        "french": "Protéger, organiser et accompagner plutôt que tout permettre.",
-        "english": "Protect, organize and support rather than allow everything."
+        "french": "Garder le contact, préserver son repos et savoir demander de l'aide.",
+        "english": "Keep in touch, preserve rest and know how to seek help."
       },
       "arguments": [
         {
           "point": {
-            "french": "L'accompagnement permet de comprendre ce que l'on expose aux autres.",
-            "english": "Guidance helps children understand what they reveal to others."
+            "french": "Les réseaux sociaux peuvent aider un adolescent à entretenir ses amitiés.",
+            "english": "Social media can help a teenager maintain friendships."
           },
           "example": {
-            "french": "Vérifier une photo et ses destinataires avant de publier.",
-            "english": "Check a photo and its audience before posting."
+            "french": "Après un changement de collège, un groupe privé permet de prévoir une sortie avec ses anciens camarades.",
+            "english": "After changing schools, a teenager uses a private group to keep in touch and arrange an outing with old classmates."
           }
         },
         {
           "point": {
-            "french": "Des limites claires aident à préserver la place des autres activités.",
-            "english": "Clear boundaries preserve time for other activities."
+            "french": "Des limites sont nécessaires pour préserver le sommeil et la concentration.",
+            "english": "Boundaries are needed to protect sleep and concentration."
           },
           "example": {
-            "french": "Laisser les téléphones hors de la chambre la nuit.",
-            "english": "Leave phones outside the bedroom at night."
+            "french": "Des messages jusqu'à minuit ; laisser le téléphone hors de la chambre la nuit.",
+            "english": "Messages continue until midnight; agree to turn off notifications and leave the phone outside the bedroom."
           }
         },
         {

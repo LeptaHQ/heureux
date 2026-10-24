@@ -9,18 +9,19 @@
       },
       "reformulation": "À quelles conditions les parents devraient-ils autoriser les réseaux sociaux ?",
       "position": "L'accès doit être progressif et accompagné, pas automatique.",
-      "position_claire": "Je ne donnerais pas un accès libre aux réseaux sociaux à tous les enfants. Mais une interdiction permanente ne prépare pas non plus à les utiliser. Je préfère un apprentissage progressif, adapté à l'âge et à la maturité, avec des précautions concrètes et un dialogue régulier.",
+      "position_claire": "Oui, les parents peuvent laisser un adolescent utiliser les réseaux sociaux, mais avec un accès progressif et accompagné. Ces outils peuvent l'aider à garder ses amis. Il faut toutefois préserver son sommeil et lui apprendre à demander de l'aide en cas de problème.",
+      "argument_ids": [4, 2, 3],
       "arguments": [
         {
-          "idea": "Tout d'abord, l'accompagnement permet de comprendre ce que l'on expose aux autres.",
-          "developpement": "Un enfant peut vouloir partager une photo sans penser aux renseignements qu'elle révèle. Il faut lui montrer comment choisir ses destinataires et pourquoi certaines informations doivent rester privées.",
-          "exemple": "Avant une publication, un parent et son adolescent peuvent regarder si la photo montre l'adresse de leur logement. Ils décident ensemble de la modifier ou de ne pas la publier, puis vérifient à qui le contenu sera accessible.",
-          "consequence": "La précaution devient une décision comprise, plutôt qu'une interdiction sans explication."
+          "idea": "Tout d'abord, les réseaux sociaux peuvent aider un adolescent à entretenir ses amitiés.",
+          "developpement": "Les échanges entre amis ne s'arrêtent pas à la sortie de l'école. Participer à certaines conversations permet de garder le contact et d'organiser des activités ensemble.",
+          "exemple": "Un adolescent qui change de collège peut garder contact avec ses anciens camarades dans un groupe privé. Ils y donnent de leurs nouvelles et prévoient une sortie le week-end, ce qui leur permet de se revoir.",
+          "consequence": "Ces échanges entretiennent le lien, même quand les rencontres sont moins fréquentes."
         },
         {
-          "idea": "Ensuite, des limites claires aident à préserver la place des autres activités.",
-          "developpement": "Les messages peuvent continuer à arriver alors qu'on voudrait dormir ou travailler. Définir des moments sans notifications évite de devoir renégocier chaque interruption au milieu d'une autre activité.",
-          "exemple": "Une famille peut convenir de laisser les téléphones hors de la chambre pendant la nuit. Si un message arrive tard, l'adolescent sait qu'il pourra répondre le lendemain, au lieu de rester disponible pour le groupe à toute heure.",
+          "idea": "Ensuite, des limites sont nécessaires pour préserver le sommeil et la concentration.",
+          "developpement": "Les messages peuvent donner l'impression qu'il faut répondre immédiatement. Si les échanges continuent pendant les devoirs ou tard le soir, ils prennent du temps sur le travail ou le sommeil.",
+          "exemple": "Un adolescent reste sur le groupe de ses amis jusqu'à minuit alors qu'il a cours le lendemain. Avec ses parents, il convient de couper les notifications et de laisser son téléphone hors de sa chambre la nuit.",
           "consequence": "L'adolescent peut ainsi se reposer sans devoir répondre aux messages pendant la nuit."
         },
         {
@@ -31,7 +32,7 @@
         }
       ],
       "nuance": "Cependant, les plateformes ne conviennent pas à tous les âges, et leurs conditions d'accès doivent être respectées. Pour un enfant trop jeune ou pas encore prêt, attendre reste raisonnable. Accompagner ne signifie ni tout autoriser ni lire systématiquement tous les messages privés.",
-      "conclusion": "En conclusion, je défends un accès progressif plutôt qu'un droit automatique. Protéger les informations, fixer des limites et savoir demander de l'aide permettent de construire un usage plus responsable, sans promettre un environnement sans risque."
+      "conclusion": "En conclusion, je suis pour un accès progressif, pas pour une liberté sans limites. Les réseaux sociaux peuvent aider à garder des liens, à condition de préserver le repos et de savoir demander de l'aide."
     },
     "famille-p2": {
       "prompt_signatures": {

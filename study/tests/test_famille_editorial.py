@@ -93,7 +93,10 @@ class FamilleEditorialTests(SimpleTestCase):
                 self.assertLessEqual(sum(len(cue.french.split()) for cue in cues), 140)
                 self.assertEqual(
                     model.argument_ids,
-                    (1, 4, 5) if model.group == "eo/tache-3/culture-p16" else (1, 2, 3),
+                    {
+                        "eo/tache-3/culture-p16": (1, 4, 5),
+                        "eo/tache-3/famille-p1": (4, 2, 3),
+                    }.get(model.group, (1, 2, 3)),
                 )
 
     def test_consequences_explain_results_instead_of_adding_fresh_advice(self):
@@ -135,6 +138,22 @@ class FamilleEditorialTests(SimpleTestCase):
             ("famille:p9", "famille:p10"),
         ):
             self.assertNotEqual(groups[first], groups[second])
+
+    def test_social_media_permission_has_a_supported_benefit_not_only_access_rules(self):
+        response = self.response(1)
+        self.assertTrue(response.position_claire.startswith("Oui, "))
+        friendship, rest, safety = response.arguments
+        for phrase in ("change de collège", "anciens camarades", "groupe privé", "une sortie"):
+            self.assertIn(phrase, friendship.exemple)
+        self.assertIn("entretenir ses amitiés", friendship.idea)
+        self.assertIn("le sommeil et la concentration", rest.idea)
+        self.assertIn("jusqu'à minuit", rest.exemple)
+        self.assertIn("couper les notifications", rest.exemple)
+        self.assertIn("peur d'être puni", safety.developpement)
+        self.assertIn("un adulte de confiance", safety.exemple)
+        self.assertIn("bloquent le contact et signalent le message", safety.exemple)
+        self.assertIn("conditions d'accès", response.nuance)
+        self.assertIn("ni lire systématiquement tous les messages privés", response.nuance)
 
     def test_household_reuse_does_not_force_friendship_necessity_arguments(self):
         comfort = self.response(2).arguments[2]

@@ -118,8 +118,8 @@ class CultureEditorialTests(SimpleTestCase):
             (6, 0, ("un essai", "la voiture en ville", "la pollution", "sans transports en commun", "interdiction totale")),
             (11, 0, ("sa solitude en français", "une amie de son pays qui parle sa langue", "le dimanche ensemble")),
             (11, 1, ("Une infirmière", "compatriote", "fait reconnaître son diplôme", "quels documents", "à quel organisme")),
-            (15, 1, ("sa grand-mère", "sécher des tomates", "conserver jusqu'en hiver", "jardin n'en donnait plus")),
-            (15, 2, ("En préparant un repas de quartier", "voisins d'origines différentes", "épices", "habitudes de l'autre")),
+            (15, 1, ("sa grand-mère", "sécher les tomates du jardin", "en manger en hiver", "ce n'était plus la saison")),
+            (15, 2, ("atelier de cuisine mexicaine", "comprend encore mal le français", "former une tortilla", "réussit à refaire ce geste")),
             (19, 1, ("une heure de marche", "dix minutes en bus", "sans généraliser ces deux expériences")),
             (19, 2, ("en français", "une ancienne usine", "devenue un lieu culturel", "poser des questions")),
             (20, 1, ("sans passer par un texte",)),
@@ -146,6 +146,29 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("when the episode ends", plan.arguments[2].example.english)
         self.assertIn("ses proches", plan.nuance.french)
         self.assertIn("loved ones", plan.nuance.english)
+
+    def test_cuisine_explains_mealtimes_and_accessible_learning_not_just_conversation(self):
+        model = self.models["eo/tache-3/culture-p15"]
+        response = model.response
+        plan = self.plans["eo/tache-3/culture-p15"]
+        self.assertEqual(model.argument_ids, (1, 2, 4))
+        self.assertIn("Les heures des repas", response.arguments[0].developpement)
+        self.assertIn("vingt et une heures", response.arguments[0].exemple)
+        self.assertIn("sa femme finit tard", response.arguments[0].exemple)
+        self.assertIn("leur envie de se retrouver", response.arguments[0].consequence)
+        self.assertNotIn("En observant et en posant des questions", response.arguments[0].developpement)
+        self.assertIn("l'histoire d'un lieu", response.arguments[1].idea)
+        self.assertIn("par la pratique, même avec peu de mots", response.arguments[2].idea)
+        self.assertIn("avant de pouvoir en discuter facilement", response.arguments[2].consequence)
+        self.assertIn("en cuisinant soi-même", response.position_claire)
+        self.assertIn("en cuisinant soi-même", response.conclusion)
+        self.assertIn("ne représente pas tout un pays", response.nuance)
+        for language, time, activity in (
+            ("french", "vingt et une heures", "tortilla"),
+            ("english", "at nine", "tortilla"),
+        ):
+            self.assertIn(time, getattr(plan.arguments[0].example, language))
+            self.assertIn(activity, getattr(plan.arguments[2].example, language))
 
     def test_compatriot_support_explains_new_social_ties_without_rewriting_the_example(self):
         argument = self.response(11).arguments[0]
@@ -523,7 +546,7 @@ class CultureEditorialTests(SimpleTestCase):
         cooking = self.plans["eo/tache-3/culture-p15"].introduction.english
         self.assertIn("mealtime customs", cooking)
         self.assertIn("history of recipes", cooking)
-        self.assertIn("get to know each other", cooking)
+        self.assertIn("skills to learn through practice", cooking)
         celebrity = self.plans["eo/tache-3/culture-p33"].nuance.english
         self.assertIn("extra media attention", celebrity)
         self.assertIn("competence by fame alone", celebrity)

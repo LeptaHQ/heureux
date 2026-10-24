@@ -16,7 +16,7 @@ REVIEWED_CLAUSES = {
     "culture-p12": "à condition que le programme et la durée correspondent",
     "culture-p13": "sans qu'on attende d'eux une carrière artistique",
     "culture-p14": "Il faut qu'on garde en tête",
-    "culture-p15": "ils attendent que tout le monde soit assis",
+    "culture-p15": "ils attendent qu'elle soit rentrée",
     "culture-p16": "sans qu'on ait d'amis",
     "culture-p17": "il arrive qu'on ne puisse pas rentrer",
     "culture-p18": "je trouve dommage qu'on s'envoie moins de lettres",

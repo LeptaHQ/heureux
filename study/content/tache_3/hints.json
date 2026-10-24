@@ -648,16 +648,16 @@
     },
     "culture-p15": {
       "introduction": {
-        "french": "La cuisine fait découvrir les habitudes à table et l'histoire des recettes, et facilite les rencontres.",
-        "english": "Cooking reveals mealtime customs and the history of recipes, and helps people get to know each other."
+        "french": "La cuisine fait découvrir les habitudes à table, l'histoire des recettes et des gestes à pratiquer soi-même.",
+        "english": "Cooking reveals mealtime customs and the history of recipes, and offers skills to learn through practice."
       },
       "nuance": {
         "french": "Un plat ou un restaurant ne représente ni tout un pays ni toutes ses familles.",
         "english": "A dish or restaurant represents neither an entire country nor all its families."
       },
       "conclusion": {
-        "french": "Découvrir les personnes et les contextes derrière les plats.",
-        "english": "Discover the people and contexts behind dishes."
+        "french": "Les repas, les recettes et la pratique font découvrir une culture, sans la résumer.",
+        "english": "Meals, recipes and hands-on practice reveal part of a culture, not all of it."
       },
       "arguments": [
         {
@@ -666,14 +666,14 @@
             "english": "Meals help people understand everyday customs."
           },
           "example": {
-            "french": "Un hôte explique pourquoi sa famille attend que tout le monde soit assis avant de manger.",
-            "english": "A host explains why the family waits until everyone is seated before eating."
+            "french": "Une famille dîne à vingt et une heures : l'hôte attend sa femme qui finit tard.",
+            "english": "A family eats at nine because the host waits for his wife to return from work."
           }
         },
         {
           "point": {
-            "french": "Les recettes peuvent raconter l'histoire d'un lieu et de ses savoir-faire.",
-            "english": "Recipes can tell the history of a place and its practical knowledge."
+            "french": "Les recettes peuvent raconter l'histoire d'un lieu.",
+            "english": "Recipes can tell us about a place's past."
           },
           "example": {
             "french": "Dans un atelier, découvrir comment une grand-mère faisait sécher les tomates pour l'hiver.",
@@ -682,12 +682,12 @@
         },
         {
           "point": {
-            "french": "Cuisiner ensemble peut faciliter les échanges entre cultures.",
-            "english": "Cooking together can help people from different cultures talk to each other."
+            "french": "La cuisine permet de découvrir une culture par la pratique, même avec peu de mots.",
+            "english": "Cooking offers hands-on cultural discovery, even with few words."
           },
           "example": {
-            "french": "En cuisinant du riz, deux voisins échangent sur leurs recettes et leurs habitudes familiales.",
-            "english": "Two neighbours cook rice together and discuss their recipes and family customs."
+            "french": "Dans un atelier mexicain, former une tortilla en suivant les gestes de l'animatrice, malgré un français limité.",
+            "english": "At a Mexican cooking workshop, learn to shape a tortilla by copying the instructor's movements despite limited French."
           }
         }
       ]

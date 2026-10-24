@@ -203,3 +203,17 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("ses grands-parents", child.exemple)
         self.assertIn("sa sœur", self.response("culture-p27").arguments[2].exemple)
         self.assertIn("bilinguisme parfait n'est pas garanti", self.response("famille-p13").nuance)
+
+    def test_cuisine_and_local_workshops_share_guided_practice_not_their_positions(self):
+        practice = (
+            "En y participant, on apprend les gestes en les faisant soi-même, "
+            "avec quelqu'un pour nous guider."
+        )
+        self.assertIn(practice, self.response("culture-p14").arguments[1].developpement)
+        self.assertIn(practice, self.response("culture-p15").arguments[2].developpement)
+        self.assertIn("danse irlandaise", self.response("culture-p14").arguments[1].exemple)
+        self.assertIn("cuisine mexicaine", self.response("culture-p15").arguments[2].exemple)
+        self.assertNotEqual(
+            self.models["eo/tache-3/culture-p14"].source_prompts,
+            self.models["eo/tache-3/culture-p15"].source_prompts,
+        )

@@ -375,6 +375,15 @@ versus forgetting in the nuance, rather than making that distinction a whole
 main argument. Regular contact can maintain or restore knowledge without making
 cultural continuity either inevitable or solely a matter of willpower.
 
+The cuisine answer distinguishes mealtime customs, recipes as traces of the past,
+and practical cultural learning despite limited shared language. Explain what
+meal times reveal rather than adding generic instructions to observe and ask.
+A family's late dinner illustrates its own routine, not a national rule.
+Guided practice shares a sentence with the local-workshop answer, while retaining
+the separate cuisine question and its concrete cooking example. The practical
+learning reason has a fresh identity rather than reusing the retired social-
+exchange reason's annotations.
+
 ## Famille learning consistency
 
 The 17 Famille consignes use 14 Famille models plus the shared Culture model

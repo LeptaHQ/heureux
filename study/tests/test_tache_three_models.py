@@ -260,7 +260,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
         models = catalogue.tache_three_models()
         response = lambda key: models[f"eo/tache-3/famille-p{key}"].response
         self.assertIn("conditions d'accès", response(1).nuance)
-        self.assertIn("adresse", response(1).arguments[0].exemple)
+        self.assertIn("change de collège", response(1).arguments[0].exemple)
+        self.assertIn("anciens camarades", response(1).arguments[0].exemple)
         self.assertIn("harcèlement", response(1).arguments[2].developpement)
         self.assertIn("canadiens", response(2).reformulation)
         self.assertIn("cohabitation durable", response(2).nuance)

@@ -22,7 +22,7 @@ REVIEWED_CLAUSES = {
     "culture-p18": "je trouve dommage qu'on s'envoie moins de lettres",
     "culture-p19": "sans qu'un interprète ait à tout nous expliquer",
     "culture-p2": "Il faut alors qu'on discute du comportement observé",
-    "culture-p20": "à condition que l'auditeur prenne le temps",
+    "culture-p20": "je ne pense pas qu'elle soit indispensable",
     "culture-p21": "sans attendre qu'un compagnon décide",
     "culture-p24": "pour qu'une relation se construise",
     "culture-p25": "sans qu'un gain financier soit nécessaire",
@@ -153,11 +153,11 @@ class TacheThreeSubjunctiveTests(SimpleTestCase):
             with self.subTest(group=group):
                 self.assertIn(clause, spoken_text(models['eo/tache-3/' + group].response))
 
-    def test_protected_book_model_and_plan_remain_verbatim(self):
+    def test_user_reviewed_book_model_and_plan_remain_verbatim(self):
         directory = Path(__file__).resolve().parents[1] / 'content' / 'tache_3'
         for filename, expected in (
-            ('responses/culture.json', 'c01c6069fe9302d6a8abe2c8c543e757a32104957d8b958d9da6edf9ca7be58e'),
-            ('hints.json', '5e2f11e171028382a01bd8da1ac6d24277954d9a8c82af9c43d7ac941b7442d7'),
+            ('responses/culture.json', '46547c5fdc997d68d8d44bc820aac5c05afed43ae40115d2b5fa570ada103fde'),
+            ('hints.json', '93aec858dade118af00b03aa41044c73a405a341a2bc3e9578d2227f7b03f95c'),
         ):
             with self.subTest(file=filename):
                 text = (directory / filename).read_text()

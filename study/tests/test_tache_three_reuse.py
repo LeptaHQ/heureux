@@ -20,6 +20,7 @@ class TacheThreeReuseTests(SimpleTestCase):
         for first, second, indices in (
             ("culture-p18", "technologie-p12", (0, 1, 2)),
             ("famille-p1", "technologie-p16", (2,)),
+            ("culture-p6", "culture-p20", (0,)),
         ):
             for index in indices:
                 with self.subTest(first=first, second=second, argument=index + 1):

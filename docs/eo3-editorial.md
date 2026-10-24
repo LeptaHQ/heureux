@@ -327,6 +327,15 @@ of living abroad and the motivations for leaving. Likewise, book usefulness is
 not reading necessity, and cultural transmission to children is not the same
 question as forgetting one's own practices.
 
+The book-utility and reading-necessity answers share the complete reflection and
+concentration argument, including its example and bilingual cues. Keep its
+substance: following a sustained argument and its objections, not merely pausing
+or looking something up. A guided gardening sequence and access to a character's
+unspoken fears support the other book benefits. In the necessity answer, a jazz
+demonstration and guided pottery practice show actual learning without reading;
+do not substitute people who merely read little. These compatible passages do not
+make the two questions equivalent.
+
 Reuse sound claims and familiar expressions where the mechanism is genuinely the
 same. The adult-observer and older-observer models share their three argument
 cues and the food-collection illustration, while keeping their actors and

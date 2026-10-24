@@ -161,29 +161,29 @@
       },
       "reformulation": "Le livre a-t-il perdu son utilité face aux autres médias ?",
       "position": "Le livre reste utile, sans être supérieur dans tous les usages.",
-      "position_claire": "Je ne pense pas que le livre soit devenu inutile. Les vidéos et les outils numériques ont leur place, mais ils ne font pas disparaître l'intérêt de la lecture. Un livre permet notamment de suivre une réflexion, d'apprendre de façon organisée et d'explorer d'autres expériences.",
+      "position_claire": "Je ne pense pas que le livre soit devenu inutile. Les vidéos et les sites Internet sont pratiques, mais un livre garde son intérêt pour réfléchir, apprendre étape par étape et comprendre d'autres points de vue. Ces moyens peuvent se compléter.",
       "arguments": [
         {
-          "idea": "Tout d'abord, le livre reste un outil très puissant pour développer la réflexion et la concentration.",
-          "developpement": "En effet, lire demande de prendre du temps, de suivre une pensée longue et de tenir son attention sur plusieurs pages, parfois plusieurs heures. Cette attention prolongée permet de relier les idées et d'examiner un raisonnement dans son ensemble, plutôt que d'en retenir seulement la conclusion.",
-          "exemple": "Dans un essai sur la place de la voiture en ville, un lecteur suit d'abord les arguments sur la pollution, puis ceux sur les besoins des habitants sans transports en commun. Il peut ainsi comprendre les objections à une interdiction totale.",
+          "idea": "Tout d'abord, la lecture permet de développer la réflexion et la concentration.",
+          "developpement": "Lire un essai demande de garder le fil sur plusieurs pages. Pour comprendre le point de vue de l'auteur, il faut suivre ses arguments, mais aussi les objections qu'il examine.",
+          "exemple": "Par exemple, un essai sur la voiture en ville présente les problèmes de pollution, mais explique aussi que certains habitants n'ont pas de bus pour aller travailler. Le lecteur comprend pourquoi une interdiction totale pourrait les mettre en difficulté.",
           "consequence": "Cette lecture aide à construire un jugement plus réfléchi, au lieu de s'arrêter à une idée isolée."
         },
         {
-          "idea": "Ensuite, un ouvrage bien conçu organise des connaissances que l'on peut retrouver.",
-          "developpement": "Une progression, un sommaire et des exemples évitent de chercher chaque information séparément. Cette organisation est utile lorsqu'on commence un domaine et qu'on ne sait pas encore quelles questions poser.",
-          "exemple": "Pour apprendre les bases du jardinage, une personne peut suivre un guide qui présente le sol, les semis puis l'arrosage. Elle retrouve ensuite le chapitre nécessaire lorsqu'une plante pose problème, sans devoir recommencer toute sa recherche.",
-          "consequence": "Le livre sert à la fois de parcours d'apprentissage et de référence."
+          "idea": "Ensuite, un livre bien organisé aide à apprendre étape par étape.",
+          "developpement": "Quand on débute, on ne sait pas toujours par quoi commencer. Un bon guide présente les bases avant les étapes plus compliquées, et on peut revenir au chapitre dont on a besoin.",
+          "exemple": "Une personne qui veut faire pousser des tomates sur son balcon suit un guide de jardinage. Elle choisit un pot adapté, sème les graines, puis suit les conseils d'arrosage. Si elle oublie une étape, elle revient au chapitre concerné.",
+          "consequence": "Le livre sert donc à la fois de guide pour débuter et de référence pour la suite."
         },
         {
-          "idea": "Enfin, les récits donnent accès à des expériences différentes des nôtres.",
-          "developpement": "Un roman peut montrer une situation à travers les pensées d'un personnage. Le lecteur découvre alors non seulement ce qui lui arrive, mais aussi les hésitations et les raisons de ses choix.",
-          "exemple": "Dans un récit d'installation à l'étranger, on peut suivre un personnage qui hésite à parler pendant une réunion. Comprendre sa peur de se tromper aide à réfléchir autrement au silence d'une personne qui apprend une langue.",
-          "consequence": "La lecture peut ainsi nourrir l'imagination et la compréhension d'autrui."
+          "idea": "Enfin, les récits aident à comprendre ce que vivent d'autres personnes.",
+          "developpement": "Un roman peut nous faire entrer dans les pensées d'un personnage. On imagine la situation de son point de vue et on découvre pourquoi il agit ainsi, même si on n'a jamais vécu la même chose.",
+          "exemple": "Par exemple, un roman raconte la première réunion d'un homme qui apprend encore la langue du pays. Il a une idée à proposer, mais se tait par peur de chercher ses mots devant ses collègues.",
+          "consequence": "Cela peut aider à ne pas prendre le silence d'une personne pour un manque d'intérêt."
         }
       ],
       "nuance": "Bien sûr, tous les livres ne sont pas fiables ou adaptés à chacun. Une démonstration vidéo peut être plus utile pour apprendre un geste, et un livre peut aussi se lire sur un écran. La qualité du contenu compte davantage que l'opposition entre papier et numérique.",
-      "conclusion": "En conclusion, le livre garde une utilité réelle pour réfléchir, apprendre et découvrir d'autres points de vue. Il ne remplace pas tous les médias, mais ceux-ci ne le rendent pas inutile : leurs usages peuvent se compléter."
+      "conclusion": "En conclusion, le livre reste utile pour réfléchir, apprendre et comprendre d'autres points de vue. On peut choisir une vidéo pour certains besoins et un livre pour d'autres, sans considérer que l'un rend l'autre inutile."
     },
     "culture-p7": {
       "prompt_signatures": {
@@ -593,24 +593,24 @@
       "arguments": [
         {
           "idea": "Tout d'abord, la lecture permet de développer la réflexion et la concentration.",
-          "developpement": "Lire un texte long demande de maintenir son attention pour relier les idées, comprendre les étapes d'un raisonnement et en examiner les limites. On peut ensuite relire un passage et comparer le raisonnement à celui d'un autre auteur.",
-          "exemple": "En lisant deux récits sur un même événement historique, une personne peut noter ce que les auteurs racontent différemment et chercher pourquoi. Elle ne retient pas seulement des dates : elle apprend à examiner la façon dont une histoire est présentée.",
-          "consequence": "La lecture aide donc à comprendre et à comparer les idées, pas seulement à accumuler des informations."
+          "developpement": "Lire un essai demande de garder le fil sur plusieurs pages. Pour comprendre le point de vue de l'auteur, il faut suivre ses arguments, mais aussi les objections qu'il examine.",
+          "exemple": "Par exemple, un essai sur la voiture en ville présente les problèmes de pollution, mais explique aussi que certains habitants n'ont pas de bus pour aller travailler. Le lecteur comprend pourquoi une interdiction totale pourrait les mettre en difficulté.",
+          "consequence": "Cette lecture aide à construire un jugement plus réfléchi, au lieu de s'arrêter à une idée isolée."
         },
         {
           "idea": "Ensuite, l'écoute permet aussi d'approfondir ses connaissances.",
-          "developpement": "La profondeur ne dépend pas uniquement du support écrit. Une conférence, un entretien ou un livre audio peut présenter une réflexion complète, à condition que l'auditeur prenne le temps de la comprendre.",
-          "exemple": "Une conférence sur le jazz peut faire entendre la même mélodie jouée de deux façons. En réécoutant les extraits et les explications, une auditrice comprend ce que change l'improvisation et apprend à la reconnaître, sans passer par un texte.",
+          "developpement": "Une conférence peut expliquer un sujet étape par étape, comme un livre. Pour la musique, les extraits sonores permettent aussi d'entendre directement ce qu'on nous explique.",
+          "exemple": "Dans une conférence sur le jazz, un musicien joue une mélodie, puis en invente une variation sur le moment. Il explique ce qu'il a changé. En réécoutant les extraits, une auditrice comprend comment fonctionne l'improvisation, sans passer par un texte.",
           "consequence": "On peut donc acquérir une vraie connaissance musicale sans avoir lu de livre sur le sujet."
         },
         {
-          "idea": "Enfin, la pratique et la transmission orale font aussi vivre des savoirs culturels.",
-          "developpement": "Certaines connaissances passent par des gestes, des récits et une expérience partagée. Les comprendre demande de l'attention et de la réflexion, même lorsqu'elles ne sont pas acquises dans un texte.",
-          "exemple": "Dans un atelier de poterie, un artisan peut apprendre aux participants à décorer un bol avec un motif transmis par sa grand-mère. Il leur montre une ancienne pièce de la famille : ils découvrent ainsi un savoir-faire et son histoire, sans passer par un livre.",
-          "consequence": "La culture comprend donc aussi des connaissances que l'on apprend en faisant."
+          "idea": "Enfin, on apprend aussi en pratiquant une activité culturelle.",
+          "developpement": "Les ateliers permettent d'apprendre un savoir-faire et de découvrir son histoire. En y participant, on apprend les gestes en les faisant soi-même, avec quelqu'un pour nous guider.",
+          "exemple": "Dans un atelier de poterie, un artisan montre comment tracer un motif de feuilles sur un bol. Il raconte que sa grand-mère décorait ainsi les plats des repas de fête. Les participants reproduisent le motif et découvrent cette tradition familiale, sans passer par un livre.",
+          "consequence": "La culture comprend donc aussi des savoir-faire qu'on apprend en faisant."
         }
       ],
-      "nuance": "Cela ne signifie pas que toutes les activités se valent ou que lire serait inutile. Un livre peut compléter une pratique et en expliquer l'histoire. Inversement, lire beaucoup sans vérifier, réfléchir ou écouter d'autres points de vue ne garantit pas une culture solide.",
+      "nuance": "Bien sûr, un livre peut compléter ce qu'on apprend dans un atelier ou une conférence. Pour étudier le style d'un écrivain, lire son texte reste particulièrement utile. Mais lire beaucoup, sans chercher à comprendre, ne garantit pas qu'on soit cultivé.",
       "conclusion": "En conclusion, la lecture n'est pas indispensable pour être cultivé. Elle reste très utile, mais l'écoute, les échanges et la pratique permettent aussi de comprendre et d'apprendre. Ces façons de se cultiver peuvent se compléter."
     },
     "culture-p21": {

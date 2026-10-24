@@ -248,32 +248,32 @@
       "arguments": [
         {
           "point": {
-            "french": "Le livre reste un outil très puissant pour développer la réflexion et la concentration.",
-            "english": "Books remain a powerful tool for developing reflection and concentration."
+            "french": "La lecture permet de développer la réflexion et la concentration.",
+            "english": "Reading can develop reflection and concentration."
           },
           "example": {
-            "french": "Dans un essai sur la voiture en ville, confronter la pollution aux besoins des habitants sans transports en commun.",
-            "english": "In an essay on cars in cities, weigh pollution against the needs of residents without public transport."
+            "french": "Un essai sur la voiture confronte la pollution aux difficultés des habitants sans bus pour aller travailler.",
+            "english": "An essay on cars weighs pollution against the difficulties of residents with no bus to work."
           }
         },
         {
           "point": {
-            "french": "Un ouvrage bien conçu organise des connaissances que l'on peut retrouver.",
-            "english": "A well-designed book organises knowledge for later reference."
+            "french": "Un livre bien organisé aide à apprendre étape par étape.",
+            "english": "A well-organised book helps you learn step by step."
           },
           "example": {
-            "french": "Retrouver un chapitre sur l'arrosage dans un guide de jardinage.",
-            "english": "Find the watering chapter again in a gardening guide."
+            "french": "Suivre un guide pour cultiver des tomates sur son balcon : choisir le pot, semer et arroser.",
+            "english": "Follow a guide to grow tomatoes on a balcony: choose a pot, sow seeds and water."
           }
         },
         {
           "point": {
-            "french": "Les récits donnent accès à des expériences différentes des nôtres.",
-            "english": "Stories offer access to experiences different from our own."
+            "french": "Les récits aident à comprendre ce que vivent d'autres personnes.",
+            "english": "Stories help us understand what other people experience."
           },
           "example": {
-            "french": "Un récit aide à comprendre l'hésitation d'un personnage qui apprend une langue.",
-            "english": "A story helps explain the hesitation of a character learning a language."
+            "french": "Un personnage veut proposer une idée en réunion, mais se tait par peur de chercher ses mots.",
+            "english": "A character wants to suggest an idea in a meeting but stays silent for fear of struggling to find words."
           }
         }
       ]
@@ -882,8 +882,8 @@
         "english": "Reading is valuable, but not essential to being knowledgeable and culturally aware."
       },
       "nuance": {
-        "french": "Lire beaucoup ne suffit pas sans réflexion ; les supports et les pratiques peuvent se compléter.",
-        "english": "Reading widely is not enough without reflection; media and practice can complement each other."
+        "french": "Lire aide à étudier le style d'un écrivain, mais lire beaucoup ne suffit pas sans chercher à comprendre.",
+        "english": "Reading helps you study a writer's style, but reading widely is not enough without trying to understand."
       },
       "conclusion": {
         "french": "La lecture n'est pas indispensable ; écoute, rencontres et pratique permettent aussi d'apprendre.",
@@ -896,8 +896,8 @@
             "english": "Reading can develop reflection and concentration."
           },
           "example": {
-            "french": "Comparer deux récits d'un même événement et chercher pourquoi ils diffèrent.",
-            "english": "Compare two accounts of one event and explore why they differ."
+            "french": "Un essai sur la voiture confronte la pollution aux difficultés des habitants sans bus pour aller travailler.",
+            "english": "An essay on cars weighs pollution against the difficulties of residents with no bus to work."
           }
         },
         {
@@ -906,18 +906,18 @@
             "english": "Listening can also deepen your understanding."
           },
           "example": {
-            "french": "Réécouter une conférence sur le jazz pour comprendre et reconnaître l'improvisation.",
-            "english": "Replay a jazz lecture to understand and recognise improvisation."
+            "french": "Un musicien joue une mélodie, invente une variation et explique ses changements dans une conférence sur le jazz.",
+            "english": "In a jazz lecture, a musician plays a melody, improvises a variation and explains the changes."
           }
         },
         {
           "point": {
-            "french": "La pratique et la transmission orale font aussi vivre des savoirs culturels.",
-            "english": "Practice and oral transmission also sustain cultural knowledge."
+            "french": "On apprend aussi en pratiquant une activité culturelle.",
+            "english": "Practising a cultural activity is another way to learn."
           },
           "example": {
-            "french": "Décorer un bol avec un motif transmis par la grand-mère de l'artisan et découvrir une ancienne pièce familiale.",
-            "english": "Decorate a bowl with a motif passed down by the artisan's grandmother and see an old family piece."
+            "french": "Tracer un motif de feuilles sur un bol et apprendre qu'il décorait les plats des repas de fête chez la grand-mère de l'artisan.",
+            "english": "Copy a leaf pattern onto a bowl and learn that the artisan's grandmother used it on dishes for festive meals."
           }
         }
       ]

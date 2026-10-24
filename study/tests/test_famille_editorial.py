@@ -183,6 +183,8 @@ class FamilleEditorialTests(SimpleTestCase):
             (3, 2, ("grand-père", "son CV", "candidature en ligne")),
             (4, 1, ("le mercredi", "à l'hôpital après une chute", "un appel", "sans promettre une guérison")),
             (4, 2, ("match de tennis perdu", "raté beaucoup de services", "erreur d'arbitrage", "à l'entraînement")),
+            (5, 1, ("grands-parents, qui récupéraient", "voisine de confiance", "déjà autorisée", "récupérer son enfant", "Elle accepte")),
+            (5, 2, ("huit heures de train", "anniversaire de son père", "deux jours de congé", "dépasse son budget", "renonce donc à venir")),
             (6, 2, ("additionne", "comparer", "reformuler la consigne", "l'enseignant")),
             (10, 1, ("menuiserie", "ses doutes", "sur son revenu", "projet plus clair")),
             (10, 2, ("une autre ville", "sans répéter ses confidences", "comparer les logements")),

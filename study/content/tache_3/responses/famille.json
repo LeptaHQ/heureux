@@ -142,18 +142,18 @@
         {
           "idea": "Ensuite, certains besoins demandent une aide disponible sur place.",
           "developpement": "Les proches peuvent conseiller à distance sans pouvoir faire un déplacement ou rendre un service immédiat. Il faut alors qu'on trouve d'autres appuis et qu'on prévoie davantage certaines situations.",
-          "exemple": "Un parent installé loin des grands-parents doit rester au travail après la sortie de l'école. Il appelle une voisine de confiance, qui accepte de récupérer son enfant ce soir-là. Il a fallu trouver un autre relais sur place, au lieu de pouvoir demander ce service aux grands-parents.",
+          "exemple": "Un parent habite maintenant loin des grands-parents, qui récupéraient parfois son enfant à l'école. Un soir où il finit tard, il appelle une voisine de confiance, déjà autorisée à récupérer son enfant. Elle accepte de le faire : il a trouvé un autre relais sur place.",
           "consequence": "L'éloignement ajoute donc parfois une difficulté d'organisation, au-delà du sentiment de manque."
         },
         {
           "idea": "Enfin, la distance peut rendre les retrouvailles difficiles à organiser.",
           "developpement": "La distance transforme une visite simple en déplacement à préparer. Les congés, les horaires et le budget peuvent limiter la fréquence des retrouvailles, même quand chacun souhaite se voir davantage.",
-          "exemple": "Deux proches peuvent vouloir se retrouver pour un anniversaire, mais l'un travaille ce week-end et le trajet coûte trop cher pour une seule journée. Ils peuvent choisir une autre date et prévoir un séjour plus long, sans supprimer entièrement la déception.",
+          "exemple": "Une fille qui habite à huit heures de train de ses parents voudrait venir pour l'anniversaire de son père. Elle devrait poser deux jours de congé et payer un billet qui dépasse son budget. Elle renonce donc à venir, même si elle tient à être présente.",
           "consequence": "La volonté de se voir ne supprime donc pas les contraintes de temps et de budget."
         }
       ],
-      "nuance": "Cependant, toutes les familles ne sont pas une source de soutien, et certaines personnes vivent mieux à distance. Des amis, un couple ou un réseau local peuvent aussi apporter une présence solide. Il serait faux de croire que la famille doit répondre à tous les besoins.",
-      "conclusion": "En conclusion, vivre loin de sa famille peut demander un effort pour la présence, l'entraide et les retrouvailles. Garder le contact et trouver de l'aide près de chez soi peut rendre cette distance moins difficile, sans supprimer le manque."
+      "nuance": "Cependant, toutes les familles ne sont pas une source de soutien, et certaines personnes vivent mieux à distance. Des amis, un conjoint ou des voisins peuvent aussi aider au quotidien. Être loin de sa famille ne signifie donc pas forcément être seul.",
+      "conclusion": "En conclusion, vivre loin de sa famille n'est pas forcément facile : il faut gérer le manque, trouver de l'aide sur place et prévoir les visites. Les appels et les liens qu'on crée autour de soi peuvent aider, sans remplacer tous les moments en famille."
     },
     "famille-p6": {
       "prompt_signatures": {

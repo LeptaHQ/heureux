@@ -25,6 +25,12 @@ class SharedFriendshipEditorialTests(SimpleTestCase):
         self.assertIn("on peut être heureux sans avoir d'amis", response.position_claire)
         self.assertIn("écoute et pose des questions", response.arguments[0].developpement)
         self.assertIn("Elle se sent écoutée", response.arguments[0].consequence)
+        for phrase in (
+            "une candidate se sent incapable", "Une amie l'écoute",
+            "une expérience qu'elle n'avait pas", "préparer sa présentation",
+            "Elles la reprennent ensemble",
+        ):
+            self.assertIn(phrase, response.arguments[0].exemple)
         for argument, demonstration in (
             (response.arguments[1], "son conjoint"),
             (response.arguments[2], "sa récolte"),
@@ -32,10 +38,13 @@ class SharedFriendshipEditorialTests(SimpleTestCase):
             self.assertIn("Une personne qui n'a pas d'amis", argument.exemple)
             self.assertIn(demonstration, argument.exemple)
         self.assertIn("voir le résultat de ses efforts", response.arguments[2].developpement)
+        for phrase in ("ses semis", "pendant plusieurs mois", "un but", "la fierté"):
+            self.assertIn(phrase, response.arguments[2].exemple)
         self.assertIn("en dehors d'une relation amicale", response.arguments[2].consequence)
         self.assertIn("solitude choisie", response.nuance)
         self.assertIn("isolement qui fait souffrir", response.nuance)
         self.assertIn("Je ne recommande donc pas de vivre sans amis", response.nuance)
+        self.assertIn("l'absence d'amitiés devient pesante", response.nuance)
         self.assertIn("sans qu'on ait d'amis", spoken_text(response))
         self.assertLessEqual(300, len(spoken_text(response).split()))
         self.assertLessEqual(len(spoken_text(response).split()), 430)

@@ -173,7 +173,7 @@ class FamilleEditorialTests(SimpleTestCase):
         self.assertIn("l'amitié", living_well.arguments[1].idea)
         self.assertIn("liens familiaux ou de couple", happiness.arguments[1].idea)
         self.assertIn("chorale", living_well.arguments[2].exemple)
-        self.assertIn("jardin", happiness.arguments[2].exemple)
+        self.assertIn("potager", happiness.arguments[2].exemple)
         self.assertNotEqual(living_well.arguments[0].idea, happiness.arguments[0].idea)
 
     def test_examples_make_the_actor_action_and_mechanism_explicit(self):

@@ -429,11 +429,11 @@ fluency alone guarantees understanding. The replacement limit uses a fresh
 identity; the retired common-language workaround is not a third version of
 translated access.
 
-In the solo-travel answer, confidence comes from coping with a difficulty despite
-an initial worry. The example shows a successful return to the hotel and greater
-willingness to explore the next day, not just a list of travel arrangements.
-Asking for directions is compatible with acting without a travelling companion;
-do not equate autonomy with refusing help or promise a change in personality.
+In the solo-travel answer, distinguish confidence in one's decisions from freedom
+to follow one's tastes. The accommodation example checks a price/location
+trade-off against the actual journey and remaining budget, rather than merely
+listing planning tasks or declaring every choice good. A satisfying result can
+support confidence in a future decision; solo travel does not guarantee success.
 
 ## Famille learning consistency
 

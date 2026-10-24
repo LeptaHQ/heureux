@@ -223,30 +223,34 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("une langue commune", response.position_claire)
         self.assertNotIn("une langue commune", response.conclusion)
 
-    def test_solo_travel_confidence_has_a_worry_action_and_observable_change(self):
+    def test_solo_trip_planning_builds_confidence_in_a_choice_that_meets_its_needs(self):
         response = self.response(21)
         argument = response.arguments[0]
-        self.assertIn("prendre confiance en soi", argument.idea)
-        self.assertIn("attendre qu'un proche règle les problèmes", argument.developpement)
-        self.assertIn("plus capable qu'on ne le pensait", argument.developpement)
+        self.assertIn("organiser seul son voyage", argument.idea)
+        self.assertIn("confiance dans ses décisions", argument.idea)
+        self.assertIn("laisser un proche tout organiser", argument.developpement)
+        self.assertIn("sans attendre qu'il nous dise quoi choisir", argument.developpement)
+        self.assertIn("quand on voit que ça se passe bien", argument.developpement)
         for phrase in (
-            "première fois et a peur de se perdre",
-            "se trompe de rue",
-            "demande son chemin à un commerçant et retrouve son logement",
-            "Le lendemain, elle ose visiter un autre quartier seule",
+            "on hésite entre un hôtel au centre et un autre moins cher mais plus loin",
+            "On choisit le second après avoir vérifié le trajet en métro",
+            "on rejoint le centre en quinze minutes",
+            "encore assez d'argent pour les visites",
         ):
             self.assertIn(phrase, argument.exemple)
-        self.assertIn("peut lui donner confiance pour repartir", argument.consequence)
+        self.assertIn("La fois suivante", argument.consequence)
+        self.assertIn("sans demander l'avis d'un proche", argument.consequence)
         self.assertNotIn("train", argument.exemple)
+        self.assertNotIn("Une personne", argument.exemple)
         cue = self.plans["eo/tache-3/culture-p21"].arguments[0].example
-        for language, before, resolution, after in (
-            ("french", "Inquiète au départ", "après s'être perdue", "ressortir seule le lendemain"),
-            ("english", "Worried at first", "after getting lost", "alone the next day"),
+        for language, choice, journey, budget in (
+            ("french", "hôtel moins cher", "quinze minutes de métro", "assez d'argent pour les visites"),
+            ("english", "cheaper hotel", "fifteen minutes by metro", "enough money left for visits"),
         ):
             text = getattr(cue, language)
-            self.assertIn(before, text)
-            self.assertIn(resolution, text)
-            self.assertIn(after, text)
+            self.assertIn(choice, text)
+            self.assertIn(journey, text)
+            self.assertIn(budget, text)
 
     def test_compatriot_support_explains_new_social_ties_without_rewriting_the_example(self):
         argument = self.response(11).arguments[0]

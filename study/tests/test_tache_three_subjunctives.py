@@ -23,7 +23,7 @@ REVIEWED_CLAUSES = {
     "culture-p19": "sans qu'un interprète ait à tout nous expliquer",
     "culture-p2": "Il faut alors qu'on discute du comportement observé",
     "culture-p20": "je ne pense pas qu'elle soit indispensable",
-    "culture-p21": "attendre qu'un proche règle les problèmes",
+    "culture-p21": "sans attendre qu'il nous dise quoi choisir",
     "culture-p24": "pour qu'une relation se construise",
     "culture-p25": "sans qu'un gain financier soit nécessaire",
     "culture-p26": "Il faut que je le compare",

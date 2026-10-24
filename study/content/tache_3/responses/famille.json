@@ -162,29 +162,29 @@
       },
       "reformulation": "Est-il souhaitable de rémunérer les bonnes notes des enfants ?",
       "position": "Je préfère reconnaître les progrès et accompagner le travail plutôt que payer chaque note.",
-      "position_claire": "Je comprends qu'un parent veuille encourager son enfant, mais je ne ferais pas des bonnes notes un travail rémunéré. L'argent peut attirer l'attention sur la récompense, laisser les efforts dans l'ombre et masquer les difficultés. Il existe des encouragements plus directement liés à l'apprentissage.",
+      "position_claire": "Je comprends qu'un parent veuille encourager son enfant, mais je ne donnerais pas d'argent pour chaque bonne note. Cela risque de faire passer la récompense avant l'apprentissage et de ne pas reconnaître tous les efforts. Surtout, l'argent ne remplace pas l'aide dont un enfant peut avoir besoin.",
       "arguments": [
         {
           "idea": "Tout d'abord, l'enfant peut finir par travailler surtout pour la récompense.",
-          "developpement": "Si seul le contrôle est payé, l'enfant peut délaisser les exercices qui l'aident à comprendre. Son effort risque alors de dépendre de ce qu'il pourra gagner, plutôt que de l'envie d'apprendre.",
-          "exemple": "Si un enfant reçoit une somme pour chaque bonne note, il peut demander si un exercice non noté rapporte aussi quelque chose. Le parent doit alors expliquer pourquoi cet entraînement reste utile, même lorsqu'aucun paiement n'est prévu.",
-          "consequence": "L'entraînement risque donc de devenir une négociation sur l'argent, au lieu d'une occasion d'apprendre."
+          "developpement": "Si seule la note compte pour la récompense, l'enfant peut délaisser les exercices qui l'aident à comprendre. Son effort risque alors de dépendre de ce qu'il pourra gagner, plutôt que de l'envie d'apprendre.",
+          "exemple": "Un enfant reçoit dix euros pour sa bonne note de maths. Mais il refuse de refaire les exercices ratés pendant le contrôle, parce que la correction n'est pas notée et ne lui rapportera pas d'argent.",
+          "consequence": "L'argent peut ainsi faire passer la récompense avant le besoin de comprendre et de corriger ses erreurs."
         },
         {
           "idea": "Ensuite, une note finale ne montre pas tout le travail accompli.",
           "developpement": "Les enfants n'ont pas tous les mêmes facilités ni les mêmes difficultés. Si l'on paie seulement à partir d'une certaine note, on risque de ne pas remarquer les efforts d'un enfant qui progresse plus lentement.",
-          "exemple": "Un élève peut enfin réussir à poser ses calculs correctement, tout en faisant encore des erreurs dans les dernières étapes. S'il reste sous la note donnant droit à l'argent, son progrès réel risque de passer inaperçu.",
+          "exemple": "Un élève passe de 8 à 12 sur 20 après plusieurs semaines de travail. Mais ses parents ne donnent de l'argent qu'à partir de 15. Il a fait de vrais progrès, sans atteindre le seuil qui déclenche la récompense.",
           "consequence": "Ce système peut donc laisser un progrès réel sans récompense, alors que l'enfant a travaillé."
         },
         {
           "idea": "Enfin, une prime ne remplace pas l'aide nécessaire pour surmonter un blocage.",
-          "developpement": "Quand l'enfant ne comprend pas une méthode, augmenter la récompense ne lui montre pas comment procéder. Il faut d'abord repérer la difficulté et proposer un appui adapté.",
-          "exemple": "Un enfant additionne les nombres alors qu'il faut les comparer. Le parent reprend le mot « comparer » avec lui et lui fait reformuler la consigne. En vérifiant ensuite la méthode avec l'enseignant, il peut l'aider à refaire l'exercice sans confondre les deux demandes.",
+          "developpement": "Quand l'enfant ne comprend pas une consigne ou une méthode, augmenter la récompense ne lui montre pas comment procéder. Il faut d'abord repérer la difficulté et proposer un appui adapté.",
+          "exemple": "Un enfant additionne deux nombres alors qu'il faut les comparer. Le parent lui demande de reformuler la consigne et repère la confusion. Avec l'enseignant, l'enfant apprend à chercher le plus grand nombre et peut refaire l'exercice.",
           "consequence": "Le soutien porte ainsi sur les moyens de progresser, pas seulement sur le résultat."
         }
       ],
       "nuance": "Cependant, célébrer une réussite ou offrir ponctuellement un cadeau n'est pas forcément problématique. L'important est de ne pas fixer un prix à chaque performance ni comparer les enfants uniquement par leurs notes. On peut fêter un progrès tout en reconnaissant les efforts qui l'ont rendu possible.",
-      "conclusion": "En conclusion, je privilégierais des encouragements précis et un accompagnement réel. Une bonne note peut se célébrer, mais elle ne devrait pas faire oublier l'intérêt d'apprendre, les efforts fournis et les difficultés encore à résoudre."
+      "conclusion": "En conclusion, on peut fêter une bonne note sans la payer systématiquement. Je préfère reconnaître les progrès, encourager l'envie d'apprendre et aider l'enfant là où il en a besoin."
     },
     "famille-p7": {
       "prompt_signatures": {

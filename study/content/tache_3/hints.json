@@ -1678,8 +1678,8 @@
             "english": "The child may end up working mainly for the reward."
           },
           "example": {
-            "french": "Un enfant demande si un exercice non noté rapporte aussi de l'argent.",
-            "english": "A child asks whether an ungraded exercise also earns money."
+            "french": "Dix euros pour une bonne note, mais refus de corriger les erreurs : la correction ne rapporte pas d'argent.",
+            "english": "After earning ten euros for a good grade, a child refuses to correct mistakes because the correction earns no money."
           }
         },
         {
@@ -1688,8 +1688,8 @@
             "english": "A final grade does not show all the work accomplished."
           },
           "example": {
-            "french": "Un élève améliore ses calculs, mais reste sous la note donnant droit à l'argent.",
-            "english": "A pupil improves their calculations but stays below the grade required for payment."
+            "french": "Passer de 8 à 12 sur 20, sans recevoir d'argent parce que la récompense commence à 15.",
+            "english": "A pupil improves from 8 to 12 out of 20, but payment starts at 15; the progress earns no payment."
           }
         },
         {
@@ -1698,8 +1698,8 @@
             "english": "A bonus cannot replace help with a learning difficulty."
           },
           "example": {
-            "french": "Expliquer « comparer » à l'enfant qui additionne, puis vérifier la méthode avec l'enseignant pour refaire l'exercice.",
-            "english": "Explain 'compare' to the child who adds, then check the method with the teacher to redo the exercise."
+            "french": "Un enfant additionne au lieu de comparer : reformuler la consigne, puis apprendre avec l'enseignant à chercher le plus grand.",
+            "english": "A child adds instead of comparing; clarify the instruction, then learn with the teacher how to find the larger number."
           }
         }
       ]

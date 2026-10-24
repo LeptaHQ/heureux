@@ -67,11 +67,23 @@ class CultureEditorialTests(SimpleTestCase):
             self.models["eo/tache-3/culture-p8"].source_prompts,
         )
 
-    def test_books_and_documentaries_name_cultural_discovery_without_travel(self):
+    def test_books_and_documentaries_show_cultural_discovery_without_travel(self):
         argument = self.response(14).arguments[0]
         self.assertIn("d'autres cultures sans voyager", argument.idea)
         self.assertIn("garde en tête qu'une seule famille ne représente pas tout un pays", argument.developpement)
         self.assertNotIn("croise les sources", argument.developpement)
+        for phrase in (
+            "un livre de cuisine", "raviolis pour le Nouvel An lunaire",
+            "Un documentaire", "une famille chinoise", "les préparer et les manger ensemble",
+        ):
+            self.assertIn(phrase, argument.exemple)
+        self.assertNotIn("roman", argument.exemple)
+        self.assertIn("comprendre le sens d'une tradition", argument.consequence)
+        cue = self.plans["eo/tache-3/culture-p14"].arguments[0].example
+        self.assertIn("Livre de cuisine", cue.french)
+        self.assertIn("cookbook", cue.english)
+        self.assertIn("repas en famille", cue.french)
+        self.assertIn("making and sharing", cue.english)
 
     def test_examples_demonstrate_concrete_prompt_faithful_mechanisms(self):
         for number, argument, required in (

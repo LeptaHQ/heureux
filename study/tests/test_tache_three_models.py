@@ -712,8 +712,13 @@ class TacheThreeModelContentTests(SimpleTestCase):
         response = catalogue.tache_three_models()["eo/tache-3/culture-p14"].response
         self.assertIn("en participant à des activités près de chez soi", response.arguments[1].idea)
         self.assertIn("En y participant", response.arguments[1].developpement)
-        self.assertIn("préparer un plat de fête avec elle", response.arguments[1].exemple)
-        self.assertIn("on participe et on comprend mieux le sens", response.arguments[1].consequence)
+        self.assertIn("en les faisant soi-même", response.arguments[1].developpement)
+        self.assertNotIn("autrement", response.arguments[1].developpement)
+        self.assertIn("atelier de danse irlandaise dans mon quartier", response.arguments[1].exemple)
+        self.assertIn("avec le groupe", response.arguments[1].exemple)
+        self.assertIn("Au bal organisé après l'atelier", response.arguments[1].exemple)
+        self.assertIn("au lieu de rester spectateur", response.arguments[1].exemple)
+        self.assertIn("en la partageant avec d'autres personnes", response.arguments[1].consequence)
         self.assertIn("approfondir sa connaissance d'une culture", response.arguments[2].idea)
         self.assertIn("poser une question précise", response.arguments[2].developpement)
         self.assertIn("vérifier ce qu'on a compris", response.arguments[2].developpement)
@@ -756,7 +761,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p13", 1, "tableau", "tableau", "painting"),
             ("culture-p13", 1, "sourient", "sourires", "smiles"),
             ("culture-p14", 0, "raviolis", "raviolis", "dumplings"),
-            ("culture-p14", 1, "plat de fête", "plat de fête", "festive dish"),
+            ("culture-p14", 1, "danse irlandaise", "danse irlandaise", "Irish dance"),
             ("culture-p14", 2, "professeurs", "professeurs", "teachers"),
             ("culture-p15", 1, "tomates", "tomates", "tomatoes"),
             ("culture-p16", 1, "conjoint", "conjoint", "partner"),

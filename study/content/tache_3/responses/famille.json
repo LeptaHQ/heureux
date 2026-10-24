@@ -192,7 +192,7 @@
       },
       "reformulation": "Faut-il éviter toute collaboration professionnelle avec un proche ?",
       "position": "Pas systématiquement, mais les compétences et les règles de travail doivent être claires.",
-      "position_claire": "Je ne pense pas qu'il faille toujours éviter de travailler avec un membre de sa famille. Cela peut bien fonctionner, mais le lien familial ne remplace pas une organisation professionnelle. Je regarderais la confiance réelle, les risques pour la relation et la répartition des responsabilités.",
+      "position_claire": "Je ne pense pas qu'il faille toujours éviter de travailler avec un membre de sa famille. Cela peut bien fonctionner, mais le lien familial ne remplace pas les compétences. Il faut aussi savoir répartir les responsabilités et protéger la relation personnelle.",
       "arguments": [
         {
           "idea": "Tout d'abord, une confiance déjà construite peut faciliter le lancement d'un projet.",
@@ -203,18 +203,18 @@
         {
           "idea": "Ensuite, les désaccords professionnels peuvent déborder sur la vie familiale.",
           "developpement": "Un conflit ne reste pas forcément limité au lieu de travail quand on se retrouve ensuite chez des proches. Les autres membres de la famille peuvent même être entraînés dans un problème qui ne les concerne pas.",
-          "exemple": "Si un frère reproche à sa sœur une commande livrée en retard pendant un repas familial, la discussion peut prendre toute la place. Les proches deviennent témoins d'un désaccord qui aurait dû être traité entre collègues, avec les informations du dossier.",
-          "consequence": "Un problème de travail peut ainsi gâcher un repas et tendre les relations avec d'autres proches."
+          "exemple": "Une sœur livre une commande en retard et son frère lui en fait le reproche au repas familial. Leur mère prend parti pour lui. La sœur se sent jugée par sa famille pour une erreur professionnelle, et les relations se tendent.",
+          "consequence": "Le conflit ne touche donc plus seulement les collègues : il abîme aussi les relations familiales."
         },
         {
-          "idea": "Enfin, des règles explicites évitent que chacun imagine un arrangement différent.",
+          "idea": "Enfin, des règles claires aident à éviter les malentendus sur le travail et l'argent.",
           "developpement": "Il faut savoir qui décide, comment le travail est payé et comment discuter d'une erreur. Même entre proches, un accord clair évite de compter sur des services que l'autre n'a jamais acceptés.",
-          "exemple": "Avant qu'un cousin rejoigne un commerce, les responsables peuvent préciser ses horaires, ses missions et sa rémunération. Ils prévoient aussi à qui il doit signaler un problème, plutôt que supposer qu'il acceptera toutes les demandes au nom de la famille.",
-          "consequence": "Le proche sait alors ce qu'on attend de lui au travail."
+          "exemple": "Un commerçant engage son cousin pour vingt heures par semaine. Ils fixent par écrit ses missions, ses horaires et sa rémunération. Si un samedi supplémentaire est nécessaire, ils en discutent au lieu de supposer qu'il doit accepter gratuitement parce qu'ils sont de la même famille.",
+          "consequence": "Le cousin sait ainsi ce qu'il a accepté, sans devoir être disponible à toute heure."
         }
       ],
       "nuance": "Cependant, des règles ne réparent pas une relation marquée par la pression ou des conflits persistants. Refuser la collaboration peut être le meilleur choix, sans que cela signifie rejeter sa famille. Chacun doit pouvoir dire non et envisager d'autres collaborateurs.",
-      "conclusion": "En conclusion, travailler en famille n'est ni une garantie ni une erreur automatique. La confiance, les compétences et des règles claires peuvent le permettre, à condition de protéger aussi la liberté de chacun et la relation personnelle."
+      "conclusion": "En conclusion, on peut travailler en famille si la confiance et les compétences sont là. Mais il faut des règles claires et la possibilité de dire non, pour préserver aussi la relation personnelle."
     },
     "famille-p9": {
       "prompt_signatures": {

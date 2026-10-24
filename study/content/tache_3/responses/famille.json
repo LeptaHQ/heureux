@@ -70,16 +70,16 @@
       },
       "reformulation": "L'expérience des personnes âgées garantit-elle la qualité de leurs conseils ?",
       "position": "Leur expérience est précieuse, mais aucun âge ne garantit un conseil juste.",
-      "position_claire": "Je ne suis pas d'accord avec le mot « toujours ». Les personnes âgées peuvent donner des conseils très utiles, mais l'âge n'est pas une garantie. J'écouterais leur expérience, la connaissance qu'elles ont de ma situation et la pertinence de leur conseil aujourd'hui.",
+      "position_claire": "Je ne suis pas d'accord avec le mot « toujours ». Les personnes âgées peuvent donner des conseils très utiles, mais l'âge n'est pas une garantie. Ce qui compte, c'est leur expérience, mais aussi ce qu'elles savent de notre situation et des réalités actuelles.",
       "arguments": [
         {
-          "idea": "Tout d'abord, les aînés peuvent nous montrer des solutions auxquelles on n'avait pas pensé.",
-          "developpement": "Une personne qui a traversé une situation proche peut expliquer ce qu'elle a essayé et les difficultés rencontrées. Son récit aide à élargir les options, sans qu'on soit obligé de reproduire exactement son parcours.",
-          "exemple": "Un grand-parent qui a changé de métier peut raconter comment il avait parlé à des professionnels avant de se former. Pour un jeune qui hésite sur son orientation, cette démarche donne une première action possible, plutôt qu'un ordre de choisir le même métier.",
-          "consequence": "Le jeune dispose ainsi d'une démarche à essayer pour préciser son propre projet."
+          "idea": "Tout d'abord, l'expérience des aînés peut nous aider à éviter certaines erreurs.",
+          "developpement": "Une personne qui a traversé une situation proche peut expliquer ce qui a mal tourné et ce qu'elle ferait autrement. Son récit peut nous éviter une erreur, sans qu'on soit obligé de reproduire exactement son parcours.",
+          "exemple": "Un grand-père qui a changé de métier peut expliquer qu'il avait quitté son emploi avant de vérifier le coût de sa formation. Il conseille à sa petite-fille de comparer les frais et ses économies avant de démissionner.",
+          "consequence": "Ce conseil l'aide à vérifier si son projet est financièrement réaliste avant de quitter son emploi."
         },
         {
-          "idea": "Ensuite, une relation de confiance peut permettre un conseil adapté à la personne.",
+          "idea": "Ensuite, un proche qui nous connaît bien peut mieux tenir compte de nos besoins.",
           "developpement": "Un proche qui écoute nos envies et nos contraintes peut nous aider à distinguer notre projet des attentes des autres. Cette qualité dépend de la relation, pas automatiquement de son âge.",
           "exemple": "Un étudiant hésite entre deux écoles. Sa tante âgée connaît son goût pour la pratique : ils comparent la place des ateliers dans les programmes. Il découvre que l'une propose surtout des cours théoriques, alors que l'autre correspond mieux à sa façon d'apprendre.",
           "consequence": "Ce conseil aide à choisir, sans décider à la place de l'autre."
@@ -87,8 +87,8 @@
         {
           "idea": "Enfin, un conseil fondé sur une ancienne méthode peut ne plus convenir aujourd'hui.",
           "developpement": "Les procédures de recrutement ou les formations évoluent. Une solution qui a fonctionné autrefois peut ne plus être acceptée, même si la personne la recommande avec de bonnes intentions.",
-          "exemple": "Un ancien salarié peut suggérer de déposer directement un CV dans une entreprise. Si l'offre demande de candidater sur une plateforme, le jeune doit suivre cette procédure, quitte à demander ensuite au proche de l'aider à préparer son entretien.",
-          "consequence": "On garde l'appui de l'expérience sans ignorer les exigences actuelles."
+          "exemple": "Un grand-père peut conseiller de passer directement dans une entreprise avec son CV, comme il le faisait. Mais si l'offre demande de candidater sur une plateforme, suivre son conseil ne remplace pas la candidature en ligne.",
+          "consequence": "Le conseil doit donc tenir compte des règles actuelles pour être vraiment utile."
         }
       ],
       "nuance": "Cependant, il serait tout aussi injuste de rejeter un conseil parce qu'il vient d'une personne âgée. Elle peut très bien connaître les pratiques actuelles. Le bon réflexe est de demander ses raisons, de vérifier les faits utiles et de garder la responsabilité de son choix.",

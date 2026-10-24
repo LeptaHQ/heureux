@@ -102,7 +102,7 @@ class FamilleEditorialTests(SimpleTestCase):
     def test_consequences_explain_results_instead_of_adding_fresh_advice(self):
         for number, index, result in (
             (1, 1, "se reposer sans devoir répondre"),
-            (3, 0, "une démarche à essayer"),
+            (3, 0, "financièrement réaliste"),
             (4, 0, "continuant à croire les explications"),
             (5, 0, "ressentir le manque de sa famille"),
             (6, 1, "un progrès réel sans récompense"),
@@ -178,7 +178,9 @@ class FamilleEditorialTests(SimpleTestCase):
 
     def test_examples_make_the_actor_action_and_mechanism_explicit(self):
         for number, argument, required in (
+            (3, 0, ("grand-père", "quitté son emploi", "coût de sa formation", "avant de démissionner")),
             (3, 1, ("deux écoles", "cours théoriques", "ateliers", "tante âgée")),
+            (3, 2, ("grand-père", "son CV", "candidature en ligne")),
             (4, 2, ("calcul", "retenue oubliée", "vérifier la méthode")),
             (6, 2, ("additionne", "comparer", "reformuler la consigne", "l'enseignant")),
             (10, 1, ("menuiserie", "ses doutes", "sur son revenu", "projet plus clair")),

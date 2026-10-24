@@ -1536,18 +1536,18 @@
       "arguments": [
         {
           "point": {
-            "french": "Les aînés peuvent nous montrer des solutions auxquelles on n'avait pas pensé.",
-            "english": "Older people can show us solutions we had not considered."
+            "french": "L'expérience des aînés peut nous aider à éviter certaines erreurs.",
+            "english": "Older people's experience can help us avoid some mistakes."
           },
           "example": {
-            "french": "Un grand-parent raconte comment il s'est renseigné avant une reconversion.",
-            "english": "A grandparent explains gathering information before changing careers."
+            "french": "Un grand-père explique son erreur : démissionner avant de vérifier le coût de sa formation.",
+            "english": "A grandfather explains a mistake: resigning before checking training costs."
           }
         },
         {
           "point": {
-            "french": "Une relation de confiance peut permettre un conseil adapté à la personne.",
-            "english": "A trusting relationship can make advice personally relevant."
+            "french": "Un proche qui nous connaît bien peut mieux tenir compte de nos besoins.",
+            "english": "Someone close who knows us well can take our needs into account."
           },
           "example": {
             "french": "Une tante âgée et un étudiant comparent les ateliers de deux écoles pour trouver celle qui convient à son goût de la pratique.",
@@ -1560,8 +1560,8 @@
             "english": "Advice based on an old method may no longer fit today's requirements."
           },
           "example": {
-            "french": "Vérifier la procédure de candidature demandée dans l'offre.",
-            "english": "Check the application process required by the vacancy."
+            "french": "Un grand-père conseille de déposer un CV sur place, mais l'offre exige une candidature en ligne.",
+            "english": "A grandfather suggests taking a CV to the company, but the vacancy requires an online application."
           }
         }
       ]

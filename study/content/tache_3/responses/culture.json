@@ -528,25 +528,25 @@
       },
       "reformulation": "La diminution des lettres et des cartes personnelles est-elle regrettable ?",
       "position": "Je regrette qu'on écrive moins de lettres et de cartes, sans rejeter les échanges numériques.",
-      "position_claire": "Les messages numériques sont utiles, mais je trouve dommage qu'on s'envoie moins de lettres et de cartes personnelles. Elles peuvent montrer qu'on a pris du temps pour quelqu'un, aider à réfléchir à ce qu'on veut dire et laisser un souvenir à transmettre.",
+      "position_claire": "Les messages numériques sont utiles, mais je trouve dommage qu'on s'envoie moins de lettres et de cartes personnelles. Elles peuvent montrer qu'on a pensé à quelqu'un, aider à réfléchir à ce qu'on veut dire et laisser un souvenir à transmettre.",
       "arguments": [
         {
-          "idea": "Tout d'abord, une lettre personnelle peut montrer qu'on a pris du temps pour quelqu'un.",
-          "developpement": "Prendre le temps d'écrire à la main et de nommer ce que l'autre a fait rend l'attention visible. Le destinataire reçoit une marque personnelle de reconnaissance, pas seulement une formule qui pourrait être adressée à n'importe qui.",
-          "exemple": "Après un déménagement, une personne peut écrire une lettre à l'amie qui l'a hébergée. Elle y raconte comment cet accueil lui a permis de chercher sereinement un logement ; son amie mesure ainsi ce que son aide a changé.",
-          "consequence": "L'attention vient du soin apporté au message, pas de la lenteur de l'envoi."
+          "idea": "Tout d'abord, une lettre personnelle peut montrer qu'on a pensé à quelqu'un.",
+          "developpement": "Quand on reconnaît l'écriture d'un proche et qu'on lit des souvenirs précis, on sent qu'il a pensé à nous. Les mots rappellent une histoire qu'on partage, pas un message qu'on pourrait envoyer à tout le monde.",
+          "exemple": "Après un déménagement, une femme écrit à l'amie qui l'a hébergée. Elle lui raconte comment cet accueil lui a permis de garder son argent pour la caution d'un appartement. Son amie voit combien son aide a compté.",
+          "consequence": "Le destinataire peut ainsi se sentir reconnu et apprécié, au-delà des simples nouvelles."
         },
         {
-          "idea": "Ensuite, préparer une lettre peut encourager à développer ce que l'on veut dire.",
-          "developpement": "Ce format invite à rassembler ses idées plutôt qu'à envoyer plusieurs réactions séparées. Il offre un espace pour expliquer une situation, remercier ou exprimer un sentiment avec davantage de recul.",
-          "exemple": "Pour expliquer à sa sœur pourquoi il souhaite s'installer ailleurs, un homme peut rédiger une lettre puis la relire le lendemain. Il précise ses raisons et retire une phrase trop brusque avant de l'envoyer.",
-          "consequence": "L'intérêt est ce temps consacré à la formulation, pas une qualité automatique du papier."
+          "idea": "Ensuite, préparer une lettre aide à clarifier ce qu'on veut dire.",
+          "developpement": "Avant d'envoyer une lettre, on peut prendre le temps de la relire. Cela permet d'expliquer ses raisons et de corriger un ton trop dur, plutôt que de répondre sous le coup de l'émotion.",
+          "exemple": "Pour annoncer à sa sœur qu'il va vivre dans une autre ville, un homme écrit d'abord qu'il en a assez de sa ville. En se relisant le lendemain, il retire cette phrase trop brusque et explique qu'il part pour un emploi qui l'intéresse.",
+          "consequence": "La personne reçoit ainsi une explication plus claire, au lieu d'une réaction qu'elle pourrait mal comprendre."
         },
         {
-          "idea": "Enfin, une lettre conservée peut transmettre une mémoire familiale sans compte numérique.",
-          "developpement": "Le récit et l'écriture d'une personne peuvent rester accessibles à d'autres générations. On peut transmettre le document lui-même, sans retrouver ses identifiants ni dépendre du maintien d'une messagerie.",
-          "exemple": "Une personne peut transmettre à sa petite-fille une lettre racontant son arrivée dans un pays. Celle-ci découvre ses premières difficultés et ses choix, à condition que le papier n'ait pas été perdu ou abîmé.",
-          "consequence": "Le courrier devient ainsi un témoignage que l'on peut relire et partager."
+          "idea": "Enfin, les lettres peuvent garder une trace de l'histoire familiale.",
+          "developpement": "Une lettre raconte un moment de vie avec les mots de la personne qui l'a vécu. En la conservant, on peut transmettre ce témoignage à ses enfants ou à ses petits-enfants, avec son écriture d'origine.",
+          "exemple": "Une grand-mère donne à sa petite-fille une lettre écrite lors de son arrivée dans un nouveau pays. Elle y racontait ses journées à servir dans un café et la petite chambre qu'elle louait. Sa petite-fille découvre ainsi ses débuts, dans les mots de sa grand-mère.",
+          "consequence": "On garde donc un témoignage personnel que d'autres générations pourront relire."
         }
       ],
       "nuance": "Cependant, un message numérique peut aussi être réfléchi, attentionné, sauvegardé et accessible. Le courrier coûte parfois cher, arrive lentement et peut se perdre. Je ne voudrais pas l'imposer : le garder pour certaines occasions compléterait utilement les échanges rapides.",

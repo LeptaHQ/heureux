@@ -565,7 +565,7 @@
       },
       "conclusion": {
         "french": "Une éducation complète, pas seulement la formation de futurs artistes.",
-        "english": "Arts lessons help pupils express themselves, interpret art and discover culture whatever their family's income."
+        "english": "A rounded education, not just training future artists."
       },
       "arguments": [
         {
@@ -800,32 +800,32 @@
       "arguments": [
         {
           "point": {
-            "french": "Une lettre personnelle peut montrer qu'on a pris du temps pour quelqu'un.",
-            "english": "A personal letter can show that you took time for someone."
+            "french": "Une lettre personnelle peut montrer qu'on a pensé à quelqu'un.",
+            "english": "A personal letter can show someone that you thought of them."
           },
           "example": {
-            "french": "Écrire à l'amie qui a facilité sa recherche de logement en l'hébergeant.",
-            "english": "Write to the friend whose hospitality made a housing search easier."
+            "french": "Remercier l'amie qui l'a hébergée : cet accueil lui a permis de garder de l'argent pour la caution.",
+            "english": "Thank the friend who provided a place to stay, leaving money for the apartment deposit."
           }
         },
         {
           "point": {
-            "french": "Préparer une lettre peut encourager à développer ce que l'on veut dire.",
-            "english": "Preparing a letter can encourage fuller expression."
+            "french": "Préparer une lettre aide à clarifier ce qu'on veut dire.",
+            "english": "Preparing a letter helps clarify what you want to say."
           },
           "example": {
-            "french": "Relire une lettre à sa sœur pour préciser les raisons d'un départ et retirer une phrase trop brusque.",
-            "english": "Reread a letter to a sister to clarify reasons for moving and remove an overly blunt sentence."
+            "french": "Relire une lettre à sa sœur : retirer une phrase trop brusque et expliquer le départ pour un emploi.",
+            "english": "Reread a letter to a sister: remove a blunt sentence and explain the move for a job."
           }
         },
         {
           "point": {
-            "french": "Une lettre conservée peut transmettre une mémoire familiale sans compte numérique.",
-            "english": "A saved letter can pass on family memories without a digital account."
+            "french": "Les lettres peuvent garder une trace de l'histoire familiale.",
+            "english": "Letters can preserve a record of family history."
           },
           "example": {
-            "french": "Transmettre une lettre sur son arrivée dans un pays à sa petite-fille.",
-            "english": "Pass a letter about arriving in a country to a granddaughter."
+            "french": "Une grand-mère transmet sa lettre d'arrivée à l'étranger : le travail au café et la petite chambre.",
+            "english": "A grandmother passes on her letter about arriving abroad: the cafe work and the small rented room."
           }
         }
       ]
@@ -4288,32 +4288,32 @@
       "arguments": [
         {
           "point": {
-            "french": "Une lettre personnelle peut montrer qu'on a pris du temps pour quelqu'un.",
-            "english": "A personal letter can show that you took time for someone."
+            "french": "Une lettre personnelle peut montrer qu'on a pensé à quelqu'un.",
+            "english": "A personal letter can show someone that you thought of them."
           },
           "example": {
-            "french": "Écrire à l'amie qui a facilité sa recherche de logement en l'hébergeant.",
-            "english": "Write to the friend whose hospitality made a housing search easier."
+            "french": "Remercier l'amie qui l'a hébergée : cet accueil lui a permis de garder de l'argent pour la caution.",
+            "english": "Thank the friend who provided a place to stay, leaving money for the apartment deposit."
           }
         },
         {
           "point": {
-            "french": "Préparer une lettre peut encourager à développer ce que l'on veut dire.",
-            "english": "Preparing a letter can encourage fuller expression."
+            "french": "Préparer une lettre aide à clarifier ce qu'on veut dire.",
+            "english": "Preparing a letter helps clarify what you want to say."
           },
           "example": {
-            "french": "Relire une lettre à sa sœur pour préciser les raisons d'un départ et retirer une phrase trop brusque.",
-            "english": "Reread a letter to a sister to clarify reasons for moving and remove an overly blunt sentence."
+            "french": "Relire une lettre à sa sœur : retirer une phrase trop brusque et expliquer le départ pour un emploi.",
+            "english": "Reread a letter to a sister: remove a blunt sentence and explain the move for a job."
           }
         },
         {
           "point": {
-            "french": "Une lettre conservée peut transmettre une mémoire familiale sans compte numérique.",
-            "english": "A saved letter can pass on family memories without a digital account."
+            "french": "Les lettres peuvent garder une trace de l'histoire familiale.",
+            "english": "Letters can preserve a record of family history."
           },
           "example": {
-            "french": "Transmettre une lettre sur son arrivée dans un pays à sa petite-fille.",
-            "english": "Pass a letter about arriving in a country to a granddaughter."
+            "french": "Une grand-mère transmet sa lettre d'arrivée à l'étranger : le travail au café et la petite chambre.",
+            "english": "A grandmother passes on her letter about arriving abroad: the cafe work and the small rented room."
           }
         }
       ],

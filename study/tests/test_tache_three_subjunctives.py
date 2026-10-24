@@ -124,7 +124,7 @@ REVIEWED_CLAUSES = {
     "technologie-p1": "sans qu'il soit nécessaire de connaître déjà ses membres",
     "technologie-p10": "à condition que l'auteur soit identifiable",
     "technologie-p11": "Cela suppose que les interlocuteurs acceptent le délai",
-    "technologie-p12": "à condition que le papier n'ait pas été perdu ou abîmé",
+    "technologie-p12": "Je ne pense pas que les lettres manuscrites soient devenues inutiles",
     "technologie-p13": "à condition qu'elle reçoive le message à temps",
     "technologie-p15": "il faut que la société conserve des accès adaptés",
     "technologie-p16": "Il faut que l'accompagnement soit toujours adapté aux capacités de l'enfant",

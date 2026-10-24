@@ -336,6 +336,24 @@ demonstration and guided pottery practice show actual learning without reading;
 do not substitute people who merely read little. These compatible passages do not
 make the two questions equivalent.
 
+The school-arts model demonstrates coached expression, evidence-based
+interpretation of a painting and actual musical learning made possible by school
+equipment. It does not promise that arts automatically improve every other
+subject. The television-utility model distinguishes learning, shared discussion
+and legitimate rest; relaxation need not produce new knowledge. Keep this
+separate from the reality-TV model's selective luxury images, copied humiliation
+and paid recommendations. Explain the link between the show and following its
+candidates online rather than treating unrelated advertising as a television
+effect.
+
+The personal-letter models retain their three shared reasons and bilingual cues:
+attention to the recipient, reflection before sending and family memories. Show
+what the letter actually says and what rereading changes, rather than merely
+asserting that paper creates thoughtful writing. Family memory concerns a
+person's experiences in their own words, not chiefly an account-login convenience.
+Digital messages can also be personal, carefully written and preserved. Keep
+regretting fewer letters distinct from calling handwriting obsolete.
+
 Reuse sound claims and familiar expressions where the mechanism is genuinely the
 same. The adult-observer and older-observer models share their three argument
 cues and the food-collection illustration, while keeping their actors and

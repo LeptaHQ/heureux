@@ -557,6 +557,18 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("style d'un écrivain", response.nuance)
         self.assertIn("sans chercher à comprendre", response.nuance)
 
+    def test_personal_letters_show_appreciation_revised_reasons_and_specific_family_memories(self):
+        attention, reflection, memory = self.response(18).arguments
+        self.assertIn("l'écriture d'un proche", attention.developpement)
+        self.assertIn("la caution d'un appartement", attention.exemple)
+        for phrase in ("le lendemain", "en a assez de sa ville", "phrase trop brusque", "un emploi qui l'intéresse"):
+            self.assertIn(phrase, reflection.exemple)
+        self.assertIn("une explication plus claire", reflection.consequence)
+        for phrase in ("Une grand-mère", "sa petite-fille", "servir dans un café", "la petite chambre qu'elle louait"):
+            self.assertIn(phrase, memory.exemple)
+        self.assertNotIn("compte numérique", memory.idea)
+        self.assertIn("se perdre", self.response(18).nuance)
+
     def test_reading_necessity_and_personal_cultural_forgetting_keep_their_scope(self):
         reading = self.response(20)
         self.assertIn("la lecture n'est pas indispensable", reading.conclusion)

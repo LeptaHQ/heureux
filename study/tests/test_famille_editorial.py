@@ -155,6 +155,16 @@ class FamilleEditorialTests(SimpleTestCase):
         self.assertIn("conditions d'accès", response.nuance)
         self.assertIn("ni lire systématiquement tous les messages privés", response.nuance)
 
+    def test_family_friendship_depends_on_trust_not_kinship_or_hobbies_alone(self):
+        response = self.response(10)
+        self.assertIn("on craint de les inquiéter ou de les décevoir", response.arguments[1].developpement)
+        self.assertIn("notre meilleur ami", response.arguments[2].idea)
+        self.assertIn("respecte son choix", response.arguments[2].exemple)
+        self.assertIn("sans répéter ses confidences", response.arguments[2].exemple)
+        self.assertIn("goûts différents", response.nuance)
+        self.assertIn("Partager les mêmes loisirs ne suffit pas", response.nuance)
+        self.assertIn("respecter les choix de l'autre", response.nuance)
+
     def test_household_reuse_does_not_force_friendship_necessity_arguments(self):
         comfort = self.response(2).arguments[2]
         practical = self.response(16).arguments[1]

@@ -836,8 +836,8 @@
         "english": "You can learn about a country without speaking its language, though your understanding will be incomplete."
       },
       "nuance": {
-        "french": "Apprendre la langue locale permet d'écouter plus de personnes et de moins dépendre des traductions.",
-        "english": "Learning the local language lets you listen to more people and rely less on translations."
+        "french": "Comprendre les mots ne suffit pas : une allusion à un ancien projet abandonné demande aussi d'en connaître l'histoire.",
+        "english": "Understanding the words is not enough; an allusion to an abandoned project also requires knowing the local history."
       },
       "conclusion": {
         "french": "On peut connaître certains aspects d'un pays sans parler sa langue, puis élargir ses connaissances en l'apprenant.",
@@ -866,12 +866,12 @@
         },
         {
           "point": {
-            "french": "Une langue commune permet de dialoguer sans parler la langue locale.",
-            "english": "A shared language enables conversation without speaking the local language."
+            "french": "Sans la langue locale, certaines discussions restent difficiles à comprendre.",
+            "english": "Without the local language, some discussions are still difficult to understand."
           },
           "example": {
-            "french": "Une habitante explique en français la transformation d'une usine en lieu culturel.",
-            "english": "A resident explains in French how a factory became a cultural venue."
+            "french": "Un nouvel arrivant lit un projet de logements traduit, mais ne suit pas les avis pour et contre à la réunion de quartier.",
+            "english": "A newcomer reads a translated housing proposal but cannot follow residents' arguments for and against at the neighbourhood meeting."
           }
         }
       ]

@@ -384,6 +384,15 @@ the separate cuisine question and its concrete cooking example. The practical
 learning reason has a fresh identity rather than reusing the retired social-
 exchange reason's annotations.
 
+The country-without-its-language answer retains observation and translated sources
+as two real routes to knowledge. Its third paragraph develops a supported limit:
+a translated project does not necessarily make spontaneous local debate accessible.
+The nuance distinguishes understanding words from knowing the local history
+behind an allusion. Do not imply that translations only convey facts or that
+fluency alone guarantees understanding. The replacement limit uses a fresh
+identity; the retired common-language workaround is not a third version of
+translated access.
+
 ## Famille learning consistency
 
 The 17 Famille consignes use 14 Famille models plus the shared Culture model
@@ -417,7 +426,7 @@ purpose distinct from practical help, regular company and trying new activities.
 A weekly meeting needs a context that explains why the contact matters, not only
 the observation that the outing is inexpensive.
 
-The precise-question sentence is shared by Culture 14/19 and Famille 13.
+The precise-question sentence is shared by Culture 14 and Famille 13.
 Culture 10/32 uses the familiar-gesture sentence
 shared by Culture 1 and Famille 16. Preserve the compatible sentence, not an
 interchangeable answer to these different questions.

@@ -121,7 +121,7 @@ class CultureEditorialTests(SimpleTestCase):
             (15, 1, ("sa grand-mère", "sécher les tomates du jardin", "en manger en hiver", "ce n'était plus la saison")),
             (15, 2, ("atelier de cuisine mexicaine", "comprend encore mal le français", "former une tortilla", "réussit à refaire ce geste")),
             (19, 1, ("une heure de marche", "dix minutes en bus", "sans généraliser ces deux expériences")),
-            (19, 2, ("en français", "une ancienne usine", "devenue un lieu culturel", "poser des questions")),
+            (19, 2, ("présentation traduite", "projet de logements", "réunion du quartier", "certains voisins sont pour et d'autres contre")),
             (20, 1, ("sans passer par un texte",)),
             (24, 1, ("association de quartier", "chacun apporte un plat", "dans la langue du pays", "d'autres rencontres")),
             (26, 2, ("prévoir leurs visites à l'avance", "question d'organisation", "pas un refus de me voir")),
@@ -169,6 +169,21 @@ class CultureEditorialTests(SimpleTestCase):
         ):
             self.assertIn(time, getattr(plan.arguments[0].example, language))
             self.assertIn(activity, getattr(plan.arguments[2].example, language))
+
+    def test_country_knowledge_has_a_supported_limit_not_a_second_language_workaround(self):
+        model = self.models["eo/tache-3/culture-p19"]
+        response = model.response
+        self.assertEqual(model.argument_ids, (1, 2, 4))
+        self.assertIn("connaissances approfondies", response.arguments[1].idea)
+        self.assertIn("certaines discussions restent difficiles", response.arguments[2].idea)
+        self.assertIn("tout n'est pas traduit sur le moment", response.arguments[2].developpement)
+        self.assertIn("Il sait ce qui est proposé", response.arguments[2].exemple)
+        self.assertIn("comprendre leurs raisons au moment de la discussion", response.arguments[2].consequence)
+        self.assertIn("parler la langue ne suffit pas toujours", response.nuance)
+        self.assertIn("ancien projet abandonné", response.nuance)
+        self.assertIn("on comprend les mots, mais pas forcément la réaction", response.nuance)
+        self.assertNotIn("une langue commune", response.position_claire)
+        self.assertNotIn("une langue commune", response.conclusion)
 
     def test_compatriot_support_explains_new_social_ties_without_rewriting_the_example(self):
         argument = self.response(11).arguments[0]

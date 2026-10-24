@@ -768,7 +768,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p16", 1, "conjoint", "conjoint", "partner"),
             ("culture-p16", 2, "récolte", "récolte", "harvest"),
             ("culture-p18", 1, "phrase trop brusque", "phrase trop brusque", "blunt sentence"),
-            ("culture-p19", 2, "ancienne usine", "usine", "factory"),
+            ("culture-p19", 2, "projet de logements", "projet de logements", "housing proposal"),
             ("culture-p20", 2, "motif", "motif", "motif"),
             ("culture-p24", 0, "chaque samedi", "samedi", "Saturday"),
             ("culture-p24", 1, "chacun apporte un plat", "chacun apporte un plat", "everyone brings a dish"),

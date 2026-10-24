@@ -558,13 +558,14 @@
       },
       "reformulation": "Peut-on connaître un pays sans parler sa langue ?",
       "position": "Oui, on peut en connaître des aspects réels, même si la langue élargit fortement l'accès.",
-      "position_claire": "À mon avis, on peut apprendre beaucoup sur un pays sans parler sa langue. On peut observer la vie quotidienne, lire des traductions et échanger dans une autre langue commune. Mais apprendre la langue locale permet de comprendre davantage de personnes et de situations.",
+      "position_claire": "À mon avis, on peut apprendre beaucoup sur un pays sans parler sa langue. On peut observer la vie quotidienne et apprendre grâce aux traductions. Mais certains échanges restent difficiles à suivre, notamment quand les habitants discutent entre eux.",
+      "argument_ids": [1, 2, 4],
       "arguments": [
         {
           "idea": "Tout d'abord, on peut comprendre une partie de la vie quotidienne en observant ce qui se passe.",
           "developpement": "On peut découvrir les lieux, les transports ou certaines pratiques sans comprendre chaque conversation. Il faut toutefois qu'on fasse la différence entre ce que l'on observe et l'explication que l'on imagine.",
           "exemple": "Un visiteur peut découvrir qu'un quartier apparemment proche du centre demande deux correspondances en bus. En faisant le trajet, il comprend une difficulté d'accès que le plan ne montrait pas, sans avoir parlé avec les autres voyageurs.",
-          "consequence": "Le visiteur peut donc mieux prévoir ses déplacements, sans avoir eu besoin de parler la langue."
+          "consequence": "Il connaît donc mieux les possibilités de transport dans ce quartier, sans avoir eu besoin de parler la langue."
         },
         {
           "idea": "Ensuite, les traductions rendent accessibles des récits et des connaissances approfondies.",
@@ -573,14 +574,14 @@
           "consequence": "Une traduction permet donc aussi d'apprendre en profondeur."
         },
         {
-          "idea": "Enfin, une langue commune permet de dialoguer sans parler la langue locale.",
-          "developpement": "Les habitants peuvent eux-mêmes parler plusieurs langues. Quand on discute avec quelqu'un, on peut lui poser une question précise ou vérifier ce qu'on a compris.",
-          "exemple": "Pendant une visite guidée en français, une habitante peut raconter comment une ancienne usine est devenue un lieu culturel. Un visiteur comprend ainsi un changement dans la vie du quartier et peut poser des questions, sans parler la langue locale.",
-          "consequence": "La langue locale n'est donc pas le seul moyen d'apprendre directement auprès des habitants."
+          "idea": "Enfin, sans la langue locale, certaines discussions restent difficiles à comprendre.",
+          "developpement": "Les traductions donnent accès à des informations, mais tout n'est pas traduit sur le moment. Dans une discussion spontanée, on peut manquer les réactions et les désaccords des personnes présentes.",
+          "exemple": "Un nouvel arrivant lit une présentation traduite d'un projet de logements. À la réunion du quartier, il ne comprend pourtant pas les échanges entre les habitants. Il sait ce qui est proposé, mais pas pourquoi certains voisins sont pour et d'autres contre.",
+          "consequence": "Parler la langue l'aiderait donc à comprendre leurs raisons au moment de la discussion."
         }
       ],
-      "nuance": "Cependant, certains échanges restent difficiles sans la langue locale, surtout les blagues ou les discussions spontanées. En l'apprenant, on peut parler avec plus de personnes et moins dépendre d'une traduction. Cela ne veut pas dire qu'on connaîtra tout du pays.",
-      "conclusion": "En conclusion, on peut apprendre beaucoup sur un pays grâce à l'observation, aux traductions et aux échanges dans une langue commune. Apprendre la langue locale permet ensuite de mieux comprendre ce qui nous entoure et de moins dépendre des autres."
+      "nuance": "Cependant, parler la langue ne suffit pas toujours à comprendre ce qui se passe. Dans cette réunion, quelqu'un peut faire référence à un ancien projet abandonné. Si on ne connaît pas cette histoire, on comprend les mots, mais pas forcément la réaction.",
+      "conclusion": "En conclusion, on peut apprendre beaucoup sur un pays en observant la vie quotidienne et en utilisant des traductions. Apprendre sa langue permet ensuite de mieux suivre les échanges et de comprendre davantage de points de vue."
     },
     "culture-p20": {
       "prompt_signatures": {

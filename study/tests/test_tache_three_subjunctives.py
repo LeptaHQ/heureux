@@ -15,7 +15,7 @@ REVIEWED_CLAUSES = {
     "culture-p11": "il faut que l'information soit vérifiée",
     "culture-p12": "à condition que le programme et la durée correspondent",
     "culture-p13": "sans qu'on attende d'eux une carrière artistique",
-    "culture-p14": "Il faut qu'on croise les sources",
+    "culture-p14": "Il faut qu'on garde en tête",
     "culture-p15": "ils attendent que tout le monde soit assis",
     "culture-p16": "sans qu'on ait d'amis",
     "culture-p17": "il arrive qu'on ne puisse pas rentrer",

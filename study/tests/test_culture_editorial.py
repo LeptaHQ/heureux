@@ -67,6 +67,12 @@ class CultureEditorialTests(SimpleTestCase):
             self.models["eo/tache-3/culture-p8"].source_prompts,
         )
 
+    def test_books_and_documentaries_name_cultural_discovery_without_travel(self):
+        argument = self.response(14).arguments[0]
+        self.assertIn("d'autres cultures sans voyager", argument.idea)
+        self.assertIn("garde en tête qu'une seule famille ne représente pas tout un pays", argument.developpement)
+        self.assertNotIn("croise les sources", argument.developpement)
+
     def test_examples_demonstrate_concrete_prompt_faithful_mechanisms(self):
         for number, argument, required in (
             (1, 2, ("à 14 heures", "à midi", "une fois par semaine", "le week-end")),

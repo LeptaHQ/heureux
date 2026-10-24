@@ -167,6 +167,9 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("sans leur confier toutes ses décisions", self.response("famille-p16").arguments[2].developpement)
 
     def test_friendship_partial_reuse_keeps_practical_help_and_discovery_distinct(self):
+        no_friends = "Ne pas avoir d'amis ne veut pas dire vivre sans aucun lien."
+        self.assertIn(no_friends, self.response("culture-p16").arguments[1].developpement)
+        self.assertIn(no_friends.casefold(), self.response("famille-p9").nuance.casefold())
         shared = "Pouvoir se retrouver régulièrement permet de partager son quotidien"
         for group, index in (("famille-p9", 1), ("culture-p24", 0)):
             self.assertIn(shared, self.response(group).arguments[index].developpement)

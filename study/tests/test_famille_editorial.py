@@ -190,6 +190,8 @@ class FamilleEditorialTests(SimpleTestCase):
             (6, 2, ("additionne", "comparer", "reformuler la consigne", "l'enseignant", "le plus grand nombre")),
             (7, 1, ("au repas familial", "Leur mère prend parti", "se sent jugée", "les relations se tendent")),
             (7, 2, ("son cousin", "vingt heures par semaine", "ses missions", "sa rémunération", "un samedi supplémentaire", "gratuitement")),
+            (9, 1, ("vit seule et travaille chez elle", "une promenade chaque samedi", "raconte sa semaine", "la semaine suivante")),
+            (9, 2, ("aimerait chanter mais n'ose pas", "accompagner un ami", "séance d'essai dans une chorale")),
             (10, 1, ("menuiserie", "ses doutes", "sur son revenu", "projet plus clair")),
             (10, 2, ("une autre ville", "sans répéter ses confidences", "comparer les logements")),
             (11, 1, ("Deux sœurs", "deux abonnements au lieu d'un")),

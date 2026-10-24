@@ -1760,8 +1760,8 @@
         "english": "Having no friends does not mean having no relationships; solitude may be chosen."
       },
       "conclusion": {
-        "french": "Valoriser des liens de qualité plutôt qu'un modèle obligatoire.",
-        "english": "Value good relationships rather than a mandatory social model."
+        "french": "L'amitié aide à bien vivre, mais d'autres liens peuvent aussi apporter du soutien et de la compagnie.",
+        "english": "Value friendships without treating them as a requirement; other relationships can also support a good life."
       },
       "arguments": [
         {
@@ -1776,18 +1776,18 @@
         },
         {
           "point": {
-            "french": "L'amitié donne une place régulière au plaisir d'être ensemble.",
-            "english": "Friendship creates regular opportunities to enjoy being together."
+            "french": "L'amitié peut apporter une présence régulière quand on se sent seul.",
+            "english": "Friendship can provide regular company when we feel lonely."
           },
           "example": {
-            "french": "Une promenade hebdomadaire offre un moment attendu sans dépense importante.",
-            "english": "A weekly walk provides an anticipated moment without major expense."
+            "french": "Une personne seule en télétravail retrouve un ami chaque samedi pour sortir et raconter sa semaine.",
+            "english": "Someone living and working alone meets a friend for a Saturday walk, with time to talk and a regular meeting to look forward to."
           }
         },
         {
           "point": {
-            "french": "Les amis peuvent nous aider à découvrir d'autres possibilités.",
-            "english": "Friends can help us discover other possibilities."
+            "french": "Les amis peuvent nous encourager à essayer de nouvelles activités.",
+            "english": "Friends can encourage us to try something new."
           },
           "example": {
             "french": "Accompagner un ami à une chorale permet d'essayer avant de choisir.",

@@ -221,8 +221,8 @@
         "famille:p9": "4714ea9036a6b200db1cd7408cfdbaff5d9d6eede9d94f49f4d6bfc1e0f7e5c0"
       },
       "reformulation": "L'amitié est-elle une condition nécessaire pour bien vivre ?",
-      "position": "Elle apporte beaucoup, mais n'est pas l'unique manière de construire une vie satisfaisante.",
-      "position_claire": "Je recommande de cultiver des amitiés, mais on peut aussi bien vivre sans amis. Les besoins et les autres relations varient. L'amitié apporte surtout un soutien concret, des moments réguliers de partage et une ouverture à d'autres expériences.",
+      "position": "L'amitié apporte beaucoup, mais n'est pas l'unique manière de construire une vie satisfaisante.",
+      "position_claire": "Je recommande de cultiver des amitiés, mais on peut aussi bien vivre sans amis. Les besoins et les autres relations varient. L'amitié apporte surtout un soutien concret, une présence régulière et une ouverture à d'autres expériences.",
       "arguments": [
         {
           "idea": "Tout d'abord, un ami de confiance peut apporter une aide concrète dans le quotidien.",
@@ -231,20 +231,20 @@
           "consequence": "S'entraider rend certaines difficultés moins lourdes à porter seul."
         },
         {
-          "idea": "Ensuite, l'amitié donne une place régulière au plaisir d'être ensemble.",
-          "developpement": "Pouvoir se retrouver régulièrement permet de partager son quotidien. On peut parler d'autre chose que du travail et des obligations, et attendre avec plaisir le prochain rendez-vous.",
-          "exemple": "Deux amis peuvent prévoir une promenade chaque samedi, même s'ils ont peu d'argent à consacrer aux sorties. Ils discutent de leur semaine, rient et profitent d'un moment attendu, sans avoir besoin d'un événement exceptionnel.",
-          "consequence": "Des moments simples peuvent ainsi rendre le quotidien plus agréable."
+          "idea": "Ensuite, l'amitié peut apporter une présence régulière quand on se sent seul.",
+          "developpement": "Pouvoir se retrouver régulièrement permet de partager son quotidien. Savoir qu'un ami prend de nos nouvelles peut aider à se sentir moins seul, surtout quand on voit peu de monde.",
+          "exemple": "Une personne qui vit seule et travaille chez elle peut passer plusieurs jours sans voir personne. Un ami lui propose une promenade chaque samedi. Elle sort de chez elle, raconte sa semaine et sait qu'ils se retrouveront la semaine suivante.",
+          "consequence": "Ce rendez-vous peut ainsi aider à se sentir moins seul et donner un repère dans la semaine."
         },
         {
-          "idea": "Enfin, les amis peuvent nous aider à découvrir d'autres possibilités.",
+          "idea": "Enfin, les amis peuvent nous encourager à essayer de nouvelles activités.",
           "developpement": "Une relation de confiance permet de recevoir un avis différent et d'essayer une activité que l'on n'aurait pas choisie seul. Cette ouverture peut enrichir notre vie sans qu'on soit obligé de suivre tous les conseils.",
           "exemple": "Une personne qui aimerait chanter mais n'ose pas peut accompagner un ami à une séance d'essai dans une chorale. Elle découvre l'ambiance avant de décider si elle souhaite continuer, plutôt que de renoncer sans avoir essayé.",
           "consequence": "L'ami peut ainsi nous encourager à essayer, sans décider à notre place."
         }
       ],
-      "nuance": "Cependant, ne pas avoir d'amis ne signifie pas n'avoir aucun lien humain. Une personne sans amis peut partager son quotidien avec son conjoint et compter sur sa sœur pour un coup de main. Ces liens peuvent lui permettre de bien vivre sans cercle amical. Il faut distinguer une solitude choisie d'un isolement qui fait souffrir.",
-      "conclusion": "En conclusion, les amis peuvent faciliter la vie, apporter des moments agréables et élargir les horizons. Je les vois comme une ressource précieuse, mais pas comme une condition universelle : la qualité des liens compte davantage qu'un modèle social imposé."
+      "nuance": "Cependant, ne pas avoir d'amis ne veut pas dire vivre sans aucun lien. Une personne sans amis peut partager son quotidien avec son conjoint et compter sur sa sœur pour un coup de main. Ces liens peuvent lui permettre de bien vivre sans cercle amical. Il faut distinguer une solitude choisie d'un isolement qui fait souffrir.",
+      "conclusion": "En conclusion, les amis peuvent faciliter la vie, aider à se sentir moins seul et nous encourager à essayer de nouvelles activités. Ils apportent beaucoup, sans être indispensables à chacun : d'autres relations peuvent aussi nous permettre de bien vivre."
     },
     "famille-p10": {
       "prompt_signatures": {

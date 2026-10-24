@@ -389,7 +389,7 @@ while keeping their positions and other mechanisms distinct. Reuse suitable
 friendship claims and the trial-choir example without replacing practical help
 with emotional support in every response. Concrete examples should explain the
 actual comparison or action: two Internet subscriptions instead of one, a
-housing-cost comparison, an identified calculation error, or seeking help with
+housing-cost comparison, an identified misread maths instruction, or seeking help with
 a damaged library book. Trust between relatives must be demonstrated by keeping
 a confidence and respecting a differing choice, not assumed from kinship.
 
@@ -401,6 +401,12 @@ making these the same question. Precise questions and regular family-language
 calls also fit conversations with grandparents; teaching a child is not the same
 as preventing an adult from forgetting. Reuse trust and affinity wording without
 making either common origins or kinship a guarantee of friendship.
+
+The happiness and living-well answers share the no-friends/not-no-relationships
+distinction without merging their reasons. Keep emotional support and personal
+purpose distinct from practical help, regular company and trying new activities.
+A weekly meeting needs a context that explains why the contact matters, not only
+the observation that the outing is inexpensive.
 
 The precise-question sentence is shared by Culture 14/19 and Famille 13.
 Culture 10/32 uses the familiar-gesture sentence

@@ -275,7 +275,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("l'enseignant", response(6).arguments[2].exemple)
         self.assertIn("rémunération", response(7).arguments[2].exemple)
         self.assertIn("dire non", response(7).nuance)
-        self.assertIn("aucun lien humain", response(9).nuance)
+        self.assertIn("ne veut pas dire vivre sans aucun lien", response(9).nuance)
         self.assertIn("chorale", response(9).arguments[2].exemple)
         self.assertNotEqual(response(9).arguments[2].exemple, models["eo/tache-3/culture-p16"].response.arguments[2].exemple)
         self.assertIn("ce n'est pas automatique", response(10).position_claire)

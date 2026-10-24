@@ -115,7 +115,7 @@ class CultureEditorialTests(SimpleTestCase):
         for number, argument, required in (
             (1, 2, ("à 14 heures", "à midi", "une fois par semaine", "le week-end")),
             (4, 2, ("a droit", "aide au logement", "formulaire")),
-            (6, 0, ("un essai", "la voiture en ville", "pollution", "pas de bus pour aller travailler", "interdiction totale")),
+            (6, 0, ("un essai", "la voiture en ville", "la pollution", "sans transports en commun", "interdiction totale")),
             (11, 0, ("sa solitude en français", "une amie de son pays qui parle sa langue", "le dimanche ensemble")),
             (11, 1, ("Une infirmière", "compatriote", "fait reconnaître son diplôme", "quels documents", "à quel organisme")),
             (15, 1, ("sa grand-mère", "sécher les tomates du jardin", "en manger en hiver", "ce n'était plus la saison")),
@@ -521,30 +521,30 @@ class CultureEditorialTests(SimpleTestCase):
         source = next(source for source in self.sources if source.semantic_group == group)
         original = source.prompts[0].model_content["arguments"][0]
         argument = response.arguments[0]
-        for text in (original["idea"], argument.idea):
-            self.assertIn("la réflexion et la concentration", text)
-        self.assertIn("garder le fil sur plusieurs pages", argument.developpement)
-        self.assertIn("les objections qu'il examine", argument.developpement)
+        self.assertEqual(argument.idea, original["idea"])
+        self.assertIn("suivre une pensée longue", argument.developpement)
+        self.assertIn("tenir son attention", argument.developpement)
+        self.assertIn("examiner un raisonnement dans son ensemble", argument.developpement)
         self.assertIn("un jugement plus réfléchi", argument.consequence)
         cue = self.plans[group].arguments[0]
         for language in ("french", "english"):
             point = getattr(cue.point, language)
             self.assertIn("réflexion" if language == "french" else "reflection", point)
             self.assertIn("concentration", point)
-        self.assertIn("sans bus pour aller travailler", cue.example.french)
-        self.assertIn("no bus to work", cue.example.english)
+        self.assertIn("transports en commun", cue.example.french)
+        self.assertIn("public transport", cue.example.english)
         self.assertIn("un livre peut aussi se lire sur un écran", response.nuance)
 
-    def test_book_examples_show_guided_learning_and_a_characters_unspoken_reason(self):
+    def test_protected_book_keeps_guided_learning_and_a_characters_point_of_view(self):
         learning = self.response(6).arguments[1]
-        for phrase in ("tomates sur son balcon", "choisit un pot", "sème les graines", "conseils d'arrosage"):
+        for phrase in ("un guide", "le sol, les semis puis l'arrosage", "le chapitre nécessaire"):
             self.assertIn(phrase, learning.exemple)
-        self.assertIn("les bases avant les étapes plus compliquées", learning.developpement)
+        self.assertIn("lorsqu'on commence un domaine", learning.developpement)
         story = self.response(6).arguments[2]
         self.assertIn("les pensées d'un personnage", story.developpement)
-        self.assertIn("une idée à proposer", story.exemple)
-        self.assertIn("se tait par peur de chercher ses mots", story.exemple)
-        self.assertIn("ne pas prendre le silence", story.consequence)
+        self.assertIn("hésite à parler pendant une réunion", story.exemple)
+        self.assertIn("peur de se tromper", story.exemple)
+        self.assertIn("compréhension d'autrui", story.consequence)
 
     def test_reading_alternatives_demonstrate_listening_and_guided_practice(self):
         response = self.response(20)
@@ -564,7 +564,7 @@ class CultureEditorialTests(SimpleTestCase):
         for phrase in ("le lendemain", "en a assez de sa ville", "phrase trop brusque", "un emploi qui l'intéresse"):
             self.assertIn(phrase, reflection.exemple)
         self.assertIn("une explication plus claire", reflection.consequence)
-        for phrase in ("Une grand-mère", "sa petite-fille", "servir dans un café", "la petite chambre qu'elle louait"):
+        for phrase in ("une boîte de famille", "sa grand-mère avait envoyée", "travail dans un café", "la petite chambre qu'elle louait"):
             self.assertIn(phrase, memory.exemple)
         self.assertNotIn("compte numérique", memory.idea)
         self.assertIn("se perdre", self.response(18).nuance)

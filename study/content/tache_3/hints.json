@@ -248,32 +248,32 @@
       "arguments": [
         {
           "point": {
-            "french": "La lecture permet de développer la réflexion et la concentration.",
-            "english": "Reading can develop reflection and concentration."
+            "french": "Le livre reste un outil très puissant pour développer la réflexion et la concentration.",
+            "english": "Books remain a powerful tool for developing reflection and concentration."
           },
           "example": {
-            "french": "Un essai sur la voiture confronte la pollution aux difficultés des habitants sans bus pour aller travailler.",
-            "english": "An essay on cars weighs pollution against the difficulties of residents with no bus to work."
+            "french": "Dans un essai sur la voiture en ville, confronter la pollution aux besoins des habitants sans transports en commun.",
+            "english": "In an essay on cars in cities, weigh pollution against the needs of residents without public transport."
           }
         },
         {
           "point": {
-            "french": "Un livre bien organisé aide à apprendre étape par étape.",
-            "english": "A well-organised book helps you learn step by step."
+            "french": "Un ouvrage bien conçu organise des connaissances que l'on peut retrouver.",
+            "english": "A well-designed book organises knowledge for later reference."
           },
           "example": {
-            "french": "Suivre un guide pour cultiver des tomates sur son balcon : choisir le pot, semer et arroser.",
-            "english": "Follow a guide to grow tomatoes on a balcony: choose a pot, sow seeds and water."
+            "french": "Retrouver un chapitre sur l'arrosage dans un guide de jardinage.",
+            "english": "Find the watering chapter again in a gardening guide."
           }
         },
         {
           "point": {
-            "french": "Les récits aident à comprendre ce que vivent d'autres personnes.",
-            "english": "Stories help us understand what other people experience."
+            "french": "Les récits donnent accès à des expériences différentes des nôtres.",
+            "english": "Stories offer access to experiences different from our own."
           },
           "example": {
-            "french": "Un personnage veut proposer une idée en réunion, mais se tait par peur de chercher ses mots.",
-            "english": "A character wants to suggest an idea in a meeting but stays silent for fear of struggling to find words."
+            "french": "Un récit aide à comprendre l'hésitation d'un personnage qui apprend une langue.",
+            "english": "A story helps explain the hesitation of a character learning a language."
           }
         }
       ]
@@ -824,8 +824,8 @@
             "english": "Letters can preserve a record of family history."
           },
           "example": {
-            "french": "Une grand-mère transmet sa lettre d'arrivée à l'étranger : le travail au café et la petite chambre.",
-            "english": "A grandmother passes on her letter about arriving abroad: the cafe work and the small rented room."
+            "french": "Retrouver une lettre de sa grand-mère : ses débuts à l'étranger, le travail au café et la petite chambre.",
+            "english": "Find a grandmother's letter about her early life abroad: work at a cafe and a small rented room."
           }
         }
       ]
@@ -4312,14 +4312,14 @@
             "english": "Letters can preserve a record of family history."
           },
           "example": {
-            "french": "Une grand-mère transmet sa lettre d'arrivée à l'étranger : le travail au café et la petite chambre.",
-            "english": "A grandmother passes on her letter about arriving abroad: the cafe work and the small rented room."
+            "french": "Retrouver une lettre de sa grand-mère : ses débuts à l'étranger, le travail au café et la petite chambre.",
+            "english": "Find a grandmother's letter about her early life abroad: work at a cafe and a small rented room."
           }
         }
       ],
       "nuance": {
-        "french": "Le numérique peut aussi être profond et durable.",
-        "english": "Digital messages can also be meaningful and lasting."
+        "french": "Le papier peut se perdre ou s'abîmer ; le numérique peut aussi garder des souvenirs.",
+        "english": "Paper letters can be lost or damaged; digital messages can also preserve memories."
       },
       "conclusion": {
         "french": "Choisir le support selon la relation et le besoin.",

@@ -342,29 +342,29 @@
       },
       "reformulation": "Quelle place donner à la langue familiale et à celle du pays d'accueil avec les enfants ?",
       "position": "Ne pas imposer un choix exclusif : garder un dialogue familial riche et soutenir la langue locale.",
-      "position_claire": "Je ne choisirais pas une langue contre l'autre. Je conseillerais aux parents de garder la langue dans laquelle ils échangent le mieux avec leurs enfants, tout en soutenant l'apprentissage de la langue du pays d'accueil. Le dialogue, les liens familiaux et la participation locale sont trois besoins complémentaires.",
+      "position_claire": "Je ne choisirais pas une langue contre l'autre. Je garderais une place pour la langue maternelle dans les échanges en famille, tout en aidant les enfants à apprendre celle du pays d'accueil.",
       "arguments": [
         {
-          "idea": "Tout d'abord, les parents doivent pouvoir exprimer précisément ce qu'ils veulent transmettre.",
-          "developpement": "S'ils sont plus à l'aise dans leur langue maternelle, l'abandonner peut limiter les conversations. Une langue familière permet de raconter, d'expliquer et de parler des émotions avec davantage de nuances.",
-          "exemple": "Après une dispute à l'école, un enfant explique dans la langue familiale qu'il s'est senti exclu. Son parent peut distinguer avec lui la colère de la tristesse et l'aider à dire ce qui l'a blessé, au lieu de se limiter à « ça va » dans une langue que le parent maîtrise mal.",
+          "idea": "Tout d'abord, parler une langue qu'on maîtrise bien permet de mieux échanger avec ses enfants.",
+          "developpement": "Si les parents sont plus à l'aise dans leur langue maternelle, l'abandonner peut limiter les conversations. Ils peuvent raconter une histoire, donner un conseil ou comprendre ce qui préoccupe l'enfant sans chercher sans cesse leurs mots.",
+          "exemple": "Un enfant rentre triste parce que ses camarades ont refusé de jouer avec lui. Dans la langue familiale, sa mère lui demande ce qui s'est passé et l'écoute. Elle peut le rassurer sans chercher tous ses mots dans une langue qu'elle maîtrise mal.",
           "consequence": "On peut ainsi parler en détail de ce que l'enfant ressent, au lieu de limiter les échanges."
         },
         {
           "idea": "Ensuite, la langue familiale peut entretenir des relations entre générations.",
           "developpement": "Parler une langue commune permet de participer directement aux conversations, sans qu'une traduction soit toujours nécessaire. Quand on discute avec quelqu'un, on peut lui poser une question précise ou vérifier ce qu'on a compris.",
-          "exemple": "Un enfant peut téléphoner chaque semaine à ses grands-parents dans leur langue familiale. Il leur raconte une sortie et leur pose des questions sur leur enfance.",
-          "consequence": "L'enfant peut ainsi connaître l'histoire familiale en parlant directement avec ses proches."
+          "exemple": "Un enfant téléphone chaque semaine à ses grands-parents dans leur langue familiale. Sa grand-mère lui raconte ses jeux d'enfance et lui explique les mots qu'il ne comprend pas.",
+          "consequence": "L'enfant découvre ainsi des souvenirs familiaux tout en apprenant des mots qu'il pourra réutiliser."
         },
         {
           "idea": "Enfin, pratiquer la langue locale aide l'enfant à participer à la vie du pays.",
           "developpement": "Comprendre les consignes et participer aux échanges facilite la vie scolaire et les activités. Les parents peuvent soutenir cet apprentissage même lorsqu'ils ne maîtrisent pas encore cette langue.",
-          "exemple": "Ils peuvent demander à l'enseignant quelles ressources conviennent à leur enfant, puis l'accompagner à une lecture ou à une activité de bibliothèque. L'enfant trouve des personnes avec qui parler et utilise les mots dans une situation, au-delà d'une liste à mémoriser.",
+          "exemple": "Sur les conseils de l'enseignant, des parents inscrivent leur enfant à un atelier de la bibliothèque. En fabriquant une marionnette, il apprend à demander du papier et à suivre des consignes dans la langue locale.",
           "consequence": "L'enfant apprend ainsi à parler avec d'autres personnes et à participer aux activités près de chez lui."
         }
       ],
-      "nuance": "Cependant, toutes les familles n'ont pas les mêmes langues ni les mêmes ressources. Un partage rigide entre maison et école n'est pas obligatoire, et le bilinguisme parfait n'est pas garanti. Il faut encourager les échanges sans faire honte à l'enfant lorsqu'il cherche un mot.",
-      "conclusion": "En conclusion, je privilégierais une place réelle pour les deux langues : un dialogue familial précis, des liens entre générations et des possibilités de participer localement. Elles peuvent se compléter, sans imposer une méthode unique à toutes les familles."
+      "nuance": "Cependant, on n'est pas obligé de parler une langue uniquement à la maison et l'autre à l'école. Le bilinguisme parfait n'est pas garanti. L'important est d'encourager l'enfant à parler, sans lui faire honte quand il cherche un mot.",
+      "conclusion": "En conclusion, les parents n'ont pas besoin d'abandonner leur langue pour aider leurs enfants à s'intégrer. Ils peuvent la garder dans les échanges familiaux et soutenir aussi la pratique de la langue du pays. Les deux langues peuvent se compléter."
     },
     "famille-p14": {
       "prompt_signatures": {

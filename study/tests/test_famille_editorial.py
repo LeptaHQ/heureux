@@ -209,6 +209,9 @@ class FamilleEditorialTests(SimpleTestCase):
             (12, 0, ("sept ans", "sa sieste", "dessiner dans une autre pièce", "pendant que le bébé dort")),
             (12, 1, ("livre de bibliothèque", "en parle", "sans crier", "remplacer")),
             (12, 2, ("propose", "dix-sept heures", "avant le dîner", "Une semaine plus tard", "sans qu'elle ait à le lui rappeler")),
+            (13, 0, ("refusé de jouer avec lui", "sa mère", "langue familiale", "le rassurer", "langue qu'elle maîtrise mal")),
+            (13, 1, ("chaque semaine", "ses grands-parents", "ses jeux d'enfance", "les mots qu'il ne comprend pas")),
+            (13, 2, ("conseils de l'enseignant", "bibliothèque", "marionnette", "demander du papier", "langue locale")),
             (16, 0, ("contribution financière", "si la cohabitation coûte moins cher", "la différence")),
         ):
             with self.subTest(response=number, argument=argument + 1):

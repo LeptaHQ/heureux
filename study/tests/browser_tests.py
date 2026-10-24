@@ -2979,6 +2979,15 @@ class BrowserTests(StaticLiveServerTestCase):
             groups={f"eo/tache-3/culture-p{number}" for number in (14, 15, 16, 19)},
         )
 
+    def test_selected_culture_subthemes_preserve_unchanged_annotations_after_public_example_edits(self):
+        self._assert_theme_models_preserve_public_example_edits(
+            set(), 7,
+            groups={
+                *(f"eo/tache-3/culture-p{number}" for number in (6, 12, 13, 18, 20, 31)),
+                "eo/tache-3/technologie-p12",
+            },
+        )
+
     def test_eo3_adjacent_rewrites_preserve_browser_saved_sections_and_note_anchors(self):
         from study import catalogue
         from study.public_response_annotations import render_current_response
@@ -3550,6 +3559,12 @@ class BrowserTests(StaticLiveServerTestCase):
         self._assert_eo3_learning_aids_match_on_detail_and_practice(
             tuple(f"culture:p{number}" for number in (14, 15, 16, 19)),
         )
+
+    def test_selected_culture_subthemes_and_equivalents_show_matching_bilingual_learning_aids(self):
+        self._assert_eo3_learning_aids_match_on_detail_and_practice((
+            *(f"culture:p{number}" for number in (6, 12, 13, 18, 20, 23, 31)),
+            "education:p8", "education:p11", "technologie:p12",
+        ))
 
     def _assert_eo3_learning_aids_match_on_detail_and_practice(self, keys):
         from study import catalogue

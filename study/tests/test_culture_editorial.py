@@ -174,6 +174,11 @@ class CultureEditorialTests(SimpleTestCase):
         model = self.models["eo/tache-3/culture-p19"]
         response = model.response
         self.assertEqual(model.argument_ids, (1, 2, 4))
+        self.assertIn("quels quartiers sont faciles à rejoindre", response.arguments[0].developpement)
+        self.assertIn("combien de temps prennent les trajets", response.arguments[0].developpement)
+        self.assertNotIn("l'explication que l'on imagine", response.arguments[0].developpement)
+        self.assertIn("une heure à s'y rendre en bus", response.arguments[0].exemple)
+        self.assertIn("changer deux fois", response.arguments[0].exemple)
         self.assertIn("connaissances approfondies", response.arguments[1].idea)
         self.assertIn("certaines discussions restent difficiles", response.arguments[2].idea)
         self.assertIn("tout n'est pas traduit sur le moment", response.arguments[2].developpement)

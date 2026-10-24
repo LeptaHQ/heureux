@@ -20,7 +20,7 @@ REVIEWED_CLAUSES = {
     "culture-p16": "sans qu'on ait d'amis",
     "culture-p17": "il arrive qu'on ne puisse pas rentrer",
     "culture-p18": "je trouve dommage qu'on s'envoie moins de lettres",
-    "culture-p19": "Il faut toutefois qu'on fasse la différence",
+    "culture-p19": "sans qu'un interprète ait à tout nous expliquer",
     "culture-p2": "Il faut alors qu'on discute du comportement observé",
     "culture-p20": "à condition que l'auditeur prenne le temps",
     "culture-p21": "sans attendre qu'un compagnon décide",

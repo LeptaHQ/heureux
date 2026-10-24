@@ -2973,6 +2973,12 @@ class BrowserTests(StaticLiveServerTestCase):
             {"famille"}, 15, groups={"eo/tache-3/culture-p16"},
         )
 
+    def test_culture_followups_keep_unchanged_annotations_after_a_public_example_edit(self):
+        self._assert_theme_models_preserve_public_example_edits(
+            set(), 4,
+            groups={f"eo/tache-3/culture-p{number}" for number in (14, 15, 16, 19)},
+        )
+
     def test_eo3_adjacent_rewrites_preserve_browser_saved_sections_and_note_anchors(self):
         from study import catalogue
         from study.public_response_annotations import render_current_response
@@ -3539,6 +3545,11 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(len(keys), 17)
         self._assert_eo3_learning_aids_match_on_detail_and_practice(keys)
+
+    def test_culture_followup_learning_aids_match_on_detail_and_practice(self):
+        self._assert_eo3_learning_aids_match_on_detail_and_practice(
+            tuple(f"culture:p{number}" for number in (14, 15, 16, 19)),
+        )
 
     def _assert_eo3_learning_aids_match_on_detail_and_practice(self, keys):
         from study import catalogue

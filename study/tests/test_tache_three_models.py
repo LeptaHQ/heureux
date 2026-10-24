@@ -772,7 +772,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p15", 1, "tomates", "tomates", "tomatoes"),
             ("culture-p15", 2, "séjour au Ghana", "Au Ghana", "In Ghana"),
             ("culture-p15", 2, "fufu", "fufu", "fufu"),
-            ("culture-p15", 2, "manioc cuit", "manioc cuit", "cooked cassava"),
+            ("culture-p15", 2, "manioc", "manioc", "cassava"),
             ("culture-p16", 1, "conjoint", "conjoint", "partner"),
             ("culture-p16", 2, "récolte", "récolte", "harvest"),
             ("culture-p18", 1, "phrase trop brusque", "phrase trop brusque", "blunt sentence"),

@@ -120,7 +120,7 @@ class CultureEditorialTests(SimpleTestCase):
             (11, 1, ("Une infirmière", "compatriote", "fait reconnaître son diplôme", "quels documents", "à quel organisme")),
             (15, 1, ("sa grand-mère", "sécher les tomates du jardin", "en manger en hiver", "ce n'était plus la saison")),
             (15, 2, ("atelier de cuisine mexicaine", "comprend encore mal le français", "former une tortilla", "réussit à refaire ce geste")),
-            (19, 1, ("une heure de marche", "dix minutes en bus", "sans généraliser ces deux expériences")),
+            (19, 1, ("documentaire sous-titré", "deux anciens ouvriers", "fermeture de leur usine", "perdu leur emploi", "quitté la région")),
             (19, 2, ("présentation traduite", "projet de logements", "réunion du quartier", "certains voisins sont pour et d'autres contre")),
             (20, 1, ("sans passer par un texte",)),
             (24, 1, ("association de quartier", "chacun apporte un plat", "dans la langue du pays", "d'autres rencontres")),
@@ -179,7 +179,8 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("l'explication que l'on imagine", response.arguments[0].developpement)
         self.assertIn("une heure à s'y rendre en bus", response.arguments[0].exemple)
         self.assertIn("changer deux fois", response.arguments[0].exemple)
-        self.assertIn("connaissances approfondies", response.arguments[1].idea)
+        self.assertIn("comprendre l'histoire du pays", response.arguments[1].idea)
+        self.assertIn("on ne connaît pas forcément leur histoire", response.arguments[1].developpement)
         self.assertIn("certaines discussions restent difficiles", response.arguments[2].idea)
         self.assertIn("tout n'est pas traduit sur le moment", response.arguments[2].developpement)
         self.assertIn("Il sait ce qui est proposé", response.arguments[2].exemple)

@@ -204,7 +204,8 @@ class FamilleEditorialTests(SimpleTestCase):
             (9, 2, ("aimerait chanter mais n'ose pas", "accompagner un ami", "séance d'essai dans une chorale")),
             (10, 1, ("menuiserie", "ses doutes", "sur son revenu", "projet plus clair")),
             (10, 2, ("une autre ville", "sans répéter ses confidences", "comparer les logements")),
-            (11, 1, ("Deux sœurs", "deux abonnements au lieu d'un")),
+            (11, 1, ("Deux sœurs", "quarante euros par mois", "vingt euros chacune", "deux abonnements au lieu d'un")),
+            (11, 2, ("Dans un couple", "prépare le dîner", "les courses le lendemain", "déjà prêt à son retour")),
             (12, 1, ("livre de bibliothèque", "en parle", "sans crier", "remplacer")),
             (16, 0, ("contribution financière", "si la cohabitation coûte moins cher", "la différence")),
         ):

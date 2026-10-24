@@ -1858,8 +1858,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Vivre seul réduit les décisions à négocier dans le logement.",
-            "english": "Living alone reduces household decisions to negotiate."
+            "french": "Vivre seul permet de choisir plus librement son rythme de vie.",
+            "english": "Living alone gives more freedom to choose your daily routine."
           },
           "example": {
             "french": "Organiser son repas après un retour tardif du travail.",
@@ -1872,8 +1872,8 @@
             "english": "Living alone also means paying some expenses alone."
           },
           "example": {
-            "french": "Deux sœurs comparent un abonnement Internet partagé avec deux abonnements séparés.",
-            "english": "Two sisters compare one shared Internet subscription with two separate subscriptions."
+            "french": "Deux sœurs : un abonnement à quarante euros par mois, vingt chacune ; deux abonnements, quarante chacune.",
+            "english": "Two sisters share a forty-euro monthly Internet bill, twenty each; separate plans mean forty each."
           }
         },
         {
@@ -1882,8 +1882,8 @@
             "english": "Well-organized cohabitation can divide practical work."
           },
           "example": {
-            "french": "Répartir les courses et les repas selon les disponibilités.",
-            "english": "Divide shopping and cooking according to availability."
+            "french": "Dans un couple, l'un prépare le dîner après être rentré tôt ; l'autre finit tard et fera les courses le lendemain.",
+            "english": "One partner gets home early and cooks; the other finishes late and will do the shopping the next day."
           }
         }
       ]

@@ -20,6 +20,8 @@ from study.tache_two_dialogues import dialogue_response
 from study.tache_two_location_history import LOCATION_HISTORY_PATH, load_location_history
 
 from . import factories
+from .test_tache_two_work_school_review import REVIEWED_GROUPS
+from .transport_travel_review_fixtures import REVIEWED_GROUPS as TRANSPORT_TRAVEL_GROUPS
 
 
 class TacheTwoLocationCorpusTests(SimpleTestCase):
@@ -732,8 +734,9 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
                 self.assertIn(place, json.dumps(asdict(by_group[group]), ensure_ascii=False))
                 self.assertNotIn("Seattle", json.dumps(asdict(by_group[group]), ensure_ascii=False))
         student = by_group["french-class-survey-francophone-student"]
-        self.assertIn("du Canada", student.questions[0].answer)
-        self.assertIn("du Québec", student.questions[0].answer)
+        self.assertIn("French-speaking country", student.note)
+        self.assertIn("génie informatique", student.questions[0].answer)
+        self.assertNotIn("pays", student.questions[0].question)
         self.assertIn("Seattle", student.questions[1].answer)
         countries = by_group["friend-visited-countries-destination-choice"]
         self.assertIn("Le Canada et les États-Unis", countries.questions[0].answer)
@@ -1132,20 +1135,20 @@ class PublishedTacheTwoHighlightTests(TestCase):
 
     def test_work_rewrites_preserve_unchanged_questions_and_archive_learned_wording(self):
         mappings = {
-            "new-employee-company-orientation": {1: 1, 2: 2, 3: 3},
-            "director-canada-fortnight-training": {2: 2, 3: 3, 7: 7},
-            "friend-first-workday-report": {2: 4, 3: 5, 4: 2, 5: 3, 6: 6, 7: 7, 8: 8},
-            "newcomer-canada-friend-job-market": {7: 7},
-            "canadian-work-hours-home-country-comparison": {4: 4, 5: 5, 6: 6},
-            "former-colleague-new-job-to-change-employment": {2: 2, 5: 5},
-            "new-colleague-quebec-career-migration": {3: 3, 4: 4, 6: 6},
-            "recruiter-scheduled-interview-preparation": {1: 2, 2: 1, 3: 3, 4: 4, 6: 6, 8: 8},
-            "colleague-internal-job-change": {4: 4, 6: 6, 7: 7, 8: 8},
-            "friend-upcoming-job-interview-advice": {4: 4, 5: 5, 7: 7},
-            "acquaintance-new-job-overall-experience": {2: 2, 5: 5, 8: 8},
+            "new-employee-company-orientation": {3: 3},
+            "director-canada-fortnight-training": {7: 7},
+            "friend-first-workday-report": {2: 4, 4: 2, 5: 3, 8: 8},
+            "newcomer-canada-friend-job-market": {},
+            "canadian-work-hours-home-country-comparison": {5: 5},
+            "former-colleague-new-job-to-change-employment": {2: 2},
+            "new-colleague-quebec-career-migration": {3: 3, 4: 4},
+            "recruiter-scheduled-interview-preparation": {1: 2, 2: 1, 3: 3, 4: 4, 6: 5},
+            "colleague-internal-job-change": {7: 7, 8: 8},
+            "friend-upcoming-job-interview-advice": {4: 4, 7: 7},
+            "acquaintance-new-job-overall-experience": {2: 2, 8: 8},
             "retirement-party-invitation": {1: 1, 2: 2, 4: 4},
-            "supervisor-overseas-job-offer": {1: 1, 2: 2, 3: 3, 4: 4},
-            "friend-association-work-experience": {1: 1, 3: 4, 5: 3},
+            "supervisor-overseas-job-offer": {1: 1, 2: 2, 3: 3, 4: 7},
+            "friend-association-work-experience": {1: 1, 3: 4},
             "colleague-management-promotion-party": {1: 1, 2: 2, 3: 3, 4: 4, 7: 7, 8: 8},
         }
         for group, mapping in mappings.items():
@@ -1154,19 +1157,86 @@ class PublishedTacheTwoHighlightTests(TestCase):
                 self.assert_revision_highlights_preserved(group, mapping, revision=revision)
             Annotation.objects.filter(user=self.user).delete()
 
+    def test_latest_work_school_review_preserves_all_retained_questions_and_note_bodies(self):
+        self.assert_latest_review_preserves_questions_and_notes(REVIEWED_GROUPS)
+
+    def test_latest_transport_travel_review_preserves_all_retained_questions_and_note_bodies(self):
+        self.assert_latest_review_preserves_questions_and_notes(TRANSPORT_TRAVEL_GROUPS)
+
+    def assert_latest_review_preserves_questions_and_notes(self, groups):
+        for group in sorted(groups):
+            with self.subTest(group=group):
+                self.configure_group(group)
+                self.old = catalogue.tache_two_location_history()[group].revisions[-1]
+                current_numbers = {
+                    question.question: number
+                    for number, question in enumerate(self.current.questions, 1)
+                }
+                retained = {
+                    number: current_numbers[question.question]
+                    for number, question in enumerate(self.old.questions, 1)
+                    if question.question in current_numbers
+                }
+                self.assertTrue(retained)
+                self.assert_revision_highlights_preserved(group, retained)
+                stored = {row["id"] for row in self.fetch()}
+                rendered = _render_questions(
+                    self.prompt, dialogue_response(self.current), "detail", [self.prompt],
+                )
+                for mark in Annotation.objects.filter(user=self.user):
+                    self.assertIn(mark.pk, stored)
+                    if mark.quote in current_numbers:
+                        self.assert_current(mark)
+                    else:
+                        self.assertNotIn(mark.quote.encode("utf-16-le"), rendered.text)
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_latest_work_school_review_never_replaces_a_private_route_or_prompt_note(self):
+        self.assert_latest_review_preserves_private_routes(REVIEWED_GROUPS)
+
+    def test_latest_transport_travel_review_never_replaces_a_private_route_or_prompt_note(self):
+        self.assert_latest_review_preserves_private_routes(TRANSPORT_TRAVEL_GROUPS)
+
+    def assert_latest_review_preserves_private_routes(self, groups):
+        for group in sorted(groups):
+            with self.subTest(group=group):
+                self.configure_group(group)
+                self.old = catalogue.tache_two_location_history()[group].revisions[-1]
+                values = asdict(dialogue_response(self.old))
+                values.pop("is_personal")
+                values["arguments"] = list(values["arguments"])
+                values["arguments"][0]["idea"] = "Ma propre question pour cette conversation ?"
+                values["nuance"] = f"My private explanation for {group}."
+                personal = PersonalResponse.objects.create(
+                    user=self.user, response=self.response, source_prompt=self.prompt, **values,
+                )
+                mark = self.highlight(2, body="My learned question.", study_later=True)
+                before = (personal.arguments, personal.nuance, mark.body, mark.created_at)
+                self.fetch()
+                personal.refresh_from_db()
+                mark.refresh_from_db()
+                self.assertEqual(
+                    (personal.arguments, personal.nuance, mark.body, mark.created_at), before,
+                )
+                self.assertTrue(personal.is_active)
+                self.assertTrue(mark.study_later)
+                self.assert_current(mark)
+            PersonalResponse.objects.filter(user=self.user).delete()
+            Annotation.objects.filter(user=self.user).delete()
+
     def test_education_rewrites_preserve_unchanged_questions_and_archive_learned_wording(self):
         mappings = {
-            "newcomer-canada-private-french-teacher": {2: 2, 3: 3},
+            "newcomer-canada-private-french-teacher": {3: 3},
             "french-teacher-study-abroad-advice": {8: 8},
-            "language-school-new-language": {1: 1, 2: 2, 5: 4},
-            "parent-after-school-activity-advice": {2: 2, 3: 3, 5: 5, 6: 6, 7: 7, 8: 8},
-            "friend-child-language-stay-abroad": {1: 1, 3: 4, 7: 8},
-            "edmonton-newcomer-neighbor-schools": {2: 2, 7: 8, 8: 7},
-            "french-teacher-language-school-student-game": {2: 3, 3: 4, 4: 6, 7: 1},
-            "friend-planned-canadian-studies": {1: 1, 2: 3, 4: 2, 6: 6, 7: 7, 8: 8},
-            "fellow-parent-first-school-fete": {1: 1, 2: 2, 4: 4, 5: 5, 8: 8},
-            "french-class-survey-francophone-student": {1: 1, 7: 7, 8: 8},
-            "calgary-university-adult-language-courses": {1: 1, 2: 2, 3: 3, 7: 7, 8: 8},
+            "language-school-new-language": {1: 1, 2: 2},
+            "parent-after-school-activity-advice": {2: 2, 3: 3, 6: 6, 7: 7, 8: 8},
+            "friend-child-language-stay-abroad": {1: 1, 7: 8},
+            "edmonton-newcomer-neighbor-schools": {2: 2},
+            "french-teacher-language-school-student-game": {2: 2, 3: 3, 4: 5, 7: 6},
+            "friend-planned-canadian-studies": {2: 2, 4: 1, 6: 6},
+            "fellow-parent-first-school-fete": {1: 1, 2: 2, 5: 5},
+            "french-class-survey-francophone-student": {},
+            "calgary-university-adult-language-courses": {1: 2, 2: 1, 7: 7, 8: 8},
         }
         for group, mapping in mappings.items():
             with self.subTest(group=group):
@@ -1177,22 +1247,22 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_second_education_pass_preserves_the_first_review_and_its_moved_highlights(self):
         mappings = {
             "calgary-university-adult-language-courses": {
-                1: 1, 2: 2, 3: 3, 5: 5, 6: 6, 7: 7, 8: 8,
+                1: 2, 2: 1, 5: 5, 7: 7, 8: 8,
             },
             "edmonton-newcomer-neighbor-schools": {
-                2: 2, 3: 3, 4: 4, 7: 7, 8: 8,
+                2: 2,
             },
-            "fellow-parent-first-school-fete": {1: 1, 2: 2, 4: 4, 5: 5, 7: 7, 8: 8},
+            "fellow-parent-first-school-fete": {1: 1, 2: 2, 5: 5, 7: 7},
             "french-class-survey-francophone-student": {
-                1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8,
+                2: 2, 3: 3, 4: 4,
             },
             "french-teacher-language-school-student-game": {
-                2: 3, 3: 4, 4: 5, 5: 6, 7: 1, 8: 8,
+                2: 2, 3: 3, 4: 4, 5: 5, 7: 6, 8: 8,
             },
-            "french-teacher-study-abroad-advice": {3: 3, 4: 4, 6: 6, 7: 7, 8: 8},
-            "friend-child-language-stay-abroad": {1: 1, 2: 2, 3: 4, 5: 6, 6: 3, 7: 7, 8: 8},
-            "friend-planned-canadian-studies": {1: 1, 2: 2, 3: 3, 6: 6, 7: 7, 8: 8},
-            "language-school-new-language": {1: 1, 2: 2, 4: 5, 5: 4, 6: 6, 7: 7, 8: 8},
+            "french-teacher-study-abroad-advice": {8: 8},
+            "friend-child-language-stay-abroad": {1: 1, 2: 2, 7: 7, 8: 8},
+            "friend-planned-canadian-studies": {2: 1, 3: 2, 6: 6},
+            "language-school-new-language": {1: 1, 2: 2, 6: 6, 7: 7, 8: 8},
         }
         for group, mapping in mappings.items():
             with self.subTest(group=group):
@@ -1202,14 +1272,14 @@ class PublishedTacheTwoHighlightTests(TestCase):
 
     def test_specificity_pass_preserves_the_second_review_and_its_learned_questions(self):
         mappings = {
-            "newcomer-canada-private-french-teacher": {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 8: 7},
-            "edmonton-newcomer-neighbor-schools": {2: 2, 3: 3, 4: 4, 7: 7, 8: 8},
-            "fellow-parent-first-school-fete": {1: 1, 2: 2, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8},
-            "language-school-new-language": {1: 1, 2: 2, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8},
+            "newcomer-canada-private-french-teacher": {3: 3, 4: 4},
+            "edmonton-newcomer-neighbor-schools": {2: 2},
+            "fellow-parent-first-school-fete": {1: 1, 2: 2, 5: 5, 6: 6, 7: 7},
+            "language-school-new-language": {1: 1, 2: 2, 6: 6, 7: 7, 8: 8},
         }
         for group, mapping in mappings.items():
             with self.subTest(group=group):
-                self.assert_revision_highlights_preserved(group, mapping)
+                self.assert_revision_highlights_preserved(group, mapping, revision=-2)
             Annotation.objects.filter(user=self.user).delete()
 
     def test_education_reorder_does_not_replace_private_questions_or_prompt_notes(self):
@@ -1357,11 +1427,11 @@ class PublishedTacheTwoHighlightTests(TestCase):
                 1: 1, 6: 6, 7: 7,
             },
             "friend-association-work-experience": {
-                1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 8: 8,
+                1: 1, 2: 2, 4: 4, 5: 5, 6: 6, 8: 8,
             },
-            "supervisor-overseas-job-offer": {1: 1, 2: 2, 3: 3, 4: 4, 8: 8},
+            "supervisor-overseas-job-offer": {1: 1, 2: 2, 3: 3, 4: 7, 8: 8},
             "recruiter-scheduled-interview-preparation": {
-                1: 2, 2: 1, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8,
+                1: 2, 2: 1, 3: 3, 4: 4, 5: 6, 6: 5, 7: 8,
             },
         }
         for group, mapping in mappings.items():

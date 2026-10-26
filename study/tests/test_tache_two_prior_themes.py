@@ -35,7 +35,7 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
                     self.assertEqual(len(self.hints[row.group]), 8)
                     self.assertIn("merci", row.closing.lower())
 
-    def test_excluded_themes_and_latest_education_pass_remain_exactly_unchanged(self):
+    def test_excluded_arrival_and_housing_themes_remain_exactly_unchanged(self):
         rows = {
             row["group"]: row
             for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
@@ -44,7 +44,6 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
         expected = {
             "arrivee": "eeb337d3fd34d07c863b10f58fa4da53bae6f1b91822e56eaa8042170a48e278",
             "logement": "5856b77b61128d6d2b988dd3a589762ca8d8a5a7a04b1c6f8a17a3ba4b73a744",
-            "ecole-etudes": "b6c49581312a9e3dda84699ce4a24e371dcd46c20fd789a7bd86f60e0f952142",
         }
         for theme, digest in expected.items():
             with self.subTest(theme=theme):
@@ -195,25 +194,24 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
     def test_overtime_and_overseas_pay_questions_do_not_presuppose_extra_pay_or_adjustments(self):
         association = self.by_group["friend-association-work-experience"]
         self.assertIn("décales ton horaire", association.questions[5].question)
-        self.assertIn("heures supplémentaires", association.questions[6].question)
-        self.assertIn("paiement", association.questions[6].question)
-        self.assertIn("temps de repos", association.questions[6].question)
-        self.assertEqual(association.questions[6].follow_up_to, 6)
-        self.assertIn("extra hours", association.questions[6].condition)
+        self.assertIn("rémunéré", association.questions[6].question)
+        self.assertIn("bénévolement", association.questions[6].question)
+        self.assertIn("temps de repos", association.questions[5].answer)
+        self.assertIsNone(association.questions[6].follow_up_to)
         self.assertEqual(
-            self.hints[association.group][6]["english"], "Choice of overtime pay or time off",
+            self.hints[association.group][6]["english"], "Paid employment or volunteering",
         )
         supervisor = self.by_group["supervisor-overseas-job-offer"]
-        self.assertIn("dans quelle devise", supervisor.questions[4].question)
-        self.assertIn("dollars américains", supervisor.questions[4].answer)
-        self.assertIn("taux de conversion", supervisor.questions[4].answer)
-        self.assertIn("pourrait-elle être réévaluée", supervisor.questions[5].question)
-        self.assertIn("sur quels critères", supervisor.questions[5].question)
-        self.assertEqual(supervisor.questions[5].follow_up_to, 5)
-        self.assertIn("l'assurance santé", supervisor.questions[6].question)
-        self.assertIn("assurance santé collective", supervisor.questions[6].answer)
-        self.assertIn("devise", self.hints[supervisor.group][4]["french"])
-        self.assertIn("health insurance", self.hints[supervisor.group][6]["english"])
+        self.assertIn("dans quelle devise", supervisor.questions[3].question)
+        self.assertIn("dollars américains", supervisor.questions[3].answer)
+        self.assertIn("taux de conversion", supervisor.questions[3].answer)
+        self.assertIn("pourrait-elle être réévaluée", supervisor.questions[4].question)
+        self.assertIn("sur quels critères", supervisor.questions[4].question)
+        self.assertEqual(supervisor.questions[4].follow_up_to, 4)
+        self.assertIn("l'assurance santé", supervisor.questions[5].question)
+        self.assertIn("assurance santé collective", supervisor.questions[5].answer)
+        self.assertIn("devise", self.hints[supervisor.group][3]["french"])
+        self.assertIn("health insurance", self.hints[supervisor.group][5]["english"])
 
     def test_hidden_replies_cover_feeding_times_expense_limits_and_all_named_visits(self):
         pet = self.by_group["trusted-person-temporary-pet-care"]

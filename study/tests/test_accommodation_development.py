@@ -7,6 +7,7 @@ from django.test import SimpleTestCase
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
 from study.tests.housing_work_fixtures import RECLASSIFIED_GROUPS
+from study.tests.eo2_review_fixtures import REVIEWED_GROUPS, remove_latest_review_archives
 from study.tests.travel_fixtures import TRAVEL_GROUPS
 
 
@@ -227,20 +228,20 @@ class AccommodationDevelopmentTests(SimpleTestCase):
         self.assertIn("Do not assume a seaside setting", row.note)
 
     def test_unrelated_models_cues_and_complete_historical_layouts_remain_exact(self):
-        changed = ACCOMMODATION_GROUPS | EARLIER_REFINEMENTS
+        changed = ACCOMMODATION_GROUPS | EARLIER_REFINEMENTS | REVIEWED_GROUPS
         protected = {group: row for group, row in self.raw.items() if group not in changed}
-        self.assertEqual(len(protected), 156)
+        self.assertEqual(len(protected), 106)
         self.assertEqual(
-            fingerprint(protected),
-            "c2fe5060078bb692e32968d04eaa22591c98d1ef6060bf83271ea2aab4064cfe",
-        )
-        self.assertEqual(
-            fingerprint({group: row for group, row in self.hints.items() if group not in changed}),
-            "9bddefe34cad66e0036c1bd042e449a42632849af873a2a6ea3603852ebca32c",
+            fingerprint({
+                "dialogues": protected,
+                "hints": {group: row for group, row in self.hints.items() if group not in changed},
+            }),
+            "605141a1d60ca9ce3d49bf8dfa1058b0e8b3ada71812345be2548353e6b99f29",
         )
         history = json.loads((
             content.QUESTION_BANK_DIR / "dialogue_history/locations.json"
         ).read_text())
+        remove_latest_review_archives(history)
         self.assertEqual(
             fingerprint(history),
             "774c33725f0ef5bee59983fcc44f222c824abc6b3b3e75d5e680911e8e810a8d",

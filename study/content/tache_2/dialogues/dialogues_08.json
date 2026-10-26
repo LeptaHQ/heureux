@@ -181,11 +181,11 @@
         {"topic": "Horaires et programme", "question": "À quelle date et à quelles heures la fête de l'école aura-t-elle lieu ?", "answer": "Le dernier samedi de juin, de 14 h à 18 h.", "follow_up_to": null},
         {"topic": "Horaires et programme", "question": "Quels seront les principaux moments du programme pendant l'après-midi ?", "answer": "Dans la cour, le spectacle des élèves commencera à 14 h 30, puis les jeux ouvriront ; le tirage de la tombola est prévu à 17 h 30.", "follow_up_to": null},
         {"topic": "Horaires et programme", "question": "Y aura-t-il des places assises au spectacle, et à quelle heure conseillez-vous d'arriver pour en avoir ?", "answer": "Oui, mais le nombre de chaises est limité ; mieux vaut venir dès l'ouverture à 14 h, car les places ne se réservent pas.", "follow_up_to": 2, "condition": "If a show is mentioned without explaining seating and recommended arrival time."},
-        {"topic": "Animations", "question": "Quelles animations seront proposées aux enfants et aux parents ?", "answer": "Des jeux d'adresse, un atelier de maquillage et une tombola avec un vélo à gagner.", "follow_up_to": null},
+        {"topic": "Animations", "question": "Quelles animations sont prévues en dehors du spectacle, par exemple des jeux ou des ateliers pour les enfants ?", "answer": "Des jeux d'adresse, un atelier de maquillage et une tombola avec un vélo à gagner.", "follow_up_to": null},
         {"topic": "Animations", "question": "L'entrée est-elle gratuite, et combien coûte un billet de tombola ?", "answer": "L'entrée est gratuite, et les billets de tombola coûtent 2 $ chacun.", "follow_up_to": 4, "condition": "If a raffle is mentioned and admission or ticket prices remain unclear."},
         {"topic": "Participation des familles", "question": "Y a-t-il un buffet, et faut-il apporter quelque chose ou est-ce facultatif ?", "answer": "Il y a un buffet partagé ; ceux qui le souhaitent apportent un plat sucré ou salé, sans obligation pour les familles.", "follow_up_to": null},
         {"topic": "Participation des familles", "question": "Si je souhaite aider, y a-t-il un stand qui manque de bénévoles et à qui m'adresser ?", "answer": "Il manque du monde au stand de maquillage ; le secrétariat de l'école recueille les inscriptions des parents bénévoles.", "follow_up_to": null},
-        {"topic": "Organisation pratique", "question": "Si la météo est mauvaise, quelles parties de la fête seront déplacées à l'intérieur ?", "answer": "Le spectacle, le buffet et plusieurs jeux auront lieu dans le gymnase ; seuls quelques stands extérieurs seront annulés.", "follow_up_to": null}
+        {"topic": "Organisation pratique", "question": "Si la pluie empêche les activités dehors, quelle solution est prévue ?", "answer": "Le spectacle, le buffet et plusieurs jeux passent dans le gymnase ; seuls quelques stands extérieurs sont annulés.", "follow_up_to": null}
       ]
     },
     {
@@ -208,18 +208,18 @@
     {
       "group": "french-class-survey-francophone-student",
       "register": "vous",
-      "note": "For your French class, you are surveying a young student from a French-speaking country about their activities. You lead the interview: ask what they do, where and when, without talking about yourself. The model uses vous, as in a survey; between young people, tu would also be natural.",
+      "note": "You lead a French-class survey of a young student from a French-speaking country. Focus on current studies, timetable, work and leisure: what, where and when. Their origin does not establish a move abroad or require an immigration question. This example student studies in Seattle; adapt to the respondent. Use vous as in a survey and follow the activity actually named.",
       "opening": "Bonjour ! Pour mon cours de français, je réalise une enquête sur les activités des étudiants francophones, et j'aimerais vous poser quelques questions.",
       "closing": "Merci beaucoup pour votre temps ! Vos réponses vont vraiment enrichir mon enquête.",
       "questions": [
-        {"topic": "Études", "question": "De quel pays francophone venez-vous, et quel domaine étudiez-vous ici ?", "answer": "Je viens du Canada, plus précisément du Québec, et j'étudie le génie informatique.", "follow_up_to": null},
+        {"topic": "Études", "question": "Qu'est-ce que vous étudiez en ce moment ?", "answer": "J'étudie le génie informatique.", "follow_up_to": null},
         {"topic": "Études", "question": "Dans quel établissement étudiez-vous, et en quelle année êtes-vous ?", "answer": "À l'université de Washington, à Seattle, en deuxième année.", "follow_up_to": null},
         {"topic": "Études", "question": "Comment se répartit votre journée entre les cours, les travaux pratiques et le travail personnel ?", "answer": "J'ai cours le matin, un projet en laboratoire l'après-midi, puis je relis mes notes le soir.", "follow_up_to": null},
         {"topic": "Emploi du temps", "question": "Avez-vous un emploi étudiant ou une activité bénévole en dehors des cours, et combien de temps y consacrez-vous ?", "answer": "Je travaille au café du campus les mardis et jeudis, de 18 h à 21 h, soit six heures par semaine.", "follow_up_to": null},
         {"topic": "Emploi du temps", "question": "Quand les examens approchent, comment conciliez-vous cette activité avec vos révisions ?", "answer": "Je garde le dimanche pour réviser et, pendant les examens, je ne travaille qu'un soir par semaine, avec l'accord de mon responsable.", "follow_up_to": 4, "condition": "If work or volunteering is mentioned without explaining how revision fits around it."},
-        {"topic": "Loisirs", "question": "Quel est votre loisir principal, et où et quand le pratiquez-vous ?", "answer": "La chorale de l'université ; les répétitions ont lieu chaque mercredi à 19 h dans la salle de musique du campus.", "follow_up_to": null},
-        {"topic": "Loisirs", "question": "La chorale donne-t-elle des concerts publics, et quand aura lieu le prochain ?", "answer": "Oui, deux fois par an ; le prochain aura lieu en décembre dans la grande salle du campus.", "follow_up_to": 6, "condition": "If a choir or band is mentioned without concert details; adapt as needed."},
-        {"topic": "Loisirs", "question": "Et le week-end, où est-ce que vous aimez sortir ?", "answer": "Le samedi, au marché ou dans les parcs quand il fait beau ; l'hiver, je découvre les musées avec des amis.", "follow_up_to": null}
+        {"topic": "Loisirs", "question": "Quelle activité vous plaît le plus pendant votre temps libre, et où la pratiquez-vous ?", "answer": "Je chante dans la chorale de l'université, dans la salle de musique du campus.", "follow_up_to": null},
+        {"topic": "Loisirs", "question": "À quels moments de la semaine est-ce que vous pouvez pratiquer cette activité ?", "answer": "Nous répétons chaque mercredi de 19 h à 20 h 30 ; cela me laisse les autres soirs pour travailler ou étudier.", "follow_up_to": 6, "condition": "After a leisure activity is named, unless its schedule is already known."},
+        {"topic": "Loisirs", "question": "Et le week-end, vous restez plutôt chez vous ou vous aimez sortir, par exemple dans des parcs ou des musées ?", "answer": "J'aime sortir avec des amis au marché ou dans les parcs ; en hiver, nous choisissons plutôt les musées.", "follow_up_to": null}
       ]
     },
     {
@@ -260,17 +260,17 @@
       "group": "friend-visited-countries-destination-choice",
       "register": "tu",
       "note": "You are choosing a travel destination and ask a French-speaking friend about the countries they have visited. Use past tenses for their trips and the conditional for your own plan. Cover activities, climate and prices, so that you can compare destinations. Use tu with your friend.",
-      "opening": "Salut ! Je cherche une destination pour mon prochain voyage, et comme tu as beaucoup voyagé, j'aimerais avoir ton avis.",
-      "closing": "Merci pour tous ces conseils ! Je crois que je tiens ma prochaine destination.",
+      "opening": "Salut ! Je cherche une destination et j'aimerais profiter de tes expériences de voyage pour comparer quelques idées.",
+      "closing": "Merci pour tes conseils ! Je vais comparer ces possibilités avec mes dates et mon budget.",
       "questions": [
-        {"topic": "Pays visités", "question": "Quels pays as-tu visités récemment ?", "answer": "Le Canada et les États-Unis ; chacun m'a plu pour des raisons différentes.", "follow_up_to": null},
+        {"topic": "Pays visités", "question": "Quels pays as-tu déjà visités ?", "answer": "Le Canada et les États-Unis ; chacun m'a plu pour des raisons différentes.", "follow_up_to": null},
         {"topic": "Pays visités", "question": "Pour un voyage mêlant ville et nature, lequel de ces pays choisirais-tu ?", "answer": "Les États-Unis, car j'ai pu combiner des étapes urbaines avec des paysages très différents.", "follow_up_to": 1, "condition": "If several countries are named without a recommendation for city and nature."},
         {"topic": "Activités", "question": "Et là-bas, quelles activités as-tu particulièrement appréciées ?", "answer": "Une traversée de Puget Sound en ferry depuis Seattle, puis une randonnée sur la côte du parc national Olympic.", "follow_up_to": null},
         {"topic": "Climat", "question": "À quelle saison y es-tu allé, et quel temps as-tu rencontré dans les régions visitées ?", "answer": "J'y suis allé en avril : il faisait frais et souvent pluvieux sur la côte du Nord-Ouest.", "follow_up_to": null},
         {"topic": "Climat", "question": "Quelle serait la meilleure période pour y aller, alors ?", "answer": "Mai ou juin, à mon avis : sur la côte ouest, les journées sont longues et les températures généralement agréables.", "follow_up_to": 4, "condition": "After the weather is described, unless the best season is already given."},
         {"topic": "Budget", "question": "Pour te déplacer dans ce pays, quelles options étaient pratiques et abordables ?", "answer": "Les bus étaient pratiques en ville ; entre Seattle et Portland, j'ai choisi Amtrak, avec des billets réservés à l'avance.", "follow_up_to": null},
         {"topic": "Budget", "question": "Quel budget quotidien faut-il prévoir sur place pour les repas et une chambre correcte ?", "answer": "Je comptais environ 45 $ par jour pour les repas et 150 $ pour une chambre simple, en dollars américains.", "follow_up_to": null},
-        {"topic": "Budget", "question": "Combien t'a coûté le vol aller-retour, et depuis quelle ville partais-tu ?", "answer": "Environ 450 dollars américains, au départ de Denver ; les prix variaient beaucoup selon les dates.", "follow_up_to": null}
+        {"topic": "Budget", "question": "Parmi les pays que tu as cités, lequel t'a coûté le moins cher pour un séjour comparable ?", "answer": "Dans les villes que j'ai visitées, mon séjour au Canada m'a coûté moins cher, surtout pour le logement ; ça reste lié à mes dates et à mon itinéraire.", "follow_up_to": 7, "condition": "After costs are discussed, if comparable trips to several countries can be compared."}
       ]
     },
     {
@@ -310,17 +310,17 @@
     {
       "group": "friend-association-work-experience",
       "register": "tu",
-      "note": "Your friend works for an association, and you are curious about their job. Do not ask whether they work there, since that is given. Ask what the association does, their role, schedule and personal assessment. The prompt does not say you want to volunteer. Use tu with your friend.",
-      "opening": "Salut ! Ton travail dans l'association m'intrigue depuis longtemps ; j'aimerais en savoir plus.",
+      "note": "Your friend works for an association; you are asking about their activity, not applying to volunteer. Explore its mission, daily work, a concrete difficulty, their route into the role and working hours. Working there does not automatically mean being paid or volunteering: ask. Adapt the follow-up to the task actually described. Use tu.",
+      "opening": "Salut ! Tu m'as dit que tu travaillais dans une association. J'aimerais savoir ce que tu y fais.",
       "closing": "Merci de m'avoir parlé de ton travail ! Je comprends beaucoup mieux ce qui te plaît dans cette activité.",
       "questions": [
         {"topic": "L'association", "question": "Quelle est la mission de ton association, et quels services offre-t-elle concrètement ?", "answer": "Elle accompagne les nouveaux arrivants : aide à la recherche de logement, cours de français et sorties pour créer des liens.", "follow_up_to": null},
         {"topic": "Missions et parcours", "question": "Quelles sont tes principales tâches au quotidien dans l'association ?", "answer": "Je recrute et forme les bénévoles, puis j'organise leurs horaires.", "follow_up_to": null},
-        {"topic": "Missions et parcours", "question": "Combien de bénévoles coordonnes-tu, et quelle difficulté revient le plus souvent dans cette mission ?", "answer": "Une soixantaine ; leurs disponibilités changent sans cesse, ce qui complique les horaires.", "follow_up_to": 2, "condition": "If coordinating volunteers is mentioned without explaining numbers or difficulties."},
+        {"topic": "Missions et parcours", "question": "Quand un bénévole se désiste au dernier moment, comment tu fais pour le remplacer ?", "answer": "Je contacte les bénévoles disponibles, puis je préviens l'équipe ; si personne ne peut venir, nous adaptons l'activité.", "follow_up_to": 2, "condition": "If organizing volunteers is mentioned; adapt to another task otherwise."},
         {"topic": "Missions et parcours", "question": "Comment as-tu trouvé ce poste, et quelles compétences l'association recherchait-elle ?", "answer": "J'ai répondu à une annonce ; ils cherchaient surtout quelqu'un sachant coordonner des projets et communiquer avec le public.", "follow_up_to": null},
-        {"topic": "Temps de travail", "question": "Tu travailles combien d'heures par semaine, et est-ce que tu dois aussi venir le soir ?", "answer": "35 heures par semaine, avec des soirées fréquentes quand les bénévoles sont libres.", "follow_up_to": null},
-        {"topic": "Temps de travail", "question": "Ces soirées s'ajoutent-elles à tes heures habituelles, ou est-ce que tu décales ton horaire ?", "answer": "En général, je décale mon horaire ; lors des grands événements, je fais parfois des heures supplémentaires.", "follow_up_to": 5, "condition": "If evening work is mentioned without explaining how it fits the regular schedule."},
-        {"topic": "Temps de travail", "question": "Pour ces heures supplémentaires, peux-tu choisir entre un paiement et du temps de repos ?", "answer": "Chez nous, elles sont généralement récupérées en temps de repos ; un paiement reste possible avec l'accord du responsable.", "follow_up_to": 6, "condition": "If evening work adds extra hours and compensation has not been explained."},
+        {"topic": "Statut et horaires", "question": "Tu travailles combien d'heures par semaine, et est-ce que tu dois aussi venir le soir ?", "answer": "35 heures par semaine, avec des soirées fréquentes quand les bénévoles sont libres.", "follow_up_to": null},
+        {"topic": "Statut et horaires", "question": "Ces soirées s'ajoutent-elles à tes heures habituelles, ou est-ce que tu décales ton horaire ?", "answer": "En général, je décale mon horaire ; lors des grands événements, les heures en plus sont récupérées en temps de repos.", "follow_up_to": 5, "condition": "If evening work is mentioned without explaining how it fits the regular schedule."},
+        {"topic": "Statut et horaires", "question": "Ce travail est-il rémunéré, ou est-ce que tu le fais bénévolement ?", "answer": "C'est un emploi salarié à temps plein ; les personnes que je coordonne, elles, sont bénévoles.", "follow_up_to": null},
         {"topic": "Bilan personnel", "question": "Qu'est-ce qui te donne le plus le sentiment d'être utile dans ce travail ?", "answer": "Voir les nouveaux arrivants gagner en autonomie : on les voit trouver un logement, reprendre une formation ou créer des liens.", "follow_up_to": null}
       ]
     },
@@ -329,14 +329,14 @@
       "register": "vous",
       "note": "You are interested in adult language courses, and an employee of a university office in Calgary informs you. Ask which languages are offered and how levels are assessed, then schedules, fees and registration deadlines. Use vous with the employee.",
       "opening": "Bonjour ! Je m'intéresse à vos cours de langues pour adultes, et j'aimerais en savoir un peu plus.",
-      "closing": "Merci beaucoup ! Je vais choisir mon cours et m'inscrire avant la date limite.",
+      "closing": "Merci pour ces renseignements. Je vais comparer les créneaux et vérifier mon niveau avant de m'inscrire.",
       "questions": [
-        {"topic": "Formations", "question": "Quelles langues proposez-vous actuellement aux adultes ?", "answer": "Une dizaine, dont le français, l'espagnol, l'allemand, le mandarin et le japonais.", "follow_up_to": null},
         {"topic": "Formations", "question": "Faut-il être étudiant de l'université pour s'inscrire à ces cours ?", "answer": "Non, ils sont ouverts à tous les adultes, même sans statut d'étudiant universitaire.", "follow_up_to": null},
-        {"topic": "Formations", "question": "Si je choisissais l'espagnol, comment détermineriez-vous le groupe correspondant à mon niveau ?", "answer": "Si vous avez déjà étudié l'espagnol, un court test en ligne permettra de vous orienter ; sinon, vous pourrez rejoindre directement un groupe débutant.", "follow_up_to": 1, "condition": "If Spanish is offered without explaining placement; substitute the language you prefer."},
+        {"topic": "Formations", "question": "Quelles langues proposez-vous actuellement aux adultes ?", "answer": "Une dizaine, dont le français, l'espagnol, l'allemand, le mandarin et le japonais.", "follow_up_to": null},
+        {"topic": "Formations", "question": "Pour l'espagnol, faut-il passer un test de niveau avant de choisir un groupe ?", "answer": "Si vous avez déjà étudié l'espagnol, oui ; sinon, vous pouvez rejoindre directement un groupe débutant.", "follow_up_to": 2, "condition": "If Spanish is offered without explaining placement; adapt to the chosen language."},
         {"topic": "Formations", "question": "Les cours sont-ils proposés sur le campus et en ligne, ou le format dépend-il du niveau ?", "answer": "Pour l'espagnol, les débutants ont les deux options ; les groupes avancés sont sur le campus. Le format dépend donc du groupe.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Combien de semaines dure une session, et combien d'heures de cours y a-t-il par semaine ?", "answer": "Douze semaines, avec trois heures de cours par semaine, réparties sur une ou deux séances selon le groupe.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Quels jours et à quelles heures proposez-vous des cours le soir ou le week-end ?", "answer": "Le mardi et le jeudi de 18 h 30 à 20 h, ou le samedi de 9 h à midi.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Quels horaires proposez-vous, notamment en soirée ou le samedi ?", "answer": "Le mardi et le jeudi de 18 h 30 à 20 h, ou le samedi de 9 h à midi.", "follow_up_to": null},
         {"topic": "Tarifs et inscription", "question": "Combien coûte une session de douze semaines, et le manuel est-il compris ?", "answer": "Environ 350 $, hors manuel ; comptez 35 $ de plus pour celui-ci.", "follow_up_to": null},
         {"topic": "Tarifs et inscription", "question": "Quelle est la date limite, et l'inscription peut-elle se faire entièrement en ligne ?", "answer": "Oui, jusqu'au 1er septembre ; les groupes sont limités à quinze personnes, alors ne tardez pas.", "follow_up_to": null}
       ]

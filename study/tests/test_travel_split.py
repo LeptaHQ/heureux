@@ -55,19 +55,19 @@ class TravelSplitCorpusTests(SimpleTestCase):
                     if row.group in groups:
                         self.assertEqual(mapping[key], slug)
 
-    def test_the_twenty_nine_travel_models_keep_the_latest_reviewed_content(self):
+    def test_the_fourteen_models_outside_the_new_voyages_review_keep_their_content(self):
         raw = {
             row["group"]: row
             for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
             for row in json.loads(path.read_text())["dialogues"]
         }
         snapshot = json.dumps(
-            [raw[group] for group in sorted(ALL_TRAVEL_GROUPS)],
+            [raw[group] for group in sorted(ALL_TRAVEL_GROUPS - TRAVEL_GROUPS["voyages"])],
             ensure_ascii=False, sort_keys=True,
         ).encode()
         self.assertEqual(
             hashlib.sha256(snapshot).hexdigest(),
-            "37c94c3a6689fb0ebaaef705eee7f742aa1d8cdb77fcdf7ca976acaf9f18e095",
+            "a30f7add52d779190ab42864bd7e7612ae7b584c102f0e38722990ff66a3520f",
         )
 
     def test_every_old_memory_question_survives_once_with_its_exact_learning_key(self):

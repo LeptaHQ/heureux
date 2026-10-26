@@ -94,6 +94,71 @@ for example, can anchor an evening-outings enquiry without assuming either
 exists. Follow the interlocutor's actual recommendations rather than forcing
 the suggested options into the rest of the conversation.
 
+### Work and study conversations
+
+Distinguish asking a colleague how the workplace operates from interviewing a
+recruiter or hearing a friend's experience. A first-day account needs actual
+events and reactions, not a general employment questionnaire. An internal move
+can compare responsibilities, schedules and pay without inventing a new employer.
+For association work, understand the mission and the person's daily role; do not
+spend most of the route on overtime or assume that working there means volunteering.
+
+A teacher's background, teaching method and assessment are related but distinct.
+Make practical preparation concrete without promising admission or a language
+result. A parent or neighbour reports what they have seen; an institution confirms
+current eligibility, fees and documents. Establish a game's format before team
+rules, and keep a student survey focused on what the student does, where and when.
+Nationality does not establish migration or the country where someone studies.
+
+When a reply names a specific difficulty, ask what happened or how it was handled.
+When it names a course, placement test or practical interview exercise, ask what
+the candidate needs to do next. Do not ask again for a detail the reply already
+supplied, or repeat an unqualified countrywide rule based on one person's employer.
+
+### Transport and travel conversations
+
+Make a transport enquiry usable: identify a route, its frequency and return
+service, then the relevant fare, coverage, purchase and validation. A resident
+shares local experience; a network employee explains the service. A hosted visitor
+already has accommodation and may need a day ticket rather than a monthly pass.
+For a working week, plan the accommodation-to-work journey without assuming a
+hotel or air arrival. Check calendar validity before recommending a weekly fare.
+
+Connect available modes to useful destinations rather than inventing an agency
+departure point. Ask whether route maps and live tracking are available, not which
+app to install before an app has been mentioned. Onboard safety and an assistance
+service's availability can share a focused question; ask its hours conditionally
+if the service exists.
+
+A breakdown call prioritizes assistance and towing before payment and paperwork.
+Internal replies may establish specific illustrative coverage after checking the
+contract; do not make every reply defer the answer indefinitely. Distinguish towing
+from repairs, direct payment from reimbursement, and authorization from an unlimited
+guarantee. Real safety takes priority over the practice route.
+
+Keep buying, renting and sharing distinct. A private vehicle sale needs condition,
+history, maintenance evidence and a check before purchase. Rentals need usable price
+and mileage conditions, a deposit, return arrangements and relevant equipment or
+assistance. Battery range matters for an electric model, not automatically every
+bicycle rental. A neighbour's carpool can start with a trial; a friend who uses a
+platform need not own the car or be the driver.
+
+Distinguish a completed trip, a future project, advice for the candidate and joint
+planning with a companion. Invite the friend when the consigne requires it; do not
+make a question about a suggested area depend on an unsolicited list of activities.
+An agency can confirm availability and written conditions; a returned traveller
+reports actual experience and spending. Establish feasible dates and a route before
+booking details. Keep seasons, activities, travel legs and per-person or shared
+prices consistent. An unspecified birthday does not justify switching between
+winter plans and a summer-only surprise.
+
+For the Montréal example, the official STM
+[weekly-fare page](https://beta.stm.info/titres-tarifs/passe-hebdomadaire)
+confirms Monday-to-Sunday validity and coverage of the 747; the
+[airport-bus page](https://beta.stm.info/titres-tarifs/bus-747-aeroport-centre-ville)
+also lists accepted fare products. Check the current title, zones and support,
+not an assumed seven rolling days or an indefinitely fixed numeric price.
+
 ## 3. Target strong NCLC 7/8 language
 
 Use precise but natural French. The learner should be able to reuse the

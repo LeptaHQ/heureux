@@ -55,18 +55,18 @@
     {
       "group": "colleague-canada-tour-next-summer",
       "register": "tu",
-      "note": "Your colleague has completed an organized Canadian tour; you are considering the same tour next summer. Ask about its route, duration, pace and price before future booking arrangements. This is tourism, not settlement in Canada. Tu is chosen for familiar colleagues; distinguish their past experience from your future plans.",
+      "note": "Your colleague completed an organized Canadian tour; you consider the same tour next summer. Ask about route, duration, pace and the actual hotel experience, then the price paid, inclusions and extra spending. Ask how to contact the organizer, not for guaranteed future dates or contract terms. Past prices are examples to reconfirm. Tu is chosen for familiar colleagues; distinguish their experience from your plans.",
       "opening": "Salut ! Ton circuit au Canada m'intéresse pour l'été prochain.",
       "closing": "Merci pour toutes ces infos ! Je vais regarder si ce parcours correspond à mon budget et à mes dates.",
       "questions": [
         {"topic": "Parcours et rythme", "question": "Quelles étapes comprenait ton circuit ?", "answer": "Nous avons visité Montréal, Québec et Tadoussac.", "follow_up_to": null},
         {"topic": "Parcours et rythme", "question": "Combien de jours fallait-il pour faire tout le parcours ?", "answer": "Le circuit durait huit jours, avec des déplacements presque chaque matin.", "follow_up_to": 1, "condition": "After they describe the route, unless its duration is already given."},
         {"topic": "Parcours et rythme", "question": "Avec tous ces déplacements, est-ce que le rythme n'était pas trop fatigant ?", "answer": "Un peu, mais deux après-midi libres permettaient de se reposer.", "follow_up_to": 2, "condition": "If they describe a busy schedule."},
-        {"topic": "Budget", "question": "Combien t'a coûté le circuit par personne ?", "answer": "J'ai payé environ 1 500 $, sans le trajet jusqu'au Canada.", "follow_up_to": null},
-        {"topic": "Budget", "question": "Qu'est-ce qui était compris dans ce prix ?", "answer": "Les hôtels, les déplacements en autocar, les petits-déjeuners et les principales visites.", "follow_up_to": 4, "condition": "After the price is given, unless inclusions have already been explained."},
-        {"topic": "Réservation", "question": "Quelles activités vaut-il mieux réserver à l'avance ?", "answer": "La sortie en bateau à Tadoussac, qui était proposée en supplément.", "follow_up_to": null},
-        {"topic": "Réservation", "question": "Comment pourrais-je réserver le même circuit pour l'été prochain ?", "answer": "La réservation se fait auprès de l'agence qui organise le circuit ; elle publie les dates plusieurs mois avant le départ.", "follow_up_to": null},
-        {"topic": "Réservation", "question": "Quelles étaient les conditions pour modifier ou annuler la réservation ?", "answer": "Un changement était gratuit jusqu'à trente jours avant le départ ; l'annulation entraînait des frais progressifs précisés par l'agence.", "follow_up_to": null}
+        {"topic": "Hébergement et budget", "question": "Les hébergements étaient-ils bien situés pour profiter des villes pendant le temps libre ?", "answer": "À Montréal, oui, on pouvait sortir à pied ; près de Québec, l'hôtel était plus éloigné et les sorties du soir demandaient un taxi.", "follow_up_to": null},
+        {"topic": "Hébergement et budget", "question": "Combien t'a coûté le circuit par personne ?", "answer": "J'ai payé environ 1 500 $, sans le trajet jusqu'au Canada.", "follow_up_to": null},
+        {"topic": "Hébergement et budget", "question": "Qu'est-ce qui était compris dans ce prix ?", "answer": "Les hôtels, les déplacements en autocar, les petits-déjeuners et les principales visites.", "follow_up_to": 5, "condition": "After the price is given, unless inclusions have already been explained."},
+        {"topic": "Hébergement et budget", "question": "Pour les repas et les sorties non compris, combien as-tu dépensé en plus ?", "answer": "Environ 300 $ pour les autres repas et une sortie en bateau à Tadoussac ; c'était en plus des 1 500 $ du circuit.", "follow_up_to": 6, "condition": "After inclusions are explained, if some meals or outings cost extra."},
+        {"topic": "Réservation", "question": "Comment pourrais-je réserver le même circuit pour l'été prochain ?", "answer": "La réservation se fait auprès de l'agence qui organise le circuit ; elle publie les dates plusieurs mois avant le départ.", "follow_up_to": null}
       ]
     },
     {
@@ -178,11 +178,11 @@
       "opening": "Bonjour ! Je prends mes repères dans l'entreprise et j'aurais besoin de quelques renseignements.",
       "closing": "Merci pour votre aide. Ces informations vont me permettre de mieux m'intégrer à l'équipe.",
       "questions": [
-        {"topic": "Équipe et interlocuteurs", "question": "Qui sera mon interlocuteur principal pendant mes premiers jours ?", "answer": "Mme Martin, la responsable de l'équipe, vous accompagnera au début.", "follow_up_to": null},
-        {"topic": "Équipe et interlocuteurs", "question": "Comment puis-je joindre cette personne si j'ai une question ?", "answer": "Par la messagerie interne, ou directement dans son bureau à côté du nôtre.", "follow_up_to": 1, "condition": "If a main contact is named without explaining how to reach them."},
+        {"topic": "Équipe et interlocuteurs", "question": "Pour commencer, avec qui vais-je travailler au quotidien, et qui dirige l'équipe ?", "answer": "Vous travaillerez surtout avec Nora et Éric ; Mme Martin est notre responsable.", "follow_up_to": null},
+        {"topic": "Équipe et interlocuteurs", "question": "Si je bloque sur une tâche, à qui est-ce que je peux demander de l'aide ?", "answer": "Commencez par Nora, qui vous montrera nos outils ; Mme Martin peut ensuite trancher si une décision est nécessaire.", "follow_up_to": 1, "condition": "If the team is introduced without explaining support for new employees."},
         {"topic": "Organisation du travail", "question": "Quels sont les horaires habituels de l'équipe ?", "answer": "Nous travaillons généralement de neuf heures à dix-sept heures, avec une pause à midi.", "follow_up_to": null},
-        {"topic": "Organisation du travail", "question": "Comment les tâches sont-elles réparties : par notre responsable, en réunion d'équipe ou directement entre collègues ?", "answer": "Mme Martin fixe les priorités pendant la réunion du matin, puis nous répartissons les dossiers en équipe.", "follow_up_to": null},
-        {"topic": "Vie dans l'entreprise", "question": "Comment se passent les échanges entre collègues : on s'entraide facilement ou chacun travaille plutôt de son côté ?", "answer": "Les collègues s'entraident volontiers, surtout quand quelqu'un découvre une nouvelle tâche ; les échanges sont plutôt détendus.", "follow_up_to": null},
+        {"topic": "Organisation du travail", "question": "Comment reçoit-on les tâches et les priorités : lors d'une réunion ou par message ?", "answer": "Mme Martin fait un point chaque matin ; elle précise les urgences, puis nous nous répartissons les dossiers.", "follow_up_to": null},
+        {"topic": "Vie dans l'entreprise", "question": "Les échanges entre collègues sont-ils plutôt formels, ou peut-on se parler assez librement ?", "answer": "On se parle assez librement dans l'équipe ; pour les décisions importantes, on prend quand même le temps de faire un point avec la responsable.", "follow_up_to": null},
         {"topic": "Vie dans l'entreprise", "question": "Pour le déjeuner, y a-t-il une cantine ou une salle où manger son propre repas ?", "answer": "Il y a une cantine au premier étage et une salle pour apporter son repas.", "follow_up_to": null},
         {"topic": "Vie dans l'entreprise", "question": "Comment paie-t-on à la cantine, et quel budget faut-il prévoir pour un repas ?", "answer": "On paie avec son badge, qu'on recharge à l'accueil ; un repas complet coûte environ 9 $.", "follow_up_to": 6, "condition": "If a canteen is mentioned without explaining payment or prices."},
         {"topic": "Vie dans l'entreprise", "question": "Y a-t-il des pauses ou des rencontres d'équipe auxquelles je pourrais participer pour faire connaissance ?", "answer": "Nous prenons souvent un café ensemble vers 10 h 30, et un déjeuner d'équipe est prévu le premier vendredi de chaque mois.", "follow_up_to": null}
@@ -276,15 +276,15 @@
     {
       "group": "friend-seaside-holiday-advice",
       "register": "tu",
-      "note": "Your friend has already had a seaside holiday; you want something similar. Ask about their past stay, then use the information to plan your own. Cover destination, accommodation, activities and budget before booking. Use tu and do not name a place or excursion before they introduce it.",
+      "note": "Your friend has completed a seaside holiday; being Canadian does not fix the destination in Canada. One version says last year, so do not assume a recent return. You want a similar stay: ask about timing, duration, lodging, personal spending and activities, then access. Prices are past examples, not current offers. Use tu and adapt the excursion follow-up to the actual activity mentioned.",
       "opening": "Salut ! Ton séjour au bord de la mer me donne envie d'organiser des vacances similaires.",
       "closing": "Merci, tes conseils me donnent une bonne base pour préparer mon séjour !",
       "questions": [
-        {"topic": "Destination et durée", "question": "Où es-tu allé au bord de la mer ?", "answer": "Dans un petit village côtier, à trois heures de route de chez moi.", "follow_up_to": null},
-        {"topic": "Destination et durée", "question": "Combien de temps es-tu resté sur place ?", "answer": "Une semaine, ce qui m'a laissé le temps de visiter sans me presser.", "follow_up_to": null},
+        {"topic": "Destination et durée", "question": "Où es-tu allé au bord de la mer ?", "answer": "En Gaspésie, au Québec, dans un petit village près de Percé.", "follow_up_to": null},
+        {"topic": "Destination et durée", "question": "Tu y es allé à quelle période, et pour combien de temps ?", "answer": "Une semaine en juillet ; il faisait assez chaud pour profiter de la plage, mais les hébergements étaient très demandés.", "follow_up_to": null},
         {"topic": "Hébergement et budget", "question": "Dans quel type de logement as-tu séjourné ?", "answer": "J'avais loué un studio avec une petite cuisine, près de la plage.", "follow_up_to": null},
-        {"topic": "Hébergement et budget", "question": "Quel budget as-tu consacré à cette semaine ?", "answer": "Environ 900 $ pour le logement, les repas et les sorties, hors transport.", "follow_up_to": null},
-        {"topic": "Activités", "question": "Quelles activités t'ont le plus plu ?", "answer": "Les promenades sur la côte et une excursion en bateau.", "follow_up_to": null},
+        {"topic": "Hébergement et budget", "question": "Ta semaine t'est revenue à combien, logement, repas et sorties compris ?", "answer": "Environ 1 200 dollars canadiens pour moi, hors trajet pour y aller ; le studio représentait un peu plus de la moitié.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Qu'est-ce que tu me conseillerais de faire, en dehors de la plage ?", "answer": "Les promenades sur la côte et une excursion en bateau ; ce sont les sorties que j'ai préférées.", "follow_up_to": null},
         {"topic": "Activités", "question": "Pour cette excursion en bateau, fallait-il réserver ?", "answer": "Oui, j'avais réservé la veille au port pour être sûr d'avoir une place.", "follow_up_to": 5, "condition": "If a boat excursion is mentioned; adapt to the activity described."},
         {"topic": "Accès", "question": "Quel moyen de transport conseillerais-tu pour y aller ?", "answer": "La voiture est pratique, surtout pour visiter les petits villages alentour.", "follow_up_to": null},
         {"topic": "Accès", "question": "Une fois sur place, peut-on rejoindre facilement les plages et les activités sans voiture ?", "answer": "Oui, les plages sont accessibles à pied et une navette dessert le port.", "follow_up_to": null}
@@ -327,18 +327,18 @@
     {
       "group": "newcomer-city-transit-service",
       "register": "vous",
-      "note": "You are discovering the city's public transport and asking its information service for help. Start with available modes and a useful route, then tickets, prices and operating times. The employee knows the network, not your immigration requirements. Use vous and adapt routes or ticket names to the actual reply.",
+      "note": "You are discovering the city's transport network and asking its information service for help. Use vous. Ask which modes serve useful places, then about real-time information, fares, coverage, buying and validating tickets, evening services and safety. No departure from the agency is implied. The assistance-hours clause applies only if a service exists. Modes, prices, apps and safety arrangements are illustrative; adapt to the actual reply.",
       "opening": "Bonjour ! Je découvre la ville et j'aimerais comprendre comment utiliser les transports en commun.",
       "closing": "Merci pour ces explications. Je vais vérifier mon trajet avant de partir.",
       "questions": [
-        {"topic": "Réseau et trajet", "question": "Quels moyens de transport composent votre réseau ?", "answer": "Nous avons des bus, un métro et deux lignes de tramway.", "follow_up_to": null},
-        {"topic": "Réseau et trajet", "question": "Lequel est le plus simple pour rejoindre le centre depuis votre agence ?", "answer": "Le métro : la station est juste en face et le trajet dure dix minutes.", "follow_up_to": 1, "condition": "After transport modes are listed; specify your actual departure point."},
+        {"topic": "Réseau et trajet", "question": "Quels moyens de transport peut-on utiliser pour circuler en ville ?", "answer": "Nous avons des bus, un métro et deux lignes de tramway.", "follow_up_to": null},
+        {"topic": "Réseau et trajet", "question": "Lesquels desservent le centre-ville, la gare et les principaux sites touristiques ?", "answer": "Le métro rejoint le centre-ville et la gare ; le tramway et plusieurs lignes de bus desservent aussi les principaux lieux de visite.", "follow_up_to": 1, "condition": "After modes are listed, unless useful destinations have already been covered."},
+        {"topic": "Réseau et trajet", "question": "Existe-t-il une application pour consulter les itinéraires et suivre les bus en temps réel ?", "answer": "Oui, notre application affiche les lignes, la position des bus et les prochains passages à l'arrêt que vous choisissez.", "follow_up_to": 1, "condition": "If buses are mentioned, unless real-time information has already been explained."},
         {"topic": "Titres et tarifs", "question": "Quel titre serait intéressant pour plusieurs trajets dans la journée ?", "answer": "Le pass journée coûte 8 $ et permet de voyager autant que vous voulez.", "follow_up_to": null},
-        {"topic": "Titres et tarifs", "question": "Ce pass permet-il de prendre aussi le bus et le tram ?", "answer": "Oui, il est valable sur les trois modes du réseau urbain.", "follow_up_to": 3, "condition": "If a pass is offered; ask about transport modes actually available."},
-        {"topic": "Titres et tarifs", "question": "Où peut-on acheter ce pass ?", "answer": "Aux distributeurs des stations ou directement à notre guichet.", "follow_up_to": null},
-        {"topic": "Horaires", "question": "Jusqu'à quelle heure les transports circulent-ils ?", "answer": "Le métro circule jusqu'à minuit trente ; pour les bus, cela dépend de la ligne.", "follow_up_to": null},
-        {"topic": "Horaires", "question": "Comment vérifier le dernier départ d'une ligne de bus précise ?", "answer": "Dans notre application, en sélectionnant la ligne, l'arrêt et le jour du trajet.", "follow_up_to": 6, "condition": "If closing times vary by line or stop."},
-        {"topic": "Horaires", "question": "À quelle fréquence passent les bus en dehors des heures de pointe ?", "answer": "Environ toutes les vingt minutes en journée et toutes les trente minutes le soir.", "follow_up_to": null}
+        {"topic": "Titres et tarifs", "question": "Ce pass couvre-t-il les correspondances et tous les secteurs de la ville ?", "answer": "Il couvre les bus, le métro et le tramway dans la zone urbaine ; pour les communes plus éloignées, il faut un autre titre.", "follow_up_to": 4, "condition": "If a pass is offered without explaining its coverage."},
+        {"topic": "Titres et tarifs", "question": "Où peut-on acheter ce pass, et comment doit-on le valider avant de voyager ?", "answer": "Vous pouvez l'acheter au guichet ou aux distributeurs ; présentez-le ensuite au lecteur en montant dans le bus ou le tram, et au portillon du métro.", "follow_up_to": null},
+        {"topic": "Retour et sécurité", "question": "Pour rentrer le soir, jusqu'à quelle heure les transports circulent-ils ?", "answer": "Le métro et le tram s'arrêtent vers minuit trente ; pour les bus, vérifiez le dernier départ de votre ligne dans l'application, selon l'arrêt et le jour.", "follow_up_to": null},
+        {"topic": "Retour et sécurité", "question": "Y a-t-il des caméras de surveillance à bord et, si vous proposez un service d'assistance, ce service est-il joignable 24 heures sur 24 ?", "answer": "Des caméras équipent les véhicules ; notre service d'assistance téléphonique reste joignable à toute heure via le numéro affiché à bord.", "follow_up_to": null}
       ]
     }
   ]

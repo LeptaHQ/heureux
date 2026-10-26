@@ -393,7 +393,7 @@ deleting learner-authored responses, overrides, highlights or completion history
 
 ## Subject pistes and oral equivalence
 
-EO task 2 provides reviewed **eight-question conversations** for all 163 semantic
+EO task 2 provides reviewed **eight-question conversations** for all 164 semantic
 situations and their 348 published prompts. The file-backed corpus in
 `study/content/tache_2/dialogues/` uses priority-ordered topic headings,
 response-grounded follow-ups included in the eight,
@@ -406,6 +406,24 @@ responses. Subject pages, practice and the editor display questions only.
 English conditional cues explain when a follow-up fits the actual reply.
 This is an NCLC 7/8 preparation target, not a score guarantee or a fixed script:
 learners should adapt to the actual examiner's reply.
+
+The current **Travail & emploi** theme has 13 models for 28 publications;
+**École & études** has 11 models for 19 publications. Their routes distinguish
+joining a company, hearing about a friend's first day, preparing with a recruiter
+and asking a friend for interview advice. School enquiries distinguish a teacher,
+an administrator and another parent's experience. Practical follow-ups concern
+the actual task, course, activity or difficulty named, rather than a required
+scripted answer. Earlier published layouts remain in the existing EO2 history,
+so unchanged questions can retain annotations when they move; personal questions
+and private prompt notes are never replaced by the revised public models.
+
+**Transports & mobilité** has 11 models for 26 publications; **Voyages & circuits**
+has 15 models for 32 publications. Their routes distinguish network information
+from a resident's advice, buying from renting, and occasional from neighbourly
+carpooling. Travel questions follow the actual purpose: an agency proposal,
+a returned traveller's experience, a future project or planning together with
+a friend. Timings, activity seasons, costs and relances stay consistent with the
+replies; all earlier published layouts remain available for annotation recovery.
 
 `study/tache_two_dialogues.py` rejects incomplete coverage, malformed dialogues,
 duplicate questions, noncontiguous headings and invalid follow-up references.

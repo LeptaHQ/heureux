@@ -4,7 +4,7 @@ import json
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
-from study.tests.housing_work_fixtures import ORIGINAL_HOUSING_GROUPS, ORIGINAL_WORK_GROUPS
+from study.tests.housing_work_fixtures import ORIGINAL_HOUSING_GROUPS
 from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
 
 
@@ -62,7 +62,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertNotEqual(self.history[school.group]["revisions"][0]["closing"], school.closing)
         self.assertIn("cours d'essai", school.closing)
 
-    def test_all_four_completed_themes_remain_exactly_as_approved(self):
+    def test_the_three_unrelated_completed_themes_remain_exactly_as_approved(self):
         rows = {
             row["group"]: row
             for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
@@ -72,14 +72,12 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
             "arrivee": "eeb337d3fd34d07c863b10f58fa4da53bae6f1b91822e56eaa8042170a48e278",
             "logement": "5856b77b61128d6d2b988dd3a589762ca8d8a5a7a04b1c6f8a17a3ba4b73a744",
             "vie-quartier": "3de4534126cd6233e3805ee89724c63644ee928b1b82f29acdcd51a3d5318c4c",
-            "travail": "0fb6c8f5342a424bb1f0a1c985460220b7e48f34b93de5bc54a80b36d4728b71",
         }
         for theme, digest in expected.items():
             with self.subTest(theme=theme):
                 groups = (
                     ALL_NEIGHBOURHOOD_GROUPS if theme == "vie-quartier" else
                     ORIGINAL_HOUSING_GROUPS if theme == "logement" else
-                    ORIGINAL_WORK_GROUPS if theme == "travail" else
                     {row.group for key, row in self.dialogues.items() if self.themes[key] == theme}
                 )
                 snapshot = json.dumps(
@@ -105,17 +103,17 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
     def test_course_questions_name_experience_schedules_volume_and_extra_costs(self):
         expected = {
             "newcomer-canada-private-french-teacher": {
-                1: ("parcours", "depuis combien de temps", "cours particuliers"),
+                1: ("formation", "depuis combien de temps", "cours particuliers"),
                 4: ("bureau", "à domicile", "en ligne"),
-                5: ("jours", "heures", "fréquence"),
+                5: ("rythme de cours", "horaires"),
                 6: ("tarif", "heure de cours", "supports de travail"),
                 7: ("cours d'essai", "à la séance", "forfait"),
                 8: ("annuler", "déplacer", "délai", "déjà payée"),
             },
             "language-school-new-language": {
-                3: ("formation en enseignement", "débutants", "pratiquer l'oral"),
-                4: ("sur place", "en ligne"),
-                5: ("jours", "heures", "dure une séance"),
+                3: ("formation", "enseignants", "débutants"),
+                4: ("pratique la langue", "binôme", "jeux de rôle"),
+                5: ("créneaux", "sur place", "en ligne"),
                 6: ("coûte", "semaines"),
                 7: ("manuel", "supports de cours", "achat supplémentaire"),
                 8: ("cours d'essai", "m'inscrire"),
@@ -123,7 +121,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
             "calgary-university-adult-language-courses": {
                 4: ("campus", "en ligne", "dépend-il du niveau"),
                 5: ("semaines", "heures de cours", "par semaine"),
-                6: ("jours", "heures", "soir", "week-end"),
+                6: ("horaires", "soirée", "samedi"),
             },
             "parent-after-school-activity-advice": {
                 1: ("sport", "dessin", "théâtre"),
@@ -144,7 +142,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertIn("huit ans", private.questions[0].answer)
         self.assertIn("lundi à 18 h", private.questions[4].answer)
         self.assertIn("jeudi à 19 h", private.questions[4].answer)
-        self.assertIn("hebdomadaire d'une heure", private.questions[4].answer)
+        self.assertIn("Une heure par semaine", private.questions[4].answer)
         self.assertIn("40 $", private.questions[5].answer)
         self.assertIn("exercices", private.questions[6].answer)
         self.assertIn("trente minutes", private.questions[6].answer)
@@ -157,10 +155,10 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         school = self.by_group["language-school-new-language"]
         self.assertIn("neither a particular language nor private-only lessons", school.note)
         self.assertIn("anglais", school.questions[0].answer)
-        self.assertIn("binôme", school.questions[2].answer)
+        self.assertIn("binôme", school.questions[3].answer)
         self.assertIn("diplôme en enseignement des langues", school.questions[2].answer)
-        self.assertIn("en direct", school.questions[3].answer)
         self.assertNotIn("18 h", school.questions[3].answer)
+        self.assertIn("l'enseignant vous aide", school.questions[3].answer.lower())
         self.assertIn("Sur place", school.questions[4].answer)
         self.assertIn("18 h à 19 h 30", school.questions[4].answer)
         self.assertIn("samedi de 9 h à midi", school.questions[4].answer)
@@ -170,7 +168,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertEqual(school.questions[6].follow_up_to, 6)
         university = self.by_group["calgary-university-adult-language-courses"]
         self.assertIn("Calgary", university.note)
-        self.assertIn("sans statut d'étudiant", university.questions[1].answer)
+        self.assertIn("sans statut d'étudiant", university.questions[0].answer)
         self.assertIn("sinon", university.questions[2].answer)
         self.assertIn("groupe débutant", university.questions[2].answer)
         self.assertIn("groupes avancés sont sur le campus", university.questions[3].answer)
@@ -186,23 +184,26 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertIn("No destination, field, budget or teaching language is established", teacher.note)
         self.assertIn("not as an admissions or immigration officer", teacher.note)
         self.assertIsNone(teacher.questions[0].follow_up_to)
-        for phrase in ("différences", "échange universitaire", "diplôme complet", "séjour linguistique"):
+        for phrase in ("comment choisir", "échange universitaire", "diplôme complet", "séjour linguistique"):
             self.assertIn(phrase, teacher.questions[0].question)
-        self.assertIn("Quels critères", teacher.questions[1].question)
+        self.assertIn("Pour comparer deux programmes", teacher.questions[1].question)
         self.assertNotIn("mon domaine", teacher.questions[1].question)
-        self.assertIn("Comment estimer", teacher.questions[4].question)
-        self.assertIn("les repas", teacher.questions[4].question)
-        self.assertIn("estimations de vie courante", teacher.questions[4].answer)
-        self.assertIn("devis", teacher.questions[4].answer)
+        self.assertIn("À part les frais de scolarité", teacher.questions[4].question)
+        self.assertIn("logement", teacher.questions[4].question)
+        self.assertIn("assurance", teacher.questions[4].question)
+        self.assertIn("les repas", teacher.questions[4].answer)
+        self.assertIn("estimations de l'établissement", teacher.questions[4].answer)
         self.assertEqual(teacher.questions[3].follow_up_to, 3)
         self.assertIn("pour un cursus en français", teacher.questions[2].answer)
         self.assertIn("French-language study", teacher.questions[3].condition)
-        for phrase in ("compréhension", "rédaction", "présentations"):
-            self.assertIn(phrase, teacher.questions[3].question)
-        self.assertIn("pourrais prétendre", teacher.questions[5].question)
+        self.assertIn("m'entraîner avec vous", teacher.questions[3].question)
+        for phrase in ("extrait de cours", "résumé", "présentation"):
+            self.assertIn(phrase, teacher.questions[3].answer)
+        self.assertIn("critères", teacher.questions[5].question)
+        self.assertIn("éligibilité", teacher.questions[5].answer)
         self.assertIn("éventuelle autorisation", teacher.questions[6].question)
         self.assertIn("service des étudiants internationaux", teacher.questions[6].answer)
-        self.assertIn("autorités du pays visé", teacher.questions[6].answer)
+        self.assertIn("autorités du pays choisi", teacher.questions[6].answer)
         self.assertIn("dates d'admission varient", teacher.questions[7].answer)
 
     def test_parents_and_neighbours_share_experience_without_assuming_child_eligibility(self):
@@ -217,12 +218,12 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertIn("à pied ou en bus", neighbour.questions[0].question)
         self.assertIn("près du parc", neighbour.questions[0].answer)
         self.assertIn("près de la bibliothèque", neighbour.questions[0].answer)
-        self.assertIn("disponibilité", neighbour.questions[2].question)
-        self.assertIn("premières semaines", neighbour.questions[3].question)
+        self.assertIn("en parlent-ils avec les parents", neighbour.questions[2].question)
+        self.assertIn("premiers jours", neighbour.questions[3].question)
         self.assertIn("école de mes enfants", neighbour.questions[3].answer)
-        self.assertIn("vérifier officiellement", neighbour.questions[6].question)
-        self.assertIn("avant de préparer le dossier", neighbour.questions[6].question)
-        self.assertIn("confirmez la liste", neighbour.questions[7].answer)
+        self.assertIn("vérifier quelles écoles acceptent notre adresse", neighbour.questions[6].question)
+        self.assertIn("conseil scolaire", neighbour.questions[6].answer)
+        self.assertIn("confirmer la liste", neighbour.questions[7].answer)
         parent = self.by_group["parent-after-school-activity-advice"]
         self.assertIn("ages are not", parent.note)
         self.assertIn("Pour le dessin, j'ai payé", parent.questions[5].answer)
@@ -230,13 +231,13 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertIn("multisports le vendredi", parent.questions[3].answer)
         self.assertIn("tarifs actuels", parent.questions[7].answer)
         stay = self.by_group["friend-child-language-stay-abroad"]
-        self.assertIn("considering a similar stay", stay.note)
+        self.assertIn("considering one for your own child", stay.note)
         self.assertNotIn("yours has not", stay.note)
         self.assertIn("A host family is not guaranteed", stay.note)
-        self.assertIn("not a current admissions or travel rule", stay.note)
+        self.assertIn("not treat a parent's account as current entry rules", stay.note)
         self.assertIn("association de parents", stay.questions[1].answer)
         self.assertIn("école de langues de Seattle", stay.questions[1].answer)
-        self.assertIn("conditions actuelles", stay.questions[2].answer)
+        self.assertIn("Check present conditions with the organizer", stay.note)
         self.assertIn("responsable du séjour", stay.questions[6].answer)
         self.assertIn("jour et nuit", stay.questions[6].answer)
         self.assertIn("coûté au total", stay.questions[7].question)
@@ -254,27 +255,30 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         game = self.by_group["french-teacher-language-school-student-game"]
         self.assertIn("already a student", game.note)
         self.assertIn("prizes or fees", game.note)
-        self.assertIn("À quelle date", game.questions[0].question)
-        self.assertNotIn("équipes", game.questions[1].question)
-        self.assertIn("participants", game.questions[1].question)
-        self.assertIn("équipes", game.questions[1].answer)
-        self.assertNotIn("équipes", game.questions[2].answer)
-        self.assertIn("quatre personnes", game.questions[3].answer)
-        self.assertIn("gagnent-elles des points", game.questions[4].question)
-        self.assertEqual(game.questions[4].follow_up_to, 2)
-        self.assertIn("départager", game.questions[4].answer)
-        self.assertIn("téléphone", game.questions[5].question)
+        self.assertIn("principe du jeu", game.questions[0].question)
+        self.assertNotIn("équipes", game.questions[0].question)
+        self.assertIn("participants", game.questions[0].question)
+        self.assertIn("équipes", game.questions[0].answer)
+        self.assertNotIn("équipes", game.questions[1].answer)
+        self.assertIn("quatre personnes", game.questions[2].answer)
+        self.assertIn("gagnent-elles des points", game.questions[3].question)
+        self.assertEqual(game.questions[3].follow_up_to, 1)
+        self.assertIn("départager", game.questions[3].answer)
+        self.assertIn("téléphone", game.questions[4].question)
+        self.assertIn("À quelle date", game.questions[5].question)
         self.assertIn("Y a-t-il des récompenses", game.questions[6].question)
         self.assertIn("chaque membre", game.questions[6].answer)
         self.assertIn("à quel tarif", game.questions[7].question)
         self.assertNotIn("souvenir", " ".join(question.question for question in game.questions))
         friend = self.by_group["friend-planned-canadian-studies"]
-        self.assertIn("they are leaving, not you", friend.note)
-        self.assertIn("programme", friend.questions[1].question)
-        self.assertIn("ville", friend.questions[2].question)
-        self.assertEqual(friend.questions[3].follow_up_to, 3)
-        self.assertIn("logements que j'ai repérés", friend.questions[3].answer)
-        self.assertNotIn("Montréal", friend.questions[3].question)
+        self.assertIn("Your friend, not you", friend.note)
+        self.assertIn("programme", friend.questions[0].question)
+        self.assertIn("ville", friend.questions[1].question)
+        self.assertEqual(friend.questions[2].follow_up_to, 2)
+        self.assertIn("logements que j'ai repérés", friend.questions[2].answer)
+        self.assertNotIn("Montréal", friend.questions[2].question)
+        self.assertIn("travail que tu aimerais faire", friend.questions[3].question)
+        self.assertNotIn("maîtrise", friend.questions[3].question)
         self.assertIn("prépares encore ton dossier", friend.questions[4].question)
         self.assertIn("tu attends une réponse", friend.questions[4].question)
         self.assertIn("déjà reçu une", friend.questions[4].question)
@@ -293,8 +297,10 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertIn("conciliez-vous cette activité", survey.questions[4].question)
         self.assertIn("work or volunteering", survey.questions[4].condition)
         self.assertIn("un soir par semaine", survey.questions[4].answer)
-        self.assertIn("où et quand", survey.questions[5].question)
-        self.assertIn("concert details", survey.questions[6].condition)
+        self.assertIn("où la pratiquez-vous", survey.questions[5].question)
+        self.assertIn("moments de la semaine", survey.questions[6].question)
+        self.assertIn("schedule", survey.questions[6].condition)
+        self.assertNotIn("chorale", survey.questions[6].question)
         fete = self.by_group["fellow-parent-first-school-fete"]
         self.assertIn("Si je souhaite aider", fete.questions[6].question)
         self.assertIn("à qui m'adresser", fete.questions[6].question)
@@ -318,7 +324,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         expected = {
             "newcomer-canada-private-french-teacher": {
                 6: "Hourly rate and included learning materials",
-                7: "Trial lesson and paying per lesson or as a package",
+                7: "Trial before choosing individual lessons or a package",
                 8: "Rescheduling or cancellation deadline and handling of prepaid lessons",
             },
             "edmonton-newcomer-neighbor-schools": {
@@ -326,28 +332,31 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
                 2: "Schools offering teaching in French",
                 5: "Sports, music activities and clubs: lunchtime or after-school schedules",
                 6: "Childcare on days without after-school activities: closing time and fee",
-                7: "Official catchment-school verification",
-                8: "Enrolment contact and generally required documents",
+                7: "Checking which schools serve your address",
+                8: "Enrolment contact and checking the required documents",
             },
             "french-class-survey-francophone-student": {
                 2: "Institution and year of study",
                 5: "Balancing work or volunteering with exam revision",
-                6: "Main hobby, location and times",
+                6: "Favourite free-time activity and where it takes place",
+                7: "When the activity fits into the week",
             },
             "french-teacher-language-school-student-game": {
-                1: "Date, times and meeting point",
-                5: "Scoring: correct answers or speed",
-                6: "Permitted use of mobile phones",
+                1: "Game concept and tasks to complete in French",
+                4: "Scoring: correct answers or speed",
+                5: "Permitted use of mobile phones",
+                6: "Date, times and meeting point",
                 7: "Any prizes for the winners",
             },
             "friend-planned-canadian-studies": {
-                2: "Chosen programme and specialization",
-                3: "Proposed city and institution",
-                4: "Appeal of Sherbrooke for studies and life there",
+                1: "Chosen programme and specialization",
+                2: "Proposed city and institution",
+                3: "Appeal of Sherbrooke for studies and life there",
+                4: "How the course supports future career plans",
                 5: "Admission progress: application, waiting or decision received",
             },
             "friend-child-language-stay-abroad": {
-                3: "Accepted ages and levels, and required documents",
+                3: "Child's age and language ability before departure",
                 5: "Accommodation and checks on hosting arrangements",
                 7: "Supervision during outings and contact if a problem arises",
                 8: "Total cost and items included in the price",
@@ -356,23 +365,23 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
                 3: "Seating at the show and recommended arrival time",
                 6: "Buffet and whether families must bring something",
                 7: "Stall needing volunteers and contact for offering to help",
-                8: "Indoor arrangements in bad weather",
+                8: "Backup plan if rain prevents outdoor activities",
             },
             "parent-after-school-activity-advice": {
                 2: "Eligible ages and grouping by age",
             },
             "language-school-new-language": {
-                3: "Teacher training and speaking practice with beginners",
-                4: "Classes on site or also online",
-                5: "Class days, times and lesson length",
+                3: "Training of teachers working with beginners",
+                4: "Pair work, group work or role-play practice",
+                5: "On-site or online time slots for the group",
             },
             "calgary-university-adult-language-courses": {
                 4: "Campus and online options by level",
             },
             "french-teacher-study-abroad-advice": {
-                1: "Differences between an exchange, a full degree and a language stay",
-                2: "Criteria for comparing countries and institutions",
-                5: "Estimating the budget: studies, housing, meals, insurance and travel",
+                1: "Choosing between an exchange, a full degree and a language stay",
+                2: "Comparing course content, teaching language and recognition of the qualification",
+                5: "Costs to budget for beyond tuition fees",
             },
         }
         for group, questions in expected.items():
@@ -387,7 +396,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
     def test_paid_lesson_and_school_care_relances_address_specific_unanswered_constraints(self):
         private = self.by_group["newcomer-canada-private-french-teacher"]
         self.assertIsNone(private.questions[6].follow_up_to)
-        self.assertIn("réglé à l'avance", private.questions[6].answer)
+        self.assertIn("à l'avance", private.questions[6].answer)
         self.assertNotIn("annul", private.questions[6].answer)
         self.assertEqual(private.questions[7].follow_up_to, 7)
         self.assertIn("advance payment", private.questions[7].condition)

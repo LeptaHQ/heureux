@@ -35,6 +35,12 @@ jobs:
       - run: >-
           python manage.py test
           study.tests.test_tache_two_dialogues
+          study.tests.test_tache_two_work
+          study.tests.test_tache_two_education
+          study.tests.test_tache_two_work_school_review
+          study.tests.test_tache_two_transport_travel_review
+          study.tests.test_tache_two_final_review
+          study.tests.test_blue_theme_audit
           study.tests.test_tache_two_locations
           study.tests.test_subject_hints
           study.tests.test_question_bank

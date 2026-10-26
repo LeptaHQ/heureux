@@ -6,6 +6,9 @@ from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
 from study.tests.culture_fixtures import LEISURE_SPLIT_GROUPS
+from study.tests.eo2_review_fixtures import (
+    PUBLISHED_ARCHIVE_INDEX, PUBLISHED_LAYOUT_SHA, REVIEWED_GROUPS,
+)
 
 
 def fingerprint(value):
@@ -37,6 +40,14 @@ class BlueThemeAuditTests(SimpleTestCase):
             for row in json.loads(path.read_text())["dialogues"]
         }
         self.hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"]
+        self.history = json.loads((
+            content.QUESTION_BANK_DIR / "dialogue_history/locations.json"
+        ).read_text())["groups"]
+        self.recorded_models = {
+            group: self.history[group]["revisions"][PUBLISHED_ARCHIVE_INDEX[group]]
+            if group in REVIEWED_GROUPS else visible(row)
+            for group, row in self.raw.items()
+        }
 
     def test_nine_historical_blue_themes_and_their_equivalents_keep_the_recorded_review(self):
         self.assertEqual({slug: len(groups) for slug, groups in self.manifest["themes"].items()}, {
@@ -66,8 +77,9 @@ class BlueThemeAuditTests(SimpleTestCase):
                 )
         for group, audit in reviewed.items():
             with self.subTest(group=group):
-                self.assertEqual(fingerprint(self.raw[group]), audit["after_sha"])
-                self.assertEqual(fingerprint(self.hints[group]), audit["after_hints_sha"])
+                if group not in REVIEWED_GROUPS:
+                    self.assertEqual(fingerprint(self.raw[group]), audit["after_sha"])
+                    self.assertEqual(fingerprint(self.hints[group]), audit["after_hints_sha"])
                 for field in ("objective", "known", "reason"):
                     self.assertTrue(audit[field].strip())
                 if not audit["changed"]:
@@ -75,10 +87,18 @@ class BlueThemeAuditTests(SimpleTestCase):
                 if not audit["hints_changed"]:
                     self.assertEqual(audit["before_hints_sha"], audit["after_hints_sha"])
                 self.assertEqual(len(self.raw[group]["questions"]), 8)
+        self.assertEqual(
+            fingerprint([self.recorded_models[group] for group in sorted(REVIEWED_GROUPS)]),
+            PUBLISHED_LAYOUT_SHA,
+        )
 
     def test_substantive_scenario_fixes_remain_grounded_in_the_prompt_and_replies(self):
         for regression in self.manifest["regressions"]:
             with self.subTest(**regression):
+                superseded = regression["group"] in REVIEWED_GROUPS
+                # New reviews validate current replies, notes and cues; old visible wording stays archived.
+                if superseded and regression["field"] in {"questions.answer", "note", "hints"}:
+                    continue
                 if regression["field"] == "hints":
                     cues = self.hints[regression["group"]]
                     self.assertEqual(len(cues), regression["expected_count"])
@@ -88,7 +108,10 @@ class BlueThemeAuditTests(SimpleTestCase):
                             regression[f"expected_{language}_order"],
                         )
                     continue
-                actual = self.raw[regression["group"]]
+                actual = (
+                    self.recorded_models[regression["group"]]
+                    if superseded else self.raw[regression["group"]]
+                )
                 fields = regression["field"].split(".")
                 if "expected_order" in regression:
                     self.assertEqual(fields[0], "questions")
@@ -138,14 +161,15 @@ class BlueThemeAuditTests(SimpleTestCase):
         for group, audit in self.manifest["reviewed"].items():
             with self.subTest(group=group):
                 index = audit["archive_index"]
+                after = self.recorded_models[group]
                 if index is None:
-                    self.assertEqual(fingerprint(visible(self.raw[group])), audit["before_visible_sha"])
+                    self.assertEqual(fingerprint(after), audit["before_visible_sha"])
                     continue
                 before = history["groups"][group]["revisions"][index]
                 self.assertEqual(fingerprint(before), audit["before_visible_sha"])
                 self.assertEqual(set(before), {"group", "opening", "closing", "questions"})
                 self.assertTrue(all("answer" not in row for row in before["questions"]))
-                texts = {row["question"] for row in self.raw[group]["questions"]}
+                texts = {row["question"] for row in after["questions"]}
                 self.assertEqual(
                     sum(row["question"] in texts for row in before["questions"]),
                     audit["retained_questions"],
@@ -162,24 +186,24 @@ class BlueThemeAuditTests(SimpleTestCase):
         self.assertEqual(fingerprint(immutable), self.manifest["immutable_content_sha"])
 
     def test_known_unknown_and_reply_driven_goals_stay_distinct_in_employment_and_education(self):
-        colleague = self.raw["acquaintance-new-job-overall-experience"]["questions"]
+        colleague = self.recorded_models["acquaintance-new-job-overall-experience"]["questions"]
         self.assertIn("horaires", colleague[2]["question"])
         self.assertIn("décaler", colleague[2]["question"])
-        overtime = self.raw["canadian-work-hours-home-country-comparison"]["questions"][7]
+        overtime = self.recorded_models["canadian-work-hours-home-country-comparison"]["questions"][7]
         self.assertTrue(overtime["question"].startswith("T'arrive-t-il"))
-        orientation = self.raw["new-employee-company-orientation"]["questions"][1]
+        orientation = self.recorded_models["new-employee-company-orientation"]["questions"][1]
         self.assertIn("without explaining how to reach them", orientation["condition"])
-        teacher = self.raw["french-teacher-study-abroad-advice"]["questions"]
+        teacher = self.recorded_models["french-teacher-study-abroad-advice"]["questions"]
         self.assertIn("différences", teacher[0]["question"])
         self.assertIn("Quels critères", teacher[1]["question"])
         self.assertNotIn("mon domaine", teacher[1]["question"])
-        game = self.raw["french-teacher-language-school-student-game"]["questions"]
+        game = self.recorded_models["french-teacher-language-school-student-game"]["questions"]
         self.assertIn("À quelle date", game[0]["question"])
         self.assertIn("principe du jeu", game[1]["question"])
         self.assertEqual(game[3]["follow_up_to"], 2)
         self.assertEqual(game[4]["follow_up_to"], 2)
         self.assertIn("Y a-t-il des récompenses", game[6]["question"])
-        stay = self.raw["friend-child-language-stay-abroad"]["questions"]
+        stay = self.recorded_models["friend-child-language-stay-abroad"]["questions"]
         self.assertIn("âges et niveaux", stay[2]["question"])
         self.assertIn("Où logeait", stay[4]["question"])
         self.assertEqual(stay[5]["follow_up_to"], 5)

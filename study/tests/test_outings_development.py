@@ -8,6 +8,7 @@ from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
+from study.tests.eo2_review_fixtures import REVIEWED_GROUPS, remove_latest_review_archives
 
 
 def fingerprint(value):
@@ -52,13 +53,14 @@ class OutingsDevelopmentCorpusTests(SimpleTestCase):
         self.assertEqual(ordered[:2], self.fixture["preserved_first_two"])
         affected = set(self.fixture["groups"])
         self.assertEqual(set(ordered[2:]), affected)
+        protected = affected | REVIEWED_GROUPS
+        self.assertEqual(len(self.raw.keys() - protected), 107)
         self.assertEqual(
-            fingerprint({g: row for g, row in self.raw.items() if g not in affected}),
-            self.fixture["protected_models_sha"],
-        )
-        self.assertEqual(
-            fingerprint({g: row for g, row in self.hints.items() if g not in affected}),
-            self.fixture["protected_hints_sha"],
+            fingerprint({
+                "dialogues": {g: row for g, row in self.raw.items() if g not in protected},
+                "hints": {g: row for g, row in self.hints.items() if g not in protected},
+            }),
+            "a43e1ffdbd0030f1f7b93033fc7ad34221c7533d6643c14fbcda5fea38f1d51b",
         )
 
     def test_all_twelve_publications_use_the_seven_reviewed_models_in_the_same_theme(self):
@@ -106,6 +108,7 @@ class OutingsDevelopmentCorpusTests(SimpleTestCase):
 
     def test_exact_preceding_layouts_and_every_older_history_entry_are_preserved(self):
         original = copy.deepcopy(self.history)
+        remove_latest_review_archives(original)
         for group, record in self.fixture["groups"].items():
             with self.subTest(group=group):
                 index = record["archive_index"]

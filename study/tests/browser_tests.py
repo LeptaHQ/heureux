@@ -4658,6 +4658,147 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(cards_toggle.get_attribute("aria-pressed"), "true")
         self.assert_no_horizontal_overflow()
 
+    def test_work_school_models_and_equivalents_show_matching_questions_notes_and_pistes(self):
+        from study.tests.test_tache_two_work_school_review import REVIEWED_GROUPS
+
+        self.assert_reviewed_eo2_models_render(REVIEWED_GROUPS, 47)
+
+    def test_transport_travel_models_and_equivalents_show_matching_questions_notes_and_pistes(self):
+        from study.tests.transport_travel_review_fixtures import REVIEWED_GROUPS
+
+        self.assert_reviewed_eo2_models_render(REVIEWED_GROUPS, 58)
+
+    def assert_reviewed_eo2_models_render(self, groups, publication_count):
+        from study import catalogue
+
+        self._import_eo_tache_two_content()
+        dialogues = catalogue.tache_two_dialogues()
+        hints = catalogue.tache_two_subject_hints()
+        selected = {
+            key: dialogue for key, dialogue in dialogues.items()
+            if dialogue.group in groups
+        }
+        self.assertEqual(len(selected), publication_count)
+        prompts = {
+            prompt.content_key: prompt for prompt in Prompt.objects.filter(
+                content_key__in=selected,
+            ).select_related("response", "theme__task__part")
+        }
+        practiced = set()
+
+        def assert_content(dialogue, expected_hints, scope, *, with_hints=True):
+            expect(scope.locator("[data-question-highlight-text]")).to_have_text([
+                question.question for question in dialogue.questions
+            ])
+            topics = list(dict.fromkeys(question.topic for question in dialogue.questions))
+            expect(scope.locator(".eo2-dialogue__topic")).to_have_text(topics)
+            if with_hints:
+                piste = self.page.locator(".subject-hints").last
+                expect(piste.locator(".subject-hints__label")).to_have_text(topics)
+                expect(piste.locator(".subject-hints__english")).to_have_text([
+                    hint.english for hint in expected_hints
+                ])
+                expect(piste.locator(".subject-hints__french")).to_have_text([
+                    hint.french for hint in expected_hints
+                ])
+            for question in dialogue.questions:
+                expect(scope).not_to_contain_text(question.answer)
+
+        for key, dialogue in selected.items():
+            with self.subTest(prompt=key):
+                prompt = prompts[key]
+                self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+                root = self.page.locator(".tache-two-question-section")
+                assert_content(dialogue, hints[key], root)
+                note = self.page.locator("details.eo2-prompt-note")
+                expect(note).not_to_have_attribute("open", "")
+                expect(note.locator("p[lang=en]")).to_have_text(dialogue.note)
+                self.assert_no_horizontal_overflow()
+                if dialogue.group in practiced:
+                    continue
+                practiced.add(dialogue.group)
+                self.page.goto(self.live_server_url + review_url({
+                    "part": "eo", "task": "tache-2", "kind": "spine",
+                    "response": prompt.response_id, "prompt": prompt.pk,
+                }))
+                expect(self.page.locator(
+                    "#card-front details.eo2-prompt-note p[lang=en]",
+                )).to_have_text(dialogue.note)
+                self.page.locator("#reveal").click()
+                back = self.page.locator("#card-back")
+                expect(back).to_be_visible()
+                assert_content(dialogue, hints[key], back, with_hints=False)
+        self.assertEqual(practiced, groups)
+
+    def test_work_school_reorders_preserve_visible_learned_questions_on_detail_and_practice(self):
+        self.assert_reviewed_eo2_reorder_highlights((
+            ("recruiter-scheduled-interview-preparation", {5: 6, 6: 5, 7: 8}),
+            ("french-teacher-language-school-student-game", {1: 6, 2: 1, 4: 3}),
+        ))
+
+    def test_transport_travel_reorders_preserve_visible_learned_questions_on_detail_and_practice(self):
+        self.assert_reviewed_eo2_reorder_highlights((
+            ("neighbor-regular-carpool-invitation", {8: 3, 4: 5, 5: 6, 6: 7}),
+            ("bicycle-rental-model-and-terms", {4: 3, 5: 4, 7: 8}),
+        ))
+
+    def assert_reviewed_eo2_reorder_highlights(self, cases):
+        from study import catalogue
+        from study.oral_highlights import _render_questions
+        from study.oral_history import variant_annotation_key
+        from study.tache_two_dialogues import dialogue_response
+
+        self._import_eo_tache_two_content()
+        dialogues = catalogue.tache_two_dialogues()
+        for group, retained in cases:
+            with self.subTest(group=group):
+                key = next(key for key, row in dialogues.items() if row.group == group)
+                prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+                    content_key=key,
+                )
+                old = catalogue.tache_two_location_history()[group].revisions[-1]
+                previous = dialogue_response(old)
+                old_key = variant_annotation_key(prompt, previous, tache_two_dialogue=old)
+                detail = prompt_detail_url(prompt)
+                practice = review_url({
+                    "part": "eo", "task": "tache-2", "kind": "spine",
+                    "response": prompt.response_id, "prompt": prompt.pk,
+                })
+                aliases = list(prompt.response.prompts.filter(is_active=True).select_related(
+                    "theme__task__part",
+                ))
+                for surface, path in (("detail", detail), ("back", practice)):
+                    rendered = _render_questions(
+                        prompt, previous, surface, aliases, dialogue=old,
+                    )
+                    marks = {}
+                    for number in retained:
+                        start, end = rendered.fields[(number, "question")]
+                        marks[number] = Annotation.objects.create(
+                            user=self.user, task=prompt.theme.task, kind=AnnotationKind.HIGHLIGHT,
+                            source_path=path, source_key=old_key + (":back" if surface == "back" else ""),
+                            quote=rendered.slice(start, end), start_offset=start, end_offset=end,
+                            prefix=rendered.slice(max(0, start - 160), start),
+                            suffix=rendered.slice(end, end + 160),
+                            body="Keep this learned question.", study_later=True,
+                        )
+                    self.page.goto(self.live_server_url + path)
+                    if surface == "back":
+                        self.page.locator("#reveal").click()
+                        scope = self.page.locator("#card-back")
+                    else:
+                        scope = self.page.locator(".tache-two-question-section")
+                    for old_number, current_number in retained.items():
+                        mark = marks[old_number]
+                        expect(scope.locator(
+                            f'[data-question-highlight-text="{current_number}"] '
+                            f'mark[data-highlight-id="{mark.pk}"]',
+                        )).to_have_text(old.questions[old_number - 1].question)
+                        mark.refresh_from_db()
+                        self.assertEqual(mark.body, "Keep this learned question.")
+                        self.assertTrue(mark.study_later)
+                Annotation.objects.filter(user=self.user).delete()
+
     def test_tache_two_prompt_note_uses_a_compact_accessible_edit_pencil(self):
         self._import_eo_tache_two_content()
         prompt = Prompt.objects.select_related("theme__task__part").get(

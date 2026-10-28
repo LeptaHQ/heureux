@@ -4663,6 +4663,9 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.assert_reviewed_eo2_models_render(REVIEWED_GROUPS, 47)
 
+    def test_friend_study_career_question_matches_on_detail_practice_and_pistes(self):
+        self.assert_reviewed_eo2_models_render({"friend-planned-canadian-studies"}, 1)
+
     def test_transport_travel_models_and_equivalents_show_matching_questions_notes_and_pistes(self):
         from study.tests.transport_travel_review_fixtures import REVIEWED_GROUPS
 
@@ -4734,6 +4737,14 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assert_reviewed_eo2_reorder_highlights((
             ("recruiter-scheduled-interview-preparation", {5: 6, 6: 5, 7: 8}),
             ("french-teacher-language-school-student-game", {1: 6, 2: 1, 4: 3}),
+            ("director-canada-fortnight-training", {1: 1, 6: 4, 4: 5, 7: 7}),
+            ("friend-first-workday-report", {1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8}),
+            ("newcomer-canada-friend-job-market", {5: 5, 6: 6}),
+            ("language-school-new-language", {1: 1, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}),
+            ("parent-after-school-activity-advice", {1: 1, 2: 2, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}),
+            ("friend-child-language-stay-abroad", {4: 4, 7: 7, 8: 8}),
+            ("edmonton-newcomer-neighbor-schools", {2: 2, 5: 6, 6: 7, 8: 8}),
+            ("friend-planned-canadian-studies", {1: 1, 2: 2, 3: 3, 5: 5, 6: 6, 7: 7, 8: 8}),
         ))
 
     def test_transport_travel_reorders_preserve_visible_learned_questions_on_detail_and_practice(self):
@@ -4741,6 +4752,58 @@ class BrowserTests(StaticLiveServerTestCase):
             ("neighbor-regular-carpool-invitation", {8: 3, 4: 5, 5: 6, 6: 7}),
             ("bicycle-rental-model-and-terms", {4: 3, 5: 4, 7: 8}),
         ))
+
+    def test_eo2_reset_returns_to_do_and_keeps_saved_notes_after_reload(self):
+        self._import_eo_tache_two_content()
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="tache2:avril:batch-01:subject-05",
+        )
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        root = self.page.locator(".tache-two-question-section")
+        original_text = root.text_content()
+        question = root.locator("[data-question-highlight-text]").first
+        question.evaluate("""node => {
+          const range = document.createRange();
+          range.selectNodeContents(node);
+          const selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.dispatchEvent(new Event("selectionchange"));
+        }""")
+        self.page.locator("[data-highlight-selection]").click()
+        expect(root.locator("mark.user-highlight")).to_have_count(1)
+        mark = Annotation.objects.get(user=self.user, kind=AnnotationKind.HIGHLIGHT)
+        mark.body = "Keep this EO2 note after resetting."
+        mark.study_later = True
+        mark.save(update_fields=["body", "study_later"])
+        saved = Annotation.objects.filter(pk=mark.pk).values().get()
+        completion = self.page.locator(".subject-progress-control [role=checkbox]")
+        reset = self.page.locator("[data-subject-reset-form] button")
+        status = self.page.locator(
+            f'[data-subject-progress-status="{prompt.response_id}"]',
+        )
+        expect(reset).to_be_visible()
+        completion.click()
+        expect(status).to_have_text("Terminé")
+        reset.click()
+        expect(status).to_have_text("À commencer")
+        expect(completion).to_have_attribute("aria-checked", "false")
+        expect(root.locator("mark.user-highlight")).to_have_count(0)
+        self.page.reload()
+        expect(status).to_have_text("À commencer")
+        expect(root.locator("mark.user-highlight")).to_have_count(0)
+        self.assertEqual(root.text_content(), original_text)
+        self.assertEqual(
+            Annotation.objects.filter(pk=mark.pk).values().get(),
+            {**saved, "hidden_on_source": True},
+        )
+        reset.click()
+        expect(reset).to_be_enabled()
+        expect(status).to_have_text("À commencer")
+        for width in (390, 1280):
+            self.page.set_viewport_size({"width": width, "height": 850})
+            expect(reset).to_be_visible()
+            self.assert_no_horizontal_overflow()
 
     def assert_reviewed_eo2_reorder_highlights(self, cases):
         from study import catalogue

@@ -178,7 +178,14 @@ It requests only cached media and a small read-only playlist; it never prepares
 audio, calls ElevenLabs or asks for a
 generation PIN. Playback does not mark subjects complete.
 
-The server accepts only user-bound, signed, server-rendered French source
+**Other read buttons use browser/system speech.** EO1, EO2, writing, vocabulary,
+notes, selected text and comprehension reading use `SpeechSynthesis`, with French
+voice selection, pause/resume, restart and speed controls. They do not look up or
+prepare ElevenLabs recordings, even when saved audio or provider credentials exist.
+Only the dedicated EO3 audio players use ElevenLabs recordings. Starting another
+reader, changing a flashcard or leaving the page stops the previous reading.
+
+The retained server-side audio service accepts only user-bound, signed, server-rendered French source
 snapshots, valid for one hour, or a verified substring for selected text.
 Reload after editing/expiry. It rejects arbitrary unsigned text, forged or
 cross-account grants, over 32 sources, and over 10,000 combined characters.
@@ -195,14 +202,12 @@ an error.
 **Private text stays on device by default.** Private answers/overrides, EO1
 presentations, notes and unrecognized selections use an explicitly local French
 device voice, never a remote OS voice by default. If no local French voice is
-available, the reader says so instead of uploading. In **Voix et confidentialité**,
-an unchecked per-read consent lets the learner allow a private source lookup
-and, after a separate paid-preparation confirmation, transmission to ElevenLabs
-and private DB storage. Consent is not saved between reads; withdrawing it
-aborts pending playback lookup but cannot undo already-billed preparation.
-Private recordings are owner-isolated and cascade on account deletion.
-Unrecognized/dynamically edited selections without valid sources remain
-device-only. Existing annotations, private responses and study state are unchanged.
+available, the reader says so instead of uploading. It briefly waits for a
+not-yet-loaded device voice list and allows retry after a French local voice is
+enabled. General read controls have no paid-voice preparation or upload option.
+Unrecognized/dynamically edited selections also remain device-only. Existing
+private recordings remain owner-isolated and cascade on account deletion;
+existing annotations, private responses and study state are unchanged.
 
 MP3s persist in PostgreSQL/SQLite, not Render's ephemeral disk. Cache identity
 includes exact text, voice, model, output format, synthesis settings and private
@@ -213,8 +218,8 @@ matching text and the current voice when available. Earlier versions stay availa
 and never paint word-by-word highlighting over changed text. Creating an updated
 recording is a separate download-icon action with explicit credit confirmation and
 a fresh PIN. The new configured voice applies to genuinely missing or explicitly
-refreshed recordings, not ordinary playback. General French read-aloud also reuses
-the same text/owner's recording across voice changes.
+refreshed recordings, not ordinary playback. General read-aloud does not use this
+recording cache.
 
 The existing preparation journal binds earlier EO3 takes to their sujet and owner;
 legacy audio without this evidence is reused only when its text/owner fingerprint
@@ -269,12 +274,13 @@ The surviving highlight keeps its identity and study flag; notes, hidden highlig
 other surfaces and other users are not overwritten. Revision checks still protect
 against an outdated tab replacing a concurrent edit.
 
-The EO3 subject reset returns its status to **À commencer** and clears its
+The EO2 and EO3 subject reset returns its status to **À commencer** and clears its
 existing highlight paint, including after reloading or reopening practice.
 Highlights are marked `hidden_on_source`, not deleted: their text, anchors,
 dates and study flags remain in Notes and account exports. Notes themselves
 are unchanged. Highlighting the same passage again creates a fresh visible
-record without overwriting the hidden one.
+record without overwriting the hidden one. Private responses and practice/SRS
+history remain intact; new practice or highlighting can start the subject again.
 
 **Nouvelle note** always defaults to **Personnelles**, independently of the open
 folder. Its optional group selector can explicitly assign an expression task.

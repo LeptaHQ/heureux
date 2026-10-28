@@ -1,4 +1,5 @@
 from datetime import timedelta
+from dataclasses import asdict
 from io import StringIO
 
 from django.core.management import call_command
@@ -6,11 +7,16 @@ from django.template.defaultfilters import date as date_filter
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.html import escape
 
 from study.account_services import provision_user_study_data
-from study.models import Annotation, AnnotationKind, Card, CardType, Prompt
+from study import catalogue
+from study.models import Annotation, AnnotationKind, Card, CardType, PersonalResponse, Prompt
 from study.oral_highlights import AnnotationRootText
 from study.progress import mark_card_started, subject_progress_by_response
+from study.oral_highlights import _render_questions
+from study.oral_history import variant_annotation_key
+from study.tache_two_dialogues import dialogue_response
 from study.routing import prompt_detail_url, review_url
 
 from . import factories
@@ -270,6 +276,145 @@ class SubjectStatusResetTests(TestCase):
         self.assertEqual(result.json()["highlights"], [])
         original.refresh_from_db()
         self.assertTrue(original.hidden_on_source)
+
+
+class Eo2SubjectStatusResetTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command("import_content", stdout=StringIO())
+        cls.user = factories.make_user("eo2-status-reset-learner")
+        provision_user_study_data(cls.user)
+
+    def setUp(self):
+        self.client.force_login(self.user)
+        self.prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="tache2:avril:batch-01:subject-05",
+        )
+        self.url = reverse(
+            "study:subject_completion", args=["eo", "tache-2", self.prompt.response_id],
+        )
+
+    def post(self, data):
+        return self.client.post(self.url, data, HTTP_X_REQUESTED_WITH="fetch")
+
+    def card(self):
+        return Card.objects.get(
+            user=self.user, card_type=CardType.SPINE, response_id=self.prompt.response_id,
+        )
+
+    def highlight(self, *, surface="detail", **overrides):
+        dialogue = catalogue.tache_two_dialogues()[self.prompt.content_key]
+        value = dialogue_response(dialogue)
+        aliases = list(self.prompt.response.prompts.filter(is_active=True).select_related(
+            "theme__task__part",
+        ))
+        rendered = _render_questions(self.prompt, value, surface, aliases, dialogue=dialogue)
+        start, end = rendered.fields[(1, "question")]
+        return Annotation.objects.create(**{
+            "user": self.user, "task": self.prompt.theme.task, "kind": AnnotationKind.HIGHLIGHT,
+            "source_path": prompt_detail_url(self.prompt) if surface == "detail" else review_url({
+                "part": "eo", "task": "tache-2", "kind": "spine",
+                "response": self.prompt.response_id, "prompt": self.prompt.pk,
+            }),
+            "source_key": variant_annotation_key(
+                self.prompt, value, tache_two_dialogue=dialogue,
+            ) + (":back" if surface == "back" else ""),
+            "quote": rendered.slice(start, end), "start_offset": start, "end_offset": end,
+            "prefix": rendered.slice(max(0, start - 160), start),
+            "suffix": rendered.slice(end, end + 160),
+            "body": "Keep my learned EO2 note.", "study_later": True,
+            **overrides,
+        })
+
+    def test_reset_restores_to_do_without_erasing_srs_private_questions_or_notes(self):
+        card = self.card()
+        mark_card_started(self.user, card)
+        self.post({"completed": "1"})
+        values = asdict(dialogue_response(catalogue.tache_two_dialogues()[self.prompt.content_key]))
+        values.pop("is_personal")
+        values["arguments"] = list(values["arguments"])
+        values["arguments"][0]["idea"] = "Ma propre question pour ce sujet ?"
+        values["nuance"] = "My private EO2 prompt explanation."
+        personal = PersonalResponse.objects.create(
+            user=self.user, response=self.prompt.response, source_prompt=self.prompt, **values,
+        )
+        mark = self.highlight()
+        saved_card = Card.objects.filter(pk=card.pk).values().get()
+        saved_personal = PersonalResponse.objects.filter(pk=personal.pk).values().get()
+        saved_mark = Annotation.objects.filter(pk=mark.pk).values().get()
+
+        result = self.post({"completed": "0", "action": "reset"})
+
+        self.assertEqual(result.status_code, 200)
+        self.assertEqual(result.json()["subject"], {"status": "new", "label": "À commencer"})
+        self.assertFalse(result.json()["completed"])
+        self.assertEqual(result.json()["hidden_highlight_ids"], [mark.pk])
+        current_card = Card.objects.filter(pk=card.pk).values().get()
+        allowed = {"subject_completed_at", "subject_started_at", "subject_status_reset_at"}
+        self.assertEqual(
+            {key: value for key, value in current_card.items() if key not in allowed},
+            {key: value for key, value in saved_card.items() if key not in allowed},
+        )
+        self.assertIsNone(current_card["subject_completed_at"])
+        self.assertIsNotNone(current_card["subject_status_reset_at"])
+        self.assertEqual(PersonalResponse.objects.filter(pk=personal.pk).values().get(), saved_personal)
+        self.assertEqual(
+            Annotation.objects.filter(pk=mark.pk).values().get(),
+            {**saved_mark, "hidden_on_source": True},
+        )
+
+    def test_reset_hides_both_surfaces_alias_and_legacy_marks_but_not_other_users(self):
+        detail = self.highlight()
+        back = self.highlight(surface="back")
+        alias = self.highlight(source_key=self.prompt.content_key.replace("tache2:", "tache-two:", 1))
+        legacy = self.highlight(source_key="")
+        other_user = factories.make_user("another-eo2-reset-learner")
+        other = self.highlight(user=other_user)
+        note = self.highlight(kind=AnnotationKind.NOTE)
+        result = self.post({"completed": "0", "action": "reset"})
+        self.assertEqual(result.status_code, 200)
+        self.assertCountEqual(
+            result.json()["hidden_highlight_ids"], [detail.pk, back.pk, alias.pk, legacy.pk],
+        )
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 5)
+        for item in (other, note):
+            item.refresh_from_db()
+            self.assertFalse(item.hidden_on_source)
+        self.assertEqual(
+            self.post({"completed": "0", "action": "reset"}).json()["hidden_highlight_ids"], [],
+        )
+
+    def test_status_is_shared_by_equivalent_prompts_and_reactivates_on_new_practice(self):
+        mark = self.highlight()
+        self.post({"completed": "1"})
+        self.post({"completed": "0", "action": "reset"})
+        for prompt in self.prompt.response.prompts.filter(is_active=True):
+            self.assertContains(self.client.get(prompt_detail_url(prompt)), "À commencer")
+        mark_card_started(self.user, self.card())
+        progress = subject_progress_by_response(
+            self.user, {self.prompt.response_id},
+        )[self.prompt.response_id]
+        self.assertEqual(progress.status, "active")
+        self.assertIsNone(self.card().subject_status_reset_at)
+        mark.refresh_from_db()
+        self.assertTrue(mark.hidden_on_source)
+
+    def test_eo2_detail_exposes_the_reset_without_changing_question_text(self):
+        page = self.client.get(prompt_detail_url(self.prompt))
+        self.assertContains(page, 'data-subject-reset-form', count=1)
+        self.assertContains(page, 'name="action" value="reset"', count=1)
+        for question in catalogue.tache_two_dialogues()[self.prompt.content_key].questions:
+            self.assertContains(page, escape(question.question))
+
+    def test_invalid_completion_or_wrong_task_does_not_reset_state(self):
+        self.post({"completed": "1"})
+        self.assertEqual(self.post({"completed": "1", "action": "reset"}).status_code, 400)
+        wrong = reverse(
+            "study:subject_completion", args=["eo", "tache-3", self.prompt.response_id],
+        )
+        self.assertEqual(self.client.post(wrong, {"completed": "0", "action": "reset"}).status_code, 404)
+        self.assertIsNotNone(self.card().subject_completed_at)
+        self.assertIsNone(self.card().subject_status_reset_at)
 
 
 class OwnerVerifiedSampleReleaseTests(TestCase):

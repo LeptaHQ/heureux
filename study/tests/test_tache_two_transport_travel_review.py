@@ -6,7 +6,9 @@ from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
-from study.tests.eo2_review_fixtures import WORK_SCHOOL_GROUPS, final_pass_projection
+from study.tests.eo2_review_fixtures import (
+    WORK_SCHOOL_GROUPS, final_pass_projection, remove_followup_archives,
+)
 from study.tests.transport_travel_review_fixtures import (
     REVIEWED_GROUPS, TRANSPORT_GROUPS, remove_transport_travel_review_archives,
 )
@@ -90,6 +92,7 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
 
     def test_every_prior_archive_and_geographic_substitution_is_exact(self):
         previous = copy.deepcopy(self.history)
+        remove_followup_archives(previous)
         remove_transport_travel_review_archives(previous)
         self.assertEqual(
             fingerprint(previous),
@@ -108,10 +111,10 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
             self.assertFalse(value.position_claire)
             self.assertFalse(value.nuance)
 
-    def test_final_pass_changes_only_the_recorded_editorial_leaves(self):
+    def test_final_pass_and_authorized_followups_only_change_recorded_editorial_leaves(self):
         self.assertEqual(
             fingerprint(final_pass_projection(self.raw, self.hints)),
-            "1211c8b548e892683f9ea5310de41495469cec4d30d1caf4d7d39cf665519d8f",
+            "5f2e69899fa0738889494d711c7ca6899ed704db5ff4144df90a8ee8c5dcfe02",
         )
 
     def test_transit_enquiry_covers_destinations_tracking_tickets_return_and_inline_safety_hours(self):

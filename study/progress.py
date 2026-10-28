@@ -488,6 +488,8 @@ def hide_subject_highlights(user, response_id):
     annotations = list(Annotation.objects.filter(
         Q(source_key__startswith="response:")
         | Q(source_key__startswith="subject-sidebar:")
+        | Q(source_key__startswith="tache-two:")
+        | Q(source_path__startswith="/expression/orale/tache-2/sujets/")
         | Q(source_path__startswith="/expression/orale/tache-3/sujets/"),
         user=user, kind=AnnotationKind.HIGHLIGHT, hidden_on_source=False,
     ))

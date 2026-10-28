@@ -21,6 +21,7 @@ from study.tache_two_location_history import LOCATION_HISTORY_PATH, load_locatio
 
 from . import factories
 from .test_tache_two_work_school_review import REVIEWED_GROUPS
+from .eo2_review_fixtures import PUBLISHED_ARCHIVE_INDEX
 from .transport_travel_review_fixtures import REVIEWED_GROUPS as TRANSPORT_TRAVEL_GROUPS
 
 
@@ -1163,6 +1164,45 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_latest_transport_travel_review_preserves_all_retained_questions_and_note_bodies(self):
         self.assert_latest_review_preserves_questions_and_notes(TRANSPORT_TRAVEL_GROUPS)
 
+    def test_director_training_followup_preserves_moved_questions_and_saved_notes(self):
+        self.assert_latest_review_preserves_questions_and_notes({"director-canada-fortnight-training"})
+
+    def test_first_day_q5_followup_preserves_published_questions_and_saved_notes(self):
+        self.assert_latest_review_preserves_questions_and_notes({"friend-first-workday-report"})
+
+    def test_software_job_search_preserves_published_questions_and_saved_notes(self):
+        self.assert_latest_review_preserves_questions_and_notes({"newcomer-canada-friend-job-market"})
+
+    def test_complete_beginner_course_preserves_published_questions_and_saved_notes(self):
+        self.assert_latest_review_preserves_questions_and_notes({"language-school-new-language"})
+
+    def test_activity_staff_pickup_preserves_published_questions_and_saved_notes(self):
+        self.assert_latest_review_preserves_questions_and_notes({"parent-after-school-activity-advice"})
+
+    def test_named_child_stay_preserves_published_questions_and_saved_notes(self):
+        self.assert_latest_review_preserves_questions_and_notes({"friend-child-language-stay-abroad"})
+
+    def test_director_training_followup_preserves_every_archived_generation(self):
+        self.assert_all_archived_generations_preserved("director-canada-fortnight-training")
+
+    def test_named_child_stay_preserves_every_archived_generation(self):
+        self.assert_all_archived_generations_preserved("friend-child-language-stay-abroad")
+
+    def assert_all_archived_generations_preserved(self, group):
+        self.configure_group(group)
+        positions = {
+            q.question: number for number, q in enumerate(self.current.questions, 1)
+        }
+        for index, previous in enumerate(catalogue.tache_two_location_history()[group].revisions):
+            with self.subTest(revision=index):
+                retained = {
+                    number: positions[q.question]
+                    for number, q in enumerate(previous.questions, 1)
+                    if q.question in positions
+                }
+                self.assert_revision_highlights_preserved(group, retained, revision=index)
+            Annotation.objects.filter(user=self.user).delete()
+
     def assert_latest_review_preserves_questions_and_notes(self, groups):
         for group in sorted(groups):
             with self.subTest(group=group):
@@ -1197,6 +1237,24 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_latest_transport_travel_review_never_replaces_a_private_route_or_prompt_note(self):
         self.assert_latest_review_preserves_private_routes(TRANSPORT_TRAVEL_GROUPS)
 
+    def test_director_training_followup_preserves_a_private_route_and_prompt_note(self):
+        self.assert_latest_review_preserves_private_routes({"director-canada-fortnight-training"})
+
+    def test_first_day_q5_followup_preserves_a_private_route_and_prompt_note(self):
+        self.assert_latest_review_preserves_private_routes({"friend-first-workday-report"})
+
+    def test_software_job_search_preserves_a_private_route_and_prompt_note(self):
+        self.assert_latest_review_preserves_private_routes({"newcomer-canada-friend-job-market"})
+
+    def test_complete_beginner_course_preserves_a_private_route_and_prompt_note(self):
+        self.assert_latest_review_preserves_private_routes({"language-school-new-language"})
+
+    def test_activity_staff_pickup_preserves_a_private_route_and_prompt_note(self):
+        self.assert_latest_review_preserves_private_routes({"parent-after-school-activity-advice"})
+
+    def test_named_child_stay_preserves_a_private_route_and_prompt_note(self):
+        self.assert_latest_review_preserves_private_routes({"friend-child-language-stay-abroad"})
+
     def assert_latest_review_preserves_private_routes(self, groups):
         for group in sorted(groups):
             with self.subTest(group=group):
@@ -1228,9 +1286,9 @@ class PublishedTacheTwoHighlightTests(TestCase):
         mappings = {
             "newcomer-canada-private-french-teacher": {3: 3},
             "french-teacher-study-abroad-advice": {8: 8},
-            "language-school-new-language": {1: 1, 2: 2},
-            "parent-after-school-activity-advice": {2: 2, 3: 3, 6: 6, 7: 7, 8: 8},
-            "friend-child-language-stay-abroad": {1: 1, 7: 8},
+            "language-school-new-language": {1: 1},
+            "parent-after-school-activity-advice": {2: 2, 6: 6, 7: 7, 8: 8},
+            "friend-child-language-stay-abroad": {7: 8},
             "edmonton-newcomer-neighbor-schools": {2: 2},
             "french-teacher-language-school-student-game": {2: 2, 3: 3, 4: 5, 7: 6},
             "friend-planned-canadian-studies": {2: 2, 4: 1, 6: 6},
@@ -1242,6 +1300,29 @@ class PublishedTacheTwoHighlightTests(TestCase):
             with self.subTest(group=group):
                 revision = 1 if group == "friend-child-language-stay-abroad" else 0
                 self.assert_revision_highlights_preserved(group, mapping, revision=revision)
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_career_rephrase_preserves_unchanged_questions_and_saved_old_wording(self):
+        self.assert_revision_highlights_preserved(
+            "friend-planned-canadian-studies",
+            {number: number for number in range(1, 9) if number != 4},
+            revision=3,
+        )
+
+    def test_school_merge_preserves_all_five_published_layouts_and_moved_question_notes(self):
+        group = "edmonton-newcomer-neighbor-schools"
+        current = next(row for row in catalogue.tache_two_dialogues().values() if row.group == group)
+        positions = {
+            row.question: number for number, row in enumerate(current.questions, 1)
+        }
+        for index, previous in enumerate(catalogue.tache_two_location_history()[group].revisions):
+            with self.subTest(revision=index):
+                moved = {
+                    number: positions[row.question]
+                    for number, row in enumerate(previous.questions, 1)
+                    if row.question in positions
+                }
+                self.assert_revision_highlights_preserved(group, moved, revision=index)
             Annotation.objects.filter(user=self.user).delete()
 
     def test_second_education_pass_preserves_the_first_review_and_its_moved_highlights(self):
@@ -1260,9 +1341,9 @@ class PublishedTacheTwoHighlightTests(TestCase):
                 2: 2, 3: 3, 4: 4, 5: 5, 7: 6, 8: 8,
             },
             "french-teacher-study-abroad-advice": {8: 8},
-            "friend-child-language-stay-abroad": {1: 1, 2: 2, 7: 7, 8: 8},
+            "friend-child-language-stay-abroad": {7: 7, 8: 8},
             "friend-planned-canadian-studies": {2: 1, 3: 2, 6: 6},
-            "language-school-new-language": {1: 1, 2: 2, 6: 6, 7: 7, 8: 8},
+            "language-school-new-language": {1: 1, 6: 6, 7: 7, 8: 8},
         }
         for group, mapping in mappings.items():
             with self.subTest(group=group):
@@ -1275,11 +1356,13 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "newcomer-canada-private-french-teacher": {3: 3, 4: 4},
             "edmonton-newcomer-neighbor-schools": {2: 2},
             "fellow-parent-first-school-fete": {1: 1, 2: 2, 5: 5, 6: 6, 7: 7},
-            "language-school-new-language": {1: 1, 2: 2, 6: 6, 7: 7, 8: 8},
+            "language-school-new-language": {1: 1, 6: 6, 7: 7, 8: 8},
         }
         for group, mapping in mappings.items():
             with self.subTest(group=group):
-                self.assert_revision_highlights_preserved(group, mapping, revision=-2)
+                self.assert_revision_highlights_preserved(
+                    group, mapping, revision=PUBLISHED_ARCHIVE_INDEX[group] - 1,
+                )
             Annotation.objects.filter(user=self.user).delete()
 
     def test_education_reorder_does_not_replace_private_questions_or_prompt_notes(self):

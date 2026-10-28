@@ -40,6 +40,11 @@ jobs:
           study.tests.test_tache_two_work_school_review
           study.tests.test_tache_two_transport_travel_review
           study.tests.test_tache_two_final_review
+          study.tests.test_tache_two_training_review
+          study.tests.test_tache_two_first_day_review
+          study.tests.test_tache_two_software_job_search
+          study.tests.test_tache_two_child_stay_review
+          study.tests.test_tache_two_school_neighbour_review
           study.tests.test_blue_theme_audit
           study.tests.test_tache_two_locations
           study.tests.test_subject_hints

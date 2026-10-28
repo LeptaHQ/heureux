@@ -4,7 +4,6 @@
     <button type="button" class="btn btn--sm" data-narrator-close aria-label="Fermer et arrêter la lecture">Fermer</button>
   </div>
   <p data-narrator-status role="status" aria-live="polite"></p>
-  <audio controls preload="none" data-narrator-audio hidden aria-label="Enregistrement français"></audio>
   <div class="narrator__controls">
     <button type="button" class="btn btn--sm" data-narrator-toggle>Pause</button>
     <button type="button" class="btn btn--sm" data-narrator-restart>Revenir au début</button>
@@ -20,23 +19,7 @@
       </select>
     </label>
   </div>
-  <details data-narrator-options>
-  <summary>Voix et confidentialité</summary>
   <p data-narrator-privacy hidden>
-    Texte privé : voix de l’appareil par défaut, sans envoi à Heureux ou à ElevenLabs pour la lecture.
-    <label><input type="checkbox" data-narrator-consent>
-      Pour cette lecture uniquement, j’autorise l’envoi de ce texte à Heureux et, si je demande sa préparation,
-      à ElevenLabs, ainsi que le stockage de l’enregistrement privé dans mon compte.
-    </label>
+    Texte privé : une voix française locale est utilisée, sans envoi à Heureux ou à ElevenLabs pour cette lecture.
   </p>
-  <div class="narrator__controls">
-    <button type="button" class="btn btn--sm" data-narrator-natural>Voix naturelle · ElevenLabs</button>
-    <button type="button" class="btn btn--sm" data-narrator-device>Voix de l’appareil</button>
-  </div>
-  <div data-narrator-preparation hidden>
-    <p>La préparation consomme des crédits ElevenLabs après votre confirmation explicite.
-      La lecture d’un enregistrement existant ne consomme aucun crédit de génération.</p>
-    <button type="button" class="btn btn--sm" data-narrator-request>Préparer cet enregistrement</button>
-  </div>
-  </details>
 </section>

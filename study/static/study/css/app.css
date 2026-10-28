@@ -5323,6 +5323,9 @@ html:has(.methodology-dialog[open]) {
   background: var(--warning-soft);
   color: var(--warning);
 }
+[data-read-aloud][hidden] {
+  display: none !important;
+}
 .read-aloud-action__icon {
   display: inline-grid;
   place-items: center;

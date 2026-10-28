@@ -3456,7 +3456,9 @@ def subject_completion(request, part_slug, task_slug, response_id):
         completed not in {"0", "1"}
         or action not in {"", "reset"}
         or (reset_status and (
-            completed != "0" or (task.part.slug, task.slug) != ("eo", "tache-3")
+            completed != "0" or (task.part.slug, task.slug) not in {
+                ("eo", "tache-2"), ("eo", "tache-3"),
+            }
         ))
     ):
         if request.headers.get("X-Requested-With") == "fetch":

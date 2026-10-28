@@ -29,14 +29,20 @@ from .test_eo3_audio import AUDIO, AUDIO_PIN, TIMING, timed_upstream, upstream
 
 LOCAL_SPEECH = """
 window.__spoken = [];
+window.__utterances = [];
+window.__voiceHandlers = [];
+window.__speechCancels = 0;
 const synthesis = {
   getVoices: () => [
     {name: "Audrey Premium", voiceURI: "local-fr", lang: "fr-FR", localService: true},
     {name: "Google French", voiceURI: "remote-fr", lang: "fr-FR", localService: false}
   ],
-  addEventListener() {},
-  cancel() {}, resume() {},
-  speak(utterance) { window.__spoken.push({text: utterance.text, rate: utterance.rate, voice: utterance.voice && utterance.voice.name}); }
+  addEventListener(name, handler) { if (name === "voiceschanged") window.__voiceHandlers.push(handler); },
+  cancel() { window.__speechCancels += 1; }, resume() {},
+  speak(utterance) {
+    window.__utterances.push(utterance);
+    window.__spoken.push({text: utterance.text, rate: utterance.rate, voice: utterance.voice && utterance.voice.name});
+  }
 };
 Object.defineProperty(window, "speechSynthesis", {value: synthesis, configurable: true});
 Object.defineProperty(window, "SpeechSynthesisUtterance", {
@@ -195,16 +201,22 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         )
         return spec
 
-    def playing(self):
-        self.page.wait_for_function("""() => {
-            const audio = document.querySelector("[data-narrator-audio]");
-            return (audio && !audio.paused) || document.querySelector("[data-narrator-status]").textContent.includes("Appuyez sur Lecture");
+    def finish_native_reading(self):
+        self.page.evaluate("""() => {
+          for (let count = 0; count < 200; count += 1) {
+            const utterance = window.__utterances.at(-1);
+            const before = window.__utterances.length;
+            if (!utterance || !utterance.onend) break;
+            utterance.onend();
+            if (window.__utterances.length === before) break;
+          }
         }""")
-        audio = self.page.locator("[data-narrator-audio]")
-        if audio.evaluate("audio => audio.paused"):
-            self.page.locator("[data-narrator-toggle]").click()
-        self.page.wait_for_function("() => !document.querySelector('[data-narrator-audio]').paused")
-        return audio
+
+    def assert_no_general_audio_requests(self):
+        self.assertFalse(any(self.resolve_path in url for url in self.requests))
+        self.assertEqual(self.page.locator(
+            "[data-narrator-natural], [data-narrator-request], [data-narrator-consent]",
+        ).count(), 0)
 
     def select(self, selector, text):
         self.page.locator(selector).evaluate("""(node, text) => {
@@ -223,24 +235,22 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         }""", text)
         expect(self.page.locator("[data-read-selection]")).to_be_visible()
 
-    def test_ee_one_and_two_use_cached_voice_speed_pause_resume_and_restart(self):
+    def test_ee_one_and_two_use_browser_voice_even_with_cached_audio_and_support_transport_controls(self):
         for task in ("tache-1", "tache-2"):
             self.writing(task)
             self.cache()
-            before = len([url for url in self.requests if self.resolve_path in url])
             self.page.locator(".writing-response-controls [data-read-aloud]").first.click()
-            audio = self.playing()
-            self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 0.85)
+            self.assertEqual(self.page.evaluate("__spoken.at(-1).rate"), 0.85)
+            before = self.page.evaluate("__spoken.length")
             self.page.locator("[data-narrator-toggle]").click()
-            self.assertTrue(audio.evaluate("audio => audio.paused"))
+            expect(self.page.locator("[data-narrator-status]")).to_have_text("Lecture en pause.")
             self.page.locator("[data-narrator-speed]").select_option("2")
             self.page.locator("[data-narrator-toggle]").click()
-            self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 2)
-            self.assertTrue(audio.evaluate("audio => audio.preservesPitch"))
+            self.assertEqual(self.page.evaluate("__spoken.at(-1).rate"), 2)
+            self.assertEqual(self.page.evaluate("__spoken.length"), before + 1)
             self.page.locator("[data-narrator-restart]").click()
-            self.assertLess(audio.evaluate("audio => audio.currentTime"), 1)
-            self.assertEqual(len([url for url in self.requests if self.resolve_path in url]), before + 1)
-            self.assertEqual(self.page.evaluate("__spoken.length"), 0)
+            self.assertEqual(self.page.evaluate("__spoken.length"), before + 2)
+            self.assert_no_general_audio_requests()
             self.page.locator("[data-narrator-close]").click()
             self.assertTrue(self.page.evaluate("document.documentElement.scrollWidth <= innerWidth"))
             # A new page starts at the requested slow default, not synthesis slowdown.
@@ -256,14 +266,18 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         self.assertNotIn("Questions et relances", spec.text)
         self.assertEqual(len(self.page.locator("[data-read-aloud-text]").all()), 10)
         self.page.get_by_role("button", name="Lire les questions en français").click()
-        self.playing()
-        self.assertEqual(self.page.evaluate("__spoken.length"), 0)
+        expected = self.page.evaluate("""() => HeureuxFrenchSpeech.chunks(
+          HeureuxReadAloud.textFor(document.querySelector('[data-read-aloud]'))
+        )""")
+        self.finish_native_reading()
+        self.assertEqual(self.page.evaluate("__spoken.map(item => item.text)"), expected)
+        self.assert_no_general_audio_requests()
         self.page.evaluate("""() => document.dispatchEvent(new CustomEvent(
             "heureux:speech-start", {detail: {source: "eo3-narration"}}
         ))""")
         expect(self.page.locator("[data-narrator]")).to_be_hidden()
 
-    def test_eo_one_stays_local_then_explicit_private_opt_in_and_revoke(self):
+    def test_eo_one_stays_local_without_any_paid_opt_in_even_if_recorded_audio_exists(self):
         self.private_presentation()
         self.cache()
         self.page.get_by_role("button", name="Lire ma présentation en français").click()
@@ -271,20 +285,12 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         spoken = self.page.evaluate("__spoken")
         self.assertEqual(spoken[0]["voice"], "Audrey Premium")
         self.assertEqual(spoken[0]["rate"], 0.85)
-        self.page.locator("[data-narrator-options] summary").click()
-        expect(self.page.locator("[data-narrator-natural]")).to_be_disabled()
-        self.page.locator("[data-narrator-consent]").check()
-        self.page.locator("[data-narrator-natural]").click()
-        audio = self.playing()
-        self.assertEqual(len([url for url in self.requests if self.resolve_path in url]), 1)
-        self.page.locator("[data-narrator-consent]").uncheck()
-        expect(audio).to_be_hidden()
-        self.assertTrue(audio.evaluate("audio => audio.paused"))
-        expect(self.page.locator("[data-narrator-status]")).to_contain_text("Accord retiré")
+        expect(self.page.locator("[data-narrator-privacy]")).to_be_visible()
+        self.assert_no_general_audio_requests()
         self.page.locator("[data-narrator-close]").click()
         self.page.get_by_role("button", name="Lire ma présentation en français").click()
-        self.assertFalse(self.page.locator("[data-narrator-consent]").is_checked())
-        self.assertEqual(len([url for url in self.requests if self.resolve_path in url]), 1)
+        self.assertEqual(self.page.evaluate("__spoken.length"), 2)
+        self.assert_no_general_audio_requests()
 
     def test_private_read_does_not_use_a_remote_device_voice_without_consent(self):
         self.private_presentation()
@@ -298,30 +304,29 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         self.assertEqual(self.page.evaluate("__spoken.length"), 0)
         self.assertFalse(any(self.resolve_path in url for url in self.requests))
 
-    def test_public_selection_uses_its_signed_substring_and_shared_media(self):
+    def test_public_selection_uses_browser_voice_even_when_cached_audio_exists(self):
         self.writing()
         self.cache(selected="je vous invite")
         self.select(".t1-response__body", "je vous invite")
         self.page.locator("[data-read-selection]").click()
-        self.playing()
+        self.assertEqual(self.page.evaluate("__spoken.at(-1).text"), "je vous invite")
         self.page.locator("[data-narrator-toggle]").click()
-        self.assertEqual(self.page.evaluate("__spoken.length"), 0)
-        self.assertEqual(len([url for url in self.requests if self.resolve_path in url]), 1)
+        self.assert_no_general_audio_requests()
         self.assertEqual(self.page.evaluate("getSelection().toString()"), "je vous invite")
 
-    def test_private_selection_and_shared_controls_keep_selection_and_consent(self):
+    def test_private_selection_and_native_transport_controls_keep_the_selection(self):
         self.private_presentation()
         self.cache(selected="présentation privée")
         self.select(".eo1-response__body", "présentation privée")
         self.page.locator("[data-read-selection]").click()
         self.assertEqual(self.page.evaluate("__spoken[0].text"), "présentation privée")
         self.assertFalse(any(self.resolve_path in url for url in self.requests))
-        self.page.locator("[data-narrator-options] summary").click()
-        self.page.locator("[data-narrator-consent]").check()
-        self.page.locator("[data-narrator-natural]").click()
-        self.playing()
+        self.page.locator("[data-narrator-toggle]").click()
+        self.page.locator("[data-narrator-speed]").select_option("2")
+        self.page.locator("[data-narrator-toggle]").click()
+        self.assertEqual(self.page.evaluate("__spoken.at(-1).rate"), 2)
         self.assertEqual(self.page.evaluate("getSelection().toString()"), "présentation privée")
-        self.assertEqual(len([url for url in self.requests if self.resolve_path in url]), 1)
+        self.assert_no_general_audio_requests()
 
     def test_comprehension_question_dialogue_share_transport_and_rate(self):
         from study.models import ComprehensionMode
@@ -334,54 +339,44 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         self.cache('[data-co-audio-text="question"]')
         dialogue = self.page.locator('[data-co-audio-target="dialogue"]')
         dialogue.click()
-        audio = self.playing()
+        self.assertGreater(self.page.evaluate("__spoken.length"), 0)
         dialogue.click()
-        self.assertTrue(audio.evaluate("audio => audio.paused"))
+        expect(self.page.locator("[data-narrator-status]")).to_have_text("Lecture en pause.")
         self.page.locator("[data-co-audio-rate]").select_option("2")
         self.assertEqual(self.page.locator("[data-narrator-speed]").input_value(), "2")
         dialogue.click()
         self.page.locator('[data-co-audio-target="question"]').click()
-        audio = self.playing()
-        self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 2)
+        self.assertEqual(self.page.evaluate("__spoken.at(-1).rate"), 2)
         self.page.locator("[data-co-audio-stop]").click()
-        self.assertTrue(audio.evaluate("audio => audio.paused"))
-        self.assertEqual(self.page.evaluate("__spoken.length"), 0)
+        expect(self.page.locator("[data-narrator]")).to_be_hidden()
+        self.assert_no_general_audio_requests()
 
-    def test_premium_error_is_explicit_never_silently_switches_device(self):
+    def test_general_read_ignores_premium_service_failure_and_uses_browser_speech(self):
         self.writing()
         self.page.route("**" + self.resolve_path, lambda route: route.fulfill(
             status=503, body=json.dumps({"message": "Quota fournisseur indisponible."}),
             content_type="application/json",
         ))
         self.page.locator(".writing-response-controls [data-read-aloud]").first.click()
-        expect(self.page.locator("[data-narrator-status]")).to_have_text("Quota fournisseur indisponible.")
-        self.assertEqual(self.page.evaluate("__spoken.length"), 0)
-        self.page.locator("[data-narrator-options] summary").click()
-        self.page.locator("[data-narrator-device]").click()
         self.assertEqual(self.page.evaluate("__spoken.length"), 1)
+        expect(self.page.locator("[data-narrator-status]")).to_contain_text("Voix du navigateur")
+        self.assert_no_general_audio_requests()
 
-    def test_hidden_recall_and_late_response_after_card_flip_never_play(self):
+    def test_hidden_recall_and_late_native_callback_after_card_flip_never_play(self):
         card = factories.make_spine_card(user=self.user)
         self.page.goto(self.live_server_url + review_url({"kind": "spine", "response": card.response_id}))
         expect(self.page.locator("#card-front .prompt-text")).to_be_visible()
-        self.page.evaluate("""() => {
-          const original = window.fetch;
-          window.fetch = (url, options) => url.includes("/audio/francais/resoudre/") ?
-            new Promise(resolve => { window.__resolveAudio = resolve; }) : original(url, options);
-        }""")
         self.page.locator("[data-review-card] [data-read-aloud]").click()
-        expect(self.page.locator("[data-narrator-status]")).to_contain_text("Recherche")
+        self.assertEqual(self.page.evaluate("__spoken.length"), 1)
         self.page.locator("#reveal").click()
-        self.page.evaluate("""() => window.__resolveAudio({
-            ok: true, json: () => Promise.resolve({state: "ready", url: "/not-requested.mp3"})
-        })""")
+        self.page.evaluate("() => window.__utterances.at(-1).onend()")
         expect(self.page.locator("[data-narrator]")).to_be_hidden()
-        self.assertFalse(any("/not-requested.mp3" in url for url in self.requests))
-        self.assertEqual(self.page.evaluate("__spoken.length"), 0)
+        self.assertEqual(self.page.evaluate("__spoken.length"), 1)
         self.page.locator("#reveal").click()
         self.page.locator("#card-front .prompt-text").evaluate("node => node.setAttribute('inert', '')")
         self.page.locator("[data-review-card] [data-read-aloud]").click()
-        self.assertEqual(self.page.evaluate("__spoken.length"), 0)
+        self.assertEqual(self.page.evaluate("__spoken.length"), 1)
+        self.assert_no_general_audio_requests()
 
     @override_settings(ELEVENLABS_VOICE_ID="kENkNtk0xyzG09WW40xE")
     @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
@@ -544,64 +539,85 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
 
     @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=100000)
     @patch("study.french_audio.synthesize", return_value=AUDIO)
-    def test_private_reader_pin_cancel_retry_and_cached_playback(self, provider):
+    def test_private_reader_never_offers_paid_preparation_even_when_generation_is_enabled(self, provider):
         self.private_presentation()
         read = self.page.get_by_role("button", name="Lire ma présentation en français")
         read.click()
-        self.page.locator("[data-narrator-options] > summary").click()
-        self.page.locator("[data-narrator-consent]").check()
-        self.page.locator("[data-narrator-natural]").click()
-        request = self.page.locator("[data-narrator-request]")
-        expect(request).to_be_visible()
-        request.click()
-        dialog = self.page.locator("[data-confirm-dialog]")
-        expect(dialog.locator("[data-confirm-icon='download']")).to_be_visible()
-        expect(dialog.locator("[data-confirm-icon='danger']")).to_be_hidden()
-        self.page.locator("[data-confirm-accept]").click()
-        pin_dialog = self.page.locator("[data-audio-pin-dialog]")
-        expect(pin_dialog).to_be_visible()
-        pin_dialog.locator("[data-audio-pin-cancel]").first.click()
-        expect(self.page.locator("[data-narrator-status]")).to_contain_text("annulée")
-        provider.assert_not_called()
-        self.assertFalse(FrenchNarration.objects.exists())
-        request.click()
-        self.page.locator("[data-confirm-accept]").click()
-        self.enter_audio_pin("incorrect")
-        expect(pin_dialog.locator("[data-audio-pin-error]")).to_contain_text("incorrect")
-        provider.assert_not_called()
-        self.enter_audio_pin()
-        self.playing()
-        provider.assert_called_once()
-        expect(pin_dialog.locator("[data-audio-pin-input]")).to_have_value("")
+        self.assertEqual(self.page.evaluate("__spoken.length"), 1)
+        expect(self.page.locator("[data-audio-pin-dialog]")).to_be_hidden()
+        expect(self.page.locator("[data-confirm-dialog]")).to_be_hidden()
+        self.assert_no_general_audio_requests()
         self.page.locator("[data-narrator-close]").click()
         with self.settings(ELEVENLABS_PIN=""):
             read.click()
-            self.page.locator("[data-narrator-options] > summary").click()
-            self.page.locator("[data-narrator-consent]").check()
-            self.page.locator("[data-narrator-natural]").click()
-            self.playing()
-            expect(pin_dialog).to_be_hidden()
-        provider.assert_called_once()
-
-    @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=100000)
-    @patch("study.french_audio.synthesize", return_value=AUDIO)
-    def test_stopping_the_reader_cancels_pending_pin_authorization(self, provider):
-        self.private_presentation()
-        self.page.get_by_role("button", name="Lire ma présentation en français").click()
-        self.page.locator("[data-narrator-options] > summary").click()
-        self.page.locator("[data-narrator-consent]").check()
-        self.page.locator("[data-narrator-natural]").click()
-        self.page.locator("[data-narrator-request]").click()
-        self.page.locator("[data-confirm-accept]").click()
-        dialog = self.page.locator("[data-audio-pin-dialog]")
-        expect(dialog).to_be_visible()
-        dialog.locator("[data-audio-pin-input]").fill(AUDIO_PIN)
-        self.page.evaluate("""() => document.dispatchEvent(
-            new CustomEvent("heureux:flashcard-change"))""")
-        expect(dialog).to_be_hidden()
-        expect(dialog.locator("[data-audio-pin-input]")).to_have_value("")
+            self.assertEqual(self.page.evaluate("__spoken.length"), 2)
         provider.assert_not_called()
         self.assertFalse(FrenchNarration.objects.exists())
+        self.assert_no_general_audio_requests()
+
+    def test_private_voice_loading_resumes_when_local_voices_become_available(self):
+        self.private_presentation()
+        self.page.evaluate("() => speechSynthesis.getVoices = () => []")
+        self.page.get_by_role("button", name="Lire ma présentation en français").click()
+        expect(self.page.locator("[data-narrator-status]")).to_contain_text("Chargement")
+        self.assertEqual(self.page.evaluate("__spoken.length"), 0)
+        self.page.evaluate("""() => {
+          speechSynthesis.getVoices = () => [{
+            name: "Audrey Premium", lang: "fr-FR", localService: true
+          }];
+          window.__voiceHandlers.forEach(handler => handler());
+        }""")
+        self.assertEqual(self.page.evaluate("__spoken[0].voice"), "Audrey Premium")
+        self.assert_no_general_audio_requests()
+
+    def test_stopping_reader_cancels_pending_local_voice_loading(self):
+        self.private_presentation()
+        self.page.clock.install()
+        self.page.evaluate("() => speechSynthesis.getVoices = () => []")
+        self.page.get_by_role("button", name="Lire ma présentation en français").click()
+        expect(self.page.locator("[data-narrator-status]")).to_contain_text("Chargement")
+        self.page.locator("[data-narrator-close]").click()
+        self.page.evaluate("""() => {
+          speechSynthesis.getVoices = () => [{
+            name: "Audrey Premium", lang: "fr-FR", localService: true
+          }];
+          window.__voiceHandlers.forEach(handler => handler());
+        }""")
+        self.page.clock.fast_forward(2000)
+        expect(self.page.locator("[data-narrator]")).to_be_hidden()
+        self.assertEqual(self.page.evaluate("__spoken.length"), 0)
+        self.assert_no_general_audio_requests()
+
+    @override_settings(FRENCH_AUDIO_ENABLED=False, ELEVENLABS_API_KEY="")
+    def test_general_read_does_not_depend_on_elevenlabs_settings(self):
+        self.writing()
+        self.page.locator(".writing-response-controls [data-read-aloud]").first.click()
+        self.assertEqual(self.page.evaluate("__spoken.length"), 1)
+        self.assert_no_general_audio_requests()
+
+    def test_public_read_uses_french_browser_default_before_voice_metadata_loads(self):
+        self.writing()
+        self.page.evaluate("() => speechSynthesis.getVoices = () => []")
+        self.page.locator(".writing-response-controls [data-read-aloud]").first.click()
+        self.assertEqual(self.page.evaluate("__spoken.length"), 1)
+        self.assertEqual(self.page.evaluate("__utterances[0].lang"), "fr-FR")
+        self.assertIsNone(self.page.evaluate("__utterances[0].voice || null"))
+        self.assert_no_general_audio_requests()
+
+    def test_unsupported_browser_hides_native_controls_without_using_cloud(self):
+        script = (
+            'Object.defineProperty(window, "speechSynthesis", {value: undefined, configurable: true});'
+            + (settings.BASE_DIR / "study/static/study/js/speech.js").read_text()
+        )
+        self.page.route(
+            re.compile(r".*/study/js/speech\.js(?:\?.*)?$"),
+            lambda route: route.fulfill(body=script, content_type="application/javascript"),
+        )
+        self.writing()
+        expect(self.page.locator(".writing-response-controls [data-read-aloud]").first).to_be_hidden()
+        self.assertFalse(self.page.evaluate("HeureuxNarrator.supported"))
+        self.assertEqual(self.page.evaluate("__spoken.length"), 0)
+        self.assert_no_general_audio_requests()
 
     def test_confirmation_icons_match_the_action_and_reset_between_dialogs(self):
         self.page.goto(self.live_server_url + "/")

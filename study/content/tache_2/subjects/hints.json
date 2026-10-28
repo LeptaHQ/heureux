@@ -688,32 +688,32 @@
         "english": "Training city and dates"
       },
       {
-        "french": "Compétences à acquérir pour son travail",
-        "english": "Skills to gain for your work"
+        "french": "Sujets de la formation et présence d'une partie pratique",
+        "english": "Training topics and whether there is a practical component"
       },
       {
-        "french": "Exercices individuels ou en petits groupes sur le logiciel",
-        "english": "Individual or small-group practice using the software"
-      },
-      {
-        "french": "Type d'hébergement et distance du centre",
-        "english": "Accommodation type and distance from the centre"
-      },
-      {
-        "french": "Trajets depuis l'aéroport et vers le centre de formation",
-        "english": "Travel from the airport and to the training centre"
+        "french": "Horaires de formation et éventuelles séances le week-end",
+        "english": "Training hours and whether there are weekend sessions"
       },
       {
         "french": "Prise en charge du vol, du logement, des repas et des déplacements",
         "english": "Coverage of flights, accommodation, meals and local travel"
       },
       {
+        "french": "Type d'hébergement et distance du centre",
+        "english": "Accommodation type and distance from the centre"
+      },
+      {
+        "french": "Transfert de l'aéroport et trajets quotidiens logement-formation",
+        "english": "Airport transfer and daily accommodation-to-training journeys"
+      },
+      {
         "french": "Activités prévues hors formation",
         "english": "Activities outside training hours"
       },
       {
-        "french": "Moments libres pour visiter en dehors des activités organisées",
-        "english": "Free-time slots for sightseeing outside organized activities"
+        "french": "Activités prises en charge ou budget personnel à prévoir",
+        "english": "Included activities or a personal leisure budget to allow for"
       }
     ],
     "new-neighbor-evening-entertainment": [
@@ -904,8 +904,8 @@
         "english": "First tasks assigned to Ève"
       },
       {
-        "french": "Entraînement accompagné avant de traiter une demande réelle",
-        "english": "Supported practice before handling a real request"
+        "french": "Accompagnement ou autonomie pour les premières tâches",
+        "english": "Guidance or independence with the first tasks"
       },
       {
         "french": "Une demande difficile pendant la première journée",
@@ -990,20 +990,20 @@
     ],
     "newcomer-canada-friend-job-market": [
       {
-        "french": "Types de postes repérés dans les annonces à Calgary",
-        "english": "Types of jobs seen in Calgary advertisements"
+        "french": "Profils de développeurs recherchés dans les offres à Calgary",
+        "english": "Developer profiles seen in Calgary job advertisements"
       },
       {
-        "french": "Sites d'emploi, agences de placement ou candidatures directes",
-        "english": "Job websites, staffing agencies or direct applications"
+        "french": "LinkedIn, sites d'entreprises ou recruteurs spécialisés en informatique",
+        "english": "LinkedIn, company websites or specialist technology recruiters"
       },
       {
-        "french": "Expérience à valoriser sur le CV et informations à éviter",
-        "english": "Experience to highlight on the CV and information to leave out"
+        "french": "Projets, compétences techniques et lien GitHub sur le CV",
+        "english": "Projects, technical skills and a GitHub link on the CV"
       },
       {
-        "french": "Langues demandées dans les offres de service à la clientèle",
-        "english": "Languages requested in customer-service job advertisements"
+        "french": "Étapes du recrutement, entretiens et tests techniques",
+        "english": "Recruitment stages, interviews and technical assessments"
       },
       {
         "french": "Vérifier le droit de travailler et trouver une source fiable",
@@ -1014,12 +1014,12 @@
         "english": "Social insurance number application: agency and documents"
       },
       {
-        "french": "Fourchette de salaire horaire brut annoncée",
-        "english": "Advertised gross hourly pay range"
+        "french": "Fourchettes de salaire annuel brut en développement logiciel",
+        "english": "Advertised gross annual salary ranges in software development"
       },
       {
-        "french": "Temps plein ou partiel et horaires proposés",
-        "english": "Full-time or part-time work and advertised shifts"
+        "french": "Travail sur place, hybride ou entièrement en télétravail",
+        "english": "On-site, hybrid or fully remote work"
       }
     ],
     "volunteer-local-association-information-office": [
@@ -1780,8 +1780,8 @@
         "english": "Languages taught at the school"
       },
       {
-        "french": "Groupe d'espagnol pour vrais débutants",
-        "english": "Spanish group for complete beginners"
+        "french": "Cours d'espagnol pour débutants complets",
+        "english": "Spanish courses for complete beginners"
       },
       {
         "french": "Formation des enseignants des groupes débutants",
@@ -2328,8 +2328,8 @@
         "english": "Eligible ages and grouping by age"
       },
       {
-        "french": "Lieu des activités et accompagnement depuis l'école",
-        "english": "Activity location and escort from school"
+        "french": "Lieu des activités et trajet depuis l'école avec un animateur",
+        "english": "Activity venue and a staff escort from school"
       },
       {
         "french": "Jours et horaires de début et de fin",
@@ -2966,28 +2966,28 @@
     ],
     "friend-child-language-stay-abroad": [
       {
-        "french": "Destination et durée du séjour linguistique",
-        "english": "Destination and length of the language stay"
+        "french": "Organisme pour aider à organiser le séjour de Jerry au Canada",
+        "english": "Organization to help arrange Jerry's language stay in Canada"
       },
       {
-        "french": "Organisme choisi et raisons du choix",
-        "english": "Organizer chosen and reasons for choosing it"
+        "french": "Accompagnement de l'organisme pour préparer le séjour de Tom",
+        "english": "How the organizer helped prepare Tom's stay"
       },
       {
-        "french": "Âge de l'enfant et niveau avant le départ",
-        "english": "Child's age and language ability before departure"
+        "french": "Période et durée du séjour de Tom",
+        "english": "Timing and length of Tom's stay"
       },
       {
         "french": "Répartition des journées entre cours et activités",
         "english": "How days were divided between lessons and activities"
       },
       {
-        "french": "Hébergement et vérification des conditions d'accueil",
-        "english": "Accommodation and checks on hosting arrangements"
+        "french": "Hébergement de Tom et vérification des conditions d'accueil",
+        "english": "Tom's accommodation and checks on hosting arrangements"
       },
       {
-        "french": "Échanges avec la famille d'accueil et difficultés du début",
-        "english": "Talking with the host family and initial difficulties"
+        "french": "Personnes avec qui Tom pratiquait la langue hors des cours",
+        "english": "Who Tom practised the language with outside lessons"
       },
       {
         "french": "Accompagnement pendant les sorties et contact en cas de problème",
@@ -3348,20 +3348,24 @@
     ],
     "edmonton-newcomer-neighbor-schools": [
       {
-        "french": "Localisation des écoles primaires et secondaires et accès à pied ou en bus",
-        "english": "Primary and secondary school locations and access on foot or by bus"
+        "french": "Où vérifier les écoles du quartier selon l'adresse et l'admissibilité",
+        "english": "Where to check local schools for your address and enrolment eligibility"
       },
       {
         "french": "Écoles proposant un enseignement en français",
         "english": "Schools offering teaching in French"
       },
       {
-        "french": "Échanges entre enseignants et parents quand un élève a des difficultés",
-        "english": "Teacher-parent communication when a pupil is struggling"
+        "french": "Localisation des écoles et accès à pied ou en bus",
+        "english": "School locations and getting there on foot or by bus"
       },
       {
-        "french": "Accueil et accompagnement d'un nouvel élève",
-        "english": "Welcoming and supporting a new pupil"
+        "french": "Avis sur les enseignants : explications et aide aux élèves",
+        "english": "Experience of teachers: explanations and help for pupils"
+      },
+      {
+        "french": "Accueil des nouveaux élèves : aide d'un camarade ou d'un enseignant",
+        "english": "New pupils' first days: help from a classmate or teacher"
       },
       {
         "french": "Sports, activités musicales et clubs : le midi ou après les cours",
@@ -3370,10 +3374,6 @@
       {
         "french": "Service de garde les jours sans activité : heure de fin et tarif",
         "english": "Childcare on days without after-school activities: closing time and fee"
-      },
-      {
-        "french": "Vérification des écoles accessibles selon l'adresse",
-        "english": "Checking which schools serve your address"
       },
       {
         "french": "Contact d'inscription et vérification des documents",

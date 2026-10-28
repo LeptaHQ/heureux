@@ -1976,12 +1976,8 @@
     }
 
     function readyVoiceStatus() {
-      if (document.body.dataset.frenchAudioEnabled === "true" &&
-          document.body.dataset.frenchAudioConfigured === "true") {
-        return "Voix naturelle · ElevenLabs · lecture en cache, sans génération automatique";
-      }
       var voice = frenchSpeech.preferredVoice();
-      return "Voix de l’appareil" + (voice ? " · " + voice.name : "");
+      return "Voix du navigateur ou de l’appareil" + (voice ? " · " + voice.name : "");
     }
 
     function finishPlayback(message) {

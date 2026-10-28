@@ -4,6 +4,7 @@ import json
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
+from study.tests.eo2_review_fixtures import PUBLISHED_ARCHIVE_INDEX
 from study.tests.housing_work_fixtures import ORIGINAL_HOUSING_GROUPS, ORIGINAL_WORK_GROUPS
 from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
 
@@ -31,8 +32,11 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
         for group in groups:
             with self.subTest(group=group):
                 revisions = history[group].revisions
-                before = revisions[-2] if group in self.reviewed_groups else revisions[-1]
-                after = revisions[-1] if group in self.reviewed_groups else self.by_group[group]
+                if group in self.reviewed_groups:
+                    index = PUBLISHED_ARCHIVE_INDEX[group]
+                    before, after = revisions[index - 1:index + 1]
+                else:
+                    before, after = revisions[-1], self.by_group[group]
                 self.assertEqual(len(before.questions), 8)
                 if group == "recruiter-scheduled-interview-preparation":
                     self.assertIn("ma venue", before.opening)
@@ -77,22 +81,24 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
                 8: ("faire connaissance",),
             },
             "director-canada-fortnight-training": {
-                1: ("ville", "dates"), 5: ("aéroport", "centre de formation"),
-                6: ("vol", "hébergement", "repas", "déplacements"),
+                1: ("ville", "dates"), 3: ("horaires", "week-end"),
+                4: ("vol", "hébergement", "repas", "déplacements"),
+                6: ("aéroport", "trajets quotidiens", "centre de formation"),
             },
             "friend-first-workday-report": {
                 1: ("première journée", "comment ça s'est passé"),
-                5: ("t'entraîner avec quelqu'un", "avant de l'utiliser"),
+                5: ("premières tâches", "quelqu'un t'a montré", "seule"),
                 6: ("répondre à une demande",),
                 7: ("dans ce cas-là",),
             },
             "newcomer-canada-friend-job-market": {
-                3: ("présenter mon expérience", "éviter"),
-                4: ("quelles langues",),
+                1: ("profils de développeurs", "Calgary"),
+                3: ("projets", "compétences techniques", "GitHub"),
+                4: ("étapes", "recrutement", "tests techniques"),
                 5: ("statut", "renseignements fiables"),
                 6: ("numéro d'assurance sociale", "demande", "documents"),
-                7: ("salaire horaire brut",),
-                8: ("temps plein", "temps partiel", "soirs", "week-ends"),
+                7: ("salaire annuel brut",),
+                8: ("sur place", "hybride", "télétravail"),
             },
             "canadian-work-hours-home-country-comparison": {
                 1: ("jours", "de quelle heure"), 3: ("pause déjeuner", "comptée"),
@@ -147,7 +153,7 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
     def test_first_day_and_association_reorders_keep_clear_response_dependent_routes(self):
         day = self.by_group["friend-first-workday-report"]
         revisions = catalogue.tache_two_location_history()[day.group].revisions
-        previous, published = revisions[-2:]
+        previous, published = revisions[:2]
         for before, after in ((2, 4), (3, 5), (4, 2), (5, 3), (6, 6), (7, 7), (8, 8)):
             self.assertEqual(previous.questions[before - 1].question, published.questions[after - 1].question)
         self.assertEqual(day.questions[2].follow_up_to, 2)
@@ -160,7 +166,7 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
             [self.hints[day.group][index]["english"] for index in (1, 2, 3, 4)],
             [
                 "How colleagues welcomed her", "Atmosphere within the team",
-                "First tasks assigned to Ève",                 "Supported practice before handling a real request",
+                "First tasks assigned to Ève", "Guidance or independence with the first tasks",
             ],
         )
         association = self.by_group["friend-association-work-experience"]
@@ -184,7 +190,7 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
         self.assertIsNone(friend.questions[1].follow_up_to)
         self.assertNotEqual(friend.questions[2].question, friend.questions[7].question)
         newcomer = self.by_group["newcomer-canada-friend-job-market"]
-        self.assertIn("not legal guarantees", newcomer.note)
+        self.assertIn("not hiring or legal guarantees", newcomer.note)
         self.assertIn("IRCC", newcomer.questions[4].answer)
         self.assertIn("Service Canada", newcomer.questions[5].answer)
         self.assertIn("selon ton statut", newcomer.questions[5].answer)
@@ -198,12 +204,14 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
         ].note)
         self.assertIn("within the same company", self.by_group["colleague-internal-job-change"].note)
 
-    def test_training_replies_leave_the_transport_and_free_time_relances_open(self):
+    def test_training_replies_distinguish_timetable_transport_and_leisure_coverage(self):
         row = self.by_group["director-canada-fortnight-training"]
         self.assertIn("voyages compris", row.questions[0].answer)
-        self.assertNotIn("navette", row.questions[3].answer)
-        self.assertIn("taxi", row.questions[4].answer)
-        self.assertIn("navette", row.questions[4].answer)
-        self.assertNotIn("soirées", row.questions[6].answer)
+        self.assertIn("16 h 30", row.questions[2].answer)
+        self.assertNotIn("navette", row.questions[4].answer)
+        self.assertIn("taxi", row.questions[5].answer)
+        self.assertIn("navette", row.questions[5].answer)
+        self.assertNotIn("comprise", row.questions[6].answer)
         self.assertEqual(row.questions[7].follow_up_to, 7)
-        self.assertIn("16 h 30", row.questions[7].answer)
+        self.assertIn("budget personnel", row.questions[7].question)
+        self.assertIn("comprise dans le stage", row.questions[7].answer)

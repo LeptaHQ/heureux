@@ -1,9 +1,13 @@
+import copy
 import hashlib
 import json
 
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
+from study.tests.eo2_review_fixtures import (
+    FOLLOWUP_GROUPS, FOLLOWUP_PROTECTED_SHA, remove_followup_archives,
+)
 from study.tests.housing_work_fixtures import ORIGINAL_HOUSING_GROUPS
 from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
 
@@ -35,6 +39,90 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
                 self.assertEqual(len(self.by_group[group].questions), 8)
                 self.assertEqual(len(self.hints[group]), 8)
                 self.assertIn(group, self.history)
+
+    def test_complete_beginner_course_wording_preserves_other_questions_and_held_drafts(self):
+        group = "language-school-new-language"
+        row = self.by_group[group]
+        self.assertEqual(
+            row.questions[1].question,
+            "Pour l'espagnol, proposez-vous des cours pour débutants complets ?",
+        )
+        self.assertEqual(row.questions[1].follow_up_to, 1)
+        self.assertIn("beginner-course details", row.questions[1].condition)
+        self.assertIn("sans connaissances préalables", row.questions[1].answer)
+        self.assertEqual(self.hints[group][1], {
+            "french": "Cours d'espagnol pour débutants complets",
+            "english": "Spanish courses for complete beginners",
+        })
+        revisions = self.history[group]["revisions"]
+        self.assertEqual(len(revisions), 5)
+        self.assertEqual(
+            hashlib.sha256(json.dumps(revisions[4], ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
+            "7160b3e6dea76952306b4f7c9226b5cda78a2995bad422b6a477d371e33f318c",
+        )
+        for index, question in enumerate(row.questions):
+            if index != 1:
+                self.assertEqual(question.question, revisions[4]["questions"][index]["question"])
+        original = {"version": 1, "groups": copy.deepcopy(self.history)}
+        remove_followup_archives(original)
+        self.assertEqual(
+            hashlib.sha256(json.dumps(original, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
+            "36a1200196a6395e28183bbaf39dcc356af054a04fdaafffd49f2653e78ebd7b",
+        )
+        raw = {
+            item["group"]: item
+            for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
+            for item in json.loads(path.read_text())["dialogues"]
+        }
+        unrelated = {
+            "dialogues": {g: item for g, item in raw.items() if g not in FOLLOWUP_GROUPS},
+            "hints": {g: cues for g, cues in self.hints.items() if g not in FOLLOWUP_GROUPS},
+        }
+        self.assertEqual(
+            hashlib.sha256(json.dumps(unrelated, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
+            FOLLOWUP_PROTECTED_SHA,
+        )
+
+    def test_activity_location_and_staff_pickup_wording_preserves_other_held_drafts(self):
+        group = "parent-after-school-activity-advice"
+        row = self.by_group[group]
+        self.assertEqual(
+            row.questions[2].question,
+            "Où se déroulent les activités, et un animateur vient-il chercher les enfants à l'école pour les accompagner jusqu'au lieu de l'activité ?",
+        )
+        self.assertIn("un animateur accompagne", row.questions[2].answer)
+        self.assertEqual(self.hints[group][2], {
+            "french": "Lieu des activités et trajet depuis l'école avec un animateur",
+            "english": "Activity venue and a staff escort from school",
+        })
+        revisions = self.history[group]["revisions"]
+        self.assertEqual(len(revisions), 3)
+        self.assertEqual(
+            hashlib.sha256(json.dumps(revisions[2], ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
+            "03e8655150deedec85f3a37885bcc9835552c9541a968ebd1952b622e176cd3c",
+        )
+        for index, question in enumerate(row.questions):
+            if index != 2:
+                self.assertEqual(question.question, revisions[2]["questions"][index]["question"])
+        original = {"version": 1, "groups": copy.deepcopy(self.history)}
+        remove_followup_archives(original)
+        self.assertEqual(
+            hashlib.sha256(json.dumps(original, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
+            "36a1200196a6395e28183bbaf39dcc356af054a04fdaafffd49f2653e78ebd7b",
+        )
+        raw = {
+            item["group"]: item
+            for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
+            for item in json.loads(path.read_text())["dialogues"]
+        }
+        unrelated = {
+            "dialogues": {g: item for g, item in raw.items() if g not in FOLLOWUP_GROUPS},
+            "hints": {g: cues for g, cues in self.hints.items() if g not in FOLLOWUP_GROUPS},
+        }
+        self.assertEqual(
+            hashlib.sha256(json.dumps(unrelated, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
+            FOLLOWUP_PROTECTED_SHA,
+        )
 
     def test_exact_pre_audit_layouts_remain_archived_without_hidden_answers(self):
         snapshots = []
@@ -214,15 +302,15 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertIn("not admissions rules", neighbour.note)
         self.assertIn("not admissions rules or verified current fees", neighbour.note)
         self.assertIn("Adapt school levels", neighbour.note)
-        self.assertIn("écoles primaires et secondaires", neighbour.questions[0].question)
-        self.assertIn("à pied ou en bus", neighbour.questions[0].question)
-        self.assertIn("près du parc", neighbour.questions[0].answer)
-        self.assertIn("près de la bibliothèque", neighbour.questions[0].answer)
-        self.assertIn("en parlent-ils avec les parents", neighbour.questions[2].question)
-        self.assertIn("premiers jours", neighbour.questions[3].question)
-        self.assertIn("école de mes enfants", neighbour.questions[3].answer)
-        self.assertIn("vérifier quelles écoles acceptent notre adresse", neighbour.questions[6].question)
-        self.assertIn("conseil scolaire", neighbour.questions[6].answer)
+        self.assertIn("écoles du quartier", neighbour.questions[0].question)
+        self.assertIn("notre adresse", neighbour.questions[0].question)
+        self.assertIn("à pied ou en bus", neighbour.questions[2].question)
+        self.assertIn("près du parc", neighbour.questions[2].answer)
+        self.assertIn("près de la bibliothèque", neighbour.questions[2].answer)
+        self.assertIn("D'après votre expérience", neighbour.questions[3].question)
+        self.assertIn("premiers jours", neighbour.questions[4].question)
+        self.assertIn("école de mes enfants", neighbour.questions[4].answer)
+        self.assertIn("conseil scolaire", neighbour.questions[0].answer)
         self.assertIn("confirmer la liste", neighbour.questions[7].answer)
         parent = self.by_group["parent-after-school-activity-advice"]
         self.assertIn("ages are not", parent.note)
@@ -231,13 +319,12 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertIn("multisports le vendredi", parent.questions[3].answer)
         self.assertIn("tarifs actuels", parent.questions[7].answer)
         stay = self.by_group["friend-child-language-stay-abroad"]
-        self.assertIn("considering one for your own child", stay.note)
-        self.assertNotIn("yours has not", stay.note)
-        self.assertIn("A host family is not guaranteed", stay.note)
-        self.assertIn("not treat a parent's account as current entry rules", stay.note)
-        self.assertIn("association de parents", stay.questions[1].answer)
-        self.assertIn("école de langues de Seattle", stay.questions[1].answer)
-        self.assertIn("Check present conditions with the organizer", stay.note)
+        self.assertIn("Tom is your friend's child; Jerry is yours", stay.note)
+        self.assertIn("Canada and Tom's age are already known", stay.note)
+        self.assertIn("not current eligibility or availability", stay.note)
+        self.assertIn("association recommandée", stay.questions[0].answer)
+        self.assertEqual(stay.questions[1].follow_up_to, 1)
+        self.assertIn("Confirm Jerry's requirements with the provider", stay.note)
         self.assertIn("responsable du séjour", stay.questions[6].answer)
         self.assertIn("jour et nuit", stay.questions[6].answer)
         self.assertIn("coûté au total", stay.questions[7].question)
@@ -247,9 +334,9 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertIn("visité le logement", stay.questions[4].answer)
         self.assertNotIn("test de langue", stay.questions[2].answer)
         self.assertIn("sont anglophones", neighbour.questions[1].answer)
-        self.assertIn("Au primaire de mes enfants", neighbour.questions[5].answer)
-        self.assertIn("l'an dernier", neighbour.questions[5].answer)
-        self.assertIn("Confirmez le tarif actuel", neighbour.questions[5].answer)
+        self.assertIn("Au primaire de mes enfants", neighbour.questions[6].answer)
+        self.assertIn("l'an dernier", neighbour.questions[6].answer)
+        self.assertIn("Confirmez le tarif actuel", neighbour.questions[6].answer)
 
     def test_game_scoring_and_future_study_plans_follow_the_actual_reply(self):
         game = self.by_group["french-teacher-language-school-student-game"]
@@ -277,7 +364,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertEqual(friend.questions[2].follow_up_to, 2)
         self.assertIn("logements que j'ai repérés", friend.questions[2].answer)
         self.assertNotIn("Montréal", friend.questions[2].question)
-        self.assertIn("travail que tu aimerais faire", friend.questions[3].question)
+        self.assertIn("apportera à ta carrière", friend.questions[3].question)
         self.assertNotIn("maîtrise", friend.questions[3].question)
         self.assertIn("prépares encore ton dossier", friend.questions[4].question)
         self.assertIn("tu attends une réponse", friend.questions[4].question)
@@ -316,7 +403,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertIn("facultatif", fete.questions[5].question)
         self.assertIn("sans obligation", fete.questions[5].answer)
         self.assertNotIn("proposer mon aide", fete.closing)
-        self.assertIn("beginner-group details", self.by_group[
+        self.assertIn("beginner-course details", self.by_group[
             "language-school-new-language"
         ].questions[1].condition)
 
@@ -328,11 +415,13 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
                 8: "Rescheduling or cancellation deadline and handling of prepaid lessons",
             },
             "edmonton-newcomer-neighbor-schools": {
-                1: "Primary and secondary school locations and access on foot or by bus",
+                1: "Where to check local schools for your address and enrolment eligibility",
                 2: "Schools offering teaching in French",
-                5: "Sports, music activities and clubs: lunchtime or after-school schedules",
-                6: "Childcare on days without after-school activities: closing time and fee",
-                7: "Checking which schools serve your address",
+                3: "School locations and getting there on foot or by bus",
+                4: "Experience of teachers: explanations and help for pupils",
+                5: "New pupils' first days: help from a classmate or teacher",
+                6: "Sports, music activities and clubs: lunchtime or after-school schedules",
+                7: "Childcare on days without after-school activities: closing time and fee",
                 8: "Enrolment contact and checking the required documents",
             },
             "french-class-survey-francophone-student": {
@@ -356,8 +445,8 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
                 5: "Admission progress: application, waiting or decision received",
             },
             "friend-child-language-stay-abroad": {
-                3: "Child's age and language ability before departure",
-                5: "Accommodation and checks on hosting arrangements",
+                3: "Timing and length of Tom's stay",
+                5: "Tom's accommodation and checks on hosting arrangements",
                 7: "Supervision during outings and contact if a problem arises",
                 8: "Total cost and items included in the price",
             },
@@ -406,17 +495,17 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertIn("comptée comme utilisée", private.questions[7].answer)
         self.assertIn("sauf urgence", private.questions[7].answer)
         school = self.by_group["edmonton-newcomer-neighbor-schools"]
-        self.assertIn("le midi ou après les cours", school.questions[4].question)
-        self.assertIn("patinage le mercredi", school.questions[4].answer)
-        self.assertIn("au secondaire", school.questions[4].answer)
-        self.assertNotIn("garderie", school.questions[4].answer)
-        self.assertTrue(school.questions[5].question.startswith("Les jours sans activité"))
-        self.assertIn("jusqu'à quelle heure", school.questions[5].question)
-        self.assertIn("à quel tarif", school.questions[5].question)
-        self.assertEqual(school.questions[5].follow_up_to, 5)
-        self.assertIn("after-school gaps", school.questions[5].condition)
-        self.assertIn("18 h", school.questions[5].answer)
-        self.assertIn("par mois et par enfant", school.questions[5].answer)
+        self.assertIn("le midi ou après les cours", school.questions[5].question)
+        self.assertIn("patinage le mercredi", school.questions[5].answer)
+        self.assertIn("au secondaire", school.questions[5].answer)
+        self.assertNotIn("garderie", school.questions[5].answer)
+        self.assertTrue(school.questions[6].question.startswith("Les jours sans activité"))
+        self.assertIn("jusqu'à quelle heure", school.questions[6].question)
+        self.assertIn("à quel tarif", school.questions[6].question)
+        self.assertEqual(school.questions[6].follow_up_to, 6)
+        self.assertIn("after-school gaps", school.questions[6].condition)
+        self.assertIn("18 h", school.questions[6].answer)
+        self.assertIn("par mois et par enfant", school.questions[6].answer)
 
     def test_exact_second_review_layouts_remain_archived_after_specificity_edits(self):
         revisions = {

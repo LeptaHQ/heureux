@@ -110,7 +110,7 @@
   <aside class="detail-side" data-annotation-root data-annotation-source-key="subject-sidebar:{% if oral_annotation_key %}{{ selected_prompt.content_key }}{% else %}{{ response.content_key }}{% endif %}">
     <div class="card section-card response-sidebar-card response-sidebar-card--status">
       <div class="spine-label">Progression du sujet</div>
-      {% include "study/partials/subject_progress_control.html" with subject_label=selected_prompt.text hide_help=True practice_url=response_review_url practice_label="Pratiquer cette réponse" compact_audio_control=structured_eo3 read_audio=eo3_audio cached_playlist_url=eo3_cached_playlist_url %}
+      {% include "study/partials/subject_progress_control.html" with subject_label=selected_prompt.text hide_help=True practice_url=response_review_url practice_label="Pratiquer cette réponse" compact_audio_control=structured_eo3 read_audio=eo3_audio cached_playlist_url=eo3_cached_playlist_url allow_status_reset=structured_eo3 %}
       {% if subject_progress.started_at %}
         <dl class="kv"><div><dt>Commencée</dt><dd>{{ subject_progress.started_at|date:"j M Y" }}</dd></div></dl>
       {% endif %}

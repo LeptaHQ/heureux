@@ -1,12 +1,29 @@
 import copy
 
-from study.tests.test_tache_two_work_school_review import REVIEWED_GROUPS as WORK_SCHOOL_GROUPS
+from study.tests.housing_work_fixtures import ORIGINAL_WORK_GROUPS
 from study.tests.transport_travel_review_fixtures import (
+    FIRST_ARCHIVE_GROUPS,
     REVIEWED_GROUPS as TRANSPORT_TRAVEL_GROUPS,
-    remove_transport_travel_review_archives,
 )
 
 
+WORK_GROUPS = ORIGINAL_WORK_GROUPS - {
+    "retirement-party-invitation", "colleague-management-promotion-party",
+}
+SCHOOL_GROUPS = {
+    "newcomer-canada-private-french-teacher",
+    "french-teacher-study-abroad-advice",
+    "language-school-new-language",
+    "parent-after-school-activity-advice",
+    "friend-child-language-stay-abroad",
+    "edmonton-newcomer-neighbor-schools",
+    "french-teacher-language-school-student-game",
+    "friend-planned-canadian-studies",
+    "fellow-parent-first-school-fete",
+    "french-class-survey-francophone-student",
+    "calgary-university-adult-language-courses",
+}
+WORK_SCHOOL_GROUPS = WORK_GROUPS | SCHOOL_GROUPS
 REVIEWED_GROUPS = WORK_SCHOOL_GROUPS | TRANSPORT_TRAVEL_GROUPS
 PUBLISHED_LAYOUT_SHA = "4984ed2190a11c8649f97c9cc8d20e444b1aec5265674428677116659966b44a"
 PUBLISHED_ARCHIVE_INDEX = {
@@ -107,13 +124,138 @@ FINAL_PASS_FIELDS = {
     "friend-carpooling-offer": (("dialogue", "questions", 4, "answer"),),
 }
 
+TRAINING_FOLLOWUP_FIELDS = {
+    "director-canada-fortnight-training": (
+        ("dialogue", "note"),
+        ("dialogue", "questions", 1, "question"), ("dialogue", "questions", 1, "answer"),
+        ("dialogue", "questions", 2, "question"), ("dialogue", "questions", 2, "answer"),
+        ("dialogue", "questions", 2, "condition"),
+        ("dialogue", "questions", 3, "topic"), ("dialogue", "questions", 3, "question"),
+        ("dialogue", "questions", 3, "answer"),
+        ("dialogue", "questions", 4, "topic"), ("dialogue", "questions", 4, "question"),
+        ("dialogue", "questions", 4, "answer"),
+        ("dialogue", "questions", 5, "topic"), ("dialogue", "questions", 5, "question"),
+        ("dialogue", "questions", 5, "answer"),
+        ("dialogue", "questions", 7, "question"), ("dialogue", "questions", 7, "answer"),
+        ("dialogue", "questions", 7, "condition"),
+        ("hints", 1, "french"), ("hints", 1, "english"),
+        ("hints", 2, "french"), ("hints", 2, "english"),
+        ("hints", 3, "french"), ("hints", 3, "english"),
+        ("hints", 4, "french"), ("hints", 4, "english"),
+        ("hints", 5, "french"), ("hints", 5, "english"),
+        ("hints", 7, "french"), ("hints", 7, "english"),
+    ),
+}
+
+FIRST_DAY_FOLLOWUP_FIELDS = {
+    "friend-first-workday-report": (
+        ("dialogue", "questions", 4, "question"),
+        ("dialogue", "questions", 4, "answer"),
+        ("dialogue", "questions", 4, "condition"),
+        ("hints", 4, "french"), ("hints", 4, "english"),
+    ),
+}
+
+JOB_SEARCH_FOLLOWUP_FIELDS = {
+    "newcomer-canada-friend-job-market": (
+        ("dialogue", "note"), ("dialogue", "opening"),
+        ("dialogue", "questions", 0, "question"), ("dialogue", "questions", 0, "answer"),
+        ("dialogue", "questions", 1, "question"), ("dialogue", "questions", 1, "answer"),
+        ("dialogue", "questions", 2, "question"), ("dialogue", "questions", 2, "answer"),
+        ("dialogue", "questions", 3, "question"), ("dialogue", "questions", 3, "answer"),
+        ("dialogue", "questions", 3, "condition"),
+        ("dialogue", "questions", 6, "question"), ("dialogue", "questions", 6, "answer"),
+        ("dialogue", "questions", 7, "question"), ("dialogue", "questions", 7, "answer"),
+        ("hints", 0, "french"), ("hints", 0, "english"),
+        ("hints", 1, "french"), ("hints", 1, "english"),
+        ("hints", 2, "french"), ("hints", 2, "english"),
+        ("hints", 3, "french"), ("hints", 3, "english"),
+        ("hints", 6, "french"), ("hints", 6, "english"),
+        ("hints", 7, "french"), ("hints", 7, "english"),
+    ),
+}
+
+BEGINNER_COURSE_FOLLOWUP_FIELDS = {
+    "language-school-new-language": (
+        ("dialogue", "questions", 1, "question"),
+        ("dialogue", "questions", 1, "condition"),
+        ("hints", 1, "french"), ("hints", 1, "english"),
+    ),
+}
+
+AFTER_SCHOOL_FOLLOWUP_FIELDS = {
+    "parent-after-school-activity-advice": (
+        ("dialogue", "questions", 2, "question"),
+        ("hints", 2, "french"), ("hints", 2, "english"),
+    ),
+}
+
+CHILD_STAY_FOLLOWUP_FIELDS = {
+    "friend-child-language-stay-abroad": (
+        ("dialogue", "note"), ("dialogue", "opening"), ("dialogue", "closing"),
+        ("dialogue", "questions", 0, "topic"), ("dialogue", "questions", 0, "question"),
+        ("dialogue", "questions", 0, "answer"),
+        ("dialogue", "questions", 1, "topic"), ("dialogue", "questions", 1, "question"),
+        ("dialogue", "questions", 1, "answer"), ("dialogue", "questions", 1, "follow_up_to"),
+        ("dialogue", "questions", 1, "condition"),
+        ("dialogue", "questions", 2, "topic"), ("dialogue", "questions", 2, "question"),
+        ("dialogue", "questions", 2, "answer"),
+        ("dialogue", "questions", 4, "question"),
+        ("dialogue", "questions", 5, "question"), ("dialogue", "questions", 5, "answer"),
+        ("dialogue", "questions", 5, "condition"),
+        ("dialogue", "questions", 7, "answer"),
+        ("hints", 0, "french"), ("hints", 0, "english"),
+        ("hints", 1, "french"), ("hints", 1, "english"),
+        ("hints", 2, "french"), ("hints", 2, "english"),
+        ("hints", 4, "french"), ("hints", 4, "english"),
+        ("hints", 5, "french"), ("hints", 5, "english"),
+    ),
+}
+
+SCHOOL_NEIGHBOUR_FOLLOWUP_FIELDS = {
+    "edmonton-newcomer-neighbor-schools": (
+        ("dialogue", "note"),
+        ("dialogue", "questions", 0, "question"), ("dialogue", "questions", 0, "answer"),
+        ("dialogue", "questions", 2, "topic"), ("dialogue", "questions", 2, "question"),
+        ("dialogue", "questions", 2, "answer"),
+        ("dialogue", "questions", 3, "question"), ("dialogue", "questions", 3, "answer"),
+        ("dialogue", "questions", 4, "topic"), ("dialogue", "questions", 4, "question"),
+        ("dialogue", "questions", 4, "answer"),
+        ("dialogue", "questions", 5, "question"), ("dialogue", "questions", 5, "answer"),
+        ("dialogue", "questions", 5, "follow_up_to"), ("dialogue", "questions", 5, "condition"),
+        ("dialogue", "questions", 6, "topic"), ("dialogue", "questions", 6, "question"),
+        ("dialogue", "questions", 6, "answer"),
+        ("dialogue", "questions", 6, "follow_up_to"), ("dialogue", "questions", 6, "condition"),
+        ("hints", 0, "french"), ("hints", 0, "english"),
+        ("hints", 2, "french"), ("hints", 2, "english"),
+        ("hints", 3, "french"), ("hints", 3, "english"),
+        ("hints", 4, "french"), ("hints", 4, "english"),
+        ("hints", 5, "french"), ("hints", 5, "english"),
+        ("hints", 6, "french"), ("hints", 6, "english"),
+    ),
+}
+
+CAREER_QUESTION_FOLLOWUP_FIELDS = {
+    "friend-planned-canadian-studies": (("dialogue", "questions", 3, "question"),),
+}
+
+FOLLOWUP_FIELDS = (
+    TRAINING_FOLLOWUP_FIELDS | FIRST_DAY_FOLLOWUP_FIELDS
+    | JOB_SEARCH_FOLLOWUP_FIELDS | BEGINNER_COURSE_FOLLOWUP_FIELDS
+    | AFTER_SCHOOL_FOLLOWUP_FIELDS | CHILD_STAY_FOLLOWUP_FIELDS
+    | SCHOOL_NEIGHBOUR_FOLLOWUP_FIELDS
+    | CAREER_QUESTION_FOLLOWUP_FIELDS
+)
+FOLLOWUP_GROUPS = set(FOLLOWUP_FIELDS)
+FOLLOWUP_PROTECTED_SHA = "d96d8496bcf906042883dd40a287b9e9884a837bba76dbd0100d7e7828562e85"
+
 
 def final_pass_projection(dialogues, hints):
     snapshot = {
         group: {"dialogue": copy.deepcopy(row), "hints": copy.deepcopy(hints[group])}
         for group, row in dialogues.items()
     }
-    for group, paths in FINAL_PASS_FIELDS.items():
+    for group, paths in (FINAL_PASS_FIELDS | FOLLOWUP_FIELDS).items():
         for path in paths:
             value = snapshot[group]
             for key in path[:-1]:
@@ -123,6 +265,13 @@ def final_pass_projection(dialogues, hints):
 
 
 def remove_latest_review_archives(document):
-    for group in WORK_SCHOOL_GROUPS:
-        document["groups"][group]["revisions"].pop()
-    remove_transport_travel_review_archives(document)
+    for group, index in PUBLISHED_ARCHIVE_INDEX.items():
+        if group in FIRST_ARCHIVE_GROUPS:
+            del document["groups"][group]
+        else:
+            document["groups"][group]["revisions"] = document["groups"][group]["revisions"][:index]
+
+
+def remove_followup_archives(document):
+    for group, index in PUBLISHED_ARCHIVE_INDEX.items():
+        document["groups"][group]["revisions"] = document["groups"][group]["revisions"][:index + 1]

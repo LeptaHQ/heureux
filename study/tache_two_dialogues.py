@@ -259,4 +259,9 @@ def question_presentation(prompt, value: EffectiveResponse, *, dialogue=None) ->
                 )
             previous_topic = question.topic
         questions.append(row)
-    return {"subject_questions": questions, "tache_two_dialogue": dialogue}
+    from .eo2_question_languages import language_presentation
+
+    return {
+        "subject_questions": questions, "tache_two_dialogue": dialogue,
+        "question_language": language_presentation(dialogue, questions),
+    }

@@ -204,7 +204,7 @@
       !target.closest(
         "button, input, textarea, select, [contenteditable='true'], " +
         "[data-selection-translate], [data-translation-panel], " +
-        "[data-note-panel]"
+        "[data-note-panel], [data-eo2-english]"
       )
     );
   }
@@ -233,7 +233,12 @@
       return null;
     }
 
-    var text = normalizeSelection(range.cloneContents().textContent || "");
+    if (Array.from(element.querySelectorAll("[data-eo2-english]:not([hidden])")).some(
+      function (english) { return range.intersectsNode(english); }
+    )) return null;
+    var contents = range.cloneContents();
+    contents.querySelectorAll("[data-eo2-english]").forEach(function (english) { english.remove(); });
+    var text = normalizeSelection(contents.textContent || "");
     var rect = range.getBoundingClientRect();
     if (!text || (!rect.width && !rect.height)) return null;
     return { text: text, rect: rect, range: range.cloneRange() };

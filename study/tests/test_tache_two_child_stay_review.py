@@ -8,7 +8,9 @@ from django.test import SimpleTestCase
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
 from study.tests.eo2_review_fixtures import (
-    CAREER_QUESTION_FOLLOWUP_FIELDS, PUBLISHED_ARCHIVE_INDEX, SCHOOL_NEIGHBOUR_FOLLOWUP_FIELDS,
+    CAREER_QUESTION_FOLLOWUP_FIELDS, DAILY_DUTIES_FOLLOWUP_FIELDS, PUBLISHED_ARCHIVE_INDEX,
+    SCHOOL_NEIGHBOUR_FOLLOWUP_FIELDS, SESSION_EXTENT_FOLLOWUP_FIELDS, SURVEY_ROUTINE_FOLLOWUP_FIELDS,
+    WORK_COMPARISON_CLOSING_FIELDS,
 )
 
 
@@ -43,17 +45,21 @@ class ChildLanguageStayReviewTests(SimpleTestCase):
         catalogue.clear_catalogue_cache()
         super().tearDownClass()
 
-    def test_other_models_and_cues_except_the_authorized_school_and_career_followups_are_exact(self):
+    def test_other_models_and_cues_except_the_authorized_later_followups_are_exact(self):
         edited = (
             {GROUP} | SCHOOL_NEIGHBOUR_FOLLOWUP_FIELDS.keys() | CAREER_QUESTION_FOLLOWUP_FIELDS.keys()
+            | SURVEY_ROUTINE_FOLLOWUP_FIELDS.keys()
+            | SESSION_EXTENT_FOLLOWUP_FIELDS.keys()
+            | WORK_COMPARISON_CLOSING_FIELDS.keys()
+            | DAILY_DUTIES_FOLLOWUP_FIELDS.keys()
         )
-        self.assertEqual(len(self.raw.keys() - edited), 161)
+        self.assertEqual(len(self.raw.keys() - edited), 157)
         self.assertEqual(
             fingerprint({
                 "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
                 "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
             }),
-            "8608b5fc0768baae964d8b1ae263dd3949e1a485e3ea8acdaa858a6196532871",
+            "8bbb4765ef69232385256d82ea8b03282d5645044ec708fae7be3709c91907d0",
         )
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == GROUP},
@@ -132,7 +138,13 @@ class ChildLanguageStayReviewTests(SimpleTestCase):
         self.assertTrue(all("answer" not in q for q in revisions[5]["questions"]))
         previous = copy.deepcopy(self.history)
         previous["groups"][GROUP]["revisions"].pop()
-        for group in SCHOOL_NEIGHBOUR_FOLLOWUP_FIELDS | CAREER_QUESTION_FOLLOWUP_FIELDS:
+        for group in (
+            SCHOOL_NEIGHBOUR_FOLLOWUP_FIELDS | CAREER_QUESTION_FOLLOWUP_FIELDS
+            | SURVEY_ROUTINE_FOLLOWUP_FIELDS
+            | SESSION_EXTENT_FOLLOWUP_FIELDS
+            | WORK_COMPARISON_CLOSING_FIELDS
+            | DAILY_DUTIES_FOLLOWUP_FIELDS
+        ):
             previous["groups"][group]["revisions"] = (
                 previous["groups"][group]["revisions"][:PUBLISHED_ARCHIVE_INDEX[group] + 1]
             )

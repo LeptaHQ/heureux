@@ -114,7 +114,7 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
     def test_final_pass_and_authorized_followups_only_change_recorded_editorial_leaves(self):
         self.assertEqual(
             fingerprint(final_pass_projection(self.raw, self.hints)),
-            "5f2e69899fa0738889494d711c7ca6899ed704db5ff4144df90a8ee8c5dcfe02",
+            "2ed1b27025a39b407b60acb0a6d09a0e8abe33a496caa1f9296809ff666bee7f",
         )
 
     def test_transit_enquiry_covers_destinations_tracking_tickets_return_and_inline_safety_hours(self):

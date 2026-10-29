@@ -307,6 +307,11 @@
       );
       button.disabled = !isActive && !chunks(textFor(button)).length;
       if (!isActive) setButtonState(button, false);
+      if (button.disabled) {
+        var unavailable = readLabel(button) + " — aucun texte français visible à lire";
+        button.setAttribute("aria-label", unavailable);
+        button.setAttribute("title", unavailable);
+      }
     });
   }
 

@@ -4666,6 +4666,321 @@ class BrowserTests(StaticLiveServerTestCase):
     def test_friend_study_career_question_matches_on_detail_practice_and_pistes(self):
         self.assert_reviewed_eo2_models_render({"friend-planned-canadian-studies"}, 1)
 
+    def test_student_survey_commute_and_two_leisure_questions_match_on_detail_and_practice(self):
+        self.assert_reviewed_eo2_models_render({"french-class-survey-francophone-student"}, 1)
+
+    def test_university_session_extent_question_matches_on_detail_practice_and_pistes(self):
+        self.assert_reviewed_eo2_models_render({"calgary-university-adult-language-courses"}, 1)
+
+    def test_work_comparison_closing_matches_all_four_subjects_and_practice(self):
+        self.assert_reviewed_eo2_models_render({"canadian-work-hours-home-country-comparison"}, 4)
+
+    def test_daily_duties_question_matches_both_subjects_and_practice(self):
+        self.assert_reviewed_eo2_models_render({"former-colleague-new-job-to-change-employment"}, 2)
+
+    def open_eo2_language_fixture(self, *, prepared=True):
+        from pathlib import Path
+        import tempfile
+        from study.tests.test_eo2_question_languages import fixture_manifest
+        from study.eo2_question_languages import empty_manifest
+
+        self._import_eo_tache_two_content()
+        directory = self.enterContext(tempfile.TemporaryDirectory())
+        path = Path(directory) / "questions.en.json"
+        path.write_text(json.dumps(fixture_manifest() if prepared else empty_manifest(), ensure_ascii=False))
+        self.enterContext(override_settings(EO2_QUESTION_TRANSLATIONS_PATH=path))
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="tache2:avril:batch-01:subject-05",
+        )
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        return prompt
+
+    def test_eo2_global_and_number_language_toggles_remember_only_the_global_choice(self):
+        prompt = self.open_eo2_language_fixture()
+        root = self.page.locator("[data-eo2-language]")
+        controls = root.locator("[data-eo2-language-controls]")
+        numbers = root.locator("[data-eo2-question-toggle]")
+        expect(root.locator("[data-eo2-french]:visible")).to_have_count(8)
+        expect(root.locator("[data-eo2-english]:visible")).to_have_count(0)
+        expect(root.locator("[data-eo2-language-status]")).to_be_hidden()
+        before = list(Card.objects.filter(user=self.user, response=prompt.response).values())
+        numbers.first.click()
+        expect(root.locator("[data-eo2-english]:visible")).to_have_count(1)
+        expect(root.locator("[data-eo2-french]:visible")).to_have_count(7)
+        numbers.first.click()
+        expect(root.locator("[data-eo2-french]:visible")).to_have_count(8)
+        controls.get_by_role("button", name="Anglais", exact=True).click()
+        expect(root.locator("[data-eo2-english]:visible")).to_have_count(8)
+        expect(root.locator("[data-eo2-language-status]")).to_be_hidden()
+        numbers.nth(2).focus()
+        numbers.nth(2).press("Space")
+        expect(root.locator("[data-eo2-english]:visible")).to_have_count(7)
+        expect(root.locator("[data-eo2-language-status]")).to_contain_text("Personnalisé")
+        expect(root.locator("[data-eo2-language-status]")).to_be_visible()
+        self.assertEqual(list(Card.objects.filter(user=self.user, response=prompt.response).values()), before)
+        self.assertFalse(Annotation.objects.filter(user=self.user).exists())
+        self.page.reload()
+        expect(root.locator("[data-eo2-english]:visible")).to_have_count(8)
+        self.page.goto(self.live_server_url + review_url({
+            "part": "eo", "task": "tache-2", "kind": "spine",
+            "response": prompt.response_id, "prompt": prompt.pk,
+        }))
+        self.page.wait_for_load_state("networkidle")
+        self.page.locator("#reveal").click()
+        back = self.page.locator("#card-back")
+        expect(back).to_be_visible()
+        expect(back.locator("[data-eo2-language]")).to_have_attribute("data-eo2-language-ready", "true")
+        expect(back.locator("[data-eo2-english]:visible")).to_have_count(8)
+        button = back.locator("[data-eo2-question-toggle]").first
+        button.focus()
+        button.press("Enter")
+        expect(back).to_be_visible()
+        expect(back.locator("[data-eo2-french]:visible")).to_have_count(1)
+        back.get_by_role("button", name="Français", exact=True).click()
+        expect(back.locator("[data-eo2-french]:visible")).to_have_count(8)
+        self.assert_no_horizontal_overflow()
+
+    def test_eo2_language_control_waits_for_a_progressively_inserted_dialogue(self):
+        self.open_eo2_language_fixture()
+        self.page.evaluate("""() => {
+          const original = document.querySelector("[data-eo2-language]");
+          const html = original.innerHTML;
+          localStorage.setItem("heureux.eo2.questionLanguage", "en");
+          window.dispatchEvent(new StorageEvent("storage", {
+            key: "heureux.eo2.questionLanguage", newValue: "en"
+          }));
+          const root = document.createElement("div");
+          root.dataset.eo2Language = "";
+          root.dataset.eo2LanguageReady = "true";
+          root.dataset.eo2LanguageTotal = "8";
+          root.dataset.languageProgressiveTest = "";
+          document.getElementById("main").append(root);
+          setTimeout(() => {
+            const fragment = document.createElement("div");
+            fragment.innerHTML = html;
+            fragment.querySelector("[data-eo2-language-controls]").hidden = true;
+            const pending = Array.from(fragment.querySelectorAll("[data-tache-two-question]")).slice(1);
+            pending.forEach(row => row.remove());
+            root.innerHTML = fragment.innerHTML;
+            setTimeout(() => {
+              const list = root.querySelector(".eo2-dialogue__questions");
+              pending.forEach(row => list.append(row));
+            }, 25);
+          }, 25);
+        }""")
+        root = self.page.locator("[data-language-progressive-test]")
+        expect(root.locator("[data-eo2-language-controls]")).to_be_visible()
+        expect(root.locator("[data-eo2-english]:visible")).to_have_count(8)
+
+    def test_eo2_unprepared_translations_keep_french_and_explain_disabled_controls(self):
+        self.open_eo2_language_fixture(prepared=False)
+        root = self.page.locator("[data-eo2-language]")
+        expect(root.locator("[data-eo2-french]:visible")).to_have_count(8)
+        expect(root.locator("[data-eo2-english]")).to_have_count(0)
+        expect(root.get_by_role("button", name="Anglais", exact=True)).to_be_disabled()
+        expect(root.locator("[data-eo2-question-toggle]:disabled")).to_have_count(8)
+        expect(root.locator("[data-eo2-language-status]")).to_contain_text("indisponible")
+        expect(root.locator("[data-eo2-language-status]")).to_be_visible()
+        self.page.evaluate('localStorage.setItem("heureux.eo2.questionLanguage", "en")')
+        self.page.reload()
+        expect(root.locator("[data-eo2-french]:visible")).to_have_count(8)
+        expect(root.get_by_role("button", name="Français", exact=True)).to_have_attribute("aria-pressed", "true")
+
+    def test_eo2_french_multi_question_selection_excludes_hidden_english(self):
+        self.open_eo2_language_fixture()
+        root = self.page.locator("[data-eo2-language]")
+        first = root.locator("[data-eo2-french]").nth(0).text_content()
+        second = root.locator("[data-eo2-french]").nth(1).text_content()
+        root.evaluate("""root => {
+          const questions = root.querySelectorAll("[data-eo2-french]");
+          const range = document.createRange();
+          range.setStart(questions[0], 0);
+          range.setEnd(questions[1], questions[1].childNodes.length);
+          const selection = getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.dispatchEvent(new Event("selectionchange"));
+        }""")
+        self.page.locator("[data-highlight-selection]").click()
+        expect(root.locator("mark.user-highlight").first).to_be_visible()
+        mark = Annotation.objects.get(user=self.user, kind=AnnotationKind.HIGHLIGHT)
+        self.assertIn(first, mark.quote)
+        self.assertIn(second, mark.quote)
+        self.assertNotIn("English test-only", mark.quote)
+
+    def test_eo2_language_controls_without_javascript_leave_french_readable(self):
+        prompt = self.open_eo2_language_fixture()
+        context = self.browser.new_context(java_script_enabled=False, service_workers="block")
+        try:
+            context.add_cookies(self.context.cookies())
+            page = context.new_page()
+            page.goto(self.live_server_url + prompt_detail_url(prompt))
+            root = page.locator("[data-eo2-language]")
+            expect(root.locator("[data-eo2-french]:visible")).to_have_count(8)
+            expect(root.locator("[data-eo2-english]:visible")).to_have_count(0)
+            expect(root.locator("[data-eo2-language-controls]")).to_be_hidden()
+        finally:
+            context.close()
+
+    def test_eo2_english_view_keeps_canonical_french_highlights_and_saved_notes(self):
+        self.open_eo2_language_fixture()
+        root = self.page.locator(".tache-two-question-section")
+        canonical_text = """root => {
+          const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+            acceptNode: node => node.parentElement.closest("[data-annotation-exclude]")
+              ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
+          });
+          let text = "", node;
+          while ((node = walker.nextNode())) text += node.data;
+          return text;
+        }"""
+        before = root.evaluate(canonical_text)
+        question = root.locator("[data-eo2-french]").first
+        quote = question.text_content()
+        question.evaluate("""node => {
+          const range = document.createRange();
+          range.selectNodeContents(node);
+          const selection = getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.dispatchEvent(new Event("selectionchange"));
+        }""")
+        self.page.locator("[data-highlight-selection]").click()
+        expect(question.locator("mark.user-highlight")).to_have_text(quote)
+        mark = Annotation.objects.get(user=self.user, kind=AnnotationKind.HIGHLIGHT)
+        mark.body = "Keep this French question note."
+        mark.study_later = True
+        mark.save(update_fields=["body", "study_later"])
+        saved = Annotation.objects.filter(pk=mark.pk).values().get()
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        expect(root.locator("[data-eo2-english]:visible")).to_have_count(8)
+        expect(question.locator("mark.user-highlight")).to_be_hidden()
+        self.assertEqual(root.evaluate(canonical_text), before)
+        root.get_by_role("button", name="Français", exact=True).click()
+        expect(question.locator(f'mark[data-highlight-id="{mark.pk}"]')).to_have_text(quote)
+        self.page.reload()
+        expect(question.locator(f'mark[data-highlight-id="{mark.pk}"]')).to_have_text(quote)
+        self.assertEqual(Annotation.objects.filter(pk=mark.pk).values().get(), saved)
+        self.assertEqual(root.evaluate(canonical_text), before)
+
+    def test_eo2_prepared_catalogue_displays_real_saved_translations(self):
+        from study import catalogue
+        from study.eo2_question_languages import fingerprint, manifest
+
+        data = manifest()
+        if not data["groups"]:
+            self.skipTest("DeepL translations have not been prepared.")
+        self._import_eo_tache_two_content()
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="tache2:avril:batch-01:subject-05",
+        )
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        root = self.page.locator("[data-eo2-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        dialogue = catalogue.tache_two_dialogues()[prompt.content_key]
+        expected = [
+            data["groups"][dialogue.group][fingerprint(question.question)]["english"]
+            for question in dialogue.questions
+        ]
+        expect(root.locator("[data-eo2-english]:visible")).to_have_text(expected)
+        expect(root.locator("[data-eo2-french]:visible")).to_have_count(0)
+        self.assert_no_horizontal_overflow()
+
+    def test_eo2_read_control_is_compact_and_reads_or_reports_failure_clearly(self):
+        from study.tests.french_audio_browser_tests import LOCAL_SPEECH
+
+        self.context.add_init_script(LOCAL_SPEECH)
+        self.open_eo2_language_fixture()
+        read = self.page.locator(".tache-two-question-section__tools [data-read-aloud]")
+        expect(read).to_have_count(1)
+        expect(read).to_be_enabled()
+        expect(self.page.locator(".answer-columns > [data-read-aloud]")).to_have_count(0)
+        for width in (390, 1280):
+            self.page.set_viewport_size({"width": width, "height": 900})
+            box = read.bounding_box()
+            self.assertLessEqual(box["width"], 40)
+            self.assertAlmostEqual(box["width"], box["height"], delta=1)
+            self.assert_no_horizontal_overflow()
+        read.click()
+        self.assertGreater(self.page.evaluate("__spoken.length"), 0)
+        expect(read).to_have_attribute("aria-pressed", "true")
+        read.click()
+        expect(read).to_have_attribute("aria-pressed", "false")
+        self.page.evaluate("() => speechSynthesis.speak = () => { throw new Error('test speech failure'); }")
+        read.click()
+        expect(self.page.locator("[data-narrator]")).to_be_visible()
+        expect(self.page.locator("[data-narrator-status]")).to_contain_text("Lecture indisponible")
+        self.page.evaluate("""() => speechSynthesis.speak = utterance => {
+          window.__spoken.push({text: utterance.text});
+        }""")
+        count = self.page.evaluate("__spoken.length")
+        read.click()
+        self.assertGreater(self.page.evaluate("__spoken.length"), count)
+        expect(read).to_have_attribute("aria-pressed", "true")
+
+    def test_eo2_english_display_keeps_french_audio_and_does_not_send_translation_requests(self):
+        from study import catalogue
+        from study.tests.french_audio_browser_tests import LOCAL_SPEECH
+
+        self.context.add_init_script(LOCAL_SPEECH)
+        prompt = self.open_eo2_language_fixture()
+        root = self.page.locator("[data-eo2-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        with mock.patch("study.translation.urllib.request.urlopen") as provider:
+            self.page.get_by_role("button", name="Lire les questions en français", exact=True).click()
+            self.page.evaluate("""() => {
+              for (let i = 0; i < 100; i++) {
+                const count = __utterances.length;
+                const utterance = __utterances[count - 1];
+                if (!utterance || !utterance.onend) break;
+                utterance.onend();
+                if (__utterances.length === count) break;
+              }
+            }""")
+            spoken = " ".join(self.page.evaluate("__spoken.map(item => item.text)"))
+            first = catalogue.tache_two_dialogues()[prompt.content_key].questions[0].question
+            self.assertIn(first, spoken)
+            self.assertEqual(spoken.count(first), 1)
+            self.assertNotIn("English test-only", spoken)
+            provider.assert_not_called()
+        root.locator("[data-eo2-english]").first.evaluate("""node => {
+          const range = document.createRange();
+          range.selectNodeContents(node);
+          const selection = getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.dispatchEvent(new Event("selectionchange"));
+        }""")
+        expect(self.page.locator("[data-selection-translate]")).to_be_hidden()
+
+    def test_eo2_private_edits_and_outside_themes_never_get_unmatched_english(self):
+        from dataclasses import asdict
+        from study import catalogue
+        from study.tache_two_dialogues import dialogue_response
+
+        prompt = self.open_eo2_language_fixture()
+        values = asdict(dialogue_response(catalogue.tache_two_dialogues()[prompt.content_key]))
+        values.pop("is_personal")
+        values["arguments"] = list(values["arguments"])
+        values["arguments"][0]["idea"] = "Ma question privée non publiée ?"
+        PersonalResponse.objects.create(
+            user=self.user, response=prompt.response, source_prompt=prompt, **values,
+        )
+        self.page.reload()
+        root = self.page.locator("[data-eo2-language]")
+        expect(root.get_by_role("button", name="Anglais", exact=True)).to_be_disabled()
+        expect(root.locator("[data-eo2-question-toggle]").first).to_be_disabled()
+        expect(root.locator("[data-eo2-question-toggle]").nth(1)).to_be_enabled()
+        expect(root.locator("[data-eo2-language-status]")).to_contain_text("indisponible")
+        self.assertFalse(root.locator("[data-eo2-english]").filter(
+            has_text="Ma question privée",
+        ).count())
+        _, mapping = catalogue.tache_two_subject_themes()
+        key = next(key for key, theme in mapping.items() if theme == "transports")
+        other = Prompt.objects.select_related("theme__task__part").get(content_key=key)
+        self.page.goto(self.live_server_url + prompt_detail_url(other))
+        expect(self.page.locator("[data-eo2-language]")).to_have_count(0)
+
     def test_transport_travel_models_and_equivalents_show_matching_questions_notes_and_pistes(self):
         from study.tests.transport_travel_review_fixtures import REVIEWED_GROUPS
 
@@ -4690,6 +5005,8 @@ class BrowserTests(StaticLiveServerTestCase):
         practiced = set()
 
         def assert_content(dialogue, expected_hints, scope, *, with_hints=True):
+            expect(scope.get_by_text(dialogue.opening, exact=True)).to_be_visible()
+            expect(scope.get_by_text(dialogue.closing, exact=True)).to_be_visible()
             expect(scope.locator("[data-question-highlight-text]")).to_have_text([
                 question.question for question in dialogue.questions
             ])
@@ -4745,6 +5062,10 @@ class BrowserTests(StaticLiveServerTestCase):
             ("friend-child-language-stay-abroad", {4: 4, 7: 7, 8: 8}),
             ("edmonton-newcomer-neighbor-schools", {2: 2, 5: 6, 6: 7, 8: 8}),
             ("friend-planned-canadian-studies", {1: 1, 2: 2, 3: 3, 5: 5, 6: 6, 7: 7, 8: 8}),
+            ("french-class-survey-francophone-student", {1: 1, 2: 2, 3: 4, 4: 5, 5: 6, 6: 7, 8: 8}),
+            ("calgary-university-adult-language-courses", {1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8}),
+            ("canadian-work-hours-home-country-comparison", {number: number for number in range(1, 9)}),
+            ("former-colleague-new-job-to-change-employment", {1: 1, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}),
         ))
 
     def test_transport_travel_reorders_preserve_visible_learned_questions_on_detail_and_practice(self):

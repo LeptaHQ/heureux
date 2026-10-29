@@ -6,11 +6,19 @@ on:
       - "study/content/tache_2/dialogues/**"
       - "study/content/tache_2/dialogue_history/**"
       - "study/content/tache_2/subjects/hints.json"
+      - "study/content/tache_2/translations/**"
+      - "study/eo2_question_languages.py"
+      - "study/management/commands/prepare_eo2_translations.py"
+      - "study/tests/test_eo2_question_languages.py"
   pull_request:
     paths:
       - "study/content/tache_2/dialogues/**"
       - "study/content/tache_2/dialogue_history/**"
       - "study/content/tache_2/subjects/hints.json"
+      - "study/content/tache_2/translations/**"
+      - "study/eo2_question_languages.py"
+      - "study/management/commands/prepare_eo2_translations.py"
+      - "study/tests/test_eo2_question_languages.py"
 
 permissions:
   contents: read
@@ -35,6 +43,7 @@ jobs:
       - run: >-
           python manage.py test
           study.tests.test_tache_two_dialogues
+          study.tests.test_eo2_question_languages
           study.tests.test_tache_two_work
           study.tests.test_tache_two_education
           study.tests.test_tache_two_work_school_review

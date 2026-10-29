@@ -5192,6 +5192,10 @@
         "english": "Institution and year of study"
       },
       {
+        "french": "Mode de transport pour aller en cours et durée du trajet",
+        "english": "Transport to classes and journey time"
+      },
+      {
         "french": "Répartition entre cours, travaux pratiques et travail personnel",
         "english": "Time divided between classes, practical work and personal study"
       },
@@ -5206,10 +5210,6 @@
       {
         "french": "Activité préférée pendant le temps libre et lieu",
         "english": "Favourite free-time activity and where it takes place"
-      },
-      {
-        "french": "Moments de la semaine consacrés à cette activité",
-        "english": "When the activity fits into the week"
       },
       {
         "french": "Sorties ou temps chez soi pendant le week-end",

@@ -334,7 +334,7 @@
       "register": "tu",
       "note": "Compare your friend Pierre's own working routine in Calgary with your real experience in your country. The comparisons are examples to adapt, not facts to memorize about a whole country. Ask about hours, flexibility, leave and compensation. One employer's arrangements are not nationwide Canadian rules. Use tu.",
       "opening": "Salut Pierre ! J'aimerais comparer ton rythme de travail à Calgary avec celui que je connais dans mon pays.",
-      "closing": "Merci, Pierre ! Je comprends mieux ce qui relève de ton entreprise et ce qui peut varier ailleurs au Canada.",
+      "closing": "Merci, Pierre ! C'est intéressant de comparer nos expériences professionnelles.",
       "questions": [
         {"topic": "Horaires hebdomadaires", "question": "Tu travailles quels jours de la semaine, et de quelle heure à quelle heure ?", "answer": "Du lundi au vendredi, de huit heures trente à seize heures trente.", "follow_up_to": null},
         {"topic": "Horaires hebdomadaires", "question": "Chez moi, on travaille parfois le samedi ; est-ce que ça t'arrive aussi en période chargée ?", "answer": "Très rarement ; seulement lors de périodes exceptionnelles, avec un planning annoncé à l'avance.", "follow_up_to": 1, "condition": "If regular weekdays are given without explaining exceptions; adapt to your own experience."},

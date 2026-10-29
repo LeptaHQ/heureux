@@ -1,0 +1,10 @@
+<div class="eo2-language-controls" data-eo2-language-controls data-annotation-exclude hidden>
+  <div class="recall-controls">
+    <span class="recall-controls__label">Questions</span>
+    <div class="recall-controls__options" role="group" aria-label="Langue des questions">
+      <button type="button" data-eo2-language-option="fr" data-flashcard-control aria-pressed="true">Français</button>
+      <button type="button" data-eo2-language-option="en" data-flashcard-control aria-pressed="false"{% if not question_language.ready %} disabled{% endif %}>Anglais</button>
+    </div>
+  </div>
+  <p class="muted" data-eo2-language-status role="status" aria-live="polite" hidden></p>
+</div>

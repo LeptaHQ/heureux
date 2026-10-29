@@ -1,4 +1,4 @@
-{% load study_speech %}<div class="eo2-dialogue">
+{% load study_speech %}<div class="eo2-dialogue"{% if question_language %} data-eo2-language data-eo2-language-total="{{ question_language.total }}" data-eo2-language-ready="{{ question_language.ready|yesno:'true,false' }}" data-eo2-language-error="{{ question_language.error|yesno:'true,false' }}"{% endif %}>{% if question_language %}{% spaceless %}{% include "study/partials/eo2_question_language_controls.html" %}{% endspaceless %}{% endif %}
   <div class="eo2-dialogue__boundary">
     <span>Pour commencer</span>
     <p data-question-highlight-boundary="opening" data-read-aloud-text {% speech_attrs response_content.reformulation private=response_content.is_personal user_id=card.user_id %} lang="fr">{{ response_content.reformulation|linebreaksbr }}</p>
@@ -8,9 +8,9 @@
       <li data-tache-two-question>
         {% if question.starts_topic %}<h3 class="eo2-dialogue__topic" data-question-highlight-topic="{{ question.number }}">{{ question.topic }}</h3>{% endif %}
         <div class="eo2-dialogue__turn">
-          <span class="eo2-dialogue__number" aria-hidden="true">{{ question.number|stringformat:"02d" }}</span>
+          {% if question_language %}<button type="button" class="eo2-dialogue__number" data-eo2-question-toggle data-flashcard-control aria-pressed="false" aria-label="Afficher la question {{ question.number }} en anglais" title="Afficher la question {{ question.number }} en anglais" disabled>{{ question.number|stringformat:"02d" }}</button>{% else %}<span class="eo2-dialogue__number" aria-hidden="true">{{ question.number|stringformat:"02d" }}</span>{% endif %}
           <div class="eo2-dialogue__content">
-            <p class="eo2-dialogue__question" data-question-highlight-text="{{ question.number }}" data-read-aloud-text {% speech_attrs question.text private=response_content.is_personal user_id=card.user_id %} lang="fr">{{ question.text|linebreaksbr }}</p>
+            {% if question_language %}<div data-eo2-language-pair data-read-aloud-text data-read-aloud-value="{{ question.text }}" {% speech_attrs question.text private=response_content.is_personal user_id=card.user_id %} lang="fr"><p class="eo2-dialogue__question" data-eo2-french data-question-highlight-text="{{ question.number }}" lang="fr">{{ question.text|linebreaksbr }}</p>{% if question.english %}<p class="eo2-dialogue__question eo2-dialogue__english" data-eo2-english data-annotation-exclude lang="{{ question_language.english_lang }}" hidden>{{ question.english|linebreaksbr }}</p>{% endif %}</div>{% else %}<p class="eo2-dialogue__question" data-question-highlight-text="{{ question.number }}" data-read-aloud-text {% speech_attrs question.text private=response_content.is_personal user_id=card.user_id %} lang="fr">{{ question.text|linebreaksbr }}</p>{% endif %}
           </div>
         </div>
       </li>

@@ -7,8 +7,11 @@ from django.test import SimpleTestCase
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
 from study.tests.eo2_review_fixtures import (
-    PUBLISHED_ARCHIVE_INDEX, SCHOOL_GROUPS, TRANSPORT_TRAVEL_GROUPS, WORK_GROUPS,
-    WORK_SCHOOL_GROUPS as REVIEWED_GROUPS, remove_latest_review_archives,
+    DAILY_DUTIES_FOLLOWUP_FIELDS, PUBLISHED_ARCHIVE_INDEX, SCHOOL_GROUPS, SESSION_EXTENT_FOLLOWUP_FIELDS,
+    SURVEY_ROUTINE_FOLLOWUP_FIELDS,
+    TRANSPORT_TRAVEL_GROUPS, WORK_COMPARISON_CLOSING_FIELDS, WORK_GROUPS,
+    WORK_SCHOOL_GROUPS as REVIEWED_GROUPS,
+    final_pass_projection, remove_latest_review_archives,
 )
 
 
@@ -119,15 +122,20 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
             {"tache2:octobre:batch-09:subject-42"},
         )
 
-    def test_career_rephrase_preserves_all_other_163_models_and_their_cues(self):
+    def test_career_rephrase_preserves_other_models_except_authorized_later_changes(self):
         group = "friend-planned-canadian-studies"
-        self.assertEqual(len(self.raw) - 1, 163)
+        edited = (
+            {group} | SURVEY_ROUTINE_FOLLOWUP_FIELDS.keys() | SESSION_EXTENT_FOLLOWUP_FIELDS.keys()
+            | WORK_COMPARISON_CLOSING_FIELDS.keys()
+            | DAILY_DUTIES_FOLLOWUP_FIELDS.keys()
+        )
+        self.assertEqual(len(self.raw.keys() - edited), 159)
         self.assertEqual(
             fingerprint({
-                "dialogues": {g: row for g, row in self.raw.items() if g != group},
-                "hints": {g: cues for g, cues in self.hints.items() if g != group},
+                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
+                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
             }),
-            "829e79a3fd3731eac051eb213fcdbf0004995230f775d12d0a770067693c63fc",
+            "75fe14a5b1719aacb28bd7ad5fea6f4577bf7901f50b62adf46c044696d50c4a",
         )
 
     def test_career_rephrase_archives_the_published_layout_without_replies_or_older_changes(self):
@@ -141,9 +149,250 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
         self.assertTrue(all("answer" not in q for q in revisions[3]["questions"]))
         previous = copy.deepcopy(self.history_document)
         previous["groups"][group]["revisions"].pop()
+        for changed in (
+            SURVEY_ROUTINE_FOLLOWUP_FIELDS | SESSION_EXTENT_FOLLOWUP_FIELDS
+            | WORK_COMPARISON_CLOSING_FIELDS
+            | DAILY_DUTIES_FOLLOWUP_FIELDS
+        ):
+            previous["groups"][changed]["revisions"] = (
+                previous["groups"][changed]["revisions"][:PUBLISHED_ARCHIVE_INDEX[changed] + 1]
+            )
         self.assertEqual(
             fingerprint(previous),
             "a8e2f902a91d7c1c16cbc506cae2f6f65d9e5a38f7e8e2a8d5e403a3c0c7917d",
+        )
+
+    def test_survey_replaces_the_extra_activity_question_with_a_commute_after_institution(self):
+        group = "french-class-survey-francophone-student"
+        row = self.by_group[group]
+        self.assertEqual(
+            row.questions[2].question,
+            "Comment vous rendez-vous en cours, et combien de temps dure le trajet ?",
+        )
+        self.assertIsNone(row.questions[2].follow_up_to)
+        self.assertIn("le bus", row.questions[2].answer)
+        self.assertIn("vingt minutes", row.questions[2].answer)
+        self.assertEqual(sum(q.topic == "Loisirs" for q in row.questions), 2)
+        self.assertEqual(row.questions[5].follow_up_to, 5)
+        self.assertIn("travel to classes", row.note)
+        self.assertEqual(
+            self.hints[group][2]["english"], "Transport to classes and journey time",
+        )
+
+    def test_survey_retains_all_seven_other_questions_replies_and_cues_when_reordered(self):
+        group = "french-class-survey-francophone-student"
+        row = copy.deepcopy(self.raw[group])
+        original_order = (0, 1, 3, 4, 5, 6, 2, 7)
+        row["questions"] = [row["questions"][index] for index in original_order]
+        row["questions"][4]["follow_up_to"] = 4
+        row["questions"][6] = "<replaced-survey-question>"
+        row["note"] = "<reviewed-survey-note>"
+        cues = [copy.deepcopy(self.hints[group][index]) for index in original_order]
+        cues[6] = "<replaced-survey-cue>"
+        self.assertEqual(
+            fingerprint({"dialogue": row, "hints": cues}),
+            "3e88f3b101ec3bf1d23beccea4c3895209847bca460b309ea575393ffe1db259",
+        )
+        projected = final_pass_projection(self.raw, self.hints)[group]
+        self.assertEqual(projected["dialogue"]["questions"][0]["question"], "<final-reviewed-field>")
+        self.assertEqual(projected["dialogue"]["questions"][2]["question"], "<final-reviewed-field>")
+        self.assertEqual(projected["hints"][0]["english"], "<final-reviewed-field>")
+        self.assertEqual(projected["hints"][2]["english"], "<final-reviewed-field>")
+
+    def test_survey_replacement_preserves_other_models_except_authorized_later_changes(self):
+        group = "french-class-survey-francophone-student"
+        edited = (
+            {group} | SESSION_EXTENT_FOLLOWUP_FIELDS.keys() | WORK_COMPARISON_CLOSING_FIELDS.keys()
+            | DAILY_DUTIES_FOLLOWUP_FIELDS.keys()
+        )
+        self.assertEqual(len(self.raw.keys() - edited), 160)
+        self.assertEqual(
+            fingerprint({
+                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
+                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
+            }),
+            "b236f658e0c6bcb4fabb49e6a7b1f08c0984dc2662da5f7a6bc350541967652d",
+        )
+        self.assertEqual(
+            {key for key, row in self.dialogues.items() if row.group == group},
+            {"tache2:decembre:batch-08:subject-36"},
+        )
+
+    def test_survey_published_layout_is_archived_without_replies_or_older_history_changes(self):
+        group = "french-class-survey-francophone-student"
+        revisions = self.history_document["groups"][group]["revisions"]
+        self.assertEqual(len(revisions), 4)
+        self.assertEqual(
+            fingerprint(revisions[3]),
+            "ff70342012491263c1ccb003225dd2e7034d2130834208d9a3deae5e79ceb5f8",
+        )
+        self.assertTrue(all("answer" not in q for q in revisions[3]["questions"]))
+        previous = copy.deepcopy(self.history_document)
+        previous["groups"][group]["revisions"].pop()
+        for changed in (
+            SESSION_EXTENT_FOLLOWUP_FIELDS | WORK_COMPARISON_CLOSING_FIELDS
+            | DAILY_DUTIES_FOLLOWUP_FIELDS
+        ):
+            previous["groups"][changed]["revisions"] = (
+                previous["groups"][changed]["revisions"][:PUBLISHED_ARCHIVE_INDEX[changed] + 1]
+            )
+        self.assertEqual(
+            fingerprint(previous),
+            "d7cf731e33b3d70132645c2bdbf1c5b5990330fb5acf34841dde668401e000c9",
+        )
+
+    def test_session_extent_rephrase_changes_only_the_requested_question(self):
+        group = "calgary-university-adult-language-courses"
+        row = copy.deepcopy(self.raw[group])
+        question = row["questions"][4]["question"]
+        self.assertEqual(
+            question,
+            "Une session s'étend sur combien de semaines, "
+            "et combien d'heures de cours y a-t-il par semaine ?",
+        )
+        previous = self.history_document["groups"][group]["revisions"][3]["questions"][4]["question"]
+        self.assertEqual(question.split(", ", 1)[1], previous.split(", ", 1)[1])
+        row["questions"][4]["question"] = "<reviewed-session-question>"
+        self.assertEqual(
+            fingerprint({"dialogue": row, "hints": self.hints[group]}),
+            "853be3e45497ab97003184d8b7ef5272cd398cff21497773acfc8c04544d2c44",
+        )
+
+    def test_session_extent_rephrase_preserves_other_models_except_authorized_later_changes(self):
+        group = "calgary-university-adult-language-courses"
+        edited = (
+            {group} | WORK_COMPARISON_CLOSING_FIELDS.keys() | DAILY_DUTIES_FOLLOWUP_FIELDS.keys()
+        )
+        self.assertEqual(len(self.raw.keys() - edited), 161)
+        self.assertEqual(
+            fingerprint({
+                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
+                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
+            }),
+            "6e01aca9378a2881938c2fe1bbcc2b23c3cb9b91d287c3ca79be95f00012c5ef",
+        )
+        self.assertEqual(
+            {key for key, row in self.dialogues.items() if row.group == group},
+            {"tache2:decembre:batch-09:subject-45"},
+        )
+
+    def test_session_extent_archives_the_published_layout_without_replies_or_older_changes(self):
+        group = "calgary-university-adult-language-courses"
+        revisions = self.history_document["groups"][group]["revisions"]
+        self.assertEqual(len(revisions), 4)
+        self.assertEqual(
+            fingerprint(revisions[3]),
+            "8f4ef04975a1a1a05320fe056a4222273fa5ed1da3bf34790d599f13d16d407a",
+        )
+        self.assertTrue(all("answer" not in q for q in revisions[3]["questions"]))
+        previous = copy.deepcopy(self.history_document)
+        previous["groups"][group]["revisions"].pop()
+        for changed in WORK_COMPARISON_CLOSING_FIELDS | DAILY_DUTIES_FOLLOWUP_FIELDS:
+            previous["groups"][changed]["revisions"] = (
+                previous["groups"][changed]["revisions"][:PUBLISHED_ARCHIVE_INDEX[changed] + 1]
+            )
+        self.assertEqual(
+            fingerprint(previous),
+            "92ecea7474f4b7516ff605f7e93713a2772a2c2002d6f77110c77cad3d8a9064",
+        )
+
+    def test_work_comparison_closing_changes_only_the_thanks_not_questions_replies_note_or_cues(self):
+        group = "canadian-work-hours-home-country-comparison"
+        row = copy.deepcopy(self.raw[group])
+        self.assertEqual(
+            row["closing"],
+            "Merci, Pierre ! C'est intéressant de comparer nos expériences professionnelles.",
+        )
+        row["closing"] = "<reviewed-work-closing>"
+        self.assertEqual(
+            fingerprint({"dialogue": row, "hints": self.hints[group]}),
+            "79e85f144b4263f32056f92692693bd9c2201526d841d1e527d6c5149b22a155",
+        )
+        self.assertIn("not nationwide Canadian rules", row["note"])
+
+    def test_work_comparison_closing_preserves_other_models_except_the_authorized_duties_rephrase(self):
+        group = "canadian-work-hours-home-country-comparison"
+        edited = {group} | DAILY_DUTIES_FOLLOWUP_FIELDS.keys()
+        self.assertEqual(len(self.raw.keys() - edited), 162)
+        self.assertEqual(
+            fingerprint({
+                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
+                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
+            }),
+            "3511198149516f7505bbddf3a61b8a33a931c5461dc1f8a7ae8f959a60ef84bb",
+        )
+        self.assertEqual(
+            {key for key, row in self.dialogues.items() if row.group == group},
+            {
+                "tache2:fevrier:batch-05:subject-25", "tache2:mars:batch-03:subject-15",
+                "tache2:septembre:batch-03:subject-15", "tache2:octobre:batch-02:subject-10",
+            },
+        )
+
+    def test_work_comparison_closing_archives_exact_published_layout_without_older_changes(self):
+        group = "canadian-work-hours-home-country-comparison"
+        revisions = self.history_document["groups"][group]["revisions"]
+        self.assertEqual(len(revisions), 4)
+        self.assertEqual(
+            fingerprint(revisions[3]),
+            "00cab633eae02aec8898a4183f1001153b3572c729e32c2c07be9d567c1d37fc",
+        )
+        self.assertTrue(all("answer" not in q for q in revisions[3]["questions"]))
+        previous = copy.deepcopy(self.history_document)
+        previous["groups"][group]["revisions"].pop()
+        for changed in DAILY_DUTIES_FOLLOWUP_FIELDS:
+            previous["groups"][changed]["revisions"] = (
+                previous["groups"][changed]["revisions"][:PUBLISHED_ARCHIVE_INDEX[changed] + 1]
+            )
+        self.assertEqual(
+            fingerprint(previous),
+            "a558ac280c91a75fe9c88bf345b3dfada6c8a3b4a0d80120af797827c308b96d",
+        )
+
+    def test_daily_duties_rephrase_changes_only_the_question_not_reply_condition_or_cues(self):
+        group = "former-colleague-new-job-to-change-employment"
+        row = copy.deepcopy(self.raw[group])
+        self.assertEqual(
+            row["questions"][1]["question"], "Quelles tâches remplissent tes journées ?",
+        )
+        row["questions"][1]["question"] = "<reviewed-duties-question>"
+        self.assertEqual(
+            fingerprint({"dialogue": row, "hints": self.hints[group]}),
+            "12960e30b5c7e94cae349c04b059c15f254e66796263e88ce026dd5a39bd43a5",
+        )
+        projected = final_pass_projection(self.raw, self.hints)[group]
+        self.assertEqual(projected["dialogue"]["questions"][1]["question"], "<final-reviewed-field>")
+        self.assertEqual(projected["dialogue"]["questions"][4]["question"], "<final-reviewed-field>")
+
+    def test_daily_duties_rephrase_preserves_all_other_163_models_and_three_pending_edits(self):
+        group = "former-colleague-new-job-to-change-employment"
+        self.assertEqual(len(self.raw) - 1, 163)
+        self.assertEqual(
+            fingerprint({
+                "dialogues": {g: row for g, row in self.raw.items() if g != group},
+                "hints": {g: cues for g, cues in self.hints.items() if g != group},
+            }),
+            "d72fcecd121ec8ba4501b1de26bab8bf5a8440d1d8437bd1dd6abf4ce5261afc",
+        )
+        self.assertEqual(
+            {key for key, row in self.dialogues.items() if row.group == group},
+            {"tache2:mai:batch-05:subject-24", "tache2:novembre:batch-02:subject-09"},
+        )
+
+    def test_daily_duties_rephrase_archives_published_layout_without_replies_or_older_changes(self):
+        group = "former-colleague-new-job-to-change-employment"
+        revisions = self.history_document["groups"][group]["revisions"]
+        self.assertEqual(len(revisions), 3)
+        self.assertEqual(
+            fingerprint(revisions[2]),
+            "bfecb2f2d2c04ade6baaaf50f0882ac177a8e1b91fcc42fecbb69e92eca15bed",
+        )
+        self.assertTrue(all("answer" not in q for q in revisions[2]["questions"]))
+        previous = copy.deepcopy(self.history_document)
+        previous["groups"][group]["revisions"].pop()
+        self.assertEqual(
+            fingerprint(previous),
+            "6d8b644680f6b050b6cd1f27d5694480fc55b4faf367726958c4a27e362b69d6",
         )
 
     def test_first_day_has_an_actual_difficulty_and_a_response_to_it(self):
@@ -254,7 +503,7 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
         self.assertEqual(game.questions[3].follow_up_to, 1)
         self.assertIn("points", game.questions[3].question)
         self.assertIn("date", game.questions[5].question)
-        self.assertIn("où la pratiquez-vous", survey.questions[5].question)
-        self.assertEqual(survey.questions[6].follow_up_to, 6)
-        self.assertIn("cette activité", survey.questions[6].question)
+        self.assertIn("où la pratiquez-vous", survey.questions[6].question)
+        self.assertEqual(survey.questions[5].follow_up_to, 5)
+        self.assertIn("cette activité", survey.questions[5].question)
         self.assertNotIn("chorale", survey.questions[6].question)

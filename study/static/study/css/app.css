@@ -2357,6 +2357,10 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   height: 2rem;
   flex: 0 0 auto;
 }
+.eo2-question-read .read-aloud-action__icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
 .tache-two-question-list {
   margin: 0;
   padding: 0;
@@ -2527,6 +2531,22 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   line-height: 1.5;
   overflow-wrap: anywhere;
 }
+.eo2-language-controls { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); }
+.eo2-language-controls[hidden],
+.eo2-language-controls [hidden],
+.eo2-dialogue [data-eo2-french][hidden],
+.eo2-dialogue [data-eo2-english][hidden] { display: none !important; }
+.eo2-language-controls p { margin: 0.4rem 0 0; font-size: 0.8rem; }
+button.eo2-dialogue__number {
+  border: 0; background: transparent; padding: 0.1rem 0;
+  min-height: 2rem; cursor: pointer; border-radius: 0.35rem;
+  font-family: inherit;
+}
+button.eo2-dialogue__number:hover,
+button.eo2-dialogue__number[aria-pressed="true"] { background: var(--surface-2); }
+button.eo2-dialogue__number:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+button.eo2-dialogue__number:disabled { color: var(--text-soft); cursor: default; }
+.eo2-dialogue__english { font-weight: 500; }
 .eo2-guidelines {
   margin-top: 1rem;
   color: var(--text-soft);

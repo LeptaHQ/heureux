@@ -105,6 +105,7 @@
     return Array.from(
       container.querySelectorAll("[data-annotation-exclude]")
     ).some(function (element) {
+      if (element.matches("[data-eo2-english][hidden]")) return false;
       return range.intersectsNode(element);
     });
   }

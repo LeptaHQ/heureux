@@ -268,9 +268,10 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
                 if question.condition:
                     self.assertNotIn(question.condition, html)
         self.assertTrue(all("response" not in row for row in context["subject_questions"]))
-        spoken = unescape(" ".join(re.findall(
-            r'<p[^>]*data-read-aloud-text[^>]*>(.*?)</p>', body_html, re.S,
-        )))
+        spoken = unescape(" ".join(
+            re.findall(r'<p[^>]*data-read-aloud-text[^>]*>(.*?)</p>', body_html, re.S)
+            + re.findall(r'data-read-aloud-value="([^"]*)"', body_html)
+        ))
         self.assertIn(dialogue.opening, spoken)
         self.assertIn(dialogue.closing, spoken)
         self.assertNotIn("Eight questions are", body_html)

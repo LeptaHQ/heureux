@@ -239,15 +239,52 @@ CAREER_QUESTION_FOLLOWUP_FIELDS = {
     "friend-planned-canadian-studies": (("dialogue", "questions", 3, "question"),),
 }
 
+SURVEY_ROUTINE_FOLLOWUP_FIELDS = {
+    "french-class-survey-francophone-student": (
+        ("dialogue", "note"),
+        ("dialogue", "questions", 2, "question"), ("dialogue", "questions", 2, "answer"),
+        ("dialogue", "questions", 3, "topic"), ("dialogue", "questions", 3, "question"),
+        ("dialogue", "questions", 3, "answer"),
+        ("dialogue", "questions", 4, "question"), ("dialogue", "questions", 4, "answer"),
+        ("dialogue", "questions", 4, "follow_up_to"), ("dialogue", "questions", 4, "condition"),
+        ("dialogue", "questions", 5, "topic"), ("dialogue", "questions", 5, "question"),
+        ("dialogue", "questions", 5, "answer"),
+        ("dialogue", "questions", 5, "follow_up_to"), ("dialogue", "questions", 5, "condition"),
+        ("dialogue", "questions", 6, "question"), ("dialogue", "questions", 6, "answer"),
+        ("dialogue", "questions", 6, "follow_up_to"), ("dialogue", "questions", 6, "condition"),
+        ("hints", 2, "french"), ("hints", 2, "english"),
+        ("hints", 3, "french"), ("hints", 3, "english"),
+        ("hints", 4, "french"), ("hints", 4, "english"),
+        ("hints", 5, "french"), ("hints", 5, "english"),
+        ("hints", 6, "french"), ("hints", 6, "english"),
+    ),
+}
+
+SESSION_EXTENT_FOLLOWUP_FIELDS = {
+    "calgary-university-adult-language-courses": (("dialogue", "questions", 4, "question"),),
+}
+
+WORK_COMPARISON_CLOSING_FIELDS = {
+    "canadian-work-hours-home-country-comparison": (("dialogue", "closing"),),
+}
+
+DAILY_DUTIES_FOLLOWUP_FIELDS = {
+    "former-colleague-new-job-to-change-employment": (("dialogue", "questions", 1, "question"),),
+}
+
 FOLLOWUP_FIELDS = (
     TRAINING_FOLLOWUP_FIELDS | FIRST_DAY_FOLLOWUP_FIELDS
     | JOB_SEARCH_FOLLOWUP_FIELDS | BEGINNER_COURSE_FOLLOWUP_FIELDS
     | AFTER_SCHOOL_FOLLOWUP_FIELDS | CHILD_STAY_FOLLOWUP_FIELDS
     | SCHOOL_NEIGHBOUR_FOLLOWUP_FIELDS
     | CAREER_QUESTION_FOLLOWUP_FIELDS
+    | SURVEY_ROUTINE_FOLLOWUP_FIELDS
+    | SESSION_EXTENT_FOLLOWUP_FIELDS
+    | WORK_COMPARISON_CLOSING_FIELDS
+    | DAILY_DUTIES_FOLLOWUP_FIELDS
 )
 FOLLOWUP_GROUPS = set(FOLLOWUP_FIELDS)
-FOLLOWUP_PROTECTED_SHA = "d96d8496bcf906042883dd40a287b9e9884a837bba76dbd0100d7e7828562e85"
+FOLLOWUP_PROTECTED_SHA = "bc07d3331dec7594a54689ef204eef9521d322d578d09090475d1fc2cd2b30cd"
 
 
 def final_pass_projection(dialogues, hints):
@@ -255,12 +292,13 @@ def final_pass_projection(dialogues, hints):
         group: {"dialogue": copy.deepcopy(row), "hints": copy.deepcopy(hints[group])}
         for group, row in dialogues.items()
     }
-    for group, paths in (FINAL_PASS_FIELDS | FOLLOWUP_FIELDS).items():
-        for path in paths:
-            value = snapshot[group]
-            for key in path[:-1]:
-                value = value[key]
-            value[path[-1]] = "<final-reviewed-field>"
+    for fields in (FINAL_PASS_FIELDS, FOLLOWUP_FIELDS):
+        for group, paths in fields.items():
+            for path in paths:
+                value = snapshot[group]
+                for key in path[:-1]:
+                    value = value[key]
+                value[path[-1]] = "<final-reviewed-field>"
     return snapshot
 
 

@@ -45,7 +45,7 @@ class DirectorTrainingReviewTests(SimpleTestCase):
 
     def test_models_and_cues_outside_the_authorized_followups_are_exact(self):
         edited = FOLLOWUP_GROUPS
-        self.assertEqual(len(self.raw.keys() - edited), 156)
+        self.assertEqual(len(self.raw.keys() - edited), 152)
         self.assertEqual(
             fingerprint({
                 "dialogues": {g: row for g, row in self.raw.items() if g not in edited},

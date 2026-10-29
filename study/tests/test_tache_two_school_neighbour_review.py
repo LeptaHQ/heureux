@@ -8,7 +8,9 @@ from django.test import SimpleTestCase
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
 from study.tests.eo2_review_fixtures import (
-    CAREER_QUESTION_FOLLOWUP_FIELDS, PUBLISHED_ARCHIVE_INDEX,
+    CAREER_QUESTION_FOLLOWUP_FIELDS, DAILY_DUTIES_FOLLOWUP_FIELDS, PUBLISHED_ARCHIVE_INDEX,
+    SESSION_EXTENT_FOLLOWUP_FIELDS, SURVEY_ROUTINE_FOLLOWUP_FIELDS,
+    WORK_COMPARISON_CLOSING_FIELDS,
 )
 
 
@@ -43,15 +45,20 @@ class SchoolNeighbourReviewTests(SimpleTestCase):
         catalogue.clear_catalogue_cache()
         super().tearDownClass()
 
-    def test_other_models_and_cues_except_the_authorized_career_question_are_exact(self):
-        edited = {GROUP} | CAREER_QUESTION_FOLLOWUP_FIELDS.keys()
-        self.assertEqual(len(self.raw.keys() - edited), 162)
+    def test_other_models_and_cues_except_the_authorized_later_changes_are_exact(self):
+        edited = (
+            {GROUP} | CAREER_QUESTION_FOLLOWUP_FIELDS.keys() | SURVEY_ROUTINE_FOLLOWUP_FIELDS.keys()
+            | SESSION_EXTENT_FOLLOWUP_FIELDS.keys()
+            | WORK_COMPARISON_CLOSING_FIELDS.keys()
+            | DAILY_DUTIES_FOLLOWUP_FIELDS.keys()
+        )
+        self.assertEqual(len(self.raw.keys() - edited), 158)
         self.assertEqual(
             fingerprint({
                 "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
                 "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
             }),
-            "1cf96c6c46a7575c670fae3e25cb848497ebd92866a8f0df1430bfee73df25de",
+            "db8e8ca6388706ab1b0abe31384c731c48247f0c8c5e27071b39cb451059d620",
         )
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == GROUP},
@@ -135,7 +142,12 @@ class SchoolNeighbourReviewTests(SimpleTestCase):
         self.assertTrue(all("answer" not in q for q in revisions[4]["questions"]))
         previous = copy.deepcopy(self.history)
         previous["groups"][GROUP]["revisions"].pop()
-        for group in CAREER_QUESTION_FOLLOWUP_FIELDS:
+        for group in (
+            CAREER_QUESTION_FOLLOWUP_FIELDS | SURVEY_ROUTINE_FOLLOWUP_FIELDS
+            | SESSION_EXTENT_FOLLOWUP_FIELDS
+            | WORK_COMPARISON_CLOSING_FIELDS
+            | DAILY_DUTIES_FOLLOWUP_FIELDS
+        ):
             previous["groups"][group]["revisions"] = (
                 previous["groups"][group]["revisions"][:PUBLISHED_ARCHIVE_INDEX[group] + 1]
             )

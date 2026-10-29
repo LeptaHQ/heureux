@@ -377,16 +377,16 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertIn("établissement", survey.questions[1].question)
         self.assertIn("année", survey.questions[1].question)
         self.assertNotIn("depuis", survey.questions[1].question)
-        self.assertIn("travaux pratiques", survey.questions[2].question)
-        self.assertIn("combien de temps", survey.questions[3].question)
-        self.assertIn("six heures par semaine", survey.questions[3].answer)
-        self.assertEqual(survey.questions[4].follow_up_to, 4)
-        self.assertIn("conciliez-vous cette activité", survey.questions[4].question)
-        self.assertIn("work or volunteering", survey.questions[4].condition)
-        self.assertIn("un soir par semaine", survey.questions[4].answer)
-        self.assertIn("où la pratiquez-vous", survey.questions[5].question)
-        self.assertIn("moments de la semaine", survey.questions[6].question)
-        self.assertIn("schedule", survey.questions[6].condition)
+        self.assertIn("travaux pratiques", survey.questions[3].question)
+        self.assertIn("combien de temps", survey.questions[4].question)
+        self.assertIn("six heures par semaine", survey.questions[4].answer)
+        self.assertEqual(survey.questions[5].follow_up_to, 5)
+        self.assertIn("conciliez-vous cette activité", survey.questions[5].question)
+        self.assertIn("work or volunteering", survey.questions[5].condition)
+        self.assertIn("un soir par semaine", survey.questions[5].answer)
+        self.assertIn("où la pratiquez-vous", survey.questions[6].question)
+        self.assertIn("trajet", survey.questions[2].question)
+        self.assertIsNone(survey.questions[2].follow_up_to)
         self.assertNotIn("chorale", survey.questions[6].question)
         fete = self.by_group["fellow-parent-first-school-fete"]
         self.assertIn("Si je souhaite aider", fete.questions[6].question)
@@ -426,9 +426,11 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
             },
             "french-class-survey-francophone-student": {
                 2: "Institution and year of study",
-                5: "Balancing work or volunteering with exam revision",
-                6: "Favourite free-time activity and where it takes place",
-                7: "When the activity fits into the week",
+                3: "Transport to classes and journey time",
+                4: "Time divided between classes, practical work and personal study",
+                5: "Student job or volunteering and time commitment",
+                6: "Balancing work or volunteering with exam revision",
+                7: "Favourite free-time activity and where it takes place",
             },
             "french-teacher-language-school-student-game": {
                 1: "Game concept and tasks to complete in French",

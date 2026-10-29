@@ -1141,7 +1141,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "friend-first-workday-report": {2: 4, 4: 2, 5: 3, 8: 8},
             "newcomer-canada-friend-job-market": {},
             "canadian-work-hours-home-country-comparison": {5: 5},
-            "former-colleague-new-job-to-change-employment": {2: 2},
+            "former-colleague-new-job-to-change-employment": {},
             "new-colleague-quebec-career-migration": {3: 3, 4: 4},
             "recruiter-scheduled-interview-preparation": {1: 2, 2: 1, 3: 3, 4: 4, 6: 5},
             "colleague-internal-job-change": {7: 7, 8: 8},
@@ -1309,6 +1309,95 @@ class PublishedTacheTwoHighlightTests(TestCase):
             revision=3,
         )
 
+    def test_daily_duties_rephrase_preserves_all_three_published_layouts_and_question_notes(self):
+        group = "former-colleague-new-job-to-change-employment"
+        current = next(row for row in catalogue.tache_two_dialogues().values() if row.group == group)
+        positions = {
+            row.question: number for number, row in enumerate(current.questions, 1)
+        }
+        for index, previous in enumerate(catalogue.tache_two_location_history()[group].revisions):
+            with self.subTest(revision=index):
+                moved = {
+                    number: positions[row.question]
+                    for number, row in enumerate(previous.questions, 1)
+                    if row.question in positions
+                }
+                self.assert_revision_highlights_preserved(group, moved, revision=index)
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_work_comparison_closing_preserves_all_four_published_layouts_and_question_notes(self):
+        group = "canadian-work-hours-home-country-comparison"
+        current = next(row for row in catalogue.tache_two_dialogues().values() if row.group == group)
+        positions = {
+            row.question: number for number, row in enumerate(current.questions, 1)
+        }
+        for index, previous in enumerate(catalogue.tache_two_location_history()[group].revisions):
+            with self.subTest(revision=index):
+                moved = {
+                    number: positions[row.question]
+                    for number, row in enumerate(previous.questions, 1)
+                    if row.question in positions
+                }
+                self.assert_revision_highlights_preserved(group, moved, revision=index)
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_work_comparison_retired_closing_highlight_keeps_its_note_dates_and_archived_anchor(self):
+        self.configure_group("canadian-work-hours-home-country-comparison")
+        self.old = catalogue.tache_two_location_history()[self.current.group].revisions[3]
+        previous = dialogue_response(self.old)
+        rendered = _render_questions(
+            self.prompt, previous, "detail", [self.prompt], dialogue=self.old,
+        )
+        quote = self.old.closing
+        encoded = quote.encode("utf-16-le")
+        start = rendered.text.index(encoded) // 2
+        end = start + len(encoded) // 2
+        mark = Annotation.objects.create(
+            user=self.user, task=self.task, kind=AnnotationKind.HIGHLIGHT,
+            source_path=self.path,
+            source_key=variant_annotation_key(self.prompt, previous, tache_two_dialogue=self.old),
+            quote=quote, start_offset=start, end_offset=end,
+            prefix=rendered.slice(max(0, start - 160), start),
+            suffix=rendered.slice(end, end + 160),
+            body="Keep my note on the earlier closing.", study_later=True,
+        )
+        saved = Annotation.objects.filter(pk=mark.pk).values().get()
+        records = self.fetch()
+        self.assertIn(mark.pk, {row["id"] for row in records})
+        self.assertEqual(Annotation.objects.filter(pk=mark.pk).values().get(), saved)
+
+    def test_session_extent_rephrase_preserves_all_four_published_layouts_and_question_notes(self):
+        group = "calgary-university-adult-language-courses"
+        current = next(row for row in catalogue.tache_two_dialogues().values() if row.group == group)
+        positions = {
+            row.question: number for number, row in enumerate(current.questions, 1)
+        }
+        for index, previous in enumerate(catalogue.tache_two_location_history()[group].revisions):
+            with self.subTest(revision=index):
+                moved = {
+                    number: positions[row.question]
+                    for number, row in enumerate(previous.questions, 1)
+                    if row.question in positions
+                }
+                self.assert_revision_highlights_preserved(group, moved, revision=index)
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_survey_commute_replacement_preserves_all_four_published_layouts_and_question_notes(self):
+        group = "french-class-survey-francophone-student"
+        current = next(row for row in catalogue.tache_two_dialogues().values() if row.group == group)
+        positions = {
+            row.question: number for number, row in enumerate(current.questions, 1)
+        }
+        for index, previous in enumerate(catalogue.tache_two_location_history()[group].revisions):
+            with self.subTest(revision=index):
+                moved = {
+                    number: positions[row.question]
+                    for number, row in enumerate(previous.questions, 1)
+                    if row.question in positions
+                }
+                self.assert_revision_highlights_preserved(group, moved, revision=index)
+            Annotation.objects.filter(user=self.user).delete()
+
     def test_school_merge_preserves_all_five_published_layouts_and_moved_question_notes(self):
         group = "edmonton-newcomer-neighbor-schools"
         current = next(row for row in catalogue.tache_two_dialogues().values() if row.group == group)
@@ -1328,14 +1417,14 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_second_education_pass_preserves_the_first_review_and_its_moved_highlights(self):
         mappings = {
             "calgary-university-adult-language-courses": {
-                1: 2, 2: 1, 5: 5, 7: 7, 8: 8,
+                1: 2, 2: 1, 7: 7, 8: 8,
             },
             "edmonton-newcomer-neighbor-schools": {
                 2: 2,
             },
             "fellow-parent-first-school-fete": {1: 1, 2: 2, 5: 5, 7: 7},
             "french-class-survey-francophone-student": {
-                2: 2, 3: 3, 4: 4,
+                2: 2, 3: 4, 4: 5,
             },
             "french-teacher-language-school-student-game": {
                 2: 2, 3: 3, 4: 4, 5: 5, 7: 6, 8: 8,

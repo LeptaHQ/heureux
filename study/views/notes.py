@@ -26,6 +26,7 @@ from django.views.decorators.http import require_GET, require_POST, require_http
 
 from .. import catalogue
 from .. import content_loader as content_module
+from ..translation import DeepLResponseError, deepl_translate, post_json as _post_json
 from ..forms import (
     NewNoteForm,
     NoteForm,
@@ -1908,36 +1909,11 @@ def annotation_delete(request, pk):
 TRANSLATION_MAX_LENGTH = 2000
 
 
-def _post_json(url, payload, headers=None):
-    api_request = urllib.request.Request(
-        url,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json", **(headers or {})},
-        method="POST",
-    )
-    with urllib.request.urlopen(
-        api_request,
-        timeout=getattr(settings, "TRANSLATION_TIMEOUT", 8),
-    ) as api_response:
-        return json.loads(api_response.read().decode("utf-8"))
-
-
 def _deepl_translation(text, api_key):
-    host = "api-free.deepl.com" if api_key.endswith(":fx") else "api.deepl.com"
-    body = _post_json(
-        f"https://{host}/v2/translate",
-        {
-            "text": [text],
-            "source_lang": "FR",
-            "target_lang": getattr(settings, "DEEPL_TARGET_LANG", "EN-GB"),
-        },
-        {"Authorization": f"DeepL-Auth-Key {api_key}"},
-    )
-    translations = body.get("translations") if isinstance(body, dict) else None
-    if not isinstance(translations, list) or len(translations) != 1:
+    try:
+        return deepl_translate([text], api_key)[0]
+    except DeepLResponseError:
         return None
-    translation = translations[0].get("text") if isinstance(translations[0], dict) else None
-    return translation if isinstance(translation, str) else None
 
 
 def _libretranslate_translation(text, endpoint):

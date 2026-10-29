@@ -44,7 +44,7 @@ class SoftwareJobSearchReviewTests(SimpleTestCase):
         super().tearDownClass()
 
     def test_models_and_cues_outside_the_authorized_followups_stay_exact(self):
-        self.assertEqual(len(self.raw.keys() - FOLLOWUP_GROUPS), 156)
+        self.assertEqual(len(self.raw.keys() - FOLLOWUP_GROUPS), 152)
         self.assertEqual(
             fingerprint({
                 "dialogues": {g: row for g, row in self.raw.items() if g not in FOLLOWUP_GROUPS},

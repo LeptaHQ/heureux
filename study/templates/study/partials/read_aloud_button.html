@@ -1,5 +1,5 @@
 <button
-  class="linkbtn read-aloud-action{% if extra_class %} {{ extra_class }}{% endif %}"
+  class="{{ button_class|default:'linkbtn' }} read-aloud-action{% if extra_class %} {{ extra_class }}{% endif %}"
   type="button"
   aria-label="{{ label|default:'Lire à voix haute' }}"
   aria-pressed="false"
@@ -9,6 +9,7 @@
   {% if key %}data-read-aloud-key="{{ key }}"{% endif %}
   {% if target %}data-read-aloud-target="{{ target }}"{% endif %}
   data-flashcard-control
+  {% if annotation_exclude %}data-annotation-exclude{% endif %}
 >
   <span class="read-aloud-action__icon" aria-hidden="true">
     <svg viewBox="0 0 24 24">

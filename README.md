@@ -423,6 +423,43 @@ scripted answer. Earlier published layouts remain in the existing EO2 history,
 so unchanged questions can retain annotations when they move; personal questions
 and private prompt notes are never replaced by the revised public models.
 
+**EO2 question language.** The nine initial themes (arrival, housing, everyday
+services, work, school, outings, childcare/pet care, volunteering and tourist
+accommodation) support saved French/English question views: 75 models and 600
+questions. French is the default. The language control remembers an explicit
+choice across subjects; clicking a question number overrides only that row.
+Individual overrides reset on navigation. Greetings, thanks, headings and
+consignes remain French. Audio still reads the canonical French questions.
+
+English is served only from exact-text DeepL records in
+`study/content/tache_2/translations/questions.en.json`. Toggling never calls a
+translation provider or changes completion/practice status. French annotation
+text and existing highlights remain intact; English glosses are not French
+annotation sources. Modified private questions are never uploaded automatically:
+only questions matching saved public text can show cached English. Missing,
+stale or invalid translations are reported explicitly, with unavailable controls
+disabled rather than guessed translations.
+
+Preparation is an operator-only, resumable command. Set `DEEPL_API_KEY` locally
+(never commit it); `DEEPL_TARGET_LANG` defaults to `EN-GB`. Inspect the dry run,
+then replace `N` with its exact current source-character count:
+
+```bash
+python manage.py prepare_eo2_translations --dry-run
+python manage.py prepare_eo2_translations --prepare --confirm-characters N
+python manage.py prepare_eo2_translations --check
+```
+
+Only public French questions and public role-play context are sent to DeepL.
+Preparation checks the provider allowance first, skips exact cached questions,
+and saves each completed model atomically. After an interrupted request, inspect
+the new dry run before resuming; there is no automatic billable retry.
+Review the generated English before publishing and record `reviewed_at` only
+after that review. New preparation clears this stamp. Reviewed corrections retain
+the original DeepL text in `deepl_english` with a short `review_note`.
+An empty manifest means translations have not been prepared; the application
+does not substitute invented English.
+
 **Transports & mobilité** has 11 models for 26 publications; **Voyages & circuits**
 has 15 models for 32 publications. Their routes distinguish network information
 from a resident's advice, buying from renting, and occasional from neighbourly

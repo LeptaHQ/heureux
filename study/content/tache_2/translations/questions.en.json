@@ -1,0 +1,2594 @@
+{
+  "generated_at": "2026-10-29T06:02:46.888682+00:00",
+  "groups": {
+    "acquaintance-new-job-overall-experience": {
+      "22fbd0fcb2ec799c11dca4fd81751b5ff6906ac5dc20f25c6f3d5ec369905fec": {
+        "english": "What are your working hours, and can you adjust them if necessary?",
+        "french": "Quels sont tes horaires, et peux-tu les décaler si nécessaire ?"
+      },
+      "24957e3d55cf342dbdefd6a03f2437824825a12238c327e894434fe7ff17703d": {
+        "english": "How much of your travel pass does the company reimburse?",
+        "french": "Quelle part de ton abonnement de transport l'entreprise rembourse-t-elle ?"
+      },
+      "63682f4d1cd19ed190c055cfd9bb9dc98389a25a9ab80012ff70ca00a29c19c7": {
+        "english": "At the office, do you each have your own desk, or do you share workspaces?",
+        "french": "Dans les locaux, vous avez chacun un bureau ou vous partagez les espaces de travail ?"
+      },
+      "894b0cc753c78ff08c283cace7c103d830258a267397365dbd176908841b8f47": {
+        "english": "What sort of activities does the company organise, and how often do colleagues get together?",
+        "french": "Quels types d'activités l'entreprise organise-t-elle, et à quelle fréquence les collègues se retrouvent-ils ?"
+      },
+      "99fcdd5c85a9d382573d63edaf7d99a3be575e2750401812a089976c22e01369": {
+        "english": "What benefits do you get apart from your salary: health insurance, holiday entitlement or a travel allowance?",
+        "french": "Quels avantages as-tu en plus du salaire : assurance santé, congés ou aide pour les transports ?"
+      },
+      "be107de27641a15e3282c78398ce4a0b10444277229756efef674ed8907d5ea4": {
+        "english": "How long will your mentor be supporting you, and when will you have to start working independently?",
+        "french": "Combien de temps dure l'accompagnement de ta tutrice, et quand devras-tu travailler en autonomie ?"
+      },
+      "d5ec31ec43c942201d894c421ec328ff30b3d94afd481c2d71fc9f0ad0542ff9": {
+        "english": "In practical terms, what do you actually do in this new role?",
+        "french": "Concrètement, tu t'occupes de quoi dans ce nouveau poste ?"
+      },
+      "fc3c2f4ecd0a65d28df6e7095820c114d536b09d68770f561574d7e2e3fd2aef": {
+        "english": "How are things going with your colleagues: do you help each other out easily, or does everyone tend to work on their own?",
+        "french": "Comment ça se passe avec tes collègues : vous vous entraidez facilement, ou chacun travaille plutôt de son côté ?"
+      }
+    },
+    "animal-protection-association-invitation": {
+      "12f0f1cfa6d868dba3002195fc62ebcd6049acb1b40661283d0b7160d8199b7c": {
+        "english": "What actions do you take to protect animals: supporting shelters, promoting adoption or raising awareness?",
+        "french": "Quelles actions menez-vous pour protéger les animaux : soutien aux refuges, adoption ou sensibilisation ?"
+      },
+      "15166feec57a80ab980427bbe4eb19716f1ea41753b7fb862bc399038a5d36ea": {
+        "english": "How long does this training course last, and is it held in person or online?",
+        "french": "Combien de temps dure cette formation, et se fait-elle sur place ou en ligne ?"
+      },
+      "28b005247e58306ca1fca1971a8eb7d468def6ce5a3c0e12c53e1335fda54615": {
+        "english": "What tasks might I be given to start with, and where do these take place: at the shelter, at the reception desk or during collection drives?",
+        "french": "Quelles tâches pourrait-on me confier au début, et où se déroulent les missions : au refuge, en permanence d'accueil ou lors de collectes ?"
+      },
+      "3ce28ecbc17314be97baf4ab017d1a27049231ecd1bed94cc3fed70dfce08fa0": {
+        "english": "How do you support people who wish to adopt a pet?",
+        "french": "Comment accompagnez-vous les personnes qui souhaitent adopter un animal ?"
+      },
+      "427c88bce5c876ceb0073352f5fe89f22806f92821cdf6bcfb69dff0ac1fc202": {
+        "english": "Who are your information campaigns aimed at?",
+        "french": "À quel public s'adressent vos campagnes d'information ?"
+      },
+      "4ce9bac9f4a40e371d8b0186a3da63eb11e8cd1277851b3592b94f21ad50eec6": {
+        "english": "What steps do I need to take to join the organisation, and is it possible to meet the team in person first?",
+        "french": "Quelle démarche faut-il suivre pour rejoindre l'association, et peut-on d'abord rencontrer l'équipe sur place ?"
+      },
+      "578b90a469f84c26c823ace3ebf6eb555a228d06cc89055a09c6bd93e5f6ce38": {
+        "english": "Do I need any particular skills to get started?",
+        "french": "Faut-il une compétence particulière pour commencer ?"
+      },
+      "6fdc6d23a4de6e0dc3d1388258ceea66634f1c7a758f95147d6ec4e30d1825d3": {
+        "english": "For these activities, what days and times should I set aside, and can I help on an ad hoc basis, or is a minimum commitment required?",
+        "french": "Pour ces missions, quels jours et horaires faut-il prévoir, et peut-on aider ponctuellement ou faut-il s'engager sur une durée minimale ?"
+      }
+    },
+    "calgary-university-adult-language-courses": {
+      "1b0d6fed4b78e57095790b31b0f616c3a7e47d16b2ac10df1fa019c0407ba2a1": {
+        "english": "How many weeks does a term last, and how many hours of lessons are there per week?",
+        "french": "Une session s'étend sur combien de semaines, et combien d'heures de cours y a-t-il par semaine ?"
+      },
+      "20b6e37369b5dbb83f1176d1e1a80ab448e11a7efb9994325669572154f88ecc": {
+        "english": "For Spanish, do I need to take a placement test before choosing a class?",
+        "french": "Pour l'espagnol, faut-il passer un test de niveau avant de choisir un groupe ?"
+      },
+      "25eefda798e697553414382ec99fb4c575a4efbad45402900def8f58efc26250": {
+        "english": "Which languages do you currently offer for adults?",
+        "french": "Quelles langues proposez-vous actuellement aux adultes ?"
+      },
+      "bfeaabc7adbff33f8dc9e394567d12094a40cd5225c1714a63ebb6cf895f6e44": {
+        "english": "What timetables do you offer, particularly in the evenings or on Saturdays?",
+        "french": "Quels horaires proposez-vous, notamment en soirée ou le samedi ?"
+      },
+      "cbb835b73f457c978a63a3cfdc1374017f8a65cf63bce65bca2df50ef84eb652": {
+        "english": "How much does a twelve-week term cost, and is the textbook included?",
+        "french": "Combien coûte une session de douze semaines, et le manuel est-il compris ?"
+      },
+      "d441efaff32dcc0a0f70b876a01a839e5f29890b604e5e0a565c5b86e4f25ed9": {
+        "english": "Do you have to be a student at the university to enrol on these courses?",
+        "french": "Faut-il être étudiant de l'université pour s'inscrire à ces cours ?"
+      },
+      "e7034b6dd3f6ece3b4dadf3eb920a2ac5fd841b397c70bd1f75bc5ce0213e418": {
+        "english": "What is the deadline, and can I register entirely online?",
+        "french": "Quelle est la date limite, et l'inscription peut-elle se faire entièrement en ligne ?"
+      },
+      "f19314d6997021c74ce2d0b61c92f31d3a0351dc7182822ea67ff419462b394c": {
+        "english": "Are the courses offered on campus and online, or does the format depend on the level?",
+        "french": "Les cours sont-ils proposés sur le campus et en ligne, ou le format dépend-il du niveau ?"
+      }
+    },
+    "camping-reception-stay-preparation": {
+      "1a7b613c7ebe4153ca0aca9181fab7416e58647925459951b5e8c30deb68de4e": {
+        "english": "What facilities are available on site for cooking, shopping or keeping food fresh?",
+        "french": "Quels équipements trouve-t-on sur place pour cuisiner, faire ses courses ou conserver les aliments au frais ?"
+      },
+      "1e6183fbd8cdf55082fba84e8c2c6ee292b6d19d7bd1e401b3c7fd2fc828ed38": {
+        "english": "Which facilities are included in the price, particularly the showers, and which ones require an additional charge?",
+        "french": "Quels services sont compris dans ce prix, notamment les douches, et lesquels nécessitent un paiement supplémentaire ?"
+      },
+      "2a7633ce5859a5d72ade553f5f3e5002eead06ffb8badae032dc6d819b38c29a": {
+        "english": "For a tent, how big are the pitches, and can we choose a quiet, shaded area?",
+        "french": "Pour une tente, quelle est la taille des emplacements, et peut-on choisir une zone ombragée et calme ?"
+      },
+      "b68fea3beb66b5848ce04a1541b83d03e5010cd81c3ce8ca02a5046de3ed5b6f": {
+        "english": "If I need to change my dates or cancel, how far in advance can I do so, and how much would be refunded?",
+        "french": "Si je dois modifier mes dates ou annuler, jusqu'à quand puis-je le faire et quelle somme serait remboursée ?"
+      },
+      "c96aec354d581d951cd1278fc43e2bb3e83be07e6bee46567b129428b9170e94": {
+        "english": "How do you work out the price per night, and what extra charges apply depending on the number of people or the facilities available?",
+        "french": "Comment calculez-vous le prix par nuit, et que faut-il ajouter selon le nombre de personnes ou les branchements ?"
+      },
+      "cef8e522770d9a0c5e479dd77cf603333b62b1c632f729b3c12ec93142fd797b": {
+        "english": "To book a pitch, how do I check availability, and what payments are required in advance?",
+        "french": "Pour réserver un emplacement, comment vérifier les disponibilités et quels paiements sont demandés à l'avance ?"
+      },
+      "e1b0c4619d8a9b4836e819759d22045efff84e9586bbe66a08417b04cf6f41bc": {
+        "english": "What are the check-in and check-out times, and at what time do you ask guests to keep the noise down?",
+        "french": "Quels sont les horaires d'arrivée et de départ, et à partir de quelle heure le calme est-il demandé ?"
+      },
+      "e8e5982d1055b384ae35b5eec5bffc668c8439bb8a3b242b8cfbf879a7802761": {
+        "english": "What types of pitches do you offer – for example, for a tent or a motorhome – and what facilities are available?",
+        "french": "Quels types d'emplacements proposez-vous, par exemple pour une tente ou un véhicule récréatif, et avec quels branchements ?"
+      }
+    },
+    "canada-newcomer-apartment-procedure-unspecified-adviser": {
+      "04935e73c77f726430637482336afdc3d9ff5f4708fa63f33ae927366cef006c": {
+        "english": "Which neighbourhoods are well served by the CTrain whilst also offering shops and services within walking distance?",
+        "french": "Quels quartiers sont bien desservis par le CTrain tout en offrant des commerces et des services accessibles à pied ?"
+      },
+      "14accea7782ddae35321b4c660d491b9cda0c57ef0adbc36d93e966a2b0f4572": {
+        "english": "What is the average rent in these neighbourhoods, and what service charges are included?",
+        "french": "Quel loyer moyen faut-il prévoir dans ces quartiers, et quelles charges sont comprises ?"
+      },
+      "2f0301053814d65bc6444e5fdc34a9445158c7c0b696af7ca6a1e8276829e329": {
+        "english": "To start with, is it better to choose temporary furnished accommodation, a flat share, or go straight for a one-year tenancy?",
+        "french": "Pour commencer, vaut-il mieux choisir un logement meublé temporaire, une colocation ou directement un bail d'un an ?"
+      },
+      "414bbfecdd6f3b43520c22033b08bf13f68d610d21a251187d85d2d8342055c3": {
+        "english": "What documents do landlords usually ask for?",
+        "french": "Quels documents les propriétaires demandent-ils généralement ?"
+      },
+      "68afe0b67d91da83b7a26047bfdb3053186e87a5b4eebb743baba162e99a3d33": {
+        "english": "Before signing the tenancy agreement, where can I check the official tenancy regulations in Alberta?",
+        "french": "Avant de signer, où puis-je vérifier les règles officielles de location en Alberta ?"
+      },
+      "8abe552406ab374a5bdcf5a35dd8d86a3b5ada17b8b8bf60b4e8d1cf6e9a5050": {
+        "english": "Without any Canadian rental references, how can I make my application stronger, and do I need a guarantor?",
+        "french": "Sans références locatives canadiennes, comment pourrais-je renforcer mon dossier, et faut-il un garant ?"
+      },
+      "c31ffefec53a0fcc9ac28ab08b811593515b964856339cc5ec9f70c5656f0cd3": {
+        "english": "Where can I find reliable adverts, and what warning signs should make me avoid a particular listing?",
+        "french": "Où chercher des annonces fiables, et quels signes devraient me faire éviter une offre ?"
+      },
+      "c6ec424fb59d678aa055f278812d1edeb81498a2a8e5404f090b3edf8f0eee43": {
+        "english": "How much extra should I budget for a furnished flat?",
+        "french": "Quel supplément faut-il prévoir pour un logement meublé ?"
+      }
+    },
+    "canada-newcomer-municipal-settlement-service": {
+      "09100889696438ee226d9cc38d53a2be31a83fa2a657355a477c8d4e4f6cd8bf": {
+        "english": "And what can I do here at the town hall, rather than through provincial or federal services?",
+        "french": "Et qu'est-ce que je peux faire directement ici, à la mairie, plutôt qu'auprès des services provinciaux ou fédéraux ?"
+      },
+      "4d658bdc5c472525eaa181c08aff557cbbe6d2c586f24b64ea461a7a9065bbbf": {
+        "english": "Regarding the mentoring programme, how do you sign up, and what practical support does the volunteer actually offer?",
+        "french": "Pour le programme de jumelage, comment s'inscrit-on et quel accompagnement le bénévole propose-t-il concrètement ?"
+      },
+      "a898d54c4cf3c9ab1482dea841bea97456bd4128b9c0c23d1f8f4593b0e8b952": {
+        "english": "Which municipal services can help me practise French, look for a job or get to know Calgary?",
+        "french": "Quels services municipaux peuvent m'aider à pratiquer le français, chercher un emploi ou découvrir Calgary ?"
+      },
+      "b1322ffcedaae10e8df9de23c3c97293eea6616196f14b3b09042b95a8bc4e07": {
+        "english": "And for a studio or a one-bedroom flat, what sort of rent should I expect, depending on the area?",
+        "french": "Et pour un studio ou un appartement d'une chambre, quelle gamme de loyers faut-il prévoir selon le secteur ?"
+      },
+      "d5afa287dc67dbd319256a7829767c1fcff7f5ff1c44c82bebaf9d8e9fe34097": {
+        "english": "If I want to apply for subsidised housing, what criteria do I need to meet and how long does it usually take?",
+        "french": "Si je veux demander un logement à loyer réduit, quelles conditions faut-il remplir et quel délai faut-il généralement prévoir ?"
+      },
+      "e530a0202dbb51323c4e3741795c4ecb17bc90fdf51793c5c158d1eb8143d136": {
+        "english": "For this reception centre, do I need to book online, by phone or in person, and what documents do I need to bring?",
+        "french": "Pour ce centre d'accueil, faut-il réserver en ligne, par téléphone ou sur place, et quels documents dois-je apporter ?"
+      },
+      "ebbc7be6f0e57cd52a5c41643467509d554de518713b0e81949c4a18b62bdabf": {
+        "english": "When it comes to these formalities, where should I start — health insurance or applying for a Social Insurance Number, for example?",
+        "french": "Pour mes démarches, par quoi dois-je commencer — l'assurance maladie ou la demande de numéro d'assurance sociale, par exemple ?"
+      },
+      "edc2bdd00a64b1e80c46662c7a968679e4478d39f2ce76835fb6a2a2e6b77867": {
+        "english": "What types of accommodation are available to a newcomer here in Calgary — private rental, temporary accommodation or social housing?",
+        "french": "Quels types de logements un nouvel arrivant peut-il envisager ici, à Calgary — location privée, logement temporaire ou logement social ?"
+      }
+    },
+    "canada-newcomer-settlement-friend": {
+      "5523a22e58512b476936b3325a5094eacfa62aa934b9cbd8c34f36646017d27a": {
+        "english": "If I need medical care before I’ve found a GP, should I ring the provincial health service, book an appointment at a clinic or go for a walk-in consultation?",
+        "french": "Si j'ai besoin de soins avant d'avoir un médecin de famille, dois-je appeler le service provincial, réserver dans une clinique ou chercher une consultation sans rendez-vous ?"
+      },
+      "7c69279670bd1196bf6f700e4ffce9606f8eeeeb148a8ea16d0af66bbf7236bf": {
+        "english": "And for a room in a shared flat or a small flat, what sort of rent should I expect, including service charges?",
+        "french": "Et pour une chambre en colocation ou un petit appartement, quelle fourchette de loyers faut-il prévoir, charges comprises ?"
+      },
+      "88205119d5df2036aaf21236cb1b95cbed092f13eb8778f2bb8fa79d606c65b3": {
+        "english": "In Calgary, is it easy to get around by bus, metro or bike without a car?",
+        "french": "À Calgary, peut-on se déplacer facilement en bus, en métro ou à vélo sans avoir de voiture ?"
+      },
+      "bbfe2422dfcb1af2b719b37db0f91b3638a9e2ccb094da54b7fb7c2b36d2ad38": {
+        "english": "For my first few months in Calgary, would you recommend temporary accommodation, a flat share or a small flat, and which well-connected neighbourhoods should I look in?",
+        "french": "Pour mes premiers mois à Calgary, me conseillerais-tu plutôt un logement temporaire, une colocation ou un petit appartement, et dans quels quartiers bien desservis chercher ?"
+      },
+      "c85edb534c42568566215179227fa989d98b4108163babff5342e2495d46a783": {
+        "english": "Of these tasks, which ones require a permanent address, and which ones can I already start online using my documents?",
+        "french": "Parmi ces démarches, lesquelles exigent une adresse définitive et lesquelles puis-je déjà commencer en ligne avec mes documents ?"
+      },
+      "da374d3667296bd790f2fedd581dabd8fa7f57c6f93dd8e17cb9ac34a8e57fca": {
+        "english": "Finally, which regular activity would be the best way to meet people — a conversation group, sport, volunteering or a cultural workshop?",
+        "french": "Enfin, quelle activité régulière serait la plus accueillante pour rencontrer du monde — groupe de conversation, sport, bénévolat ou atelier culturel ?"
+      },
+      "f18662e88079d370317a6b51717b4c1d267bb0fa848e78c6b55fa4f637f914d3": {
+        "english": "Which shops should I look out for near my home — a supermarket, chemist’s, bank or discount store — and which ones stay open in the evening?",
+        "french": "Quels commerces devrais-je repérer près de chez moi — épicerie, pharmacie, banque ou magasin à petits prix — et lesquels restent ouverts le soir ?"
+      },
+      "ff9ba011b77e4cc5090b325bfa75a2db07edf491d534eb3bc9c7ff9769380bf4": {
+        "english": "As for the rest of the settling-in process, what should I sort out in the first week — health insurance, a social insurance number, a bank account or a mobile phone?",
+        "french": "Pour le reste de mon installation, qu'est-ce que je devrais régler dès la première semaine — assurance maladie, numéro d'assurance sociale, compte bancaire ou téléphone ?"
+      }
+    },
+    "canadian-friend-long-time-catch-up": {
+      "19447099e92a0fbca4140dddbc301aed15ce33c907cdf857f45a426cafd124c3": {
+        "english": "Now that you live near the school, how has this move changed your daily life?",
+        "french": "Maintenant que tu habites près de l'école, qu'est-ce que ce déménagement a changé dans ton quotidien ?"
+      },
+      "3a401b9f4981793dbc4b94465a4d787bc90a7a01009f97a3cc9d133e2c541c1c": {
+        "english": "And since we last saw each other, are you still living in the same neighbourhood in Calgary?",
+        "french": "Et depuis qu'on ne s'est pas vus, est-ce que tu habites toujours dans le même quartier de Calgary ?"
+      },
+      "9e8a340fe93ddaf0fd33d68122353f9ccffd5ec726179256a0ed6a522c1f09d8": {
+        "english": "And when you’re not working, how do you spend your free time at the moment?",
+        "french": "Et quand tu ne travailles pas, comment occupes-tu ton temps libre en ce moment ?"
+      },
+      "aff658a9c65793b869ad1d13e33b43ae38da760d2de2510ea262d52e66bdc341": {
+        "english": "So you’ve taken up curling! What do you like most about the sport?",
+        "french": "Tu t'es donc mis au curling ! Qu'est-ce qui te plaît le plus dans ce sport ?"
+      },
+      "b499203b6c96404450e24ab8ad64c8840a2979f830e81897df05a4df95852921": {
+        "english": "A little niece – that’s wonderful news! Do you see your sister and the baby often?",
+        "french": "Une petite nièce, c'est une belle nouvelle ! Est-ce que tu vois souvent ta sœur et le bébé ?"
+      },
+      "b8d548e83f50b5ba0cef16ad36ffe55749403df36140e35d752ebd0f4b617b01": {
+        "english": "And what about your family – what important events have taken place since we last met?",
+        "french": "Et du côté de ta famille, quels événements importants ont eu lieu depuis notre dernière rencontre ?"
+      },
+      "e275cfbaa90f35552f1558941753cfe08aac5a517bbcb6ac333a41a5ca7f08d2": {
+        "english": "To start with, are you still working as an accountant at the hospital, like you were the last time we met?",
+        "french": "Pour commencer, est-ce que tu travailles toujours comme comptable à l'hôpital, comme la dernière fois qu'on s'est vus ?"
+      },
+      "e62c3e0f4c45423f48584dc408621553026709d2d244b6d443d022d7d6a8430c": {
+        "english": "Oh, so you’re a teacher now! What made you decide to leave accountancy to work in a school?",
+        "french": "Ah, tu enseignes maintenant ! Qu'est-ce qui t'a donné envie de quitter la comptabilité pour travailler dans une école ?"
+      }
+    },
+    "canadian-work-hours-home-country-comparison": {
+      "2d5a18114e6047dc9d8734c0f81d8b8781e5bf41453c4e09785d82d8bfe41a40": {
+        "english": "If you have a personal appointment, can you adjust the time you arrive or leave?",
+        "french": "Si tu as un rendez-vous personnel, peux-tu décaler ton arrivée ou ton départ ?"
+      },
+      "428bd892a034e3c251395f6e4f1f889417a648f13e575b3c7ca04508736bf9c6": {
+        "english": "How far in advance do you need to give notice to take a week’s holiday?",
+        "french": "Pour prendre une semaine de congé, tu dois prévenir combien de temps à l'avance ?"
+      },
+      "606b328b1f23e73eea69de17821486c5aed877e6cc4b7d182fa47740fbb3e5f2": {
+        "english": "Back home, we sometimes work on Saturdays; does that happen to you too during busy periods?",
+        "french": "Chez moi, on travaille parfois le samedi ; est-ce que ça t'arrive aussi en période chargée ?"
+      },
+      "85cd9f1657068294484ca444fe6e5f2ff21aeaea714723459346a8775e0b04af": {
+        "english": "How many days’ holiday do you get each year?",
+        "french": "De combien de jours de vacances disposes-tu par an ?"
+      },
+      "8e6c2b7c1cda6de0a4743ff38e2f309e3f82747c18b512464b9674191ddebbe8": {
+        "english": "How long is your lunch break, and is it counted as part of your working hours?",
+        "french": "Combien de temps dure ta pause déjeuner, et est-elle comptée dans tes heures de travail ?"
+      },
+      "b37a6eb3f9dd67353c86161e3a4c37c79ebdd96ec445207b7d5f1f40b5201393": {
+        "english": "On public holidays, does your company close, or do some teams have to work?",
+        "french": "Les jours fériés, ton entreprise ferme-t-elle, ou certaines équipes doivent-elles travailler ?"
+      },
+      "d057fcd7e536b40067eff9234c5e9ac2b62847e618156c1e35f98aff5c11ced7": {
+        "english": "Which days of the week do you work, and from what time to what time?",
+        "french": "Tu travailles quels jours de la semaine, et de quelle heure à quelle heure ?"
+      },
+      "e81dc544a7492aa0ef74dd70e0dab01f8d3469df23d649e458bb685ad7cb2167": {
+        "english": "If you work overtime, do you get paid for it or take time off in lieu?",
+        "french": "Si tu fais des heures supplémentaires, sont-elles payées ou récupérées en temps de repos ?"
+      }
+    },
+    "child-friends-family-holiday-invitation": {
+      "152327ca88d8350357c8612a200c0cf1579a679d0805bbd82492cb5cab439f33": {
+        "english": "What activities have you planned for them?",
+        "french": "Quelles activités avez-vous prévues pour eux ?"
+      },
+      "1fb27807f6d14cf014b871e2342be9326cb3ef171fc26c566a4e6869187a3de0": {
+        "english": "How many children will be going on the trip, and which adults will be there to look after them?",
+        "french": "Combien d'enfants participeront au séjour, et quels adultes seront présents pour les encadrer ?"
+      },
+      "2c02749bc49fb436efa7e92a42575e8e50ce5f1035b6391b4e6608dd95c160d0": {
+        "english": "What mode of transport will you be using, and what safety equipment is provided for the children?",
+        "french": "Quel moyen de transport utiliserez-vous, et quels équipements de sécurité sont prévus pour les enfants ?"
+      },
+      "5cef0aaabbdaee7449a19ed6a2f8642dbf30bb3f805d1f3a58cd0fbd20dc2ad2": {
+        "english": "Regarding the boat, will each child have a life jacket that fits them properly?",
+        "french": "Pour le canot, chaque enfant aura-t-il un gilet de sauvetage adapté à sa taille ?"
+      },
+      "7ad27c2f2c65da55b456ae32b5e7fe830ece966fce64abd15ee3b7eb128deb20": {
+        "english": "How much should I pay you for my child’s stay, what costs are included, and do I need to pay you before we set off?",
+        "french": "Combien dois-je vous donner pour le séjour de mon enfant, quels frais sont compris et faut-il vous payer avant le départ ?"
+      },
+      "99a4132aa9bfdae919eaae4887ec34e8f7a5441f58d6850ec16b4d25f14826f2": {
+        "english": "What sort of accommodation have you arranged there, and is there a booking I need to make before we set off?",
+        "french": "Quel hébergement avez-vous prévu sur place, et y a-t-il une réservation à faire de mon côté avant le départ ?"
+      },
+      "a1049bfa4e563af2343015de9cc97783268b281922437f0d0ffa0db0078836f5": {
+        "english": "Where are you planning to go on holiday, and when will you be going?",
+        "french": "Où comptez-vous passer les vacances, et quelles sont les dates du séjour ?"
+      },
+      "d5933d0f44b30f0f0efd3c62afd3342c9e23d62b9d9f428ec75cc81bced33e9c": {
+        "english": "Will you be contactable throughout the holiday, and how can I get updates on my child?",
+        "french": "Serez-vous joignable pendant tout le séjour, et comment pourrai-je avoir des nouvelles de mon enfant ?"
+      }
+    },
+    "colleague-babysitter-referral-needs": {
+      "5e65016a3fea10100aacc2fa7c77c6b4c4e86ab8fdedce7c48a764608f82b978": {
+        "english": "Are there any allergies, foods to avoid or special care requirements that the person will need to take into account?",
+        "french": "Y a-t-il des allergies, des aliments à éviter ou des soins particuliers dont la personne devra tenir compte ?"
+      },
+      "6c4bcccc43433707a30590d2f91c0a170d15238f8bae3e6bd942e29fdd0ba6eb": {
+        "english": "What tasks will the person be expected to carry out: picking the children up from school, helping with homework or preparing meals?",
+        "french": "Quelles tâches devra assurer la personne : sortie de l'école, aide aux devoirs ou préparation des repas ?"
+      },
+      "6d584316ec1bf1e6ba2d8a0acd97e0dd18ccc1287571cbeb359600605d7cdc98": {
+        "english": "What pay are you offering for this childcare role, and how and when will it be paid?",
+        "french": "Quelle rémunération proposez-vous pour cette garde, et comment et quand sera-t-elle versée ?"
+      },
+      "8a6ed3bf2ea904d3a2dec5a8a3e6dbec2fc4594deeaf7e8e1108c0978fd8ee4e": {
+        "english": "How many children need looking after, and how old are they?",
+        "french": "Combien d'enfants faudrait-il garder et quels âges ont-ils ?"
+      },
+      "8cb6e00e65c7e8648bfc3487ee160cc00eaf33a19385b1f4d54e5705660bdb3f": {
+        "english": "In which neighbourhood would the childcare take place, and would it be at your home or at the recommended person’s home?",
+        "french": "Dans quel quartier se ferait la garde, et serait-ce chez vous ou chez la personne recommandée ?"
+      },
+      "a02baee6d844aba41e29cf684d6305400443e2e4906fdabe599e57ebdd29ca27": {
+        "english": "Which days and times need covering, and from when and for how long?",
+        "french": "Quels jours et horaires faut-il couvrir, et à partir de quand et pour quelle durée ?"
+      },
+      "f57455d986ddfb7c240198e9ee2e1e766602d4f602c58be53cdb0fe3502e58d6": {
+        "english": "Would you like to arrange an initial meeting between the person and your children before confirming the childcare arrangement?",
+        "french": "Souhaitez-vous prévoir une première rencontre entre la personne et vos enfants avant de confirmer la garde ?"
+      },
+      "fb368580b205e7ea3e07b9fabcc227ee63476189e8ab66d786164d1bfc8d090c": {
+        "english": "What experience or training would you like the person to have, particularly in first aid?",
+        "french": "Quelle expérience ou formation souhaitez-vous que la personne possède, notamment en premiers secours ?"
+      }
+    },
+    "colleague-internal-job-change": {
+      "2875ce1e42409fe33dc9d23a3f4d26009d6be8eac68fe24f6a9b4bae857bdb5b": {
+        "english": "If it’s not too personal, has your salary increased with this change of role?",
+        "french": "Si ce n'est pas indiscret, votre salaire a-t-il augmenté avec ce changement de poste ?"
+      },
+      "2e42dfa969502a7c9a0ec96d92269a1d27877710ba450e7559bf8d5df6e4664b": {
+        "english": "To coordinate these projects, which departments do you work with most often?",
+        "french": "Pour coordonner ces projets, avec quels services travaillez-vous le plus souvent ?"
+      },
+      "4709bbd48460104e6a6b4c24a50dbb269d99de9ea24b288bddb318bce3cff296": {
+        "english": "What is this bonus based on: the results of your projects or those of the whole team?",
+        "french": "Sur quoi repose cette prime : les résultats de vos projets ou ceux de toute l'équipe ?"
+      },
+      "5ac4de7c06c163102d8087242ce9c6f928a66985f188d2f14d6118f49bb8973f": {
+        "english": "When working from home, how do you stay in touch with the team when an urgent decision needs to be made?",
+        "french": "En télétravail, comment gardez-vous le contact avec l'équipe quand une décision urgente est nécessaire ?"
+      },
+      "5c7a7e4e5d3b5ebca19209632b729cb568b0c10a115e0e242f3b7fd6a9017527": {
+        "english": "How did you get this job?",
+        "french": "Comment avez-vous obtenu ce poste ?"
+      },
+      "964ddf992b06afc0ef910c5b74ee562cff5804b11edebc8100845b923c6727f6": {
+        "english": "Which tasks now take up most of your day?",
+        "french": "Quelles tâches occupent désormais la plus grande partie de vos journées ?"
+      },
+      "b0d5081071152d17ffdfbabf65dc1d509ce5d9e8dade36e1e9e365f585d0ce20": {
+        "english": "What are your working hours in this role, compared to those in your previous team?",
+        "french": "Quels sont vos horaires dans ce poste, par rapport à ceux de votre ancienne équipe ?"
+      },
+      "c9511bc2678ede929ed7d5e00666423a25c6715b398d8a82dc4b0283b11ef639": {
+        "english": "Which skill was the most crucial to your success in this internal move?",
+        "french": "Quelle compétence a été la plus déterminante pour réussir cette mobilité interne ?"
+      }
+    },
+    "colleague-summer-house-rental": {
+      "14805bdd8245a8465967c5ce25118974099683e25259def561d951a8f18fc6d7": {
+        "english": "When exactly is the house available, and what’s the minimum rental period?",
+        "french": "Quand la maison est-elle disponible exactement, et quelle est la durée minimale de location ?"
+      },
+      "4883547a395913ea7f08f4a3002f1f77c07dbae5f679a65f3c27e4ea323c6375": {
+        "english": "What facilities will we be able to use, particularly for cooking, doing the washing or enjoying the outdoors?",
+        "french": "Quels équipements pourra-t-on utiliser, notamment pour cuisiner, laver le linge ou profiter de l'extérieur ?"
+      },
+      "52caf3d5a7da3c571e8840ab3ca89b402c0538eaafb64469340b84ecefb91e03": {
+        "english": "What would the price be for a week in early July, and how much would I need to pay as a deposit to book it?",
+        "french": "Quel serait le prix pour une semaine début juillet, et quel acompte faudrait-il verser pour réserver ?"
+      },
+      "5f44eeba9feee88099578617c719b2eca4833a278e986a2c91492c4d825824b8": {
+        "english": "Is Ballard quite quiet or lively in the summer, especially in the evenings and at weekends?",
+        "french": "Ballard est-il plutôt calme ou animé en été, surtout le soir et le week-end ?"
+      },
+      "616df3df9a6e51594deb23c4afa8fa794506c3e3ab6feafd296895f704b59fd2": {
+        "english": "How many bedrooms and bathrooms does the house have, and how many beds are there?",
+        "french": "De combien de chambres et de salles de bains dispose la maison, et quels couchages sont prévus ?"
+      },
+      "a866dedf565ce3666c5fe8c685b0a0344304b6e881dfbc1be46419c114366a69": {
+        "english": "What additional costs are there, such as taxes or cleaning fees, and do you require a refundable deposit?",
+        "french": "Quels frais faut-il ajouter, notamment les taxes ou le ménage, et demandez-vous une caution remboursable ?"
+      },
+      "a91be04916ce498fc080f6b4470106c0dd940b8c85602d89d85281ac9308e17e": {
+        "english": "Can we walk to the park and the shops, and get to the city centre easily without a car?",
+        "french": "Peut-on aller à pied au parc et aux commerces, puis rejoindre facilement le centre-ville sans voiture ?"
+      },
+      "dae1de3bafc53aeac4261033e277a05a4ca32aac6d069b856d08f8fb9fb0544e": {
+        "english": "Before booking, can we view the house and get the cancellation policy and key handover arrangements in writing?",
+        "french": "Avant de réserver, peut-on visiter la maison et obtenir par écrit les conditions d'annulation et de remise des clés ?"
+      }
+    },
+    "director-canada-fortnight-training": {
+      "1047404bedc505e91b0aac8b839f3b83f580ff7cf827b8950efb069b0620ba50": {
+        "english": "What sort of accommodation is planned: a hotel room or a flat, and how far away is it from the training centre?",
+        "french": "Quel hébergement est prévu : une chambre d'hôtel ou un appartement, et à quelle distance du centre de formation ?"
+      },
+      "12fe8f691d76ca703abb2027b9a52e78c89dc3885f150b8c3a0bf18b5335e33e": {
+        "english": "How will the transfer from the airport and the daily journeys between your accommodation and the training centre be organised?",
+        "french": "Comment seront organisés le transfert depuis l'aéroport et les trajets quotidiens entre le logement et le centre de formation ?"
+      },
+      "136c98192d69f5d10febb6cf96f213c6e138324da4469344bf6c62d50870cb19": {
+        "english": "What will the training timetable be, and will there be sessions at the weekend?",
+        "french": "Quels seront les horaires de formation, et y aura-t-il des séances le week-end ?"
+      },
+      "23431a67836028dbd59deed5489d63b0dc5e4ca82f6d277b6b612208c6875468": {
+        "english": "What activities are planned outside of the training?",
+        "french": "Quelles activités sont prévues en dehors de la formation ?"
+      },
+      "26b2c7cb720fe689b357cfbc52502a7f4120561395cbff0fe5e45886a2669fe2": {
+        "english": "In which city will the training take place, and what are the scheduled dates?",
+        "french": "Dans quelle ville se déroulera la formation, et quelles sont les dates prévues ?"
+      },
+      "327c1281dc4070e8783bfd57a53cc9a2c2d24277f1535bea876c4306da7c1d9a": {
+        "english": "Which costs will the company cover: flights, accommodation, meals and local transport?",
+        "french": "Quels frais l'entreprise prendra-t-elle en charge : vol, hébergement, repas et déplacements sur place ?"
+      },
+      "438a06a922b1059e0e292af6af896721a5c8d47ed1f9794db73c959969f657ac": {
+        "english": "Are these activities covered, or do I need to set aside some money from my own budget?",
+        "french": "Ces activités sont-elles prises en charge, ou dois-je prévoir un budget personnel ?"
+      },
+      "7eeb3ff10d53f722976eb69cf99ffd159bacce76074d2cc2a58ccfe3033d4feb": {
+        "english": "What topics will be covered during the training, and will there be a practical component?",
+        "french": "Quels sujets seront abordés pendant la formation, et y aura-t-il une partie pratique ?"
+      }
+    },
+    "edmonton-newcomer-neighbor-schools": {
+      "091874cad33303f7bc569c40d90c7edd2428d5a40ff1cfcd36221a9af9bf3945": {
+        "english": "Do any of them teach in French?",
+        "french": "Est-ce que certaines d'entre elles enseignent en français ?"
+      },
+      "16f6a700cd36e67e75ed7aa5379d4e8e20e6543709e59352defd89c5e47fef58": {
+        "english": "What sports, music activities or clubs are on offer, and do they take place at lunchtime or after school?",
+        "french": "Quels sports, activités musicales ou clubs sont proposés, et ont-ils lieu le midi ou après les cours ?"
+      },
+      "4e0ef95bda328c702f4a8f008bb1d857f1dbd7021c5ab517a6a891369c48108d": {
+        "english": "How are new pupils supported during their first few days at school – for example, by a classmate or a teacher?",
+        "french": "Comment les nouveaux élèves sont-ils accompagnés pendant leurs premiers jours à l'école, par exemple par un camarade ou un enseignant ?"
+      },
+      "79bca94145d6f71e95956444750072fc50ff2ec76c8d0947958fbe374f583746": {
+        "english": "In your experience, what do you think of the teachers, particularly the way they explain things and help the pupils?",
+        "french": "D'après votre expérience, comment trouvez-vous les enseignants, notamment leur façon d'expliquer et d'aider les élèves ?"
+      },
+      "915b3b9d52ae98e95cb36480379a2a045cf2e4c12db3dee647c9fed59744dcfd": {
+        "english": "On days when there are no after-school activities, is there an after-school care service available, until what time, and how much does it cost?",
+        "french": "Les jours sans activité après les cours, existe-t-il un service de garde, jusqu'à quelle heure et à quel tarif ?"
+      },
+      "a989b4026e59dd42267159c2f65c4b2969178e1e3ddff9736d03ff88b539e3b5": {
+        "english": "Where are these schools, and can you get there on foot or by bus?",
+        "french": "Où se trouvent ces écoles, et peut-on s'y rendre à pied ou en bus ?"
+      },
+      "f78dbd54aca94f29c1ed6551f421018107b1429c15f145a848a91e710a2c5dd1": {
+        "english": "Where can I find out which local schools I can enrol my children in based on our address?",
+        "french": "Où puis-je vérifier à quelles écoles du quartier je peux inscrire mes enfants en fonction de notre adresse ?"
+      },
+      "fd5b2d55e9495f4b4d690dfc11943d876d9670e2812691d440b621d01dc10887": {
+        "english": "Once the school has been confirmed, who should I contact about enrolment and which documents do I need to have checked?",
+        "french": "Une fois l'école confirmée, à qui m'adresser pour l'inscription et quels documents dois-je faire vérifier ?"
+      }
+    },
+    "estate-agent-advertised-apartment-purchase": {
+      "4f209d207c13a7d33d1e74ddfc98f5e923fca0234a1b746193057b829a40e9fb": {
+        "english": "What shops, parks and transport links are there around the building, and is it easy to live in this area without a car?",
+        "french": "Quels commerces, parcs et transports trouve-t-on autour de l'immeuble, et peut-on facilement vivre dans ce secteur sans voiture ?"
+      },
+      "551493cf4284a171fb286203ba6ef701e0f974d7af7783888fed477db8ec9ef3": {
+        "english": "What is the exact size of the flat?",
+        "french": "Quelle est la superficie exacte de l'appartement ?"
+      },
+      "7b5b7dd3b9ba693ef91b0bd79ba49b64a74fb26c44224efbd92ccc80e482ebeb": {
+        "english": "How are the rooms laid out within this space?",
+        "french": "Comment les pièces sont-elles réparties dans cette surface ?"
+      },
+      "83e8dcacd9598c961192090ea761a72e5fbf497fe84906db1dcf6b02f893c72f": {
+        "english": "Does the flat have a balcony, storage space or a parking space?",
+        "french": "L'appartement dispose-t-il d'un balcon, d'un espace de rangement ou d'une place de stationnement ?"
+      },
+      "930d079ff3b953e927a50a29a9c9119987c8fa1fed705f1fc516bfd399ae389d": {
+        "english": "Are any major works or special levies already planned for the block?",
+        "french": "Des travaux importants ou une cotisation spéciale sont-ils déjà prévus dans l'immeuble ?"
+      },
+      "a300087ade74d93454cb303b46f2f43f52a035d8261fb933b9bc98b61de5a3e0": {
+        "english": "When could I come and view the flat?",
+        "french": "Quand pourrais-je passer voir l'appartement ?"
+      },
+      "e88c7aa4db2742d90ba845f632151ee0bfb7d3c3eb8c996be57cdc34b86562df": {
+        "english": "Does the flat need any work done on it, or is it ready to move into?",
+        "french": "L'appartement nécessite-t-il des travaux, ou est-il prêt à être habité ?"
+      },
+      "f24936ff5916fcf58b0f32b28957a0eed50dc96f5e17b2841637dfaed62819cc": {
+        "deepl_english": "What is the asking price, and how much are the annual council rates?",
+        "english": "What is the asking price, and how much are the annual property taxes?",
+        "french": "Quel est le prix demandé, et à combien s'élèvent les taxes foncières annuelles ?",
+        "review_note": "Preserve taxes foncières without substituting a UK or Australian local tax."
+      }
+    },
+    "estate-agent-advertised-apartment-unspecified": {
+      "17b2f7f5fa02d824fb400565c9af03944e48759cb35591c02109165d8fc7e766": {
+        "english": "When would it be possible to view the flat?",
+        "french": "Quand serait-il possible de visiter l'appartement ?"
+      },
+      "33495157b1db2c61ae6e1253878a5e89785872135aa003f0041aa28cec15de94": {
+        "english": "What is the floor area of the flat, and does it have a balcony or any storage space?",
+        "french": "Quelle est la superficie de l'appartement, et dispose-t-il d'un balcon ou d'un espace de rangement ?"
+      },
+      "4200f8d89edd18f670c8d0423664f641c4f80300591cf1edc95ec7e39f46c3cb": {
+        "deepl_english": "As well as the advertised price, how much are the monthly service charges and the annual council tax?",
+        "english": "In addition to the advertised price, how much are the monthly condominium fees and the annual property taxes?",
+        "french": "En plus du prix annoncé, à combien s'élèvent les frais de copropriété mensuels et les taxes foncières annuelles ?",
+        "review_note": "Distinguish copropriété fees and property taxes; do not introduce UK council tax."
+      },
+      "4c1b55c3cfd4c550e5aabf0d0405fb7ee0a2c340622f8c2c31cb9195cfc70efd": {
+        "english": "What condition are the kitchen, the bathroom, the windows and the heating in?",
+        "french": "Dans quel état sont la cuisine, la salle de bains, les fenêtres et le chauffage ?"
+      },
+      "ba34882d8ea9c97719c8fc4572be385dd6f326ede861c72961d2ce6b2b293700": {
+        "english": "Is Ballard a quiet, family-friendly or lively area, particularly in the evenings and at weekends?",
+        "french": "Ballard est-il plutôt calme, familial ou animé, surtout le soir et le week-end ?"
+      },
+      "d537aef2496e5541665a15e7ebac7c7d10dbca268adc481a7311d66baf067415": {
+        "english": "Is this flat for sale or to let?",
+        "french": "Cet appartement est-il proposé à la vente ou à la location ?"
+      },
+      "d9240442c772aeeaa269ac61e1e8e80b4c8e3d3fb12a2d0b3c4fe43057fc5bc1": {
+        "english": "How are the rooms laid out?",
+        "french": "Comment les pièces sont-elles réparties ?"
+      },
+      "e7470683c6d00e0b4cb18d204977a776c66b6f2d6088eb1f1d276f6b1e67e995": {
+        "english": "What is the asking price for this flat?",
+        "french": "Quel est le prix demandé pour cet appartement ?"
+      }
+    },
+    "estate-agent-housing-options": {
+      "1ef29120ee4a64f7fe316133596c319e1f4e49c30f726c456544f5dfbde663fa": {
+        "english": "For each property, what service charges are included, and what costs should I expect for parking or the laundry facilities?",
+        "french": "Pour chaque offre, quelles charges sont comprises, et quels frais faut-il prévoir pour le stationnement ou la buanderie ?"
+      },
+      "24b86091a238d73ca4e2ffb6d08ce2de5620c80031d45cce03cbda36144c2cbe": {
+        "english": "And in terms of day-to-day life, what shops and services are within walking distance — such as a supermarket, chemist’s, GP surgery or library — in each of these neighbourhoods?",
+        "french": "Et pour la vie quotidienne, quels commerces et services sont accessibles à pied — épicerie, pharmacie, clinique ou bibliothèque — dans chacun de ces quartiers ?"
+      },
+      "76721206af4fb53a75ecb276783c4148d532f100a0e73a46945dbebd216a49db": {
+        "english": "In terms of budget, what range of rents should I expect?",
+        "french": "Côté budget, quelle fourchette de loyers faut-il prévoir ?"
+      },
+      "c20424e56aacc052218495468a40c3d0ebd5bf9a50195680e294354d1bb68a02": {
+        "english": "When will these properties become available, and what is the minimum lease term?",
+        "french": "À partir de quand ces logements sont-ils disponibles, et quelle est la durée minimale du bail ?"
+      },
+      "d0bd8ac22c2eddfb2f200d027d100d450363096042622ada5ea7b1727f0d0734": {
+        "english": "And in which neighbourhoods are these different properties located?",
+        "french": "Et dans quels quartiers se trouvent ces différentes offres ?"
+      },
+      "ef9451cd95c6be180b1d9287364a2789e5edd5c323799e03a65026fe6508fdc4": {
+        "english": "Are Capitol Hill and Ballard fairly quiet, family-friendly or lively, especially in the evenings and at weekends?",
+        "french": "Capitol Hill et Ballard sont-ils plutôt calmes, familiaux ou animés, surtout le soir et le week-end ?"
+      },
+      "f67b16dcf21740f88c6fdaa4640a23612422dc84a32a55c64d7777701e20f6f1": {
+        "deepl_english": "What documents do I need to provide, and how long does it normally take to receive a reply after making an enquiry?",
+        "english": "What documents do I need to provide, and how long does it usually take to hear back after submitting an application?",
+        "french": "Quels documents faut-il fournir, et sous quel délai reçoit-on normalement une réponse après la demande ?",
+        "review_note": "The rental request is an application, not just an enquiry."
+      },
+      "fa6f5d8054e7f0446e847f8fdb6f66717c2890b589486711708d21d4560ae5a1": {
+        "english": "What types of properties do you currently have available to rent, and what are their sizes?",
+        "french": "Quels types de logements avez-vous actuellement à louer, et quelles superficies proposent-ils ?"
+      }
+    },
+    "fellow-parent-first-school-fete": {
+      "07602133327e32bf0b56041e4f0476466f37edb40be2d906e2ba1959f29c32b8": {
+        "english": "Is entry free, and how much does a raffle ticket cost?",
+        "french": "L'entrée est-elle gratuite, et combien coûte un billet de tombola ?"
+      },
+      "29ea6c2cd6aea4f757d7320af5fee72abc47ee2cb225f45b77afc37fe1ae3be6": {
+        "english": "What activities are planned apart from the show – for example, games or workshops for the children?",
+        "french": "Quelles animations sont prévues en dehors du spectacle, par exemple des jeux ou des ateliers pour les enfants ?"
+      },
+      "5c37ac0964dd496fca12815fd05f224eff29068cfef88dc7a5e665c9bda4e4a5": {
+        "english": "If I’d like to help out, is there a stall that needs volunteers, and who should I speak to?",
+        "french": "Si je souhaite aider, y a-t-il un stand qui manque de bénévoles et à qui m'adresser ?"
+      },
+      "61d8dd226dc3e99bae1edd1d60f4b822e6173a2d10ef3ede7c6689b37296ea14": {
+        "english": "Is there a buffet, and do we need to bring something, or is it optional?",
+        "french": "Y a-t-il un buffet, et faut-il apporter quelque chose ou est-ce facultatif ?"
+      },
+      "683debd552c0cdd6359d23b3dcd42781b44dddebdbf03b0fcfaba30a67f9e6a3": {
+        "english": "If it rains and the outdoor activities can’t go ahead, what’s the plan?",
+        "french": "Si la pluie empêche les activités dehors, quelle solution est prévue ?"
+      },
+      "6a25438d8b27e6cf15b35e3c2dd8cf2458838febf1bd6143d96f4905b6a2638c": {
+        "english": "What are the main highlights of the programme for the afternoon?",
+        "french": "Quels seront les principaux moments du programme pendant l'après-midi ?"
+      },
+      "7cc6d78a51ad0de45fd8e4d604aaed6ca0f3fd3946db4878f7171c521171d1d3": {
+        "english": "On what date and at what times will the school fete take place?",
+        "french": "À quelle date et à quelles heures la fête de l'école aura-t-elle lieu ?"
+      },
+      "830667d5714a274650390bfc6f0265816882c637c26615a43fbfcb14bc081667": {
+        "english": "Will there be seats available for the show, and what time would you recommend arriving to make sure we get some?",
+        "french": "Y aura-t-il des places assises au spectacle, et à quelle heure conseillez-vous d'arriver pour en avoir ?"
+      }
+    },
+    "former-colleague-new-job-to-change-employment": {
+      "3409b8f72e842b0f08f4a04ede6355f1d95e62996ecc76a5892184650bbc162c": {
+        "deepl_english": "What do you get up to during the day?",
+        "english": "What tasks fill your working day?",
+        "french": "Quelles tâches remplissent tes journées ?",
+        "review_note": "Retain the explicit work-task focus of tâches and the fill-your-day construction."
+      },
+      "3b7e8834867efe0c1429f92dd032373179b5e76db5845fc1b3b0460b9604d457": {
+        "english": "What are your working hours, and do you ever have to work in the evenings or at weekends?",
+        "french": "Quels sont tes horaires, et est-ce qu'il faut parfois travailler le soir ou le week-end ?"
+      },
+      "42f5d281492dd89ced1594c554e9a42c63d147e0ec89a127bd07378072ebd748": {
+        "english": "If you’re happy to talk about it, what’s the range of your gross annual salary?",
+        "french": "Si tu es d'accord pour en parler, ton salaire annuel brut se situe dans quelle fourchette ?"
+      },
+      "5cd4e2b67a32cb0b586ea03f3537335add7cc3c584efee0b920838d5668d2a4e": {
+        "english": "Compared to our old job, what’s changed the most for you – for the better or for the worse?",
+        "french": "Par rapport à notre ancien travail, qu'est-ce qui a le plus changé pour toi, en bien ou en moins bien ?"
+      },
+      "5d3549663e51d6dc2baf77b3280063b66ac7ea5820df73a37d5de35d4422c1e3": {
+        "english": "For these roles, what sort of profiles or skills are they looking for?",
+        "french": "Pour ces postes, quels profils ou quelles compétences sont recherchés ?"
+      },
+      "bf8174d753b37300e6b9454eb5aab2155e88fefe5df0aa41973fe1adff829d89": {
+        "english": "What sector is your company in, and what role do you have there?",
+        "french": "Dans quel secteur travaille ton entreprise, et quel poste y occupes-tu ?"
+      },
+      "e7ebb7da027b3c1b99913b7cdd83eb648b78a46834db27fdb788c9730d3fcea2": {
+        "english": "Is your company recruiting at the moment, and where could I look for vacancies?",
+        "french": "Est-ce que ton entreprise recrute en ce moment, et où pourrais-je consulter les offres ?"
+      },
+      "fc3c2f4ecd0a65d28df6e7095820c114d536b09d68770f561574d7e2e3fd2aef": {
+        "english": "How do things go with your colleagues: do you help each other out easily, or does everyone tend to work on their own?",
+        "french": "Comment ça se passe avec tes collègues : vous vous entraidez facilement, ou chacun travaille plutôt de son côté ?"
+      }
+    },
+    "french-class-survey-francophone-student": {
+      "10c6114729999516ad6011fc00b0df05e3c2ca76e0952b031c3513ee4c315567": {
+        "english": "How do you get to class, and how long does the journey take?",
+        "french": "Comment vous rendez-vous en cours, et combien de temps dure le trajet ?"
+      },
+      "304097e1619eb5f89829158c2c14a1e6c554fd9a514c914026b8f30c3360fbfb": {
+        "english": "What are you studying at the moment?",
+        "french": "Qu'est-ce que vous étudiez en ce moment ?"
+      },
+      "5ad7646a17a6fae6b146b06f1c90734a4a37d9b6977b8efd2f2709f47ffd4882": {
+        "english": "And at the weekend, do you tend to stay at home or do you like going out, for example to parks or museums?",
+        "french": "Et le week-end, vous restez plutôt chez vous ou vous aimez sortir, par exemple dans des parcs ou des musées ?"
+      },
+      "9fb57b6b4520a4b8710aa7e9ca1cc63ba19ae2dcd54ded9b877f0a2145f388d2": {
+        "english": "Which activity do you enjoy most in your spare time, and where do you do it?",
+        "french": "Quelle activité vous plaît le plus pendant votre temps libre, et où la pratiquez-vous ?"
+      },
+      "a61002233250b98516f833acd0eaf2af089c05d7a3fb66dd2ee6d44f079b62b6": {
+        "deepl_english": "Which university do you attend, and which year are you in?",
+        "english": "Which institution are you studying at, and which year are you in?",
+        "french": "Dans quel établissement étudiez-vous, et en quelle année êtes-vous ?",
+        "review_note": "Établissement does not necessarily mean university."
+      },
+      "a701a5e27f8b85fb73ae7614515f10b8b7bd7663827dd73978aefdbb4307b00e": {
+        "english": "How do you divide your day between lessons, practical work and independent study?",
+        "french": "Comment se répartit votre journée entre les cours, les travaux pratiques et le travail personnel ?"
+      },
+      "c1e63e79b79aeccc009e34abf390fefb8da0e09bedeca2c18f8bcb95e6165092": {
+        "english": "Do you have a part-time job or do any voluntary work outside of your studies, and how much time do you spend on it?",
+        "french": "Avez-vous un emploi étudiant ou une activité bénévole en dehors des cours, et combien de temps y consacrez-vous ?"
+      },
+      "ee71c120764cecd0accc2cf2ea05ba4b87c634f0a1566dc83c790513b0a88471": {
+        "english": "When exams are approaching, how do you balance this activity with your revision?",
+        "french": "Quand les examens approchent, comment conciliez-vous cette activité avec vos révisions ?"
+      }
+    },
+    "french-teacher-language-school-student-game": {
+      "12432c3f49778731ec93f7b333f8cc340ee846610c5c4823c4c235f12f45a27d": {
+        "english": "Are there any prizes for the winners, and if so, what are they?",
+        "french": "Y a-t-il des récompenses pour les gagnants, et si oui lesquelles ?"
+      },
+      "42e44f3c7c4f8b848f555f630a1575bfc3a53655760c3882ca9df4b959415638": {
+        "english": "Are we allowed to use our mobile phones?",
+        "french": "Est-ce qu'on a le droit d'utiliser son téléphone ?"
+      },
+      "49477e385b82ed4652b9c6ef148083a10c63a9c5f290930994756db6de1066c8": {
+        "english": "What is the aim of the competition, and what tasks do participants have to complete in French?",
+        "french": "Quel est le principe du jeu, et quelles tâches les participants doivent-ils accomplir en français ?"
+      },
+      "63b0e704ba2b9b06e14018907119c87185ee150019e8a7a76bc84fd4635ac47a": {
+        "english": "Who can take part: all students, or only those at certain levels?",
+        "french": "Qui peut participer : tous les étudiants ou seulement certains niveaux ?"
+      },
+      "7d97d7bf215e411a302ecc1a58b0db2a96ba331d7164af6d3c4bbe4832df57dc": {
+        "english": "On what date and at what time will the competition take place, and where should we go?",
+        "french": "À quelle date et à quelles heures le jeu aura-t-il lieu, et où faudra-t-il se présenter ?"
+      },
+      "97d95833512d0b1e174acebbbb292a4efbc1bfdcff0a31e5832e671d3fcecb36": {
+        "english": "Is registration done online or at reception? What’s the deadline, and how much does it cost?",
+        "french": "L'inscription se fait-elle en ligne ou à l'accueil, jusqu'à quelle date et à quel tarif ?"
+      },
+      "a9a3428c91f9fa417f08741336ac5e282897bdd654c29abdc29f7d8902f67e42": {
+        "english": "Can we form our own team, or does the school organise the groups?",
+        "french": "Peut-on former sa propre équipe, ou l'école répartit-elle les participants ?"
+      },
+      "e309643979079a4c4efc3abefd8c3ce28daeb9ea96f40a2f38632040db681c5b": {
+        "english": "How do teams score points, and what counts for more: correct answers or speed?",
+        "french": "Comment les équipes gagnent-elles des points, et qu'est-ce qui compte le plus : les bonnes réponses ou la rapidité ?"
+      }
+    },
+    "french-teacher-study-abroad-advice": {
+      "00b8ae922412b8be31116291efc8bdf2c14590f6151afe909010e2899ba04be5": {
+        "english": "If the courses are taught in French, how could I practise with you before I leave?",
+        "french": "S'il faut suivre les cours en français, comment pourrais-je m'entraîner avec vous avant le départ ?"
+      },
+      "0e0a9cbd628da450128138e3e7a549f2f708f19f3888d3be7bd13076ff2f96c6": {
+        "english": "Apart from tuition fees, what other expenses should I expect, particularly for accommodation and insurance?",
+        "french": "À part les frais de scolarité, quelles dépenses faut-il prévoir, notamment pour le logement et l'assurance ?"
+      },
+      "1437438e083f7833976b78e07b9e9848a11d527ca3df5515ac24a1ee1532c90c": {
+        "english": "What requirements do I need to check before preparing an application, for example qualifications, results and language proficiency?",
+        "french": "Quels prérequis dois-je vérifier avant de préparer une candidature, par exemple les diplômes, les résultats et le niveau de langue ?"
+      },
+      "1ce01f59d4c1c1e3e736e55154e633066e41fd941d82507676be5529d8e369bf": {
+        "english": "To start with, how do I choose between a university exchange, a full degree programme and a language course?",
+        "french": "Pour commencer, comment choisir entre un échange universitaire, un diplôme complet et un séjour linguistique ?"
+      },
+      "8af0004f9f3b7dfbf85bfbb5306ca1f6ee84cf3b2fc928366cb1f5203ea6c412": {
+        "english": "When should I start applying to ensure I meet the deadlines for admission and funding?",
+        "french": "À quel moment devrais-je commencer mes demandes pour respecter les délais d'admission et de financement ?"
+      },
+      "986c7a4e5c7510932514e61b39d2037e84384acf51895fcbcf9e64b3643c0427": {
+        "english": "Which department could advise me on travel documents and a possible residence permit?",
+        "french": "Quel service pourrait m'orienter pour les documents de voyage et une éventuelle autorisation de séjour ?"
+      },
+      "d50b2766291e6db22491abc48aedd8b01a6240340644ed22460fbd4a787f52f2": {
+        "english": "Regarding scholarships, where can I check the eligibility criteria and deadlines before putting together an application?",
+        "french": "Pour les bourses, où puis-je vérifier les critères et les dates limites avant de monter un dossier ?"
+      },
+      "f2272449421415b313cbe27f451866da3e4688af09901c0b58752b62d785f8bf": {
+        "english": "When comparing two programmes, which aspects should I prioritise: the course content, the language of instruction or the recognition of the qualification?",
+        "french": "Pour comparer deux programmes, quels points regarder en priorité : le contenu, la langue d'enseignement ou la reconnaissance du diplôme ?"
+      }
+    },
+    "friend-association-work-experience": {
+      "1f0e9d13ce553d83d4f7884e1188933e368f90cea4f4cb365b07de09ca7412cc": {
+        "english": "Do these evenings come on top of your usual hours, or do you adjust your timetable?",
+        "french": "Ces soirées s'ajoutent-elles à tes heures habituelles, ou est-ce que tu décales ton horaire ?"
+      },
+      "7b0ca1ca195256a23359c17c7fcab9868b0d82a14818b2074a9a52f0b2b87e0c": {
+        "deepl_english": "What are your main day-to-day tasks at the charity?",
+        "english": "What are your main day-to-day tasks at the organisation?",
+        "french": "Quelles sont tes principales tâches au quotidien dans l'association ?",
+        "review_note": "Association does not establish charitable status."
+      },
+      "7d85be9b73b0866391cba80bd97b5ca07846a0550115b039bad92e6908f8df86": {
+        "deepl_english": "How did you find this job, and what skills was the charity looking for?",
+        "english": "How did you find this job, and what skills was the organisation looking for?",
+        "french": "Comment as-tu trouvé ce poste, et quelles compétences l'association recherchait-elle ?",
+        "review_note": "Keep the same neutral organisation reference."
+      },
+      "8a6ec7af04e1e56af31a46de710ef16fd9c0fae352414511d398399bfcad2470": {
+        "english": "When a volunteer pulls out at the last minute, how do you go about finding a replacement?",
+        "french": "Quand un bénévole se désiste au dernier moment, comment tu fais pour le remplacer ?"
+      },
+      "9634f00258a8cbdc4ca87748f15b2b20b9dbce838d57c454964261442b0aae67": {
+        "english": "How many hours a week do you work, and do you have to come in in the evenings as well?",
+        "french": "Tu travailles combien d'heures par semaine, et est-ce que tu dois aussi venir le soir ?"
+      },
+      "c7a7743f7a86f2dbe8642c105e96bacd6b5ea1b0c7a89f5248c841fde4a64bf0": {
+        "deepl_english": "What is your charity’s mission, and what services does it actually provide?",
+        "english": "What is your organisation's mission, and what services does it provide in practice?",
+        "french": "Quelle est la mission de ton association, et quels services offre-t-elle concrètement ?",
+        "review_note": "Preserve the association's mission without adding charitable status."
+      },
+      "d7ddba3e7319dbf8ce0ab1dc00f88c6dc3a8e59927be3e53f052c72cadf0996e": {
+        "english": "Is this a paid job, or do you do it on a voluntary basis?",
+        "french": "Ce travail est-il rémunéré, ou est-ce que tu le fais bénévolement ?"
+      },
+      "eb47ca661527b4662b3aad6948fbced24ab4cae59b041768b9ca695f61f67e68": {
+        "english": "What makes you feel most useful in this job?",
+        "french": "Qu'est-ce qui te donne le plus le sentiment d'être utile dans ce travail ?"
+      }
+    },
+    "friend-child-language-stay-abroad": {
+      "27f5c20d696f8d3a6739b81dc8e11da931ee62fe55fd5de4dc3fecaddaee1422": {
+        "english": "Who accompanied the young people on outings, and who could they contact if there was a problem?",
+        "french": "Qui accompagnait les jeunes pendant les sorties, et qui pouvait-on joindre en cas de problème ?"
+      },
+      "4b9f4b3b64d4735a066c64ff8c38db722576e59942cba3aa739bae80a9378f6a": {
+        "english": "How did that organisation help you organise Tom’s trip?",
+        "french": "Comment cet organisme t'a-t-il aidée à préparer le séjour de Tom ?"
+      },
+      "808a6774efdd98f5502909f90aeea24afc02e6f650d44c553f078453f6901371": {
+        "english": "Do you know of an organisation that could help me organise a language study trip to Canada for Jerry?",
+        "french": "Tu connais un organisme qui pourrait m'aider à organiser un séjour linguistique au Canada pour Jerry ?"
+      },
+      "939f123b961d8e95103e029648f4ae6122bcfaed9ae35ac5964149f429f5acd4": {
+        "english": "How were the days divided between lessons and activities, such as outings or sport?",
+        "french": "Comment se partageaient les journées entre les cours et les activités, par exemple les sorties ou le sport ?"
+      },
+      "97a614bd364ad15f45147ce00ff600ce9d022943f90aee42c882cb73829f923e": {
+        "english": "Outside of lessons, who could Tom practise the language with on a daily basis?",
+        "french": "En dehors des cours, avec qui Tom pouvait-il pratiquer la langue au quotidien ?"
+      },
+      "ccbbb46a7eaa1d851e0c2d63b3367df0b0c3af68ea1d85d0a3f744c76cb8c5fa": {
+        "english": "What sort of accommodation did Tom stay in, and how did the organisation check the accommodation conditions?",
+        "french": "Dans quel type d'hébergement logeait Tom, et comment l'organisme avait-il vérifié les conditions d'accueil ?"
+      },
+      "d4098c68d198749f4dd140bad0a405f73685c01fe22da3205d3bfb06a75e27a7": {
+        "english": "When did Tom go, and how long did his stay last?",
+        "french": "À quelle période Tom est-il parti, et combien de temps a duré son séjour ?"
+      },
+      "dc26602a06f0d5d027521729972f1254f7e589b1174fb62f95191e2878ed1ca1": {
+        "english": "How much did the trip cost in total, and what was included in that price?",
+        "french": "Combien le séjour a-t-il coûté au total, et qu'est-ce qui était compris dans ce prix ?"
+      }
+    },
+    "friend-choose-tonight-outing": {
+      "1dc60a483a38efbb56e0c90353b7c540ae585fc0e3390de411641b9f6223f2fc": {
+        "english": "Where and what time shall we meet up to go to the concert together?",
+        "french": "Où et à quelle heure est-ce qu'on se retrouve pour aller au concert ensemble ?"
+      },
+      "23bbd770953e1341e198f2bbe37258f9a81ee993c7c5142544939ec42a0dc72b": {
+        "deepl_english": "If we’re going to a pub and coming home after the gig, which mode of transport would be the cheapest?",
+        "english": "To get to the bar and return after the concert, what would be the cheapest way for us to travel?",
+        "french": "Pour aller au bar et rentrer après le concert, quel moyen de transport nous coûterait le moins cher ?",
+        "review_note": "Keep the established bar/concert venue and the joint travel-cost question."
+      },
+      "300a646a2524184786462ad8a0ff8b1e7df18133db773f537758f0f36df8bee8": {
+        "english": "During the concert, can we sit down or do we have to stand?",
+        "french": "Pendant le concert, est-ce qu'on peut s'asseoir ou est-ce qu'on reste debout ?"
+      },
+      "50cbbd8167e4d5f11f65e5704d37102da9370b4081e6ab7d5e9e23ba6ea2e3e2": {
+        "english": "That sounds good; can you check if there are any places left for tonight and how we can book them?",
+        "french": "Ça me tente ; tu peux vérifier s'il reste des places pour ce soir et comment on peut les réserver ?"
+      },
+      "50ed4a7869016775d4a5885f28662d8a451c47cd77c0a596f078dc188d42925f": {
+        "english": "Do you know what sort of atmosphere that bar has: is it a place where you can have a bit of a chat, or is it mainly for listening to the gig?",
+        "french": "Tu connais l'ambiance de ce bar : on peut y discuter un peu, ou c'est surtout pour écouter le concert ?"
+      },
+      "60a9b6e3d2ea2b2b4becd8ddf0b981faf8306f8ba188c5cc77bbb7184f64b9b8": {
+        "english": "What would you suggest for tonight, and what could we do there?",
+        "french": "Qu'est-ce que tu me proposerais pour ce soir, et qu'est-ce qu'on pourrait y faire ?"
+      },
+      "9d64e655d50a6e2e88767a881efec427dc93e979d1dea296564a6068a9fde1fc": {
+        "english": "How much is the entrance fee, and how much should we budget for if we have a drink there?",
+        "french": "Combien coûte l'entrée, et quel budget faudrait-il prévoir si on prend une boisson sur place ?"
+      },
+      "af8a14d0dfbfe210a6ddaa41435287fc98beb32db17274f681d8c968592cbcd3": {
+        "english": "How long does the gig last, roughly, so we can plan the rest of the evening?",
+        "french": "Le concert dure à peu près combien de temps, pour qu'on puisse organiser le reste de la soirée ?"
+      }
+    },
+    "friend-city-housing-search-advice": {
+      "2ac9f998c75fbbd27079cf57a329a3eb05957b2e9759ace778ad793d6e7ab05a": {
+        "english": "Which neighbourhoods in Toronto would you recommend for finding a place to live?",
+        "french": "Quels quartiers de Toronto me conseillerais-tu pour chercher un logement ?"
+      },
+      "2d86fbc7c00882079bffc78d10900a741a1140a12e59eb46c078900b57b2464a": {
+        "english": "If I don’t have any rental references in Canada, what supporting documents can I provide instead, and do I need a guarantor?",
+        "french": "Si je n'ai pas de références locatives au Canada, quels justificatifs puis-je fournir à la place, et faut-il un garant ?"
+      },
+      "53827d51166b5e6b252b59545bc4fd7b807a99286a1cbd289e84e00f9525e301": {
+        "english": "And in day-to-day life, is it easy to find supermarkets, chemists, a GP surgery and cafés in High Park?",
+        "french": "Et au quotidien, trouve-t-on facilement à High Park des épiceries, des pharmacies, une clinique et des cafés ?"
+      },
+      "730d430050f5bcee5ff0e0a7349cd374a4bc3265fcdf74ef000dbf5df81970db": {
+        "english": "How much rent should I expect to pay for a small flat in this area?",
+        "french": "Quel loyer faut-il prévoir pour un petit appartement dans ce secteur ?"
+      },
+      "962bebe4838c7e217e13c090dd157e22f228670074a71c1882427227b9008e63": {
+        "english": "Of these neighbourhoods, which one would you choose if you were looking for a fairly quiet atmosphere?",
+        "french": "Parmi ces quartiers, lequel choisirais-tu pour une ambiance plutôt calme ?"
+      },
+      "a4821c9e5cb698a939753f8f0348c3d13b3acd622ab1864a317d42d914df7e63": {
+        "english": "Apart from the rent, what other costs should I expect, for example for heating, the internet or home insurance?",
+        "french": "En plus du loyer, quels frais dois-je prévoir, par exemple pour le chauffage, Internet ou l'assurance habitation ?"
+      },
+      "b6fc9848654843e261c764abb83c615580c98df418a2337b779f2daff5850a5d": {
+        "english": "Which websites are the most useful, and what are the tell-tale signs of a dodgy advert?",
+        "french": "Quels sites sont les plus utiles, et quels signes permettent de repérer une annonce douteuse ?"
+      },
+      "cb90bf5e7d4eb6402ad1763564227df09967c03d741af6d6293a74a0e0f824f2": {
+        "english": "What documents would you advise me to prepare when applying to rent a flat?",
+        "french": "Quels documents me conseillerais-tu de préparer pour déposer un dossier de location ?"
+      }
+    },
+    "friend-first-workday-report": {
+      "1d18030b9eda06a2e370aa3c6fe37e39cab0d405298a1cc3ef3223d5fe676015": {
+        "deepl_english": "So, what did you get up to?",
+        "english": "And in that situation, what did you do?",
+        "french": "Et dans ce cas-là, qu'est-ce que tu as fait ?",
+        "review_note": "Ask how the named work situation was acted on, not a general account of activities."
+      },
+      "6cc93b056a66474f0f589efcd64f738d65a9849b706cf4814b5e8f0bfaef26e7": {
+        "english": "For your first tasks, did someone show you how to do them, or did you have to sort it out on your own?",
+        "french": "Pour tes premières tâches, quelqu'un t'a montré comment faire ou tu as dû te débrouiller seule ?"
+      },
+      "77677563d6f47393144dd2233c07949d987909da7ea6222f825f31d3b64756ed": {
+        "english": "When you arrived, what did your colleagues do to welcome you?",
+        "french": "À ton arrivée, qu'est-ce que tes collègues ont fait pour t'accueillir ?"
+      },
+      "7e5a07f449cca5f8caa901c8a67ad252f9d7186f8a96be2f93bc07a11bfbb8ab": {
+        "english": "Was there a moment when you didn’t know how to respond to a request?",
+        "french": "Il y a eu un moment où tu ne savais pas comment répondre à une demande ?"
+      },
+      "7e798a0850888d3f8ffcdfd1ebfd4efcbe660034a1d7698ee63657e61c3871c7": {
+        "deepl_english": "After that initial meeting, did you get the impression the atmosphere was quite relaxed or rather formal?",
+        "english": "After that first interaction, did you feel the atmosphere was fairly relaxed or rather formal?",
+        "french": "Après ce premier contact, tu as senti une ambiance plutôt détendue ou formelle ?",
+        "review_note": "Premier contact does not imply a formal meeting."
+      },
+      "af158e173939c5eee3ddb729a183243818ca15a0578b5df64bf1367e91902117": {
+        "english": "And specifically, what were the first tasks you were given?",
+        "french": "Et concrètement, quelles premières tâches t'a-t-on confiées ?"
+      },
+      "c997319ab22ed9925470f29c557c90a4c3ba0006384ec6412551c31a1fa01784": {
+        "english": "So, how did that first day go for you?",
+        "french": "Alors, cette première journée, comment ça s'est passé pour toi ?"
+      },
+      "e22909d6ea64adb8f49792c66ab424c755974b7d81ce5090d48eb95b517d2c36": {
+        "english": "All in all, did that first day live up to your expectations of the job?",
+        "french": "Au final, cette première journée correspondait-elle à l'idée que tu te faisais du poste ?"
+      }
+    },
+    "friend-holiday-apartment-watch": {
+      "605b70852cfdbc74cad53dd16a5a6dd1a7e6b5b125b3fc8d644b08f97666ae5f": {
+        "english": "What tasks would you like me to take care of: watering the plants, collecting the post or picking up parcels?",
+        "french": "Quelles tâches souhaites-tu que j'assure : arroser les plantes, relever le courrier ou récupérer des colis ?"
+      },
+      "89fbdef95c75449e46c07d14c06dab07a4aeeafc5fb02393f4e2fcd4267d27ad": {
+        "english": "Before leaving the flat after each visit, are there any specific instructions I need to follow, particularly regarding the heating or any alarm system?",
+        "french": "Avant de quitter l'appartement après chaque visite, quelles consignes particulières dois-je respecter, notamment pour le chauffage ou une éventuelle alarme ?"
+      },
+      "b27709cf6cede379e63a769aef61cd39f64d5042295ced804f0d5464e512fe68": {
+        "english": "Which plants do I need to water, and how much water should I give each one every time I visit?",
+        "french": "Quelles plantes dois-je arroser, et quelle quantité d'eau faut-il donner à chacune à chaque passage ?"
+      },
+      "cc6d13994cccc0ea0932982f335fd518178841f325d16bc1879aa677a0c15a65": {
+        "english": "Between which dates would you like me to look after the flat?",
+        "french": "Entre quelles dates souhaites-tu que je surveille l'appartement ?"
+      },
+      "d06b2ee2cf11540823d013522d730707a17bf474b8d86b9ea0cb1b836fcfe864": {
+        "english": "How often would you like me to pop round, and how long should I stay each time?",
+        "french": "À quelle fréquence voudrais-tu que je passe, et combien de temps devrais-je rester à chaque visite ?"
+      },
+      "d415cc7d172f7d06f346b86361c38b5fae0991b3fbecc85c0cdb316cfc16eefd": {
+        "english": "Would you like me to send you a quick message after each time I pop round, even if everything’s fine?",
+        "french": "Souhaites-tu que je t'envoie un petit message après chaque passage, même si tout va bien ?"
+      },
+      "db86dd48c63b1c2608ad818b07e954c6100c3390cc403736a1a3ba596f5b72fa": {
+        "english": "When and how can I collect the keys, and is there a door code I need to know?",
+        "french": "Quand et comment pourrais-je récupérer les clés, et y a-t-il un code d'accès à connaître ?"
+      },
+      "ee005dabf129a29dfa6f2516da1210d5f7678b1695122cab57599cd64d7dd019": {
+        "english": "Will you be contactable whilst you’re away, and if not, who could I contact locally if there’s a problem?",
+        "french": "Seras-tu joignable pendant ton absence et, sinon, qui pourrai-je contacter sur place en cas de problème ?"
+      }
+    },
+    "friend-homeless-meal-volunteering": {
+      "10dc17c9c9ce679fe0f470fb1242772ff016ab09a1d76bb51c00e366fda087c9": {
+        "english": "Do volunteers also help prepare the meals, or do they just hand them out?",
+        "french": "Les bénévoles participent-ils aussi à la préparation des repas, ou seulement à leur distribution ?"
+      },
+      "197a556ff54c3fe723366896da4898560a665ac59d103e8f9c21bdbca6fa05af": {
+        "english": "Do I need any specific experience to get started?",
+        "french": "Une expérience particulière est-elle nécessaire pour commencer ?"
+      },
+      "22dab5be1590758ca98469adace06de57f9e30fe7114380f02d9f3b404bcad17": {
+        "english": "What hygiene guidelines do we need to follow, and is the necessary protective equipment provided?",
+        "french": "Quelles consignes d'hygiène faut-il respecter, et les protections nécessaires sont-elles fournies ?"
+      },
+      "51edf191f9c1fa6c24ed96ccaa62069dd8644be8ab79e25a877d9a1e311c6580": {
+        "english": "Who should I speak to in order to sign up, and could I come along to observe a meal distribution first?",
+        "french": "À qui dois-je m'adresser pour m'inscrire, et pourrais-je d'abord venir observer une distribution ?"
+      },
+      "88bcdae8ef4d9fdc5a943f430ffd4dff5bdd06b470757f4a3dc00459c70830f7": {
+        "deepl_english": "Where do the handouts take place, and what days and times should I set aside to take part?",
+        "english": "Where are the meals handed out, and which days and times should I set aside to take part?",
+        "french": "Où ont lieu les distributions, et quels jours et horaires faut-il prévoir pour participer ?",
+        "review_note": "Name the meal distribution explicitly rather than using the ambiguous noun handouts."
+      },
+      "a6367278bb6c985640ecc77ec23f8a836b40b5894988beea4f47ba7f4ebc4110": {
+        "english": "For my first meal distribution, will I be accompanied by an experienced volunteer?",
+        "french": "Pour ma première distribution, serai-je accompagné par un bénévole expérimenté ?"
+      },
+      "d325e6563cd31db9270e5cebfa34f43d5e3b4ecee67bf88702b91a9f48455680": {
+        "english": "Can we help out on an occasional basis, and how far in advance do we need to confirm our availability?",
+        "french": "Peut-on participer ponctuellement, et combien de temps à l'avance faut-il confirmer sa présence ?"
+      },
+      "dc217d81c4b1d2298b927656b6d438335232a953d605d966f0b9b1a6cd0b7f21": {
+        "english": "What task is usually given to a new volunteer?",
+        "french": "Quelle tâche confie-t-on généralement à un nouveau bénévole ?"
+      }
+    },
+    "friend-moving-abroad-sale": {
+      "2de48ea17d4daaab3c35d1f6f6167abb0818aa8547c2c5fa19d0e3e67b30093d": {
+        "english": "When could I pop round to have a look at the items and try out the sofa before I make up my mind?",
+        "french": "Quand pourrais-je passer voir les affaires et essayer le canapé avant de me décider ?"
+      },
+      "49a2a2bccb9961054f6a8a7eacb3bb63c0aa7e0c1816bcbd1e81b502bc045dbb": {
+        "english": "Is everything still in good condition, or are there any faults worth mentioning?",
+        "french": "Est-ce que tout est encore en bon état, ou y a-t-il des défauts à signaler ?"
+      },
+      "5ffd69cb6fa385c3f2640ed62576eb96c0760723d39e35c45a2529d95d38a7d4": {
+        "english": "Do you still have the original receipts, and are any of the items still under warranty?",
+        "french": "Est-ce que tu as encore les factures d'origine, et certains objets sont-ils toujours sous garantie ?"
+      },
+      "71e6c9e9e320a749a67e143cd847f8d542983eba746bf2ca9281a9aabf2877d1": {
+        "english": "If I buy several items, could you give me a discount?",
+        "french": "Si j'en prends plusieurs, pourrais-tu me faire un prix ?"
+      },
+      "74220384010e07270b3d44ed82f228e62b6b03124939692b2246071bf38532b2": {
+        "english": "To collect the sofa and the table, will I need to hire a van, and will anyone be able to help me load them?",
+        "french": "Pour récupérer le canapé et la table, faut-il louer une camionnette, et quelqu'un pourra-t-il m'aider à les charger ?"
+      },
+      "8354cf41d237f250ab54740542c6e50ca09340223da89effabd9cbed134973a0": {
+        "english": "What are the dimensions of the sofa, and can the legs be removed to make it easier to transport?",
+        "french": "Quelles sont les dimensions du canapé, et peut-on retirer les pieds pour le transporter plus facilement ?"
+      },
+      "acb0b4a76c5c372f42a3e2963c93e0662b43ee7b6bb05a507ac86f0454716593": {
+        "english": "You’ve decided to put some of your things up for sale: does that include a sofa, a television, a few lamps, or a bit of everything?",
+        "french": "Tu as décidé de mettre certaines affaires en vente : est-ce que ça comprend un canapé, une télévision, quelques lampes, ou un peu de tout ?"
+      },
+      "bb876bd430fb761f123630469fa51fc9ee7b43ff97aef3928b79b3a68f7f2ffe": {
+        "english": "And as for the prices, how much are you asking for the sofa, the table, the TV and the lamps?",
+        "french": "Et côté prix, combien demandes-tu pour le canapé, la table, la télévision et les lampes ?"
+      }
+    },
+    "friend-new-ottawa-restaurant": {
+      "1143a596c9bea1406b9d69808d10e29bad0d7d950fa760ec7e41ace9405d9771": {
+        "english": "Did you book a table, and how did you go about it?",
+        "french": "Est-ce que tu avais réservé ta table, et comment t'y es-tu pris ?"
+      },
+      "62b9ad2f4dc04d892e3cabc2083fd4dfbf71cbae64311a7fbc5098d9cc1b122a": {
+        "english": "Do you know where I can find the latest menu and opening hours before I book a table?",
+        "french": "Tu sais où consulter la carte et les horaires à jour avant que je réserve ?"
+      },
+      "8b0cf8ed74ff80f7bd15b50e7da914afc9e6d148961aace9d79f811fa677cb27": {
+        "english": "What sort of cuisine does the restaurant serve, and what dishes are available à la carte?",
+        "french": "Quel type de cuisine propose le restaurant, et quels plats peut-on choisir à la carte ?"
+      },
+      "8cb40ef442d2887c8d5d175f219839bf4c72c840788ac3c182398124857bee57": {
+        "english": "Did you find the atmosphere pleasant for a chat, and how was the service?",
+        "french": "Tu as trouvé l'ambiance agréable pour discuter, et comment s'est passé le service ?"
+      },
+      "8e6bd9222510277b96a915ed6cd6639b8939610318d3af4836c42d8abee96b5f": {
+        "english": "What did you order, and what did you like or dislike about your meal?",
+        "french": "Qu'est-ce que tu as commandé, et qu'est-ce qui t'a plu ou déçu dans ton repas ?"
+      },
+      "98dfcd08f3b762e4753235bf3ca573244f4d9268a0b7a47bc4e3a5355a81160a": {
+        "english": "As you had to wait for your food, what time would you recommend I go to avoid the rush?",
+        "french": "Comme tu as attendu pour les plats, tu me conseillerais d'y aller à quelle heure pour éviter le coup de feu ?"
+      },
+      "9ee77921589372b600ffa499089edc7281131ddf79cf6f8cdb6dc1a6bea483d9": {
+        "english": "Where is this restaurant in Ottawa, and is it easy to get there by public transport?",
+        "french": "Où se trouve ce restaurant à Ottawa, et est-il facile d'y aller en transports en commun ?"
+      },
+      "c51ff413d4c07751ee396a06c37eadb4778f00c2c06d1c9edeecc16fe67248a1": {
+        "english": "How much did you pay per person, and what was included in that price?",
+        "french": "Combien as-tu payé par personne, et qu'est-ce qui était compris dans ce montant ?"
+      }
+    },
+    "friend-planned-canadian-studies": {
+      "1a4fa5f1ab98f17d2939266416a78725a586a5385fa5a1d3ed735c2f488ef22c": {
+        "english": "As for admission, are you still putting together your application, are you waiting for a reply, or have you already received one?",
+        "french": "Pour l'admission, tu prépares encore ton dossier, tu attends une réponse ou tu en as déjà reçu une ?"
+      },
+      "316d9a7eddc197d0f238a442b25b02dc75d52d51a4d99a0af4c439b985a86a96": {
+        "english": "In which city and at which institution would you like to study?",
+        "french": "Dans quelle ville et dans quel établissement aimerais-tu étudier ?"
+      },
+      "51bac7a47a883cbcb6ae6ee45d0ba5f3f4db509fac3cb198936eae7ef2fadb3e": {
+        "english": "Which course do you want to take, and which subject area do you want to focus on?",
+        "french": "Quel programme veux-tu suivre, et sur quelle spécialité souhaites-tu te concentrer ?"
+      },
+      "850745703a2cfc3d169a82561c005a512c3cd531010563488b39b0451f27bf93": {
+        "english": "How will this course benefit your career?",
+        "french": "Qu'est-ce que cette formation apportera à ta carrière ?"
+      },
+      "cb0a61c5360f96dd07a99ff1975aac56169f0445024b4017887f35a9ad507590": {
+        "english": "What attracts you to Sherbrooke, in terms of studying and living there?",
+        "french": "Qu'est-ce qui t'attire à Sherbrooke, pour les études et la vie sur place ?"
+      },
+      "dccfff5f4f37b284aa5358e07a62d4b8899e17bd72c995ad0749edcb47e4d113": {
+        "english": "When it comes to accommodation, would you prefer a hall of residence or to look for a flat?",
+        "french": "Pour le logement, tu préférerais une résidence étudiante ou chercher un appartement ?"
+      },
+      "f0baa61ecd70801bb2aef58832109ad157e90cb4764054a74f21113286f78a73": {
+        "english": "How do you plan to fund your tuition fees and living costs whilst you’re there?",
+        "french": "Comment comptes-tu financer les droits de scolarité et la vie sur place ?"
+      },
+      "fe890e2dbd86db4ec5d3f0c12726d81ea204dd049e12857876966f5f3ceabfd6": {
+        "english": "How long before the start of term do you plan to arrive to settle in?",
+        "french": "Tu prévois d'arriver combien de temps avant le début des cours pour t'installer ?"
+      }
+    },
+    "friend-three-year-old-weekend-care": {
+      "27e70339dc898a731e66330800d2bf50b11d965806d228be82a760d36ac52b88": {
+        "english": "Will you be available throughout the weekend, and who should I contact if there’s a problem?",
+        "french": "Seras-tu joignable pendant tout le week-end, et qui pourrai-je contacter en cas de souci ?"
+      },
+      "37070feb5c3ba08902a15809b4a22e0374058af12fa4dcb172ebc36069da7aac": {
+        "english": "What helps her fall asleep for her afternoon nap and at night, and how can I reassure her if she wakes up in the night?",
+        "french": "Qu'est-ce qui l'aide à s'endormir pour la sieste et le soir, et comment la rassurer si elle se réveille la nuit ?"
+      },
+      "6d44b2afccdb7c9d02823ff2f61d0a077aa117329096d883f42bc7b507a29d1b": {
+        "english": "Are there any allergies I should be aware of, any foods to avoid, or any special care she’ll need over the weekend?",
+        "french": "Y a-t-il des allergies à connaître, des aliments à éviter ou des soins particuliers à prévoir pendant le week-end ?"
+      },
+      "6f0ef157027f94a1438861abb17fb348969a3c6c5e2e35210d483d17044c6a4b": {
+        "english": "What games or activities does she enjoy at home, such as drawing, jigsaw puzzles or stories?",
+        "french": "Quels jeux ou activités aime-t-elle à la maison, par exemple le dessin, les puzzles ou les histoires ?"
+      },
+      "7ca0e397455b3877dd821863ba3744e1ba0fc3a2dcfbe610087c75f8b4127cd3": {
+        "english": "When it comes to food, will you be providing her meals and snacks, or should I sort that out, and at what times does she usually eat?",
+        "french": "Côté alimentation, fourniras-tu ses repas et ses goûters ou devrai-je m'en occuper, et à quelles heures mange-t-elle ?"
+      },
+      "a113016ddeed394b90e9f9b97f55751f1f8b3789fc9f011407babd6cbf0d723e": {
+        "english": "Can I take her to the park, and what precautions do you want me to take whilst we’re out?",
+        "french": "Puis-je l'emmener au parc, et quelles précautions veux-tu que je prenne pendant la sortie ?"
+      },
+      "f63555bdfed4740e2385f167bca6ee41b975153d306a62825efbedb4b5073c18": {
+        "english": "What time does she usually go to bed and wake up, and does she have a nap during the day?",
+        "french": "À quelle heure se couche-t-elle et se réveille-t-elle habituellement, et fait-elle une sieste dans la journée ?"
+      },
+      "fb4d1e8f6489adb42ed98e51e7b1a63902ffc3cc752084aa9aaab296aa7e7efc": {
+        "english": "How does she behave around people she doesn’t know very well, and does she get on well with other children?",
+        "french": "Comment se comporte-t-elle avec les personnes qu'elle connaît peu, et s'entend-elle bien avec les autres enfants ?"
+      }
+    },
+    "friend-two-years-quebec-expatriation-experience": {
+      "43aba931401d6c816fe6d667d4255a7b0410276f3c961327d8a83900f3f0499a": {
+        "english": "How long did the process take, and how much did you have to pay?",
+        "french": "Combien de temps cette démarche a-t-elle pris, et combien as-tu dû payer ?"
+      },
+      "4a97e68043df7cc50441f6b0e937a43878356f808f5e08ee889cf310d4ffef8c": {
+        "english": "And for your first winter, what clothes or equipment were essential?",
+        "french": "Et pour ton premier hiver, quels vêtements ou équipements ont été indispensables ?"
+      },
+      "5882f48dc3291bc362fac68ffb1d384b3d26e1cf0b59eb5e2c67a81439a60816": {
+        "english": "When it comes to social life, where did you meet your first friends in Montreal — at work, in the neighbourhood or through activities?",
+        "french": "Côté vie sociale, où as-tu rencontré tes premiers amis à Montréal — au travail, dans le voisinage ou grâce à des activités ?"
+      },
+      "6a154197cb744211c15eb991602a43cbf0e78127ea45faf311111e738bc7fd5e": {
+        "english": "And to help you settle in, what habits or resources helped you in your day-to-day life?",
+        "french": "Et pour t'y habituer, quelles habitudes ou quelles ressources t'ont aidé au quotidien ?"
+      },
+      "7bb77f3a1144452be7bf0c9f6c9981c6f1cf3bd9e8130dcd1e02ea21ade81500": {
+        "english": "Apart from settling in, which obstacle caused the biggest delay in you getting settled — accommodation, employment, qualifications or administrative procedures?",
+        "french": "En dehors de cette adaptation, quel obstacle a le plus retardé ton installation — le logement, l'emploi, les diplômes ou les démarches administratives ?"
+      },
+      "88eaa7fa7e40214094fcd5d88c13537b757c0a16bcc114b1cae5fa7b1dae76b4": {
+        "english": "Since you’ve been living in Montreal, what has changed the most in the way you work, get about or enjoy your free time?",
+        "french": "Depuis que tu vis à Montréal, qu'est-ce qui a le plus changé dans ta façon de travailler, de te déplacer ou de profiter de ton temps libre ?"
+      },
+      "a34e9e96e30692680a91f6a46250df85e38157befb5aeb84ca60341e1254120b": {
+        "english": "Looking back, what would you do differently if you had to make that choice again — savings, accommodation, documents or your network of contacts?",
+        "french": "Avec le recul, que préparerais-tu différemment si tu devais refaire ce choix — économies, logement, documents ou réseau de contacts ?"
+      },
+      "e6f88763ef463db7666241d17b960a6bb311a0b9f463a27926533f2447973815": {
+        "english": "During your first few months in Montreal, what did you find hardest to get used to — the language, social norms, the pace of life or the climate?",
+        "french": "Pendant tes premiers mois à Montréal, qu'est-ce qui t'a demandé le plus d'adaptation — la langue, les codes sociaux, le rythme de vie ou le climat ?"
+      }
+    },
+    "friend-upcoming-job-interview-advice": {
+      "0ebf9018b48932d86d80107db49776146f99e7a0c17a5aeb388a71d6ba3081de": {
+        "english": "What would be a suitable outfit for this sector that’s still understated and professional?",
+        "french": "Quelle tenue serait adaptée au secteur tout en restant sobre et professionnelle ?"
+      },
+      "3213321a61e0d39803c5fc9ddc57b45aabc0d44022b983375a2028c29cf3a721": {
+        "english": "Before the interview, what should I look for first on the company’s website and in the job advert?",
+        "french": "Avant l'entretien, qu'est-ce que je devrais regarder en priorité sur le site de l'entreprise et dans l'annonce ?"
+      },
+      "4d363eea25ca749bb062ede98f324481b45aaaa2a3dc4c087f4e4758aa18d93c": {
+        "english": "And if a question catches me off guard, how can I take a moment to think without looking completely lost?",
+        "french": "Et si une question me surprend, comment prendre le temps de réfléchir sans avoir l'air complètement perdu ?"
+      },
+      "551bd1e8660ebfbf7b4064273a5eec6551cb37b6b3ac090afda370fca62ab2e3": {
+        "english": "If I don’t know anyone at the company, where can I find out how the staff dress?",
+        "french": "Si je ne connais personne dans l'entreprise, où est-ce que je peux voir comment les employés s'habillent ?"
+      },
+      "55aae02d8c7b9a252b9b619a3915d6e231b09d39938dcda8778e0eb8e0cec616": {
+        "english": "How long does an interview usually last?",
+        "french": "Ça dure combien de temps, en général, un entretien ?"
+      },
+      "6289ca12d4ed29975f3823d351ac934b2b64b78aadddc7378c3fa075b6db5359": {
+        "english": "What questions could I ask at the end about the role and the team?",
+        "french": "Quelles questions pourrais-je poser à la fin sur le poste et l'équipe ?"
+      },
+      "ae667bb186d295072ec861f4372be37042944a53906085e44a47768c23b46e76": {
+        "english": "If I’m asked to talk about my experience, how do I choose an example that shows what I’m capable of?",
+        "french": "Si on me demande de parler de mon expérience, comment choisir un exemple qui montre ce que je sais faire ?"
+      },
+      "ee4aa06bfa7c9ddff8dc37118f40dacd6d7c8bde47dd2a6ea8c50ab1e80c37b8": {
+        "english": "When I’m asked about my motivation or my weaknesses, how can I avoid giving clichéd answers?",
+        "french": "Quand on me demande ma motivation ou mes points faibles, comment éviter les réponses toutes faites ?"
+      }
+    },
+    "furniture-delivery-service": {
+      "122dd197a913ee47470636fba9ea480fdf25d617b3e17050b56bfe581399303e": {
+        "english": "Once the delivery has been booked, how long will it take for the sofa to be delivered?",
+        "french": "Une fois la livraison réservée, sous quel délai le canapé pourra-t-il être livré ?"
+      },
+      "3d17472bc6da97aa833ff53d12d6708088e1875fcf70052c03599c13b24f8120": {
+        "english": "To get an accurate quote, do you need to know the delivery address, the sofa’s dimensions and the access conditions to the property?",
+        "french": "Pour obtenir un devis précis, devez-vous connaître l'adresse de livraison, les dimensions du canapé et les conditions d'accès au logement ?"
+      },
+      "952d38d4c1f517e1ab514355fc14e1b5a38230d92b911c48a59b4d44cbda2d12": {
+        "english": "Does this price include placing the sofa in the room of your choice and clearing away the packaging?",
+        "french": "Ce tarif comprend-il la mise en place dans la pièce choisie et l'enlèvement des emballages ?"
+      },
+      "c02e43ea85e687a3f453793f3b261d7dd12229192d837e18f718d1a42adac192": {
+        "english": "What sort of vehicle will the sofa be transported in, and how will it be protected during the journey?",
+        "french": "Dans quel type de véhicule le canapé sera-t-il transporté, et comment sera-t-il protégé pendant le trajet ?"
+      },
+      "ce9a4980ea430aff7572f416eb9f22dd8306220ea2785f1ad869ad47e198bcea": {
+        "english": "Can I choose a delivery slot, and how long before you arrive will I be notified?",
+        "french": "Puis-je choisir un créneau de livraison, et combien de temps avant votre arrivée serai-je prévenu ?"
+      },
+      "d3c0d2d2ac11ea07d97d10431e4fd66111f62a58f5a7c4bae8e676d596f9b22c": {
+        "english": "If the sofa won’t fit through the staircase, what solutions do you offer?",
+        "french": "Si le canapé ne passe pas par l'escalier, quelles solutions proposez-vous ?"
+      },
+      "f8a5495b47aca9ada662b82177eb2e7b431553cac1e632660de54769765bae6f": {
+        "english": "What is your standard rate, and what additional charges should I expect depending on distance, the number of floors or access?",
+        "french": "Quel est votre tarif de base, et quels suppléments faut-il prévoir selon la distance, les étages ou l'accès ?"
+      },
+      "ffcf0064f9c339197a76ca6cfb23413bb3376bfbdc87bc03b87e3c67e73921e0": {
+        "english": "If the sofa arrives scratched or torn, should I note this on the delivery note, and how do I make a claim?",
+        "french": "Si le canapé arrive rayé ou déchiré, dois-je le signaler sur le bon de livraison, et comment faire une réclamation ?"
+      }
+    },
+    "grocery-store-home-delivery": {
+      "040d1175e5cd060b47378e67f181e46f420acd85a1b60110929799fb4ed0ac50": {
+        "english": "How long does it usually take from placing the order to delivery?",
+        "french": "Quel délai faut-il prévoir entre la commande et la livraison ?"
+      },
+      "1303123238eb8d337fca1c1c614ed35fabb21a883d621ec7bb638f5b8e07353a": {
+        "english": "How are fresh and frozen products transported?",
+        "french": "Comment les produits frais et surgelés sont-ils transportés ?"
+      },
+      "1bce80d1164bb25f63d6024ba446633696cc9f3169aad49cbdf5653bb3b85e6b": {
+        "english": "Can I choose a delivery slot, for example between 2 pm and 4 pm?",
+        "french": "Puis-je choisir un créneau de livraison, par exemple entre 14 h et 16 h ?"
+      },
+      "967116cb7064cbc8de86d31a1d1efda65fb175a8d8884ac8577c78fba5c11bc9": {
+        "english": "What is your delivery area, and how can I check if my address is covered?",
+        "french": "Quelle est votre zone de livraison, et comment vérifier si mon adresse est desservie ?"
+      },
+      "aa4721b4fafd394c9ae59c3dc4cb726c57e9b52edfb931e71ec1c3a75453c505": {
+        "english": "If an item is missing or arrives damaged, how do I report it and get a refund?",
+        "french": "Si un produit manque ou arrive abîmé, comment le signaler et obtenir un remboursement ?"
+      },
+      "c4cb83afd8a000ebb6bff7f916be89dfd35ed5b80eaea322ee29675d1ba9aa04": {
+        "english": "How do you pay for the shopping and the delivery charges: at the till or to the delivery driver, by card or in cash?",
+        "french": "Comment règle-t-on les courses et les frais de livraison : en caisse ou auprès du livreur, par carte ou en espèces ?"
+      },
+      "cb35f631c5d285aa8e893f1a3adb0a10006f8d001e85d9983a9895143ffc3451": {
+        "english": "What happens if I’m not at home at the scheduled time, and is there a charge for a re-delivery?",
+        "french": "Que se passe-t-il si je suis absent au moment prévu, et une nouvelle livraison est-elle payante ?"
+      },
+      "dad8ccab4ea710f79579cb7fb1b20f5c5576396a990b8fc2873f1904e3ba7a07": {
+        "english": "How much does delivery cost depending on the value of the shopping, and is there a minimum spend to qualify for free delivery?",
+        "french": "Combien coûte la livraison selon le montant des achats, et existe-t-il un montant minimum pour bénéficier de la livraison gratuite ?"
+      }
+    },
+    "help-friend-find-rental-needs": {
+      "010e55e491a1b4a7a88216ef8263e1da04ddabb46f5f10fa1ee3bd43fc4901db": {
+        "english": "When would you like to move in, and are you looking for a one-year tenancy or something more flexible?",
+        "french": "À partir de quand voudrais-tu emménager, et cherches-tu un bail d'un an ou une formule plus flexible ?"
+      },
+      "067058fdc5826456ae8bf7259190b81b8dff7ceeadc73f1a0cf083e50a147bcc": {
+        "english": "What facilities are essential for you: a laundry room in the building, a balcony, storage space or a parking space?",
+        "french": "Quels équipements sont indispensables pour toi : une buanderie dans l'immeuble, un balcon, un espace de rangement ou un stationnement ?"
+      },
+      "077cb34279f4cc23a7fc6937d5c348ee6d7ff37fd49dfa768971012c1c034748": {
+        "english": "Within a 35-minute radius, would you prefer a lively neighbourhood with cafés and shops, or a quieter, more residential area?",
+        "french": "Dans ce rayon de trente-cinq minutes, tu préférerais un quartier vivant avec des cafés et des commerces, ou un secteur plus calme et résidentiel ?"
+      },
+      "545e29a3c7f835d62577647cd06b0b2d60a60690d4ef5d5b332ed7206b9d26b4": {
+        "english": "What’s the maximum rent you can afford, and what service charges should be included in that amount?",
+        "french": "Quel loyer maximal peux-tu payer, et quelles charges faudrait-il inclure dans ce montant ?"
+      },
+      "7c882a1a8160646048c490dc0402ab5dee176fdfb884e1f830cb1e1c07d72d99": {
+        "english": "As you’ll be working in the city centre, what’s the maximum journey time you’d be willing to accept?",
+        "french": "Comme tu travailleras au centre-ville, quel temps de trajet maximal accepterais-tu ?"
+      },
+      "84b0e1c98fd0c545a7c93408c2237e7d89b177855910af8e0462a4ef763bea37": {
+        "english": "And as for the flat itself, would you prefer a studio or a one-bedroom flat, furnished or unfurnished?",
+        "french": "Et pour le logement lui-même, tu préfères un studio ou un appartement d'une chambre, meublé ou non ?"
+      },
+      "a9da53596276e9a02f0263a887ed0bba296b4110d091f224eda3a739e0dab863": {
+        "english": "Would you be open to sharing a flat, and if so, what conditions would be important to you: a private bedroom, few flatmates, or a non-smoking flat?",
+        "french": "Serais-tu ouverte à une colocation et, si oui, quelles conditions seraient importantes : une chambre privée, peu de colocataires ou un logement non-fumeur ?"
+      },
+      "d872efb63d8bd6fdac1cce0374e2d9f70853646916ecaef3b7d6b837a69b18cd": {
+        "english": "What’s the minimum size you’d need, and do you need a space to work from home?",
+        "french": "Quelle superficie minimale te conviendrait, et as-tu besoin d'un espace pour travailler chez toi ?"
+      }
+    },
+    "help-friend-moving-day": {
+      "04e644f899abf9085dec63b905bd907f082e487077146344d3bcdbde69398a11": {
+        "english": "Will you be able to dismantle the relevant furniture (the wardrobe, the bed and the table) and remove the legs from the sofa before we arrive?",
+        "french": "Est-ce que tu pourras démonter les meubles concernés (l'armoire, le lit et la table) et retirer les pieds du canapé avant notre arrivée ?"
+      },
+      "472bd5fee3d83a6e12b83c50704014d14b01757b8e37755c393a3bc1881a43e2": {
+        "english": "Which items are the bulkiest or heaviest to move?",
+        "french": "Quels sont les objets les plus encombrants ou les plus lourds à déplacer ?"
+      },
+      "5501114ed3fc6d6421cfd818dd912430fbc57d22c8e71085d4adb203a12c2c14": {
+        "english": "What’s the exact address of your new flat, and how long will it take to get there from your current flat?",
+        "french": "Quelle est l'adresse exacte de ton nouveau logement, et combien de temps faut-il prévoir depuis ton appartement actuel ?"
+      },
+      "68d3e0b0e7ee652f33eb4806c10e385db2e15161e9f8f7014f7f01b64df50688": {
+        "english": "When we arrive, is there a lift, and will we be able to park the van near the entrance?",
+        "french": "À l'arrivée, y a-t-il un ascenseur, et pourra-t-on garer la camionnette près de l'entrée ?"
+      },
+      "9380fb46f01dab1ce07782992fd8e690719cd420588411ec229a72e05a728289": {
+        "english": "Which day are you moving, and what time do you want to start?",
+        "french": "Quel jour déménages-tu, et à quelle heure veux-tu commencer ?"
+      },
+      "d39bd76124ae46a45145ddd7e8ff518b13ccd08a18deeeb16f8f351f3be47810": {
+        "english": "What van have you booked, and will we have a trolley, straps and blankets to protect the furniture?",
+        "french": "Quelle camionnette as-tu réservée, et aurons-nous un chariot, des sangles et des couvertures pour protéger les meubles ?"
+      },
+      "d61e0a200a95f7e22cca43ccd3f09bbd76364f383be861717fbddf0e95bb5e04": {
+        "english": "As for lunch and drinks, have you already made arrangements, or would you like me to sort that out?",
+        "french": "Pour le déjeuner et les boissons, as-tu déjà prévu quelque chose ou veux-tu que je m'en occupe ?"
+      },
+      "e6a3b1bf61591b890bf36c790f312870110c821c075f4177a8b1694d9b6ffeb9": {
+        "english": "Apart from us, who else will be there to help?",
+        "french": "À part nous, qui sera là pour aider ?"
+      }
+    },
+    "help-friend-post-parcel": {
+      "68c122254804a0bb827553d52aa3847f5e90a18b6e06f6dcaabce4e5272e8eac": {
+        "english": "Will the parcel already be packed, labelled and stamped, and will you give me the money before I post it if the postage is still to be paid?",
+        "french": "Le paquet sera-t-il déjà emballé, étiqueté et affranchi, et me donneras-tu l'argent avant le dépôt si l'envoi reste à payer ?"
+      },
+      "8b679351337ff005ddcbcaaa0b35ea3d63c807ac7385aac141534e04455ef659": {
+        "english": "What are the approximate dimensions of the parcel, and how much does it weigh?",
+        "french": "Quelles sont les dimensions approximatives du paquet, et combien pèse-t-il ?"
+      },
+      "8c01a5f0041132572aba17cf619fdf80961477b8dea2ad2da7ddfe890c62d27e": {
+        "english": "Which town should the parcel be sent to, and by when at the latest does it need to arrive?",
+        "french": "Dans quelle ville faut-il envoyer le colis, et quand doit-il arriver au plus tard ?"
+      },
+      "8d4d397ba1736b7c98f2d0ce6613407893f314b371e42e66bb56d27c3f87400b": {
+        "english": "If standard delivery is too slow, would you prefer express delivery, and up to what cost?",
+        "french": "Si l'envoi standard est trop lent, souhaites-tu l'express, et jusqu'à quel montant ?"
+      },
+      "b570bac678b7ff59c3e07fa7a0e00eb523b41cabe8b4e4f24f63428f6c0ee62f": {
+        "english": "Which post office would you recommend, and how long should I allow for the round trip, including dropping it off?",
+        "french": "Quel bureau de poste me conseilles-tu, et combien de temps faut-il prévoir pour l'aller-retour, dépôt compris ?"
+      },
+      "bbf76452f5ee72a0bee6970e89c9485cc7b5847ce303dd195420636eea2e66e7": {
+        "english": "What’s in the parcel, and are there any special precautions I need to take when sending it?",
+        "french": "Que contient le paquet, et faut-il prendre des précautions particulières pour l'envoi ?"
+      },
+      "d9051ecdee303b9e02c701784247f02ca31c2681cabc85a31540218f4a535e40": {
+        "english": "By when, at the latest, does the parcel need to be posted?",
+        "french": "Au plus tard, quand faut-il poster le paquet ?"
+      },
+      "dcf5bdcdd1d33ef58cca355706fddb6671069f565908630f4f405720b6cc7ba3": {
+        "english": "When can I pop round to collect it from your place?",
+        "french": "Quand puis-je passer le récupérer chez toi ?"
+      }
+    },
+    "help-transport-heavy-objects-no-vehicle": {
+      "0a2fd56208e57cf6ca0936847efac7f18398a0b640df72c72e956a2c96c91cc2": {
+        "english": "What budget have you set aside for hiring a van and the equipment needed for the transport?",
+        "french": "Quel budget avez-vous prévu pour louer une camionnette et le matériel nécessaire au transport ?"
+      },
+      "1df25448dcf89a64a2aeb019e1a7ee0786e6728434adb5536bc41e1af86f4972": {
+        "english": "Are there stairs or a lift at both addresses, and is it possible to park near the entrances?",
+        "french": "Y a-t-il des escaliers ou un ascenseur aux deux adresses, et peut-on stationner près des entrées ?"
+      },
+      "27a8b9886b6b4f010174a21117d0425780dce4c9d4e3ee77669234648e23e9c9": {
+        "english": "Where do we need to set off from, where do we need to deliver the items, and how far do we need to travel?",
+        "french": "D'où faut-il partir, où doit-on déposer les objets, et quelle distance faut-il parcourir ?"
+      },
+      "4d659fbe9f45ffd52877e01335c62e77d4226a66882a0a043a600d43e9a14bf2": {
+        "english": "On which day and at what time would you like the transport to take place?",
+        "french": "Quel jour et à quelle heure souhaitez-vous effectuer le transport ?"
+      },
+      "8354cf41d237f250ab54740542c6e50ca09340223da89effabd9cbed134973a0": {
+        "english": "What are the dimensions of the sofa, and can the legs be removed to make it easier to transport?",
+        "french": "Quelles sont les dimensions du canapé, et peut-on retirer les pieds pour le transporter plus facilement ?"
+      },
+      "8d638996114692457b4e2f1299716a9527e41203c6b007febc098a9e03c7705b": {
+        "english": "Which items need to be transported, and which are the bulkiest or heaviest?",
+        "french": "Quels objets faut-il transporter, et lesquels sont les plus encombrants ou les plus lourds ?"
+      },
+      "af861c017bbdbad00f58b4375b43cbe197fb0d1bf7008886ff367f6ac8d4d3b1": {
+        "english": "Who else will be able to help us carry the items?",
+        "french": "Qui d'autre pourra nous aider à porter les objets ?"
+      },
+      "e14d1dbbc0315713ce3ad154f928afc1cfb914b3c9474b7e2cc8ec1653934844": {
+        "english": "I’ll sort out booking the van. How shall we arrange payment for the hire and the fuel?",
+        "french": "Je m'occupe de réserver la camionnette. Comment s'organise-t-on pour le paiement de la location et du carburant ?"
+      }
+    },
+    "host-foreign-friends-city-advice": {
+      "1388cf67d7d08e0e6020297a1d6f02323941d7ff81129953c7a13a8699e91806": {
+        "english": "To get to these places, which routes would you recommend I take on foot, and which ones by public transport?",
+        "french": "Pour rejoindre ces lieux, quels trajets me conseilles-tu de faire à pied et lesquels plutôt en transports en commun ?"
+      },
+      "51cb083baa87c8193d48a6eca7efce4e831ae15d997cc392934f90f3712a77c0": {
+        "english": "What activity would help them gain a better understanding of the region’s history and culture?",
+        "french": "Quelle activité leur permettrait de mieux comprendre l'histoire et la culture de la région ?"
+      },
+      "70f72f3c6e26c1d07c61a0a802dc24f8bbc73325e539e3ebedb385e6d23e2194": {
+        "english": "When it comes to getting around, is it better to pay for each journey or buy a day pass?",
+        "french": "Pour ces déplacements, vaut-il mieux payer chaque trajet ou acheter un pass à la journée ?"
+      },
+      "76f0f9cc5de969d0f1c0642a6f6d7324f442592501e409e4aac065df4ee7b43f": {
+        "english": "Where could we go for a walk along the waterfront or in a park to enjoy the fresh air?",
+        "french": "Où pourrait-on se promener au bord de l'eau ou dans un parc pour profiter du plein air ?"
+      },
+      "a7d31be6476649daeaa00bd4a26043e8e4b20b50ba03f9c9afa10d1dd44a3acd": {
+        "english": "If it rains and we’d rather stay in, what could we do to have a good time together?",
+        "french": "S'il pleut et qu'on préfère rester à la maison, qu'est-ce qu'on pourrait organiser pour passer un bon moment ensemble ?"
+      },
+      "aefa0c84a10f626aa8f424319012144bd493521d916fdbb8a7c117f2055e14c9": {
+        "english": "At this restaurant, how much should we budget per person for a meal, including a drink, taxes and tip?",
+        "french": "Dans ce restaurant, combien faudrait-il prévoir par personne pour un repas avec une boisson, taxes et pourboire compris ?"
+      },
+      "e076159c5fb44af34eb954f26fcf7e9ace8e6bfc560b1889f97739f1f5b66277": {
+        "english": "For this activity, how much time should we allow, and is it best to book in advance?",
+        "french": "Pour cette activité, combien de temps faudrait-il prévoir, et vaut-il mieux réserver à l'avance ?"
+      },
+      "fe34cbf81b287e0a064ee5388fd8c44fc500c93a1e7f960bbfd4fd6f8a6769e3": {
+        "english": "Do you know of a friendly restaurant where we could try some local specialities?",
+        "french": "Est-ce que tu connais un restaurant convivial où l'on pourrait goûter des spécialités locales ?"
+      }
+    },
+    "hotel-host-services": {
+      "107b2355681dfca60d9d68688984d9a3237aae8ae0f35a52afad9ec7219665d0": {
+        "english": "Which services need to be booked in advance, and how can this be done?",
+        "french": "Quels services faut-il réserver à l'avance, et comment peut-on le faire ?"
+      },
+      "3117f61bc389d8444a8f7dfe035153faf2f8491b048d4ff63ad4094e05e44ab1": {
+        "english": "On the day of departure, until what time can we leave our luggage at the hotel?",
+        "french": "Le jour du départ, jusqu'à quelle heure peut-on laisser ses bagages à l'hôtel ?"
+      },
+      "a08a068976ad1ecb7b1ce86df0a5ade8b291a85c758ff7566badf7bb3332dede": {
+        "english": "For other meals, is there a restaurant or room service, and what are the prices?",
+        "french": "Pour les autres repas, y a-t-il un restaurant ou un service en chambre, et quels sont les tarifs ?"
+      },
+      "c5b02b2bc65af56a7339ec607bb73d7155273234221609299501d49e9b263631": {
+        "english": "How much does the laundry service cost, and how long does it take to get the laundry back?",
+        "french": "Combien coûte le service de blanchisserie, et quel est le délai pour récupérer le linge ?"
+      },
+      "cf3c41b32e09d880e611ba45fcd8b69b51dd3bcdcab8f6215d5dcc07b71eb30c": {
+        "english": "What do you offer for breakfast, how much does it cost, and what are the serving times?",
+        "french": "Pour le petit-déjeuner, que proposez-vous, à quel prix et à quels horaires ?"
+      },
+      "d08ce0d7312d920543955d9fc52426aa18c190119cec49d7b3503362b8f66041": {
+        "english": "What services do you offer guests, and which ones are included in the room rate?",
+        "french": "Quels services proposez-vous aux clients, et lesquels sont compris dans le prix de la chambre ?"
+      },
+      "e3496d478362d09b8ab8e6ebe67063e8897b107a9d2895be4d6ebb2c708d762f": {
+        "english": "Do you offer a shuttle service to the airport or the railway station, and what is the fare per person?",
+        "french": "Proposez-vous une navette pour l'aéroport ou la gare, et quel est le tarif par personne ?"
+      },
+      "fffb469457df3ce49c4ec8e9ee6d6e70ab71e801312a0fb0463f3939761f5a7a": {
+        "english": "Is Wi-Fi available in the rooms and communal areas, and how can we connect to it?",
+        "french": "Le wifi est-il accessible dans les chambres et les espaces communs, et comment peut-on s'y connecter ?"
+      }
+    },
+    "hotel-reception-room-booking": {
+      "12d2d9157a27d965edf318eb05e4e7534b96accf88b06d7ce71f02b1f9339d83": {
+        "english": "What are the check-in and check-out times, and can we leave our luggage if the room isn’t ready yet?",
+        "french": "Quels sont les horaires d'arrivée et de départ, et peut-on laisser ses bagages si la chambre n'est pas encore prête ?"
+      },
+      "348e57f38e6423fc601be2282235bf2c3188684eaf1ea38e56f1a9e601afb8c2": {
+        "english": "What are the differences between these rooms, particularly in terms of beds, space and facilities?",
+        "french": "Quelles différences y a-t-il entre ces chambres, notamment pour les lits, l'espace et les équipements ?"
+      },
+      "601368216f0d849fa5af3da065901c3cc4b78e20bd1003ac7229528e190e7c5a": {
+        "english": "If my arrival is delayed, what time is the latest I can collect the key, and how should I let you know?",
+        "french": "Si mon arrivée est retardée, jusqu'à quelle heure puis-je récupérer la clé et comment vous prévenir ?"
+      },
+      "6db90008aee9b9db9ffc1b5487d6da8cb3aabe9aea2a737a8593b3062ff58339": {
+        "english": "If I need to change my dates or cancel, what notice periods do I need to give to avoid being charged?",
+        "french": "Si je dois modifier mes dates ou annuler, quels délais faut-il respecter pour éviter des frais ?"
+      },
+      "793e10a0d46c0cefbef35427d357056f44176873343de2a023312ae75e40020c": {
+        "english": "For a two-night stay next weekend, what types of rooms would be available?",
+        "french": "Pour un séjour de deux nuits le week-end prochain, quels types de chambres seraient disponibles ?"
+      },
+      "df231d14d556dbe54c00490106a42c613b60d0d28ef90b4fa60d734dd562c957": {
+        "english": "How do I confirm the booking, and how much do I need to pay in advance?",
+        "french": "Comment confirmer la réservation, et quel montant faut-il payer à l'avance ?"
+      },
+      "f1ad94fcd2cb492491822a099cf6488e93138de40ebfc6c30eaa1f5a54fedff4": {
+        "english": "Which services are charged as extras, for example parking or access to certain facilities?",
+        "french": "Quels services sont facturés en supplément, par exemple le stationnement ou l'accès à certains équipements ?"
+      },
+      "f40f3cb57bee75697da6e037cd8609233c96730932c9ed8a9d0b164b0a236ec7": {
+        "english": "For these two nights, what would the total cost be, including taxes, and what services would be included?",
+        "french": "Pour ces deux nuits, quel serait le montant total, taxes comprises, et quels services seraient inclus ?"
+      }
+    },
+    "language-school-new-language": {
+      "26fb3a9028558e1e1dec2e322b10eff58c211d9d4c6d8cdbbc7a7d9886df3c54": {
+        "english": "Does the price include the textbook and course materials, or will I need to buy anything extra?",
+        "french": "Le prix comprend-il le manuel et les supports de cours, ou faut-il prévoir un achat supplémentaire ?"
+      },
+      "2c0b12ff5917de81c923e2517255d3cfe047a7ec33d5292b8fb5704f484b833e": {
+        "english": "What training do the teachers who teach beginners have?",
+        "french": "Quelle formation ont les enseignants qui s'occupent des débutants ?"
+      },
+      "378c76eaae667eab2e2d571c2757e3549f598994818ab0bb12bc5aa18a860282": {
+        "english": "During the lessons, how do we practise the language: in pairs, in groups or through role-play?",
+        "french": "Pendant les cours, comment est-ce qu'on pratique la langue : en binôme, en groupe ou dans des jeux de rôle ?"
+      },
+      "3f7e1015ca493de1acd696b80aaf7f818d028d64c90f66010f24d446ef63950e": {
+        "english": "For this group, what time slots do you offer, either in person or online?",
+        "french": "Pour ce groupe, quels créneaux proposez-vous sur place ou en ligne ?"
+      },
+      "685a89df4fb27da57c46aa564337cb8c5286042af247901f7d45cff6cc8af00d": {
+        "english": "How much does a full course cost, and how many weeks does it last?",
+        "french": "Combien coûte une session complète, et sur combien de semaines s'étend-elle ?"
+      },
+      "82f1c57d0d8c605ed7fda1e36e5bf86deff888fdee29270b4c131d027400c84b": {
+        "english": "Which languages can I learn at your school?",
+        "french": "Quelles langues peut-on apprendre dans votre école ?"
+      },
+      "851d4f8ecf40dc6ca29bacf7f1aeff83f678037b1cf60eb793fa0aa1dc4f2f85": {
+        "english": "For Spanish, do you offer courses for complete beginners?",
+        "french": "Pour l'espagnol, proposez-vous des cours pour débutants complets ?"
+      },
+      "bca6d9e9f93217d8e016610c2819776e94263c485ae1f976542c7c57e4111e8b": {
+        "english": "Is it possible to have a taster lesson, and how do I enrol afterwards?",
+        "french": "Est-il possible de faire un cours d'essai, et comment m'inscrire ensuite ?"
+      }
+    },
+    "medical-secretary-temporary-replacement-doctor": {
+      "117d26105c22f4f0d40aacb8b40768a217642db15bed794469707e07b9a9673a": {
+        "deepl_english": "Until what date will they be covering for him/her?",
+        "english": "Until what date will they be providing cover?",
+        "french": "Jusqu'à quelle date assurera-t-elle le remplacement ?",
+        "review_note": "Keep the replacement duration without an awkward or ambiguous him/her reference."
+      },
+      "2dd69a6cc3c2fcc73ab9b6983f1bfcef735c97d025538539ebc8adb97d7e66ef": {
+        "english": "Are they seeing patients at the same surgery as my usual GP?",
+        "french": "Consulte-t-elle dans le même cabinet que mon médecin habituel ?"
+      },
+      "64022cccd6ddac71e29d573179e8af86614bbdd9ad0477c0c0b1d5d6dc5b1dee": {
+        "english": "How do I book an appointment with them, and what documents do I need to bring to the consultation?",
+        "french": "Comment prendre rendez-vous avec elle, et quels documents faut-il apporter à la consultation ?"
+      },
+      "bca9a5246af9b51b652d7d72f3ff908bb84af3144e4130ca900b05bb5b032d4d": {
+        "english": "Are they a GP, and how long have they been practising?",
+        "french": "Est-elle médecin généraliste, et depuis combien de temps exerce-t-elle ?"
+      },
+      "c680d39fa038792eb3cf34bf0dfc449cc50967157dde9a8719a2323b96dd4cb9": {
+        "english": "Will they have access to my medical records, or will I need to send them any documents before the appointment?",
+        "french": "Aura-t-elle accès à mon dossier, ou faudra-t-il lui transmettre des documents avant la consultation ?"
+      },
+      "cb5d23d4f038948268da598284fc02c0379e469f9abc4864879ee3a02238f937": {
+        "english": "How long will it take to get an appointment?",
+        "french": "Quel délai faut-il prévoir pour obtenir une consultation ?"
+      },
+      "e2f50d596ef6afd58f61ff24116dba68b5b193416df565de5ccc4947fe303354": {
+        "deepl_english": "What is the name of the doctor covering for him/her?",
+        "english": "What is the replacement doctor's name?",
+        "french": "Quel est le nom du médecin qui assure le remplacement ?",
+        "review_note": "Ask for the replacement doctor's name without inventing a gendered absent-doctor reference."
+      },
+      "e419d0bd034119d9b33f3f55396ed5a3f01224871ac55a5b6695d6263765ec62": {
+        "english": "On which days and at what times are they seeing patients during this cover?",
+        "french": "Quels jours et à quelles heures consulte-t-elle pendant ce remplacement ?"
+      }
+    },
+    "municipal-cultural-service-city-activities": {
+      "30866485e238f289f85b469ec17ee23b7c363744b0d3224e6b6c77ff25a1ccc7": {
+        "english": "Do you also offer workshops for beginners, for example in drawing or photography, and what do you learn in them?",
+        "french": "Propose-t-on aussi des ateliers pour débutants, par exemple en dessin ou en photographie, et qu'est-ce qu'on y apprend ?"
+      },
+      "78691b6298d9b0826dc317775072db82491943223a15bfe4bb8067643df8bad8": {
+        "english": "Which activities are free, and for those that cost money, what does the advertised price include?",
+        "french": "Quelles activités sont gratuites et, pour celles qui sont payantes, que comprend le tarif annoncé ?"
+      },
+      "80ebbfa2bb7b439d279b365a74cdbf01653d450579a121ed37d461ee88628303": {
+        "english": "What are the opening hours for these venues, and on which days do the workshops take place?",
+        "french": "Quels sont les horaires de visite de ces lieux, et quels jours ont lieu les ateliers ?"
+      },
+      "84eff2fb757c4f0edac871aefefae582e9786d1ea7adf5d4bdec02cbde0c4292": {
+        "english": "How do I sign up for a workshop, and how far in advance do I need to book a place?",
+        "french": "Comment s'inscrire à un atelier, et combien de temps à l'avance faut-il réserver sa place ?"
+      },
+      "c5637a3a7fb94497cf58d9594c0be44822faab0c4021aad62c61756e2aec19ca": {
+        "english": "Are the venues accessible by public transport, and how can I check whether they’re accessible for people with reduced mobility?",
+        "french": "Les lieux proposés sont-ils accessibles en transports en commun, et comment vérifier l'accès pour une personne à mobilité réduite ?"
+      },
+      "cfacd9c0ee00f7ac7c4db1a6fb0a3d46236b55b6f7e54a08a46ed7b02681efc6": {
+        "english": "Do you offer a pass for multiple visits, and how can I tell if it’s better value than buying separate tickets?",
+        "french": "Pour plusieurs visites, proposez-vous un pass, et comment savoir s'il est plus intéressant que des billets séparés ?"
+      },
+      "d4833b950d9c607ef3b71955442c172d5fddc4c082e327ac09f876debc7c888b": {
+        "english": "Which cultural venues would you recommend I visit in the town, such as museums, galleries or cultural centres?",
+        "french": "Quels lieux culturels me conseilleriez-vous de découvrir dans la ville, par exemple des musées, des galeries ou des centres culturels ?"
+      },
+      "ef6bc779cd14e7fc286f4d15efae5d23ec520566ae643fd9171b21873afc5c36": {
+        "english": "At the venues you recommend, what exhibitions are currently on, and how long will they run for?",
+        "french": "Dans les lieux que vous conseillez, quelles expositions peut-on voir en ce moment, et jusqu'à quand sont-elles proposées ?"
+      }
+    },
+    "museum-group-visit-reception": {
+      "286b6ce3823a539178ee4c20ab6f0e3bfbc3c1bf0b8fdf955bda58b199d2b975": {
+        "english": "What is the admission price per person, and do you offer concessions?",
+        "french": "Quel est le prix d'entrée par personne, et proposez-vous des tarifs réduits ?"
+      },
+      "6e10286fae3ec23ac90d049dc3a55a8e85452bf467703175a1274145da621be2": {
+        "english": "How long does the guided tour last, and can we then explore the rest of the museum at our own pace?",
+        "french": "Combien de temps dure cette visite guidée, et peut-on ensuite visiter le reste du musée librement ?"
+      },
+      "79e6f7d61c2744bf812a3f710e0a5b82097a78a1f1009eaf5f0e1de47298b806": {
+        "english": "What exhibitions are on at the moment, and which one would you recommend?",
+        "french": "Quelles expositions peut-on voir en ce moment, et laquelle nous conseilleriez-vous ?"
+      },
+      "8c5689967ed8dcbe6c4ea201ae374a7b849c1949a9946a5dd763351cb43d50f6": {
+        "english": "Is the guided tour included in the admission price and, if not, how much extra does it cost per person?",
+        "french": "La visite guidée est-elle comprise dans le billet d'entrée et, sinon, quel supplément faut-il prévoir par personne ?"
+      },
+      "9d54a536511651e6ac837621a4a01126798c9e580e616d21da2206b7b0ebd6a2": {
+        "english": "What are the museum’s opening days and times?",
+        "french": "Quels sont les jours et horaires d'ouverture du musée ?"
+      },
+      "a612d60238843b36e448968fbf3d124289c6eddbb37d7c205fb5f9b5e937f7cb": {
+        "english": "How do we book places on the guided tour, and how far in advance do we need to book?",
+        "french": "Comment réserver nos places pour la visite guidée, et combien de temps à l'avance faut-il s'y prendre ?"
+      },
+      "bf28560e85c883cb447caf7aac08ce3ec292a3f374ac907759e09c4ba217b7b2": {
+        "english": "Do you offer a guided tour of this exhibition, and at what times does it take place?",
+        "french": "Est-ce que vous proposez une visite guidée de cette exposition, et à quels horaires a-t-elle lieu ?"
+      },
+      "dc0886836eba05bd0f47155bd83e3e7bd013028d718d7143fc1d4e07f3eaefcf": {
+        "english": "From how many people do you offer a group rate, and what is the price per person?",
+        "french": "À partir de combien de personnes proposez-vous un tarif de groupe, et quel est le prix par personne ?"
+      }
+    },
+    "neighbor-child-one-day-care": {
+      "0b12f4f9b6dcc45e3acd53f1b309fae2ba01dda7ddfcdb1b7acd7adeba3e4a3a": {
+        "english": "Should we plan for a nap or some quiet time? When, and what routines would help your child get some rest?",
+        "french": "Faut-il prévoir une sieste ou un temps calme, à quel moment et avec quelles habitudes pour aider votre enfant à se reposer ?"
+      },
+      "1d51a58f955ce2297fdae05aa9ddfac0b6de01fe1699ee9e4b764fbd9a3918f9": {
+        "english": "Will you be providing lunch and an afternoon snack, or should I sort those out, and at what times does your child usually eat?",
+        "french": "Fournirez-vous le repas et le goûter ou devrai-je les prévoir, et à quelles heures votre enfant mange-t-il ?"
+      },
+      "63c2e91e896826b5e7a7d1b56f94bc7fb393caa45d30eb636c27d32ba0419c56": {
+        "english": "How old is your child, and do they have any allergies or special health needs?",
+        "french": "Quel âge a votre enfant, et a-t-il des allergies ou des besoins de santé particuliers ?"
+      },
+      "7468fefe04db8788c3e95c726c957f4cbab9e4d3690607df98b4dae47eec772c": {
+        "english": "What activities does your child prefer: drawing, building blocks or trips to the park?",
+        "french": "Quelles activités votre enfant préfère-t-il : le dessin, les jeux de construction ou les sorties au parc ?"
+      },
+      "a59fafa298ef282210cc41235e52955d57e269ee69691df55506cea4695c3114": {
+        "english": "Can I take them to the park, and what rules do I need to follow whilst we’re out?",
+        "french": "Puis-je l'emmener au parc, et quelles consignes dois-je respecter pendant la sortie ?"
+      },
+      "c6b29c6a1aee8f43e24462818fa9c00fd9311aa9235941e7513324f22c769703": {
+        "english": "Will you be available throughout the day, and who can I contact if a problem arises?",
+        "french": "Serez-vous joignable pendant toute la garde, et qui pourrai-je contacter si un problème survient ?"
+      },
+      "d6c69b7e5f8fc7d0f785cb28ee3509c22e11c34c15b69e3e19f93542ce33279e": {
+        "english": "How does your child behave around people they don’t know very well, and do they get on well with other children?",
+        "french": "Comment se comporte votre enfant avec les personnes qu'il connaît peu, et s'entend-il bien avec les autres enfants ?"
+      },
+      "d9f0dbe47f360f78a5ddee81da39e666a89512696a394a76d0ca41488e4db774": {
+        "english": "Where will the childcare take place, and from what time to what time?",
+        "french": "Où se passera la garde, et de quelle heure à quelle heure ?"
+      }
+    },
+    "neighbor-dog-care-week-paid": {
+      "0933898452fab3c3c79e6f87be0ac8f7a9a79cf0024fc45588598acef85f08a7": {
+        "english": "Are there any allergies I should be aware of, any special care required, or any medication he needs to be given whilst I’m looking after him?",
+        "french": "Y a-t-il des allergies à connaître, des soins particuliers à prévoir ou un traitement à lui donner pendant la garde ?"
+      },
+      "0e5debe489fe5a90a08d24ab522db71b092791099aff93a33acd455f06c985c6": {
+        "english": "How does he behave on walks, and is he friendly with people he doesn’t know?",
+        "french": "Comment se comporte-t-il pendant les promenades, et est-il sociable avec les personnes qu'il ne connaît pas ?"
+      },
+      "8ba0349dfb560a3a05666a076102352d54aa6bc017bc87b31a4f8856336273d5": {
+        "english": "How often does he need to be walked, and how long should I allow for each walk?",
+        "french": "À quelle fréquence faut-il le promener, et combien de temps prévoir pour chaque sortie ?"
+      },
+      "99f89936296ae0156033b1adcad94508f1a29697c9d9180132bb042a620b20f9": {
+        "english": "Would you prefer me to look after the dog at your home or at mine, and will I need to be there overnight?",
+        "french": "Souhaitez-vous que je garde le chien chez vous ou chez moi, et faut-il prévoir une présence la nuit ?"
+      },
+      "9adce43660f7dcc3c3e210fb11a2c0d5b1a91ae265fdf20f6c9a548771ef1d62": {
+        "english": "Will you be providing his food or will I need to sort that out, and at what times does he usually eat?",
+        "french": "Fournirez-vous sa nourriture ou devrai-je m'en occuper, et à quelles heures prend-il ses repas ?"
+      },
+      "cd20812509369c55054d642ab69f0c201f1f9cc96dd441e6113792f1f6b0e32b": {
+        "english": "What are the exact dates you’ll be away?",
+        "french": "Quelles sont les dates exactes de votre absence ?"
+      },
+      "dd7e73179174092e81a6e5f1226b980e86a5061195bc6106e5c2d7ff26133612": {
+        "english": "Who should I contact if I notice a health problem?",
+        "french": "Qui dois-je contacter si je remarque un problème de santé ?"
+      },
+      "e0e62245ed69ac96ec965407a72e5d75495e19d0b277dfc61c53a2d598acb392": {
+        "english": "How much are you planning to pay for the dog-sitting, and will the payment be made before you leave or when you return?",
+        "french": "Quelle rémunération avez-vous prévue pour la garde, et sera-t-elle versée avant votre départ ou à votre retour ?"
+      }
+    },
+    "neighbor-environmental-association-volunteering": {
+      "02779a15cb13d0fd90ccf9f6b674a301f76415319fc3b345ff4afdd88dbebb67": {
+        "english": "What specific tasks does the organisation assign to volunteers in the field?",
+        "french": "Quelles actions concrètes l'association confie-t-elle aux bénévoles sur le terrain ?"
+      },
+      "1366ce557d8112523c92c561f9faf28a883976b2dd48903705d7c114fef74d0c": {
+        "english": "Where is the meeting point, and how will I be notified if there’s a cancellation?",
+        "french": "Où est le point de rendez-vous, et comment serai-je prévenu en cas d'annulation ?"
+      },
+      "3f612ba173be504049ac189fc72e31ef3c160798fb84a061a836376e8102f22a": {
+        "english": "How often do the activities take place, at what times, and during which months of the year?",
+        "french": "À quelle fréquence les activités ont-elles lieu, à quels horaires et pendant quels mois de l'année ?"
+      },
+      "4e45cf86908f48c4928bb92a75218da350fb3aeed222ed8f47975d6df69c4f07": {
+        "english": "Can we help out on an occasional basis, and how far in advance do we need to sign up for an activity?",
+        "french": "Peut-on aider ponctuellement, et combien de temps à l'avance faut-il s'inscrire à une activité ?"
+      },
+      "5d24604770052681a1913f20f4e6021b01cf16e5a8259744c11fabcc9cad77d8": {
+        "english": "Who should I contact to get started, and is it possible to meet the team first before committing?",
+        "french": "Qui dois-je contacter pour une première participation, et peut-on d'abord rencontrer l'équipe avant de s'engager ?"
+      },
+      "5efef8b88974742f8a8c0e1fb54b97e37f8b4851fab62d4797ea689bfcd193a1": {
+        "english": "When it comes to cleaning up the riverbanks, what equipment is provided and what do we need to bring ourselves?",
+        "french": "Pour le nettoyage des berges, quel matériel est fourni et que faut-il apporter soi-même ?"
+      },
+      "d3b562f5df47b8583f1ab5d3a6b8ad3b59dc284d58d12028f3e047456556c596": {
+        "english": "Who takes part in the activities: mainly local residents, families or students?",
+        "french": "Qui participe aux activités : surtout des habitants du quartier, des familles ou des étudiants ?"
+      },
+      "e34faca2e9b705cf3af9f9945e6050c866c5d1c6c3eda3d5b7acd3655726bbcf": {
+        "english": "Do you need to have any previous experience, or do you get guidance and support to help you get started?",
+        "french": "Faut-il déjà avoir de l'expérience, ou reçoit-on des explications et un accompagnement pour commencer ?"
+      }
+    },
+    "neighbor-home-childcare-provider-referral": {
+      "323b4903fdf82bc2f4f8e92184ebb30bdd7304c52853d3af476007e399ef1a81": {
+        "english": "From what you know, on which days and at what times are they usually available?",
+        "french": "D'après ce que vous savez, quels jours et à quels horaires est-elle habituellement disponible ?"
+      },
+      "4467d2bc1abc9ce296d5ba91ac5abcad9c81a6f23ab3e128e7cb428e0123dc8d": {
+        "english": "Do you know how much they charge, and whether you pay them after each session or at the end of the month?",
+        "french": "Savez-vous quel tarif elle demande et si on la paie après chaque garde ou en fin de mois ?"
+      },
+      "6c0f173af76e85ab8b6a5a76107ccff7a2c4d5cbac87338a7246d0131cfc4186": {
+        "english": "How can I get in touch with them to arrange an initial meeting?",
+        "french": "Comment puis-je la contacter pour organiser une première rencontre ?"
+      },
+      "6e7289cf02320a8bed86684e0fd9d2f1ab7d189e2a87c5faaaa63767242ca3ba": {
+        "english": "What experience do they have with children, and have you had a chance to check their references yet?",
+        "french": "Quelle expérience a-t-elle auprès des enfants, et avez-vous déjà pu vérifier ses références ?"
+      },
+      "74f8547fb908b41f04b0f8d1b03f2248a2808cf3863615a28256708a84421a6b": {
+        "english": "From what you know, what tasks do they undertake, and do the parents have to provide meals?",
+        "french": "D'après ce que vous savez, quelles tâches accepte-t-elle, et les repas doivent-ils être fournis par les parents ?"
+      },
+      "939dc6ade1674cee5bdc2efef67e0b82c724daf6b30c1467864f94642ef1974c": {
+        "english": "In which neighbourhoods do they offer their services, and do they look after the children at the parents’ home or at their own home?",
+        "french": "Dans quels quartiers propose-t-elle ses services, et garde-t-elle les enfants chez les parents ou chez elle ?"
+      },
+      "ac8e255a5f29f04a9c60c9dcc051d2a67c7a76993272c2c112b28a58b79d7ceb": {
+        "english": "What age groups do they usually work with?",
+        "french": "Avec quelles tranches d'âge a-t-elle l'habitude de travailler ?"
+      },
+      "c63718dbbd092078e1278b87cb5435d276d418950700b03ff2687783be63af95": {
+        "english": "Do you know if they’ve had any first-aid training?",
+        "french": "Savez-vous si elle possède une formation en premiers secours ?"
+      }
+    },
+    "neighbor-municipal-cultural-outings": {
+      "00f90017d2bb8142938885a78573ce9e02aeee5425802e2f5b0a0598ff4b4c67": {
+        "deepl_english": "Do you know when the next event is, where it’s taking place and what’s planned there?",
+        "english": "Do you know what the next outing is, where it takes place and what is planned there?",
+        "french": "Vous savez quelle est la prochaine sortie, où elle se déroule et ce qui est prévu sur place ?",
+        "review_note": "Quelle sortie asks which outing; the following question separately asks its date."
+      },
+      "061b031256116befca892a49a3027b4c142de1bff059bbd68df89a0ee7497a87": {
+        "english": "When is this event taking place, and how long should I allow for it in total?",
+        "french": "À quelle date aura lieu cette sortie, et combien de temps faut-il prévoir au total ?"
+      },
+      "0a475226a864271d451b18c7aed1394f92c47a7dfa7614e113f81c0ac37b849a": {
+        "english": "Which of the town hall’s cultural outings have you already taken part in, and which ones did you enjoy the most?",
+        "french": "À quelles sorties culturelles de la mairie avez-vous déjà participé, et lesquelles vous ont le plus plu ?"
+      },
+      "287984685e0378ddc8d3f7fed1b389f56a7207a7b62f5f28a2cb7e967069006b": {
+        "english": "For the coach trip, where is the meeting point, and what time should we be there?",
+        "french": "Pour le départ en car, où est le point de rendez-vous, et à quelle heure faut-il être sur place ?"
+      },
+      "812d29ca35f42cf0b0947ad45ed5e8e153d724c8afe8fb9f9ccab72c20630730": {
+        "english": "How did you sign up last time, and where can I check which places are still available?",
+        "french": "Comment vous êtes-vous inscrit la dernière fois, et où puis-je vérifier les places encore disponibles ?"
+      },
+      "c74b03ed2ea28af28711929e7ff353a06f3a2431e77a54848e31f8d26f474a43": {
+        "english": "In your experience, what’s the atmosphere like within the group: do participants get to know each other easily?",
+        "french": "D'après votre expérience, comment est l'ambiance dans le groupe : les participants font-ils facilement connaissance ?"
+      },
+      "e8c7aa7582e0074120a5ea257c87cbe14dacba10681a0fa775e3ef0b3282ef61": {
+        "english": "How far in advance should I register, and how can I get the programme for upcoming events?",
+        "french": "Quel délai vaut-il mieux prévoir pour s'inscrire, et comment peut-on recevoir le programme des prochaines sorties ?"
+      },
+      "f1ab9abfac4252685fa742846fa912c2638e9012a62ddef61e1d7a9e4335d1d6": {
+        "english": "What is the price per person, and what is included in that price?",
+        "french": "Quel est le prix par personne, et qu'est-ce qui est compris dans ce tarif ?"
+      }
+    },
+    "neighbor-seaside-house-rental": {
+      "0f2b0e840f0c1ee23a0a91abfb22bcf0ee783755a966c2547fbfdb493fbf0f03": {
+        "english": "What facilities are available to tenants, for example a washing machine or a barbecue?",
+        "french": "Quels équipements sont à la disposition des locataires, par exemple un lave-linge ou un barbecue ?"
+      },
+      "3455218901cd31b85a7d4a9b04bb85cfbaf5bf888cf4020fd8490bb414c4073d": {
+        "english": "Can we walk to the beach and the shops, and does the neighbourhood stay quiet in the evenings?",
+        "french": "Peut-on rejoindre la plage et les commerces à pied, et le quartier reste-t-il calme le soir ?"
+      },
+      "56e0b78e6fc3ca5203c00ad8d8be45e458f86cc805d67488d7b36935cf367441": {
+        "deepl_english": "What does the price include, and is a refundable deposit required in addition to the deposit?",
+        "english": "What does the price include, and is a refundable security deposit required in addition to the booking deposit?",
+        "french": "Que comprend ce prix, et une caution remboursable est-elle demandée en plus de l'acompte ?",
+        "review_note": "Distinguish caution remboursable from acompte."
+      },
+      "77a0b676387d7be2f8fe0e38d0d297a44e8b8cce6edf5517af3f50fe36ca321e": {
+        "english": "Which dates are still available, and is the length of stay flexible?",
+        "french": "Quelles périodes sont encore disponibles, et la durée du séjour est-elle flexible ?"
+      },
+      "d0c27dc5f2f01f6ae5d34fc3487937929ee093a3c85356548dd30c867cf19b2a": {
+        "english": "How many bedrooms and beds are there, and how many people can sleep there comfortably?",
+        "french": "Combien de chambres et de lits y a-t-il, et combien de personnes peuvent dormir confortablement ?"
+      },
+      "d465599f6ea790e5afece1254a5f6288e522b91805a0505fd27973a40bf994c6": {
+        "english": "For a week in July, what would the total cost be, and how much would I need to pay as a deposit to book it?",
+        "french": "Pour une semaine en juillet, quel serait le montant total, et quel acompte faudrait-il verser pour réserver ?"
+      },
+      "dae1de3bafc53aeac4261033e277a05a4ca32aac6d069b856d08f8fb9fb0544e": {
+        "english": "Before booking, can we view the house and get the cancellation policy and key handover arrangements in writing?",
+        "french": "Avant de réserver, peut-on visiter la maison et obtenir par écrit les conditions d'annulation et de remise des clés ?"
+      },
+      "f942a1ab8b2407acf7e103f8ffe5c8ac028c8c3025ee93d35bc515805e48edf5": {
+        "english": "In which part of Seattle is the house located, and how long does it take to get to the city centre?",
+        "french": "Dans quel quartier de Seattle se trouve la maison, et combien de temps faut-il pour rejoindre le centre-ville ?"
+      }
+    },
+    "new-city-friend-low-budget-outings": {
+      "110ce215341c9860d15d8d09a3f4cdcfb8cee1f52632dc655b914dcb9bac0f0b": {
+        "english": "Which places would you recommend I visit first that don’t charge an entrance fee, and what can we do there?",
+        "french": "Quels endroits me conseillerais-tu de découvrir en premier sans payer d'entrée, et qu'est-ce qu'on peut y faire ?"
+      },
+      "1eb7441c80cd0eaab5468239d07d66770900bc7d98ffc773fc5a7df092a66868": {
+        "english": "Of these places, which ones can we reach on foot, and which ones are best reached by bus or bike?",
+        "french": "Parmi ces endroits, lesquels peut-on rejoindre à pied et lesquels nécessitent plutôt un bus ou un vélo ?"
+      },
+      "6b601f90ee314b0d8f3af9d4407e8f54d5210339ca19a8a29445f2e0aec82552": {
+        "english": "If it rains, what affordable activities would still allow me to explore the town?",
+        "french": "S'il pleut, quelles activités à petit prix me permettraient quand même de découvrir la ville ?"
+      },
+      "ac9b83dac51675c7fc17f564a043057800b02ebb0f1136eed2275d78d906da13": {
+        "deepl_english": "When I’m heading home after a night out, what time do the buses last until?",
+        "english": "For the journey home after an evening out, how late do the buses run?",
+        "french": "Pour rentrer après une sortie le soir, jusqu'à quelle heure les bus circulent-ils ?",
+        "review_note": "Use natural English for the last-bus operating-time question."
+      },
+      "bf032001c98b89c62adf285aa2a471756fe16095e15c6141dcca1046fe0540a4": {
+        "english": "Where can I find out about free days and discounts before choosing something to do?",
+        "french": "Où est-ce que je peux repérer les journées gratuites et les réductions avant de choisir une sortie ?"
+      },
+      "c6a6d2781e6a06d8de962a0d7746493917a25da3c52a407c9c1d982e13276258": {
+        "english": "To start with this park, what route would you recommend and how long should I allow for it?",
+        "french": "Pour commencer par ce parc, quel parcours me conseillerais-tu et combien de temps faut-il prévoir ?"
+      },
+      "dd272de392172b9d35720022301a86f3789883aa84cdf228d4c7a5987bf66581": {
+        "english": "Do you know of any free events or inexpensive things to do in the evening as well?",
+        "french": "Tu connais aussi des événements gratuits ou des sorties peu coûteuses pour le soir ?"
+      },
+      "fc5120fdee6c8addd51d83e94e5a042d9a2c0a30e935c7906503bf8113531428": {
+        "english": "For a first outing involving an activity and transport, what total budget would you advise me to set aside?",
+        "french": "Pour une première sortie avec une activité et le transport, quel petit budget total me conseillerais-tu de prévoir ?"
+      }
+    },
+    "new-colleague-quebec-career-migration": {
+      "1806399d863d59c74496c779337137b4f1ca943d38e09f96df5beaf9f644609c": {
+        "english": "How did you go about meeting people outside of work?",
+        "french": "Vous avez fait comment pour rencontrer des gens en dehors du travail ?"
+      },
+      "63c0a1bca6be00a18e750b4a48d776b981aa7421b6c47831c3c88fb5da99cb23": {
+        "english": "Compared to your previous jobs, what has surprised you most about the way we work here?",
+        "french": "Par rapport à vos précédents emplois, qu'est-ce qui vous a le plus surpris dans notre façon de travailler ?"
+      },
+      "67d166c2dab62dcdc33568ced3c16a13979645866a84df4bfe5dddead79b0c88": {
+        "english": "When you first arrived, what was the most difficult thing: finding somewhere to live, sorting out the paperwork, or building a network?",
+        "french": "À votre arrivée, qu'est-ce qui a été le plus difficile : trouver un logement, faire les démarches ou créer un réseau ?"
+      },
+      "6f9bb366036a602fabdcf29807e7f403f46fd304e780b7a29b5791332adb7898": {
+        "english": "What was your first job, and how did you get it?",
+        "french": "Quel a été votre premier emploi, et comment l'avez-vous obtenu ?"
+      },
+      "98f712c66e680d5386e2ed672486b9be414cdda80864a9ca29d8923f1defb469": {
+        "english": "What made you want to come and work here?",
+        "french": "Qu'est-ce qui vous a donné envie de venir travailler ici ?"
+      },
+      "d0eb5600133190fe21f204e7740633c23c89c1ab113970c63e7a4d1002ac2c0b": {
+        "english": "What did you study, and what led you to choose this field?",
+        "french": "Quelles études avez-vous faites, et qu'est-ce qui vous a orienté vers ce domaine ?"
+      },
+      "e81a0c3992dc49f5a2a6db1ef1402a2de565096d9fdbdbb9b84bd366b8bc4628": {
+        "english": "Now, within our team, what aspect of your experience abroad is most useful to you?",
+        "french": "Aujourd'hui, dans notre équipe, qu'est-ce qui vous sert le plus de votre expérience à l'étranger ?"
+      },
+      "fd830b914c058a2a34e4d0a47a64ae79fc4c07a9ee0adb0beb7641183c8088ff": {
+        "english": "Did you have any other professional experience abroad before settling here?",
+        "french": "Avez-vous eu d'autres expériences professionnelles à l'étranger avant de vous installer ici ?"
+      }
+    },
+    "new-employee-company-orientation": {
+      "0f21974b9cbe95a90385c73d898f06586ae09d831a8f635b0b01687dfdf6a04d": {
+        "english": "To start with, who will I be working with on a day-to-day basis, and who leads the team?",
+        "french": "Pour commencer, avec qui vais-je travailler au quotidien, et qui dirige l'équipe ?"
+      },
+      "165181ca629aaeab79d1dcbe4c75fa3332a9e7e7e05e95599a84e870bf799d6a": {
+        "english": "What are the team’s usual working hours?",
+        "french": "Quels sont les horaires habituels de l'équipe ?"
+      },
+      "25dae6595cceebdb884421e709012ac8e4d5df78a5cd24f90d418be1a7241895": {
+        "english": "Are there any breaks or team meetings I could join to get to know everyone?",
+        "french": "Y a-t-il des pauses ou des rencontres d'équipe auxquelles je pourrais participer pour faire connaissance ?"
+      },
+      "28ee5ded53fb9d47b78d94c772b2a074d877edabd99f1241e0e3212e3b519136": {
+        "english": "For lunch, is there a canteen or a room where you can eat your own packed lunch?",
+        "french": "Pour le déjeuner, y a-t-il une cantine ou une salle où manger son propre repas ?"
+      },
+      "2b4764e16f5510b1458fa5e32b41670be9de478859a315767c81230c13623fdb": {
+        "english": "If I get stuck on a task, who can I ask for help?",
+        "french": "Si je bloque sur une tâche, à qui est-ce que je peux demander de l'aide ?"
+      },
+      "654ddab0f626901c61589dc1648e621aaf4bee0eca09d049a0e8ef719c84d7c2": {
+        "english": "How are tasks and priorities communicated: in a meeting or via message?",
+        "french": "Comment reçoit-on les tâches et les priorités : lors d'une réunion ou par message ?"
+      },
+      "656c20909877c59138948a059ad20600498979de5fb16c799d9de9be284ff6cb": {
+        "english": "Are conversations between colleagues generally formal, or can we speak quite freely?",
+        "french": "Les échanges entre collègues sont-ils plutôt formels, ou peut-on se parler assez librement ?"
+      },
+      "ce6691b6e31377e9c58ca9120a33e269774ff136292da6c3c243bca014ddebe0": {
+        "english": "How do you pay in the canteen, and how much should you budget for a meal?",
+        "french": "Comment paie-t-on à la cantine, et quel budget faut-il prévoir pour un repas ?"
+      }
+    },
+    "new-neighbor-evening-entertainment": {
+      "1f4f88532ee9fe86343702bb841533af4bc9d1e1d10a215af62e1b857545e9b5": {
+        "english": "Is the atmosphere more relaxed or lively in the places you’d recommend?",
+        "french": "Est-ce que l'ambiance est plutôt calme ou animée dans les endroits que vous conseillez ?"
+      },
+      "3b1e0bc9120d7864e31383f2f7cf8c39f7e3780ec9cc1977e306c2d046c04f67": {
+        "english": "Can we walk home from these places, or is it better to arrange transport for later in the evening?",
+        "french": "Peut-on rentrer à pied depuis ces endroits, ou vaut-il mieux prévoir un transport en fin de soirée ?"
+      },
+      "413fd994b699f5b1a1676dea1be64ee9ca97ffe4e3798cf7a2fc47481e2e8801": {
+        "english": "At the cinema, are there any screenings followed by a discussion or other events?",
+        "french": "Au cinéma, y a-t-il aussi des séances suivies d'une discussion ou d'autres animations ?"
+      },
+      "62419f9634f2b0a6454aeb4318bc99f7899db3a51805279b4bf46a6d006e8464": {
+        "english": "When it comes to going out in the neighbourhood in the evening, what places would you recommend – for example, a cinema or a café that hosts live music?",
+        "french": "Pour sortir le soir dans le quartier, quels endroits me conseilleriez-vous, par exemple un cinéma ou un café qui propose des concerts ?"
+      },
+      "64e131c5966d5959e5a25fdeda87511b531c04ed40682f11e42603eb274ec155": {
+        "english": "For a gig at a café, how much should I budget for the entry fee and a drink, and how much does a cinema ticket cost?",
+        "french": "Pour un concert au café, quel budget faut-il prévoir avec l'entrée et une boisson, et combien coûte une place de cinéma ?"
+      },
+      "65723af0c85a298daf1c5182592e7ae9c1b977e0c29fafd2155ede448bb68cb4": {
+        "english": "As for the live music at the café, do you know what styles of music are played and on which evenings the gigs take place?",
+        "french": "Pour les concerts du café, vous savez quels styles de musique sont proposés et quels soirs ils ont lieu ?"
+      },
+      "79bcdd30dfe78ca770f2b53cc18ee6e2c42ca5c87ea47513fb0173492ed996e9": {
+        "english": "Where can I find the programme, and for which activities is it best to book in advance?",
+        "french": "Où puis-je consulter le programme, et pour quelles activités vaut-il mieux réserver sa place ?"
+      },
+      "b70fb8a848232dbb9965e1c3f405c5a3f60e0971d54fbe3150861b4815073787": {
+        "english": "Do you know of any free events or places where you can get discounted prices on certain days of the week?",
+        "french": "Connaissez-vous des sorties gratuites ou des tarifs réduits certains jours de la semaine ?"
+      }
+    },
+    "new-resident-neighbor-neighborhood-orientation": {
+      "13b57788ec8451d0d7dd2a6b295e6ccc465ce75636d96fd7ac3a96600ffb7daa": {
+        "english": "For the activity you’ve recommended, do I need to register online or in person, or can I just turn up?",
+        "french": "Pour l'activité que vous me conseillez, faut-il s'inscrire en ligne, sur place ou peut-on venir directement ?"
+      },
+      "1f29af1aa6866178340cd03006aa74bf6db2b6aa9cb377dc2c9b3632e5ea4d72": {
+        "english": "Is the neighbourhood quite quiet, family-friendly or lively, especially in the evenings and at weekends?",
+        "french": "Le quartier est-il plutôt calme, familial ou animé, surtout le soir et le week-end ?"
+      },
+      "316ca1f8eb79e80badd6fdedd1b2761e1ee5aa44db04477915ca72a5bfdd037b": {
+        "english": "And when it comes to everyday shopping, which shops are within walking distance — the supermarket, chemist’s or bakery — and which ones require you to take public transport?",
+        "french": "Et pour les courses courantes, quels commerces sont accessibles à pied — épicerie, pharmacie ou boulangerie — et lesquels nécessitent de prendre un transport ?"
+      },
+      "46cb74ed29f03b24ba264d5048a958635f045a376cde102aeb7ad8a18d2ba401": {
+        "english": "What sort of activities are there to help me get to know the neighbourhood and meet the locals — sport, workshops, volunteering or cultural outings?",
+        "french": "Quelles activités permettent de découvrir le quartier et de rencontrer des habitants — sport, ateliers, bénévolat ou sorties culturelles ?"
+      },
+      "62e16ca644676c1d397a1be33ea4fbeae204d921f0d23d694b46d20eb459874e": {
+        "english": "Finally, where can I find the neighbourhood’s timetables and announcements — on a website, social media, in the local council newsletter or on local noticeboards?",
+        "french": "Enfin, où puis-je consulter les horaires et les annonces du quartier — site internet, réseaux sociaux, bulletin municipal ou affichage local ?"
+      },
+      "b563e73379454523e11fe48e059642d3d9d40fca8c54d0e10626332210508c7b": {
+        "english": "Apart from the shops, what other facilities are there nearby — schools, a health centre, a library or a community centre?",
+        "french": "À part les commerces, quels services trouve-t-on à proximité — écoles, clinique, bibliothèque ou centre communautaire ?"
+      },
+      "eab80c9a33d442251e36d9cb9adeb3d38790ec1241e331f6b22fee9bcb6b95ed": {
+        "english": "Do the neighbours know each other well, and – without being intrusive – is it best for me to introduce myself straight away, attend a neighbourhood get-together, or wait for an informal opportunity?",
+        "french": "Est-ce que les voisins se connaissent bien et, pour faire connaissance sans être indiscret, vaut-il mieux me présenter directement, participer à une rencontre de quartier ou attendre une occasion informelle ?"
+      },
+      "f9efb6d6e28b8c6c83f11047d723c4e46ff8ed5e199922a27b211de0e82ec728": {
+        "english": "Is it easy to get to the city centre and the station by bus, metro or train, without having a car?",
+        "french": "Peut-on rejoindre facilement le centre-ville et la gare en bus, en métro ou en train, sans avoir de voiture ?"
+      }
+    },
+    "newcomer-canada-friend-job-market": {
+      "2d4e930f07d5e52501f02339d5d3bcafad4ddeda739fdfbfd062cac7af69bb02": {
+        "english": "On my CV, how should I present my projects and technical skills, and is it worth adding a link to GitHub?",
+        "french": "Sur le CV, comment présenter mes projets et mes compétences techniques, et est-ce utile d'ajouter un lien vers GitHub ?"
+      },
+      "66d76a5a2d1a180fce27c48a27392364c2802ab380062fa8956ad6d30d22e34b": {
+        "english": "Where would you recommend I look for these roles: LinkedIn, company websites or recruitment agencies specialising in IT?",
+        "french": "Où me conseilles-tu de chercher ces postes : LinkedIn, les sites des entreprises ou des recruteurs spécialisés en informatique ?"
+      },
+      "c783c3477c751055e644d9a3cd1afc05ea6a9fd12c93843821ceea95da5ae194": {
+        "english": "In software development, what ranges of gross annual salary do you see in job adverts?",
+        "french": "En développement logiciel, quelles fourchettes de salaire annuel brut vois-tu dans les offres ?"
+      },
+      "cf4390b26a8e74aaeadc1675007d830e41b1c83c1c95d9d8108b0747f28fed67": {
+        "english": "Are these roles based on-site, hybrid or fully remote?",
+        "french": "Ces postes sont-ils proposés sur place, en mode hybride ou entièrement en télétravail ?"
+      },
+      "daf6ea9747c8825c0aa9188e3a1fa211e3cac16fc6aeac62628598ed4b64e5eb": {
+        "english": "To get a Social Insurance Number, where do I need to apply and what documents do I need to prepare?",
+        "french": "Pour obtenir un numéro d'assurance sociale, où dois-je faire la demande et quels documents préparer ?"
+      },
+      "e98888abf897a1341ebd674180ec816b48341337b4963bc7b10eb9b88377782e": {
+        "english": "In Calgary, what sort of developer roles do you see most often in job adverts?",
+        "french": "À Calgary, quels profils de développeurs vois-tu le plus souvent dans les offres d'emploi ?"
+      },
+      "fca6e6a1235ee726d14ec3356ad87ba1026cb6b73e968d1f4396292462f23890": {
+        "english": "Before applying, how can I check that my immigration status allows me to work, and where can I find reliable information?",
+        "french": "Avant de postuler, comment vérifier que mon statut me permet de travailler, et où obtenir des renseignements fiables ?"
+      },
+      "fed90905fa0ee9be891a50a5c0fe47e730aca61cc51b6f29ce9f2c1095594215": {
+        "english": "What are the usual stages of the recruitment process for these roles, particularly interviews and technical tests?",
+        "french": "Quelles sont les étapes habituelles du recrutement pour ces postes, notamment les entretiens et les tests techniques ?"
+      }
+    },
+    "newcomer-canada-private-french-teacher": {
+      "0277b67b1c2fcbcb7671a2fc7abcfb021851301752f4ef52d2a22e31bca2d6fe": {
+        "english": "What training have you undertaken to teach French, and how long have you been giving private lessons?",
+        "french": "Quelle formation avez-vous suivie pour enseigner le français, et depuis combien de temps donnez-vous des cours particuliers ?"
+      },
+      "47c95978a848faa270b997d9ffe41a145e18418b12217ce640bcec101aef1ca4": {
+        "english": "What frequency of lessons would you recommend, and at what times could you offer me sessions?",
+        "french": "Quel rythme de cours recommandez-vous, et à quels horaires pourriez-vous me proposer des séances ?"
+      },
+      "5331a2a95ca62e2ed04c69359f59c8a6d32bbf2bd2907e090e52043eef5b10c8": {
+        "english": "Do the lessons take place at your office, at home or online?",
+        "french": "Les cours se font-ils dans votre bureau, à domicile ou en ligne ?"
+      },
+      "8bc3a831c1f5bb82adcebdfffdc1c6c14e5911165a861f8f2754403169d4e9ed": {
+        "english": "If I need to cancel or reschedule a lesson, how much notice do I need to give, and what happens to a lesson I’ve already paid for?",
+        "french": "Si je dois annuler ou déplacer une séance, quel délai faut-il respecter et que devient une séance déjà payée ?"
+      },
+      "8deacc99ffb806f36e325c4bff09fbd83d5697298ff764dd62b154e405fedec8": {
+        "english": "If my main aim is to improve my everyday speaking skills, what would a lesson with you be like?",
+        "french": "Si je veux surtout mieux parler au quotidien, comment se déroulerait un cours avec vous ?"
+      },
+      "9c0e7257c178bb4317dbf3e2aeacf81825e76b19044bb4ccff4fdb6b01604589": {
+        "english": "Do you offer a trial lesson before I decide between paying per session or a package deal?",
+        "french": "Est-ce que vous proposez un cours d'essai avant de choisir entre le paiement à la séance et un forfait ?"
+      },
+      "a088f6916c497c8d432d9b6202f4d319d0c590c3109def7f29c80258fc234db1": {
+        "english": "What is your rate for an hour’s lesson, and are teaching materials included in that price?",
+        "french": "Quel est votre tarif pour une heure de cours, et les supports de travail sont-ils compris dans ce prix ?"
+      },
+      "abf0e4f3a8e3a70d1109cc5393da5423c22b87bde8a3b06ca259831c5917a841": {
+        "english": "How will you assess my level at the start, and then my progress as the lessons go on?",
+        "french": "Comment évaluerez-vous mon niveau au départ, puis mes progrès au fil des cours ?"
+      }
+    },
+    "newcomer-colleague-meet-people": {
+      "04dffdf781148aafae41f5dd6b79e35ac4fbc2349b1355a7914f79de89cd196e": {
+        "english": "Are there any free events — games nights, markets or neighbourhood festivals — where you can meet people without having to sign up?",
+        "french": "Y a-t-il aussi des événements gratuits — soirées de jeux, marchés ou fêtes de quartier — où l'on peut rencontrer du monde sans s'inscrire ?"
+      },
+      "41c31d3c561a8dbb2eaf9531a3ec9ed1040c1c3b86d7030a936eb555f6ad2958": {
+        "english": "Where can I check the timetables, and do I need to sign up in advance for the coffee meet-up, the hike or the welcome evening?",
+        "french": "Où puis-je vérifier les horaires, et faut-il s'inscrire à l'avance pour le café, la randonnée ou la soirée d'accueil ?"
+      },
+      "44d62133ad1b61823be2119e50c07e04c6d1f8284c96fc4ad87a9559097f2d62": {
+        "english": "Outside of work, where would you recommend I go to meet people easily when you’re here on your own?",
+        "french": "En dehors du travail, quel endroit me conseilleriez-vous pour rencontrer facilement des gens quand on vient seul ?"
+      },
+      "45a2ab9d7646c87413fabe056c7a14f06c9b2da952362e6cc9c5b696b8b62bb7": {
+        "english": "When you arrive on your own, does a group leader introduce you to the group, or do you have to strike up a conversation yourself?",
+        "french": "Quand on arrive seul, est-ce qu'un animateur nous présente au groupe ou faut-il engager la conversation soi-même ?"
+      },
+      "5acb0fcff252f025cc110eb0c3f4a785d79e9de093e360d70604b1baeeaa9640": {
+        "english": "At the office, do colleagues sometimes have lunch together or organise after-work get-togethers that I could join?",
+        "french": "Au bureau, les collègues déjeunent-ils parfois ensemble ou organisent-ils des sorties après le travail auxquelles je pourrais me joindre ?"
+      },
+      "6e08078e263cb215daa6d9d671768000437e74af73c00acc4d60118e4f49d0de": {
+        "english": "You mentioned that you go on a Sunday hike: could I join you this week?",
+        "french": "Vous m'avez dit que vous faisiez la randonnée du dimanche : est-ce que je pourrais venir avec vous cette semaine ?"
+      },
+      "bd6615c56eb2f6cdc7c3b81ff666c9a7b183b78ce35900ec286fa10b0aa5cce4": {
+        "english": "Is there a French-speaking organisation or a group for new arrivals that organises regular get-togethers?",
+        "french": "Existe-t-il une association francophone ou un groupe de nouveaux arrivants qui organise des rencontres régulières ?"
+      },
+      "f2e53ed3ee9d83c395d5824f1ddf4d1dcbf6cab328a4b519925ff9c5ba3b862f": {
+        "english": "To see the same people regularly and build genuine connections, what weekly activity would you recommend?",
+        "french": "Pour revoir régulièrement les mêmes personnes et créer de vrais liens, quelle activité hebdomadaire me recommanderiez-vous ?"
+      }
+    },
+    "newcomer-local-acquaintance-meet-people": {
+      "04dffdf781148aafae41f5dd6b79e35ac4fbc2349b1355a7914f79de89cd196e": {
+        "english": "Are there any free events — games nights, markets or neighbourhood parties — where you can meet people without having to sign up?",
+        "french": "Y a-t-il aussi des événements gratuits — soirées de jeux, marchés ou fêtes de quartier — où l'on peut rencontrer du monde sans s'inscrire ?"
+      },
+      "0b8dc7ea142f4067e60b7f507cf2dfea13a4feebfbbc2ea43a906d0af76005ec": {
+        "english": "To get to know people during these meet-ups, what topics would you recommend I bring up without being intrusive?",
+        "french": "Pour faire connaissance pendant ces rencontres, quels sujets me conseillez-vous d'aborder sans être indiscret ?"
+      },
+      "2b728b7643ab264d9c9559bc3793f2bc68a8a28e27d85b7866aa42804be40ec9": {
+        "english": "Is there also a French-speaking association or a group for newcomers?",
+        "french": "Existe-t-il aussi une association francophone ou un groupe destiné aux nouveaux arrivants ?"
+      },
+      "45a2ab9d7646c87413fabe056c7a14f06c9b2da952362e6cc9c5b696b8b62bb7": {
+        "english": "When you arrive on your own, does a group leader introduce you to the group, or do you have to strike up a conversation yourself?",
+        "french": "Quand on arrive seul, est-ce qu'un animateur nous présente au groupe ou faut-il engager la conversation soi-même ?"
+      },
+      "466e16afed8150d41dc1a3ec847c35877f0fd29abc403defa61ba18d97ba03d3": {
+        "english": "As I don’t know anyone yet, what would you suggest I start with: a coffee meet-up, a sports activity or volunteering?",
+        "french": "Comme je ne connais encore personne, par quoi me conseilleriez-vous de commencer : un café de conversation, une activité sportive ou du bénévolat ?"
+      },
+      "942cb4f9ce3adb6542eba2349e6db1a3e5a69c75250eedc786d24424aa7b9847": {
+        "english": "Do you know of any sports clubs, workshops or organisations where newcomers can take part regularly and meet the same people?",
+        "french": "Connaissez-vous des clubs de sport, des ateliers ou des associations où les nouveaux peuvent participer régulièrement et retrouver les mêmes personnes ?"
+      },
+      "b40813cc06c645fbde3f1586425b705f33967125e8de96a41a295ded701fa2eb": {
+        "english": "As for the walking group, what costs should I expect, and can I try it out before joining?",
+        "french": "Pour le groupe de randonnée, quels frais faut-il prévoir, et peut-on faire un essai avant d'adhérer ?"
+      },
+      "c6e5bf6e8612258ae4532360c5581d083a5555cd9fb26f599aa70e29f4fa5da6": {
+        "english": "If you’re going on the next walk, could I come along? Where and what time would we meet?",
+        "french": "Si vous allez à la prochaine randonnée, pourrais-je vous accompagner, et où et à quelle heure se retrouverait-on ?"
+      }
+    },
+    "offered-room-in-existing-shared-apartment": {
+      "14f6dc29c6ce5a2b4027f66afd7bc3089206a52206fc1f801ad7ecd365775012": {
+        "english": "Who already lives in the flat?",
+        "french": "Qui habite déjà dans l'appartement ?"
+      },
+      "5d4f1785663459a26e0dd138742fd2a678f1b4df571581ced2af52d3265f2df5": {
+        "english": "When will the room be available?",
+        "french": "À partir de quand la chambre sera-t-elle libre ?"
+      },
+      "6e0cd065033bdaed193c03b1a303c523c6aed2daac4c1613453ad245ce1ea357": {
+        "english": "How big is the room, and what furniture or storage will be left there?",
+        "french": "Quelle est la taille de la chambre, et quels meubles ou rangements resteront sur place ?"
+      },
+      "710f087e7ebd256a6b9cb54e8ba3f4c5c9bede26765bfbbb0883edfe844a9053": {
+        "english": "What rules have you set regarding housekeeping, guests and quiet hours?",
+        "french": "Quelles règles avez-vous fixées pour le ménage, les invités et les périodes calmes ?"
+      },
+      "9c950ba95c587e5bca587a3e0a9d76e8ab6fc581c24760ccfb9edfa591405c73": {
+        "english": "Would I be signing a tenancy agreement or a subletting agreement, and what’s the minimum term?",
+        "french": "Signerais-je un bail ou une entente de sous-location, et pour quelle durée minimale ?"
+      },
+      "aa29d7c0ce0a5af69342789dd1362e580f61d006ea778c1799f7183affc289a5": {
+        "english": "How much would the room cost per month, and what service charges and communal expenses would be included in the rent?",
+        "french": "Combien coûterait la chambre par mois, et quelles charges et dépenses communes seraient comprises dans ce loyer ?"
+      },
+      "cfe1acf2f5b259bde9d7ec54d5cd4d2d0651df86ff7d4091463c2646571ba906": {
+        "english": "In Danforth, what shops and services are within walking distance, and how many minutes’ walk is it to the metro?",
+        "french": "À Danforth, quels commerces et services sont accessibles à pied, et à combien de minutes se trouve le métro ?"
+      },
+      "e566d5fe8a27146353733f4d42e522fc840693380f3a5f181f5d9717f57f6d35": {
+        "english": "And which rooms would we be sharing on a day-to-day basis?",
+        "french": "Et quelles pièces partagerions-nous au quotidien ?"
+      }
+    },
+    "owner-holiday-letting-estate-agency-advice": {
+      "18a2147573ca195f75e43d4944d335eb190abb2f20816e7130e0ed55a58413a2": {
+        "english": "What commission do you charge for management, and what costs will I have to cover?",
+        "french": "Quelle commission prenez-vous pour la gestion, et quels frais restent à ma charge ?"
+      },
+      "6dfc3e6b9175b7b22caf082614da8e32ee7477761b1613a300eed257a61c8381": {
+        "english": "What permits and insurance cover do I need to check before publishing the advert?",
+        "french": "Quelles autorisations et quelles assurances dois-je vérifier avant de publier l'annonce ?"
+      },
+      "953f5269f609fbbd98661c5cea71abe4ec190e933e5232187d2d4fbe983f9404": {
+        "english": "How do the property inspection and the security deposit work?",
+        "french": "Comment se passent l'état des lieux et le dépôt de garantie ?"
+      },
+      "97e12d88fed6a373be6ab340ab90f19374f62b32237b8af7eda9669fd575c2bc": {
+        "english": "What price could I charge per night for my property?",
+        "french": "À quel prix pourrais-je proposer mon logement par nuit ?"
+      },
+      "a11b7510b3629f2a57444466cf9337255176567118c3d5900db95aad9ca21bf3": {
+        "english": "Who is responsible for cleaning and handing over the keys between tenancies?",
+        "french": "Qui s'occupe du ménage et de la remise des clés entre deux locations ?"
+      },
+      "ab440abd481cc9f9a91d8e4dd1e9ab068d5e47137f202cac5b14a613ea133fc3": {
+        "english": "What sort of tenants would you advise me to target: tourists, families or business travellers?",
+        "french": "Quel type de locataires me conseilleriez-vous de viser : des touristes, des familles ou des voyageurs d'affaires ?"
+      },
+      "d394333438c2d3431c1ebff741d36efbaddc709d6ff6f66d17003a73e66fe739": {
+        "english": "Which rental duration is best: short stays or stays of a week or more?",
+        "french": "Quelle durée de location vaut-il mieux privilégier : des courts séjours ou des séjours d'une semaine ou plus ?"
+      },
+      "dd1eddbbc03bca571d993b076f5186c3bf9afeeece0f3b743ffb621da9a27d08": {
+        "english": "To accommodate these tenants, what furniture and equipment should I provide, particularly for the kitchen and sleeping arrangements?",
+        "french": "Pour accueillir ces locataires, quels meubles et équipements devrais-je prévoir, notamment pour la cuisine et les couchages ?"
+      }
+    },
+    "parent-after-school-activity-advice": {
+      "19771eb51296c825e23e5d907e90330b33052af3b883279e983ce4285ec733ed": {
+        "english": "On which days do these activities take place, and what time do they start and finish?",
+        "french": "Quels jours ont lieu ces activités, et à quelle heure commencent-elles et se terminent-elles ?"
+      },
+      "1a8120e72c8e6d720994fccecf8af46f982323d107b9b8595abf4b38f6f872fa": {
+        "english": "From what you’ve seen, how do the activity leaders look after the children, particularly the shyer ones?",
+        "french": "D'après ce que vous avez vu, comment les animateurs s'occupent-ils des enfants, notamment des plus timides ?"
+      },
+      "3f4296a1ace56301a8ddbb737afa0013e73d9d1ad449dae611e70976896e7301": {
+        "english": "How much does a session cost, and is there a discount if I enrol more than one child?",
+        "french": "Combien coûte une session, et existe-t-il une réduction lorsqu'on inscrit plusieurs enfants ?"
+      },
+      "44bb112b92dd53d4336916b7aa8802da25c9d560998b8400ebb9a381b392ed1c": {
+        "english": "For the drawing workshop, are materials provided or do we need to bring our own?",
+        "french": "Pour l'atelier de dessin, le matériel est-il fourni ou faut-il en apporter ?"
+      },
+      "4853d9bb6d48e9e69d28af90c520fffa85732d55432ad0c78db45251cef620e5": {
+        "english": "Where do the activities take place, and does a supervisor come to collect the children from school to take them to the activity venue?",
+        "french": "Où se déroulent les activités, et un animateur vient-il chercher les enfants à l'école pour les accompagner jusqu'au lieu de l'activité ?"
+      },
+      "68960001ddcd78e9c4b91bcee8811263fc2047e876fed6c634bae1ae1d7e3951": {
+        "english": "What after-school activities do you know of in the neighbourhood, such as sport, art or drama?",
+        "french": "Quelles activités après l'école connaissez-vous dans le quartier, par exemple du sport, du dessin ou du théâtre ?"
+      },
+      "90e1c94649d2ab714d1a3caac161fed4673796f5226cf4a517e0085565072a10": {
+        "english": "How can I check if there are any places left and enrol my children?",
+        "french": "Comment puis-je vérifier les places restantes et inscrire mes enfants ?"
+      },
+      "f64659339465b00f40a14eee2774d195cb4ea22b0a305c849f8d4a90308fb69b": {
+        "english": "What age groups are the art workshops aimed at, and are the children divided into age groups?",
+        "french": "À quels âges s'adressent les ateliers de dessin, et les enfants sont-ils répartis par groupe d'âge ?"
+      }
+    },
+    "quebec-newcomer-estate-agency-housing-procedures": {
+      "1dc9892a951c21af11047c34f1d98589fc51c197e8ed42d1702847768b5dab17": {
+        "english": "Before signing, where can I check the official rules governing tenancy agreements in Quebec?",
+        "french": "Avant de signer, où puis-je vérifier les règles officielles du bail au Québec ?"
+      },
+      "2b662c65197fded5c61cd772aecaeb4410adc46202b6b7e5aaa23255f3d0cf84": {
+        "english": "What charges are usually included in the rent?",
+        "french": "Quelles charges sont habituellement comprises dans le loyer ?"
+      },
+      "4b70cc84137908abe643f4fa8632c4cf19c840aec2316e2ef920980a4cfd9d62": {
+        "english": "For a one-bedroom flat, what is the approximate rent range in these areas?",
+        "french": "Pour un appartement d'une chambre, quelle fourchette de loyers faut-il prévoir dans ces secteurs ?"
+      },
+      "4d58e59342f151c29ea4f720c372caab7c68901956bfcf61e14c4c08f4495ea6": {
+        "english": "If I don’t have any rental references in Quebec, what supporting documents can I provide instead, and do I need a guarantor?",
+        "french": "Si je n'ai pas de références locatives au Québec, quels justificatifs puis-je fournir à la place, et faut-il un garant ?"
+      },
+      "aa4f90bc6bf8d54f93ceb05d93e8fc7b663c02c01f7c94443f12c0bb5ff11198": {
+        "english": "Once I’ve found a property, what documents do I need to provide to submit an application?",
+        "french": "Une fois une offre trouvée, quels documents faut-il fournir pour présenter un dossier ?"
+      },
+      "bd6dbf1282703f2107d99ea37cb7ae6cafa31669cbb7e892910fcfb3ecdd0dda": {
+        "english": "Which neighbourhoods would you recommend that are close to shops and well served by the Métrobus?",
+        "french": "Quels secteurs me conseilleriez-vous pour être proche des commerces et bien desservi par le Métrobus ?"
+      },
+      "c20424e56aacc052218495468a40c3d0ebd5bf9a50195680e294354d1bb68a02": {
+        "english": "When do these properties become available, and what is the minimum lease term?",
+        "french": "À partir de quand ces logements sont-ils disponibles, et quelle est la durée minimale du bail ?"
+      },
+      "d3ab7da45990bbb69b4733db71b4517786abec2196316357640c3d9b581871f9": {
+        "english": "What types of accommodation do you currently have available to let, and do tenants have to pay for your services?",
+        "french": "Quels types de logements avez-vous actuellement à louer, et vos services sont-ils payants pour les locataires ?"
+      }
+    },
+    "quebec-region-accommodation-tourist-office": {
+      "231ccc9a296ee574f7be13df9e779844a0944c6c2c3db97e8f9205c32780d298": {
+        "english": "Which areas offer easy access to the places of interest, and what would you recommend if I’m coming without a car?",
+        "french": "Quels secteurs permettent de rejoindre facilement les lieux à visiter, et que conseilleriez-vous si je viens sans voiture ?"
+      },
+      "32571f0a587eccfd6366cde467cfa0b2c9ba35f8aefb5b039f3835ae09cfb480": {
+        "english": "What additional costs should I factor in, such as taxes, meals or the end-of-stay cleaning charge?",
+        "french": "Quels frais faut-il ajouter à ces prix, notamment les taxes, les repas ou le ménage de fin de séjour ?"
+      },
+      "480071873ab9262ea436f9999aadd72ca1afd5f656efe18227ab8d017f291fc9": {
+        "english": "Do I book through you or directly with the accommodation provider, and what terms and conditions should I check before paying?",
+        "french": "La réservation se fait-elle auprès de vous ou directement auprès de l'hébergeur, et quelles conditions faut-il vérifier avant de payer ?"
+      },
+      "4ce761ee984236ed6520cee8427f7076e64f419b37dadfdcdb86d922b8f17fa7": {
+        "english": "How can I check availability for my dates and find offers that fit my budget?",
+        "french": "Comment vérifier les disponibilités pour mes dates et obtenir des offres correspondant à mon budget ?"
+      },
+      "7bd56bd6919603e25f2315410a908285ad9639ad9bc14fde3dff2cc52bd764b2": {
+        "english": "What budget per night should I allow for these different options, and are the prices quoted per person or per accommodation?",
+        "french": "Quel budget par nuit faut-il prévoir pour ces différentes options, et les prix sont-ils indiqués par personne ou par logement ?"
+      },
+      "96fd6e344ab45ae443dc5989bb9c37c77e5619b8577660f57a57d055bba99e21": {
+        "english": "For a few days in the region, what sort of accommodation would you recommend – for example, a guesthouse, a hotel or a holiday cottage?",
+        "french": "Pour quelques jours dans la région, quels hébergements me conseilleriez-vous, par exemple un gîte, un hôtel ou un chalet ?"
+      },
+      "af1aec0478a6a74c577eb0b9c9c9a498d9e8434dbaa3d93a9eddc872d072569c": {
+        "english": "What are the differences between these options in terms of privacy, facilities and the option to cook your own meals?",
+        "french": "Quelles différences y a-t-il entre ces options pour l'intimité, les équipements et la possibilité de préparer ses repas ?"
+      },
+      "fdcb72568da9b5312f913271dda90e119899297632adba72f27e8c86a859d6d4": {
+        "english": "When are rates most affordable, and is there a minimum length of stay?",
+        "french": "À quelles périodes les tarifs sont-ils plus abordables, et y a-t-il une durée minimale de séjour ?"
+      }
+    },
+    "recruiter-scheduled-interview-preparation": {
+      "0520f93caa657795f31165f8b7e6f041ffc1e2eeb324d673d4bdc3ca59821ad0": {
+        "english": "Where should I go when I arrive?",
+        "french": "À quel endroit dois-je me présenter en arrivant ?"
+      },
+      "40e5915e69b25beda5509628f6741645c5b86b9703dfc8ed2e9817fe93b03b26": {
+        "english": "Will the interview take place in person or remotely?",
+        "french": "L'entretien se déroulera-t-il sur place ou à distance ?"
+      },
+      "458984134dc8d31b9e95f2809bc004cbb4a1c43084d0bb9b619936e147406a82": {
+        "english": "Who will I be interviewing with?",
+        "french": "Avec qui aurai-je l'entretien ?"
+      },
+      "51c4166a500d9ed6bae221eca4846879256a7f3577fc2f158673154f857260ec": {
+        "english": "What time should I arrive on the day of the interview?",
+        "french": "À quelle heure dois-je me présenter le jour de l'entretien ?"
+      },
+      "7c4e891f81ace3266c14d37e70841fdb593c926cc23336232c7b908e3e828a04": {
+        "english": "How long should I allow for the interview?",
+        "french": "Combien de temps faut-il prévoir pour l'entretien ?"
+      },
+      "828e3bf8f8691588edf51e7d2408317c41d43adc38fe74f77e47382c392fda29": {
+        "english": "Should I bring my CV, references or examples of work relevant to the role?",
+        "french": "Dois-je apporter mon CV, des références ou des exemples de réalisations en lien avec le poste ?"
+      },
+      "b4852ae90deeb2bd2a800e59a5c6c1bcc14e87a8bc5265032c75887ebcc13dc8": {
+        "english": "For this role-play, do I need to prepare anything in advance, or will everything be done on the day?",
+        "french": "Pour la mise en situation, faut-il préparer quelque chose à l'avance ou tout se fera-t-il sur place ?"
+      },
+      "b8e3ad1f33cf9cacc31539926240f600b9f2c71573778721d9faf6fc7c3b9229": {
+        "english": "What are the planned stages: an overview of my career, questions or a role-play?",
+        "french": "Quelles sont les étapes prévues : présentation de mon parcours, questions ou mise en situation ?"
+      }
+    },
+    "supervisor-overseas-job-offer": {
+      "15f5180891c84e398e6a858ff5072e0ab1d758764d09e89af9c2476eec4840e0": {
+        "english": "Could the allowance be reviewed if the cost of living in Seattle were to rise, and on what basis?",
+        "french": "La prime pourrait-elle être réévaluée si le coût de la vie augmentait à Seattle, et sur quels critères ?"
+      },
+      "368c57f59cc35f69604bcd0930214d8a79f24ad9721099894a8d1c3b83e80ddb": {
+        "english": "What would my main responsibilities be, and would I need to put together a new team there?",
+        "french": "Quelles seraient mes principales responsabilités, et devrais-je constituer une nouvelle équipe sur place ?"
+      },
+      "86b775649f457c84816c22e448d51e6497e6c2fa6ad3b9e87f0ab9fbf0df3a6b": {
+        "english": "What costs would the company cover in relation to relocation, accommodation, health insurance and annual return trips?",
+        "french": "Quels frais l'entreprise prendrait-elle en charge pour le déménagement, le logement, l'assurance santé et les retours annuels ?"
+      },
+      "b0c74b333c01edbba1ae88b6527707ef8a024e93487ed940eb383ccaaa403d43": {
+        "english": "What administrative procedures would the company take care of before I leave?",
+        "french": "Quelles démarches administratives l'entreprise prendrait-elle en charge avant mon départ ?"
+      },
+      "baacf139059c71deccdc78edca625e300746cdf67434fc018bacac40966a2043": {
+        "english": "What salary and expatriation allowance would be offered for this role, and in which currency would I be paid?",
+        "french": "Quel salaire et quelle prime d'expatriation seraient prévus pour cette mission, et dans quelle devise serais-je payé ?"
+      },
+      "d8ff61272e5b6e29a3c36f047db7fdb52921bf1e81af15173691ff92f1e3256c": {
+        "english": "When I return, will I be able to return to my current role or an equivalent one?",
+        "french": "À mon retour, retrouverais-je mon poste actuel ou un poste équivalent ?"
+      },
+      "e084c87e932ccae276f176cfe13dddc564e21e621155aeff2f5bcfe95d14fb53": {
+        "english": "Where would the post be based, and for how long?",
+        "french": "Où se trouverait ce poste, et pour combien de temps ?"
+      },
+      "ecb2de109acb8821e669c03a190cd72df82b01b31fac58fedb4605533677ee57": {
+        "english": "How many people would need to be recruited initially, and what support would I receive from Human Resources?",
+        "french": "Combien de personnes faudrait-il recruter au départ, et quel soutien recevrais-je des ressources humaines ?"
+      }
+    },
+    "tourist-office-city-discovery-with-friends": {
+      "081d7b0c29623f7627ef24b8d1890d54c0097b378369749c952664b04cce2f49": {
+        "english": "Which activities do we need to book in advance, and how can we do that?",
+        "french": "Pour quelles activités faut-il réserver à l'avance, et comment peut-on le faire ?"
+      },
+      "2fbe81a9755762771d13ab6592e00e76ed6f36b622feda03e4e323496f5e869d": {
+        "english": "What are the prices for these activities, and do you offer any discounts for groups?",
+        "french": "Quels sont les tarifs de ces activités, et proposez-vous des réductions pour les groupes ?"
+      },
+      "517b23c527c78097d9dcf2696bbf8829da6c6df041cff343bc3d1dd1bb30b9a4": {
+        "english": "Which neighbourhoods and landmarks would you recommend we visit first?",
+        "french": "Quels quartiers et monuments nous conseilleriez-vous de découvrir en priorité ?"
+      },
+      "72324c41ebb4be0928c7004b3a3f5523ed4653848dc1c875d386f8b0671c9f52": {
+        "english": "On which days and at what times do these activities take place, and how long does each one last?",
+        "french": "Quels sont les jours et les horaires de ces activités, et combien de temps dure chacune ?"
+      },
+      "7ad489e5eaac6894dc6ea00f9408191ce396786a1a6acee1bdc5df0240786b85": {
+        "english": "What do you recommend for an evening out to experience the town’s cultural life, such as a show or a concert?",
+        "french": "Que proposez-vous en soirée pour découvrir la vie culturelle de la ville, par exemple un spectacle ou un concert ?"
+      },
+      "80d276691fea576bf5127e3667df887f27d9df5c57f2845efa2314dbd436ef6f": {
+        "english": "To explore these places, do you offer guided tours or an itinerary we can follow at our own pace?",
+        "french": "Pour découvrir ces lieux, proposez-vous des visites guidées ou un parcours à suivre à notre rythme ?"
+      },
+      "eb918e11c544d6b5b3a43bc63235221445aa3b3383547cc60ded9a5652cb3186": {
+        "english": "What sort of activities could we do with friends, such as a boat trip or a local cookery workshop?",
+        "french": "Quelles activités pourrions-nous faire entre amis, par exemple une balade en bateau ou un atelier de cuisine locale ?"
+      },
+      "f2441ade924e659512016241dc5f1ae1133bcf2e011f58eee17c971192d0fe2b": {
+        "english": "Can we walk to these places from the tourist information centre, or do we need to take public transport?",
+        "french": "Peut-on rejoindre ces lieux à pied depuis l'office, ou faut-il prendre les transports en commun ?"
+      }
+    },
+    "trusted-person-temporary-pet-care": {
+      "0e5debe489fe5a90a08d24ab522db71b092791099aff93a33acd455f06c985c6": {
+        "english": "How does it behave on walks, and is it friendly towards people it doesn’t know?",
+        "french": "Comment se comporte-t-il pendant les promenades, et est-il sociable avec les personnes qu'il ne connaît pas ?"
+      },
+      "1511d84f274666477684636b6cba95934d312d2b0f293e9a53877ca5aff98855": {
+        "english": "Who should I contact, and what details will you leave me in case of an urgent veterinary appointment?",
+        "french": "Qui dois-je contacter, et quels renseignements me laisseras-tu si une consultation vétérinaire devient urgente ?"
+      },
+      "2919eed6c41ed498560c0f1d50ea07b53fdb38071a786cafddff523bcd431b3b": {
+        "english": "When will I need to look after it?",
+        "french": "Pendant quelles dates faudra-t-il m'en occuper ?"
+      },
+      "32ee233a6f682c3a42ea74c7fb28c9b88b17ecff17f4ea71ee04ab46d8a4be77": {
+        "english": "Which pet are you going to leave with me, and how old is it?",
+        "french": "Quel animal vas-tu me confier, et quel âge a-t-il ?"
+      },
+      "331ab79ff2306373659da8ebcb5e9662ec4b7c1a93152798ae24821cc871ea4c": {
+        "english": "How many walks or play sessions should I plan for each day, and how long should each one last?",
+        "french": "Combien de sorties ou de séances de jeu faut-il prévoir chaque jour, et combien de temps doit durer chacune ?"
+      },
+      "7373530130905e722b385ca21026e30a285a4ae3a3b63db7ff0d4af08ebd9ad7": {
+        "english": "Where would you like it to stay, and how long can it be left on its own during the day?",
+        "french": "Où souhaites-tu qu'il reste, et combien de temps peut-il rester seul pendant la journée ?"
+      },
+      "9f497104bdfb8293434e1bc7064c31f40dfdb0efaff6ffc33ee07ce1dc11df01": {
+        "english": "As for food, will you leave me some of its food or will I need to buy some, and at what times does it usually eat?",
+        "french": "Côté alimentation, me laisseras-tu sa nourriture ou devrai-je l'acheter, et à quelles heures prend-il ses repas ?"
+      },
+      "b4c8034c95221317168f734fd07b57ef4ff58b626f269892ece9381853253ab6": {
+        "english": "Are there any allergies I should be aware of, any special care required, or any medication it needs to be given whilst you’re away?",
+        "french": "Y a-t-il des allergies à connaître, des soins particuliers à prévoir ou un traitement à lui donner pendant ton absence ?"
+      }
+    },
+    "visit-colleague-minor-accident": {
+      "10e05229ed7a4d85846d4ab684a6b29337d7d96fff99c702c5a17771f53f8175": {
+        "english": "When did it happen, and where exactly?",
+        "french": "C'est arrivé quand, et à quel endroit exactement ?"
+      },
+      "382dd4b711c91621c16887b02428eb1fb9b826ac3abf1126bf4b34c76e2ffba6": {
+        "english": "Is there anything I could bring you from the office in the meantime, and when could I drop it off?",
+        "french": "Que pourrais-je vous apporter du bureau d'ici là, et quand pourrais-je vous le déposer ?"
+      },
+      "8b8408e757665506f8e9ecac8a55380c5a0d91a053eaf1bb842cd2ced53d0d03": {
+        "english": "How are you feeling today?",
+        "french": "Comment vous sentez-vous aujourd'hui ?"
+      },
+      "96cd608b756d2d11f8c30bad212fedf6989df3d5f499135360f958182132f953": {
+        "english": "Do you need any help with shopping, meals or getting about whilst you’re resting?",
+        "french": "Avez-vous besoin d'aide pour les courses, les repas ou vos déplacements pendant que vous vous reposez ?"
+      },
+      "cb67d3a2ec9382610c76ac81651afc8de3a59f5ff1f053f7b47520ab17b8c428": {
+        "english": "What exactly happened?",
+        "french": "Qu'est-ce qui s'est passé exactement ?"
+      },
+      "d36756c3b531d141410e893ead85175b5e200afbc9ecc5acbbe43441eb746fc2": {
+        "english": "Did you see a doctor after the accident and, if so, what advice did they give you?",
+        "french": "Avez-vous consulté un médecin après l'accident et, si oui, que vous a-t-il conseillé ?"
+      },
+      "d5d45cb765d2e08e52f591cada566474e283ae6125498fbac977e96378835227": {
+        "english": "Did anyone come to help you at the scene?",
+        "french": "Est-ce que quelqu'un est venu vous aider sur place ?"
+      },
+      "f5f0b6543b14d3e3c77006a0e8cfd7c505f5d91431b93ce8a9c6954658172f45": {
+        "english": "Do you have any idea when you’ll be back at work, and would you like me to pass on a message to the team?",
+        "french": "Avez-vous une idée de la date de votre retour au travail, et souhaitez-vous que je transmette un message à l'équipe ?"
+      }
+    },
+    "volunteer-local-association-information-office": {
+      "1e604ef098314f21bb10a4088fddbf4cfa3b4220f356d95f645be0360779066c": {
+        "english": "What tasks are volunteers given in this organisation?",
+        "french": "Quelles missions sont confiées aux bénévoles dans cette association ?"
+      },
+      "3ef1238995ddf30a5ef95f314c2fd0826b4f40fe93bdae57cc8a1254cfa6da4f": {
+        "english": "Is any specific experience required, or is there training provided for new volunteers?",
+        "french": "Faut-il une expérience particulière, ou une formation est-elle prévue pour les nouveaux bénévoles ?"
+      },
+      "4b4418c962a3a64f5d29ef96b8d220633684587ab12c26421d4d102c5f1806c5": {
+        "english": "Could I meet the team and sit in on a workshop before committing to a regular role?",
+        "french": "Pourrais-je rencontrer l'équipe et observer un atelier avant de m'engager régulièrement ?"
+      },
+      "4c655f3d39633b78143e602580f4c51717a27df89348dbd97f2d9ca8d0d4ac70": {
+        "english": "I’m interested in the cultural organisation. What activities does it offer, and who are they aimed at?",
+        "french": "L'association culturelle m'intéresse. Quelles activités propose-t-elle, et à quel public s'adressent-elles ?"
+      },
+      "844752b1335b71f04215456ef0a8ba96013c2e0870c6a3fb71f43af52f6c1b44": {
+        "english": "Can I help out on an occasional basis, without committing to several months?",
+        "french": "Puis-je participer ponctuellement, sans m'engager pour plusieurs mois ?"
+      },
+      "8c962a0f4c613b3d9803ed8678704af9617d8bba5a4acd4de786b80d90ac1d8f": {
+        "english": "What sort of organisations are currently looking for volunteers in the neighbourhood?",
+        "french": "Quels types d'associations recherchent actuellement des bénévoles dans le quartier ?"
+      },
+      "c90cd0a4f695ae2de78aace02d8a6ec71c9e0fc9b8d616434ea5158701c56bc3": {
+        "english": "On which days and at what times do these volunteer sessions take place?",
+        "french": "Quels jours et à quelles heures ont lieu ces missions ?"
+      },
+      "d34b929e25072829094f21cac264dde7da62da2428b085742a76dbe2816645bb": {
+        "english": "Who should I speak to in order to sign up, and what information do I need to provide?",
+        "french": "À qui dois-je m'adresser pour m'inscrire, et quels renseignements faut-il fournir ?"
+      }
+    }
+  },
+  "provider": "deepl",
+  "reviewed_at": "2026-10-29T06:14:49.377526+00:00",
+  "source_language": "FR",
+  "target_language": "EN-GB",
+  "version": 1
+}

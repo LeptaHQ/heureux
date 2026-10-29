@@ -2473,6 +2473,21 @@
             {"topic": "Congés et repos", "question": "Les jours fériés, ton entreprise ferme-t-elle, ou certaines équipes doivent-elles travailler ?", "follow_up_to": null},
             {"topic": "Congés et repos", "question": "T'arrive-t-il de faire des heures supplémentaires, et comment sont-elles compensées ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "canadian-work-hours-home-country-comparison",
+          "opening": "Salut Pierre ! J'aimerais comparer ton rythme de travail à Calgary avec celui que je connais dans mon pays.",
+          "closing": "Merci, Pierre ! Je comprends mieux ce qui relève de ton entreprise et ce qui peut varier ailleurs au Canada.",
+          "questions": [
+            {"topic": "Horaires hebdomadaires", "question": "Tu travailles quels jours de la semaine, et de quelle heure à quelle heure ?", "follow_up_to": null},
+            {"topic": "Horaires hebdomadaires", "question": "Chez moi, on travaille parfois le samedi ; est-ce que ça t'arrive aussi en période chargée ?", "follow_up_to": 1, "condition": "If regular weekdays are given without explaining exceptions; adapt to your own experience."},
+            {"topic": "Organisation quotidienne", "question": "Combien de temps dure ta pause déjeuner, et est-elle comptée dans tes heures de travail ?", "follow_up_to": null},
+            {"topic": "Organisation quotidienne", "question": "Si tu as un rendez-vous personnel, peux-tu décaler ton arrivée ou ton départ ?", "follow_up_to": null},
+            {"topic": "Congés et repos", "question": "De combien de jours de vacances disposes-tu par an ?", "follow_up_to": null},
+            {"topic": "Congés et repos", "question": "Pour prendre une semaine de congé, tu dois prévenir combien de temps à l'avance ?", "follow_up_to": 5, "condition": "After the leave allowance, unless booking and approval have already been explained."},
+            {"topic": "Congés et repos", "question": "Les jours fériés, ton entreprise ferme-t-elle, ou certaines équipes doivent-elles travailler ?", "follow_up_to": null},
+            {"topic": "Congés et repos", "question": "Si tu fais des heures supplémentaires, sont-elles payées ou récupérées en temps de repos ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -2505,6 +2520,21 @@
             {"topic": "Conditions de travail", "question": "Quels sont tes horaires, et est-ce qu'il faut parfois travailler le soir ou le week-end ?", "follow_up_to": null},
             {"topic": "Conditions de travail", "question": "Si tu es d'accord pour en parler, quelle est la fourchette de salaire pour ce type de poste ?", "follow_up_to": null},
             {"topic": "Conditions de travail", "question": "Quelles possibilités d'évolution vois-tu : formations, changement de poste ou davantage de responsabilités ?", "follow_up_to": null},
+            {"topic": "Recrutement", "question": "Est-ce que ton entreprise recrute en ce moment, et où pourrais-je consulter les offres ?", "follow_up_to": null},
+            {"topic": "Recrutement", "question": "Pour ces postes, quels profils ou quelles compétences sont recherchés ?", "follow_up_to": 7, "condition": "If vacancies are mentioned without describing requirements; adapt to the roles named."}
+          ]
+        },
+        {
+          "group": "former-colleague-new-job-to-change-employment",
+          "opening": "Salut ! Comme je réfléchis à changer d'emploi, j'aimerais en savoir plus sur ton nouveau travail.",
+          "closing": "Merci pour ces infos ! Ça m'aide à comparer ce que je recherche avec les possibilités de ton entreprise.",
+          "questions": [
+            {"topic": "Poste et tâches", "question": "Dans quel secteur travaille ton entreprise, et quel poste y occupes-tu ?", "follow_up_to": null},
+            {"topic": "Poste et tâches", "question": "Quelles tâches remplissent le plus tes journées ?", "follow_up_to": 1, "condition": "After the role is identified, unless everyday duties are already described."},
+            {"topic": "Équipe", "question": "Comment ça se passe avec tes collègues : vous vous entraidez facilement, ou chacun travaille plutôt de son côté ?", "follow_up_to": null},
+            {"topic": "Conditions de travail", "question": "Quels sont tes horaires, et est-ce qu'il faut parfois travailler le soir ou le week-end ?", "follow_up_to": null},
+            {"topic": "Conditions de travail", "question": "Si tu es d'accord pour en parler, ton salaire annuel brut se situe dans quelle fourchette ?", "follow_up_to": null},
+            {"topic": "Conditions de travail", "question": "Par rapport à notre ancien travail, qu'est-ce qui a le plus changé pour toi, en bien ou en moins bien ?", "follow_up_to": null},
             {"topic": "Recrutement", "question": "Est-ce que ton entreprise recrute en ce moment, et où pourrais-je consulter les offres ?", "follow_up_to": null},
             {"topic": "Recrutement", "question": "Pour ces postes, quels profils ou quelles compétences sont recherchés ?", "follow_up_to": 7, "condition": "If vacancies are mentioned without describing requirements; adapt to the roles named."}
           ]
@@ -2853,6 +2883,21 @@
             {"topic": "Tarifs et inscription", "question": "Combien coûte une session de douze semaines, et le manuel est-il compris ?", "follow_up_to": null},
             {"topic": "Tarifs et inscription", "question": "Quelle est la date limite, et l'inscription peut-elle se faire entièrement en ligne ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "calgary-university-adult-language-courses",
+          "opening": "Bonjour ! Je m'intéresse à vos cours de langues pour adultes, et j'aimerais en savoir un peu plus.",
+          "closing": "Merci pour ces renseignements. Je vais comparer les créneaux et vérifier mon niveau avant de m'inscrire.",
+          "questions": [
+            {"topic": "Formations", "question": "Faut-il être étudiant de l'université pour s'inscrire à ces cours ?", "follow_up_to": null},
+            {"topic": "Formations", "question": "Quelles langues proposez-vous actuellement aux adultes ?", "follow_up_to": null},
+            {"topic": "Formations", "question": "Pour l'espagnol, faut-il passer un test de niveau avant de choisir un groupe ?", "follow_up_to": 2, "condition": "If Spanish is offered without explaining placement; adapt to the chosen language."},
+            {"topic": "Formations", "question": "Les cours sont-ils proposés sur le campus et en ligne, ou le format dépend-il du niveau ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Combien de semaines dure une session, et combien d'heures de cours y a-t-il par semaine ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Quels horaires proposez-vous, notamment en soirée ou le samedi ?", "follow_up_to": null},
+            {"topic": "Tarifs et inscription", "question": "Combien coûte une session de douze semaines, et le manuel est-il compris ?", "follow_up_to": null},
+            {"topic": "Tarifs et inscription", "question": "Quelle est la date limite, et l'inscription peut-elle se faire entièrement en ligne ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -3047,6 +3092,21 @@
             {"topic": "Loisirs", "question": "Quel est votre loisir principal, et où et quand le pratiquez-vous ?", "follow_up_to": null},
             {"topic": "Loisirs", "question": "La chorale donne-t-elle des concerts publics, et quand aura lieu le prochain ?", "follow_up_to": 6, "condition": "If a choir or band is mentioned without concert details; adapt as needed."},
             {"topic": "Loisirs", "question": "Et le week-end, où est-ce que vous aimez sortir ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "french-class-survey-francophone-student",
+          "opening": "Bonjour ! Pour mon cours de français, je réalise une enquête sur les activités des étudiants francophones, et j'aimerais vous poser quelques questions.",
+          "closing": "Merci beaucoup pour votre temps ! Vos réponses vont vraiment enrichir mon enquête.",
+          "questions": [
+            {"topic": "Études", "question": "Qu'est-ce que vous étudiez en ce moment ?", "follow_up_to": null},
+            {"topic": "Études", "question": "Dans quel établissement étudiez-vous, et en quelle année êtes-vous ?", "follow_up_to": null},
+            {"topic": "Études", "question": "Comment se répartit votre journée entre les cours, les travaux pratiques et le travail personnel ?", "follow_up_to": null},
+            {"topic": "Emploi du temps", "question": "Avez-vous un emploi étudiant ou une activité bénévole en dehors des cours, et combien de temps y consacrez-vous ?", "follow_up_to": null},
+            {"topic": "Emploi du temps", "question": "Quand les examens approchent, comment conciliez-vous cette activité avec vos révisions ?", "follow_up_to": 4, "condition": "If work or volunteering is mentioned without explaining how revision fits around it."},
+            {"topic": "Loisirs", "question": "Quelle activité vous plaît le plus pendant votre temps libre, et où la pratiquez-vous ?", "follow_up_to": null},
+            {"topic": "Loisirs", "question": "À quels moments de la semaine est-ce que vous pouvez pratiquer cette activité ?", "follow_up_to": 6, "condition": "After a leisure activity is named, unless its schedule is already known."},
+            {"topic": "Loisirs", "question": "Et le week-end, vous restez plutôt chez vous ou vous aimez sortir, par exemple dans des parcs ou des musées ?", "follow_up_to": null}
           ]
         }
       ]

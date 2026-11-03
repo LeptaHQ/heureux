@@ -2982,6 +2982,11 @@ class BrowserTests(StaticLiveServerTestCase):
             },
         )
 
+    def test_culture_integration_keeps_unchanged_annotations_after_a_public_example_edit(self):
+        self._assert_theme_models_preserve_public_example_edits(
+            set(), 1, groups={"eo/tache-3/culture-p30"},
+        )
+
     def test_selected_culture_subthemes_preserve_unchanged_annotations_after_public_example_edits(self):
         self._assert_theme_models_preserve_public_example_edits(
             set(), 7,

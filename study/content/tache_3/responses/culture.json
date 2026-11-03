@@ -803,29 +803,29 @@
       },
       "reformulation": "Est-il facile de trouver sa place dans une société étrangère ?",
       "position": "L'intégration est possible, mais demande du temps et un accueil réciproque.",
-      "position_claire": "S'intégrer dans un pays étranger n'est pas toujours facile. Même quand on parle la langue et qu'on travaille, on ne se sent pas forcément chez soi. Il faut aussi se familiariser avec les références culturelles locales, créer des liens et pouvoir participer à la vie du pays.",
+      "position_claire": "À mon avis, ce n'est pas toujours facile de s'intégrer dans un nouveau pays. Même si on parle la langue et qu'on travaille, on peut encore se sentir à l'écart. Il faut du temps, et l'accueil des autres compte aussi.",
       "arguments": [
         {
-          "idea": "Tout d'abord, comprendre une conversation ne se limite pas à connaître les mots.",
-          "developpement": "On n'a pas toujours les mêmes références que les autres. Il faut parfois poser une question pour comprendre la discussion et pouvoir y participer.",
-          "exemple": "Par exemple, à la pause, des collègues plaisantent sur une émission qu'un nouvel arrivant n'a jamais vue. Il comprend les mots, mais pas la blague. Un collègue lui explique ce qui s'est passé dans l'émission. Le nouvel arrivant peut alors participer à la discussion.",
-          "consequence": "L'intégration progresse grâce à des occasions d'apprendre et à l'attention de l'entourage."
+          "idea": "Tout d'abord, on ne connaît pas toujours les sujets dont les autres parlent.",
+          "developpement": "Ce n'est pas forcément un problème de langue. On peut comprendre les mots sans savoir à quoi les autres font allusion.",
+          "exemple": "À la pause, par exemple, des collègues plaisantent sur une émission qu'on n'a jamais vue. Si l'un d'eux raconte la scène, on comprend ce qui les fait rire et on peut se joindre à la conversation.",
+          "consequence": "Quand un collègue prend le temps d'expliquer, on peut se sentir moins à l'écart."
         },
         {
-          "idea": "Ensuite, créer des liens durables dépend aussi de l'ouverture des autres.",
-          "developpement": "Les personnes qu'on rencontre ont déjà leurs habitudes et, souvent, leur groupe d'amis. Les liens se construisent au fil des rencontres, à condition que chacun ait envie de poursuivre l'échange. On ne peut pas construire une relation tout seul.",
-          "exemple": "Dans un club, une nouvelle membre peut d'abord échanger quelques salutations sans vraiment connaître les autres. Si le groupe l'invite à préparer un événement pendant plusieurs semaines, elle peut discuter avec les mêmes personnes et apprendre à les connaître.",
-          "consequence": "Un cadre accueillant peut donc transformer des contacts polis en liens plus personnels."
+          "idea": "Ensuite, on ne peut pas créer des liens tout seul.",
+          "developpement": "Les gens ont souvent déjà leurs amis et leurs habitudes. Pour se rapprocher d'eux, on a besoin de se revoir, pas seulement d'échanger quelques salutations.",
+          "exemple": "Dans un club, par exemple, on peut se saluer chaque semaine sans vraiment se connaître. Mais si les membres nous invitent à préparer une fête du club avec eux, on a quelque chose à faire ensemble pendant plusieurs semaines. Les conversations viennent alors plus facilement.",
+          "consequence": "Petit à petit, on peut apprendre à mieux se connaître, au lieu de simplement se croiser."
         },
         {
-          "idea": "Enfin, des obstacles administratifs peuvent freiner l'intégration professionnelle.",
-          "developpement": "On ne peut pas toujours exercer son métier dès l'arrivée, même avec de l'expérience. Il peut être nécessaire de faire reconnaître un diplôme ou de suivre une formation complémentaire. Cela peut retarder l'accès à un emploi dans son domaine.",
-          "exemple": "Une personne dont la profession est réglementée peut devoir faire reconnaître son diplôme avant d'exercer. Pendant ces démarches, elle peut participer à une association, mais cette activité ne remplace ni son métier ni le revenu qu'elle espérait.",
-          "consequence": "L'intégration dépend donc aussi de l'accès à des possibilités concrètes, pas seulement des efforts individuels."
+          "idea": "Enfin, même si on commence à connaître du monde, on peut encore avoir du mal à reprendre son métier.",
+          "developpement": "Dans certaines professions, on doit faire reconnaître son diplôme ou suivre une formation. L'expérience qu'on avait avant de partir ne permet pas forcément de commencer tout de suite.",
+          "exemple": "Si on attend que notre diplôme soit reconnu, par exemple, on peut faire du bénévolat pour rencontrer des gens. C'est utile, mais ça ne remplace pas le métier ni le revenu qu'on espérait.",
+          "consequence": "Pouvoir reprendre son métier peut donc aider à se sentir davantage à sa place."
         }
       ],
-      "nuance": "Cependant, le rythme varie selon la langue, les ressources, les rencontres et les obstacles rencontrés, y compris la discrimination. On peut aussi se sentir chez soi dans plusieurs cultures. Il faut donc laisser à chacun le temps de s'intégrer, sans lui demander d'oublier ses origines.",
-      "conclusion": "En conclusion, on peut s'intégrer dans un nouveau pays, mais cela demande du temps. Les efforts personnels comptent, tout comme l'accueil des autres et la possibilité de travailler dans son domaine."
+      "nuance": "Bien sûr, avoir des proches sur place et de quoi vivre pendant les démarches peut faciliter les choses. À l'inverse, la discrimination peut les compliquer. Et on peut se sentir chez soi dans le nouveau pays tout en restant attaché à ses origines.",
+      "conclusion": "En conclusion, on peut trouver sa place dans un nouveau pays, mais ce n'est pas toujours facile. Nos efforts comptent, tout comme l'accueil des autres et la possibilité de travailler dans notre domaine."
     },
     "culture-p31": {
       "prompt_signatures": {

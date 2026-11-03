@@ -30,7 +30,7 @@ REVIEWED_CLAUSES = {
     "culture-p27": "sans qu'on l'accuse de trahir sa culture",
     "culture-p29": "Pour qu'une visite soit possible",
     "culture-p3": "sans que les habitants sachent les utiliser",
-    "culture-p30": "à condition que chacun ait envie",
+    "culture-p30": "attend que notre diplôme soit reconnu",
     "culture-p31": "pour que les jeunes puissent distinguer",
     "culture-p33": "Il faut qu'une célébrité puisse être interrogée",
     "culture-p34": "Il faut qu'on juge l'ensemble de la pratique",

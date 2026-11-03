@@ -151,7 +151,7 @@ class CultureEditorialTests(SimpleTestCase):
             (20, 1, ("sans passer par un texte",)),
             (24, 1, ("association de quartier", "chacun apporte un plat", "dans la langue du pays", "d'autres rencontres")),
             (26, 2, ("prévoir leurs visites à l'avance", "question d'organisation", "pas un refus de me voir")),
-            (30, 2, ("profession est réglementée", "avant d'exercer", "ne remplace ni")),
+            (30, 2, ("attend que notre diplôme soit reconnu", "faire du bénévolat pour rencontrer des gens", "ne remplace pas le métier ni le revenu")),
             (31, 1, ("moquerie", "camarade visé se sent humilié", "s'éloigne du groupe")),
             (35, 2, ("distribution alimentaire", "La famille comprend", "comme les autres bénévoles, il contribue")),
         ):
@@ -512,7 +512,7 @@ class CultureEditorialTests(SimpleTestCase):
             (5, 2, "contacts sur place", "Des conseils précis", "relire son CV"),
             (14, 2, "approfondir sa connaissance", "poser ses propres questions", "pourquoi elle enlève ses chaussures"),
             (26, 2, "éviter des malentendus", "comprendre son comportement", "prévoir leurs visites"),
-            (30, 2, "obstacles administratifs", "faire reconnaître un diplôme", "profession est réglementée"),
+            (30, 2, "reprendre son métier", "faire reconnaître son diplôme", "notre diplôme soit reconnu"),
             (31, 1, "banaliser les comportements agressifs", "l'humiliation peut passer pour une simple plaisanterie", "moquerie"),
             (33, 1, "mobiliser le public", "informations vérifiées", "réunion publique"),
         ):
@@ -549,25 +549,30 @@ class CultureEditorialTests(SimpleTestCase):
 
     def test_integration_example_keeps_shared_context_distinct_from_understanding_words(self):
         response = self.response(30)
-        self.assertIn("Même quand on parle la langue", response.position_claire)
-        self.assertIn("se familiariser avec les références culturelles locales", response.position_claire)
+        self.assertIn("Même si on parle la langue", response.position_claire)
+        self.assertIn("l'accueil des autres compte aussi", response.position_claire)
         self.assertNotIn("comprendre les échanges", response.position_claire)
         plan = self.plans["eo/tache-3/culture-p30"]
-        self.assertIn("références culturelles locales", plan.introduction.french)
-        self.assertIn("local cultural references", plan.introduction.english)
+        self.assertIn("Langue et travail ne suffisent pas toujours", plan.introduction.french)
+        self.assertIn("Speaking the language and having a job", plan.introduction.english)
         argument = response.arguments[0]
-        self.assertIn("les mêmes références que les autres", argument.developpement)
-        self.assertIn("poser une question", argument.developpement)
+        self.assertIn("pas forcément un problème de langue", argument.developpement)
+        self.assertIn("comprendre les mots sans savoir", argument.developpement)
+        self.assertIn("à quoi les autres font allusion", argument.developpement)
         self.assertNotIn("intervenir aussi spontanément", argument.developpement)
-        self.assertIn("une émission qu'un nouvel arrivant n'a jamais vue", argument.exemple)
-        self.assertIn("Il comprend les mots, mais pas la blague", argument.exemple)
-        self.assertIn("Un collègue lui explique ce qui s'est passé dans l'émission", argument.exemple)
-        self.assertIn("Le nouvel arrivant peut alors participer à la discussion", argument.exemple)
+        stages = (
+            argument.exemple.index("une émission qu'on n'a jamais vue"),
+            argument.exemple.index("raconte la scène"),
+            argument.exemple.index("se joindre à la conversation"),
+        )
+        self.assertEqual(stages, tuple(sorted(stages)))
+        self.assertIn("on comprend ce qui les fait rire", argument.exemple)
+        self.assertIn("se sentir moins à l'écart", argument.consequence)
         cue = plan.arguments[0].example
-        self.assertIn("ce qui s'est passé dans une émission", cue.french)
-        self.assertIn("comprend la blague et peut participer", cue.french)
-        self.assertIn("what happened in a TV show", cue.english)
-        self.assertIn("understand the joke and join in", cue.english)
+        self.assertIn("émission inconnue", cue.french)
+        self.assertIn("on comprend la blague et on participe", cue.french)
+        self.assertIn("unfamiliar TV scene", cue.english)
+        self.assertIn("understand the joke and join the conversation", cue.english)
 
     def test_direct_framing_keeps_friendship_optional_and_integration_reciprocal(self):
         happiness = self.response(16)
@@ -575,9 +580,28 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("personne ne peut", happiness.position_claire)
         self.assertIn("une solitude choisie", happiness.nuance)
         integration = self.response(30).arguments[1]
-        self.assertIn("chacun ait envie de poursuivre l'échange", integration.developpement)
-        self.assertIn("On ne peut pas construire une relation tout seul", integration.developpement)
-        self.assertIn("le groupe l'invite", integration.exemple)
+        self.assertIn("on a besoin de se revoir", integration.developpement)
+        self.assertIn("on ne peut pas créer des liens tout seul", integration.idea)
+        self.assertIn("les membres nous invitent", integration.exemple)
+        self.assertIn("une fête du club", integration.exemple)
+        self.assertIn("plusieurs semaines", integration.exemple)
+        self.assertIn("apprendre à mieux se connaître", integration.consequence)
+
+    def test_spoken_integration_keeps_professional_access_distinct_from_social_contact(self):
+        model = self.models["eo/tache-3/culture-p30"]
+        response = model.response
+        self.assertEqual(model.argument_ids, (1, 2, 3))
+        professional = response.arguments[2]
+        self.assertIn("même si on commence à connaître du monde", professional.idea)
+        self.assertIn("Dans certaines professions", professional.developpement)
+        self.assertIn("faire reconnaître son diplôme ou suivre une formation", professional.developpement)
+        self.assertIn("attend que notre diplôme soit reconnu", professional.exemple)
+        self.assertIn("bénévolat pour rencontrer des gens", professional.exemple)
+        self.assertIn("ne remplace pas le métier ni le revenu", professional.exemple)
+        self.assertIn("proches sur place", response.nuance)
+        self.assertIn("de quoi vivre pendant les démarches", response.nuance)
+        self.assertIn("discrimination", response.nuance)
+        self.assertIn("tout en restant attaché à ses origines", response.nuance)
 
     def test_adaptation_introduction_keeps_the_preferred_living_abroad_wording(self):
         introduction = self.response(9).position_claire

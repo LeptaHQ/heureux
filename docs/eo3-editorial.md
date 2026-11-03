@@ -79,7 +79,13 @@ whole intervention after assembling edits, not only its individual fields.
 
 Distinguish speaking a language from knowing shared cultural references.
 Someone can understand the words without recognizing the reference behind a joke.
-Name that distinction explicitly when framing an integration answer.
+Explain that distinction in ordinary language rather than forcing an abstract
+label into the introduction.
+
+Read a conversational model as one connected intervention, not fifteen separate
+paragraphs. Each explanation should lead naturally into its example and result.
+Use transitions that express a real connection; adding fillers or replacing every
+subject with "on" is not a substitute for that connection.
 
 Benefits do not establish necessity. When a consigne says "indispensable", a
 balanced answer can develop two substantial benefits and a supported reason why

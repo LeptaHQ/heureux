@@ -630,7 +630,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("si j'immigrais", response(26).position_claire.casefold())
         self.assertIn("pas seulement de la volonté", response(27).nuance)
         self.assertIn("Selon le pays et le statut", response(29).arguments[2].developpement)
-        self.assertIn("l'ouverture des autres", response(30).arguments[1].idea)
+        self.assertIn("on ne peut pas créer des liens tout seul", response(30).arguments[1].idea)
         self.assertIn("publicité", response(31).arguments[2].idea)
         self.assertIn("recommandées par un candidat", response(31).arguments[2].exemple)
         self.assertIn("financer", response(33).arguments[2].exemple)

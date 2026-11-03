@@ -1200,46 +1200,46 @@
     },
     "culture-p30": {
       "introduction": {
-        "french": "Se familiariser avec les références culturelles locales, créer des liens et pouvoir participer à la vie du pays.",
-        "english": "Become familiar with local cultural references, build relationships and have opportunities to take part in society."
+        "french": "Langue et travail ne suffisent pas toujours ; temps et accueil comptent aussi.",
+        "english": "Speaking the language and having a job do not always make us feel at home; time and a welcoming community matter."
       },
       "nuance": {
-        "french": "S'intégrer ne veut pas dire oublier ses origines ; les obstacles et le rythme varient.",
-        "english": "Integration does not mean forgetting your origins; people face different obstacles and need different amounts of time."
+        "french": "Proches et budget peuvent aider ; la discrimination peut freiner. S'intégrer n'impose pas d'oublier ses origines.",
+        "english": "Loved ones nearby and financial resources can help; discrimination can hinder us. We can integrate without giving up our roots."
       },
       "conclusion": {
-        "french": "Les efforts personnels, l'accueil des autres et l'accès au travail facilitent l'intégration.",
-        "english": "Newcomers' efforts, other people's willingness to include them and access to work all support integration."
+        "french": "Temps, efforts, accueil et accès au métier aident à trouver sa place.",
+        "english": "Time, personal effort, a welcoming community and a chance to work in our field help us find our place."
       },
       "arguments": [
         {
           "point": {
-            "french": "Comprendre une conversation ne se limite pas à connaître les mots.",
-            "english": "Understanding a conversation involves more than knowing its words."
+            "french": "On ne connaît pas toujours les sujets dont les autres parlent.",
+            "english": "We do not always know the topics other people are discussing."
           },
           "example": {
-            "french": "Un collègue explique ce qui s'est passé dans une émission ; le nouvel arrivant comprend la blague et peut participer.",
-            "english": "A colleague explains what happened in a TV show so the newcomer can understand the joke and join in."
+            "french": "Un collègue explique une scène d'une émission inconnue ; on comprend la blague et on participe.",
+            "english": "A colleague explains an unfamiliar TV scene, helping us understand the joke and join the conversation."
           }
         },
         {
           "point": {
-            "french": "Créer des liens durables dépend aussi de l'ouverture des autres.",
-            "english": "Lasting relationships also depend on other people's openness."
+            "french": "On ne peut pas créer des liens tout seul.",
+            "english": "Building relationships needs interest and effort from both sides."
           },
           "example": {
-            "french": "Préparer un événement de club pendant plusieurs semaines permet de se revoir et de mieux se connaître.",
-            "english": "Preparing a club event over several weeks creates repeated contact and a chance to get to know others."
+            "french": "Dans un club, préparer une fête ensemble permet de se revoir pendant plusieurs semaines.",
+            "english": "Club members invite us to prepare a celebration together, creating repeated contact over several weeks."
           }
         },
         {
           "point": {
-            "french": "Des obstacles administratifs peuvent freiner l'intégration professionnelle.",
-            "english": "Administrative barriers can make it harder to work in your profession."
+            "french": "Même si on commence à connaître du monde, on peut encore avoir du mal à reprendre son métier.",
+            "english": "Even with local contacts, it can still be difficult to return to our profession."
           },
           "example": {
-            "french": "Attendre la reconnaissance d'un diplôme ; le bénévolat ne remplace ni le métier ni le revenu.",
-            "english": "While waiting for qualifications to be recognised, volunteering does not replace the job or income the person expected."
+            "french": "Diplôme en attente de reconnaissance ; le bénévolat ne remplace ni le métier ni le revenu.",
+            "english": "While awaiting qualification recognition, volunteering does not replace our job or expected income."
           }
         }
       ]

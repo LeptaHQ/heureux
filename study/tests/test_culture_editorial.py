@@ -238,6 +238,9 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("en cuisinant soi-même", response.position_claire)
         self.assertIn("des façons de cuisiner du pays", response.conclusion)
         self.assertIn("ne montre pas tout un pays", response.nuance)
+        self.assertIn("d'autres aspects du pays", response.nuance)
+        self.assertIn("Apprendre sa langue peut aussi nous aider", response.nuance)
+        self.assertNotIn("il faut qu'on découvre aussi la langue", response.nuance)
         for language, country, etiquette, fish, activity, language_limit in (
             ("french", "Au Sénégal", "à la main", "saler et sécher le poisson", "fufu", "sans bien parler sa langue"),
             ("english", "In Senegal", "by hand", "salting and drying fish", "fufu", "host's language"),

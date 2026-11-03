@@ -7515,6 +7515,45 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertFalse(Annotation.objects.exists())
         provider.assert_not_called()
 
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="A saved English note.")
+    def test_direct_deepl_note_integrates_with_the_bilingual_eo3_response(self, provider):
+        cache.clear()
+        self.addCleanup(cache.clear)
+        prompt = self.open_eo3_language_response("culture:p19")
+        root = self.page.locator("[data-eo3-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        english = root.locator('[data-eo3-english="nuance"]')
+        english.evaluate("""node => {
+          const range = document.createRange(); range.selectNodeContents(node);
+          const selection = getSelection(); selection.removeAllRanges(); selection.addRange(range);
+          document.dispatchEvent(new Event("selectionchange"));
+        }""")
+        expect(self.page.locator("[data-translate-note-selection]")).to_be_hidden()
+        provider.assert_not_called()
+        root.get_by_role("button", name="Français", exact=True).click()
+        french = root.locator('[data-eo3-french="argument-1-exemple"]')
+        quote = french.text_content()
+        source_key = root.get_attribute("data-annotation-source-key")
+        french.evaluate("""node => {
+          const range = document.createRange(); range.selectNodeContents(node);
+          const selection = getSelection(); selection.removeAllRanges(); selection.addRange(range);
+          document.dispatchEvent(new Event("selectionchange"));
+        }""")
+        with self.page.expect_response(
+            lambda response: reverse("study:annotation_create") in response.url
+        ) as saved:
+            self.page.locator("[data-translate-note-selection]").click()
+        self.assertEqual(saved.value.status, 201)
+        expect(self.page.locator("[data-annotation-toast]")).to_contain_text("Traduction DeepL enregistrée")
+        expect(self.page.locator("[data-note-panel]")).to_be_hidden()
+        expect(self.page.locator("[data-translation-panel]")).to_be_hidden()
+        note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE)
+        self.assertEqual((note.quote, note.body, note.source_key), (quote, "A saved English note.", source_key))
+        self.assertEqual(note.task, prompt.theme.task)
+        self.assertFalse(Annotation.objects.filter(user=self.user, kind=AnnotationKind.HIGHLIGHT).exists())
+        provider.assert_called_once_with(quote, "test:fx")
+
     def test_translation_panel_saves_the_translation_as_a_note(self):
         self.context.add_init_script(
             """

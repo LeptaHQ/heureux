@@ -211,12 +211,17 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             ("eo/tache-3/education-p12", "f84a48745f67d1f9227f880afdd27a89be1dc94528b01757ab167707141492b4", "in an exercise"),
             ("eo/tache-3/culture-p34", "39f31843ac1ae30322b45068d101980d912bfa93ef9755c4eeaafa35204e7779", "buying second-hand"),
             ("eo/tache-3/famille-p2", "7e88df36a5f5c16bc2f25b291a6db1f6b458c321ca207c4c34668f6660ab8cdc", "where they live"),
+            ("eo/tache-3/culture-p31", "a7902cf141991845f71442d19f7300637afda293dcabc98300f3a868907f356a", "A high-school student"),
         )
         for group, digest, wording in regressions:
             row = data["groups"][group][digest]
             self.assertIn(wording, row["english"])
             self.assertTrue(row["deepl_english"])
             self.assertTrue(row["review_note"])
+        student = data["groups"]["eo/tache-3/culture-p31"]["a7902cf141991845f71442d19f7300637afda293dcabc98300f3a868907f356a"]
+        self.assertTrue(student["french"].startswith("Un lycéen"))
+        self.assertTrue(student["english"].startswith("A high-school student"))
+        self.assertNotIn("sixth-former", student["english"])
         country = scoped_models()["eo/tache-3/culture-p19"]
         row = data["groups"][country.group][fingerprint(country.response.nuance)]
         self.assertIn("neighbourhood meeting", row["english"])

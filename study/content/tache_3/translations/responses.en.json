@@ -1567,8 +1567,10 @@
         "french": "Cependant, tous les jeunes ne prennent pas ces émissions au sérieux. On peut les regarder pour se distraire sans vouloir imiter les candidats. Discuter du montage, des comportements et de la publicité aide aussi à garder un regard critique."
       },
       "a7902cf141991845f71442d19f7300637afda293dcabc98300f3a868907f356a": {
-        "english": "A sixth-former watches a contestant on holiday in a villa with a swimming pool. By comparing these images with his school lessons and his weekend part-time job, he finds his own life disappointing, even though he is only seeing selected moments.",
-        "french": "Un lycéen regarde un candidat en vacances dans une villa avec piscine. En comparant ces images à ses cours et à son petit boulot du week-end, il trouve sa propre vie décevante, alors qu'il voit seulement des moments choisis."
+        "deepl_english": "A sixth-former watches a contestant on holiday in a villa with a swimming pool. By comparing these images with his school lessons and his weekend part-time job, he finds his own life disappointing, even though he is only seeing selected moments.",
+        "english": "A high-school student watches a contestant on holiday in a villa with a swimming pool. By comparing these images with his school lessons and his weekend part-time job, he finds his own life disappointing, even though he is only seeing selected moments.",
+        "french": "Un lycéen regarde un candidat en vacances dans une villa avec piscine. En comparant ces images à ses cours et à son petit boulot du week-end, il trouve sa propre vie décevante, alors qu'il voit seulement des moments choisis.",
+        "review_note": "Translate lycéen as high-school student; the source does not specify the narrower sixth-form stage."
       },
       "b035ecd2ca16bb2a0d10c4510f5acba43b1ac59f03d545f322e2c0c17315a539": {
         "english": "I believe that some reality TV programmes can be harmful to young people. I see three main risks in particular: a false image of success, the imitation of harmful behaviour, and purchases encouraged by advertising.",

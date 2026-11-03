@@ -3564,6 +3564,9 @@ class BrowserTests(StaticLiveServerTestCase):
             "famille:p13",
         ))
 
+    def test_culture_integration_learning_aids_match_on_detail_and_practice(self):
+        self._assert_eo3_learning_aids_match_on_detail_and_practice(("culture:p30",))
+
     def test_selected_culture_subthemes_and_equivalents_show_matching_bilingual_learning_aids(self):
         self._assert_eo3_learning_aids_match_on_detail_and_practice((
             *(f"culture:p{number}" for number in (6, 12, 13, 18, 20, 23, 31)),

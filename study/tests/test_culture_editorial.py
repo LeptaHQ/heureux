@@ -548,7 +548,14 @@ class CultureEditorialTests(SimpleTestCase):
         )
 
     def test_integration_example_keeps_shared_context_distinct_from_understanding_words(self):
-        argument = self.response(30).arguments[0]
+        response = self.response(30)
+        self.assertIn("Même quand on parle la langue", response.position_claire)
+        self.assertIn("se familiariser avec les références culturelles locales", response.position_claire)
+        self.assertNotIn("comprendre les échanges", response.position_claire)
+        plan = self.plans["eo/tache-3/culture-p30"]
+        self.assertIn("références culturelles locales", plan.introduction.french)
+        self.assertIn("local cultural references", plan.introduction.english)
+        argument = response.arguments[0]
         self.assertIn("les mêmes références que les autres", argument.developpement)
         self.assertIn("poser une question", argument.developpement)
         self.assertNotIn("intervenir aussi spontanément", argument.developpement)
@@ -556,7 +563,7 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("Il comprend les mots, mais pas la blague", argument.exemple)
         self.assertIn("Un collègue lui explique ce qui s'est passé dans l'émission", argument.exemple)
         self.assertIn("Le nouvel arrivant peut alors participer à la discussion", argument.exemple)
-        cue = self.plans["eo/tache-3/culture-p30"].arguments[0].example
+        cue = plan.arguments[0].example
         self.assertIn("ce qui s'est passé dans une émission", cue.french)
         self.assertIn("comprend la blague et peut participer", cue.french)
         self.assertIn("what happened in a TV show", cue.english)

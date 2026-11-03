@@ -77,6 +77,10 @@ abstract or difficult to decode. Reuse useful language across suitable questions
 while removing redundant reasoning within the same intervention. Reread the
 whole intervention after assembling edits, not only its individual fields.
 
+Distinguish speaking a language from knowing shared cultural references.
+Someone can understand the words without recognizing the reference behind a joke.
+Name that distinction explicitly when framing an integration answer.
+
 Benefits do not establish necessity. When a consigne says "indispensable", a
 balanced answer can develop two substantial benefits and a supported reason why
 they are not a universal requirement. Do not force a weak third benefit merely

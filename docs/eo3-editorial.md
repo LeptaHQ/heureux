@@ -49,6 +49,36 @@ Explain the same cause and result in ordinary words; for example, "garder le
 poisson pendant les voyages en mer" rather than "histoire maritime", and "une
 façon de cuisiner du pays" rather than "savoir-faire culinaire local".
 
+## Independent human-style GPT review
+
+For every substantive response revision, the writing agent must obtain a critique
+from a separate GPT agent before declaring the work complete. Self-review and
+passing automated checks are not substitutes for this independent reading.
+Give the critic the exact consigne, every equivalent variant, the full current
+intervention and the preserved original. Ask it to read as a human listener,
+not merely check the six headings or approve grammatical sentences.
+
+The critic must examine whether the position answers the question, the three
+arguments are distinct and worthwhile, each explanation leads naturally into a
+realistic example, and the result actually follows. Check clear referents,
+cause and effect, necessary limits, accurate claims, connected spoken delivery
+and familiar NCLC 7 language. Retain strong existing reasoning and reuse
+applicable words, phrases, expressions and examples; do not force the same
+answer onto different questions or paraphrase sound wording just for variety.
+
+An English outline or draft may help expose a missing explanation or weak
+example. Use it when helpful, but write idiomatic spoken French rather than a
+literal translation. Read the complete French intervention aloud as a connected
+answer. Check the full English translation against the final French too: a
+revised French passage must not keep an outdated English gloss, and updating
+the English Pistes alone does not update the full response.
+
+Resolve substantive findings, reread the complete intervention and obtain a
+follow-up critique of the revised answer within the same review scope. Keep
+review evidence in session artifacts, not repository planning files. Report real
+remaining uncertainty; do not claim literal perfection or loop on cosmetic
+synonyms. Preserve protected models, source identities and learning data.
+
 ## Argument substance and comparative review
 
 Compare the current model with the preserved original before revising it. Keep

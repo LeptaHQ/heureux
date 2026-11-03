@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T05:59:00.634012+00:00",
+  "generated_at": "2026-11-03T06:22:09.751731+00:00",
   "groups": {
     "eo/tache-3/culture-p1": {
       "022ba7408875e257c3e9a06a9eea99bdc30d10b35bdb3b2a5e56152e3f79c74d": {
@@ -529,6 +529,10 @@
       "c44192629488b536c303b50414650a15806048ba456114acaba0add5d453533c": {
         "english": "Furthermore, recipes help us to understand a country’s history.",
         "french": "Ensuite, les recettes nous aident à comprendre l'histoire d'un pays."
+      },
+      "d6f9e02cfcc65ba3120646ca5f6c5b1652a58c450d1645cd32b1dfc7bec68fa9": {
+        "english": "However, a single dish or restaurant does not represent an entire country. Customs vary depending on the region, the family and the budget. To gain a deeper understanding, we also need to explore other aspects of the country, such as its history or everyday life. Learning the language can also help us.",
+        "french": "Cependant, un plat ou un restaurant ne montre pas tout un pays. Les habitudes changent selon les régions, les familles et le budget. Pour aller plus loin, il faut qu'on découvre aussi d'autres aspects du pays, comme son histoire ou la vie de tous les jours. Apprendre sa langue peut aussi nous aider."
       },
       "e42429724bb9bdab36107f3227f7c4eb724367c2cdc6cc6277c21cead2f122b6": {
         "english": "So we learn one way of cooking from that country, even without speaking the language very well.",
@@ -8771,7 +8775,7 @@
     }
   },
   "provider": "deepl",
-  "reviewed_at": "2026-11-03T06:02:06.469332+00:00",
+  "reviewed_at": "2026-11-03T06:23:47.615543+00:00",
   "source_language": "FR",
   "target_language": "EN-GB",
   "version": 1

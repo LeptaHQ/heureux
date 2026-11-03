@@ -225,6 +225,10 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         row = data["groups"][country.group][fingerprint(country.response.arguments[1].exemple)]
         self.assertIn("French but not Japanese", row["english"])
         self.assertIn("French subtitles", row["english"])
+        cuisine = scoped_models()["eo/tache-3/culture-p15"]
+        row = data["groups"][cuisine.group][fingerprint(cuisine.response.nuance)]
+        self.assertIn("Learning the language can also help", row["english"])
+        self.assertNotIn("must also explore the language", row["english"])
 
 
 class EO3ResponseLanguageViewTests(TestCase):

@@ -43,9 +43,10 @@ class TacheThreeReuseTests(SimpleTestCase):
         translation = self.response("culture-p19").arguments[1]
         self.assertIn("poser ses propres questions", conversation.developpement)
         self.assertIn("demander des précisions", conversation.developpement)
-        self.assertIn("voir une habitude sans en comprendre la raison", translation.developpement)
-        self.assertIn("Avec des sous-titres", translation.developpement)
-        self.assertIn("ne parle pas japonais", translation.exemple)
+        self.assertIn("pas forcément pourquoi ils le font", translation.developpement)
+        self.assertIn("sous-titres dans une langue qu'on connaît", translation.developpement)
+        self.assertIn("comprendre leurs explications", translation.developpement)
+        self.assertIn("parle français mais pas japonais", translation.exemple)
         self.assertNotEqual(
             self.models["eo/tache-3/culture-p14"].source_prompts,
             self.models["eo/tache-3/culture-p19"].source_prompts,

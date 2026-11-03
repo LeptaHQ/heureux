@@ -619,7 +619,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("pas d'accord avec le mot", response(17).position_claire)
         self.assertIn("sauvegardé", response(18).nuance)
         self.assertIn("traductions", response(19).arguments[1].idea)
-        self.assertIn("ne parle pas japonais", response(19).arguments[1].exemple)
+        self.assertIn("parle français mais pas japonais", response(19).arguments[1].exemple)
         self.assertIn("écoles au Japon", response(19).arguments[1].exemple)
         self.assertIn("prendre soin des lieux qu'ils utilisent ensemble", response(19).arguments[1].exemple)
         self.assertIn("en écoutant", response(20).position_claire)

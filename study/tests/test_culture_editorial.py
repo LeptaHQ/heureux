@@ -147,7 +147,7 @@ class CultureEditorialTests(SimpleTestCase):
             (11, 1, ("Une infirmière", "compatriote", "fait reconnaître son diplôme", "quels documents", "à quel organisme")),
             (15, 1, ("Au Portugal", "poisson salé et séché", "garder pendant", "longs voyages en mer")),
             (15, 2, ("séjour au Ghana", "même sans bien parler sa langue", "piler le manioc", "En essayant à mon tour")),
-            (19, 1, ("ne parle pas japonais", "documentaire sous-titré", "écoles au Japon", "des élèves nettoyer leur classe", "lieux qu'ils utilisent ensemble")),
+            (19, 1, ("parle français mais pas japonais", "documentaire sur les écoles", "sous-titres en français", "écoles au Japon", "des élèves nettoyer leur classe", "lieux qu'ils utilisent ensemble")),
             (19, 2, ("présentation traduite", "projet de logements", "réunion du quartier", "certains voisins sont pour et d'autres contre")),
             (20, 1, ("sans passer par un texte",)),
             (24, 1, ("association de quartier", "chacun apporte un plat", "dans la langue du pays", "d'autres rencontres")),
@@ -266,23 +266,48 @@ class CultureEditorialTests(SimpleTestCase):
         model = self.models["eo/tache-3/culture-p19"]
         response = model.response
         self.assertEqual(model.argument_ids, (1, 2, 4))
-        self.assertIn("quels quartiers sont faciles à rejoindre", response.arguments[0].developpement)
-        self.assertIn("combien de temps prennent les trajets", response.arguments[0].developpement)
+        self.assertEqual(model.source_prompts, ((
+            "culture:p19",
+            "À votre avis, peut-on connaître un pays sans en parler la langue ? Pourquoi ?",
+        ),))
+        self.assertIn("les produits qu'on y vend", response.arguments[0].developpement)
+        self.assertIn("ce que les habitants achètent", response.arguments[0].developpement)
         self.assertNotIn("l'explication que l'on imagine", response.arguments[0].developpement)
-        self.assertIn("une heure à s'y rendre en bus", response.arguments[0].exemple)
-        self.assertIn("changer deux fois", response.arguments[0].exemple)
-        self.assertIn("comprendre certaines habitudes du pays", response.arguments[1].idea)
-        self.assertIn("voir une habitude sans en comprendre la raison", response.arguments[1].developpement)
-        self.assertIn("comprendre les explications des habitants", response.arguments[1].developpement)
-        self.assertIn("l'objectif est de leur apprendre", response.arguments[1].exemple)
-        self.assertIn("elle comprend le but de cette pratique", response.arguments[1].consequence)
+        self.assertIn("retourne plusieurs matins sur un marché", response.arguments[0].exemple)
+        self.assertIn("du poisson, du riz et des légumes", response.arguments[0].exemple)
+        self.assertIn("qui ne parle pas la langue", response.arguments[0].exemple)
+        self.assertNotIn("changer deux fois", response.arguments[0].exemple)
+        self.assertIn("les habitudes de ce marché", response.arguments[0].consequence)
+        cue = self.plans[model.group].arguments[0].example
+        self.assertIn("voir ce que les habitants achètent", cue.french)
+        self.assertIn("see what people buy", cue.english)
+        self.assertIn("comprendre les raisons de certaines habitudes du pays", response.arguments[1].idea)
+        point = self.plans[model.group].arguments[1].point
+        self.assertIn("les raisons de certaines habitudes du pays", point.french)
+        self.assertIn("the reasons behind some local customs", point.english)
+        development = response.arguments[1].developpement
+        steps = (
+            development.index("pas forcément pourquoi ils le font"),
+            development.index("sous-titres dans une langue qu'on connaît"),
+            development.index("comprendre leurs explications"),
+        )
+        self.assertEqual(steps, tuple(sorted(steps)))
+        self.assertIn("avec des sous-titres en français", response.arguments[1].exemple)
+        self.assertIn("Un enseignant explique qu'ils apprennent", response.arguments[1].exemple)
+        self.assertIn("elle comprend pourquoi ces élèves nettoient leur classe", response.arguments[1].consequence)
+        example_cue = self.plans[model.group].arguments[1].example
+        self.assertIn("prendre soin des lieux qu'ils utilisent ensemble", example_cue.french)
+        self.assertIn("care for the places they use together", example_cue.english)
         self.assertIn("certaines discussions restent difficiles", response.arguments[2].idea)
         self.assertIn("tout n'est pas traduit sur le moment", response.arguments[2].developpement)
         self.assertIn("Il sait ce qui est proposé", response.arguments[2].exemple)
         self.assertIn("comprendre leurs raisons au moment de la discussion", response.arguments[2].consequence)
         self.assertIn("parler la langue ne suffit pas toujours", response.nuance)
         self.assertIn("ancien projet abandonné", response.nuance)
-        self.assertIn("on comprend les mots, mais pas forcément la réaction", response.nuance)
+        self.assertIn("À la réunion de quartier", response.nuance)
+        self.assertIn("comme la dernière fois", response.nuance)
+        self.assertIn("on comprend ses mots, mais pas forcément pourquoi il se méfie", response.nuance)
+        self.assertNotIn("Dans cette réunion", response.nuance)
         self.assertNotIn("une langue commune", response.position_claire)
         self.assertNotIn("une langue commune", response.conclusion)
 

@@ -91,6 +91,10 @@ Read a conversational model as one connected intervention, not fifteen separate
 paragraphs. Each explanation should lead naturally into its example and result.
 Use transitions that express a real connection; adding fillers or replacing every
 subject with "on" is not a substitute for that connection.
+For subtitles, connect the steps explicitly: we see an action but cannot
+understand the spoken explanation; subtitles in a language we know translate
+that explanation; we can then understand the reason. Do not assume that images
+alone explain a motive, or that subtitles in an unfamiliar language solve the gap.
 
 Work and skills are parts of one economic contribution, not opposing categories.
 An answer can recognize that contribution alongside cultural and civic benefits

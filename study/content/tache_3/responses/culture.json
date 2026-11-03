@@ -563,15 +563,15 @@
       "arguments": [
         {
           "idea": "Tout d'abord, on peut comprendre une partie de la vie quotidienne en observant ce qui se passe.",
-          "developpement": "En prenant les transports, on découvre quels quartiers sont faciles à rejoindre et combien de temps prennent les trajets. On apprend cela directement, sans qu'un interprète ait à tout nous expliquer.",
-          "exemple": "Un visiteur repère sur une carte un quartier qui semble tout près du centre. Mais il met une heure à s'y rendre en bus, car il doit changer deux fois.",
-          "consequence": "Il connaît donc mieux les possibilités de transport dans ce quartier, sans avoir eu besoin de parler la langue."
+          "developpement": "En observant un marché, on découvre les produits qu'on y vend et ce que les habitants achètent. On apprend cela directement, sans qu'un interprète ait à tout nous expliquer.",
+          "exemple": "Un voyageur qui ne parle pas la langue retourne plusieurs matins sur un marché. Il voit les habitants acheter du poisson, du riz et des légumes.",
+          "consequence": "Il connaît donc mieux les habitudes de ce marché, sans avoir eu besoin de parler la langue."
         },
         {
-          "idea": "Ensuite, les traductions permettent de comprendre certaines habitudes du pays.",
-          "developpement": "Dans une vidéo, on peut voir une habitude sans en comprendre la raison. Avec des sous-titres, on peut aussi comprendre les explications des habitants, même sans parler leur langue.",
-          "exemple": "Une personne qui ne parle pas japonais regarde un documentaire sous-titré sur les écoles au Japon. Elle voit des élèves nettoyer leur classe. Un enseignant explique que l'objectif est de leur apprendre à prendre soin des lieux qu'ils utilisent ensemble.",
-          "consequence": "Grâce aux sous-titres, elle comprend le but de cette pratique, sans avoir besoin de parler japonais."
+          "idea": "Ensuite, les traductions nous aident à comprendre les raisons de certaines habitudes du pays.",
+          "developpement": "En regardant une vidéo, on voit ce que font les habitants, mais pas forcément pourquoi ils le font. Avec des sous-titres dans une langue qu'on connaît, on peut comprendre leurs explications.",
+          "exemple": "Par exemple, une personne qui parle français mais pas japonais regarde un documentaire sur les écoles au Japon, avec des sous-titres en français. Elle voit des élèves nettoyer leur classe. Un enseignant explique qu'ils apprennent ainsi à prendre soin des lieux qu'ils utilisent ensemble.",
+          "consequence": "Grâce aux sous-titres, elle comprend pourquoi ces élèves nettoient leur classe, sans parler japonais."
         },
         {
           "idea": "Enfin, sans la langue locale, certaines discussions restent difficiles à comprendre.",
@@ -580,7 +580,7 @@
           "consequence": "Parler la langue l'aiderait donc à comprendre leurs raisons au moment de la discussion."
         }
       ],
-      "nuance": "Cependant, parler la langue ne suffit pas toujours à comprendre ce qui se passe. Dans cette réunion, quelqu'un peut faire référence à un ancien projet abandonné. Si on ne connaît pas cette histoire, on comprend les mots, mais pas forcément la réaction.",
+      "nuance": "Cependant, parler la langue ne suffit pas toujours. À la réunion de quartier, un voisin peut dire : « Ça va encore finir comme la dernière fois. » Il pense à un ancien projet abandonné. Sans connaître cette histoire, on comprend ses mots, mais pas forcément pourquoi il se méfie du nouveau projet.",
       "conclusion": "En conclusion, on peut apprendre beaucoup sur un pays en observant la vie quotidienne et en utilisant des traductions. Apprendre sa langue permet ensuite de mieux suivre les échanges et de comprendre davantage de points de vue."
     },
     "culture-p20": {

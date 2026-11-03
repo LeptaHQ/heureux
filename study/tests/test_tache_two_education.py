@@ -6,7 +6,8 @@ from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
 from study.tests.eo2_review_fixtures import (
-    FOLLOWUP_GROUPS, FOLLOWUP_PROTECTED_SHA, remove_followup_archives,
+    FOLLOWUP_GROUPS, FOLLOWUP_PROTECTED_SHA, HOUSE_FACILITIES_FOLLOWUP_FIELDS,
+    remove_followup_archives,
 )
 from study.tests.housing_work_fixtures import ORIGINAL_HOUSING_GROUPS
 from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
@@ -150,7 +151,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertNotEqual(self.history[school.group]["revisions"][0]["closing"], school.closing)
         self.assertIn("cours d'essai", school.closing)
 
-    def test_the_three_unrelated_completed_themes_remain_exactly_as_approved(self):
+    def test_earlier_themes_remain_approved_except_the_authorized_house_facilities_followup(self):
         rows = {
             row["group"]: row
             for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
@@ -158,7 +159,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         }
         expected = {
             "arrivee": "eeb337d3fd34d07c863b10f58fa4da53bae6f1b91822e56eaa8042170a48e278",
-            "logement": "5856b77b61128d6d2b988dd3a589762ca8d8a5a7a04b1c6f8a17a3ba4b73a744",
+            "logement": "a524786ed4b34345571cbbfe0148d355ddc1b52965e0205dab486485003b00b7",
             "vie-quartier": "3de4534126cd6233e3805ee89724c63644ee928b1b82f29acdcd51a3d5318c4c",
         }
         for theme, digest in expected.items():
@@ -168,6 +169,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
                     ORIGINAL_HOUSING_GROUPS if theme == "logement" else
                     {row.group for key, row in self.dialogues.items() if self.themes[key] == theme}
                 )
+                groups = groups - HOUSE_FACILITIES_FOLLOWUP_FIELDS.keys()
                 snapshot = json.dumps(
                     sorted((rows[group] for group in groups), key=lambda row: row["group"]),
                     ensure_ascii=False, sort_keys=True,

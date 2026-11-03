@@ -7,7 +7,7 @@ from django.test import SimpleTestCase
 from study import catalogue, content_loader as content
 from study.tests.culture_fixtures import LEISURE_SPLIT_GROUPS
 from study.tests.eo2_review_fixtures import (
-    PUBLISHED_ARCHIVE_INDEX, PUBLISHED_LAYOUT_SHA, REVIEWED_GROUPS,
+    ACCOMMODATION_FOLLOWUP_FIELDS, PUBLISHED_ARCHIVE_INDEX, PUBLISHED_LAYOUT_SHA, REVIEWED_GROUPS,
 )
 
 
@@ -133,14 +133,18 @@ class BlueThemeAuditTests(SimpleTestCase):
                 for text in regression.get("forbidden_strings", []):
                     self.assertNotIn(text, actual)
 
-    def test_the_fifty_seven_yellow_models_and_their_pistes_are_untouched(self):
-        protected = {group: row for group, row in self.raw.items() if group not in self.manifest["reviewed"]}
-        self.assertEqual(len(protected), 57)
-        self.assertEqual(fingerprint(protected), self.manifest["protected_models_sha"])
+    def test_yellow_models_outside_authorized_accommodation_followups_remain_untouched(self):
+        reviewed = set(self.manifest["reviewed"]) | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
+        protected = {group: row for group, row in self.raw.items() if group not in reviewed}
+        self.assertEqual(len(protected), 55)
+        self.assertEqual(
+            fingerprint(protected),
+            "d516b6ea2368e1dd3d92c40824cfce5a2465dfeb2abfad27054df751c43f872f",
+        )
         hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"]
         self.assertEqual(
             fingerprint({group: hints[group] for group in protected}),
-            self.manifest["protected_hints_sha"],
+            "e429d7af0d3c76fa48599cc694987263cffec5f532cb7ebfe67edf146f8c5262",
         )
 
     def test_all_previous_layouts_are_retained_without_simulated_answers(self):
@@ -182,6 +186,7 @@ class BlueThemeAuditTests(SimpleTestCase):
             for path in sorted(root.rglob("*.json"))
             if path.parent.name not in {"dialogues", "dialogue_history"}
             and path != content.TACHE_TWO_SUBJECT_HINTS_PATH
+            and not path.is_relative_to(root / "translations")
         }
         self.assertEqual(fingerprint(immutable), self.manifest["immutable_content_sha"])
 

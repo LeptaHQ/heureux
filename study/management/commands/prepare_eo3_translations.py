@@ -91,7 +91,7 @@ class Command(BaseCommand):
                 english = deepl_translate(
                     texts, key,
                     context=(
-                        f"Réponse publique pour cet exercice oral TCF Canada : {model.source_prompts[0][1]}\n"
+                        f"Réponse publique pour cet exercice oral de français : {model.source_prompts[0][1]}\n"
                         f"Intervention complète : {spoken_text(model.response)}"
                     ),
                 )

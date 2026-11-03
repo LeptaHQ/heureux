@@ -1384,8 +1384,8 @@
     },
     "culture-p35": {
       "introduction": {
-        "french": "Les immigrés peuvent contribuer par leurs compétences, leur culture et leur engagement.",
-        "english": "Immigrants can contribute through skills, culture and community involvement."
+        "french": "Les immigrés peuvent contribuer par leur travail, leurs compétences, leur culture et leur engagement.",
+        "english": "Immigrants can contribute through their work and skills, culture and community involvement."
       },
       "nuance": {
         "french": "L'accès à l'emploi et au logement doit être équitable ; chacun mérite le respect, quelle que soit sa contribution économique.",
@@ -1398,8 +1398,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Les personnes immigrées peuvent apporter des compétences utiles à l'activité économique.",
-            "english": "Immigrants can bring useful skills to economic activity."
+            "french": "Les personnes immigrées peuvent contribuer à l'économie par leur travail et leurs compétences.",
+            "english": "Immigrants can contribute to the economy through their work and skills."
           },
           "example": {
             "french": "Une technicienne montre comment réparer une panne déjà rencontrée dans son pays d'origine.",

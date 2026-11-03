@@ -684,6 +684,26 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("la durée du séjour", forgetting.arguments[2].consequence.casefold())
         self.assertIn("n'est pas nécessairement oublier", forgetting.nuance)
 
+    def test_immigration_economic_contribution_keeps_work_and_skills_together(self):
+        model = self.models["eo/tache-3/culture-p35"]
+        response = model.response
+        self.assertEqual(model.argument_ids, (1, 2, 3))
+        self.assertIn("Leur travail et leurs compétences peuvent soutenir l'économie", response.position_claire)
+        self.assertNotIn("Je ne parle pas seulement de main-d'œuvre", response.position_claire)
+        economic = response.arguments[0]
+        self.assertIn("par leur travail et leurs compétences", economic.idea)
+        self.assertIn("produire des biens et à fournir des services", economic.developpement)
+        self.assertIn("Leur expérience peut aussi aider leurs collègues", economic.developpement)
+        self.assertIn("dans de bonnes conditions", economic.developpement)
+        self.assertIn("si nécessaire, faire reconnaître leurs qualifications", economic.developpement)
+        self.assertIn("Une technicienne", economic.exemple)
+        self.assertIn("En leur montrant comment elle la répare", economic.exemple)
+        self.assertIn("par leur travail et leurs compétences", response.conclusion)
+        plan = self.plans[model.group]
+        self.assertIn("leur travail, leurs compétences", plan.introduction.french)
+        for cue in (plan.introduction, plan.arguments[0].point):
+            self.assertIn("work and skills", cue.english)
+
     def test_immigration_contributions_do_not_condition_dignity_on_economic_usefulness(self):
         response = self.response(35)
         self.assertIn("réutiliser cette solution", response.arguments[0].consequence)

@@ -87,6 +87,10 @@ paragraphs. Each explanation should lead naturally into its example and result.
 Use transitions that express a real connection; adding fillers or replacing every
 subject with "on" is not a substitute for that connection.
 
+Work and skills are parts of one economic contribution, not opposing categories.
+An answer can recognize that contribution alongside cultural and civic benefits
+without making a person's dignity depend on economic usefulness.
+
 Benefits do not establish necessity. When a consigne says "indispensable", a
 balanced answer can develop two substantial benefits and a supported reason why
 they are not a universal requirement. Do not force a weak third benefit merely

@@ -2987,6 +2987,11 @@ class BrowserTests(StaticLiveServerTestCase):
             set(), 1, groups={"eo/tache-3/culture-p30"},
         )
 
+    def test_culture_immigration_keeps_unchanged_annotations_after_a_public_example_edit(self):
+        self._assert_theme_models_preserve_public_example_edits(
+            set(), 1, groups={"eo/tache-3/culture-p35"},
+        )
+
     def test_selected_culture_subthemes_preserve_unchanged_annotations_after_public_example_edits(self):
         self._assert_theme_models_preserve_public_example_edits(
             set(), 7,
@@ -3571,6 +3576,9 @@ class BrowserTests(StaticLiveServerTestCase):
 
     def test_culture_integration_learning_aids_match_on_detail_and_practice(self):
         self._assert_eo3_learning_aids_match_on_detail_and_practice(("culture:p30",))
+
+    def test_culture_immigration_learning_aids_match_on_detail_and_practice(self):
+        self._assert_eo3_learning_aids_match_on_detail_and_practice(("culture:p35",))
 
     def test_selected_culture_subthemes_and_equivalents_show_matching_bilingual_learning_aids(self):
         self._assert_eo3_learning_aids_match_on_detail_and_practice((

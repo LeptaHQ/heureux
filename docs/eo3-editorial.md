@@ -419,9 +419,14 @@ main argument. Regular contact can maintain or restore knowledge without making
 cultural continuity either inevitable or solely a matter of willpower.
 
 The cuisine answer distinguishes mealtime customs, recipes as traces of the past,
-and practical cultural learning despite limited shared language. Explain what
-meal times reveal rather than adding generic instructions to observe and ask.
-A family's late dinner illustrates its own routine, not a national rule.
+and practical cultural learning despite limited shared language. A household's
+work schedule or a relative's anecdote is not, on its own, evidence of a wider
+culinary tradition. The Senegalese meal example uses documented eating etiquette
+associated with [ceebu jën](https://ich.unesco.org/fr/RL/le-ceebu-jen-art-culinaire-du-senegal-01748).
+The Portuguese salt-cod example connects a culinary preparation to
+[historical sea voyages](https://www.asae.gov.pt/newsletter2/asaenews-n-118-dezembro-2019/o-bacalhau-e-a-autenticidade-alimentar.aspx)
+and its [continued place in local diets](https://www.eeagrants-2014-2021.gov.pt/pt/programas/crescimento-azul/projetos/projetos/era-uma-vez-um-peixe-chamado-bacalhau/).
+These are situated traditions, not claims that every household follows them.
 Guided practice shares a sentence with the local-workshop answer, while retaining
 the separate cuisine question and its concrete cooking example. The fufu example
 situates limited shared language in a visit to Ghana, with a host demonstrating

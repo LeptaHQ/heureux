@@ -16,7 +16,7 @@ REVIEWED_CLAUSES = {
     "culture-p12": "à condition que le programme et la durée correspondent",
     "culture-p13": "sans que les parents aient à payer des cours privés",
     "culture-p14": "sans qu'on ait besoin de voyager",
-    "culture-p15": "ils attendent qu'elle soit rentrée",
+    "culture-p15": "il faut qu'on découvre aussi la langue",
     "culture-p16": "sans qu'on ait d'amis",
     "culture-p17": "il arrive qu'on ne puisse pas rentrer",
     "culture-p18": "je trouve dommage qu'on s'envoie moins de lettres",

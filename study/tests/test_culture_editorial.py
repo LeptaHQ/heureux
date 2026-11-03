@@ -144,7 +144,7 @@ class CultureEditorialTests(SimpleTestCase):
             (6, 0, ("un essai", "la voiture en ville", "la pollution", "sans transports en commun", "interdiction totale")),
             (11, 0, ("sa solitude en français", "une amie de son pays qui parle sa langue", "le dimanche ensemble")),
             (11, 1, ("Une infirmière", "compatriote", "fait reconnaître son diplôme", "quels documents", "à quel organisme")),
-            (15, 1, ("sa grand-mère", "sécher les tomates du jardin", "en manger en hiver", "ce n'était plus la saison")),
+            (15, 1, ("Au Portugal", "morue salée et séchée", "conserver le poisson", "longs voyages en mer")),
             (15, 2, ("séjour au Ghana", "même sans bien parler sa langue", "piler le manioc", "En essayant à mon tour")),
             (19, 1, ("ne parle pas japonais", "documentaire sous-titré", "écoles au Japon", "des élèves nettoyer leur classe", "lieux qu'ils utilisent ensemble")),
             (19, 2, ("présentation traduite", "projet de logements", "réunion du quartier", "certains voisins sont pour et d'autres contre")),
@@ -202,31 +202,48 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("lecture et au calcul", response.nuance)
         self.assertIn("pas les supprimer", response.nuance)
 
-    def test_cuisine_explains_mealtimes_and_accessible_learning_not_just_conversation(self):
+    def test_cuisine_examples_show_country_customs_history_and_local_practice(self):
         model = self.models["eo/tache-3/culture-p15"]
         response = model.response
         plan = self.plans["eo/tache-3/culture-p15"]
         self.assertEqual(model.argument_ids, (1, 2, 4))
-        self.assertIn("Les heures des repas", response.arguments[0].developpement)
-        self.assertIn("vingt et une heures", response.arguments[0].exemple)
-        self.assertIn("sa femme finit tard", response.arguments[0].exemple)
-        self.assertIn("leur envie de se retrouver", response.arguments[0].consequence)
+        self.assertEqual(model.source_prompts, ((
+            "culture:p15",
+            "La cuisine permet de connaître la culture des pays. Êtes-vous d'accord ?",
+        ),))
+        customs, history, practice = response.arguments
+        self.assertIn("des façons de servir et de manger", customs.developpement)
+        self.assertIn("entre générations", customs.developpement)
+        self.assertIn("Au Sénégal", customs.exemple)
+        self.assertIn("un plat traditionnel de riz et de poisson", customs.exemple)
+        self.assertIn("à la main, sans laisser tomber de riz", customs.exemple)
+        self.assertIn("une tradition du pays", customs.consequence)
+        self.assertNotIn("sa femme finit tard", customs.exemple)
         self.assertNotIn("En observant et en posant des questions", response.arguments[0].developpement)
-        self.assertIn("l'histoire d'un lieu", response.arguments[1].idea)
+        self.assertIn("l'histoire d'un pays", history.idea)
+        self.assertIn("techniques qui répondaient aux besoins d'autrefois", history.developpement)
+        self.assertIn("Au Portugal", history.exemple)
+        self.assertIn("morue salée et séchée", history.exemple)
+        self.assertIn("conserver le poisson pendant les longs voyages en mer", history.exemple)
+        self.assertIn("la cuisine portugaise et l'histoire maritime du pays", history.consequence)
         self.assertIn("par la pratique, même avec peu de mots", response.arguments[2].idea)
+        self.assertIn("la préparation d'un plat traditionnel", practice.developpement)
         example = response.arguments[2].exemple
         self.assertIn("avec mon hôte", example)
         self.assertNotIn("français", example)
         self.assertLess(example.index("Il me montrerait"), example.index("En essayant à mon tour"))
         self.assertIn("avant de pouvoir en discuter facilement", response.arguments[2].consequence)
+        self.assertIn("un savoir-faire culinaire local", practice.consequence)
         self.assertIn("en cuisinant soi-même", response.position_claire)
         self.assertIn("en cuisinant soi-même", response.conclusion)
         self.assertIn("ne représente pas tout un pays", response.nuance)
-        for language, time, activity, language_limit in (
-            ("french", "vingt et une heures", "fufu", "sans bien parler sa langue"),
-            ("english", "at nine", "fufu", "host's language"),
+        for language, country, etiquette, fish, activity, language_limit in (
+            ("french", "Au Sénégal", "à la main", "morue salée et séchée", "fufu", "sans bien parler sa langue"),
+            ("english", "In Senegal", "by hand", "salted dried cod", "fufu", "host's language"),
         ):
-            self.assertIn(time, getattr(plan.arguments[0].example, language))
+            self.assertIn(country, getattr(plan.arguments[0].example, language))
+            self.assertIn(etiquette, getattr(plan.arguments[0].example, language))
+            self.assertIn(fish, getattr(plan.arguments[1].example, language))
             cue = getattr(plan.arguments[2].example, language)
             self.assertIn(activity, cue)
             self.assertIn(language_limit, cue)

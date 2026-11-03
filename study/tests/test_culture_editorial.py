@@ -1,6 +1,7 @@
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
+from study.tache_three_models import spoken_text
 
 
 class CultureEditorialTests(SimpleTestCase):
@@ -144,7 +145,7 @@ class CultureEditorialTests(SimpleTestCase):
             (6, 0, ("un essai", "la voiture en ville", "la pollution", "sans transports en commun", "interdiction totale")),
             (11, 0, ("sa solitude en français", "une amie de son pays qui parle sa langue", "le dimanche ensemble")),
             (11, 1, ("Une infirmière", "compatriote", "fait reconnaître son diplôme", "quels documents", "à quel organisme")),
-            (15, 1, ("Au Portugal", "morue salée et séchée", "conserver le poisson", "longs voyages en mer")),
+            (15, 1, ("Au Portugal", "poisson salé et séché", "garder pendant", "longs voyages en mer")),
             (15, 2, ("séjour au Ghana", "même sans bien parler sa langue", "piler le manioc", "En essayant à mon tour")),
             (19, 1, ("ne parle pas japonais", "documentaire sous-titré", "écoles au Japon", "des élèves nettoyer leur classe", "lieux qu'ils utilisent ensemble")),
             (19, 2, ("présentation traduite", "projet de logements", "réunion du quartier", "certains voisins sont pour et d'autres contre")),
@@ -212,34 +213,34 @@ class CultureEditorialTests(SimpleTestCase):
             "La cuisine permet de connaître la culture des pays. Êtes-vous d'accord ?",
         ),))
         customs, history, practice = response.arguments
-        self.assertIn("des façons de servir et de manger", customs.developpement)
-        self.assertIn("entre générations", customs.developpement)
+        self.assertIn("comment se servir", customs.developpement)
+        self.assertIn("ce qu'il faut éviter à table", customs.developpement)
         self.assertIn("Au Sénégal", customs.exemple)
         self.assertIn("un plat traditionnel de riz et de poisson", customs.exemple)
         self.assertIn("à la main, sans laisser tomber de riz", customs.exemple)
-        self.assertIn("une tradition du pays", customs.consequence)
+        self.assertIn("une habitude du pays", customs.consequence)
         self.assertNotIn("sa femme finit tard", customs.exemple)
         self.assertNotIn("En observant et en posant des questions", response.arguments[0].developpement)
         self.assertIn("l'histoire d'un pays", history.idea)
-        self.assertIn("techniques qui répondaient aux besoins d'autrefois", history.developpement)
+        self.assertIn("garder les aliments plus longtemps", history.developpement)
         self.assertIn("Au Portugal", history.exemple)
-        self.assertIn("morue salée et séchée", history.exemple)
-        self.assertIn("conserver le poisson pendant les longs voyages en mer", history.exemple)
-        self.assertIn("la cuisine portugaise et l'histoire maritime du pays", history.consequence)
+        self.assertIn("poisson salé et séché", history.exemple)
+        self.assertIn("garder pendant les longs voyages en mer", history.exemple)
+        self.assertIn("la cuisine du pays et les voyages en mer", history.consequence)
         self.assertIn("par la pratique, même avec peu de mots", response.arguments[2].idea)
-        self.assertIn("la préparation d'un plat traditionnel", practice.developpement)
+        self.assertIn("préparer un plat traditionnel", practice.developpement)
         example = response.arguments[2].exemple
         self.assertIn("avec mon hôte", example)
         self.assertNotIn("français", example)
         self.assertLess(example.index("Il me montrerait"), example.index("En essayant à mon tour"))
-        self.assertIn("avant de pouvoir en discuter facilement", response.arguments[2].consequence)
-        self.assertIn("un savoir-faire culinaire local", practice.consequence)
+        self.assertIn("une façon de cuisiner du pays", practice.consequence)
+        self.assertIn("même sans bien parler la langue", practice.consequence)
         self.assertIn("en cuisinant soi-même", response.position_claire)
-        self.assertIn("en cuisinant soi-même", response.conclusion)
-        self.assertIn("ne représente pas tout un pays", response.nuance)
+        self.assertIn("des façons de cuisiner du pays", response.conclusion)
+        self.assertIn("ne montre pas tout un pays", response.nuance)
         for language, country, etiquette, fish, activity, language_limit in (
-            ("french", "Au Sénégal", "à la main", "morue salée et séchée", "fufu", "sans bien parler sa langue"),
-            ("english", "In Senegal", "by hand", "salted dried cod", "fufu", "host's language"),
+            ("french", "Au Sénégal", "à la main", "saler et sécher le poisson", "fufu", "sans bien parler sa langue"),
+            ("english", "In Senegal", "by hand", "salting and drying fish", "fufu", "host's language"),
         ):
             self.assertIn(country, getattr(plan.arguments[0].example, language))
             self.assertIn(etiquette, getattr(plan.arguments[0].example, language))
@@ -249,6 +250,17 @@ class CultureEditorialTests(SimpleTestCase):
             self.assertIn(language_limit, cue)
         self.assertNotIn("français", plan.arguments[2].example.french)
         self.assertNotIn("French", plan.arguments[2].example.english)
+
+    def test_cuisine_uses_familiar_words_without_losing_the_cultural_links(self):
+        text = spoken_text(self.response(15))
+        for expression in ("histoire maritime", "savoir-faire culinaire", "morue"):
+            self.assertNotIn(expression, text)
+        for expression in (
+            "garder les aliments plus longtemps",
+            "les voyages en mer",
+            "une façon de cuisiner du pays",
+        ):
+            self.assertIn(expression, text)
 
     def test_country_knowledge_has_a_supported_limit_not_a_second_language_workaround(self):
         model = self.models["eo/tache-3/culture-p19"]
@@ -763,8 +775,8 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("Meet basic needs", poverty.english)
         cooking = self.plans["eo/tache-3/culture-p15"].introduction.english
         self.assertIn("mealtime customs", cooking)
-        self.assertIn("history of recipes", cooking)
-        self.assertIn("skills to learn through practice", cooking)
+        self.assertIn("history of dishes", cooking)
+        self.assertIn("learn by cooking ourselves", cooking)
         celebrity = self.plans["eo/tache-3/culture-p33"].nuance.english
         self.assertIn("extra media attention", celebrity)
         self.assertIn("competence by fame alone", celebrity)

@@ -21,7 +21,8 @@ count. The reviewed models use a 300–430 whitespace-word rehearsal envelope:
 at 100–110 words per minute this is approximately 2:45–4:18 before individual
 variation. Rehearse with pauses; do not rush to reproduce a text or assume a
 particular speaking rate. Adapt to the actual question and examiner's timing.
-The language target is strong NCLC 7/8 preparation, not a promised score.
+The language target is NCLC 7 preparation, not a promised score. Prefer familiar
+words and short, connected sentences that are easy to learn and remember.
 
 The introduction answers the exact issue and orients the listener without
 announcing the whole answer twice. Each argument has a distinct claim, an
@@ -43,6 +44,10 @@ Prefer a direct verb to an abstract label, and a clear answer to stacked negativ
 Simplify the phrasing, not the argument: keep its explanation, concrete example
 and necessary limits. A shorter text is not automatically easier to learn, and a
 familiar, accurate expression need not be replaced merely for variety.
+Do not make an example depend on technical food names or abstract labels.
+Explain the same cause and result in ordinary words; for example, "garder le
+poisson pendant les voyages en mer" rather than "histoire maritime", and "une
+façon de cuisiner du pays" rather than "savoir-faire culinaire local".
 
 ## Argument substance and comparative review
 

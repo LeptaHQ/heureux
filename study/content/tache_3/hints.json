@@ -648,16 +648,16 @@
     },
     "culture-p15": {
       "introduction": {
-        "french": "La cuisine fait découvrir les habitudes à table, l'histoire des recettes et des gestes à pratiquer soi-même.",
-        "english": "Cooking reveals mealtime customs and the history of recipes, and offers skills to learn through practice."
+        "french": "La cuisine montre des habitudes à table et l'histoire des plats. On apprend aussi en cuisinant.",
+        "english": "Cooking shows mealtime customs and the history of dishes. We can also learn by cooking ourselves."
       },
       "nuance": {
-        "french": "Un plat ou un restaurant ne représente ni tout un pays ni toutes ses familles.",
-        "english": "A dish or restaurant represents neither an entire country nor all its families."
+        "french": "Un plat ne montre pas toutes les habitudes d'un pays.",
+        "english": "One dish cannot show all the customs of a country."
       },
       "conclusion": {
-        "french": "Les repas, les recettes et la pratique font découvrir une culture, sans la résumer.",
-        "english": "Meals, recipes and hands-on practice reveal part of a culture, not all of it."
+        "french": "La cuisine fait découvrir une partie de la culture d'un pays, mais pas tout.",
+        "english": "Cooking and meals reveal part of a country's culture, not all of it."
       },
       "arguments": [
         {
@@ -672,22 +672,22 @@
         },
         {
           "point": {
-            "french": "Les recettes permettent de découvrir une partie de l'histoire d'un pays.",
-            "english": "Recipes can reveal part of a country's history."
+            "french": "Les recettes nous aident à comprendre l'histoire d'un pays.",
+            "english": "Recipes help us understand a country's past."
           },
           "example": {
-            "french": "Au Portugal, la morue salée et séchée rappelle une conservation adaptée aux longs voyages en mer.",
-            "english": "In Portugal, salted dried cod recalls a way to preserve fish for long sea voyages."
+            "french": "Au Portugal, saler et sécher le poisson permettait de le garder pendant les longs voyages en mer.",
+            "english": "In Portugal, salting and drying fish helped keep it for long sea journeys."
           }
         },
         {
           "point": {
             "french": "La cuisine permet de découvrir une culture par la pratique, même avec peu de mots.",
-            "english": "Cooking offers hands-on cultural discovery, even with few words."
+            "english": "We can learn by cooking, even when we do not speak the language well."
           },
           "example": {
-            "french": "Au Ghana : observer son hôte piler le manioc pour le fufu, puis essayer, sans bien parler sa langue.",
-            "english": "In Ghana, watch a host pound cassava for fufu, then try it, despite limited knowledge of the host's language."
+            "french": "Au Ghana : regarder son hôte piler le manioc pour le fufu, puis essayer, sans bien parler sa langue.",
+            "english": "In Ghana, watch the host pound cassava for fufu, then try it, even without speaking the host's language well."
           }
         }
       ]

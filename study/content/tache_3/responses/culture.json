@@ -438,25 +438,25 @@
       "arguments": [
         {
           "idea": "Tout d'abord, les repas permettent de comprendre certaines habitudes de vie.",
-          "developpement": "Les repas ne montrent pas seulement ce qu'on mange. Ils font aussi découvrir des façons de servir et de manger qu'on se transmet entre générations.",
+          "developpement": "La façon de manger fait aussi partie de la culture. Pendant un repas, on peut apprendre comment se servir et ce qu'il faut éviter à table.",
           "exemple": "Au Sénégal, un visiteur goûte un plat traditionnel de riz et de poisson. Son hôte lui montre comment le manger à la main, sans laisser tomber de riz.",
-          "consequence": "Le visiteur apprend ainsi une façon de manger liée à une tradition du pays."
+          "consequence": "Le visiteur découvre donc une habitude du pays, pas seulement un nouveau plat."
         },
         {
-          "idea": "Ensuite, les recettes permettent de découvrir une partie de l'histoire d'un pays.",
-          "developpement": "Les recettes gardent parfois des techniques qui répondaient aux besoins d'autrefois. En découvrant pourquoi on les utilisait, on comprend mieux le passé du pays.",
-          "exemple": "Au Portugal, un visiteur goûte un plat préparé avec de la morue salée et séchée. La personne qui le prépare lui explique que cette méthode permettait de conserver le poisson pendant les longs voyages en mer.",
-          "consequence": "Cette préparation nous fait découvrir un lien entre la cuisine portugaise et l'histoire maritime du pays."
+          "idea": "Ensuite, les recettes nous aident à comprendre l'histoire d'un pays.",
+          "developpement": "Avant, on devait trouver des façons de garder les aliments plus longtemps. Certaines sont restées dans les recettes qu'on prépare aujourd'hui.",
+          "exemple": "Au Portugal, un visiteur goûte un plat fait avec du poisson salé et séché. Le cuisinier lui explique qu'on salait et séchait le poisson pour le garder pendant les longs voyages en mer.",
+          "consequence": "On comprend ainsi le lien entre la cuisine du pays et les voyages en mer."
         },
         {
           "idea": "Enfin, la cuisine permet de découvrir une culture par la pratique, même avec peu de mots.",
-          "developpement": "On peut observer la préparation d'un plat traditionnel et goûter le résultat, même si l'on ne comprend pas toutes les explications. En y participant, on apprend les gestes en les faisant soi-même, avec quelqu'un pour nous guider.",
+          "developpement": "On peut regarder quelqu'un préparer un plat traditionnel, même si on ne comprend pas tout ce qu'il dit. En y participant, on apprend les gestes en les faisant soi-même, avec quelqu'un pour nous guider.",
           "exemple": "Pendant un séjour au Ghana, je pourrais apprendre à préparer du fufu avec mon hôte, même sans bien parler sa langue. Il me montrerait comment piler le manioc. En essayant à mon tour, je découvrirais cette façon de cuisiner.",
-          "consequence": "On découvre ainsi un savoir-faire culinaire local avant de pouvoir en discuter facilement."
+          "consequence": "On apprend donc une façon de cuisiner du pays, même sans bien parler la langue."
         }
       ],
-      "nuance": "Cependant, un plat ou un restaurant ne représente pas tout un pays. Les habitudes varient selon les régions, les familles et leurs moyens. Pour aller plus loin, il faut qu'on découvre aussi la langue, l'histoire et d'autres aspects de la vie quotidienne.",
-      "conclusion": "En conclusion, les repas et les recettes nous apprennent des choses sur une culture, et on peut la découvrir en cuisinant soi-même. C'est une bonne façon de commencer, mais pas de résumer toute une culture."
+      "nuance": "Cependant, un plat ou un restaurant ne montre pas tout un pays. Les habitudes changent selon les régions, les familles et le budget. Pour aller plus loin, il faut qu'on découvre aussi la langue, l'histoire et la vie de tous les jours.",
+      "conclusion": "En conclusion, la cuisine nous fait découvrir des habitudes, une partie de l'histoire et des façons de cuisiner du pays. C'est un bon début, mais ça ne nous apprend pas tout sur sa culture."
     },
     "culture-p16": {
       "prompt_signatures": {

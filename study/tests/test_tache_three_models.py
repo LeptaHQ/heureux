@@ -612,7 +612,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("un soutien moral, des conseils pratiques", response(11).position_claire)
         self.assertIn("ne devraient pas constituer le seul cercle social", response(11).position_claire)
         self.assertIn("rencontrer d'autres habitants", response(11).position_claire)
-        self.assertIn("ne comprend pas toutes les explications", response(15).arguments[2].developpement)
+        self.assertIn("ne comprend pas tout ce qu'il dit", response(15).arguments[2].developpement)
         self.assertIn("même sans bien parler sa langue", response(15).arguments[2].exemple)
         self.assertIn("En essayant à mon tour", response(15).arguments[2].exemple)
         self.assertIn("Ne pas avoir d'amis ne veut pas dire vivre sans aucun lien", response(16).arguments[1].developpement)
@@ -770,7 +770,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p14", 1, "danse irlandaise", "danse irlandaise", "Irish dance"),
             ("culture-p14", 2, "chaussures", "chaussures", "shoes"),
             ("culture-p15", 1, "Portugal", "Au Portugal", "In Portugal"),
-            ("culture-p15", 1, "morue", "morue", "cod"),
+            ("culture-p15", 1, "poisson", "poisson", "fish"),
             ("culture-p15", 2, "séjour au Ghana", "Au Ghana", "In Ghana"),
             ("culture-p15", 2, "fufu", "fufu", "fufu"),
             ("culture-p15", 2, "manioc", "manioc", "cassava"),

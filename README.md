@@ -268,6 +268,16 @@ the selected French passage as a note without highlighting it; no translation
 is invented or fetched from Google automatically. The **Nouvelle note** dialog
 also saves without creating a highlight.
 
+The selection toolbar's **DeepL + note** button (`D`), between Translate and
+Add to Notes, translates and saves in one background request without opening a
+dialog, stopping playback or changing highlights. It captures the original
+French passage and source context before sending; accepted requests can finish
+after navigating away. A spinner and toast report progress and completion.
+This action requires `DEEPL_API_KEY`, accepts at most 2,000 selected characters,
+and never falls back to another provider or saves a note when translation fails.
+Exact retries reuse the existing note in the same user's source/range/context;
+edited notes and identical text in other contexts are not overwritten.
+
 Saving a new selection can overwrite an older visible highlight at the exact same
 source surface and character range, even if the stored text differs after an edit.
 The surviving highlight keeps its identity and study flag; notes, hidden highlights,

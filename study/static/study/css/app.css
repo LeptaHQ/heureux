@@ -8638,6 +8638,7 @@ html[data-input-mode="pen"] .selection-translate__button.is-pen-hovered {
     transform 0.16s ease;
 }
 .selection-translate__button--read { --tone: #ffcf6e; }
+.selection-translate__button--translate-note { --tone: #c3b1ff; }
 .selection-translate__button--note { --tone: #ff8f9c; }
 .selection-translate__button--highlight { --tone: #7fe0a8; }
 .selection-translate__button--translate {
@@ -8731,6 +8732,28 @@ html[data-input-mode="pen"] .selection-translate__button.is-pen-hovered {
 .selection-translate__button.is-read-failed .selection-translate__label {
   border-color: rgb(255 143 156 / 0.45);
   color: #ffc4cb;
+}
+.selection-translate__button--translate-note [data-translate-note-spinner],
+.selection-translate__button--translate-note [data-translate-note-saved],
+.selection-translate__button--translate-note.is-busy [data-translate-note-symbol],
+.selection-translate__button--translate-note.is-saved [data-translate-note-symbol] {
+  display: none;
+}
+.selection-translate__button--translate-note.is-busy [data-translate-note-spinner],
+.selection-translate__button--translate-note.is-saved [data-translate-note-saved] {
+  display: block;
+}
+.selection-translate__button--translate-note.is-busy svg {
+  animation: selection-note-spin 1s linear infinite;
+}
+.selection-translate__button--translate-note.is-saved { --tone: #7fe0a8; }
+.selection-translate__button--translate-note.is-busy .selection-translate__label,
+.selection-translate__button--translate-note.is-saved .selection-translate__label {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+@keyframes selection-note-spin {
+  to { transform: rotate(360deg); }
 }
 @media (hover: hover) {
   .selection-translate__button:hover .selection-translate__label {
@@ -13343,6 +13366,23 @@ button.ce-choice:focus-visible .ce-choice__radio {
     box-shadow: none;
   }
   .selection-translate__shortcut { display: none; }
+}
+
+@media (max-width: 380px) {
+  .selection-translate,
+  html[data-input-mode="pen"] .selection-translate { gap: 0.2rem; }
+  .selection-translate__button,
+  html[data-input-mode="pen"] .selection-translate__button {
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+  }
+  .selection-translate__button svg,
+  html[data-input-mode="pen"] .selection-translate__button svg {
+    width: 44px;
+    height: 44px;
+    padding: 11px;
+  }
 }
 
 @media (max-width: 520px) {

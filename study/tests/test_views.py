@@ -626,17 +626,28 @@ class SmokeTests(TestCase):
         self.assertContains(response, "Translate to English")
         self.assertContains(response, "data-copy-selection")
         self.assertContains(response, "data-read-selection")
+        self.assertContains(response, "data-translate-note-selection")
         self.assertContains(response, "data-note-selection")
         self.assertContains(response, "data-highlight-selection")
         self.assertContains(response, 'aria-keyshortcuts="C"')
         self.assertContains(response, 'aria-keyshortcuts="R"')
         self.assertContains(response, 'aria-keyshortcuts="T"')
+        self.assertContains(response, 'aria-keyshortcuts="D"')
         self.assertContains(response, 'aria-keyshortcuts="N"')
         self.assertContains(response, 'aria-keyshortcuts="H"')
         self.assertContains(
             response,
             'class="selection-translate__shortcut"',
-            count=5,
+            count=6,
+        )
+        rendered = response.content.decode()
+        self.assertLess(
+            rendered.index("data-translate-selection"),
+            rendered.index("data-translate-note-selection"),
+        )
+        self.assertLess(
+            rendered.index("data-translate-note-selection"),
+            rendered.index("data-note-selection"),
         )
         self.assertContains(response, "panel-action--save")
         self.assertContains(response, 'data-icon="note-highlight"', count=2)

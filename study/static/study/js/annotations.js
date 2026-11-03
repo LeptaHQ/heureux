@@ -6,6 +6,8 @@
   var main = document.getElementById("main");
   var action = document.querySelector("[data-selection-translate]");
   var noteButton = document.querySelector("[data-note-selection]");
+  var translateNoteButton = document.querySelector("[data-translate-note-selection]");
+  var translateNoteLabel = document.querySelector("[data-translate-note-label]");
   var highlightButton = document.querySelector("[data-highlight-selection]");
   var highlightLabel = highlightButton
     ? highlightButton.querySelector(".selection-translate__label")
@@ -56,6 +58,8 @@
   var mutationTimer = null;
   var highlightsRevision = 0;
   var highlightsRequest = 0;
+  var translatedNotePending = false;
+  var translatedNoteSavedSelection = null;
 
   function csrfToken() {
     var match = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/);
@@ -178,8 +182,35 @@
         prefix: pageText.slice(Math.max(0, highlightStart - 160), highlightStart),
         suffix: pageText.slice(highlightEnd, highlightEnd + 160)
       },
-      sourceKey: root.dataset.annotationSourceKey || ""
+      sourceKey: root.dataset.annotationSourceKey || "",
+      sourcePath: sourcePath,
+      sourceTitle: document.title,
+      taskId: document.body.dataset.annotationTaskId || ""
     };
+  }
+
+  function translatedSelectionKey(details) {
+    return details ? JSON.stringify([
+      details.sourcePath, details.sourceKey, details.taskId,
+      details.start, details.end, details.quote, details.prefix, details.suffix
+    ]) : null;
+  }
+
+  function updateTranslateNoteButton(details) {
+    if (!translateNoteButton || !translateNoteLabel) return;
+    var saved = Boolean(details &&
+      translatedNoteSavedSelection === translatedSelectionKey(details));
+    translateNoteButton.disabled = translatedNotePending || saved;
+    translateNoteButton.classList.toggle("is-busy", translatedNotePending);
+    translateNoteButton.classList.toggle("is-saved", saved && !translatedNotePending);
+    translateNoteButton.setAttribute("aria-busy", String(translatedNotePending));
+    translateNoteLabel.textContent = translatedNotePending
+      ? "Translating & saving…" : saved ? "Saved to Notes" : "DeepL + note";
+    translateNoteButton.setAttribute("aria-label", translatedNotePending
+      ? "Translating with DeepL and saving to Notes"
+      : saved ? "DeepL translation saved to Notes"
+      : "Translate with DeepL and add to Notes");
+    translateNoteButton.setAttribute("title", translateNoteButton.getAttribute("aria-label"));
   }
 
   function updateHighlightButton(details) {
@@ -200,6 +231,11 @@
       highlightButton.hidden = false;
       noteButton.classList.remove("hidden");
       highlightButton.classList.remove("hidden");
+      if (translateNoteButton) {
+        translateNoteButton.hidden = false;
+        translateNoteButton.classList.remove("hidden");
+      }
+      updateTranslateNoteButton(details);
       updateHighlightButton(details);
     } else {
       var selection = window.getSelection();
@@ -213,6 +249,10 @@
         highlightButton.hidden = true;
         noteButton.classList.add("hidden");
         highlightButton.classList.add("hidden");
+        if (translateNoteButton) {
+          translateNoteButton.hidden = true;
+          translateNoteButton.classList.add("hidden");
+        }
         updateHighlightButton(null);
       }
     }
@@ -283,9 +323,9 @@
     values.set("end_offset", selected.end);
     values.set("prefix", selected.prefix);
     values.set("suffix", selected.suffix);
-    values.set("source_path", sourcePath);
+    values.set("source_path", details.sourcePath);
     values.set("source_key", details.sourceKey || "");
-    values.set("source_title", document.title);
+    values.set("source_title", details.sourceTitle);
     values.set("body", body || "");
     if (kind === "highlight") {
       values.set("overlap_ids", details.highlightIds.join(","));
@@ -294,12 +334,14 @@
         JSON.stringify(details.highlightRevisions)
       );
     }
-    var taskId = document.body.dataset.annotationTaskId;
+    var taskId = details.taskId;
     if (taskId) values.set("task_id", taskId);
     return values;
   }
 
-  function createAnnotation(kind, details, body) {
+  function createAnnotation(kind, details, body, translateWithDeepL) {
+    var values = annotationBody(kind, details, body);
+    if (translateWithDeepL) values.set("translate_with", "deepl");
     return fetch(createUrl, {
       method: "POST",
       headers: {
@@ -307,11 +349,45 @@
         "X-Requested-With": "fetch",
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      body: annotationBody(kind, details, body).toString()
+      body: values.toString(),
+      keepalive: Boolean(translateWithDeepL)
     }).then(readJson).then(function (data) {
       announceAnnotationProgress(data);
       return data;
     });
+  }
+
+  function saveTranslatedSelectionNote() {
+    if (translatedNotePending || translateNoteButton.disabled) return;
+    rememberSelection();
+    var details = currentSelection;
+    if (!details) {
+      showToast("Sélectionnez du texte avant de continuer.");
+      return;
+    }
+    translatedNotePending = true;
+    updateTranslateNoteButton(details);
+    createAnnotation("note", details, "", true)
+      .then(function (data) {
+        if (
+          data.provider !== "deepl" ||
+          !Number.isSafeInteger(data.id) || data.id <= 0 ||
+          typeof data.created !== "boolean"
+        ) {
+          throw new Error("Impossible de confirmer l’enregistrement. Consultez vos notes.");
+        }
+        translatedNoteSavedSelection = translatedSelectionKey(details);
+        showToast(data.created
+          ? "Traduction DeepL enregistrée dans vos notes."
+          : "Cette traduction est déjà dans vos notes.");
+      })
+      .catch(function (error) {
+        showToast(error.message);
+      })
+      .finally(function () {
+        translatedNotePending = false;
+        updateTranslateNoteButton(currentSelection);
+      });
   }
 
   function resetNoteFormState() {
@@ -1507,6 +1583,9 @@
   });
   document.addEventListener("pointerup", rememberSelection);
   noteButton.addEventListener("click", openNotePanel);
+  if (translateNoteButton) {
+    translateNoteButton.addEventListener("click", saveTranslatedSelectionNote);
+  }
   var translateButton = action.querySelector("[data-translate-selection]");
   if (translateButton) {
     translateButton.addEventListener("click", function () {

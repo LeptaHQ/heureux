@@ -5,11 +5,13 @@ import os
 import re
 from dataclasses import asdict, replace
 from io import StringIO
+from threading import Event
 from unittest import mock
 from urllib.parse import parse_qs, quote, unquote, urlsplit
 
 from django.contrib.sessions.models import Session
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from django.core.cache import cache
 from django.core.management import call_command
 from django.test import override_settings
 from django.urls import reverse
@@ -7105,6 +7107,7 @@ class BrowserTests(StaticLiveServerTestCase):
             "[data-copy-selection]": "C",
             "[data-read-selection]": "R",
             "[data-translate-selection]": "T",
+            "[data-translate-note-selection]": "D",
             "[data-note-selection]": "N",
             "[data-highlight-selection]": "H",
         }
@@ -7224,6 +7227,293 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertGreaterEqual(paste_box["width"], 44)
         self.assertGreaterEqual(paste_box["height"], 44)
         self.assert_no_horizontal_overflow()
+
+    def open_direct_deepl_note_review(self):
+        cache.clear()
+        self.addCleanup(cache.clear)
+        self.page.goto(
+            self.live_server_url + reverse("study:task_review", args=["eo", "tache-3"])
+            + "?kind=spine&reset=1"
+        )
+        self.page.wait_for_load_state("networkidle")
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="A DeepL translation.")
+    def test_direct_deepl_note_saves_without_opening_panels_or_highlighting(self, provider):
+        self.open_direct_deepl_note_review()
+        prompt = self.page.locator("#card-front .prompt-text")
+        quote = prompt.inner_text()[:12]
+        source_key = prompt.evaluate(
+            "element => element.closest('[data-annotation-root]').dataset.annotationSourceKey"
+        )
+        self.select_prompt(start=0, end=12)
+        with self.page.expect_response(
+            lambda response: reverse("study:annotation_create") in response.url
+        ) as saved:
+            self.page.locator("[data-translate-note-selection]").tap()
+        self.assertEqual(saved.value.status, 201)
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Traduction DeepL enregistrée dans vos notes.",
+        )
+        expect(self.page.locator("[data-translation-panel]")).to_be_hidden()
+        expect(self.page.locator("[data-note-panel]")).to_be_hidden()
+        expect(self.page.locator("[data-translate-note-selection]")).to_be_disabled()
+        note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE)
+        self.assertEqual(note.quote, quote)
+        self.assertEqual(note.body, "A DeepL translation.")
+        self.assertEqual(note.task, self.task)
+        self.assertEqual(note.source_key, source_key)
+        self.assertFalse(Annotation.objects.filter(kind=AnnotationKind.HIGHLIGHT).exists())
+        self.assertFalse(ReviewLog.objects.filter(user=self.user).exists())
+        self.assertEqual(len(self.context.pages), 1)
+        provider.assert_called_once_with(quote, "test:fx")
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="The original selection.")
+    def test_direct_deepl_note_keeps_the_clicked_selection_and_a_new_note_draft(self, provider):
+        self.context.add_init_script("""
+            const originalFetch = window.fetch.bind(window);
+            window.__directNoteRequests = [];
+            window.fetch = (url, options) => {
+              if (options && typeof options.body === "string" &&
+                  options.body.includes("translate_with=deepl")) {
+                window.__directNoteRequests.push({
+                  body: options.body, keepalive: options.keepalive
+                });
+                return new Promise(resolve => {
+                  window.__releaseDirectNote = () => resolve(originalFetch(url, options));
+                });
+              }
+              return originalFetch(url, options);
+            };
+        """)
+        self.open_direct_deepl_note_review()
+        quote = self.page.locator("#card-front .prompt-text").inner_text()[:12]
+        title = self.page.title()
+        self.select_prompt(start=0, end=12)
+        button = self.page.locator("[data-translate-note-selection]")
+        button.tap()
+        expect(button).to_be_disabled()
+        expect(button).to_have_attribute("aria-busy", "true")
+        expect(self.page.locator("[data-translation-panel]")).to_be_hidden()
+        expect(self.page.locator("[data-note-panel]")).to_be_hidden()
+        button.evaluate("""button => {
+            button.dispatchEvent(new MouseEvent("click", {bubbles: true}));
+            button.dispatchEvent(new MouseEvent("click", {bubbles: true}));
+        }""")
+        self.assertEqual(self.page.evaluate("window.__directNoteRequests.length"), 1)
+        self.assertTrue(self.page.evaluate("window.__directNoteRequests[0].keepalive"))
+        self.page.evaluate("""
+            document.title = "A different card";
+            document.body.dataset.annotationTaskId = "";
+        """)
+        self.select_prompt(start=12, end=18)
+        self.page.locator("[data-note-selection]").tap()
+        self.page.locator("[data-note-body]").fill("Keep this new draft.")
+        self.page.evaluate("window.__releaseDirectNote()")
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Traduction DeepL enregistrée dans vos notes.",
+        )
+        expect(self.page.locator("[data-note-panel]")).to_be_visible()
+        expect(self.page.locator("[data-note-body]")).to_have_value("Keep this new draft.")
+        expect(button).to_be_enabled()
+        expect(button).to_have_attribute("aria-busy", "false")
+        note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE)
+        self.assertEqual(note.quote, quote)
+        self.assertEqual(note.source_title, title)
+        self.assertEqual(note.task, self.task)
+        provider.assert_called_once_with(quote, "test:fx")
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", side_effect=[OSError("down"), "A retry."])
+    def test_direct_deepl_note_errors_restore_the_action_without_local_fallback(self, provider):
+        self.context.add_init_script("""
+            window.__localTranslations = 0;
+            window.Translator = {
+              create: () => {
+                window.__localTranslations += 1;
+                return Promise.resolve({translate: () => Promise.resolve("Local text")});
+              }
+            };
+        """)
+        self.open_direct_deepl_note_review()
+        self.select_prompt(start=0, end=12)
+        button = self.page.locator("[data-translate-note-selection]")
+        button.tap()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "DeepL est indisponible. Réessayez. Aucune note n’a été enregistrée.",
+        )
+        expect(button).to_be_enabled()
+        expect(button).to_have_attribute("aria-busy", "false")
+        self.assertFalse(Annotation.objects.exists())
+        button.tap()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Traduction DeepL enregistrée dans vos notes.",
+        )
+        self.assertEqual(Annotation.objects.get(kind=AnnotationKind.NOTE).body, "A retry.")
+        self.assertEqual(self.page.evaluate("window.__localTranslations"), 0)
+        self.assertEqual(provider.call_count, 2)
+        expect(self.page.locator("[data-translation-panel]")).to_be_hidden()
+        expect(self.page.locator("[data-note-panel]")).to_be_hidden()
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="One saved translation.")
+    def test_direct_deepl_note_retry_after_a_lost_acknowledgment_does_not_duplicate(self, provider):
+        self.open_direct_deepl_note_review()
+        endpoint = self.live_server_url + reverse("study:annotation_create")
+        attempts = []
+
+        def interrupted_reply(route):
+            attempts.append(route.request.post_data)
+            if len(attempts) == 1:
+                route.fetch()
+                route.fulfill(
+                    status=502, content_type="application/json",
+                    body=json.dumps({"error": "Réponse interrompue. Réessayez."}),
+                )
+            else:
+                route.continue_()
+
+        self.page.route(endpoint, interrupted_reply)
+        self.select_prompt(start=0, end=12)
+        button = self.page.locator("[data-translate-note-selection]")
+        button.tap()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Réponse interrompue. Réessayez.",
+        )
+        expect(button).to_be_enabled()
+        saved_id = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE).pk
+        button.tap()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Cette traduction est déjà dans vos notes.",
+        )
+        self.assertEqual(Annotation.objects.get(kind=AnnotationKind.NOTE).pk, saved_id)
+        self.assertEqual(len(attempts), 2)
+        self.assertEqual(provider.call_count, 1)
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    def test_direct_deepl_note_finishes_after_navigation(self):
+        started = Event()
+        release = Event()
+
+        def delayed_translation(text, key):
+            started.set()
+            if not release.wait(10):
+                raise OSError("Translation was not released.")
+            return "Saved after navigation."
+
+        self.open_direct_deepl_note_review()
+        quote = self.page.locator("#card-front .prompt-text").inner_text()[:12]
+        self.select_prompt(start=0, end=12)
+        with mock.patch("study.views.notes._deepl_translation", delayed_translation):
+            try:
+                self.page.locator("[data-translate-note-selection]").tap()
+                self.assertTrue(started.wait(5))
+                self.page.evaluate(
+                    "url => { window.location.href = url; }",
+                    self.live_server_url + reverse("study:dashboard"),
+                )
+            finally:
+                release.set()
+            self.page.wait_for_url(self.live_server_url + reverse("study:dashboard"))
+        note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE)
+        self.assertEqual(note.quote, quote)
+        self.assertEqual(note.body, "Saved after navigation.")
+        self.assertEqual(note.task, self.task)
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="Saved while reading.")
+    def test_direct_deepl_note_shortcut_does_not_stop_reading(self, provider):
+        self.open_direct_deepl_note_review()
+        self.page.evaluate("""() => {
+            window.__directNoteReadingStops = 0;
+            window.HeureuxNarrator.start = options => {
+              options.onstate("playing");
+              return {stop: () => { window.__directNoteReadingStops += 1; }};
+            };
+        }""")
+        self.select_prompt(start=0, end=12)
+        read = self.page.locator("[data-read-selection]")
+        read.tap()
+        expect(read).to_have_attribute("aria-pressed", "true")
+        self.page.evaluate("document.activeElement.blur()")
+        self.select_prompt(start=0, end=12)
+        self.page.keyboard.press("d")
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Traduction DeepL enregistrée dans vos notes.",
+        )
+        expect(read).to_have_attribute("aria-pressed", "true")
+        self.assertEqual(self.page.evaluate("window.__directNoteReadingStops"), 0)
+        self.assertEqual(Annotation.objects.get(kind=AnnotationKind.NOTE).body, "Saved while reading.")
+        provider.assert_called_once()
+        expect(self.page.locator("[data-translation-panel]")).to_be_hidden()
+        expect(self.page.locator("[data-note-panel]")).to_be_hidden()
+
+    @override_settings(DEEPL_API_KEY="", TRANSLATION_API_URL="https://translate.test/")
+    @mock.patch("study.views.notes._libretranslate_translation")
+    @mock.patch("study.views.notes._deepl_translation")
+    def test_direct_deepl_note_reports_missing_configuration_without_saving(self, deepl, libre):
+        self.open_direct_deepl_note_review()
+        self.select_prompt(start=0, end=12)
+        self.page.locator("[data-translate-note-selection]").tap()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "DeepL n’est pas configuré. Aucune note n’a été enregistrée.",
+        )
+        expect(self.page.locator("[data-translate-note-selection]")).to_be_enabled()
+        self.assertFalse(Annotation.objects.exists())
+        deepl.assert_not_called()
+        libre.assert_not_called()
+
+    def test_direct_deepl_note_toolbar_fits_small_screens(self):
+        self.open_direct_deepl_note_review()
+        for width in (320, 390):
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 844})
+                self.select_prompt(start=0, end=12)
+                metrics = self.page.locator("[data-selection-translate]").evaluate("""
+                    toolbar => {
+                      const bounds = toolbar.getBoundingClientRect();
+                      return {
+                        left: bounds.left, right: bounds.right,
+                        buttons: [...toolbar.querySelectorAll("button")].map(button => {
+                          const rect = button.getBoundingClientRect();
+                          return {width: rect.width, height: rect.height, right: rect.right};
+                        })
+                      };
+                    }
+                """)
+                self.assertEqual(len(metrics["buttons"]), 6)
+                self.assertGreaterEqual(metrics["left"], 0)
+                self.assertLessEqual(metrics["right"], width)
+                for button in metrics["buttons"]:
+                    self.assertGreaterEqual(button["width"], 44)
+                    self.assertGreaterEqual(button["height"], 44)
+                    self.assertLessEqual(button["right"], metrics["right"])
+                self.assert_no_horizontal_overflow()
+
+    @mock.patch("study.views.notes._deepl_translation")
+    def test_direct_deepl_note_rejects_excluded_english_glosses(self, provider):
+        self.open_direct_deepl_note_review()
+        self.select_prompt(start=0, end=12)
+        self.page.locator("#card-front").evaluate("""
+            root => {
+              const english = document.createElement("p");
+              english.dataset.annotationExclude = "";
+              english.textContent = "An English gloss, not a French source.";
+              root.append(english);
+              const range = document.createRange();
+              range.selectNodeContents(english);
+              const selection = window.getSelection();
+              selection.removeAllRanges();
+              selection.addRange(range);
+              document.dispatchEvent(new Event("selectionchange"));
+            }
+        """)
+        expect(self.page.locator("[data-copy-selection]")).to_be_visible()
+        expect(self.page.locator("[data-translate-note-selection]")).to_be_hidden()
+        self.page.keyboard.press("d")
+        self.assertFalse(Annotation.objects.exists())
+        provider.assert_not_called()
 
     def test_translation_panel_saves_the_translation_as_a_note(self):
         self.context.add_init_script(

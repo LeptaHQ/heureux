@@ -11,6 +11,7 @@ from http.client import HTTPException
 from urllib.parse import parse_qs, urlsplit
 
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.core.cache import cache
 from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator
@@ -1495,8 +1496,21 @@ def annotation_create(request):
     kind = (request.POST.get("kind") or "").strip()
     if kind not in AnnotationKind.values:
         return HttpResponseBadRequest("Invalid annotation kind.")
+    translate_with = (request.POST.get("translate_with") or "").strip()
+    if translate_with not in ("", "deepl") or (
+        translate_with and kind != AnnotationKind.NOTE
+    ):
+        return JsonResponse(
+            {"error": "La traduction DeepL est réservée aux nouvelles notes."},
+            status=400,
+        )
     quote = request.POST.get("quote") or ""
     body = (request.POST.get("body") or "").strip()
+    if translate_with and body:
+        return JsonResponse(
+            {"error": "Cette action crée la note à partir de la traduction DeepL."},
+            status=400,
+        )
     if not quote.strip():
         return JsonResponse(
             {"error": "Sélectionnez du texte avant de continuer."},
@@ -1711,8 +1725,60 @@ def annotation_create(request):
             )
             annotation.response_anchor = capture_public_response_anchor(annotation)
             annotation.full_clean()
-            annotation.save()
-            created = True
+            if translate_with:
+                try:
+                    translated = _selection_translation(quote.strip(), deepl_only=True)
+                except SelectionTranslationError as error:
+                    messages = {
+                        "not_configured": "DeepL n’est pas configuré.",
+                        "too_long": "Sélectionnez un passage de 2 000 caractères maximum.",
+                        "upstream": "DeepL est indisponible. Réessayez.",
+                        "empty": "DeepL a renvoyé une traduction vide.",
+                    }
+                    return JsonResponse(
+                        {
+                            "error": messages[error.code] + " Aucune note n’a été enregistrée.",
+                            "code": error.code,
+                        },
+                        status=error.status,
+                    )
+                annotation.body = translated["translation"]
+                if len(annotation.body) > MAX_ANNOTATION_BODY_LENGTH:
+                    return JsonResponse(
+                        {"error": "La traduction est trop longue. Aucune note n’a été enregistrée."},
+                        status=400,
+                    )
+                with transaction.atomic():
+                    # Serialize exact retries without deduplicating ordinary notes.
+                    owner = get_user_model().objects.select_for_update(no_key=True).only(
+                        "pk",
+                    ).filter(pk=request.user.pk, is_active=True).first()
+                    if owner is None:
+                        return JsonResponse(
+                            {"error": "Votre session a expiré. Reconnectez-vous."},
+                            status=401,
+                        )
+                    existing = Annotation.objects.filter(
+                        user=request.user,
+                        kind=kind,
+                        task=task,
+                        source_path=source_path,
+                        source_key=source_key,
+                        start_offset=start_offset,
+                        end_offset=end_offset,
+                        quote=quote,
+                        prefix=annotation.prefix,
+                        suffix=annotation.suffix,
+                        body=annotation.body,
+                    ).first()
+                    created = existing is None
+                    if created:
+                        annotation.save()
+                    else:
+                        annotation = existing
+            else:
+                annotation.save()
+                created = True
     except ValidationError as error:
         return JsonResponse(
             {"error": " ".join(error.messages)},
@@ -1733,6 +1799,8 @@ def annotation_create(request):
             + _annotation_anchor(annotation)
         ),
     }
+    if translate_with:
+        payload["provider"] = "deepl"
     payload.update(
         formulation_annotation_progress_payload(
             request.user,
@@ -1909,6 +1977,13 @@ def annotation_delete(request, pk):
 TRANSLATION_MAX_LENGTH = 2000
 
 
+class SelectionTranslationError(Exception):
+    def __init__(self, code, status):
+        super().__init__(code)
+        self.code = code
+        self.status = status
+
+
 def _deepl_translation(text, api_key):
     try:
         return deepl_translate([text], api_key)[0]
@@ -1937,49 +2012,52 @@ def _libretranslate_translation(text, endpoint):
     return translation if isinstance(translation, str) else None
 
 
-@require_POST
-def translate_selection(request):
-    """Translate a selected passage server-side.
-
-    Nothing is sent anywhere unless an operator configures ``DEEPL_API_KEY``
-    (preferred) or ``TRANSLATION_API_URL`` with a LibreTranslate-compatible
-    endpoint.
-    """
+def _selection_translation(text, *, deepl_only=False):
     deepl_key = getattr(settings, "DEEPL_API_KEY", "")
     endpoint = getattr(settings, "TRANSLATION_API_URL", "")
-    if not deepl_key and not endpoint:
-        return JsonResponse(
-            {"error": "not_configured"},
-            status=503,
-        )
+    if not deepl_key and (deepl_only or not endpoint):
+        raise SelectionTranslationError("not_configured", 503)
 
-    text = (request.POST.get("text") or "").strip()
     if not text:
-        return HttpResponseBadRequest("Aucun texte à traduire.")
+        raise SelectionTranslationError("no_text", 400)
     if len(text) > TRANSLATION_MAX_LENGTH:
-        return JsonResponse({"error": "too_long"}, status=413)
+        raise SelectionTranslationError("too_long", 413)
 
     provider = "deepl" if deepl_key else "libretranslate"
-    cache_key = f"translation:{provider}:fr:en:" + hashlib.sha256(
+    target = settings.DEEPL_TARGET_LANG if deepl_key else "en"
+    cache_key = f"translation:{provider}:fr:{target}:" + hashlib.sha256(
         text.encode("utf-8")
     ).hexdigest()
     cached = cache.get(cache_key)
     if cached is not None:
-        return JsonResponse({"translation": cached, "provider": provider, "cached": True})
+        return {"translation": cached, "provider": provider, "cached": True}
 
     try:
         if deepl_key:
             translation = _deepl_translation(text, deepl_key)
         else:
             translation = _libretranslate_translation(text, endpoint)
-    except (OSError, HTTPException, UnicodeDecodeError, json.JSONDecodeError):
-        return JsonResponse({"error": "upstream"}, status=502)
+    except (OSError, HTTPException, UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise SelectionTranslationError("upstream", 502) from error
 
     if translation is None:
-        return JsonResponse({"error": "upstream"}, status=502)
+        raise SelectionTranslationError("upstream", 502)
     translation = translation.strip()
     if not translation:
-        return JsonResponse({"error": "empty"}, status=502)
+        raise SelectionTranslationError("empty", 502)
 
     cache.set(cache_key, translation, 60 * 60 * 24 * 30)
-    return JsonResponse({"translation": translation, "provider": provider})
+    return {"translation": translation, "provider": provider}
+
+
+@require_POST
+def translate_selection(request):
+    """Translate through configured DeepL or a LibreTranslate-compatible service."""
+    text = (request.POST.get("text") or "").strip()
+    try:
+        translated = _selection_translation(text)
+    except SelectionTranslationError as error:
+        if error.code == "no_text":
+            return HttpResponseBadRequest("Aucun texte à traduire.")
+        return JsonResponse({"error": error.code}, status=error.status)
+    return JsonResponse(translated)

@@ -9,6 +9,7 @@
   var readButton = document.querySelector("[data-read-selection]");
   var readLabel = document.querySelector("[data-read-selection-label]");
   var translateButton = document.querySelector("[data-translate-selection]");
+  var translateNoteButton = document.querySelector("[data-translate-note-selection]");
   var noteButton = document.querySelector("[data-note-selection]");
   var highlightButton = document.querySelector("[data-highlight-selection]");
   var penCursor = document.querySelector("[data-pen-cursor]");
@@ -368,6 +369,7 @@
     if (key === "c") return selectionCopyButton;
     if (key === "r") return readButton;
     if (key === "t") return translateButton;
+    if (key === "d") return translateNoteButton;
     if (key === "n") return noteButton;
     if (key === "h") return highlightButton;
     return null;

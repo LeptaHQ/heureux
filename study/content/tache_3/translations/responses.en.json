@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T06:22:09.751731+00:00",
+  "generated_at": "2026-11-03T07:09:30.308035+00:00",
   "groups": {
     "eo/tache-3/culture-p1": {
       "022ba7408875e257c3e9a06a9eea99bdc30d10b35bdb3b2a5e56152e3f79c74d": {
@@ -2100,6 +2100,12 @@
         "english": "A single meaningful encounter can thus challenge a negative stereotype.",
         "french": "Une rencontre précise peut ainsi remettre en question une étiquette négative."
       },
+      "cd3e07c5f9289c09c11391a64470ef29f016e98724db6390816278763d2f78ae": {
+        "deepl_english": "After watching several clips of the same school brawl, a grandmother might fear that violence is rife amongst young people. Yet these images do not show her the pupils working together or helping to organise a neighbourhood event.",
+        "english": "After seeing several clips of the same school fight, a grandmother might fear that violence is common among young people. Yet these images do not show her the pupils who work together or help organise a neighbourhood activity.",
+        "french": "Après avoir vu plusieurs extraits d'une même bagarre scolaire, une grand-mère pourrait craindre que la violence soit fréquente chez les jeunes. Ces images ne lui montrent pourtant pas les élèves qui travaillent ensemble ou aident à organiser une activité de quartier.",
+        "review_note": "Render fréquente as common, not the stronger rife, and retain one school fight without intensifying its scope."
+      },
       "d741e4b93b528188e3af276a83049691ae0a0b51c00cdfcc466445c7f7b2d0cd": {
         "english": "We must therefore distinguish between a cause for concern and a generalised portrayal of young people as a whole.",
         "french": "Il faut donc distinguer un fait préoccupant d'un portrait de toute la jeunesse."
@@ -2111,6 +2117,12 @@
       "ea2a3833a45bc7d9be3ac291195632107f3ef4f2eac3d5a9157270bdb6ddd8f5": {
         "english": "After watching several clips of the same school brawl, a grandmother might fear that all schools are violent. Yet these images do not show her the pupils working together or helping to organise a neighbourhood event.",
         "french": "Après avoir vu plusieurs extraits d'une même bagarre scolaire, une grand-mère pourrait craindre que tous les établissements soient violents. Ces images ne lui montrent pourtant pas les élèves qui travaillent ensemble ou aident à organiser une activité de quartier."
+      },
+      "f4566c1cb5a12f9a34d8dfe5a99441e33d2a5ade3cfe40bcaa9c9ad7f1be5d45": {
+        "deepl_english": "A retired person might criticise young people for arguing with their parents, saying that this didn’t happen in their day. If they then go on to recount the arguments they had with their own parents about going out, they realise that intergenerational conflict is not entirely new.",
+        "english": "A retired person might criticise young people for arguing with their parents, saying that this did not happen in their day. If the person then recounts the arguments they had with their own parents about going out, they realise that disagreement between generations is not entirely new.",
+        "french": "Une personne retraitée peut reprocher aux jeunes de se disputer avec leurs parents, en disant que cela n'arrivait pas à son époque. Si elle raconte ensuite les disputes qu'elle avait avec ses parents au sujet de ses sorties, elle découvre que le désaccord entre générations n'est pas entièrement nouveau.",
+        "review_note": "Keep the retired person as the clear subject and render désaccord as disagreement, preserving the same parent-child comparison."
       }
     },
     "eo/tache-3/culture-p9": {
@@ -8777,7 +8789,7 @@
     }
   },
   "provider": "deepl",
-  "reviewed_at": "2026-11-03T06:23:47.615543+00:00",
+  "reviewed_at": "2026-11-03T07:11:52.919968+00:00",
   "source_language": "FR",
   "target_language": "EN-GB",
   "version": 1

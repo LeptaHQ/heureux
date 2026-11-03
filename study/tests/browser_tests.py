@@ -3591,8 +3591,11 @@ class BrowserTests(StaticLiveServerTestCase):
 
     def test_selected_culture_subthemes_and_equivalents_show_matching_bilingual_learning_aids(self):
         self._assert_eo3_learning_aids_match_on_detail_and_practice((
-            *(f"culture:p{number}" for number in (6, 12, 13, 18, 20, 23, 31)),
-            "education:p8", "education:p11", "technologie:p12",
+            *(f"culture:p{number}" for number in (
+                6, 20, 13, 12, 31, 18, 23, 16, 2, 8, 7, 3, 4, 33, 34,
+            )),
+            "education:p8", "education:p11", "famille:p8", "economie:p5",
+            "technologie:p12",
         ))
 
     def _assert_eo3_learning_aids_match_on_detail_and_practice(self, keys):

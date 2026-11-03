@@ -96,6 +96,12 @@ needs a person or group, a specific action or event, and a relevant result.
 Adding "Par exemple" to a general assertion does not make it an illustration.
 An example that fits all three arguments unchanged is too generic.
 
+When comparing generations, keep the same criterion: disagreement is not
+necessarily disrespect. A concern about school safety is not by itself a
+judgment about young people. Connect the illustration to the actual group and
+comparison in the claim. Repeated images can distort perceived frequency, but
+do not establish how common a behaviour is.
+
 State the claim at the level of the argument, rather than listing its examples.
 Financial difficulties can be the claim; irregular income, housing costs and
 daily expenses belong in its explanation, followed by a situated example.

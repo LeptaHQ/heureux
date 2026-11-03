@@ -39,7 +39,7 @@ REVIEWED_CLAUSES = {
     "culture-p5": "il faut donc qu'on vérifie",
     "culture-p6": "Je ne pense pas que le livre soit devenu inutile",
     "culture-p7": "Cela ne signifie pas que toute œuvre doive plaire",
-    "culture-p8": "pourrait craindre que tous les établissements soient violents",
+    "culture-p8": "pourrait craindre que la violence soit fréquente chez les jeunes",
     "culture-p9": "Il faut qu'on réfléchisse",
     "economie-p1": "je ne supposerais pas que tous les postes exigent le même bilinguisme",
     "economie-p10": "Il faut aussi qu'on examine les obstacles",

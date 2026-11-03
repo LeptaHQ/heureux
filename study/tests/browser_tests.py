@@ -2996,9 +2996,11 @@ class BrowserTests(StaticLiveServerTestCase):
 
     def test_selected_culture_subthemes_preserve_unchanged_annotations_after_public_example_edits(self):
         self._assert_theme_models_preserve_public_example_edits(
-            set(), 7,
+            set(), 15,
             groups={
-                *(f"eo/tache-3/culture-p{number}" for number in (6, 12, 13, 18, 20, 31)),
+                *(f"eo/tache-3/culture-p{number}" for number in (
+                    6, 20, 13, 12, 31, 18, 16, 2, 8, 7, 3, 4, 33, 34,
+                )),
                 "eo/tache-3/technologie-p12",
             },
         )

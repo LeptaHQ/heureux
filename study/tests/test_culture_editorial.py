@@ -68,6 +68,21 @@ class CultureEditorialTests(SimpleTestCase):
             self.models["eo/tache-3/culture-p8"].source_prompts,
         )
 
+    def test_older_memory_example_compares_the_same_parent_child_conflict(self):
+        example = self.response(8).arguments[0].exemple
+        self.assertIn("de se disputer avec leurs parents", example)
+        self.assertIn("les disputes qu'elle avait avec ses parents au sujet de ses sorties", example)
+        self.assertNotIn("respectait toujours", example)
+
+    def test_older_media_example_connects_repetition_to_a_judgment_about_young_people(self):
+        example = self.response(8).arguments[1].exemple
+        cue = self.plans["eo/tache-3/culture-p8"].arguments[1].example
+        self.assertIn("plusieurs extraits d'une même bagarre", example)
+        self.assertIn("la violence soit fréquente chez les jeunes", example)
+        self.assertNotIn("tous les établissements", example)
+        self.assertIn("la violence soit fréquente chez les jeunes", cue.french)
+        self.assertIn("violence is common among young people", cue.english)
+
     def test_books_and_documentaries_show_cultural_discovery_without_travel(self):
         argument = self.response(14).arguments[0]
         self.assertIn("d'autres cultures sans voyager", argument.idea)

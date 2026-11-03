@@ -710,6 +710,8 @@ class CultureEditorialTests(SimpleTestCase):
             self.assertIn(phrase, practice.exemple)
         self.assertIn("style d'un écrivain", response.nuance)
         self.assertIn("sans chercher à comprendre", response.nuance)
+        self.assertIn("lire beaucoup", response.nuance)
+        self.assertIn("reading a lot", self.plans["eo/tache-3/culture-p20"].nuance.english)
 
     def test_personal_letters_show_appreciation_revised_reasons_and_specific_family_memories(self):
         attention, reflection, memory = self.response(18).arguments

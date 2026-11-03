@@ -267,3 +267,9 @@ class EO2RecordedTranslationTests(SimpleTestCase):
         row = data["groups"][outing.group][fingerprint(outing.questions[1].question)]
         self.assertIn("what the next outing", row["english"])
         self.assertNotIn("when the next", row["english"])
+        house = scoped_dialogues()["colleague-summer-house-rental"]
+        row = data["groups"][house.group][fingerprint(house.questions[4].question)]
+        self.assertIn("use all of them", row["english"])
+        self.assertNotIn("will we all", row["english"])
+        self.assertTrue(row["deepl_english"])
+        self.assertTrue(row["review_note"])

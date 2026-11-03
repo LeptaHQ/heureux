@@ -9,6 +9,8 @@ from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
 from study.tests.eo2_review_fixtures import (
     CAREER_QUESTION_FOLLOWUP_FIELDS, DAILY_DUTIES_FOLLOWUP_FIELDS, PUBLISHED_ARCHIVE_INDEX,
+    INTERNAL_PAY_FOLLOWUP_FIELDS, INTERVIEW_CLOTHING_FOLLOWUP_FIELDS, RECRUITER_RICH_FOLLOWUP_FIELDS,
+    ACCOMMODATION_FOLLOWUP_FIELDS, remove_followup_archives,
     SESSION_EXTENT_FOLLOWUP_FIELDS, SURVEY_ROUTINE_FOLLOWUP_FIELDS,
     WORK_COMPARISON_CLOSING_FIELDS,
 )
@@ -51,14 +53,18 @@ class SchoolNeighbourReviewTests(SimpleTestCase):
             | SESSION_EXTENT_FOLLOWUP_FIELDS.keys()
             | WORK_COMPARISON_CLOSING_FIELDS.keys()
             | DAILY_DUTIES_FOLLOWUP_FIELDS.keys()
+            | RECRUITER_RICH_FOLLOWUP_FIELDS.keys()
+            | INTERNAL_PAY_FOLLOWUP_FIELDS.keys()
+            | INTERVIEW_CLOTHING_FOLLOWUP_FIELDS.keys()
+            | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
         )
-        self.assertEqual(len(self.raw.keys() - edited), 158)
+        self.assertEqual(len(self.raw.keys() - edited), 153)
         self.assertEqual(
             fingerprint({
                 "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
                 "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
             }),
-            "db8e8ca6388706ab1b0abe31384c731c48247f0c8c5e27071b39cb451059d620",
+            "55f091bd7e014a6d51d082111f97a74df644123cdf16d037ca66b6969aa2581d",
         )
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == GROUP},
@@ -147,10 +153,14 @@ class SchoolNeighbourReviewTests(SimpleTestCase):
             | SESSION_EXTENT_FOLLOWUP_FIELDS
             | WORK_COMPARISON_CLOSING_FIELDS
             | DAILY_DUTIES_FOLLOWUP_FIELDS
+            | RECRUITER_RICH_FOLLOWUP_FIELDS
+            | INTERNAL_PAY_FOLLOWUP_FIELDS
+            | INTERVIEW_CLOTHING_FOLLOWUP_FIELDS
         ):
             previous["groups"][group]["revisions"] = (
                 previous["groups"][group]["revisions"][:PUBLISHED_ARCHIVE_INDEX[group] + 1]
             )
+        remove_followup_archives(previous, ACCOMMODATION_FOLLOWUP_FIELDS)
         self.assertEqual(
             fingerprint(previous),
             "d811433ec9e1df7d5388c7efba5d62718e8d2caa2635e17fc1f733d5beef75fb",

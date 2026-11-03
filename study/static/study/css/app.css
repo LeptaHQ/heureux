@@ -2537,6 +2537,34 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 .eo2-dialogue [data-eo2-french][hidden],
 .eo2-dialogue [data-eo2-english][hidden] { display: none !important; }
 .eo2-language-controls p { margin: 0.4rem 0 0; font-size: 0.8rem; }
+.eo3-language-controls {
+  display: inline-flex; flex-direction: column; gap: 0.25rem;
+  max-width: 100%; min-width: 0; font-size: 0.85rem;
+}
+.eo3-language-controls [data-eo3-language-status] { font-size: 0.8rem; }
+.eo3-language-controls[hidden],
+.eo3-language-controls [hidden],
+[data-eo3-language] [data-eo3-french][hidden],
+[data-eo3-language] [data-eo3-english][hidden] { display: none !important; }
+.eo3-section-toggle {
+  appearance: none; border: 0; padding: 0; border-radius: 0.25rem;
+  background: transparent; color: inherit; font: inherit;
+  letter-spacing: inherit; text-transform: inherit; text-align: inherit; cursor: pointer;
+}
+.eo3-section-toggle:hover:not(:disabled) { color: var(--primary); }
+.eo3-section-toggle:disabled { cursor: default; }
+.eo3-section-toggle:focus-visible,
+button.arg__number[data-eo3-argument-toggle]:focus-visible {
+  outline: 2px solid var(--primary); outline-offset: 3px;
+}
+button.arg__number[data-eo3-argument-toggle] {
+  appearance: none; border: 0; padding: 0; font-family: inherit; cursor: pointer;
+}
+button.arg__number[data-eo3-argument-toggle]:disabled { cursor: default; }
+.answer-columns[data-eo3-language] .section-card__head { flex-wrap: wrap; gap: 0.5rem; }
+.answer-columns[data-eo3-language] .section-card__tools {
+  flex-wrap: wrap; max-width: 100%; margin: 0;
+}
 button.eo2-dialogue__number {
   border: 0; background: transparent; padding: 0.1rem 0;
   min-height: 2rem; cursor: pointer; border-radius: 0.35rem;

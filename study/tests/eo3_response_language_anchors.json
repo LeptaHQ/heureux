@@ -1,0 +1,526 @@
+{
+  "eo/tache-3/culture-p1": {
+    "back": "6623beac69170cb6e9ba2584dbc2485a19b379172a394f293034bbb550d04311",
+    "detail": "6a07f3bf421cd235133bfe6000b2243cd2e14ded1316545df250ca0c16047df0"
+  },
+  "eo/tache-3/culture-p10": {
+    "back": "5552a2ef7db0f2c0411c122468a7ae96978fecb9926f7ce03b8390f7614a9034",
+    "detail": "6217548a4e29cff8af17396e67ea270d49b993703b4e8da62dde0683076b83ee"
+  },
+  "eo/tache-3/culture-p11": {
+    "back": "134667d67d3ff21c82e4add40d95f27273aa4eeba16a6aa010c4434693c7bce2",
+    "detail": "9fa01d1fe9e548f39aa3557018c2048c3cebb300fe9df33de32817adb34129e1"
+  },
+  "eo/tache-3/culture-p12": {
+    "back": "1fbe0a3deedd6b541893ab5989b62f15e8f9044a7ba00c65beab54f99bffbe08",
+    "detail": "7697f126b9b7399eb021e39f2eed8e9ab53a1533a914d69366f747dbad490149"
+  },
+  "eo/tache-3/culture-p13": {
+    "back": "e7dd571144d0b237012d7f7a9c69ab5484fb3dbbac7ff9a691bd95ff5e6c4efa",
+    "detail": "6c2cbdddd16388bd7d1576ec8523b7688f28f6628110acd89fc04c0f960c324e"
+  },
+  "eo/tache-3/culture-p14": {
+    "back": "f5354f08580442655688d1542bdf0526818f40b0c0043c36b7a70c759036048c",
+    "detail": "4763e90ff315b97169fdb15e8a3f68ae619ee9272de6bc502f9021b94b2c0d15"
+  },
+  "eo/tache-3/culture-p15": {
+    "back": "5224cc97b765eb891bed40542df9295e433130677735b2de91e9b88a0e32dd3f",
+    "detail": "ae0e89808ec6039357740196b3585ed11d153108e0a3a4c6bbff9f331aa8791b"
+  },
+  "eo/tache-3/culture-p16": {
+    "back": "61a9c020c3deea335fbb469f0e56262f80b603ec2e0ee9258e41e5bb61bf31eb",
+    "detail": "be253d01dd7e181739fad95786b0e060bdfe90c529172e53f751967d52e4175d"
+  },
+  "eo/tache-3/culture-p17": {
+    "back": "21b305091e42f3a547f205af4aa919670188578cef15525e81c0c39a0a51da48",
+    "detail": "1e02b5975de42824f2a9889647fffe9fc6861ce490d58186ff53610eebd96c1d"
+  },
+  "eo/tache-3/culture-p18": {
+    "back": "bfb698e30d850969eb957f7e3a9b39b1cff328be219e52197f4f6673cbd695c1",
+    "detail": "074d71040c57a28335b88cd504004f1d0b034870b078215249ee1743bec86c1c"
+  },
+  "eo/tache-3/culture-p19": {
+    "back": "a03e0ba9c3771b07180fb33d7b1341eb4e2257476b8977ae3190177b1eb73734",
+    "detail": "5f586aae0f2d3cf5765ac5834c7d45a8ffc374aefa697a371e9003e29df2cf25"
+  },
+  "eo/tache-3/culture-p2": {
+    "back": "2cb06a1aec2e9fd921c1ce18521b7138e9b51e25c6f953f60aebbef34dc60efc",
+    "detail": "a543a6ac2c5f684d9b42ebcd0f16a144425df23d8099d7263645316810543100"
+  },
+  "eo/tache-3/culture-p20": {
+    "back": "be26ce8f2b91650fe1387857b58fb4ce626457212f13bb41160ddb4384c7fd09",
+    "detail": "d58b2639864dc6b7cfd41bef162e4480c25fca6580a3f85621b899b39ac931a3"
+  },
+  "eo/tache-3/culture-p21": {
+    "back": "5d251e5f4753054c43f6b2de94c91e4e05efa718345752b73e5aeaad655843d8",
+    "detail": "6ef5ebf46b851ce258962a29949038934518cfa2f8931113e33ad1315f770dd0"
+  },
+  "eo/tache-3/culture-p24": {
+    "back": "e0004733bd2e764fee41638da0079dc4ec41dd4c10d0fe43907a50c54bc68615",
+    "detail": "0dae308f56ebc835d927e342157a6e30f40565dc0bae21df36a573904cee5666"
+  },
+  "eo/tache-3/culture-p25": {
+    "back": "00d26926adfc0fd8a5db92584c8d8a310103f4517503c8d869c8ad5a0a12634e",
+    "detail": "d0e036b7125215cbf8d3d9cce1abb6c37d70d5b54615545b7f73ed5b6eabbbb1"
+  },
+  "eo/tache-3/culture-p26": {
+    "back": "4a7a277f857960586a878b45b43609ffdc72da5068007be95e25e2495fbce35d",
+    "detail": "c12361d30fd32b45a926a73cab53abd663981cc4df9825ce833dc1090147ff98"
+  },
+  "eo/tache-3/culture-p27": {
+    "back": "d9cd8237a39a23d9ba897a32e78687223bd772a56675b3a0c44fe258d2e52982",
+    "detail": "decb03f4b0f1a5eecd97ffbc0566588fb31c06e11951dc5867d39e1add797d0c"
+  },
+  "eo/tache-3/culture-p29": {
+    "back": "3ef7eb323a6567aaba7316d274e819d3e7eb9fa2d0b77c4da67000bb3bd7ff23",
+    "detail": "b9bdc66b96bdd7db3b89f44fa0335d5a7dbd2d0f2bdf798fdf815bbf1a6c09a5"
+  },
+  "eo/tache-3/culture-p3": {
+    "back": "cb7ec93e7c1180fb1819a715426a4933d8ea86d51e7477e16259b715252656eb",
+    "detail": "3d2bb1cb816454259525d278e2798f84acd58bc8121e316019e3ea39e500ef0b"
+  },
+  "eo/tache-3/culture-p30": {
+    "back": "22d07c82dda78a656bf103cac6073c7b38cb2b07d9d90de70a0897688a633501",
+    "detail": "48ab167fd8d8c6541842e6fc5f9b636e8ecd200e6815cfb4764486399f1c8fe8"
+  },
+  "eo/tache-3/culture-p31": {
+    "back": "29c348a1943a7b71cf9f014afe1d78fc660946e2a07bcc482d25b3464af218ef",
+    "detail": "a4bc4efc671e78525ba2674545a140b4b5b3863c3495b907cb522283138306b5"
+  },
+  "eo/tache-3/culture-p33": {
+    "back": "4f4c18ec08b7340bfb14a2e814869040d440565bee288a340ba04331dc90fc47",
+    "detail": "ec50f6da2d9fd2724d8ae19497c06b05055c81c2f9f76ea33d6d7f55540c4d03"
+  },
+  "eo/tache-3/culture-p34": {
+    "back": "8718f74666a2ffe9e23bbfc53635066b50935680173d7005d05dbb1d92b73d9a",
+    "detail": "4ba77df23cfc42be3ba92a2690eb4bfd7f16c0c8dab6c9c5d51556940aa45e2e"
+  },
+  "eo/tache-3/culture-p35": {
+    "back": "f490bab1ad6a33d3fec2adc83c044eb1399b4d17f5a75c0eb964619a31485285",
+    "detail": "33444a3574c0ca06ba654eebb2f53a8a1f19479209508cd2f21030173961f24d"
+  },
+  "eo/tache-3/culture-p4": {
+    "back": "b0302da1c6fa023b44ac7a436ba810ebe40ab98418b2e8d00049190b46f48f54",
+    "detail": "fe2e10214cbe10ec85f05fbd1357118d371297e730c69ba561e20b53821b609f"
+  },
+  "eo/tache-3/culture-p5": {
+    "back": "fe8dd0f69ee47e1105fcc728085352d9e203afafab42d0b28f2dd391aeea056e",
+    "detail": "3bca6f58a5abe27dbd82f6a31e28a9a81eb888aadc5968d666be6f3dcb2b768b"
+  },
+  "eo/tache-3/culture-p6": {
+    "back": "fe654c276684337e7b9e2972dc7814bba7094acddea30bb026488b0ae1ab8fcc",
+    "detail": "4f12d6b8165da321db697e01cadb8b5e0fba595eafe0f0698a590eb4860de28e"
+  },
+  "eo/tache-3/culture-p7": {
+    "back": "ff390a21b0646b452960b05bc5685965c78c5434c5321db8bffd265abc9d52db",
+    "detail": "83c7c918546bd3d108c8a45d4da7503aea47fd70f0134e8a1e1531608e0c9a72"
+  },
+  "eo/tache-3/culture-p8": {
+    "back": "7c2a78b83693ee068ae4299a907831bbee654058844884bbd301061da3ed3adc",
+    "detail": "eb6033bb30ff2ac4b4ade5a8c38b647d497a8203757677f02593f7bac37aff9f"
+  },
+  "eo/tache-3/culture-p9": {
+    "back": "7514b3833b586e1950097e26edaa06df0cd3259497109f05bdf0171e816c7484",
+    "detail": "1dd9c0e6298a79f9c4a8fbb35655918a92f883df3abed40e7863da94b0907ebc"
+  },
+  "eo/tache-3/economie-p1": {
+    "back": "8d0ba8422d38d4886d77fbe04c449bc8c6d5ff5e920d1bbf12c2ebc2da4f0b17",
+    "detail": "f3a58166ccc9e269bac57ee4b62444f5e7f516237a1fe249f6fad0319669cd5e"
+  },
+  "eo/tache-3/economie-p10": {
+    "back": "9ff9733645032ed688a39b7c37bccc318cf4c8bdc6f42a36a63cdd98a8517ea8",
+    "detail": "ffd895cb700c84fa843d68245ff0427023f6577e878a615f2a7fa5f31dd419f3"
+  },
+  "eo/tache-3/economie-p14": {
+    "back": "1f26c8929133e219e71f09ed10ca1d5551bb95901c6d26e72029e40e12d561f8",
+    "detail": "4e8b5bbcfa03e496a8d8ac8373f783b170deb888edd677d04a37a710854356ff"
+  },
+  "eo/tache-3/economie-p15": {
+    "back": "23fcdddaba24601116f4e06fef6da39565c93b1f49d0293cdbe11358a45fcd26",
+    "detail": "8a87c68a58df73f8d88bf344d180f6f9e2040514710c72e8e6a52be95cc7dea7"
+  },
+  "eo/tache-3/economie-p16": {
+    "back": "c9ef37ecda6d5b058d795f83c7355bb5f06bd5c07cb1b48ebf71023e6c687ec6",
+    "detail": "287f75683a8c5108bd27c7eb3a6698b1b61a9d2cab384705314f2808a14a2ce2"
+  },
+  "eo/tache-3/economie-p17": {
+    "back": "34f1218f74bdd117b363f0fa057fdba9027def020147ea9991204d28792c8d21",
+    "detail": "bb730ab30b973cd212c3b379c6e5a1b71a12a77a91c9f2c4cb8933f4a18bfccd"
+  },
+  "eo/tache-3/economie-p18": {
+    "back": "ef8b69f0d2abff90eccd62a3eb2ec5bc168604d5c3c3f0c7f601e192f87e25fb",
+    "detail": "59531c55823cba198121f4fd4d9cfaba3ebe78b00395599852a55816e216992c"
+  },
+  "eo/tache-3/economie-p2": {
+    "back": "d79091393e8bf6ee8f260fc113581c92c31649f54d1557be30a45aa6ade4b15d",
+    "detail": "9c337ff72c278ae4860b092e4d2f73152e53e7280882357f1c6aeabd8b9e2e5b"
+  },
+  "eo/tache-3/economie-p20": {
+    "back": "1dde91784226b6b4fc72e8f9d57bc1a590437fb43cce1b74224ac631b61abd85",
+    "detail": "51a144bcd28e1c2731a3e5161704cc5b0c3689735a0b2cb315d8590ed1102874"
+  },
+  "eo/tache-3/economie-p22": {
+    "back": "b75b2222b0bda8d7d8ac4e1471357ea0d1d4ed16d0ff06ff714b31e924116d8f",
+    "detail": "48f1ea1ddb6e6ef4d76bac7296a6f6e2fecf5e2ba39aaf677df6d9814e1c3d2d"
+  },
+  "eo/tache-3/economie-p23": {
+    "back": "a807528490d1d32cc598578a760d6f236e5a1104b4cf2ef78e8174eeda978c60",
+    "detail": "dab398106896d4a7ffcae8285b8d4c8e380b6468f732ca80d8288312bdbfcc09"
+  },
+  "eo/tache-3/economie-p24": {
+    "back": "2991afc2ff041346807724eb4b11345e0de6c8920ef72a366bc327e416418c34",
+    "detail": "c4727be0ee3121347664712db5c6f1d886f162782226cc8ca0da469583d81a85"
+  },
+  "eo/tache-3/economie-p3": {
+    "back": "2445f5e2dd3b384a3e390364dd90c7b589503a5ce3b8ad166a87e72d8fe3003d",
+    "detail": "58902cb1b5e39f8496a66b54cc13e1ec9305d01e5da46accbcd4b62da7ba9737"
+  },
+  "eo/tache-3/economie-p4": {
+    "back": "801eaf979d5ab71cf85bbfc1e11361bd32122cb89d4cef31fe4f4b2650f6b315",
+    "detail": "6d51a7156537eec91fc6d4ad5b1b8bbd89a01b7cf152190c7edd898d1f4eea4f"
+  },
+  "eo/tache-3/economie-p6": {
+    "back": "69e3bc1225e93c97913b76ea8521f992f01acef080594d8c297c7d83da1b60e8",
+    "detail": "23bb1748295a27aac534a8d69b0dbd640a93bb0a09a2d3f74b86daf1b2399a99"
+  },
+  "eo/tache-3/economie-p9": {
+    "back": "a3f61e6ba85f43c286595b3773f3d24f223695e51eebc5232736a31b396dd633",
+    "detail": "95c891145c714a3493a531d1c40c2a716a299df327408f89265d1a88b37c79d9"
+  },
+  "eo/tache-3/education-p1": {
+    "back": "68a957c296528aa6a4ebc61a03ee8b523c572e49331c67f8791fe4af663ae71a",
+    "detail": "f926bc67b4fb5e4d4c17e7e22d503f6556a67c001f0e87e8c5e889b514d82e7b"
+  },
+  "eo/tache-3/education-p10": {
+    "back": "a87249d713f674a8023428bfa9379f6650295333a1478e229150a17f90eed723",
+    "detail": "29b8e9e4f9fe64be127f0bc4469193e3d7492f595548ee68ab1c734a0b33a02a"
+  },
+  "eo/tache-3/education-p12": {
+    "back": "7d09ce489f8e552ce95fd8fa72a3e5771d7c3ed757e4ad08d0044fced70e14a4",
+    "detail": "75c3b733ff97670db43a59d9ab2c941004374e610b62fc71f6adb03048444d9d"
+  },
+  "eo/tache-3/education-p13": {
+    "back": "f3e540520667fe49d88be7c2b5da06c523842719aceaed025669a28e3d6ff966",
+    "detail": "456e6ae008a38312c4a2c642363fc34b0f55cf56998ca603ede09b86f0619d2e"
+  },
+  "eo/tache-3/education-p14": {
+    "back": "306e7dd20c76eb77d3929447d9dfaeea9bcf9819bd0e67b063b01c187d28c7eb",
+    "detail": "64b11e35d4730a228f46585926d631da2833130eda0606645fcedb4aea6328f1"
+  },
+  "eo/tache-3/education-p15": {
+    "back": "5b661f51440d041f47507e3aa00d04614f2be0c474168f1f57253cb71601c5ea",
+    "detail": "dc807de7d3fe47f8491d3fc6abb924fdb4796f818ae729a099272eeac9c1e190"
+  },
+  "eo/tache-3/education-p16": {
+    "back": "ef6c27d2d7e81d78b74955dea130b30c46cac475cf87a7dff858a533b82c3d9f",
+    "detail": "e30434243ad82d1bdec8f96cc320710effaeb8c449c36561b9aee8e4979101ab"
+  },
+  "eo/tache-3/education-p17": {
+    "back": "84be5c0831ac2d5c7d12799ab0089fd9542431c33f6abb17c15d339d36af1d7d",
+    "detail": "e3d409b10a309e0e1201d1c8a47fed57ace17a674a38f0afc3bd2ba2756bdac9"
+  },
+  "eo/tache-3/education-p18": {
+    "back": "6be22446a11097e17727ed6b47ba9f876f3c3fd84de89177690ad3126892fbec",
+    "detail": "e4364fe5293fd72553998744ad3c6aa8e3ac6a3302ee2551eb0a21321a7cfe2c"
+  },
+  "eo/tache-3/education-p19": {
+    "back": "5081b721b371d3fe4be4bc7659724c694497acf35ed26c49481c5a5b3b5df71b",
+    "detail": "2e61d1d04d74262d1754a1d22179610d7ce73ca77241dd889cfcb78fed8f6266"
+  },
+  "eo/tache-3/education-p2": {
+    "back": "f96e34311e224cb9c23d3674817566a48b5291e66311bf838c861ebe87d388d3",
+    "detail": "f6c7f04e663123ce8413af11640d1766975ccf09215e457488e6aabfb229556d"
+  },
+  "eo/tache-3/education-p20": {
+    "back": "4f322e0ba05797f9a7d57d8ed85a995ffb8a47b1e2316c8ec13cc45604f31806",
+    "detail": "05f9b7f5b06db8b992718fc3f5d66bcbe10b3856146a8d5bc98075000a2de4bb"
+  },
+  "eo/tache-3/education-p21": {
+    "back": "fe3c9cd689ccc9f10a83aeaaa66e7479325f91db1c0d147277c8ca27444bdac4",
+    "detail": "4185c2067595024010771f47dac2c7008264680f14b903ff43481bda7f3fd690"
+  },
+  "eo/tache-3/education-p22": {
+    "back": "a92b17edbc638844db9d7f5abd33575044e4f6ed96095fa8b3874eef9e62e173",
+    "detail": "0cd8626c0fb52d527184c019b6913b7823bd7e903d5fb9ab5f70557a46a9a725"
+  },
+  "eo/tache-3/education-p23": {
+    "back": "51c5751933968a553f18774fb3bb854b4ce6695cb3ae1da8fd6320b4cd2627e6",
+    "detail": "2d1664b607b8c2ac9f1f8b8d0367b92559f7cf883b8844eddad59f85ac81a7e2"
+  },
+  "eo/tache-3/education-p3": {
+    "back": "eaf43a2efb30272fb1eb0bd28b03a4d9db50fab8a5fdb425506c735165123532",
+    "detail": "1404cd703c9480fae25fe3712abff07cb63865a8a28fe2d8bf05efe609c12947"
+  },
+  "eo/tache-3/education-p4": {
+    "back": "69d355b9e976f435be2d04650424596ef3936b46fff78a6084d4780a51e8c16e",
+    "detail": "163edb84eace08aed03fedcf004215c3d960c22c268740f3e1c4c8b690e6426f"
+  },
+  "eo/tache-3/education-p5": {
+    "back": "ad93110cf5b9e5d9feb4326e30c82278e1351177bd04fc31013632420b82b25e",
+    "detail": "92459428ae9e605f3d837f2fea50410e5d7198b92274b4ef62c2015229d77258"
+  },
+  "eo/tache-3/education-p6": {
+    "back": "b2a5438c217c1f33e5c333cffac4a9495e6ec8dcd653b1958f539b43369b905c",
+    "detail": "9de78316db4ad42f5a7a39bebf8b92dd43f8cdd56026c87a122bc2ac4e73724c"
+  },
+  "eo/tache-3/education-p7": {
+    "back": "6344e1a927fc517e592a75f6eccfd4b8c5602edc07df381fcb86b24e347c912d",
+    "detail": "fab78baa3ddd93211dd54d0cae749c08f2cda2f8b6530b77df6a1f39dde2d0be"
+  },
+  "eo/tache-3/environnement-p1": {
+    "back": "3ede1d9a2472d7f99e73f66c35d9c4ba7088237b8e22129a4abfb6fd7afa2c85",
+    "detail": "c45808dd83daf9812460168f09bf6ed4faf08976b2124ff8996a357db14833a3"
+  },
+  "eo/tache-3/environnement-p11": {
+    "back": "602a1d6049af844760e89c3dc180de5bb0448d4bfb2ee2a64c27dc6141865606",
+    "detail": "a20cf9e6a7fe102d9334fdfd413f429233ba599aca3871dd5d5a5a07f4c775f9"
+  },
+  "eo/tache-3/environnement-p13": {
+    "back": "351381876c821a677dc9549e57fdbff53dd2b43fed4c44684f1fed3208d85971",
+    "detail": "311f0f30a6b0eef9e5d2cdb31bf0e55f863871989b61437880252eeff02a96ab"
+  },
+  "eo/tache-3/environnement-p14": {
+    "back": "e17ccc39a4aaf426ded2522beb957043db82d8b26125e935fb2eca9f458991c4",
+    "detail": "5b0c4ea14405020367b0f69b634c01e45c87e826a3f9adbe99941b40df072c89"
+  },
+  "eo/tache-3/environnement-p2": {
+    "back": "61131968824104f3ebeab38104d52b93c4f418cd9f03d3fdd73179e8cfb5d407",
+    "detail": "8a18c779d79c85b9099c4050ad31363636b3e30706453ac33b8d2f38f5cf3004"
+  },
+  "eo/tache-3/environnement-p3": {
+    "back": "06b09d52456663dcb4325d323b3365c4b45d99c93fc2e6e09b890267c89ddc85",
+    "detail": "03b59b3e214ba527526913155ca398dde279f474cadf6270981778582dae57be"
+  },
+  "eo/tache-3/environnement-p4": {
+    "back": "a1ccf3b881afd4b8ee3828ba20d2a2679cd32b5932dd6cfd03a9501e7bf63448",
+    "detail": "5be2325d0a19e0154454174d49fa33c65fcae3489d5c5a18ae556250fc1a7945"
+  },
+  "eo/tache-3/environnement-p6": {
+    "back": "6c96a50207db6a2e08db23ff4f2b6b0535ac806916c8b3892eb851308376ee5e",
+    "detail": "cefc1311ff1895f4048027f86a2f24cb9d870271adb8899abad1504091ce722a"
+  },
+  "eo/tache-3/environnement-p7": {
+    "back": "f233ae5d8e507d017c7bc5f384052962ebcf455d54ef2b0e26bf576afca40222",
+    "detail": "6cc2abafb24198b56729790a32636adecf3b0028ef246c81c098a109e6445347"
+  },
+  "eo/tache-3/environnement-p8": {
+    "back": "51c8c7e27a2f00dd435c72d84583c50b1446c208be24eaf661507346ebdb8131",
+    "detail": "54c9b046d5faf9454b3b2ea3aa5a6cb64e7771ffdbfcf2fd4e45343f8d8c66bc"
+  },
+  "eo/tache-3/environnement-p9": {
+    "back": "3597a6b6250edc30f1d27adf753482237836dec55d0ae4538174238f668582fb",
+    "detail": "bdddd8090d712a17d0882f92feff88984fec744d01940f708a590962fc9f4b0a"
+  },
+  "eo/tache-3/famille-p1": {
+    "back": "34e5afaa8ada374373501c5dcc6f76548a891178801d11ddc1a315b2f1d23e60",
+    "detail": "1ffdffaeb5273f87e4f2ca2266512da895792718234d5095ac8d068ccaa7aa7b"
+  },
+  "eo/tache-3/famille-p10": {
+    "back": "c8f9a3cc5100b7e171da7f81ee94fe9c11e16c5e3a162a9c2b3762710e967115",
+    "detail": "7267362c2bdad204f3ba084d813a58c9fa5b34404b1abf08c5f021ab9b8a3221"
+  },
+  "eo/tache-3/famille-p11": {
+    "back": "6bea5325eba58eecf4f347852e83561b0b79587f1f84424d44afea6c7a2cc226",
+    "detail": "863fb969972907682c8c17c9984e5e249a3875ea153e5c4e4cbe5577b88fa400"
+  },
+  "eo/tache-3/famille-p12": {
+    "back": "0ecf5b724e55a655069c07574204dd0d150f89cde0c89c423d6c0faca7ca9108",
+    "detail": "67449db21c9a168def0d9880b240ac59181b2a6c2ac5d621f164ad5b25037ca4"
+  },
+  "eo/tache-3/famille-p13": {
+    "back": "46c9d85609697d7720c158c852d2c10cd908e68685ce6ecf6322571e2a53ed4b",
+    "detail": "aecfa144cea6f76d6b27ec2fc55da3558f07ce05b618f3cea566404831800e4c"
+  },
+  "eo/tache-3/famille-p14": {
+    "back": "d6846dedecb37958c06651cb6d3ec123ed4eb0d87fd0c2ca8a8bd63db49252ec",
+    "detail": "2d9c899813e1af107b6da8bb4a9f944efb6c8cbf31eeb2f5860e1b4011052ce3"
+  },
+  "eo/tache-3/famille-p16": {
+    "back": "4c473ffa765406ff3cb09f01605bf376425ad687f1f2a80961f7e2ac6f913575",
+    "detail": "8f47c641206b54835855493e59246dfe465a62d957fd41244b1a818829ec8fe8"
+  },
+  "eo/tache-3/famille-p2": {
+    "back": "f7a3d4a104d9f399475f094cd3ab8d741d99b5ac48afaf4b245c3e449eaf5110",
+    "detail": "e444c0ed87074fff89f6ffeabb586270759296193a626180e9e344b211638347"
+  },
+  "eo/tache-3/famille-p3": {
+    "back": "b6710497de0be92d1c4d87c88a18d4463864f23d88bbbc5a3d679c802eb9714d",
+    "detail": "b203798651757abca14c31f9066bb4e8cbc1fc87c82bd68ea08cb8cb201f4372"
+  },
+  "eo/tache-3/famille-p4": {
+    "back": "8c2dad1842a123988c178696269ff1f8977a8e1b440943fbe60b54bf1d627f2f",
+    "detail": "8e7ef847f16e07139acce0fe21c8df3ad0dbdbe3172acccd8eaa8afa98d8e554"
+  },
+  "eo/tache-3/famille-p5": {
+    "back": "6e20487b3786b297f6c84136551b706faf19041612cc18dddb75327b908b98cf",
+    "detail": "b4d5cb8fdf36456bb40f670098c91bb49cfb81b9b6ef64c274b177ddc3fdda6d"
+  },
+  "eo/tache-3/famille-p6": {
+    "back": "cf373d63d73504471e02af9ab2b69c27442125ec3d7a202d1f71727220b393de",
+    "detail": "d8a0fbfd4e0ad4858b09ae8709ef71c9c34a9f47288cf41b98ad193082121467"
+  },
+  "eo/tache-3/famille-p7": {
+    "back": "84dcf11ce80d213cddaffedbb660a2038f464fd8a2f2cbd8983d5d1bebad355d",
+    "detail": "0161dd6acf3572017a2a3977875b2ae3551559692a4d62753de2f97bd83c6cc8"
+  },
+  "eo/tache-3/famille-p9": {
+    "back": "3b20410e9d057126b2b7d8a36b070f21bbf3f548575bd9c092157ed46639fcd1",
+    "detail": "59efd00fcc288decaa6d8ff29ae95130ed4080d991a31174bea3c1ae5b9ecae2"
+  },
+  "eo/tache-3/sante-p1": {
+    "back": "5a207a0e0d1b9c2bca8caf66df9dc52cedb1d2139a3ddebc50a7681f5b1f7ab2",
+    "detail": "762d73e98a715654f3713619254ddfcb6bd61998f492da883e805728ff54462c"
+  },
+  "eo/tache-3/sante-p10": {
+    "back": "bd42f50d1970f3c3e3620513d3f2e3cbe644944f77031c451c82bad1cca36cd6",
+    "detail": "e85e60b11a92e4ba7adc76210191c62a542d7d739837f620f3f0f220a15a4cbf"
+  },
+  "eo/tache-3/sante-p11": {
+    "back": "1f6b8be40891bbddf508b3a2fe9adbd0dd20abdb0c1eea6e6f50bb9d8c87d8fa",
+    "detail": "b9d441b54b48905d149ccc1940f5a6da1691ef6312876873287a33327d7f44e2"
+  },
+  "eo/tache-3/sante-p13": {
+    "back": "1b77725b0b2a35b58d2eb0b6a1533e44d2cce00627eb589e1ea1b9a0fc97f1b9",
+    "detail": "3883279bc934f45a57cca65583d6e97c048be5f4905f1ef1e79a444b2f04a698"
+  },
+  "eo/tache-3/sante-p14": {
+    "back": "94d74a3f763ab8c2f8fa930caf9a05e4d6cb1f0fb5e45c68518e5255cacef46a",
+    "detail": "29bdd3019ae8bbedde5c29e57853d8684c2fc01a6c53be7d1d3496603432561f"
+  },
+  "eo/tache-3/sante-p15": {
+    "back": "ef5c67943e372d5ce676c00f337d4530b2f9dddef2ee33f4f829ff7b3cc7ffa5",
+    "detail": "144329cf8607b3c77aabd0fcb792e7668eb7fca79b769040868e8572be64c175"
+  },
+  "eo/tache-3/sante-p16": {
+    "back": "7ac8bc8fd9f46c1db527796c0f207378cd6d579dd653bf44c97282952ee602f7",
+    "detail": "7db9baefc0794dbca21f3023c2e85a5f2447a55ec56797bcbed1cfc23757b660"
+  },
+  "eo/tache-3/sante-p17": {
+    "back": "d1f82814f85d8a38dfb669962ca6f102ada49bdcbd2148a450e11e3d077418e1",
+    "detail": "022686a22bf1be548475f502edf58576c2b9a618d173512cdf9bd75000db9b9d"
+  },
+  "eo/tache-3/sante-p19": {
+    "back": "6f4979167f616137946d9b05b0041e0ccc83e41101416fbcb26e862777544e95",
+    "detail": "b3a38c1c563838fba04561468cbc0e7f92be26c0cbef39bf0431bad188a2ff4d"
+  },
+  "eo/tache-3/sante-p2": {
+    "back": "c61e0081e065288250630763768d002cd710fdf536c198cb54553bdd655508d9",
+    "detail": "bf338dda2aae80e8b87fb0e287f5cccb95f67c7f98723c495a1b3c73b9efa9a5"
+  },
+  "eo/tache-3/sante-p20": {
+    "back": "11cf56540daf67329d4528f000ffa6c396da036a8858ebedd1ee70051e596c5d",
+    "detail": "f5e609ff92c80148da9b38a6ed83f8becf88f3642bd8d115c03ad80bed54aa9d"
+  },
+  "eo/tache-3/sante-p22": {
+    "back": "b06b5e3bad179b1bd08dfaaa4462b173aa190751aca88ddffe38ddab8b329630",
+    "detail": "b32f1f75517ab4a828b62408e4b1d35c814ae51409f66647cce7025188cd6704"
+  },
+  "eo/tache-3/sante-p23": {
+    "back": "01255241222e2db5f80720694976f219908045b2a09e6fd9b7699f418f18b512",
+    "detail": "0841364bddeb78d0046c3518966fd156cb6b20dbfa079f6b67b9ca0ea675cf42"
+  },
+  "eo/tache-3/sante-p3": {
+    "back": "545408388e0eebdf1a38217e48bb36919f614792dd44bf3a641a89aa9f11be4a",
+    "detail": "b5d4d9596f9a6fe9b904ea13c613d9b930675d85f1a58777c9c9562f4c393691"
+  },
+  "eo/tache-3/sante-p4": {
+    "back": "d6044456e3e42b6ba00f342f896e17bbc80df065ab7b7a44a2de6b75d9fe4343",
+    "detail": "95c87d05640822575150fb9e4188f2d94f5675dcb9a5481422a6cf1e8bc7d80e"
+  },
+  "eo/tache-3/sante-p6": {
+    "back": "4773ba79eea43cb8090f9004e78a5dc98a88009454f6cfcf16366ff35275117d",
+    "detail": "52fe33cf0342efaebfc118acbccaa79dc821bef0653a4ea2a9e09596ef7b5ace"
+  },
+  "eo/tache-3/sante-p7": {
+    "back": "70088f60fba89c8a026bc0210f741e646a16e89bf4811f582ce11fb6dfcc0d42",
+    "detail": "8f1795baf3a577b4f46cbc6192f62a53db476ed2a66792820405c35421529a68"
+  },
+  "eo/tache-3/sante-p8": {
+    "back": "35e03c234c9f1044f203597b7afcae8b050af3ab83bf8c0292f4f60c997e352a",
+    "detail": "386e631f485c26daed4d2291fae5d4224ebef9ce1003c361aa42d446dea255ca"
+  },
+  "eo/tache-3/sante-p9": {
+    "back": "45f968595b8d9453f9b938098b4749fccc005310d686d8bfca473d097a7403b9",
+    "detail": "2ef0127cabb6ffc6c4b0c959d47635edabfed8fe842c3e6f9a92c76ee330e45d"
+  },
+  "eo/tache-3/technologie-p1": {
+    "back": "5684c08618cce7ce2836a86ff762e410bfb111bae503e7eb05ae52f1682d7883",
+    "detail": "1dedf9e28268be3d07565019257b80324823909967cde014004c12af64aa83c2"
+  },
+  "eo/tache-3/technologie-p10": {
+    "back": "9fa18a91c6ff677d96b4071918624430122b036bac4ba249950ae4f9327b5064",
+    "detail": "c7cbe3140b7d10951ff26b62722b0884f04b3f4015e780fe6a5556368eab663f"
+  },
+  "eo/tache-3/technologie-p11": {
+    "back": "917726f6e32c83435f314983e942c7c12bdade5cd86458eb5ae16943cbe38dda",
+    "detail": "f514ca3edc9106c3d136e771fcc33ddcf93db257e16791155f1fc231a86b554b"
+  },
+  "eo/tache-3/technologie-p12": {
+    "back": "2b3ac2ad0d97835acface1df78d168bde1ccd998449afeb83aaeac8af55fa6b0",
+    "detail": "d3cb534730792b004c7cb448f0f7bbccdf947450f6e758288a69775a54aecfe3"
+  },
+  "eo/tache-3/technologie-p13": {
+    "back": "6384c507c305a5a36a42a38a152297881af51ce41872cfa8d6012bc2bcd66600",
+    "detail": "bfb47493172880d7cecfe2a20a334a935214003cd1e7a083538bf7d347fbe8a3"
+  },
+  "eo/tache-3/technologie-p15": {
+    "back": "b59c148dae7dbd4eecbda645600fc3713b3f049514e22a2d6b73fb58565adf73",
+    "detail": "7cb6d108549f049345f56533ac30b4a69cfc20d662d4e5f203f4904e7113268b"
+  },
+  "eo/tache-3/technologie-p16": {
+    "back": "1c131f1a950b1db0218f14a7e6a29ac40589461aeb3f509bdc72e63998b621fc",
+    "detail": "5ba9af88514a9e1e155941cf867d77d4d6b1a3045053ff3459729d305976b41f"
+  },
+  "eo/tache-3/technologie-p17": {
+    "back": "4fd68fab1eeb3c5a1af560eae9dbef75dbfb52c2b113548886b075f9865d1dd9",
+    "detail": "4d308c7ad35749107242cd4f47a337fba95ff31cc0a599b28259c5e418eecc48"
+  },
+  "eo/tache-3/technologie-p18": {
+    "back": "9982a48835800a5a902420c987f5a6b79443d09e4898ecd396072603662523e2",
+    "detail": "c41e594a092c246a7f6ff96eb4a406eb61508aebc575e12a7aa885c25a7ee511"
+  },
+  "eo/tache-3/technologie-p19": {
+    "back": "6e56dfe39c88adf62e7994c740d00cf424f13bec6f3987aabc034141efc518c8",
+    "detail": "d31c2200cf89a5ae22a0b72e9ef1cc46b2018a2c17db736507244c719f28662a"
+  },
+  "eo/tache-3/technologie-p2": {
+    "back": "1564dd77f1da370247591d8fdc794c8373d4d2a22eb02b564b8e091f4c87f776",
+    "detail": "af8c4557252488f7b21b31755572dc4bd001dbf466c5bed077975d1caf18d465"
+  },
+  "eo/tache-3/technologie-p20": {
+    "back": "cbc332c51f2e6c9c637259836ee161782f00b0439798c4bb8a9d9bfc40c31a62",
+    "detail": "09a4b982d2af8a36999c4e7d9b689b5d1feb0d974f3d2a569ae5eac389a52796"
+  },
+  "eo/tache-3/technologie-p21": {
+    "back": "67cec2ff4fae8c766fdbe91eb1bcca4eb80b4e048c0d59b36f12bcb16dd3876f",
+    "detail": "eb71c4c0c1e57833c95b467dc939ccc0a64f7df8d8eb82bfa716a258141b7106"
+  },
+  "eo/tache-3/technologie-p22": {
+    "back": "04f41d10a02ea9a41c739475508fd52e1073cce296fc87efb04f7984075ad498",
+    "detail": "ef8b3a16909e57af6c405618e80e3285f5312187a406a5b1bca56dabe5625008"
+  },
+  "eo/tache-3/technologie-p24": {
+    "back": "5a2996b27fff866f9ffaf00dd2e13b79e87a3a82d7a55bc5df1e9f0cd854a2e0",
+    "detail": "a27509216f4d4e6718adee01fbd78b7c0a71332844d924e12ec7eb31510e8753"
+  },
+  "eo/tache-3/technologie-p3": {
+    "back": "76cacb4e954085e0a60ae9f58462aef2440975999106ade2984615b4f385afa5",
+    "detail": "88bf6a3689a67abcef923860bdd7358cc1841341969eda171ad3575a47af48bf"
+  },
+  "eo/tache-3/technologie-p4": {
+    "back": "6ba02d48ec16853acb4882557148e3e714a14cde8a6cad284be1d5a39905dc43",
+    "detail": "99eee520be74b4e2addaef2ff8304620ccc322d7c94f827361227d7ef7425342"
+  },
+  "eo/tache-3/technologie-p5": {
+    "back": "369f622defd86a954c647049f27b48eab448b46769cab092e70e396e3e5401de",
+    "detail": "97604357143f2e784bd5f9e4fd469442005f9f01242294bbb0c4525e03d136a8"
+  },
+  "eo/tache-3/technologie-p6": {
+    "back": "8273e869c47968e1274ff3e0c3c110800ce6f2e1ab153fb54ba33f5400538406",
+    "detail": "7a026e75c880ceea84830573763c760a8f7be5cd50929b7192affc5814d1d7aa"
+  },
+  "eo/tache-3/technologie-p7": {
+    "back": "b02f3fccd3be5cc05a9a8f761eb337638d351b5f764a202736b03140a858f5bf",
+    "detail": "af4e1b48356bed151d7b85c9dcdd76f266ef0c08b11a57e4903707300f66f689"
+  }
+}

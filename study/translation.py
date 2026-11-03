@@ -1,6 +1,9 @@
-"""Shared server-side translation transport. Never called by question toggles."""
+"""Shared server-side translation transport. Never called by language toggles."""
 
 import json
+import os
+from pathlib import Path
+import tempfile
 import urllib.request
 
 from django.conf import settings
@@ -8,6 +11,24 @@ from django.conf import settings
 
 class DeepLResponseError(ValueError):
     pass
+
+
+def write_translation_manifest(path, data):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8", dir=path.parent, delete=False,
+        ) as stream:
+            temporary = stream.name
+            json.dump(data, stream, ensure_ascii=False, sort_keys=True, indent=2)
+            stream.write("\n")
+        os.replace(temporary, path)
+        temporary = None
+    finally:
+        if temporary is not None:
+            os.unlink(temporary)
 
 
 def post_json(url, payload, headers=None):

@@ -8,6 +8,7 @@ from django.urls import reverse
 
 from ..oral_history import preferred_personal, variant_annotation_key
 from ..eo3_audio import narration_presentation
+from ..eo3_response_languages import language_presentation
 from ..response_personalization import effective_response
 from ..routing import TACHE_TWO_PROMPT_KEY, review_url, subject_selection_url
 from ..tache_three_models import annotation_arguments, response_text, reviewed_model
@@ -38,12 +39,14 @@ def oral_response_context(request, prompt):
     model = reviewed_model(response, prompt)
     structured_eo3 = model is not None
     reviewed_eo3 = structured_eo3 and not value.is_personal
+    arguments = annotation_arguments(prompt, value)
     if match or structured_eo3:
         # Changed public layouts must not replay offsets from published models.
         legacy_keys = []
     return {
         "response_content": value,
-        "arguments": annotation_arguments(prompt, value),
+        "arguments": arguments,
+        "eo3_language": language_presentation(model, value, arguments),
         "reviewed_eo3": reviewed_eo3,
         "structured_eo3": structured_eo3,
         "single_response_eo3": prompt.theme.task.slug == "tache-3",

@@ -272,6 +272,67 @@ DAILY_DUTIES_FOLLOWUP_FIELDS = {
     "former-colleague-new-job-to-change-employment": (("dialogue", "questions", 1, "question"),),
 }
 
+RECRUITER_RICH_FOLLOWUP_FIELDS = {
+    "recruiter-scheduled-interview-preparation": (
+        ("dialogue", "note"),
+        ("dialogue", "questions", 1, "question"), ("dialogue", "questions", 1, "answer"),
+        ("dialogue", "questions", 1, "condition"),
+        ("dialogue", "questions", 3, "topic"), ("dialogue", "questions", 3, "question"),
+        ("dialogue", "questions", 3, "answer"),
+        ("dialogue", "questions", 4, "topic"), ("dialogue", "questions", 4, "question"),
+        ("dialogue", "questions", 4, "answer"),
+        ("dialogue", "questions", 5, "topic"), ("dialogue", "questions", 5, "question"),
+        ("dialogue", "questions", 5, "answer"),
+        ("dialogue", "questions", 6, "topic"), ("dialogue", "questions", 6, "question"),
+        ("dialogue", "questions", 6, "follow_up_to"), ("dialogue", "questions", 6, "condition"),
+        ("dialogue", "questions", 7, "topic"),
+        ("hints", 1, "french"), ("hints", 1, "english"),
+        ("hints", 3, "french"), ("hints", 3, "english"),
+        ("hints", 4, "french"), ("hints", 4, "english"),
+        ("hints", 5, "french"), ("hints", 5, "english"),
+        ("hints", 6, "french"), ("hints", 6, "english"),
+    ),
+}
+
+INTERNAL_PAY_FOLLOWUP_FIELDS = {
+    "colleague-internal-job-change": (
+        ("dialogue", "questions", 4, "question"),
+        ("dialogue", "questions", 5, "question"), ("dialogue", "questions", 5, "condition"),
+        ("hints", 4, "french"), ("hints", 4, "english"),
+        ("hints", 5, "french"), ("hints", 5, "english"),
+    ),
+}
+
+INTERVIEW_CLOTHING_FOLLOWUP_FIELDS = {
+    "friend-upcoming-job-interview-advice": (
+        ("dialogue", "questions", 4, "question"), ("dialogue", "questions", 4, "answer"),
+        ("dialogue", "questions", 4, "condition"),
+        ("hints", 4, "french"), ("hints", 4, "english"),
+    ),
+}
+
+LODGING_DISCOUNT_FOLLOWUP_FIELDS = {
+    "quebec-region-accommodation-tourist-office": (
+        ("dialogue", "questions", 5, "question"), ("dialogue", "questions", 5, "answer"),
+        ("hints", 5, "french"), ("hints", 5, "english"),
+    ),
+}
+
+HOUSE_FACILITIES_FOLLOWUP_FIELDS = {
+    "colleague-summer-house-rental": (
+        ("dialogue", "questions", 4, "question"), ("dialogue", "questions", 4, "answer"),
+        ("hints", 4, "french"), ("hints", 4, "english"),
+    ),
+}
+
+ACCOMMODATION_FOLLOWUP_FIELDS = LODGING_DISCOUNT_FOLLOWUP_FIELDS | HOUSE_FACILITIES_FOLLOWUP_FIELDS
+
+# -1 identifies a model with no archived layout before its later replacement.
+FOLLOWUP_ARCHIVE_INDEX = PUBLISHED_ARCHIVE_INDEX | {
+    "quebec-region-accommodation-tourist-office": -1,
+    "colleague-summer-house-rental": 1,
+}
+
 FOLLOWUP_FIELDS = (
     TRAINING_FOLLOWUP_FIELDS | FIRST_DAY_FOLLOWUP_FIELDS
     | JOB_SEARCH_FOLLOWUP_FIELDS | BEGINNER_COURSE_FOLLOWUP_FIELDS
@@ -282,9 +343,13 @@ FOLLOWUP_FIELDS = (
     | SESSION_EXTENT_FOLLOWUP_FIELDS
     | WORK_COMPARISON_CLOSING_FIELDS
     | DAILY_DUTIES_FOLLOWUP_FIELDS
+    | RECRUITER_RICH_FOLLOWUP_FIELDS
+    | INTERNAL_PAY_FOLLOWUP_FIELDS
+    | INTERVIEW_CLOTHING_FOLLOWUP_FIELDS
+    | ACCOMMODATION_FOLLOWUP_FIELDS
 )
 FOLLOWUP_GROUPS = set(FOLLOWUP_FIELDS)
-FOLLOWUP_PROTECTED_SHA = "bc07d3331dec7594a54689ef204eef9521d322d578d09090475d1fc2cd2b30cd"
+FOLLOWUP_PROTECTED_SHA = "586b0920641213bb36ad2afacc07fb4ee0600edf35e738efedec1918f92168b0"
 
 
 def final_pass_projection(dialogues, hints):
@@ -303,6 +368,9 @@ def final_pass_projection(dialogues, hints):
 
 
 def remove_latest_review_archives(document):
+    remove_followup_archives(
+        document, FOLLOWUP_ARCHIVE_INDEX.keys() - PUBLISHED_ARCHIVE_INDEX.keys(),
+    )
     for group, index in PUBLISHED_ARCHIVE_INDEX.items():
         if group in FIRST_ARCHIVE_GROUPS:
             del document["groups"][group]
@@ -310,6 +378,11 @@ def remove_latest_review_archives(document):
             document["groups"][group]["revisions"] = document["groups"][group]["revisions"][:index]
 
 
-def remove_followup_archives(document):
-    for group, index in PUBLISHED_ARCHIVE_INDEX.items():
-        document["groups"][group]["revisions"] = document["groups"][group]["revisions"][:index + 1]
+def remove_followup_archives(document, groups=None):
+    for group in FOLLOWUP_ARCHIVE_INDEX if groups is None else groups:
+        index = FOLLOWUP_ARCHIVE_INDEX[group]
+        if index < 0:
+            if group in document["groups"]:
+                del document["groups"][group]
+        else:
+            document["groups"][group]["revisions"] = document["groups"][group]["revisions"][:index + 1]

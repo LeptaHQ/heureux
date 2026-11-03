@@ -2,8 +2,6 @@ import copy
 from datetime import datetime, timezone
 from http.client import HTTPException
 import json
-import os
-import tempfile
 
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
@@ -11,7 +9,7 @@ from django.core.management.base import BaseCommand, CommandError
 from study.eo2_question_languages import (
     THEMES, empty_manifest, fingerprint, scoped_dialogues, translation_path, validate_manifest,
 )
-from study.translation import deepl_translate, deepl_usage
+from study.translation import deepl_translate, deepl_usage, write_translation_manifest
 
 
 class Command(BaseCommand):
@@ -118,18 +116,5 @@ class Command(BaseCommand):
                     f"DeepL preparation failed for {group}; earlier completed models are saved. "
                     "No automatic retry was made. Inspect --dry-run before resuming."
                 ) from None
-            path.parent.mkdir(parents=True, exist_ok=True)
-            temporary = None
-            try:
-                with tempfile.NamedTemporaryFile(
-                    mode="w", encoding="utf-8", dir=path.parent, delete=False,
-                ) as stream:
-                    temporary = stream.name
-                    json.dump(data, stream, ensure_ascii=False, sort_keys=True, indent=2)
-                    stream.write("\n")
-                os.replace(temporary, path)
-                temporary = None
-            finally:
-                if temporary is not None:
-                    os.unlink(temporary)
+            write_translation_manifest(path, data)
             self.stdout.write(f"Saved {group}: {len(texts)} DeepL translations.")

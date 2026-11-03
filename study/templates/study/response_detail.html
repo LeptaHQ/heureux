@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static study_markdown study_links %}
+{% load static study_markdown study_links study_response_languages %}
 {% block title %}Sujet{% if prompt_position %} {{ prompt_position }}{% endif %} · {{ selected_prompt.theme.display_name }} · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
@@ -33,7 +33,7 @@
 {% if eo3_audio %}{% if previous_prompt %}{% subject_url 'study:response_detail' previous_prompt.theme.task.part.slug previous_prompt.theme.task.slug previous_prompt.pk as eo3_previous_url %}{% endif %}{% if next_prompt %}{% subject_url 'study:response_detail' next_prompt.theme.task.part.slug next_prompt.theme.task.slug next_prompt.pk as eo3_next_url %}{% endif %}{% include "study/partials/eo3_audio.html" with audio=eo3_audio player_id="eo3-response-player" previous_url=eo3_previous_url next_url=eo3_next_url only %}{% endif %}
 
 <div class="detail-grid"{% if ee_response %} style="--subject-accent: {{ task.color }};"{% endif %}>
-  <div class="answer-columns"{% if not ee_response %} data-annotation-root data-annotation-source-key="{% if oral_annotation_key %}{{ oral_annotation_key }}{% else %}response:{{ response.content_key }}{% endif %}"{% if oral_legacy_annotation_keys %} data-annotation-legacy-source-keys="{{ oral_legacy_annotation_keys }}"{% endif %}{% endif %}>
+  <div class="answer-columns"{% if eo3_language %} data-eo3-language data-eo3-language-ready="{{ eo3_language.ready|yesno:'true,false' }}" data-eo3-language-total="{{ eo3_language.total }}" data-eo3-language-error="{{ eo3_language.error|yesno:'true,false' }}" data-read-aloud-text data-read-aloud-value="{{ eo3_response_copy_text }}"{% endif %}{% if not ee_response %} data-annotation-root data-annotation-source-key="{% if oral_annotation_key %}{{ oral_annotation_key }}{% else %}response:{{ response.content_key }}{% endif %}"{% if oral_legacy_annotation_keys %} data-annotation-legacy-source-keys="{{ oral_legacy_annotation_keys }}"{% endif %}{% endif %}>
     {% if ee_response %}
       {% include "study/partials/ee_subject_consigne.html" with title_id="ee-tache-three-subject-title" summary_text="120–180 mots · Partie 1 : synthèse neutre (40–60) · Partie 2 : point de vue justifié (80–120)" subject_text=selected_prompt.text subject_source_id="ee-tache-three-subject-content" only %}
 
@@ -49,36 +49,36 @@
 
     {% if response_content.position_claire %}
       <section class="card section-card">
-        <div class="section-card__head"><div class="spine-label">Introduction</div>{% if can_edit_response or eo3_response_copy_text %}{% if not response_content.position or reviewed_eo3 or structured_eo3 %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_controls.html" %}{% endspaceless %}</span>{% endif %}{% endif %}</div>
-        <p class="spine-text"{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="introduction"{% endif %}>{{ response_content.position_claire }}</p>
+        <div class="section-card__head"><div class="spine-label">{% spaceless %}{% include "study/partials/eo3_field_heading.html" with field="introduction" label="Introduction" %}{% endspaceless %}</div>{% if can_edit_response or eo3_response_copy_text or eo3_language %}{% if not response_content.position or reviewed_eo3 or structured_eo3 %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% if eo3_language %}{% include "study/partials/eo3_response_language_controls.html" %}{% endif %}{% include "study/partials/oral_response_controls.html" %}{% endspaceless %}</span>{% endif %}{% endif %}</div>
+        <p class="spine-text"{% if eo3_language %} data-eo3-french="introduction"{% endif %}{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="introduction"{% endif %}>{{ response_content.position_claire }}</p>{% spaceless %}{% include "study/partials/eo3_english_paragraph.html" with field="introduction" text_class="spine-text" %}{% endspaceless %}
       </section>
     {% endif %}
 
     <section class="card section-card section-card--arguments">
-      <div class="section-card__head"><div class="spine-label">Arguments développés</div>{% if not response_content.position_claire %}{% if not response_content.position or reviewed_eo3 or structured_eo3 %}{% if can_edit_response or eo3_response_copy_text %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_controls.html" %}{% endspaceless %}</span>{% endif %}{% endif %}{% endif %}</div>
+      <div class="section-card__head"><div class="spine-label">Arguments développés</div>{% if not response_content.position_claire %}{% if not response_content.position or reviewed_eo3 or structured_eo3 %}{% if can_edit_response or eo3_response_copy_text or eo3_language %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% if eo3_language %}{% include "study/partials/eo3_response_language_controls.html" %}{% endif %}{% include "study/partials/oral_response_controls.html" %}{% endspaceless %}</span>{% endif %}{% endif %}{% endif %}</div>
       {% for arg in arguments %}
         <article class="arg arg--full">
           <h2 class="arg__idea">
-            <span class="arg__number">{{ arg.order }}</span>
-            <span{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-idea"{% endif %}>{{ arg.idea }}</span>
+            {% if eo3_language %}<button type="button" class="arg__number" data-eo3-argument-toggle="{{ arg.annotation_id|default:forloop.counter }}" data-flashcard-control aria-pressed="false" disabled>{{ arg.order }}</button>{% else %}<span class="arg__number">{{ arg.order }}</span>{% endif %}
+            <span{% if eo3_language %} data-eo3-french="argument-{{ arg.annotation_id|default:forloop.counter }}-idea"{% endif %}{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-idea"{% endif %}>{{ arg.idea }}</span>{% eo3_gloss eo3_language "idea" arg.annotation_id|default:forloop.counter as english_idea %}{% if english_idea %}<span data-eo3-english="argument-{{ arg.annotation_id|default:forloop.counter }}-idea" data-annotation-exclude lang="{{ eo3_language.english_lang }}" hidden>{{ english_idea }}</span>{% endif %}
           </h2>
           <div class="arg__parts">
             {% if arg.developpement %}
               <div class="arg__part">
-                <div class="arg__part-label">Développement</div>
-                <p{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-developpement"{% endif %}>{{ arg.developpement }}</p>
+                <div class="arg__part-label">{% spaceless %}{% include "study/partials/eo3_field_heading.html" with field="developpement" identity=arg.annotation_id|default:forloop.counter label="Développement" %}{% endspaceless %}</div>
+                <p{% if eo3_language %} data-eo3-french="argument-{{ arg.annotation_id|default:forloop.counter }}-developpement"{% endif %}{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-developpement"{% endif %}>{{ arg.developpement }}</p>{% spaceless %}{% include "study/partials/eo3_english_paragraph.html" with field="developpement" identity=arg.annotation_id|default:forloop.counter %}{% endspaceless %}
               </div>
             {% endif %}
             {% if arg.exemple %}
               <div class="arg__part">
-                <div class="arg__part-label">Exemple concret</div>
-                <p{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-exemple"{% endif %}>{{ arg.exemple }}</p>
+                <div class="arg__part-label">{% spaceless %}{% include "study/partials/eo3_field_heading.html" with field="exemple" identity=arg.annotation_id|default:forloop.counter label="Exemple concret" %}{% endspaceless %}</div>
+                <p{% if eo3_language %} data-eo3-french="argument-{{ arg.annotation_id|default:forloop.counter }}-exemple"{% endif %}{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-exemple"{% endif %}>{{ arg.exemple }}</p>{% spaceless %}{% include "study/partials/eo3_english_paragraph.html" with field="exemple" identity=arg.annotation_id|default:forloop.counter %}{% endspaceless %}
               </div>
             {% endif %}
             {% if arg.consequence %}
               <div class="arg__part">
-                <div class="arg__part-label">Conséquence</div>
-                <p{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-consequence"{% endif %}>{{ arg.consequence }}</p>
+                <div class="arg__part-label">{% spaceless %}{% include "study/partials/eo3_field_heading.html" with field="consequence" identity=arg.annotation_id|default:forloop.counter label="Conséquence" %}{% endspaceless %}</div>
+                <p{% if eo3_language %} data-eo3-french="argument-{{ arg.annotation_id|default:forloop.counter }}-consequence"{% endif %}{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-consequence"{% endif %}>{{ arg.consequence }}</p>{% spaceless %}{% include "study/partials/eo3_english_paragraph.html" with field="consequence" identity=arg.annotation_id|default:forloop.counter %}{% endspaceless %}
               </div>
             {% endif %}
           </div>
@@ -88,15 +88,15 @@
 
     {% if response_content.nuance %}
       <section class="card section-card section-card--nuance">
-        <div class="spine-label">Nuance</div>
-        <p class="spine-text"{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="nuance"{% endif %}>{{ response_content.nuance }}</p>
+        <div class="spine-label">{% spaceless %}{% include "study/partials/eo3_field_heading.html" with field="nuance" label="Nuance" %}{% endspaceless %}</div>
+        <p class="spine-text"{% if eo3_language %} data-eo3-french="nuance"{% endif %}{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="nuance"{% endif %}>{{ response_content.nuance }}</p>{% spaceless %}{% include "study/partials/eo3_english_paragraph.html" with field="nuance" text_class="spine-text" %}{% endspaceless %}
       </section>
     {% endif %}
 
     {% if response_content.conclusion %}
       <section class="card section-card section-card--conclusion">
-        <div class="spine-label">Conclusion</div>
-        <p class="spine-text"{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="conclusion"{% endif %}>{{ response_content.conclusion }}</p>
+        <div class="spine-label">{% spaceless %}{% include "study/partials/eo3_field_heading.html" with field="conclusion" label="Conclusion" %}{% endspaceless %}</div>
+        <p class="spine-text"{% if eo3_language %} data-eo3-french="conclusion"{% endif %}{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="conclusion"{% endif %}>{{ response_content.conclusion }}</p>{% spaceless %}{% include "study/partials/eo3_english_paragraph.html" with field="conclusion" text_class="spine-text" %}{% endspaceless %}
       </section>
     {% endif %}
     {% endif %}

@@ -196,7 +196,7 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         self.assertIn("mensuels", apartment.questions[6].question)
         self.assertIn("taxes foncières annuelles", apartment.questions[6].question)
         summer = by_group["colleague-summer-house-rental"]
-        previous = catalogue.tache_two_location_history()[summer.group].revisions[-1]
+        previous = catalogue.tache_two_location_history()[summer.group].revisions[1]
         for before, after in ((6, 1), (4, 6), (5, 7)):
             self.assertEqual(
                 previous.questions[before - 1].question, summer.questions[after - 1].question,
@@ -1040,6 +1040,31 @@ class PublishedTacheTwoHighlightTests(TestCase):
             self.assertTrue(mark.study_later)
         self.assertEqual(Annotation.objects.count(), 8)
 
+    def test_latest_editorial_updates_preserve_questions_from_every_published_layout(self):
+        dialogues = {row.group: row for row in catalogue.tache_two_dialogues().values()}
+        for group in (
+            "recruiter-scheduled-interview-preparation",
+            "colleague-internal-job-change",
+            "friend-upcoming-job-interview-advice",
+            "quebec-region-accommodation-tourist-office",
+            "colleague-summer-house-rental",
+        ):
+            positions = {
+                row.question: number for number, row in enumerate(dialogues[group].questions, 1)
+            }
+            history = catalogue.tache_two_location_history()[group]
+            for revision, previous in enumerate(history.revisions):
+                with self.subTest(group=group, revision=revision):
+                    Annotation.objects.filter(user=self.user).delete()
+                    moved = {}
+                    for number, row in enumerate(previous.questions, 1):
+                        question = row.question
+                        for before, after in history.replacements:
+                            question = question.replace(before, after)
+                        if question in positions:
+                            moved[number] = positions[question]
+                    self.assert_revision_highlights_preserved(group, moved, revision=revision)
+
     def test_heavy_transport_reorder_preserves_unchanged_questions_and_archived_notes(self):
         self.assert_revision_highlights_preserved(
             "help-transport-heavy-objects-no-vehicle", {5: 1, 1: 2, 7: 7},
@@ -1143,7 +1168,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "canadian-work-hours-home-country-comparison": {5: 5},
             "former-colleague-new-job-to-change-employment": {},
             "new-colleague-quebec-career-migration": {3: 3, 4: 4},
-            "recruiter-scheduled-interview-preparation": {1: 2, 2: 1, 3: 3, 4: 4, 6: 5},
+            "recruiter-scheduled-interview-preparation": {2: 1, 3: 3},
             "colleague-internal-job-change": {7: 7, 8: 8},
             "friend-upcoming-job-interview-advice": {4: 4, 7: 7},
             "acquaintance-new-job-overall-experience": {2: 2, 8: 8},
@@ -1603,7 +1628,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             },
             "supervisor-overseas-job-offer": {1: 1, 2: 2, 3: 3, 4: 7, 8: 8},
             "recruiter-scheduled-interview-preparation": {
-                1: 2, 2: 1, 3: 3, 4: 4, 5: 6, 6: 5, 7: 8,
+                2: 1, 3: 3, 5: 5, 7: 8,
             },
         }
         for group, mapping in mappings.items():
@@ -1825,7 +1850,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
 
     def test_summer_house_development_recovers_retained_and_pre_geography_highlights(self):
         self.assert_revision_highlights_preserved(
-            "colleague-summer-house-rental", {4: 6, 5: 7, 6: 1},
+            "colleague-summer-house-rental", {4: 6, 5: 7, 6: 1}, revision=1,
         )
         self.old = catalogue.tache_two_location_history()[self.current.group].revisions[0]
         legacy = self.highlight(4, "Bowness", body="My original neighbourhood note.")

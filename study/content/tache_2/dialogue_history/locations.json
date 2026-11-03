@@ -2223,6 +2223,21 @@
             {"topic": "Dates et prix", "question": "Quel loyer demandez-vous par semaine, et faut-il verser un dépôt pour confirmer la réservation ?", "follow_up_to": null},
             {"topic": "Dates et prix", "question": "L'eau, l'électricité, Internet et le ménage de fin de séjour sont-ils compris dans ce loyer ?", "follow_up_to": 7, "condition": "After the weekly rent is given, unless included charges are already explained."}
           ]
+        },
+        {
+          "group": "colleague-summer-house-rental",
+          "opening": "Bonjour Pierre ! Votre maison à Ballard pourrait m'intéresser pour les vacances d'été, alors j'aimerais en savoir un peu plus.",
+          "closing": "Merci, Pierre ! Je vérifie mes dates pour début juillet et je vous réponds demain.",
+          "questions": [
+            {"topic": "Dates et prix", "question": "Quand la maison est-elle disponible exactement, et quelle est la durée minimale de location ?", "follow_up_to": null},
+            {"topic": "Dates et prix", "question": "Quel serait le prix pour une semaine début juillet, et quel acompte faudrait-il verser pour réserver ?", "follow_up_to": null},
+            {"topic": "Dates et prix", "question": "Quels frais faut-il ajouter, notamment les taxes ou le ménage, et demandez-vous une caution remboursable ?", "follow_up_to": 2, "condition": "If rent is quoted without detailing extra costs or a damage deposit."},
+            {"topic": "Maison", "question": "De combien de chambres et de salles de bains dispose la maison, et quels couchages sont prévus ?", "follow_up_to": null},
+            {"topic": "Maison", "question": "Quels équipements pourra-t-on utiliser, notamment pour cuisiner, laver le linge ou profiter de l'extérieur ?", "follow_up_to": null},
+            {"topic": "Cadre", "question": "Ballard est-il plutôt calme ou animé en été, surtout le soir et le week-end ?", "follow_up_to": null},
+            {"topic": "Cadre", "question": "Peut-on aller à pied au parc et aux commerces, puis rejoindre facilement le centre-ville sans voiture ?", "follow_up_to": null},
+            {"topic": "Conditions de location", "question": "Avant de réserver, peut-on visiter la maison et obtenir par écrit les conditions d'annulation et de remise des clés ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -2623,6 +2638,21 @@
             {"topic": "Préparation", "question": "Dois-je apporter mon CV, des références ou des exemples de réalisations en lien avec le poste ?", "follow_up_to": null},
             {"topic": "Préparation", "question": "Après l'entretien, dans quel délai prévoyez-vous de communiquer la suite du processus ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "recruiter-scheduled-interview-preparation",
+          "opening": "Bonjour ! Je vous contacte au sujet de l'entretien prévu dans votre entreprise, pour bien me préparer.",
+          "closing": "Merci pour ces précisions. Je vais préparer les éléments demandés et m'organiser pour être à l'heure.",
+          "questions": [
+            {"topic": "Heure et accès", "question": "L'entretien se déroulera-t-il sur place ou à distance ?", "follow_up_to": null},
+            {"topic": "Heure et accès", "question": "À quelle heure dois-je me présenter le jour de l'entretien ?", "follow_up_to": 1, "condition": "If the format is confirmed without arrival or connection time."},
+            {"topic": "Heure et accès", "question": "À quel endroit dois-je me présenter en arrivant ?", "follow_up_to": 1, "condition": "If the interview is onsite; ask about connection details if it is online."},
+            {"topic": "Déroulement", "question": "Combien de temps faut-il prévoir pour l'entretien ?", "follow_up_to": null},
+            {"topic": "Déroulement", "question": "Avec qui aurai-je l'entretien ?", "follow_up_to": null},
+            {"topic": "Préparation", "question": "Quelles sont les étapes prévues : présentation de mon parcours, questions ou mise en situation ?", "follow_up_to": null},
+            {"topic": "Préparation", "question": "Pour la mise en situation, faut-il préparer quelque chose à l'avance ou tout se fera-t-il sur place ?", "follow_up_to": 6, "condition": "If a practical scenario is announced without explaining advance preparation."},
+            {"topic": "Préparation", "question": "Dois-je apporter mon CV, des références ou des exemples de réalisations en lien avec le poste ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -2658,6 +2688,21 @@
             {"topic": "Accès au poste", "question": "Comment avez-vous obtenu ce poste ?", "follow_up_to": null},
             {"topic": "Accès au poste", "question": "Quelle compétence a été la plus déterminante pour réussir cette mobilité interne ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "colleague-internal-job-change",
+          "opening": "Bonjour ! J'ai appris que vous aviez changé de poste, félicitations ! Ce nouveau rôle m'intéresse, alors j'aimerais vous poser quelques questions.",
+          "closing": "Merci beaucoup pour ces précisions, et encore bravo ! Je vous souhaite de continuer à vous plaire dans ce nouveau poste.",
+          "questions": [
+            {"topic": "Missions", "question": "Quelles tâches occupent désormais la plus grande partie de vos journées ?", "follow_up_to": null},
+            {"topic": "Missions", "question": "Pour coordonner ces projets, avec quels services travaillez-vous le plus souvent ?", "follow_up_to": 1, "condition": "If project coordination is mentioned without explaining the teams involved."},
+            {"topic": "Planning", "question": "Quels sont vos horaires dans ce poste, par rapport à ceux de votre ancienne équipe ?", "follow_up_to": null},
+            {"topic": "Planning", "question": "En télétravail, comment gardez-vous le contact avec l'équipe quand une décision urgente est nécessaire ?", "follow_up_to": 3, "condition": "If remote work is mentioned without explaining team coordination."},
+            {"topic": "Rémunération", "question": "Si ce n'est pas indiscret, votre salaire a-t-il augmenté avec ce changement de poste ?", "follow_up_to": null},
+            {"topic": "Rémunération", "question": "Sur quoi repose cette prime : les résultats de vos projets ou ceux de toute l'équipe ?", "follow_up_to": 5, "condition": "If a variable bonus is mentioned without explaining its criteria."},
+            {"topic": "Accès au poste", "question": "Comment avez-vous obtenu ce poste ?", "follow_up_to": null},
+            {"topic": "Accès au poste", "question": "Quelle compétence a été la plus déterminante pour réussir cette mobilité interne ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -2690,6 +2735,21 @@
             {"topic": "Tenue", "question": "Quelle tenue serait adaptée au secteur tout en restant sobre et professionnelle ?", "follow_up_to": null},
             {"topic": "Tenue", "question": "Comment savoir quelle tenue portent les employés de l'entreprise ?", "follow_up_to": 4, "condition": "If they advise matching the company's dress style."},
             {"topic": "Attitude et déroulement", "question": "Pendant l'entretien, comment montrer ma motivation sans donner l'impression de réciter un texte ?", "follow_up_to": null},
+            {"topic": "Attitude et déroulement", "question": "Ça dure combien de temps, en général, un entretien ?", "follow_up_to": null},
+            {"topic": "Attitude et déroulement", "question": "Quelles questions pourrais-je poser à la fin sur le poste et l'équipe ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "friend-upcoming-job-interview-advice",
+          "opening": "Salut ! J'ai bientôt un entretien d'embauche, et j'aimerais beaucoup avoir tes conseils pour mettre toutes les chances de mon côté.",
+          "closing": "Merci beaucoup pour tous ces conseils ! Je vais commencer à me préparer dès ce soir.",
+          "questions": [
+            {"topic": "Préparation", "question": "Avant l'entretien, qu'est-ce que je devrais regarder en priorité sur le site de l'entreprise et dans l'annonce ?", "follow_up_to": null},
+            {"topic": "Préparation", "question": "Si on me demande de parler de mon expérience, comment choisir un exemple qui montre ce que je sais faire ?", "follow_up_to": null},
+            {"topic": "Préparation", "question": "Quand on me demande ma motivation ou mes points faibles, comment éviter les réponses toutes faites ?", "follow_up_to": null},
+            {"topic": "Tenue", "question": "Quelle tenue serait adaptée au secteur tout en restant sobre et professionnelle ?", "follow_up_to": null},
+            {"topic": "Tenue", "question": "Si je ne connais personne dans l'entreprise, où est-ce que je peux voir comment les employés s'habillent ?", "follow_up_to": 4, "condition": "If your friend advises matching the company's usual dress style."},
+            {"topic": "Attitude et déroulement", "question": "Et si une question me surprend, comment prendre le temps de réfléchir sans avoir l'air complètement perdu ?", "follow_up_to": null},
             {"topic": "Attitude et déroulement", "question": "Ça dure combien de temps, en général, un entretien ?", "follow_up_to": null},
             {"topic": "Attitude et déroulement", "question": "Quelles questions pourrais-je poser à la fin sur le poste et l'équipe ?", "follow_up_to": null}
           ]
@@ -5182,6 +5242,26 @@
             {"topic": "Prix", "question": "Si j'arrive un mercredi, le titre hebdomadaire reste-t-il rentable ou vaut-il mieux acheter des passages ?", "follow_up_to": 5, "condition": "If a weekly pass has fixed validity days."},
             {"topic": "Horaires", "question": "Jusqu'à quelle heure le métro circule-t-il en semaine et le samedi soir ?", "follow_up_to": null},
             {"topic": "Horaires", "question": "Et après un repas d'affaires tardif, quelles seraient mes options pour rentrer ?", "follow_up_to": 7, "condition": "After closing times are given, if you may return later."}
+          ]
+        }
+      ]
+    },
+    "quebec-region-accommodation-tourist-office": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "quebec-region-accommodation-tourist-office",
+          "opening": "Bonjour ! J'aimerais passer quelques jours dans la région, et je cherche des informations sur les hébergements.",
+          "closing": "Merci pour ces conseils ! Je vais préciser mes dates et mon budget, puis vérifier les offres auprès des hébergeurs.",
+          "questions": [
+            {"topic": "Hébergements et emplacement", "question": "Pour quelques jours dans la région, quels hébergements me conseilleriez-vous, par exemple un gîte, un hôtel ou un chalet ?", "follow_up_to": null},
+            {"topic": "Hébergements et emplacement", "question": "Quelles différences y a-t-il entre ces options pour l'intimité, les équipements et la possibilité de préparer ses repas ?", "follow_up_to": 1, "condition": "If several accommodation types are suggested without explaining their facilities or services."},
+            {"topic": "Hébergements et emplacement", "question": "Quels secteurs permettent de rejoindre facilement les lieux à visiter, et que conseilleriez-vous si je viens sans voiture ?", "follow_up_to": null},
+            {"topic": "Budget et prestations", "question": "Quel budget par nuit faut-il prévoir pour ces différentes options, et les prix sont-ils indiqués par personne ou par logement ?", "follow_up_to": null},
+            {"topic": "Budget et prestations", "question": "Quels frais faut-il ajouter à ces prix, notamment les taxes, les repas ou le ménage de fin de séjour ?", "follow_up_to": 4, "condition": "If indicative rates are given without specifying included services or extra charges."},
+            {"topic": "Budget et prestations", "question": "À quelles périodes les tarifs sont-ils plus abordables, et y a-t-il une durée minimale de séjour ?", "follow_up_to": null},
+            {"topic": "Recherche et réservation", "question": "Comment vérifier les disponibilités pour mes dates et obtenir des offres correspondant à mon budget ?", "follow_up_to": null},
+            {"topic": "Recherche et réservation", "question": "La réservation se fait-elle auprès de vous ou directement auprès de l'hébergeur, et quelles conditions faut-il vérifier avant de payer ?", "follow_up_to": null}
           ]
         }
       ]

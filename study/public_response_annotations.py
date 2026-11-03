@@ -14,6 +14,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from .models import Annotation, AnnotationKind, OralStateSnapshot, Prompt
+from .eo3_response_languages import language_presentation
 from .oral_highlights import AnnotationRootText, _move_anchor, _render_questions
 from .oral_history import legacy_variant_annotation_key, variant_annotation_key
 from .progress import subject_progress_by_response
@@ -70,11 +71,16 @@ def render_current_response(prompt, content, surface, user, *, legacy_personal=F
     is_eo2 = prompt.theme.task.slug == "tache-2"
     if is_eo2 and surface != "front":
         return _render_questions(prompt, content, surface, prompts)
+    arguments = annotation_arguments(prompt, content)
     context = {
         "part": prompt.theme.task.part, "task": prompt.theme.task,
         "selected_prompt": prompt, "canonical_prompt": prompt,
         "response": prompt.response, "response_content": content,
-        "arguments": annotation_arguments(prompt, content),
+        "arguments": arguments,
+        "eo3_language": (
+            language_presentation(reviewed_model(prompt.response, prompt), content, arguments)
+            if not is_eo2 and not legacy_personal else None
+        ),
         "reviewed_eo3": not is_eo2 and not content.is_personal,
         "structured_eo3": not is_eo2 and not legacy_personal,
         "eo3_annotation_fields": not is_eo2,

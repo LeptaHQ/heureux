@@ -1,0 +1,1 @@
+{% load study_response_languages %}{% eo3_gloss eo3_language field identity as english %}{% if english %}<p class="{{ text_class }}" data-eo3-english="{% if identity %}argument-{{ identity }}-{% endif %}{{ field }}" data-annotation-exclude lang="{{ eo3_language.english_lang }}" hidden>{{ english|linebreaksbr }}</p>{% endif %}

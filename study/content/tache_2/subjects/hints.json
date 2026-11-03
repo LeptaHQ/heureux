@@ -2596,28 +2596,28 @@
         "english": "In-person or remote interview"
       },
       {
-        "french": "Heure d'arrivée le jour de l'entretien",
-        "english": "Arrival time on interview day"
+        "french": "Heure d'arrivée et durée de l'entretien",
+        "english": "Arrival time and interview duration"
       },
       {
         "french": "Endroit où se présenter en arrivant",
         "english": "Where to report on arrival"
       },
       {
-        "french": "Durée prévue de l'entretien",
-        "english": "Expected interview duration"
-      },
-      {
-        "french": "Personnes présentes à l'entretien",
-        "english": "People attending the interview"
+        "french": "Interlocuteurs et fonctions dans l'entreprise",
+        "english": "Interviewers and their roles in the company"
       },
       {
         "french": "Étapes : parcours, questions et éventuelle mise en situation",
         "english": "Stages: background, questions and any practical scenario"
       },
       {
-        "french": "Préparation éventuelle de la mise en situation",
-        "english": "Whether anything must be prepared for the practical scenario"
+        "french": "Expériences et compétences à approfondir pendant l'entretien",
+        "english": "Experience and skills to discuss in depth"
+      },
+      {
+        "french": "Nature de la mise en situation et préparation attendue",
+        "english": "Practical exercise: task type and advance preparation"
       },
       {
         "french": "CV, références ou exemples de réalisations à préparer",
@@ -2778,12 +2778,12 @@
         "english": "Keeping in touch with the team when working remotely"
       },
       {
-        "french": "Augmentation liée au changement de poste",
-        "english": "Pay rise linked to the internal move"
+        "french": "Augmentation du salaire et ordre de grandeur",
+        "english": "Salary increase and approximate size"
       },
       {
-        "french": "Critères de calcul de la prime",
-        "english": "Criteria used to calculate the bonus"
+        "french": "Montant possible de la prime et mode de calcul",
+        "english": "Possible bonus amount and how it is calculated"
       },
       {
         "french": "Façon d'obtenir le nouveau poste",
@@ -3568,8 +3568,8 @@
         "english": "Professional clothing suited to the sector"
       },
       {
-        "french": "Indices sur la tenue des employés sans connaître quelqu'un",
-        "english": "How to check employees' clothing without an inside contact"
+        "french": "Vêtements et accessoires à éviter pour l'entretien",
+        "english": "Clothes and accessories to avoid for the interview"
       },
       {
         "french": "Réaction à une question inattendue",
@@ -4354,8 +4354,8 @@
         "english": "Extra taxes, meals and cleaning charges"
       },
       {
-        "french": "Périodes moins chères et durée minimale éventuelle",
-        "english": "Cheaper periods and any minimum stay"
+        "french": "Réductions pour plusieurs nuits et conditions à remplir",
+        "english": "Multi-night discounts and eligibility conditions"
       },
       {
         "french": "Vérification des disponibilités selon les dates et le budget",
@@ -5370,8 +5370,8 @@
         "english": "Bedrooms, bathrooms and sleeping arrangements"
       },
       {
-        "french": "Équipements pour cuisiner, laver le linge et profiter de l'extérieur",
-        "english": "Equipment for cooking, laundry and outdoor use"
+        "french": "Équipements sur place et accès pendant le séjour",
+        "english": "On-site facilities and whether all can be used during the stay"
       },
       {
         "french": "Ambiance à Ballard le soir et le week-end",

@@ -4,7 +4,7 @@ import json
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
-from study.tests.eo2_review_fixtures import PUBLISHED_ARCHIVE_INDEX
+from study.tests.eo2_review_fixtures import HOUSE_FACILITIES_FOLLOWUP_FIELDS, PUBLISHED_ARCHIVE_INDEX
 from study.tests.housing_work_fixtures import ORIGINAL_HOUSING_GROUPS, ORIGINAL_WORK_GROUPS
 from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
 
@@ -46,7 +46,7 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
                 self.assertEqual(before.closing, after.closing)
                 self.assertEqual(len(self.hints[group]), 8)
 
-    def test_earlier_themes_remain_exactly_as_approved(self):
+    def test_earlier_themes_remain_approved_except_the_later_house_facilities_replacement(self):
         _, themes = catalogue.tache_two_subject_themes()
         rows = {
             row["group"]: row
@@ -55,7 +55,7 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
         }
         expected = {
             "arrivee": "eeb337d3fd34d07c863b10f58fa4da53bae6f1b91822e56eaa8042170a48e278",
-            "logement": "5856b77b61128d6d2b988dd3a589762ca8d8a5a7a04b1c6f8a17a3ba4b73a744",
+            "logement": "a524786ed4b34345571cbbfe0148d355ddc1b52965e0205dab486485003b00b7",
             "vie-quartier": "3de4534126cd6233e3805ee89724c63644ee928b1b82f29acdcd51a3d5318c4c",
         }
         for theme, digest in expected.items():
@@ -65,6 +65,7 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
                     ORIGINAL_HOUSING_GROUPS if theme == "logement" else
                     {row.group for key, row in self.dialogues.items() if themes[key] == theme}
                 )
+                groups = groups - HOUSE_FACILITIES_FOLLOWUP_FIELDS.keys()
                 snapshot = json.dumps(
                     sorted((rows[group] for group in groups), key=lambda row: row["group"]),
                     ensure_ascii=False, sort_keys=True,
@@ -113,8 +114,10 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
                 8: ("précédents emplois", "façon de travailler"),
             },
             "recruiter-scheduled-interview-preparation": {
-                5: ("Avec qui",),
-                6: ("étapes", "mise en situation"),
+                2: ("À quelle heure", "combien de temps"),
+                4: ("Avec qui", "fonctions"),
+                5: ("étapes", "mise en situation"),
+                6: ("expérience", "compétences", "approfondir"),
                 7: ("préparer quelque chose à l'avance",),
                 8: ("CV", "références", "réalisations"),
             },
@@ -122,8 +125,8 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
                 1: ("tâches", "journées"), 2: ("coordonn", "services"),
                 3: ("horaires", "ancienne équipe"),
                 4: ("télétravail", "décision urgente"),
-                5: ("Si ce n'est pas indiscret",),
-                6: ("prime", "résultats"),
+                5: ("Si ce n'est pas indiscret", "d'environ combien"),
+                6: ("prime", "montant", "calculée"),
             },
             "friend-upcoming-job-interview-advice": {
                 3: ("motivation", "points faibles", "réponses toutes faites"),

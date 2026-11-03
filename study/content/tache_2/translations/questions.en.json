@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T06:02:46.888682+00:00",
+  "generated_at": "2026-11-02T07:23:51.415923+00:00",
   "groups": {
     "acquaintance-new-job-overall-experience": {
       "22fbd0fcb2ec799c11dca4fd81751b5ff6906ac5dc20f25c6f3d5ec369905fec": {
@@ -396,6 +396,10 @@
         "english": "How did you get this job?",
         "french": "Comment avez-vous obtenu ce poste ?"
       },
+      "74eb8582983375cc45f948c85e36121051fc818001245143d2b61839d69c3dde": {
+        "english": "If it’s not too personal, has your salary increased with this change of role and, if so, by about how much?",
+        "french": "Si ce n'est pas indiscret, votre salaire a-t-il augmenté avec ce changement de poste et, si oui, d'environ combien ?"
+      },
       "964ddf992b06afc0ef910c5b74ee562cff5804b11edebc8100845b923c6727f6": {
         "english": "Which tasks now take up most of your day?",
         "french": "Quelles tâches occupent désormais la plus grande partie de vos journées ?"
@@ -407,6 +411,10 @@
       "c9511bc2678ede929ed7d5e00666423a25c6715b398d8a82dc4b0283b11ef639": {
         "english": "Which skill was the most crucial to your success in this internal move?",
         "french": "Quelle compétence a été la plus déterminante pour réussir cette mobilité interne ?"
+      },
+      "ece76fee8e0a79f0c37f158b096fc0e39de853932e74e77481029732e581f921": {
+        "english": "How much can this bonus be, and how is it calculated?",
+        "french": "Quel montant peut atteindre cette prime, et comment est-elle calculée ?"
       }
     },
     "colleague-summer-house-rental": {
@@ -429,6 +437,12 @@
       "616df3df9a6e51594deb23c4afa8fa794506c3e3ab6feafd296895f704b59fd2": {
         "english": "How many bedrooms and bathrooms does the house have, and how many beds are there?",
         "french": "De combien de chambres et de salles de bains dispose la maison, et quels couchages sont prévus ?"
+      },
+      "63edcfa808a539eb6c7cd5339072e9a0a3ab676c4619336d286ffaeca98fe0d6": {
+        "deepl_english": "What facilities are available on site, and will we all be able to use them during our stay?",
+        "english": "What facilities are available on site, and will we be able to use all of them during our stay?",
+        "french": "Quels équipements sont disponibles sur place, et pourra-t-on tous les utiliser pendant le séjour ?",
+        "review_note": "Clarify that tous refers to all the facilities, not to all the guests."
       },
       "a866dedf565ce3666c5fe8c685b0a0344304b6e881dfbc1be46419c114366a69": {
         "english": "What additional costs are there, such as taxes or cleaning fees, and do you require a refundable deposit?",
@@ -1239,6 +1253,10 @@
       "6289ca12d4ed29975f3823d351ac934b2b64b78aadddc7378c3fa075b6db5359": {
         "english": "What questions could I ask at the end about the role and the team?",
         "french": "Quelles questions pourrais-je poser à la fin sur le poste et l'équipe ?"
+      },
+      "7816b4aa3fb78ee672f8f9f6237179913b52778e579e7843f62d809c6b1d53fa": {
+        "english": "Are there any clothes or accessories I should avoid so as not to make a bad impression?",
+        "french": "Y a-t-il des vêtements ou des accessoires à éviter pour ne pas faire mauvaise impression ?"
       },
       "ae667bb186d295072ec861f4372be37042944a53906085e44a47768c23b46e76": {
         "english": "If I’m asked to talk about my experience, how do I choose an example that shows what I’m capable of?",
@@ -2376,6 +2394,10 @@
         "english": "What are the differences between these options in terms of privacy, facilities and the option to cook your own meals?",
         "french": "Quelles différences y a-t-il entre ces options pour l'intimité, les équipements et la possibilité de préparer ses repas ?"
       },
+      "f6d93d18eb505eea0a11a1644584a5a8578385327916f4d508cd9b0a07604b03": {
+        "english": "Do any accommodation providers offer discounts for multiple nights, and under what conditions?",
+        "french": "Est-ce que certains hébergeurs proposent des réductions pour plusieurs nuits, et à quelles conditions ?"
+      },
       "fdcb72568da9b5312f913271dda90e119899297632adba72f27e8c86a859d6d4": {
         "english": "When are rates most affordable, and is there a minimum length of stay?",
         "french": "À quelles périodes les tarifs sont-ils plus abordables, et y a-t-il une durée minimale de séjour ?"
@@ -2406,6 +2428,18 @@
         "english": "Should I bring my CV, references or examples of work relevant to the role?",
         "french": "Dois-je apporter mon CV, des références ou des exemples de réalisations en lien avec le poste ?"
       },
+      "863d69d0a48d42f2d2a46a96d48e9b484ef4f56e490d65bf073d2dfb51042d74": {
+        "english": "Which aspects of my experience or which skills would you particularly like to explore in more detail during the interview?",
+        "french": "Quels aspects de mon expérience ou quelles compétences souhaitez-vous particulièrement approfondir pendant l'entretien ?"
+      },
+      "9ca65ea4e636fb96f50a8d02631b378e5485cf455971471aded91986eb391bec": {
+        "english": "Who will I be interviewing with, and what roles do these people hold within the company?",
+        "french": "Avec qui aurai-je l'entretien, et quelles fonctions ces personnes occupent-elles dans l'entreprise ?"
+      },
+      "ac166f9b5cbae89aa1c4a730f8b4e7d75a11038dde13252c5ebb79f4c2433de8": {
+        "english": "For the role-play, what sort of task will I be asked to carry out, and is there anything I need to prepare in advance?",
+        "french": "Pour la mise en situation, quel type de tâche devrai-je réaliser, et faut-il préparer quelque chose à l'avance ?"
+      },
       "b4852ae90deeb2bd2a800e59a5c6c1bcc14e87a8bc5265032c75887ebcc13dc8": {
         "english": "For this role-play, do I need to prepare anything in advance, or will everything be done on the day?",
         "french": "Pour la mise en situation, faut-il préparer quelque chose à l'avance ou tout se fera-t-il sur place ?"
@@ -2413,6 +2447,10 @@
       "b8e3ad1f33cf9cacc31539926240f600b9f2c71573778721d9faf6fc7c3b9229": {
         "english": "What are the planned stages: an overview of my career, questions or a role-play?",
         "french": "Quelles sont les étapes prévues : présentation de mon parcours, questions ou mise en situation ?"
+      },
+      "deebb96870e5389508496ebd4bf0b6b795590a92ff66eadaa348912da76ced61": {
+        "english": "What time should I arrive, and how long will the interview last?",
+        "french": "À quelle heure dois-je me présenter, et combien de temps durera l'entretien ?"
       }
     },
     "supervisor-overseas-job-offer": {
@@ -2587,7 +2625,7 @@
     }
   },
   "provider": "deepl",
-  "reviewed_at": "2026-10-29T06:14:49.377526+00:00",
+  "reviewed_at": "2026-11-02T07:25:13.048921+00:00",
   "source_language": "FR",
   "target_language": "EN-GB",
   "version": 1

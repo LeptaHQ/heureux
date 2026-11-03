@@ -341,9 +341,12 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
     from . import catalogue
     from .tache_three_models import annotation_arguments, response_text, reviewed_model
     from .tache_three_prompt_notes import prompt_note_for_response
+    from .eo3_response_languages import language_presentation
 
-    reviewed_eo3 = not content.is_personal and reviewed_model(response, canonical) is not None
-    structured_eo3 = reviewed_model(response, canonical) is not None
+    model = reviewed_model(response, canonical)
+    reviewed_eo3 = not content.is_personal and model is not None
+    structured_eo3 = model is not None
+    arguments = annotation_arguments(canonical, content)
     task = response.theme.task
     annotation_key = f"response:{response.content_key}"
     if canonical is not None and (
@@ -404,7 +407,8 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
         ) if structured_eo3 else None,
         "eo3_prompt_note": prompt_note_for_response(response, canonical),
         "eo3_pistes": catalogue.tache_three_subject_plan(response.semantic_group),
-        "arguments": annotation_arguments(canonical, content),
+        "arguments": arguments,
+        "eo3_language": language_presentation(model, content, arguments),
         **(question_presentation(canonical, content) if tache_two_subject else {}),
         "subject_prompt_note": (
             prompt_note_presentation(canonical, content) if tache_two_subject else None

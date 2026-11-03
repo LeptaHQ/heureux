@@ -1,3 +1,4 @@
+import copy
 import hashlib
 import json
 import re
@@ -7,7 +8,10 @@ from django.test import SimpleTestCase
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
 from study.tests.housing_work_fixtures import RECLASSIFIED_GROUPS
-from study.tests.eo2_review_fixtures import REVIEWED_GROUPS, remove_latest_review_archives
+from study.tests.eo2_review_fixtures import (
+    HOUSE_FACILITIES_FOLLOWUP_FIELDS, REVIEWED_GROUPS,
+    remove_followup_archives, remove_latest_review_archives,
+)
 from study.tests.travel_fixtures import TRAVEL_GROUPS
 
 
@@ -148,7 +152,12 @@ class AccommodationDevelopmentTests(SimpleTestCase):
         self.assertIn("le chalet entier", row.questions[3].answer)
         self.assertEqual(row.questions[4].follow_up_to, 4)
         self.assertIn("80 $ de ménage par séjour", row.questions[4].answer)
-        self.assertIn("durée minimale", row.questions[5].question)
+        self.assertEqual(
+            row.questions[5].question,
+            "Est-ce que certains hébergeurs proposent des réductions pour plusieurs nuits, et à quelles conditions ?",
+        )
+        self.assertTrue(row.questions[5].answer.startswith("Certains hébergeurs"))
+        self.assertIn("Vérifiez directement auprès d'eux", row.questions[5].answer)
         self.assertIn("ils confirmeront leurs disponibilités", row.questions[6].answer)
         self.assertIn("Directement auprès de l'hébergeur", row.questions[7].answer)
         self.assertNotIn("sans frais", row.questions[7].answer)
@@ -157,6 +166,56 @@ class AccommodationDevelopmentTests(SimpleTestCase):
         self.assertEqual(
             self.hints[row.group][7]["english"],
             "Who handles the booking and which terms to check before payment",
+        )
+
+    def test_tourist_office_discount_preserves_every_other_model_field_and_cue(self):
+        group = "quebec-region-accommodation-tourist-office"
+        row = copy.deepcopy(self.raw[group])
+        hints = copy.deepcopy(self.hints[group])
+        self.assertEqual(hints[5], {
+            "french": "Réductions pour plusieurs nuits et conditions à remplir",
+            "english": "Multi-night discounts and eligibility conditions",
+        })
+        self.assertIsNone(row["questions"][5]["follow_up_to"])
+        row["questions"][5]["question"] = row["questions"][5]["answer"] = "<reviewed-lodging-field>"
+        hints[5]["french"] = hints[5]["english"] = "<reviewed-lodging-field>"
+        self.assertEqual(
+            fingerprint({"dialogue": row, "hints": hints}),
+            "e67e917fd83804e80a95740d84e98c1c2e57c3abde3ae13dafce50c0809486a1",
+        )
+
+    def test_tourist_office_discount_preserves_other_models_except_the_later_facilities_question(self):
+        group = "quebec-region-accommodation-tourist-office"
+        edited = {group} | HOUSE_FACILITIES_FOLLOWUP_FIELDS.keys()
+        self.assertEqual(
+            fingerprint({
+                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
+                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
+            }),
+            "68d65870c0fb607efb4e376d86984add31701c4f0b3d820eee6e64065d65e796",
+        )
+        self.assertEqual(
+            {key for key, row in self.dialogues.items() if row.group == group},
+            {"tache2:octobre:batch-05:subject-25"},
+        )
+
+    def test_tourist_office_discount_archives_only_the_actual_published_layout(self):
+        group = "quebec-region-accommodation-tourist-office"
+        history = json.loads((
+            content.QUESTION_BANK_DIR / "dialogue_history/locations.json"
+        ).read_text())
+        revisions = history["groups"][group]["revisions"]
+        self.assertEqual(len(revisions), 1)
+        self.assertEqual(
+            fingerprint(revisions[0]),
+            "983d14cce689a3c5276b51a48d627e90ac95aecd304bef31fa4e98fe4d4d7c78",
+        )
+        self.assertTrue(all("answer" not in question for question in revisions[0]["questions"]))
+        remove_followup_archives(history, {group})
+        remove_followup_archives(history, HOUSE_FACILITIES_FOLLOWUP_FIELDS)
+        self.assertEqual(
+            fingerprint(history),
+            "b84085d88e2925af29af3557ba1906ef90ffe4a99fda9b643687a55036c32918",
         )
 
     def test_camping_distinguishes_pitch_people_hookups_and_actual_service_limits(self):
@@ -205,7 +264,7 @@ class AccommodationDevelopmentTests(SimpleTestCase):
 
     def test_colleague_rental_keeps_availability_first_and_distinguishes_advance_and_damage_deposits(self):
         row = self.by_group["colleague-summer-house-rental"]
-        previous = catalogue.tache_two_location_history()[row.group].revisions[-1]
+        previous = catalogue.tache_two_location_history()[row.group].revisions[1]
         for before, after in ((6, 1), (4, 6), (5, 7)):
             self.assertEqual(
                 previous.questions[before - 1].question, row.questions[after - 1].question,
@@ -226,6 +285,60 @@ class AccommodationDevelopmentTests(SimpleTestCase):
             "Viewing and written cancellation and key-handover terms",
         )
         self.assertIn("Do not assume a seaside setting", row.note)
+
+    def test_house_facilities_question_distinguishes_inventory_from_permission_to_use_everything(self):
+        group = "colleague-summer-house-rental"
+        row = copy.deepcopy(self.raw[group])
+        hints = copy.deepcopy(self.hints[group])
+        self.assertEqual(
+            row["questions"][4]["question"],
+            "Quels équipements sont disponibles sur place, et pourra-t-on tous les utiliser pendant le séjour ?",
+        )
+        self.assertIn("seront tous à votre disposition", row["questions"][4]["answer"])
+        self.assertIn("Le linge sera fourni", row["questions"][4]["answer"])
+        self.assertIn("consignes de sécurité pour le barbecue", row["questions"][4]["answer"])
+        self.assertEqual(hints[4], {
+            "french": "Équipements sur place et accès pendant le séjour",
+            "english": "On-site facilities and whether all can be used during the stay",
+        })
+        row["questions"][4]["question"] = row["questions"][4]["answer"] = "<reviewed-facilities-field>"
+        hints[4]["french"] = hints[4]["english"] = "<reviewed-facilities-field>"
+        self.assertEqual(
+            fingerprint({"dialogue": row, "hints": hints}),
+            "177e64ad2b390891ca477f80fd4c7a921fb3cd29d9e4c72d000d5ab480bccce9",
+        )
+
+    def test_house_facilities_update_preserves_all_other_163_models_and_cues(self):
+        group = "colleague-summer-house-rental"
+        self.assertEqual(
+            fingerprint({
+                "dialogues": {g: row for g, row in self.raw.items() if g != group},
+                "hints": {g: cues for g, cues in self.hints.items() if g != group},
+            }),
+            "e34a62c0a576c2a0aff6d94839557cfa668b14982ddf80eeb1dc2ea2c217e1a4",
+        )
+        self.assertEqual(
+            {key for key, row in self.dialogues.items() if row.group == group},
+            {"tache2:decembre:batch-09:subject-42"},
+        )
+
+    def test_house_facilities_update_archives_only_the_published_layout(self):
+        group = "colleague-summer-house-rental"
+        history = json.loads((
+            content.QUESTION_BANK_DIR / "dialogue_history/locations.json"
+        ).read_text())
+        revisions = history["groups"][group]["revisions"]
+        self.assertEqual(len(revisions), 3)
+        self.assertEqual(
+            fingerprint(revisions[2]),
+            "de01af970fc80d8008f1519ba39cf9ce7671072fe1b155b6cb28c83ae5f42106",
+        )
+        self.assertTrue(all("answer" not in question for question in revisions[2]["questions"]))
+        revisions.pop()
+        self.assertEqual(
+            fingerprint(history),
+            "70c2678ab16728386db4053d327b9b7131a0e2aa5933c317738fade0cfaa50c4",
+        )
 
     def test_unrelated_models_cues_and_complete_historical_layouts_remain_exact(self):
         changed = ACCOMMODATION_GROUPS | EARLIER_REFINEMENTS | REVIEWED_GROUPS

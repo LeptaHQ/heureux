@@ -100,6 +100,28 @@ Work and skills are parts of one economic contribution, not opposing categories.
 An answer can recognize that contribution alongside cultural and civic benefits
 without making a person's dignity depend on economic usefulness.
 
+### English response glosses
+
+The full EO3 response can be viewed in French or English. French is the default;
+the global choice is remembered, while argument-number and subsection-heading
+overrides are temporary. The number switches the whole argument. A heading
+switches only its introduction, development, example, consequence, nuance or
+conclusion block. Practice retains the bilingual Pistes-first layout.
+
+English is prepared once with DeepL, not requested on visits or clicks:
+`python manage.py prepare_eo3_translations --dry-run` reports the exact pending
+character count. Prepare explicitly with `--prepare --confirm-characters COUNT`,
+then review the English and run `--check`. Preparation is allowance-checked,
+atomic and resumable without automatic billable retries. Changed French requires
+a fresh exact-text translation; existing records are retained.
+
+Only public spoken model text and public context are sent. Personal edits are
+never uploaded; a private block gets English only when its text matches a cached
+public block exactly. Keep the canonical French DOM, annotation offsets, saved
+notes, French audio and response-copy text unchanged. English text and controls
+must stay outside annotation/selection tools. Retain the provider original and a
+review note whenever an English post-edit is needed.
+
 Benefits do not establish necessity. When a consigne says "indispensable", a
 balanced answer can develop two substantial benefits and a supported reason why
 they are not a universal requirement. Do not force a weak third benefit merely

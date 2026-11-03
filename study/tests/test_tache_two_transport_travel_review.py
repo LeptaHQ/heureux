@@ -7,7 +7,8 @@ from django.test import SimpleTestCase
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
 from study.tests.eo2_review_fixtures import (
-    WORK_SCHOOL_GROUPS, final_pass_projection, remove_followup_archives,
+    ACCOMMODATION_FOLLOWUP_FIELDS, WORK_SCHOOL_GROUPS,
+    final_pass_projection, remove_followup_archives,
 )
 from study.tests.transport_travel_review_fixtures import (
     REVIEWED_GROUPS, TRANSPORT_GROUPS, remove_transport_travel_review_archives,
@@ -57,15 +58,15 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
                 self.assertEqual(len(self.hints[row.group]), 8)
                 self.assertIn("merci", row.closing.casefold())
 
-    def test_models_and_cues_outside_the_four_authorized_themes_are_exact(self):
-        reviewed = REVIEWED_GROUPS | WORK_SCHOOL_GROUPS
+    def test_models_and_cues_outside_reviewed_themes_and_later_accommodation_changes_are_exact(self):
+        reviewed = REVIEWED_GROUPS | WORK_SCHOOL_GROUPS | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
         unrelated = {
             "dialogues": {key: row for key, row in self.raw.items() if key not in reviewed},
             "hints": {key: rows for key, rows in self.hints.items() if key not in reviewed},
         }
         self.assertEqual(
             fingerprint(unrelated),
-            "a39e746bb692e82887b661246479ba54e6d3a38f9c1e7301e084c760ba4cbad5",
+            "908a24c5d012b4e75320da40cd3ef0fefee1c56eb2fe9fb744a8950c3bac04b9",
         )
         self.assertEqual(
             fingerprint(sorted((key, row["register"]) for key, row in self.raw.items())),
@@ -114,7 +115,7 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
     def test_final_pass_and_authorized_followups_only_change_recorded_editorial_leaves(self):
         self.assertEqual(
             fingerprint(final_pass_projection(self.raw, self.hints)),
-            "2ed1b27025a39b407b60acb0a6d09a0e8abe33a496caa1f9296809ff666bee7f",
+            "154a014c34b5a6991656d0b4d744e50ae3849a7623fd0b4638193124ab455aaa",
         )
 
     def test_transit_enquiry_covers_destinations_tracking_tickets_return_and_inline_safety_hours(self):

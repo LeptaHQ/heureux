@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T00:36:58.188287+00:00",
+  "generated_at": "2026-11-04T00:53:13.150418+00:00",
   "groups": {
     "eo/tache-3/culture-p1": {
       "022ba7408875e257c3e9a06a9eea99bdc30d10b35bdb3b2a5e56152e3f79c74d": {
@@ -540,9 +540,21 @@
         "english": "However, a single dish or restaurant does not represent an entire country. Customs vary depending on the region, the family and the budget. To gain a deeper understanding, we also need to explore other aspects of the country, such as its history or everyday life. Learning the language can also help us.",
         "french": "Cependant, un plat ou un restaurant ne montre pas tout un pays. Les habitudes changent selon les régions, les familles et le budget. Pour aller plus loin, il faut qu'on découvre aussi d'autres aspects du pays, comme son histoire ou la vie de tous les jours. Apprendre sa langue peut aussi nous aider."
       },
+      "d969c5617e8f91f00a1e988894f0fdde277bb7065f9634cc0b8b43455630f224": {
+        "deepl_english": "In Senegal, a visitor shares a meal of rice and fish with his hosts. They eat from the same large dish. His host shows him how to eat with his hands.",
+        "english": "In Senegal, a visitor shares a meal of rice and fish with their hosts. They eat from the same large dish. The host shows the visitor how to serve themselves by hand.",
+        "french": "Au Sénégal, un visiteur partage un repas de riz et de poisson avec ses hôtes. Ils mangent dans le même grand plat. Son hôte lui montre comment se servir à la main.",
+        "review_note": "Keep se servir as serving oneself by hand and the visitor gender-neutral, without adding a claim about both hands or a particular hand."
+      },
       "db620d016bc7e83d584e3a35d8a5e4d00089899448c0e5e74d4c57ff5197435f": {
         "english": "The ingredients in a dish can reveal how people used to live. For example, salt was used to preserve food for longer. This practice can still be found in some recipes.",
         "french": "Les ingrédients d'un plat peuvent montrer comment les gens vivaient autrefois. On utilisait par exemple du sel pour garder les aliments plus longtemps. Cette façon de faire se retrouve encore dans certaines recettes."
+      },
+      "df698d566087d977ac3e2c1139acc18bd7e87dd34fef4fa973dc01a868c9e9a9": {
+        "deepl_english": "In this way, we discover a way of sharing a meal, not just a new flavour.",
+        "english": "The visitor thus discovers a way of sharing a meal, not just a new flavour.",
+        "french": "Il découvre ainsi une façon de partager le repas, pas seulement une nouvelle saveur.",
+        "review_note": "Il refers to the visitor in the preceding example, not to an unexplained we."
       },
       "e42429724bb9bdab36107f3227f7c4eb724367c2cdc6cc6277c21cead2f122b6": {
         "english": "So we learn one way of cooking from that country, even without speaking the language very well.",
@@ -778,11 +790,27 @@
         "english": "First of all, you can gain an insight into everyday life by observing what is going on.",
         "french": "Tout d'abord, on peut comprendre une partie de la vie quotidienne en observant ce qui se passe."
       },
+      "21e0b868de4f9f5b3933dd9b697bb7fcd5a78adaa57d3772af0bea41ef29d4c5": {
+        "deepl_english": "In everyday settings, you can see how local people meet up and spend time together. In this way, you learn without needing an interpreter to explain everything to you.",
+        "english": "In everyday settings, we can see how local people meet up and spend time together. We learn in this way, without an interpreter having to explain everything to us.",
+        "french": "Dans les lieux du quotidien, on voit comment les habitants se retrouvent et passent du temps ensemble. On apprend ainsi, sans qu'un interprète ait à tout nous expliquer.",
+        "review_note": "Preserve collective on/we and the direct-observation explanation rather than switching to reader instructions."
+      },
       "22621a4878795122d39f48b5775c1f71b336caeb589b06488dc1abcc4aff917b": {
         "deepl_english": "Thanks to the subtitles, she understands the purpose of this practice, without needing to speak Japanese.",
         "english": "Thanks to the subtitles, the viewer understands the purpose of this practice, without needing to speak Japanese.",
         "french": "Grâce aux sous-titres, elle comprend le but de cette pratique, sans avoir besoin de parler japonais.",
         "review_note": "She ambiguously follows the teacher and pupils; the source refers to the documentary viewer."
+      },
+      "272ee0f509499b3c62adc2462f394ba463d0947b857e42cad138f779412f3730": {
+        "deepl_english": "He discovers that this market is also a meeting place, not just somewhere to shop.",
+        "english": "The traveller discovers that this market is also a meeting place, not just somewhere to shop.",
+        "french": "Il découvre que ce marché est aussi un lieu de rencontre, pas seulement un endroit où acheter.",
+        "review_note": "Make the traveller the clear antecedent and retain this market/also, without generalising to every market."
+      },
+      "2d1594c9ebd0d6f964a0e815e37610ca20ab3c7849b98f8f59e9fe40216dd760": {
+        "english": "A traveller who doesn’t speak the language often returns to the same market. They see locals greeting the stallholders, having a chat and then leaving without buying anything.",
+        "french": "Un voyageur qui ne parle pas la langue revient souvent au même marché. Il voit des habitants saluer les vendeurs, discuter puis repartir sans rien acheter."
       },
       "3acffa15792d424ee29fc80e6fcd19c7fd427c93761154061b8f5dbf61af44fc": {
         "english": "A visitor spots a neighbourhood on a map that appears to be very close to the centre. But it takes them an hour to get there by bus, as they have to change twice.",
@@ -811,6 +839,10 @@
         "english": "When we watch a video, we see what local people do, but not necessarily why they do it. With subtitles in a language we know, we can understand their explanations.",
         "french": "En regardant une vidéo, on voit ce que font les habitants, mais pas forcément pourquoi ils le font. Avec des sous-titres dans une langue qu'on connaît, on peut comprendre leurs explications.",
         "review_note": "Preserve the collective on/we viewpoint while keeping the action/explanation/subtitle sequence explicit."
+      },
+      "66127f86474ef0e4fdfbc35a3bc11e95d1406c35255046d6614fd286fe25211c": {
+        "english": "For example, someone who speaks French but not Japanese watches a documentary about schools in Japan. They see pupils cleaning their classroom. The French subtitles translate a teacher’s explanation: the pupils do this to learn how to look after the spaces they share.",
+        "french": "Par exemple, une personne qui parle français mais pas japonais regarde un documentaire sur les écoles au Japon. Elle voit des élèves nettoyer leur classe. Les sous-titres en français traduisent l'explication d'un enseignant : les élèves font cela pour apprendre à prendre soin des lieux qu'ils utilisent ensemble."
       },
       "7565d65edd6646dfa5e3a0d24c2e1de1b35920f216dbe3f52534b953bcb41727": {
         "english": "Someone who doesn’t speak Japanese is watching a subtitled documentary about schools in Japan. They see pupils cleaning their classroom. A teacher explains that the aim is to teach them to look after the spaces they share.",
@@ -8799,7 +8831,7 @@
     }
   },
   "provider": "deepl",
-  "reviewed_at": "2026-11-04T00:38:05.313422+00:00",
+  "reviewed_at": "2026-11-04T00:54:29.403251+00:00",
   "source_language": "FR",
   "target_language": "EN-GB",
   "version": 1

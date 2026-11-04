@@ -230,7 +230,18 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         row = data["groups"][country.group][fingerprint(country.response.arguments[1].exemple)]
         self.assertIn("French but not Japanese", row["english"])
         self.assertIn("French subtitles", row["english"])
+        self.assertIn("translate a teacher", row["english"])
+        self.assertIn("the pupils do this to learn", row["english"])
+        row = data["groups"][country.group][fingerprint(country.response.arguments[0].exemple)]
+        self.assertIn("leaving without buying anything", row["english"])
+        row = data["groups"][country.group][fingerprint(country.response.arguments[0].consequence)]
+        self.assertIn("this market is also a meeting place", row["english"])
         cuisine = scoped_models()["eo/tache-3/culture-p15"]
+        row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[0].exemple)]
+        self.assertIn("the same large dish", row["english"])
+        self.assertIn("serve themselves by hand", row["english"])
+        row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[0].consequence)]
+        self.assertTrue(row["english"].startswith("The visitor"))
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.nuance)]
         self.assertIn("Learning the language can also help", row["english"])
         self.assertNotIn("must also explore the language", row["english"])

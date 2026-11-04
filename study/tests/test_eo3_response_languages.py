@@ -246,8 +246,10 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("Learning the language can also help", row["english"])
         self.assertNotIn("must also explore the language", row["english"])
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[0].developpement)]
-        self.assertIn("Mealtimes", row["english"])
-        self.assertIn("the way people eat", row["english"])
+        self.assertIn("not just about nourishment", row["english"])
+        self.assertIn("what time they eat", row["english"])
+        self.assertIn("who they eat with", row["english"])
+        self.assertIn("how they share the dishes", row["english"])
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[1].developpement)]
         self.assertIn("ingredients in a dish", row["english"])
         self.assertIn("salt was used to preserve food", row["english"])

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T01:33:32.756091+00:00",
+  "generated_at": "2026-11-04T03:52:08.174664+00:00",
   "groups": {
     "eo/tache-3/culture-p1": {
       "022ba7408875e257c3e9a06a9eea99bdc30d10b35bdb3b2a5e56152e3f79c74d": {
@@ -429,6 +429,12 @@
         "english": "In Portugal, a visitor tastes a dish made with salted and dried fish. The cook explains that people salted and dried fish to keep it during long sea voyages.",
         "french": "Au Portugal, un visiteur goûte un plat fait avec du poisson salé et séché. Le cuisinier lui explique qu'on salait et séchait le poisson pour le garder pendant les longs voyages en mer.",
         "review_note": "Keep the cook's unspecified status and the source's simple illustrative tense; do not imply a professional chef."
+      },
+      "40baf4607c3433f407886af81d5f917671a71717d3c4391e339fa52d12ea44a4": {
+        "deepl_english": "Meals aren’t just about nourishment: they can also be a time spent together. By sharing a meal with locals, we discover what time they eat, with whom, and how they share their food.",
+        "english": "Meals are not just about nourishment: they can also be a chance to spend time together. By sharing a meal with local people, we discover what time they eat, who they eat with and how they share the dishes.",
+        "french": "Les repas ne servent pas seulement à se nourrir : ils peuvent aussi être un moment passé ensemble. En partageant un repas avec des habitants, on découvre à quelle heure ils mangent, avec qui et comment ils partagent les plats.",
+        "review_note": "Render un moment passé ensemble naturally and make the eating companions and shared dishes explicit."
       },
       "42699d2ce13fc1511a2a957ecaf7cf68f59340e2008432e138fd6987ee5167bb": {
         "english": "Meals do not merely show what people eat. They also reveal ways of serving and eating that are passed down from one generation to the next.",
@@ -8885,7 +8891,7 @@
     }
   },
   "provider": "deepl",
-  "reviewed_at": "2026-11-04T01:34:03.316713+00:00",
+  "reviewed_at": "2026-11-04T03:52:38.207689+00:00",
   "source_language": "FR",
   "target_language": "EN-GB",
   "version": 1

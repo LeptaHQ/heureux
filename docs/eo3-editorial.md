@@ -417,14 +417,15 @@ question as forgetting one's own practices.
 
 The book-utility and reading-necessity answers retain reflection and concentration
 as a substantive benefit: following a sustained argument and its objections, not
-merely pausing or looking something up. Culture P6 and its bilingual Pistes remain
-the earlier protected version, including the equivalent Education P8 publication.
-Do not rewrite that version to force literal reuse with the revised P20 answer.
-A guided gardening sequence and access to a character's unspoken fears support
-the other book benefits. In the necessity answer, a jazz demonstration and guided
-pottery practice show actual learning without reading; do not substitute people
-who merely read little. These compatible passages do not make the two questions
-equivalent.
+merely pausing or looking something up. Culture P6 and the equivalent Education P8
+share the separately reviewed user-requested revision. Its other benefits are
+durable learning and imaginative engagement with characters' situations and
+choices. Keep its bilingual Pistes aligned; do not force literal equality with
+P20. Explaining historical connections a week later demonstrates retention,
+rather than merely testing whether anything remains. In the necessity answer,
+a jazz demonstration and guided pottery practice show actual learning without
+reading; do not substitute people who merely read little. These compatible
+passages do not make the two questions equivalent.
 
 The school-arts model demonstrates coached expression, evidence-based
 interpretation of a painting and actual musical learning made possible by school
@@ -535,11 +536,13 @@ fluency alone guarantees understanding. The replacement limit uses a fresh
 identity; the retired common-language workaround is not a third version of
 translated access.
 
-In the solo-travel answer, distinguish confidence in one's decisions from freedom
-to follow one's tastes. The accommodation example checks a price/location
-trade-off against the actual journey and remaining budget, rather than merely
-listing planning tasks or declaring every choice good. A satisfying result can
-support confidence in a future decision; solo travel does not guarantee success.
+In the solo-travel answer, distinguish handling a disruption independently from
+freedom to follow one's tastes. In the cancelled-train example, the traveller asks
+an agent about alternatives, compares timetables and chooses the bus to arrive
+before the hotel reception closes. Asking for information is compatible with
+making one's own decision; do not describe it as acting without any help. Actual
+arrival can support confidence in handling another problem, not a guarantee of
+success in every future situation.
 
 ## Famille learning consistency
 

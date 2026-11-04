@@ -439,8 +439,8 @@
         {
           "idea": "Tout d'abord, les repas permettent de comprendre certaines habitudes de vie.",
           "developpement": "Les heures des repas et la façon de manger font aussi partie de la culture. En partageant un repas avec des habitants, on peut découvrir ces habitudes.",
-          "exemple": "Au Sénégal, un visiteur goûte un plat traditionnel de riz et de poisson. Son hôte lui montre comment le manger à la main, sans laisser tomber de riz.",
-          "consequence": "Le visiteur découvre donc une habitude du pays, pas seulement un nouveau plat."
+          "exemple": "Au Sénégal, un visiteur partage un repas de riz et de poisson avec ses hôtes. Ils mangent dans le même grand plat. Son hôte lui montre comment se servir à la main.",
+          "consequence": "Il découvre ainsi une façon de partager le repas, pas seulement une nouvelle saveur."
         },
         {
           "idea": "Ensuite, les recettes nous aident à comprendre l'histoire d'un pays.",
@@ -563,14 +563,14 @@
       "arguments": [
         {
           "idea": "Tout d'abord, on peut comprendre une partie de la vie quotidienne en observant ce qui se passe.",
-          "developpement": "En observant un marché, on découvre les produits qu'on y vend et ce que les habitants achètent. On apprend cela directement, sans qu'un interprète ait à tout nous expliquer.",
-          "exemple": "Un voyageur qui ne parle pas la langue retourne plusieurs matins sur un marché. Il voit les habitants acheter du poisson, du riz et des légumes.",
-          "consequence": "Il connaît donc mieux les habitudes de ce marché, sans avoir eu besoin de parler la langue."
+          "developpement": "Dans les lieux du quotidien, on voit comment les habitants se retrouvent et passent du temps ensemble. On apprend ainsi, sans qu'un interprète ait à tout nous expliquer.",
+          "exemple": "Un voyageur qui ne parle pas la langue revient souvent au même marché. Il voit des habitants saluer les vendeurs, discuter puis repartir sans rien acheter.",
+          "consequence": "Il découvre que ce marché est aussi un lieu de rencontre, pas seulement un endroit où acheter."
         },
         {
           "idea": "Ensuite, les traductions nous aident à comprendre les raisons de certaines habitudes du pays.",
           "developpement": "En regardant une vidéo, on voit ce que font les habitants, mais pas forcément pourquoi ils le font. Avec des sous-titres dans une langue qu'on connaît, on peut comprendre leurs explications.",
-          "exemple": "Par exemple, une personne qui parle français mais pas japonais regarde un documentaire sur les écoles au Japon, avec des sous-titres en français. Elle voit des élèves nettoyer leur classe. Un enseignant explique qu'ils apprennent ainsi à prendre soin des lieux qu'ils utilisent ensemble.",
+          "exemple": "Par exemple, une personne qui parle français mais pas japonais regarde un documentaire sur les écoles au Japon. Elle voit des élèves nettoyer leur classe. Les sous-titres en français traduisent l'explication d'un enseignant : les élèves font cela pour apprendre à prendre soin des lieux qu'ils utilisent ensemble.",
           "consequence": "Grâce aux sous-titres, elle comprend pourquoi ces élèves nettoient leur classe, sans parler japonais."
         },
         {

@@ -263,6 +263,27 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("violence is common among young people", row["english"])
         self.assertNotIn("violence is rife", row["english"])
 
+    def test_solo_travel_english_keeps_information_seeking_distinct_from_the_travellers_decision(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        solo = scoped_models()["eo/tache-3/culture-p21"]
+        rows = data["groups"][solo.group]
+        argument = solo.response.arguments[0]
+        development = rows[fingerprint(argument.developpement)]["english"]
+        self.assertIn("We can ask for information", development)
+        self.assertIn("compare the options and choose", development)
+        self.assertNotIn("you should", development)
+        example = rows[fingerprint(argument.exemple)]["english"]
+        self.assertIn("train has been cancelled", example)
+        self.assertLess(example.index("member of staff"), example.index("choose the bus"))
+        self.assertIn("before their hotel", example)
+        self.assertIn("reception closes", example)
+        self.assertIn("let the hotel know", example)
+        result = rows[fingerprint(argument.consequence)]["english"]
+        self.assertIn("arrives at the hotel", result)
+        self.assertIn("may feel more capable", result)
+
     def test_requested_book_english_keeps_learning_retention_and_the_characters_choice(self):
         data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
         if not data["groups"]:

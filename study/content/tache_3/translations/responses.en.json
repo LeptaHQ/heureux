@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T03:52:08.174664+00:00",
+  "generated_at": "2026-11-04T04:03:26.616386+00:00",
   "groups": {
     "eo/tache-3/culture-p1": {
       "022ba7408875e257c3e9a06a9eea99bdc30d10b35bdb3b2a5e56152e3f79c74d": {
@@ -1058,6 +1058,10 @@
         "english": "For example, you might be torn between a hotel in the city centre and another that’s cheaper but further away. You choose the latter after checking the metro route. Once there, you can reach the centre in fifteen minutes and still have enough money left over for sightseeing.",
         "french": "Par exemple, on hésite entre un hôtel au centre et un autre moins cher mais plus loin. On choisit le second après avoir vérifié le trajet en métro. Sur place, on rejoint le centre en quinze minutes et on a encore assez d'argent pour les visites."
       },
+      "3a1b6405eb32c04773078c8cd451014ab00d728ae3c8b144a694e914aa8fe34f": {
+        "english": "First and foremost, travelling alone can foster independence and self-confidence.",
+        "french": "Tout d'abord, voyager seul peut développer l'autonomie et la confiance en soi."
+      },
       "3bcb62e4c486297395f9cf0de0f967679afc219b3fba6ffaf4a82e9eddcac326": {
         "english": "Finally, travelling alone can encourage you to reach out to others.",
         "french": "Enfin, voyager seul peut encourager à aller vers les autres."
@@ -1069,6 +1073,12 @@
       "5e700addf75f15a01b4d40a3a3c2624f3eb247246d5d4157fc018562efe3e0d1": {
         "english": "First and foremost, organising your own trip can boost your confidence in your decision-making.",
         "french": "Tout d'abord, organiser seul son voyage peut renforcer la confiance dans ses décisions."
+      },
+      "72ac9acbb924caefcd2e32ed99bf1ca1c028849d43d48e55207dcd34a339fcb8": {
+        "deepl_english": "They thus arrive at their hotel and may feel better equipped to deal with any further problems.",
+        "english": "The traveller thus arrives at the hotel and may feel more capable of dealing with another problem.",
+        "french": "Il arrive ainsi à son hôtel et peut se sentir plus capable de faire face à un autre problème.",
+        "review_note": "Keep the particular traveller as the clear subject and another problem rather than broadening to any future problems."
       },
       "83635fa474a1254584f5560db45157380dd555ec81e358f92e57e9263562acac": {
         "english": "There’s no need to negotiate every stop or break with a group. This flexibility can make the trip more relaxing for someone whose interests differ from those of their loved ones.",
@@ -1090,6 +1100,12 @@
         "english": "I understand why some people prefer to travel alone: you can decide on your own itinerary and meet new people. It can also help build self-confidence. But I wouldn’t say that this way of travelling suits everyone.",
         "french": "Je comprends qu'on préfère voyager seul : on peut décider de son programme et faire de nouvelles rencontres. Cela peut aussi aider à prendre confiance en soi. Mais je ne dirais pas que cette façon de voyager convient à tout le monde."
       },
+      "ba00734123103ef6bc1d693c570086a686a82bcedffb7a8223dbc7805625cb8b": {
+        "deepl_english": "When a problem arises, you should look for a solution without waiting for a loved one to decide for you. You can ask for information, then weigh up the options and make a choice. Successfully managing this situation can boost your self-confidence.",
+        "english": "When a problem arises, we have to look for a solution without waiting for someone close to us to decide for us. We can ask for information, then compare the options and choose. Successfully handling this situation can build self-confidence.",
+        "french": "Quand un problème survient, on doit chercher une solution sans attendre qu'un proche décide à notre place. On peut demander des renseignements, puis comparer les possibilités et choisir. Réussir à gérer cette situation peut renforcer la confiance en soi.",
+        "review_note": "Keep on doit as the situation's need to act, not advice expressed by should, and preserve the collective viewpoint."
+      },
       "d34160be4cfe7eb11e71866b7c45961115ccaf8ae9a049281b122e581f327de7": {
         "english": "In conclusion, travelling alone can build confidence, offer greater freedom and encourage new encounters. I see it as a personal choice that requires preparation, not as a challenge to be overcome nor as a superior alternative to travelling with others.",
         "french": "En conclusion, le voyage en solitaire peut développer la confiance, laisser plus de liberté et favoriser des rencontres. Je le vois comme un choix personnel à préparer, pas comme une épreuve à réussir ni une formule supérieure au voyage accompagné."
@@ -1097,6 +1113,10 @@
       "e75375813ac85602cb3d038e9f5a9be1d647086741deaaa87b8869367848907b": {
         "english": "Travelling alone does not, therefore, necessarily mean spending all your time on your own.",
         "french": "Voyager seul ne signifie donc pas nécessairement passer tout son temps isolé."
+      },
+      "eb247907128a025c7e3cf3d012c073c01adfbd0756c9ee226b3a8ed6c0549fb8": {
+        "english": "For example, a solo traveller learns that their train has been cancelled. A member of staff offers them a bus or a later train. They compare the timetables and choose the bus so they can arrive before their hotel’s reception closes. They then let the hotel know they’ll be late.",
+        "french": "Par exemple, un voyageur seul apprend que son train est annulé. Un agent lui propose un bus ou un train plus tard. Il compare les horaires et choisit le bus pour arriver avant la fermeture de la réception de son hôtel. Puis il prévient l'hôtel de son retard."
       },
       "ff708349c8d45a86ade0295b7da79cc06b6282a498eb65edfa0b9bad23b46cce": {
         "deepl_english": "Someone who is passionate about art can spend the afternoon at an exhibition and then head home early. They don’t have to cut their visit short to accompany friends who would rather go shopping, nor do they have to ask them to wait for them.",
@@ -8891,7 +8911,7 @@
     }
   },
   "provider": "deepl",
-  "reviewed_at": "2026-11-04T03:52:38.207689+00:00",
+  "reviewed_at": "2026-11-04T04:03:58.083009+00:00",
   "source_language": "FR",
   "target_language": "EN-GB",
   "version": 1

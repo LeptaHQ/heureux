@@ -228,8 +228,9 @@ class CultureEditorialTests(SimpleTestCase):
             "La cuisine permet de connaître la culture des pays. Êtes-vous d'accord ?",
         ),))
         customs, history, practice = response.arguments
-        self.assertIn("comment se servir", customs.developpement)
-        self.assertIn("ce qu'il faut éviter à table", customs.developpement)
+        self.assertIn("Les heures des repas", customs.developpement)
+        self.assertIn("la façon de manger", customs.developpement)
+        self.assertIn("En partageant un repas avec des habitants", customs.developpement)
         self.assertIn("Au Sénégal", customs.exemple)
         self.assertIn("un plat traditionnel de riz et de poisson", customs.exemple)
         self.assertIn("à la main, sans laisser tomber de riz", customs.exemple)
@@ -237,7 +238,9 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("sa femme finit tard", customs.exemple)
         self.assertNotIn("En observant et en posant des questions", response.arguments[0].developpement)
         self.assertIn("l'histoire d'un pays", history.idea)
-        self.assertIn("garder les aliments plus longtemps", history.developpement)
+        self.assertIn("Les ingrédients d'un plat", history.developpement)
+        self.assertIn("vivaient autrefois", history.developpement)
+        self.assertIn("du sel pour garder les aliments plus longtemps", history.developpement)
         self.assertIn("Au Portugal", history.exemple)
         self.assertIn("poisson salé et séché", history.exemple)
         self.assertIn("garder pendant les longs voyages en mer", history.exemple)

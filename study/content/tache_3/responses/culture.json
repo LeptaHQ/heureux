@@ -165,25 +165,25 @@
       "arguments": [
         {
           "idea": "Tout d'abord, le livre reste un outil très puissant pour développer la réflexion et la concentration.",
-          "developpement": "En effet, lire demande de prendre du temps, de suivre une pensée longue et de tenir son attention sur plusieurs pages, parfois plusieurs heures. Cette attention prolongée permet de relier les idées et d'examiner un raisonnement dans son ensemble, plutôt que d'en retenir seulement la conclusion.",
-          "exemple": "Dans un essai sur la place de la voiture en ville, un lecteur suit d'abord les arguments sur la pollution, puis ceux sur les besoins des habitants sans transports en commun. Il peut ainsi comprendre les objections à une interdiction totale.",
-          "consequence": "Cette lecture aide à construire un jugement plus réfléchi, au lieu de s'arrêter à une idée isolée."
+          "developpement": "En effet, lire demande de prendre du temps, de suivre une pensée longue et de tenir son attention sur plusieurs pages, parfois plusieurs heures. On peut ainsi ralentir, relier les idées et examiner un raisonnement dans son ensemble.",
+          "exemple": "Une personne lit un essai sur la voiture en ville une heure chaque soir. Elle suit les arguments sur la pollution, puis ceux sur les besoins des habitants sans transports en commun. Elle comprend ainsi les objections à une interdiction totale.",
+          "consequence": "Cette lecture aide à construire une réflexion plus profonde et plus structurée, au lieu de retenir une idée isolée."
         },
         {
-          "idea": "Ensuite, un ouvrage bien conçu organise des connaissances que l'on peut retrouver.",
-          "developpement": "Une progression, un sommaire et des exemples évitent de chercher chaque information séparément. Cette organisation est utile lorsqu'on commence un domaine et qu'on ne sait pas encore quelles questions poser.",
-          "exemple": "Pour apprendre les bases du jardinage, une personne peut suivre un guide qui présente le sol, les semis puis l'arrosage. Elle retrouve ensuite le chapitre nécessaire lorsqu'une plante pose problème, sans devoir recommencer toute sa recherche.",
-          "consequence": "Le livre sert à la fois de parcours d'apprentissage et de référence."
+          "idea": "Ensuite, un livre bien choisi permet d'acquérir des connaissances solides et durables.",
+          "developpement": "Un ouvrage structuré explique les bases, puis développe le sujet avec des exemples. On peut reprendre un chapitre et vérifier ce qu'on a compris, plutôt que d'accumuler des informations isolées.",
+          "exemple": "Un étudiant prépare un examen d'histoire avec un manuel. Il étudie les causes d'une crise, puis ses conséquences. Une semaine plus tard, il peut encore expliquer ces liens avec ses propres mots.",
+          "consequence": "Il construit ainsi des connaissances organisées, qu'il peut réviser et utiliser plus tard."
         },
         {
-          "idea": "Enfin, les récits donnent accès à des expériences différentes des nôtres.",
-          "developpement": "Un roman peut montrer une situation à travers les pensées d'un personnage. Le lecteur découvre alors non seulement ce qui lui arrive, mais aussi les hésitations et les raisons de ses choix.",
-          "exemple": "Dans un récit d'installation à l'étranger, on peut suivre un personnage qui hésite à parler pendant une réunion. Comprendre sa peur de se tromper aide à réfléchir autrement au silence d'une personne qui apprend une langue.",
-          "consequence": "La lecture peut ainsi nourrir l'imagination et la compréhension d'autrui."
+          "idea": "Enfin, le livre nourrit l'imagination, la sensibilité et l'esprit critique.",
+          "developpement": "Lire un roman ou un témoignage nous fait imaginer les scènes et comprendre les pensées des personnages. On peut se mettre à leur place et réfléchir à leurs choix, même quand leur vie est très différente de la nôtre.",
+          "exemple": "Dans un récit de guerre, un personnage reste auprès de sa mère malade malgré le danger. Le lecteur imagine la peur du personnage et comprend pourquoi partir n'est pas une décision simple.",
+          "consequence": "Cette expérience nourrit la sensibilité et aide à examiner une situation avant de juger les personnes."
         }
       ],
-      "nuance": "Bien sûr, tous les livres ne sont pas fiables ou adaptés à chacun. Une démonstration vidéo peut être plus utile pour apprendre un geste, et un livre peut aussi se lire sur un écran. La qualité du contenu compte davantage que l'opposition entre papier et numérique.",
-      "conclusion": "En conclusion, le livre garde une utilité réelle pour réfléchir, apprendre et découvrir d'autres points de vue. Il ne remplace pas tous les médias, mais ceux-ci ne le rendent pas inutile : leurs usages peuvent se compléter."
+      "nuance": "Cependant, le livre n'est pas la seule manière de s'informer ou de se cultiver. Les documentaires, les podcasts ou les conférences en ligne peuvent aussi être de grande qualité. Un livre peut aussi se lire sur un écran. L'idéal est de combiner ces différentes ressources.",
+      "conclusion": "En conclusion, le livre reste utile pour développer la réflexion, construire des connaissances solides et nourrir l'imagination et la sensibilité. Plutôt que de l'opposer au numérique, je préfère choisir des ressources de qualité qui se complètent."
     },
     "culture-p7": {
       "prompt_signatures": {

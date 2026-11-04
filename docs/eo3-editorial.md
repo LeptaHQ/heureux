@@ -168,6 +168,13 @@ clear without being strong enough to carry a broad claim about wellbeing.
 
 ## Reuse across different questions
 
+The user-supplied [Responses notebook](https://dot-ear-743.notion.site/Responses-32b2e3acbb10806aaec0c9fd2368c252)
+is an EO3 editorial reference. Consult the relevant question alongside the
+preserved original: reuse its strongest applicable arguments, explanations and
+expressions, not generic examples or unsupported comparisons. Adapt to the exact
+consigne and familiar NCLC 7 speech rather than replacing reviewed answers in
+bulk. Preserve source text and learning identities.
+
 Teach the same sound mechanism in the same words when it fits another consigne.
 Reuse a whole argument where its claim, development, example and consequence all
 apply; otherwise reuse only the compatible passage or concrete case. Do not invent

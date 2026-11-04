@@ -153,11 +153,11 @@ class TacheThreeSubjunctiveTests(SimpleTestCase):
             with self.subTest(group=group):
                 self.assertIn(clause, spoken_text(models['eo/tache-3/' + group].response))
 
-    def test_protected_book_model_and_plan_remain_verbatim(self):
+    def test_requested_book_revision_and_plan_remain_verbatim(self):
         directory = Path(__file__).resolve().parents[1] / 'content' / 'tache_3'
         for filename, expected in (
-            ('responses/culture.json', 'c01c6069fe9302d6a8abe2c8c543e757a32104957d8b958d9da6edf9ca7be58e'),
-            ('hints.json', '5e2f11e171028382a01bd8da1ac6d24277954d9a8c82af9c43d7ac941b7442d7'),
+            ('responses/culture.json', '35694b643e86ff1f5f557733c5e014c99890766644ba2cb5b6f4bfabac0eabfc'),
+            ('hints.json', 'bffa163b584925d8bd03b3935772984d37d5a11d459e665bb290467a04a8956e'),
         ):
             with self.subTest(file=filename):
                 text = (directory / filename).read_text()

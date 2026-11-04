@@ -238,8 +238,8 @@
         "english": "Books remain useful for thinking, learning and discovering other experiences."
       },
       "nuance": {
-        "french": "La qualité du contenu compte davantage que l'opposition entre papier et numérique.",
-        "english": "Content quality matters more than the contrast between paper and digital media."
+        "french": "Combiner livres, documentaires et podcasts. Un livre peut aussi se lire sur un écran.",
+        "english": "Combine books, documentaries and podcasts. Books can also be read on a screen."
       },
       "conclusion": {
         "french": "Combiner les livres et d'autres médias selon ce qu'on cherche.",
@@ -258,22 +258,22 @@
         },
         {
           "point": {
-            "french": "Un ouvrage bien conçu organise des connaissances que l'on peut retrouver.",
-            "english": "A well-designed book organises knowledge for later reference."
+            "french": "Un livre bien choisi permet d'acquérir des connaissances solides et durables.",
+            "english": "A well-chosen book helps build solid, lasting knowledge."
           },
           "example": {
-            "french": "Retrouver un chapitre sur l'arrosage dans un guide de jardinage.",
-            "english": "Find the watering chapter again in a gardening guide."
+            "french": "Une semaine plus tard, un étudiant peut encore expliquer les causes et conséquences étudiées dans son manuel.",
+            "english": "A week later, a student can still explain the causes and consequences studied in their textbook."
           }
         },
         {
           "point": {
-            "french": "Les récits donnent accès à des expériences différentes des nôtres.",
-            "english": "Stories offer access to experiences different from our own."
+            "french": "Le livre nourrit l'imagination, la sensibilité et l'esprit critique.",
+            "english": "Books nurture imagination, sensitivity and critical thinking."
           },
           "example": {
-            "french": "Un récit aide à comprendre l'hésitation d'un personnage qui apprend une langue.",
-            "english": "A story helps explain the hesitation of a character learning a language."
+            "french": "Un récit de guerre montre pourquoi un personnage reste auprès de sa mère malade malgré le danger.",
+            "english": "A war narrative shows why a character stays with their sick mother despite the danger."
           }
         }
       ]

@@ -702,7 +702,8 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("suivre une pensée longue", argument.developpement)
         self.assertIn("tenir son attention", argument.developpement)
         self.assertIn("examiner un raisonnement dans son ensemble", argument.developpement)
-        self.assertIn("un jugement plus réfléchi", argument.consequence)
+        self.assertIn("une heure chaque soir", argument.exemple)
+        self.assertIn("une réflexion plus profonde et plus structurée", argument.consequence)
         cue = self.plans[group].arguments[0]
         for language in ("french", "english"):
             point = getattr(cue.point, language)
@@ -710,18 +711,23 @@ class CultureEditorialTests(SimpleTestCase):
             self.assertIn("concentration", point)
         self.assertIn("transports en commun", cue.example.french)
         self.assertIn("public transport", cue.example.english)
-        self.assertIn("un livre peut aussi se lire sur un écran", response.nuance)
+        self.assertIn("Un livre peut aussi se lire sur un écran", response.nuance)
 
-    def test_protected_book_keeps_guided_learning_and_a_characters_point_of_view(self):
+    def test_requested_book_arguments_show_durable_learning_and_a_characters_choices(self):
         learning = self.response(6).arguments[1]
-        for phrase in ("un guide", "le sol, les semis puis l'arrosage", "le chapitre nécessaire"):
+        for phrase in ("examen d'histoire", "les causes d'une crise", "Une semaine plus tard", "il peut encore expliquer", "avec ses propres mots"):
             self.assertIn(phrase, learning.exemple)
-        self.assertIn("lorsqu'on commence un domaine", learning.developpement)
+        self.assertIn("connaissances solides et durables", learning.idea)
+        self.assertIn("vérifier ce qu'on a compris", learning.developpement)
+        self.assertNotIn("beaucoup plus solides", learning.idea)
         story = self.response(6).arguments[2]
-        self.assertIn("les pensées d'un personnage", story.developpement)
-        self.assertIn("hésite à parler pendant une réunion", story.exemple)
-        self.assertIn("peur de se tromper", story.exemple)
-        self.assertIn("compréhension d'autrui", story.consequence)
+        self.assertIn("imaginer les scènes", story.developpement)
+        self.assertIn("réfléchir à leurs choix", story.developpement)
+        self.assertIn("auprès de sa mère malade", story.exemple)
+        self.assertIn("la peur du personnage", story.exemple)
+        self.assertIn("avant de juger les personnes", story.consequence)
+        self.assertNotIn("mieux que la plupart", story.idea)
+        self.assertNotIn("indispensable", self.response(6).conclusion)
 
     def test_reading_alternatives_demonstrate_listening_and_guided_practice(self):
         response = self.response(20)

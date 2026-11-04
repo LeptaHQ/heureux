@@ -261,6 +261,25 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("violence is common among young people", row["english"])
         self.assertNotIn("violence is rife", row["english"])
 
+    def test_requested_book_english_keeps_learning_retention_and_the_characters_choice(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        book = scoped_models()["eo/tache-3/culture-p6"]
+        rows = data["groups"][book.group]
+        self.assertEqual({key for key, _ in book.source_prompts}, {"culture:p6", "education:p8"})
+        example = rows[fingerprint(book.response.arguments[1].exemple)]["english"]
+        self.assertIn("A week later", example)
+        self.assertIn("can still explain these connections in their own words", example)
+        story = rows[fingerprint(book.response.arguments[2].exemple)]
+        self.assertIn("their sick mother's side despite the danger", story["english"])
+        self.assertIn("why leaving is not a simple decision", story["english"])
+        self.assertTrue(story["deepl_english"])
+        self.assertTrue(story["review_note"])
+        nuance = rows[fingerprint(book.response.nuance)]["english"]
+        self.assertIn("A book can also be read on a screen", nuance)
+        self.assertIn("combine these different resources", nuance)
+
 
 class EO3ResponseLanguageViewTests(TestCase):
     @classmethod

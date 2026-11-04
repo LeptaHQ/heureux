@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T00:53:13.150418+00:00",
+  "generated_at": "2026-11-04T01:33:32.756091+00:00",
   "groups": {
     "eo/tache-3/culture-p1": {
       "022ba7408875e257c3e9a06a9eea99bdc30d10b35bdb3b2a5e56152e3f79c74d": {
@@ -1980,13 +1980,33 @@
         "english": "Reading can thus nourish the imagination and our understanding of others.",
         "french": "La lecture peut ainsi nourrir l'imagination et la compréhension d'autrui."
       },
+      "3fc250c05b91d1f7ca4c2ea7407dcbb551a141ac90f57686c3199f0de1f1d645": {
+        "english": "Reading in this way helps to foster deeper and more structured thinking, rather than simply retaining a single isolated idea.",
+        "french": "Cette lecture aide à construire une réflexion plus profonde et plus structurée, au lieu de retenir une idée isolée."
+      },
       "4065212dc1bfb56c026799a5d78ce4f1b0b4718d5d6b49ad68f52d973b8bb67b": {
         "english": "Furthermore, a well-designed book organises knowledge in a way that makes it easy to find.",
         "french": "Ensuite, un ouvrage bien conçu organise des connaissances que l'on peut retrouver."
       },
+      "42a44ae9afe5fdb10bda434c9811742caa69288ce988b50cdf691e42d8d957ea": {
+        "english": "A student is preparing for a history exam using a textbook. They study the causes of a crisis, then its consequences. A week later, they can still explain these connections in their own words.",
+        "french": "Un étudiant prépare un examen d'histoire avec un manuel. Il étudie les causes d'une crise, puis ses conséquences. Une semaine plus tard, il peut encore expliquer ces liens avec ses propres mots."
+      },
+      "4fb6fb19b3283bc353baab07c477443f8d4c2ea90edfbcef782f28db03d04eab": {
+        "english": "In conclusion, books remain useful for developing critical thinking, building a solid foundation of knowledge and nurturing the imagination and sensitivity. Rather than pitting them against digital media, I prefer to choose high-quality resources that complement one another.",
+        "french": "En conclusion, le livre reste utile pour développer la réflexion, construire des connaissances solides et nourrir l'imagination et la sensibilité. Plutôt que de l'opposer au numérique, je préfère choisir des ressources de qualité qui se complètent."
+      },
+      "5428f75d521a458f347a00cdd9cbc37f4bd2378e69e51b7dd954f6e0752a2298": {
+        "english": "Someone reads an essay on cars in the city for an hour every evening. They follow the arguments about pollution, then those concerning the needs of residents without access to public transport. In this way, they come to understand the objections to a total ban.",
+        "french": "Une personne lit un essai sur la voiture en ville une heure chaque soir. Elle suit les arguments sur la pollution, puis ceux sur les besoins des habitants sans transports en commun. Elle comprend ainsi les objections à une interdiction totale."
+      },
       "5b6a1e000a74417ac60b4db1bf6b0638e33d3b24cd0e6aa4c81197e1c85277f7": {
         "english": "Reading helps us form a more considered judgement, rather than stopping at a single idea.",
         "french": "Cette lecture aide à construire un jugement plus réfléchi, au lieu de s'arrêter à une idée isolée."
+      },
+      "659f7267435850ea25fa30d3f95a097d1dd4b433be63ddc9a5eece412d98170f": {
+        "english": "However, books are not the only way to stay informed or broaden one’s horizons. Documentaries, podcasts and online lectures can also be of high quality. A book can also be read on a screen. The ideal approach is to combine these different resources.",
+        "french": "Cependant, le livre n'est pas la seule manière de s'informer ou de se cultiver. Les documentaires, les podcasts ou les conférences en ligne peuvent aussi être de grande qualité. Un livre peut aussi se lire sur un écran. L'idéal est de combiner ces différentes ressources."
       },
       "65d2766434f9dc0992233b5a21c9bff47fe00e82a251d41e5dd82e6b21d2f5f2": {
         "english": "A step-by-step guide, a table of contents and examples save you from having to search for each piece of information separately. This structure is useful when you’re starting out in a new field and don’t yet know what questions to ask.",
@@ -1998,6 +2018,10 @@
         "french": "Je ne pense pas que le livre soit devenu inutile. Les vidéos et les outils numériques ont leur place, mais ils ne font pas disparaître l'intérêt de la lecture. Un livre permet notamment de suivre une réflexion, d'apprendre de façon organisée et d'explorer d'autres expériences.",
         "review_note": "Ne font pas disparaître denies eliminating reading's value, not any diminution of it."
       },
+      "7c12b14f8684cca05ce4587d6ebab427aeaed325a9900ea88544c6704dbbb0a5": {
+        "english": "Finally, books nourish the imagination, sensitivity and critical thinking.",
+        "french": "Enfin, le livre nourrit l'imagination, la sensibilité et l'esprit critique."
+      },
       "8264a8752ca14b58c9cb9979fd123a2c8229dc5295967e697542c0e38154b63e": {
         "english": "Of course, not all books are reliable or suitable for everyone. A video demonstration may be more useful for learning a skill, and a book can also be read on a screen. The quality of the content matters more than the debate between print and digital.",
         "french": "Bien sûr, tous les livres ne sont pas fiables ou adaptés à chacun. Une démonstration vidéo peut être plus utile pour apprendre un geste, et un livre peut aussi se lire sur un écran. La qualité du contenu compte davantage que l'opposition entre papier et numérique."
@@ -2006,21 +2030,51 @@
         "english": "Indeed, reading requires taking time, following a line of thought over a longer period and sustaining one’s attention across several pages, sometimes for several hours. This sustained attention allows us to connect ideas and examine a line of reasoning as a whole, rather than merely retaining the conclusion.",
         "french": "En effet, lire demande de prendre du temps, de suivre une pensée longue et de tenir son attention sur plusieurs pages, parfois plusieurs heures. Cette attention prolongée permet de relier les idées et d'examiner un raisonnement dans son ensemble, plutôt que d'en retenir seulement la conclusion."
       },
+      "929efdfe485def3acf71a24502ca9d9efdacf954a5dbe46a9739f6ad55216316": {
+        "english": "A well-structured book explains the basics and then explores the subject in greater depth using examples. You can go back to a chapter and check what you’ve understood, rather than simply accumulating isolated pieces of information.",
+        "french": "Un ouvrage structuré explique les bases, puis développe le sujet avec des exemples. On peut reprendre un chapitre et vérifier ce qu'on a compris, plutôt que d'accumuler des informations isolées."
+      },
+      "9f1166d734d1654719580ac42346d46287e9ff1b92e2c03e5e9ba7031621e90a": {
+        "english": "In this way, they build up organised knowledge, which they can revise and use later on.",
+        "french": "Il construit ainsi des connaissances organisées, qu'il peut réviser et utiliser plus tard."
+      },
+      "c0adc16442ada07084bc40aede1d486ee29f3cc1d24ee5c825aa3d16e93eb75c": {
+        "english": "Furthermore, a well-chosen book enables one to acquire solid and lasting knowledge.",
+        "french": "Ensuite, un livre bien choisi permet d'acquérir des connaissances solides et durables."
+      },
       "d3ef7379b6908833825ea40833a6f6a1de883a289ddef4546357b16258ca8b9c": {
         "english": "Books serve both as a learning journey and as a reference.",
         "french": "Le livre sert à la fois de parcours d'apprentissage et de référence."
+      },
+      "da065139aa2bd75466357392e19f1ef2fa466a69b4cbacad6b200eaeb75b470b": {
+        "english": "Reading a novel or a personal account allows us to visualise the scenes and understand the characters’ thoughts. We can put ourselves in their shoes and reflect on their choices, even when their lives are very different from our own.",
+        "french": "Lire un roman ou un témoignage nous fait imaginer les scènes et comprendre les pensées des personnages. On peut se mettre à leur place et réfléchir à leurs choix, même quand leur vie est très différente de la nôtre."
       },
       "dd196af962272e3a5e09487979b11e676120af1b594c98af0d94b6d4fafe67c6": {
         "english": "A novel can depict a situation through a character’s thoughts. The reader then discovers not only what happens to the character, but also their hesitations and the reasons behind their choices.",
         "french": "Un roman peut montrer une situation à travers les pensées d'un personnage. Le lecteur découvre alors non seulement ce qui lui arrive, mais aussi les hésitations et les raisons de ses choix."
       },
+      "e00429a9b3f62954971f98917f9c05869f037cac48dee35927773baf1c1b7439": {
+        "deepl_english": "In a war story, a character stays by his sick mother’s side despite the danger. The reader imagines the character’s fear and understands why leaving is not a simple decision.",
+        "english": "In a war story, a character stays by their sick mother's side despite the danger. The reader imagines the character's fear and understands why leaving is not a simple decision.",
+        "french": "Dans un récit de guerre, un personnage reste auprès de sa mère malade malgré le danger. Le lecteur imagine la peur du personnage et comprend pourquoi partir n'est pas une décision simple.",
+        "review_note": "Un personnage does not specify the character's gender; retain a clear gender-neutral possessive without changing the choice or danger."
+      },
       "e59497831268cf773991b95b13bc898cdadd7d744d6e6404ac4283dc6e6d7352": {
         "english": "Finally, stories give us access to experiences different from our own.",
         "french": "Enfin, les récits donnent accès à des expériences différentes des nôtres."
       },
+      "f01ad7118b1768046f50d346d66164a45a6d874f3a1469dbc00a95be1d60e8a8": {
+        "english": "Indeed, reading requires taking time, following a line of thought over a longer period and sustaining one’s attention across several pages, sometimes for several hours. This allows us to slow down, connect ideas and examine a line of reasoning as a whole.",
+        "french": "En effet, lire demande de prendre du temps, de suivre une pensée longue et de tenir son attention sur plusieurs pages, parfois plusieurs heures. On peut ainsi ralentir, relier les idées et examiner un raisonnement dans son ensemble."
+      },
       "f202ad882a20323c9cb0c22e4c1e3e7d47787384dadbad7323910575df42d56e": {
         "english": "To learn the basics of gardening, someone might follow a guide that covers soil, sowing and then watering. They can then refer back to the relevant chapter when a plant presents a problem, without having to start their research all over again.",
         "french": "Pour apprendre les bases du jardinage, une personne peut suivre un guide qui présente le sol, les semis puis l'arrosage. Elle retrouve ensuite le chapitre nécessaire lorsqu'une plante pose problème, sans devoir recommencer toute sa recherche."
+      },
+      "f407becc079ce41071e27cd04b7926320c6e8117d586b07778c61838466976bc": {
+        "english": "This experience nurtures sensitivity and helps us to examine a situation before judging people.",
+        "french": "Cette expérience nourrit la sensibilité et aide à examiner une situation avant de juger les personnes."
       },
       "f7fe30a6cd415b6a721e0e7a6abe9a6c490b807707b3e23fd986774a97833361": {
         "english": "First and foremost, books remain a very powerful tool for developing critical thinking and concentration.",
@@ -8831,7 +8885,7 @@
     }
   },
   "provider": "deepl",
-  "reviewed_at": "2026-11-04T00:54:29.403251+00:00",
+  "reviewed_at": "2026-11-04T01:34:03.316713+00:00",
   "source_language": "FR",
   "target_language": "EN-GB",
   "version": 1

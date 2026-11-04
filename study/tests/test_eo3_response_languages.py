@@ -263,6 +263,18 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("violence is common among young people", row["english"])
         self.assertNotIn("violence is rife", row["english"])
 
+    def test_shared_family_letter_result_states_the_readers_gain(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        expected = "Reading this helps the young woman to gain a better understanding of her grandmother’s early days abroad."
+        for group in ("eo/tache-3/culture-p18", "eo/tache-3/technologie-p12"):
+            result = scoped_models()[group].response.arguments[2].consequence
+            row = data["groups"][group][fingerprint(result)]
+            self.assertEqual(row["english"], expected)
+            self.assertIn("à la jeune femme", row["french"])
+            self.assertIn("sa grand-mère à l'étranger", row["french"])
+
     def test_solo_travel_english_keeps_information_seeking_distinct_from_the_travellers_decision(self):
         data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
         if not data["groups"]:

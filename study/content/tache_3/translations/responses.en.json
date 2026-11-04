@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T04:03:26.616386+00:00",
+  "generated_at": "2026-11-04T04:22:01.253132+00:00",
   "groups": {
     "eo/tache-3/culture-p1": {
       "022ba7408875e257c3e9a06a9eea99bdc30d10b35bdb3b2a5e56152e3f79c74d": {
@@ -775,6 +775,10 @@
       "d634f3738d71a3ff52c36fdc2e83ef16263681e878701ef729fc3a879b769c94": {
         "english": "Finally, letters can serve as a record of family history.",
         "french": "Enfin, les lettres peuvent garder une trace de l'histoire familiale."
+      },
+      "f1f21fbc28cce65581f24a80a9ce5d0c895a1885da43332ed0c88dab1fbf6f6c": {
+        "english": "Reading this helps the young woman to gain a better understanding of her grandmother’s early days abroad.",
+        "french": "Cette lecture permet à la jeune femme de mieux connaître les débuts de sa grand-mère à l'étranger."
       },
       "f5e81b117d7996aa6ecafd6a626eaeb913ee83522477857da83648d1162d7390": {
         "english": "First and foremost, a personal letter can show that you’ve been thinking of someone.",
@@ -7854,6 +7858,10 @@
         "english": "Finally, letters can serve as a record of family history.",
         "french": "Enfin, les lettres peuvent garder une trace de l'histoire familiale."
       },
+      "f1f21fbc28cce65581f24a80a9ce5d0c895a1885da43332ed0c88dab1fbf6f6c": {
+        "english": "Reading this helps the young woman to gain a better understanding of her grandmother’s early days abroad.",
+        "french": "Cette lecture permet à la jeune femme de mieux connaître les débuts de sa grand-mère à l'étranger."
+      },
       "f5e81b117d7996aa6ecafd6a626eaeb913ee83522477857da83648d1162d7390": {
         "english": "First and foremost, a personal letter can show that you’ve been thinking of someone.",
         "french": "Tout d'abord, une lettre personnelle peut montrer qu'on a pensé à quelqu'un."
@@ -8911,7 +8919,7 @@
     }
   },
   "provider": "deepl",
-  "reviewed_at": "2026-11-04T04:03:58.083009+00:00",
+  "reviewed_at": "2026-11-04T04:22:26.312126+00:00",
   "source_language": "FR",
   "target_language": "EN-GB",
   "version": 1

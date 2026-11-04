@@ -234,6 +234,13 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.nuance)]
         self.assertIn("Learning the language can also help", row["english"])
         self.assertNotIn("must also explore the language", row["english"])
+        row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[0].developpement)]
+        self.assertIn("Mealtimes", row["english"])
+        self.assertIn("the way people eat", row["english"])
+        row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[1].developpement)]
+        self.assertIn("ingredients in a dish", row["english"])
+        self.assertIn("salt was used to preserve food", row["english"])
+        self.assertIn("This practice", row["english"])
         older = scoped_models()["eo/tache-3/culture-p8"]
         row = data["groups"][older.group][fingerprint(older.response.arguments[0].exemple)]
         self.assertIn("arguing with their parents", row["english"])

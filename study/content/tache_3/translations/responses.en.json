@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T07:09:30.308035+00:00",
+  "generated_at": "2026-11-04T00:36:58.188287+00:00",
   "groups": {
     "eo/tache-3/culture-p1": {
       "022ba7408875e257c3e9a06a9eea99bdc30d10b35bdb3b2a5e56152e3f79c74d": {
@@ -494,6 +494,12 @@
         "french": "Le visiteur découvre donc une habitude du pays, pas seulement un nouveau plat.",
         "review_note": "Retain the particular visitor in the example instead of generalising to all visitors."
       },
+      "8fb9a76ed9f921b6bdf5e4795b9c0b952f160b210bf2fe36de364d3c5afc8608": {
+        "deepl_english": "Meal times and eating habits are also part of the culture. By sharing a meal with locals, we can discover these customs.",
+        "english": "Mealtimes and the way people eat are also part of the culture. By sharing a meal with local people, we can discover these habits.",
+        "french": "Les heures des repas et la façon de manger font aussi partie de la culture. En partageant un repas avec des habitants, on peut découvrir ces habitudes.",
+        "review_note": "Make la façon de manger explicit as the manner of eating, not just diet or meal frequency."
+      },
       "916db993a8e1a2743f2d8903f972208b635c4c7aa8047fca48a813a8a72b6a21": {
         "deepl_english": "This helps us understand the link between a country’s cuisine and seafaring traditions.",
         "english": "This helps us understand the link between the country's cooking and sea voyages.",
@@ -533,6 +539,10 @@
       "d6f9e02cfcc65ba3120646ca5f6c5b1652a58c450d1645cd32b1dfc7bec68fa9": {
         "english": "However, a single dish or restaurant does not represent an entire country. Customs vary depending on the region, the family and the budget. To gain a deeper understanding, we also need to explore other aspects of the country, such as its history or everyday life. Learning the language can also help us.",
         "french": "Cependant, un plat ou un restaurant ne montre pas tout un pays. Les habitudes changent selon les régions, les familles et le budget. Pour aller plus loin, il faut qu'on découvre aussi d'autres aspects du pays, comme son histoire ou la vie de tous les jours. Apprendre sa langue peut aussi nous aider."
+      },
+      "db620d016bc7e83d584e3a35d8a5e4d00089899448c0e5e74d4c57ff5197435f": {
+        "english": "The ingredients in a dish can reveal how people used to live. For example, salt was used to preserve food for longer. This practice can still be found in some recipes.",
+        "french": "Les ingrédients d'un plat peuvent montrer comment les gens vivaient autrefois. On utilisait par exemple du sel pour garder les aliments plus longtemps. Cette façon de faire se retrouve encore dans certaines recettes."
       },
       "e42429724bb9bdab36107f3227f7c4eb724367c2cdc6cc6277c21cead2f122b6": {
         "english": "So we learn one way of cooking from that country, even without speaking the language very well.",
@@ -8789,7 +8799,7 @@
     }
   },
   "provider": "deepl",
-  "reviewed_at": "2026-11-03T07:11:52.919968+00:00",
+  "reviewed_at": "2026-11-04T00:38:05.313422+00:00",
   "source_language": "FR",
   "target_language": "EN-GB",
   "version": 1

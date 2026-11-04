@@ -751,6 +751,8 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("une explication plus claire", reflection.consequence)
         for phrase in ("une boîte de famille", "sa grand-mère avait envoyée", "travail dans un café", "la petite chambre qu'elle louait"):
             self.assertIn(phrase, memory.exemple)
+        self.assertIn("à la jeune femme", memory.consequence)
+        self.assertIn("mieux connaître les débuts de sa grand-mère à l'étranger", memory.consequence)
         self.assertNotIn("compte numérique", memory.idea)
         self.assertIn("se perdre", self.response(18).nuance)
 

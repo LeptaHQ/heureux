@@ -228,8 +228,9 @@ class CultureEditorialTests(SimpleTestCase):
             "La cuisine permet de connaître la culture des pays. Êtes-vous d'accord ?",
         ),))
         customs, history, practice = response.arguments
-        self.assertIn("Les heures des repas", customs.developpement)
-        self.assertIn("la façon de manger", customs.developpement)
+        self.assertIn("un moment passé ensemble", customs.developpement)
+        self.assertIn("à quelle heure ils mangent", customs.developpement)
+        self.assertIn("avec qui et comment ils partagent les plats", customs.developpement)
         self.assertIn("En partageant un repas avec des habitants", customs.developpement)
         self.assertIn("Au Sénégal", customs.exemple)
         self.assertIn("un repas de riz et de poisson", customs.exemple)

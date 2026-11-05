@@ -222,11 +222,11 @@
       },
       "reformulation": "L'amitié est-elle une condition nécessaire pour bien vivre ?",
       "position": "L'amitié apporte beaucoup, mais n'est pas l'unique manière de construire une vie satisfaisante.",
-      "position_claire": "Je recommande de cultiver des amitiés, mais on peut aussi bien vivre sans amis. Les besoins et les autres relations varient. L'amitié apporte surtout un soutien concret, une présence régulière et une ouverture à d'autres expériences.",
+      "position_claire": "Je recommande de cultiver des amitiés, mais on peut aussi bien vivre sans amis. Les besoins et les autres relations varient. L'amitié apporte surtout un soutien concret, une présence régulière et un encouragement à se dépasser.",
       "arguments": [
         {
           "idea": "Tout d'abord, un ami de confiance peut apporter une aide concrète quand on a du mal à tout gérer seul.",
-          "developpement": "Quand on est malade ou très fatigué, un déplacement peut devenir difficile. Un ami disponible peut prendre le relais pour le transport et nous accompagner.",
+          "developpement": "Quand on est malade, certaines tâches restent nécessaires alors qu'on a moins de forces. Un ami disponible peut en prendre une partie en charge pour nous soulager.",
           "exemple": "Une personne malade doit se rendre à une consultation de suivi à l'hôpital. Un ami vient la chercher, l'accompagne jusqu'au service où elle a rendez-vous, puis la ramène chez elle.",
           "consequence": "Elle peut ainsi se rendre à sa consultation sans devoir assurer seule un trajet difficile."
         },
@@ -237,14 +237,14 @@
           "consequence": "Ce rendez-vous peut ainsi aider à se sentir moins seul et donner un repère dans la semaine."
         },
         {
-          "idea": "Enfin, les amis peuvent nous encourager à essayer de nouvelles activités.",
-          "developpement": "Entrer dans un groupe où l'on ne connaît personne peut être intimidant. Y aller avec un ami peut rendre le premier pas plus facile, sans qu'il décide à notre place. On ose alors essayer, plutôt que renoncer à une activité qui nous attire.",
-          "exemple": "Une personne qui aimerait chanter mais n'ose pas peut accompagner un ami à une séance d'essai dans une chorale. Elle découvre l'ambiance avant de décider si elle souhaite continuer, plutôt que de renoncer sans avoir essayé.",
-          "consequence": "On peut ainsi découvrir une activité qui nous plaît, au lieu d'y renoncer par hésitation."
+          "idea": "Enfin, les amis peuvent nous encourager à nous dépasser.",
+          "developpement": "On peut hésiter à se lancer parce qu'on doute de ses capacités. Un ami peut nous encourager à essayer, puis à persévérer malgré les difficultés, sans qu'il décide à notre place.",
+          "exemple": "Une personne aimerait chanter mais n'ose pas rejoindre une chorale. Un ami l'accompagne à une séance d'essai, puis l'encourage à poursuivre. Elle répète chaque semaine et, quelques mois plus tard, participe à son premier concert.",
+          "consequence": "Cet encouragement peut ainsi nous aider à réaliser un projet, plutôt qu'à y renoncer par manque de confiance."
         }
       ],
       "nuance": "Cependant, ne pas avoir d'amis ne veut pas dire vivre sans aucun lien. Une personne sans amis peut partager son quotidien avec son conjoint et compter sur sa sœur pour un coup de main. Ces liens peuvent lui permettre de bien vivre sans cercle amical. Il faut distinguer une solitude choisie d'un isolement qui fait souffrir.",
-      "conclusion": "En conclusion, les amis peuvent faciliter la vie, aider à se sentir moins seul et nous encourager à essayer de nouvelles activités. Ils apportent beaucoup, sans être indispensables à chacun : d'autres relations peuvent aussi nous permettre de bien vivre."
+      "conclusion": "En conclusion, les amis peuvent faciliter la vie, aider à se sentir moins seul et nous encourager à nous dépasser. Ils apportent beaucoup, sans être indispensables à chacun : d'autres relations peuvent aussi nous permettre de bien vivre."
     },
     "famille-p10": {
       "prompt_signatures": {

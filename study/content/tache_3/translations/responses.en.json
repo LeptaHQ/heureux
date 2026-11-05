@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T08:41:37.364664+00:00",
+  "generated_at": "2026-11-05T03:26:14.080137+00:00",
   "groups": {
     "eo/tache-3/culture-p1": {
       "022ba7408875e257c3e9a06a9eea99bdc30d10b35bdb3b2a5e56152e3f79c74d": {
@@ -6342,6 +6342,10 @@
         "english": "A relationship built on trust allows us to hear a different point of view and try an activity we might not have chosen on our own. This openness can enrich our lives without us having to follow every piece of advice.",
         "french": "Une relation de confiance permet de recevoir un avis différent et d'essayer une activité que l'on n'aurait pas choisie seul. Cette ouverture peut enrichir notre vie sans qu'on soit obligé de suivre tous les conseils."
       },
+      "1230741bcebfbeefb53d496a0a1305e262fe40edb0a1c324cf4792ed34441088": {
+        "english": "In conclusion, friends can make life easier, help us feel less lonely and encourage us to push ourselves. They offer a great deal, without being essential to everyone: other relationships can also enable us to live well.",
+        "french": "En conclusion, les amis peuvent faciliter la vie, aider à se sentir moins seul et nous encourager à nous dépasser. Ils apportent beaucoup, sans être indispensables à chacun : d'autres relations peuvent aussi nous permettre de bien vivre."
+      },
       "2ae4046d5a6641fce5bc4ede2db9e21d74c67186a460b87ec0e7fb21386949c5": {
         "english": "A friend who understands our situation can offer tailored advice or take over a task. We don’t have to organise everything on our own, even if their help is voluntary and depends on what they’re able to do.",
         "french": "Un ami qui connaît notre situation peut donner un conseil adapté ou prendre le relais pour une tâche. On n'a pas à tout organiser seul, même si son aide reste libre et dépend de ses possibilités."
@@ -6349,6 +6353,10 @@
       "32453b2f9e65ba34694251aaa6fa8ee80095b6938b9ee49b6d87715eb3e5f8fc": {
         "english": "Being able to meet up regularly allows us to share our daily lives. Knowing that a friend is checking in on us can help us feel less lonely, especially when we don’t see many people.",
         "french": "Pouvoir se retrouver régulièrement permet de partager son quotidien. Savoir qu'un ami prend de nos nouvelles peut aider à se sentir moins seul, surtout quand on voit peu de monde."
+      },
+      "328b9c20b116410ccf1d5cd07ac4f42fb13e85c8698706a766806db1293cac2d": {
+        "english": "This encouragement can thus help us to carry out a project, rather than giving up on it due to a lack of confidence.",
+        "french": "Cet encouragement peut ainsi nous aider à réaliser un projet, plutôt qu'à y renoncer par manque de confiance."
       },
       "3f238958b34850e1c2c2d3f61f838b9941394a8344d56ea3cb92f0633a20d84a": {
         "deepl_english": "This get-together can therefore help you feel less lonely and provide a regular highlight in your week.",
@@ -6374,6 +6382,10 @@
         "english": "Joining a group where you don’t know anyone can be daunting. Going along with a friend can make that first step easier, without them making the decision for you. You then feel confident enough to give it a go, rather than giving up on an activity that appeals to you.",
         "french": "Entrer dans un groupe où l'on ne connaît personne peut être intimidant. Y aller avec un ami peut rendre le premier pas plus facile, sans qu'il décide à notre place. On ose alors essayer, plutôt que renoncer à une activité qui nous attire."
       },
+      "80201f4b40cf5b19e121f628e23d3a5958b032c8ad4778dd788ec28b4de174b9": {
+        "english": "Finally, friends can encourage us to push ourselves.",
+        "french": "Enfin, les amis peuvent nous encourager à nous dépasser."
+      },
       "85969da96f6026bf7a72718d8e5d73de0fb53360d7a73343b1f4291a21369c0a": {
         "deepl_english": "When moving house, a person might ask a friend to help carry a few boxes for an hour. They agree on a time and what is feasible, and then she can return the favour on another occasion.",
         "english": "When moving house, a person might ask a friend to help carry a few boxes for an hour. They agree on a time and what is feasible, and the person moving can then return the favour on another occasion.",
@@ -6397,6 +6409,10 @@
         "english": "The person can therefore attend the appointment without having to manage a difficult journey alone.",
         "french": "Elle peut ainsi se rendre à sa consultation sans devoir assurer seule un trajet difficile.",
         "review_note": "Keep the gender-unspecified person receiving help as the clear subject, consistently with the preceding example."
+      },
+      "a1917417a64911df875a34f776341b144781e6ec1d3b68e2f78978f561bb8c09": {
+        "english": "I recommend nurturing friendships, but it is also possible to live well without friends. Needs and other relationships vary. Above all, friendship provides practical support, a regular presence and encouragement to push ourselves further.",
+        "french": "Je recommande de cultiver des amitiés, mais on peut aussi bien vivre sans amis. Les besoins et les autres relations varient. L'amitié apporte surtout un soutien concret, une présence régulière et un encouragement à se dépasser."
       },
       "a82d7f687ee8611f87a7eb0c881a502f922654259fdfd0bc5184dfe14b5da78b": {
         "deepl_english": "When you’re hesitant to join a group where you don’t know anyone, going along with a friend can make that first step easier. You’ll then feel confident enough to give it a go, rather than giving up on an activity that appeals to you.",
@@ -6437,6 +6453,18 @@
       "e1776c168429c9cd66d1f402c6d24d278e16a8da72f6f4451822024af1ac001f": {
         "english": "This means we can discover an activity we enjoy, rather than giving it up out of hesitation.",
         "french": "On peut ainsi découvrir une activité qui nous plaît, au lieu d'y renoncer par hésitation."
+      },
+      "f4f6d655898cb37bb7ac4e4cc8ef51de7f1df8d6c5c271ba23597189a5f388b7": {
+        "english": "Someone would like to sing but doesn’t dare join a choir. A friend accompanies them to a trial session, then encourages them to carry on. They practise every week and, a few months later, take part in their first concert.",
+        "french": "Une personne aimerait chanter mais n'ose pas rejoindre une chorale. Un ami l'accompagne à une séance d'essai, puis l'encourage à poursuivre. Elle répète chaque semaine et, quelques mois plus tard, participe à son premier concert."
+      },
+      "f96128aa1c431fbd4e1f8bd13c5774773b72f7cbec430fcdc1f56048fcc6931f": {
+        "english": "We may hesitate to take the plunge because we doubt our own abilities. A friend can encourage us to give it a go, and then to persevere despite the difficulties, without making the decision for us.",
+        "french": "On peut hésiter à se lancer parce qu'on doute de ses capacités. Un ami peut nous encourager à essayer, puis à persévérer malgré les difficultés, sans qu'il décide à notre place."
+      },
+      "ffc72aa41c6aca19924a6028a33ca508419d350bdc2141e6c0676a29a0f13ee1": {
+        "english": "When we are ill, certain tasks still need to be done even though we have less energy. A friend who is available can take some of the burden off us to make things easier.",
+        "french": "Quand on est malade, certaines tâches restent nécessaires alors qu'on a moins de forces. Un ami disponible peut en prendre une partie en charge pour nous soulager."
       }
     },
     "eo/tache-3/sante-p1": {
@@ -9011,7 +9039,7 @@
     }
   },
   "provider": "deepl",
-  "reviewed_at": "2026-11-04T08:42:14.463904+00:00",
+  "reviewed_at": "2026-11-05T03:27:36.999059+00:00",
   "source_language": "FR",
   "target_language": "EN-GB",
   "version": 1

@@ -5507,13 +5507,24 @@ class BrowserTests(StaticLiveServerTestCase):
         root.get_by_role("button", name="Anglais", exact=True).click()
         expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
         help_ = root.locator('[data-eo3-english="argument-1-developpement"]')
-        expect(help_).to_contain_text("take care of transport and accompany us")
+        expect(help_).to_contain_text("tasks still need to be done")
+        expect(help_).to_contain_text("we have less energy")
+        expect(help_).to_contain_text("take some of the burden off us")
         expect(help_).not_to_contain_text("driving")
         expect(root.locator('[data-eo3-english="argument-1-exemple"]')).to_contain_text(
             "follow-up appointment at the hospital",
         )
         expect(root.locator('[data-eo3-english="argument-3-developpement"]')).to_contain_text(
-            "can make that first step easier",
+            "to persevere despite the difficulties",
+        )
+        expect(root.locator('[data-eo3-english="argument-3-developpement"]')).to_contain_text(
+            "without making the decision for us",
+        )
+        expect(root.locator('[data-eo3-english="argument-3-exemple"]')).to_contain_text(
+            "They practise every week",
+        )
+        expect(root.locator('[data-eo3-english="argument-3-exemple"]')).to_contain_text(
+            "their first concert",
         )
         self.assert_no_horizontal_overflow()
 

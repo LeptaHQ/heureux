@@ -414,10 +414,12 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p9"]
         rows = data["groups"][model.group]
-        help_, company, discovery = model.response.arguments
+        help_, company, growth = model.response.arguments
         development = rows[fingerprint(help_.developpement)]["english"]
-        self.assertIn("making a journey can become difficult", development)
-        self.assertIn("take care of transport and accompany us", development)
+        self.assertIn("tasks still need to be done", development)
+        self.assertIn("we have less energy", development)
+        self.assertIn("A friend who is available can", development)
+        self.assertIn("take some of the burden off us", development)
         self.assertNotIn("driving", development)
         example = rows[fingerprint(help_.exemple)]["english"]
         self.assertIn("follow-up appointment at the hospital", example)
@@ -427,11 +429,13 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertTrue(result.startswith("The person"))
         self.assertIn("without having to manage a difficult journey alone", result)
         self.assertIn("every Saturday", rows[fingerprint(company.exemple)]["english"])
-        discovery_text = rows[fingerprint(discovery.developpement)]["english"]
-        self.assertIn("can make that first step easier", discovery_text)
-        self.assertIn("without them making the decision for you", discovery_text)
-        self.assertIn("an activity that appeals to you", discovery_text)
-        self.assertNotIn("You’ll", discovery_text)
+        growth_text = rows[fingerprint(growth.developpement)]["english"]
+        self.assertIn("we doubt our own abilities", growth_text)
+        self.assertIn("to persevere despite the difficulties", growth_text)
+        self.assertIn("without making the decision for us", growth_text)
+        growth_example = rows[fingerprint(growth.exemple)]["english"]
+        self.assertIn("They practise every week", growth_example)
+        self.assertIn("their first concert", growth_example)
 
     def test_personal_music_example_keeps_progress_enjoyment_and_lack_of_friends(self):
         data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))

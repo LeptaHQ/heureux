@@ -1786,12 +1786,12 @@
         },
         {
           "point": {
-            "french": "Les amis peuvent nous encourager à essayer de nouvelles activités.",
-            "english": "Friends can encourage us to try something new."
+            "french": "Les amis peuvent nous encourager à nous dépasser.",
+            "english": "Friends can encourage us to challenge ourselves."
           },
           "example": {
-            "french": "Accompagner un ami à une chorale permet d'essayer avant de choisir.",
-            "english": "Joining a friend at a choir lets someone try it before choosing."
+            "french": "Chorale : encouragement d'un ami, répétitions régulières puis premier concert.",
+            "english": "Choir: encouragement from a friend, regular rehearsals, then a first concert."
           }
         }
       ]

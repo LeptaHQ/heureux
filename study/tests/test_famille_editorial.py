@@ -206,7 +206,7 @@ class FamilleEditorialTests(SimpleTestCase):
             (7, 2, ("son cousin", "vingt heures par semaine", "ses missions", "sa rémunération", "un samedi supplémentaire", "gratuitement")),
             (9, 0, ("Une personne malade", "consultation de suivi à l'hôpital", "Un ami vient la chercher", "jusqu'au service", "puis la ramène chez elle")),
             (9, 1, ("vit seule et travaille chez elle", "une promenade chaque samedi", "raconte sa semaine", "la semaine suivante")),
-            (9, 2, ("aimerait chanter mais n'ose pas", "accompagner un ami", "séance d'essai dans une chorale")),
+            (9, 2, ("aimerait chanter mais n'ose pas", "Un ami l'accompagne", "séance d'essai", "répète chaque semaine", "premier concert")),
             (10, 1, ("menuiserie", "ses doutes", "sur son revenu", "projet plus clair")),
             (10, 2, ("une autre ville", "sans répéter ses confidences", "comparer les logements")),
             (11, 1, ("Deux sœurs", "quarante euros par mois", "vingt euros chacune", "deux abonnements au lieu d'un")),
@@ -230,18 +230,18 @@ class FamilleEditorialTests(SimpleTestCase):
         self.assertIn("tante âgée", older_adviser.french)
         self.assertIn("older aunt", older_adviser.english)
 
-    def test_friendship_help_company_and_discovery_explain_distinct_mechanisms(self):
-        help_, company, discovery = self.response(9).arguments
-        self.assertIn("un déplacement peut devenir difficile", help_.developpement)
+    def test_friendship_help_company_and_growth_explain_distinct_mechanisms(self):
+        help_, company, growth = self.response(9).arguments
+        self.assertIn("restent nécessaires alors qu'on a moins de forces", help_.developpement)
         self.assertIn("Un ami disponible", help_.developpement)
         self.assertIn("se rendre à sa consultation", help_.consequence)
         self.assertIn("partager son quotidien", company.developpement)
         self.assertIn("un repère dans la semaine", company.consequence)
-        self.assertIn("un groupe où l'on ne connaît personne", discovery.developpement)
-        self.assertIn("le premier pas plus facile", discovery.developpement)
-        self.assertIn("une activité qui nous plaît", discovery.consequence)
+        self.assertIn("on doute de ses capacités", growth.developpement)
+        self.assertIn("persévérer malgré les difficultés", growth.developpement)
+        self.assertIn("réaliser un projet", growth.consequence)
         self.assertNotIn("un avis différent", help_.developpement)
-        self.assertNotIn("un avis différent", discovery.developpement)
+        self.assertNotIn("un avis différent", growth.developpement)
 
     def test_personal_advice_compares_choices_against_the_learners_needs(self):
         advice = self.response(3).arguments[1]
@@ -273,6 +273,21 @@ class FamilleEditorialTests(SimpleTestCase):
         self.assertIn("En continuant à la parler, ils peuvent", communication.developpement)
         self.assertIn("Dans la langue familiale", communication.exemple)
         self.assertIn("parler en détail de ce que l'enfant ressent", communication.consequence)
+
+    def test_practical_help_explains_shared_effort_before_the_hospital_example(self):
+        support = self.response(9).arguments[0]
+        self.assertIn("restent nécessaires alors qu'on a moins de forces", support.developpement)
+        self.assertIn("prendre une partie en charge", support.developpement)
+        self.assertIn("consultation de suivi à l'hôpital", support.exemple)
+
+    def test_friendship_encouragement_supports_progress_beyond_a_first_attempt(self):
+        progress = self.response(9).arguments[2]
+        self.assertIn("nous dépasser", progress.idea)
+        self.assertIn("persévérer malgré les difficultés", progress.developpement)
+        self.assertIn("sans qu'il décide à notre place", progress.developpement)
+        self.assertIn("répète chaque semaine", progress.exemple)
+        self.assertIn("premier concert", progress.exemple)
+        self.assertIn("réaliser un projet", progress.consequence)
 
     def test_comfort_is_not_conditional_on_a_financing_project_or_moving_out(self):
         comfort = self.response(2)

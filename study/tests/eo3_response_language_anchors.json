@@ -28,8 +28,8 @@
     "detail": "6b16ad87f71eafe3c2cfb8733776dedb370c62dbe0882970086cccc94734bdf3"
   },
   "eo/tache-3/culture-p16": {
-    "back": "63ff6c8658797fd62aba260409e8ef33bedb6278919902f0e7fe88438c1b2e05",
-    "detail": "8a05551c197d515a907db5bf2ad6f8f57a066627cc65448b5aef0a02269a2976"
+    "back": "a691ddd421657ece4c21adf583eeb203aff15b583990f121dedc86b0f9e268d0",
+    "detail": "9c8cb33ff1e060901936baf846a259c0d32c1fa45aee951ea35ee155e0232c8b"
   },
   "eo/tache-3/culture-p17": {
     "back": "21b305091e42f3a547f205af4aa919670188578cef15525e81c0c39a0a51da48",
@@ -312,60 +312,60 @@
     "detail": "bdddd8090d712a17d0882f92feff88984fec744d01940f708a590962fc9f4b0a"
   },
   "eo/tache-3/famille-p1": {
-    "back": "b1d59751b4bfcdd37e29c501f0da614258c270f1cb2698514cc3c2c450e5daa1",
-    "detail": "08e2497f75280534c95940753be5986045e0adb298aa7e453bb234d5b5527ddd"
+    "back": "7bb4c2e188ad2fec0db796cbf451ae83eedcf9f53250934b7e00357ecc6cbbc2",
+    "detail": "3d20eba1eb9d4fc668e1561cc68dc713747a3f38caa5733d155cb8adbc72b55a"
   },
   "eo/tache-3/famille-p10": {
-    "back": "7babd8dedcc03f67d81231d88f34fd663629a94bebdd6495bf95fc8306db10b1",
-    "detail": "b70bb5a65bcd43602d8f791ebe5f60d6b3fffc58442331d2398055ed49ce3ce0"
+    "back": "b3ea1c05e7ebcc5ca0665ccd6d2fc70d34412f33bdf5a177e74ac21720772055",
+    "detail": "0ea45cd56b1b8e71825f4475f7bf1a7d6846fc246c25406faee2df06e5380c99"
   },
   "eo/tache-3/famille-p11": {
-    "back": "156e3bf59112d0015768cff9003a73b2d5d473928d7a1bc6eb41acf332d8c399",
-    "detail": "0c0a53f78a239176fd0e05f10bdd153f2b7d64200c1472e09ddc30bf2080ee11"
+    "back": "4f002a3b3c6501b1c73aaae0bc43629a614713dd8627034867ac7e50715705fb",
+    "detail": "9e43a439c20a918141f26b70758c8724b4def45bad2417c6a11524298559d854"
   },
   "eo/tache-3/famille-p12": {
-    "back": "38fe87e1a6d8bb893248191338065dd38549c926d6e75342dee27eaed58670ff",
-    "detail": "55543455f19cab1cd7900df50a9644d890afcc1b0310e071a6e8a6e2efb8e5af"
+    "back": "b8323d8bffaab63550c34197f74396cdeacf77835e6b73accb8aeab348b80dbd",
+    "detail": "41d9ab8d236370ddc8efd046e2c6ca5d88176dceb090ffa44abcf1e39f08d9bc"
   },
   "eo/tache-3/famille-p13": {
-    "back": "a612977a1275c834dc63b66a5986fd5b7b9f5923cdfdcaab9a4ff5eda0128903",
-    "detail": "9c913d40166df6e4f1beac11bee9bde6d1b49be527a045de62e2e6cd41549e54"
+    "back": "b0c91c63127d7aa0ad814ef2d2ad3393e2a017a73a4f32e83725c31b6929f256",
+    "detail": "48f965753e03bee0c83a597b6c4a215da6b4c723c3d3f1637bdce0763ae20b38"
   },
   "eo/tache-3/famille-p14": {
-    "back": "1cb7d41fdae3621c02605e7f8b84f4f6ebc66109be14c8a630619c0180154775",
-    "detail": "0ee7624260e6671b2251f6e3e042e0e4e624c69665d915adf3096490cfb43e45"
+    "back": "6748f5a8d70c4362cc5566e78ada4fb1c876863e9f05e9878429bab74b397983",
+    "detail": "37e09ade0b640c59006511a8232a5fccdc6ccd1326693326b31407d37e0c174f"
   },
   "eo/tache-3/famille-p16": {
-    "back": "17192c20a5f11bb054989856430188ba50beb5744de650f4a02b15884d9d86a6",
-    "detail": "d7fa861ae2b365cd70a4cc1f02de759687ff58ea4781f26913ff57d19f03f135"
+    "back": "37db4f388e11da5c0d97ac8f51e42f3a2ab12d9ed6e64ca8f7c3fbb3691244fe",
+    "detail": "e90e0897eda5ca4a78b8e9bf305f0b80b83d1a7e928a419a288bbbfca4d35ea7"
   },
   "eo/tache-3/famille-p2": {
-    "back": "373776a0d6203a8bdebf55e4a30657f833063db48209d776c30e2cc4e990abf8",
-    "detail": "98ff18f712cf56394b25bb7dfb031f132f2e6312089768d9828e3de410b2de21"
+    "back": "49d7868a66c42e017c1bdb8039aafa02893c14c49e2c75b7248303b4616152e3",
+    "detail": "ea4e7bd61e5cc553ed13361b10dc8cf7d0dd407af9fe2ec25a0c3c26cacff9ce"
   },
   "eo/tache-3/famille-p3": {
-    "back": "35dd5cd98b6ec936ac346e87881be0e7c95043e1217679c25de0e7a93f52cfa4",
-    "detail": "14acad1f5ca92721edcfdc26537eb27875ca3ca5149c6906bb2fd727c3f2ed99"
+    "back": "5d1f8ffd299b6566242465a64b718e7aae856de4efa66c1bca031f7aab8c1482",
+    "detail": "adc996cffd34b646331ee7e9a69d9fd9305116aacb0c9e404a9e04e426dd2f31"
   },
   "eo/tache-3/famille-p4": {
-    "back": "fe54cf30dcc95082f0a8c500b2a794849b95b899e8fd4a5ab79ce2fa0a5ff958",
-    "detail": "4e9590d2f2e5b014113420fada14eda026056e270cdf1383fae20a8eaf88d733"
+    "back": "692163db0de72205625237573e671babd65003ac8eb8fb1acca431f5fd8cb2a1",
+    "detail": "f007e2501e296239de19a6a7323cd5979d7442bd3f58ddf5ed9f69b2316801d1"
   },
   "eo/tache-3/famille-p5": {
-    "back": "98802687cce78bddf7d744818e8acd6fa9ff5914bf9f98f5439b54c60a44a185",
-    "detail": "133494573fe359030684d16b5d89c248a5414e9bbb0807cb1bf2b9908e3ed62a"
+    "back": "592e4f54f8c3ec14f7777a2406906986d0f653097f886e9ca54706538c3f57ee",
+    "detail": "ce713b994efb34dd4ddb08bcf43b58bff724e99a1f3b717f1eff6fd4133e9c80"
   },
   "eo/tache-3/famille-p6": {
-    "back": "f93c10f2ea6c62d2d97af8a6530c9b8bb60397ad794bfcc14647322432b2808c",
-    "detail": "a2fa7803a119a7043b2085e8c3a75dce2877127f243cf87eb829c254186133a5"
+    "back": "623e8f3336b54a4cca8090fc5f915de7e75e7494d449107e5e5aa8ae3c59c229",
+    "detail": "f4e8a9692256b6a5df40ada3d631b00b309946707788b3660304933cfb68c485"
   },
   "eo/tache-3/famille-p7": {
-    "back": "6d3565d26e971bd6f5bf58bf339ee710e208384d6c84ed203e4a8b9950e56e18",
-    "detail": "aafa4cf982af48d948f8aee8f672c41a0db2d7f900aaafec457484dddfb4f442"
+    "back": "412d129dfa0aac25d7af52abc4880af83832f39474e8b426319e34442c7a4660",
+    "detail": "65150e00ca52d734d3fdfdc1d9bda0b7e17200e9ca91d4464c473014a2ff0558"
   },
   "eo/tache-3/famille-p9": {
-    "back": "bae6c64bc0e03fec3a40e283947d31975d72d4256fa8f805989626264f10389a",
-    "detail": "f5c58f48d7b8fd5271688a9484615727d84f43c75d2b5d150007bd118dd42cc1"
+    "back": "96765c5645e153396a21fa8cc4b2a91d872fe8ed1c11dc9f3f4b4308a6722139",
+    "detail": "0b2203a304575d4f4b88ca339634c737903d44ecbfb5cdbbdf73e89831c1ed33"
   },
   "eo/tache-3/sante-p1": {
     "back": "5a207a0e0d1b9c2bca8caf66df9dc52cedb1d2139a3ddebc50a7681f5b1f7ab2",

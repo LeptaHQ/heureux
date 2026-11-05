@@ -17,7 +17,7 @@ REVIEWED_CLAUSES = {
     "culture-p13": "sans que les parents aient à payer des cours privés",
     "culture-p14": "sans qu'on ait besoin de voyager",
     "culture-p15": "il faut qu'on découvre aussi d'autres aspects du pays",
-    "culture-p16": "Je ne pense pas que les amis soient indispensables",
+    "culture-p16": "sans qu'on ait d'amis",
     "culture-p17": "il arrive qu'on ne puisse pas rentrer",
     "culture-p18": "je trouve dommage qu'on s'envoie moins de lettres",
     "culture-p19": "sans qu'un interprète ait à tout nous expliquer",

@@ -30,6 +30,9 @@ explanation of how or why it works, a plausible situated illustration and a
 proportionate consequence. Examples must do more than repeat the claim.
 The nuance addresses a real condition, limitation or trade-off; the conclusion
 synthesizes without a new argument.
+Read the response as a conversation between two friends: each idea should give
+the listener a reason to follow the next one. Use a transition that expresses the
+actual connection, rather than relying on numbered points to create coherence.
 
 Prefer precise ordinary language, manageable sentences and reusable constructions.
 Retain sound wording. Reuse a mechanism only where it answers the prompt:
@@ -568,6 +571,8 @@ do not infer dependence simply from paying for one school subject but not anothe
 Honest feedback must actually name the difficulty and offer a way forward.
 Working with a relative requires evidence of relevant collaboration, not an
 assumption that knowing the person privately proves professional competence.
+Show favoritism in the selection process rather than treating a colleague's
+greater seniority as proof that appointing a relative was unfair.
 
 Compare related Culture and Technologie models before inventing alternative
 wording, but retain shared sentences only where they fit the argument naturally.
@@ -577,6 +582,12 @@ help and being unable to afford a visit; these should not collapse into three
 versions of loneliness. A family-language answer should distinguish rich
 parent-child conversation, direct contact between generations and opportunities
 to practise the local language without assuming the parents already speak it.
+Follow one activity through to the child's language progress rather than switching
+midway to a separate classroom difficulty.
+A nuance should answer a real limitation of the position, not collect unrelated
+caveats. Giving the family language priority at home does not require reserving
+each language for one place: a local-language story at home and a family-language
+conversation on a walk can both fit the recommendation.
 Trust between relatives must be demonstrated by listening, keeping a confidence
 and respecting a differing choice, not assumed from kinship. Different hobbies
 alone do not prove that siblings cannot be best friends.
@@ -585,8 +596,14 @@ The happiness and living-well answers share the no-friends/not-no-relationships
 distinction without merging their reasons. A position that friends are not
 universally indispensable needs a credible example of living happily or well
 without friends, not only three benefits of friendship followed by a disclaimer.
+Do not narrow that counterexample to having no close friends: the consigne asks
+whether friends themselves are necessary.
 Other affection, personal purpose and regular social participation can matter
 without making an acquaintance equivalent to a close confidant.
+For happiness, retain the stronger sequence of friendship's emotional support,
+affection through other relationships and satisfaction in a personal activity.
+Connect the concession to the alternatives explicitly; do not merge the two
+alternatives and replace them with further benefits of friendship.
 
 Publish these revisions as reviewed JSON models, with aligned bilingual Pistes
 and full English response blocks, within the existing 300–430-word spoken

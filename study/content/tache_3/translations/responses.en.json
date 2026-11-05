@@ -612,6 +612,16 @@
         "english": "The absence of friendships is therefore not enough to conclude that a person is unhappy.",
         "french": "L'absence d'amitiés ne suffit donc pas à conclure qu'une personne est malheureuse."
       },
+      "03781b4633a4365fda739a697381c2cbf3e2f3da74a2a29e080621438e48bc76": {
+        "english": "Someone learns the piano at home. After several weeks, they manage to play a piece they love from beginning to end. They play it again with enjoyment, proud of their progress.",
+        "french": "Une personne apprend le piano chez elle. Après plusieurs semaines, elle réussit à jouer entièrement un morceau qu'elle aime. Elle le rejoue avec plaisir, fière de ses progrès.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "11d756aa4b94b666d109b114a80cfb355f153eee335164fe44d4415cfb7025d9": {
+        "english": "After being turned down for a job, a candidate thinks she will never find work. A friend listens, reminds her that one rejection does not sum up her abilities and helps her prepare for the next interview.",
+        "french": "Après un refus d'embauche, une candidate pense qu'elle ne trouvera jamais de travail. Une amie l'écoute, lui rappelle qu'un refus ne résume pas ses capacités et l'aide à préparer le prochain entretien.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "15ac60421ee09f400741470fe7d261c7517cd22158c9a5ef8f5145020806bdca": {
         "english": "Next, it is sometimes easier to talk to a friend than to family.",
         "french": "Ensuite, on parle parfois plus facilement à un ami qu'à sa famille.",
@@ -622,10 +632,20 @@
         "french": "On ne peut donc pas la considérer comme malheureuse simplement parce qu'elle n'a pas d'amis.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "25caa21a54dd18fa675e84cd1f51b3d58fb6581ee89b13674be1ba7d32d8cc64": {
+        "english": "This does not replace affection, but it is a source of joy they build for themselves.",
+        "french": "Cela ne remplace pas l'affection, mais c'est une source de joie qu'elle construit par elle-même.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "297d923982277e774ea5fa0a48a2bb0bc28bc81586219bf367103b85492d8033": {
         "english": "First, not having friends does not necessarily mean lacking affection or pleasure.",
         "french": "D'abord, ne pas avoir d'amis ne signifie pas forcément manquer d'affection ou de plaisir.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "2ae701c1c61ba46e749b30446e87c400d0b0a2fab468d397ca20fe94e93dc610": {
+        "english": "Of course, choosing not to have friends is not the same as suffering from loneliness. If someone feels this absence, seeking opportunities to meet people can really improve their life.",
+        "french": "Bien sûr, ne pas avoir d'amis par choix n'est pas la même chose que souffrir de solitude. Si quelqu'un ressent ce manque, chercher des occasions de rencontre peut vraiment améliorer sa vie.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "2dbae69c80a05c02ab8fbc2311be813424d60e566e833d22c7f097517fa5e4fb": {
         "english": "He keeps a source of enjoyment and there is less pressure on his relationship.",
@@ -667,9 +687,24 @@
         "french": "Donc, les amis ne sont pas indispensables au bonheur de chacun. Mais ils enrichissent la vie : l'essentiel est de trouver des relations qui nous conviennent, sans modèle imposé.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "4c84e37fe9fcb7243920d2d0fc207e7a18bf014d18ea466682dc2db9bfe1aa1c": {
+        "english": "Someone without a circle of friends calls their sister on Sundays. They tell her about a problem at work; their sister listens without judging them, and they hang up feeling relieved.",
+        "french": "Une personne sans cercle d'amis appelle sa sœur le dimanche. Elle lui raconte un souci au travail ; sa sœur l'écoute sans la juger, et elle raccroche soulagée.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "5144a20bb4f13d446201f96508545eedfa01f4c9ffc951f8ae48d660d58bad3c": {
+        "english": "The rejection remains disappointing, but she feels supported and regains the desire to try.",
+        "french": "Le refus reste décevant, mais elle se sent soutenue et retrouve l'envie d'essayer.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "552cc56b52c2c263ec97b188d224f46b002a734f9626842d82f44030f51340e5": {
         "english": "Someone who has no friends can talk about their day with their partner over dinner and ring their sister on Sundays. These interactions provide them with affection and opportunities to confide in someone; they feel supported despite not having a circle of friends.",
         "french": "Une personne qui n'a pas d'amis peut raconter sa journée à son conjoint pendant le dîner et appeler sa sœur le dimanche. Ces échanges lui apportent de l'affection et des occasions de se confier ; elle se sent entourée malgré l'absence de cercle amical."
+      },
+      "640d50429f694025e87bd7a18528f4df0b828cf332993bddd0128d5949ff0588": {
+        "english": "After a setback, we may lose confidence and find it hard to gain perspective. Talking to someone who knows us helps us avoid remaining trapped in our disappointment.",
+        "french": "Après un échec, on peut perdre confiance et avoir du mal à prendre du recul. Parler à quelqu'un qui nous connaît aide à ne pas rester enfermé dans sa déception.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "65c08e474e721db7e1016233102a25a7dbc862895a6864757493f032868bc217": {
         "english": "In conclusion, friends can contribute to happiness without being a universal prerequisite for it. Family ties and personal fulfilment also matter: the key is to find a balance that suits us.",
@@ -688,6 +723,16 @@
       "70f45a78c2165d1a89a188ff654fa10a0b0a857ea59bf094d216c3d80bc2318e": {
         "english": "The pleasure of achieving something can therefore exist outside of a friendship.",
         "french": "Le plaisir de réussir quelque chose peut donc exister en dehors d'une relation amicale."
+      },
+      "7e6a1c292657b1adef869bc141585aa48b57ff32fa3dda9b56f0b33a0b2ba20a": {
+        "english": "A trusted friend can first help us through a difficult time.",
+        "french": "Un ami de confiance peut d'abord nous aider à traverser un moment difficile.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "7f5f0ed2ece211c88fdc255a63bcc53284bf145ecb1c1218d558907729e77980": {
+        "english": "Making progress in an activity can also bring pleasure and pride. This satisfaction can exist without having friends: it comes first from what we have managed to do.",
+        "french": "Progresser dans une activité peut aussi donner du plaisir et de la fierté. Cette satisfaction peut exister sans qu'on ait d'amis : elle vient d'abord de ce qu'on a réussi à faire.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "8de6a996bd04a319029095ccd3b4162a097472a381d7b2647672ba430c4016ef": {
         "english": "This support is not limited to friendship. Not having friends does not mean living without any connections. For some people, interactions with their partner or loved ones already fulfil a large part of their need for companionship.",
@@ -720,9 +765,34 @@
         "english": "Finally, personal projects can also contribute to happiness.",
         "french": "Enfin, les projets personnels peuvent aussi contribuer au bonheur."
       },
+      "be0af5e99166cf3b0851244d3f0557b205c42fa0e0e9d952533a04bc39b53acb": {
+        "english": "They have no friends, but that does not mean they feel alone.",
+        "french": "Elle n'a pas d'amis, mais elle ne se sent pas seule pour autant.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "be3848afa91fddae29b43f3973981b92fc1046277b26da5d6973191e2e7a40f8": {
         "english": "She feels listened to and has a clearer idea of what she can do next.",
         "french": "Elle se sent écoutée et voit mieux ce qu'elle peut faire pour la suite."
+      },
+      "be5f02799ee1203a040b9daf6bf15c38f8775bac4356ddcf1aab5662eddb7cb9": {
+        "english": "But a friend is not the only person who can listen to us in this way.",
+        "french": "Mais un ami n'est pas le seul à pouvoir nous apporter cette écoute.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "c9110ea8cc9a3b1b593f9438ec44e0b58686eb18ab5d43253f950df93309b049": {
+        "english": "For some people, a partner or sister already plays this role of confidant. What matters is being able to talk freely and feel understood, not necessarily having a circle of friends.",
+        "french": "Pour certaines personnes, un conjoint ou une sœur joue déjà ce rôle de confident. Ce qui compte, c'est de pouvoir parler librement et se sentir compris, pas forcément d'avoir un cercle d'amis.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "d2a1a43a12872656cd18c96569dfffd2e48806ec6743bca6c1f4a51ac5f2504a": {
+        "english": "So friends can make life happier without being essential for everyone. Family ties and personal satisfactions can also allow us to feel good.",
+        "french": "Donc, les amis peuvent rendre la vie plus heureuse sans être indispensables à chacun. Les liens familiaux et les satisfactions personnelles peuvent aussi nous permettre de nous sentir bien.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "df7819b474b61df65efd04c59b7db01bbedfdc2b1d654e95775e87c955a787e7": {
+        "english": "And happiness does not depend only on relationships with others.",
+        "french": "Et le bonheur ne dépend pas seulement des relations avec les autres.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "e5a5b4d614aa8711f121a46c90355d9a847ed16c5ff4002aff36aa06bbcfdc41": {
         "english": "After being turned down for a job, a job applicant feels inadequate. A friend listens to her: the role required experience she didn’t yet have, but she can prepare her presentation better. Together, they go over it again for her next interview.",
@@ -731,6 +801,11 @@
       "ee985c6efc35e4b9b6a4b62583c2940b38ff5e80da541dc5f52433532e59681f": {
         "english": "In my view, it is possible to be happy without friends, even though friendship has much to offer. A friend’s support is invaluable, but other emotional bonds and personal pursuits can also make life fulfilling. Everyone’s needs are different.",
         "french": "À mon avis, on peut être heureux sans avoir d'amis, même si l'amitié apporte beaucoup. Le soutien d'un ami est précieux, mais d'autres liens affectifs et des activités personnelles peuvent aussi rendre la vie satisfaisante. Les besoins ne sont pas les mêmes pour tous."
+      },
+      "f665197f2a963eedfe52552360923c7eb52d9741a86dadf22f041d5ed31783b9": {
+        "english": "In my view, you can be happy without having friends, even though friendship offers a great deal. We do not all build our happiness in the same way: some people already feel supported by their family and also find fulfilment in their projects.",
+        "french": "À mon avis, on peut être heureux sans avoir d'amis, même si l'amitié apporte beaucoup. On ne construit pas tous notre bonheur de la même façon : certaines personnes se sentent déjà entourées par leur famille et s'épanouissent aussi dans leurs projets.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "fa2763245d70004cc61885aa2d08c21d938b76f1ea7dc4da5e724947df0030e3": {
         "english": "A person who has no friends is learning to play the piano at home. After several weeks of practising, they manage to play a piece they love from start to finish. They feel joy when playing it again and pride in seeing the progress they have made.",
@@ -5555,6 +5630,11 @@
         "english": "First and foremost, social media can help a teenager maintain their friendships.",
         "french": "Tout d'abord, les réseaux sociaux peuvent aider un adolescent à entretenir ses amitiés."
       },
+      "229eae8c3497bb33b6297808994575853828fdd1a78fbc6894d9e49d8b1b879a": {
+        "english": "He can chat with his friends in the evening, then sleep without being woken by their messages.",
+        "french": "Il peut discuter avec ses amis en soirée, puis dormir sans être réveillé par leurs messages.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "260d0587bb1ce9c79f68b2ac0976efcb11920cfe265bf842ed35e57168382de3": {
         "english": "Furthermore, limits are necessary to ensure adequate sleep and concentration.",
         "french": "Ensuite, des limites sont nécessaires pour préserver le sommeil et la concentration."
@@ -5573,6 +5653,11 @@
       "2ee9d781843676cd40d21ba1a2b1d17ab6587d06d95ada1df2eb548f2913378e": {
         "english": "Yes, parents can allow a teenager to use social media, but with gradual and supervised access. These tools can help them stay in touch with friends. However, it is important to ensure they get enough sleep and to teach them to ask for help if they encounter any problems.",
         "french": "Oui, les parents peuvent laisser un adolescent utiliser les réseaux sociaux, mais avec un accès progressif et accompagné. Ces outils peuvent l'aider à garder ses amis. Il faut toutefois préserver son sommeil et lui apprendre à demander de l'aide en cas de problème."
+      },
+      "37fb3198a46435bba3c35f6fa1a7c4cc0ab21c9499a2afb4230fe01b0baee0bb": {
+        "english": "Even when you post carefully, there is still the question of time spent online.",
+        "french": "Même quand on publie prudemment, il reste la question du temps passé en ligne.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "42f748271f94a4b548694d653f9977776800f95affb302ad2703e74b73373518": {
         "english": "Of course, freedoms depend on age and maturity. The service's minimum age must be respected, then the rules can be relaxed when the teenager knows how to follow them, without routinely reading their private messages.",
@@ -5593,10 +5678,20 @@
         "french": "Ensuite, les réseaux ne doivent pas prendre toute la place dans la journée.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "5c1342161a81062bdb593cf4335ea1dfa24a2f9cde8527cc79e5a36895fa445e": {
+        "english": "I would let a child use social media at an appropriate age, but gradually and with support. Banning everything does not teach them how to use it; allowing everything leaves them facing risks they do not yet know about.",
+        "french": "Je laisserais un enfant utiliser les réseaux sociaux à un âge adapté, mais progressivement et avec un accompagnement. Tout interdire ne lui apprend pas à s'en servir ; tout permettre le laisse face à des risques qu'il ne connaît pas encore.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "5fecfe9c9b1ab1363ed23a53144baaf9e804979be4b3a9063bf1062982fe25c0": {
         "english": "I am in favour of access to social media at an appropriate age, but with guidance. Parents must protect their child's privacy, safeguard their sleep and remain available if a problem arises. The aim is to give them greater independence gradually, not to monitor all their messages.",
         "french": "Je suis pour un accès aux réseaux sociaux à un âge adapté, mais avec un encadrement. Les parents doivent protéger la vie privée de leur enfant, préserver son sommeil et rester disponibles en cas de problème. L'objectif est de lui donner progressivement de l'autonomie, pas de surveiller tous ses messages.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "67dcb6abd6571d423f09bdb0ffa755c967406f27733a02b4594529c7451bbbe5": {
+        "english": "A teenage girl wants to post a video filmed outside her home. The house number and street name are visible. Her mother points out these details and helps her hide them.",
+        "french": "Une adolescente veut publier une vidéo devant chez elle. On voit le numéro de sa maison et le nom de la rue. Sa mère lui montre ces détails et l'aide à les masquer.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "71f866bcf8d6a89534ac872c8e48e4104bc587de8c4da9ca3ab7c73a22817536": {
         "english": "This way, the child knows what to do if a problem arises, not just what is forbidden.",
@@ -5618,6 +5713,11 @@
         "french": "Enfin, il faut apprendre à demander de l'aide lorsqu'un échange devient problématique.",
         "review_note": "The learners are the children, not an unexplained we that could include the parents."
       },
+      "7b99e39ea745ed10c9da33da3f0f466895cc5748fd4161853c4ecea85c4ef07b": {
+        "english": "And if a problem arises despite the rules, the child must be able to talk about it without fearing punishment.",
+        "french": "Et si un problème arrive malgré les règles, il faut que l'enfant puisse en parler sans craindre d'être puni.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "7bc623a24baaf48fce63134f3bf14faf6c1ff7cc0ae53f5d891b1538ae53d0c1": {
         "english": "She understands the risk through her own situation, rather than receiving a ban without an explanation.",
         "french": "Elle comprend le risque à partir de sa propre situation, plutôt que de recevoir une interdiction sans explication.",
@@ -5632,11 +5732,31 @@
         "french": "Un adolescent se couche à l'heure, mais répond encore aux messages dans son lit. Avec ses parents, il convient de laisser son téléphone dans le salon pendant la nuit.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "870fcd1a7dd6f9444c785699bf457d2202e05b58f1a652d11522670c8d2f5d62": {
+        "english": "I therefore prefer gradual access, with explained rules and a parent who is available. The aim is for the child to learn to protect themselves, then be able to use social media more independently.",
+        "french": "Je préfère donc un accès progressif, avec des règles expliquées et un parent disponible. Le but est que l'enfant apprenne à se protéger, puis puisse utiliser les réseaux avec davantage d'autonomie.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "881c2e02c55394114a2588a70b4b162ff13b30317302ba930b74c4b5cb50e16b": {
+        "english": "A teenage boy replies to his friends' group chat until midnight even though he has school the next day. Together with his parents, he decides to leave his phone in the living room overnight.",
+        "french": "Un adolescent répond au groupe de ses amis jusqu'à minuit alors qu'il a cours le lendemain. Avec ses parents, il décide de laisser son téléphone dans le salon pendant la nuit.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "881ea291b2ad6aa76566fcd712844347d8186e6f523a7dd3a87e14c37d2e36af": {
         "deepl_english": "A teenager stays on a group chat with their friends until midnight even though they have school the next day. Together with their parents, they should turn off notifications and leave their phone outside their bedroom at night.",
         "english": "A teenager stays on a group chat with their friends until midnight even though they have school the next day. Together with their parents, they agree to turn off notifications and leave their phone outside their bedroom at night.",
         "french": "Un adolescent reste sur le groupe de ses amis jusqu'à minuit alors qu'il a cours le lendemain. Avec ses parents, il convient de couper les notifications et de laisser son téléphone hors de sa chambre la nuit.",
         "review_note": "Il convient de means the teenager agrees to this plan with their parents, not an impersonal should."
+      },
+      "8be0a4bddd76e1199bef6a3dba87b069d7413967c30f1596148252a21c32a792": {
+        "english": "Notifications make you feel you need to reply straight away. You then stay connected longer than planned, sometimes at the expense of sleep. A simple rule about the phone at night protects rest without cutting off relationships.",
+        "french": "Les notifications donnent l'impression qu'il faut répondre tout de suite. On reste alors connecté plus longtemps que prévu, parfois au détriment du sommeil. Une règle simple sur le téléphone la nuit protège le repos sans couper les relations.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "905a8c8e512c7ade45f60eb59034a3e604c1431ad7fc2fc3cfb8e545bf5bd835": {
+        "english": "When a child posts a photo for friends, they focus mainly on what they want to show. They do not always think about the details around them. A parent can teach them to spot these details and choose what should remain private.",
+        "french": "Quand il publie une photo pour ses amis, il regarde surtout ce qu'il veut montrer. Il ne pense pas toujours aux détails autour de lui. Un parent peut lui apprendre à les repérer et à choisir ce qui doit rester privé.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "a69edf3082cdef263fc717e69f48a74b0292d73a9ed4f7e11cb40556d3944bce": {
         "english": "A photo intended for friends may reveal their school, address or habits. Even if it is deleted, it may have been copied. Parents can check the privacy settings and explain which information must remain private.",
@@ -5649,10 +5769,25 @@
         "french": "L'adolescent peut ainsi se reposer sans devoir répondre aux messages pendant la nuit.",
         "review_note": "Keeps the particular teenager as the subject and avoids adding a guaranteed good night's sleep."
       },
+      "a80c7246dc81c0944dcf5e581e476c4f334b9cf163726448f8c4cd3408748691": {
+        "english": "If the child thinks their phone will immediately be confiscated, they may keep quiet. The parent then cannot help. It is better to explain that they can come and show a worrying message and that you will work out what to do together.",
+        "french": "S'il pense qu'on lui confisquera aussitôt son téléphone, il risque de se taire. Le parent ne peut alors pas l'aider. Mieux vaut lui expliquer qu'il peut venir montrer un message inquiétant et qu'on cherchera ensemble quoi faire.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "a92273102d13291ea2cc822d9a1475a70b5a5de75a4ac3ac8201225dac9b822e": {
+        "english": "The child does not have to handle this request alone and knows who to turn to if it happens again.",
+        "french": "L'enfant n'a pas à gérer cette demande seul et sait vers qui se tourner si cela recommence.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "b29c25586afdcf8db699f38e995dc7acc3cb70439ac36f142554d8dd211b1fe9": {
         "english": "He stays in touch with his friends in the evening without their messages interrupting his sleep.",
         "french": "Il garde le contact avec ses amis en soirée sans que leurs messages interrompent son sommeil.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "bc3ed0acdaf9004c6a50ac14fdc61601441fa91440054beae0bcf375152a5c73": {
+        "english": "A stranger asks a child for a photo. The child shows the message to his father; together, they decide to keep evidence, then block and report the account.",
+        "french": "Un inconnu demande une photo à un enfant. Celui-ci montre le message à son père ; ensemble, ils décident de garder une preuve, puis bloquent et signalent le compte.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "bff90697ad0f7042f82f38a986a845c2e8f264d2d43b90de74c9c86ae9cc6eb4": {
         "english": "However, these platforms are not suitable for all age groups, and their terms of use must be respected. For a child who is too young or not yet ready, it is sensible to wait. Providing guidance does not mean allowing everything or systematically reading all private messages.",
@@ -5672,10 +5807,20 @@
         "french": "Si demander de l'aide entraîne immédiatement la confiscation du téléphone, il risque de cacher le problème. Mieux vaut lui montrer comment bloquer un compte, signaler un message et garder une preuve.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "d95d74b4878a4843574ada15a68ed0eda1733517e3077ba28bdfeac55f178e10": {
+        "english": "She can share her video without showing her address and has a better idea of what to check before her next post.",
+        "french": "Elle peut partager sa vidéo sans montrer son adresse, et sait mieux quoi vérifier avant la prochaine publication.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "dc44656f3277ba4b7510846e84f5d38d7f0930b47c40a527b01f1e99a36a9cf1": {
         "english": "Notifications and one video following another can push back homework or bedtime. Time limits and phone-free periods help maintain a balance, without portraying social media as necessarily bad.",
         "french": "Les notifications et les vidéos qui s'enchaînent peuvent repousser les devoirs ou le coucher. Des limites de temps et des moments sans téléphone aident à garder un équilibre, sans présenter les réseaux comme forcément mauvais.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "e45e6c63abca8eea74bc0bb59011509a0eb7a6ad08f3f66b28817de1aab68e97": {
+        "english": "This does not mean social media is bad: it also allows people to stay in touch with former classmates. Supporting a teenager does not mean reading all their messages; you can give them more freedom when they follow the rules.",
+        "french": "Cela ne veut pas dire que les réseaux sont mauvais : ils permettent aussi de garder contact avec d'anciens camarades. Accompagner un adolescent, ce n'est pas lire tous ses messages ; on peut lui laisser davantage de liberté quand il respecte les règles.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "ef325b4e201dc9a33d2479cbe737ce59de8e0a2f89a49e1a8f99f1c9756f2121": {
         "english": "If a classmate insults them in a conversation, they can show the messages to their parents. Their parents help them report the insults and contact the school if necessary.",
@@ -5684,14 +5829,49 @@
       }
     },
     "eo/tache-3/famille-p10": {
+      "01d353cfcf64412e370171f5cd31f9c1f4ad2646fd7518a860fd34af7ed68376": {
+        "english": "Someone enjoys meals with their brother, but meets up every week with a friend they laugh and talk with for hours. They seek out this friend's company because they enjoy it.",
+        "french": "Une personne apprécie les repas avec son frère, mais retrouve chaque semaine un ami avec qui elle rit et discute pendant des heures. Elle recherche sa compagnie par plaisir.",
+        "review_note": "Human-authored English translation of the final French editorial review correction; no new provider translation was requested."
+      },
+      "0ac7ca5d82733372c2c4de4156a12fd3478de5b773ac932e73f3bf6be5b3395b": {
+        "english": "Afterwards, she turns to her cousin first to discuss other decisions. Trust has grown because of her attitude, not simply because they are related.",
+        "french": "Par la suite, elle se tourne vers sa cousine en premier pour parler d'autres décisions. La confiance a grandi grâce à son attitude, pas simplement à leur parenté.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "158fdfb2a1580590e81b4b5ce2d854516af3148082cb5f9c79b0ce992eb6a7d9": {
         "english": "His brother remains important to him, but is not the person he spontaneously tells about his day-to-day life.",
         "french": "Son frère reste important pour lui, mais ce n'est pas à lui qu'il raconte spontanément son quotidien.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "1f46296d9a63cbb5472d1cc22e6e68d896831e75eeec83bdf688b52d196272c1": {
+        "english": "For me, members of our family are not automatically our best friends. We can love and help one another without telling each other how we really feel. But nothing prevents a family bond also becoming a friendship: it depends on the relationship we build.",
+        "french": "Pour moi, les membres de notre famille ne sont pas automatiquement nos meilleurs amis. On peut s'aimer et s'entraider sans se raconter ce qu'on ressent vraiment. Mais rien n'empêche qu'un lien familial devienne aussi une amitié : cela dépend de la relation qu'on construit.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "222eea9ceaa9c4d86695201c3e04da36a0b717fa34cda2e464a7dafd69b2cb44": {
+        "english": "First, family affection does not guarantee that you will have things in common.",
+        "french": "D'abord, l'affection familiale ne garantit pas les mêmes affinités.",
+        "review_note": "Human-authored English translation of the final French editorial review correction; no new provider translation was requested."
+      },
+      "2384f8388effed1340d5bc2dfa19b1ffb5a9ab34d91ca8c64feab93f7becf705": {
+        "english": "You can love your family without finding the companionship you naturally seek there. With some friends, you share a sense of humour or interests that make conversation more natural. This rapport does not depend on being related.",
+        "french": "On peut aimer sa famille sans y trouver la compagnie qu'on recherche spontanément. Avec certains amis, on partage le même humour ou des centres d'intérêt qui rendent les échanges plus naturels. Cette complicité ne dépend pas de la parenté.",
+        "review_note": "Human-authored English translation of the final French editorial review correction; no new provider translation was requested."
+      },
       "2a3981482eb7e39f112588210a491fd530d45f4243aa96a62dadd41a218470d9": {
         "english": "Of course, you can have different tastes and still feel very close to your family. Sharing the same hobbies is not enough to define a friendship. Being able to confide in one another, feeling listened to and respecting each other’s choices also matter.",
         "french": "Bien sûr, on peut avoir des goûts différents et se sentir très proche de sa famille. Partager les mêmes loisirs ne suffit pas à définir une amitié. Pouvoir se confier, se sentir écouté et respecter les choix de l'autre compte aussi."
+      },
+      "3699ec53626799768683843952dad26663bc82e28a3f1ce6a75c75da5181d81f": {
+        "english": "He remains fond of his brother, but this friend is his confidant. Both relationships matter without playing the same role.",
+        "french": "Il reste attaché à son frère, mais son confident est cet ami. Les deux relations comptent sans jouer le même rôle.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "3c1fd16d5f6c60dcae464838b5ad53ec9f2c3ed22585b99214368e15ffa1cd1d": {
+        "english": "Family roles can also limit what we dare to share.",
+        "french": "Les rôles familiaux peuvent aussi limiter ce qu'on ose raconter.",
+        "review_note": "Human-authored English translation of the final French editorial review correction; no new provider translation was requested."
       },
       "3cd66f9121cd381e14c26f4608d020d2508950b101a8b1b0e0c12f54de5092a8": {
         "english": "You might hesitate to talk to your parents about a plan because you’re worried about upsetting or disappointing them. With a friend, you sometimes seek a different kind of support, even if your relationship with your family isn’t a bad one.",
@@ -5707,6 +5887,16 @@
         "french": "Bien sûr, une famille soudée peut fournir l'essentiel de la vie sociale si chacun s'y sent libre. Mais personne ne devrait se sentir coupable d'avoir un meilleur ami extérieur à la famille, même en aimant profondément ses proches.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "4c42273c40a56c46eabd35cff930a0fc3076c834fd875076d3aff5ea503e373f": {
+        "english": "They love their brother, but feel more in tune with this friend. Both relationships matter without offering exactly the same thing.",
+        "french": "Elle aime son frère, mais se sent plus complice avec cet ami. Les deux liens comptent sans apporter exactement la même chose.",
+        "review_note": "Human-authored English translation of the final French editorial review correction; no new provider translation was requested."
+      },
+      "4d273ae2799f07715cf7ca78ee8b23c2b069d9bb6799c17fefae5cafb94b8f51": {
+        "english": "She clarifies what she wants, then talks to her parents more calmly. Confiding in her friend first does not mean rejecting their support.",
+        "french": "Elle clarifie ce qu'elle veut, puis en parle plus sereinement à ses parents. Se confier d'abord à son amie ne signifie pas rejeter leur soutien.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "52ace9bf7669235a57046e8bb282ab2de7246e16304274468c4316565dea1a62": {
         "english": "This attitude shows real trust: their closeness is maintained, not merely assumed.",
         "french": "Cette attitude montre une confiance réelle : leur proximité est entretenue, pas seulement supposée.",
@@ -5719,6 +5909,11 @@
       "5aa7b596f36a7a13a4393f3e8a9088a94f18e1bf8f1fcec0a250df6f0d12e0d5": {
         "english": "Listening, keeping a secret and accepting differences of opinion build trust. These gestures can exist between brothers and sisters, but they are not guaranteed by family ties.",
         "french": "Écouter, respecter une confidence et accepter un désaccord construisent la confiance. Ces gestes peuvent exister entre frères et sœurs, mais ils ne sont pas garantis par le lien familial."
+      },
+      "5def7d7c7ebcfecb5e7e11fda5005cade4d2025ecfa0e63a35d04e6c398c3ca7": {
+        "english": "In short, a family member can be our best friend, but they are not our best friend simply because they are our brother or cousin. The difference is the trust we build together.",
+        "french": "Bref, un membre de la famille peut être notre meilleur ami, mais il ne l'est pas simplement parce qu'il est notre frère ou notre cousine. La différence, c'est la confiance qu'on construit ensemble.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "5fc113bdea773d6b2b55cecc8fbc8528aafc4ef4ab1b02da7bdb3b4121c237e4": {
         "english": "First of all, being related does not guarantee shared interests.",
@@ -5752,6 +5947,16 @@
         "english": "Next, it is sometimes easier to confide in someone outside the family.",
         "french": "Ensuite, on se confie parfois plus facilement à quelqu'un d'extérieur à la famille.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "9f8d81cd9aedfe37e366d5c3816de405db257325335f633a2950af00eff466e4": {
+        "english": "A best friend is often the person we naturally turn to when we want to confide in someone. Help within a family is valuable, but does not necessarily create this closeness. We can rely on someone without finding it easy to discuss our doubts with them.",
+        "french": "Un meilleur ami est souvent la personne vers qui on se tourne spontanément pour se confier. L'entraide familiale est précieuse, mais elle ne crée pas forcément cette proximité. On peut compter sur quelqu'un sans lui parler facilement de ses doutes.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "a853bb5dfebd8098bfa35246820db690987f53ddcb6a70d671f3748b0506bd49": {
+        "english": "This reserve sometimes comes from the very role of parents.",
+        "french": "Cette réserve vient parfois du rôle même des parents.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "ac76ff44b8aa9874ca30a7cecfb74e5a8378d804546be257a1d25b7308debf31": {
         "english": "In conclusion, family and friendship can overlap without being the same. The key is to choose your friends based on trust and shared interests, not just on family ties.",
@@ -5798,6 +6003,11 @@
         "english": "A female student has doubts about the course she chose with her parents' help. She first talks to a female friend to explore what she wants before raising the question with them.",
         "french": "Une étudiante doute du cursus choisi avec l'aide de ses parents. Elle en parle d'abord à une amie pour examiner ses envies, avant d'aborder cette question avec eux.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "e6acbd2dfc096467026838f4c70c876e66ff34cb38847e29f052e80a99107864": {
+        "english": "Two brothers help each other with a move. Yet, when one has doubts about his relationship, he calls a friend he sees every week and with whom he talks about his personal life.",
+        "french": "Deux frères s'aident pour un déménagement. Pourtant, quand l'un doute de son couple, il appelle un ami qu'il voit chaque semaine et avec qui il parle de sa vie personnelle.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "e77dbcfb00dd8acc292678bf38f439ac13182be03a349cb8ccb35dcb1eae491f": {
         "english": "In short, family can also be a circle of friends, but that is not a rule. Friendship depends above all on shared affinities, trust and freedom within the relationship.",
@@ -5852,6 +6062,11 @@
         "french": "Une infirmière rentre après une garde de nuit et dort dans un appartement calme. En famille, les autres se prépareraient peut-être pour l'école ou le travail, ce qui obligerait à chercher un compromis.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "318656bb100c827110dc1c516c370f01a9b66ad2fb007ca3eda7344a31521069": {
+        "english": "Each spends twice as much for the same service. On a small budget, this difference matters.",
+        "french": "Pour le même service, chacune dépense deux fois plus. Sur un petit budget, cette différence compte.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "31a6014be4d5f5b109ba1fba90bf57afa2f7303a924d817c0952541fb667a826": {
         "english": "Finally, well-organised shared living allows practical tasks to be shared out.",
         "french": "Enfin, une cohabitation bien organisée permet de répartir le travail pratique."
@@ -5875,6 +6090,11 @@
         "french": "Ensuite, vivre seul signifie payer certaines charges avec un seul revenu.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "53a8aaf377bb8af00b5093b3c5677690311a4bd9c2c38195ed2404fa4a97cf85": {
+        "english": "Living together obviously only helps if relationships are respectful and chores are shared. If one person does everything for the others, living alone can be a relief. Living alone does not, after all, prevent a rich social life.",
+        "french": "La cohabitation n'aide évidemment que si les relations sont respectueuses et les tâches partagées. Si une personne fait tout pour les autres, vivre seule peut être un soulagement. Habiter seul n'empêche d'ailleurs pas d'avoir une vie sociale riche.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "5594f9be63998d2ab36c1f3cac821069f155a88bb97f54fac58810c148f1a34f": {
         "english": "In a couple, one person comes home early and prepares dinner. The other finishes late that evening but will do the shopping the next day. The meal is already ready when they return, allowing them to rest.",
         "french": "Dans un couple, l'un rentre tôt et prépare le dîner. L'autre finit tard ce soir-là, mais fera les courses le lendemain. Le repas est déjà prêt à son retour, ce qui lui permet de se reposer."
@@ -5888,6 +6108,11 @@
         "english": "Sharing in this way can leave each person with more money for other needs.",
         "french": "Cette répartition peut laisser davantage d'argent à chacun pour d'autres besoins.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "658fc1d27cb31ff1c44fb2451f8aaaf3974034c2342befe6008223e91b7a05ad": {
+        "english": "The difficulty also becomes apparent when you temporarily cannot do everything yourself.",
+        "french": "La difficulté se voit aussi quand on ne peut temporairement plus tout faire soi-même.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "671d5c3cdbaf66e045c7872b7305c492f5d2bb897f1f6f79ec1b7ce02923c048": {
         "english": "First and foremost, living alone allows you to choose your own pace of life more freely.",
@@ -5921,6 +6146,16 @@
         "english": "In conclusion, living alone makes certain choices easier, but can put a strain on your budget and make practical arrangements more difficult. You need to weigh up your actual circumstances against your priorities, rather than claiming that one way of life is easier for everyone.",
         "french": "En conclusion, vivre seul facilite certains choix, mais peut alourdir le budget et l'organisation pratique. Il faut comparer les conditions réelles et ses priorités, plutôt que déclarer une forme de vie plus facile pour tout le monde."
       },
+      "8692ede940ca302215652ee175ee56495860ef7e885823c2b2d2be361739ce3a": {
+        "english": "Living alone does not mean having no family or friends. But you must be able to get help without relying on someone already being at home. You need to ask for this support and arrange visits around everyone's availability.",
+        "french": "Vivre seul ne signifie pas n'avoir ni famille ni amis. Mais il faut qu'on puisse obtenir de l'aide sans compter sur quelqu'un déjà présent au logement. On doit demander ce soutien et organiser les passages selon les disponibilités de chacun.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "8ac2dfc9743ba7155f0726ca087135c2d079cc8926bd943e61ff484a19f7efaa": {
+        "english": "An internet subscription or certain household equipment costs almost as much for one person as for two. Consuming less is therefore not enough to divide every bill. In a family, sharing these expenses can leave each person with more money.",
+        "french": "Un abonnement internet ou certains équipements coûtent presque autant pour une personne que pour deux. Consommer moins ne suffit donc pas à diviser toutes les factures. En famille, partager ces dépenses peut laisser davantage de moyens à chacun.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "9208d6b3893a60469085ce7402a71a146504069a16e7abe50dbf5b7aca70d9ce": {
         "deepl_english": "For the same level of care, living separately may therefore increase each person’s expenses.",
         "english": "For the same service, living separately may therefore increase each sister's expenses.",
@@ -5940,10 +6175,30 @@
         "french": "Enfin, il faut qu'on puisse obtenir de l'aide lorsqu'on ne peut plus tout faire soi-même.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "bb47f9b9fd17dfa25585d07cdf9e4e6cb012b2de7b78ba67bca68caf493ab4ca": {
+        "english": "After a knee operation, someone living alone asks their sister to do the shopping on Saturday and arranges meal deliveries for the week. They organise this help before returning home.",
+        "french": "Après une opération du genou, une personne seule demande à sa sœur de faire les courses le samedi et prévoit des livraisons de repas pour la semaine. Elle organise ces aides avant de rentrer chez elle.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "c18714b0977cf9075e4de7e30e7ac49d0bd9cdd412666111e2f29d938624adaa": {
+        "english": "Living alone seems easier to me for following your own rhythm, but not for managing everything. The same situation can simplify our days and complicate our budget. Before saying it is better than living with family, we therefore need to specify what we mean.",
+        "french": "Vivre seul me paraît plus facile pour suivre son rythme, mais pas pour tout assumer. La même situation peut simplifier nos journées et compliquer notre budget. Avant de dire que c'est mieux qu'en famille, il faut donc préciser de quoi on parle.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "c5ba8bbc2178c79f6a103103861f6a634b760ecf630d3ad944e36c060792d5f5": {
         "english": "Living alone therefore makes it easier for her to rest: her home can accommodate her needs.",
         "french": "Vivre seule lui facilite donc le repos : son logement peut suivre ses besoins.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "d5fda3ab01f8475a6029cf2a93f56b94da04e4d6cc3d0aeee988a20e4fa0e785": {
+        "english": "Two sisters share an internet subscription costing forty euros a month: each pays twenty euros. They then move into separate homes and each takes out the same forty-euro subscription.",
+        "french": "Deux sœurs partagent un abonnement internet à quarante euros par mois : chacune paie vingt euros. Elles prennent ensuite deux logements et souscrivent chacune le même abonnement à quarante euros.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "dc4ff66644d33d12c81fb8ef85c25baa0dc7b6ef96045ad5c643d2873802d1f1": {
+        "english": "A nurse comes home after a night shift and sleeps in her quiet flat. She does not have to adapt her rest to other people's morning preparations for school or work.",
+        "french": "Une infirmière rentre après une garde de nuit et dort dans son appartement calme. Elle n'a pas à adapter son repos aux préparatifs du matin d'autres personnes qui partiraient à l'école ou au travail.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "e09687bc73ae377bf270ab7d4ba7d6727a35d45adbbd51a3f2b43fc75baffcc6": {
         "english": "An internet subscription or certain equipment can cost almost as much for one person as it does for several. In a family, certain goods and services can be shared amongst several people.",
@@ -5954,10 +6209,20 @@
         "french": "Son autonomie reste possible, mais exige une organisation supplémentaire pendant cette période.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "e572eb7d7cca8a5659976b426caa19e44c76ba493189e4e368a159f6eeff9d58": {
+        "english": "This freedom comes at a cost, however, because some expenses are no longer shared.",
+        "french": "Cette liberté a cependant un coût, puisque certaines dépenses ne sont plus partagées.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "ea4a7a746678e804588e568c6e57971e710e12cafa9b6aabe404e83259112544": {
         "english": "Of course, living together only helps if relationships are respectful and chores are shared. If one person does everything or arguments are constant, living alone can be restful. And living alone does not prevent a rich social life.",
         "french": "Bien sûr, la cohabitation n'aide que si les relations sont respectueuses et les tâches partagées. Si une personne fait tout ou si les disputes sont permanentes, vivre seul peut être reposant. Et habiter seul n'empêche pas une vie sociale riche.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "ea783af54eb812f82d089dafd039dbe82053043f1d31de9917cd532cce7b6e42": {
+        "english": "They can stay at home, but it takes preparations that a family who were there and available could have partly spared them.",
+        "french": "Elle peut rester chez elle, mais cela demande des préparatifs qu'une famille présente et disponible aurait pu lui épargner en partie.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "ee3f1e3b10271c2ddcd793f5e99c398574d552f26b91cceb1bdeb8002a7ee64d": {
         "english": "Shopping, cooking and housework are still necessary when living alone. In a household where everyone pitches in, one person can take over when the other has a busy day.",
@@ -5983,6 +6248,21 @@
         "french": "Un jeune enfant ne mesure pas tous les risques et privilégie parfois son envie immédiate. Les règles sur le sommeil, la sécurité et le respect ne sont pas facultatives. Elles doivent être stables pour rendre les décisions prévisibles.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "1054ab2f9a718b80e6d65d64892fa312d0c6639a2aa1262ed397d01ae8b293f4": {
+        "english": "But if you enforce every rule through fear, the child may mainly learn to keep quiet.",
+        "french": "Mais si on fait respecter toutes les règles par la peur, l'enfant risque surtout de se taire.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "1a55bc7b5dcd8045b322944bdbed6b11a655286ed1bcc9c29663703e78e74468": {
+        "english": "The child continues his activity and the baby can sleep. The rule meets a need he can understand.",
+        "french": "L'enfant continue son activité et le bébé peut dormir. La règle répond à un besoin qu'il peut comprendre.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "1befe407ae82f7f0807af1925ec9d6d938cd9c056d24b080aad0b0845397c49b": {
+        "english": "I therefore support firm rules without using fear to impose them. The parent remains responsible for the framework, but gradually helps the child understand and act without waiting for an order.",
+        "french": "Je suis donc pour des règles fermes, sans faire de la peur le moyen de les imposer. Le parent reste responsable du cadre, mais aide peu à peu l'enfant à comprendre et à agir sans attendre un ordre.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "20294a5f9c85838ccd08922e1e32154d9a984bbcb987eede7b66526f5207dfdf": {
         "english": "When the baby is having a nap, his seven-year-old brother must play without making too much noise. His father explains why and suggests he draw in another room. The child can continue to keep himself occupied whilst the baby sleeps.",
         "french": "Quand le bébé fait sa sieste, son frère de sept ans doit jouer sans faire trop de bruit. Son père lui explique pourquoi et lui propose de dessiner dans une autre pièce. L'enfant peut continuer à s'occuper pendant que le bébé dort."
@@ -5990,6 +6270,11 @@
       "238fb6bef752fa1b52f4fad6944a32e4cfe36a367be669a10d0574cc3ee56286": {
         "english": "After damaging a library book, a child hesitates to show it, then tells their parent about it. The parent listens without shouting and helps them contact the library to find out how to replace it. The child can thus make amends for their mistake rather than hiding it.",
         "french": "Après avoir abîmé un livre de bibliothèque, un enfant hésite à le montrer, puis en parle à son parent. Celui-ci l'écoute sans crier et l'aide à contacter la bibliothèque pour savoir comment le remplacer. L'enfant peut ainsi réparer son erreur au lieu de la cacher."
+      },
+      "3bea1de26feb0dccef9b95870e7df9b5a067d948bc0ed5d4bccf7c6ff6d81fe0": {
+        "english": "A young child thinks about what they want to do without always seeing the needs of those around them. The parent needs to set a limit, but also explain the reason and suggest a way to carry on differently.",
+        "french": "Un jeune enfant pense à ce qu'il a envie de faire sans toujours voir les besoins autour de lui. Le parent doit poser une limite, mais aussi en expliquer la raison et proposer une façon de continuer autrement.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "3d12c801ce180e73a6635a21e5aef3c8e2efd7e48b8ccb28c2604d9959220148": {
         "english": "A teenager hides a poor mark for fear of being humiliated. If they can show their marked work without being belittled, their parents can look with them at what they have not understood.",
@@ -6005,6 +6290,16 @@
         "english": "Furthermore, a child who fears being humiliated may hesitate to ask for help.",
         "french": "Ensuite, un enfant qui craint d'être humilié peut hésiter à demander de l'aide."
       },
+      "59ba51de067ccffa787545b31b8670dbf07bc960db55c7fe1293fa4787e40473": {
+        "english": "While the baby is having a nap, a father asks his seven-year-old son to make less noise. He explains that the baby is sleeping and suggests drawing in another room.",
+        "french": "Pendant la sieste du bébé, un père demande à son fils de sept ans de faire moins de bruit. Il lui explique que le bébé dort et lui propose de dessiner dans une autre pièce.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "6407ab4ca29ad9f9d8932e688398051c2557df0905c7ac8e913262287c089b96": {
+        "english": "A child has damaged a library book and dares to tell their parent. The parent listens without shouting; together, they contact the library to find out how to replace the book.",
+        "french": "Un enfant a abîmé un livre de bibliothèque et ose le dire à son parent. Celui-ci l'écoute sans crier ; ensemble, ils contactent la bibliothèque pour savoir comment remplacer le livre.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "686a5f2db8a98336ed8de76a0a8b947a4a2d03c1f35b93a3abe9cd2d3b35baba": {
         "english": "A child wants to keep playing before a school day. Their parent understands their disappointment, but maintains bedtime. The parent gives them five minutes' warning before playtime ends.",
         "french": "Un enfant veut continuer à jouer avant une journée d'école. Son parent comprend sa déception, mais maintient l'heure du coucher. Il le prévient cinq minutes avant la fin du jeu.",
@@ -6014,6 +6309,11 @@
         "english": "Listening does not mean negotiating everything. Near a road, you must intervene immediately if a child puts themselves in danger, then explain afterwards. For a matter that poses no danger, you can listen to their views and reconsider a rule they have outgrown.",
         "french": "Écouter ne signifie pas tout négocier. Près d'une route, il faut intervenir immédiatement si l'enfant se met en danger, puis expliquer après. Pour une question sans danger, on peut entendre son avis et revoir une règle devenue inadaptée à son âge.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "70a3b7d46a1ee0b5232f2e1d56a6dea09dae35491ae01cfdbca54d181c9f5b5f": {
+        "english": "He learns to organise his work within a framework set by his parent. Trust thus rests on a commitment he keeps.",
+        "french": "Il apprend à organiser son travail dans un cadre fixé par le parent. La confiance repose ainsi sur un engagement qu'il respecte.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "76d57817ab66e5e1052caa6cf377b0ace361c951af08861d31855e2d62eae6c4": {
         "english": "If being authoritarian means imposing all decisions without listening to the child, I disagree. That does not mean abandoning boundaries. For me, it is about explaining the rules, listening to the child and gradually teaching them to make decisions.",
@@ -6039,6 +6339,11 @@
       "977b240d64701fc0a1f9b4c56ba5b6976cc00f7211406c499881f14014781f8c": {
         "english": "A teenager wants to unwind after coming home from school and suggests starting his homework at 5.00 pm. His mother agrees, on condition that it is finished before dinner. A week later, he is sticking to this timetable without her having to remind him every evening.",
         "french": "Un adolescent veut souffler en rentrant du collège et propose de commencer ses devoirs à dix-sept heures. Sa mère accepte, à condition qu'ils soient terminés avant le dîner. Une semaine plus tard, il respecte cet horaire sans qu'elle ait à le lui rappeler chaque soir."
+      },
+      "9ff4aedab5832ccaadcf939c9ed0484e45475ec4d1a1d8268771fb19f2eaf18f": {
+        "english": "The child takes part in putting their mistake right instead of hiding it. Listening to them has not removed their responsibility.",
+        "french": "Il prend part à la réparation de son erreur au lieu de la cacher. L'écouter n'a pas supprimé sa responsabilité.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "a818126a8a719de290a64cbf262e3b8504ad83cb21fb4c54c66f041042ff28db": {
         "english": "In conclusion, I prefer firm, consistent and well-explained authority to authoritarianism. Clear rules, the opportunity to have a say and age-appropriate choices help children to become independent, not just to obey.",
@@ -6074,6 +6379,16 @@
         "french": "Les parents peuvent expliquer une règle et laisser une marge de décision adaptée à l'âge. L'enfant exerce alors son jugement au lieu d'attendre un ordre pour chaque geste. La fermeté n'empêche donc pas d'écouter ses propositions.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "c90be76b202f856f7b8ee7253e4a8c70f358b420e22d367febc23c3e5922d2bd": {
+        "english": "I distinguish between having authority and being authoritarian. A child needs rules, but fear does not help them understand those rules. I prefer a firm approach with explanations that prepares them for independence.",
+        "french": "Je distingue avoir de l'autorité et être autoritaire. Un enfant a besoin de règles, mais la peur ne l'aide pas à les comprendre. Je préfère une attitude ferme et expliquée, qui prépare son autonomie.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "c92c3486f657493ad1b8ae40a57782bfbd01382ca3baa5a8e5cfcca3ee657f5e": {
+        "english": "Rules first help children learn to live with others.",
+        "french": "Les règles servent d'abord à apprendre à vivre avec les autres.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "cb01a8229636bdd51586e5df2b68fd153525c0f1194accccb340b55c9d742cb7": {
         "english": "First, parents must set rules that the child cannot yet choose alone.",
         "french": "D'abord, les parents doivent fixer des règles que l'enfant ne peut pas encore choisir seul.",
@@ -6098,10 +6413,20 @@
         "english": "At home, everyone must be considerate of others’ sleep and activities. Parents can set a clear rule and remind their children of it calmly, rather than only stepping in when they are angry.",
         "french": "À la maison, chacun doit tenir compte du sommeil et des activités des autres. Le parent peut poser une règle compréhensible et la rappeler calmement, plutôt que de n'intervenir que lorsqu'il est en colère."
       },
+      "ed70f07d965b45d84c191db4ba2b616f3bb0cd308b3da55984c5d1ef819df6eb": {
+        "english": "Listening does not mean negotiating everything. Near a road, you must intervene immediately if a child puts themselves in danger, even if it means explaining afterwards. Discussion is important, but must not prevent the parent ensuring the child's safety.",
+        "french": "Écouter ne signifie pas tout négocier. Près d'une route, il faut intervenir immédiatement si l'enfant se met en danger, quitte à expliquer après. La discussion est importante, mais elle ne doit pas empêcher le parent d'assurer sa sécurité.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "f6f835b9b9a957e4d3b198070a371701729624ca561ab0f556b4603e8696c394": {
         "english": "They learn to plan ahead and keep a commitment, even when their parents are not deciding for them.",
         "french": "Il apprend à anticiper et à tenir un engagement, même quand ses parents ne décident pas à sa place.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "f7d65caa9792a3c631f134bdfd498aa3ddad8c529e57a95400433ec0e805a2ed": {
+        "english": "A teenage boy suggests starting his homework at 5 pm. His mother agrees on condition that it is finished before dinner. A week later, he is keeping to this schedule without her having to remind him.",
+        "french": "Un adolescent propose de commencer ses devoirs à dix-sept heures. Sa mère accepte à condition qu'ils soient finis avant le dîner. Une semaine plus tard, il tient cet horaire sans qu'elle ait à le lui rappeler.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "fe4de583fb6bc1c5c9da83311e0edbc1079f39a491232c6f2a00ac1bc5b6119b": {
         "english": "First and foremost, children need clear rules to learn how to live with others.",
@@ -6131,10 +6456,30 @@
         "french": "L'enfant peut mieux participer à la vie locale sans renoncer aux échanges familiaux.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "165a0941f8aa000192876832824057b3f0edd40ffa802c5b16f2e2dec29ead7b": {
+        "english": "In a language they are still learning, they may lack the words to explain an emotion. Their most natural language allows them to ask questions and offer reassurance, beyond simply giving instructions.",
+        "french": "Dans une langue qu'ils apprennent encore, ils peuvent manquer de mots pour expliquer une émotion. Leur langue la plus naturelle permet de poser des questions et de rassurer, au-delà des simples consignes.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "1731115279eba59c7a08b4e97595cd263f046cf1508880be9e57190cb7a35ad7": {
+        "english": "In short, I would preserve family dialogue without neglecting the country's language. Parents can support both: by talking naturally with their child and giving them regular opportunities to communicate in their local life.",
+        "french": "Bref, je préserverais le dialogue familial sans négliger la langue du pays. Les parents peuvent soutenir les deux : en parlant naturellement avec leur enfant et en lui donnant des occasions régulières de communiquer dans sa vie locale.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "176a78bfd2054c474b6e4e0c644e013d4269c0543654540fbf074908a0ee6f21": {
         "english": "A father who is a beginner in the local language lacks the words to discuss a conflict at school. In his mother tongue, he can listen to the details, ask questions and explain his point of view.",
         "french": "Un père débutant dans la langue locale manque de mots pour parler d'un conflit scolaire. Dans sa langue maternelle, il peut écouter les détails, poser des questions et expliquer son point de vue.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "18f7f28074758fb25409f16bcd4a94c332b19f851a91b2bda0f4ac5dfb841d46": {
+        "english": "The family language first allows parents to talk in detail with their child.",
+        "french": "La langue familiale permet d'abord aux parents de parler en détail avec leur enfant.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "1ad714cadc9d78794cf1364c344e25c70bf0605f14e70d15cfa25ab5f993d635": {
+        "english": "I would not choose one language over the other. Children need to communicate with their family and take part in the country's life. I would therefore keep the family language while supporting practice in the local language.",
+        "french": "Je ne choisirais pas une langue contre l'autre. Les enfants ont besoin de communiquer avec leur famille et de participer à la vie du pays. Je garderais donc la langue familiale tout en soutenant la pratique de la langue locale.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "2d2b1e9280ed58828525304c669c8d21e77cdfe7a47a781f3b2488a4e54345e5": {
         "english": "A child comes home upset because their classmates have refused to play with them. In the family language, their mother asks them what has happened and listens to them. She can reassure them without having to search for the right words in a language she does not speak fluently.",
@@ -6161,6 +6506,11 @@
         "english": "Understanding instructions and taking part in conversations makes school life and activities easier. Parents can support this learning even if they do not yet have a good command of the language.",
         "french": "Comprendre les consignes et participer aux échanges facilite la vie scolaire et les activités. Les parents peuvent soutenir cet apprentissage même lorsqu'ils ne maîtrisent pas encore cette langue."
       },
+      "55e6aeb21ede882537391289d07d4b4174c1d4505e4c979e69cfae62d33b07ec": {
+        "english": "Grandparents do not necessarily speak the host country's language. If every conversation requires translation, the child takes part less freely. Their language allows the child to discover their history directly.",
+        "french": "Les grands-parents ne parlent pas forcément la langue du pays d'accueil. Si chaque échange demande une traduction, l'enfant participe moins librement. Leur langue lui permet de découvrir leur histoire directement.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "568c7d8c1e866bf4a4405c504ca9bc577b57c52f5023d5487649f00187450f3a": {
         "english": "Of course, parents may have different mother tongues: arrangements must remain flexible. If the child replies in the local language, you can continue naturally without scolding them. Speaking two languages does not happen automatically and must not become an ordeal.",
         "french": "Bien sûr, les parents peuvent avoir des langues maternelles différentes : l'organisation doit rester souple. Si l'enfant répond dans la langue locale, on peut continuer naturellement sans le gronder. Parler deux langues ne se fait pas automatiquement et ne doit pas devenir une épreuve.",
@@ -6174,6 +6524,11 @@
         "english": "This freedom of expression preserves the quality of dialogue between parent and child.",
         "french": "Cette liberté d'expression préserve la qualité du dialogue entre parent et enfant.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "668dd6d4baae739ee3e7e78c7c7230c40c5028028ac95dc57c88ce5da925cba3": {
+        "english": "But if the child struggles to follow lessons in the local language, I wouldn't just wait for things to sort themselves out. I'd speak with their teacher to understand what's causing the difficulty and how to help. We can help the child without giving up the family language at home.",
+        "french": "Mais si l'enfant a du mal à suivre les cours dans la langue du pays, je n'attendrais pas que cela s'arrange tout seul. J'en parlerais avec son enseignant pour comprendre ce qui bloque et voir comment l'aider. On peut l'aider sans abandonner la langue familiale à la maison.",
+        "review_note": "Human-authored clarification of the condition, response and continued use of the family language; no new provider translation was requested."
       },
       "6fefa1793e3f11927bf52ec2546af08c4de7d9c785d7b3d2505a58d84d8c1019": {
         "english": "In short, I would prioritise the family language at home while helping my children learn the country's language. The aim is to communicate in both worlds, not to choose one identity over the other.",
@@ -6194,14 +6549,44 @@
         "english": "In this way, the child learns to talk to other people and take part in activities in their local community.",
         "french": "L'enfant apprend ainsi à parler avec d'autres personnes et à participer aux activités près de chez lui."
       },
+      "796b252ba4acd6f7394cb0062fe4d003282db8046f2945c059491c10ad5a4916": {
+        "english": "This connection also extends beyond parents: it matters for relationships between generations.",
+        "french": "Ce lien dépasse aussi les parents : il compte pour les relations entre générations.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "796b9d59e6de0d1a895785bad7e9db7abe3e71473739492f253d8cf41620a1fb": {
         "english": "They use it to understand lessons, ask for help and make friends. School does not necessarily resolve every difficulty. Even without a good command of this language, parents can seek opportunities for practice and suitable support.",
         "french": "Elle lui sert à comprendre les cours, demander de l'aide et se faire des amis. L'école ne résout pas forcément toutes les difficultés. Même sans maîtriser cette langue, les parents peuvent chercher des occasions de pratique et un soutien adapté.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "7e11c664b9b83db6e34276d45720a8f044bec6835245d97ec96e13ea76d29a80": {
+        "english": "He builds his relationship with her rather than depending on an adult for every conversation.",
+        "french": "Il construit sa relation avec elle, plutôt que de dépendre d'un adulte pour chaque échange.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "8897f278e503272ebe42256f028cd0a8ac203098356410e90da34c3ab51d0dd9": {
+        "english": "She understands better why he is hurt and can genuinely reassure him. Here, language allows them to maintain a close dialogue.",
+        "french": "Elle comprend mieux pourquoi il est blessé et peut vraiment le rassurer. La langue permet ici de garder un dialogue proche.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "8ad5ee45ab3d1e2ea5088ae21a37470821de7176234b036596a95891e39ad4ed": {
         "english": "First and foremost, speaking a language you have a good command of enables you to communicate more effectively with your children.",
         "french": "Tout d'abord, parler une langue qu'on maîtrise bien permet de mieux échanger avec ses enfants."
+      },
+      "8c943959da8e9ba2f707498515a60bb70bd45243bcbd7d15e9224b0ba96bd51b": {
+        "english": "She understands better why he is hurt and can reassure him without having to search for the right words.",
+        "french": "Elle comprend mieux pourquoi il est blessé et peut le rassurer sans chercher ses mots.",
+        "review_note": "Human-authored English translation of the final French editorial review correction; no new provider translation was requested."
+      },
+      "8e19071d9c645827634591f9e2ea2fffd876a84ce2a08ec34ba7786d9ae2ac2d": {
+        "english": "Parents who do not yet speak the local language well enrol their child in a football club. As the training sessions go on, the child understands the coach's instructions better and feels more confident talking to their teammates.",
+        "french": "Des parents qui parlent encore peu la langue locale inscrivent leur enfant au football. Au fil des entraînements, il comprend mieux les consignes de l'entraîneur et ose discuter avec ses coéquipiers.",
+        "review_note": "Human-authored clarification linking regular language practice to better understanding and greater confidence; no new provider translation was requested."
+      },
+      "97cdad3bb0fdeaf2467e852081fd8a01f4178a58041c376629305b1b2a83359d": {
+        "english": "Keeping the family language at home does not prevent a child from learning the local language. To make progress, the child can also practise it outside class with other children. Parents can create these opportunities even if they do not yet speak the local language well.",
+        "french": "Garder la langue familiale à la maison n'empêche pas d'apprendre celle du pays. Pour progresser, l'enfant peut aussi la pratiquer en dehors des cours, avec d'autres enfants. Les parents peuvent lui offrir ces occasions même s'ils parlent encore peu cette langue.",
+        "review_note": "Human-authored clarification linking regular language practice to better understanding and greater confidence; no new provider translation was requested."
       },
       "a91337d4c9eda291a91f8ca3f4e2002ebe21499006997bd0f382e7ef34219ae7": {
         "english": "I would keep using the family language at home while supporting learning the local language. One maintains connections and allows parents to express themselves naturally; the other is essential at school and in social life. Both deserve a real place.",
@@ -6212,9 +6597,19 @@
         "english": "A child phones his grandparents every week in their family language. His grandmother tells him about the games she played as a child and explains the words he doesn’t understand.",
         "french": "Un enfant téléphone chaque semaine à ses grands-parents dans leur langue familiale. Sa grand-mère lui raconte ses jeux d'enfance et lui explique les mots qu'il ne comprend pas."
       },
+      "b1de70b9bd7fcb833f10aa7b77603cd1580df2adac4711e21f7ba5df8d19abd5": {
+        "english": "But the child must also be able to practise the country's language to take part in local life.",
+        "french": "Mais il faut que l'enfant puisse aussi pratiquer la langue du pays pour participer à la vie locale.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "b6c3d663c1b8f8c38d983215a9db7ffec891266b7dc72c6dbb5b6c488981148c": {
         "english": "If parents are more comfortable in their mother tongue, giving it up may limit conversations. They can tell a story, offer advice or understand what is troubling their child without constantly having to search for the right words.",
         "french": "Si les parents sont plus à l'aise dans leur langue maternelle, l'abandonner peut limiter les conversations. Ils peuvent raconter une histoire, donner un conseil ou comprendre ce qui préoccupe l'enfant sans chercher sans cesse leurs mots."
+      },
+      "b6c608c3a837cf7e16e4a944ccf10f2751a689393994e867cb2f7a4a2b38eaff": {
+        "english": "The child makes progress in the local language while continuing to use the family language at home.",
+        "french": "Il progresse ainsi dans la langue locale tout en gardant la langue familiale à la maison.",
+        "review_note": "Human-authored clarification linking regular language practice to better understanding and greater confidence; no new provider translation was requested."
       },
       "bd05253b29f6883168b8c4951948b4245e30f3ee0343a3ade5e90b621dec6121": {
         "english": "Finally, the child must also be able to practise the country's language.",
@@ -6235,6 +6630,11 @@
         "french": "Il construit sa relation avec elle et découvre une partie de son histoire familiale.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "cdf5fa6d58809383987121cdfcd45feeb1f7aac732044b584c9ab191973a8a4e": {
+        "english": "A child comes home sad because classmates refused to play with him. His mother speaks to him in their language, listens to the details and asks him what happened.",
+        "french": "Un enfant rentre triste parce que des camarades ont refusé de jouer avec lui. Sa mère lui parle dans leur langue, écoute les détails et lui demande ce qui s'est passé.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "d27c659fb4fdb7f357a6388f04fb89dbdfea5bd66bb11c8064c5f727e79a24f1": {
         "english": "Furthermore, the family language can help maintain relationships between generations.",
         "french": "Ensuite, la langue familiale peut entretenir des relations entre générations."
@@ -6242,6 +6642,11 @@
       "d99f8b51b23eaf70e4943e1a067ca00b7947ea8aa054ac4f80008c01e4029441": {
         "english": "However, there is no need to speak one language exclusively at home and the other at school. Perfect bilingualism is not guaranteed. The important thing is to encourage the child to speak, without making them feel embarrassed when they are searching for a word.",
         "french": "Cependant, on n'est pas obligé de parler une langue uniquement à la maison et l'autre à l'école. Le bilinguisme parfait n'est pas garanti. L'important est d'encourager l'enfant à parler, sans lui faire honte quand il cherche un mot."
+      },
+      "de6b83d4e8998ce0584d68292e1f71ea33e2ff278f7e37afc7ae24108dcbb82d": {
+        "english": "Outside lessons, the child needs opportunities to listen and respond. Parents can arrange these even if they still speak little of this language. A regular activity allows the child to encounter the same words and people again.",
+        "french": "En dehors des cours, l'enfant a besoin d'occasions d'écouter et de répondre. Les parents peuvent les organiser même s'ils parlent encore peu cette langue. Une activité régulière permet de retrouver les mêmes mots et les mêmes personnes.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "e7cefbba58776fc2b81974cc26e8b13c00c0a490f02da4597377cd3903e2ff91": {
         "english": "Finally, practising the local language helps the child to participate in the life of the country.",
@@ -6251,6 +6656,16 @@
         "english": "First, the parents' language allows direct communication with family living elsewhere.",
         "french": "D'abord, la langue des parents permet de communiquer directement avec la famille restée ailleurs.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "f56eaad261dd2272966dc77cb7f7a2bfd2dd5a945830e4ea0de70843afd767dd": {
+        "english": "The child takes part in the game more easily and gains confidence in speaking, without their parents having to teach them everything.",
+        "french": "Il participe plus facilement au jeu et prend confiance pour parler, sans que ses parents aient à tout lui enseigner.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "f6dc86c451337848b9c687f262fabe34bdb46fbf592dfe1076f26208a913ce03": {
+        "english": "But there is no obligation to reserve one language for home and the other for school. You can read a story in the country's language at home, or speak the family language during a walk. What matters is giving both languages a place, not keeping them separate at all costs.",
+        "french": "Mais on n'est pas obligé de réserver une langue à la maison et l'autre à l'école. On peut lire une histoire dans la langue du pays à la maison, ou parler la langue familiale pendant une promenade. L'essentiel est de donner une place aux deux langues, pas de les séparer à tout prix.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       }
     },
     "eo/tache-3/famille-p14": {
@@ -6266,6 +6681,11 @@
         "english": "When no one knows who is responsible for a particular task, everyone may assume that someone else will do it. Allocating responsibilities – including checking what is missing – means people can take action without having to wait for reminders from a single person.",
         "french": "Quand personne ne sait qui s'occupe d'une tâche, chacun peut croire que l'autre va la faire. Répartir les responsabilités, y compris vérifier ce qui manque, permet d'agir sans attendre les rappels d'une seule personne."
       },
+      "10a0c56e81a3754dd00d1f531ea6174e7717a837b2bc09dc0767e85a6c698873": {
+        "english": "Two parents get home from work at 6 pm. One prepares dinner while the other lays the table, then does the washing-up. After the meal, each has finished their share and can rest.",
+        "french": "Deux parents rentrent du travail à dix-huit heures. L'un prépare le dîner pendant que l'autre met la table, puis fait la vaisselle. Après le repas, chacun a terminé sa part et peut se reposer.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "10faa9dc699f2b914fec1d28fe03ba9636496deffdc048f7d9ddcbc90cf86292": {
         "english": "Next, contributing teaches children to look after themselves.",
         "french": "Ensuite, participer apprend aux enfants à s'occuper d'eux-mêmes.",
@@ -6274,6 +6694,11 @@
       "11fdde4853efc33a815a6129ac3e83d062fe64a97396f60d60b1e9b509b1c5a7": {
         "english": "Finally, a clear system of organisation prevents things from being overlooked and avoids arguments about what each person is supposed to do.",
         "french": "Enfin, une organisation claire évite les oublis et les disputes sur ce que chacun doit faire."
+      },
+      "37f32d03db210a4241a24c0e7bc52a8d6bac298dcdb44c5f01e425a7199c6b99": {
+        "english": "For children, contributing also prepares them for independence.",
+        "french": "Pour les enfants, cette participation prépare aussi l'autonomie.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "39d549f9ce487635c80a3b5e4e9eedb49f9483fc7cf1266f85f9655a87f86e89": {
         "english": "Yes, every member of the household should contribute to chores according to their abilities. Sharing prevents one person spending all their time on others and teaches children to manage for themselves. Organisation must also be shared, not just the visible tasks.",
@@ -6312,6 +6737,16 @@
         "english": "In a couple, one person takes charge of household cleaning products. They check the stock and buy more before they run out. The other person can then do the washing without having to stop what they’re doing to go to the shop.",
         "french": "Dans un couple, l'un s'occupe des produits d'entretien. Il vérifie le stock et les achète avant qu'ils manquent. L'autre peut alors laver le linge sans interrompre son travail pour aller au magasin."
       },
+      "5c44328b884b1d5cc0b79534326406058b2911a828f4cc13ea81dd2daec38124": {
+        "english": "So yes, everyone should contribute according to their means. Sharing becomes real when no one has to do everything or constantly remind others what still needs planning.",
+        "french": "Donc oui, chacun devrait contribuer selon ses moyens. Le partage devient réel quand personne n'a à tout faire ni à rappeler sans cesse aux autres ce qu'il reste à prévoir.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "83df63b6b63a4d937d85d7b450ca53181182a7e3d942be4eafb1e0a6f5567be9": {
+        "english": "The other person no longer has to remind them or check every step. The organisational work is shared too.",
+        "french": "L'autre personne n'a plus à rappeler ni à vérifier chaque étape. Le travail d'organisation est lui aussi réparti.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "8b05277cc9edc69c0cd308d6ef8a0aacfb1001cb98f6e5b5ad9e645ec74d6b05": {
         "english": "In a couple where both partners work, one prepares dinner while the other lays the table and tidies the kitchen afterwards. Neither spends the whole evening managing the meal alone.",
         "french": "Dans un couple où les deux travaillent, l'un prépare le dîner pendant que l'autre met la table et range ensuite la cuisine. Personne ne passe toute la soirée à gérer seul le repas.",
@@ -6330,6 +6765,11 @@
         "english": "Two parents come home from work at around six o’clock. Whilst one prepares dinner, the other sets the table and then does the washing-up after the meal. Once the kitchen is tidied up, they both have a moment to rest.",
         "french": "Deux parents rentrent du travail vers dix-huit heures. Pendant que l'un prépare le dîner, l'autre met la table, puis fait la vaisselle après le repas. Une fois la cuisine rangée, ils ont tous les deux un moment pour se reposer."
       },
+      "9b4f7bb41ab6b487df694a239cbe44f7d2edeab8946c83522acb155dbc2d9841": {
+        "english": "But sharing remains incomplete if one person still has to plan everything.",
+        "french": "Mais le partage reste incomplet si une seule personne doit encore tout prévoir.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "9e5405f5c003d84dcf093693bf7ccccce2b714c8ac3fab614eb1d7610ca8d0ec": {
         "english": "In conclusion, everyone should contribute according to their abilities, without having to do exactly the same thing. Sharing the work, learning useful skills and planning tasks together prevents one person from having to do everything on their own.",
         "french": "En conclusion, chacun devrait contribuer selon ses possibilités, sans devoir faire exactement la même chose. Partager le travail, apprendre les gestes utiles et prévoir les tâches ensemble évite qu'une seule personne s'occupe de tout."
@@ -6337,6 +6777,11 @@
       "b33edcb68d2d60d37422cc1c6680b1bac654b14d3b93704227e5759b7b0cabcd": {
         "english": "You do not automatically know how to look after a home just because you have become an adult. Tasks that are suitable and clearly explained provide an opportunity to practise, and then gradually take on more responsibility.",
         "french": "On ne maîtrise pas automatiquement l'entretien d'un logement en devenant adulte. Des tâches adaptées et expliquées donnent l'occasion de s'entraîner, puis de prendre progressivement une responsabilité."
+      },
+      "bd2d4b455849afeeb6ac65898d2e7265f305ed85f8dd4e0834ef4da6aba17b56": {
+        "english": "This does not mean everyone doing exactly the same thing. A small child can put away their toys, while someone who is ill can be excused from chores. A fair division takes account of what everyone can actually do.",
+        "french": "Cela ne veut pas dire faire tous exactement la même chose. Un petit enfant peut ranger ses jouets, tandis qu'une personne malade peut être dispensée de tâches. Une répartition juste tient compte de ce que chacun peut réellement faire.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "c3137bd064e2b9edbe487e074e5075e010a35afe4e5bec2935799e5d43129fed": {
         "english": "Finally, a task is still poorly shared if the same person always has to think about it.",
@@ -6348,6 +6793,16 @@
         "french": "Il acquiert une compétence concrète qui lui servira lorsqu'il quittera le foyer.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "ca8afc262a3d5569ad506ea3e569e97e39dc079c155ef7f8717da0c331d0a60c": {
+        "english": "Yes, every member of the household should contribute to chores according to their abilities. It is not simply a favour for the person who usually takes care of them. In my view, living together also means looking after your home together.",
+        "french": "Oui, chaque membre du foyer devrait participer aux tâches selon ses possibilités. Ce n'est pas simplement une faveur qu'on fait à la personne qui s'en occupe d'habitude. À mon avis, vivre ensemble implique aussi de prendre soin de son logement ensemble.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "cc24b4dbc15e22e0c7fb8e1b0a95a9ac0d4ca41af43c4c62b75acf806e4dc47f": {
+        "english": "The person responsible for shopping checks the cupboards, prepares the list and buys the items. They do not wait for someone else to notice what is missing and dictate every item to them.",
+        "french": "La personne responsable des courses vérifie les placards, prépare la liste et achète les produits. Elle n'attend pas que quelqu'un d'autre remarque ce qui manque et lui dicte chaque article.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "dd4e473abc2e1f6eab3347cde57ad5c75db1d16e4af07d871db35faf25d3342a": {
         "english": "Noticing what is missing, planning when to act and checking the result also take work. If someone gives every instruction, they remain responsible for the whole thing. Everyone therefore needs to manage their task from start to finish.",
         "french": "Remarquer ce qui manque, prévoir quand agir et vérifier le résultat demandent aussi du travail. Si quelqu'un distribue chaque consigne, il reste responsable de l'ensemble. Il faut donc que chacun gère sa tâche jusqu'au bout.",
@@ -6356,6 +6811,11 @@
       "e66adbea9902df82a562cb0908fa9dbe1554280863127f5913bffa434400357c": {
         "english": "However, illness, a disability or a particularly difficult period may justify a reduced contribution, or even no tasks at all. One should not have to perform a service in order to be recognised as a member of the household. A fair system adapts to actual abilities and can be reviewed.",
         "french": "Cependant, la maladie, le handicap ou une période particulièrement difficile peuvent justifier une participation réduite, voire aucune tâche. Il ne faut pas exiger un service pour reconnaître la place d'une personne dans le foyer. Une organisation juste s'ajuste aux capacités réelles et peut être revue."
+      },
+      "e95e15568f9c864fdb657c89e8ff7fe90f66187acf91352bcdf1fd083ba16184": {
+        "english": "Two parents get home from work at 6 pm. One prepares dinner and the other lays the table. After the meal, the second parent does the washing-up. Once the kitchen is tidy, both can rest.",
+        "french": "Deux parents rentrent du travail à dix-huit heures. L'un prépare le dîner et l'autre met la table. Après le repas, le second fait la vaisselle. Une fois la cuisine rangée, tous les deux peuvent se reposer.",
+        "review_note": "Human-authored English translation of the final French editorial review correction; no new provider translation was requested."
       },
       "e9b617a960ca64be907bfb82a60dd3546402dfb93099168cb907255233a208fd": {
         "english": "Taking full responsibility reduces the organisational burden, not just the number of actions.",
@@ -6420,6 +6880,11 @@
         "french": "Vivre chez ses parents après vingt-cinq ans peut être pratique et raisonnable. Cela réduit les dépenses et permet une entraide dans les deux sens. Mais le confort matériel ne suffit pas : chacun doit garder de l'intimité et la possibilité de prendre ses propres décisions.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "2a36f3a1c88fd35f8e7976a7a43bafac2094f15eaa5a9f474e527e286468f7a9": {
+        "english": "Living together allows her to fund a specific step forward without bearing the cost of a home alone.",
+        "french": "La cohabitation lui permet de financer une étape concrète sans supporter seule le coût d'un logement.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "2b5c1d6db6ab589f633f066a5d86d878bb6697d61c10061fb7378c6e73daa0bb": {
         "english": "An adult woman who comes home late lets her parents know without asking permission to go out. In return, she avoids making noise and respects shared spaces.",
         "french": "Une adulte qui rentre tard prévient ses parents sans demander l'autorisation de sortir. En échange, elle évite le bruit et respecte les espaces communs.",
@@ -6458,6 +6923,11 @@
         "french": "Enfin, une solution pratique doit aussi respecter la liberté des adultes.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "6455ea37646daac7bbef13b98a17aebc4cfbfcb39baa19160c2c2e6bd1a2d58f": {
+        "english": "For this to last, everyone's privacy and freedom must also be respected.",
+        "french": "Pour que cela dure, il faut aussi respecter l'intimité et la liberté de chacun.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "68b9ff59c64ecc3f7e309480a29af3c1f7dc90651c0e77827d78aba50772e8f0": {
         "english": "She can look for a job under less financial pressure, which reduces the risk of accepting an option in a hurry.",
         "french": "Elle peut chercher un poste avec moins de pression financière, ce qui réduit le risque d'accepter une solution dans l'urgence.",
@@ -6481,6 +6951,26 @@
         "french": "D'abord, le logement familial offre parfois une sécurité pendant une transition.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "80134abc14c76abe8f6ac79d35eb530c1548ea2914f94bd4a8241bb9b6eb3a39": {
+        "english": "Living with your parents after twenty-five can be practical and reasonable. Reaching that age does not mean we all have the means to live alone. But for the arrangement to remain pleasant, it must offer something to everyone and leave real freedom as an adult.",
+        "french": "Vivre chez ses parents après vingt-cinq ans peut être pratique et raisonnable. Cet âge ne signifie pas qu'on ait tous les moyens de vivre seul. Mais pour que la solution reste agréable, elle doit apporter quelque chose à chacun et laisser une vraie liberté d'adulte.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "80bd7fef8be83cd6bad2d6e1d0421c30304778deb32af571c26d56d1fb06fd5e": {
+        "english": "This arrangement of course requires the parents' agreement and enough space to live together. If these conditions are not met, the savings do not necessarily make up for the tensions. Age alone does not require moving out by a specific date.",
+        "french": "Cette solution suppose bien sûr l'accord des parents et assez de place pour vivre ensemble. Si ces conditions manquent, les économies ne compensent pas forcément les tensions. L'âge seul n'impose pas de déménager à une date précise.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "8a32ec04e6776b966d612b9b3a1609c2371a5239066ac669e9fbc0b14ac9bf22": {
+        "english": "At twenty-seven, a woman returns to education. With her parents' agreement, she pays them three hundred euros a month instead of paying nine hundred euros for a studio flat. The six hundred euros saved go towards paying for her courses.",
+        "french": "À vingt-sept ans, une femme reprend une formation. Avec l'accord de ses parents, elle leur verse trois cents euros par mois au lieu de payer neuf cents euros pour un studio. Les six cents euros économisés servent à payer ses cours.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "8a75fe75a992e60a9aed304a3e4ed9dab3608fb0533448b524256e4e1ab05e50": {
+        "english": "The most concrete advantage is being able to devote part of your budget to a project.",
+        "french": "L'avantage le plus concret est de pouvoir consacrer une partie de son budget à un projet.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "99177ffd12358ae56afe422432b751900be278c2ea8a20b5eea0d5929d5a9d80": {
         "english": "You can therefore use the money saved towards a project, even whilst contributing to family expenses.",
         "french": "On peut donc utiliser l'argent économisé pour un projet, même en participant aux dépenses familiales."
@@ -6502,6 +6992,11 @@
       "b57f618450c46396c3e3e90fe69f5bb6a457538e2c600e1993985d2297225d6c": {
         "english": "When you’re paying the rent and bills on your own, there’s sometimes little money left for anything else. By sharing these costs with your parents, you can save money or pay for training, even if you contribute to the household expenses.",
         "french": "Quand on paie seul un loyer et des charges, il reste parfois peu d'argent pour autre chose. En partageant ces frais avec ses parents, on peut mettre de côté ou payer une formation, même si l'on participe aux dépenses."
+      },
+      "cb119d7d8042cd14d69e1f5b7c9537105faecd6194c2f3668445fcc82e412394": {
+        "english": "Even when contributing to household expenses, you may spend less than when renting alone. This difference provides money for training or a future home. However, it needs to be discussed with the parents, since taking you in makes these savings possible.",
+        "french": "Même en participant aux charges, on peut dépenser moins qu'en louant seul. Cette différence donne des moyens pour une formation ou un futur logement. Il faut cependant en parler avec les parents, puisque leur accueil rend cette économie possible.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "cc489daa26be86b3fda4c5fa3c366a4c2f4e2a9ba63638b6769bd22fc8b41960": {
         "english": "Furthermore, living together can make certain tasks easier for everyone.",
@@ -6529,6 +7024,11 @@
         "english": "A 27-year-old is returning to education. A studio flat would cost them nine hundred euros a month, including bills. They agree with their parents to contribute three hundred euros towards housing costs and bills. The six hundred euros they save could pay for their classes.",
         "french": "À vingt-sept ans, une personne reprend une formation. Un studio lui coûterait neuf cents euros par mois avec les charges. Elle convient avec ses parents d'une contribution financière de trois cents euros pour le logement et les charges. Les six cents euros économisés pourraient payer ses cours.",
         "review_note": "Avoids assigning gender from personne and narrowing housing costs and charges to rent and service charges."
+      },
+      "f8e11f3ecf13885625136679e5116b0a4986fb7fa00f787596935972ba8f2680": {
+        "english": "But this help must not go in only one direction.",
+        "french": "Mais cette aide ne doit pas aller dans un seul sens.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       }
     },
     "eo/tache-3/famille-p2": {
@@ -6540,6 +7040,11 @@
         "english": "An adult can cook dinner on days when they finish work early, whilst their parents do the shopping on another day. They define their roles in advance, without the parents having to organise everything and keep reminding them.",
         "french": "Un adulte peut préparer le dîner les jours où il termine tôt, tandis que ses parents font les courses un autre jour. Ils définissent les rôles à l'avance, sans que les parents aient à tout organiser et rappeler."
       },
+      "0382957b5ec3d70d9164ecb3971c98327de9ae2fdac9fc6de5680fe3d2f5e19a": {
+        "english": "He continues to see his friends, but his mother gets peaceful nights again. One person's comfort no longer depends on the other's tiredness.",
+        "french": "Il continue à voir ses amis, mais sa mère retrouve des nuits tranquilles. Le confort de l'un ne repose plus sur la fatigue de l'autre.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "07eaf40205bcb9e012487194e136b0cfab4b6a214fc77a47a355658d7ca61086": {
         "english": "In an expensive city, rent sometimes takes up a large part of a first salary. If the family agrees, sharing expenses can help someone repay a loan or build up savings. Being comfortable at home can then help them move forward.",
         "french": "Dans une ville chère, un loyer absorbe parfois une grande partie d'un premier salaire. Si la famille est d'accord, partager les dépenses peut aider à rembourser un prêt ou à constituer une épargne. Le confort peut alors servir à avancer.",
@@ -6549,6 +7054,11 @@
         "english": "A twenty-six-year-old woman works, pays her own expenses and cooks two evenings a week. She enjoys seeing her parents, but organises her own outings and plans.",
         "french": "Une femme de vingt-six ans travaille, paie ses dépenses et cuisine deux soirs par semaine. Elle aime retrouver ses parents, mais organise elle-même ses sorties et ses projets.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "18ca9a276b50d23359ef7008b29c1e3d98de2d53377c032f8203d5ada1652352": {
+        "english": "A son has his friends over late when his mother gets up early. After discussing it, they agree to invite them on Saturdays rather than during the week.",
+        "french": "Un fils reçoit ses amis tard alors que sa mère se lève tôt. Après en avoir discuté, ils conviennent de les inviter le samedi plutôt qu'en semaine.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "1c21314f8f68d606baf4d7febfae7c6eeabac686702ac97f550f8aafe8644302": {
         "english": "Next, staying with your parents can allow you to fund a specific project.",
@@ -6564,6 +7074,16 @@
         "english": "I take a rather sympathetic view of these young Canadian adults. Feeling at home with one’s parents is not a flaw, and living elsewhere does not in itself prove independence. I would look above all at the quality of the relationships, the practical circumstances and each person’s contribution.",
         "french": "Je porte un regard plutôt compréhensif sur ces jeunes adultes canadiens. Se sentir bien chez ses parents n'est pas un défaut, et vivre ailleurs ne prouve pas à lui seul l'autonomie. Je regarderais surtout la qualité des relations, les possibilités matérielles et la contribution de chacun."
       },
+      "2a194abe9233fdd9869345f5f930e226d4544c9481294e5a687a6a07e61359e5": {
+        "english": "For this agreement to be fair, the young adult must also take their share of daily responsibilities.",
+        "french": "Pour que cet accord soit juste, le jeune doit aussi prendre sa part du quotidien.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "353e22dd55c14928b6aa7ea5229da9bddc7c0313fa30e9b3d88b6426a8f2ba62": {
+        "english": "A twenty-six-year-old woman works and pays her own expenses. She enjoys having dinner with her parents and telling them about her day, but organises her own outings and plans.",
+        "french": "Une femme de vingt-six ans travaille et paie ses dépenses. Elle aime dîner avec ses parents et leur raconter sa journée, mais organise elle-même ses sorties et ses projets.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "37584e10c9fe2d5b6a62b83e151d67109cc9ac169a835f64b02a7e490bde6b8a": {
         "english": "Preparing a meal or doing the shopping for several people can sometimes prevent everyone from having to do it separately. This works if the adults genuinely contribute, rather than leaving the parents to do everything.",
         "french": "Préparer un repas ou faire les courses pour plusieurs personnes évite parfois que chacun s'en occupe séparément. Cela fonctionne si les adultes participent vraiment, au lieu de laisser les parents tout faire."
@@ -6571,6 +7091,11 @@
       "3bb59aab5876c211c912a6271b353024e1c963fceff7fe5db10012f056b2b59b": {
         "english": "It is possible to enjoy time spent together whilst still having one’s own job, friends and personal choices. There is no reason to leave home simply to conform to a certain image of adulthood.",
         "french": "On peut apprécier les moments communs tout en ayant son travail, ses amis et ses décisions personnelles. Il n'y a pas de raison de quitter un logement uniquement pour correspondre à une image de l'âge adulte."
+      },
+      "520816f0b8227c77631c401b318bf76791029236dd22f4d7f0be8bb36a52d672": {
+        "english": "In short, I do not judge these young people for enjoying living with their parents. I look instead at whether they live as adults, with responsibilities and the whole family's agreement.",
+        "french": "Bref, je ne juge pas ces jeunes parce qu'ils aiment vivre chez leurs parents. Je regarde plutôt s'ils vivent en adultes, avec des responsabilités et l'accord de toute la famille.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "6bce674d8f4eae9c17117480b037e61ac6192a9bcfcd308887bafb518a7dd2e4": {
         "english": "That said, I understand criticism of someone who refuses to contribute when they have the means to do so. But this behaviour does not represent all young people living with their family. No single age for leaving home suits every situation.",
@@ -6601,24 +7126,54 @@
         "french": "Le confort du jeune ne se construit alors pas au détriment de celui de ses parents.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "890cc291a7cbb153b34ee3de17f223d758a5030b44b85e2fee3f8277845c67e3": {
+        "english": "She can therefore enjoy this family setting without giving up her adult life. She does not need to be trying to save money for this choice to deserve respect.",
+        "french": "Elle peut donc apprécier ce cadre familial sans renoncer à sa vie d'adulte. Elle n'a pas besoin de vouloir économiser pour que ce choix soit respectable.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "8b18806415d29040073c1398945ce31d320955e134c5fc5255ef256bf421536d": {
         "english": "Finally, living together must suit the parents too.",
         "french": "Enfin, il faut que cette cohabitation convienne aussi aux parents.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "91878f19774ea09382e27b38b45b2720da731f26ab00f9414539c2607f479888": {
+        "english": "If the parents pay for everything and do all the chores, they continue to look after the young adult as though they were a child. Contributing according to their means shows that they recognise others' work and take responsibility for their place in the household.",
+        "french": "Si les parents paient tout et font toutes les tâches, ils continuent à le prendre en charge comme un enfant. Participer selon ses moyens montre qu'il reconnaît le travail des autres et assume sa place dans le foyer.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "986335cfa4f65af7fe6b8d95b7f7f01e8a42065cfd0c6d4442497737b8521950": {
         "english": "She therefore does not need to move out simply to prove to others that she is an adult.",
         "french": "Elle n'a donc pas besoin de déménager uniquement pour prouver aux autres qu'elle est adulte.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "9af4cdede0944ed87a369a88fe47a50d695d4382039b684c86049961de4be385": {
+        "english": "I understand why young Canadian adults might prefer to stay with their parents because they feel happy there. There is nothing shameful about enjoying family life. For me, the question is rather how everyone experiences living together.",
+        "french": "Je comprends que de jeunes adultes canadiens préfèrent rester chez leurs parents parce qu'ils s'y sentent bien. Aimer la vie familiale n'a rien de honteux. Pour moi, la question est plutôt de savoir comment chacun vit cette cohabitation.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "9d868746560dc6464e31485b399e7ba12a4af552cc8539d7249e8e7fa1669675": {
+        "english": "The pleasure of living together thus comes with practical responsibilities, not just good intentions.",
+        "french": "Le plaisir de vivre ensemble s'accompagne ainsi de responsabilités concrètes, et pas seulement de bonnes intentions.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "9e1398090f769e87eceafb0ad147fa290b7eb9923b2c5461675c84d6a510709e": {
         "english": "First and foremost, a happy family life can be a choice, not a refusal to grow up.",
         "french": "Tout d'abord, une vie familiale agréable peut être un choix, pas un refus de grandir."
+      },
+      "9e798ff4c1c1e9c9559f8d4361bb90324fb9e2048be1fe186c19823e311af88e": {
+        "english": "They have their own rhythm, habits and need for privacy. Their child may feel very comfortable without noticing that they are disturbing them. Talking about it allows them to find arrangements before small irritations become arguments.",
+        "french": "Ils ont leur rythme, leurs habitudes et besoin d'intimité. Leur enfant peut se sentir très bien sans remarquer qu'il les dérange. En parler permet de trouver des arrangements avant que les petites gênes deviennent des disputes.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "a3fed9a2cc91a79bd804cbd3de0cf4affda2c13acad6dbf34fb394cff845f271": {
         "english": "First, enjoying family life does not mean refusing to grow up.",
         "french": "D'abord, apprécier la vie familiale ne signifie pas refuser de grandir.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "acc47c97facfd543c270f345bc645055ed37826725ddc868ab48ffad7d16da45": {
+        "english": "But living together must suit the parents too.",
+        "french": "Mais il faut que cette cohabitation convienne aussi aux parents.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "b1f09f2cd36a314731ecdf161183c725dbeff387228b3ad8c008906095a5fae8": {
         "english": "Feeling comfortable at home is not enough if someone else does all the work. Parents also need peace and privacy. Everyone must be able to express their limits regarding expenses, chores or visitors.",
@@ -6646,6 +7201,11 @@
         "english": "Furthermore, staying in the family home can make it easier to fund a project.",
         "french": "Ensuite, rester au domicile familial peut rendre un projet plus facile à financer."
       },
+      "ec4fa5fd0dc8919423253e09614502a784eeef61c455a9aea72addc39d89ef8b": {
+        "english": "A young employee contributes to household expenses every month and does the week's shopping. His parents do not have to remind him of what he agreed to do.",
+        "french": "Un jeune salarié verse chaque mois une contribution aux charges et fait les courses de la semaine. Ses parents n'ont pas à lui rappeler ce qu'il a accepté de faire.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "ed36cc963aa082a240c1d4a63e5c95e443d07e37c9675eae551c2550fed905ba": {
         "english": "The choice also depends on income and the availability of suitable accommodation. Cutting back on certain expenses can make it possible to undertake training or build up savings, rather than committing to a budget that is impossible to stick to.",
         "french": "Le choix dépend aussi des revenus et des logements accessibles. Réduire certaines dépenses peut permettre de suivre une formation ou de constituer une réserve, plutôt que s'engager dans un budget impossible à tenir."
@@ -6663,6 +7223,11 @@
         "english": "He will be better prepared to move out, with less risk of having to return at the first unexpected expense.",
         "french": "Son départ sera mieux préparé, avec moins de risque de devoir revenir dès la première dépense imprévue.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "f784bc660e5b2d8addf1ddbc62c7a14ad28f9604bc7b903aba6d472e9269b1e6": {
+        "english": "This choice obviously does not suit every family. When space is short or relationships are difficult, getting your own home may be preferable. No single age for leaving home can suit every situation.",
+        "french": "Ce choix ne convient évidemment pas à toutes les familles. Quand on manque de place ou que l'entente est difficile, prendre son propre logement peut être préférable. Aucun âge de départ ne peut convenir à toutes les situations.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "ff1c0360c8212f2de790aa5331c4f87f5b7a59199b6772eaed3301efcc4e6bde": {
         "english": "If a son has friends over late when his mother gets up early, they can agree to invite them on Saturdays rather than during the week.",
@@ -6690,6 +7255,16 @@
         "french": "Bien sûr, rejeter un avis simplement parce qu'il vient d'une personne âgée serait injuste. Beaucoup restent très informées. Je vérifierais aussi si un ami de mon âge connaît vraiment le sujet et comprend ma situation.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "2ca484cd3083927aaa8833b6b5d53047dfb08daf1e66210b9f7436a988ec4cfb": {
+        "english": "Older people often give good advice, but I would not say \"always\". Their experience deserves to be listened to. That does not mean it provides an appropriate answer to every situation or that we should follow advice solely out of respect.",
+        "french": "Les personnes âgées donnent souvent de bons conseils, mais je ne dirais pas « toujours ». Leur expérience mérite d'être écoutée. Cela ne veut pas dire qu'elle apporte une réponse adaptée à chaque situation ni qu'on doive suivre un avis uniquement par respect.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "2cae6e67791cff815e622eb87cd4d22e02204fe9bfb2e8319160250819ac5e23": {
+        "english": "Someone who has already been through a situation can explain what they had not anticipated and the consequences of their choice. This account gives us specific things to check, which are far more useful than simply being encouraged to be careful.",
+        "french": "Une personne qui a déjà traversé une situation peut expliquer ce qu'elle n'avait pas prévu et les conséquences de son choix. Ce récit donne des points précis à vérifier, bien plus utiles qu'un simple encouragement à faire attention.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "386ced74c80883e8e56df5419ae847d451208b894b37b2bef89f15cfe4a49096": {
         "english": "A grandfather who has changed careers might explain that he left his job before checking the cost of his training. He advises his granddaughter to weigh up the costs against her savings before resigning.",
         "french": "Un grand-père qui a changé de métier peut expliquer qu'il avait quitté son emploi avant de vérifier le coût de sa formation. Il conseille à sa petite-fille de comparer les frais et ses économies avant de démissionner."
@@ -6711,11 +7286,26 @@
         "english": "In conclusion, I recommend listening to older people with respect, but not obeying them automatically. Experience, active listening and adapting to the context are what make advice valuable, far more so than age alone.",
         "french": "En conclusion, je recommande d'écouter les aînés avec respect, mais pas d'obéir automatiquement. L'expérience, l'écoute et l'adaptation au contexte font la qualité d'un conseil, bien davantage que l'âge seul."
       },
+      "642b43d8e0149ffd0111e04ab5d55d9e8271e7bd8a0578e449b7b78cf875f01d": {
+        "english": "Lived experience can first help us avoid repeating a mistake.",
+        "french": "L'expérience vécue peut d'abord nous éviter de refaire une erreur.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "65e8d31b8e01ca40116da28399f0a04a552a5a10c3ae292134bdbad41360b804": {
+        "english": "But this experience comes from the past, and some rules have changed.",
+        "french": "Mais cette expérience vient du passé, et certaines règles ont changé.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "7a968ce9f397a8282a172f77d14f79b6e228ecfafcec12e9287d9865c41970ef": {
         "deepl_english": "A loved one who listens to our wishes and constraints can help us weigh up various options to find the one that suits us best. This quality depends on the relationship, not automatically on their age.",
         "english": "Someone close to us who listens to what we want and the constraints we face can help us compare several options to find one that suits us. This quality depends on the relationship, not automatically on their age.",
         "french": "Un proche qui écoute nos envies et nos contraintes peut nous aider à comparer plusieurs possibilités pour trouver celle qui nous convient. Cette qualité dépend de la relation, pas automatiquement de son âge.",
         "review_note": "Keep un proche broad and the listening/constraints wording natural; finding a suitable option does not claim it is the best one."
+      },
+      "7c58fa55f24b14bde8d0eeeb5a78033305c71eb631641358c36fc8b496b63f0e": {
+        "english": "A grandmother recommends a stable job near the family to her granddaughter, who wants to work abroad. They compare the risks and budget, but the young woman keeps her plan to leave.",
+        "french": "Une grand-mère recommande un emploi stable près de la famille à sa petite-fille, qui souhaite travailler à l'étranger. Elles comparent les risques et le budget, mais la jeune femme garde son projet de départ.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "801dcc672233acbb7ef52a8d6048721e43e9898dc4682e56085a7f9e4ee382cc": {
         "english": "Someone who has been through a similar situation can explain what went wrong and what they would do differently. Their account can help us avoid a mistake, without us having to follow exactly in their footsteps.",
@@ -6742,9 +7332,9 @@
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
       "938a01c7200e6f925b74d397ebe0fa9004a36c411ac5cb4d27da22d8a89e76a3": {
-        "english": "Some people value security, others creativity or freedom. An older person may want to protect us by recommending the choice they made themselves. To be useful, advice must also take our abilities and wishes into account.",
+        "english": "Some people value security, others creativity or freedom. An older person may want to protect us by recommending what they themselves would choose. To be useful, advice must also take our abilities and wishes into account.",
         "french": "Certains privilégient la sécurité, d'autres la créativité ou la liberté. Un aîné peut vouloir nous protéger en recommandant son propre choix. Pour qu'un conseil soit utile, il faut aussi qu'il tienne compte de nos capacités et de nos envies.",
-        "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+        "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested. Corrected the adviser's preference without inventing a past decision. Previous English: Some people value security, others creativity or freedom. An older person may want to protect us by recommending the choice they made themselves. To be useful, advice must also take our abilities and wishes into account."
       },
       "97e920e0ea362d09e5a400ebab973eb56b106c3cefd7143e7be4b78de588aced": {
         "english": "The student can consider a solution instead of making a final decision in the heat of disappointment.",
@@ -6767,6 +7357,11 @@
       "a051b9bb8324dd2d258fd3a779523080bdb646d4307d6fadf59dc54751fd9064": {
         "english": "Recruitment procedures and training programmes are constantly evolving. A solution that worked in the past may no longer be acceptable, even if the person recommending it has good intentions.",
         "french": "Les procédures de recrutement ou les formations évoluent. Une solution qui a fonctionné autrefois peut ne plus être acceptée, même si la personne la recommande avec de bonnes intentions."
+      },
+      "a58283e5b8e0620ab4c041ad641de7e53831ba87b8fcf014614a912674ffbde3": {
+        "english": "So I would listen to older people without following their advice blindly. Their experience is valuable, but it needs to be checked against current facts, while preserving the freedom to make your own choice.",
+        "french": "Donc, j'écouterais les personnes âgées sans suivre leurs conseils aveuglément. Leur expérience est précieuse, mais il faut la confronter aux faits actuels et garder la liberté de faire son propre choix.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "a6de2da256df356138c114af2ef9d178126947e4c7cb0ef2b15709684e2a23a6": {
         "english": "After a first failure, we sometimes think everything is over. An older person can explain how they overcame a similar experience. Their advice is then based on lived experience, not just reassuring words.",
@@ -6792,6 +7387,11 @@
         "french": "Une grand-mère recommande un emploi stable près de la famille à sa petite-fille, qui souhaite travailler à l'étranger. Elles peuvent comparer les risques et le budget sans condamner le départ.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "c65c86fe9f627238e5fc982cd102d9408ec326781f8f0de216b1133d5b1563ab": {
+        "english": "Conversely, rejecting advice simply because it comes from an older person would be unfair. Many remain very well informed. I prefer to ask what their advice is based on, then see whether those reasons fit my situation.",
+        "french": "À l'inverse, rejeter un conseil simplement parce qu'il vient d'une personne âgée serait injuste. Beaucoup restent très informées. Je préfère demander ce qui justifie leur avis, puis voir si ces raisons correspondent à ma situation.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "c8d8f219940847ac099a31f4a2a17bb2f3f780c02e5ddd6bb9497bc37a36a5bc": {
         "english": "Recruitment, training and housing conditions change. Advice may be well intentioned but based on outdated assumptions. Before acting, we therefore need to check the information relevant to the current situation.",
         "french": "Le recrutement, les formations et les conditions de logement évoluent. Un conseil peut être bien intentionné, mais reposer sur des repères dépassés. Avant d'agir, il faut donc vérifier les informations qui concernent la situation actuelle.",
@@ -6801,20 +7401,45 @@
         "english": "This advice helps them check whether their plan is financially viable before leaving their job.",
         "french": "Ce conseil l'aide à vérifier si son projet est financièrement réaliste avant de quitter son emploi."
       },
+      "d811c0b5e24523078a9e74971e28282ded10c85835f4e3575ddc35b4ac1af323": {
+        "english": "She keeps the idea of taking the initiative without applying a method that would have left her application unprocessed.",
+        "french": "Elle retient l'idée de prendre l'initiative, sans appliquer une méthode qui aurait laissé sa candidature sans suite.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "e072c82d71ac614fe64f99803d7a37b3bad140020d5b262b0480f411adad70ad": {
         "english": "First, having been through difficulties can help someone put other people's problems into perspective.",
         "french": "D'abord, avoir traversé des difficultés peut aider à relativiser celles des autres.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "e2493e84dd2b260de2d8aea9fa816d544ebee776a9be4fabc0c35beded98d78b": {
+        "english": "She works out her budget and checks that her plan is realistic before leaving her job.",
+        "french": "Elle fait son budget et vérifie que son projet est réaliste avant de quitter son poste.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "e31c7df24683a9e1724d32bf0f256c1f0fd32d79e1f5e2e65a5063d23578fd56": {
+        "english": "A grandfather advises handing in a CV in person. His granddaughter checks the procedure: the company only accepts an online application. She therefore submits hers that way.",
+        "french": "Un grand-père conseille de déposer son CV en main propre. Sa petite-fille vérifie les démarches : l'entreprise n'accepte qu'une candidature en ligne. Elle envoie donc son dossier par ce moyen.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "e3b2ceed631cb8df21ed22875d83fee1c41b84dac4ef9be731914241b4219905": {
         "english": "Advice must therefore take current rules into account to be truly useful.",
         "french": "Le conseil doit donc tenir compte des règles actuelles pour être vraiment utile."
+      },
+      "f0f3025f88fafd292dd33a67155eb70b8f627d28a5d258b9bb3433d8840123be": {
+        "english": "A grandfather had left his job before checking the cost of a training course. When his granddaughter considers changing career, he advises her to compare the fees with her savings before resigning.",
+        "french": "Un grand-père avait quitté son emploi avant de vérifier le coût d'une formation. Quand sa petite-fille envisage une reconversion, il lui conseille de comparer les frais avec ses économies avant de démissionner.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "f883b017147a6e646c39c2f9e9fe5b05fa6be74241c376cea09f382e4fb18c78": {
         "deepl_english": "A student is torn between two universities. His elderly aunt knows he has a penchant for practical work: they compare the role of workshops in the curricula. He discovers that one offers mainly theoretical courses, whilst the other is better suited to his way of learning.",
         "english": "A student is torn between two schools. His elderly aunt knows he has a preference for practical work: they compare the role of workshops in the curricula. He discovers that one offers mainly theoretical courses, whilst the other is better suited to his way of learning.",
         "french": "Un étudiant hésite entre deux écoles. Sa tante âgée connaît son goût pour la pratique : ils comparent la place des ateliers dans les programmes. Il découvre que l'une propose surtout des cours théoriques, alors que l'autre correspond mieux à sa façon d'apprendre.",
         "review_note": "Écoles does not establish that both institutions are universities."
+      },
+      "fd031f4d764ae2d4bfc1476149953d20beeb2897fdc8beb256cbf460143eb654": {
+        "english": "Even when the information is accurate, the advice may reflect priorities different from ours.",
+        "french": "Même quand les informations sont exactes, le conseil peut refléter d'autres priorités que les nôtres.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       }
     },
     "eo/tache-3/famille-p4": {
@@ -6833,6 +7458,11 @@
         "french": "Si ses parents se séparent, ils peuvent expliquer qu'ils ne vivront plus ensemble, mais qu'il n'y est pour rien. Ils précisent où il dormira et quand il verra chacun.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "0dec489f344df275a4ccf0e3ea493ca411861fbfd02928812ad0aa314049e0df": {
+        "english": "This honesty also matters when a child notices a change they do not understand.",
+        "french": "Cette honnêteté compte aussi quand l'enfant remarque un changement qu'il ne comprend pas.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "18a215483e6638806031c15cef10188032ac2b947639f0b73b13edc1f8975ed8": {
         "deepl_english": "A child wonders why her grandmother no longer comes to see her on Wednesdays. Her parents explain that she is in hospital after a fall and that carers are looking after her. They plan to have her ring, without promising a full recovery.",
         "english": "A child wonders why her grandmother no longer comes to see her on Wednesdays. Her parents explain that she is in hospital after a fall and that healthcare staff are looking after her. They arrange a call, without promising a recovery.",
@@ -6846,6 +7476,11 @@
       "2833955483abe5877c1ab9c41c10067ee401a2403cc66d7dcbf1bf6c3c4f0abd": {
         "english": "Furthermore, a simple explanation can ease a child’s worries.",
         "french": "Ensuite, une explication simple peut réduire les inquiétudes de l'enfant."
+      },
+      "2a028f4164fbf51454f6154f0fe2bc2337fe438496f1079b5deb7722268d1ff8": {
+        "english": "A child should not have to carry the burden of adults' relationship conflicts or financial worries. You can tell them it is an adult matter, or acknowledge that you do not know something yet. Setting this boundary does not require lying.",
+        "french": "L'enfant n'a pas à porter les conflits de couple ou les inquiétudes financières des adultes. On peut lui dire qu'il s'agit d'une affaire d'adultes, ou reconnaître qu'on ne sait pas encore quelque chose. Poser cette limite ne demande pas de mentir.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "2e67f46736f06c0382efb94a2169374fcdd7d44d182c3fd4d0a9d3842964b88e": {
         "english": "In conclusion, I would opt for an honest, gradual and caring approach. A truthful explanation helps children to understand and maintain trust, without them becoming the adults’ confidants.",
@@ -6883,9 +7518,34 @@
         "english": "The child may be disappointed by the decision whilst still believing the parent’s explanations.",
         "french": "L'enfant peut être déçu de la décision tout en continuant à croire les explications du parent."
       },
+      "5512330f4ba258f6ecd8ef681e96abd6063db6766df19b86a42b9546d222455f": {
+        "english": "For me, it is better to tell children a simple truth than to invent a story to avoid a difficult conversation. But \"always telling the truth\" does not mean telling them everything as though they were adults. It means answering honestly about what concerns them.",
+        "french": "Pour moi, il vaut mieux dire une vérité simple aux enfants qu'inventer une histoire pour éviter une conversation difficile. Mais « toujours dire la vérité » ne signifie pas tout raconter comme à un adulte. Il s'agit de répondre honnêtement à ce qui les concerne.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "56aa52f86e6ac6133f21f328ddbd227e916ab49181e11d8dae55a594a46613dc": {
+        "english": "The child plays it more confidently at the audition. The honest feedback gave them something to improve, rather than a compliment with no guidance.",
+        "french": "Il le joue plus sûrement lors de l'audition. Le retour honnête lui a donné quelque chose à améliorer, plutôt qu'un compliment sans indication.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "62b478c90ce32737ffbb51f5cfa8e890894eb854706d66b494c75e7930081b96": {
         "english": "The child then knows why their grandmother is away and how to stay in touch with her.",
         "french": "L'enfant sait alors pourquoi sa grand-mère est absente et comment garder le contact avec elle."
+      },
+      "6859fe0244928f83342e70b26f74764c099b32be31c1565545dcce86f2347735": {
+        "english": "Before a piano audition, a child asks whether they are ready. Their parent replies: \"The beginning is solid, but you hesitate at the end. Let's go over it slowly every day.\" They then work on that passage.",
+        "french": "Avant une audition de piano, un enfant demande s'il est prêt. Son parent répond : « Le début est solide, mais tu hésites à la fin. Reprenons-la lentement chaque jour. » Ils travaillent ensuite ce passage.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "6f73414ba279f23f249e1d722d54930db6097f78e63c0797d870fac67d15cd9b": {
+        "english": "She understands why her grandmother is absent and can keep talking to her, rather than being left alone with her questions.",
+        "french": "Elle comprend pourquoi sa grand-mère est absente et peut continuer à lui parler, au lieu de rester seule avec ses questions.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "77403ce41aa4424412c83dd0b3fc1bbbbb1ec349b71ba897a20eccf8cf2a763e": {
+        "english": "They see absences and changing routines. Without an explanation, they may imagine something more worrying than the reality. The truth must therefore be adapted to their age, with simple words and time for their questions.",
+        "french": "Il voit les absences et les habitudes qui changent. Sans explication, il peut imaginer quelque chose de plus inquiétant que la réalité. Il faut donc que la vérité soit adaptée à son âge, avec des mots simples et du temps pour ses questions.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "8864bfd0c9208ffb87ac18ab1eab9ce5f10ab33591d2b3411b7a9191c035ec29": {
         "english": "The truth becomes a starting point for moving forward, not a way of belittling them.",
@@ -6900,6 +7560,11 @@
         "english": "Finally, an honest answer can also help a child improve.",
         "french": "Enfin, une réponse honnête peut aussi aider l'enfant à progresser.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "a1de6e13c792e21a7ae06f0027a061addc82d9465af45ffe59f7dee14e1a3af9": {
+        "english": "A little girl no longer sees her grandmother on Wednesdays. Her parents explain that she is in hospital after a fall and arrange a call, without promising that she will recover straight away.",
+        "french": "Une fillette ne voit plus sa grand-mère le mercredi. Ses parents expliquent qu'elle est à l'hôpital après une chute et organisent un appel, sans promettre qu'elle guérira tout de suite.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "ae929e8bfbff5c7c36c8c48cf1b0f02fa8a165f5b6a3dfd5b64f32d00de53aa7": {
         "english": "Before playing the piano in front of the class, the child asks whether they are ready. You can answer: \"You know the beginning well, but you hesitate at the end. We can go over it together.\"",
@@ -6964,13 +7629,28 @@
         "french": "Le lien existe toujours, mais demande davantage d'efforts et laisse parfois le sentiment d'être à côté de la vie familiale.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "09084dda2a043714628674533ab1bd23d126b504fd0a96b410358131ad0dac81": {
+        "english": "A daughter lives eight hours away from her father by train. To come for his birthday, she would need two days' leave and a ticket beyond her budget. She gives up the visit.",
+        "french": "Une fille vit à huit heures de train de son père. Pour venir à son anniversaire, elle aurait besoin de deux jours de congé et d'un billet trop cher pour son budget. Elle renonce à la visite.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "13009f665d39480da0169fac06a7122afb1d8accf5133c6409320c4445e472dd": {
         "english": "Someone living on their own might ring their family on a Sunday, only to find themselves eating dinner alone once the call has ended. The call allows them to catch up with their loved ones, but it cannot replace the meal they used to share with them.",
         "french": "Une personne installée seule peut appeler sa famille le dimanche, puis dîner sans compagnie une fois la conversation terminée. L'appel lui permet de prendre des nouvelles, mais ne remplace pas le repas qu'elle partageait avec ses proches."
       },
+      "17f787362c8f97dad939530100442a39ca9e4e217dc265fc5ffcc0b09954e651": {
+        "english": "You need to find time, plan the journey and pay for the ticket. Wanting to be there is therefore not always enough. Even an event planned well in advance may fall at a time when these constraints are too great.",
+        "french": "Il faut trouver du temps, prévoir le trajet et payer le billet. La volonté d'être présent ne suffit donc pas toujours. Même un événement prévu longtemps à l'avance peut tomber à un moment où ces contraintes sont trop fortes.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "19fe70afe8cb531c01a7bf1e474d99369982219627f8bb5eaa886f5d60f8af50": {
         "english": "Being far away can therefore sometimes add to the organisational challenges, quite apart from the feeling of missing loved ones.",
         "french": "L'éloignement ajoute donc parfois une difficulté d'organisation, au-delà du sentiment de manque."
+      },
+      "1f5104e0ee845c23a4d149517ce5a703ab90bb329ef26dc5bc61b5c5aef3f9c9": {
+        "english": "A parent finishes work too late to collect his child. Before moving, he relied on the grandparents. This time, he calls a trusted neighbour whom he has already authorised with the school to collect the child.",
+        "french": "Un parent finit son travail trop tard pour récupérer son enfant. Avant de déménager, il comptait sur les grands-parents. Cette fois, il appelle une voisine de confiance qu'il a déjà autorisée auprès de l'école.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "2756dff8749ba81787c86ca43fa4c3096a79b513d3158d767bd6f29324ec08f0": {
         "english": "Loved ones can offer advice from a distance without being able to travel to see you or provide immediate assistance. You therefore need to find other sources of support and plan ahead more carefully for certain situations.",
@@ -7037,6 +7717,11 @@
         "english": "Furthermore, certain needs require help that is available locally.",
         "french": "Ensuite, certains besoins demandent une aide disponible sur place."
       },
+      "7de9598f25c59520effa375ea41edd46eca772e16b90fa4ffb4e9e570bacf3d2": {
+        "english": "She collects the child, but this backup only exists because he arranged it in advance. The family can no longer provide this help at short notice.",
+        "french": "Elle va chercher l'enfant, mais ce relais n'existe que parce qu'il l'a organisé à l'avance. La famille ne peut plus assurer ce dépannage.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "8716568b9772ffa4bdd7924d6576d7612c491c8db59fcabb826d0abe820a6226": {
         "english": "The emotional sense of missing someone is then compounded by the practical frustration of being unable to be there.",
         "french": "Au manque affectif s'ajoute alors la frustration concrète de ne pas pouvoir être là.",
@@ -7048,10 +7733,20 @@
         "french": "Un parent habite maintenant loin des grands-parents, qui récupéraient parfois son enfant à l'école. Un soir où il finit tard, il appelle une voisine de confiance, déjà autorisée à récupérer son enfant. Elle accepte de le faire : il a trouvé un autre relais sur place.",
         "review_note": "One neighbour providing a relais is not a whole support network; keeps the parent pronouns consistent."
       },
+      "8cea2d7162d0138b26406d696892a72e2cec7124692d5814d4858498374bea25": {
+        "english": "And when you want to see your loved ones, a simple visit sometimes becomes a journey.",
+        "french": "Et quand on veut retrouver ses proches, une simple visite devient parfois un voyage.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "8f7e000151c85963899fca3899543d329e790cc55bf5296609e1394f2ee46692": {
         "english": "Travelling requires money, leave from work and sometimes administrative arrangements. You cannot go home for every birthday. This constraint becomes particularly difficult when you want to support a loved one quickly, rather than simply arrange a holiday.",
         "french": "Voyager suppose un budget, des congés et parfois des démarches administratives. On ne peut pas rentrer pour chaque anniversaire. La contrainte devient particulièrement difficile quand on veut soutenir un proche rapidement, et pas seulement organiser des vacances.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "93ecb884b456c6edff6793704f90ff9b9e959ec15f8d642c6622c6a27510c392": {
+        "english": "She calls him on the day, but remains disappointed not to share the celebration with him.",
+        "french": "Elle l'appelle le jour même, mais reste déçue de ne pas partager la fête avec lui.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "94df459eefcb16040572a67a9708be2fcfa3252d73f2d60dfcc11b6ccf3b6077": {
         "english": "Distance turns a simple visit into a trip that requires planning. Holidays, work schedules and budget constraints can limit the frequency of reunions, even when everyone would like to see each other more often.",
@@ -7069,6 +7764,16 @@
       "b8ebbfde4496c708f3e68e55e78c9c1c7d1780df89d2fef85107d5af2f788f81": {
         "english": "A daughter who lives an eight-hour train journey from her parents would like to come home for her father’s birthday. She would have to take two days off work and pay for a ticket that is beyond her budget. So she decides not to come, even though she really wants to be there.",
         "french": "Une fille qui habite à huit heures de train de ses parents voudrait venir pour l'anniversaire de son père. Elle devrait poser deux jours de congé et payer un billet qui dépasse son budget. Elle renonce donc à venir, même si elle tient à être présente."
+      },
+      "bca46358eadcaf2b3e6564b4a31d4c90c4330d6a773f62a29b181a622d8e7e29": {
+        "english": "When you get on well with your family, I do not think living far from them is easy. You may have chosen to leave and love your new life, while still missing them. Distance also changes very practical aspects of daily life.",
+        "french": "Quand on s'entend bien avec sa famille, je ne trouve pas facile de vivre loin d'elle. On peut avoir choisi son départ et aimer sa nouvelle vie, tout en ressentant le manque. La distance change aussi des choses très pratiques au quotidien.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "c8c9adfa3c659337a54f5e102b9cb48a21e9a79d5b93aa1ff08b9ac0000a63be": {
+        "english": "This is not just about missing them emotionally: you also need to find help locally.",
+        "french": "Ce manque n'est pas seulement affectif : il faut aussi retrouver de l'aide sur place.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "d553d3c609426ad732c26fdd6bbee0d8eadc9861b42b29ff4cc9ee92f7afe495": {
         "english": "When relationships are good, living far from one’s family can still be difficult. You miss the little moments, practical help is less readily available, and visits take time and money. Nevertheless, it is possible to build a fulfilling life elsewhere.",
@@ -7094,6 +7799,11 @@
         "french": "Près des siens, on passe prendre un café sans prévoir un rendez-vous. À distance, les échanges deviennent plus organisés, surtout avec le décalage horaire. On raconte les nouvelles, mais on partage moins les moments ordinaires.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "f3b23ca53354a97a3cdec48250e7eb558487e081821816d95e592b7f07068de1": {
+        "english": "Of course, distance may be easier to live with when family relationships are difficult. Choosing to move and having friends locally also help you find your place. Saying that adjusting is difficult does not mean you will be unhappy.",
+        "french": "Bien sûr, la distance peut être plus facile à vivre quand les relations familiales sont difficiles. Un départ choisi et des amis sur place aident aussi à trouver sa place. Dire que l'adaptation est difficile ne veut pas dire qu'on sera malheureux.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "f9348b750057c7f4e8aa980e37450a1f91f8dcdb5bae70cc6607a0e8a4501910": {
         "english": "However, not all families are a source of support, and some people are better off living apart. Friends, a partner or neighbours can also help with day-to-day life. Being far from one’s family does not, therefore, necessarily mean being alone.",
         "french": "Cependant, toutes les familles ne sont pas une source de soutien, et certaines personnes vivent mieux à distance. Des amis, un conjoint ou des voisins peuvent aussi aider au quotidien. Être loin de sa famille ne signifie donc pas forcément être seul."
@@ -7104,6 +7814,21 @@
       }
     },
     "eo/tache-3/famille-p6": {
+      "09d3b81bec3caeec21b3875a925094739b38bad55a51902c495069f9b8b0a4d5": {
+        "english": "They understand the connection between how they work and their progress. They have a method, not just a financial reason to try again.",
+        "french": "Il comprend le lien entre sa façon de travailler et ses progrès. Il dispose d'une méthode, pas seulement d'une raison financière de recommencer.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "0ae8c980e2e7214359eb92492d29dc0a63c90b4740cc205fc961cc143bd68d57": {
+        "english": "They may therefore put less effort into this presentation, even though preparing it would allow them to learn something.",
+        "french": "Il risque donc de moins s'investir dans cet exposé, même si le préparer lui permettrait d'apprendre quelque chose.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "16c26998ce67e6700621b688c372c10689542758cf95b741eba5192a6b0493ff": {
+        "english": "To help them succeed again, it is better to explain what worked.",
+        "french": "Pour l'aider à réussir de nouveau, mieux vaut expliquer ce qui a fonctionné.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "176b16489cbd5cdffd1dca498206d8af360f502ff2f8dd3110fe7f2538e56b43": {
         "english": "Money can thus make the reward take precedence over the need to understand and correct one’s mistakes.",
         "french": "L'argent peut ainsi faire passer la récompense avant le besoin de comprendre et de corriger ses erreurs."
@@ -7139,10 +7864,20 @@
         "french": "L'enfant peut surtout penser à ce qu'il gagnera, plutôt qu'à ce qu'il a compris. La motivation risque alors de dépendre du paiement. Les activités sans récompense peuvent lui sembler moins importantes, même lorsqu'elles permettent d'apprendre.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "34a2f201809b1850ae4c6de847a7825ffd50d9858000f9cb538d0a0eac9f31be": {
+        "english": "I have no objection to celebrating a good term or giving a small treat after an important exam. You are then sharing the joy of an achievement. What bothers me is automatic payment that turns every mark into a sum to be earned.",
+        "french": "Fêter un bon trimestre ou offrir une petite attention après un examen important ne me choque pas. On partage alors la joie d'une réussite. Ce qui me gêne, c'est le paiement automatique qui transforme chaque note en somme à gagner.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "4f9fc46dae7de74cc96214933859a5d6d3d428b6ebcdfe5d296e03f73254a5ed": {
         "english": "Some pupils understand quickly; others work hard to reach a reasonable level. If only a high mark counts, the latter's efforts remain invisible. It is better to look at their starting point and the progress they have made.",
         "french": "Certains élèves comprennent vite ; d'autres travaillent beaucoup pour atteindre un niveau correct. Si seule une note élevée compte, les efforts du second restent invisibles. Il vaut mieux regarder le point de départ et les progrès réalisés.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "52d14f2b63b5e108799508b83c81f08f4b7622895395cdebd5f2dc6f369e66d2": {
+        "english": "I understand a parent's wish to encourage their child, but I would not put a price on every good mark. The reward may make them want to work in the moment. Yet that is not enough to learn with interest or understand how to improve.",
+        "french": "Je comprends qu'un parent veuille encourager son enfant, mais je ne mettrais pas un tarif sur chaque bonne note. La récompense peut donner envie de travailler sur le moment. Cela ne suffit pourtant pas à apprendre avec intérêt ni à comprendre comment progresser.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "52d3e09bd2b1dc10616a0617ac905757ad88d9b768b947fc9724bdc666b41828": {
         "english": "Saying \"you did well to go back over your mistakes\" draws attention to an action they can repeat. Parents can help organise revision and celebrate a milestone without turning every test into a financial negotiation.",
@@ -7163,6 +7898,11 @@
         "english": "Finally, specific feedback on methods helps a child succeed again.",
         "french": "Enfin, un retour précis sur les méthodes aide à réussir à nouveau.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "6e2bc1fe66e76cebaf423f94cf99461d7af855ff31bc52e748feb10d86267d33": {
+        "english": "A sum of money does not explain how you improved. Specific feedback, on the other hand, draws attention to an action you can repeat. The child then knows what to build on in the next test, rather than simply waiting for a reward.",
+        "french": "Une somme d'argent ne dit pas comment on a progressé. Un retour précis attire au contraire l'attention sur une action qu'on peut refaire. L'enfant sait alors sur quoi s'appuyer au prochain contrôle, au lieu d'attendre seulement une récompense.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "7168cb99f2152fbb299a0a6d53ea01d3a2905b11699f327c62faefc3602b208f": {
         "english": "The child may therefore feel that their efforts are not recognised, despite their progress.",
@@ -7185,6 +7925,16 @@
       "80a3a6300b234ccba24a9350e4ca7093adb619656e7c98cc88a7fd5a38fea20b": {
         "english": "A pupil’s mark has gone up from 8 to 12 out of 20 after several weeks of hard work. But his parents only give him money once he reaches 15. He has made real progress, without reaching the threshold that triggers the reward.",
         "french": "Un élève passe de 8 à 12 sur 20 après plusieurs semaines de travail. Mais ses parents ne donnent de l'argent qu'à partir de 15. Il a fait de vrais progrès, sans atteindre le seuil qui déclenche la récompense."
+      },
+      "88e7277be59218fa6b36d84bcb342998a8871da9cb9570c471bc7b20fc24727e": {
+        "english": "Even if the child remains motivated, a mark does not measure all their effort.",
+        "french": "Même si l'enfant reste motivé, la note ne mesure pas tous les efforts.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "8c7937eae44fb8de66fc142390a1b218b99e5f8c1cc01e9338d9a6e934af4303": {
+        "english": "After an improved mark, a parent looks at the marked work: \"This time, you reread the instructions and avoided your usual mistakes.\" The child decides to keep using this method for the next test.",
+        "french": "Après une meilleure note, un parent regarde la copie : « Cette fois, tu as relu les consignes et évité tes erreurs habituelles. » L'enfant décide de garder cette méthode pour le contrôle suivant.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "9185f418b746ea6e2a855deb1d97d827d3a50cc2cfddaf3af4e15ef13eac34a7": {
         "english": "First, paying for every good mark risks turning school into a financial transaction.",
@@ -7221,6 +7971,11 @@
         "french": "Un parent promet dix euros pour chaque bonne note. Avant de préparer un exposé non noté, son enfant demande : « Ça rapporte aussi quelque chose ? » Il pense au paiement plutôt qu'au sujet.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "c5df99fdb5464ef3d96295ee63e45dc590828bc654d19da907d9670b01fad449": {
+        "english": "The child may think mainly about what they will earn rather than what they have understood. The risk is that the reward takes priority over learning: anything that earns nothing then seems less important to them.",
+        "french": "L'enfant peut surtout penser à ce qu'il gagnera, plutôt qu'à ce qu'il a compris. Le risque est de faire passer la récompense avant l'apprentissage : ce qui ne rapporte rien lui semble alors moins important.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "d5449cef3ddf6b8677ba895977fb4a3e5ab35dbcd9fa47e0ab03fb4fe893078b": {
         "english": "In short, I prefer to encourage hard work and celebrate progress. The main thing is to help children understand why they are learning and how they can improve.",
         "french": "Bref, je préfère encourager le travail et célébrer les progrès. L'essentiel est d'aider l'enfant à comprendre pourquoi il apprend et comment il peut s'améliorer.",
@@ -7252,6 +8007,11 @@
         "french": "Leur expérience commune rend la collaboration utile, au-delà de la confiance liée à la famille.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "0e3976484e4530c8d121bd44e4329b215217a61b81d7539e4e7c6ca1e3a8c0c7": {
+        "english": "I do not think we should always avoid working with family. It can work very well, but being related is not enough reason to choose a business partner. I would look above all at what we already know about how they work.",
+        "french": "Je ne pense pas qu'il faille éviter systématiquement de travailler en famille. Cela peut très bien fonctionner, mais le lien familial ne suffit pas pour choisir un associé. Je regarderais surtout ce qu'on sait déjà de sa façon de travailler.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "105083f4ac5778a93c9db5b24c152b38b03406aa8e1d96d18d29b8283c55679f": {
         "english": "A brother and his sister work together. At a family meal, he criticises her for a late delivery. Their mother takes his side. The sister feels judged by her family for a professional mistake, and relations become strained.",
         "french": "Un frère et sa sœur travaillent ensemble. Au repas familial, il lui reproche une livraison en retard. Leur mère prend parti pour lui. La sœur se sent jugée par sa famille pour une erreur professionnelle, et les relations se tendent."
@@ -7263,6 +8023,26 @@
       "143e7ec0238fc37b63a57f38ac491c76a7a1ccd6d873817cfdef25390d466fe4": {
         "english": "A shopkeeper hires his cousin for twenty hours a week. They set out his duties, working hours and pay in writing. If an extra Saturday is needed, they discuss it rather than assuming he must agree to work for free simply because they are family.",
         "french": "Un commerçant engage son cousin pour vingt heures par semaine. Ils fixent par écrit ses missions, ses horaires et sa rémunération. Si un samedi supplémentaire est nécessaire, ils en discutent au lieu de supposer qu'il doit accepter gratuitement parce qu'ils sont de la même famille."
+      },
+      "15d24bafa0ea654af20bce80eea4e4ccdf4c3e6a6942d7f7ae0c1a46a29c0011": {
+        "english": "The boss's son asks to become a team leader. His father appoints him because he is his son, without considering a more experienced colleague's application.",
+        "french": "Le fils du patron demande à devenir chef d'équipe. Son père le nomme parce que c'est son fils, sans examiner la candidature d'un collègue plus expérimenté.",
+        "review_note": "Human-authored English translation of the final French editorial review correction; no new provider translation was requested."
+      },
+      "1a553e744edd0e1aed2a5ca273fa7384890b67bd6874fff9f9dfb0af9c3c1f36": {
+        "english": "You see your business partner again at family meals. If you deal with a work problem there, relatives may feel obliged to take sides. A disagreement between two colleagues then becomes a source of tension affecting everyone.",
+        "french": "On retrouve son associé aux repas de famille. Si on y règle un problème professionnel, les proches peuvent se sentir obligés de prendre parti. Un désaccord entre deux collègues devient alors une tension qui touche tout le monde.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "1baced8fb88f8b56fbcbc74912368a6f32148eb02c348713d636a34f639f5cea": {
+        "english": "The risk is that difficulties at work also enter family life.",
+        "french": "Le risque, c'est que les difficultés du travail entrent aussi dans la vie familiale.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "1cbd9b6b495e01566fd7e5604c5bc542cb3fa1f9d7aa09cab18e8b63a37ca10a": {
+        "english": "When you have worked together before, you know how the other person reacts under pressure and what they can do. That experience allows you to divide up roles, not simply having grown up in the same family.",
+        "french": "Quand on a déjà travaillé ensemble, on sait comment l'autre réagit sous pression et ce qu'il sait faire. C'est cette expérience qui permet de répartir les rôles, pas le simple fait d'avoir grandi dans la même famille.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "21f66a3e4feaef62a8d47f16f2a60440bbc8e216252ace6f7376cf8af2bbd20f": {
         "english": "Two sisters open a bakery: one is a baker, the other has managed a shop. They have already sold together at markets and know how each reacts when there are lots of customers.",
@@ -7277,9 +8057,19 @@
         "english": "However, rules cannot fix a relationship characterised by pressure or persistent conflicts. Declining to work together may be the best choice, without this meaning you are rejecting your family. Everyone must be able to say no and consider other colleagues.",
         "french": "Cependant, des règles ne réparent pas une relation marquée par la pression ou des conflits persistants. Refuser la collaboration peut être le meilleur choix, sans que cela signifie rejeter sa famille. Chacun doit pouvoir dire non et envisager d'autres collaborateurs."
       },
+      "41bd192aae6153819d91971ad8284d69f30f671396453d733fb3d13429b8a0ce": {
+        "english": "The boss's son asks to become a team leader. His father appoints him even though a longer-serving colleague has more experience and the skills required for the role.",
+        "french": "Le fils du patron demande à devenir chef d'équipe. Son père le nomme alors qu'un collègue plus ancien a davantage d'expérience et les compétences attendues pour ce poste.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "44a8c7cfb19c6d5161f404827d2eb11d4305ab1237699299181c6dab176fb5e9": {
         "english": "A conflict does not necessarily remain confined to the workplace when you subsequently find yourself with relatives. Other family members may even be drawn into a problem that does not concern them.",
         "french": "Un conflit ne reste pas forcément limité au lieu de travail quand on se retrouve ensuite chez des proches. Les autres membres de la famille peuvent même être entraînés dans un problème qui ne les concerne pas."
+      },
+      "459a112a31768dafee8138cf89f954af53bd26f94295187bd8a074feea24ade9": {
+        "english": "You also need to think about employees who are not part of the family.",
+        "french": "Il faut aussi penser aux salariés qui ne font pas partie de la famille.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "467fb245b0eed8cfc7a053c60a25cb87cbbb94f794f56d7aaa952083fa5703ed": {
         "english": "When starting a small business, you need to make quick decisions and be able to rely on someone. Knowing their strengths and limitations helps you divide up roles. But you must choose them for their skills, not just because they are family.",
@@ -7296,9 +8086,19 @@
         "french": "Séparer les lieux et les moments aide à résoudre le problème sans entraîner la famille dans le conflit.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "6b771f117d32ff30b1372e7aede0ecc743d132a9c2091898da567123e036ff2a": {
+        "english": "Two sisters, a baker and a former shop manager, have already sold together at markets. When lots of customers arrive, one prepares the orders while the other operates the till. They open their shop with this division of roles.",
+        "french": "Deux sœurs, une boulangère et une ancienne gérante de magasin, ont déjà vendu ensemble sur les marchés. Quand les clients arrivent nombreux, l'une prépare les commandes pendant que l'autre tient la caisse. Elles ouvrent leur boutique avec cette répartition.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "746ca68bc12327f1157dc110908e1b89b5e102c01cc4182d7172e00fbb84566d": {
         "english": "In conclusion, it is possible to work with family members if there is trust and the necessary skills. However, clear rules and the ability to say no are essential to preserve the personal relationship as well.",
         "french": "En conclusion, on peut travailler en famille si la confiance et les compétences sont là. Mais il faut des règles claires et la possibilité de dire non, pour préserver aussi la relation personnelle."
+      },
+      "888bad9388316487e4b6a72ad82ac6b6ed6a5a4907417e60f2d7d83d02081294": {
+        "english": "The lateness is not resolved and the meal is spoilt. A meeting at the restaurant would have allowed them to discuss it without drawing in the other relatives.",
+        "french": "Le retard n'est pas réglé et le repas est gâché. Une réunion au restaurant aurait permis d'en parler sans entraîner les autres proches.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "8d4a6584eae68c533650281af0791fe9dc6056ff7f2c005fcc7a685c50fa518d": {
         "english": "Criticism may be heard as a personal attack. Conversely, keeping quiet to protect the relationship lets problems build up. You need to set aside times to discuss work, then stop that discussion when you get together as a family.",
@@ -7318,6 +8118,11 @@
       "99ee5dc973aade0c9a063ec5060cde6dfc75d2a606ba76ec6a687d362ec88593": {
         "english": "Furthermore, professional disagreements can spill over into family life.",
         "french": "Ensuite, les désaccords professionnels peuvent déborder sur la vie familiale."
+      },
+      "9b525d090fef18f6e7385ad0aa7f5e328f79e8c9a6603e6c23bde11eb17ddd78": {
+        "english": "At the family's Sunday meal, a sister criticises her brother in front of everyone for repeatedly arriving late for work at the restaurant. Their mother defends him, and the discussion turns into a three-way argument.",
+        "french": "Une sœur reproche à son frère ses retards au restaurant devant toute la famille le dimanche. Leur mère le défend, et la discussion devient une dispute à trois.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "9b63257833aa02d5410a2a9411badbf4d2902c15d612ead83936b1d897fa6243": {
         "english": "These criteria protect the team and allow the relative to be recognised for their work, not their name.",
@@ -7341,6 +8146,21 @@
       "a6796383b785a66ad0c33dce23b6146b6c7281860a20269f22547cc4ab5d02ad": {
         "english": "First and foremost, trust that has already been established can make it easier to get a project off the ground.",
         "french": "Tout d'abord, une confiance déjà construite peut faciliter le lancement d'un projet."
+      },
+      "a80b7c8402a97b972d1ac578e39ead8561d1c22f5a6dae0fbbd7a223d6b2a031": {
+        "english": "This colleague has good reason to find the decision unfair. Being related must not remove the need to prove yourself.",
+        "french": "Ce collègue a de bonnes raisons de trouver la décision injuste. La parenté ne doit pas dispenser de faire ses preuves.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "aa45ed915cb88b6b3c65db09b194f38472c032a7824a4fcf9a836482f65974f7": {
+        "english": "They start with working routines they have already tested, rather than assuming that getting on well will be enough.",
+        "french": "Elles commencent avec des habitudes de travail déjà testées, plutôt qu'en supposant que leur bonne entente suffira.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "ad27cadc9011bc5634029cbed8c01bc92f22b21af963cb4ac1e6fbd87b01af51": {
+        "english": "They must be able to trust decisions about working hours and promotions. If family ties take priority over work done, they may feel less valued. The same criteria must therefore apply to everyone.",
+        "french": "Ils doivent pouvoir faire confiance aux décisions sur les horaires et les promotions. Si le lien familial passe avant le travail accompli, ils peuvent se sentir moins considérés. Les mêmes critères doivent donc s'appliquer à chacun.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "b193f7bcd5319d2d55c24426eef12c9cdf52a97c4506340d71b665ac98772440": {
         "english": "First, knowing how a relative works can be an advantage.",
@@ -7373,6 +8193,11 @@
         "french": "Un frère arrive souvent en retard au restaurant qu'il gère avec sa sœur. Elle peut lui en parler en réunion, plutôt que devant tous les proches au repas du dimanche.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "e4feca01473fe69a7a227092b8dc5215124129a1f813398b1016dadf59b8548f": {
+        "english": "So I would not reject working together because it involves family. I would instead check that we know how to work together and speak frankly, without asking relatives or employees to put up with our disagreements.",
+        "french": "Donc, je ne rejetterais pas une collaboration parce qu'elle est familiale. Je vérifierais plutôt qu'on sait travailler ensemble et parler franchement, sans demander aux proches ni aux salariés de subir nos désaccords.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "ec72d8f13aeacfcc34bcff9e1764a20cc91fb05ce3373fb5ffc283403ae5b8cb": {
         "english": "A sister delivers an order late and her brother reproaches her for it during a family meal. Their mother takes his side. The sister feels judged by her family for a professional mistake, and relations become strained.",
         "french": "Une sœur livre une commande en retard et son frère lui en fait le reproche au repas familial. Leur mère prend parti pour lui. La sœur se sent jugée par sa famille pour une erreur professionnelle, et les relations se tendent."
@@ -7396,6 +8221,11 @@
         "english": "In conclusion, friends can make life easier, help us feel less lonely and encourage us to push ourselves. They offer a great deal, without being essential to everyone: other relationships can also enable us to live well.",
         "french": "En conclusion, les amis peuvent faciliter la vie, aider à se sentir moins seul et nous encourager à nous dépasser. Ils apportent beaucoup, sans être indispensables à chacun : d'autres relations peuvent aussi nous permettre de bien vivre."
       },
+      "159f43942ac7490400e4c91c53236761f1563aa71862df89d7646f8ffdbe3aea": {
+        "english": "A retired man with no friends joins the neighbourhood walking club. Every Tuesday, he talks to the same people, without socialising with them outside the outings.",
+        "french": "Un retraité sans amis rejoint le club de marche du quartier. Chaque mardi, il discute avec les mêmes personnes, sans les fréquenter en dehors des sorties.",
+        "review_note": "Human-authored English translation of the final French editorial review correction; no new provider translation was requested."
+      },
       "1f4c665ad806789bc12e525817e12477a403c334cd4daf5288314fb82785d204": {
         "english": "Someone who is ill needs to go to a follow-up appointment at the hospital. A friend comes to collect them, accompanies them to the relevant department and takes them back home.",
         "french": "Une personne malade doit aller à une consultation de suivi à l'hôpital. Un ami vient la chercher, l'accompagne jusqu'au service concerné et la ramène chez elle.",
@@ -7417,6 +8247,11 @@
       "328b9c20b116410ccf1d5cd07ac4f42fb13e85c8698706a766806db1293cac2d": {
         "english": "This encouragement can thus help us to carry out a project, rather than giving up on it due to a lack of confidence.",
         "french": "Cet encouragement peut ainsi nous aider à réaliser un projet, plutôt qu'à y renoncer par manque de confiance."
+      },
+      "379bf612b2fc397c09940e440f838d4f6c6bdda562fbcfab96bbd42942fa824c": {
+        "english": "That said, an acquaintance does not always replace a confidant. If you need to talk freely about personal matters, meeting a group is not necessarily enough. It can then be useful to deepen some relationships, without trying to move too quickly.",
+        "french": "Cela dit, une connaissance ne remplace pas toujours un confident. Si l'on a besoin de parler librement de choses personnelles, retrouver un groupe ne suffit pas forcément. Il peut alors être utile d'approfondir certains liens, sans vouloir aller trop vite.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "3f238958b34850e1c2c2d3f61f838b9941394a8344d56ea3cb92f0633a20d84a": {
         "deepl_english": "This get-together can therefore help you feel less lonely and provide a regular highlight in your week.",
@@ -7443,6 +8278,11 @@
         "french": "Une amie propose son cours de théâtre amateur à quelqu'un qui n'ose pas y aller seul. Il découvre qu'il aime jouer, poursuit les répétitions et participe ensuite à un spectacle.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "5ed5c10e9093e7d1f9c73e8b9b5fff4e9e79980c85c34fcbe90a1fdf92073c6f": {
+        "english": "He has opportunities to talk and a shared activity in his schedule. This allows him to take part in local life without waiting for a close friendship.",
+        "french": "Il a des occasions de parler et une activité partagée dans son emploi du temps. Cela lui permet de participer à la vie locale sans attendre une amitié profonde.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "6818244c7dd8a2712f982da59365d3abb93d8bdf2d9877679ede9072d68be11b": {
         "english": "That said, an acquaintance does not always replace a confidant. If you want to talk more freely, some relationships are worth deepening. Friendship is also reciprocal: you cannot demand constant availability.",
         "french": "Cela dit, une connaissance ne remplace pas toujours un confident. Si l'on souhaite parler plus librement, certains liens méritent d'être approfondis. Une amitié reste aussi réciproque : on ne peut pas exiger une disponibilité permanente.",
@@ -7466,6 +8306,11 @@
         "french": "Il reprend ainsi une place dans la vie locale sans attendre d'avoir un ami proche.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "81c3aaec593b170edb02fe3f6af490ea0401009aeb9d8b2e6572b1b26a3276b1": {
+        "english": "I do not think having friends is essential to living well. Yet they can make life easier and help us move forward. I therefore distinguish what friendship offers from the idea that everyone needs it.",
+        "french": "Je ne pense pas qu'il soit indispensable d'avoir des amis pour bien vivre. Ils peuvent pourtant nous faciliter la vie et nous aider à avancer. Je distingue donc ce que l'amitié apporte de l'idée qu'elle serait nécessaire à tout le monde.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "84ef2961f115bb17d9e37093ca504679f5d3980d984fda04678594c3b0d464d3": {
         "english": "A retired man joins the neighbourhood gardening workshop every Tuesday. He talks about planting with the same people. They are not his friends yet, but he has a group to return to and people to talk to.",
         "french": "Un retraité rejoint l'atelier de jardinage du quartier chaque mardi. Il échange sur les plantations avec les mêmes personnes. Ce ne sont pas encore ses amis, mais il retrouve un groupe et des conversations.",
@@ -7482,9 +8327,19 @@
         "french": "Être autonome n'empêche pas de rencontrer un imprévu. La famille n'habite pas toujours à proximité et les services payants ne sont pas toujours accessibles. Pouvoir compter sur un ami, et lui rendre la pareille, permet de traverser ces moments.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "8c213920afad8440ae51120447b495ea3cb82b6c87dd4b29a6ccb998945015e9": {
+        "english": "Alone, we sometimes hesitate to start an activity because we lack confidence. A friend can come with us the first time, then encourage us when we doubt ourselves. This does not do the work for us, but helps us persevere.",
+        "french": "Seul, on hésite parfois à commencer une activité par manque de confiance. Un ami peut nous accompagner la première fois, puis nous encourager quand on doute. Cela ne fait pas le travail à notre place, mais aide à persévérer.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "9246fd79b4d2f28709ac9ad245560c12418d7ffe8581266410f382d6378c4d1a": {
         "english": "First and foremost, a trusted friend can provide practical help with day-to-day life.",
         "french": "Tout d'abord, un ami de confiance peut apporter une aide concrète dans le quotidien."
+      },
+      "9856402fdfa095cdf97913a467924ca27f899eee1b21c1ee419ec73513f56d4c": {
+        "english": "Yet regular contact with others does not come only through friendship.",
+        "french": "Pourtant, les échanges réguliers ne passent pas seulement par l'amitié.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "9ab515052fedebd3f09c1e65a28e8cbcb93e68f4245cce95ca54e4026aa97932": {
         "english": "First and foremost, a trusted friend can offer practical help when you’re struggling to cope on your own.",
@@ -7503,6 +8358,16 @@
       "a1917417a64911df875a34f776341b144781e6ec1d3b68e2f78978f561bb8c09": {
         "english": "I recommend nurturing friendships, but it is also possible to live well without friends. Needs and other relationships vary. Above all, friendship provides practical support, a regular presence and encouragement to push ourselves further.",
         "french": "Je recommande de cultiver des amitiés, mais on peut aussi bien vivre sans amis. Les besoins et les autres relations varient. L'amitié apporte surtout un soutien concret, une présence régulière et un encouragement à se dépasser."
+      },
+      "a46338cddd97116e0c0791be8dc2a4ea68d927c4121a536094c34f155230464e": {
+        "english": "We can meet neighbours, colleagues or a community group without having very personal relationships with them. After retirement or a move, these meetings provide a routine and opportunities to take part, even before friendships develop.",
+        "french": "On peut retrouver des voisins, des collègues ou une association sans avoir de liens très personnels avec eux. Après une retraite ou un déménagement, ces rencontres donnent un rythme et des occasions de participer, avant même que des amitiés se créent.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "a4fc3e452e312461074c5f0c84d2c4b4f6cce4f5c352cea80fc478c016a8c018": {
+        "english": "A retired man joins the neighbourhood walking club every Tuesday. He talks to the same people during the outings. They are not his close friends yet, but he meets a group every week.",
+        "french": "Un retraité rejoint le club de marche du quartier chaque mardi. Il discute avec les mêmes personnes pendant les sorties. Ce ne sont pas encore ses amis proches, mais il retrouve un groupe chaque semaine.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "a82d7f687ee8611f87a7eb0c881a502f922654259fdfd0bc5184dfe14b5da78b": {
         "deepl_english": "When you’re hesitant to join a group where you don’t know anyone, going along with a friend can make that first step easier. You’ll then feel confident enough to give it a go, rather than giving up on an activity that appeals to you.",
@@ -7541,6 +8406,11 @@
         "english": "Someone who would like to sing but doesn’t dare might accompany a friend to a trial session with a choir. They can get a feel for the atmosphere before deciding whether they want to continue, rather than giving up without even trying.",
         "french": "Une personne qui aimerait chanter mais n'ose pas peut accompagner un ami à une séance d'essai dans une chorale. Elle découvre l'ambiance avant de décider si elle souhaite continuer, plutôt que de renoncer sans avoir essayé."
       },
+      "c878a299478b6c30d29ede776145ad60cea6bb46236e7b60f61c492c80f8f880": {
+        "english": "She has developed an ability she might have left unexplored without this encouragement.",
+        "french": "Elle a développé une capacité qu'elle aurait peut-être laissée de côté sans cet encouragement.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "c95c73103e61f1853e76e88147e2d4842588b75e0621c30bd241357602991aba": {
         "deepl_english": "When we are ill or very tired, getting out and about can become difficult. A friend who is available can take over the driving and accompany us.",
         "english": "When we are ill or very tired, making a journey can become difficult. A friend who is available can take care of transport and accompany us.",
@@ -7560,6 +8430,11 @@
         "english": "Helping one another makes certain difficulties less of a burden to bear alone.",
         "french": "S'entraider rend certaines difficultés moins lourdes à porter seul."
       },
+      "dd0605ea6f4e97c175b164c8c5c4fdb2f2804c67612618d9a45cf9f54b98009d": {
+        "english": "These meetings give him an activity and regular conversations. He thus takes part in local life without having formed any friendships.",
+        "french": "Ces rendez-vous lui donnent une activité et des conversations régulières. Il participe ainsi à la vie locale sans avoir noué d'amitié.",
+        "review_note": "Human-authored English translation of the final French editorial review correction; no new provider translation was requested."
+      },
       "e1776c168429c9cd66d1f402c6d24d278e16a8da72f6f4451822024af1ac001f": {
         "english": "This means we can discover an activity we enjoy, rather than giving it up out of hesitation.",
         "french": "On peut ainsi découvrir une activité qui nous plaît, au lieu d'y renoncer par hésitation."
@@ -7569,10 +8444,20 @@
         "french": "En conclusion, les amis facilitent et enrichissent la vie sans être nécessaires à chacun. Entretenir des liens fiables importe davantage que leur donner tous le même nom.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "e275c1dcc19b788924a687b27bdc9138abfd1f5197aa581b8ce15b52a56eaefa": {
+        "english": "Beyond helping in difficult times, friends can give us the push to try.",
+        "french": "Au-delà de l'aide en cas de difficulté, les amis peuvent nous donner l'élan pour essayer.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
       "ef8ffcfff00cbacbe84a59d2789179efff59004ee6bd7ebf755b7d8303afe9e7": {
         "english": "First, a friend can offer practical help when you cannot manage everything alone.",
         "french": "D'abord, un ami peut apporter une aide concrète quand on ne peut pas tout gérer seul.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "efc4f9f2593b90ba1971f3faa03b6d26a55c53cbbc4379ce09a5cfc0543d2913": {
+        "english": "A friend accompanies a shy person to a taster session with a choir. She enjoys singing, but hesitates to return; he encourages her. She continues rehearsing every week and then sings in her first concert.",
+        "french": "Un ami accompagne une personne timide à une séance d'essai de chorale. Elle aime chanter, mais hésite à revenir ; il l'encourage. Elle poursuit les répétitions chaque semaine et chante ensuite à son premier concert.",
+        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "f279c5837d974b329f028234b6691b8476fd28bd852c08f59ea77c714c4fe169": {
         "english": "The person can receive their care without having to manage a difficult journey alone.",
@@ -10164,7 +11049,7 @@
     }
   },
   "provider": "deepl",
-  "reviewed_at": "2026-11-05T04:52:39.770549+00:00",
+  "reviewed_at": "2026-11-05T07:53:15.655781+00:00",
   "source_language": "FR",
   "target_language": "EN-GB",
   "version": 1

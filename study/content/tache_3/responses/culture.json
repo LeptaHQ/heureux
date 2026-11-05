@@ -463,32 +463,36 @@
         "culture:p16": "81864fe832b7ea41edc74fa500e43a7dd3cee51fab050b60acdece4c3fe214a1",
         "famille:p8": "81864fe832b7ea41edc74fa500e43a7dd3cee51fab050b60acdece4c3fe214a1"
       },
-      "reformulation": "L'amitié est-elle indispensable au bonheur, ou peut-on trouver son équilibre autrement ?",
-      "position": "Pour moi, on peut être heureux sans amis, mais quelques amitiés sincères peuvent beaucoup contribuer au bonheur.",
-      "position_claire": "Je ne pense pas que les amis soient indispensables au bonheur de chacun. La famille et des activités personnelles peuvent aussi y contribuer. L'amitié reste précieuse pour se confier et ne pas tout attendre de ses proches. C'est une richesse à cultiver, pas une obligation.",
-      "argument_ids": [4, 1, 6],
+      "reformulation": "Les amis sont-ils indispensables pour être heureux ?",
+      "position": "L'amitié apporte beaucoup, mais on peut être heureux sans amis.",
+      "position_claire": "À mon avis, on peut être heureux sans avoir d'amis, même si l'amitié apporte beaucoup. On ne construit pas tous notre bonheur de la même façon : certaines personnes se sentent déjà entourées par leur famille et s'épanouissent aussi dans leurs projets.",
+      "argument_ids": [
+        1,
+        4,
+        5
+      ],
       "arguments": [
         {
-          "idea": "D'abord, ne pas avoir d'amis ne signifie pas forcément manquer d'affection ou de plaisir.",
-          "developpement": "Certaines personnes trouvent leur équilibre dans leur famille, leur couple ou des activités solitaires. Elles ne rejettent pas les autres, mais n'ont pas toutes le même besoin de sortir en groupe. Une solitude choisie peut être agréable.",
-          "exemple": "Une personne aime jardiner le samedi, puis retrouver sa sœur pour dîner. Elle n'a pas d'amis à cette période de sa vie, mais entretient une relation affectueuse et pratique une activité qui lui plaît.",
-          "consequence": "On ne peut donc pas la considérer comme malheureuse simplement parce qu'elle n'a pas d'amis."
+          "idea": "Un ami de confiance peut d'abord nous aider à traverser un moment difficile.",
+          "developpement": "Après un échec, on peut perdre confiance et avoir du mal à prendre du recul. Parler à quelqu'un qui nous connaît aide à ne pas rester enfermé dans sa déception.",
+          "exemple": "Après un refus d'embauche, une candidate pense qu'elle ne trouvera jamais de travail. Une amie l'écoute, lui rappelle qu'un refus ne résume pas ses capacités et l'aide à préparer le prochain entretien.",
+          "consequence": "Le refus reste décevant, mais elle se sent soutenue et retrouve l'envie d'essayer."
         },
         {
-          "idea": "Ensuite, on parle parfois plus facilement à un ami qu'à sa famille.",
-          "developpement": "Un parent peut s'inquiéter immédiatement ou vouloir décider à notre place. Un ami qui nous connaît peut écouter et poser des questions. Cette relation choisie permet de s'exprimer sans devoir toujours tenir un rôle familial.",
-          "exemple": "Une personne qui hésite à changer de métier en parle d'abord à une amie. Elle peut exprimer ses doutes sans devoir immédiatement rassurer ses parents sur le salaire et la stabilité du futur emploi.",
-          "consequence": "Elle se sent moins seule avec ses questions et peut réfléchir plus calmement à ses envies."
+          "idea": "Mais un ami n'est pas le seul à pouvoir nous apporter cette écoute.",
+          "developpement": "Pour certaines personnes, un conjoint ou une sœur joue déjà ce rôle de confident. Ce qui compte, c'est de pouvoir parler librement et se sentir compris, pas forcément d'avoir un cercle d'amis.",
+          "exemple": "Une personne sans cercle d'amis appelle sa sœur le dimanche. Elle lui raconte un souci au travail ; sa sœur l'écoute sans la juger, et elle raccroche soulagée.",
+          "consequence": "Elle n'a pas d'amis, mais elle ne se sent pas seule pour autant."
         },
         {
-          "idea": "Enfin, les amis permettent de ne pas faire reposer toute sa vie affective sur une seule relation.",
-          "developpement": "Même un partenaire très proche n'a pas forcément les mêmes loisirs et ne peut pas toujours être disponible. Garder des amitiés laisse à chacun un espace personnel et d'autres personnes sur qui compter. Cela évite de tout demander au couple.",
-          "exemple": "Quelqu'un aime la randonnée, mais pas son conjoint. Il peut partir avec un ami, sans renoncer à son activité ni obliger son partenaire à l'accompagner.",
-          "consequence": "Il conserve une source de plaisir et son couple subit moins de pression."
+          "idea": "Et le bonheur ne dépend pas seulement des relations avec les autres.",
+          "developpement": "Progresser dans une activité peut aussi donner du plaisir et de la fierté. Cette satisfaction peut exister sans qu'on ait d'amis : elle vient d'abord de ce qu'on a réussi à faire.",
+          "exemple": "Une personne apprend le piano chez elle. Après plusieurs semaines, elle réussit à jouer entièrement un morceau qu'elle aime. Elle le rejoue avec plaisir, fière de ses progrès.",
+          "consequence": "Cela ne remplace pas l'affection, mais c'est une source de joie qu'elle construit par elle-même."
         }
       ],
-      "nuance": "Cependant, dire que l'amitié n'est pas indispensable ne console pas quelqu'un qui souffre de son absence. Il faut écouter ce besoin. Et mieux vaut une période sans amis qu'une relation qui nous rabaisse : la qualité compte davantage que le nombre.",
-      "conclusion": "Donc, les amis ne sont pas indispensables au bonheur de chacun. Mais ils enrichissent la vie : l'essentiel est de trouver des relations qui nous conviennent, sans modèle imposé."
+      "nuance": "Bien sûr, ne pas avoir d'amis par choix n'est pas la même chose que souffrir de solitude. Si quelqu'un ressent ce manque, chercher des occasions de rencontre peut vraiment améliorer sa vie.",
+      "conclusion": "Donc, les amis peuvent rendre la vie plus heureuse sans être indispensables à chacun. Les liens familiaux et les satisfactions personnelles peuvent aussi nous permettre de nous sentir bien."
     },
     "culture-p17": {
       "prompt_signatures": {

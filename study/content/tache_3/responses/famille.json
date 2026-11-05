@@ -9,30 +9,34 @@
       },
       "reformulation": "Les parents devraient-ils autoriser leurs enfants à utiliser les réseaux sociaux, et avec quelles limites ?",
       "position": "À mon avis, on peut autoriser les réseaux sociaux à un âge adapté, mais pas sans encadrement.",
-      "position_claire": "Je suis pour un accès aux réseaux sociaux à un âge adapté, mais avec un encadrement. Les parents doivent protéger la vie privée de leur enfant, préserver son sommeil et rester disponibles en cas de problème. L'objectif est de lui donner progressivement de l'autonomie, pas de surveiller tous ses messages.",
-      "argument_ids": [5, 2, 3],
+      "position_claire": "Je laisserais un enfant utiliser les réseaux sociaux à un âge adapté, mais progressivement et avec un accompagnement. Tout interdire ne lui apprend pas à s'en servir ; tout permettre le laisse face à des risques qu'il ne connaît pas encore.",
+      "argument_ids": [
+        5,
+        2,
+        3
+      ],
       "arguments": [
         {
           "idea": "D'abord, un enfant ne mesure pas forcément ce qu'il partage avec des inconnus.",
-          "developpement": "Une photo destinée aux amis peut révéler son école, son adresse ou ses habitudes. Même supprimée, elle peut avoir été copiée. Les parents peuvent vérifier les paramètres de confidentialité et expliquer quelles informations doivent rester privées.",
-          "exemple": "Une adolescente veut publier une vidéo devant chez elle. On voit le numéro de sa maison et le nom de la rue. Un parent lui montre ces détails et l'aide à les masquer.",
-          "consequence": "Elle comprend le risque à partir de sa propre situation, plutôt que de recevoir une interdiction sans explication."
+          "developpement": "Quand il publie une photo pour ses amis, il regarde surtout ce qu'il veut montrer. Il ne pense pas toujours aux détails autour de lui. Un parent peut lui apprendre à les repérer et à choisir ce qui doit rester privé.",
+          "exemple": "Une adolescente veut publier une vidéo devant chez elle. On voit le numéro de sa maison et le nom de la rue. Sa mère lui montre ces détails et l'aide à les masquer.",
+          "consequence": "Elle peut partager sa vidéo sans montrer son adresse, et sait mieux quoi vérifier avant la prochaine publication."
         },
         {
-          "idea": "Ensuite, les réseaux ne doivent pas prendre toute la place dans la journée.",
-          "developpement": "Les notifications et les vidéos qui s'enchaînent peuvent repousser les devoirs ou le coucher. Des limites de temps et des moments sans téléphone aident à garder un équilibre, sans présenter les réseaux comme forcément mauvais.",
-          "exemple": "Un adolescent se couche à l'heure, mais répond encore aux messages dans son lit. Avec ses parents, il convient de laisser son téléphone dans le salon pendant la nuit.",
-          "consequence": "Il garde le contact avec ses amis en soirée sans que leurs messages interrompent son sommeil."
+          "idea": "Même quand on publie prudemment, il reste la question du temps passé en ligne.",
+          "developpement": "Les notifications donnent l'impression qu'il faut répondre tout de suite. On reste alors connecté plus longtemps que prévu, parfois au détriment du sommeil. Une règle simple sur le téléphone la nuit protège le repos sans couper les relations.",
+          "exemple": "Un adolescent répond au groupe de ses amis jusqu'à minuit alors qu'il a cours le lendemain. Avec ses parents, il décide de laisser son téléphone dans le salon pendant la nuit.",
+          "consequence": "Il peut discuter avec ses amis en soirée, puis dormir sans être réveillé par leurs messages."
         },
         {
-          "idea": "Enfin, il faut que l'enfant puisse parler d'un problème en ligne sans craindre d'être puni.",
-          "developpement": "Si demander de l'aide entraîne immédiatement la confiscation du téléphone, il risque de cacher le problème. Mieux vaut lui montrer comment bloquer un compte, signaler un message et garder une preuve.",
-          "exemple": "Si un camarade l'insulte dans une conversation, il peut montrer les messages à ses parents. Ils l'aident à signaler les insultes et contactent l'établissement si nécessaire.",
-          "consequence": "L'encadrement devient une protection sur laquelle il peut compter, pas une surveillance à contourner."
+          "idea": "Et si un problème arrive malgré les règles, il faut que l'enfant puisse en parler sans craindre d'être puni.",
+          "developpement": "S'il pense qu'on lui confisquera aussitôt son téléphone, il risque de se taire. Le parent ne peut alors pas l'aider. Mieux vaut lui expliquer qu'il peut venir montrer un message inquiétant et qu'on cherchera ensemble quoi faire.",
+          "exemple": "Un inconnu demande une photo à un enfant. Celui-ci montre le message à son père ; ensemble, ils décident de garder une preuve, puis bloquent et signalent le compte.",
+          "consequence": "L'enfant n'a pas à gérer cette demande seul et sait vers qui se tourner si cela recommence."
         }
       ],
-      "nuance": "Bien sûr, les libertés dépendent de l'âge et de la maturité. Il faut respecter l'âge minimum du service, puis assouplir les règles quand l'adolescent sait les respecter, sans lire systématiquement ses messages privés.",
-      "conclusion": "Donc, je préfère un accès progressif et accompagné : protéger les informations personnelles, fixer des limites et maintenir le dialogue, plutôt que tout permettre ou tout interdire."
+      "nuance": "Cela ne veut pas dire que les réseaux sont mauvais : ils permettent aussi de garder contact avec d'anciens camarades. Accompagner un adolescent, ce n'est pas lire tous ses messages ; on peut lui laisser davantage de liberté quand il respecte les règles.",
+      "conclusion": "Je préfère donc un accès progressif, avec des règles expliquées et un parent disponible. Le but est que l'enfant apprenne à se protéger, puis puisse utiliser les réseaux avec davantage d'autonomie."
     },
     "famille-p2": {
       "prompt_signatures": {
@@ -40,33 +44,33 @@
       },
       "reformulation": "Est-ce qu'un jeune adulte manque forcément d'indépendance parce qu'il préfère rester chez ses parents ?",
       "position": "Pour moi, se sentir bien chez ses parents n'a rien de honteux, tant qu'on y vit en adulte et qu'on respecte leurs besoins.",
-      "position_claire": "Je comprends qu'un jeune adulte préfère vivre chez ses parents parce qu'il s'y sent bien. Une bonne entente familiale est une chance, pas un défaut. Mais il doit assumer ses responsabilités : vivre avec ses parents ne signifie pas les laisser tout prendre en charge.",
+      "position_claire": "Je comprends que de jeunes adultes canadiens préfèrent rester chez leurs parents parce qu'ils s'y sentent bien. Aimer la vie familiale n'a rien de honteux. Pour moi, la question est plutôt de savoir comment chacun vit cette cohabitation.",
       "arguments": [
         {
           "idea": "D'abord, apprécier la vie familiale ne signifie pas refuser de grandir.",
           "developpement": "On peut aimer les repas et les discussions en famille tout en travaillant, en gérant son argent et en prenant ses décisions. Inversement, avoir son appartement n'empêche pas de dépendre de ses parents pour régler chaque problème.",
-          "exemple": "Une femme de vingt-six ans travaille, paie ses dépenses et cuisine deux soirs par semaine. Elle aime retrouver ses parents, mais organise elle-même ses sorties et ses projets.",
-          "consequence": "Elle n'a donc pas besoin de déménager uniquement pour prouver aux autres qu'elle est adulte."
+          "exemple": "Une femme de vingt-six ans travaille et paie ses dépenses. Elle aime dîner avec ses parents et leur raconter sa journée, mais organise elle-même ses sorties et ses projets.",
+          "consequence": "Elle peut donc apprécier ce cadre familial sans renoncer à sa vie d'adulte. Elle n'a pas besoin de vouloir économiser pour que ce choix soit respectable."
         },
         {
-          "idea": "Ensuite, rester chez ses parents peut permettre de financer un projet concret.",
-          "developpement": "Dans une ville chère, un loyer absorbe parfois une grande partie d'un premier salaire. Si la famille est d'accord, partager les dépenses peut aider à rembourser un prêt ou à constituer une épargne. Le confort peut alors servir à avancer.",
-          "exemple": "Un jeune salarié convient avec ses parents de rester un an, de participer aux charges et d'épargner chaque mois pour son futur logement.",
-          "consequence": "Son départ sera mieux préparé, avec moins de risque de devoir revenir dès la première dépense imprévue."
+          "idea": "Mais il faut que cette cohabitation convienne aussi aux parents.",
+          "developpement": "Ils ont leur rythme, leurs habitudes et besoin d'intimité. Leur enfant peut se sentir très bien sans remarquer qu'il les dérange. En parler permet de trouver des arrangements avant que les petites gênes deviennent des disputes.",
+          "exemple": "Un fils reçoit ses amis tard alors que sa mère se lève tôt. Après en avoir discuté, ils conviennent de les inviter le samedi plutôt qu'en semaine.",
+          "consequence": "Il continue à voir ses amis, mais sa mère retrouve des nuits tranquilles. Le confort de l'un ne repose plus sur la fatigue de l'autre."
         },
         {
-          "idea": "Enfin, il faut que cette cohabitation convienne aussi aux parents.",
-          "developpement": "Se sentir bien chez soi ne suffit pas si quelqu'un d'autre fait tout le travail. Les parents ont aussi besoin de calme et d'intimité. Chacun doit pouvoir exprimer ses limites concernant les dépenses, les tâches ou les visites.",
-          "exemple": "Si un fils reçoit des amis tard alors que sa mère se lève tôt, ils peuvent convenir de les inviter le samedi plutôt qu'en semaine.",
-          "consequence": "Le confort du jeune ne se construit alors pas au détriment de celui de ses parents."
+          "idea": "Pour que cet accord soit juste, le jeune doit aussi prendre sa part du quotidien.",
+          "developpement": "Si les parents paient tout et font toutes les tâches, ils continuent à le prendre en charge comme un enfant. Participer selon ses moyens montre qu'il reconnaît le travail des autres et assume sa place dans le foyer.",
+          "exemple": "Un jeune salarié verse chaque mois une contribution aux charges et fait les courses de la semaine. Ses parents n'ont pas à lui rappeler ce qu'il a accepté de faire.",
+          "consequence": "Le plaisir de vivre ensemble s'accompagne ainsi de responsabilités concrètes, et pas seulement de bonnes intentions."
         }
       ],
-      "nuance": "Cela dit, je comprends les critiques envers quelqu'un qui refuse de contribuer alors qu'il en a les moyens. Mais ce comportement ne représente pas tous les jeunes qui vivent en famille. Aucun âge de départ ne convient à toutes les situations.",
-      "conclusion": "Bref, je ne juge pas ces jeunes parce qu'ils aiment vivre chez leurs parents. Je regarde plutôt leurs responsabilités et l'accord de toute la famille.",
+      "nuance": "Ce choix ne convient évidemment pas à toutes les familles. Quand on manque de place ou que l'entente est difficile, prendre son propre logement peut être préférable. Aucun âge de départ ne peut convenir à toutes les situations.",
+      "conclusion": "Bref, je ne juge pas ces jeunes parce qu'ils aiment vivre chez leurs parents. Je regarde plutôt s'ils vivent en adultes, avec des responsabilités et l'accord de toute la famille.",
       "argument_ids": [
         1,
-        2,
-        4
+        4,
+        3
       ]
     },
     "famille-p3": {
@@ -75,29 +79,29 @@
       },
       "reformulation": "Est-ce que l'expérience d'une personne âgée suffit à rendre tous ses conseils bons à suivre ?",
       "position": "Je pense qu'il faut écouter les personnes âgées avec respect, mais l'âge ne garantit pas qu'un conseil soit adapté.",
-      "position_claire": "Les personnes âgées donnent souvent de bons conseils, mais pas toujours. Leur expérience peut aider à prendre du recul. Certaines situations ont toutefois changé, et leurs priorités ne sont pas forcément les nôtres. Je préfère écouter leur avis, puis décider selon ma situation.",
+      "position_claire": "Les personnes âgées donnent souvent de bons conseils, mais je ne dirais pas « toujours ». Leur expérience mérite d'être écoutée. Cela ne veut pas dire qu'elle apporte une réponse adaptée à chaque situation ni qu'on doive suivre un avis uniquement par respect.",
       "arguments": [
         {
-          "idea": "D'abord, avoir traversé des difficultés peut aider à relativiser celles des autres.",
-          "developpement": "Après un premier échec, on pense parfois que tout est terminé. Une personne plus âgée peut raconter comment elle a surmonté une expérience comparable. Son conseil s'appuie alors sur du vécu, pas seulement sur une formule rassurante.",
-          "exemple": "Un étudiant rate un examen et veut abandonner. Son grand-père raconte qu'il a repris des études après un échec et lui propose de chercher d'abord ce qui n'a pas fonctionné.",
-          "consequence": "L'étudiant peut envisager une solution au lieu de prendre une décision définitive sous le coup de la déception."
+          "idea": "L'expérience vécue peut d'abord nous éviter de refaire une erreur.",
+          "developpement": "Une personne qui a déjà traversé une situation peut expliquer ce qu'elle n'avait pas prévu et les conséquences de son choix. Ce récit donne des points précis à vérifier, bien plus utiles qu'un simple encouragement à faire attention.",
+          "exemple": "Un grand-père avait quitté son emploi avant de vérifier le coût d'une formation. Quand sa petite-fille envisage une reconversion, il lui conseille de comparer les frais avec ses économies avant de démissionner.",
+          "consequence": "Elle fait son budget et vérifie que son projet est réaliste avant de quitter son poste."
         },
         {
-          "idea": "Ensuite, l'expérience du passé ne donne pas toutes les réponses aux problèmes actuels.",
+          "idea": "Mais cette expérience vient du passé, et certaines règles ont changé.",
           "developpement": "Le recrutement, les formations et les conditions de logement évoluent. Un conseil peut être bien intentionné, mais reposer sur des repères dépassés. Avant d'agir, il faut donc vérifier les informations qui concernent la situation actuelle.",
-          "exemple": "Un grand-parent conseille de déposer un CV directement dans une entreprise. Or, celle-ci exige une candidature en ligne avec un numéro de dossier : cette démarche seule ne suffit pas.",
-          "consequence": "On peut retenir l'idée de faire preuve d'initiative en adaptant la méthode aux pratiques actuelles."
+          "exemple": "Un grand-père conseille de déposer son CV en main propre. Sa petite-fille vérifie les démarches : l'entreprise n'accepte qu'une candidature en ligne. Elle envoie donc son dossier par ce moyen.",
+          "consequence": "Elle retient l'idée de prendre l'initiative, sans appliquer une méthode qui aurait laissé sa candidature sans suite."
         },
         {
-          "idea": "Enfin, même un conseil bien informé peut ne pas correspondre à nos priorités.",
+          "idea": "Même quand les informations sont exactes, le conseil peut refléter d'autres priorités que les nôtres.",
           "developpement": "Certains privilégient la sécurité, d'autres la créativité ou la liberté. Un aîné peut vouloir nous protéger en recommandant son propre choix. Pour qu'un conseil soit utile, il faut aussi qu'il tienne compte de nos capacités et de nos envies.",
-          "exemple": "Une grand-mère recommande un emploi stable près de la famille à sa petite-fille, qui souhaite travailler à l'étranger. Elles peuvent comparer les risques et le budget sans condamner le départ.",
+          "exemple": "Une grand-mère recommande un emploi stable près de la famille à sa petite-fille, qui souhaite travailler à l'étranger. Elles comparent les risques et le budget, mais la jeune femme garde son projet de départ.",
           "consequence": "Le conseil aide à réfléchir, mais ne remplace pas la décision de la personne concernée."
         }
       ],
-      "nuance": "Bien sûr, rejeter un avis simplement parce qu'il vient d'une personne âgée serait injuste. Beaucoup restent très informées. Je vérifierais aussi si un ami de mon âge connaît vraiment le sujet et comprend ma situation.",
-      "conclusion": "En conclusion, l'expérience mérite d'être écoutée, pas suivie aveuglément. Un bon conseil dépend de sa pertinence et de l'écoute, pas seulement de l'âge.",
+      "nuance": "À l'inverse, rejeter un conseil simplement parce qu'il vient d'une personne âgée serait injuste. Beaucoup restent très informées. Je préfère demander ce qui justifie leur avis, puis voir si ces raisons correspondent à ma situation.",
+      "conclusion": "Donc, j'écouterais les personnes âgées sans suivre leurs conseils aveuglément. Leur expérience est précieuse, mais il faut la confronter aux faits actuels et garder la liberté de faire son propre choix.",
       "argument_ids": [
         1,
         3,
@@ -111,7 +115,7 @@
       },
       "reformulation": "Faut-il être honnête avec les enfants, même quand la réalité est difficile à expliquer ?",
       "position": "À mon avis, oui, il faut dire la vérité aux enfants, mais sans leur donner des détails qu'ils ne peuvent pas encore comprendre.",
-      "position_claire": "Pour moi, il vaut mieux dire une vérité simple aux enfants qu'inventer une histoire pour éviter une conversation difficile. L'honnêteté entretient la confiance et les aide à comprendre ce qu'ils vivent. Mais elle ne signifie pas tout raconter comme à un adulte.",
+      "position_claire": "Pour moi, il vaut mieux dire une vérité simple aux enfants qu'inventer une histoire pour éviter une conversation difficile. Mais « toujours dire la vérité » ne signifie pas tout raconter comme à un adulte. Il s'agit de répondre honnêtement à ce qui les concerne.",
       "arguments": [
         {
           "idea": "D'abord, l'enfant doit pouvoir croire ce que ses parents lui disent.",
@@ -120,19 +124,19 @@
           "consequence": "Il sait à quoi s'attendre et constate ensuite que l'adulte lui avait expliqué les choses correctement."
         },
         {
-          "idea": "Ensuite, les enfants remarquent souvent les changements qu'on essaie de leur cacher.",
-          "developpement": "Ils entendent une dispute ou voient un parent pleurer. Sans explication, ils peuvent inventer une réponse et se croire responsables. Il faut donc que la vérité soit adaptée à leur âge, avec des mots simples et du temps pour leurs questions.",
-          "exemple": "Si ses parents se séparent, ils peuvent expliquer qu'ils ne vivront plus ensemble, mais qu'il n'y est pour rien. Ils précisent où il dormira et quand il verra chacun.",
-          "consequence": "La situation reste difficile, mais devient moins confuse : l'enfant comprend ce qui le concerne."
+          "idea": "Cette honnêteté compte aussi quand l'enfant remarque un changement qu'il ne comprend pas.",
+          "developpement": "Il voit les absences et les habitudes qui changent. Sans explication, il peut imaginer quelque chose de plus inquiétant que la réalité. Il faut donc que la vérité soit adaptée à son âge, avec des mots simples et du temps pour ses questions.",
+          "exemple": "Une fillette ne voit plus sa grand-mère le mercredi. Ses parents expliquent qu'elle est à l'hôpital après une chute et organisent un appel, sans promettre qu'elle guérira tout de suite.",
+          "consequence": "Elle comprend pourquoi sa grand-mère est absente et peut continuer à lui parler, au lieu de rester seule avec ses questions."
         },
         {
           "idea": "Enfin, une réponse honnête peut aussi aider l'enfant à progresser.",
           "developpement": "Encourager ne signifie pas dire que tout est parfait. Un enfant peut entendre qu'il doit encore travailler quelque chose si on reconnaît ses efforts et lui explique comment faire. Une difficulté n'est pas un jugement sur sa valeur.",
-          "exemple": "Avant de jouer du piano devant la classe, il demande s'il est prêt. On peut répondre : « Tu connais bien le début, mais tu hésites à la fin. On peut la reprendre ensemble. »",
-          "consequence": "Il apprend à utiliser un retour honnête pour s'améliorer, plutôt qu'à attendre uniquement des compliments."
+          "exemple": "Avant une audition de piano, un enfant demande s'il est prêt. Son parent répond : « Le début est solide, mais tu hésites à la fin. Reprenons-la lentement chaque jour. » Ils travaillent ensuite ce passage.",
+          "consequence": "Il le joue plus sûrement lors de l'audition. Le retour honnête lui a donné quelque chose à améliorer, plutôt qu'un compliment sans indication."
         }
       ],
-      "nuance": "Cependant, l'enfant n'a pas à porter les conflits de couple ou les inquiétudes financières des adultes. On peut expliquer une restriction sans lui demander de résoudre le problème. Et mieux vaut reconnaître une incertitude que promettre une issue inconnue.",
+      "nuance": "L'enfant n'a pas à porter les conflits de couple ou les inquiétudes financières des adultes. On peut lui dire qu'il s'agit d'une affaire d'adultes, ou reconnaître qu'on ne sait pas encore quelque chose. Poser cette limite ne demande pas de mentir.",
       "conclusion": "Donc oui à l'honnêteté, avec des mots choisis et une présence rassurante. Il s'agit de donner une explication vraie, utile et à la portée de l'enfant.",
       "argument_ids": [
         1,
@@ -146,7 +150,7 @@
       },
       "reformulation": "Qu'est-ce qui rend la vie loin de sa famille difficile, même quand on a choisi de partir ?",
       "position": "À mon avis, ce n'est pas toujours facile, mais on peut construire une vie heureuse loin de sa famille.",
-      "position_claire": "Vivre loin de sa famille demande une vraie adaptation. Les moments ordinaires manquent, l'aide immédiate n'est plus disponible et les retrouvailles demandent une organisation. Cela ne signifie pas regretter son départ : on peut aimer sa nouvelle vie tout en ressentant le manque de ses proches.",
+      "position_claire": "Quand on s'entend bien avec sa famille, je ne trouve pas facile de vivre loin d'elle. On peut avoir choisi son départ et aimer sa nouvelle vie, tout en ressentant le manque. La distance change aussi des choses très pratiques au quotidien.",
       "arguments": [
         {
           "idea": "D'abord, les petites habitudes familiales peuvent finir par manquer.",
@@ -155,19 +159,19 @@
           "consequence": "Le lien existe toujours, mais demande davantage d'efforts et laisse parfois le sentiment d'être à côté de la vie familiale."
         },
         {
-          "idea": "Ensuite, il faut reconstruire un réseau d'entraide près de chez soi.",
+          "idea": "Ce manque n'est pas seulement affectif : il faut aussi retrouver de l'aide sur place.",
           "developpement": "La famille peut écouter et conseiller au téléphone, mais pas toujours intervenir concrètement. Au début, on ne connaît pas forcément quelqu'un à qui demander un service. Il est donc important qu'on sache qui appeler en cas d'imprévu.",
-          "exemple": "Une personne malade doit récupérer un médicament, alors que ses parents sont à plusieurs heures d'avion. Si elle connaît un voisin disponible, elle pourra peut-être lui demander ce service.",
-          "consequence": "Des amis fiables et de bonnes relations de voisinage rendent le quotidien plus sûr, sans remplacer la famille."
+          "exemple": "Un parent finit son travail trop tard pour récupérer son enfant. Avant de déménager, il comptait sur les grands-parents. Cette fois, il appelle une voisine de confiance qu'il a déjà autorisée auprès de l'école.",
+          "consequence": "Elle va chercher l'enfant, mais ce relais n'existe que parce qu'il l'a organisé à l'avance. La famille ne peut plus assurer ce dépannage."
         },
         {
-          "idea": "Enfin, la distance empêche parfois d'être présent au moment souhaité.",
-          "developpement": "Voyager suppose un budget, des congés et parfois des démarches administratives. On ne peut pas rentrer pour chaque anniversaire. La contrainte devient particulièrement difficile quand on veut soutenir un proche rapidement, et pas seulement organiser des vacances.",
-          "exemple": "Si une mère est hospitalisée, son fils vivant à l'étranger peut vouloir venir immédiatement. Mais le prix du billet et les congés à obtenir l'obligent parfois à attendre plusieurs jours.",
-          "consequence": "Au manque affectif s'ajoute alors la frustration concrète de ne pas pouvoir être là."
+          "idea": "Et quand on veut retrouver ses proches, une simple visite devient parfois un voyage.",
+          "developpement": "Il faut trouver du temps, prévoir le trajet et payer le billet. La volonté d'être présent ne suffit donc pas toujours. Même un événement prévu longtemps à l'avance peut tomber à un moment où ces contraintes sont trop fortes.",
+          "exemple": "Une fille vit à huit heures de train de son père. Pour venir à son anniversaire, elle aurait besoin de deux jours de congé et d'un billet trop cher pour son budget. Elle renonce à la visite.",
+          "consequence": "Elle l'appelle le jour même, mais reste déçue de ne pas partager la fête avec lui."
         }
       ],
-      "nuance": "Cela dit, un départ choisi pour un projet motivant peut être enrichissant, surtout avec des habitudes et des amitiés sur place. On n'est pas forcément plus heureux près de sa famille lorsque les relations sont difficiles.",
+      "nuance": "Bien sûr, la distance peut être plus facile à vivre quand les relations familiales sont difficiles. Un départ choisi et des amis sur place aident aussi à trouver sa place. Dire que l'adaptation est difficile ne veut pas dire qu'on sera malheureux.",
       "conclusion": "Bref, vivre loin des siens n'est pas toujours simple, mais reste compatible avec le bonheur. Un contact régulier, des visites préparées et une vie locale aident à trouver son équilibre.",
       "argument_ids": [
         1,
@@ -182,28 +186,28 @@
       },
       "reformulation": "Est-ce que payer un enfant pour ses bonnes notes est une bonne manière de l'encourager à travailler ?",
       "position": "Je comprends l'intention, mais je préfère qu'on récompense les efforts sans fixer un prix pour chaque note.",
-      "position_claire": "Je comprends qu'un parent veuille encourager son enfant, mais payer les bonnes notes n'est pas une bonne base. L'argent peut motiver à court terme sans créer une envie durable d'apprendre. Je préfère reconnaître les efforts et aider l'enfant à comprendre ses progrès.",
+      "position_claire": "Je comprends qu'un parent veuille encourager son enfant, mais je ne mettrais pas un tarif sur chaque bonne note. La récompense peut donner envie de travailler sur le moment. Cela ne suffit pourtant pas à apprendre avec intérêt ni à comprendre comment progresser.",
       "arguments": [
         {
           "idea": "D'abord, payer chaque bonne note risque de transformer l'école en échange financier.",
-          "developpement": "L'enfant peut surtout penser à ce qu'il gagnera, plutôt qu'à ce qu'il a compris. La motivation risque alors de dépendre du paiement. Les activités sans récompense peuvent lui sembler moins importantes, même lorsqu'elles permettent d'apprendre.",
+          "developpement": "L'enfant peut surtout penser à ce qu'il gagnera, plutôt qu'à ce qu'il a compris. Le risque est de faire passer la récompense avant l'apprentissage : ce qui ne rapporte rien lui semble alors moins important.",
           "exemple": "Un parent promet dix euros pour chaque bonne note. Avant de préparer un exposé non noté, son enfant demande : « Ça rapporte aussi quelque chose ? » Il pense au paiement plutôt qu'au sujet.",
-          "consequence": "On obtient peut-être un résultat immédiat, sans construire une habitude qui continue lorsqu'on ne paie plus."
+          "consequence": "Il risque donc de moins s'investir dans cet exposé, même si le préparer lui permettrait d'apprendre quelque chose."
         },
         {
-          "idea": "Ensuite, récompenser seulement le résultat peut être injuste envers un enfant en difficulté.",
+          "idea": "Même si l'enfant reste motivé, la note ne mesure pas tous les efforts.",
           "developpement": "Certains élèves comprennent vite ; d'autres travaillent beaucoup pour atteindre un niveau correct. Si seule une note élevée compte, les efforts du second restent invisibles. Il vaut mieux regarder le point de départ et les progrès réalisés.",
           "exemple": "Une fille obtient seize sur vingt sans beaucoup réviser. Son frère passe de huit à douze après plusieurs semaines de travail. Si le paiement commence à quinze, seule elle est récompensée.",
           "consequence": "Son frère peut se décourager précisément au moment où il aurait besoin de reconnaissance."
         },
         {
-          "idea": "Enfin, un retour précis sur les méthodes aide à réussir à nouveau.",
-          "developpement": "Dire « tu as bien fait de revoir tes erreurs » attire l'attention sur une action reproductible. Les parents peuvent aider à organiser les révisions et célébrer une étape franchie sans transformer chaque contrôle en négociation financière.",
-          "exemple": "Après une meilleure note, un parent regarde la copie : « Cette fois, tu as relu les consignes et évité les mêmes erreurs. » Ils choisissent ensuite une sortie familiale pour fêter la fin du trimestre.",
-          "consequence": "L'enfant comprend ce qui l'a fait progresser et peut en être fier, indépendamment d'une somme d'argent."
+          "idea": "Pour l'aider à réussir de nouveau, mieux vaut expliquer ce qui a fonctionné.",
+          "developpement": "Une somme d'argent ne dit pas comment on a progressé. Un retour précis attire au contraire l'attention sur une action qu'on peut refaire. L'enfant sait alors sur quoi s'appuyer au prochain contrôle, au lieu d'attendre seulement une récompense.",
+          "exemple": "Après une meilleure note, un parent regarde la copie : « Cette fois, tu as relu les consignes et évité tes erreurs habituelles. » L'enfant décide de garder cette méthode pour le contrôle suivant.",
+          "consequence": "Il comprend le lien entre sa façon de travailler et ses progrès. Il dispose d'une méthode, pas seulement d'une raison financière de recommencer."
         }
       ],
-      "nuance": "Une petite attention ou un cadeau après un examen important ne me choque pas. Le problème est le tarif automatique pour chaque note. L'argent de poche peut aussi servir à apprendre à gérer un budget, sans dépendre des résultats scolaires.",
+      "nuance": "Fêter un bon trimestre ou offrir une petite attention après un examen important ne me choque pas. On partage alors la joie d'une réussite. Ce qui me gêne, c'est le paiement automatique qui transforme chaque note en somme à gagner.",
       "conclusion": "Bref, je préfère encourager le travail et célébrer les progrès. L'essentiel est d'aider l'enfant à comprendre pourquoi il apprend et comment il peut s'améliorer.",
       "argument_ids": [
         1,
@@ -217,29 +221,29 @@
       },
       "reformulation": "Travailler avec un proche est-il trop risqué, ou peut-on séparer la relation familiale de la relation professionnelle ?",
       "position": "Je ne pense pas qu'il faille l'éviter systématiquement, mais il faut pouvoir se parler aussi franchement qu'entre collègues.",
-      "position_claire": "Je ne pense pas qu'il faille éviter systématiquement de travailler en famille. Une confiance déjà construite et des compétences complémentaires peuvent aider. Mais il faut prendre au sérieux les conflits qui débordent sur la vie privée et le risque de favoritisme.",
+      "position_claire": "Je ne pense pas qu'il faille éviter systématiquement de travailler en famille. Cela peut très bien fonctionner, mais le lien familial ne suffit pas pour choisir un associé. Je regarderais surtout ce qu'on sait déjà de sa façon de travailler.",
       "arguments": [
         {
           "idea": "D'abord, connaître la manière de travailler d'un proche peut être un avantage.",
-          "developpement": "Au démarrage d'une petite entreprise, il faut décider vite et pouvoir compter sur quelqu'un. Connaître ses qualités et ses limites aide à répartir les rôles. Mais on doit le choisir pour ses compétences, pas seulement pour son lien familial.",
-          "exemple": "Deux sœurs ouvrent une boulangerie : l'une est boulangère, l'autre a géré un magasin. Elles ont déjà vendu ensemble sur les marchés et savent comment chacune réagit face à beaucoup de clients.",
-          "consequence": "Leur expérience commune rend la collaboration utile, au-delà de la confiance liée à la famille."
+          "developpement": "Quand on a déjà travaillé ensemble, on sait comment l'autre réagit sous pression et ce qu'il sait faire. C'est cette expérience qui permet de répartir les rôles, pas le simple fait d'avoir grandi dans la même famille.",
+          "exemple": "Deux sœurs, une boulangère et une ancienne gérante de magasin, ont déjà vendu ensemble sur les marchés. Quand les clients arrivent nombreux, l'une prépare les commandes pendant que l'autre tient la caisse. Elles ouvrent leur boutique avec cette répartition.",
+          "consequence": "Elles commencent avec des habitudes de travail déjà testées, plutôt qu'en supposant que leur bonne entente suffira."
         },
         {
-          "idea": "Ensuite, un désaccord professionnel peut devenir un conflit familial.",
-          "developpement": "Une critique peut être entendue comme une attaque personnelle. À l'inverse, se taire pour préserver la relation laisse les problèmes s'accumuler. Il faut prévoir des moments pour parler du travail, puis arrêter cette discussion lorsqu'on se retrouve en famille.",
-          "exemple": "Un frère arrive souvent en retard au restaurant qu'il gère avec sa sœur. Elle peut lui en parler en réunion, plutôt que devant tous les proches au repas du dimanche.",
-          "consequence": "Séparer les lieux et les moments aide à résoudre le problème sans entraîner la famille dans le conflit."
+          "idea": "Le risque, c'est que les difficultés du travail entrent aussi dans la vie familiale.",
+          "developpement": "On retrouve son associé aux repas de famille. Si on y règle un problème professionnel, les proches peuvent se sentir obligés de prendre parti. Un désaccord entre deux collègues devient alors une tension qui touche tout le monde.",
+          "exemple": "Une sœur reproche à son frère ses retards au restaurant devant toute la famille le dimanche. Leur mère le défend, et la discussion devient une dispute à trois.",
+          "consequence": "Le retard n'est pas réglé et le repas est gâché. Une réunion au restaurant aurait permis d'en parler sans entraîner les autres proches."
         },
         {
-          "idea": "Enfin, la parenté ne doit pas donner de privilèges injustifiés.",
-          "developpement": "Les autres salariés doivent savoir que les horaires, les salaires et les promotions reposent sur des critères professionnels. Sinon, ils risquent de perdre confiance dans la direction. Des responsabilités écrites et des règles communes limitent ce risque.",
-          "exemple": "Si le fils du responsable veut devenir chef d'équipe, il doit avoir les compétences attendues. Le nommer simplement parce qu'il est son fils serait injuste pour un salarié plus expérimenté.",
-          "consequence": "Ces critères protègent l'équipe et permettent au proche d'être reconnu pour son travail, pas pour son nom."
+          "idea": "Il faut aussi penser aux salariés qui ne font pas partie de la famille.",
+          "developpement": "Ils doivent pouvoir faire confiance aux décisions sur les horaires et les promotions. Si le lien familial passe avant le travail accompli, ils peuvent se sentir moins considérés. Les mêmes critères doivent donc s'appliquer à chacun.",
+          "exemple": "Le fils du patron demande à devenir chef d'équipe. Son père le nomme parce que c'est son fils, sans examiner la candidature d'un collègue plus expérimenté.",
+          "consequence": "Ce collègue a de bonnes raisons de trouver la décision injuste. La parenté ne doit pas dispenser de faire ses preuves."
         }
       ],
       "nuance": "Si la relation est déjà tendue ou si personne n'ose dire non, mieux vaut éviter cette collaboration. On peut beaucoup s'aimer et avoir des façons de travailler incompatibles : un bon lien familial ne garantit pas une bonne association.",
-      "conclusion": "Donc, travailler en famille peut fonctionner avec des personnes compétentes et des rôles clairs. Sinon, choisir un autre partenaire peut préserver la relation.",
+      "conclusion": "Donc, je ne rejetterais pas une collaboration parce qu'elle est familiale. Je vérifierais plutôt qu'on sait travailler ensemble et parler franchement, sans demander aux proches ni aux salariés de subir nos désaccords.",
       "argument_ids": [
         1,
         2,
@@ -252,7 +256,7 @@
       },
       "reformulation": "Avoir des amis est-il indispensable pour mener une vie équilibrée ?",
       "position": "Je ne pense pas qu'il soit indispensable d'avoir des amis pour bien vivre, mais quelques amitiés fiables peuvent faciliter et enrichir le quotidien.",
-      "position_claire": "Je ne pense pas qu'il soit indispensable d'avoir des amis pour bien vivre. Leur aide et les découvertes qu'ils permettent sont précieuses, mais d'autres relations comptent aussi. L'essentiel est de ne pas rester sans personne sur qui compter ni sans échanges réguliers.",
+      "position_claire": "Je ne pense pas qu'il soit indispensable d'avoir des amis pour bien vivre. Ils peuvent pourtant nous faciliter la vie et nous aider à avancer. Je distingue donc ce que l'amitié apporte de l'idée qu'elle serait nécessaire à tout le monde.",
       "arguments": [
         {
           "idea": "D'abord, un ami peut apporter une aide concrète quand on ne peut pas tout gérer seul.",
@@ -261,19 +265,19 @@
           "consequence": "Elle peut recevoir ses soins sans devoir assurer seule un trajet difficile."
         },
         {
-          "idea": "Ensuite, les amis peuvent nous ouvrir à de nouvelles expériences et nous encourager à persévérer.",
-          "developpement": "Leurs métiers et leurs loisirs diffèrent des nôtres. Ils peuvent nous faire découvrir une activité et nous donner confiance pour essayer, puis continuer malgré les hésitations. L'amitié peut ainsi soutenir un projet personnel, sans décider à notre place.",
-          "exemple": "Une amie propose son cours de théâtre amateur à quelqu'un qui n'ose pas y aller seul. Il découvre qu'il aime jouer, poursuit les répétitions et participe ensuite à un spectacle.",
-          "consequence": "L'encouragement permet de développer une capacité qu'il aurait peut-être laissée de côté."
+          "idea": "Au-delà de l'aide en cas de difficulté, les amis peuvent nous donner l'élan pour essayer.",
+          "developpement": "Seul, on hésite parfois à commencer une activité par manque de confiance. Un ami peut nous accompagner la première fois, puis nous encourager quand on doute. Cela ne fait pas le travail à notre place, mais aide à persévérer.",
+          "exemple": "Un ami accompagne une personne timide à une séance d'essai de chorale. Elle aime chanter, mais hésite à revenir ; il l'encourage. Elle poursuit les répétitions chaque semaine et chante ensuite à son premier concert.",
+          "consequence": "Elle a développé une capacité qu'elle aurait peut-être laissée de côté sans cet encouragement."
         },
         {
-          "idea": "Enfin, la vie sociale ne se limite pas aux amitiés profondes.",
-          "developpement": "Des échanges réguliers avec des voisins, des collègues ou une association donnent des occasions de parler et de participer. Après une retraite ou un déménagement, ils peuvent aider à retrouver un rythme avant même de devenir des amitiés.",
-          "exemple": "Un retraité rejoint l'atelier de jardinage du quartier chaque mardi. Il échange sur les plantations avec les mêmes personnes. Ce ne sont pas encore ses amis, mais il retrouve un groupe et des conversations.",
-          "consequence": "Il reprend ainsi une place dans la vie locale sans attendre d'avoir un ami proche."
+          "idea": "Pourtant, les échanges réguliers ne passent pas seulement par l'amitié.",
+          "developpement": "On peut retrouver des voisins, des collègues ou une association sans avoir de liens très personnels avec eux. Après une retraite ou un déménagement, ces rencontres donnent un rythme et des occasions de participer, avant même que des amitiés se créent.",
+          "exemple": "Un retraité sans amis rejoint le club de marche du quartier. Chaque mardi, il discute avec les mêmes personnes, sans les fréquenter en dehors des sorties.",
+          "consequence": "Ces rendez-vous lui donnent une activité et des conversations régulières. Il participe ainsi à la vie locale sans avoir noué d'amitié."
         }
       ],
-      "nuance": "Cela dit, une connaissance ne remplace pas toujours un confident. Si l'on souhaite parler plus librement, certains liens méritent d'être approfondis. Une amitié reste aussi réciproque : on ne peut pas exiger une disponibilité permanente.",
+      "nuance": "Cela dit, une connaissance ne remplace pas toujours un confident. Si l'on a besoin de parler librement de choses personnelles, retrouver un groupe ne suffit pas forcément. Il peut alors être utile d'approfondir certains liens, sans vouloir aller trop vite.",
       "conclusion": "En conclusion, les amis facilitent et enrichissent la vie sans être nécessaires à chacun. Entretenir des liens fiables importe davantage que leur donner tous le même nom.",
       "argument_ids": [
         1,
@@ -287,29 +291,29 @@
       },
       "reformulation": "Est-ce que le lien familial suffit pour faire d'un proche notre meilleur ami ?",
       "position": "Je ne suis pas totalement d'accord : un membre de la famille peut être un meilleur ami, mais ce n'est pas automatique.",
-      "position_claire": "Pour moi, les membres de notre famille ne sont pas automatiquement nos meilleurs amis. On peut s'aimer sans partager les mêmes goûts. Les rôles familiaux limitent parfois les confidences. En revanche, une vraie complicité et une confiance réciproque peuvent réunir les deux liens.",
+      "position_claire": "Pour moi, les membres de notre famille ne sont pas automatiquement nos meilleurs amis. On peut s'aimer et s'entraider sans se raconter ce qu'on ressent vraiment. Mais rien n'empêche qu'un lien familial devienne aussi une amitié : cela dépend de la relation qu'on construit.",
       "arguments": [
         {
-          "idea": "D'abord, l'affection familiale ne garantit pas une grande proximité personnelle.",
-          "developpement": "On ne choisit pas sa famille, alors que les amitiés se construisent souvent autour d'intérêts ou d'une manière de voir la vie. On peut être attaché à son frère sans avoir les mêmes envies ni beaucoup de conversations personnelles.",
-          "exemple": "Deux frères s'entraident en cas de problème. Pourtant, quand l'un veut raconter sa semaine ou parler de ses projets, il appelle plutôt un ami avec qui il échange régulièrement.",
-          "consequence": "Son frère reste important pour lui, mais ce n'est pas à lui qu'il raconte spontanément son quotidien."
+          "idea": "D'abord, l'affection familiale ne garantit pas les mêmes affinités.",
+          "developpement": "On peut aimer sa famille sans y trouver la compagnie qu'on recherche spontanément. Avec certains amis, on partage le même humour ou des centres d'intérêt qui rendent les échanges plus naturels. Cette complicité ne dépend pas de la parenté.",
+          "exemple": "Une personne apprécie les repas avec son frère, mais retrouve chaque semaine un ami avec qui elle rit et discute pendant des heures. Elle recherche sa compagnie par plaisir.",
+          "consequence": "Elle aime son frère, mais se sent plus complice avec cet ami. Les deux liens comptent sans apporter exactement la même chose."
         },
         {
-          "idea": "Ensuite, on se confie parfois plus facilement à quelqu'un d'extérieur à la famille.",
+          "idea": "Les rôles familiaux peuvent aussi limiter ce qu'on ose raconter.",
           "developpement": "Les parents ont l'habitude de protéger leurs enfants. Même adulte, on peut craindre de les inquiéter ou de les décevoir. Un ami n'a pas les mêmes attentes : on peut réfléchir avec lui sans engager immédiatement toute la famille.",
           "exemple": "Une étudiante doute du cursus choisi avec l'aide de ses parents. Elle en parle d'abord à une amie pour examiner ses envies, avant d'aborder cette question avec eux.",
-          "consequence": "Ce regard extérieur complète le soutien familial au lieu de le remplacer."
+          "consequence": "Elle clarifie ce qu'elle veut, puis en parle plus sereinement à ses parents. Se confier d'abord à son amie ne signifie pas rejeter leur soutien."
         },
         {
           "idea": "Enfin, un proche peut devenir un véritable ami si la confiance se construit.",
           "developpement": "Il faut qu'on puisse s'écouter, garder une confidence et accepter un désaccord. Une sœur ou un cousin peut offrir cette relation, mais la parenté ne la garantit pas. Elle dépend aussi de la façon dont chacun traite l'autre.",
           "exemple": "Une femme confie à sa cousine son envie de déménager, avant d'en parler à ses parents. Sa cousine préfère qu'elle reste, mais écoute ses raisons, respecte son choix et garde cette confidence.",
-          "consequence": "Cette attitude montre une confiance réelle : leur proximité est entretenue, pas seulement supposée."
+          "consequence": "Par la suite, elle se tourne vers sa cousine en premier pour parler d'autres décisions. La confiance a grandi grâce à son attitude, pas simplement à leur parenté."
         }
       ],
       "nuance": "Bien sûr, une famille soudée peut fournir l'essentiel de la vie sociale si chacun s'y sent libre. Mais personne ne devrait se sentir coupable d'avoir un meilleur ami extérieur à la famille, même en aimant profondément ses proches.",
-      "conclusion": "Bref, la famille peut aussi être un cercle d'amis, sans que ce soit une règle. L'amitié dépend surtout des affinités, de la confiance et de la liberté dans la relation.",
+      "conclusion": "Bref, un membre de la famille peut être notre meilleur ami, mais il ne l'est pas simplement parce qu'il est notre frère ou notre cousine. La différence, c'est la confiance qu'on construit ensemble.",
       "argument_ids": [
         1,
         2,
@@ -322,28 +326,28 @@
       },
       "reformulation": "Est-ce que vivre seul simplifie vraiment la vie, ou est-ce qu'on échange certaines contraintes contre d'autres ?",
       "position": "Pour moi, vivre seul donne plus de liberté, mais ce n'est pas forcément plus facile sur le plan financier et pratique.",
-      "position_claire": "Vivre seul peut simplifier l'organisation de la journée, mais pas tout le quotidien. On choisit ses habitudes sans négocier avec les autres. En revanche, les dépenses ne sont plus partagées et l'aide doit s'organiser autrement. Tout dépend de ce qu'on appelle une vie facile.",
+      "position_claire": "Vivre seul me paraît plus facile pour suivre son rythme, mais pas pour tout assumer. La même situation peut simplifier nos journées et compliquer notre budget. Avant de dire que c'est mieux qu'en famille, il faut donc préciser de quoi on parle.",
       "arguments": [
         {
           "idea": "D'abord, vivre seul permet de suivre son propre rythme.",
           "developpement": "On choisit ses repas et les moments où l'on souhaite du calme. Cela réduit les négociations parfois fatigantes quand plusieurs personnes ont des horaires différents. Cette liberté est particulièrement utile pour quelqu'un qui travaille à des heures inhabituelles.",
-          "exemple": "Une infirmière rentre après une garde de nuit et dort dans un appartement calme. En famille, les autres se prépareraient peut-être pour l'école ou le travail, ce qui obligerait à chercher un compromis.",
+          "exemple": "Une infirmière rentre après une garde de nuit et dort dans son appartement calme. Elle n'a pas à adapter son repos aux préparatifs du matin d'autres personnes qui partiraient à l'école ou au travail.",
           "consequence": "Vivre seule lui facilite donc le repos : son logement peut suivre ses besoins."
         },
         {
-          "idea": "Ensuite, vivre seul signifie payer certaines charges avec un seul revenu.",
-          "developpement": "Le logement, l'abonnement internet et les équipements coûtent cher quand on ne les partage pas. Même si l'on consomme moins, certaines dépenses restent difficiles à réduire. En famille, on peut répartir ces charges, si chacun contribue réellement.",
-          "exemple": "Une personne seule paie entièrement internet et l'assurance habitation. Lorsque deux adultes vivent ensemble, ils peuvent partager ces factures, même si les montants ne sont pas exactement identiques.",
-          "consequence": "Cette répartition peut laisser davantage d'argent à chacun pour d'autres besoins."
+          "idea": "Cette liberté a cependant un coût, puisque certaines dépenses ne sont plus partagées.",
+          "developpement": "Un abonnement internet ou certains équipements coûtent presque autant pour une personne que pour deux. Consommer moins ne suffit donc pas à diviser toutes les factures. En famille, partager ces dépenses peut laisser davantage de moyens à chacun.",
+          "exemple": "Deux sœurs partagent un abonnement internet à quarante euros par mois : chacune paie vingt euros. Elles prennent ensuite deux logements et souscrivent chacune le même abonnement à quarante euros.",
+          "consequence": "Pour le même service, chacune dépense deux fois plus. Sur un petit budget, cette différence compte."
         },
         {
-          "idea": "Enfin, il faut qu'on puisse obtenir de l'aide lorsqu'on ne peut plus tout faire soi-même.",
-          "developpement": "Vivre seul ne signifie pas n'avoir ni famille ni amis. Mais personne n'est déjà sur place pour remarquer un problème ou rendre un service. Il faut prévoir qui appeler et oser demander un soutien.",
-          "exemple": "Après une opération qui limite ses déplacements, une personne seule organise les courses et les repas avec un proche ou un service. En famille, quelqu'un peut plus facilement lui apporter ce dont elle a besoin.",
-          "consequence": "Son autonomie reste possible, mais exige une organisation supplémentaire pendant cette période."
+          "idea": "La difficulté se voit aussi quand on ne peut temporairement plus tout faire soi-même.",
+          "developpement": "Vivre seul ne signifie pas n'avoir ni famille ni amis. Mais il faut qu'on puisse obtenir de l'aide sans compter sur quelqu'un déjà présent au logement. On doit demander ce soutien et organiser les passages selon les disponibilités de chacun.",
+          "exemple": "Après une opération du genou, une personne seule demande à sa sœur de faire les courses le samedi et prévoit des livraisons de repas pour la semaine. Elle organise ces aides avant de rentrer chez elle.",
+          "consequence": "Elle peut rester chez elle, mais cela demande des préparatifs qu'une famille présente et disponible aurait pu lui épargner en partie."
         }
       ],
-      "nuance": "Bien sûr, la cohabitation n'aide que si les relations sont respectueuses et les tâches partagées. Si une personne fait tout ou si les disputes sont permanentes, vivre seul peut être reposant. Et habiter seul n'empêche pas une vie sociale riche.",
+      "nuance": "La cohabitation n'aide évidemment que si les relations sont respectueuses et les tâches partagées. Si une personne fait tout pour les autres, vivre seule peut être un soulagement. Habiter seul n'empêche d'ailleurs pas d'avoir une vie sociale riche.",
       "conclusion": "En bref, vivre seul est plus facile pour décider, pas forcément pour tout assumer. Je choisirais selon mes besoins de liberté, mes moyens et la qualité de la cohabitation possible.",
       "argument_ids": [
         1,
@@ -357,29 +361,29 @@
       },
       "reformulation": "Faut-il être très strict avec ses enfants pour bien les éduquer ?",
       "position": "Je suis pour une autorité ferme et expliquée, mais pas pour une éducation fondée sur la peur.",
-      "position_claire": "Je distingue avoir de l'autorité et être autoritaire. Un enfant a besoin de limites pour sa sécurité et la vie commune. Mais la peur peut l'empêcher de parler de ses erreurs. Je suis donc pour une autorité ferme et expliquée, qui prépare aussi à l'autonomie.",
+      "position_claire": "Je distingue avoir de l'autorité et être autoritaire. Un enfant a besoin de règles, mais la peur ne l'aide pas à les comprendre. Je préfère une attitude ferme et expliquée, qui prépare son autonomie.",
       "arguments": [
         {
-          "idea": "D'abord, les parents doivent fixer des règles que l'enfant ne peut pas encore choisir seul.",
-          "developpement": "Un jeune enfant ne mesure pas tous les risques et privilégie parfois son envie immédiate. Les règles sur le sommeil, la sécurité et le respect ne sont pas facultatives. Elles doivent être stables pour rendre les décisions prévisibles.",
-          "exemple": "Un enfant veut continuer à jouer avant une journée d'école. Son parent comprend sa déception, mais maintient l'heure du coucher. Il le prévient cinq minutes avant la fin du jeu.",
-          "consequence": "La limite ne dépend donc pas simplement de l'humeur du parent."
+          "idea": "Les règles servent d'abord à apprendre à vivre avec les autres.",
+          "developpement": "Un jeune enfant pense à ce qu'il a envie de faire sans toujours voir les besoins autour de lui. Le parent doit poser une limite, mais aussi en expliquer la raison et proposer une façon de continuer autrement.",
+          "exemple": "Pendant la sieste du bébé, un père demande à son fils de sept ans de faire moins de bruit. Il lui explique que le bébé dort et lui propose de dessiner dans une autre pièce.",
+          "consequence": "L'enfant continue son activité et le bébé peut dormir. La règle répond à un besoin qu'il peut comprendre."
         },
         {
-          "idea": "Ensuite, une autorité trop dure peut obtenir le silence plutôt que la compréhension.",
+          "idea": "Mais si on fait respecter toutes les règles par la peur, l'enfant risque surtout de se taire.",
           "developpement": "Si chaque erreur provoque des cris ou une punition disproportionnée, l'enfant cherche surtout à ne pas se faire prendre. Les parents risquent de ne plus savoir ce qui se passe et perdent des occasions de l'aider.",
-          "exemple": "Un adolescent cache une mauvaise note par peur d'être humilié. S'il peut montrer sa copie sans être rabaissé, ses parents peuvent regarder avec lui ce qu'il n'a pas compris.",
-          "consequence": "La discussion traite la difficulté réelle, alors que la peur risque de la rendre invisible."
+          "exemple": "Un enfant a abîmé un livre de bibliothèque et ose le dire à son parent. Celui-ci l'écoute sans crier ; ensemble, ils contactent la bibliothèque pour savoir comment remplacer le livre.",
+          "consequence": "Il prend part à la réparation de son erreur au lieu de la cacher. L'écouter n'a pas supprimé sa responsabilité."
         },
         {
           "idea": "Enfin, le but n'est pas que l'enfant obéisse toujours, mais qu'il apprenne à choisir.",
           "developpement": "Les parents peuvent expliquer une règle et laisser une marge de décision adaptée à l'âge. L'enfant exerce alors son jugement au lieu d'attendre un ordre pour chaque geste. La fermeté n'empêche donc pas d'écouter ses propositions.",
-          "exemple": "Un adolescent doit rentrer avant vingt-deux heures parce que les transports deviennent rares ensuite. Il choisit sa sortie, vérifie son trajet et prévient en cas de retard.",
-          "consequence": "Il apprend à anticiper et à tenir un engagement, même quand ses parents ne décident pas à sa place."
+          "exemple": "Un adolescent propose de commencer ses devoirs à dix-sept heures. Sa mère accepte à condition qu'ils soient finis avant le dîner. Une semaine plus tard, il tient cet horaire sans qu'elle ait à le lui rappeler.",
+          "consequence": "Il apprend à organiser son travail dans un cadre fixé par le parent. La confiance repose ainsi sur un engagement qu'il respecte."
         }
       ],
-      "nuance": "Écouter ne signifie pas tout négocier. Près d'une route, il faut intervenir immédiatement si l'enfant se met en danger, puis expliquer après. Pour une question sans danger, on peut entendre son avis et revoir une règle devenue inadaptée à son âge.",
-      "conclusion": "Donc, je ne suis pas pour l'autoritarisme. Une autorité juste, ferme et expliquée protège l'enfant aujourd'hui tout en le préparant à décider seul demain.",
+      "nuance": "Écouter ne signifie pas tout négocier. Près d'une route, il faut intervenir immédiatement si l'enfant se met en danger, quitte à expliquer après. La discussion est importante, mais elle ne doit pas empêcher le parent d'assurer sa sécurité.",
+      "conclusion": "Je suis donc pour des règles fermes, sans faire de la peur le moyen de les imposer. Le parent reste responsable du cadre, mais aide peu à peu l'enfant à comprendre et à agir sans attendre un ordre.",
       "argument_ids": [
         1,
         2,
@@ -391,33 +395,33 @@
         "famille:p13": "e894611efc8ac352d6ae215ca459a2fbbbfe354b5ed1e9d64d724b283db257f2"
       },
       "reformulation": "Quelle langue parler à la maison pour aider ses enfants à s'intégrer sans perdre le lien avec leur famille d'origine ?",
-      "position": "Je privilégierais la langue familiale à la maison, tout en veillant à ce que les enfants apprennent bien la langue du pays d'accueil.",
-      "position_claire": "Je garderais la langue familiale à la maison tout en soutenant l'apprentissage de la langue locale. L'une entretient les liens et permet aux parents de s'exprimer naturellement ; l'autre est essentielle à l'école et dans la vie sociale. Les deux méritent une vraie place.",
+      "position": "Je garderais la langue familiale tout en aidant les enfants à pratiquer celle du pays d'accueil.",
+      "position_claire": "Je ne choisirais pas une langue contre l'autre. Les enfants ont besoin de communiquer avec leur famille et de participer à la vie du pays. Je garderais donc la langue familiale tout en soutenant la pratique de la langue locale.",
       "arguments": [
         {
-          "idea": "D'abord, la langue des parents permet de communiquer directement avec la famille restée ailleurs.",
-          "developpement": "Les grands-parents ou les cousins ne parlent pas forcément la langue du pays d'accueil. Si chaque échange exige une traduction, raconter sa journée ou partager un souvenir devient difficile. L'enfant a besoin de ces occasions de dialogue.",
+          "idea": "La langue familiale permet d'abord aux parents de parler en détail avec leur enfant.",
+          "developpement": "Dans une langue qu'ils apprennent encore, ils peuvent manquer de mots pour expliquer une émotion. Leur langue la plus naturelle permet de poser des questions et de rassurer, au-delà des simples consignes.",
+          "exemple": "Un enfant rentre triste parce que des camarades ont refusé de jouer avec lui. Sa mère lui parle dans leur langue, écoute les détails et lui demande ce qui s'est passé.",
+          "consequence": "Elle comprend mieux pourquoi il est blessé et peut le rassurer sans chercher ses mots."
+        },
+        {
+          "idea": "Ce lien dépasse aussi les parents : il compte pour les relations entre générations.",
+          "developpement": "Les grands-parents ne parlent pas forcément la langue du pays d'accueil. Si chaque échange demande une traduction, l'enfant participe moins librement. Leur langue lui permet de découvrir leur histoire directement.",
           "exemple": "Pendant un appel, une grand-mère montre une ancienne photo et raconte où elle a été prise. Son petit-fils comprend sa langue et pose ses propres questions sans attendre sa mère.",
-          "consequence": "Il construit sa relation avec elle et découvre une partie de son histoire familiale."
+          "consequence": "Il construit sa relation avec elle, plutôt que de dépendre d'un adulte pour chaque échange."
         },
         {
-          "idea": "Ensuite, les échanges sont plus riches lorsque les parents peuvent s'exprimer avec précision.",
-          "developpement": "Dans une langue qu'ils apprennent encore, ils savent parfois donner des consignes, mais peinent à expliquer une émotion. Leur langue la plus naturelle permet des discussions approfondies plutôt que des échanges limités à quelques phrases pratiques.",
-          "exemple": "Un père débutant dans la langue locale manque de mots pour parler d'un conflit scolaire. Dans sa langue maternelle, il peut écouter les détails, poser des questions et expliquer son point de vue.",
-          "consequence": "Cette liberté d'expression préserve la qualité du dialogue entre parent et enfant."
-        },
-        {
-          "idea": "Enfin, il faut que l'enfant puisse aussi pratiquer la langue du pays.",
-          "developpement": "Elle lui sert à comprendre les cours, demander de l'aide et se faire des amis. L'école ne résout pas forcément toutes les difficultés. Même sans maîtriser cette langue, les parents peuvent chercher des occasions de pratique et un soutien adapté.",
-          "exemple": "Une famille garde sa langue pendant les repas et inscrit son enfant à une activité sportive du quartier. S'il comprend mal les consignes en classe, elle demande à l'école quelle aide existe.",
-          "consequence": "L'enfant peut mieux participer à la vie locale sans renoncer aux échanges familiaux."
+          "idea": "Mais il faut que l'enfant puisse aussi pratiquer la langue du pays pour participer à la vie locale.",
+          "developpement": "En dehors des cours, l'enfant a besoin d'occasions d'écouter et de répondre. Les parents peuvent les organiser même s'ils parlent encore peu cette langue. Une activité régulière permet de retrouver les mêmes mots et les mêmes personnes.",
+          "exemple": "Des parents qui parlent encore peu la langue locale inscrivent leur enfant au football. Au fil des entraînements, il comprend mieux les consignes de l'entraîneur et ose discuter avec ses coéquipiers.",
+          "consequence": "Il participe plus facilement au jeu et prend confiance pour parler, sans que ses parents aient à tout lui enseigner."
         }
       ],
-      "nuance": "Bien sûr, les parents peuvent avoir des langues maternelles différentes : l'organisation doit rester souple. Si l'enfant répond dans la langue locale, on peut continuer naturellement sans le gronder. Parler deux langues ne se fait pas automatiquement et ne doit pas devenir une épreuve.",
-      "conclusion": "Bref, je privilégierais la langue familiale à la maison tout en aidant mes enfants à apprendre la langue du pays. Le but est de communiquer dans les deux univers, pas de choisir une identité contre l'autre.",
+      "nuance": "Mais on n'est pas obligé de réserver une langue à la maison et l'autre à l'école. On peut lire une histoire dans la langue du pays à la maison, ou parler la langue familiale pendant une promenade. L'essentiel est de donner une place aux deux langues, pas de les séparer à tout prix.",
+      "conclusion": "Bref, je préserverais le dialogue familial sans négliger la langue du pays. Les parents peuvent soutenir les deux : en parlant naturellement avec leur enfant et en lui donnant des occasions régulières de communiquer dans sa vie locale.",
       "argument_ids": [
-        2,
         1,
+        2,
         3
       ]
     },
@@ -427,29 +431,29 @@
       },
       "reformulation": "Est-ce que chacun doit prendre une part du travail à la maison, même les enfants ?",
       "position": "Oui, pour moi, tous les membres du foyer devraient participer, selon leur âge et leurs possibilités.",
-      "position_claire": "Oui, chaque membre du foyer devrait participer aux tâches selon ses possibilités. Ce partage évite qu'une personne consacre tout son temps aux autres et apprend aux enfants à se débrouiller. Il faut aussi répartir l'organisation, pas seulement les gestes visibles.",
+      "position_claire": "Oui, chaque membre du foyer devrait participer aux tâches selon ses possibilités. Ce n'est pas simplement une faveur qu'on fait à la personne qui s'en occupe d'habitude. À mon avis, vivre ensemble implique aussi de prendre soin de son logement ensemble.",
       "arguments": [
         {
           "idea": "D'abord, partager les tâches est une question de justice.",
           "developpement": "Tout le monde profite des repas et du linge propre. Si une seule personne s'en occupe, les autres se reposent pendant qu'elle travaille. Participer n'est donc pas lui rendre service, mais assumer sa part de la vie commune.",
-          "exemple": "Dans un couple où les deux travaillent, l'un prépare le dîner pendant que l'autre met la table et range ensuite la cuisine. Personne ne passe toute la soirée à gérer seul le repas.",
+          "exemple": "Deux parents rentrent du travail à dix-huit heures. L'un prépare le dîner et l'autre met la table. Après le repas, le second fait la vaisselle. Une fois la cuisine rangée, tous les deux peuvent se reposer.",
           "consequence": "Les deux gardent du temps libre : le repos de l'un ne dépend plus du travail de l'autre."
         },
         {
-          "idea": "Ensuite, participer apprend aux enfants à s'occuper d'eux-mêmes.",
+          "idea": "Pour les enfants, cette participation prépare aussi l'autonomie.",
           "developpement": "On ne sait pas gérer un logement simplement parce qu'on atteint un certain âge. Il faut apprendre à cuisiner, laver le linge et ranger le matériel utilisé. Les parents montrent les gestes, puis laissent essayer avec des responsabilités adaptées.",
           "exemple": "Un adolescent apprend à trier son linge et à lancer une machine avec un parent. Ensuite, il s'occupe régulièrement de ses vêtements sans attendre que quelqu'un le fasse pour lui.",
           "consequence": "Il acquiert une compétence concrète qui lui servira lorsqu'il quittera le foyer."
         },
         {
-          "idea": "Enfin, une tâche reste mal partagée si la même personne doit toujours y penser.",
+          "idea": "Mais le partage reste incomplet si une seule personne doit encore tout prévoir.",
           "developpement": "Remarquer ce qui manque, prévoir quand agir et vérifier le résultat demandent aussi du travail. Si quelqu'un distribue chaque consigne, il reste responsable de l'ensemble. Il faut donc que chacun gère sa tâche jusqu'au bout.",
-          "exemple": "La personne responsable des courses vérifie les placards, prépare la liste et achète les produits. Si elle attend qu'on lui dicte chaque article, quelqu'un d'autre fait encore une grande partie du travail.",
-          "consequence": "Une responsabilité entière allège la charge d'organisation, pas seulement le nombre de gestes."
+          "exemple": "La personne responsable des courses vérifie les placards, prépare la liste et achète les produits. Elle n'attend pas que quelqu'un d'autre remarque ce qui manque et lui dicte chaque article.",
+          "consequence": "L'autre personne n'a plus à rappeler ni à vérifier chaque étape. Le travail d'organisation est lui aussi réparti."
         }
       ],
-      "nuance": "Cela ne veut pas dire faire tous exactement la même chose. Un enfant peut ranger ses jouets ; un adulte malade peut être dispensé de certaines tâches. On peut aussi s'entraider pendant une période chargée. L'équité tient compte des capacités et du temps disponible.",
-      "conclusion": "Donc oui, chacun devrait contribuer. Un partage juste libère du temps, prépare à l'autonomie et évite qu'une seule personne fasse tout, y compris penser à ce qu'il faut faire.",
+      "nuance": "Cela ne veut pas dire faire tous exactement la même chose. Un petit enfant peut ranger ses jouets, tandis qu'une personne malade peut être dispensée de tâches. Une répartition juste tient compte de ce que chacun peut réellement faire.",
+      "conclusion": "Donc oui, chacun devrait contribuer selon ses moyens. Le partage devient réel quand personne n'a à tout faire ni à rappeler sans cesse aux autres ce qu'il reste à prévoir.",
       "argument_ids": [
         1,
         2,
@@ -462,28 +466,28 @@
       },
       "reformulation": "Dans quelles conditions vivre chez ses parents après vingt-cinq ans est-il une solution pratique plutôt qu'un frein à l'autonomie ?",
       "position": "Oui, cela peut être une solution pratique, à condition de partager les responsabilités et de garder une vraie liberté d'adulte.",
-      "position_claire": "Vivre chez ses parents après vingt-cinq ans peut être pratique et raisonnable. Cela réduit les dépenses et permet une entraide dans les deux sens. Mais le confort matériel ne suffit pas : chacun doit garder de l'intimité et la possibilité de prendre ses propres décisions.",
+      "position_claire": "Vivre chez ses parents après vingt-cinq ans peut être pratique et raisonnable. Cet âge ne signifie pas qu'on ait tous les moyens de vivre seul. Mais pour que la solution reste agréable, elle doit apporter quelque chose à chacun et laisser une vraie liberté d'adulte.",
       "arguments": [
         {
-          "idea": "D'abord, le logement familial offre parfois une sécurité pendant une transition.",
-          "developpement": "À vingt-cinq ans, tout le monde n'a pas un emploi stable ni assez d'épargne pour vivre seul. Revenir après une fin de contrat peut éviter de s'endetter pour un loyer et laisser le temps de préparer la suite.",
-          "exemple": "Une femme de vingt-sept ans termine un contrat temporaire. Elle revient quelques mois chez ses parents, contribue aux dépenses avec ses économies et cherche un poste sans payer seule un appartement.",
-          "consequence": "Elle peut chercher un poste avec moins de pression financière, ce qui réduit le risque d'accepter une solution dans l'urgence."
+          "idea": "L'avantage le plus concret est de pouvoir consacrer une partie de son budget à un projet.",
+          "developpement": "Même en participant aux charges, on peut dépenser moins qu'en louant seul. Cette différence donne des moyens pour une formation ou un futur logement. Il faut cependant en parler avec les parents, puisque leur accueil rend cette économie possible.",
+          "exemple": "À vingt-sept ans, une femme reprend une formation. Avec l'accord de ses parents, elle leur verse trois cents euros par mois au lieu de payer neuf cents euros pour un studio. Les six cents euros économisés servent à payer ses cours.",
+          "consequence": "La cohabitation lui permet de financer une étape concrète sans supporter seule le coût d'un logement."
         },
         {
-          "idea": "Ensuite, la cohabitation peut être un échange plutôt qu'un simple hébergement.",
+          "idea": "Mais cette aide ne doit pas aller dans un seul sens.",
           "developpement": "Le jeune adulte peut contribuer aux dépenses, aux repas ou aux démarches. Les parents apportent un logement et une présence quotidienne. Il n'est pas nécessaire que tout soit parfaitement égal, mais chacun doit connaître sa contribution et les attentes des autres.",
           "exemple": "Un fils fait les courses lourdes et prépare le dîner quand son père rentre tard. Son père lui évite de payer un logement seul ; lui prend en charge une partie du quotidien.",
           "consequence": "La situation devient utile aux deux générations, au lieu de laisser le parent tout assurer."
         },
         {
-          "idea": "Enfin, une solution pratique doit aussi respecter la liberté des adultes.",
+          "idea": "Pour que cela dure, il faut aussi respecter l'intimité et la liberté de chacun.",
           "developpement": "Il faut discuter des horaires, des visites et des espaces privés. Le jeune respecte le foyer, mais les parents ne décident plus de tous ses choix. Sans cet équilibre, les économies peuvent s'accompagner de tensions permanentes.",
           "exemple": "Une adulte qui rentre tard prévient ses parents sans demander l'autorisation de sortir. En échange, elle évite le bruit et respecte les espaces communs.",
           "consequence": "Elle garde sa liberté tandis que ses parents savent à quoi s'attendre et peuvent dormir au calme."
         }
       ],
-      "nuance": "Bien sûr, certains parents manquent d'espace ou de moyens, et des relations difficiles empêchent parfois cette solution. À l'inverse, une vie commune durable peut convenir à une famille. L'autonomie n'impose pas de déménager à une date précise.",
+      "nuance": "Cette solution suppose bien sûr l'accord des parents et assez de place pour vivre ensemble. Si ces conditions manquent, les économies ne compensent pas forcément les tensions. L'âge seul n'impose pas de déménager à une date précise.",
       "conclusion": "Donc oui, rester chez ses parents peut être pratique si chacun y trouve son compte. Le critère n'est pas l'âge, mais l'équilibre entre économies, entraide et indépendance.",
       "argument_ids": [
         1,

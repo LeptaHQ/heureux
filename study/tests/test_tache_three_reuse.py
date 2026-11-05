@@ -32,12 +32,12 @@ class TacheThreeReuseTests(SimpleTestCase):
         comfort = self.response("famille-p2")
         practical = self.response("famille-p16")
         self.assertIn("apprécier la vie familiale", comfort.arguments[0].idea)
-        self.assertIn("convienne aussi aux parents", comfort.arguments[2].idea)
-        self.assertIn("sa mère se lève tôt", comfort.arguments[2].exemple)
-        self.assertIn("un échange plutôt qu'un simple hébergement", practical.arguments[1].idea)
+        self.assertIn("convienne aussi aux parents", comfort.arguments[1].idea)
+        self.assertIn("sa mère se lève tôt", comfort.arguments[1].exemple)
+        self.assertIn("ne doit pas aller dans un seul sens", practical.arguments[1].idea)
         self.assertIn("prépare le dîner", practical.arguments[1].exemple)
         self.assertIn("sans demander l'autorisation de sortir", practical.arguments[2].exemple)
-        self.assertNotEqual(comfort.arguments[2], practical.arguments[1])
+        self.assertNotEqual(comfort.arguments[1], practical.arguments[1])
 
     def test_live_questions_and_translated_explanations_keep_distinct_mechanisms(self):
         conversation = self.response("culture-p14").arguments[2]
@@ -101,7 +101,7 @@ class TacheThreeReuseTests(SimpleTestCase):
     def test_adaptations_retain_their_specific_actor_jurisdiction_and_mechanism(self):
         self.assertIn("un adulte", self.response("culture-p2").arguments[2].exemple)
         self.assertIn("une personne âgée", self.response("culture-p8").arguments[2].exemple)
-        self.assertIn("mauvaise note par peur d'être humilié", self.response("famille-p12").arguments[1].exemple)
+        self.assertIn("abîmé un livre de bibliothèque", self.response("famille-p12").arguments[1].exemple)
         self.assertIn("la province ou le territoire", self.response("economie-p1").arguments[0].developpement)
         self.assertIn("organisme québécois", self.response("education-p5").arguments[1].exemple)
         self.assertIn("Traduire son diplôme", self.response("economie-p15").arguments[2].exemple)
@@ -116,9 +116,9 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("d'un inconnu", self.response("technologie-p16").arguments[2].exemple)
         child_help = self.response("famille-p1").arguments[2]
         self.assertIn("sans craindre d'être puni", child_help.idea)
-        self.assertIn("garder une preuve", child_help.developpement)
-        self.assertIn("un camarade l'insulte", child_help.exemple)
-        self.assertIn("contactent l'établissement si nécessaire", child_help.exemple)
+        self.assertIn("garder une preuve", child_help.exemple)
+        self.assertIn("Un inconnu demande une photo", child_help.exemple)
+        self.assertIn("bloquent et signalent le compte", child_help.exemple)
         for group in ("environnement-p2", "environnement-p4"):
             self.assertIn("pas que toute espèce", self.response(group).arguments[1].exemple)
 
@@ -138,7 +138,7 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn(common_letter_limit, self.response("technologie-p12").nuance)
         solitude = "Cependant, il faut distinguer une solitude choisie d'un isolement qui fait souffrir."
         self.assertIn(solitude, self.response("culture-p24").nuance)
-        self.assertIn("souffre de son absence", self.response("culture-p16").nuance)
+        self.assertIn("souffrir de solitude", self.response("culture-p16").nuance)
         self.assertIn("l'accord de toute la famille", self.response("famille-p2").conclusion)
         self.assertIn("si chacun y trouve son compte", self.response("famille-p16").conclusion)
 
@@ -158,10 +158,12 @@ class TacheThreeReuseTests(SimpleTestCase):
         family = self.response("famille-p5")
         self.assertIn("repas improvisé chez sa sœur", family.arguments[0].exemple)
         self.assertIn("ce moment s'est passé sans elle", family.arguments[0].exemple)
-        self.assertIn("récupérer un médicament", family.arguments[1].exemple)
-        self.assertIn("voisin disponible", family.arguments[1].exemple)
-        self.assertIn("prix du billet", family.arguments[2].exemple)
-        self.assertIn("attendre plusieurs jours", family.arguments[2].exemple)
+        self.assertIn("récupérer son enfant", family.arguments[1].exemple)
+        self.assertIn("voisine de confiance", family.arguments[1].exemple)
+        self.assertIn("déjà autorisée auprès de l'école", family.arguments[1].exemple)
+        self.assertIn("Elle va chercher l'enfant", family.arguments[1].consequence)
+        self.assertIn("billet trop cher", family.arguments[2].exemple)
+        self.assertIn("Elle renonce à la visite", family.arguments[2].exemple)
         self.assertNotEqual(family.arguments[0].exemple, self.response("culture-p9").arguments[1].exemple)
         self.assertIn("les débuts", self.response("culture-p9").arguments[1].idea)
 
@@ -175,12 +177,13 @@ class TacheThreeReuseTests(SimpleTestCase):
     def test_friendship_answers_support_nonnecessity_without_merging_their_benefits(self):
         happiness = self.response("culture-p16")
         living_well = self.response("famille-p9")
-        self.assertIn("Elle n'a pas d'amis", happiness.arguments[0].exemple)
-        self.assertIn("relation affectueuse", happiness.arguments[0].exemple)
+        self.assertIn("Elle n'a pas d'amis", happiness.arguments[1].consequence)
+        self.assertIn("sa sœur l'écoute sans la juger", happiness.arguments[1].exemple)
         self.assertIn("consultation de suivi à l'hôpital", living_well.arguments[0].exemple)
         self.assertIn("poursuit les répétitions", living_well.arguments[1].exemple)
-        self.assertIn("participe ensuite à un spectacle", living_well.arguments[1].exemple)
-        self.assertIn("Ce ne sont pas encore ses amis", living_well.arguments[2].exemple)
+        self.assertIn("chante ensuite à son premier concert", living_well.arguments[1].exemple)
+        self.assertIn("Un retraité sans amis", living_well.arguments[2].exemple)
+        self.assertIn("sans avoir noué d'amitié", living_well.arguments[2].consequence)
         self.assertIn("connaissance ne remplace pas toujours un confident", living_well.nuance)
 
     def test_family_and_compatriot_trust_are_not_identity_guarantees(self):
@@ -197,14 +200,15 @@ class TacheThreeReuseTests(SimpleTestCase):
         )
         self.assertIn(question, self.response("culture-p14").arguments[2].developpement)
         child = self.response("famille-p13")
-        self.assertIn("sa relation avec elle", child.arguments[0].consequence)
-        self.assertIn("pose ses propres questions sans attendre sa mère", child.arguments[0].exemple)
-        self.assertIn("père débutant dans la langue locale", child.arguments[1].exemple)
-        self.assertIn("écouter les détails", child.arguments[1].exemple)
+        self.assertIn("sa relation avec elle", child.arguments[1].consequence)
+        self.assertIn("pose ses propres questions sans attendre sa mère", child.arguments[1].exemple)
+        self.assertIn("Sa mère", child.arguments[0].exemple)
+        self.assertIn("écoute les détails", child.arguments[0].exemple)
         self.assertIn("chaque semaine à", self.response("culture-p27").arguments[2].exemple)
         self.assertIn("sa sœur", self.response("culture-p27").arguments[2].exemple)
-        self.assertIn("ne se fait pas automatiquement", child.nuance)
-        self.assertIn("sans le gronder", child.nuance)
+        self.assertIn("pas obligé de réserver une langue à la maison et l'autre à l'école", child.nuance)
+        self.assertIn("lire une histoire dans la langue du pays", child.nuance)
+        self.assertIn("parler la langue familiale pendant une promenade", child.nuance)
 
     def test_cuisine_and_local_workshops_share_guided_practice_not_their_positions(self):
         practice = (

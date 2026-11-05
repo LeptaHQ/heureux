@@ -253,7 +253,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("translate a teacher", row["english"])
         self.assertIn("the pupils do this to learn", row["english"])
         row = data["groups"][country.group][fingerprint(country.response.arguments[0].exemple)]
-        self.assertIn("leaving without buying anything", row["english"])
+        self.assertIn("leave without buying anything", row["english"])
         row = data["groups"][country.group][fingerprint(country.response.arguments[0].consequence)]
         self.assertIn("this market is also a meeting place", row["english"])
         cuisine = scoped_models()["eo/tache-3/culture-p15"]
@@ -267,16 +267,19 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("this family organises its day", row["english"])
         self.assertIn("set aside time together", row["english"])
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.nuance)]
-        self.assertIn("Learning the language can also help", row["english"])
+        self.assertIn("it does not show everything", row["english"])
+        self.assertIn("its political system, its debates or its language", row["english"])
         self.assertNotIn("must also explore the language", row["english"])
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[0].developpement)]
-        self.assertIn("Meal times can reflect the rhythm of work", row["english"])
-        self.assertIn("can also reveal the importance placed on family interaction", row["english"])
-        self.assertIn("how meals are organised", row["english"])
+        self.assertIn("Mealtimes may reflect the rhythm of work", row["english"])
+        self.assertIn("also shows the importance given to family conversation", row["english"])
+        self.assertIn("How a meal is organised", row["english"])
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[1].developpement)]
-        self.assertIn("ingredients in a dish", row["english"])
-        self.assertIn("salt was used to preserve food", row["english"])
-        self.assertIn("This practice", row["english"])
+        self.assertIn("Ingredients and ways of preserving food", row["english"])
+        self.assertIn("retain traces of life in the past", row["english"])
+        row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[1].exemple)]
+        self.assertIn("people salted and dried fish", row["english"])
+        self.assertIn("to keep it during long sea voyages", row["english"])
         older = scoped_models()["eo/tache-3/culture-p8"]
         row = data["groups"][older.group][fingerprint(older.response.arguments[0].exemple)]
         self.assertIn("arguing with their parents", row["english"])
@@ -285,6 +288,217 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("clips of the same school fight", row["english"])
         self.assertIn("violence is common among young people", row["english"])
         self.assertNotIn("violence is rife", row["english"])
+
+    def test_adults_recalling_their_own_behaviour_corrects_the_comparison_in_both_languages(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p2"]
+        argument = model.response.arguments[0]
+        self.assertIn("son jugement devient déjà moins catégorique", argument.exemple)
+        self.assertIn("peut donc porter un jugement plus juste", argument.consequence)
+        english = data["groups"][model.group][fingerprint(argument.consequence)]["english"]
+        self.assertIn("can therefore help the adult judge the young person more fairly", english)
+        self.assertNotIn("is then judged against an idealised memory", english)
+        self.assertEqual(model.argument_ids, (1, 2, 3))
+
+    def test_education_english_keeps_quebec_questions_and_volunteering_hypothetical(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        models = scoped_models()
+        quebec = models["eo/tache-3/education-p5"]
+        rows = data["groups"][quebec.group]
+        questions = (
+            "is my French good enough for everyday life?",
+            "is my career plan feasible in Quebec?",
+            "do I have the financial resources and support from others to settle in?",
+        )
+        for argument, question in zip(quebec.response.arguments, questions):
+            self.assertIn(question, rows[fingerprint(argument.idea)]["english"])
+        self.assertIn("I would ask myself three questions", rows[
+            fingerprint(quebec.response.position_claire)
+        ]["english"])
+        qualification = rows[fingerprint(quebec.response.arguments[1].exemple)]["english"]
+        self.assertIn("If additional training is needed", qualification)
+        self.assertIn("rather than plan to start work immediately", qualification)
+        volunteer = models["eo/tache-3/education-p10"]
+        self.assertEqual(
+            {key for key, _ in volunteer.source_prompts}, {"education:p10", "education:p24"},
+        )
+        rows = data["groups"][volunteer.group]
+        self.assertIn("I would like to take part", rows[
+            fingerprint(volunteer.response.position_claire)
+        ]["english"])
+        example = rows[fingerprint(volunteer.response.arguments[2].exemple)]["english"]
+        self.assertIn("If someone explained", example)
+        self.assertIn("I would ask", example)
+        self.assertIn("rice they could not prepare", example)
+
+    def test_education_english_distinguishes_information_access_and_learning_alone(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        models = scoped_models()
+        phone = models["eo/tache-3/education-p15"]
+        rows = data["groups"][phone.group]
+        introduction = rows[fingerprint(phone.response.position_claire)]["english"]
+        self.assertIn("easy access to information, but not always to accurate information", introduction)
+        example = rows[fingerprint(phone.response.arguments[1].exemple)]["english"]
+        self.assertIn("all cite the same unsourced message", example)
+        development = rows[fingerprint(phone.response.arguments[2].developpement)]["english"]
+        self.assertIn("Comparing independent sources", development)
+        self.assertIn("counting repetitions of the same message does not", development)
+        alone = models["eo/tache-3/education-p22"]
+        rows = data["groups"][alone.group]
+        self.assertIn("I don't agree with the word 'everything'", rows[
+            fingerprint(alone.response.position_claire)
+        ]["english"])
+        result = rows[fingerprint(alone.response.arguments[1].consequence)]["english"]
+        self.assertIn("with the partner's help", result)
+        self.assertIn("no longer entirely solitary", result)
+        example = rows[fingerprint(alone.response.arguments[2].exemple)]["english"]
+        self.assertIn("they stall", example)
+        self.assertIn("with the instructor beside them", example)
+
+    def test_education_english_keeps_salary_argument_ids_and_shared_arts_polarity(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        models = scoped_models()
+        salary = models["eo/tache-3/education-p16"]
+        self.assertEqual(salary.argument_ids, (1, 3, 4))
+        self.assertEqual(
+            {key for key, _ in salary.source_prompts}, {"education:p16", "economie:p12"},
+        )
+        fields = public_fields(salary)
+        self.assertNotIn("argument-2-idea", fields)
+        rows = data["groups"][salary.group]
+        self.assertIn("retain skills that are hard to replace", rows[
+            fingerprint(fields["argument-4-idea"])
+        ]["english"])
+        retention = rows[fingerprint(fields["argument-4-exemple"])]["english"]
+        self.assertIn("If she accepts a better-paid offer elsewhere", retention)
+        self.assertIn("may have to postpone its project", retention)
+        arts = models["eo/tache-3/culture-p13"]
+        self.assertEqual(
+            {key for key, _ in arts.source_prompts}, {"culture:p13", "education:p11"},
+        )
+        introduction = data["groups"][arts.group][
+            fingerprint(arts.response.position_claire)
+        ]["english"]
+        self.assertIn("No, I don't agree with this proposal", introduction)
+        self.assertIn("Removing music, drawing or drama from school would be a mistake", introduction)
+
+    def test_education_english_keeps_university_access_conditional_not_unconditional_entry(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/education-p20"]
+        self.assertEqual(
+            {key for key, _ in model.source_prompts}, {"education:p20", "economie:p19"},
+        )
+        rows = data["groups"][model.group]
+        introduction = rows[fingerprint(model.response.position_claire)]["english"]
+        self.assertIn("a real chance to get in", introduction)
+        self.assertIn("neither accepting every application unconditionally", introduction)
+        self.assertIn("nor sending everyone to university", introduction)
+        example = rows[fingerprint(model.response.arguments[0].exemple)]["english"]
+        self.assertIn("If she receives the aid", example)
+        self.assertIn("can consider this plan", example)
+        result = rows[fingerprint(model.response.arguments[2].consequence)]["english"]
+        self.assertIn("without removing the course requirements", result)
+
+    def test_education_english_keeps_life_success_possible_and_school_priority_nonexclusive(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        models = scoped_models()
+        grades = models["eo/tache-3/education-p21"]
+        rows = data["groups"][grades.group]
+        introduction = rows[fingerprint(grades.response.position_claire)]["english"]
+        self.assertIn("good grades can contribute to success in life", introduction)
+        self.assertIn("not the same as saying they are essential or sufficient", introduction)
+        self.assertIn("a successful life cannot be reduced to an academic record", introduction)
+        example = rows[fingerprint(grades.response.arguments[2].exemple)]["english"]
+        self.assertIn("If she receives this aid", example)
+        self.assertIn("can reduce her paid working hours", example)
+        school = models["eo/tache-3/education-p18"]
+        rows = data["groups"][school.group]
+        introduction = rows[fingerprint(school.response.position_claire)]["english"]
+        self.assertIn("teaching the curriculum is an essential priority", introduction)
+        self.assertIn("a priority is not an exclusive mission", introduction)
+        self.assertIn("often during the very same lessons", introduction)
+
+    def test_education_english_post_edits_preserve_the_preceding_editorial_translation(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        models = scoped_models()
+        for group, index, field, current, previous in (
+            (
+                "education-p1", 2, "exemple", "the employee knows who to turn to",
+                "In his first job, a manager",
+            ),
+            (
+                "education-p20", 1, "idea", "Wider access to university",
+                "An open university",
+            ),
+        ):
+            with self.subTest(group=group, field=field):
+                model = models[f"eo/tache-3/{group}"]
+                french = getattr(model.response.arguments[index], field)
+                row = data["groups"][model.group][fingerprint(french)]
+                self.assertIn(current, row["english"])
+                self.assertNotIn(previous, row["english"])
+                preceding = row["editorial_history"][-1]
+                self.assertEqual(preceding["french"], french)
+                self.assertIn(previous, preceding["english"])
+                self.assertIn("No DeepL original or provider call was made", preceding["review_note"])
+                self.assertIn("editorial_history", row["review_note"])
+
+    def test_education_english_matches_speaking_feedback_to_progress_under_fresh_ids(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        models = scoped_models()
+        language = models["eo/tache-3/education-p13"]
+        outing = models["eo/tache-3/education-p23"]
+        self.assertEqual(language.argument_ids, (1, 2, 4))
+        self.assertEqual(outing.argument_ids, (1, 2, 4))
+        for model in (language, outing):
+            self.assertNotIn("argument-3-idea", public_fields(model))
+        example = data["groups"][language.group][
+            fingerprint(language.response.arguments[2].exemple)
+        ]["english"]
+        self.assertIn("points out unclear phrases", example)
+        self.assertIn("practise those phrases", example)
+        self.assertIn("their partner understands their account", example)
+        self.assertIn("without asking them to rephrase", example)
+        self.assertNotIn("understand a voice message", example)
+
+    def test_education_english_does_not_narrow_close_contacts_to_relatives(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        models = scoped_models()
+        for group, index, field, wording in (
+            ("education-p2", 0, "exemple", "someone close to her"),
+            ("education-p5", 2, "exemple", "someone close to them"),
+            ("education-p6", 2, "developpement", "a message to loved ones"),
+            ("education-p6", 2, "consequence", "their loved ones know"),
+        ):
+            with self.subTest(group=group, field=field):
+                model = models[f"eo/tache-3/{group}"]
+                french = getattr(model.response.arguments[index], field)
+                english = data["groups"][model.group][fingerprint(french)]["english"]
+                self.assertIn(wording, english)
+                self.assertNotIn("relative", english)
+        solidarity = models["eo/tache-3/education-p6"]
+        example = data["groups"][solidarity.group][
+            fingerprint(solidarity.response.arguments[2].exemple)
+        ]["english"]
+        self.assertIn("message their family", example)
 
     def test_living_with_parents_english_keeps_adult_freedom_and_reciprocal_consideration(self):
         data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
@@ -469,6 +683,10 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         model = scoped_models()["eo/tache-3/famille-p1"]
         rows = data["groups"][model.group]
         self.assertEqual(model.argument_ids, (5, 2, 3))
+        introduction = rows[fingerprint(model.response.position_claire)]["english"]
+        self.assertTrue(introduction.startswith("In my opinion, parents can let their children"))
+        self.assertIn("which information to keep private", introduction)
+        self.assertIn("how to respond to a worrying message", introduction)
         example = rows[fingerprint(model.response.arguments[1].exemple)]["english"]
         self.assertIn("group chat until midnight even though he has school the next day", example)
         self.assertIn("decides to leave his phone in the living room overnight", example)
@@ -493,7 +711,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("learn to protect themselves", conclusion)
         self.assertIn("more independently", conclusion)
 
-    def test_family_friendship_english_keeps_affection_confidences_and_respected_choice_distinct(self):
+    def test_family_friendship_english_keeps_affection_confidences_and_earned_trust_distinct(self):
         data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
@@ -521,9 +739,15 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         next_idea = rows[fingerprint(model.response.arguments[1].idea)]["english"]
         self.assertIn("Family roles can also limit what we dare to share", next_idea)
         self.assertNotIn("This reserve", next_idea)
+        development = rows[fingerprint(model.response.arguments[2].developpement)]["english"]
+        self.assertTrue(development.startswith("Friendship requires being able to listen"))
+        self.assertNotIn("We must", development)
         example = rows[fingerprint(model.response.arguments[2].exemple)]["english"]
-        self.assertIn("Her cousin would prefer her to stay", example)
-        self.assertIn("respects her choice and keeps it confidential", example)
+        self.assertIn("Two cousins grew up together", example)
+        self.assertIn("went to the same school", example)
+        self.assertIn("listened to and supported each other", example)
+        result = rows[fingerprint(model.response.arguments[2].consequence)]["english"]
+        self.assertIn("not just from being related", result)
         nuance = rows[fingerprint(model.response.nuance)]["english"]
         self.assertIn("if everyone feels free within it", nuance)
         self.assertIn("no one should feel guilty", nuance)

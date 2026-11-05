@@ -189,8 +189,11 @@ class TacheThreeReuseTests(SimpleTestCase):
     def test_family_and_compatriot_trust_are_not_identity_guarantees(self):
         family = self.response("famille-p10")
         self.assertIn("la parenté ne la garantit pas", family.arguments[2].developpement)
-        self.assertIn("respecte son choix", self.response("famille-p10").arguments[2].exemple)
-        self.assertIn("garde cette confidence", family.arguments[2].exemple)
+        self.assertTrue(family.arguments[2].developpement.startswith("L'amitié suppose"))
+        self.assertIn("ont grandi ensemble", family.arguments[2].exemple)
+        self.assertIn("la même école", family.arguments[2].exemple)
+        self.assertIn("se soutiennent", family.arguments[2].exemple)
+        self.assertIn("pas seulement de leur parenté", family.arguments[2].consequence)
         self.assertIn("selon la confiance et les affinités, pas seulement selon l'origine", self.response("culture-p11").nuance)
 
     def test_child_language_keeps_direct_family_contact_distinct_from_parent_child_dialogue(self):

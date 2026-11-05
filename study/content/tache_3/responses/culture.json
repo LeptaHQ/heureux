@@ -8,8 +8,8 @@
         "culture:p1": "fa414c11c13e61ea42f266f306d7c36d8016cc1415d5ab469c9359c13fe966ed"
       },
       "reformulation": "Quelles habitudes faut-il adapter lorsqu'on s'installe dans un autre pays ?",
-      "position": "Il faut adapter le nécessaire, sans renoncer à son identité.",
-      "position_claire": "Quand on s'installe dans un nouveau pays, certaines habitudes doivent évoluer, mais pas toutes. Pour moi, il faut changer ce qui est nécessaire, garder ses repères et découvrir peu à peu les habitudes locales.",
+      "position": "Certaines adaptations sont nécessaires, mais toutes les habitudes n'ont pas à changer.",
+      "position_claire": "À mon avis, s'installer dans un nouveau pays oblige à changer certaines habitudes, mais pas toutes. La question est de distinguer ce que la vie sur place impose de ce qui relève de nos préférences personnelles.",
       "arguments": [
         {
           "idea": "Tout d'abord, il faut s'adapter aux conditions de vie du pays.",
@@ -19,19 +19,24 @@
         },
         {
           "idea": "Ensuite, conserver certaines habitudes aide à garder un équilibre personnel.",
-          "developpement": "Quand beaucoup de choses changent autour de nous, retrouver des gestes familiers aide à se sentir chez soi. Une habitude n'a pas à disparaître simplement parce que la majorité des habitants fait autrement.",
+          "developpement": "Quand beaucoup de choses changent autour de nous, retrouver des gestes familiers aide à se sentir chez soi. Cuisiner ses plats ou parler sa langue à la maison ne gêne personne et appartient à la vie privée.",
           "exemple": "Une famille peut continuer à cuisiner ses plats habituels et à parler sa langue à la maison, tout en apprenant la langue locale. Le repas partagé reste alors un moment rassurant après une journée dans un environnement nouveau.",
-          "consequence": "S'adapter ne signifie donc pas faire table rase de son passé."
+          "consequence": "Ces repères apportent du réconfort sans empêcher de participer à la vie du pays."
         },
         {
           "idea": "Enfin, essayer de nouvelles habitudes progressivement permet de choisir celles qui nous conviennent.",
-          "developpement": "On ne comprend pas toujours immédiatement l'intérêt d'une pratique locale. L'observation et les échanges permettent de l'essayer sans se sentir obligé de tout changer d'un coup.",
+          "developpement": "On ne comprend pas toujours immédiatement l'intérêt d'une pratique locale. L'observation et les échanges permettent de l'essayer sans qu'on se sente obligé de tout changer d'un coup.",
           "exemple": "Par exemple, une personne habituée à déjeuner à 14 heures peut essayer de manger à midi avec ses collègues, une fois par semaine. Si ce nouvel horaire lui convient, elle peut l’adopter les jours de travail et garder ses habitudes le week-end.",
-          "consequence": "Le changement devient une expérience choisie, sans que ce soit une rupture imposée."
+          "consequence": "On peut ainsi garder ce qui nous convient : le changement devient un choix plutôt qu'une obligation."
         }
       ],
       "nuance": "Cependant, avancer à son rythme ne signifie pas que tout peut attendre : la sécurité et les règles communes demandent parfois une adaptation immédiate. Pour les goûts, les repas ou les fêtes, en revanche, plusieurs habitudes peuvent coexister, dans le respect des autres.",
-      "conclusion": "En conclusion, je ne choisirais ni de tout garder ni de tout abandonner. Adapter ce qui est nécessaire, préserver ce qui compte et rester curieux permet de construire une nouvelle vie sans effacer la précédente."
+      "conclusion": "Bref, il n'est pas nécessaire de tout abandonner. S'adapter aux contraintes, garder les habitudes qui ne gênent personne et essayer le reste à son rythme permet de construire une nouvelle vie sans effacer la précédente.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p2": {
       "prompt_signatures": {
@@ -39,13 +44,13 @@
       },
       "reformulation": "Le regard des adultes sur les jeunes est-il trop pessimiste ?",
       "position": "Ce pessimisme existe, mais ne représente ni tous les adultes ni toute la jeunesse.",
-      "position_claire": "Je reconnais ce regard pessimiste dans certains discours sur les jeunes. Mais je me méfie des généralisations : tous les adultes ne pensent pas ainsi. À mon avis, la comparaison avec le passé, les images médiatiques et le manque de rencontres peuvent expliquer ces jugements.",
+      "position_claire": "Je suis en partie d'accord : certains adultes parlent des jeunes avec beaucoup de pessimisme. Mais tous ne pensent pas ainsi. Ce regard me paraît parfois injuste, surtout quand il repose sur des souvenirs ou des images plutôt que sur des rencontres.",
       "arguments": [
         {
           "idea": "Tout d'abord, idéaliser sa propre jeunesse peut fausser la comparaison.",
           "developpement": "On risque de comparer les défauts visibles des jeunes d'aujourd'hui aux meilleurs souvenirs de son adolescence. Les critères ne sont alors plus les mêmes pour les deux générations.",
           "exemple": "Un adulte peut reprocher à un lycéen de discuter avec ses amis au lieu de réviser, en disant qu'autrefois les élèves étaient toujours sérieux. S'il se rappelle ses propres bavardages, son jugement devient déjà moins catégorique.",
-          "consequence": "Cela invite à comparer des situations réelles plutôt qu'un présent imparfait à un passé idéal."
+          "consequence": "En se rappelant ses propres bavardages, l'adulte peut donc porter un jugement plus juste sur le jeune."
         },
         {
           "idea": "Ensuite, quelques images marquantes peuvent prendre une place excessive dans le jugement.",
@@ -60,8 +65,13 @@
           "consequence": "Le contact n'efface pas les désaccords, mais donne une base plus juste à la discussion."
         }
       ],
-      "nuance": "Bien sûr, les adultes peuvent avoir des inquiétudes fondées, par exemple devant un manque de sommeil lié aux écrans. Il faut alors qu'on discute du comportement observé et qu'on cherche des solutions, au lieu de conclure que toute la jeunesse va mal.",
-      "conclusion": "En conclusion, ce pessimisme me paraît parfois exagéré. Les adultes gagnent à examiner leurs comparaisons, à prendre du recul face aux images et à rencontrer les jeunes avant de porter un jugement général."
+      "nuance": "Il est normal qu'un parent s'inquiète si son enfant prend des risques, par exemple en dormant trop peu à cause des écrans. Cette inquiétude porte sur une situation précise. Elle ne prouve pas que tous les jeunes sont irresponsables.",
+      "conclusion": "En conclusion, ce pessimisme me paraît parfois exagéré. Les adultes gagnent à examiner leurs comparaisons, à prendre du recul face aux images et à rencontrer les jeunes avant de porter un jugement général.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p3": {
       "prompt_signatures": {
@@ -70,13 +80,13 @@
       },
       "reformulation": "Jusqu'où l'État peut-il réellement contrôler la vie en société ?",
       "position": "L'État doit fixer un cadre solide, mais ne peut pas tout contrôler.",
-      "position_claire": "Pour moi, l'État ne peut pas tout contrôler, même s'il joue un rôle essentiel. Il rencontre des limites pratiques, doit respecter les libertés et dépend de la coopération de nombreux acteurs. Reconnaître ces limites n'est pas souhaiter un État absent.",
+      "position_claire": "Pour moi, l'État ne peut pas tout contrôler, même s'il joue un rôle essentiel. Une surveillance générale serait irréaliste et dangereuse pour les libertés. Cela ne veut pas dire qu'il doit renoncer à faire respecter les règles.",
       "arguments": [
         {
           "idea": "Tout d'abord, les moyens publics ne permettent pas de surveiller chaque décision quotidienne.",
-          "developpement": "Une règle ne produit pas automatiquement le comportement attendu. Les contrôles demandent du personnel et du temps, alors que les décisions individuelles se prennent partout, à tout moment.",
+          "developpement": "Des millions de personnes prennent chaque jour des décisions privées. Les contrôles demandent du personnel et du temps : ils restent forcément limités, alors que les comportements se produisent partout, à toute heure.",
           "exemple": "Une ville peut limiter la vitesse et effectuer des contrôles. Elle ne peut pourtant pas surveiller chaque rue à toute heure. Un automobiliste peut encore rouler trop vite sur une voie sans contrôle, malgré l'interdiction.",
-          "consequence": "La prévention et la responsabilité individuelle restent donc nécessaires, en complément des contrôles."
+          "consequence": "Le contrôle reste donc ponctuel : une interdiction ne permet pas de suivre chaque décision individuelle."
         },
         {
           "idea": "Ensuite, un contrôle total laisserait trop peu de place aux libertés.",
@@ -86,21 +96,26 @@
         },
         {
           "idea": "Enfin, l'État a besoin de la participation des citoyens et des professionnels.",
-          "developpement": "Financer un service et fixer des règles ne suffit pas toujours. Pour que ce service fonctionne, les professionnels doivent le mettre en place et les citoyens doivent pouvoir l'utiliser correctement.",
+          "developpement": "Financer un service et fixer des règles ne suffit pas toujours. Pour qu'un service fonctionne, il faut que les habitants sachent l'utiliser. Expliquer les règles et répondre aux questions peut obtenir une participation que la surveillance seule ne crée pas.",
           "exemple": "Dans un immeuble, une collectivité peut installer des bacs de tri sans que les habitants sachent les utiliser. Après une explication du gardien et l'affichage des consignes, ils commencent à séparer leurs déchets : les équipements seuls ne suffisaient pas.",
-          "consequence": "L'État organise et finance, mais il ne peut pas agir à la place de chacun."
+          "consequence": "Les habitants coopèrent parce qu'ils comprennent quoi faire ; les équipements et les contrôles ne peuvent pas tout obtenir seuls."
         }
       ],
       "nuance": "Cependant, ces limites ne doivent pas servir d'excuse à l'inaction. L'État doit faire respecter les règles, contrôler les abus et rendre compte de ses résultats. La coopération des citoyens ne remplace pas ses responsabilités en matière de justice ou de services essentiels.",
-      "conclusion": "En conclusion, l'État peut encadrer la société, mais pas en contrôler chaque détail. Je défends un cadre public solide, des interventions proportionnées et une responsabilité partagée, plutôt qu'une surveillance générale."
+      "conclusion": "En conclusion, l'État peut encadrer la société, mais pas en contrôler chaque détail. Je défends un cadre public solide, des interventions proportionnées et une responsabilité partagée, plutôt qu'une surveillance générale.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p4": {
       "prompt_signatures": {
         "culture:p4": "e2bdd518b8f561d0f7acfd850bd5ebca8bad04cfcc59b113b2b5c68cabc3251c"
       },
       "reformulation": "Quelle cause devrait recevoir la priorité dans le monde actuel ?",
-      "position": "Je donnerais la priorité à la lutte contre la pauvreté et l'exclusion.",
-      "position_claire": "Si je devais choisir une cause prioritaire, je retiendrais la lutte contre la pauvreté et l'exclusion. Elle concerne des besoins immédiats, mais aussi les possibilités de construire son avenir. Ce choix ne signifie pas que les autres causes seraient secondaires partout.",
+      "position": "À mon avis, la priorité mondiale est la lutte contre la pauvreté et l'exclusion.",
+      "position_claire": "À mon avis, la lutte contre la pauvreté et l'exclusion est prioritaire dans le monde actuel. Elle permet de vivre dignement et de préparer son avenir. Cela n'exclut pas d'autres urgences dans certaines situations.",
       "arguments": [
         {
           "idea": "Tout d'abord, répondre aux besoins essentiels ne peut pas toujours attendre.",
@@ -109,10 +124,10 @@
           "consequence": "L'aide répond ainsi à une urgence sans obliger la famille à sacrifier un autre besoin essentiel."
         },
         {
-          "idea": "Ensuite, réduire la précarité peut rendre les apprentissages plus accessibles.",
-          "developpement": "Étudier demande un minimum de stabilité, du matériel et du temps disponible. Les difficultés matérielles peuvent empêcher une personne de profiter d'une formation, même lorsqu'elle est motivée.",
+          "idea": "Ensuite, la pauvreté peut entraîner plusieurs difficultés qui se renforcent.",
+          "developpement": "Un logement instable peut perturber le sommeil, la santé et la scolarité. Ces difficultés peuvent ensuite limiter l'accès à une formation ou à un emploi. Réduire la précarité aide donc à interrompre cette suite de problèmes.",
           "exemple": "Un élève qui change souvent d'hébergement peut perdre ses affaires et manquer des cours pendant les déplacements. Un logement plus stable et un espace pour ses devoirs ne garantissent pas sa réussite, mais retirent des obstacles concrets à sa scolarité.",
-          "consequence": "L'aide ne répond donc pas seulement au présent : elle ouvre aussi des possibilités."
+          "consequence": "Stabiliser le logement peut donc améliorer plusieurs aspects de sa vie, sans garantir à lui seul sa réussite."
         },
         {
           "idea": "Enfin, combattre l'exclusion aide les personnes à faire valoir leurs droits.",
@@ -122,7 +137,12 @@
         }
       ],
       "nuance": "Cependant, une guerre, une catastrophe ou un manque d'eau potable peuvent devenir l'urgence absolue dans un lieu donné. Les priorités doivent suivre les besoins réels. Ma préférence pour cette cause est un choix argumenté, pas un classement valable en toute circonstance.",
-      "conclusion": "En conclusion, je privilégierais la lutte contre la pauvreté pour répondre aux besoins essentiels, faciliter l'apprentissage et renforcer l'autonomie. L'objectif serait de permettre aux personnes de participer pleinement à la société, pas seulement de survivre."
+      "conclusion": "Bref, lutter contre la pauvreté permet de répondre aux besoins essentiels, d'éviter l'accumulation des difficultés et de renforcer l'autonomie. Le but est de participer à la société, pas seulement de survivre.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p5": {
       "prompt_signatures": {
@@ -130,29 +150,34 @@
       },
       "reformulation": "Peut-on réaliser ses objectifs en vivant à l'étranger ?",
       "position": "Oui, à condition de relier son projet à des possibilités concrètes.",
-      "position_claire": "Oui, il est possible d'atteindre ses objectifs à l'étranger. Mais partir ne suffit pas pour réussir. Il faut trouver une possibilité qui correspond à son objectif, préparer son projet et demander de l'aide sur place.",
+      "position_claire": "Oui, il est possible d'atteindre ses objectifs à l'étranger, mais partir ne suffit pas. Le pays choisi doit offrir quelque chose qui aide réellement le projet. Et même avec cette possibilité, certaines démarches peuvent prendre du temps.",
       "arguments": [
         {
           "idea": "Tout d'abord, un autre pays peut offrir une possibilité directement liée à son objectif.",
-          "developpement": "Une formation ou un poste peut exister dans un pays et pas dans un autre. Avant de partir, il faut donc qu'on vérifie ce que cette possibilité apporte à son projet, au lieu de croire que tout sera meilleur ailleurs.",
-          "exemple": "Un étudiant qui veut devenir cuisinier peut chercher une formation dans une spécialité qui n'est pas enseignée près de chez lui. Une école à l'étranger proposant cette formation et un stage en restaurant lui donne alors un moyen concret d'apprendre le métier.",
+          "developpement": "Une formation ou un poste peut exister dans un pays et pas dans un autre. Le départ devient utile à condition que cette possibilité corresponde vraiment au projet, et non parce que tout serait meilleur ailleurs.",
+          "exemple": "Un étudiant qui veut devenir cuisinier trouve à l'étranger une école proposant une spécialité de pâtisserie absente près de chez lui, avec un stage en restaurant. Pendant ce stage, il prépare chaque jour des desserts sous la direction d'un chef.",
           "consequence": "Le départ peut ainsi donner accès aux moyens nécessaires pour réaliser son projet."
         },
         {
-          "idea": "Ensuite, la préparation transforme une ambition générale en étapes réalisables.",
-          "developpement": "Un objectif devient plus solide lorsqu'on connaît les conditions d'accès, les dépenses et les compétences manquantes. On peut ainsi vérifier si le projet est réalisable avant d'engager des frais importants.",
+          "idea": "Mais certains métiers exigent des démarches avant de pouvoir les exercer.",
+          "developpement": "Pour un métier réglementé, un diplôme obtenu ailleurs ne suffit pas toujours. Sa reconnaissance peut demander des documents, des examens ou une formation. Ces étapes n'empêchent pas forcément la réussite, mais retardent l'accès au métier.",
           "exemple": "Une personne qui veut exercer un métier réglementé peut vérifier les exigences auprès de l'organisme compétent. Si une formation complémentaire est demandée, elle peut prévoir du temps et un budget, au lieu de compter sur un emploi immédiat dans ce métier.",
-          "consequence": "Cette démarche réduit les surprises et permet d'ajuster le calendrier."
+          "consequence": "L'objectif reste possible, mais il peut demander plus de temps et d'argent que prévu."
         },
         {
           "idea": "Enfin, les contacts sur place peuvent aider à faire avancer son projet.",
           "developpement": "Même avec un bon projet, on ne connaît pas tous les usages locaux. Des conseils précis peuvent aider à comprendre un refus, à améliorer une candidature ou à trouver une ressource adaptée.",
-          "exemple": "Si ses candidatures restent sans réponse, un nouvel arrivant peut demander à un service d'aide à l'emploi de relire son CV. Un conseiller peut lui montrer comment présenter ses réalisations et préparer un entretien, sans lui garantir une embauche.",
+          "exemple": "Si ses candidatures restent sans réponse, un nouvel arrivant peut demander à une ancienne camarade déjà installée de relire son CV. Elle lui explique comment présenter ses réalisations et lui signale qu'un restaurant cherche du personnel, sans lui garantir une embauche.",
           "consequence": "Il peut ainsi améliorer ses candidatures au lieu de répéter une méthode qui ne donne pas de résultat."
         }
       ],
       "nuance": "Cependant, la préparation ne supprime ni les difficultés économiques ni les refus possibles. Certains objectifs devront être retardés ou modifiés. Revoir son projet, ou même rentrer, ne signifie pas que tous les efforts ont été inutiles : les circonstances comptent aussi.",
-      "conclusion": "En conclusion, réussir à l'étranger est possible lorsque l'occasion correspond au projet, que les étapes sont réalistes et que l'on accepte de se faire accompagner. Ce sont ces conditions, plutôt que le départ seul, qui comptent."
+      "conclusion": "Bref, des objectifs peuvent se réaliser à l'étranger quand l'occasion correspond au projet, que les étapes sont réalistes et que des contacts aident à avancer.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p6": {
       "prompt_signatures": {
@@ -191,7 +216,7 @@
       },
       "reformulation": "Les métiers artistiques méritent-ils d'être reconnus comme des professions sérieuses ?",
       "position": "Les métiers artistiques sont sérieux : leur dimension créative n'enlève rien au travail et aux responsabilités.",
-      "position_claire": "À mon avis, les métiers artistiques sont des métiers sérieux. Le plaisir que le public retire d'un concert ou d'un film ne doit pas masquer le travail nécessaire. Je les juge sur la discipline, les compétences et les engagements professionnels, pas sur leur image.",
+      "position_claire": "Je ne suis pas d'accord : les métiers artistiques sont des métiers sérieux. Le plaisir que le public retire d'un concert ou d'un film ne doit pas masquer le travail nécessaire. La créativité n'enlève rien aux exigences professionnelles.",
       "arguments": [
         {
           "idea": "Tout d'abord, une prestation artistique demande un travail régulier, même quand l'inspiration manque.",
@@ -201,8 +226,8 @@
         },
         {
           "idea": "Ensuite, ces métiers reposent sur des compétences précises qu'il faut développer.",
-          "developpement": "La créativité ne dispense pas de maîtriser des techniques et des outils. Cet apprentissage peut se faire dans une école, avec un professionnel ou de manière autonome, sans suivre un parcours unique.",
-          "exemple": "Pour un album destiné aux enfants, une illustratrice doit dessiner le même personnage sous plusieurs angles. Elle travaille les proportions et les expressions pour que les lecteurs puissent le reconnaître d'une page à l'autre, même lorsqu'il change de posture.",
+          "developpement": "La créativité ne dispense pas de maîtriser des techniques et des outils. Pour répondre à une commande, l'artiste doit produire un résultat précis dans le délai prévu, pas seulement quelque chose qui lui plaît.",
+          "exemple": "Pour un album destiné aux enfants, une illustratrice doit dessiner le même personnage sous plusieurs angles. Elle travaille les proportions et les expressions pour qu'il reste reconnaissable d'une page à l'autre, et livre ses dessins à la date convenue avec l'éditeur.",
           "consequence": "Ce savoir-faire permet de répondre à une demande, comme dans d'autres professions."
         },
         {
@@ -213,7 +238,12 @@
         }
       ],
       "nuance": "Cela ne signifie pas que toute œuvre doive plaire à tout le monde, ni que les revenus soient stables. La précarité peut rendre ces carrières difficiles. Mais une œuvre qui ne nous plaît pas peut tout de même avoir demandé des compétences et un travail rigoureux.",
-      "conclusion": "En conclusion, les métiers artistiques méritent la même considération que les autres lorsqu'ils reposent sur un travail maîtrisé et des engagements tenus. Créer demande de la liberté, mais aussi des compétences, de la discipline et une véritable responsabilité."
+      "conclusion": "En conclusion, les métiers artistiques méritent la même considération que les autres lorsqu'ils reposent sur un travail maîtrisé et des engagements tenus. Créer demande de la liberté, mais aussi des compétences, de la discipline et une véritable responsabilité.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p8": {
       "prompt_signatures": {
@@ -221,7 +251,7 @@
       },
       "reformulation": "Comment expliquer un regard pessimiste de certaines personnes âgées sur les jeunes ?",
       "position": "Ce regard existe, mais l'âge ne détermine pas une opinion unique sur la jeunesse.",
-      "position_claire": "Certaines personnes âgées portent un regard pessimiste sur les jeunes, mais je ne généraliserais pas cette attitude. À mon avis, les souvenirs du passé, les images qui circulent et la distance entre les générations peuvent expliquer une partie de ces jugements, sans les rendre toujours justes.",
+      "position_claire": "Je reconnais ce pessimisme chez certaines personnes âgées, mais pas chez toutes. À mon avis, la distance avec leur propre jeunesse peut fausser la comparaison. Les images qu'elles voient et les occasions de rencontrer des jeunes comptent aussi.",
       "arguments": [
         {
           "idea": "Tout d'abord, idéaliser sa propre jeunesse peut fausser la comparaison.",
@@ -233,7 +263,7 @@
           "idea": "Ensuite, quelques images marquantes peuvent prendre une place excessive dans le jugement.",
           "developpement": "Quand on rencontre peu de jeunes, les images diffusées peuvent remplacer l'expérience directe. Voir plusieurs fois le même incident peut donner l'impression qu'il se produit souvent, alors que les journées sans problème attirent moins l'attention.",
           "exemple": "Après avoir vu plusieurs extraits d'une même bagarre scolaire, une grand-mère pourrait craindre que la violence soit fréquente chez les jeunes. Ces images ne lui montrent pourtant pas les élèves qui travaillent ensemble ou aident à organiser une activité de quartier.",
-          "consequence": "Il faut donc distinguer un fait préoccupant d'un portrait de toute la jeunesse."
+          "consequence": "Quelques faits répétés peuvent alors devenir, dans son esprit, une image de toute la jeunesse."
         },
         {
           "idea": "Enfin, les rencontres concrètes permettent de dépasser les jugements trop généraux.",
@@ -242,8 +272,13 @@
           "consequence": "Une rencontre précise peut ainsi remettre en question une étiquette négative."
         }
       ],
-      "nuance": "Bien sûr, certaines inquiétudes sont légitimes : un grand-parent peut observer un manque de sommeil ou un comportement irrespectueux. Il faut prendre ces faits au sérieux, sans en déduire que tous les jeunes sont semblables. Les jeunes doivent aussi écouter plutôt que caricaturer leurs aînés.",
-      "conclusion": "En conclusion, le pessimisme de certaines personnes âgées s'explique, mais ne constitue pas un jugement fiable sur toute une génération. Des souvenirs moins idéalisés, du recul face aux images et des échanges réguliers permettent une appréciation plus juste."
+      "nuance": "Cependant, beaucoup de personnes âgées connaissent bien des jeunes grâce à leurs petits-enfants ou au bénévolat. Une inquiétude peut aussi venir de l'affection, et pas du mépris. L'âge seul n'explique donc pas la façon de regarder la jeunesse.",
+      "conclusion": "En conclusion, le pessimisme de certaines personnes âgées s'explique, mais ne constitue pas un jugement fiable sur toute une génération. Des souvenirs moins idéalisés, du recul face aux images et des échanges réguliers permettent une appréciation plus juste.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p9": {
       "prompt_signatures": {
@@ -266,14 +301,19 @@
           "consequence": "Le manque ne disparaît pas immédiatement, même lorsque le projet d'installation reste souhaité."
         },
         {
-          "idea": "Enfin, il faut réorganiser des routines que l'on maîtrisait auparavant.",
-          "developpement": "Les horaires, les distances et les services disponibles ne correspondent pas nécessairement à ses anciennes habitudes. Cette réorganisation demande des essais, et parfois l'aide de personnes qui connaissent déjà le quartier.",
-          "exemple": "Une famille peut découvrir que le trajet entre l'école et le travail est plus long que prévu. Elle compare les transports, choisit un trajet avec moins de correspondances et avance le départ du matin pour arriver à l'heure.",
-          "consequence": "L'adaptation passe donc aussi par des ajustements très pratiques."
+          "idea": "Enfin, on doit reconstruire les repères pratiques sur lesquels on comptait.",
+          "developpement": "Dans son pays, on sait souvent quel médecin consulter ou à qui poser une question. On s'appuie sur ces contacts sans y penser. À l'étranger, il arrive qu'on ne sache même pas à qui demander de l'aide.",
+          "exemple": "Un dimanche, un parent nouvellement arrivé constate que son enfant a de la fièvre. Il ne sait pas quelle clinique est ouverte. Une voisine lui indique une clinique sans rendez-vous du quartier : il sait désormais où se renseigner.",
+          "consequence": "Ces repères se reconstruisent grâce aux informations et aux rencontres, mais pas tous dès les premiers jours."
         }
       ],
-      "nuance": "Cependant, ces difficultés varient selon la langue, les ressources et l'accueil reçu. Une information claire, un cours adapté ou un contact local peuvent réduire la charge. Il serait injuste de traiter une personne qui rencontre des obstacles comme si elle refusait forcément de s'adapter.",
-      "conclusion": "En conclusion, s'adapter à l'étranger demande d'apprendre à communiquer, de retrouver des liens et de réorganiser son quotidien. Avec du temps et des appuis concrets, cela peut devenir plus facile. On ne peut pas tout maîtriser dès l'arrivée."
+      "nuance": "Cependant, les difficultés varient selon la langue, les ressources et les contacts déjà sur place. Des informations claires peuvent réduire les efforts. Avec le temps, les démarches deviennent plus familières ; une difficulté au début ne signifie pas un refus de s'adapter.",
+      "conclusion": "En conclusion, s'adapter à l'étranger demande d'apprendre à communiquer, de retrouver des liens et de réorganiser son quotidien. Avec du temps et des appuis concrets, cela peut devenir plus facile. On ne peut pas tout maîtriser dès l'arrivée.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p10": {
       "prompt_signatures": {
@@ -282,37 +322,42 @@
       },
       "reformulation": "Quelle place garder aux traditions et à la culture d'origine dans un pays d'accueil ?",
       "position": "Il est souhaitable de préserver ce qui compte, sans fermer la porte à d'autres pratiques.",
-      "position_claire": "À mon avis, préserver sa culture et ses traditions dans un pays d'accueil est souhaitable, mais ne doit pas devenir une obligation de tout garder intact. Ces pratiques peuvent apporter des repères, transmettre une histoire et créer des échanges avec d'autres habitants.",
+      "position_claire": "À mon avis, préserver sa culture et ses traditions dans un pays d'accueil est souhaitable, sans devoir tout garder intact. Ces habitudes peuvent trouver leur place dans une nouvelle vie et dans les échanges avec les autres.",
       "arguments": [
         {
-          "idea": "Tout d'abord, les traditions aident à se sentir chez soi dans un nouveau pays.",
-          "developpement": "Quand beaucoup de choses changent autour de nous, retrouver des gestes familiers aide à se sentir chez soi. On retrouve ainsi une partie de sa vie d'avant dans son nouveau quotidien.",
+          "idea": "D'abord, les traditions permettent de garder une continuité avec sa vie d'avant.",
+          "developpement": "Quand beaucoup de choses changent autour de nous, retrouver des gestes familiers aide à se sentir chez soi. On peut ainsi garder une partie importante de soi, plutôt que d'avoir l'impression de l'avoir laissée derrière.",
           "exemple": "Après une journée fatigante, une personne peut préparer un plat de son pays qu'elle mangeait souvent en famille. Retrouver ces saveurs lui apporte du réconfort et l'aide à se sentir chez elle, sans l'empêcher de découvrir la cuisine locale.",
-          "consequence": "Ces repères aident à se sentir bien, tout en continuant à apprendre la langue et les habitudes locales."
+          "consequence": "L'installation ne demande donc pas d'effacer ce qui compte dans son histoire personnelle."
         },
         {
           "idea": "Ensuite, la transmission culturelle donne aux enfants accès à leur histoire familiale.",
-          "developpement": "Les enfants ne peuvent pas deviner les souvenirs et les pratiques que leurs parents n'expliquent jamais. Les transmettre leur permet de comprendre leurs origines et peut leur donner un sentiment de double appartenance : à leur culture familiale et à celle du pays où ils grandissent.",
+          "developpement": "À l'école et avec leurs amis, les enfants découvrent surtout la culture du pays où ils grandissent. La famille peut leur faire connaître une autre histoire. Expliquer ses souvenirs et ses pratiques leur donne accès à cette partie de leurs origines.",
           "exemple": "Pendant une fête, des parents peuvent raconter pourquoi la famille prépare un repas particulier et appeler les grands-parents pour écouter leurs souvenirs. L'enfant découvre cette tradition familiale tout en participant aux fêtes.",
-          "consequence": "L'enfant sait ainsi d'où vient cette tradition, au lieu de la suivre sans explication."
+          "consequence": "Les enfants peuvent ainsi connaître les deux cultures et comprendre le sens de ce qu'on leur transmet."
         },
         {
           "idea": "Enfin, des traditions partagées peuvent tisser des liens entre les cultures.",
-          "developpement": "Une pratique devient un point de rencontre lorsqu'on la présente aux autres avec ouverture. Les voisins peuvent poser des questions et partager à leur tour leurs propres habitudes.",
+          "developpement": "Une pratique devient un point de rencontre lorsqu'on la présente aux autres avec ouverture. Les voisins peuvent poser des questions et partager leurs habitudes. Ces échanges peuvent enrichir la vie locale plutôt que séparer les groupes.",
           "exemple": "Dans un repas de quartier, une famille peut apporter un plat de son pays et expliquer comment elle le prépare. Un autre participant propose ensuite sa recette. La différence donne alors un sujet de conversation et une occasion de se connaître.",
           "consequence": "Préserver sa culture peut donc aussi aider à participer à la vie locale."
         }
       ],
-      "nuance": "Cependant, une tradition ne justifie ni de forcer un enfant à la suivre ni de porter atteinte aux droits des autres. Elle peut évoluer avec le contexte et les choix de chacun. Garder un héritage vivant n'exige pas que chaque pratique soit reproduite exactement.",
-      "conclusion": "En conclusion, je trouve important de garder ses traditions pour se sentir chez soi, transmettre son histoire et créer des échanges. Mais chacun doit rester libre de les faire évoluer et de découvrir d'autres façons de vivre."
+      "nuance": "Cependant, préserver une tradition ne justifie ni de forcer un enfant à la suivre ni d'ignorer les lois du pays d'accueil. Elle peut évoluer avec les choix de chacun. Garder un héritage vivant n'exige pas que chaque pratique soit reproduite exactement.",
+      "conclusion": "Bref, garder ses traditions aide à se sentir chez soi, à transmettre son histoire et à créer des échanges. Chacun doit rester libre de les faire évoluer et de découvrir d'autres façons de vivre.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p11": {
       "prompt_signatures": {
         "culture:p11": "59d1f4423231cfd5714eecfc1ff42d846c8e51439c67ffeb575a60a85747d3ca"
       },
-      "reformulation": "Est-il utile de fréquenter des compatriotes lorsqu'on vit à l'étranger ?",
-      "position": "Ces liens sont utiles, sans être une obligation ni le seul cercle possible.",
-      "position_claire": "Fréquenter des compatriotes à l'étranger me paraît utile, sans être obligatoire. Ces relations peuvent apporter un soutien moral, des conseils pratiques et un lien avec sa culture d'origine. Mais elles ne devraient pas constituer le seul cercle social : rencontrer d'autres habitants aide aussi à trouver sa place dans le pays d'accueil.",
+      "reformulation": "Est-il nécessaire de fréquenter des compatriotes lorsqu'on vit à l'étranger ?",
+      "position": "Fréquenter des compatriotes peut être utile, mais n'est pas nécessaire pour bien vivre à l'étranger.",
+      "position_claire": "Fréquenter des compatriotes à l'étranger peut être très utile, surtout au début, mais je ne pense pas que ce soit nécessaire. Ce qui compte, c'est de trouver des personnes de confiance, quelle que soit leur origine.",
       "arguments": [
         {
           "idea": "Tout d'abord, parler sa langue avec un compatriote peut aider à se sentir moins seul.",
@@ -324,17 +369,22 @@
           "idea": "Ensuite, un compatriote déjà installé peut partager une expérience pratique utile.",
           "developpement": "Certaines démarches soulèvent des questions particulières lorsqu'on arrive avec des documents d'un autre pays. Une personne passée par une situation proche peut indiquer où chercher les renseignements adaptés.",
           "exemple": "Une infirmière nouvellement arrivée peut échanger avec une compatriote qui exerce déjà ce métier sur place. Celle-ci lui explique comment elle a fait reconnaître son diplôme et quels documents elle a dû préparer. La nouvelle arrivante sait alors à quel organisme s'adresser pour commencer ses démarches.",
-          "consequence": "Le conseil sert de point de départ ; il faut que l'information soit vérifiée auprès de l'organisme compétent."
+          "consequence": "Ce conseil reste un point de départ : il vaut mieux que l'information soit vérifiée auprès de l'organisme compétent."
         },
         {
-          "idea": "Enfin, ces relations peuvent aider à transmettre la culture d'origine.",
-          "developpement": "Se retrouver permet de partager une langue et des traditions avec des personnes qui les connaissent. Les enfants peuvent ainsi découvrir un héritage commun et le pratiquer avec d'autres familles.",
-          "exemple": "Dans une association de compatriotes, des adultes peuvent apprendre aux enfants une danse traditionnelle de leur pays. Les enfants répètent ensemble, puis présentent cette danse lors d'une fête de la communauté.",
-          "consequence": "On garde ainsi sa culture vivante tout en la partageant avec d'autres."
+          "idea": "Mais ce soutien peut aussi venir de personnes d'une autre origine.",
+          "developpement": "Une relation aide grâce à la confiance et à l'expérience partagée, pas seulement grâce au pays de naissance. L'absence de compatriotes n'empêche donc pas de créer un entourage sur lequel compter.",
+          "exemple": "Dans une petite ville où elle ne connaît aucun compatriote, une nouvelle arrivante reçoit l'aide d'une collègue pour ses démarches. Elle rejoint aussi un groupe d'échange linguistique et s'y fait des amis d'autres pays.",
+          "consequence": "Elle peut ainsi trouver des conseils et de la compagnie sans fréquenter de gens de son pays."
         }
       ],
       "nuance": "Cependant, il vaut mieux ne pas se limiter à ses compatriotes. Rencontrer aussi d'autres habitants permet de pratiquer la langue du pays et de mieux comprendre la vie locale. L'essentiel est de choisir ses relations selon la confiance et les affinités, pas seulement selon l'origine.",
-      "conclusion": "En conclusion, ces liens peuvent soutenir le moral, faciliter des démarches et faire vivre sa culture. Je les vois comme un appui, sans renoncer aux rencontres avec d'autres habitants."
+      "conclusion": "Bref, les compatriotes peuvent apporter du réconfort et une expérience utile, mais ne sont pas un passage obligé. Des liens fiables comptent davantage qu'une origine commune.",
+      "argument_ids": [
+        1,
+        2,
+        4
+      ]
     },
     "culture-p12": {
       "prompt_signatures": {
@@ -342,11 +392,11 @@
       },
       "reformulation": "Regarder la télévision est-il nécessairement une perte de temps ?",
       "position": "Non : l'intérêt dépend du programme, du besoin et du temps consacré.",
-      "position_claire": "Non, je ne pense pas que regarder la télévision soit forcément une perte de temps. Elle peut nous apprendre quelque chose, nous faire découvrir un film ou simplement nous détendre. Tout dépend de ce qu'on choisit de regarder et du temps qu'on y passe.",
+      "position_claire": "Non, je ne pense pas que regarder la télévision soit forcément une perte de temps. Tout dépend de ce qu'on regarde et de la place que cela prend dans la journée. Un moment devant l'écran peut avoir un intérêt sans devoir être productif.",
       "arguments": [
         {
           "idea": "Tout d'abord, certains programmes permettent de s'informer et d'apprendre.",
-          "developpement": "Les images montrent comment une activité se déroule, et les explications aident à comprendre pourquoi on procède ainsi. On peut découvrir le travail de personnes qu'on n'aurait pas l'occasion de rencontrer.",
+          "developpement": "L'image et le son rendent certaines réalités plus concrètes. On voit comment une activité se déroule, et le commentaire explique pourquoi on procède ainsi. Cela donne accès au travail de personnes qu'on n'aurait pas l'occasion de rencontrer.",
           "exemple": "Par exemple, une personne voit dans un documentaire des employés retirer des objets mal triés avant le recyclage. Elle réalise que ses déchets ne sont pas tous recyclés automatiquement et vérifie les consignes de tri de sa commune.",
           "consequence": "Ce qu'on apprend à l'écran peut donc être utile dans la vie quotidienne."
         },
@@ -363,8 +413,13 @@
           "consequence": "Le repos et le plaisir font eux aussi partie d'une journée équilibrée."
         }
       ],
-      "nuance": "Cependant, en laissant les programmes s'enchaîner, on peut se coucher trop tard ou passer moins de temps avec ses proches. Tous les contenus ne se valent pas. Choisir son programme et savoir s'arrêter aide à éviter ces excès.",
-      "conclusion": "En conclusion, regarder la télévision n'est pas une perte de temps en soi. Information, culture et détente peuvent justifier ce choix, à condition que le programme et la durée correspondent réellement à ce que l'on cherche."
+      "nuance": "En revanche, le temps peut être perdu quand les programmes s'enchaînent sans qu'on les ait choisis, au détriment du sommeil ou des proches. Un contenu intéressant n'empêche pas cet excès : c'est aussi la durée et ce qu'on délaisse qui comptent.",
+      "conclusion": "En conclusion, regarder la télévision n'est pas une perte de temps en soi. Information, culture et détente peuvent justifier ce choix, à condition que le programme et la durée correspondent réellement à ce que l'on cherche.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p13": {
       "prompt_signatures": {
@@ -372,30 +427,30 @@
         "education:p11": "cb450a97fab4f1e49e5d48ed761d5f2440bcce14dd44976eb9c14778a04f0f82"
       },
       "reformulation": "Les matières culturelles doivent-elles garder une place à l'école ?",
-      "position": "Les matières culturelles ont leur place à l'école et participent à une éducation complète et accessible.",
-      "position_claire": "À mon avis, supprimer les matières culturelles de l'école serait une erreur. Elles aident les élèves à s'exprimer, à réfléchir à ce qu'ils observent et à découvrir des activités que leur famille ne peut pas toujours leur proposer.",
+      "position": "Non à leur suppression : expression, réflexion et accès aux arts justifient leur place à l'école.",
+      "position_claire": "Non, je ne suis pas d'accord avec cette proposition. Supprimer la musique, le dessin ou le théâtre de l'école serait une erreur. L'école doit apprendre à lire et à compter, mais elle peut aussi donner aux enfants d'autres moyens de comprendre le monde et de s'exprimer.",
       "arguments": [
         {
-          "idea": "Tout d'abord, les pratiques artistiques aident les élèves à mieux s'exprimer.",
-          "developpement": "Au théâtre, il ne suffit pas de connaître son texte : il faut aussi se faire comprendre. Les répétitions permettent d'essayer, d'être corrigé et de recommencer.",
-          "exemple": "Lors d'une répétition, un élève parle trop vite et ses camarades ne comprennent pas son texte. Le professeur lui fait ralentir et marquer des pauses. Quand il reprend la scène, ils arrivent à suivre le dialogue.",
-          "consequence": "Il s'entraîne donc à parler devant les autres et à se faire comprendre."
+          "idea": "D'abord, le théâtre aide les élèves à prendre la parole devant les autres.",
+          "developpement": "Il ne suffit pas de connaître son texte : il faut se faire entendre et comprendre. Les répétitions permettent d'essayer, d'être corrigé et de recommencer, sans devoir tout réussir immédiatement.",
+          "exemple": "Un élève timide murmure son texte pendant une répétition. Le professeur lui fait relever la tête, ralentir et marquer des pauses. Quand il reprend la scène, ses camarades suivent le dialogue et il ose parler plus fort.",
+          "consequence": "Il gagne une assurance qui peut aussi l'aider quand il présente un exposé."
         },
         {
-          "idea": "Ensuite, ces cours apprennent à expliquer un avis en s'appuyant sur ce qu'on observe.",
+          "idea": "Ces cours apprennent aussi à expliquer un avis en s'appuyant sur ce qu'on observe.",
           "developpement": "On peut avoir des impressions différentes devant la même peinture. Le professeur demande alors à chacun de montrer les détails qui expliquent son avis. On apprend à défendre une idée sans écarter celle des autres.",
           "exemple": "Devant un tableau représentant un repas de famille, un élève décrit une scène joyeuse en montrant les personnages qui sourient. Un autre remarque une personne assise à l'écart et y voit de la solitude.",
-          "consequence": "On peut donc avoir des avis différents et en discuter avec des arguments."
+          "consequence": "Ce n'est donc pas seulement regarder une belle image : c'est apprendre à justifier son interprétation."
         },
         {
-          "idea": "Enfin, l'école peut rendre les activités culturelles accessibles aux enfants de tous les milieux.",
+          "idea": "Enfin, l'école rend les arts accessibles aux enfants de différents milieux.",
           "developpement": "Toutes les familles ne peuvent pas payer des cours de musique ou acheter un instrument. L'école peut proposer ces activités sans que les parents aient à payer des cours privés.",
           "exemple": "Un enfant dont les parents ne peuvent pas payer de cours privés essaie un clavier mis à disposition par l'école. Pendant le trimestre, il apprend une courte mélodie et la joue au concert de la classe.",
-          "consequence": "L'accès à cette activité dépend donc moins du budget de la famille."
+          "consequence": "Il découvre ainsi un intérêt que le budget familial ne lui aurait peut-être pas permis d'explorer."
         }
       ],
-      "nuance": "Bien sûr, l'école doit aussi donner assez de temps à la lecture et au calcul. Les arts demandent du matériel et des enseignants formés. Il faut donc organiser les cours selon les moyens disponibles, pas les supprimer.",
-      "conclusion": "En conclusion, je garderais ces matières à l'école pour l'expression, la réflexion et l'accès aux arts. Il ne s'agit pas de former uniquement des artistes, mais de donner à tous une éducation plus complète."
+      "nuance": "Bien sûr, la lecture et le calcul restent prioritaires, et les arts demandent du matériel et des enseignants formés. Il faut donc leur donner une place raisonnable avec les moyens disponibles, sans les opposer aux apprentissages fondamentaux.",
+      "conclusion": "Je garderais donc ces matières à l'école. Elles offrent une autre façon d'apprendre, particulièrement précieuse pour les enfants qui n'auraient pas accès aux arts ailleurs."
     },
     "culture-p14": {
       "prompt_signatures": {
@@ -403,13 +458,13 @@
       },
       "reformulation": "Peut-on découvrir d'autres cultures sans se déplacer dans leur pays ?",
       "position": "Oui, une connaissance réelle est possible grâce à des ressources et à des rencontres variées.",
-      "position_claire": "À mon avis, on peut vraiment connaître d'autres cultures sans voyager. Les livres et les documentaires, les rencontres près de chez soi et les conversations à distance permettent de découvrir des habitudes et de mieux les comprendre.",
+      "position_claire": "Oui, on peut réellement connaître d'autres cultures sans voyager. Il ne s'agit pas de tout savoir sur un pays, mais d'en comprendre certaines pratiques et leur sens. Les ressources et les échanges accessibles depuis chez soi permettent déjà cet apprentissage.",
       "arguments": [
         {
           "idea": "Tout d'abord, les livres et les documentaires permettent de découvrir d'autres cultures sans voyager.",
-          "developpement": "Un livre ou un documentaire peut raconter l'histoire d'une tradition et présenter les produits d'une région. On a accès à ces récits et à ces explications sans qu'on ait besoin de voyager.",
+          "developpement": "Un livre ou un documentaire peut raconter l'histoire d'une tradition et présenter les produits d'une région. Ces explications donnent des connaissances solides sur des lieux qu'on n'aura peut-être jamais l'occasion de visiter.",
           "exemple": "Par exemple, un livre de cuisine ouest-africaine peut montrer comment préparer du riz avec une sauce aux arachides et présenter les produits locaux utilisés dans la recette. Il peut aussi raconter l'histoire de ce plat.",
-          "consequence": "On découvre ainsi des produits de la région et l'histoire d'un plat, pas seulement les étapes d'une recette."
+          "consequence": "On ne découvre pas seulement une recette, mais aussi ce qu'elle raconte d'une région."
         },
         {
           "idea": "Ensuite, on peut découvrir d'autres cultures en participant à des activités près de chez soi.",
@@ -424,8 +479,13 @@
           "consequence": "On peut donc mieux comprendre certaines habitudes, même sans se rencontrer en personne."
         }
       ],
-      "nuance": "Bien sûr, ces moyens ne remplacent pas toutes les expériences d'un séjour sur place. Un documentaire peut expliquer une fête, mais pas nous faire vivre son ambiance dans les rues.",
-      "conclusion": "En conclusion, les livres, les rencontres près de chez soi et les conversations à distance peuvent vraiment nous faire découvrir d'autres cultures. Voyager peut compléter ces expériences, mais ce n'est pas indispensable."
+      "nuance": "Bien qu'un documentaire ne fasse pas vivre l'ambiance d'une fête, il en explique le sens. Un séjour apporte aussi les odeurs et le rythme des lieux. Mais le voyage n'est pas accessible à tous : ces autres moyens gardent donc toute leur valeur.",
+      "conclusion": "Bref, une connaissance réelle est possible sans voyager, même si elle reste différente de l'expérience sur place. Le voyage peut la compléter, mais il n'est pas indispensable.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p15": {
       "prompt_signatures": {
@@ -433,18 +493,22 @@
       },
       "reformulation": "Que peut-on apprendre d'une culture à travers sa cuisine ?",
       "position": "La cuisine est une porte d'entrée concrète, mais ne résume pas une culture.",
-      "position_claire": "Oui, la cuisine peut nous faire découvrir une partie de la culture d'un pays. Les repas montrent certaines habitudes de vie, les recettes racontent une histoire, et on peut aussi apprendre en cuisinant soi-même. Mais goûter un plat ne suffit pas à tout comprendre.",
-      "argument_ids": [1, 2, 4],
+      "position_claire": "Oui, je suis en partie d'accord : la cuisine fait découvrir une culture, mais elle ne la résume pas. Elle montre des habitudes et une histoire qu'on peut aussi découvrir en préparant un repas avec quelqu'un.",
+      "argument_ids": [
+        1,
+        2,
+        4
+      ],
       "arguments": [
         {
           "idea": "Tout d'abord, les repas permettent de comprendre certaines habitudes de vie.",
-          "developpement": "Les horaires des repas peuvent refléter le rythme du travail. Le temps qu'on prend pour manger ensemble peut aussi montrer la place donnée aux échanges en famille. Ce n'est donc pas seulement ce qu'on mange qui nous renseigne, mais aussi l'organisation des repas.",
+          "developpement": "Les horaires des repas peuvent refléter le rythme du travail. Le temps passé à manger ensemble montre aussi la place donnée aux échanges en famille. L'organisation du repas renseigne donc autant que les aliments.",
           "exemple": "Au Sénégal, un visiteur partage un repas de riz et de poisson avec ses hôtes, dans le même grand plat. Ils lui expliquent que ce repas du soir leur permet de discuter après le travail.",
           "consequence": "Il comprend ainsi comment cette famille organise sa journée pour garder un moment en commun."
         },
         {
           "idea": "Ensuite, les recettes nous aident à comprendre l'histoire d'un pays.",
-          "developpement": "Les ingrédients d'un plat peuvent montrer comment les gens vivaient autrefois. On utilisait par exemple du sel pour garder les aliments plus longtemps. Cette façon de faire se retrouve encore dans certaines recettes.",
+          "developpement": "Les ingrédients et les façons de conserver les aliments gardent des traces de la vie d'autrefois. Certaines recettes continuent ainsi à raconter une histoire, même quand les raisons pratiques de leur création ont changé.",
           "exemple": "Au Portugal, un visiteur goûte un plat fait avec du poisson salé et séché. Le cuisinier lui explique qu'on salait et séchait le poisson pour le garder pendant les longs voyages en mer.",
           "consequence": "On comprend ainsi le lien entre la cuisine du pays et les voyages en mer."
         },
@@ -452,10 +516,10 @@
           "idea": "Enfin, la cuisine permet de découvrir une culture par la pratique, même avec peu de mots.",
           "developpement": "On peut regarder quelqu'un préparer un plat traditionnel, même si on ne comprend pas tout ce qu'il dit. En y participant, on apprend les gestes en les faisant soi-même, avec quelqu'un pour nous guider.",
           "exemple": "Pendant un séjour au Ghana, je pourrais apprendre à préparer du fufu avec mon hôte, même sans bien parler sa langue. Il me montrerait comment piler le manioc. En essayant à mon tour, je découvrirais cette façon de cuisiner.",
-          "consequence": "On apprend donc une façon de cuisiner du pays, même sans bien parler la langue."
+          "consequence": "On découvre ainsi une façon de faire en la pratiquant avec quelqu'un, et pas seulement en goûtant le résultat."
         }
       ],
-      "nuance": "Cependant, un plat ou un restaurant ne montre pas tout un pays. Les habitudes changent selon les régions, les familles et le budget. Pour aller plus loin, il faut qu'on découvre aussi d'autres aspects du pays, comme son histoire ou la vie de tous les jours. Apprendre sa langue peut aussi nous aider.",
+      "nuance": "Bien que la cuisine ouvre une porte sur un pays, elle ne montre pas tout. Un plat renseigne peu sur son système politique, ses débats ou sa langue. Les habitudes varient aussi selon les régions, les familles et le budget.",
       "conclusion": "En conclusion, la cuisine nous fait découvrir des habitudes, une partie de l'histoire et des façons de cuisiner du pays. C'est un bon début, mais ça ne nous apprend pas tout sur sa culture."
     },
     "culture-p16": {
@@ -501,17 +565,17 @@
       },
       "reformulation": "Une expérience de vie à l'étranger peut-elle être positive dans tous les cas ?",
       "position": "La vie à l'étranger peut être enrichissante, mais le mot « toujours » est trop absolu.",
-      "position_claire": "Je ne suis pas d'accord avec le mot « toujours ». Vivre à l'étranger peut offrir une bonne formation ou de nouvelles possibilités de travail. Mais le manque d'argent et l'éloignement des proches peuvent aussi peser sur le quotidien.",
+      "position_claire": "Je ne suis pas d'accord avec le mot « toujours ». Vivre à l'étranger peut être une chance pour certains et une épreuve pour d'autres. Une bonne formation ne suffit pas à rendre toute l'expérience positive quand le quotidien devient difficile.",
       "arguments": [
         {
           "idea": "Tout d'abord, vivre à l'étranger peut permettre de se former et de développer ses compétences professionnelles.",
           "developpement": "Dans un autre pays, on peut trouver une formation spécialisée ou apprendre des méthodes que l'on connaît peu. Les cours, les stages et les conseils de professionnels aident à mettre ces connaissances en pratique.",
-          "exemple": "Un étudiant qui veut devenir cuisinier peut chercher une formation dans une spécialité qui n'est pas enseignée près de chez lui. Une école à l'étranger proposant cette formation et un stage en restaurant lui donne alors un moyen concret d'apprendre le métier.",
+          "exemple": "Un étudiant qui veut devenir cuisinier trouve à l'étranger une école proposant une spécialité de pâtisserie absente près de chez lui, avec un stage en restaurant. Pendant ce stage, il prépare chaque jour des desserts sous la direction d'un chef.",
           "consequence": "Ces acquis peuvent ensuite servir dans la vie professionnelle, même après le retour."
         },
         {
-          "idea": "Ensuite, les difficultés financières peuvent rendre la vie à l'étranger éprouvante.",
-          "developpement": "Quand les revenus sont insuffisants ou irréguliers, payer le logement et les dépenses courantes devient une source d'inquiétude. Cette pression peut empêcher de profiter des possibilités qui avaient motivé le départ.",
+          "idea": "Mais les difficultés financières peuvent rendre la vie à l'étranger éprouvante.",
+          "developpement": "Une recherche d'emploi peut se prolonger alors que les économies diminuent. Avec des revenus insuffisants ou irréguliers, payer le logement devient inquiétant. Cette pression peut empêcher de profiter des possibilités qui avaient motivé le départ.",
           "exemple": "Une personne peut partir en comptant sur un emploi qu'elle n'a pas encore obtenu. Si sa recherche dure plus longtemps que prévu et que ses économies diminuent, payer le loyer devient sa priorité.",
           "consequence": "On peut donc passer son temps à chercher de quoi payer le loyer, au lieu de vivre l'expérience qu'on espérait."
         },
@@ -523,7 +587,12 @@
         }
       ],
       "nuance": "Bien sûr, une difficulté ponctuelle ne rend pas tout le séjour négatif. Un soutien ou un changement de projet peut améliorer la situation. Mais ce que l'on apprend d'une épreuve ne compense pas toujours la souffrance qu'elle a causée.",
-      "conclusion": "En conclusion, vivre à l'étranger peut être enrichissant, mais ce n'est pas toujours une bonne expérience. Une formation réussie ne fait pas disparaître les problèmes d'argent ou la peine d'être loin des siens."
+      "conclusion": "Bref, vivre à l'étranger peut être enrichissant, mais pas toujours positif. Une formation réussie n'efface ni les problèmes d'argent ni la peine d'être loin des siens.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p18": {
       "prompt_signatures": {
@@ -532,7 +601,7 @@
       },
       "reformulation": "La diminution des lettres et des cartes personnelles est-elle regrettable ?",
       "position": "Je regrette qu'on écrive moins de lettres et de cartes, sans rejeter les échanges numériques.",
-      "position_claire": "Les messages numériques sont utiles, mais je trouve dommage qu'on s'envoie moins de lettres et de cartes personnelles. Elles peuvent montrer qu'on a pensé à quelqu'un, aider à réfléchir à ce qu'on veut dire et laisser un souvenir à transmettre.",
+      "position_claire": "Oui, je trouve dommage qu'on s'envoie moins de lettres et de cartes personnelles, même si les messages numériques sont très pratiques. Le courrier garde une valeur particulière dans certaines relations et à certains moments.",
       "arguments": [
         {
           "idea": "Tout d'abord, une lettre personnelle peut montrer qu'on a pensé à quelqu'un.",
@@ -553,56 +622,65 @@
           "consequence": "Cette lecture permet à la jeune femme de mieux connaître les débuts de sa grand-mère à l'étranger."
         }
       ],
-      "nuance": "Cependant, un message numérique peut aussi être réfléchi, attentionné, sauvegardé et accessible. Le courrier coûte parfois cher, arrive lentement et peut se perdre. Je ne voudrais pas l'imposer : le garder pour certaines occasions compléterait utilement les échanges rapides.",
-      "conclusion": "En conclusion, je trouve dommage qu'on écrive moins de lettres et de cartes. Sans renoncer aux messages rapides, on peut garder ce geste pour remercier quelqu'un, expliquer ce qu'on ressent ou laisser un souvenir."
+      "nuance": "Cependant, un message numérique peut aussi être réfléchi, attentionné, sauvegardé et accessible. Il permet de garder un contact quotidien avec des proches éloignés. Le courrier coûte parfois cher, arrive lentement et peut se perdre : il ne remplace donc pas les échanges rapides.",
+      "conclusion": "En conclusion, je regrette le recul des lettres, sans rejeter le numérique. Garder ce geste pour certaines occasions me semble plus réaliste que de vouloir revenir entièrement au courrier.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p19": {
       "prompt_signatures": {
         "culture:p19": "01d1fe186e414c85234dfc573bff0f348609bf8c98d64279f9f8a9b6b083e4da"
       },
       "reformulation": "Peut-on connaître un pays sans parler sa langue ?",
-      "position": "Oui, on peut en connaître des aspects réels, même si la langue élargit fortement l'accès.",
-      "position_claire": "À mon avis, on peut apprendre beaucoup sur un pays sans parler sa langue. On peut observer la vie quotidienne et apprendre grâce aux traductions. Mais certains échanges restent difficiles à suivre, notamment quand les habitants discutent entre eux.",
-      "argument_ids": [1, 2, 4],
+      "position": "On peut connaître une partie d'un pays sans parler sa langue, mais certains débats restent difficiles à comprendre.",
+      "position_claire": "Oui, on peut connaître une partie d'un pays sans parler sa langue. Observer permet déjà d'apprendre, mais pas d'accéder à toutes les conversations.",
+      "argument_ids": [
+        1,
+        2,
+        4
+      ],
       "arguments": [
         {
           "idea": "Tout d'abord, on peut comprendre une partie de la vie quotidienne en observant ce qui se passe.",
-          "developpement": "Dans les lieux du quotidien, on voit comment les habitants se retrouvent et passent du temps ensemble. On apprend ainsi, sans qu'un interprète ait à tout nous expliquer.",
-          "exemple": "Un voyageur qui ne parle pas la langue revient souvent au même marché. Il voit des habitants saluer les vendeurs, discuter puis repartir sans rien acheter.",
+          "developpement": "Dans les lieux du quotidien, on voit comment les habitants se retrouvent et passent du temps ensemble. Les gestes et les habitudes répétées nous donnent des indications, même sans comprendre ce qui se dit.",
+          "exemple": "Un voyageur qui ne parle pas la langue revient souvent au même marché. Bien qu'il ne comprenne pas les conversations, il voit des habitants saluer les vendeurs, discuter puis repartir sans rien acheter.",
           "consequence": "Il découvre que ce marché est aussi un lieu de rencontre, pas seulement un endroit où acheter."
         },
         {
           "idea": "Ensuite, les traductions nous aident à comprendre les raisons de certaines habitudes du pays.",
           "developpement": "En regardant une vidéo, on voit ce que font les habitants, mais pas forcément pourquoi ils le font. Avec des sous-titres dans une langue qu'on connaît, on peut comprendre leurs explications.",
-          "exemple": "Par exemple, une personne qui parle français mais pas japonais regarde un documentaire sur les écoles au Japon. Elle voit des élèves nettoyer leur classe. Les sous-titres en français traduisent l'explication d'un enseignant : les élèves font cela pour apprendre à prendre soin des lieux qu'ils utilisent ensemble.",
+          "exemple": "Une personne qui parle français mais pas japonais regarde un documentaire sur les écoles au Japon : des élèves nettoient leur classe. Les sous-titres en français traduisent l'explication d'un enseignant : ils le font pour apprendre à prendre soin des lieux qu'ils utilisent ensemble.",
           "consequence": "Grâce aux sous-titres, elle comprend pourquoi ces élèves nettoient leur classe, sans parler japonais."
         },
         {
-          "idea": "Enfin, sans la langue locale, certaines discussions restent difficiles à comprendre.",
+          "idea": "Mais sans la langue locale, certaines discussions restent difficiles à comprendre.",
           "developpement": "Les traductions donnent accès à des informations, mais tout n'est pas traduit sur le moment. Dans une discussion spontanée, on peut manquer les réactions et les désaccords des personnes présentes.",
           "exemple": "Un nouvel arrivant lit une présentation traduite d'un projet de logements. À la réunion du quartier, il ne comprend pourtant pas les échanges entre les habitants. Il sait ce qui est proposé, mais pas pourquoi certains voisins sont pour et d'autres contre.",
           "consequence": "Parler la langue l'aiderait donc à comprendre leurs raisons au moment de la discussion."
         }
       ],
       "nuance": "Cependant, parler la langue ne suffit pas toujours. À la réunion de quartier, un voisin peut dire : « Ça va encore finir comme la dernière fois. » Il pense à un ancien projet abandonné. Sans connaître cette histoire, on comprend ses mots, mais pas forcément pourquoi il se méfie du nouveau projet.",
-      "conclusion": "En conclusion, on peut apprendre beaucoup sur un pays en observant la vie quotidienne et en utilisant des traductions. Apprendre sa langue permet ensuite de mieux suivre les échanges et de comprendre davantage de points de vue."
+      "conclusion": "En conclusion, la langue n'est pas un mur infranchissable : on peut déjà apprendre en observant et grâce aux traductions. L'apprendre aide ensuite à suivre davantage d'échanges et à mieux comprendre les habitants."
     },
     "culture-p20": {
       "prompt_signatures": {
         "culture:p20": "6ae728089c4af6160bd62882a30829cebd40b9784ea6a36ccb777db17becb28b"
       },
-      "reformulation": "Faut-il nécessairement lire pour être cultivé ?",
-      "position": "La lecture est une voie très utile, mais la culture ne se limite pas aux livres.",
-      "position_claire": "La lecture aide beaucoup à se cultiver, mais je ne pense pas qu'elle soit indispensable. On peut aussi apprendre en écoutant une conférence ou en pratiquant une activité. Ce qui compte, c'est de comprendre ce qu'on découvre et de faire des liens.",
+      "reformulation": "Pourquoi associe-t-on lecture et culture, et la lecture est-elle indispensable pour être cultivé ?",
+      "position": "L'association est justifiée par la réflexion que la lecture développe, mais lire n'est pas indispensable pour être cultivé.",
+      "position_claire": "Je comprends qu'on associe la lecture à la culture : elle aide à réfléchir et à approfondir un sujet. Mais je ne pense pas qu'elle soit indispensable pour être cultivé. D'autres façons d'apprendre méritent aussi d'être reconnues.",
       "arguments": [
         {
           "idea": "Tout d'abord, la lecture permet de développer la réflexion et la concentration.",
-          "developpement": "Lire un essai demande de garder le fil sur plusieurs pages. Pour comprendre le point de vue de l'auteur, il faut suivre ses arguments, mais aussi les objections qu'il examine.",
+          "developpement": "Lire un essai demande de garder le fil sur plusieurs pages. Comprendre le point de vue de l'auteur suppose de suivre ses arguments, mais aussi les objections qu'il examine.",
           "exemple": "Par exemple, un essai sur la voiture en ville présente les problèmes de pollution, mais explique aussi que certains habitants n'ont pas de bus pour aller travailler. Le lecteur comprend pourquoi une interdiction totale pourrait les mettre en difficulté.",
           "consequence": "Cette lecture aide à construire un jugement plus réfléchi, au lieu de s'arrêter à une idée isolée."
         },
         {
-          "idea": "Ensuite, l'écoute permet aussi d'approfondir ses connaissances.",
+          "idea": "Cela dit, l'écoute permet aussi d'approfondir ses connaissances.",
           "developpement": "Une conférence peut expliquer un sujet étape par étape, comme un livre. Pour la musique, les extraits sonores permettent aussi d'entendre directement ce qu'on nous explique.",
           "exemple": "Dans une conférence sur le jazz, un musicien joue une mélodie, puis en invente une variation sur le moment. Il explique ce qu'il a changé. En réécoutant les extraits, une auditrice comprend comment fonctionne l'improvisation, sans passer par un texte.",
           "consequence": "On peut donc acquérir une vraie connaissance musicale sans avoir lu de livre sur le sujet."
@@ -614,20 +692,25 @@
           "consequence": "La culture comprend donc aussi des savoir-faire qu'on apprend en faisant."
         }
       ],
-      "nuance": "Bien sûr, un livre peut compléter ce qu'on apprend dans un atelier ou une conférence. Pour étudier le style d'un écrivain, lire son texte reste particulièrement utile. Mais lire beaucoup, sans chercher à comprendre, ne garantit pas qu'on soit cultivé.",
-      "conclusion": "En conclusion, la lecture n'est pas indispensable pour être cultivé. Elle reste très utile, mais l'écoute, les échanges et la pratique permettent aussi de comprendre et d'apprendre. Ces façons de se cultiver peuvent se compléter."
+      "nuance": "Bien sûr, un livre peut compléter une conférence ou un atelier. Pour étudier le style d'un écrivain, lire son texte reste particulièrement utile. Mais lire beaucoup ne suffit pas : encore faut-il réfléchir, comprendre et discuter ce que l'on lit.",
+      "conclusion": "En conclusion, la lecture n'est pas indispensable pour être cultivé, même si elle reste très utile. L'écoute et la pratique apportent aussi des connaissances : ces chemins peuvent se compléter plutôt que s'opposer.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p21": {
       "prompt_signatures": {
         "culture:p21": "c2723119d9da7c64f36176ae97054fa365d679228b76050d17854d37c6943a5f"
       },
-      "reformulation": "Que peut apporter le choix de voyager seul ?",
-      "position": "C'est un choix intéressant, s'il correspond aux envies et aux conditions du voyage.",
-      "position_claire": "Je comprends qu'on préfère voyager seul : on peut décider de son programme et faire de nouvelles rencontres. Cela peut aussi aider à prendre confiance en soi. Mais je ne dirais pas que cette façon de voyager convient à tout le monde.",
+      "reformulation": "Que penser du choix de certaines personnes de voyager seules ?",
+      "position": "Voyager seul peut être enrichissant, si ce choix correspond à la personnalité et aux conditions du séjour.",
+      "position_claire": "Je comprends que certaines personnes préfèrent voyager seules. Ce choix peut être enrichissant, parce qu'on découvre aussi de quoi on est capable. Mais ce n'est pas une façon de voyager qui convient forcément à tout le monde.",
       "arguments": [
         {
           "idea": "Tout d'abord, voyager seul peut développer l'autonomie et la confiance en soi.",
-          "developpement": "Quand un problème survient, on doit chercher une solution sans attendre qu'un proche décide à notre place. On peut demander des renseignements, puis comparer les possibilités et choisir. Réussir à gérer cette situation peut renforcer la confiance en soi.",
+          "developpement": "Quand un problème survient, on cherche une solution sans attendre qu'un proche décide à notre place. On peut demander des renseignements, puis comparer les possibilités et choisir. Gérer cette situation peut renforcer la confiance en soi.",
           "exemple": "Par exemple, un voyageur seul apprend que son train est annulé. Un agent lui propose un bus ou un train plus tard. Il compare les horaires et choisit le bus pour arriver avant la fermeture de la réception de son hôtel. Puis il prévient l'hôtel de son retard.",
           "consequence": "Il arrive ainsi à son hôtel et peut se sentir plus capable de faire face à un autre problème."
         },
@@ -638,14 +721,19 @@
           "consequence": "Le voyage peut ainsi suivre ses priorités personnelles."
         },
         {
-          "idea": "Enfin, voyager seul peut encourager à aller vers les autres.",
+          "idea": "Et voyager seul peut aussi encourager à aller vers les autres.",
           "developpement": "Sans compagnon habituel, on peut être davantage disposé à rejoindre une activité collective. Les rencontres ne sont pas garanties, mais on crée des occasions de parler à des personnes différentes.",
           "exemple": "Un voyageur seul peut s'inscrire à une visite guidée et discuter avec d'autres participants pendant la promenade. S'ils s'entendent bien, ils peuvent prolonger l'échange autour d'un café, tout en restant libres de poursuivre leur séjour séparément.",
           "consequence": "Voyager seul ne signifie donc pas nécessairement passer tout son temps isolé."
         }
       ],
-      "nuance": "Cependant, les réservations et le budget peuvent limiter la liberté. Certaines personnes préfèrent partager les émotions et les frais avec un proche. Il faut aussi se renseigner sur les précautions à prendre et savoir qui contacter en cas de problème.",
-      "conclusion": "En conclusion, le voyage en solitaire peut développer la confiance, laisser plus de liberté et favoriser des rencontres. Je le vois comme un choix personnel à préparer, pas comme une épreuve à réussir ni une formule supérieure au voyage accompagné."
+      "nuance": "Cependant, il se peut que certaines personnes aient besoin de partager leurs émotions sur le moment. Sans compagnie, une belle visite peut leur sembler moins agréable. Réservations et budget limitent aussi la liberté : le choix dépend de la personnalité et des conditions du séjour.",
+      "conclusion": "En conclusion, je respecte cette préférence quand elle correspond à la personne. Voyager seul n'est ni une épreuve à réussir ni une formule supérieure au voyage accompagné.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p24": {
       "prompt_signatures": {
@@ -653,49 +741,53 @@
         "culture:p28": "1820d6d18fe1ecbf446ab5e4cc615a5fc7117836777166dc89621337e8af4c77"
       },
       "reformulation": "Les relations avec les habitants sont-elles indispensables pour bien vivre à l'étranger ?",
-      "position": "Ces relations sont très utiles, sans être une condition absolue du bien-être.",
-      "position_claire": "Créer des relations avec les habitants facilite beaucoup la vie à l'étranger. Ces liens apportent du soutien et aident à comprendre les habitudes locales. Mais je n'en ferais pas une condition indispensable pour tout le monde.",
-      "argument_ids": [1, 2, 4],
+      "position": "Les relations avec les habitants sont très utiles, sans être indispensables au bien-être de tous.",
+      "position_claire": "À mon avis, créer des relations avec les habitants aide à bien vivre dans un pays étranger. Mais je ne dirais pas que ces relations sont indispensables pour tout le monde. Leur importance dépend de ce qu'on attend de sa nouvelle vie.",
+      "argument_ids": [
+        1,
+        2,
+        4
+      ],
       "arguments": [
         {
           "idea": "Tout d'abord, des relations sur place peuvent réduire l'isolement et apporter du soutien.",
-          "developpement": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Pouvoir se retrouver régulièrement permet de partager son quotidien et de s'entraider.",
+          "developpement": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Sans liens sur place, on peut habiter dans le pays sans participer à sa vie sociale. Se retrouver régulièrement permet de partager son quotidien et de s'entraider.",
           "exemple": "Une nouvelle arrivante peut déjeuner chaque samedi avec une voisine. Elles échangent sur leur semaine et, si l'une tombe malade, l'autre peut lui déposer quelques courses.",
           "consequence": "La relation apporte alors de la compagnie et une aide concrète."
         },
         {
           "idea": "Ensuite, les échanges avec les habitants aident à comprendre les codes sociaux et à pratiquer la langue du pays.",
-          "developpement": "Les conversations régulières permettent de découvrir les habitudes d'un groupe et de demander des explications sur ce qui nous surprend. Elles donnent aussi l'occasion de pratiquer la langue du pays dans des situations réelles, avec des interlocuteurs que l'on connaît.",
-          "exemple": "Dans une association de quartier, une nouvelle arrivante est invitée à un repas partagé. Une habituée lui explique que chacun apporte un plat et l'aide à dire, dans la langue du pays, ce qu'elle compte apporter. La nouvelle arrivante réutilise ensuite ces expressions lors d'autres rencontres.",
-          "consequence": "Elle participe ainsi plus facilement à la vie du groupe, sans supposer que tous les habitants aient les mêmes habitudes."
+          "developpement": "Les conversations régulières permettent de demander des explications sur les habitudes d'un groupe, comme la façon d'accepter une invitation. Elles donnent aussi l'occasion de pratiquer la langue dans des situations réelles, avec des personnes qu'on connaît.",
+          "exemple": "Dans une association, une habituée explique à une nouvelle arrivante que chacun apporte un plat au repas partagé. Elle l'aide à dire, dans la langue du pays, ce qu'elle apportera. La nouvelle arrivante réutilise ensuite ces expressions lors d'autres rencontres.",
+          "consequence": "Elle participe plus facilement, sans confondre les habitudes du groupe avec celles de tout le pays."
         },
         {
-          "idea": "Enfin, il est possible de bien vivre sans avoir encore créé de liens personnels sur place.",
+          "idea": "Mais il est possible de bien vivre sans avoir encore créé de liens personnels sur place.",
           "developpement": "Les besoins de vie sociale varient. Des échanges à distance et des activités personnelles peuvent aussi contribuer au bien-être, sans que l'absence de relations locales soit forcément vécue comme un manque.",
           "exemple": "Une personne qui travaille à distance peut appeler régulièrement ses proches et prendre plaisir à faire de la randonnée seule. Elle peut apprécier sa nouvelle vie, même avant d'avoir rencontré des personnes avec qui se lier.",
           "consequence": "L'absence de liens locaux ne suffit donc pas à conclure qu'elle vit mal."
         }
       ],
-      "nuance": "Cependant, il faut distinguer une solitude choisie d'un isolement qui fait souffrir. Il faut du temps et un accueil réciproque pour qu'une relation se construise. Quelques relations de confiance peuvent apporter plus de soutien que de nombreux contacts superficiels.",
-      "conclusion": "En conclusion, je recommande ces relations pour le soutien et la compréhension qu'elles apportent. Elles facilitent la vie, sans être indispensables au bien-être de tous. Chacun doit pouvoir trouver un équilibre qui lui convient."
+      "nuance": "Cependant, il faut distinguer une solitude choisie d'un isolement qui fait souffrir. Le temps et un accueil réciproque sont nécessaires pour qu'une relation se construise. Quelques relations de confiance peuvent compter davantage que de nombreux contacts superficiels.",
+      "conclusion": "En conclusion, ces relations sont très utiles, mais pas indispensables au bien-être de tous. Elles donnent accès à une vie partagée sur place, tandis que chacun trouve son équilibre selon ses besoins."
     },
     "culture-p25": {
       "prompt_signatures": {
         "culture:p25": "6b1a31c20a112abedb9318629a0c580e46540b38c9d6405ef800b12f840edab8"
       },
       "reformulation": "Qu'est-ce qui peut motiver le choix de vivre à l'étranger ?",
-      "position": "Les projets professionnels, l'apprentissage personnel et les priorités familiales peuvent se combiner.",
-      "position_claire": "À mon avis, on peut choisir de vivre à l'étranger pour son travail, pour apprendre ou pour un projet familial. Ces raisons peuvent se combiner, et leur importance peut changer avec le temps.",
+      "position": "Le travail, l'apprentissage et les priorités familiales expliquent différents projets de départ.",
+      "position_claire": "À mon avis, les personnes qui choisissent de vivre à l'étranger ne cherchent pas toutes la même chose. Certaines ont un projet professionnel, d'autres veulent apprendre ou répondent à des priorités familiales.",
       "arguments": [
         {
-          "idea": "Tout d'abord, un départ peut répondre à un objectif professionnel précis.",
-          "developpement": "Une personne peut chercher un poste, une spécialisation ou des conditions de travail qui correspondent mieux à son projet. Ce n'est pas nécessairement le pays entier qui l'attire, mais une possibilité identifiée.",
+          "idea": "Tout d'abord, un départ peut répondre à des motivations professionnelles.",
+          "developpement": "On peut chercher un marché du travail plus large, de meilleures conditions ou un poste qui fait avancer une carrière. Ce n'est pas nécessairement le pays entier qui attire, mais une possibilité précise.",
           "exemple": "Une technicienne peut rejoindre une entreprise étrangère pour apprendre à entretenir un type de machine qu'elle ne connaît pas encore. La formation proposée par l'entreprise donne alors une raison concrète de partir, au-delà de l'envie de changer de pays.",
           "consequence": "Le départ est donc une étape dans un projet professionnel."
         },
         {
           "idea": "Ensuite, certaines personnes partent pour apprendre et devenir plus autonomes.",
-          "developpement": "Vivre ailleurs donne des occasions de pratiquer une autre langue et de se débrouiller dans de nouvelles situations. Pour certaines personnes, c'est une raison suffisante de partir, sans qu'un gain financier soit nécessaire.",
+          "developpement": "Vivre ailleurs donne des occasions de pratiquer une autre langue, de sortir de ses habitudes et de se débrouiller dans de nouvelles situations. Cela peut suffire à motiver un départ, sans qu'un gain financier soit nécessaire.",
           "exemple": "Un étudiant peut choisir un semestre dans une université étrangère pour suivre des cours dans une autre langue et apprendre à organiser sa vie quotidienne. Il accepte de sortir de ses habitudes, sans forcément chercher à s'installer définitivement.",
           "consequence": "Le but est donc aussi d'apprendre à se débrouiller, pas seulement de suivre des cours."
         },
@@ -706,21 +798,30 @@
           "consequence": "La sécurité et la scolarité des enfants guident alors le choix de la destination."
         }
       ],
-      "nuance": "Bien sûr, les motivations varient d'une personne à l'autre et peuvent se combiner. On peut partir à la fois pour étudier et pour rejoindre son conjoint, puis donner davantage de place à sa carrière. Les priorités peuvent donc changer au fil du parcours.",
-      "conclusion": "En conclusion, les personnes peuvent partir pour travailler, apprendre ou réaliser un projet familial. Un même départ peut répondre à plusieurs de ces besoins, et les priorités peuvent changer avec le temps."
+      "nuance": "Bien sûr, ces motivations se mélangent souvent chez une même personne. On peut partir pour travailler, mais aussi pour apprendre une langue et préparer un avenir pour ses enfants. Le degré de liberté varie aussi : certains départs relèvent davantage d'un choix, d'autres d'une nécessité.",
+      "conclusion": "En conclusion, vivre à l'étranger peut permettre d'avancer professionnellement, d'apprendre ou de réaliser un projet familial. Comprendre le départ d'une personne, c'est donc regarder ce qu'elle cherche à construire, pas lui attribuer une seule envie d'aventure.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p26": {
       "prompt_signatures": {
         "culture:p26": "474387a477b3c1bb39351393fe7cb8e8a779ce1fdec83b99d80dee86c949582b"
       },
       "reformulation": "Pourquoi voudrais-je connaître le pays d'accueil si j'immigrais ?",
-      "position": "Je voudrais préparer un projet réaliste, connaître mes droits et mieux comprendre les autres.",
-      "position_claire": "Oui, si j'immigrais, je voudrais bien connaître le pays d'accueil. Cela m'aiderait à prévoir mon budget, à connaître mes droits et à mieux comprendre les autres. Je ne chercherais pas à tout savoir avant de partir.",
-      "argument_ids": [2, 4, 3],
+      "position": "Si j'immigrais, connaître le pays m'aiderait à préparer un projet réaliste, à connaître mes droits et à comprendre les autres.",
+      "position_claire": "Oui, si j'immigrais, ce serait important pour moi de bien connaître le pays d'accueil. Je voudrais que mon projet soit réaliste avant de partir, plutôt que de découvrir trop tard des difficultés que j'aurais pu prévoir.",
+      "argument_ids": [
+        2,
+        4,
+        3
+      ],
       "arguments": [
         {
           "idea": "Tout d'abord, connaître le coût de la vie m'aiderait à savoir si mon projet est financièrement réaliste.",
-          "developpement": "Un salaire proposé ne suffit pas pour savoir si je pourrais vivre sur place. Il faut que je le compare au loyer, aux transports et aux autres dépenses. Je prévoirais aussi une marge pour les imprévus, sans compter sur un revenu incertain.",
+          "developpement": "Un salaire proposé ne suffit pas pour savoir si je pourrais vivre sur place. Ce sont le loyer, les transports et les autres dépenses qui détermineraient ce qu'il me resterait. Une marge pour les imprévus compterait aussi.",
           "exemple": "Par exemple, si on me proposait un emploi à New York payé 2 500 dollars nets par mois, je vérifierais les loyers avant de partir. Avec un loyer à 2 000 dollars, il ne me resterait que 500 dollars pour les autres dépenses. Je reporterais le départ.",
           "consequence": "Je réduirais ainsi le risque de manquer d'argent dès mon arrivée."
         },
@@ -733,25 +834,29 @@
         {
           "idea": "Enfin, comprendre quelques habitudes locales m'aiderait à éviter des malentendus.",
           "developpement": "Je pourrais croire qu'une personne m'évite, alors qu'elle a simplement d'autres habitudes. Les connaître m'aiderait à comprendre son comportement, au lieu d'y voir tout de suite un rejet.",
-          "exemple": "Si de nouveaux voisins préfèrent prévoir leurs visites à l'avance, je pourrais leur proposer une date plutôt que passer à l'improviste. Je comprendrais que c'est une question d'organisation, pas un refus de me voir.",
+          "exemple": "Si de nouveaux voisins préféraient prévoir leurs visites à l'avance, je pourrais leur proposer une date plutôt que passer à l'improviste. Je comprendrais que c'est une question d'organisation, pas un refus de me voir.",
           "consequence": "Nous pourrions ainsi trouver une façon de nous voir qui convienne à chacun."
         }
       ],
-      "nuance": "Cependant, les habitudes varient selon les villes et les personnes, et les règles peuvent changer. Je ne pourrais donc pas tout apprendre dans un guide. Je continuerais à me renseigner sur place et à poser des questions.",
-      "conclusion": "En conclusion, connaître le pays d'accueil m'aiderait à préparer une installation réaliste, à défendre mes droits et à mieux comprendre les autres. Ce serait le début d'un apprentissage, pas une garantie de vivre sans difficulté."
+      "nuance": "Cependant, je ne pourrais pas tout apprendre avant de partir. Les habitudes varient selon les villes et les personnes, et les règles peuvent changer. Une partie de cette connaissance ne s'acquiert qu'au contact direct, en observant et en discutant avec les habitants.",
+      "conclusion": "En conclusion, connaître le pays m'aiderait à préparer mon installation et à mieux réagir sur place. Ce serait le début d'un apprentissage, pas une garantie de vivre sans difficulté : je garderais donc une place pour ce que j'y découvrirais."
     },
     "culture-p27": {
       "prompt_signatures": {
         "culture:p27": "ef2b70fb166ec2a258d6926b84ef1def791ec73c95b3cc75c8e36306e5d58d26"
       },
       "reformulation": "Vivre longtemps à l'étranger peut-il faire oublier des éléments de sa culture d'origine ?",
-      "position": "Oui, certains mots ou savoir-faire peuvent s'oublier, mais cet oubli n'est pas inévitable.",
-      "position_claire": "Oui, vivre longtemps à l'étranger peut entraîner l'oubli de certains éléments de sa culture d'origine. Mais cet oubli n'est pas automatique. Quand on continue à parler sa langue et à pratiquer certaines traditions avec ses proches, on les garde dans sa vie quotidienne et on risque moins de les oublier.",
-      "argument_ids": [1, 4, 3],
+      "position": "Vivre longtemps à l'étranger peut faire oublier des mots ou des savoir-faire de sa culture, sans que ce soit automatique.",
+      "position_claire": "Oui, vivre longtemps à l'étranger peut entraîner l'oubli de certains éléments de sa culture d'origine. Mais cet oubli n'est pas automatique. En continuant à parler sa langue et à pratiquer certaines traditions avec ses proches, on risque moins de les oublier.",
+      "argument_ids": [
+        1,
+        4,
+        3
+      ],
       "arguments": [
         {
           "idea": "Tout d'abord, quand on utilise moins sa langue d'origine, on peut finir par oublier certains mots et certaines expressions.",
-          "developpement": "Quand on utilise surtout une autre langue au quotidien, on peut avoir moins d'occasions d'employer les expressions de son enfance. Avec le temps, on risque d'en oublier le sens.",
+          "developpement": "Certaines expressions étaient familières pendant l'enfance. Si une autre langue occupe presque toute la vie quotidienne, on les emploie moins et leur sens peut devenir moins clair, jusqu'à s'oublier.",
           "exemple": "Par exemple, un père répète à son enfant un proverbe que sa grand-mère lui disait souvent. Quand l'enfant lui demande ce qu'il signifie, le père hésite : après des années sans l'utiliser, il en a oublié le sens.",
           "consequence": "Ces oublis peuvent donc compliquer la transmission d'une partie de la culture familiale."
         },
@@ -762,22 +867,22 @@
           "consequence": "Elle a donc besoin de réapprendre ces pas pour pouvoir transmettre cette danse à ses enfants."
         },
         {
-          "idea": "Enfin, des contacts réguliers peuvent préserver ces repères malgré les années.",
+          "idea": "Mais des contacts réguliers peuvent préserver ces repères malgré les années.",
           "developpement": "Les appels, les visites et les fêtes partagées offrent des occasions de pratiquer sa langue et ses traditions. On peut aussi demander une précision et retrouver un mot ou un geste oublié.",
           "exemple": "Par exemple, une personne installée depuis vingt ans à l'étranger téléphone chaque semaine à sa sœur dans leur langue familiale. Ces échanges lui permettent de continuer à utiliser des expressions qu'elle entend rarement au travail.",
           "consequence": "La durée du séjour ne suffit donc pas à prévoir ce qui sera gardé ou oublié."
         }
       ],
-      "nuance": "Cependant, entretenir ce lien ne dépend pas seulement de la volonté : le temps, les ressources et l'histoire familiale comptent aussi. Adopter d'autres habitudes n'est pas nécessairement oublier ses origines. Chacun doit pouvoir faire évoluer son identité sans qu'on l'accuse de trahir sa culture.",
-      "conclusion": "En conclusion, une longue vie à l'étranger peut faire oublier des mots ou des savoir-faire moins pratiqués. Ce risque dépend aussi des liens et des activités maintenus, pas seulement du nombre d'années."
+      "nuance": "Cependant, entretenir ce lien dépend aussi du temps, des ressources et de l'histoire familiale. Adopter d'autres habitudes n'est pas nécessairement oublier ses origines. Il arrive qu'on change de vie tout en restant attaché à ce qu'on veut conserver et transmettre.",
+      "conclusion": "En conclusion, mots et savoir-faire peuvent s'oublier faute de pratique. Mais les liens et les activités maintenus comptent davantage que les années : vivre loin ne veut pas forcément dire tout perdre."
     },
     "culture-p29": {
       "prompt_signatures": {
         "culture:p29": "a7dfff4961a2b2f915363ab3225b1cd2748e2d8d72b17f33cf6c28e82e20787a"
       },
-      "reformulation": "Quelles difficultés peut comporter la vie à l'étranger ?",
+      "reformulation": "La vie à l'étranger est-elle difficile ?",
       "position": "La vie à l'étranger peut être exigeante sur les plans matériel, affectif et administratif.",
-      "position_claire": "Oui, vivre à l'étranger peut être difficile, même après les premiers mois. Le budget, la distance avec les proches et certaines démarches peuvent compliquer la vie. Cela dépend toutefois des conditions dans lesquelles on s'installe.",
+      "position_claire": "Oui, vivre à l'étranger peut être difficile, même après les premiers mois. Certaines contraintes continuent à peser sur le quotidien, selon les conditions dans lesquelles on s'installe.",
       "arguments": [
         {
           "idea": "Tout d'abord, les contraintes matérielles peuvent compliquer la vie quotidienne.",
@@ -798,8 +903,13 @@
           "consequence": "L'incertitude administrative peut donc limiter des choix concrets, même quand une possibilité professionnelle se présente."
         }
       ],
-      "nuance": "Cependant, ces difficultés ne concernent pas tous les étrangers de la même manière. Un statut stable, des ressources suffisantes et des relations de confiance peuvent les réduire. La vie dans le pays d'origine peut elle aussi être difficile : il faut comparer des situations réelles.",
-      "conclusion": "En conclusion, vivre à l'étranger peut être exigeant pour le budget, les relations et la préparation de l'avenir. Cela n'empêche pas d'y construire une vie satisfaisante, mais justifie de regarder les contraintes concrètes plutôt que d'idéaliser le départ."
+      "nuance": "Cependant, ces difficultés varient selon les situations. Un bon niveau de langue, un emploi stable, des proches sur place ou un statut sécurisé peuvent les réduire. La vie dans le pays d'origine peut elle aussi être difficile : la comparaison dépend des conditions réelles.",
+      "conclusion": "En conclusion, vivre à l'étranger peut être exigeant sans empêcher d'y construire une vie satisfaisante. La distance et l'incertitude peuvent encore peser quand on a déjà trouvé ses habitudes : mieux vaut ne pas les sous-estimer.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p30": {
       "prompt_signatures": {
@@ -807,7 +917,7 @@
       },
       "reformulation": "Est-il facile de trouver sa place dans une société étrangère ?",
       "position": "L'intégration est possible, mais demande du temps et un accueil réciproque.",
-      "position_claire": "À mon avis, ce n'est pas toujours facile de s'intégrer dans un nouveau pays. Même si on parle la langue et qu'on travaille, on peut encore se sentir à l'écart. Il faut du temps, et l'accueil des autres compte aussi.",
+      "position_claire": "À mon avis, s'intégrer dans un pays étranger n'est pas toujours facile. Habiter sur place ne suffit pas : on cherche à participer et à trouver sa place. Le temps et l'accueil des autres comptent.",
       "arguments": [
         {
           "idea": "Tout d'abord, on ne connaît pas toujours les sujets dont les autres parlent.",
@@ -817,7 +927,7 @@
         },
         {
           "idea": "Ensuite, on ne peut pas créer des liens tout seul.",
-          "developpement": "Les gens ont souvent déjà leurs amis et leurs habitudes. Pour se rapprocher d'eux, on a besoin de se revoir, pas seulement d'échanger quelques salutations.",
+          "developpement": "Les gens ont souvent déjà leurs amis et leurs habitudes. On peut vivre à côté d'eux sans partager leur vie sociale. Pour se rapprocher, on a besoin de se revoir et d'être accueilli, pas seulement de se saluer.",
           "exemple": "Dans un club, par exemple, on peut se saluer chaque semaine sans vraiment se connaître. Mais si les membres nous invitent à préparer une fête du club avec eux, on a quelque chose à faire ensemble pendant plusieurs semaines. Les conversations viennent alors plus facilement.",
           "consequence": "Petit à petit, on peut apprendre à mieux se connaître, au lieu de simplement se croiser."
         },
@@ -825,19 +935,24 @@
           "idea": "Enfin, même si on commence à connaître du monde, on peut encore avoir du mal à reprendre son métier.",
           "developpement": "Dans certaines professions, on doit faire reconnaître son diplôme ou suivre une formation. L'expérience qu'on avait avant de partir ne permet pas forcément de commencer tout de suite.",
           "exemple": "Si on attend que notre diplôme soit reconnu, par exemple, on peut faire du bénévolat pour rencontrer des gens. C'est utile, mais ça ne remplace pas le métier ni le revenu qu'on espérait.",
-          "consequence": "Pouvoir reprendre son métier peut donc aider à se sentir davantage à sa place."
+          "consequence": "Ne pas exercer son métier peut donc donner l'impression de ne pas avoir trouvé sa place, malgré les premiers liens."
         }
       ],
       "nuance": "Bien sûr, avoir des proches sur place et de quoi vivre pendant les démarches peut faciliter les choses. À l'inverse, la discrimination peut les compliquer. Et on peut se sentir chez soi dans le nouveau pays tout en restant attaché à ses origines.",
-      "conclusion": "En conclusion, on peut trouver sa place dans un nouveau pays, mais ce n'est pas toujours facile. Nos efforts comptent, tout comme l'accueil des autres et la possibilité de travailler dans notre domaine."
+      "conclusion": "En conclusion, s'intégrer est possible, mais ce n'est pas une simple formalité. Les efforts personnels comptent, tout comme l'accueil des autres et la possibilité de travailler dans son domaine. Trouver sa place ne signifie donc pas effacer son parcours.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p31": {
       "prompt_signatures": {
         "culture:p31": "7aaa637cd343d5fe2c6095769b87d7a25c0bf0dbffc9b29b3f0a07afc010fecb"
       },
-      "reformulation": "Quels risques certaines émissions de télé-réalité présentent-elles pour les jeunes ?",
-      "position": "Une influence négative est possible, sans être automatique ni identique pour tous.",
-      "position_claire": "Je pense que certaines émissions de télé-réalité peuvent nuire aux jeunes. Je vois surtout trois risques : une fausse image de la réussite, l'imitation de comportements blessants et des achats encouragés par la publicité.",
+      "reformulation": "La télé-réalité a-t-elle une mauvaise influence sur les jeunes ?",
+      "position": "La télé-réalité peut avoir une influence négative sur les jeunes, sans effet automatique ni identique pour tous.",
+      "position_claire": "Je pense que certaines émissions de télé-réalité peuvent avoir une mauvaise influence sur les jeunes. Le problème n'est pas simplement qu'elles divertissent : elles peuvent présenter des moments choisis comme un modèle de vie, jusque dans les relations et les achats.",
       "arguments": [
         {
           "idea": "Tout d'abord, ces émissions peuvent donner une image trompeuse de la réussite.",
@@ -858,16 +973,21 @@
           "consequence": "Il a donc fait un achat en croyant suivre un avis personnel, sans reconnaître la publicité."
         }
       ],
-      "nuance": "Cependant, tous les jeunes ne prennent pas ces émissions au sérieux. On peut les regarder pour se distraire sans vouloir imiter les candidats. Discuter du montage, des comportements et de la publicité aide aussi à garder un regard critique.",
-      "conclusion": "En conclusion, je ne condamnerais pas toutes ces émissions. Mais il faut en discuter pour que les jeunes puissent distinguer le spectacle de leur propre vie, dans leurs projets, leurs relations et leurs achats."
+      "nuance": "Cependant, des jeunes regardent ces émissions pour se distraire sans vouloir imiter les candidats. Bien qu'ils sachent parfois prendre du recul, la répétition peut rendre ces modèles plus familiers. Le risque dépend aussi du regard critique et des discussions.",
+      "conclusion": "En conclusion, je ne condamne pas toute la télé-réalité, mais ses effets méritent de l'attention. En discuter aide les jeunes à distinguer ce qui est mis en spectacle de leur propre vie, sans prendre les candidats pour des modèles en tout.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p33": {
       "prompt_signatures": {
         "culture:p33": "6222e19aa45ac8112ec7fa507637198809c656bc5b983d171fa4664f6a88e2cc"
       },
-      "reformulation": "À quelles conditions une célébrité peut-elle avoir sa place en politique ?",
-      "position": "La notoriété n'exclut pas l'engagement, mais ne remplace ni la compétence ni la responsabilité.",
-      "position_claire": "À mon avis, une célébrité peut avoir sa place en politique. Elle a le droit de participer au débat et peut faire connaître une cause. Mais si elle veut gouverner, il faut aussi juger ses compétences et son travail, pas seulement sa popularité.",
+      "reformulation": "Les célébrités ont-elles leur place en politique ?",
+      "position": "Les célébrités ont leur place en politique, mais leur compétence ne se déduit pas de leur notoriété.",
+      "position_claire": "À mon avis, les célébrités ont leur place en politique comme les autres citoyens. Leur parcours et leur visibilité peuvent enrichir le débat. Mais la notoriété n'est pas une compétence politique : elle ne prouve pas qu'on sait gouverner.",
       "arguments": [
         {
           "idea": "Tout d'abord, l'expérience professionnelle d'une célébrité peut enrichir le débat public.",
@@ -883,21 +1003,26 @@
         },
         {
           "idea": "Enfin, être connu ne suffit pas pour bien exercer une fonction politique.",
-          "developpement": "Exercer des responsabilités demande de comprendre les dossiers, de choisir entre des priorités et de rendre compte des décisions. Il faut qu'une célébrité puisse être interrogée sur ces éléments comme toute autre personne candidate.",
-          "exemple": "Si une chanteuse candidate à la mairie propose de construire un gymnase, les habitants doivent pouvoir lui demander comment elle prévoit de le financer et de l'entretenir. Une réponse précise compte davantage que la réussite de sa carrière musicale.",
+          "developpement": "Exercer des responsabilités demande de comprendre les dossiers, de choisir entre des priorités et de rendre compte des décisions. Il est normal qu'on pose à une célébrité les mêmes questions qu'aux autres candidats.",
+          "exemple": "Si une chanteuse candidate à la mairie propose un gymnase, les habitants peuvent lui demander comment elle compte le financer et l'entretenir. Une réponse précise en dit davantage sur sa préparation que sa réussite musicale.",
           "consequence": "Les électeurs peuvent alors évaluer sa préparation sur un projet concret, plutôt que sur sa seule popularité."
         }
       ],
-      "nuance": "Cependant, la notoriété donne une avance de visibilité qui peut déséquilibrer le débat. Les médias et les électeurs doivent aussi écouter les autres candidats et examiner d'éventuels intérêts commerciaux. La compétence se démontre ; elle ne se déduit ni de la célébrité ni de son absence.",
-      "conclusion": "En conclusion, les célébrités peuvent contribuer à la vie politique par leur expérience et leur visibilité. Mais si elles souhaitent exercer une fonction, elles doivent être jugées sur leur préparation, leur programme et leur responsabilité, pas sur l'admiration qu'elles suscitent."
+      "nuance": "Cependant, la notoriété donne une avance de visibilité qui peut déséquilibrer le débat et laisser moins de place aux autres candidats. D'éventuels intérêts commerciaux peuvent aussi peser. La compétence se démontre : elle ne se déduit ni de la célébrité ni de son absence.",
+      "conclusion": "En conclusion, une célébrité peut contribuer à la politique. Pour exercer une fonction, ce sont sa préparation, son programme et sa capacité à rendre compte de ses décisions qui comptent, pas l'admiration qu'elle suscite.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p34": {
       "prompt_signatures": {
         "culture:p34": "d8c08166d4ea5440db70382b2129a9f0ac560812dc62ae2dc41c3438027400b7"
       },
       "reformulation": "Comment juger l'évolution des habitudes de consommation dans les pays développés ?",
-      "position": "Ces évolutions apportent des services utiles, mais demandent de maîtriser les achats et les ressources.",
-      "position_claire": "Je vois des avantages et des risques dans les nouvelles habitudes de consommation. L'achat en ligne peut faciliter la vie, mais aussi encourager des dépenses peu réfléchies. La seconde main et la réparation permettent aussi de garder les objets plus longtemps.",
+      "position": "Les nouvelles habitudes de consommation apportent des services utiles, mais peuvent aussi multiplier les achats inutiles.",
+      "position_claire": "Dans les pays développés, les nouvelles habitudes de consommation ont des avantages et des risques. Commander en ligne répond parfois à un besoin, mais cette facilité peut pousser à acheter trop. L'usage compte autant que l'outil.",
       "arguments": [
         {
           "idea": "Tout d'abord, les services numériques peuvent rendre certains achats plus accessibles.",
@@ -907,27 +1032,32 @@
         },
         {
           "idea": "Ensuite, acheter en quelques clics peut pousser à dépenser sans réfléchir.",
-          "developpement": "Les recommandations personnalisées peuvent multiplier les tentations, et le paiement en un clic facilite un achat immédiat. On risque alors de profiter d'une promotion avant de vérifier si l'objet est vraiment utile.",
-          "exemple": "Après avoir consulté des chaussures en ligne, une personne peut recevoir plusieurs annonces similaires. Si elle achète une nouvelle paire uniquement parce qu'une offre paraît urgente, elle peut dépasser son budget alors que ses chaussures actuelles lui conviennent encore.",
+          "developpement": "Les sites peuvent remettre sous nos yeux un produit qu'on a déjà regardé. Le paiement en un clic réduit ensuite le temps de réflexion : on risque d'acheter avant de vérifier si l'objet est vraiment utile.",
+          "exemple": "Après avoir consulté des chaussures en ligne, une personne peut recevoir plusieurs annonces similaires. Si elle achète une nouvelle paire uniquement parce qu'une offre semble urgente, elle risque de dépasser son budget alors que ses chaussures actuelles lui conviennent encore.",
           "consequence": "Cette facilité peut donc augmenter les dépenses sans mieux répondre aux besoins."
         },
         {
           "idea": "Enfin, l'occasion et la réparation permettent d'utiliser les objets plus longtemps.",
           "developpement": "Grâce aux plateformes d'occasion, on peut revendre un objet à quelqu'un qui en a besoin. Un atelier peut aussi nous aider à le réparer. Dans les deux cas, l'objet reste utile au lieu d'être remplacé par du neuf.",
           "exemple": "Une famille peut acheter un vélo d'enfant d'occasion, vérifier son état puis le revendre quand il devient trop petit. Le même vélo sert à plusieurs enfants, ce qui évite certains achats neufs et permet de limiter la dépense.",
-          "consequence": "Le numérique peut donc soutenir une consommation plus mesurée, pas seulement davantage d'achats."
+          "consequence": "Ces pratiques peuvent donc limiter le remplacement des objets, plutôt que simplement multiplier les achats."
         }
       ],
-      "nuance": "Cependant, l'occasion ne sert pas forcément à moins consommer si elle conduit à multiplier les achats inutiles. Les livraisons, la qualité et les conditions de retour doivent être examinées. Il faut qu'on juge l'ensemble de la pratique, en tenant compte du budget et du gaspillage.",
-      "conclusion": "En conclusion, je garderais les avantages d'accès et de réutilisation tout en limitant les achats impulsifs. Le progrès ne consiste pas à acheter plus vite, mais à mieux répondre à ses besoins en tenant compte du budget et des ressources."
+      "nuance": "Cependant, bien que l'achat d'occasion soit souvent plus économique, il peut multiplier les achats inutiles. Les frais de livraison et la qualité comptent aussi. Une pratique numérique ou une bonne affaire n'est donc pas automatiquement raisonnable.",
+      "conclusion": "En conclusion, ces habitudes sont utiles quand elles facilitent l'accès aux produits et prolongent leur utilisation. Le progrès, c'est de mieux répondre à ses besoins en respectant son budget et en préservant les ressources.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     },
     "culture-p35": {
       "prompt_signatures": {
         "culture:p35": "76959f7b0b95fc3b39c35f07190333605412c135091cc5336095a1fc2d257afe"
       },
-      "reformulation": "Comment les immigrés peuvent-ils contribuer au pays d'accueil ?",
-      "position": "Leurs apports peuvent être économiques, culturels et civiques, dans un cadre d'accueil équitable.",
-      "position_claire": "Oui, je pense que les immigrés peuvent représenter une richesse pour le pays d'accueil. Leur travail et leurs compétences peuvent soutenir l'économie. Leurs pratiques culturelles et leur participation à la vie commune peuvent aussi enrichir la société, si on leur donne réellement la possibilité de participer.",
+      "reformulation": "Les immigrés représentent-ils une richesse pour le pays d'accueil ?",
+      "position": "Les immigrés peuvent enrichir l'économie, la culture et la vie commune, sans que leur dignité dépende de leur utilité.",
+      "position_claire": "Oui, je pense que les immigrés représentent une richesse pour le pays d'accueil, sur le plan économique, culturel et humain. Mais ces apports dépendent aussi des possibilités de participer, pas seulement des compétences des personnes.",
       "arguments": [
         {
           "idea": "Tout d'abord, les personnes immigrées peuvent contribuer à l'économie par leur travail et leurs compétences.",
@@ -948,8 +1078,13 @@
           "consequence": "La richesse d'une société se mesure aussi à cette capacité de coopération."
         }
       ],
-      "nuance": "Cependant, ces apports ne se réalisent pas automatiquement. La langue, la reconnaissance des qualifications, l'accès au logement et la lutte contre les discriminations demandent des efforts collectifs. Et la dignité d'une personne devrait être reconnue sans qu'elle ait à prouver son utilité économique.",
-      "conclusion": "En conclusion, les immigrés peuvent enrichir le pays par leur travail et leurs compétences, la transmission culturelle et leur engagement. Un accueil équitable leur permet de participer pleinement à la vie commune, avec les autres habitants."
+      "nuance": "Cependant, ces apports ne se réalisent pas automatiquement. L'apprentissage de la langue, la reconnaissance des qualifications et la lutte contre les discriminations demandent des efforts collectifs. Et la dignité d'une personne devrait être reconnue sans qu'elle ait à prouver son utilité économique.",
+      "conclusion": "En conclusion, les immigrés peuvent enrichir le pays par leur travail et leurs compétences, les échanges culturels et l'entraide. Un accueil équitable ouvre ces possibilités : la vie commune se construit ensemble.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
     }
   }
 }

@@ -1,7 +1,7 @@
 """Reviewed EO3 defaults must not mutate published or learner-owned content."""
 
 from copy import deepcopy
-from dataclasses import FrozenInstanceError, asdict
+from dataclasses import FrozenInstanceError, asdict, replace
 import hashlib
 from io import StringIO
 import json
@@ -222,6 +222,17 @@ class TacheThreeModelContentTests(SimpleTestCase):
                 self.assertTrue(response.conclusion)
                 self.assertNotIn("selon une étude", spoken_text(response).casefold())
 
+    def test_spoken_budget_excludes_preparation_even_when_the_full_model_is_longer(self):
+        response = catalogue.tache_three_models()["eo/tache-3/famille-p2"].response
+        spoken = spoken_text(response)
+        self.assertLessEqual(len(spoken.split()), 430)
+        expanded_preparation = replace(
+            response,
+            reformulation="Préparation de la question. " * 150,
+            position="Opinion à préparer. " * 150,
+        )
+        self.assertEqual(spoken_text(expanded_preparation), spoken)
+
     def test_famille_covers_all_its_sources_without_merging_related_questions(self):
         models = catalogue.tache_three_models()
         sources = [source for source in self.sources if source.theme == "Famille"]
@@ -260,6 +271,10 @@ class TacheThreeModelContentTests(SimpleTestCase):
         models = catalogue.tache_three_models()
         response = lambda key: models[f"eo/tache-3/famille-p{key}"].response
         self.assertIn("à un âge adapté", response(1).position_claire)
+        self.assertTrue(response(1).position_claire.startswith("À mon avis, les parents peuvent"))
+        self.assertNotIn("Je laisserais", response(1).position_claire)
+        self.assertIn("sans savoir quelles informations garder privées", response(1).position_claire)
+        self.assertIn("comment réagir à un message inquiétant", response(1).position_claire)
         self.assertIn("numéro de sa maison", response(1).arguments[0].exemple)
         self.assertIn("masquer", response(1).arguments[0].exemple)
         self.assertIn("garder une preuve", response(1).arguments[2].exemple)
@@ -296,7 +311,9 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("les mêmes affinités", response(10).arguments[0].idea)
         self.assertIn("rit et discute pendant des heures", response(10).arguments[0].exemple)
         self.assertIn("recherche sa compagnie par plaisir", response(10).arguments[0].exemple)
-        self.assertIn("respecte son choix et garde cette confidence", response(10).arguments[2].exemple)
+        self.assertIn("ont grandi ensemble", response(10).arguments[2].exemple)
+        self.assertIn("la même école", response(10).arguments[2].exemple)
+        self.assertIn("se soutiennent quand l'une traverse une difficulté", response(10).arguments[2].exemple)
         self.assertIn("chacune paie vingt euros", response(11).arguments[1].exemple)
         self.assertIn("chacune le même abonnement à quarante euros", response(11).arguments[1].exemple)
         self.assertIn("Après une opération", response(11).arguments[2].exemple)
@@ -375,6 +392,49 @@ class TacheThreeModelContentTests(SimpleTestCase):
                 models[f"eo/tache-3/{first}"].response,
                 models[f"eo/tache-3/{second}"].response,
             )
+
+    def test_education_retained_and_replaced_reasons_keep_distinct_annotation_ids(self):
+        models = catalogue.tache_three_models()
+        replacements = {
+            "eo/tache-3/education-p13": (1, 2, 4),
+            "eo/tache-3/education-p16": (1, 3, 4),
+            "eo/tache-3/education-p23": (1, 2, 4),
+        }
+        education = [
+            model for model in models.values()
+            if any(key.startswith("education:") for key, _ in model.source_prompts)
+        ]
+        self.assertEqual(len(education), 22)
+        for model in education:
+            with self.subTest(group=model.group):
+                self.assertEqual(model.argument_ids, replacements.get(model.group, (1, 2, 3)))
+
+    def test_education_cues_keep_uncertainty_and_language_progress_matches_the_practice(self):
+        models = catalogue.tache_three_models()
+        plans = catalogue.tache_three_subject_hints()
+        housing = plans["eo/tache-3/education-p1"].arguments[1].example
+        self.assertIn("peut permettre", housing.french)
+        self.assertIn("can make it possible", housing.english)
+        support = plans["eo/tache-3/education-p4"].arguments[2].example
+        self.assertIn("cherche un soutien extérieur", support.french)
+        self.assertIn("looks for outside support", support.english)
+        solidarity = plans["eo/tache-3/education-p6"]
+        self.assertIn("des habitants", solidarity.arguments[0].example.french)
+        self.assertIn("organisent un dépôt", solidarity.arguments[0].example.french)
+        delivery = solidarity.arguments[2].example
+        self.assertIn("convient d'une livraison", delivery.french)
+        self.assertIn("peut rassurer", delivery.french)
+        self.assertIn("arranges delivery", delivery.english)
+        self.assertIn("can reassure", delivery.english)
+        practice = models["eo/tache-3/education-p13"].response.arguments[2]
+        self.assertIn("phrases peu claires", practice.exemple)
+        self.assertIn("Elle les retravaille", practice.exemple)
+        self.assertIn("il comprend le récit de sa journée", practice.exemple)
+        self.assertIn("sans lui demander de reformuler", practice.exemple)
+        self.assertIn("raison de continuer", practice.consequence)
+        cue = plans["eo/tache-3/education-p13"].arguments[2].example
+        self.assertIn("son partenaire comprend", cue.french)
+        self.assertIn("their partner later understands", cue.english)
 
     def test_environnement_covers_all_variants_and_retains_group_boundaries(self):
         models = catalogue.tache_three_models()
@@ -598,7 +658,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("accueil", response(1).conclusion)
         self.assertIn("la santé", response(2).nuance)
         self.assertNotIn("âge limite biologique", spoken_text(response(2)))
-        self.assertIn("besoin d'accessibilité", response(3).nuance)
+        self.assertIn("exceptions pour les besoins d'accessibilité", response(3).nuance)
         self.assertIn("ne garantit pas la concentration", response(3).arguments[0].consequence)
         self.assertIn("règles applicables", response(4).nuance)
         self.assertIn("soutien extérieur", response(4).arguments[2].exemple)
@@ -630,20 +690,27 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("La fiction", response(14).nuance)
         self.assertIn("sources indépendantes", response(15).arguments[2].developpement)
         self.assertIn("plateformes", response(15).nuance)
-        self.assertIn("temps partiel", response(16).arguments[1].exemple)
+        self.assertIn("capteur défectueux", response(16).arguments[1].exemple)
+        self.assertIn("transmet sa méthode", response(16).arguments[1].exemple)
+        self.assertIn("offre mieux payée ailleurs", response(16).arguments[2].exemple)
+        self.assertIn("reporter son projet", response(16).arguments[2].exemple)
         self.assertIn("discriminations", response(16).nuance)
         self.assertIn("réexamen", response(17).arguments[2].exemple)
         self.assertIn("peut choquer", response(17).nuance)
         self.assertIn("priorité essentielle", response(18).position_claire)
-        self.assertIn("à l'intérieur", response(18).arguments[1].developpement)
+        self.assertIn("à l'intérieur", response(18).arguments[1].developpement.casefold())
         self.assertIn("programme distrayant", response(19).nuance)
         self.assertNotIn("avant trois ans", spoken_text(response(19)))
-        self.assertIn("ni une obligation", response(20).position_claire)
-        self.assertIn("version accessible", response(20).arguments[1].exemple)
+        self.assertIn("ni accepter toutes les candidatures sans conditions", response(20).position_claire)
+        self.assertIn("ni envoyer tout le monde à l'université", response(20).position_claire)
+        self.assertIn("soins infirmiers", response(20).arguments[1].exemple)
+        self.assertIn("revenir travailler dans sa région", response(20).arguments[1].exemple)
+        self.assertIn("résultats récents", response(20).arguments[2].exemple)
         self.assertIn("conditions", response(21).arguments[2].developpement)
         self.assertIn("résultats modestes ne condamnent pas", response(21).nuance)
-        self.assertIn("plus un apprentissage entièrement seul", response(22).arguments[1].consequence)
-        self.assertIn("encadrement approprié", response(22).arguments[2].exemple)
+        self.assertIn("avec l'aide du partenaire", response(22).arguments[1].consequence)
+        self.assertIn("n'est plus entièrement solitaire", response(22).arguments[1].consequence)
+        self.assertIn("moniteur à côté d'elle", response(22).arguments[2].exemple)
         self.assertIn("animaux", response(23).nuance)
         self.assertNotIn("pendant des années", spoken_text(response(23)))
 
@@ -652,10 +719,11 @@ class TacheThreeModelContentTests(SimpleTestCase):
         response = lambda key: models[f"eo/tache-3/culture-p{key}"].response
         self.assertIn("pas toutes", response(1).position_claire)
         self.assertNotIn("conduire sur la neige", spoken_text(response(1)))
-        self.assertIn("tous les adultes ne pensent pas ainsi", response(2).position_claire)
-        self.assertIn("un soutien moral, des conseils pratiques", response(11).position_claire)
-        self.assertIn("ne devraient pas constituer le seul cercle social", response(11).position_claire)
-        self.assertIn("rencontrer d'autres habitants", response(11).position_claire)
+        self.assertIn("Mais tous ne pensent pas ainsi", response(2).position_claire)
+        self.assertIn("parler sa langue", response(11).arguments[0].idea)
+        self.assertIn("expérience pratique utile", response(11).arguments[1].idea)
+        self.assertIn("ne pas se limiter à ses compatriotes", response(11).nuance)
+        self.assertIn("Rencontrer aussi d'autres habitants", response(11).nuance)
         self.assertIn("ne comprend pas tout ce qu'il dit", response(15).arguments[2].developpement)
         self.assertIn("même sans bien parler sa langue", response(15).arguments[2].exemple)
         self.assertIn("En essayant à mon tour", response(15).arguments[2].exemple)
@@ -666,19 +734,19 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("parle français mais pas japonais", response(19).arguments[1].exemple)
         self.assertIn("écoles au Japon", response(19).arguments[1].exemple)
         self.assertIn("prendre soin des lieux qu'ils utilisent ensemble", response(19).arguments[1].exemple)
-        self.assertIn("en écoutant", response(20).position_claire)
-        self.assertIn("en pratiquant une activité", response(20).position_claire)
-        self.assertIn("réservations", response(21).nuance)
+        self.assertIn("l'écoute", response(20).arguments[1].idea)
+        self.assertIn("en pratiquant une activité", response(20).arguments[2].idea)
+        self.assertIn("réservations", response(21).nuance.casefold())
         self.assertIn("relations de confiance", response(24).nuance)
         self.assertIn("conjoint", response(25).arguments[2].developpement)
         self.assertIn("si j'immigrais", response(26).position_claire.casefold())
-        self.assertIn("pas seulement de la volonté", response(27).nuance)
+        self.assertIn("du temps, des ressources et de l'histoire familiale", response(27).nuance)
         self.assertIn("Selon le pays et le statut", response(29).arguments[2].developpement)
         self.assertIn("on ne peut pas créer des liens tout seul", response(30).arguments[1].idea)
         self.assertIn("publicité", response(31).arguments[2].idea)
         self.assertIn("recommandées par un candidat", response(31).arguments[2].exemple)
         self.assertIn("financer", response(33).arguments[2].exemple)
-        self.assertIn("seconde main", response(34).position_claire)
+        self.assertIn("l'occasion et la réparation", response(34).arguments[2].idea)
         self.assertIn("vie associative", response(35).arguments[2].idea)
 
     def test_culture_distinguishes_friendship_benefits_from_happiness_necessity(self):
@@ -703,6 +771,38 @@ class TacheThreeModelContentTests(SimpleTestCase):
             {key for key, _ in model.source_prompts}, {"culture:p16", "famille:p8"},
         )
 
+    def test_culture_retained_reasons_and_replaced_transmission_keep_distinct_argument_ids(self):
+        replacements = {
+            "culture-p11": (1, 2, 4),
+            "culture-p15": (1, 2, 4),
+            "culture-p16": (1, 4, 5),
+            "culture-p19": (1, 2, 4),
+            "culture-p24": (1, 2, 4),
+            "culture-p26": (2, 4, 3),
+            "culture-p27": (1, 4, 3),
+        }
+        models = [
+            model for model in catalogue.tache_three_models().values()
+            if model.group.startswith("eo/tache-3/culture-")
+        ]
+        self.assertEqual(len(models), 31)
+        for model in models:
+            short = model.group.rsplit("/", 1)[-1]
+            with self.subTest(group=model.group):
+                self.assertEqual(model.argument_ids, replacements.get(short, (1, 2, 3)))
+
+    def test_culture_compatriots_can_help_without_being_necessary(self):
+        model = catalogue.tache_three_models()["eo/tache-3/culture-p11"]
+        response = model.response
+        self.assertIn("je ne pense pas que ce soit nécessaire", response.position_claire)
+        self.assertIn("parle sa langue", response.arguments[0].exemple)
+        self.assertIn("fait reconnaître son diplôme", response.arguments[1].exemple)
+        self.assertIn("vérifiée auprès de l'organisme compétent", response.arguments[1].consequence)
+        self.assertIn("aucun compatriote", response.arguments[2].exemple)
+        self.assertIn("amis d'autres pays", response.arguments[2].exemple)
+        self.assertIn("sans fréquenter de gens de son pays", response.arguments[2].consequence)
+        self.assertEqual(model.argument_ids, (1, 2, 4))
+
     def test_culture_local_relationships_address_necessity_not_friend_count(self):
         model = catalogue.tache_three_models()["eo/tache-3/culture-p24"]
         response = model.response
@@ -711,7 +811,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertEqual(
             {key for key, _ in model.source_prompts}, {"culture:p24", "culture:p28"},
         )
-        self.assertIn("pas une condition indispensable pour tout le monde", response.position_claire)
+        self.assertIn("je ne dirais pas que ces relations sont indispensables pour tout le monde", response.position_claire)
         self.assertNotIn("durablement", response.position_claire)
         self.assertIn("réduire l'isolement", response.arguments[0].idea)
         self.assertIn("chaque samedi", response.arguments[0].exemple)
@@ -720,41 +820,43 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("pratiquer la langue du pays", response.arguments[1].idea)
         self.assertIn("Les conversations régulières", response.arguments[1].developpement)
         self.assertIn("les habitudes d'un groupe", response.arguments[1].developpement)
-        self.assertIn("avec des interlocuteurs que l'on connaît", response.arguments[1].developpement)
+        self.assertIn("avec des personnes qu'on connaît", response.arguments[1].developpement)
         self.assertIn("chacun apporte un plat", response.arguments[1].exemple)
         self.assertIn("dans la langue du pays", response.arguments[1].exemple)
         self.assertIn("réutilise ensuite ces expressions lors d'autres rencontres", response.arguments[1].exemple)
-        self.assertIn("tous les habitants aient les mêmes habitudes", response.arguments[1].consequence)
-        self.assertIn("chacun apporte un plat", plan.arguments[1].example.french)
-        self.assertIn("everyone brings a dish", plan.arguments[1].example.english)
+        self.assertIn("sans confondre les habitudes du groupe avec celles de tout le pays", response.arguments[1].consequence)
+        self.assertIn("chacun apporte un plat", plan.arguments[1].example.french.casefold())
+        self.assertIn("everyone brings a dish", plan.arguments[1].example.english.casefold())
         self.assertIn("sans avoir encore créé de liens personnels sur place", response.arguments[2].idea)
         self.assertIn("travaille à distance", response.arguments[2].exemple)
         self.assertIn("avant d'avoir rencontré des personnes avec qui se lier", response.arguments[2].exemple)
         self.assertIn("isolement qui fait souffrir", response.nuance)
         self.assertIn(
-            "Quelques relations de confiance peuvent apporter plus de soutien",
+            "Quelques relations de confiance peuvent compter davantage",
             response.nuance,
         )
         self.assertIn("contacts superficiels", response.nuance)
         self.assertNotIn("Les habitants sont de toutes origines", response.nuance)
-        self.assertIn("sans être indispensables au bien-être de tous", response.conclusion)
-        self.assertIn("La confiance peut compter davantage", plan.nuance.french)
-        self.assertIn("Trust can matter more", plan.nuance.english)
+        self.assertIn("pas indispensables au bien-être de tous", response.conclusion)
+        self.assertIn("temps et accueil réciproque", plan.nuance.french)
+        self.assertIn("time and a reciprocal welcome", plan.nuance.english)
         self.assertIn("sans être indispensables", plan.introduction.french)
         self.assertIn("without being essential", plan.introduction.english)
-        self.assertIn("avant d'avoir noué des liens locaux", plan.arguments[2].example.french)
-        self.assertIn("before forming local relationships", plan.arguments[2].example.english)
+        self.assertIn("avant d'avoir des liens locaux", plan.arguments[2].example.french)
+        self.assertIn("before she has local ties", plan.arguments[2].example.english)
 
-    def test_culture_migration_motivations_can_combine_and_change(self):
+    def test_culture_migration_motivations_can_combine_with_different_degrees_of_choice(self):
         group = "eo/tache-3/culture-p25"
         response = catalogue.tache_three_models()[group].response
         cue = catalogue.tache_three_subject_hints()[group].nuance
-        self.assertIn("à la fois pour étudier et pour rejoindre son conjoint", response.nuance)
-        self.assertIn("puis donner davantage de place à sa carrière", response.nuance)
+        self.assertIn("ces motivations se mélangent", response.nuance)
+        self.assertIn("pour travailler, mais aussi pour apprendre une langue", response.nuance)
+        self.assertIn("préparer un avenir pour ses enfants", response.nuance)
+        self.assertIn("certains départs relèvent davantage d'un choix, d'autres d'une nécessité", response.nuance)
         self.assertNotIn("fuite", response.nuance)
         self.assertNotIn("insécurité", response.nuance)
-        self.assertIn("se combiner ou évoluer", cue.french)
-        self.assertIn("combine or change", cue.english)
+        self.assertIn("Motivations mêlées", cue.french)
+        self.assertIn("Mixed motivations", cue.english)
 
     def test_culture_local_cultural_experience_is_not_a_second_question_session(self):
         response = catalogue.tache_three_models()["eo/tache-3/culture-p14"].response
@@ -776,13 +878,15 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertEqual(model.argument_ids, (2, 4, 3))
         self.assertIn("financièrement réaliste", response.arguments[0].idea)
         self.assertIn("2 500 dollars nets par mois", response.arguments[0].exemple)
-        self.assertIn("sans compter sur un revenu incertain", response.arguments[0].developpement)
+        self.assertIn("le loyer, les transports et les autres dépenses", response.arguments[0].developpement)
+        self.assertIn("Une marge pour les imprévus", response.arguments[0].developpement)
         self.assertIn("connaître mes droits", response.arguments[1].idea)
         self.assertIn("règles locales", response.arguments[1].exemple)
         self.assertIn("ce qui est autorisé", response.arguments[1].exemple)
         self.assertIn("habitudes locales", response.arguments[2].idea)
         self.assertIn("si j'immigrais", response.position_claire.casefold())
-        self.assertIn("défendre mes droits", response.conclusion)
+        self.assertIn("moins dépendant de sa seule version des règles", response.arguments[1].consequence)
+        self.assertIn("pas une garantie de vivre sans difficulté", response.conclusion)
 
     def test_culture_preparation_positions_do_not_reverse_negative_source_claims(self):
         models = catalogue.tache_three_models()
@@ -792,7 +896,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ),
         )
         self.assertIn(
-            "ont leur place à l'école",
+            "Non à leur suppression",
             models["eo/tache-3/culture-p13"].response.position,
         )
 
@@ -800,23 +904,23 @@ class TacheThreeModelContentTests(SimpleTestCase):
         models = catalogue.tache_three_models()
         plans = catalogue.tache_three_subject_hints()
         for group, index, source, french, english in (
-            ("culture-p7", 1, "proportions", "proportions", "proportions"),
-            ("culture-p9", 1, "dîner sans compagnie", "dîner seul", "eat alone"),
+            ("culture-p7", 1, "proportions", "personnage reconnaissable", "character recognisable"),
+            ("culture-p9", 1, "dîner sans compagnie", "dîner seule", "eat dinner alone"),
             ("culture-p11", 0, "passer le dimanche ensemble", "dimanche ensemble", "Sunday together"),
-            ("culture-p11", 2, "danse traditionnelle", "danse traditionnelle", "traditional dance"),
-            ("culture-p12", 0, "objets mal triés", "objets mal triés", "incorrectly sorted items"),
+            ("culture-p11", 2, "aucun compatriote", "Sans compatriotes connus", "With no known compatriots"),
+            ("culture-p12", 0, "objets mal triés", "vérifie ensuite les règles locales", "checks local rules"),
             ("culture-p13", 1, "tableau", "tableau", "painting"),
-            ("culture-p13", 1, "sourient", "sourires", "smiles"),
-            ("culture-p14", 0, "cuisine ouest-africaine", "Cuisine ouest-africaine", "West African cookbook"),
-            ("culture-p14", 0, "riz avec une sauce aux arachides", "riz et sauce aux arachides", "rice with peanut sauce"),
-            ("culture-p14", 0, "produits locaux", "produits locaux", "local ingredients"),
+            ("culture-p13", 1, "sourient", "sourires", "Smiles"),
+            ("culture-p14", 0, "cuisine ouest-africaine", "Cuisine ouest-africaine", "West African cooking"),
+            ("culture-p14", 0, "riz avec une sauce aux arachides", "riz, sauce aux arachides", "rice, peanut sauce"),
+            ("culture-p14", 0, "produits locaux", "Cuisine ouest-africaine", "West African cooking"),
             ("culture-p14", 0, "l'histoire de ce plat", "histoire du plat", "history"),
-            ("culture-p14", 1, "danse irlandaise", "danse irlandaise", "Irish dance"),
-            ("culture-p14", 2, "chaussures", "chaussures", "shoes"),
-            ("culture-p15", 1, "Portugal", "Au Portugal", "In Portugal"),
+            ("culture-p14", 1, "danse irlandaise", "Atelier irlandais", "Irish workshop"),
+            ("culture-p14", 2, "chaussures", "sol propre", "clean floor"),
+            ("culture-p15", 1, "Portugal", "Portugal", "Portugal"),
             ("culture-p15", 1, "poisson", "poisson", "fish"),
             ("culture-p15", 2, "séjour au Ghana", "Au Ghana", "In Ghana"),
-            ("culture-p15", 2, "fufu", "fufu", "fufu"),
+            ("culture-p15", 2, "fufu", "piler le manioc", "pound cassava"),
             ("culture-p15", 2, "manioc", "manioc", "cassava"),
             ("culture-p16", 0, "refus d'embauche", "refus d'embauche", "job rejection"),
             ("culture-p16", 0, "prochain entretien", "prochain entretien", "next interview"),
@@ -826,17 +930,17 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p19", 2, "projet de logements", "projet de logements", "housing proposal"),
             ("culture-p20", 2, "motif de feuilles", "motif de feuilles", "leaf pattern"),
             ("culture-p24", 0, "chaque samedi", "samedi", "Saturday"),
-            ("culture-p24", 1, "chacun apporte un plat", "chacun apporte un plat", "everyone brings a dish"),
-            ("culture-p24", 1, "réutilise ensuite ces expressions", "réutiliser les expressions", "reuse expressions"),
-            ("culture-p24", 2, "randonnée seule", "randonnées en solitaire", "solo hikes"),
+            ("culture-p24", 1, "chacun apporte un plat", "Chacun apporte un plat", "Everyone brings a dish"),
+            ("culture-p24", 1, "réutilise ensuite ces expressions", "réutilise ensuite ces expressions", "reuses these expressions"),
+            ("culture-p24", 2, "randonnée seule", "randonnée seule", "hiking alone"),
             ("culture-p26", 0, "New York", "New York", "New York"),
             ("culture-p26", 0, "2 500 dollars nets par mois", "2 500 dollars nets par mois", "$2,500 monthly take-home pay"),
             ("culture-p26", 0, "un loyer à 2 000 dollars", "2 000 de loyer", "$2,000 rent"),
             ("culture-p26", 0, "500 dollars pour les autres dépenses", "500 pour le reste", "$500 for other costs"),
             ("culture-p26", 1, "propriétaire", "propriétaire", "landlord"),
             ("culture-p27", 0, "proverbe", "proverbe", "proverb"),
-            ("culture-p27", 1, "danse traditionnelle", "pas de danse", "dance steps"),
-            ("culture-p27", 1, "Sa sœur", "sa sœur", "Her sister"),
+            ("culture-p27", 1, "danse traditionnelle", "oublie des pas", "forgets steps"),
+            ("culture-p27", 1, "Sa sœur", "sa sœur", "her sister"),
             ("culture-p30", 1, "plusieurs semaines", "plusieurs semaines", "several weeks"),
             ("culture-p31", 2, "partenariat rémunéré", "partenariat rémunéré", "paid partnership"),
         ):

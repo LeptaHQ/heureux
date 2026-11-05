@@ -25,7 +25,11 @@ The language target is NCLC 7 preparation, not a promised score. Prefer familiar
 words and short, connected sentences that are easy to learn and remember.
 
 The introduction answers the exact issue and orients the listener without
-announcing the whole answer twice. Each argument has a distinct claim, an
+announcing the whole answer twice. Match the requested perspective: a general
+question about parents calls for an opinion about parents, not an unexplained
+hypothetical decision as a parent. Keep natural first-person opinions, and use
+personal experience or direct advice when the actual question calls for them.
+Each argument has a distinct claim, an
 explanation of how or why it works, a plausible situated illustration and a
 proportionate consequence. Examples must do more than repeat the claim.
 The nuance addresses a real condition, limitation or trade-off; the conclusion
@@ -33,6 +37,10 @@ synthesizes without a new argument.
 Read the response as a conversation between two friends: each idea should give
 the listener a reason to follow the next one. Use a transition that expresses the
 actual connection, rather than relying on numbered points to create coherence.
+Name the subject when explaining a condition: "L'amitié suppose qu'on puisse
+s'écouter" states what friendship requires, rather than sounding like an
+instruction to the listener. Keep direct advice where the question calls for it;
+do not mechanically remove every "il faut".
 
 Prefer precise ordinary language, manageable sentences and reusable constructions.
 Retain sound wording. Reuse a mechanism only where it answers the prompt:
@@ -162,7 +170,11 @@ excluded from the canonical French annotation stream. Their Highlight action
 uses separate, revision-scoped English anchors; French notes and translated
 notes must never use those anchors. Controls remain outside annotation/selection
 tools. Retain the provider original and a review note whenever an English
-post-edit is needed.
+post-edit is needed. A revised public block can also receive an editorial
+translation without a provider call; label it accurately rather than inventing
+a DeepL original. When correcting an existing editorial translation, retain its
+complete preceding row in `editorial_history` and explain the correction in the
+current `review_note`.
 
 Benefits do not establish necessity. When a consigne says "indispensable", a
 balanced answer can develop two substantial benefits and a supported reason why
@@ -247,6 +259,16 @@ Culture partition retains its existing memberships: four repeated Culture pairs
 and four cross-theme equivalent publications. Related prompts share suitable
 language and mechanisms, not an answer to a different question.
 
+For the Culture reread, compare the user's
+[Culture responses notebook](https://dot-ear-743.notion.site/Responses-32b2e3acbb10806aaec0c9fd2368c252)
+for useful reasons and familiar wording, without restoring unsupported
+generalisations. Keep the approved book-utility and friendship-for-happiness
+models unchanged; the shared arts model remains aligned with Education.
+Useful relationships with compatriots or local residents are not necessarily
+indispensable. Learning about a culture, learning its language and travelling
+there are distinct questions. Preserve the difference between a possible risk
+and an automatic outcome when discussing television or forgetting one's origins.
+
 The Famille audit likewise retains only its two existing equivalent pairs
 (truth with children; money for grades). Staying with parents for wellbeing
 and the practicality of living with them after 25 remain distinct questions,
@@ -265,6 +287,24 @@ school priority is not exclusivity; university access is not unconditional
 admission. Internet communication with a teacher is not learning entirely alone.
 The Quebec-preparation response states three actual questions; its bilingual
 plan uses declarative memory cues rather than changing those questions.
+
+For the Education reread, also compare the user's
+[Education responses notebook](https://dot-ear-743.notion.site/3972e3acbb1080f99f15f1626756c39d).
+Recover its useful reasons and familiar expressions, not claims that age,
+personality, grades or a diploma determine someone's future. Keep the approved
+book-utility model and its bilingual plan unchanged, including Education P8.
+Shared arts, salary, child-development and university answers must still address
+every publication in their group.
+
+Make the learning examples show an actual change: understanding a question,
+correcting a mistake, explaining an observation or applying a method. Access to
+information is not proof of its reliability; watching a demonstration is not
+supervised practice; a teacher answering online is still another person's help.
+For study and grades, distinguish knowledge, access to a qualification,
+confidence and financial opportunities rather than counting the same opened
+door twice. A salary comparison needs substantive reasons, not merely different
+numbers of hours. Limits on expression must leave room for criticism and
+disagreement; an uncomfortable opinion is not itself a threat.
 
 For Santé, retain separate answers for encouraging competition and obliging
 sport, general screen time and video-game-specific risks, meat exclusion and

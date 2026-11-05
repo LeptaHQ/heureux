@@ -33,12 +33,17 @@ class SharedFriendshipEditorialTests(SimpleTestCase):
             self.assertIn(phrase, response.arguments[0].exemple)
         for argument, demonstration in (
             (response.arguments[1], "son conjoint"),
-            (response.arguments[2], "sa récolte"),
+            (response.arguments[2], "apprend le piano chez elle"),
         ):
             self.assertIn("Une personne qui n'a pas d'amis", argument.exemple)
             self.assertIn(demonstration, argument.exemple)
         self.assertIn("voir le résultat de ses efforts", response.arguments[2].developpement)
-        for phrase in ("ses semis", "pendant plusieurs mois", "un but", "la fierté"):
+        for phrase in (
+            "Après plusieurs semaines d'entraînement",
+            "du début à la fin",
+            "de la joie en le rejouant",
+            "de la fierté en constatant ses progrès",
+        ):
             self.assertIn(phrase, response.arguments[2].exemple)
         self.assertIn("en dehors d'une relation amicale", response.arguments[2].consequence)
         self.assertIn("solitude choisie", response.nuance)
@@ -63,6 +68,6 @@ class SharedFriendshipEditorialTests(SimpleTestCase):
             )
         for cue in plan.arguments[1:]:
             self.assertIn("Sans avoir d'amis", cue.example.french)
-            self.assertIn("without", cue.example.english)
+            self.assertIn("without", cue.example.english.casefold())
             self.assertIn("friends", cue.example.english)
             self.assertNotIn("local", cue.example.english)

@@ -285,8 +285,9 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("sans menaces ni humiliation", response(12).nuance)
         self.assertIn("propose de commencer ses devoirs à dix-sept heures", response(12).arguments[2].exemple)
         self.assertIn("bilinguisme parfait n'est pas garanti", response(13).nuance)
-        self.assertIn("conseils de l'enseignant", response(13).arguments[2].exemple)
-        self.assertIn("demander du papier", response(13).arguments[2].exemple)
+        self.assertIn("parents qui parlent encore peu la langue locale", response(13).arguments[2].exemple)
+        self.assertIn("club de football", response(13).arguments[2].exemple)
+        self.assertIn("discuter avec ses coéquipiers", response(13).arguments[2].exemple)
         self.assertIn("voire aucune tâche", response(14).nuance)
         self.assertIn("vérifie le stock", response(14).arguments[2].exemple)
         self.assertIn("après 25 ans", response(16).position_claire)
@@ -654,7 +655,9 @@ class TacheThreeModelContentTests(SimpleTestCase):
         cue = catalogue.tache_three_subject_hints()[model.group].arguments[1].example
         self.assertIn("Sans avoir d'amis", cue.french)
         self.assertIn("without having friends", cue.english)
-        self.assertIn("récolte", response.arguments[2].exemple)
+        self.assertIn("apprend le piano", response.arguments[2].exemple)
+        self.assertIn("du début à la fin", response.arguments[2].exemple)
+        self.assertIn("de la joie", response.arguments[2].exemple)
         self.assertEqual(
             {key for key, _ in model.source_prompts}, {"culture:p16", "famille:p8"},
         )
@@ -775,7 +778,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p15", 2, "fufu", "fufu", "fufu"),
             ("culture-p15", 2, "manioc", "manioc", "cassava"),
             ("culture-p16", 1, "conjoint", "conjoint", "partner"),
-            ("culture-p16", 2, "récolte", "récolte", "harvest"),
+            ("culture-p16", 2, "piano", "piano", "piano"),
             ("culture-p18", 1, "phrase trop brusque", "phrase trop brusque", "blunt sentence"),
             ("culture-p19", 2, "projet de logements", "projet de logements", "housing proposal"),
             ("culture-p20", 2, "motif de feuilles", "motif de feuilles", "leaf pattern"),

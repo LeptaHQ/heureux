@@ -189,7 +189,7 @@ class TacheThreeReuseTests(SimpleTestCase):
             self.assertIn(shared, self.response(group).arguments[index].developpement)
         self.assertNotIn("s'entraider", self.response("famille-p9").arguments[1].developpement)
         self.assertIn("s'entraider", self.response("culture-p24").arguments[0].developpement)
-        self.assertIn("cartons", self.response("famille-p9").arguments[0].exemple)
+        self.assertIn("consultation de suivi à l'hôpital", self.response("famille-p9").arguments[0].exemple)
         self.assertIn("chorale", self.response("famille-p9").arguments[2].exemple)
 
     def test_family_and_compatriot_trust_share_words_not_an_identity_guarantee(self):

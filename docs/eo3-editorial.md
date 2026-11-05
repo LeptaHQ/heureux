@@ -494,10 +494,14 @@ main argument. Regular contact can maintain or restore knowledge without making
 cultural continuity either inevitable or solely a matter of willpower.
 
 The cuisine answer distinguishes mealtime customs, recipes as traces of the past,
-and practical cultural learning despite limited shared language. A household's
-work schedule or a relative's anecdote is not, on its own, evidence of a wider
-culinary tradition. The Senegalese meal example uses documented eating etiquette
-associated with [ceebu jën](https://ich.unesco.org/fr/RL/le-ceebu-jen-art-culinaire-du-senegal-01748).
+and practical cultural learning despite limited shared language. Explain what
+meal organisation can reveal about work rhythms and family exchanges, rather than
+merely listing times, companions and ways of sharing food. A household's schedule
+is not, on its own, evidence of a national timetable or wider culinary tradition.
+The Senegalese illustration retains the documented shared-dish practice associated
+with [thieboudienne](https://en.wikipedia.org/wiki/Thieboudienne).
+Its hosts explain the meaning of their evening meal for their own household;
+the visitor does not infer a whole country's priorities from a single plate.
 The Portuguese salt-cod example connects a culinary preparation to
 [historical sea voyages](https://www.asae.gov.pt/newsletter2/asaenews-n-118-dezembro-2019/o-bacalhau-e-a-autenticidade-alimentar.aspx)
 and its [continued place in local diets](https://www.eeagrants-2014-2021.gov.pt/pt/programas/crescimento-azul/projetos/projetos/era-uma-vez-um-peixe-chamado-bacalhau/).
@@ -561,6 +565,10 @@ actual comparison or action: two Internet subscriptions instead of one, a
 housing-cost comparison, an identified misread maths instruction, or seeking help with
 a damaged library book. Trust between relatives must be demonstrated by keeping
 a confidence and respecting a differing choice, not assumed from kinship.
+Link differing interests to choosing a friend for a particular activity, rather
+than jumping from family affection to a general definition of friendship.
+Keep this affinity argument distinct from freedom to confide and earned trust;
+shared hobbies are neither necessary nor sufficient for close friendship.
 
 Compare Culture before inventing alternative wording. The family-distance answer
 reuses Culture's Sunday call followed by a meal alone, with the same bilingual

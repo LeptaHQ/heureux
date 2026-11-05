@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T04:22:01.253132+00:00",
+  "generated_at": "2026-11-04T08:41:37.364664+00:00",
   "groups": {
     "eo/tache-3/culture-p1": {
       "022ba7408875e257c3e9a06a9eea99bdc30d10b35bdb3b2a5e56152e3f79c74d": {
@@ -440,6 +440,10 @@
         "english": "Meals do not merely show what people eat. They also reveal ways of serving and eating that are passed down from one generation to the next.",
         "french": "Les repas ne montrent pas seulement ce qu'on mange. Ils font aussi découvrir des façons de servir et de manger qu'on se transmet entre générations."
       },
+      "4392047831226b6811c5587acb96c325d8100a50511d5824360c8d5aa657c3c8": {
+        "english": "Meal times can reflect the rhythm of work. The time spent eating together can also reveal the importance placed on family interaction. It is therefore not just what we eat that tells us something, but also how meals are organised.",
+        "french": "Les horaires des repas peuvent refléter le rythme du travail. Le temps qu'on prend pour manger ensemble peut aussi montrer la place donnée aux échanges en famille. Ce n'est donc pas seulement ce qu'on mange qui nous renseigne, mais aussi l'organisation des repas."
+      },
       "45e8da5754f1dc0d7bd3b32ac92d9d2d7271fa11e33595d620229481f9b8af4b": {
         "english": "Yes, cuisine can help us discover part of a country’s culture. Meals reveal certain ways of life, recipes tell a story, and we can also learn by cooking for ourselves. But simply tasting a dish is not enough to understand everything.",
         "french": "Oui, la cuisine peut nous faire découvrir une partie de la culture d'un pays. Les repas montrent certaines habitudes de vie, les recettes racontent une histoire, et on peut aussi apprendre en cuisinant soi-même. Mais goûter un plat ne suffit pas à tout comprendre."
@@ -499,6 +503,12 @@
         "english": "The visitor therefore discovers a custom of the country, not just a new dish.",
         "french": "Le visiteur découvre donc une habitude du pays, pas seulement un nouveau plat.",
         "review_note": "Retain the particular visitor in the example instead of generalising to all visitors."
+      },
+      "866f5d95cb3ba9123bc46b49dfb3438abd8392541656014e1881932bd46f284b": {
+        "deepl_english": "In this way, he comes to understand how this family organises their day to ensure they spend time together.",
+        "english": "The visitor thus understands how this family organises its day to set aside time together.",
+        "french": "Il comprend ainsi comment cette famille organise sa journée pour garder un moment en commun.",
+        "review_note": "Retain this family and its purpose, with a clear visitor referent, without strengthening the result to a general guarantee."
       },
       "8fb9a76ed9f921b6bdf5e4795b9c0b952f160b210bf2fe36de364d3c5afc8608": {
         "deepl_english": "Meal times and eating habits are also part of the culture. By sharing a meal with locals, we can discover these customs.",
@@ -561,6 +571,12 @@
         "english": "The visitor thus discovers a way of sharing a meal, not just a new flavour.",
         "french": "Il découvre ainsi une façon de partager le repas, pas seulement une nouvelle saveur.",
         "review_note": "Il refers to the visitor in the preceding example, not to an unexplained we."
+      },
+      "e2abba91b9f655934cf95214bef179c3314395ed3c4ac333993ad4d5e3eca048": {
+        "deepl_english": "In Senegal, a visitor shares a meal of rice and fish with his hosts, from the same large dish. They explain that this evening meal gives them a chance to chat after work.",
+        "english": "In Senegal, a visitor and their hosts share a meal of rice and fish from the same large dish. The hosts explain that this evening meal gives them a chance to talk after work.",
+        "french": "Au Sénégal, un visiteur partage un repas de riz et de poisson avec ses hôtes, dans le même grand plat. Ils lui expliquent que ce repas du soir leur permet de discuter après le travail.",
+        "review_note": "Keep the generic visitor gender-neutral and identify the hosts as the people explaining their own evening meal."
       },
       "e42429724bb9bdab36107f3227f7c4eb724367c2cdc6cc6277c21cead2f122b6": {
         "english": "So we learn one way of cooking from that country, even without speaking the language very well.",
@@ -645,6 +661,10 @@
       "ee985c6efc35e4b9b6a4b62583c2940b38ff5e80da541dc5f52433532e59681f": {
         "english": "In my view, it is possible to be happy without friends, even though friendship has much to offer. A friend’s support is invaluable, but other emotional bonds and personal pursuits can also make life fulfilling. Everyone’s needs are different.",
         "french": "À mon avis, on peut être heureux sans avoir d'amis, même si l'amitié apporte beaucoup. Le soutien d'un ami est précieux, mais d'autres liens affectifs et des activités personnelles peuvent aussi rendre la vie satisfaisante. Les besoins ne sont pas les mêmes pour tous."
+      },
+      "fa2763245d70004cc61885aa2d08c21d938b76f1ea7dc4da5e724947df0030e3": {
+        "english": "A person who has no friends is learning to play the piano at home. After several weeks of practising, they manage to play a piece they love from start to finish. They feel joy when playing it again and pride in seeing the progress they have made.",
+        "french": "Une personne qui n'a pas d'amis apprend le piano chez elle. Après plusieurs semaines d'entraînement, elle parvient à jouer un morceau qu'elle aime du début à la fin. Elle éprouve de la joie en le rejouant et de la fierté en constatant ses progrès."
       },
       "fa7eaee44ea082df44165d99841d5ae7e56fb1068c26f4dab3791dc3a2b52530": {
         "english": "However, we must distinguish between chosen solitude and isolation that causes suffering. If the lack of friendships becomes a burden, seeking opportunities to meet people can be important. I therefore do not recommend living without friends.",
@@ -5465,8 +5485,10 @@
         "french": "Ensuite, des limites sont nécessaires pour préserver le sommeil et la concentration."
       },
       "292f5c30b1110b3f9172e67ec8bab5f537be4a98b1346aa9abaf4212280d47ad": {
-        "english": "In conclusion, I am in favour of gradual access, not of unlimited freedom. Social media can help maintain connections, provided that we ensure we get enough rest and know how to ask for help.",
-        "french": "En conclusion, je suis pour un accès progressif, pas pour une liberté sans limites. Les réseaux sociaux peuvent aider à garder des liens, à condition de préserver le repos et de savoir demander de l'aide."
+        "deepl_english": "In conclusion, I am in favour of gradual access, not of unlimited freedom. Social media can help maintain connections, provided that we ensure we get enough rest and know how to ask for help.",
+        "english": "In conclusion, I am in favour of gradual access, not of unlimited freedom. Social media can help maintain connections, provided that the teenager gets enough rest and knows how to ask for help.",
+        "french": "En conclusion, je suis pour un accès progressif, pas pour une liberté sans limites. Les réseaux sociaux peuvent aider à garder des liens, à condition de préserver le repos et de savoir demander de l'aide.",
+        "review_note": "The condition concerns the teenager's rest and ability to ask for help, not the speaker's or a general group's; keep that referent explicit."
       },
       "2ee9d781843676cd40d21ba1a2b1d17ab6587d06d95ada1df2eb548f2913378e": {
         "english": "Yes, parents can allow a teenager to use social media, but with gradual and supervised access. These tools can help them stay in touch with friends. However, it is important to ensure they get enough sleep and to teach them to ask for help if they encounter any problems.",
@@ -5548,6 +5570,10 @@
         "english": "You can love a family member whilst having very different tastes and interests. A friendship is also nurtured by the moments that the two people choose to share together.",
         "french": "On peut aimer un proche tout en ayant des goûts et des envies très différents. Une amitié se nourrit aussi de moments que les deux personnes choisissent de vivre ensemble."
       },
+      "c04ac7d8c34a3e0080298669b6e4b124f830714bfd3bb046e4fdfa8c9da96b6c": {
+        "english": "You can love a family member whilst having very different tastes and interests. For certain activities, you may therefore prefer the company of a friend who shares your interests.",
+        "french": "On peut aimer un proche tout en ayant des goûts et des envies très différents. Pour certaines activités, on peut donc préférer la compagnie d'un ami qui partage nos centres d'intérêt."
+      },
       "c2c9d2ece524f0c0de26c5409003be2824d3244aec7e9eea02befbfde637863d": {
         "english": "Our family members can be our best friends, but it doesn’t happen automatically. It depends on shared interests, the freedom to talk to one another and the trust we’ve built up. I would therefore look at what we actually share, not just our family ties.",
         "french": "Les membres de notre famille peuvent être nos meilleurs amis, mais ce n'est pas automatique. Cela dépend des affinités, de la liberté de se parler et de la confiance construite. Je regarderais donc ce qu'on partage réellement, pas seulement le lien de parenté."
@@ -5599,8 +5625,10 @@
         "french": "Vivre seul peut être plus facile pour organiser sa journée, mais je ne le dirais pas pour tous les aspects de la vie. Il faut comparer la liberté de décider, les dépenses et le travail quotidien. La vie en famille a des contraintes, mais peut aussi alléger certaines charges."
       },
       "3c0fdc9c3430a23a8eafa35488c5e182b9344837e9858e8ddcc5c8011e84c1bf": {
-        "english": "Someone who comes home late from work can prepare a simple meal and then go to bed. They do not have to wait for a shared dinner or organise their evening around others.",
-        "french": "Une personne qui rentre tard du travail peut préparer un repas simple puis aller se reposer. Elle n'a pas à attendre un dîner commun ni à organiser sa soirée en fonction des autres."
+        "deepl_english": "Someone who comes home late from work can prepare a simple meal and then go to bed. They do not have to wait for a shared dinner or organise their evening around others.",
+        "english": "Someone who comes home late from work can prepare a simple meal and then rest. They do not have to wait for a shared dinner or organise their evening around others.",
+        "french": "Une personne qui rentre tard du travail peut préparer un repas simple puis aller se reposer. Elle n'a pas à attendre un dîner commun ni à organiser sa soirée en fonction des autres.",
+        "review_note": "Se reposer allows resting without going to bed; preserve the same person's freedom to organise their evening without narrowing rest to sleep."
       },
       "5594f9be63998d2ab36c1f3cac821069f155a88bb97f54fac58810c148f1a34f": {
         "english": "In a couple, one person comes home early and prepares dinner. The other finishes late that evening but will do the shopping the next day. The meal is already ready when they return, allowing them to rest.",
@@ -5726,6 +5754,10 @@
         "english": "This allows for detailed discussions about how the child is feeling, rather than limiting communication.",
         "french": "On peut ainsi parler en détail de ce que l'enfant ressent, au lieu de limiter les échanges."
       },
+      "38c7faffaa99a7b242820f05599d73ee8789378ced4b826367c515a88c4f06aa": {
+        "english": "If parents are more comfortable in their mother tongue, giving it up may limit conversations. By continuing to speak it, they can tell a story, give advice or understand what is troubling their child without constantly having to search for the right words.",
+        "french": "Si les parents sont plus à l'aise dans leur langue maternelle, l'abandonner peut limiter les conversations. En continuant à la parler, ils peuvent raconter une histoire, donner un conseil ou comprendre ce qui préoccupe l'enfant sans chercher sans cesse leurs mots."
+      },
       "485c2c67f9bf27a9347d0bd2a3a4a32e6808f613dbfd2e216c143663d3878a3e": {
         "english": "In conclusion, parents do not need to give up their own language to help their children integrate. They can continue to use it within the family whilst also encouraging the use of the local language. The two languages can complement each other.",
         "french": "En conclusion, les parents n'ont pas besoin d'abandonner leur langue pour aider leurs enfants à s'intégrer. Ils peuvent la garder dans les échanges familiaux et soutenir aussi la pratique de la langue du pays. Les deux langues peuvent se compléter."
@@ -5733,6 +5765,10 @@
       "50e7be6daa4b785b4da9da22acca320f9fcc90fd4875717d1b2f530b6b8d2bef": {
         "english": "Understanding instructions and taking part in conversations makes school life and activities easier. Parents can support this learning even if they do not yet have a good command of the language.",
         "french": "Comprendre les consignes et participer aux échanges facilite la vie scolaire et les activités. Les parents peuvent soutenir cet apprentissage même lorsqu'ils ne maîtrisent pas encore cette langue."
+      },
+      "57e4e6c89e434f2b8a7cf5b34ba9c4e332098cea24af5d178330a3d93fb4c7f4": {
+        "english": "Parents who still speak the local language only a little enrol their child in a football club. As training sessions go on, the child learns to understand the coach’s instructions and to chat with their teammates.",
+        "french": "Des parents qui parlent encore peu la langue locale inscrivent leur enfant dans un club de football. Au fil des entraînements, il apprend à comprendre les consignes de l'entraîneur et à discuter avec ses coéquipiers."
       },
       "77c2c3c984e3948a92c6981917cbef6bf6a0d5520bbc72633476f4ba00a8da86": {
         "english": "In this way, the child learns to talk to other people and take part in activities in their local community.",
@@ -5839,8 +5875,10 @@
         "french": "Un adulte peut préparer le dîner les jours où il termine tôt, tandis que ses parents font les courses un autre jour. Ils définissent les rôles à l'avance, sans que les parents aient à tout organiser et rappeler."
       },
       "17ea72fa7aa987b47e90136b63745b85ac7e67a31e70796aeb45c4ee2025ee01": {
-        "english": "After a break-up, a 28-year-old might feel lonely in their flat in the evenings. Living with their parents, they can enjoy shared meals and have someone to talk to. They organise their own nights out without having to ask permission: they no longer have to go through this period alone.",
-        "french": "Après une séparation, une personne de vingt-huit ans se sent seule le soir dans son appartement. Chez ses parents, elle retrouve des repas partagés et quelqu'un avec qui parler. Elle organise elle-même ses sorties, sans devoir demander la permission : elle n'a plus à traverser cette période seule."
+        "deepl_english": "After a break-up, a 28-year-old might feel lonely in their flat in the evenings. Living with their parents, they can enjoy shared meals and have someone to talk to. They organise their own nights out without having to ask permission: they no longer have to go through this period alone.",
+        "english": "After a break-up, a 28-year-old might feel lonely in their flat in the evenings. Living with their parents, they can enjoy shared meals and have someone to talk to. They organise their own outings without having to ask permission: they no longer have to go through this period alone.",
+        "french": "Après une séparation, une personne de vingt-huit ans se sent seule le soir dans son appartement. Chez ses parents, elle retrouve des repas partagés et quelqu'un avec qui parler. Elle organise elle-même ses sorties, sans devoir demander la permission : elle n'a plus à traverser cette période seule.",
+        "review_note": "Sorties means outings in general; it does not restrict this adult's independent plans to nights out."
       },
       "37584e10c9fe2d5b6a62b83e151d67109cc9ac169a835f64b02a7e490bde6b8a": {
         "english": "Preparing a meal or doing the shopping for several people can sometimes save everyone from having to do it separately. This works if the adults genuinely pitch in, rather than leaving the parents to do everything.",
@@ -5978,6 +6016,12 @@
         "english": "In conclusion, I recommend listening to older people with respect, but not obeying them automatically. Experience, active listening and adapting to the context are what make advice valuable, far more so than age alone.",
         "french": "En conclusion, je recommande d'écouter les aînés avec respect, mais pas d'obéir automatiquement. L'expérience, l'écoute et l'adaptation au contexte font la qualité d'un conseil, bien davantage que l'âge seul."
       },
+      "7a968ce9f397a8282a172f77d14f79b6e228ecfafcec12e9287d9865c41970ef": {
+        "deepl_english": "A loved one who listens to our wishes and constraints can help us weigh up various options to find the one that suits us best. This quality depends on the relationship, not automatically on their age.",
+        "english": "Someone close to us who listens to what we want and the constraints we face can help us compare several options to find one that suits us. This quality depends on the relationship, not automatically on their age.",
+        "french": "Un proche qui écoute nos envies et nos contraintes peut nous aider à comparer plusieurs possibilités pour trouver celle qui nous convient. Cette qualité dépend de la relation, pas automatiquement de son âge.",
+        "review_note": "Keep un proche broad and the listening/constraints wording natural; finding a suitable option does not claim it is the best one."
+      },
       "801dcc672233acbb7ef52a8d6048721e43e9898dc4682e56085a7f9e4ee382cc": {
         "english": "Someone who has been through a similar situation can explain what went wrong and what they would do differently. Their account can help us avoid a mistake, without us having to follow exactly in their footsteps.",
         "french": "Une personne qui a traversé une situation proche peut expliquer ce qui a mal tourné et ce qu'elle ferait autrement. Son récit peut nous éviter une erreur, sans qu'on soit obligé de reproduire exactement son parcours."
@@ -6102,6 +6146,12 @@
         "english": "Loved ones can offer advice from a distance without being able to travel to see you or provide immediate assistance. You therefore need to find other sources of support and plan ahead more carefully for certain situations.",
         "french": "Les proches peuvent conseiller à distance sans pouvoir faire un déplacement ou rendre un service immédiat. Il faut alors qu'on trouve d'autres appuis et qu'on prévoie davantage certaines situations."
       },
+      "2bc5b37cf1ba625230bc94c180e790716825f2475c29c81e2e56804030d3554c": {
+        "deepl_english": "Loved ones can offer advice from afar without being able to travel to see you or provide immediate assistance. You therefore need to find other sources of support locally and know who to call in the event of an emergency.",
+        "english": "People close to us can offer advice from a distance without being able to make a journey or provide immediate help. We then need to find other support locally and know who to call when something unexpected happens.",
+        "french": "Les proches peuvent conseiller à distance sans pouvoir faire un déplacement ou rendre un service immédiat. Il faut alors qu'on trouve d'autres appuis sur place et qu'on sache qui appeler en cas d'imprévu.",
+        "review_note": "An imprévu can be an unexpected scheduling problem, not an emergency; the unavailable journey need not be a visit to the speaker."
+      },
       "40b08266025ed82c4140f29af4770b6db3c1426d7fa4f82a1c94aa74aa5591d0": {
         "english": "In conclusion, living far from one’s family isn’t necessarily easy: you have to cope with missing them, find support locally and plan visits. Phone calls and the connections you build with those around you can help, though they cannot replace all those moments spent with family.",
         "french": "En conclusion, vivre loin de sa famille n'est pas forcément facile : il faut gérer le manque, trouver de l'aide sur place et prévoir les visites. Les appels et les liens qu'on crée autour de soi peuvent aider, sans remplacer tous les moments en famille."
@@ -6174,6 +6224,10 @@
         "english": "First and foremost, the child may end up working mainly for the reward.",
         "french": "Tout d'abord, l'enfant peut finir par travailler surtout pour la récompense."
       },
+      "7168cb99f2152fbb299a0a6d53ea01d3a2905b11699f327c62faefc3602b208f": {
+        "english": "The child may therefore feel that their efforts are not recognised, despite their progress.",
+        "french": "L'enfant peut donc avoir l'impression que ses efforts ne sont pas reconnus, malgré ses progrès."
+      },
       "7f48677ce37b8d915d643be67479a36e5b073c8053d0ef7721fc0b02247d918b": {
         "english": "Support is therefore focused on the means of making progress, not just on the result.",
         "french": "Le soutien porte ainsi sur les moyens de progresser, pas seulement sur le résultat."
@@ -6218,6 +6272,10 @@
       }
     },
     "eo/tache-3/famille-p7": {
+      "105083f4ac5778a93c9db5b24c152b38b03406aa8e1d96d18d29b8283c55679f": {
+        "english": "A brother and his sister work together. At a family meal, he criticises her for a late delivery. Their mother takes his side. The sister feels judged by her family for a professional mistake, and relations become strained.",
+        "french": "Un frère et sa sœur travaillent ensemble. Au repas familial, il lui reproche une livraison en retard. Leur mère prend parti pour lui. La sœur se sent jugée par sa famille pour une erreur professionnelle, et les relations se tendent."
+      },
       "1367c29970b3b350cf04400cb31c3a783b3b68e7b63f2be26f9af415a7316153": {
         "english": "I don’t think you should always avoid working with a family member. It can work well, but family ties are no substitute for skills. You also need to know how to divide up responsibilities and protect the personal relationship.",
         "french": "Je ne pense pas qu'il faille toujours éviter de travailler avec un membre de sa famille. Cela peut bien fonctionner, mais le lien familial ne remplace pas les compétences. Il faut aussi savoir répartir les responsabilités et protéger la relation personnelle."
@@ -6312,6 +6370,10 @@
         "english": "In conclusion, friends can make life easier, help us feel less lonely and encourage us to try new activities. They have a lot to offer, without being essential to everyone: other relationships can also enable us to live well.",
         "french": "En conclusion, les amis peuvent faciliter la vie, aider à se sentir moins seul et nous encourager à essayer de nouvelles activités. Ils apportent beaucoup, sans être indispensables à chacun : d'autres relations peuvent aussi nous permettre de bien vivre."
       },
+      "7f20d2c130ab823fddfb6cbcebf8a7e613e18ab01971e1f48c13f61f14b800bf": {
+        "english": "Joining a group where you don’t know anyone can be daunting. Going along with a friend can make that first step easier, without them making the decision for you. You then feel confident enough to give it a go, rather than giving up on an activity that appeals to you.",
+        "french": "Entrer dans un groupe où l'on ne connaît personne peut être intimidant. Y aller avec un ami peut rendre le premier pas plus facile, sans qu'il décide à notre place. On ose alors essayer, plutôt que renoncer à une activité qui nous attire."
+      },
       "85969da96f6026bf7a72718d8e5d73de0fb53360d7a73343b1f4291a21369c0a": {
         "deepl_english": "When moving house, a person might ask a friend to help carry a few boxes for an hour. They agree on a time and what is feasible, and then she can return the favour on another occasion.",
         "english": "When moving house, a person might ask a friend to help carry a few boxes for an hour. They agree on a time and what is feasible, and the person moving can then return the favour on another occasion.",
@@ -6322,9 +6384,25 @@
         "english": "First and foremost, a trusted friend can provide practical help with day-to-day life.",
         "french": "Tout d'abord, un ami de confiance peut apporter une aide concrète dans le quotidien."
       },
+      "9ab515052fedebd3f09c1e65a28e8cbcb93e68f4245cce95ca54e4026aa97932": {
+        "english": "First and foremost, a trusted friend can offer practical help when you’re struggling to cope on your own.",
+        "french": "Tout d'abord, un ami de confiance peut apporter une aide concrète quand on a du mal à tout gérer seul."
+      },
       "9b827bf08ca857a0001636fe0318745d45f43b7d42fec36b24be31efe71f5bc0": {
         "english": "I recommend nurturing friendships, but it is also possible to live well without friends. Needs and other relationships vary. Above all, friendship provides practical support, a regular presence and an openness to new experiences.",
         "french": "Je recommande de cultiver des amitiés, mais on peut aussi bien vivre sans amis. Les besoins et les autres relations varient. L'amitié apporte surtout un soutien concret, une présence régulière et une ouverture à d'autres expériences."
+      },
+      "9cf47674a7e923bd6d79087992324d3f2da9cac3d3bf6840a5e3ebf89cb563f5": {
+        "deepl_english": "She can therefore attend her appointment without having to make a difficult journey on her own.",
+        "english": "The person can therefore attend the appointment without having to manage a difficult journey alone.",
+        "french": "Elle peut ainsi se rendre à sa consultation sans devoir assurer seule un trajet difficile.",
+        "review_note": "Keep the gender-unspecified person receiving help as the clear subject, consistently with the preceding example."
+      },
+      "a82d7f687ee8611f87a7eb0c881a502f922654259fdfd0bc5184dfe14b5da78b": {
+        "deepl_english": "When you’re hesitant to join a group where you don’t know anyone, going along with a friend can make that first step easier. You’ll then feel confident enough to give it a go, rather than giving up on an activity that appeals to you.",
+        "english": "When we hesitate to join a group where we do not know anyone, going with a friend can make the first step easier. We then feel able to give it a try, rather than giving up on an activity that appeals to us.",
+        "french": "Quand on hésite à entrer dans un groupe où l'on ne connaît personne, y aller avec un ami peut rendre le premier pas plus facile. On ose alors essayer, plutôt que renoncer à une activité qui nous attire.",
+        "review_note": "Preserve the collective viewpoint and present hypothetical mechanism without adding a future guarantee of confidence."
       },
       "b2e8b08bc1dbd75218f820f000d713fb2d593b7edb55a8d06a826fae298c33f4": {
         "english": "However, not having friends does not mean living without any connections. A person without friends can share their daily life with their partner and rely on their sister for a helping hand. These connections can enable them to live a fulfilling life without a circle of friends. A distinction must be made between chosen solitude and isolation that causes suffering.",
@@ -6334,9 +6412,19 @@
         "english": "Furthermore, friendship can provide regular companionship when one feels lonely.",
         "french": "Ensuite, l'amitié peut apporter une présence régulière quand on se sent seul."
       },
+      "c7317f067e410fd4f022e653ad0d75b87ae23bc5885dfdc425058b76eb1efed3": {
+        "english": "A person who is ill has to go to a follow-up appointment at the hospital. A friend comes to collect them, accompanies them to the department where they have their appointment, and then takes them back home.",
+        "french": "Une personne malade doit se rendre à une consultation de suivi à l'hôpital. Un ami vient la chercher, l'accompagne jusqu'au service où elle a rendez-vous, puis la ramène chez elle."
+      },
       "c855d9c95b691f07fbd2ce8598add9d567f1d32efbe29e3e64e1dad8a13b4bba": {
         "english": "Someone who would like to sing but doesn’t dare might accompany a friend to a trial session with a choir. They can get a feel for the atmosphere before deciding whether they want to continue, rather than giving up without even trying.",
         "french": "Une personne qui aimerait chanter mais n'ose pas peut accompagner un ami à une séance d'essai dans une chorale. Elle découvre l'ambiance avant de décider si elle souhaite continuer, plutôt que de renoncer sans avoir essayé."
+      },
+      "c95c73103e61f1853e76e88147e2d4842588b75e0621c30bd241357602991aba": {
+        "deepl_english": "When we are ill or very tired, getting out and about can become difficult. A friend who is available can take over the driving and accompany us.",
+        "english": "When we are ill or very tired, making a journey can become difficult. A friend who is available can take care of transport and accompany us.",
+        "french": "Quand on est malade ou très fatigué, un déplacement peut devenir difficile. Un ami disponible peut prendre le relais pour le transport et nous accompagner.",
+        "review_note": "The source specifies transport and accompaniment, not a car or driving; retain that unspecified mode."
       },
       "ca7250bb47848b01271ffd81969243bbd04127bf30054cf38c7ad14b92a95bdd": {
         "english": "Finally, friends can encourage us to try new activities.",
@@ -6345,6 +6433,10 @@
       "d7f2ff6b616bc0735b0fca9566442fc8aa77a7a9f2ec5058524bcc31888190e0": {
         "english": "Helping one another makes certain difficulties less of a burden to bear alone.",
         "french": "S'entraider rend certaines difficultés moins lourdes à porter seul."
+      },
+      "e1776c168429c9cd66d1f402c6d24d278e16a8da72f6f4451822024af1ac001f": {
+        "english": "This means we can discover an activity we enjoy, rather than giving it up out of hesitation.",
+        "french": "On peut ainsi découvrir une activité qui nous plaît, au lieu d'y renoncer par hésitation."
       }
     },
     "eo/tache-3/sante-p1": {
@@ -8919,7 +9011,7 @@
     }
   },
   "provider": "deepl",
-  "reviewed_at": "2026-11-04T04:22:26.312126+00:00",
+  "reviewed_at": "2026-11-04T08:42:14.463904+00:00",
   "source_language": "FR",
   "target_language": "EN-GB",
   "version": 1

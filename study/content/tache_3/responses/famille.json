@@ -80,7 +80,7 @@
         },
         {
           "idea": "Ensuite, un proche qui nous connaît bien peut mieux tenir compte de nos besoins.",
-          "developpement": "Un proche qui écoute nos envies et nos contraintes peut nous aider à distinguer notre projet des attentes des autres. Cette qualité dépend de la relation, pas automatiquement de son âge.",
+          "developpement": "Un proche qui écoute nos envies et nos contraintes peut nous aider à comparer plusieurs possibilités pour trouver celle qui nous convient. Cette qualité dépend de la relation, pas automatiquement de son âge.",
           "exemple": "Un étudiant hésite entre deux écoles. Sa tante âgée connaît son goût pour la pratique : ils comparent la place des ateliers dans les programmes. Il découvre que l'une propose surtout des cours théoriques, alors que l'autre correspond mieux à sa façon d'apprendre.",
           "consequence": "Ce conseil aide à choisir, sans décider à la place de l'autre."
         },
@@ -141,7 +141,7 @@
         },
         {
           "idea": "Ensuite, certains besoins demandent une aide disponible sur place.",
-          "developpement": "Les proches peuvent conseiller à distance sans pouvoir faire un déplacement ou rendre un service immédiat. Il faut alors qu'on trouve d'autres appuis et qu'on prévoie davantage certaines situations.",
+          "developpement": "Les proches peuvent conseiller à distance sans pouvoir faire un déplacement ou rendre un service immédiat. Il faut alors qu'on trouve d'autres appuis sur place et qu'on sache qui appeler en cas d'imprévu.",
           "exemple": "Un parent habite maintenant loin des grands-parents, qui récupéraient parfois son enfant à l'école. Un soir où il finit tard, il appelle une voisine de confiance, déjà autorisée à récupérer son enfant. Elle accepte de le faire : il a trouvé un autre relais sur place.",
           "consequence": "L'éloignement ajoute donc parfois une difficulté d'organisation, au-delà du sentiment de manque."
         },
@@ -174,7 +174,7 @@
           "idea": "Ensuite, une note finale ne montre pas tout le travail accompli.",
           "developpement": "Les enfants n'ont pas tous les mêmes facilités ni les mêmes difficultés. Si l'on paie seulement à partir d'une certaine note, on risque de ne pas remarquer les efforts d'un enfant qui progresse plus lentement.",
           "exemple": "Un élève passe de 8 à 12 sur 20 après plusieurs semaines de travail. Mais ses parents ne donnent de l'argent qu'à partir de 15. Il a fait de vrais progrès, sans atteindre le seuil qui déclenche la récompense.",
-          "consequence": "Ce système peut donc laisser un progrès réel sans récompense, alors que l'enfant a travaillé."
+          "consequence": "L'enfant peut donc avoir l'impression que ses efforts ne sont pas reconnus, malgré ses progrès."
         },
         {
           "idea": "Enfin, une prime ne remplace pas l'aide nécessaire pour surmonter un blocage.",
@@ -203,7 +203,7 @@
         {
           "idea": "Ensuite, les désaccords professionnels peuvent déborder sur la vie familiale.",
           "developpement": "Un conflit ne reste pas forcément limité au lieu de travail quand on se retrouve ensuite chez des proches. Les autres membres de la famille peuvent même être entraînés dans un problème qui ne les concerne pas.",
-          "exemple": "Une sœur livre une commande en retard et son frère lui en fait le reproche au repas familial. Leur mère prend parti pour lui. La sœur se sent jugée par sa famille pour une erreur professionnelle, et les relations se tendent.",
+          "exemple": "Un frère et sa sœur travaillent ensemble. Au repas familial, il lui reproche une livraison en retard. Leur mère prend parti pour lui. La sœur se sent jugée par sa famille pour une erreur professionnelle, et les relations se tendent.",
           "consequence": "Le conflit ne touche donc plus seulement les collègues : il abîme aussi les relations familiales."
         },
         {
@@ -225,10 +225,10 @@
       "position_claire": "Je recommande de cultiver des amitiés, mais on peut aussi bien vivre sans amis. Les besoins et les autres relations varient. L'amitié apporte surtout un soutien concret, une présence régulière et une ouverture à d'autres expériences.",
       "arguments": [
         {
-          "idea": "Tout d'abord, un ami de confiance peut apporter une aide concrète dans le quotidien.",
-          "developpement": "Un ami qui connaît notre situation peut donner un conseil adapté ou prendre le relais pour une tâche. On n'a pas à tout organiser seul, même si son aide reste libre et dépend de ses possibilités.",
-          "exemple": "Lors d'un déménagement, une personne peut demander à un ami de l'aider à porter quelques cartons pendant une heure. Ils conviennent du moment et de ce qui est faisable, puis elle pourra lui rendre un service à une autre occasion.",
-          "consequence": "S'entraider rend certaines difficultés moins lourdes à porter seul."
+          "idea": "Tout d'abord, un ami de confiance peut apporter une aide concrète quand on a du mal à tout gérer seul.",
+          "developpement": "Quand on est malade ou très fatigué, un déplacement peut devenir difficile. Un ami disponible peut prendre le relais pour le transport et nous accompagner.",
+          "exemple": "Une personne malade doit se rendre à une consultation de suivi à l'hôpital. Un ami vient la chercher, l'accompagne jusqu'au service où elle a rendez-vous, puis la ramène chez elle.",
+          "consequence": "Elle peut ainsi se rendre à sa consultation sans devoir assurer seule un trajet difficile."
         },
         {
           "idea": "Ensuite, l'amitié peut apporter une présence régulière quand on se sent seul.",
@@ -238,9 +238,9 @@
         },
         {
           "idea": "Enfin, les amis peuvent nous encourager à essayer de nouvelles activités.",
-          "developpement": "Une relation de confiance permet de recevoir un avis différent et d'essayer une activité que l'on n'aurait pas choisie seul. Cette ouverture peut enrichir notre vie sans qu'on soit obligé de suivre tous les conseils.",
+          "developpement": "Entrer dans un groupe où l'on ne connaît personne peut être intimidant. Y aller avec un ami peut rendre le premier pas plus facile, sans qu'il décide à notre place. On ose alors essayer, plutôt que renoncer à une activité qui nous attire.",
           "exemple": "Une personne qui aimerait chanter mais n'ose pas peut accompagner un ami à une séance d'essai dans une chorale. Elle découvre l'ambiance avant de décider si elle souhaite continuer, plutôt que de renoncer sans avoir essayé.",
-          "consequence": "L'ami peut ainsi nous encourager à essayer, sans décider à notre place."
+          "consequence": "On peut ainsi découvrir une activité qui nous plaît, au lieu d'y renoncer par hésitation."
         }
       ],
       "nuance": "Cependant, ne pas avoir d'amis ne veut pas dire vivre sans aucun lien. Une personne sans amis peut partager son quotidien avec son conjoint et compter sur sa sœur pour un coup de main. Ces liens peuvent lui permettre de bien vivre sans cercle amical. Il faut distinguer une solitude choisie d'un isolement qui fait souffrir.",
@@ -256,7 +256,7 @@
       "arguments": [
         {
           "idea": "Tout d'abord, la parenté ne garantit pas des centres d'intérêt communs.",
-          "developpement": "On peut aimer un proche tout en ayant des goûts et des envies très différents. Une amitié se nourrit aussi de moments que les deux personnes choisissent de vivre ensemble.",
+          "developpement": "On peut aimer un proche tout en ayant des goûts et des envies très différents. Pour certaines activités, on peut donc préférer la compagnie d'un ami qui partage nos centres d'intérêt.",
           "exemple": "Une personne peut apprécier les repas avec ses cousins, mais préférer discuter de musique et aller à des concerts avec une amie rencontrée dans une association. Cela ne diminue pas son affection familiale : elle partage simplement autre chose avec cette amie.",
           "consequence": "Les affinités peuvent donc nous rapprocher d'une personne qui n'est pas de notre famille."
         },
@@ -346,7 +346,7 @@
       "arguments": [
         {
           "idea": "Tout d'abord, parler une langue qu'on maîtrise bien permet de mieux échanger avec ses enfants.",
-          "developpement": "Si les parents sont plus à l'aise dans leur langue maternelle, l'abandonner peut limiter les conversations. Ils peuvent raconter une histoire, donner un conseil ou comprendre ce qui préoccupe l'enfant sans chercher sans cesse leurs mots.",
+          "developpement": "Si les parents sont plus à l'aise dans leur langue maternelle, l'abandonner peut limiter les conversations. En continuant à la parler, ils peuvent raconter une histoire, donner un conseil ou comprendre ce qui préoccupe l'enfant sans chercher sans cesse leurs mots.",
           "exemple": "Un enfant rentre triste parce que ses camarades ont refusé de jouer avec lui. Dans la langue familiale, sa mère lui demande ce qui s'est passé et l'écoute. Elle peut le rassurer sans chercher tous ses mots dans une langue qu'elle maîtrise mal.",
           "consequence": "On peut ainsi parler en détail de ce que l'enfant ressent, au lieu de limiter les échanges."
         },
@@ -359,7 +359,7 @@
         {
           "idea": "Enfin, pratiquer la langue locale aide l'enfant à participer à la vie du pays.",
           "developpement": "Comprendre les consignes et participer aux échanges facilite la vie scolaire et les activités. Les parents peuvent soutenir cet apprentissage même lorsqu'ils ne maîtrisent pas encore cette langue.",
-          "exemple": "Sur les conseils de l'enseignant, des parents inscrivent leur enfant à un atelier de la bibliothèque. En fabriquant une marionnette, il apprend à demander du papier et à suivre des consignes dans la langue locale.",
+          "exemple": "Des parents qui parlent encore peu la langue locale inscrivent leur enfant dans un club de football. Au fil des entraînements, il apprend à comprendre les consignes de l'entraîneur et à discuter avec ses coéquipiers.",
           "consequence": "L'enfant apprend ainsi à parler avec d'autres personnes et à participer aux activités près de chez lui."
         }
       ],

@@ -228,15 +228,16 @@ class CultureEditorialTests(SimpleTestCase):
             "La cuisine permet de connaître la culture des pays. Êtes-vous d'accord ?",
         ),))
         customs, history, practice = response.arguments
-        self.assertIn("un moment passé ensemble", customs.developpement)
-        self.assertIn("à quelle heure ils mangent", customs.developpement)
-        self.assertIn("avec qui et comment ils partagent les plats", customs.developpement)
-        self.assertIn("En partageant un repas avec des habitants", customs.developpement)
+        self.assertIn("horaires des repas peuvent refléter le rythme du travail", customs.developpement)
+        self.assertIn("peut aussi montrer la place donnée aux échanges en famille", customs.developpement)
+        self.assertIn("l'organisation des repas", customs.developpement)
         self.assertIn("Au Sénégal", customs.exemple)
         self.assertIn("un repas de riz et de poisson", customs.exemple)
         self.assertIn("dans le même grand plat", customs.exemple)
-        self.assertIn("comment se servir à la main", customs.exemple)
-        self.assertIn("une façon de partager le repas", customs.consequence)
+        self.assertIn("Ils lui expliquent", customs.exemple)
+        self.assertIn("repas du soir leur permet de discuter après le travail", customs.exemple)
+        self.assertIn("cette famille organise sa journée", customs.consequence)
+        self.assertIn("garder un moment en commun", customs.consequence)
         self.assertNotIn("sa femme finit tard", customs.exemple)
         self.assertNotIn("En observant et en posant des questions", response.arguments[0].developpement)
         self.assertIn("l'histoire d'un pays", history.idea)
@@ -262,8 +263,8 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("Apprendre sa langue peut aussi nous aider", response.nuance)
         self.assertNotIn("il faut qu'on découvre aussi la langue", response.nuance)
         for language, country, etiquette, fish, activity, language_limit in (
-            ("french", "Au Sénégal", "à la main", "saler et sécher le poisson", "fufu", "sans bien parler sa langue"),
-            ("english", "In Senegal", "by hand", "salting and drying fish", "fufu", "host's language"),
+            ("french", "Au Sénégal", "après le travail", "saler et sécher le poisson", "fufu", "sans bien parler sa langue"),
+            ("english", "In Senegal", "after work", "salting and drying fish", "fufu", "host's language"),
         ):
             self.assertIn(country, getattr(plan.arguments[0].example, language))
             self.assertIn(etiquette, getattr(plan.arguments[0].example, language))
@@ -578,6 +579,23 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("staged", plan.conclusion.english)
         self.assertIn("fait un achat en croyant suivre un avis personnel", response.arguments[2].consequence)
         self.assertNotIn("Le regard critique doit", response.arguments[2].consequence)
+
+    def test_personal_project_example_connects_learning_progress_to_enjoyment_without_friends(self):
+        response = self.response(16)
+        example = response.arguments[2].exemple
+        self.assertIn("qui n'a pas d'amis", example)
+        self.assertIn("apprend le piano chez elle", example)
+        self.assertIn("Après plusieurs semaines d'entraînement", example)
+        self.assertIn("un morceau qu'elle aime du début à la fin", example)
+        self.assertIn("de la joie en le rejouant", example)
+        self.assertIn("de la fierté en constatant ses progrès", example)
+        self.assertNotIn("potager", example)
+        self.assertIn("ne remplace pas tous les besoins de relation", response.arguments[2].developpement)
+        self.assertIn("isolement qui fait souffrir", response.nuance)
+        cue = self.plans["eo/tache-3/culture-p16"].arguments[2].example
+        self.assertIn("piano", cue.french)
+        self.assertIn("joie et de la fierté", cue.french)
+        self.assertIn("joy and pride", cue.english)
 
     def test_celebrity_experience_and_scrutiny_explain_concrete_contributions(self):
         response = self.response(33)

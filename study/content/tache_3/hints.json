@@ -666,8 +666,8 @@
             "english": "Meals help people understand everyday customs."
           },
           "example": {
-            "french": "Au Sénégal : partager un grand plat de riz et de poisson et apprendre à manger à la main.",
-            "english": "In Senegal, share rice and fish from one large dish and learn to eat by hand."
+            "french": "Au Sénégal, partager un plat de riz et de poisson : les hôtes expliquent qu'ils discutent ainsi après le travail.",
+            "english": "In Senegal, share rice and fish: the hosts explain that the evening meal is their time to talk after work."
           }
         },
         {
@@ -732,8 +732,8 @@
             "english": "Personal projects can also contribute to happiness."
           },
           "example": {
-            "french": "Sans avoir d'amis, apprendre à cultiver un potager, des semis à la récolte ; trouver un but et de la fierté.",
-            "english": "Even without friends, grow a vegetable garden from seed to harvest; find purpose and pride in the result."
+            "french": "Sans avoir d'amis, apprendre au piano un morceau qu'on aime et ressentir de la joie et de la fierté en le jouant.",
+            "english": "Without friends, learn a favourite piano piece and find joy and pride in playing it."
           }
         }
       ]
@@ -1766,12 +1766,12 @@
       "arguments": [
         {
           "point": {
-            "french": "Un ami de confiance peut apporter une aide concrète dans le quotidien.",
-            "english": "A trusted friend can provide practical everyday support."
+            "french": "Un ami de confiance peut apporter une aide concrète quand on a du mal à tout gérer seul.",
+            "english": "A trusted friend can provide practical support when we find it hard to manage alone."
           },
           "example": {
-            "french": "Un ami aide à porter des cartons pendant un déménagement.",
-            "english": "A friend helps carry boxes during a move."
+            "french": "Malade, aller à une consultation de suivi à l'hôpital avec un ami qui assure le trajet aller-retour.",
+            "english": "A sick person attends a hospital follow-up appointment with a friend who takes them there and back."
           }
         },
         {
@@ -1974,8 +1974,8 @@
             "english": "Practising the local language helps the child take part in life in the host country."
           },
           "example": {
-            "french": "Atelier à la bibliothèque : fabriquer une marionnette et demander du papier dans la langue locale.",
-            "english": "Following the teacher's advice, a child makes a puppet at a library workshop and learns to ask for paper in the local language."
+            "french": "Au club de football, pratiquer la langue locale pour comprendre l'entraîneur et discuter avec ses coéquipiers.",
+            "english": "Football practice: use the local language to follow the coach's instructions and talk with teammates."
           }
         }
       ]

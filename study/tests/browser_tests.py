@@ -5194,6 +5194,159 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(root.locator('[data-eo3-english="argument-1-exemple"]')).to_contain_text("Senegal")
         expect(root.locator('[data-eo3-english="argument-2-exemple"]')).to_contain_text("Portugal")
 
+    def test_friendship_hospital_help_and_first_step_render_in_current_english(self):
+        self._assert_eo3_learning_aids_match_on_detail_and_practice(("famille:p9",))
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="famille:p9",
+        )
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        root = self.page.locator("[data-eo3-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
+        help_ = root.locator('[data-eo3-english="argument-1-developpement"]')
+        expect(help_).to_contain_text("take care of transport and accompany us")
+        expect(help_).not_to_contain_text("driving")
+        expect(root.locator('[data-eo3-english="argument-1-exemple"]')).to_contain_text(
+            "follow-up appointment at the hospital",
+        )
+        expect(root.locator('[data-eo3-english="argument-3-developpement"]')).to_contain_text(
+            "can make that first step easier",
+        )
+        self.assert_no_horizontal_overflow()
+
+    def test_family_affinity_bridge_renders_in_current_english(self):
+        self._assert_eo3_learning_aids_match_on_detail_and_practice(("famille:p10",))
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="famille:p10",
+        )
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        root = self.page.locator("[data-eo3-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
+        development = root.locator('[data-eo3-english="argument-1-developpement"]')
+        expect(development).to_contain_text("For certain activities")
+        expect(development).to_contain_text("may therefore prefer the company of a friend")
+        expect(root.locator('[data-eo3-english="nuance"]')).to_contain_text(
+            "Sharing the same hobbies is not enough to define a friendship",
+        )
+        self.assert_no_horizontal_overflow()
+
+    def test_personal_advice_comparison_renders_in_current_english(self):
+        self._assert_eo3_learning_aids_match_on_detail_and_practice(("famille:p3",))
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="famille:p3",
+        )
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        root = self.page.locator("[data-eo3-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
+        development = root.locator('[data-eo3-english="argument-2-developpement"]')
+        expect(development).to_contain_text("compare several options to find one that suits us")
+        expect(development).to_contain_text("not automatically on their age")
+        expect(development).not_to_contain_text("suits us best")
+        expect(root.locator('[data-eo3-english="argument-2-exemple"]')).to_contain_text(
+            "two schools",
+        )
+        self.assert_no_horizontal_overflow()
+
+    def test_local_support_contact_renders_in_current_english(self):
+        self._assert_eo3_learning_aids_match_on_detail_and_practice(("famille:p5",))
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="famille:p5",
+        )
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        root = self.page.locator("[data-eo3-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
+        development = root.locator('[data-eo3-english="argument-2-developpement"]')
+        expect(development).to_contain_text("other support locally")
+        expect(development).to_contain_text("who to call when something unexpected happens")
+        expect(development).not_to_contain_text("emergency")
+        expect(root.locator('[data-eo3-english="argument-2-exemple"]')).to_contain_text(
+            "has already been authorised to collect their child",
+        )
+        self.assert_no_horizontal_overflow()
+
+    def test_grade_reward_equivalents_render_current_english_effort_consequence(self):
+        keys = ("famille:p6", "famille:p15")
+        self._assert_eo3_learning_aids_match_on_detail_and_practice(keys)
+        for key in keys:
+            prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+                content_key=key,
+            )
+            self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+            root = self.page.locator("[data-eo3-language]")
+            root.get_by_role("button", name="Anglais", exact=True).click()
+            expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
+            consequence = root.locator('[data-eo3-english="argument-2-consequence"]')
+            expect(consequence).to_contain_text("may therefore feel")
+            expect(consequence).to_contain_text("their efforts are not recognised")
+            expect(consequence).to_contain_text("despite their progress")
+            self.assert_no_horizontal_overflow()
+
+    def test_family_work_example_identifies_coworkers_in_current_english(self):
+        self._assert_eo3_learning_aids_match_on_detail_and_practice(("famille:p7",))
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="famille:p7",
+        )
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        root = self.page.locator("[data-eo3-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
+        example = root.locator('[data-eo3-english="argument-2-exemple"]')
+        expect(example).to_contain_text("A brother and his sister work together.")
+        expect(example).to_contain_text("At a family meal, he criticises her for a late delivery.")
+        expect(example).to_contain_text("Their mother takes his side.")
+        expect(example).to_contain_text("relations become strained")
+        self.assert_no_horizontal_overflow()
+
+    def test_living_alone_example_keeps_rest_broader_than_sleep_in_current_english(self):
+        self._assert_eo3_learning_aids_match_on_detail_and_practice(("famille:p11",))
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="famille:p11",
+        )
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        root = self.page.locator("[data-eo3-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
+        example = root.locator('[data-eo3-english="argument-1-exemple"]')
+        expect(example).to_contain_text("prepare a simple meal and then rest.")
+        expect(example).not_to_contain_text("go to bed")
+        self.assert_no_horizontal_overflow()
+
+    def test_family_language_bridge_and_football_render_in_current_english(self):
+        self._assert_eo3_learning_aids_match_on_detail_and_practice(
+            ("famille:p13", "culture:p14"),
+        )
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="famille:p13",
+        )
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        root = self.page.locator("[data-eo3-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
+        development = root.locator('[data-eo3-english="argument-1-developpement"]')
+        expect(development).to_contain_text("giving it up may limit conversations")
+        expect(development).to_contain_text("By continuing to speak it, they can")
+        expect(root.locator('[data-eo3-english="argument-3-exemple"]')).to_contain_text(
+            "enrol their child in a football club",
+        )
+        self.assert_no_horizontal_overflow()
+
+    def test_living_with_parents_example_keeps_outings_unrestricted_in_current_english(self):
+        self._assert_eo3_learning_aids_match_on_detail_and_practice(("famille:p16",))
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="famille:p16",
+        )
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        root = self.page.locator("[data-eo3-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
+        example = root.locator('[data-eo3-english="argument-3-exemple"]')
+        expect(example).to_contain_text("their own outings without having to ask permission")
+        expect(example).not_to_contain_text("nights out")
+        self.assert_no_horizontal_overflow()
+
     def test_eo3_empty_and_invalid_translation_caches_show_french_and_a_clear_notice(self):
         import tempfile
         from pathlib import Path

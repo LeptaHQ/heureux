@@ -105,7 +105,7 @@ class FamilleEditorialTests(SimpleTestCase):
             (3, 0, "financièrement réaliste"),
             (4, 0, "continuant à croire les explications"),
             (5, 0, "ressentir le manque de sa famille"),
-            (6, 1, "un progrès réel sans récompense"),
+            (6, 1, "ses efforts ne sont pas reconnus"),
             (7, 1, "relations familiales"),
             (10, 2, "respect montré"),
             (11, 1, "augmenter la dépense de chacune"),
@@ -157,6 +157,9 @@ class FamilleEditorialTests(SimpleTestCase):
 
     def test_family_friendship_depends_on_trust_not_kinship_or_hobbies_alone(self):
         response = self.response(10)
+        self.assertIn("Pour certaines activités", response.arguments[0].developpement)
+        self.assertIn("un ami qui partage nos centres d'intérêt", response.arguments[0].developpement)
+        self.assertIn("aller à des concerts", response.arguments[0].exemple)
         self.assertIn("on craint de les inquiéter ou de les décevoir", response.arguments[1].developpement)
         self.assertIn("notre meilleur ami", response.arguments[2].idea)
         self.assertIn("respecte son choix", response.arguments[2].exemple)
@@ -183,7 +186,8 @@ class FamilleEditorialTests(SimpleTestCase):
         self.assertIn("l'amitié", living_well.arguments[1].idea)
         self.assertIn("liens familiaux ou de couple", happiness.arguments[1].idea)
         self.assertIn("chorale", living_well.arguments[2].exemple)
-        self.assertIn("potager", happiness.arguments[2].exemple)
+        self.assertIn("piano", happiness.arguments[2].exemple)
+        self.assertIn("de la joie en le rejouant", happiness.arguments[2].exemple)
         self.assertNotEqual(living_well.arguments[0].idea, happiness.arguments[0].idea)
 
     def test_examples_make_the_actor_action_and_mechanism_explicit(self):
@@ -198,8 +202,9 @@ class FamilleEditorialTests(SimpleTestCase):
             (6, 0, ("dix euros", "refuse de refaire", "la correction n'est pas notée", "ne lui rapportera pas d'argent")),
             (6, 1, ("de 8 à 12 sur 20", "plusieurs semaines de travail", "qu'à partir de 15", "de vrais progrès")),
             (6, 2, ("additionne", "comparer", "reformuler la consigne", "l'enseignant", "le plus grand nombre")),
-            (7, 1, ("au repas familial", "Leur mère prend parti", "se sent jugée", "les relations se tendent")),
+            (7, 1, ("travaillent ensemble", "Au repas familial", "Leur mère prend parti", "se sent jugée", "les relations se tendent")),
             (7, 2, ("son cousin", "vingt heures par semaine", "ses missions", "sa rémunération", "un samedi supplémentaire", "gratuitement")),
+            (9, 0, ("Une personne malade", "consultation de suivi à l'hôpital", "Un ami vient la chercher", "jusqu'au service", "puis la ramène chez elle")),
             (9, 1, ("vit seule et travaille chez elle", "une promenade chaque samedi", "raconte sa semaine", "la semaine suivante")),
             (9, 2, ("aimerait chanter mais n'ose pas", "accompagner un ami", "séance d'essai dans une chorale")),
             (10, 1, ("menuiserie", "ses doutes", "sur son revenu", "projet plus clair")),
@@ -211,7 +216,7 @@ class FamilleEditorialTests(SimpleTestCase):
             (12, 2, ("propose", "dix-sept heures", "avant le dîner", "Une semaine plus tard", "sans qu'elle ait à le lui rappeler")),
             (13, 0, ("refusé de jouer avec lui", "sa mère", "langue familiale", "le rassurer", "langue qu'elle maîtrise mal")),
             (13, 1, ("chaque semaine", "ses grands-parents", "ses jeux d'enfance", "les mots qu'il ne comprend pas")),
-            (13, 2, ("conseils de l'enseignant", "bibliothèque", "marionnette", "demander du papier", "langue locale")),
+            (13, 2, ("parents qui parlent encore peu la langue locale", "club de football", "Au fil des entraînements", "comprendre les consignes de l'entraîneur", "discuter avec ses coéquipiers")),
             (14, 0, ("dix-huit heures", "l'un prépare le dîner", "l'autre met la table", "tous les deux un moment pour se reposer")),
             (14, 1, ("trier le linge", "programme de lavage", "plusieurs essais accompagnés", "prendre en charge une lessive")),
             (14, 2, ("Dans un couple", "Il vérifie le stock", "les achète avant qu'ils manquent", "laver le linge", "sans interrompre son travail")),
@@ -224,6 +229,50 @@ class FamilleEditorialTests(SimpleTestCase):
         older_adviser = self.plans["eo/tache-3/famille-p3"].arguments[1].example
         self.assertIn("tante âgée", older_adviser.french)
         self.assertIn("older aunt", older_adviser.english)
+
+    def test_friendship_help_company_and_discovery_explain_distinct_mechanisms(self):
+        help_, company, discovery = self.response(9).arguments
+        self.assertIn("un déplacement peut devenir difficile", help_.developpement)
+        self.assertIn("Un ami disponible", help_.developpement)
+        self.assertIn("se rendre à sa consultation", help_.consequence)
+        self.assertIn("partager son quotidien", company.developpement)
+        self.assertIn("un repère dans la semaine", company.consequence)
+        self.assertIn("un groupe où l'on ne connaît personne", discovery.developpement)
+        self.assertIn("le premier pas plus facile", discovery.developpement)
+        self.assertIn("une activité qui nous plaît", discovery.consequence)
+        self.assertNotIn("un avis différent", help_.developpement)
+        self.assertNotIn("un avis différent", discovery.developpement)
+
+    def test_personal_advice_compares_choices_against_the_learners_needs(self):
+        advice = self.response(3).arguments[1]
+        self.assertIn("nos envies et nos contraintes", advice.developpement)
+        self.assertIn("comparer plusieurs possibilités", advice.developpement)
+        self.assertIn("trouver celle qui nous convient", advice.developpement)
+        self.assertIn("son goût pour la pratique", advice.exemple)
+        self.assertIn("sa façon d'apprendre", advice.exemple)
+
+    def test_family_distance_requires_an_identified_local_contact(self):
+        help_ = self.response(5).arguments[1]
+        self.assertIn("d'autres appuis sur place", help_.developpement)
+        self.assertIn("qui appeler en cas d'imprévu", help_.developpement)
+        self.assertIn("une voisine de confiance", help_.exemple)
+        self.assertIn("déjà autorisée à récupérer son enfant", help_.exemple)
+        self.assertIn("Elle accepte de le faire", help_.exemple)
+
+    def test_grade_rewards_can_leave_real_effort_feeling_unrecognised(self):
+        recognition = self.response(6).arguments[1]
+        self.assertIn("à partir d'une certaine note", recognition.developpement)
+        self.assertIn("de 8 à 12 sur 20", recognition.exemple)
+        self.assertIn("qu'à partir de 15", recognition.exemple)
+        self.assertIn("peut donc avoir l'impression", recognition.consequence)
+        self.assertIn("malgré ses progrès", recognition.consequence)
+
+    def test_family_language_conversation_keeps_its_causal_bridge(self):
+        communication = self.response(13).arguments[0]
+        self.assertIn("l'abandonner peut limiter les conversations", communication.developpement)
+        self.assertIn("En continuant à la parler, ils peuvent", communication.developpement)
+        self.assertIn("Dans la langue familiale", communication.exemple)
+        self.assertIn("parler en détail de ce que l'enfant ressent", communication.consequence)
 
     def test_comfort_is_not_conditional_on_a_financing_project_or_moving_out(self):
         comfort = self.response(2)

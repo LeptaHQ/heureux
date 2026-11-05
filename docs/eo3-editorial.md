@@ -154,9 +154,12 @@ a fresh exact-text translation; existing records are retained.
 Only public spoken model text and public context are sent. Personal edits are
 never uploaded; a private block gets English only when its text matches a cached
 public block exactly. Keep the canonical French DOM, annotation offsets, saved
-notes, French audio and response-copy text unchanged. English text and controls
-must stay outside annotation/selection tools. Retain the provider original and a
-review note whenever an English post-edit is needed.
+notes, French audio and response-copy text unchanged. English glosses stay
+excluded from the canonical French annotation stream. Their Highlight action
+uses separate, revision-scoped English anchors; French notes and translated
+notes must never use those anchors. Controls remain outside annotation/selection
+tools. Retain the provider original and a review note whenever an English
+post-edit is needed.
 
 Benefits do not establish necessity. When a consigne says "indispensable", a
 balanced answer can develop two substantial benefits and a supported reason why

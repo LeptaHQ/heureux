@@ -1298,8 +1298,12 @@
         highlights = highlights.filter(function (item) {
           return removedIds.indexOf(String(item.id)) === -1;
         });
+        var selection = captureSelection(true);
         removeHighlightMarks(removedIds);
+        restoreSelectionRange(selection);
         refreshSelectionCoverage(details);
+        refreshSelectionCoverage(currentSelection);
+        refreshSelectionCoverage(noteSelection);
         var failed = results.find(function (result) {
           return result.status === "rejected";
         });

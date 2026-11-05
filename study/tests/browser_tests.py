@@ -5048,7 +5048,7 @@ class BrowserTests(StaticLiveServerTestCase):
         """)
         self.open_eo3_language_response("culture:p16")
         root = self.page.locator("[data-eo3-language]")
-        french = root.locator("[data-eo3-french]").filter(has_text="cultiver un potager")
+        french = root.locator("[data-eo3-french$='-exemple']").last
         quote = french.text_content()
         french.evaluate("""node => {
           const english = node.nextElementSibling;
@@ -5493,7 +5493,6 @@ class BrowserTests(StaticLiveServerTestCase):
         saved = Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT)
         self.assertTrue(saved.source_key.startswith("english:eo3:"))
         self.page.reload()
-        self.page.locator("#reveal").click()
         expect(english.locator(f'mark[data-highlight-id="{saved.pk}"]')).to_be_visible()
         expect(root.locator('[data-eo3-english="argument-1-exemple"]')).to_contain_text("Senegal")
         expect(root.locator('[data-eo3-english="argument-2-exemple"]')).to_contain_text("Portugal")
@@ -5691,6 +5690,16 @@ class BrowserTests(StaticLiveServerTestCase):
             expect(root.locator("[data-eo3-english]:visible")).to_have_count(4)
             root.get_by_role("button", name="Anglais", exact=True).click()
             expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
+            english = root.locator('[data-eo3-english="introduction"]')
+            self.select_prompt(target=english)
+            self.page.locator("[data-highlight-selection]").click()
+            expect(english.locator("mark.user-highlight")).to_have_text(english.text_content())
+            saved = Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT)
+            self.assertTrue(saved.source_key.startswith("english:eo3:"))
+            self.page.reload()
+            self.page.wait_for_load_state("networkidle")
+            self.page.locator("#reveal").click()
+            expect(english.locator(f'mark[data-highlight-id="{saved.pk}"]')).to_be_visible()
 
     def test_eo3_browser_reading_remains_french_while_the_full_response_is_in_english(self):
         self.context.add_init_script("""
@@ -7957,11 +7966,31 @@ class BrowserTests(StaticLiveServerTestCase):
         button.tap()
         expect(button).to_be_disabled()
         expect(button.locator("[data-translate-note-label]")).to_have_text("Saved & highlighted")
+        highlight = Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT)
+        self.page.evaluate("""deleteUrl => {
+          const originalFetch = window.fetch.bind(window);
+          window.fetch = (url, options) => {
+            const response = originalFetch(url, options);
+            if (url === deleteUrl) {
+              return response.then(reply => new Promise(resolve => {
+                window.__releaseHighlightDelete = () => resolve(reply);
+              }));
+            }
+            return response;
+          };
+        }""", reverse("study:annotation_delete", args=[highlight.pk]))
 
         self.page.locator("[data-highlight-selection]").tap()
+        self.page.wait_for_function("() => typeof window.__releaseHighlightDelete === 'function'")
+        self.select_prompt(start=0, end=12)
+        self.page.evaluate("() => { window.HeureuxNotes.captureSelection(); }")
+        selected = self.page.evaluate("getSelection().toString()")
+        self.page.evaluate("window.__releaseHighlightDelete()")
 
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text("Surlignage supprimé.")
         expect(self.page.locator("mark.user-highlight")).to_have_count(0)
         expect(button).to_be_enabled()
+        self.assertEqual(self.page.evaluate("getSelection().toString()"), selected)
         expect(button.locator("[data-translate-note-label]")).to_have_text("Translate + note")
         button.tap()
         expect(self.page.locator("[data-annotation-toast]")).to_have_text(

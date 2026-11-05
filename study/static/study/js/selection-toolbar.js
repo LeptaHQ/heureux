@@ -205,7 +205,7 @@
       !target.closest(
         "button, input, textarea, select, [contenteditable='true'], " +
         "[data-selection-translate], [data-translation-panel], " +
-        "[data-note-panel], [data-eo2-english]"
+        "[data-note-panel]"
       )
     );
   }
@@ -234,11 +234,8 @@
       return null;
     }
 
-    if (Array.from(element.querySelectorAll("[data-eo2-english]:not([hidden])")).some(
-      function (english) { return range.intersectsNode(english); }
-    )) return null;
     var contents = range.cloneContents();
-    contents.querySelectorAll("[data-eo2-english]").forEach(function (english) { english.remove(); });
+    contents.querySelectorAll("[hidden]").forEach(function (hidden) { hidden.remove(); });
     var text = normalizeSelection(contents.textContent || "");
     var rect = range.getBoundingClientRect();
     if (!text || (!rect.width && !rect.height)) return null;
@@ -336,6 +333,7 @@
     selectedRect = details.rect;
     selectedRange = details.range;
     if (selectionChanged) {
+      penActionSize = null;
       selectionCopyNumber += 1;
       window.clearTimeout(selectionCopyTimer);
       selectionCopyButton.classList.remove("is-copied", "is-copy-failed");

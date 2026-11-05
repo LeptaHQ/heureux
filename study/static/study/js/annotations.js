@@ -60,6 +60,7 @@
   var highlightsRequest = 0;
   var translatedNotePending = false;
   var translatedNoteSavedSelection = null;
+  var englishSelector = "[data-eo2-english], [data-eo3-english]";
 
   function csrfToken() {
     var match = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/);
@@ -71,9 +72,25 @@
     return node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
   }
 
-  function rootForNode(node) {
-    var element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
-    return element ? element.closest("[data-annotation-root]") : null;
+  function elementForNode(node) {
+    return node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
+  }
+
+  function rootForNode(node, language) {
+    var element = elementForNode(node);
+    return element ? element.closest(language === "en"
+      ? "[data-annotation-english-source-key]" : "[data-annotation-root]") : null;
+  }
+
+  function englishForNode(node) {
+    var element = elementForNode(node);
+    return element ? element.closest(englishSelector) : null;
+  }
+
+  function annotationSourceKey(root, language) {
+    return (language === "en"
+      ? root.dataset.annotationEnglishSourceKey
+      : root.dataset.annotationSourceKey) || "";
   }
 
   function annotationExcluded(node) {
@@ -81,9 +98,22 @@
     return Boolean(element && element.closest("[data-annotation-exclude]"));
   }
 
-  function annotationTextWalker(root) {
+  function annotationTextWalker(root, language) {
     return document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode: function (node) {
+        if (language === "en") {
+          if (rootForNode(node, "en") !== root) return NodeFilter.FILTER_REJECT;
+          var english = englishForNode(node);
+          if (english) {
+            return node.parentElement.closest("[data-annotation-exclude]") === english
+              ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+          }
+          // Retain block separators, never the canonical French words.
+          return !node.data.trim() && !annotationExcluded(node) &&
+            !node.parentElement.closest(
+              "[data-eo2-french], [data-eo3-french], button, script, style"
+            ) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        }
         return annotationExcluded(node)
           ? NodeFilter.FILTER_REJECT
           : NodeFilter.FILTER_ACCEPT;
@@ -91,38 +121,82 @@
     });
   }
 
-  function annotationText(root) {
-    var walker = annotationTextWalker(root);
+  function annotationText(root, language) {
+    var walker = annotationTextWalker(root, language);
     var text = "";
     var node;
     while ((node = walker.nextNode())) text += node.data;
     return text;
   }
 
-  function rangeTouchesExcluded(range) {
-    if (
-      annotationExcluded(range.startContainer) ||
-      annotationExcluded(range.endContainer)
-    ) return true;
+  function selectedNodeText(range, node) {
+    if (!range.intersectsNode(node)) return "";
+    var start = node === range.startContainer ? range.startOffset : 0;
+    var end = node === range.endContainer ? range.endOffset : node.data.length;
+    return node.data.slice(start, end);
+  }
+
+  function annotationRangeText(range, root, language) {
+    var walker = annotationTextWalker(root, language);
+    var text = "";
+    var node;
+    while ((node = walker.nextNode())) text += selectedNodeText(range, node);
+    return text;
+  }
+
+  function selectionLanguage(range, root) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    var language = null;
+    var whitespaceLanguage = null;
+    var node;
+    while ((node = walker.nextNode())) {
+      if (node.parentElement.closest("button, input, textarea, select, script, style, [hidden]")) {
+        continue;
+      }
+      var selected = selectedNodeText(range, node);
+      if (!selected) continue;
+      var english = englishForNode(node);
+      if (!english && annotationExcluded(node)) continue;
+      var current = english ? "en" : "fr";
+      if (!selected.trim()) {
+        if (english) whitespaceLanguage = current;
+        continue;
+      }
+      if (language && language !== current) return null;
+      language = current;
+    }
+    return language || whitespaceLanguage;
+  }
+
+  function rangeTouchesExcluded(range, root, language) {
+    var excluded = [];
+    [range.startContainer, range.endContainer].forEach(function (node) {
+      var element = elementForNode(node);
+      var ancestor = element && element.closest("[data-annotation-exclude]");
+      if (ancestor) excluded.push(ancestor);
+    });
     var container = range.commonAncestorContainer;
-    if (!container.querySelectorAll) return false;
-    return Array.from(
-      container.querySelectorAll("[data-annotation-exclude]")
-    ).some(function (element) {
-      if (element.matches("[data-eo2-english][hidden]")) return false;
-      return range.intersectsNode(element);
+    if (container.querySelectorAll) {
+      excluded = excluded.concat(Array.from(container.querySelectorAll("[data-annotation-exclude]")));
+    }
+    return excluded.some(function (element) {
+      if (element.closest("[hidden]")) return false;
+      if (language === "en" && element.matches(englishSelector) &&
+          rootForNode(element, "en") === root) return false;
+      var walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+      var node;
+      while ((node = walker.nextNode())) {
+        if (!node.parentElement.closest("[hidden]") && selectedNodeText(range, node).trim()) {
+          return true;
+        }
+      }
+      return false;
     });
   }
 
-  function captureSelection() {
-    var selection = window.getSelection();
-    if (!selection || selection.isCollapsed || selection.rangeCount === 0) {
-      return null;
-    }
-    var range = selection.getRangeAt(0);
-    if (rangeTouchesExcluded(range)) return null;
-    var startRoot = rootForNode(range.startContainer);
-    var endRoot = rootForNode(range.endContainer);
+  function scopedSelectionRange(range, language) {
+    var startRoot = rootForNode(range.startContainer, language);
+    var endRoot = rootForNode(range.endContainer, language);
     if (startRoot !== endRoot) {
       // A drag or triple-click can spill past the annotation root (browsers
       // extend the range into the next block). Clamp it back to the root
@@ -137,8 +211,18 @@
       if (range.collapsed) return null;
       startRoot = anchorRoot;
     }
+    return { range: range, root: startRoot || (language === "en" ? null : main) };
+  }
+
+  function captureSelection(preserveWhitespace) {
+    var selection = window.getSelection();
+    if (!selection || selection.isCollapsed || selection.rangeCount === 0) {
+      return null;
+    }
+    var scope = scopedSelectionRange(selection.getRangeAt(0));
+    if (!scope) return null;
+    var range = scope.range;
     var element = selectionElement(range);
-    var root = startRoot || main;
     if (
       !element ||
       !main.contains(element) ||
@@ -149,24 +233,38 @@
     ) {
       return null;
     }
-    var rawQuote = annotationText(range.cloneContents());
-    if (!rawQuote.trim()) return null;
+    var language = selectionLanguage(range, scope.root);
+    if (!language) return null;
+    if (language === "en") {
+      scope = scopedSelectionRange(range, language);
+      if (!scope || !scope.root || annotationExcluded(scope.root)) return null;
+      range = scope.range;
+    }
+    var root = scope.root;
+    if (rangeTouchesExcluded(range, root, language)) return null;
+    var rawQuote = language === "en"
+      ? annotationRangeText(range, root, language) : annotationText(range.cloneContents());
+    if (!rawQuote || (!preserveWhitespace && !rawQuote.trim())) return null;
 
     var before = range.cloneRange();
     before.selectNodeContents(root);
     before.setEnd(range.startContainer, range.startOffset);
-    var rawStart = annotationText(before.cloneContents()).length;
+    var rawStart = language === "en"
+      ? annotationRangeText(before, root, language).length
+      : annotationText(before.cloneContents()).length;
     // Trailing block boundaries drag in whitespace; keep the quote tight so
     // the stored offsets match what the reader actually selected.
-    var quote = rawQuote.trim();
-    var start = rawStart + (rawQuote.length - rawQuote.replace(/^\s+/, "").length);
+    var quote = preserveWhitespace ? rawQuote : rawQuote.trim();
+    var start = rawStart + (preserveWhitespace
+      ? 0 : rawQuote.length - rawQuote.replace(/^\s+/, "").length);
     var end = start + quote.length;
-    var pageText = annotationText(root);
-    var coverage = highlightCoverage(root, start, end);
+    var pageText = annotationText(root, language);
+    var coverage = highlightCoverage(root, start, end, language);
     var highlightStart = Math.min(start, coverage.start);
     var highlightEnd = Math.max(end, coverage.end);
     return {
       root: root,
+      language: language,
       quote: quote,
       start: start,
       end: end,
@@ -182,7 +280,7 @@
         prefix: pageText.slice(Math.max(0, highlightStart - 160), highlightStart),
         suffix: pageText.slice(highlightEnd, highlightEnd + 160)
       },
-      sourceKey: root.dataset.annotationSourceKey || "",
+      sourceKey: annotationSourceKey(root, language),
       sourcePath: sourcePath,
       sourceTitle: document.title,
       taskId: document.body.dataset.annotationTaskId || ""
@@ -198,18 +296,18 @@
 
   function updateTranslateNoteButton(details) {
     if (!translateNoteButton || !translateNoteLabel) return;
-    var saved = Boolean(details &&
+    var saved = Boolean(details && details.fullyHighlighted &&
       translatedNoteSavedSelection === translatedSelectionKey(details));
     translateNoteButton.disabled = translatedNotePending || saved;
     translateNoteButton.classList.toggle("is-busy", translatedNotePending);
     translateNoteButton.classList.toggle("is-saved", saved && !translatedNotePending);
     translateNoteButton.setAttribute("aria-busy", String(translatedNotePending));
     translateNoteLabel.textContent = translatedNotePending
-      ? "Translating & saving…" : saved ? "Saved to Notes" : "DeepL + note";
+      ? "Translating & saving…" : saved ? "Saved & highlighted" : "Translate + note";
     translateNoteButton.setAttribute("aria-label", translatedNotePending
-      ? "Translating with DeepL and saving to Notes"
-      : saved ? "DeepL translation saved to Notes"
-      : "Translate with DeepL and add to Notes");
+      ? "Translating, saving to Notes and highlighting"
+      : saved ? "Translation saved to Notes and passage highlighted"
+      : "Translate, add to Notes and highlight");
     translateNoteButton.setAttribute("title", translateNoteButton.getAttribute("aria-label"));
   }
 
@@ -227,23 +325,22 @@
     var details = captureSelection();
     if (details) {
       currentSelection = details;
-      noteButton.hidden = false;
+      noteButton.hidden = details.language === "en";
       highlightButton.hidden = false;
-      noteButton.classList.remove("hidden");
+      noteButton.classList.toggle("hidden", noteButton.hidden);
       highlightButton.classList.remove("hidden");
       if (translateNoteButton) {
-        translateNoteButton.hidden = false;
-        translateNoteButton.classList.remove("hidden");
+        translateNoteButton.hidden = details.language === "en";
+        translateNoteButton.classList.toggle("hidden", translateNoteButton.hidden);
       }
       updateTranslateNoteButton(details);
       updateHighlightButton(details);
     } else {
       var selection = window.getSelection();
       if (
-        selection && !selection.isCollapsed && selection.rangeCount &&
-        rangeTouchesExcluded(selection.getRangeAt(0))
+        selection && !selection.isCollapsed && selection.rangeCount
       ) {
-        // Keep ordinary copying available, but never reuse a prior French anchor.
+        // A rejected range must never reuse the previous selection's anchor.
         currentSelection = null;
         noteButton.hidden = true;
         highlightButton.hidden = true;
@@ -341,7 +438,19 @@
 
   function createAnnotation(kind, details, body, translateWithDeepL) {
     var values = annotationBody(kind, details, body);
-    if (translateWithDeepL) values.set("translate_with", "deepl");
+    if (translateWithDeepL) {
+      values.set("translate_with", "deepl");
+      values.set("highlight_selection", JSON.stringify({
+        quote: details.highlight.quote,
+        start: details.highlight.start,
+        end: details.highlight.end,
+        prefix: details.highlight.prefix,
+        suffix: details.highlight.suffix,
+        fully_highlighted: details.fullyHighlighted
+      }));
+      values.set("overlap_ids", details.highlightIds.join(","));
+      values.set("overlap_revisions", JSON.stringify(details.highlightRevisions));
+    }
     return fetch(createUrl, {
       method: "POST",
       headers: {
@@ -365,6 +474,10 @@
       showToast("Sélectionnez du texte avant de continuer.");
       return;
     }
+    if (details.language === "en") {
+      showToast("Sélectionnez le texte français pour traduire et créer une note.");
+      return;
+    }
     translatedNotePending = true;
     updateTranslateNoteButton(details);
     createAnnotation("note", details, "", true)
@@ -376,10 +489,33 @@
         ) {
           throw new Error("Impossible de confirmer l’enregistrement. Consultez vos notes.");
         }
+        var result = data.highlight;
+        if (result && result.error) {
+          showToast("Note enregistrée. Surlignage impossible. " + result.error);
+          fetchHighlights();
+          return;
+        }
+        if (
+          !result || !Array.isArray(result.items) || !result.items.length ||
+          !Array.isArray(result.removed_ids) ||
+          !result.items.every(function (item) {
+            return item && Number.isSafeInteger(item.id) && item.id > 0 &&
+              typeof item.quote === "string" &&
+              Number.isSafeInteger(item.start_offset) && item.start_offset >= 0 &&
+              Number.isSafeInteger(item.end_offset) && item.end_offset > item.start_offset &&
+              typeof item.source_key === "string" &&
+              typeof item.revision === "string" &&
+              typeof item.delete_url === "string";
+          })
+        ) {
+          showToast("Note enregistrée. Impossible de confirmer le surlignage. Consultez vos notes.");
+          return;
+        }
+        recordSavedHighlights(result.items, result.removed_ids, details);
         translatedNoteSavedSelection = translatedSelectionKey(details);
         showToast(data.created
-          ? "Traduction DeepL enregistrée dans vos notes."
-          : "Cette traduction est déjà dans vos notes.");
+          ? "Note enregistrée et passage surligné."
+          : "Note déjà enregistrée et passage surligné.");
       })
       .catch(function (error) {
         showToast(error.message);
@@ -427,6 +563,10 @@
   function openNotePanel() {
     rememberSelection();
     if (!currentSelection) return;
+    if (currentSelection.language === "en") {
+      showToast("Sélectionnez le texte français pour créer une note.");
+      return;
+    }
     notePanelRevision += 1;
     var revision = notePanelRevision;
     noteSelection = currentSelection;
@@ -520,6 +660,9 @@
   }
 
   function createSelectionNote(details, body, alsoHighlight) {
+    if (details.language === "en") {
+      return Promise.reject(new Error("Sélectionnez le texte français pour créer une note."));
+    }
     return createAnnotation("note", details, body).then(function () {
       if (!alsoHighlight) {
         return { highlighted: false, highlightFailed: false };
@@ -714,8 +857,9 @@
   }
 
   function bestOffsets(item, root) {
-    var text = annotationText(root);
-    var corrected = legacyCorrectionOffsets(item, root, text);
+    var language = highlightLanguage(item, root);
+    var text = annotationText(root, language);
+    var corrected = language === "en" ? null : legacyCorrectionOffsets(item, root, text);
     if (corrected) return corrected;
     var savedPrefix = normalizedContext(item.prefix);
     var savedSuffix = normalizedContext(item.suffix);
@@ -790,10 +934,10 @@
     return best;
   }
 
-  function highlightCoverage(root, start, end) {
+  function highlightCoverage(root, start, end, language) {
     var intervals = [];
     highlights.forEach(function (item) {
-      if (highlightRoot(item) !== root) return;
+      if (highlightRoot(item) !== root || highlightLanguage(item, root) !== language) return;
       var offsets = bestOffsets(item, root);
       if (!offsets || offsets.end <= start || offsets.start >= end) return;
       intervals.push({
@@ -836,12 +980,12 @@
 
   function refreshSelectionCoverage(details) {
     if (!details || !details.root || !details.root.isConnected) return;
-    var text = annotationText(details.root);
+    var text = annotationText(details.root, details.language);
     if (
-      (details.root.dataset.annotationSourceKey || "") !== details.sourceKey ||
+      annotationSourceKey(details.root, details.language) !== details.sourceKey ||
       text.slice(details.start, details.end) !== details.quote
     ) return;
-    var coverage = highlightCoverage(details.root, details.start, details.end);
+    var coverage = highlightCoverage(details.root, details.start, details.end, details.language);
     details.fullyHighlighted = coverage.fullyHighlighted;
     details.highlightIds = coverage.ids;
     details.highlightRevisions = coverage.revisions;
@@ -852,11 +996,49 @@
       prefix: text.slice(Math.max(0, coverage.start - 160), coverage.start),
       suffix: text.slice(coverage.end, coverage.end + 160)
     };
-    if (currentSelection === details) updateHighlightButton(details);
+    if (currentSelection === details) {
+      updateHighlightButton(details);
+      updateTranslateNoteButton(details);
+    }
   }
 
-  function textSegments(root, start, end, includeNestedRoots) {
-    var walker = annotationTextWalker(root);
+  function selectionSourceIsCurrent(details) {
+    return Boolean(
+      details && details.root && details.root.isConnected &&
+      main.contains(details.root) &&
+      !annotationExcluded(details.root) &&
+      details.sourcePath === window.location.pathname + window.location.search &&
+      details.taskId === (document.body.dataset.annotationTaskId || "") &&
+      annotationSourceKey(details.root, details.language) === details.sourceKey &&
+      annotationText(details.root, details.language).slice(details.start, details.end) === details.quote
+    );
+  }
+
+  function restoreSelectionRange(details) {
+    if (!selectionSourceIsCurrent(details)) return;
+    var walker = annotationTextWalker(details.root, details.language);
+    var range = document.createRange();
+    var offset = 0;
+    var started = false;
+    var node;
+    while ((node = walker.nextNode())) {
+      if (!started && details.start < offset + node.data.length) {
+        range.setStart(node, details.start - offset);
+        started = true;
+      }
+      if (started && details.end <= offset + node.data.length) {
+        range.setEnd(node, details.end - offset);
+        var selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        return;
+      }
+      offset += node.data.length;
+    }
+  }
+
+  function textSegments(root, start, end, includeNestedRoots, language) {
+    var walker = annotationTextWalker(root, language);
     var segments = [];
     var offset = 0;
     var node;
@@ -906,6 +1088,11 @@
     mark.appendChild(selected);
   }
 
+  function highlightLanguage(item, root) {
+    return item.source_key && item.source_key === root.dataset.annotationEnglishSourceKey
+      ? "en" : "fr";
+  }
+
   function highlightRoot(item) {
     if (!item.source_key) {
       var legacyMark = main.querySelector(
@@ -914,6 +1101,13 @@
       return legacyMark
         ? legacyMark.closest("[data-annotation-root]") || main
         : main;
+    }
+    var englishRoots = main.querySelectorAll("[data-annotation-english-source-key]");
+    for (var englishIndex = 0; englishIndex < englishRoots.length; englishIndex += 1) {
+      if (englishRoots[englishIndex].dataset.annotationEnglishSourceKey === item.source_key &&
+          !annotationExcluded(englishRoots[englishIndex])) {
+        return englishRoots[englishIndex];
+      }
     }
     var roots = Array.from(main.querySelectorAll(
       "[data-annotation-root][data-annotation-source-key]"
@@ -945,7 +1139,18 @@
 
   function applyHighlight(item) {
     var root = highlightRoot(item);
+    if (item.deferredRoot) {
+      if (root === item.deferredRoot) return false;
+      delete item.deferredRoot;
+    }
     if (!root) return false;
+    var offsets;
+    if (item.pendingReplacedIds) {
+      offsets = bestOffsets(item, root);
+      if (!offsets) return false;
+      removeHighlightMarks(item.pendingReplacedIds, root);
+      delete item.pendingReplacedIds;
+    }
     if (
       root.querySelector(
         '[data-highlight-id="' + String(item.id).replace(/"/g, "") + '"]'
@@ -953,13 +1158,14 @@
     ) {
       return true;
     }
-    var offsets = bestOffsets(item, root);
+    offsets = offsets || bestOffsets(item, root);
     if (!offsets) return false;
     var segments = textSegments(
       root,
       offsets.start,
       offsets.end,
-      !item.source_key
+      !item.source_key,
+      highlightLanguage(item, root)
     );
     if (!segments.length) return false;
     segments.reverse().forEach(function (segment) {
@@ -969,12 +1175,14 @@
   }
 
   function applySavedHighlights() {
+    var selection = captureSelection(true);
     highlights.forEach(applyHighlight);
+    restoreSelectionRange(selection);
   }
 
-  function removeHighlightMarks(ids) {
+  function removeHighlightMarks(ids, root) {
     var selectedIds = ids.map(String);
-    Array.from(main.querySelectorAll("[data-highlight-id]")).forEach(
+    Array.from((root || main).querySelectorAll("[data-highlight-id]")).forEach(
       function (mark) {
         if (selectedIds.indexOf(mark.dataset.highlightId) === -1) return;
         var parent = mark.parentNode;
@@ -987,6 +1195,7 @@
   }
 
   function replaceSavedHighlights(items) {
+    var selection = captureSelection(true);
     removeHighlightMarks(
       Array.from(main.querySelectorAll("[data-highlight-id]")).map(function (mark) {
         return mark.dataset.highlightId;
@@ -994,6 +1203,7 @@
     );
     highlights = items;
     applySavedHighlights();
+    restoreSelectionRange(selection);
     refreshSelectionCoverage(currentSelection);
     refreshSelectionCoverage(noteSelection);
     rememberSelection();
@@ -1102,6 +1312,7 @@
         details.highlightRevisions = {};
         if (currentSelection === details) {
           updateHighlightButton(details);
+          updateTranslateNoteButton(details);
         }
         showToast("Surlignage supprimé.");
       })
@@ -1110,10 +1321,37 @@
       });
   }
 
+  function recordSavedHighlights(items, removedIds, details) {
+    highlightsRevision += 1;
+    var canApply = selectionSourceIsCurrent(details);
+    var selection = canApply ? captureSelection(true) : null;
+    var replacedIds = removedIds.map(String).concat(
+      items.map(function (item) { return String(item.id); })
+    );
+    highlights = highlights.filter(function (saved) {
+      return replacedIds.indexOf(String(saved.id)) === -1;
+    });
+    items.forEach(function (item) {
+      highlights.push(item);
+      if (!canApply) {
+        item.deferredRoot = highlightRoot(item);
+        item.pendingReplacedIds = removedIds.concat(item.id);
+      }
+    });
+    if (!canApply) return;
+    removeHighlightMarks(replacedIds);
+    items.forEach(function (item) {
+      if (highlightRoot(item) === details.root) applyHighlight(item);
+    });
+    restoreSelectionRange(selection);
+    refreshSelectionCoverage(details);
+    refreshSelectionCoverage(currentSelection);
+    refreshSelectionCoverage(noteSelection);
+  }
+
   function highlightSelection(details) {
+    var selected = details.highlight;
     return createAnnotation("highlight", details, "").then(function (data) {
-      highlightsRevision += 1;
-      var selected = details.highlight;
       var item = {
         id: data.id,
         quote: selected.quote,
@@ -1125,24 +1363,7 @@
         revision: data.revision,
         delete_url: data.delete_url
       };
-      var removedIds = (data.removed_ids || []).map(String);
-      var replacedIds = removedIds.concat(String(item.id));
-      removeHighlightMarks(replacedIds);
-      highlights = highlights.filter(function (saved) {
-        return (
-          saved.id !== item.id &&
-          removedIds.indexOf(String(saved.id)) === -1
-        );
-      });
-      highlights.push(item);
-      applyHighlight(item);
-      details.fullyHighlighted = true;
-      details.highlightIds = [item.id];
-      details.highlightRevisions = {};
-      details.highlightRevisions[String(item.id)] = item.revision;
-      if (currentSelection === details) {
-        updateHighlightButton(details);
-      }
+      recordSavedHighlights([item], data.removed_ids || [], details);
       return item;
     });
   }
@@ -1645,7 +1866,7 @@
   window.HeureuxNotes = {
     captureSelection: function () {
       rememberSelection();
-      return currentSelection;
+      return currentSelection && currentSelection.language !== "en" ? currentSelection : null;
     },
     saveSelectionNote: function (quote, body, alsoHighlight, selection) {
       var details = selection === undefined ? currentSelection : selection;

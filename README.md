@@ -268,15 +268,25 @@ the selected French passage as a note without highlighting it; no translation
 is invented or fetched from Google automatically. The **Nouvelle note** dialog
 also saves without creating a highlight.
 
-The selection toolbar's **DeepL + note** button (`D`), between Translate and
+The selection toolbar's **Translate + note** button (`D`), between Translate and
 Add to Notes, translates and saves in one background request without opening a
-dialog, stopping playback or changing highlights. It captures the original
+dialog or stopping playback, and highlights the original French passage. It reuses
+existing coverage without changing saved highlights; partial overlaps use the same
+revision-checked merge as the Highlight action. It captures the original
 French passage and source context before sending; accepted requests can finish
-after navigating away. A spinner and toast report progress and completion.
+both saves after navigating away. A spinner and toast report progress and completion.
 This action requires `DEEPL_API_KEY`, accepts at most 2,000 selected characters,
 and never falls back to another provider or saves a note when translation fails.
 Exact retries reuse the existing note in the same user's source/range/context;
-edited notes and identical text in other contexts are not overwritten.
+edited notes and identical text in other contexts are not overwritten. If a
+highlight changed in another tab, the note remains saved and a separate message
+reports the highlight failure; retrying does not duplicate the note.
+
+Visible English text in bilingual EO2 questions and EO3 responses also offers
+**Highlight**. English highlights persist separately across language switches
+and reloads; revised translations use separate anchors, never the French ones.
+French paragraph selections ignore hidden glosses instead of losing their
+annotation tools. Notes and **Translate + note** continue to use French sources.
 
 Saving a new selection can overwrite an older visible highlight at the exact same
 source surface and character range, even if the stored text differs after an edit.

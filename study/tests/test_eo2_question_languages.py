@@ -74,7 +74,30 @@ class EO2QuestionLanguageTests(SimpleTestCase):
         provider.assert_not_called()
         self.assertFalse(result["ready"])
         self.assertEqual(result["available"], 0)
+        self.assertEqual(result["annotation_key"], "")
         self.assertTrue(all(not row["english"] for row in questions))
+
+    def test_english_annotation_identity_tracks_model_and_actual_translation(self):
+        dialogues = list(scoped_dialogues().values())[:2]
+        data = fixture_manifest({row.group for row in dialogues})
+        for rows in data["groups"].values():
+            for row in rows.values():
+                row["english"] = "The same English question?"
+        self.write(data)
+
+        def presentation(dialogue):
+            return language_presentation(dialogue, [
+                {"text": question.question} for question in dialogue.questions
+            ])
+
+        first = presentation(dialogues[0])["annotation_key"]
+        self.assertTrue(first.startswith("english:eo2:"))
+        self.assertEqual(presentation(dialogues[0])["annotation_key"], first)
+        self.assertNotEqual(presentation(dialogues[1])["annotation_key"], first)
+        row = next(iter(data["groups"][dialogues[0].group].values()))
+        row["english"] = "An updated English question?"
+        self.write(data)
+        self.assertNotEqual(presentation(dialogues[0])["annotation_key"], first)
 
     def test_exact_french_identity_blocks_stale_or_private_question_translations(self):
         self.write(fixture_manifest())
@@ -93,6 +116,7 @@ class EO2QuestionLanguageTests(SimpleTestCase):
         provider.assert_not_called()
         self.assertFalse(result["question_language"]["ready"])
         self.assertEqual(result["question_language"]["available"], 7)
+        self.assertTrue(result["question_language"]["annotation_key"].startswith("english:eo2:"))
         self.assertFalse(result["subject_questions"][0]["english"])
         self.assertTrue(result["subject_questions"][1]["english"])
 

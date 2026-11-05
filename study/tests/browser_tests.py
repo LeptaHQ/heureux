@@ -4981,7 +4981,8 @@ class BrowserTests(StaticLiveServerTestCase):
           selection.addRange(range);
           document.dispatchEvent(new Event("selectionchange"));
         }""")
-        expect(self.page.locator("[data-selection-translate]")).to_be_hidden()
+        expect(self.page.locator("[data-selection-translate]")).to_be_visible()
+        expect(self.page.locator("[data-highlight-selection]")).to_be_visible()
 
     def test_eo2_private_edits_and_outside_themes_never_get_unmatched_english(self):
         from dataclasses import asdict
@@ -5022,6 +5023,254 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.goto(self.live_server_url + prompt_detail_url(prompt))
         expect(self.page.locator("[data-eo3-language-controls]")).to_be_visible()
         return prompt
+
+    def select_language_range(self, root, first, last):
+        root.evaluate("""(root, selectors) => {
+          const first = root.querySelector(selectors[0]);
+          const last = root.querySelector(selectors[1]);
+          const range = document.createRange();
+          range.setStart(first, 0);
+          range.setEnd(last, last.childNodes.length);
+          const selection = getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.dispatchEvent(new Event("selectionchange"));
+        }""", [first, last])
+
+    def test_eo3_french_block_boundary_selection_keeps_all_annotation_tools(self):
+        self.context.add_init_script("""
+          Object.defineProperty(navigator, "clipboard", {
+            configurable: true, value: {writeText: text => {
+              window.__copiedResponse = text;
+              return Promise.resolve();
+            }}
+          });
+        """)
+        self.open_eo3_language_response("culture:p16")
+        root = self.page.locator("[data-eo3-language]")
+        french = root.locator("[data-eo3-french]").filter(has_text="cultiver un potager")
+        quote = french.text_content()
+        french.evaluate("""node => {
+          const english = node.nextElementSibling;
+          if (!english.matches("[data-eo3-english][hidden]")) {
+            throw new Error("Expected the hidden English counterpart.");
+          }
+          const range = document.createRange();
+          range.setStartBefore(node);
+          range.setEndAfter(english);
+          const selection = getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.dispatchEvent(new Event("selectionchange"));
+        }""")
+        expect(self.page.locator("[data-copy-selection]")).to_be_visible()
+        expect(self.page.locator("[data-note-selection]")).to_be_visible()
+        expect(self.page.locator("[data-translate-note-selection]")).to_be_visible()
+        self.page.locator("[data-copy-selection]").click()
+        self.page.wait_for_function(
+            "expected => window.__copiedResponse === expected", arg=quote,
+        )
+        self.page.locator("[data-highlight-selection]").click()
+        expect(french.locator("mark.user-highlight")).to_have_text(quote)
+        saved = Annotation.objects.get(user=self.user, kind=AnnotationKind.HIGHLIGHT)
+        self.assertEqual(saved.quote, quote)
+        self.assertFalse(saved.source_key.startswith("english:"))
+
+    def test_eo2_english_selection_offers_its_own_persistent_highlight(self):
+        self.open_eo2_language_fixture()
+        root = self.page.locator("[data-eo2-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        english = root.locator("[data-eo2-english]").first
+        quote = english.text_content()
+        self.select_prompt(target=english)
+        expect(self.page.locator("[data-note-selection]")).to_be_hidden()
+        expect(self.page.locator("[data-translate-note-selection]")).to_be_hidden()
+        self.page.locator("[data-highlight-selection]").click()
+        expect(english.locator("mark.user-highlight")).to_have_text(quote)
+        saved = Annotation.objects.get(user=self.user, kind=AnnotationKind.HIGHLIGHT)
+        self.assertEqual(saved.quote, quote)
+        self.assertTrue(saved.source_key.startswith("english:eo2:"))
+        self.assertEqual(saved.response_anchor, {})
+        self.page.reload()
+        expect(english.locator(f'mark[data-highlight-id="{saved.pk}"]')).to_have_text(quote)
+        root.get_by_role("button", name="Français", exact=True).click()
+        expect(root.locator("[data-eo2-french] mark.user-highlight")).to_have_count(0)
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        self.select_prompt(target=english)
+        expect(self.page.locator("[data-highlight-selection]")).to_have_attribute(
+            "aria-label", "Unhighlight selected text",
+        )
+        self.page.locator("[data-highlight-selection]").click()
+        expect(english.locator("mark.user-highlight")).to_have_count(0)
+        self.assertFalse(Annotation.objects.filter(pk=saved.pk).exists())
+
+    def test_eo2_english_pointer_selection_can_be_highlighted_without_translating(self):
+        self.open_eo2_language_fixture()
+        root = self.page.locator("[data-eo2-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        english = root.locator("[data-eo2-english]").first
+        english.scroll_into_view_if_needed()
+        box = english.bounding_box()
+        y = box["y"] + min(12, box["height"] / 2)
+        with mock.patch("study.views.notes._deepl_translation") as provider:
+            self.page.mouse.move(box["x"] + 4, y)
+            self.page.mouse.down()
+            self.page.mouse.move(box["x"] + min(box["width"] - 8, 190), y, steps=8)
+            self.page.mouse.up()
+            expect(self.page.locator("[data-highlight-selection]")).to_be_visible()
+            selected = self.page.evaluate("getSelection().toString().trim()")
+            self.assertTrue(selected)
+            self.page.locator("[data-highlight-selection]").click()
+            expect(english.locator("mark.user-highlight")).to_have_text(selected)
+            self.assertEqual(Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT).quote, selected)
+            provider.assert_not_called()
+
+    def test_eo2_english_range_spans_questions_without_including_hidden_french(self):
+        self.open_eo2_language_fixture()
+        root = self.page.locator("[data-eo2-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        first = "[data-tache-two-question]:nth-child(1) [data-eo2-english]"
+        last = "[data-tache-two-question]:nth-child(2) [data-eo2-english]"
+        expected = " ".join((root.locator(first).text_content(), root.locator(last).text_content()))
+        self.select_prompt(start=0, end=18, target=root.locator(first))
+        self.page.locator("[data-highlight-selection]").click()
+        expect(root.locator(first).locator("mark.user-highlight")).to_have_count(1)
+        previous = Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT)
+        self.select_language_range(root, first, last)
+        self.page.locator("[data-highlight-selection]").click()
+        expect(root.locator("[data-eo2-english] mark.user-highlight")).to_have_count(2)
+        saved = Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT)
+        self.assertEqual(saved.pk, previous.pk)
+        self.assertEqual(" ".join(saved.quote.split()), expected)
+        self.assertTrue(saved.source_key.startswith("english:eo2:"))
+        expect(root.locator("[data-eo2-french] mark.user-highlight")).to_have_count(0)
+        self.page.reload()
+        expect(root.locator("[data-eo2-english] mark.user-highlight")).to_have_count(2)
+
+    def test_eo3_english_range_spans_blocks_without_including_hidden_french(self):
+        self.open_eo3_language_response()
+        root = self.page.locator("[data-eo3-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        first = '[data-eo3-english="argument-1-developpement"]'
+        last = '[data-eo3-english="argument-1-exemple"]'
+        expected = " ".join((root.locator(first).text_content(), root.locator(last).text_content()))
+        self.select_prompt(start=0, end=18, target=root.locator(first))
+        self.page.locator("[data-highlight-selection]").click()
+        expect(root.locator(first).locator("mark.user-highlight")).to_have_count(1)
+        previous = Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT)
+        self.select_language_range(root, first, last)
+        self.page.locator("[data-highlight-selection]").click()
+        expect(root.locator("[data-eo3-english] mark.user-highlight")).to_have_count(2)
+        saved = Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT)
+        self.assertEqual(saved.pk, previous.pk)
+        self.assertEqual(" ".join(saved.quote.split()), expected)
+        self.assertTrue(saved.source_key.startswith("english:eo3:"))
+        expect(root.locator("[data-eo3-french] mark.user-highlight")).to_have_count(0)
+        self.page.reload()
+        expect(root.locator("[data-eo3-english] mark.user-highlight")).to_have_count(2)
+
+    def test_eo3_mixed_visible_languages_cannot_reuse_a_previous_french_selection(self):
+        self.open_eo3_language_response()
+        root = self.page.locator("[data-eo3-language]")
+        self.select_prompt(target=root.locator('[data-eo3-french="introduction"]'))
+        root.locator('[data-eo3-section-toggle="argument-1-developpement"]').click()
+        self.select_language_range(
+            root, '[data-eo3-english="argument-1-developpement"]',
+            '[data-eo3-french="argument-1-exemple"]',
+        )
+        expect(self.page.locator("[data-copy-selection]")).to_be_visible()
+        expect(self.page.locator("[data-highlight-selection]")).to_be_hidden()
+        expect(self.page.locator("[data-note-selection]")).to_be_hidden()
+        expect(self.page.locator("[data-translate-note-selection]")).to_be_hidden()
+        self.assertIsNone(self.page.evaluate("window.HeureuxNotes.captureSelection()"))
+        for shortcut in ("h", "n", "d"):
+            self.page.keyboard.press(shortcut)
+        self.assertFalse(Annotation.objects.exists())
+
+    def test_eo3_english_highlight_reply_preserves_a_new_french_selection(self):
+        self.open_eo3_language_response()
+        root = self.page.locator("[data-eo3-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        english = root.locator('[data-eo3-english="argument-1-exemple"]')
+        quote = english.text_content()[:32].strip()
+        self.hold_direct_note_reply(kind="highlight")
+        self.select_prompt(start=0, end=32, target=english)
+        self.page.locator("[data-highlight-selection]").click()
+        self.page.wait_for_function("() => typeof window.__releaseDirectNoteReply === 'function'")
+        root.get_by_role("button", name="Français", exact=True).click()
+        french = root.locator('[data-eo3-french="argument-2-developpement"]')
+        self.select_prompt(start=0, end=28, target=french)
+        selected = self.page.evaluate("getSelection().toString()")
+        self.page.evaluate("window.__releaseDirectNoteReply()")
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text("Passage surligné.")
+        self.assertEqual(self.page.evaluate("getSelection().toString()"), selected)
+        expect(root.locator("[data-eo3-french] mark.user-highlight")).to_have_count(0)
+        saved = Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT)
+        self.assertEqual(saved.quote, quote)
+        self.assertTrue(saved.source_key.startswith("english:eo3:"))
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        expect(english.locator(f'mark[data-highlight-id="{saved.pk}"]')).to_have_text(quote)
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="The saved French passage.")
+    def test_eo3_english_selection_survives_a_background_french_translation_note(self, provider):
+        self.open_eo3_language_response()
+        root = self.page.locator("[data-eo3-language]")
+        french = root.locator('[data-eo3-french="argument-1-exemple"]')
+        quote = french.text_content()
+        self.hold_direct_note_reply()
+        self.select_prompt(target=french)
+        self.page.locator("[data-translate-note-selection]").click()
+        self.page.wait_for_function("() => typeof window.__releaseDirectNoteReply === 'function'")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        english = root.locator('[data-eo3-english="argument-2-exemple"]')
+        self.select_prompt(start=0, end=28, target=english)
+        selected = self.page.evaluate("getSelection().toString()")
+        self.page.evaluate("window.__releaseDirectNoteReply()")
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note enregistrée et passage surligné.",
+        )
+        self.assertEqual(self.page.evaluate("getSelection().toString()"), selected)
+        expect(self.page.locator("[data-translate-note-selection]")).to_be_hidden()
+        expect(self.page.locator("[data-highlight-selection]")).to_be_visible()
+        expect(french.locator("mark.user-highlight")).to_have_text(quote)
+        expect(french.locator("mark.user-highlight")).to_be_hidden()
+        self.page.locator("[data-highlight-selection]").click()
+        expect(english.locator("mark.user-highlight")).to_have_text(selected.strip())
+        translated = Annotation.objects.get(
+            kind=AnnotationKind.HIGHLIGHT, source_key__startswith="english:eo3:",
+        )
+        self.assertEqual(translated.quote, selected.strip())
+        self.assertEqual(Annotation.objects.get(kind=AnnotationKind.NOTE).quote, quote)
+        provider.assert_called_once_with(quote, "test:fx")
+
+    def test_eo3_english_highlight_does_not_move_to_a_revised_translation(self):
+        from study.eo3_response_languages import fingerprint, manifest, public_fields, scoped_models
+
+        prompt = self.open_eo3_language_response()
+        root = self.page.locator("[data-eo3-language]")
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        english = root.locator('[data-eo3-english="introduction"]')
+        self.select_prompt(target=english)
+        self.page.locator("[data-highlight-selection]").click()
+        expect(english.locator("mark.user-highlight")).to_have_count(1)
+        saved = Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT)
+        before = Annotation.objects.filter(pk=saved.pk).values().get()
+        original_key = root.get_attribute("data-annotation-english-source-key")
+        model = scoped_models()[prompt.response.semantic_group]
+        data = manifest()
+        rows = dict(data["groups"][model.group])
+        digest = fingerprint(public_fields(model)["introduction"])
+        rows[digest] = {**rows[digest], "english": "Updated English version: " + rows[digest]["english"]}
+        updated = {**data, "groups": {**data["groups"], model.group: rows}}
+        with mock.patch("study.eo3_response_languages.manifest", return_value=updated):
+            self.page.reload()
+            expect(english).to_contain_text("Updated English version:")
+            self.assertNotEqual(root.get_attribute("data-annotation-english-source-key"), original_key)
+            expect(root.locator("mark.user-highlight")).to_have_count(0)
+            self.assertEqual(Annotation.objects.filter(pk=saved.pk).values().get(), before)
+        self.page.reload()
+        expect(english.locator(f'mark[data-highlight-id="{saved.pk}"]')).to_be_visible()
 
     def test_eo3_global_argument_and_subsection_language_choices_have_the_right_scope_and_persistence(self):
         self.open_eo3_language_response()
@@ -5103,13 +5352,35 @@ class BrowserTests(StaticLiveServerTestCase):
           const selection = getSelection(); selection.removeAllRanges(); selection.addRange(range);
           document.dispatchEvent(new Event("selectionchange"));
         }""")
-        expect(self.page.locator("[data-highlight-selection]")).to_be_hidden()
+        expect(self.page.locator("[data-highlight-selection]")).to_be_visible()
+        expect(self.page.locator("[data-note-selection]")).to_be_hidden()
+        expect(self.page.locator("[data-translate-note-selection]")).to_be_hidden()
+        self.page.locator("[data-highlight-selection]").click()
+        expect(english.locator("mark.user-highlight")).to_have_text(english.text_content())
+        translated = Annotation.objects.get(
+            user=self.user, kind=AnnotationKind.HIGHLIGHT,
+            source_key__startswith="english:eo3:",
+        )
+        self.assertEqual(translated.quote, english.text_content())
+        self.assertEqual(translated.response_anchor, {})
+        self.assertIsNone(self.page.evaluate("window.HeureuxNotes.captureSelection()"))
         root.get_by_role("button", name="Français", exact=True).click()
         expect(french.locator(f'mark[data-highlight-id="{mark.pk}"]')).to_have_text(quote)
         self.page.reload()
         expect(french.locator(f'mark[data-highlight-id="{mark.pk}"]')).to_have_text(quote)
         self.assertEqual(Annotation.objects.filter(pk=mark.pk).values().get(), saved)
         self.assertEqual(root.evaluate(canonical), before)
+        root.get_by_role("button", name="Anglais", exact=True).click()
+        self.page.reload()
+        expect(english.locator(f'mark[data-highlight-id="{translated.pk}"]')).to_be_visible()
+        self.select_prompt(target=english)
+        expect(self.page.locator("[data-highlight-selection]")).to_have_attribute(
+            "aria-label", "Unhighlight selected text",
+        )
+        self.page.locator("[data-highlight-selection]").click()
+        expect(english.locator("mark.user-highlight")).to_have_count(0)
+        self.assertFalse(Annotation.objects.filter(pk=translated.pk).exists())
+        self.assertEqual(Annotation.objects.filter(pk=mark.pk).values().get(), saved)
         self.assertEqual(prompt.response.semantic_group, "eo/tache-3/culture-p30")
 
     def test_eo3_language_keeps_pistes_first_practice_and_returns_to_the_preferred_full_response(self):
@@ -5152,6 +5423,21 @@ class BrowserTests(StaticLiveServerTestCase):
         root.locator('[data-eo3-section-toggle="argument-2-exemple"]').click()
         expect(root.locator("[data-eo3-english]:visible")).to_have_count(1)
         expect(root.locator('[data-eo3-french="argument-1-exemple"]')).to_have_text(fields["arguments"][0]["exemple"])
+        english = root.locator('[data-eo3-english="argument-2-exemple"]')
+        self.select_prompt(target=english)
+        self.page.locator("[data-highlight-selection]").click()
+        expect(english.locator("mark.user-highlight")).to_have_text(english.text_content())
+        saved = Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT)
+        before = Annotation.objects.filter(pk=saved.pk).values().get()
+        root.locator('[data-eo3-section-toggle="introduction"]').click()
+        self.select_prompt(target=english)
+        expect(self.page.locator("[data-highlight-selection]")).to_have_attribute(
+            "aria-label", "Unhighlight selected text",
+        )
+        self.page.reload()
+        root.locator('[data-eo3-section-toggle="argument-2-exemple"]').click()
+        expect(english.locator(f'mark[data-highlight-id="{saved.pk}"]')).to_be_visible()
+        self.assertEqual(Annotation.objects.filter(pk=saved.pk).values().get(), before)
 
     def test_eo3_languages_without_javascript_leave_only_french_readable(self):
         prompt = self.open_eo3_language_response()
@@ -5171,11 +5457,20 @@ class BrowserTests(StaticLiveServerTestCase):
         self.open_eo3_language_response()
         root = self.page.locator("[data-eo3-language]")
         root.get_by_role("button", name="Anglais", exact=True).click()
+        english = root.locator('[data-eo3-english="introduction"]')
+        self.select_prompt(target=english)
+        self.page.locator("[data-highlight-selection]").click()
+        expect(english.locator("mark.user-highlight")).to_have_count(1)
+        saved = Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT)
         root.evaluate("""node => {
           const copy = node.cloneNode(true);
+          copy.querySelectorAll("[data-user-highlight]").forEach(mark => {
+            mark.replaceWith(...Array.from(mark.childNodes));
+          });
           node.replaceWith(copy);
         }""")
         expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
+        expect(english.locator(f'mark[data-highlight-id="{saved.pk}"]')).to_be_visible()
         root.locator('[data-eo3-argument-toggle="3"]').click()
         expect(root.locator("[data-eo3-english]:visible")).to_have_count(11)
         expect(root.locator('[data-eo3-french^="argument-3-"]:visible')).to_have_count(4)
@@ -5191,6 +5486,15 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(root.locator("[data-eo3-english]:visible")).to_have_count(3)
         root.get_by_role("button", name="Anglais", exact=True).click()
         expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
+        english = root.locator('[data-eo3-english="introduction"]')
+        self.select_prompt(target=english)
+        self.page.locator("[data-highlight-selection]").click()
+        expect(english.locator("mark.user-highlight")).to_have_text(english.text_content())
+        saved = Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT)
+        self.assertTrue(saved.source_key.startswith("english:eo3:"))
+        self.page.reload()
+        self.page.locator("#reveal").click()
+        expect(english.locator(f'mark[data-highlight-id="{saved.pk}"]')).to_be_visible()
         expect(root.locator('[data-eo3-english="argument-1-exemple"]')).to_contain_text("Senegal")
         expect(root.locator('[data-eo3-english="argument-2-exemple"]')).to_contain_text("Portugal")
 
@@ -7395,9 +7699,25 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.page.wait_for_load_state("networkidle")
 
+    def hold_direct_note_reply(self, *, kind="note"):
+        self.page.evaluate("""kind => {
+          const originalFetch = window.fetch.bind(window);
+          window.fetch = (url, options) => {
+            const response = originalFetch(url, options);
+            if (options && typeof options.body === "string" &&
+                new URLSearchParams(options.body).get("kind") === kind &&
+                (kind !== "note" || options.body.includes("translate_with=deepl"))) {
+              return response.then(reply => new Promise(resolve => {
+                window.__releaseDirectNoteReply = () => resolve(reply);
+              }));
+            }
+            return response;
+          };
+        }""", kind)
+
     @override_settings(DEEPL_API_KEY="test:fx")
     @mock.patch("study.views.notes._deepl_translation", return_value="A DeepL translation.")
-    def test_direct_deepl_note_saves_without_opening_panels_or_highlighting(self, provider):
+    def test_direct_deepl_note_saves_and_highlights_without_opening_panels(self, provider):
         self.open_direct_deepl_note_review()
         prompt = self.page.locator("#card-front .prompt-text")
         quote = prompt.inner_text()[:12]
@@ -7405,13 +7725,16 @@ class BrowserTests(StaticLiveServerTestCase):
             "element => element.closest('[data-annotation-root]').dataset.annotationSourceKey"
         )
         self.select_prompt(start=0, end=12)
+        button = self.page.locator("[data-translate-note-selection]")
+        expect(button).to_have_attribute("aria-label", "Translate, add to Notes and highlight")
+        expect(button.locator("[data-translate-note-label]")).to_have_text("Translate + note")
         with self.page.expect_response(
             lambda response: reverse("study:annotation_create") in response.url
         ) as saved:
             self.page.locator("[data-translate-note-selection]").tap()
         self.assertEqual(saved.value.status, 201)
         expect(self.page.locator("[data-annotation-toast]")).to_have_text(
-            "Traduction DeepL enregistrée dans vos notes.",
+            "Note enregistrée et passage surligné.",
         )
         expect(self.page.locator("[data-translation-panel]")).to_be_hidden()
         expect(self.page.locator("[data-note-panel]")).to_be_hidden()
@@ -7421,7 +7744,13 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(note.body, "A DeepL translation.")
         self.assertEqual(note.task, self.task)
         self.assertEqual(note.source_key, source_key)
-        self.assertFalse(Annotation.objects.filter(kind=AnnotationKind.HIGHLIGHT).exists())
+        highlight = Annotation.objects.get(user=self.user, kind=AnnotationKind.HIGHLIGHT)
+        self.assertEqual(highlight.quote, quote)
+        self.assertEqual(highlight.source_key, source_key)
+        expect(prompt.locator("mark.user-highlight")).to_have_text(quote)
+        expect(button.locator("[data-translate-note-label]")).to_have_text("Saved & highlighted")
+        self.assertNotIn("DeepL", button.get_attribute("aria-label"))
+        self.assertNotIn("DeepL", button.get_attribute("title"))
         self.assertFalse(ReviewLog.objects.filter(user=self.user).exists())
         self.assertEqual(len(self.context.pages), 1)
         provider.assert_called_once_with(quote, "test:fx")
@@ -7453,6 +7782,7 @@ class BrowserTests(StaticLiveServerTestCase):
         button.tap()
         expect(button).to_be_disabled()
         expect(button).to_have_attribute("aria-busy", "true")
+        self.assertNotIn("DeepL", button.get_attribute("aria-label"))
         expect(self.page.locator("[data-translation-panel]")).to_be_hidden()
         expect(self.page.locator("[data-note-panel]")).to_be_hidden()
         button.evaluate("""button => {
@@ -7470,7 +7800,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.locator("[data-note-body]").fill("Keep this new draft.")
         self.page.evaluate("window.__releaseDirectNote()")
         expect(self.page.locator("[data-annotation-toast]")).to_have_text(
-            "Traduction DeepL enregistrée dans vos notes.",
+            "Note enregistrée et passage surligné.",
         )
         expect(self.page.locator("[data-note-panel]")).to_be_visible()
         expect(self.page.locator("[data-note-body]")).to_have_value("Keep this new draft.")
@@ -7480,7 +7810,196 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(note.quote, quote)
         self.assertEqual(note.source_title, title)
         self.assertEqual(note.task, self.task)
+        highlight = Annotation.objects.get(user=self.user, kind=AnnotationKind.HIGHLIGHT)
+        self.assertEqual((highlight.quote, highlight.task), (quote, self.task))
         provider.assert_called_once_with(quote, "test:fx")
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="The clicked passage.")
+    def test_direct_deepl_note_preserves_a_new_overlapping_selection(self, provider):
+        self.open_direct_deepl_note_review()
+        self.hold_direct_note_reply()
+        prompt = self.page.locator("#card-front .prompt-text")
+        quote = prompt.inner_text()[:12]
+        self.select_prompt(start=0, end=12)
+        button = self.page.locator("[data-translate-note-selection]")
+        button.tap()
+        self.page.wait_for_function("() => typeof window.__releaseDirectNoteReply === 'function'")
+        self.select_prompt(start=6, end=18)
+        selected = self.page.evaluate("getSelection().toString()")
+
+        self.page.evaluate("window.__releaseDirectNoteReply()")
+
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note enregistrée et passage surligné.",
+        )
+        self.assertEqual(self.page.evaluate("getSelection().toString()"), selected)
+        expect(prompt.locator("mark.user-highlight")).to_have_text(quote)
+        expect(button).to_be_enabled()
+        self.assertEqual(Annotation.objects.get(kind=AnnotationKind.NOTE).quote, quote)
+        self.assertEqual(Annotation.objects.get(kind=AnnotationKind.HIGHLIGHT).quote, quote)
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="Saved on the original card.")
+    def test_direct_deepl_note_does_not_highlight_a_replacement_root(self, provider):
+        self.open_direct_deepl_note_review()
+        prompt = self.page.locator("#card-front .prompt-text")
+        quote = prompt.inner_text()
+        self.select_prompt(start=0, end=5)
+        self.page.locator("[data-highlight-selection]").tap()
+        expect(prompt.locator("mark.user-highlight")).to_have_count(1)
+        self.select_prompt(start=12, end=len(quote))
+        self.page.locator("[data-highlight-selection]").tap()
+        expect(prompt.locator("mark.user-highlight")).to_have_count(2)
+        self.hold_direct_note_reply()
+        self.select_prompt(start=0, end=len(quote))
+        self.page.locator("[data-translate-note-selection]").tap()
+        self.page.wait_for_function("() => typeof window.__releaseDirectNoteReply === 'function'")
+        prompt.evaluate("""element => {
+          const root = element.closest("[data-annotation-root]");
+          window.__originalDirectNoteRoot = root;
+          root.replaceWith(root.cloneNode(true));
+        }""")
+
+        self.page.evaluate("window.__releaseDirectNoteReply()")
+
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note enregistrée et passage surligné.",
+        )
+        self.assertEqual(Annotation.objects.filter(kind=AnnotationKind.HIGHLIGHT).count(), 1)
+        expect(prompt.locator("mark.user-highlight")).to_have_count(2)
+        prompt.evaluate("""element => {
+          element.closest("[data-annotation-root]").replaceWith(window.__originalDirectNoteRoot);
+        }""")
+        expect(prompt.locator("mark.user-highlight")).to_have_count(1)
+        expect(prompt.locator("mark.user-highlight")).to_have_text(quote)
+        self.select_prompt(start=0, end=len(quote))
+        self.page.locator("[data-highlight-selection]").tap()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text("Surlignage supprimé.")
+        expect(prompt.locator("mark.user-highlight")).to_have_count(0)
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="A merged selection.")
+    def test_direct_deepl_note_merge_retry_removes_deleted_ids_from_the_toolbar(self, provider):
+        self.open_direct_deepl_note_review()
+        prompt = self.page.locator("#card-front .prompt-text")
+        quote = prompt.inner_text()
+        self.select_prompt(start=0, end=5)
+        self.page.locator("[data-highlight-selection]").tap()
+        expect(prompt.locator("mark.user-highlight")).to_have_count(1)
+        self.select_prompt(start=12, end=len(quote))
+        self.page.locator("[data-highlight-selection]").tap()
+        expect(prompt.locator("mark.user-highlight")).to_have_count(2)
+        endpoint = self.live_server_url + reverse("study:annotation_create")
+        attempts = []
+
+        def interrupted_reply(route):
+            attempts.append(route.request.post_data)
+            if len(attempts) == 1:
+                route.fetch()
+                route.fulfill(
+                    status=502, content_type="application/json",
+                    body=json.dumps({"error": "Réponse interrompue. Réessayez."}),
+                )
+            else:
+                route.continue_()
+
+        self.page.route(endpoint, interrupted_reply)
+        self.select_prompt(start=0, end=len(quote))
+        button = self.page.locator("[data-translate-note-selection]")
+        button.tap()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Réponse interrompue. Réessayez.",
+        )
+        expect(button).to_be_enabled()
+        button.tap()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note déjà enregistrée et passage surligné.",
+        )
+        expect(prompt.locator("mark.user-highlight")).to_have_count(1)
+        self.select_prompt(start=0, end=len(quote))
+        self.page.locator("[data-highlight-selection]").tap()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text("Surlignage supprimé.")
+        expect(prompt.locator("mark.user-highlight")).to_have_count(0)
+        self.assertFalse(Annotation.objects.filter(kind=AnnotationKind.HIGHLIGHT).exists())
+        self.assertEqual(Annotation.objects.filter(kind=AnnotationKind.NOTE).count(), 1)
+        provider.assert_called_once()
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="A smaller passage.")
+    def test_direct_deepl_note_reuses_a_covering_highlight_without_editing_it(self, provider):
+        self.open_direct_deepl_note_review()
+        self.select_prompt(start=0, end=12)
+        self.page.locator("[data-highlight-selection]").tap()
+        prompt = self.page.locator("#card-front .prompt-text")
+        expect(prompt.locator("mark.user-highlight")).to_have_count(1)
+        before = Annotation.objects.filter(kind=AnnotationKind.HIGHLIGHT).values().get()
+        self.select_prompt(start=2, end=8)
+        quote = self.page.evaluate("getSelection().toString().trim()")
+
+        self.page.locator("[data-translate-note-selection]").tap()
+
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note enregistrée et passage surligné.",
+        )
+        self.assertEqual(Annotation.objects.get(kind=AnnotationKind.NOTE).quote, quote)
+        self.assertEqual(
+            Annotation.objects.filter(kind=AnnotationKind.HIGHLIGHT).values().get(), before,
+        )
+        expect(prompt.locator("mark.user-highlight")).to_have_count(1)
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="One translated note.")
+    def test_direct_deepl_note_can_restore_a_manually_removed_highlight(self, provider):
+        self.open_direct_deepl_note_review()
+        self.select_prompt(start=0, end=12)
+        button = self.page.locator("[data-translate-note-selection]")
+        button.tap()
+        expect(button).to_be_disabled()
+        expect(button.locator("[data-translate-note-label]")).to_have_text("Saved & highlighted")
+
+        self.page.locator("[data-highlight-selection]").tap()
+
+        expect(self.page.locator("mark.user-highlight")).to_have_count(0)
+        expect(button).to_be_enabled()
+        expect(button.locator("[data-translate-note-label]")).to_have_text("Translate + note")
+        button.tap()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note déjà enregistrée et passage surligné.",
+        )
+        self.assertEqual(Annotation.objects.filter(kind=AnnotationKind.NOTE).count(), 1)
+        self.assertEqual(Annotation.objects.filter(kind=AnnotationKind.HIGHLIGHT).count(), 1)
+        provider.assert_called_once()
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="Retry only the highlight.")
+    def test_direct_deepl_note_highlight_failure_preserves_the_note_and_allows_retry(self, provider):
+        from study.views.notes import HighlightConflictError
+
+        self.open_direct_deepl_note_review()
+        self.select_prompt(start=0, end=12)
+        button = self.page.locator("[data-translate-note-selection]")
+        with mock.patch(
+            "study.views.notes._save_highlights",
+            side_effect=HighlightConflictError("Ce surlignage a changé dans un autre onglet."),
+        ):
+            button.tap()
+            expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+                "Note enregistrée. Surlignage impossible. "
+                "Ce surlignage a changé dans un autre onglet.",
+            )
+        expect(button).to_be_enabled()
+        expect(button).to_have_attribute("aria-busy", "false")
+        self.assertEqual(Annotation.objects.filter(kind=AnnotationKind.NOTE).count(), 1)
+        self.assertFalse(Annotation.objects.filter(kind=AnnotationKind.HIGHLIGHT).exists())
+        button.tap()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note déjà enregistrée et passage surligné.",
+        )
+        expect(button).to_be_disabled()
+        self.assertEqual(Annotation.objects.filter(kind=AnnotationKind.NOTE).count(), 1)
+        self.assertEqual(Annotation.objects.filter(kind=AnnotationKind.HIGHLIGHT).count(), 1)
+        provider.assert_called_once()
 
     @override_settings(DEEPL_API_KEY="test:fx")
     @mock.patch("study.views.notes._deepl_translation", side_effect=[OSError("down"), "A retry."])
@@ -7499,14 +8018,14 @@ class BrowserTests(StaticLiveServerTestCase):
         button = self.page.locator("[data-translate-note-selection]")
         button.tap()
         expect(self.page.locator("[data-annotation-toast]")).to_have_text(
-            "DeepL est indisponible. Réessayez. Aucune note n’a été enregistrée.",
+            "Le service de traduction est indisponible. Réessayez. Aucune note n’a été enregistrée.",
         )
         expect(button).to_be_enabled()
         expect(button).to_have_attribute("aria-busy", "false")
         self.assertFalse(Annotation.objects.exists())
         button.tap()
         expect(self.page.locator("[data-annotation-toast]")).to_have_text(
-            "Traduction DeepL enregistrée dans vos notes.",
+            "Note enregistrée et passage surligné.",
         )
         self.assertEqual(Annotation.objects.get(kind=AnnotationKind.NOTE).body, "A retry.")
         self.assertEqual(self.page.evaluate("window.__localTranslations"), 0)
@@ -7543,16 +8062,20 @@ class BrowserTests(StaticLiveServerTestCase):
         saved_id = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE).pk
         button.tap()
         expect(self.page.locator("[data-annotation-toast]")).to_have_text(
-            "Cette traduction est déjà dans vos notes.",
+            "Note déjà enregistrée et passage surligné.",
         )
         self.assertEqual(Annotation.objects.get(kind=AnnotationKind.NOTE).pk, saved_id)
+        self.assertEqual(Annotation.objects.filter(kind=AnnotationKind.HIGHLIGHT).count(), 1)
         self.assertEqual(len(attempts), 2)
         self.assertEqual(provider.call_count, 1)
 
     @override_settings(DEEPL_API_KEY="test:fx")
     def test_direct_deepl_note_finishes_after_navigation(self):
+        from study.views.notes import _save_highlights
+
         started = Event()
         release = Event()
+        finished = Event()
 
         def delayed_translation(text, key):
             started.set()
@@ -7560,24 +8083,42 @@ class BrowserTests(StaticLiveServerTestCase):
                 raise OSError("Translation was not released.")
             return "Saved after navigation."
 
+        def finish_highlight(*args, **kwargs):
+            result = _save_highlights(*args, **kwargs)
+            finished.set()
+            return result
+
         self.open_direct_deepl_note_review()
         quote = self.page.locator("#card-front .prompt-text").inner_text()[:12]
         self.select_prompt(start=0, end=12)
-        with mock.patch("study.views.notes._deepl_translation", delayed_translation):
+        # Avoid the test server's shared-SQLite request lock while unloading.
+        destination = self.live_server_url + reverse("study:dashboard")
+        self.page.route(destination, lambda route: route.fulfill(
+            content_type="text/html", body="<!doctype html><title>Another page</title>",
+        ))
+        with mock.patch(
+            "study.views.notes._deepl_translation", delayed_translation,
+        ), mock.patch(
+            "study.views.notes._save_highlights", side_effect=finish_highlight,
+        ):
             try:
                 self.page.locator("[data-translate-note-selection]").tap()
                 self.assertTrue(started.wait(5))
                 self.page.evaluate(
                     "url => { window.location.href = url; }",
-                    self.live_server_url + reverse("study:dashboard"),
+                    destination,
                 )
+                self.page.wait_for_url(destination)
+                self.assertEqual(self.page.title(), "Another page")
             finally:
                 release.set()
-            self.page.wait_for_url(self.live_server_url + reverse("study:dashboard"))
+            self.assertTrue(finished.wait(5))
         note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE)
         self.assertEqual(note.quote, quote)
         self.assertEqual(note.body, "Saved after navigation.")
         self.assertEqual(note.task, self.task)
+        highlight = Annotation.objects.get(user=self.user, kind=AnnotationKind.HIGHLIGHT)
+        self.assertEqual((highlight.quote, highlight.task), (quote, self.task))
 
     @override_settings(DEEPL_API_KEY="test:fx")
     @mock.patch("study.views.notes._deepl_translation", return_value="Saved while reading.")
@@ -7598,7 +8139,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.select_prompt(start=0, end=12)
         self.page.keyboard.press("d")
         expect(self.page.locator("[data-annotation-toast]")).to_have_text(
-            "Traduction DeepL enregistrée dans vos notes.",
+            "Note enregistrée et passage surligné.",
         )
         expect(read).to_have_attribute("aria-pressed", "true")
         self.assertEqual(self.page.evaluate("window.__directNoteReadingStops"), 0)
@@ -7615,7 +8156,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.select_prompt(start=0, end=12)
         self.page.locator("[data-translate-note-selection]").tap()
         expect(self.page.locator("[data-annotation-toast]")).to_have_text(
-            "DeepL n’est pas configuré. Aucune note n’a été enregistrée.",
+            "La traduction n’est pas configurée. Aucune note n’a été enregistrée.",
         )
         expect(self.page.locator("[data-translate-note-selection]")).to_be_enabled()
         self.assertFalse(Annotation.objects.exists())
@@ -7669,6 +8210,8 @@ class BrowserTests(StaticLiveServerTestCase):
         """)
         expect(self.page.locator("[data-copy-selection]")).to_be_visible()
         expect(self.page.locator("[data-translate-note-selection]")).to_be_hidden()
+        expect(self.page.locator("[data-highlight-selection]")).to_be_hidden()
+        expect(self.page.locator("[data-note-selection]")).to_be_hidden()
         self.page.keyboard.press("d")
         self.assertFalse(Annotation.objects.exists())
         provider.assert_not_called()
@@ -7703,13 +8246,17 @@ class BrowserTests(StaticLiveServerTestCase):
         ) as saved:
             self.page.locator("[data-translate-note-selection]").click()
         self.assertEqual(saved.value.status, 201)
-        expect(self.page.locator("[data-annotation-toast]")).to_contain_text("Traduction DeepL enregistrée")
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note enregistrée et passage surligné.",
+        )
         expect(self.page.locator("[data-note-panel]")).to_be_hidden()
         expect(self.page.locator("[data-translation-panel]")).to_be_hidden()
         note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE)
         self.assertEqual((note.quote, note.body, note.source_key), (quote, "A saved English note.", source_key))
         self.assertEqual(note.task, prompt.theme.task)
-        self.assertFalse(Annotation.objects.filter(user=self.user, kind=AnnotationKind.HIGHLIGHT).exists())
+        highlight = Annotation.objects.get(user=self.user, kind=AnnotationKind.HIGHLIGHT)
+        self.assertEqual((highlight.quote, highlight.source_key), (quote, source_key))
+        expect(french.locator("mark.user-highlight")).to_have_text(quote)
         provider.assert_called_once_with(quote, "test:fx")
 
     def test_translation_panel_saves_the_translation_as_a_note(self):

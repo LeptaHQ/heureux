@@ -107,4 +107,8 @@ def language_presentation(dialogue, questions):
         "ready": bool(questions) and available == len(questions),
         "available": available, "total": len(questions),
         "english_lang": saved["target_language"].lower(),
+        "annotation_key": "english:eo2:" + fingerprint(json.dumps([
+            dialogue.group, saved["target_language"],
+            [question["english"] for question in questions],
+        ], ensure_ascii=False))[:32] if available else "",
     }

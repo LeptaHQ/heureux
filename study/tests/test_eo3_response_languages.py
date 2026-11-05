@@ -72,7 +72,26 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertFalse(result["ready"])
         self.assertEqual(result["available"], 0)
         self.assertEqual(result["total"], 15)
+        self.assertEqual(result["annotation_key"], "")
         self.assertTrue(all(not value for value in result["fields"].values()))
+
+    def test_english_annotation_identity_tracks_model_and_actual_translation(self):
+        other = next(model for model in scoped_models().values() if model.group != self.model.group)
+        data = fixture_manifest({model.group: model for model in (self.model, other)})
+        for rows in data["groups"].values():
+            for row in rows.values():
+                row["english"] = "The same English gloss."
+        self.write(data)
+        first = self.presentation()["annotation_key"]
+        self.assertTrue(first.startswith("english:eo3:"))
+        self.assertEqual(self.presentation()["annotation_key"], first)
+        self.assertNotEqual(language_presentation(
+            other, other.response, other.response.arguments,
+        )["annotation_key"], first)
+        row = next(iter(data["groups"][self.model.group].values()))
+        row["english"] = "An updated English gloss."
+        self.write(data)
+        self.assertNotEqual(self.presentation()["annotation_key"], first)
 
     def test_private_and_stale_text_is_never_uploaded_or_given_an_unmatched_gloss(self):
         self.write(fixture_manifest())
@@ -84,6 +103,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         provider.assert_not_called()
         self.assertFalse(result["ready"])
         self.assertEqual(result["available"], 14)
+        self.assertTrue(result["annotation_key"].startswith("english:eo3:"))
         self.assertEqual(result["fields"]["introduction"], "")
         self.assertTrue(result["fields"]["argument-1-exemple"])
         result = self.presentation(replace(

@@ -120,4 +120,7 @@ def language_presentation(model, response, arguments):
         "ready": bool(fields) and available == len(fields),
         "available": available, "total": len(fields), "fields": translated,
         "english_lang": saved["target_language"].lower(), "error": False,
+        "annotation_key": "english:eo3:" + fingerprint(json.dumps([
+            model.group, saved["target_language"], list(translated.items()),
+        ], ensure_ascii=False))[:32] if available else "",
     }

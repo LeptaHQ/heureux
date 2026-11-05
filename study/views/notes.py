@@ -1491,6 +1491,223 @@ def annotations_for_source(request):
     return JsonResponse({"highlights": highlights})
 
 
+class HighlightConflictError(Exception):
+    pass
+
+
+def _save_highlights(
+    proposed, source_filter, overlap_ids, overlap_revisions, *,
+    ensure=False, covered=False,
+):
+    from ..public_response_annotations import capture_public_response_anchor
+
+    with transaction.atomic():
+        source_candidates = Annotation.objects.select_for_update().filter(
+            source_filter,
+            user=proposed.user,
+            kind=AnnotationKind.HIGHLIGHT,
+            hidden_on_source=False,
+        )
+        candidates = source_candidates.filter(source_key=proposed.source_key)
+        if ensure:
+            unchanged = candidates.filter(
+                source_path=proposed.source_path,
+                task=proposed.task,
+                quote=proposed.quote,
+                start_offset=proposed.start_offset,
+                end_offset=proposed.end_offset,
+                prefix=proposed.prefix,
+                suffix=proposed.suffix,
+            ).first()
+            if unchanged is not None:
+                # A completed merge may be retried with its original revisions.
+                remaining_ids = set(
+                    Annotation.objects.filter(
+                        user=proposed.user, pk__in=overlap_ids or [],
+                    ).values_list("pk", flat=True)
+                )
+                removed_ids = [
+                    pk for pk in overlap_ids or [] if pk not in remaining_ids
+                ]
+                return [unchanged], False, removed_ids
+        if overlap_ids is None:
+            candidates = candidates.filter(
+                start_offset__lt=proposed.end_offset,
+                end_offset__gt=proposed.start_offset,
+            )
+            overlapping = list(candidates.order_by("-updated_at", "-id"))
+        else:
+            overlapping = list(
+                source_candidates.filter(id__in=overlap_ids).order_by(
+                    "-updated_at", "-id",
+                )
+            )
+            if any(
+                item.source_key != proposed.source_key
+                and (
+                    item.source_key.startswith("english:")
+                    or proposed.source_key.startswith("english:")
+                )
+                for item in overlapping
+            ):
+                raise HighlightConflictError(
+                    "Ces surlignages appartiennent à des textes différents. "
+                    "Réessayez avec la sélection actualisée."
+                )
+            if overlap_revisions is not None and (
+                len(overlapping) != len(overlap_ids)
+                or any(
+                    item.updated_at.isoformat() != overlap_revisions[item.id]
+                    for item in overlapping
+                )
+            ):
+                raise HighlightConflictError(
+                    "Ce surlignage a changé dans un autre onglet. "
+                    "Réessayez avec la version actualisée."
+                )
+            if ensure and covered and overlapping:
+                return overlapping, False, []
+            exact_retry = candidates.filter(
+                start_offset=proposed.start_offset,
+                end_offset=proposed.end_offset,
+            ).exclude(id__in=overlap_ids).first()
+            if exact_retry:
+                overlapping.append(exact_retry)
+        annotation = next(
+            (
+                item for item in overlapping
+                if item.source_key == proposed.source_key
+                and item.start_offset == proposed.start_offset
+                and item.end_offset == proposed.end_offset
+            ),
+            None,
+        )
+        if annotation is None:
+            annotation = next(
+                (item for item in overlapping if item.source_key == proposed.source_key),
+                None,
+            )
+        if annotation is None:
+            annotation = next(
+                (
+                    item for item in overlapping
+                    if item.start_offset == proposed.start_offset
+                    and item.end_offset == proposed.end_offset
+                ),
+                overlapping[0] if overlapping else None,
+            )
+        created = annotation is None
+        previous_anchor = (
+            annotation.response_anchor
+            if annotation is not None and (
+                annotation.source_path == proposed.source_path
+                and annotation.source_key == proposed.source_key
+                and annotation.quote == proposed.quote
+                and annotation.start_offset == proposed.start_offset
+                and annotation.end_offset == proposed.end_offset
+                and annotation.prefix == proposed.prefix
+                and annotation.suffix == proposed.suffix
+                and annotation.task_id == proposed.task_id
+            )
+            else {}
+        )
+        if created:
+            annotation = proposed
+        else:
+            annotation.task = proposed.task
+            annotation.source_path = proposed.source_path
+            annotation.source_key = proposed.source_key
+            annotation.quote = proposed.quote
+            annotation.source_title = proposed.source_title
+            annotation.prefix = proposed.prefix
+            annotation.suffix = proposed.suffix
+            annotation.body = proposed.body
+            annotation.start_offset = proposed.start_offset
+            annotation.end_offset = proposed.end_offset
+            annotation.study_later = any(item.study_later for item in overlapping)
+        annotation.response_anchor = previous_anchor or capture_public_response_anchor(annotation)
+        annotation.full_clean(validate_constraints=False)
+        try:
+            with transaction.atomic():
+                annotation.save()
+        except IntegrityError:
+            concurrent = candidates.filter(
+                start_offset=proposed.start_offset,
+                end_offset=proposed.end_offset,
+            ).first()
+            if (
+                not created
+                or overlapping
+                or concurrent is None
+                or concurrent.quote != proposed.quote
+            ):
+                raise HighlightConflictError(
+                    "Les surlignages de cette page ont changé. "
+                    "Actualisez la page puis réessayez."
+                )
+            annotation = concurrent
+            created = False
+        removed_ids = [item.id for item in overlapping if item.id != annotation.id]
+        if removed_ids:
+            Annotation.objects.filter(user=proposed.user, id__in=removed_ids).delete()
+    return [annotation], created, removed_ids
+
+
+def _translation_note_highlight(note, raw):
+    data = json.loads(raw)
+    if not isinstance(data, dict):
+        raise ValueError("Invalid highlight selection.")
+    quote = data.get("quote")
+    start = data.get("start")
+    end = data.get("end")
+    prefix = data.get("prefix", "")
+    suffix = data.get("suffix", "")
+    covered = data.get("fully_highlighted", False)
+    if (
+        not isinstance(quote, str)
+        or not quote.strip()
+        or len(quote) > MAX_ANNOTATION_QUOTE_LENGTH
+        or type(start) is not int
+        or type(end) is not int
+        or start < 0
+        or start > note.start_offset
+        or end < note.end_offset
+        or not isinstance(prefix, str)
+        or not isinstance(suffix, str)
+        or not isinstance(covered, bool)
+    ):
+        raise ValueError("Invalid highlight selection.")
+    highlight = Annotation(
+        user=note.user,
+        task=note.task,
+        kind=AnnotationKind.HIGHLIGHT,
+        source_path=note.source_path,
+        source_key=note.source_key,
+        source_title=note.source_title,
+        quote=quote,
+        start_offset=start,
+        end_offset=end,
+        prefix=prefix[-160:],
+        suffix=suffix[:160],
+    )
+    highlight.full_clean(validate_constraints=False)
+    return highlight, covered
+
+
+def _highlight_payload(highlight):
+    return {
+        "id": highlight.pk,
+        "quote": highlight.quote,
+        "start_offset": highlight.start_offset,
+        "end_offset": highlight.end_offset,
+        "prefix": highlight.prefix,
+        "suffix": highlight.suffix,
+        "source_key": highlight.source_key,
+        "revision": highlight.updated_at.isoformat(),
+        "delete_url": reverse("study:annotation_delete", args=[highlight.pk]),
+    }
+
+
 @require_POST
 def annotation_create(request):
     kind = (request.POST.get("kind") or "").strip()
@@ -1501,14 +1718,20 @@ def annotation_create(request):
         translate_with and kind != AnnotationKind.NOTE
     ):
         return JsonResponse(
-            {"error": "La traduction DeepL est réservée aux nouvelles notes."},
+            {"error": "La traduction automatique est réservée aux nouvelles notes."},
             status=400,
         )
     quote = request.POST.get("quote") or ""
     body = (request.POST.get("body") or "").strip()
     if translate_with and body:
         return JsonResponse(
-            {"error": "Cette action crée la note à partir de la traduction DeepL."},
+            {"error": "Cette action crée la note à partir de la traduction."},
+            status=400,
+        )
+    highlight_selection = request.POST.get("highlight_selection")
+    if highlight_selection is not None and not translate_with:
+        return JsonResponse(
+            {"error": "Le surlignage combiné est réservé aux notes traduites."},
             status=400,
         )
     if not quote.strip():
@@ -1557,172 +1780,45 @@ def annotation_create(request):
     }
     from ..public_response_annotations import capture_public_response_anchor
 
+    annotation = Annotation(
+        user=request.user,
+        kind=kind,
+        source_path=source_path,
+        source_key=source_key,
+        start_offset=start_offset,
+        end_offset=end_offset,
+        **values,
+    )
+    requested_highlight = None
+    highlight_covered = False
+    if highlight_selection is not None:
+        try:
+            requested_highlight, highlight_covered = _translation_note_highlight(
+                annotation, highlight_selection,
+            )
+            if (
+                overlap_ids is None
+                or overlap_revisions is None
+                or set(overlap_ids) != set(overlap_revisions)
+                or (highlight_covered and not overlap_ids)
+            ):
+                raise ValueError("Missing highlight revisions.")
+        except (TypeError, ValueError, ValidationError):
+            return JsonResponse(
+                {"error": "Les données de surlignage sont invalides."},
+                status=400,
+            )
     removed_ids = []
+    saved_highlights = []
+    highlight_removed_ids = []
+    highlight_error = None
     try:
         if kind == AnnotationKind.HIGHLIGHT:
-            with transaction.atomic():
-                source_candidates = Annotation.objects.select_for_update().filter(
-                    source_filter,
-                    user=request.user,
-                    kind=kind,
-                    hidden_on_source=False,
-                )
-                candidates = source_candidates.filter(source_key=source_key)
-                if overlap_ids is None:
-                    candidates = candidates.filter(
-                        start_offset__lt=end_offset,
-                        end_offset__gt=start_offset,
-                    )
-                    overlapping = list(
-                        candidates.order_by("-updated_at", "-id")
-                    )
-                else:
-                    overlapping = list(
-                        source_candidates.filter(id__in=overlap_ids).order_by(
-                            "-updated_at",
-                            "-id",
-                        )
-                    )
-                    if overlap_revisions is not None and (
-                        len(overlapping) != len(overlap_ids)
-                        or any(
-                            item.updated_at.isoformat()
-                            != overlap_revisions[item.id]
-                            for item in overlapping
-                        )
-                    ):
-                        return JsonResponse(
-                            {
-                                "error": (
-                                    "Ce surlignage a changé dans un autre onglet. "
-                                    "Réessayez avec la version actualisée."
-                                )
-                            },
-                            status=409,
-                        )
-                    exact_retry = (
-                        candidates.filter(
-                            start_offset=start_offset,
-                            end_offset=end_offset,
-                        )
-                        .exclude(id__in=overlap_ids)
-                        .first()
-                    )
-                    if exact_retry:
-                        overlapping.append(exact_retry)
-                annotation = next(
-                    (
-                        item
-                        for item in overlapping
-                        if item.source_key == source_key
-                        and item.start_offset == start_offset
-                        and item.end_offset == end_offset
-                    ),
-                    None,
-                )
-                if annotation is None:
-                    annotation = next(
-                        (
-                            item
-                            for item in overlapping
-                            if item.source_key == source_key
-                        ),
-                        None,
-                    )
-                if annotation is None:
-                    annotation = next(
-                        (
-                            item
-                            for item in overlapping
-                            if item.start_offset == start_offset
-                            and item.end_offset == end_offset
-                        ),
-                        overlapping[0] if overlapping else None,
-                    )
-                created = annotation is None
-                previous_anchor = (
-                    annotation.response_anchor
-                    if annotation is not None and (
-                        annotation.source_path == source_path
-                        and annotation.source_key == source_key
-                        and annotation.quote == quote
-                        and annotation.start_offset == start_offset
-                        and annotation.end_offset == end_offset
-                        and annotation.prefix == values["prefix"]
-                        and annotation.suffix == values["suffix"]
-                        and annotation.task_id == (task.pk if task is not None else None)
-                    )
-                    else {}
-                )
-                if created:
-                    annotation = Annotation(
-                        user=request.user,
-                        kind=kind,
-                        source_path=source_path,
-                        source_key=source_key,
-                        start_offset=start_offset,
-                        end_offset=end_offset,
-                        **values,
-                    )
-                else:
-                    annotation.task = task
-                    annotation.source_path = source_path
-                    annotation.source_key = source_key
-                    annotation.quote = quote
-                    annotation.source_title = values["source_title"]
-                    annotation.prefix = values["prefix"]
-                    annotation.suffix = values["suffix"]
-                    annotation.body = body
-                    annotation.start_offset = start_offset
-                    annotation.end_offset = end_offset
-                    annotation.study_later = any(
-                        item.study_later for item in overlapping
-                    )
-                annotation.response_anchor = previous_anchor or capture_public_response_anchor(annotation)
-                annotation.full_clean(validate_constraints=False)
-                try:
-                    with transaction.atomic():
-                        annotation.save()
-                except IntegrityError:
-                    concurrent = candidates.filter(
-                        start_offset=start_offset,
-                        end_offset=end_offset,
-                    ).first()
-                    if (
-                        not created
-                        or overlapping
-                        or concurrent is None
-                        or concurrent.quote != quote
-                    ):
-                        return JsonResponse(
-                            {
-                                "error": (
-                                    "Les surlignages de cette page ont changé. "
-                                    "Actualisez la page puis réessayez."
-                                )
-                            },
-                            status=409,
-                        )
-                    annotation = concurrent
-                    created = False
-                removed_ids = [
-                    item.id for item in overlapping if item.id != annotation.id
-                ]
-                if removed_ids:
-                    Annotation.objects.filter(
-                        user=request.user,
-                        id__in=removed_ids,
-                    ).delete()
-        else:
-            annotation = Annotation(
-                user=request.user,
-                kind=kind,
-                source_path=source_path,
-                source_key=source_key,
-                start_offset=start_offset,
-                end_offset=end_offset,
-                **values,
+            items, created, removed_ids = _save_highlights(
+                annotation, source_filter, overlap_ids, overlap_revisions,
             )
+            annotation = items[0]
+        else:
             annotation.response_anchor = capture_public_response_anchor(annotation)
             annotation.full_clean()
             if translate_with:
@@ -1730,10 +1826,10 @@ def annotation_create(request):
                     translated = _selection_translation(quote.strip(), deepl_only=True)
                 except SelectionTranslationError as error:
                     messages = {
-                        "not_configured": "DeepL n’est pas configuré.",
+                        "not_configured": "La traduction n’est pas configurée.",
                         "too_long": "Sélectionnez un passage de 2 000 caractères maximum.",
-                        "upstream": "DeepL est indisponible. Réessayez.",
-                        "empty": "DeepL a renvoyé une traduction vide.",
+                        "upstream": "Le service de traduction est indisponible. Réessayez.",
+                        "empty": "Le service de traduction a renvoyé une réponse vide.",
                     }
                     return JsonResponse(
                         {
@@ -1776,9 +1872,22 @@ def annotation_create(request):
                         annotation.save()
                     else:
                         annotation = existing
+                if requested_highlight is not None:
+                    try:
+                        saved_highlights, _, highlight_removed_ids = _save_highlights(
+                            requested_highlight, source_filter,
+                            overlap_ids, overlap_revisions,
+                            ensure=True, covered=highlight_covered,
+                        )
+                    except HighlightConflictError as error:
+                        highlight_error = str(error)
+                    except ValidationError as error:
+                        highlight_error = " ".join(error.messages)
             else:
                 annotation.save()
                 created = True
+    except HighlightConflictError as error:
+        return JsonResponse({"error": str(error)}, status=409)
     except ValidationError as error:
         return JsonResponse(
             {"error": " ".join(error.messages)},
@@ -1801,6 +1910,12 @@ def annotation_create(request):
     }
     if translate_with:
         payload["provider"] = "deepl"
+    if requested_highlight is not None:
+        payload["highlight"] = {
+            "items": [_highlight_payload(item) for item in saved_highlights],
+            "removed_ids": highlight_removed_ids,
+            "error": highlight_error,
+        }
     payload.update(
         formulation_annotation_progress_payload(
             request.user,
@@ -1808,7 +1923,7 @@ def annotation_create(request):
             annotation.source_path,
         )
     )
-    if annotation.kind == AnnotationKind.HIGHLIGHT:
+    if annotation.kind == AnnotationKind.HIGHLIGHT or saved_highlights:
         payload.update(
             _writing_sujet_progress_payload(
                 request.user,

@@ -920,6 +920,31 @@ class AnnotationTests(TestCase):
         self.assertEqual(legacy.end_offset, 58)
         self.assertTrue(legacy.study_later)
 
+    def test_english_highlight_merges_cannot_change_french_or_another_translation(self):
+        for existing_key, requested_key in (
+            ("response:prompt:model", "english:eo3:first"),
+            ("english:eo3:second", "response:prompt:model"),
+            ("english:eo3:third", "english:eo3:fourth"),
+        ):
+            with self.subTest(existing=existing_key, requested=requested_key):
+                highlight = Annotation.objects.create(
+                    user=self.user, task=self.task, kind=AnnotationKind.HIGHLIGHT,
+                    source_path=self.source_path, source_key=existing_key,
+                    quote=self.selection["quote"], start_offset=24, end_offset=58,
+                    body="Keep this note.", study_later=True,
+                )
+                before = list(Annotation.objects.filter(user=self.user).values())
+                response = self.client.post(reverse("study:annotation_create"), {
+                    **self.selection, "kind": AnnotationKind.HIGHLIGHT,
+                    "source_key": requested_key, "overlap_ids": str(highlight.pk),
+                    "overlap_revisions": json.dumps({
+                        str(highlight.pk): highlight.updated_at.isoformat(),
+                    }),
+                })
+                self.assertEqual(response.status_code, 409)
+                self.assertIn("textes différents", response.json()["error"])
+                self.assertEqual(list(Annotation.objects.filter(user=self.user).values()), before)
+
     def test_expanding_across_highlights_merges_them(self):
         first = Annotation.objects.create(
             user=self.user,

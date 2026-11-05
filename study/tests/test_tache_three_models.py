@@ -259,40 +259,67 @@ class TacheThreeModelContentTests(SimpleTestCase):
     def test_famille_examples_answer_the_specific_issue_without_absolute_promises(self):
         models = catalogue.tache_three_models()
         response = lambda key: models[f"eo/tache-3/famille-p{key}"].response
-        self.assertIn("conditions d'accès", response(1).nuance)
-        self.assertIn("change de collège", response(1).arguments[0].exemple)
-        self.assertIn("anciens camarades", response(1).arguments[0].exemple)
-        self.assertIn("harcèlement", response(1).arguments[2].developpement)
-        self.assertIn("canadiens", response(2).reformulation)
-        self.assertIn("cohabitation durable", response(2).nuance)
+        self.assertIn("l'âge minimum du service", response(1).nuance)
+        self.assertIn("numéro de sa maison", response(1).arguments[0].exemple)
+        self.assertIn("masquer", response(1).arguments[0].exemple)
+        self.assertIn("garder une preuve", response(1).arguments[2].developpement)
+        self.assertIn("d'être puni", response(1).arguments[2].idea)
+        self.assertIn("sans lire systématiquement ses messages privés", response(1).nuance)
+        self.assertIn("se sentir bien chez ses parents", response(2).position)
+        self.assertIn("Aucun âge de départ", response(2).nuance)
         self.assertIn("toujours", response(3).position_claire)
-        self.assertIn("plateforme", response(3).arguments[2].exemple)
-        self.assertIn("sans promettre une guérison", response(4).arguments[1].exemple)
-        self.assertIn("vie privée", response(4).nuance)
-        self.assertIn("pas une source de soutien", response(5).nuance)
-        self.assertIn("à partir d'une certaine note", response(6).arguments[1].developpement)
-        self.assertIn("ne pas remarquer les efforts", response(6).arguments[1].developpement)
-        self.assertIn("l'enseignant", response(6).arguments[2].exemple)
-        self.assertIn("rémunération", response(7).arguments[2].exemple)
+        self.assertIn("candidature en ligne", response(3).arguments[1].exemple)
+        self.assertIn("priorités", response(3).arguments[2].idea)
+        self.assertIn("il n'y est pour rien", response(4).arguments[1].exemple)
+        self.assertIn("tu hésites à la fin", response(4).arguments[2].exemple)
+        self.assertIn("On peut la reprendre ensemble", response(4).arguments[2].exemple)
+        self.assertIn("n'a pas à porter les conflits", response(4).nuance)
+        self.assertIn("relations sont difficiles", response(5).nuance)
+        self.assertIn("exposé non noté", response(6).arguments[0].exemple)
+        self.assertIn("risque", response(6).arguments[0].developpement)
+        self.assertIn("Si le paiement commence à quinze", response(6).arguments[1].exemple)
+        self.assertIn("huit à douze", response(6).arguments[1].exemple)
+        self.assertIn("relu les consignes", response(6).arguments[2].exemple)
+        self.assertIn("déjà vendu ensemble", response(7).arguments[0].exemple)
+        self.assertIn("compétences attendues", response(7).arguments[2].exemple)
         self.assertIn("dire non", response(7).nuance)
-        self.assertIn("ne veut pas dire vivre sans aucun lien", response(9).nuance)
-        self.assertIn("chorale", response(9).arguments[2].exemple)
+        self.assertIn("pas qu'il soit indispensable", response(9).position_claire)
+        self.assertIn("suivi à l'hôpital", response(9).arguments[0].exemple)
+        self.assertIn("spectacle", response(9).arguments[1].exemple)
+        self.assertIn("Ce ne sont pas encore ses amis", response(9).arguments[2].exemple)
+        self.assertIn("ne remplace pas toujours un confident", response(9).nuance)
         self.assertNotEqual(response(9).arguments[2].exemple, models["eo/tache-3/culture-p16"].response.arguments[2].exemple)
-        self.assertIn("ce n'est pas automatique", response(10).position_claire)
-        self.assertIn("répéter ses confidences", response(10).arguments[2].exemple)
-        self.assertIn("abonnement Internet", response(11).arguments[1].exemple)
-        self.assertIn("n'empêche ni l'entraide", response(11).nuance)
-        self.assertIn("sans menaces ni humiliation", response(12).nuance)
-        self.assertIn("propose de commencer ses devoirs à dix-sept heures", response(12).arguments[2].exemple)
-        self.assertIn("bilinguisme parfait n'est pas garanti", response(13).nuance)
-        self.assertIn("parents qui parlent encore peu la langue locale", response(13).arguments[2].exemple)
-        self.assertIn("club de football", response(13).arguments[2].exemple)
-        self.assertIn("discuter avec ses coéquipiers", response(13).arguments[2].exemple)
-        self.assertIn("voire aucune tâche", response(14).nuance)
-        self.assertIn("vérifie le stock", response(14).arguments[2].exemple)
-        self.assertIn("après 25 ans", response(16).position_claire)
-        self.assertIn("sans devoir demander la permission", response(16).arguments[2].exemple)
-        self.assertIn("cohabitation durable", response(16).nuance)
+        self.assertIn("pas automatiquement", response(10).position_claire)
+        self.assertIn("raconter sa semaine", response(10).arguments[0].exemple)
+        self.assertIn("respecte son choix et garde cette confidence", response(10).arguments[2].exemple)
+        self.assertIn("assurance habitation", response(11).arguments[1].exemple)
+        self.assertIn("Après une opération", response(11).arguments[2].exemple)
+        self.assertIn("n'empêche pas une vie sociale riche", response(11).nuance)
+        self.assertIn("sans être rabaissé", response(12).arguments[1].exemple)
+        self.assertIn("vérifie son trajet", response(12).arguments[2].exemple)
+        self.assertIn("intervenir immédiatement", response(12).nuance)
+        self.assertIn("ne se fait pas automatiquement", response(13).nuance)
+        self.assertIn("Même sans maîtriser cette langue", response(13).arguments[2].developpement)
+        self.assertIn("activité sportive du quartier", response(13).arguments[2].exemple)
+        self.assertIn("demande à l'école quelle aide existe", response(13).arguments[2].exemple)
+        self.assertIn("selon ses possibilités", response(14).position_claire)
+        self.assertIn("vérifie les placards", response(14).arguments[2].exemple)
+        self.assertIn("après vingt-cinq ans", response(16).position_claire)
+        self.assertIn("sans demander l'autorisation de sortir", response(16).arguments[2].exemple)
+        self.assertIn("n'impose pas de déménager à une date précise", response(16).nuance)
+
+    def test_famille_retained_and_replaced_mechanisms_keep_distinct_annotation_ids(self):
+        models = catalogue.tache_three_models()
+        for key, identities in {
+            "famille-p1": (5, 2, 3),
+            "famille-p9": (1, 3, 4),
+            "famille-p11": (1, 2, 4),
+            "famille-p13": (2, 1, 3),
+            "famille-p14": (1, 2, 3),
+            "culture-p16": (4, 1, 6),
+        }.items():
+            with self.subTest(group=key):
+                self.assertEqual(models[f"eo/tache-3/{key}"].argument_ids, identities)
 
     def test_education_covers_every_variant_and_retains_distinct_learning_scopes(self):
         models = catalogue.tache_three_models()
@@ -616,7 +643,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("ne comprend pas tout ce qu'il dit", response(15).arguments[2].developpement)
         self.assertIn("même sans bien parler sa langue", response(15).arguments[2].exemple)
         self.assertIn("En essayant à mon tour", response(15).arguments[2].exemple)
-        self.assertIn("Ne pas avoir d'amis ne veut pas dire vivre sans aucun lien", response(16).arguments[1].developpement)
+        self.assertIn("ne pas avoir d'amis ne signifie pas forcément manquer d'affection", response(16).arguments[0].idea)
         self.assertIn("pas d'accord avec le mot", response(17).position_claire)
         self.assertIn("sauvegardé", response(18).nuance)
         self.assertIn("traductions", response(19).arguments[1].idea)
@@ -642,22 +669,20 @@ class TacheThreeModelContentTests(SimpleTestCase):
         models = catalogue.tache_three_models()
         model = models["eo/tache-3/culture-p16"]
         response = model.response
-        self.assertEqual(model.argument_ids, (1, 4, 5))
-        self.assertIn("on peut être heureux sans avoir d'amis", response.position_claire)
-        self.assertIn("soutien", response.arguments[0].idea)
-        self.assertIn("liens familiaux ou de couple", response.arguments[1].idea)
-        self.assertIn("sans qu'on ait d'amis", response.arguments[2].developpement)
-        self.assertIn("qui n'a pas d'amis", response.arguments[2].exemple)
-        self.assertIn("isolement qui fait souffrir", response.nuance)
-        self.assertIn("conjoint", response.arguments[1].exemple)
-        self.assertIn("qui n'a pas d'amis", response.arguments[1].exemple)
-        self.assertNotIn("sur place", response.arguments[1].exemple)
-        cue = catalogue.tache_three_subject_hints()[model.group].arguments[1].example
-        self.assertIn("Sans avoir d'amis", cue.french)
-        self.assertIn("without having friends", cue.english)
-        self.assertIn("apprend le piano", response.arguments[2].exemple)
-        self.assertIn("du début à la fin", response.arguments[2].exemple)
-        self.assertIn("de la joie", response.arguments[2].exemple)
+        self.assertEqual(model.argument_ids, (4, 1, 6))
+        self.assertIn("pas que les amis soient indispensables au bonheur de chacun", response.position_claire)
+        self.assertIn("famille, leur couple ou des activités solitaires", response.arguments[0].developpement)
+        self.assertIn("Elle n'a pas d'amis", response.arguments[0].exemple)
+        self.assertIn("jardiner", response.arguments[0].exemple)
+        self.assertIn("sa sœur", response.arguments[0].exemple)
+        self.assertIn("relation affectueuse", response.arguments[0].exemple)
+        self.assertIn("changer de métier", response.arguments[1].exemple)
+        self.assertIn("rassurer ses parents", response.arguments[1].exemple)
+        self.assertIn("pas faire reposer toute sa vie affective sur une seule relation", response.arguments[2].idea)
+        self.assertIn("randonnée", response.arguments[2].exemple)
+        self.assertIn("sans renoncer à son activité ni obliger son partenaire", response.arguments[2].exemple)
+        self.assertIn("souffre de son absence", response.nuance)
+        self.assertIn("relation qui nous rabaisse", response.nuance)
         self.assertEqual(
             {key for key, _ in model.source_prompts}, {"culture:p16", "famille:p8"},
         )
@@ -777,8 +802,10 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p15", 2, "séjour au Ghana", "Au Ghana", "In Ghana"),
             ("culture-p15", 2, "fufu", "fufu", "fufu"),
             ("culture-p15", 2, "manioc", "manioc", "cassava"),
-            ("culture-p16", 1, "conjoint", "conjoint", "partner"),
-            ("culture-p16", 2, "piano", "piano", "piano"),
+            ("culture-p16", 0, "jardiner", "Jardiner", "garden"),
+            ("culture-p16", 0, "sa sœur", "sœur", "sister"),
+            ("culture-p16", 1, "changer de métier", "métier", "career"),
+            ("culture-p16", 2, "randonnée", "randonnée", "hik"),
             ("culture-p18", 1, "phrase trop brusque", "phrase trop brusque", "blunt sentence"),
             ("culture-p19", 2, "projet de logements", "projet de logements", "housing proposal"),
             ("culture-p20", 2, "motif de feuilles", "motif de feuilles", "leaf pattern"),

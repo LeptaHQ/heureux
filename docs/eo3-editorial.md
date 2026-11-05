@@ -560,38 +560,41 @@ friends. Likewise, feeling comfortable at one's parents' home is a legitimate
 reason in its own right, not only when it finances a plan to move out. The
 after-25 prompt asks about practicality, not a mandatory age of independence.
 
-Reuse the shared household-help argument across those two cohabitation questions,
-while keeping their positions and other mechanisms distinct. Reuse suitable
-friendship claims and the trial-choir example without replacing practical help
-with emotional support in every response. Concrete examples should explain the
-actual comparison or action: two Internet subscriptions instead of one, a
-housing-cost comparison, an identified misread maths instruction, or seeking help with
-a damaged library book. Trust between relatives must be demonstrated by keeping
-a confidence and respecting a differing choice, not assumed from kinship.
-Link differing interests to choosing a friend for a particular activity, rather
-than jumping from family affection to a general definition of friendship.
-Keep this affinity argument distinct from freedom to confide and earned trust;
-shared hobbies are neither necessary nor sufficient for close friendship.
+Each argument needs its own mechanism, a plausible action and an observable
+result. Distinguish shared expenses from help during temporary incapacity,
+privacy online from time limits, and family affection from freedom to confide.
+For rewards, illustrate what happens when the same effort no longer earns money;
+do not infer dependence simply from paying for one school subject but not another.
+Honest feedback must actually name the difficulty and offer a way forward.
+Working with a relative requires evidence of relevant collaboration, not an
+assumption that knowing the person privately proves professional competence.
 
-Compare Culture before inventing alternative wording. The family-distance answer
-reuses Culture's Sunday call followed by a meal alone, with the same bilingual
-example cues and qualified limit on remote contact. Familiar gestures can help
-both adaptation abroad and a return to one's parents after a separation, without
-making these the same question. Precise questions and regular family-language
-calls also fit conversations with grandparents; teaching a child is not the same
-as preventing an adult from forgetting. Reuse trust and affinity wording without
-making either common origins or kinship a guarantee of friendship.
+Compare related Culture and Technologie models before inventing alternative
+wording, but retain shared sentences only where they fit the argument naturally.
+The Famille rewrite does not require changing other themes to match it.
+Distance can involve missing ordinary family moments, lacking nearby practical
+help and being unable to afford a visit; these should not collapse into three
+versions of loneliness. A family-language answer should distinguish rich
+parent-child conversation, direct contact between generations and opportunities
+to practise the local language without assuming the parents already speak it.
+Trust between relatives must be demonstrated by listening, keeping a confidence
+and respecting a differing choice, not assumed from kinship. Different hobbies
+alone do not prove that siblings cannot be best friends.
 
 The happiness and living-well answers share the no-friends/not-no-relationships
-distinction without merging their reasons. Keep emotional support and personal
-purpose distinct from practical help, regular company and trying new activities.
-A weekly meeting needs a context that explains why the contact matters, not only
-the observation that the outing is inexpensive.
+distinction without merging their reasons. A position that friends are not
+universally indispensable needs a credible example of living happily or well
+without friends, not only three benefits of friendship followed by a disclaimer.
+Other affection, personal purpose and regular social participation can matter
+without making an acquaintance equivalent to a close confidant.
 
-The precise-question sentence is shared by Culture 14 and Famille 13.
-Culture 10/32 uses the familiar-gesture sentence
-shared by Culture 1 and Famille 16. Preserve the compatible sentence, not an
-interchangeable answer to these different questions.
+Publish these revisions as reviewed JSON models, with aligned bilingual Pistes
+and full English response blocks, within the existing 300–430-word spoken
+envelope. Preserve historical Markdown, vocabulary and phrase sources, source
+signatures and semantic memberships. Famille 8 remains the same reviewed model
+as Culture 16; the truth-with-children and money-for-grades pairs remain shared.
+Preserve argument annotation identities for retained mechanisms and allocate
+new identities when a mechanism is genuinely replaced.
 
 ## Prompt explanations
 

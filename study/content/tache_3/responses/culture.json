@@ -463,32 +463,32 @@
         "culture:p16": "81864fe832b7ea41edc74fa500e43a7dd3cee51fab050b60acdece4c3fe214a1",
         "famille:p8": "81864fe832b7ea41edc74fa500e43a7dd3cee51fab050b60acdece4c3fe214a1"
       },
-      "reformulation": "L'amitié est-elle une condition obligatoire du bonheur ?",
-      "position": "Les amis peuvent beaucoup contribuer au bonheur, sans en être une condition universelle.",
-      "position_claire": "À mon avis, on peut être heureux sans avoir d'amis, même si l'amitié apporte beaucoup. Le soutien d'un ami est précieux, mais d'autres liens affectifs et des activités personnelles peuvent aussi rendre la vie satisfaisante. Les besoins ne sont pas les mêmes pour tous.",
-      "argument_ids": [1, 4, 5],
+      "reformulation": "L'amitié est-elle indispensable au bonheur, ou peut-on trouver son équilibre autrement ?",
+      "position": "Pour moi, on peut être heureux sans amis, mais quelques amitiés sincères peuvent beaucoup contribuer au bonheur.",
+      "position_claire": "Je ne pense pas que les amis soient indispensables au bonheur de chacun. La famille et des activités personnelles peuvent aussi y contribuer. L'amitié reste précieuse pour se confier et ne pas tout attendre de ses proches. C'est une richesse à cultiver, pas une obligation.",
+      "argument_ids": [4, 1, 6],
       "arguments": [
         {
-          "idea": "Tout d'abord, un ami de confiance peut apporter un soutien dans une période difficile.",
-          "developpement": "Quand on est déçu, on peut avoir du mal à voir autre chose que son échec. Un ami qui écoute et pose des questions aide à regarder la situation autrement, sans prétendre régler tous les problèmes.",
-          "exemple": "Après un refus d'embauche, une candidate se sent incapable. Une amie l'écoute : le poste exigeait une expérience qu'elle n'avait pas encore, mais elle peut mieux préparer sa présentation. Elles la reprennent ensemble pour un prochain entretien.",
-          "consequence": "Elle se sent écoutée et voit mieux ce qu'elle peut faire pour la suite."
+          "idea": "D'abord, ne pas avoir d'amis ne signifie pas forcément manquer d'affection ou de plaisir.",
+          "developpement": "Certaines personnes trouvent leur équilibre dans leur famille, leur couple ou des activités solitaires. Elles ne rejettent pas les autres, mais n'ont pas toutes le même besoin de sortir en groupe. Une solitude choisie peut être agréable.",
+          "exemple": "Une personne aime jardiner le samedi, puis retrouver sa sœur pour dîner. Elle n'a pas d'amis à cette période de sa vie, mais entretient une relation affectueuse et pratique une activité qui lui plaît.",
+          "consequence": "On ne peut donc pas la considérer comme malheureuse simplement parce qu'elle n'a pas d'amis."
         },
         {
-          "idea": "Ensuite, les liens familiaux ou de couple peuvent aussi apporter de l'affection et de la compagnie.",
-          "developpement": "Ce soutien n'est pas réservé à l'amitié. Ne pas avoir d'amis ne veut pas dire vivre sans aucun lien. Pour certaines personnes, les échanges avec leur conjoint ou leurs proches répondent déjà à une grande partie de leurs besoins de compagnie.",
-          "exemple": "Une personne qui n'a pas d'amis peut raconter sa journée à son conjoint pendant le dîner et appeler sa sœur le dimanche. Ces échanges lui apportent de l'affection et des occasions de se confier ; elle se sent entourée malgré l'absence de cercle amical.",
-          "consequence": "L'absence d'amitiés ne suffit donc pas à conclure qu'une personne est malheureuse."
+          "idea": "Ensuite, on parle parfois plus facilement à un ami qu'à sa famille.",
+          "developpement": "Un parent peut s'inquiéter immédiatement ou vouloir décider à notre place. Un ami qui nous connaît peut écouter et poser des questions. Cette relation choisie permet de s'exprimer sans devoir toujours tenir un rôle familial.",
+          "exemple": "Une personne qui hésite à changer de métier en parle d'abord à une amie. Elle peut exprimer ses doutes sans devoir immédiatement rassurer ses parents sur le salaire et la stabilité du futur emploi.",
+          "consequence": "Elle se sent moins seule avec ses questions et peut réfléchir plus calmement à ses envies."
         },
         {
-          "idea": "Enfin, les projets personnels peuvent aussi contribuer au bonheur.",
-          "developpement": "Créer ou apprendre permet de voir le résultat de ses efforts et d'en être fier. Ce plaisir peut contribuer au bonheur sans qu'on ait d'amis, même s'il ne remplace pas tous les besoins de relation.",
-          "exemple": "Une personne qui n'a pas d'amis apprend le piano chez elle. Après plusieurs semaines d'entraînement, elle parvient à jouer un morceau qu'elle aime du début à la fin. Elle éprouve de la joie en le rejouant et de la fierté en constatant ses progrès.",
-          "consequence": "Le plaisir de réussir quelque chose peut donc exister en dehors d'une relation amicale."
+          "idea": "Enfin, les amis permettent de ne pas faire reposer toute sa vie affective sur une seule relation.",
+          "developpement": "Même un partenaire très proche n'a pas forcément les mêmes loisirs et ne peut pas toujours être disponible. Garder des amitiés laisse à chacun un espace personnel et d'autres personnes sur qui compter. Cela évite de tout demander au couple.",
+          "exemple": "Quelqu'un aime la randonnée, mais pas son conjoint. Il peut partir avec un ami, sans renoncer à son activité ni obliger son partenaire à l'accompagner.",
+          "consequence": "Il conserve une source de plaisir et son couple subit moins de pression."
         }
       ],
-      "nuance": "Cependant, il faut distinguer une solitude choisie d'un isolement qui fait souffrir. Si l'absence d'amitiés devient pesante, chercher des occasions de rencontre peut être important. Je ne recommande donc pas de vivre sans amis.",
-      "conclusion": "En conclusion, les amis peuvent contribuer au bonheur sans en être une condition universelle. Les liens familiaux et les satisfactions personnelles comptent aussi : l'essentiel est de trouver un équilibre qui nous convient."
+      "nuance": "Cependant, dire que l'amitié n'est pas indispensable ne console pas quelqu'un qui souffre de son absence. Il faut écouter ce besoin. Et mieux vaut une période sans amis qu'une relation qui nous rabaisse : la qualité compte davantage que le nombre.",
+      "conclusion": "Donc, les amis ne sont pas indispensables au bonheur de chacun. Mais ils enrichissent la vie : l'essentiel est de trouver des relations qui nous conviennent, sans modèle imposé."
     },
     "culture-p17": {
       "prompt_signatures": {

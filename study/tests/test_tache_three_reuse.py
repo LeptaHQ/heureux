@@ -19,7 +19,6 @@ class TacheThreeReuseTests(SimpleTestCase):
     def test_compatible_complete_arguments_and_bilingual_cues_are_identical(self):
         for first, second, indices in (
             ("culture-p18", "technologie-p12", (0, 1, 2)),
-            ("famille-p1", "technologie-p16", (2,)),
         ):
             for index in indices:
                 with self.subTest(first=first, second=second, argument=index + 1):
@@ -29,14 +28,16 @@ class TacheThreeReuseTests(SimpleTestCase):
                     )
                     self.assertEqual(self.cue(first, index), self.cue(second, index))
 
-    def test_shared_household_argument_keeps_its_different_spoken_position(self):
-        comfort = self.response("famille-p2").arguments[2]
-        practical = self.response("famille-p16").arguments[1]
-        self.assertTrue(comfort.idea.startswith("Enfin, "))
-        self.assertTrue(practical.idea.startswith("Ensuite, "))
-        for field in ("developpement", "exemple", "consequence"):
-            self.assertEqual(getattr(comfort, field), getattr(practical, field))
-        self.assertEqual(self.cue("famille-p2", 2), self.cue("famille-p16", 1))
+    def test_cohabitation_answers_distinguish_parental_consent_from_reciprocal_help(self):
+        comfort = self.response("famille-p2")
+        practical = self.response("famille-p16")
+        self.assertIn("apprécier la vie familiale", comfort.arguments[0].idea)
+        self.assertIn("convienne aussi aux parents", comfort.arguments[2].idea)
+        self.assertIn("sa mère se lève tôt", comfort.arguments[2].exemple)
+        self.assertIn("un échange plutôt qu'un simple hébergement", practical.arguments[1].idea)
+        self.assertIn("prépare le dîner", practical.arguments[1].exemple)
+        self.assertIn("sans demander l'autorisation de sortir", practical.arguments[2].exemple)
+        self.assertNotEqual(comfort.arguments[2], practical.arguments[1])
 
     def test_live_questions_and_translated_explanations_keep_distinct_mechanisms(self):
         conversation = self.response("culture-p14").arguments[2]
@@ -100,7 +101,7 @@ class TacheThreeReuseTests(SimpleTestCase):
     def test_adaptations_retain_their_specific_actor_jurisdiction_and_mechanism(self):
         self.assertIn("un adulte", self.response("culture-p2").arguments[2].exemple)
         self.assertIn("une personne âgée", self.response("culture-p8").arguments[2].exemple)
-        self.assertIn("livre de bibliothèque", self.response("famille-p12").arguments[1].exemple)
+        self.assertIn("mauvaise note par peur d'être humilié", self.response("famille-p12").arguments[1].exemple)
         self.assertIn("la province ou le territoire", self.response("economie-p1").arguments[0].developpement)
         self.assertIn("organisme québécois", self.response("education-p5").arguments[1].exemple)
         self.assertIn("Traduire son diplôme", self.response("economie-p15").arguments[2].exemple)
@@ -111,9 +112,13 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("occasion de contact", self.response("environnement-p13").arguments[0].exemple)
         self.assertIn("besoins restent couverts", self.response("economie-p9").arguments[0].exemple)
         self.assertIn("heures supplémentaires", self.response("economie-p18").arguments[2].exemple)
-        for group in ("famille-p1", "technologie-p16"):
-            self.assertIn("harcèlement", self.response(group).arguments[2].developpement)
-            self.assertIn("d'un inconnu", self.response(group).arguments[2].exemple)
+        self.assertIn("harcèlement", self.response("technologie-p16").arguments[2].developpement)
+        self.assertIn("d'un inconnu", self.response("technologie-p16").arguments[2].exemple)
+        child_help = self.response("famille-p1").arguments[2]
+        self.assertIn("sans craindre d'être puni", child_help.idea)
+        self.assertIn("garder une preuve", child_help.developpement)
+        self.assertIn("un camarade l'insulte", child_help.exemple)
+        self.assertIn("contactent l'établissement si nécessaire", child_help.exemple)
         for group in ("environnement-p2", "environnement-p4"):
             self.assertIn("pas que toute espèce", self.response(group).arguments[1].exemple)
 
@@ -132,11 +137,10 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn(common_letter_limit.casefold(), self.response("culture-p18").nuance.casefold())
         self.assertIn(common_letter_limit, self.response("technologie-p12").nuance)
         solitude = "Cependant, il faut distinguer une solitude choisie d'un isolement qui fait souffrir."
-        self.assertIn(solitude, self.response("culture-p16").nuance)
         self.assertIn(solitude, self.response("culture-p24").nuance)
-        consent = "Une cohabitation durable peut fonctionner, mais doit rester choisie de part et d'autre."
-        self.assertIn(consent, self.response("famille-p2").nuance)
-        self.assertIn(consent, self.response("famille-p16").nuance)
+        self.assertIn("souffre de son absence", self.response("culture-p16").nuance)
+        self.assertIn("l'accord de toute la famille", self.response("famille-p2").conclusion)
+        self.assertIn("si chacun y trouve son compte", self.response("famille-p16").conclusion)
 
     def test_remote_contact_limit_keeps_the_same_words_for_three_relevant_questions(self):
         shared = (
@@ -150,72 +154,57 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("quelques courses", self.response("culture-p24").arguments[0].exemple)
         self.assertIn("après une opération", self.response("culture-p29").arguments[1].exemple)
 
-    def test_famille_distance_reuses_the_same_call_case_and_bilingual_example(self):
-        self.assertEqual(
-            self.response("famille-p5").arguments[0].exemple,
-            self.response("culture-p9").arguments[1].exemple,
-        )
-        self.assertEqual(
-            self.cue("famille-p5", 0).example,
-            self.cue("culture-p9", 1).example,
-        )
-        shared = (
-            "Les appels entretiennent le lien, mais ne remplacent pas toujours "
-            "une présence physique."
-        )
-        for group, index in (
-            ("famille-p5", 0), ("culture-p9", 1),
-            ("culture-p24", 0), ("culture-p29", 1),
-        ):
-            self.assertTrue(self.response(group).arguments[index].developpement.startswith(shared))
-        self.assertIn("au quotidien", self.response("famille-p5").arguments[0].idea)
+    def test_famille_distance_distinguishes_missed_moments_local_help_and_visits(self):
+        family = self.response("famille-p5")
+        self.assertIn("repas improvisé chez sa sœur", family.arguments[0].exemple)
+        self.assertIn("ce moment s'est passé sans elle", family.arguments[0].exemple)
+        self.assertIn("récupérer un médicament", family.arguments[1].exemple)
+        self.assertIn("voisin disponible", family.arguments[1].exemple)
+        self.assertIn("prix du billet", family.arguments[2].exemple)
+        self.assertIn("attendre plusieurs jours", family.arguments[2].exemple)
+        self.assertNotEqual(family.arguments[0].exemple, self.response("culture-p9").arguments[1].exemple)
         self.assertIn("les débuts", self.response("culture-p9").arguments[1].idea)
-        self.assertIn("récupérer son enfant", self.response("famille-p5").arguments[1].exemple)
 
-    def test_familiar_routines_help_without_copying_a_cultural_identity_argument(self):
+    def test_familiar_routines_do_not_replace_adult_privacy_in_the_practical_answer(self):
         shared = self.response("culture-p1").arguments[1].developpement.split(". ")[0] + "."
         self.assertTrue(self.response("culture-p10").arguments[0].developpement.startswith(shared))
-        self.assertTrue(self.response("famille-p16").arguments[2].developpement.startswith(shared))
-        self.assertIn("Après une séparation", self.response("famille-p16").arguments[2].exemple)
         self.assertIn("parler sa langue", self.response("culture-p1").arguments[1].exemple)
-        self.assertIn("sans leur confier toutes ses décisions", self.response("famille-p16").arguments[2].developpement)
+        self.assertIn("parents ne décident plus de tous ses choix", self.response("famille-p16").arguments[2].developpement)
+        self.assertIn("respecte les espaces communs", self.response("famille-p16").arguments[2].exemple)
 
-    def test_friendship_partial_reuse_keeps_practical_help_and_discovery_distinct(self):
-        no_friends = "Ne pas avoir d'amis ne veut pas dire vivre sans aucun lien."
-        self.assertIn(no_friends, self.response("culture-p16").arguments[1].developpement)
-        self.assertIn(no_friends.casefold(), self.response("famille-p9").nuance.casefold())
-        shared = "Pouvoir se retrouver régulièrement permet de partager son quotidien"
-        for group, index in (("famille-p9", 1), ("culture-p24", 0)):
-            self.assertIn(shared, self.response(group).arguments[index].developpement)
-        self.assertNotIn("s'entraider", self.response("famille-p9").arguments[1].developpement)
-        self.assertIn("s'entraider", self.response("culture-p24").arguments[0].developpement)
-        self.assertIn("consultation de suivi à l'hôpital", self.response("famille-p9").arguments[0].exemple)
-        self.assertIn("chorale", self.response("famille-p9").arguments[2].exemple)
+    def test_friendship_answers_support_nonnecessity_without_merging_their_benefits(self):
+        happiness = self.response("culture-p16")
+        living_well = self.response("famille-p9")
+        self.assertIn("Elle n'a pas d'amis", happiness.arguments[0].exemple)
+        self.assertIn("relation affectueuse", happiness.arguments[0].exemple)
+        self.assertIn("consultation de suivi à l'hôpital", living_well.arguments[0].exemple)
+        self.assertIn("poursuit les répétitions", living_well.arguments[1].exemple)
+        self.assertIn("participe ensuite à un spectacle", living_well.arguments[1].exemple)
+        self.assertIn("Ce ne sont pas encore ses amis", living_well.arguments[2].exemple)
+        self.assertIn("connaissance ne remplace pas toujours un confident", living_well.nuance)
 
-    def test_family_and_compatriot_trust_share_words_not_an_identity_guarantee(self):
-        for group, text, distinct in (
-            ("famille-p10", self.response("famille-p10").conclusion, "lien de parenté"),
-            ("culture-p11", self.response("culture-p11").nuance, "l'origine"),
-        ):
-            self.assertIn("L'essentiel est de choisir ses", text)
-            self.assertIn("selon la confiance et les affinités, pas seulement selon", text)
-            self.assertIn(distinct, text)
+    def test_family_and_compatriot_trust_are_not_identity_guarantees(self):
+        family = self.response("famille-p10")
+        self.assertIn("la parenté ne la garantit pas", family.arguments[2].developpement)
         self.assertIn("respecte son choix", self.response("famille-p10").arguments[2].exemple)
+        self.assertIn("garde cette confidence", family.arguments[2].exemple)
+        self.assertIn("selon la confiance et les affinités, pas seulement selon l'origine", self.response("culture-p11").nuance)
 
-    def test_child_language_reuses_precise_questions_and_regular_family_calls(self):
+    def test_child_language_keeps_direct_family_contact_distinct_from_parent_child_dialogue(self):
         question = (
             "On peut poser ses propres questions et demander des précisions "
             "sur ce qu'on n'a pas compris."
         )
-        child = self.response("famille-p13").arguments[1]
-        self.assertIn(question, child.developpement)
         self.assertIn(question, self.response("culture-p14").arguments[2].developpement)
-        for example in (child.exemple, self.response("culture-p27").arguments[2].exemple):
-            self.assertIn("chaque semaine à", example)
-            self.assertIn("dans leur langue familiale", example)
-        self.assertIn("ses grands-parents", child.exemple)
+        child = self.response("famille-p13")
+        self.assertIn("sa relation avec elle", child.arguments[0].consequence)
+        self.assertIn("pose ses propres questions sans attendre sa mère", child.arguments[0].exemple)
+        self.assertIn("père débutant dans la langue locale", child.arguments[1].exemple)
+        self.assertIn("écouter les détails", child.arguments[1].exemple)
+        self.assertIn("chaque semaine à", self.response("culture-p27").arguments[2].exemple)
         self.assertIn("sa sœur", self.response("culture-p27").arguments[2].exemple)
-        self.assertIn("bilinguisme parfait n'est pas garanti", self.response("famille-p13").nuance)
+        self.assertIn("ne se fait pas automatiquement", child.nuance)
+        self.assertIn("sans le gronder", child.nuance)
 
     def test_cuisine_and_local_workshops_share_guided_practice_not_their_positions(self):
         practice = (

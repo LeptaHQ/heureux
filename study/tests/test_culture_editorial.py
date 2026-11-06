@@ -19,7 +19,7 @@ class CultureEditorialTests(SimpleTestCase):
     def response(self, number):
         return self.models[f"eo/tache-3/culture-p{number}"].response
 
-    def test_every_culture_consigne_uses_the_matching_model_and_argument_cues(self):
+    def test_every_culture_consigne_uses_the_matching_model_and_complete_bilingual_cues(self):
         sources = [source for source in self.sources if source.theme == "Culture"]
         self.assertEqual(len(sources), 31)
         self.assertEqual(sum(len(source.prompts) for source in sources), 39)
@@ -35,16 +35,57 @@ class CultureEditorialTests(SimpleTestCase):
                     model.source_prompts,
                     tuple((prompt.content_key, prompt.text) for prompt in source.prompts),
                 )
-                for prefix, argument, cue in zip(
-                    ("Tout d'abord, ", "Ensuite, ", "Enfin, "),
+                self.assertEqual(len(plan.arguments), len(model.response.arguments))
+                for argument, cue in zip(
                     model.response.arguments,
                     plan.arguments,
                     strict=True,
                 ):
-                    self.assertEqual(
-                        argument.idea.removeprefix(prefix).casefold(),
-                        cue.point.french.casefold(),
-                    )
+                    self.assertTrue(argument.idea.strip())
+                    for memory in (cue.point, cue.example):
+                        self.assertTrue(memory.french.strip())
+                        self.assertTrue(memory.english.strip())
+
+    def test_actor_preparation_cue_refers_to_learning_lines_not_having_a_script(self):
+        cue = self.plans["eo/tache-3/culture-p7"].arguments[2].example
+        self.assertIn("Sans connaître son texte", cue.french)
+        self.assertIn("Without knowing her lines", cue.english)
+
+    def test_association_cue_names_the_setting_helper_and_newcomer(self):
+        cue = self.plans["eo/tache-3/culture-p24"].arguments[1].example
+        for phrase in ("Repas d'association", "Une habituée aide l'arrivante", "l'arrivante réutilise"):
+            self.assertIn(phrase, cue.french)
+        for phrase in ("Association meal", "A regular helps a newcomer", "the newcomer then reuses"):
+            self.assertIn(phrase, cue.english)
+
+    def test_distance_example_establishes_work_before_leave_and_does_not_assume_help(self):
+        example = self.response(29).arguments[1].exemple
+        for phrase in (
+            "Une salariée à l'étranger", "son père", "après une opération",
+            "ne peut pas obtenir de congé immédiatement",
+            "peut chercher quelqu'un pour aider son père sur place",
+        ):
+            self.assertIn(phrase, example)
+        cue = self.plans["eo/tache-3/culture-p29"].arguments[1].example
+        self.assertIn("Une salariée sans congé immédiat", cue.french)
+        self.assertIn("peut chercher une aide sur place", cue.french)
+        self.assertIn("An employee cannot get immediate leave", cue.english)
+        self.assertIn("she can seek help", cue.english)
+
+    def test_food_distribution_example_establishes_a_language_both_sides_understand(self):
+        example = self.response(35).arguments[2].exemple
+        self.assertIn("une langue qu'ils ont en commun", example)
+        self.assertIn("La famille comprend comment retirer son colis", example)
+
+    def test_language_and_transmission_cues_preserve_the_models_qualified_claims(self):
+        conclusion = self.plans["eo/tache-3/culture-p19"].conclusion
+        self.assertIn("grâce aux traductions", conclusion.french)
+        self.assertIn("observation and translations", conclusion.english)
+        self.assertNotIn("surface", conclusion.french)
+        self.assertNotIn("surface", conclusion.english)
+        nuance = self.plans["eo/tache-3/culture-p27"].nuance
+        self.assertIn("n'est pas forcément oublier", nuance.french)
+        self.assertIn("does not necessarily mean forgetting", nuance.english)
 
     def test_related_youth_questions_reuse_language_without_merging_the_actors(self):
         adults = self.response(2)
@@ -80,8 +121,8 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("plusieurs extraits d'une même bagarre", example)
         self.assertIn("la violence soit fréquente chez les jeunes", example)
         self.assertNotIn("tous les établissements", example)
-        self.assertIn("la violence soit fréquente chez les jeunes", cue.french)
-        self.assertIn("violence is common among young people", cue.english)
+        self.assertIn("une violence fréquente", cue.french)
+        self.assertIn("fear frequent violence", cue.english)
 
     def test_books_and_documentaries_show_cultural_discovery_without_travel(self):
         argument = self.response(14).arguments[0]
@@ -99,12 +140,12 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("raviolis", argument.exemple)
         self.assertNotIn("Marseille", argument.exemple)
         self.assertNotIn("bouillabaisse", argument.exemple)
-        self.assertIn("des produits de la région et l'histoire d'un plat", argument.consequence)
-        self.assertIn("pas seulement les étapes d'une recette", argument.consequence)
+        self.assertIn("pas seulement une recette", argument.consequence)
+        self.assertIn("ce qu'elle raconte d'une région", argument.consequence)
         cue = self.plans["eo/tache-3/culture-p14"].arguments[0].example
         for language, recipe, ingredients, history in (
-            ("french", "riz et sauce aux arachides", "produits locaux", "histoire du plat"),
-            ("english", "rice with peanut sauce", "local ingredients", "history"),
+            ("french", "riz", "sauce aux arachides", "histoire du plat"),
+            ("english", "rice", "peanut sauce", "history"),
         ):
             text = getattr(cue, language)
             self.assertIn(recipe, text)
@@ -113,7 +154,7 @@ class CultureEditorialTests(SimpleTestCase):
             self.assertNotIn("Marseille", text)
             self.assertNotIn("bouillabaisse", text.casefold())
         self.assertIn("Cuisine ouest-africaine", cue.french)
-        self.assertIn("West African cookbook", cue.english)
+        self.assertIn("West African cooking", cue.english)
 
     def test_local_dance_practice_leads_to_joining_the_dance(self):
         example = self.response(14).arguments[1].exemple
@@ -137,21 +178,23 @@ class CultureEditorialTests(SimpleTestCase):
         ):
             self.assertIn(phrase, argument.exemple)
         cue = self.plans["eo/tache-3/culture-p14"].arguments[2].example
-        self.assertIn("Appel vidéo", cue.french)
+        self.assertIn("Une amie japonaise", cue.french)
+        self.assertIn("enlève ses chaussures", cue.french)
         self.assertIn("sa famille", cue.french)
-        self.assertIn("video call", cue.english)
+        self.assertIn("A Japanese friend", cue.english)
+        self.assertIn("takes off her shoes", cue.english)
         self.assertIn("her family sometimes sits on it", cue.english)
 
     def test_cultural_discovery_nuance_compares_learning_with_firsthand_experience(self):
         response = self.response(14)
-        self.assertIn("ces moyens ne remplacent pas toutes les expériences", response.nuance)
-        self.assertIn("Un documentaire peut expliquer une fête", response.nuance)
-        self.assertIn("son ambiance dans les rues", response.nuance)
-        self.assertIn("mais ce n'est pas indispensable", response.conclusion)
+        self.assertIn("ne fasse pas vivre l'ambiance d'une fête", response.nuance)
+        self.assertIn("il en explique le sens", response.nuance)
+        self.assertIn("les odeurs et le rythme des lieux", response.nuance)
+        self.assertIn("mais il n'est pas indispensable", response.conclusion)
         self.assertNotIn("touristes", response.nuance)
         cue = self.plans["eo/tache-3/culture-p14"].nuance
-        self.assertIn("vivre l'ambiance", cue.french)
-        self.assertIn("atmosphere firsthand", cue.english)
+        self.assertIn("sans faire vivre l'ambiance", cue.french)
+        self.assertIn("without conveying the lived atmosphere", cue.english)
 
     def test_examples_demonstrate_concrete_prompt_faithful_mechanisms(self):
         for number, argument, required in (
@@ -162,10 +205,10 @@ class CultureEditorialTests(SimpleTestCase):
             (11, 1, ("Une infirmière", "compatriote", "fait reconnaître son diplôme", "quels documents", "à quel organisme")),
             (15, 1, ("Au Portugal", "poisson salé et séché", "garder pendant", "longs voyages en mer")),
             (15, 2, ("séjour au Ghana", "même sans bien parler sa langue", "piler le manioc", "En essayant à mon tour")),
-            (19, 1, ("parle français mais pas japonais", "documentaire sur les écoles", "sous-titres en français", "écoles au Japon", "des élèves nettoyer leur classe", "lieux qu'ils utilisent ensemble")),
+            (19, 1, ("parle français mais pas japonais", "documentaire sur les écoles", "sous-titres en français", "écoles au Japon", "des élèves nettoient leur classe", "lieux qu'ils utilisent ensemble")),
             (19, 2, ("présentation traduite", "projet de logements", "réunion du quartier", "certains voisins sont pour et d'autres contre")),
             (20, 1, ("sans passer par un texte",)),
-            (24, 1, ("association de quartier", "chacun apporte un plat", "dans la langue du pays", "d'autres rencontres")),
+            (24, 1, ("Dans une association", "chacun apporte un plat", "dans la langue du pays", "d'autres rencontres")),
             (26, 2, ("prévoir leurs visites à l'avance", "question d'organisation", "pas un refus de me voir")),
             (30, 2, ("attend que notre diplôme soit reconnu", "faire du bénévolat pour rencontrer des gens", "ne remplace pas le métier ni le revenu")),
             (31, 1, ("moquerie", "camarade visé se sent humilié", "s'éloigne du groupe")),
@@ -186,8 +229,8 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("éteint la télévision à la fin de l'épisode", response.arguments[2].exemple)
         plan = self.plans["eo/tache-3/culture-p12"]
         self.assertIn("à la fin de l'épisode", plan.arguments[2].example.french)
-        self.assertIn("when the episode ends", plan.arguments[2].example.english)
-        self.assertIn("ses proches", plan.nuance.french)
+        self.assertIn("at the end of the episode", plan.arguments[2].example.english)
+        self.assertIn("des proches", plan.nuance.french)
         self.assertIn("loved ones", plan.nuance.english)
 
     def test_reality_television_shows_distinct_comparison_imitation_and_advertising_risks(self):
@@ -198,7 +241,7 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("s'éloigne du groupe", imitation.exemple)
         self.assertIn("réseaux sociaux après l'émission", advertising.developpement)
         self.assertIn("une marque le paie", advertising.developpement)
-        self.assertIn("Après l'achat", advertising.exemple)
+        self.assertIn("Après l'achat, l'adolescent remarque", advertising.exemple)
         self.assertIn("partenariat rémunéré", advertising.exemple)
         self.assertIn("sans reconnaître la publicité", advertising.consequence)
         self.assertIn("sans vouloir imiter", response.nuance)
@@ -208,15 +251,15 @@ class CultureEditorialTests(SimpleTestCase):
         expression, observation, access = response.arguments
         self.assertIn("d'essayer, d'être corrigé et de recommencer", expression.developpement)
         self.assertIn("marquer des pauses", expression.exemple)
-        self.assertIn("ils arrivent à suivre le dialogue", expression.exemple)
+        self.assertIn("ses camarades suivent le dialogue", expression.exemple)
         self.assertIn("montrer les détails qui expliquent son avis", observation.developpement)
         for phrase in ("tableau", "sourient", "personne assise à l'écart"):
             self.assertIn(phrase, observation.exemple)
         for phrase in ("ne peuvent pas payer", "clavier", "Pendant le trimestre", "la joue au concert"):
             self.assertIn(phrase, access.exemple)
-        self.assertIn("moins du budget de la famille", access.consequence)
-        self.assertIn("lecture et au calcul", response.nuance)
-        self.assertIn("pas les supprimer", response.nuance)
+        self.assertIn("le budget familial ne lui aurait peut-être pas permis", access.consequence)
+        self.assertIn("la lecture et le calcul restent prioritaires", response.nuance)
+        self.assertIn("sans les opposer aux apprentissages fondamentaux", response.nuance)
 
     def test_cuisine_examples_show_country_customs_history_and_local_practice(self):
         model = self.models["eo/tache-3/culture-p15"]
@@ -229,8 +272,8 @@ class CultureEditorialTests(SimpleTestCase):
         ),))
         customs, history, practice = response.arguments
         self.assertIn("horaires des repas peuvent refléter le rythme du travail", customs.developpement)
-        self.assertIn("peut aussi montrer la place donnée aux échanges en famille", customs.developpement)
-        self.assertIn("l'organisation des repas", customs.developpement)
+        self.assertIn("montre aussi la place donnée aux échanges en famille", customs.developpement)
+        self.assertIn("L'organisation du repas", customs.developpement)
         self.assertIn("Au Sénégal", customs.exemple)
         self.assertIn("un repas de riz et de poisson", customs.exemple)
         self.assertIn("dans le même grand plat", customs.exemple)
@@ -241,9 +284,9 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("sa femme finit tard", customs.exemple)
         self.assertNotIn("En observant et en posant des questions", response.arguments[0].developpement)
         self.assertIn("l'histoire d'un pays", history.idea)
-        self.assertIn("Les ingrédients d'un plat", history.developpement)
-        self.assertIn("vivaient autrefois", history.developpement)
-        self.assertIn("du sel pour garder les aliments plus longtemps", history.developpement)
+        self.assertIn("Les ingrédients et les façons de conserver les aliments", history.developpement)
+        self.assertIn("vie d'autrefois", history.developpement)
+        self.assertIn("on salait et séchait le poisson pour le garder", history.exemple)
         self.assertIn("Au Portugal", history.exemple)
         self.assertIn("poisson salé et séché", history.exemple)
         self.assertIn("garder pendant les longs voyages en mer", history.exemple)
@@ -254,17 +297,17 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("avec mon hôte", example)
         self.assertNotIn("français", example)
         self.assertLess(example.index("Il me montrerait"), example.index("En essayant à mon tour"))
-        self.assertIn("une façon de cuisiner du pays", practice.consequence)
-        self.assertIn("même sans bien parler la langue", practice.consequence)
-        self.assertIn("en cuisinant soi-même", response.position_claire)
+        self.assertIn("une façon de faire en la pratiquant avec quelqu'un", practice.consequence)
+        self.assertIn("même sans bien parler sa langue", practice.exemple)
+        self.assertIn("en préparant un repas avec quelqu'un", response.position_claire)
         self.assertIn("des façons de cuisiner du pays", response.conclusion)
-        self.assertIn("ne montre pas tout un pays", response.nuance)
-        self.assertIn("d'autres aspects du pays", response.nuance)
-        self.assertIn("Apprendre sa langue peut aussi nous aider", response.nuance)
+        self.assertIn("elle ne montre pas tout", response.nuance)
+        self.assertIn("son système politique, ses débats ou sa langue", response.nuance)
+        self.assertIn("Les habitudes varient", response.nuance)
         self.assertNotIn("il faut qu'on découvre aussi la langue", response.nuance)
         for language, country, etiquette, fish, activity, language_limit in (
-            ("french", "Au Sénégal", "après le travail", "saler et sécher le poisson", "fufu", "sans bien parler sa langue"),
-            ("english", "In Senegal", "after work", "salting and drying fish", "fufu", "host's language"),
+            ("french", "Au Sénégal", "après le travail", "poisson salé et séché", "piler le manioc", "malgré peu de langue commune"),
+            ("english", "In Senegal", "after work", "fish salted and dried", "pound cassava", "despite little shared language"),
         ):
             self.assertIn(country, getattr(plan.arguments[0].example, language))
             self.assertIn(etiquette, getattr(plan.arguments[0].example, language))
@@ -280,9 +323,9 @@ class CultureEditorialTests(SimpleTestCase):
         for expression in ("histoire maritime", "savoir-faire culinaire", "morue"):
             self.assertNotIn(expression, text)
         for expression in (
-            "garder les aliments plus longtemps",
+            "poisson salé et séché",
             "les voyages en mer",
-            "une façon de cuisiner du pays",
+            "des façons de cuisiner du pays",
         ):
             self.assertIn(expression, text)
 
@@ -382,26 +425,31 @@ class CultureEditorialTests(SimpleTestCase):
             "Son amie l'écoute et lui propose de passer le dimanche ensemble.",
         )
 
-    def test_compatriot_cultural_transmission_is_collective_and_nuance_keeps_other_connections(self):
+    def test_compatriot_support_is_not_necessary_and_nuance_keeps_other_connections(self):
         response = self.response(11)
-        cultural = response.arguments[2]
-        self.assertIn("d'autres familles", cultural.developpement)
+        self.assertEqual(self.models["eo/tache-3/culture-p11"].argument_ids, (1, 2, 4))
+        other_support = response.arguments[2]
+        self.assertIn("personnes d'une autre origine", other_support.idea)
         for phrase in (
-            "association de compatriotes", "danse traditionnelle",
-            "répètent ensemble", "fête de la communauté",
+            "aucun compatriote", "Une collègue d'un autre pays", "formulaire de demande d'aide au logement",
+            "La nouvelle arrivante rejoint aussi", "groupe d'échange linguistique", "amis d'autres pays",
         ):
-            self.assertIn(phrase, cultural.exemple)
-        self.assertNotIn("sans exclure les autres habitants", cultural.developpement)
+            self.assertIn(phrase, other_support.exemple)
+        self.assertIn("sans fréquenter de gens de son pays", other_support.consequence)
         for phrase in (
             "ne pas se limiter à ses compatriotes", "d'autres habitants",
             "pratiquer la langue du pays", "la confiance et les affinités",
         ):
             self.assertIn(phrase, response.nuance)
         plan = self.plans["eo/tache-3/culture-p11"]
-        self.assertIn("Ne pas se limiter aux compatriotes", plan.nuance.french)
-        self.assertIn("Get to know other residents", plan.nuance.english)
-        self.assertIn("danse traditionnelle", plan.arguments[2].example.french)
-        self.assertIn("traditional dance", plan.arguments[2].example.english)
+        self.assertIn("Ne pas rester entre compatriotes", plan.nuance.french)
+        self.assertIn("Do not stay only among compatriots", plan.nuance.english)
+        self.assertIn("Sans compatriotes connus", plan.arguments[2].example.french)
+        self.assertIn("un formulaire", plan.arguments[2].example.french)
+        self.assertIn("groupe linguistique", plan.arguments[2].example.french)
+        self.assertIn("No known compatriots", plan.arguments[2].example.english)
+        self.assertIn("a colleague helps with a form", plan.arguments[2].example.english)
+        self.assertIn("friends in a language exchange group", plan.arguments[2].example.english)
 
     def test_compatriot_professional_example_shares_experience_without_guaranteeing_recognition(self):
         argument = self.response(11).arguments[1]
@@ -411,9 +459,9 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("traducteur", argument.exemple)
         cue = self.plans["eo/tache-3/culture-p11"].arguments[1].example
         self.assertIn("Une infirmière", cue.french)
-        self.assertIn("compatriote du même métier", cue.french)
+        self.assertIn("compatriote", cue.french)
         self.assertIn("A nurse", cue.english)
-        self.assertIn("qualifications recognised", cue.english)
+        self.assertIn("recognition of her qualification", cue.english)
         self.assertIn("compatriot", cue.english)
 
     def test_family_transmission_example_stops_after_fetes_without_a_classmates_clause(self):
@@ -430,20 +478,22 @@ class CultureEditorialTests(SimpleTestCase):
 
     def test_adaptation_cue_means_adapting_to_constraints_not_changing_them(self):
         cue = self.plans["eo/tache-3/culture-p1"].conclusion
-        self.assertIn("S'adapter aux contraintes", cue.french)
-        self.assertIn("Adapt to constraints", cue.english)
+        self.assertIn("Adapter le nécessaire", cue.french)
+        self.assertIn("sans effacer sa vie d'avant", cue.french)
+        self.assertIn("Adapt what is necessary", cue.english)
+        self.assertIn("without erasing your previous life", cue.english)
 
     def test_living_abroad_example_links_cooking_training_to_a_clear_career_goal(self):
         example = self.response(5).arguments[0].exemple
         for phrase in (
-            "devenir cuisinier", "spécialité qui n'est pas enseignée près de chez lui",
-            "Une école à l'étranger", "stage en restaurant", "apprendre le métier",
+            "devenir cuisinier", "une spécialité de pâtisserie absente près de chez lui",
+            "à l'étranger une école", "stage en restaurant", "sous la direction d'un chef",
         ):
             self.assertIn(phrase, example)
         self.assertNotIn("irrigation", example)
         cue = self.plans["eo/tache-3/culture-p5"].arguments[0].example
-        self.assertIn("formation de cuisine", cue.french)
-        self.assertIn("restaurant placement", cue.english)
+        self.assertIn("apprend la pâtisserie", cue.french)
+        self.assertIn("practises desserts on placement", cue.english)
 
     def test_living_abroad_skills_argument_focuses_on_training_and_professional_practice(self):
         argument = self.response(17).arguments[0]
@@ -454,21 +504,21 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("vie professionnelle", argument.consequence)
         self.assertIn("même après le retour", argument.consequence)
         cue = self.plans["eo/tache-3/culture-p17"].arguments[0]
-        self.assertIn("training opportunities", cue.point.english)
-        self.assertIn("professional skills", cue.point.english)
+        self.assertIn("Training and placements", cue.point.english)
+        self.assertIn("develop skills", cue.point.english)
 
     def test_living_abroad_financial_claim_is_developed_before_its_concrete_example(self):
         argument = self.response(17).arguments[1]
         self.assertEqual(
             argument.idea,
-            "Ensuite, les difficultés financières peuvent rendre la vie à l'étranger éprouvante.",
+            "Mais les difficultés financières peuvent rendre la vie à l'étranger éprouvante.",
         )
-        self.assertIn("revenus sont insuffisants ou irréguliers", argument.developpement)
-        self.assertIn("payer le logement et les dépenses courantes", argument.developpement)
+        self.assertIn("revenus insuffisants ou irréguliers", argument.developpement)
+        self.assertIn("payer le logement devient inquiétant", argument.developpement)
         self.assertIn("payer le loyer", argument.exemple)
         cue = self.plans["eo/tache-3/culture-p17"].arguments[1]
-        self.assertIn("Les difficultés financières", cue.point.french)
-        self.assertIn("Financial difficulties", cue.point.english)
+        self.assertIn("La précarité financière", cue.point.french)
+        self.assertIn("Financial insecurity", cue.point.english)
 
     def test_living_abroad_personal_cost_explains_absence_rather_than_how_to_assess_the_stay(self):
         argument = self.response(17).arguments[2]
@@ -482,8 +532,8 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("Malgré ses bons résultats", argument.exemple)
         self.assertIn("ne pas pouvoir être auprès de lui", argument.exemple)
         cue = self.plans["eo/tache-3/culture-p17"].arguments[2].example
-        self.assertIn("ne peut pas payer le voyage", cue.french)
-        self.assertIn("cannot afford to travel", cue.english)
+        self.assertIn("n'a pas l'argent pour voir son père malade", cue.french)
+        self.assertIn("cannot afford to visit her sick father", cue.english)
 
     def test_living_abroad_nuance_distinguishes_learning_from_compensating_for_hardship(self):
         nuance = self.response(17).nuance
@@ -496,7 +546,7 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("il ne faut pas prétendre", nuance)
         cue = self.plans["eo/tache-3/culture-p17"].nuance
         self.assertIn("apprendre ne compense pas toujours la souffrance", cue.french)
-        self.assertIn("learning from it does not always make up for the suffering", cue.english)
+        self.assertIn("learning does not always compensate for suffering", cue.english)
 
     def test_family_migration_example_and_consequence_follow_childrens_safety_and_schooling(self):
         response = self.response(25)
@@ -575,7 +625,7 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("to make others laugh", plan.arguments[1].example.english)
         self.assertNotIn("instead of", plan.arguments[1].example.english)
         self.assertIn("mis en spectacle", plan.conclusion.french)
-        self.assertIn("conflicts turned into entertainment", plan.conclusion.english)
+        self.assertIn("what is turned into a spectacle", plan.conclusion.english)
         self.assertNotIn("staged", plan.conclusion.english)
         self.assertIn("fait un achat en croyant suivre un avis personnel", response.arguments[2].consequence)
         self.assertNotIn("Le regard critique doit", response.arguments[2].consequence)
@@ -583,19 +633,20 @@ class CultureEditorialTests(SimpleTestCase):
     def test_personal_project_example_connects_learning_progress_to_enjoyment_without_friends(self):
         response = self.response(16)
         example = response.arguments[2].exemple
-        self.assertIn("qui n'a pas d'amis", example)
+        self.assertIn("sans qu'on ait d'amis", response.arguments[2].developpement)
         self.assertIn("apprend le piano chez elle", example)
-        self.assertIn("Après plusieurs semaines d'entraînement", example)
-        self.assertIn("un morceau qu'elle aime du début à la fin", example)
-        self.assertIn("de la joie en le rejouant", example)
-        self.assertIn("de la fierté en constatant ses progrès", example)
+        self.assertIn("Après plusieurs semaines", example)
+        self.assertIn("jouer entièrement un morceau qu'elle aime", example)
+        self.assertIn("le rejoue avec plaisir", example)
+        self.assertIn("fière de ses progrès", example)
         self.assertNotIn("potager", example)
-        self.assertIn("ne remplace pas tous les besoins de relation", response.arguments[2].developpement)
-        self.assertIn("isolement qui fait souffrir", response.nuance)
+        self.assertIn("ne remplace pas l'affection", response.arguments[2].consequence)
+        self.assertIn("souffrir de solitude", response.nuance)
         cue = self.plans["eo/tache-3/culture-p16"].arguments[2].example
         self.assertIn("piano", cue.french)
-        self.assertIn("joie et de la fierté", cue.french)
-        self.assertIn("joy and pride", cue.english)
+        self.assertIn("fière de ses progrès", cue.french)
+        self.assertIn("enjoys replaying it", cue.english)
+        self.assertIn("proud of the progress", cue.english)
 
     def test_celebrity_experience_and_scrutiny_explain_concrete_contributions(self):
         response = self.response(33)
@@ -647,12 +698,12 @@ class CultureEditorialTests(SimpleTestCase):
 
     def test_integration_example_keeps_shared_context_distinct_from_understanding_words(self):
         response = self.response(30)
-        self.assertIn("Même si on parle la langue", response.position_claire)
-        self.assertIn("l'accueil des autres compte aussi", response.position_claire)
+        self.assertIn("s'intégrer dans un pays étranger n'est pas toujours facile", response.position_claire)
+        self.assertIn("Le temps et l'accueil des autres comptent", response.position_claire)
         self.assertNotIn("comprendre les échanges", response.position_claire)
         plan = self.plans["eo/tache-3/culture-p30"]
-        self.assertIn("Langue et travail ne suffisent pas toujours", plan.introduction.french)
-        self.assertIn("Speaking the language and having a job", plan.introduction.english)
+        self.assertIn("participer et trouver sa place", plan.introduction.french)
+        self.assertIn("participating and belonging", plan.introduction.english)
         argument = response.arguments[0]
         self.assertIn("pas forcément un problème de langue", argument.developpement)
         self.assertIn("comprendre les mots sans savoir", argument.developpement)
@@ -668,15 +719,15 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("se sentir moins à l'écart", argument.consequence)
         cue = plan.arguments[0].example
         self.assertIn("émission inconnue", cue.french)
-        self.assertIn("on comprend la blague et on participe", cue.french)
+        self.assertIn("on peut comprendre la blague et participer", cue.french)
         self.assertIn("unfamiliar TV scene", cue.english)
-        self.assertIn("understand the joke and join the conversation", cue.english)
+        self.assertIn("understand the joke and join in", cue.english)
 
     def test_direct_framing_keeps_friendship_optional_and_integration_reciprocal(self):
         happiness = self.response(16)
         self.assertIn("on peut être heureux sans avoir d'amis", happiness.position_claire)
         self.assertNotIn("personne ne peut", happiness.position_claire)
-        self.assertIn("une solitude choisie", happiness.nuance)
+        self.assertIn("ne pas avoir d'amis par choix", happiness.nuance)
         integration = self.response(30).arguments[1]
         self.assertIn("on a besoin de se revoir", integration.developpement)
         self.assertIn("on ne peut pas créer des liens tout seul", integration.idea)
@@ -756,7 +807,7 @@ class CultureEditorialTests(SimpleTestCase):
         for phrase in ("motif de feuilles", "sa grand-mère", "repas de fête", "Les participants reproduisent", "sans passer par un livre"):
             self.assertIn(phrase, practice.exemple)
         self.assertIn("style d'un écrivain", response.nuance)
-        self.assertIn("sans chercher à comprendre", response.nuance)
+        self.assertIn("réfléchir, comprendre et discuter ce que l'on lit", response.nuance)
         self.assertIn("lire beaucoup", response.nuance)
         self.assertIn("reading a lot", self.plans["eo/tache-3/culture-p20"].nuance.english)
 
@@ -796,7 +847,8 @@ class CultureEditorialTests(SimpleTestCase):
         model = self.models["eo/tache-3/culture-p35"]
         response = model.response
         self.assertEqual(model.argument_ids, (1, 2, 3))
-        self.assertIn("Leur travail et leurs compétences peuvent soutenir l'économie", response.position_claire)
+        self.assertIn("sur le plan économique, culturel et humain", response.position_claire)
+        self.assertIn("possibilités de participer", response.position_claire)
         self.assertNotIn("Je ne parle pas seulement de main-d'œuvre", response.position_claire)
         economic = response.arguments[0]
         self.assertIn("par leur travail et leurs compétences", economic.idea)
@@ -853,14 +905,13 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("Répondre aux besoins essentiels", poverty.french)
         self.assertIn("Meet basic needs", poverty.english)
         cooking = self.plans["eo/tache-3/culture-p15"].introduction.english
-        self.assertIn("mealtime customs", cooking)
-        self.assertIn("history of dishes", cooking)
-        self.assertIn("learn by cooking ourselves", cooking)
+        self.assertIn("part of a culture", cooking)
+        self.assertIn("not everything", cooking)
         celebrity = self.plans["eo/tache-3/culture-p33"].nuance.english
-        self.assertIn("extra media attention", celebrity)
+        self.assertIn("media attention", celebrity)
         self.assertIn("competence by fame alone", celebrity)
         immigration = self.plans["eo/tache-3/culture-p35"].nuance
-        for phrase in ("l'emploi", "logement", "respect", "contribution économique"):
+        for phrase in ("Apports non automatiques", "efforts collectifs", "dignité sans preuve d'utilité"):
             self.assertIn(phrase, immigration.french)
-        for phrase in ("jobs", "housing", "Everyone deserves respect", "whether or not"):
+        for phrase in ("Contributions are not automatic", "collective efforts", "dignity without proving usefulness"):
             self.assertIn(phrase, immigration.english)

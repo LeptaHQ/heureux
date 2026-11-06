@@ -379,7 +379,8 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         ]["english"])
         retention = rows[fingerprint(fields["argument-4-exemple"])]["english"]
         self.assertIn("If she accepts a better-paid offer elsewhere", retention)
-        self.assertIn("may have to postpone its project", retention)
+        self.assertIn("the security system the team needs to install", retention)
+        self.assertIn("may have to postpone this installation", retention)
         arts = models["eo/tache-3/culture-p13"]
         self.assertEqual(
             {key for key, _ in arts.source_prompts}, {"culture:p13", "education:p11"},
@@ -455,6 +456,110 @@ class EO3ResponseLanguageTests(SimpleTestCase):
                 self.assertEqual(preceding["french"], french)
                 self.assertIn(previous, preceding["english"])
                 self.assertIn("No DeepL original or provider call was made", preceding["review_note"])
+                self.assertIn("editorial_history", row["review_note"])
+
+    def test_proactive_education_english_keeps_context_and_possible_help_explicit(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        cases = (
+            ("education-p1", "argument-1-exemple", ("For the next appointment",), ()),
+            ("education-p5", "argument-3-exemple", ("found a job in Quebec", "what help they could actually provide"), ()),
+            ("education-p7", "argument-1-consequence", ("concrete skills", "in her application"), ("change careers",)),
+            ("education-p16", "argument-4-exemple", ("the security system the team needs to install", "may have to postpone this installation"), ()),
+        )
+        models = scoped_models()
+        for name, field, required, forbidden in cases:
+            with self.subTest(model=name, field=field):
+                group = f"eo/tache-3/{name}"
+                french = public_fields(models[group])[field]
+                english = data["groups"][group][fingerprint(french)]["english"]
+                for phrase in required:
+                    self.assertIn(phrase, english)
+                for phrase in forbidden:
+                    self.assertNotIn(phrase, english)
+
+    def test_proactive_education_english_post_edits_preserve_complete_preceding_rows(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        for name, field, current, previous in (
+            ("education-p6", "argument-1-exemple", "organise a drop-off", "organise a collection"),
+            ("education-p10", "argument-2-exemple", "team to look for a solution", "team to find a solution"),
+        ):
+            with self.subTest(model=name, field=field):
+                group = f"eo/tache-3/{name}"
+                french = public_fields(scoped_models()[group])[field]
+                row = data["groups"][group][fingerprint(french)]
+                self.assertIn(current, row["english"])
+                self.assertNotIn(previous, row["english"])
+                preceding = row["editorial_history"][-1]
+                self.assertIn(previous, preceding["english"])
+                self.assertEqual(preceding["french"], french)
+                self.assertEqual(row.get("deepl_english"), preceding.get("deepl_english"))
+                self.assertIn("editorial_history", row["review_note"])
+        plans = catalogue.tache_three_subject_hints()
+        volunteer = plans["eo/tache-3/education-p10"]
+        self.assertIn("look for a replacement", volunteer.arguments[1].example.english)
+        self.assertIn("look for no-cook food", volunteer.arguments[2].example.english)
+
+    def test_proactive_culture_english_keeps_concrete_help_actors_and_shared_language(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        cases = (
+            (
+                "culture-p11", "argument-4-exemple",
+                ("A colleague from another country", "housing-aid application form", "The newcomer also joins"),
+            ),
+            (
+                "culture-p29", "argument-2-exemple",
+                ("An employee abroad", "cannot get leave immediately", "can look for someone to help her father"),
+            ),
+            (
+                "culture-p31", "argument-3-exemple",
+                ("After the purchase, the teenager notices",),
+            ),
+            (
+                "culture-p35", "argument-3-exemple",
+                ("a language they share", "The family understands"),
+            ),
+        )
+        models = scoped_models()
+        for name, field, required in cases:
+            with self.subTest(model=name, field=field):
+                group = f"eo/tache-3/{name}"
+                french = public_fields(models[group])[field]
+                english = data["groups"][group][fingerprint(french)]["english"]
+                for phrase in required:
+                    self.assertIn(phrase, english)
+
+    def test_culture_english_actor_corrections_preserve_the_preceding_records(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        models = scoped_models()
+        for name, field, current, previous in (
+            (
+                "culture-p24", "argument-4-consequence",
+                "conclude that they are struggling", "conclude that she is struggling",
+            ),
+            (
+                "culture-p31", "argument-3-consequence",
+                "The teenager therefore made a purchase believing they were following",
+                "He therefore made",
+            ),
+        ):
+            with self.subTest(model=name, field=field):
+                group = f"eo/tache-3/{name}"
+                french = public_fields(models[group])[field]
+                row = data["groups"][group][fingerprint(french)]
+                self.assertIn(current, row["english"])
+                self.assertNotIn(previous, row["english"])
+                preceding = row["editorial_history"][-1]
+                self.assertEqual(preceding["french"], french)
+                self.assertIn(previous, preceding["english"])
+                self.assertEqual(row.get("deepl_english"), preceding.get("deepl_english"))
                 self.assertIn("editorial_history", row["review_note"])
 
     def test_education_english_matches_speaking_feedback_to_progress_under_fresh_ids(self):
@@ -591,20 +696,37 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p7"]
+        development = data["groups"][model.group][
+            fingerprint(model.response.arguments[0].developpement)
+        ]["english"]
+        self.assertIn("reacts under pressure", development)
+        self.assertIn("according to each person's skills", development)
+        self.assertNotIn("grown up", development)
+        shared_work = data["groups"][model.group][
+            fingerprint(model.response.arguments[0].exemple)
+        ]["english"]
+        self.assertIn("sold bread together", shared_work)
+        self.assertIn("One made the bread", shared_work)
+        self.assertIn("other served customers and handled payments", shared_work)
+        self.assertIn("arrangement worked well", shared_work)
+        self.assertIn("same roles when they open a bakery", shared_work)
         example = data["groups"][model.group][
             fingerprint(model.response.arguments[1].exemple)
         ]["english"]
         self.assertIn("At the family's Sunday meal", example)
+        self.assertIn("brother and sister work at the same restaurant", example)
         self.assertIn("in front of everyone", example)
-        self.assertIn("repeatedly arriving late for work at the restaurant", example)
+        self.assertIn("repeatedly arriving late for work", example)
         self.assertIn("Their mother defends him", example)
         self.assertIn("turns into a three-way argument", example)
         result = data["groups"][model.group][
             fingerprint(model.response.arguments[1].consequence)
         ]["english"]
         self.assertIn("lateness is not resolved and the meal is spoilt", result)
-        self.assertIn("would have allowed them", result)
-        self.assertIn("without drawing in the other relatives", result)
+        self.assertIn("would have been better", result)
+        self.assertIn("discuss it privately at work", result)
+        self.assertIn("rather than in front of the whole family", result)
+        self.assertNotIn("meeting at the restaurant", result)
         self.assertNotIn("was resolved", result)
         promotion = data["groups"][model.group][
             fingerprint(model.response.arguments[2].exemple)
@@ -643,12 +765,28 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         example = rows[fingerprint(model.response.arguments[1].exemple)]["english"]
         self.assertIn("parent finishes work too late to collect his child", example)
         self.assertIn("Before moving, he relied on the grandparents", example)
+        self.assertIn("may then need to call", example)
         self.assertIn("trusted neighbour", example)
         self.assertIn("already authorised with the school to collect the child", example)
         result = rows[fingerprint(model.response.arguments[1].consequence)]["english"]
-        self.assertIn("She collects the child", result)
-        self.assertIn("only exists because he arranged it in advance", result)
+        self.assertIn("If she is unavailable", result)
+        self.assertIn("asking to leave work early", result)
+        self.assertNotIn("She collects the child", result)
         self.assertNotIn("emergency", result)
+
+    def test_family_distance_english_keeps_work_time_and_travel_budget_explicit(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/famille-p5"]
+        example = data["groups"][model.group][
+            fingerprint(model.response.arguments[2].exemple)
+        ]["english"]
+        self.assertIn("lives and works", example)
+        self.assertIn("eight-hour train journey", example)
+        self.assertIn("two days off work", example)
+        self.assertIn("cannot afford the train ticket", example)
+        self.assertIn("decides not to make the trip", example)
 
     def test_personal_advice_english_distinguishes_outdated_methods_and_different_priorities(self):
         data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
@@ -867,14 +1005,21 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             self.skipTest("DeepL response translations have not been prepared.")
         cases = (
             ("famille-p2", "argument-1-exemple", ("twenty-six-year-old woman", "having dinner with her parents", "organises her own outings"), ("asks permission",)),
-            ("famille-p2", "argument-1-consequence", ("without giving up her adult life", "does not need to be trying to save money"), ()),
+            ("famille-p2", "argument-1-developpement", ("can reflect a good relationship", "making your own decisions"), ("always",)),
+            ("famille-p2", "argument-1-consequence", ("without giving up her adult life",), ()),
+            ("famille-p2", "argument-3-developpement", ("each side brings something to the other", "take some chores off their parents' hands"), ()),
+            ("famille-p2", "nuance", ("Housing costs can also play a part", "living separately may be preferable", "No single age for leaving home"), ()),
             ("famille-p2", "argument-4-developpement", ("need for privacy", "may feel very comfortable without noticing", "before small irritations become arguments"), ()),
             ("famille-p2", "argument-3-exemple", ("contributes to household expenses every month", "does the week's shopping", "do not have to remind him"), ()),
             ("famille-p3", "argument-1-exemple", ("grandfather had left his job", "compare the fees with her savings before resigning"), ()),
+            ("famille-p4", "argument-1-developpement", ("false promise", "may trust their parents less", "know what to expect"), ("next explanation",)),
             ("famille-p4", "argument-1-exemple", ("Before a vaccination", "a little prick", "better than promising they will not feel anything"), ()),
             ("famille-p4", "argument-2-exemple", ("grandmother on Wednesdays", "in hospital after a fall", "without promising that she will recover straight away"), ()),
+            ("famille-p4", "argument-3-developpement", ("recognise their effort", "exactly what they can improve", "how to go about it"), ("A child can hear", "judgement of their worth")),
             ("famille-p4", "argument-3-consequence", ("more confidently at the audition", "something to improve", "rather than a compliment with no guidance"), ()),
             ("famille-p4", "nuance", ("adult matter", "acknowledge that you do not know something yet", "does not require lying"), ("guarantee",)),
+            ("famille-p6", "nuance", ("a family outing or a book we choose together", "without promising a reward for every grade", "automatic payment"), ()),
+            ("famille-p7", "nuance", ("discuss a work problem with your relative", "better to avoid working together"), ("no one dares say no",)),
             ("famille-p12", "argument-1-exemple", ("baby is having a nap", "seven-year-old son", "drawing in another room"), ()),
             ("famille-p12", "argument-2-exemple", ("damaged a library book", "listens without shouting", "how to replace the book"), ()),
             ("famille-p12", "argument-2-consequence", ("putting their mistake right instead of hiding it", "has not removed their responsibility"), ()),

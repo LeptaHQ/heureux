@@ -55,6 +55,15 @@ Prefer a direct verb to an abstract label, and a clear answer to stacked negativ
 Simplify the phrasing, not the argument: keep its explanation, concrete example
 and necessary limits. A shorter text is not automatically easier to learn, and a
 familiar, accurate expression need not be replaced merely for variety.
+Make necessary premises explicit before using them: someone needs a job to take
+leave from work, and a disagreement between relatives needs a clear distinction
+between their workplace and a family gathering. Name what a condition concerns,
+rather than leaving "say no" or "the next explanation" without a clear referent.
+A fictional example may state concrete actions. Do not resolve an uncertain
+situation merely by assuming that a helper is available or a request succeeds. Separate
+needing time, being able to take leave and being able to afford a journey.
+Check these points in the French itself; a clearer English gloss must not hide a
+missing premise in the spoken model.
 Do not make an example depend on technical food names or abstract labels.
 Explain the same cause and result in ordinary words; for example, "garder le
 poisson pendant les voyages en mer" rather than "histoire maritime", and "une

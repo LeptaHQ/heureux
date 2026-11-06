@@ -281,25 +281,55 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("d'être puni", response(1).arguments[2].idea)
         self.assertIn("ce n'est pas lire tous ses messages", response(1).nuance)
         self.assertIn("se sentir bien chez ses parents", response(2).position)
+        self.assertIn("n'est pas un défaut", response(2).position_claire)
+        self.assertIn("peut refléter une bonne entente", response(2).arguments[0].developpement)
+        self.assertIn("chacun apporte quelque chose à l'autre", response(2).arguments[2].developpement)
+        self.assertIn("ses parents peuvent aussi compter sur lui", response(2).arguments[2].consequence)
+        self.assertIn("Le coût du logement peut aussi compter", response(2).nuance)
         self.assertIn("Aucun âge de départ", response(2).nuance)
         self.assertIn("toujours", response(3).position_claire)
         self.assertIn("candidature en ligne", response(3).arguments[1].exemple)
         self.assertIn("priorités", response(3).arguments[2].idea)
+        self.assertIn("risque de moins faire confiance à ses parents", response(4).arguments[0].developpement)
+        self.assertNotIn("prochaine explication", response(4).arguments[0].developpement)
         self.assertIn("à l'hôpital après une chute", response(4).arguments[1].exemple)
         self.assertIn("sans promettre", response(4).arguments[1].exemple)
+        self.assertIn("reconnaître ses efforts", response(4).arguments[2].developpement)
+        self.assertIn("précisément ce qu'il peut améliorer et comment s'y prendre", response(4).arguments[2].developpement)
+        self.assertNotIn("jugement sur sa valeur", response(4).arguments[2].developpement)
         self.assertIn("tu hésites à la fin", response(4).arguments[2].exemple)
         self.assertIn("Reprenons-la lentement chaque jour", response(4).arguments[2].exemple)
         self.assertIn("n'a pas à porter les conflits", response(4).nuance)
         self.assertIn("relations familiales sont difficiles", response(5).nuance)
+        self.assertIn("peut alors avoir besoin d'appeler", response(5).arguments[1].exemple)
+        self.assertIn("Si elle n'est pas disponible", response(5).arguments[1].consequence)
+        self.assertIn("demander à quitter le travail plus tôt", response(5).arguments[1].consequence)
+        self.assertIn("vit et travaille", response(5).arguments[2].exemple)
+        self.assertIn("devrait prendre deux jours de congé", response(5).arguments[2].exemple)
+        self.assertIn("Le billet dépasse aussi son budget", response(5).arguments[2].exemple)
         self.assertIn("exposé non noté", response(6).arguments[0].exemple)
         self.assertIn("risque", response(6).arguments[0].developpement)
         self.assertIn("Si le paiement commence à quinze", response(6).arguments[1].exemple)
         self.assertIn("huit à douze", response(6).arguments[1].exemple)
         self.assertIn("relu les consignes", response(6).arguments[2].exemple)
+        self.assertIn("une sortie en famille ou un livre choisi ensemble", response(6).nuance)
+        self.assertIn("sans promettre une récompense pour chaque note", response(6).nuance)
         self.assertIn("déjà vendu ensemble", response(7).arguments[0].exemple)
+        self.assertIn("répartir les rôles selon les compétences de chacun", response(7).arguments[0].developpement)
+        self.assertNotIn("avoir grandi dans la même famille", response(7).arguments[0].developpement)
+        self.assertIn("du pain au marché", response(7).arguments[0].exemple)
+        self.assertIn("L'une faisait le pain", response(7).arguments[0].exemple)
+        self.assertIn("clients et de la caisse", response(7).arguments[0].exemple)
+        self.assertIn("lorsqu'elles ouvrent une boulangerie", response(7).arguments[0].exemple)
+        self.assertIn("travaillent dans le même restaurant", response(7).arguments[1].exemple)
+        self.assertIn("Au repas de famille du dimanche", response(7).arguments[1].exemple)
+        self.assertIn("en discuter entre eux au travail", response(7).arguments[1].consequence)
+        self.assertNotIn("Une réunion au restaurant", response(7).arguments[1].consequence)
+        self.assertIn("n'ose pas parler d'un problème de travail avec son proche", response(7).nuance)
+        self.assertNotIn("personne n'ose dire non", response(7).nuance)
         self.assertIn("parce que c'est son fils", response(7).arguments[2].exemple)
         self.assertIn("sans examiner la candidature", response(7).arguments[2].exemple)
-        self.assertIn("dire non", response(7).nuance)
+        self.assertIn("Si la relation est tendue", response(7).nuance)
         self.assertIn("pas qu'il soit indispensable", response(9).position_claire)
         self.assertIn("suivi à l'hôpital", response(9).arguments[0].exemple)
         self.assertIn("premier concert", response(9).arguments[1].exemple)
@@ -656,6 +686,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("résultat assuré", response(1).position_claire)
         self.assertIn("pas figée", response(1).arguments[0].consequence)
         self.assertIn("accueil", response(1).conclusion)
+        self.assertIn("Pour le rendez-vous suivant", response(1).arguments[0].exemple)
+        self.assertNotIn("Au rendez-vous suivant", response(1).arguments[0].exemple)
         self.assertIn("la santé", response(2).nuance)
         self.assertNotIn("âge limite biologique", spoken_text(response(2)))
         self.assertIn("exceptions pour les besoins d'accessibilité", response(3).nuance)
@@ -667,10 +699,13 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("admissibilité", response(5).nuance)
         self.assertNotIn("six mois", spoken_text(response(5)))
         self.assertNotIn("main-d'œuvre", spoken_text(response(5)))
+        self.assertIn("un emploi au Québec", response(5).arguments[2].exemple)
         self.assertIn("hors ligne", response(6).nuance)
         self.assertIn("même moment", response(6).arguments[1].exemple)
         self.assertIn("temps partiel", response(7).arguments[2].exemple)
         self.assertIn("prérequis", response(7).nuance)
+        self.assertIn("compétences concrètes à présenter dans sa candidature", response(7).arguments[0].consequence)
+        self.assertNotIn("change pas de métier", response(7).arguments[0].consequence)
         self.assertIn("distribution alimentaire", response(10).position_claire)
         self.assertIn(
             "sans cuisson",
@@ -693,7 +728,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("capteur défectueux", response(16).arguments[1].exemple)
         self.assertIn("transmet sa méthode", response(16).arguments[1].exemple)
         self.assertIn("offre mieux payée ailleurs", response(16).arguments[2].exemple)
-        self.assertIn("reporter son projet", response(16).arguments[2].exemple)
+        self.assertIn("système de sécurité que l'équipe doit installer", response(16).arguments[2].exemple)
+        self.assertIn("reporter cette installation", response(16).arguments[2].exemple)
         self.assertIn("discriminations", response(16).nuance)
         self.assertIn("réexamen", response(17).arguments[2].exemple)
         self.assertIn("peut choquer", response(17).nuance)
@@ -907,7 +943,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p7", 1, "proportions", "personnage reconnaissable", "character recognisable"),
             ("culture-p9", 1, "dîner sans compagnie", "dîner seule", "eat dinner alone"),
             ("culture-p11", 0, "passer le dimanche ensemble", "dimanche ensemble", "Sunday together"),
-            ("culture-p11", 2, "aucun compatriote", "Sans compatriotes connus", "With no known compatriots"),
+            ("culture-p11", 2, "aucun compatriote", "Sans compatriotes connus", "No known compatriots"),
             ("culture-p12", 0, "objets mal triés", "vérifie ensuite les règles locales", "checks local rules"),
             ("culture-p13", 1, "tableau", "tableau", "painting"),
             ("culture-p13", 1, "sourient", "sourires", "Smiles"),
@@ -916,7 +952,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p14", 0, "produits locaux", "Cuisine ouest-africaine", "West African cooking"),
             ("culture-p14", 0, "l'histoire de ce plat", "histoire du plat", "history"),
             ("culture-p14", 1, "danse irlandaise", "Atelier irlandais", "Irish workshop"),
-            ("culture-p14", 2, "chaussures", "sol propre", "clean floor"),
+            ("culture-p14", 2, "chaussures", "sol propre", "keep the floor clean"),
             ("culture-p15", 1, "Portugal", "Portugal", "Portugal"),
             ("culture-p15", 1, "poisson", "poisson", "fish"),
             ("culture-p15", 2, "séjour au Ghana", "Au Ghana", "In Ghana"),
@@ -930,8 +966,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p19", 2, "projet de logements", "projet de logements", "housing proposal"),
             ("culture-p20", 2, "motif de feuilles", "motif de feuilles", "leaf pattern"),
             ("culture-p24", 0, "chaque samedi", "samedi", "Saturday"),
-            ("culture-p24", 1, "chacun apporte un plat", "Chacun apporte un plat", "Everyone brings a dish"),
-            ("culture-p24", 1, "réutilise ensuite ces expressions", "réutilise ensuite ces expressions", "reuses these expressions"),
+            ("culture-p24", 1, "chacun apporte un plat", "chacun apporte un plat", "everyone brings a dish"),
+            ("culture-p24", 1, "réutilise ensuite ces expressions", "réutilise ces expressions", "reuses these expressions"),
             ("culture-p24", 2, "randonnée seule", "randonnée seule", "hiking alone"),
             ("culture-p26", 0, "New York", "New York", "New York"),
             ("culture-p26", 0, "2 500 dollars nets par mois", "2 500 dollars nets par mois", "$2,500 monthly take-home pay"),

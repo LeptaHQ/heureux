@@ -161,9 +161,10 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("récupérer son enfant", family.arguments[1].exemple)
         self.assertIn("voisine de confiance", family.arguments[1].exemple)
         self.assertIn("déjà autorisée auprès de l'école", family.arguments[1].exemple)
-        self.assertIn("Elle va chercher l'enfant", family.arguments[1].consequence)
-        self.assertIn("billet trop cher", family.arguments[2].exemple)
-        self.assertIn("Elle renonce à la visite", family.arguments[2].exemple)
+        self.assertIn("Si elle n'est pas disponible", family.arguments[1].consequence)
+        self.assertIn("vit et travaille", family.arguments[2].exemple)
+        self.assertIn("Le billet dépasse aussi son budget", family.arguments[2].exemple)
+        self.assertIn("elle renonce donc à la visite", family.arguments[2].exemple)
         self.assertNotEqual(family.arguments[0].exemple, self.response("culture-p9").arguments[1].exemple)
         self.assertIn("les débuts", self.response("culture-p9").arguments[1].idea)
 

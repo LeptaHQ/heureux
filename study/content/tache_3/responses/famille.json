@@ -44,13 +44,13 @@
       },
       "reformulation": "Est-ce qu'un jeune adulte manque forcément d'indépendance parce qu'il préfère rester chez ses parents ?",
       "position": "Pour moi, se sentir bien chez ses parents n'a rien de honteux, tant qu'on y vit en adulte et qu'on respecte leurs besoins.",
-      "position_claire": "Je comprends que de jeunes adultes canadiens préfèrent rester chez leurs parents parce qu'ils s'y sentent bien. Aimer la vie familiale n'a rien de honteux. Pour moi, la question est plutôt de savoir comment chacun vit cette cohabitation.",
+      "position_claire": "Je porte un regard compréhensif sur ces jeunes adultes canadiens. Se sentir bien dans sa famille n'est pas un défaut. Je regarde surtout si cette cohabitation convient à tous et laisse au jeune une vraie place d'adulte.",
       "arguments": [
         {
           "idea": "D'abord, apprécier la vie familiale ne signifie pas refuser de grandir.",
-          "developpement": "On peut aimer les repas et les discussions en famille tout en travaillant, en gérant son argent et en prenant ses décisions. Inversement, avoir son appartement n'empêche pas de dépendre de ses parents pour régler chaque problème.",
+          "developpement": "Se sentir bien chez ses parents peut refléter une bonne entente et une communication facile. On peut aimer les repas et les discussions en famille tout en travaillant, en gérant son argent et en prenant ses décisions.",
           "exemple": "Une femme de vingt-six ans travaille et paie ses dépenses. Elle aime dîner avec ses parents et leur raconter sa journée, mais organise elle-même ses sorties et ses projets.",
-          "consequence": "Elle peut donc apprécier ce cadre familial sans renoncer à sa vie d'adulte. Elle n'a pas besoin de vouloir économiser pour que ce choix soit respectable."
+          "consequence": "Elle peut donc apprécier ce cadre familial sans renoncer à sa vie d'adulte."
         },
         {
           "idea": "Mais il faut que cette cohabitation convienne aussi aux parents.",
@@ -59,13 +59,13 @@
           "consequence": "Il continue à voir ses amis, mais sa mère retrouve des nuits tranquilles. Le confort de l'un ne repose plus sur la fatigue de l'autre."
         },
         {
-          "idea": "Pour que cet accord soit juste, le jeune doit aussi prendre sa part du quotidien.",
-          "developpement": "Si les parents paient tout et font toutes les tâches, ils continuent à le prendre en charge comme un enfant. Participer selon ses moyens montre qu'il reconnaît le travail des autres et assume sa place dans le foyer.",
+          "idea": "Enfin, le jeune adulte peut aussi rendre cette vie commune agréable pour ses parents.",
+          "developpement": "Les parents apportent un logement et une présence rassurante. De son côté, le jeune peut contribuer aux dépenses et soulager ses parents de certaines tâches. La cohabitation devient alors un échange, où chacun apporte quelque chose à l'autre.",
           "exemple": "Un jeune salarié verse chaque mois une contribution aux charges et fait les courses de la semaine. Ses parents n'ont pas à lui rappeler ce qu'il a accepté de faire.",
-          "consequence": "Le plaisir de vivre ensemble s'accompagne ainsi de responsabilités concrètes, et pas seulement de bonnes intentions."
+          "consequence": "Il ne profite pas seulement du confort familial : ses parents peuvent aussi compter sur lui au quotidien."
         }
       ],
-      "nuance": "Ce choix ne convient évidemment pas à toutes les familles. Quand on manque de place ou que l'entente est difficile, prendre son propre logement peut être préférable. Aucun âge de départ ne peut convenir à toutes les situations.",
+      "nuance": "Le coût du logement peut aussi compter dans ce choix, sans être sa seule justification. Mais si l'entente est difficile ou que l'on manque de place, vivre séparément peut être préférable. Aucun âge de départ ne peut convenir à toutes les situations.",
       "conclusion": "Bref, je ne juge pas ces jeunes parce qu'ils aiment vivre chez leurs parents. Je regarde plutôt s'ils vivent en adultes, avec des responsabilités et l'accord de toute la famille.",
       "argument_ids": [
         1,
@@ -119,7 +119,7 @@
       "arguments": [
         {
           "idea": "D'abord, l'enfant doit pouvoir croire ce que ses parents lui disent.",
-          "developpement": "Une fausse promesse le rassure quelques instants, mais peut lui faire douter de la prochaine explication. Une réponse honnête lui donne un repère, même lorsqu'elle n'est pas agréable à entendre.",
+          "developpement": "Une fausse promesse peut rassurer l'enfant sur le moment. Mais s'il découvre qu'on lui a menti, il risque de moins faire confiance à ses parents. Une réponse honnête l'aide au contraire à savoir à quoi s'attendre.",
           "exemple": "Avant un vaccin, on peut dire : « Tu vas sentir une petite piqûre, mais ça dure peu de temps et je reste avec toi. » C'est mieux que promettre qu'il ne sentira rien.",
           "consequence": "Il sait à quoi s'attendre et constate ensuite que l'adulte lui avait expliqué les choses correctement."
         },
@@ -131,7 +131,7 @@
         },
         {
           "idea": "Enfin, une réponse honnête peut aussi aider l'enfant à progresser.",
-          "developpement": "Encourager ne signifie pas dire que tout est parfait. Un enfant peut entendre qu'il doit encore travailler quelque chose si on reconnaît ses efforts et lui explique comment faire. Une difficulté n'est pas un jugement sur sa valeur.",
+          "developpement": "Encourager un enfant ne signifie pas lui dire que tout est parfait. On peut reconnaître ses efforts, puis lui expliquer précisément ce qu'il peut améliorer et comment s'y prendre.",
           "exemple": "Avant une audition de piano, un enfant demande s'il est prêt. Son parent répond : « Le début est solide, mais tu hésites à la fin. Reprenons-la lentement chaque jour. » Ils travaillent ensuite ce passage.",
           "consequence": "Il le joue plus sûrement lors de l'audition. Le retour honnête lui a donné quelque chose à améliorer, plutôt qu'un compliment sans indication."
         }
@@ -161,13 +161,13 @@
         {
           "idea": "Ce manque n'est pas seulement affectif : il faut aussi retrouver de l'aide sur place.",
           "developpement": "La famille peut écouter et conseiller au téléphone, mais pas toujours intervenir concrètement. Au début, on ne connaît pas forcément quelqu'un à qui demander un service. Il est donc important qu'on sache qui appeler en cas d'imprévu.",
-          "exemple": "Un parent finit son travail trop tard pour récupérer son enfant. Avant de déménager, il comptait sur les grands-parents. Cette fois, il appelle une voisine de confiance qu'il a déjà autorisée auprès de l'école.",
-          "consequence": "Elle va chercher l'enfant, mais ce relais n'existe que parce qu'il l'a organisé à l'avance. La famille ne peut plus assurer ce dépannage."
+          "exemple": "Un parent finit son travail trop tard pour récupérer son enfant. Avant de déménager, il comptait sur les grands-parents. Il peut alors avoir besoin d'appeler une voisine de confiance qu'il a déjà autorisée auprès de l'école.",
+          "consequence": "Si elle n'est pas disponible, il doit chercher une autre solution, par exemple demander à quitter le travail plus tôt."
         },
         {
           "idea": "Et quand on veut retrouver ses proches, une simple visite devient parfois un voyage.",
           "developpement": "Il faut trouver du temps, prévoir le trajet et payer le billet. La volonté d'être présent ne suffit donc pas toujours. Même un événement prévu longtemps à l'avance peut tomber à un moment où ces contraintes sont trop fortes.",
-          "exemple": "Une fille vit à huit heures de train de son père. Pour venir à son anniversaire, elle aurait besoin de deux jours de congé et d'un billet trop cher pour son budget. Elle renonce à la visite.",
+          "exemple": "Une femme vit et travaille à huit heures de train de chez son père. Pour fêter son anniversaire avec lui, elle devrait prendre deux jours de congé. Le billet dépasse aussi son budget : elle renonce donc à la visite.",
           "consequence": "Elle l'appelle le jour même, mais reste déçue de ne pas partager la fête avec lui."
         }
       ],
@@ -207,7 +207,7 @@
           "consequence": "Il comprend le lien entre sa façon de travailler et ses progrès. Il dispose d'une méthode, pas seulement d'une raison financière de recommencer."
         }
       ],
-      "nuance": "Fêter un bon trimestre ou offrir une petite attention après un examen important ne me choque pas. On partage alors la joie d'une réussite. Ce qui me gêne, c'est le paiement automatique qui transforme chaque note en somme à gagner.",
+      "nuance": "On peut aussi fêter un bon trimestre avec une sortie en famille ou un livre choisi ensemble. Pour moi, cela permet de partager la joie d'une réussite, sans promettre une récompense pour chaque note. Ce qui me gêne, c'est le paiement automatique.",
       "conclusion": "Bref, je préfère encourager le travail et célébrer les progrès. L'essentiel est d'aider l'enfant à comprendre pourquoi il apprend et comment il peut s'améliorer.",
       "argument_ids": [
         1,
@@ -225,15 +225,15 @@
       "arguments": [
         {
           "idea": "D'abord, connaître la manière de travailler d'un proche peut être un avantage.",
-          "developpement": "Quand on a déjà travaillé ensemble, on sait comment l'autre réagit sous pression et ce qu'il sait faire. C'est cette expérience qui permet de répartir les rôles, pas le simple fait d'avoir grandi dans la même famille.",
-          "exemple": "Deux sœurs, une boulangère et une ancienne gérante de magasin, ont déjà vendu ensemble sur les marchés. Quand les clients arrivent nombreux, l'une prépare les commandes pendant que l'autre tient la caisse. Elles ouvrent leur boutique avec cette répartition.",
+          "developpement": "Quand on a déjà travaillé ensemble, on sait comment l'autre réagit sous pression et ce qu'il sait faire. On peut alors répartir les rôles selon les compétences de chacun.",
+          "exemple": "Deux sœurs ont déjà vendu ensemble du pain au marché. L'une faisait le pain, l'autre s'occupait des clients et de la caisse. Comme cette organisation fonctionnait bien, elles la gardent lorsqu'elles ouvrent une boulangerie.",
           "consequence": "Elles commencent avec des habitudes de travail déjà testées, plutôt qu'en supposant que leur bonne entente suffira."
         },
         {
           "idea": "Le risque, c'est que les difficultés du travail entrent aussi dans la vie familiale.",
           "developpement": "On retrouve son associé aux repas de famille. Si on y règle un problème professionnel, les proches peuvent se sentir obligés de prendre parti. Un désaccord entre deux collègues devient alors une tension qui touche tout le monde.",
-          "exemple": "Une sœur reproche à son frère ses retards au restaurant devant toute la famille le dimanche. Leur mère le défend, et la discussion devient une dispute à trois.",
-          "consequence": "Le retard n'est pas réglé et le repas est gâché. Une réunion au restaurant aurait permis d'en parler sans entraîner les autres proches."
+          "exemple": "Un frère et une sœur travaillent dans le même restaurant. Au repas de famille du dimanche, elle lui reproche ses retards au travail. Leur mère le défend, et la discussion devient une dispute à trois.",
+          "consequence": "Le retard n'est pas réglé et le repas est gâché. Il aurait mieux valu en discuter entre eux au travail, plutôt que devant toute la famille."
         },
         {
           "idea": "Il faut aussi penser aux salariés qui ne font pas partie de la famille.",
@@ -242,7 +242,7 @@
           "consequence": "Ce collègue a de bonnes raisons de trouver la décision injuste. La parenté ne doit pas dispenser de faire ses preuves."
         }
       ],
-      "nuance": "Si la relation est déjà tendue ou si personne n'ose dire non, mieux vaut éviter cette collaboration. On peut beaucoup s'aimer et avoir des façons de travailler incompatibles : un bon lien familial ne garantit pas une bonne association.",
+      "nuance": "Si la relation est tendue ou si l'on n'ose pas parler d'un problème de travail avec son proche, mieux vaut éviter cette collaboration. On peut beaucoup s'aimer et avoir des façons de travailler incompatibles : un bon lien familial ne garantit pas une bonne association.",
       "conclusion": "Donc, je ne rejetterais pas une collaboration parce qu'elle est familiale. Je vérifierais plutôt qu'on sait travailler ensemble et parler franchement, sans demander aux proches ni aux salariés de subir nos désaccords.",
       "argument_ids": [
         1,

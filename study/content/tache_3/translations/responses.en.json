@@ -236,6 +236,11 @@
         "english": "Furthermore, a fellow countryman who is already settled there can share useful practical advice.",
         "french": "Ensuite, un compatriote déjà installé peut partager une expérience pratique utile."
       },
+      "4caf707eea0cc72d38117589988d0bf7d8104ef65f5939bc68c652946e39b31b": {
+        "english": "A newcomer knows no compatriots in her small town. A colleague from another country helps her understand a housing-aid application form. The newcomer also joins a language exchange group and makes friends from other countries there.",
+        "french": "Une nouvelle arrivante ne connaît aucun compatriote dans sa petite ville. Une collègue d'un autre pays l'aide à comprendre un formulaire de demande d'aide au logement. La nouvelle arrivante rejoint aussi un groupe d'échange linguistique et s'y fait des amis d'autres pays.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "6e33f5de46c34f619f463ab59bc92b358a814a5edc555f2fcfe7cc3474da8d12": {
         "english": "When you arrive in a foreign country, you may find yourself far from your usual circle of friends and family. Spending time with fellow countrymen who speak your language allows you to forge connections without having to wait until you’ve mastered the local language.",
         "french": "Quand on arrive à l'étranger, on peut se retrouver loin de son entourage habituel. Fréquenter des compatriotes qui parlent sa langue permet de nouer des liens sans attendre de bien maîtriser la langue du pays."
@@ -299,6 +304,11 @@
         "english": "Spending time with compatriots abroad can be very useful, especially at first, but I do not think it is necessary. What matters is finding people you can trust, whatever their origin.",
         "french": "Fréquenter des compatriotes à l'étranger peut être très utile, surtout au début, mais je ne pense pas que ce soit nécessaire. Ce qui compte, c'est de trouver des personnes de confiance, quelle que soit leur origine.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "f71a0f056f30588e8ebbe9f447f5e9cba85b7a289dd11350c9bba40669cb5ccf": {
+        "english": "A newcomer knows no compatriots in her small town. A colleague from another country helps her understand a housing-aid application form. She also joins a language exchange group and makes friends from other countries there.",
+        "french": "Une nouvelle arrivante ne connaît aucun compatriote dans sa petite ville. Une collègue d'un autre pays l'aide à comprendre un formulaire de demande d'aide au logement. Elle rejoint aussi un groupe d'échange linguistique et s'y fait des amis d'autres pays.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "f81d43f33f5e4e969a0d4ff6102cbeae585e4508ed2c1fd2e490325096aae895": {
         "english": "However, it is best not to limit yourself to your fellow countrymen. Meeting other local residents also allows you to practise the local language and gain a better understanding of local life. The key is to choose your relationships based on trust and shared interests, not just on where people come from.",
@@ -1671,8 +1681,15 @@
     },
     "eo/tache-3/culture-p24": {
       "1c7b9af99c0091c4a6e3da8b98f98211ba1b1d0ea5d169ab7815623d9d664b6e": {
-        "english": "The absence of local connections is therefore not sufficient grounds to conclude that she is struggling.",
-        "french": "L'absence de liens locaux ne suffit donc pas à conclure qu'elle vit mal."
+        "editorial_history": [
+          {
+            "english": "The absence of local connections is therefore not sufficient grounds to conclude that she is struggling.",
+            "french": "L'absence de liens locaux ne suffit donc pas à conclure qu'elle vit mal."
+          }
+        ],
+        "english": "The absence of local connections is therefore not sufficient grounds to conclude that they are struggling.",
+        "french": "L'absence de liens locaux ne suffit donc pas à conclure qu'elle vit mal.",
+        "review_note": "The English example introduces the remote worker as 'Someone' and consistently uses 'they'. The consequence's unexplained 'she' breaks that reference chain. Correct only the English pronoun, retaining the French text, bilingual cues and preceding translation history. The complete preceding row is retained in editorial_history; no provider call or DeepL original was fabricated."
       },
       "30ae795038ff91e5e5a35bad11d5a0bf4a52a7bd3df324e967b173d384a9d125": {
         "english": "She participates more easily, without confusing the group's habits with those of the whole country.",
@@ -2058,6 +2075,11 @@
       }
     },
     "eo/tache-3/culture-p29": {
+      "1fa7c88489a7a9fd5d1d9221ea056d057f4b41c9463325a9c3f7d8809ae1cd99": {
+        "english": "An employee abroad learns that her father, who still lives in her home country, needs help after an operation. She would like to go to him, but cannot get leave immediately. She can look for someone to help her father there, while regretting that she cannot be there herself.",
+        "french": "Une salariée à l'étranger apprend que son père, resté dans son pays d'origine, a besoin d'aide après une opération. Elle voudrait le rejoindre, mais ne peut pas obtenir de congé immédiatement. Elle peut chercher quelqu'un pour aider son père sur place, tout en regrettant de ne pas être là.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "3bd0442ead7e8ef69474081ebff0b32e5e3ea3b2dad4f1c9efd06ff757ec77f9": {
         "english": "For example, someone may receive a job offer, but their work permit is linked to their current employer. If they have to wait for a new permit before starting work, they cannot yet rely on that salary. They may have to postpone their move.",
         "french": "Par exemple, une personne reçoit une offre d'emploi, mais son autorisation de travail est liée à son employeur actuel. Si elle doit attendre une nouvelle autorisation pour commencer, elle ne peut pas encore compter sur ce salaire. Elle devra peut-être reporter son déménagement."
@@ -2383,6 +2405,11 @@
         "french": "Je pense que certaines émissions de télé-réalité peuvent avoir une mauvaise influence sur les jeunes. Le problème n'est pas simplement qu'elles divertissent : elles peuvent présenter des moments choisis comme un modèle de vie, jusque dans les relations et les achats.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "cedba081e1c365301134f7ce9423880389cb17813a3400b50f129f25e843ce1f": {
+        "english": "A teenager orders the shoes recommended by a contestant they like. The contestant presents them as their favourites. After the purchase, the teenager notices the words ‘paid partnership’: the brand had paid the contestant to talk about the shoes.",
+        "french": "Un adolescent commande les chaussures recommandées par un candidat qu'il aime bien. Celui-ci les présente comme ses préférées. Après l'achat, l'adolescent remarque la mention « partenariat rémunéré » : la marque avait payé le candidat pour en parler.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "e7eaad5a736bd95a3dc91634e492374c476602a52f8e66e7bf6eb670c38607c1": {
         "deepl_english": "A young person may continue to follow a contestant on social media after the programme has finished. As they have become attached to them, they may trust their recommendations without realising that a brand is paying them.",
         "english": "A young person may continue to follow a contestant on social media after the programme has finished. Having become attached to the contestant, they may trust the recommendations without realising that a brand is paying the contestant.",
@@ -2395,9 +2422,17 @@
       },
       "f5fe4cdbc4a8ea73f66e372862de1a2e5dd148964c80d6efe97ad58b22650b1d": {
         "deepl_english": "He therefore made a purchase believing he was acting on his own judgement, without realising it was advertising.",
-        "english": "He therefore made a purchase believing he was following a personal recommendation, without realising it was advertising.",
+        "editorial_history": [
+          {
+            "deepl_english": "He therefore made a purchase believing he was acting on his own judgement, without realising it was advertising.",
+            "english": "He therefore made a purchase believing he was following a personal recommendation, without realising it was advertising.",
+            "french": "Il a donc fait un achat en croyant suivre un avis personnel, sans reconnaître la publicité.",
+            "review_note": "Suivre un avis personnel means following the contestant's apparently personal advice, not acting on his own judgement."
+          }
+        ],
+        "english": "The teenager therefore made a purchase believing they were following a personal recommendation, without realising it was advertising.",
         "french": "Il a donc fait un achat en croyant suivre un avis personnel, sans reconnaître la publicité.",
-        "review_note": "Suivre un avis personnel means following the contestant's apparently personal advice, not acting on his own judgement."
+        "review_note": "The complete-model final review identified an ambiguous return to masculine pronouns after the example consistently distinguishes the teenager from the contestant using singular they. Explicitly name the purchaser and retain singular they. The complete preceding row is retained in editorial_history; no provider call or DeepL original was fabricated."
       }
     },
     "eo/tache-3/culture-p33": {
@@ -2649,6 +2684,11 @@
       "b3a1895b811c580890f486e1634f64e3e944083458bb55fef302977dbcecbf92": {
         "english": "The richness of a society is also measured by this capacity for cooperation.",
         "french": "La richesse d'une société se mesure aussi à cette capacité de coopération."
+      },
+      "e138d2f397254f2464ca928b14c30fa6f88d76dedacaef8a3f642d3251477db3": {
+        "english": "During a food distribution, a new resident might explain the instructions to a family in a language they share. The family understands how to collect their parcel and can ask questions: like the other volunteers, the resident helps to make the support more accessible.",
+        "french": "Lors d'une distribution alimentaire, un nouvel habitant peut expliquer les consignes à une famille dans une langue qu'ils ont en commun. La famille comprend comment retirer son colis et peut poser ses questions : comme les autres bénévoles, il contribue à rendre l'aide plus accessible.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "e1c5cfad34300b8601c84ead0a9786a25e755c5d1c0733472718ba839ec96987": {
         "english": "However, these contributions do not happen automatically. Language learning, recognition of qualifications and combating discrimination require collective efforts. And a person's dignity should be recognised without them having to prove their economic usefulness.",
@@ -4454,6 +4494,11 @@
         "english": "So slow adaptation does not necessarily mean a lack of willingness or ability.",
         "french": "Une adaptation lente n'est donc pas forcément un manque de volonté ou de capacité.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "fdef57edf1f2bebe4b2ff565e3c0beb068c627b6f15af4e9bccb19c4c49e9755": {
+        "english": "A woman who has recently arrived does not dare to phone to make an appointment. A neighbour helps her the first time. For the next appointment, she prepares a few phrases, then makes the call on her own and gets a time slot.",
+        "french": "Une nouvelle arrivante n'ose pas téléphoner pour prendre rendez-vous. Une voisine l'aide la première fois. Pour le rendez-vous suivant, elle prépare quelques phrases, puis passe l'appel seule et obtient un horaire.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       }
     },
     "eo/tache-3/education-p10": {
@@ -4552,9 +4597,16 @@
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
       "ad10cae8e5cd60117d492e9f2b743bf9f1f60d884477a1a1ebf3126b2b34f73c": {
-        "english": "I would agree on a regular slot with the organisation. If I had to be away, I would give enough notice for the team to find a solution. Another volunteer could then take over my task instead of discovering my absence at the last minute.",
+        "editorial_history": [
+          {
+            "english": "I would agree on a regular slot with the organisation. If I had to be away, I would give enough notice for the team to find a solution. Another volunteer could then take over my task instead of discovering my absence at the last minute.",
+            "french": "Je conviendrais d'un créneau régulier avec l'association. Si je devais m'absenter, je préviendrais assez tôt pour que l'équipe puisse chercher une solution. Un autre bénévole pourrait alors reprendre ma tâche au lieu de découvrir mon absence au dernier moment.",
+            "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+          }
+        ],
+        "english": "I would agree on a regular slot with the organisation. If I had to be away, I would give enough notice for the team to look for a solution. Another volunteer could then take over my task instead of discovering my absence at the last minute.",
         "french": "Je conviendrais d'un créneau régulier avec l'association. Si je devais m'absenter, je préviendrais assez tôt pour que l'équipe puisse chercher une solution. Un autre bénévole pourrait alors reprendre ma tâche au lieu de découvrir mon absence au dernier moment.",
-        "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+        "review_note": "The preserved subjunctive says 'pour que l'équipe puisse chercher une solution', not that notice ensures a replacement is found. Match the act of searching while retaining the already conditional next sentence. In the full replacement hint group, the sole change is likewise English 'look for' rather than 'find' for French 'chercher des aliments sans cuisson'; available supplies are deliberately checked, not assumed. No French change is needed for either correction; retain the old English history. The complete preceding row is retained in editorial_history; no provider call or DeepL original was fabricated."
       },
       "af5a832b36221676130c4f8e4b237b5b805805f595a5a9eac05a26946cb3b18d": {
         "english": "Finally, I would like to help whilst taking people’s needs and choices into account.",
@@ -5190,6 +5242,11 @@
         "english": "A specialist may receive offers from other employers. A single salary level can then prevent the company from offering attractive enough pay to retain them, even if their departure holds up an activity.",
         "french": "Un spécialiste peut recevoir des offres d'autres employeurs. Un salaire unique peut alors empêcher l'entreprise de proposer une rémunération assez intéressante pour le retenir, même si son départ bloque une activité.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "4fc1e4579711f104f22ff827574eb9bdc49545bf195b106f6e25dd89bfe92259": {
+        "english": "In a small company, an IT specialist is the only person who fully understands the security system the team needs to install. If she accepts a better-paid offer elsewhere, the company may have to postpone this installation while it finds and trains someone.",
+        "french": "Dans une petite entreprise, une informaticienne est la seule à maîtriser le système de sécurité que l'équipe doit installer. Si elle accepte une offre mieux payée ailleurs, l'entreprise peut devoir reporter cette installation le temps de trouver et former quelqu'un.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "5117f8c09145d49d90487899a6dc0c83687f5519749995c39c6cc7df408fe139": {
         "english": "On a construction site, two teams may be scheduled to work in the same place at the same time. The person responsible for coordinating them adjusts the schedule and checks the sequence of tasks to ensure that one task does not hold up the other. This additional responsibility may justify a different rate of pay.",
@@ -6810,6 +6867,11 @@
         "english": "Next, is my career plan feasible under the envisaged conditions?",
         "french": "Ensuite, mon projet professionnel est-il réalisable dans les conditions prévues ?"
       },
+      "53fb535cd73c2115da936cacfbd53503af06189eee537bf75700ae4fe7ef3c77": {
+        "english": "A couple plans to leave together. One has already found a job in Quebec; the other will need to look for work and practise French. They check whether one salary and their savings will cover the initial period, then ask someone close to them what help they could actually provide.",
+        "french": "Un couple prévoit de partir ensemble. L'un a déjà trouvé un emploi au Québec ; l'autre devra chercher du travail et pratiquer le français. Ils vérifient si un seul salaire et leurs économies couvrent le début, puis demandent à un proche quelle aide il pourrait réellement apporter.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "5c2fa9b6a8d8eab7b72d36263706703edac44d5ab00619621a4b55992f8d5ad7": {
         "english": "It is not enough simply to want to practise a profession. You must check the required qualifications, employers’ expectations and, for certain professions, the necessary authorisations with the relevant authorities.",
         "french": "Il ne suffit pas de vouloir exercer un métier. Il faut vérifier les qualifications demandées, les attentes des employeurs et, pour certaines professions, les autorisations nécessaires auprès des organismes compétents."
@@ -6971,9 +7033,16 @@
         "french": "Une association qui prépare des colis peut proposer plusieurs créneaux de bénévolat et confirmer les inscriptions. Elle évite ainsi que tous les volontaires arrivent au même moment, alors qu'un autre créneau reste vide."
       },
       "48562f641a380f01077e50f115ef47baeabdbaefcb49557b21c9c0bf41f308f2": {
-        "english": "After a flood, a community centre announces that it needs clean blankets. Residents of a neighbouring town share the message and organise a collection that same evening, following the centre's instructions.",
+        "editorial_history": [
+          {
+            "english": "After a flood, a community centre announces that it needs clean blankets. Residents of a neighbouring town share the message and organise a collection that same evening, following the centre's instructions.",
+            "french": "Après une inondation, un centre communautaire annonce qu'il manque de couvertures propres. Des habitants d'une commune voisine partagent le message et organisent un dépôt le soir même, en suivant les indications du centre.",
+            "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+          }
+        ],
+        "english": "After a flood, a community centre announces that it needs clean blankets. Residents of a neighbouring town share the message and organise a drop-off that same evening, following the centre's instructions.",
         "french": "Après une inondation, un centre communautaire annonce qu'il manque de couvertures propres. Des habitants d'une commune voisine partagent le message et organisent un dépôt le soir même, en suivant les indications du centre.",
-        "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+        "review_note": "The French action is 'organisent un dépôt': arranging to deliver the blankets, not introducing a separate collection. 'Drop-off' also agrees with the existing English cue. Keep the entire French field and both cues unchanged, and retain the prior English record in editorial history. The complete preceding row is retained in editorial_history; no provider call or DeepL original was fabricated."
       },
       "5345e1e6ddbfbe527bfd31e3c59fbc79e187ac93ff89b64d539620101fc7a134": {
         "english": "An organisation present on the ground can publish up-to-date information on what is needed, and others can then share this appeal. Sharing the message broadens the circle of those who can take action, provided that the source, date and relevant details are retained.",
@@ -7173,6 +7242,11 @@
       "e4ec0813eb1482cef8539890f8a8dca2419d5c523813d2eddd63aa34ac62ff72": {
         "english": "Furthermore, experience can help to link what is learnt in the classroom to real-life situations.",
         "french": "Ensuite, l'expérience peut aider à relier les cours à des situations concrètes."
+      },
+      "ecbb98f3bd9750d5f581ec806a1866057afe16f6018b96f6759aef14d32f73d8": {
+        "english": "She now has concrete skills to include in her application.",
+        "french": "Elle a désormais des compétences concrètes à présenter dans sa candidature.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "eeead4de3a5bc1618c5cea0bd73b5d87e7a16eea6ad7aafaecb9e8fafb267905": {
         "english": "Previous experiences are therefore not wasted when returning to study.",
@@ -9374,6 +9448,16 @@
         "french": "Dans une ville chère, un loyer absorbe parfois une grande partie d'un premier salaire. Si la famille est d'accord, partager les dépenses peut aider à rembourser un prêt ou à constituer une épargne. Le confort peut alors servir à avancer.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "0c2da1d63289d249852be0795fdf1c3fceb6d3d217618e5ff27c2f66e6cef7f3": {
+        "english": "Feeling comfortable at your parents' home can reflect a good relationship and easy communication. You can enjoy family meals and conversations while working, managing your money and making your own decisions.",
+        "french": "Se sentir bien chez ses parents peut refléter une bonne entente et une communication facile. On peut aimer les repas et les discussions en famille tout en travaillant, en gérant son argent et en prenant ses décisions.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "12cf02e29473c1c9311a19c761732c3172e5f9497a748d803c0fa292c4fe69fc": {
+        "english": "She can therefore enjoy this family setting without giving up her adult life.",
+        "french": "Elle peut donc apprécier ce cadre familial sans renoncer à sa vie d'adulte.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "179d2ef49d86cd50bb893809866f7ef393089efde9a11533ac4a2cc45da91877": {
         "english": "A twenty-six-year-old woman works, pays her own expenses and cooks two evenings a week. She enjoys seeing her parents, but organises her own outings and plans.",
         "french": "Une femme de vingt-six ans travaille, paie ses dépenses et cuisine deux soirs par semaine. Elle aime retrouver ses parents, mais organise elle-même ses sorties et ses projets.",
@@ -9440,6 +9524,11 @@
         "french": "En conclusion, je ne jugerais pas ces jeunes sur leur adresse. Des relations respectueuses, un budget réfléchi et une participation réelle comptent davantage qu'un départ à une date considérée comme normale.",
         "review_note": "Adresse means their address or living situation, not their ability to cope."
       },
+      "8161d6b2fcdf6362091586265a5fb9d1cdcffcfaaa1a720c69ab8d87e489a110": {
+        "english": "I understand these young Canadian adults' choice. There is nothing wrong with enjoying family life. What matters most to me is whether living together suits everyone and gives the young person a genuine adult role.",
+        "french": "Je porte un regard compréhensif sur ces jeunes adultes canadiens. Se sentir bien dans sa famille n'est pas un défaut. Je regarde surtout si cette cohabitation convient à tous et laisse au jeune une vraie place d'adulte.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "81842746501e4583e34dd1a5541f982cbd533ff8996216bb8b8b101b99cb7633": {
         "english": "I understand why a young adult might prefer to live with their parents because they feel happy there. Getting on well as a family is a blessing, not a fault. But they must take responsibility: living with their parents does not mean leaving them to take care of everything.",
         "french": "Je comprends qu'un jeune adulte préfère vivre chez ses parents parce qu'il s'y sent bien. Une bonne entente familiale est une chance, pas un défaut. Mais il doit assumer ses responsabilités : vivre avec ses parents ne signifie pas les laisser tout prendre en charge.",
@@ -9465,6 +9554,11 @@
         "french": "Si les parents paient tout et font toutes les tâches, ils continuent à le prendre en charge comme un enfant. Participer selon ses moyens montre qu'il reconnaît le travail des autres et assume sa place dans le foyer.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
+      "97841115ff7cfa95ac220bc04f48b9db238cbacb5e9f3aeb6fafb802f4d49026": {
+        "english": "The parents provide a home and a reassuring presence. The young adult can contribute to expenses and take some chores off their parents' hands. Living together then becomes an exchange in which each side brings something to the other.",
+        "french": "Les parents apportent un logement et une présence rassurante. De son côté, le jeune peut contribuer aux dépenses et soulager ses parents de certaines tâches. La cohabitation devient alors un échange, où chacun apporte quelque chose à l'autre.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "986335cfa4f65af7fe6b8d95b7f7f01e8a42065cfd0c6d4442497737b8521950": {
         "english": "She therefore does not need to move out simply to prove to others that she is an adult.",
         "french": "Elle n'a donc pas besoin de déménager uniquement pour prouver aux autres qu'elle est adulte.",
@@ -9489,10 +9583,20 @@
         "french": "Ils ont leur rythme, leurs habitudes et besoin d'intimité. Leur enfant peut se sentir très bien sans remarquer qu'il les dérange. En parler permet de trouver des arrangements avant que les petites gênes deviennent des disputes.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
+      "a21511b003de2e76066e28e417531daad74e23f5086785812512aeb57b070447": {
+        "english": "Finally, the young adult can also make living together enjoyable for their parents.",
+        "french": "Enfin, le jeune adulte peut aussi rendre cette vie commune agréable pour ses parents.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "a3fed9a2cc91a79bd804cbd3de0cf4affda2c13acad6dbf34fb394cff845f271": {
         "english": "First, enjoying family life does not mean refusing to grow up.",
         "french": "D'abord, apprécier la vie familiale ne signifie pas refuser de grandir.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "a81dad7249011b75bda64f619c585621d13c91b6d4fa2249eef2a30898981151": {
+        "english": "He does not just enjoy the comfort of family life: his parents can also rely on him day to day.",
+        "french": "Il ne profite pas seulement du confort familial : ses parents peuvent aussi compter sur lui au quotidien.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "acc47c97facfd543c270f345bc645055ed37826725ddc868ab48ffad7d16da45": {
         "english": "But living together must suit the parents too.",
@@ -9507,6 +9611,11 @@
       "b51f0bfb47dc44178478b497df96ddbccf686ff5ebb8ff5faacebd9f3a5d6de1": {
         "english": "A young adult finishing their studies can compare the cost of independent accommodation with their financial resources. With their parents’ consent, they can stay at home and regularly put money aside to prepare for moving out.",
         "french": "Un jeune adulte qui termine une formation peut comparer le coût d'un logement indépendant avec ses ressources. Avec l'accord de ses parents, il peut rester chez eux et mettre régulièrement de l'argent de côté pour préparer son installation."
+      },
+      "b8bbd42de8ff8a876646e345613cf50a92e999392a7747897449ccf1fd4da4f9": {
+        "english": "Housing costs can also play a part in this choice, without being its only justification. But if it is difficult to get along or there is not enough space, living separately may be preferable. No single age for leaving home can suit every situation.",
+        "french": "Le coût du logement peut aussi compter dans ce choix, sans être sa seule justification. Mais si l'entente est difficile ou que l'on manque de place, vivre séparément peut être préférable. Aucun âge de départ ne peut convenir à toutes les situations.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "bcbad991e9baecbd42153812a5dec8accd4fa995b19f49afe4658b3dab4211e1": {
         "english": "However, parents must also be able to express their needs. If the presence of an adult creates tension or a burden that they no longer wish to bear, the arrangement must be reviewed. A long-term living arrangement can work, but it must remain a choice made by both parties.",
@@ -9797,6 +9906,11 @@
         "english": "Finally, telling the truth tactfully helps a child to accept failure and bounce back.",
         "french": "Enfin, dire la vérité avec tact aide l'enfant à accepter un échec et à rebondir."
       },
+      "1b511b233af823e52974d7059e0b926ba4130599fa7950e3d6161c7ec36ad4d4": {
+        "english": "Encouraging a child doesn't mean telling them everything is perfect. We can recognise their effort, then explain exactly what they can improve and how to go about it.",
+        "french": "Encourager un enfant ne signifie pas lui dire que tout est parfait. On peut reconnaître ses efforts, puis lui expliquer précisément ce qu'il peut améliorer et comment s'y prendre.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "2833955483abe5877c1ab9c41c10067ee401a2403cc66d7dcbf1bf6c3c4f0abd": {
         "english": "Furthermore, a simple explanation can ease a child’s worries.",
         "french": "Ensuite, une explication simple peut réduire les inquiétudes de l'enfant."
@@ -9889,6 +10003,11 @@
         "english": "A little girl no longer sees her grandmother on Wednesdays. Her parents explain that she is in hospital after a fall and arrange a call, without promising that she will recover straight away.",
         "french": "Une fillette ne voit plus sa grand-mère le mercredi. Ses parents expliquent qu'elle est à l'hôpital après une chute et organisent un appel, sans promettre qu'elle guérira tout de suite.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "a3ced2c9191edeac94b71adcf04533d136fc30c572a00c852de71706c683212b": {
+        "english": "A false promise can reassure a child in the moment. But if they discover they have been lied to, they may trust their parents less. An honest answer, on the other hand, helps them know what to expect.",
+        "french": "Une fausse promesse peut rassurer l'enfant sur le moment. Mais s'il découvre qu'on lui a menti, il risque de moins faire confiance à ses parents. Une réponse honnête l'aide au contraire à savoir à quoi s'attendre.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "ae929e8bfbff5c7c36c8c48cf1b0f02fa8a165f5b6a3dfd5b64f32d00de53aa7": {
         "english": "Before playing the piano in front of the class, the child asks whether they are ready. You can answer: \"You know the beginning well, but you hesitate at the end. We can go over it together.\"",
@@ -10000,6 +10119,11 @@
         "english": "In conclusion, living far from one’s family isn’t necessarily easy: you have to cope with missing them, find support locally and plan visits. Phone calls and the connections you build with those around you can help, though they cannot replace all those moments spent with family.",
         "french": "En conclusion, vivre loin de sa famille n'est pas forcément facile : il faut gérer le manque, trouver de l'aide sur place et prévoir les visites. Les appels et les liens qu'on crée autour de soi peuvent aider, sans remplacer tous les moments en famille."
       },
+      "40f3ddede5c43dd140151c748aa5deb3f17877e032d7ddb6cc8307389881475c": {
+        "english": "A woman lives and works an eight-hour train journey from her father's home. To celebrate his birthday with him, she would need to take two days off work. She also cannot afford the train ticket, so she decides not to make the trip.",
+        "french": "Une femme vit et travaille à huit heures de train de chez son père. Pour fêter son anniversaire avec lui, elle devrait prendre deux jours de congé. Le billet dépasse aussi son budget : elle renonce donc à la visite.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "4593dd77fe177a78026df2ae17f4079bdeaa73e4a312b5b13d057ce63bf18fe4": {
         "english": "Finally, the distance can make it difficult to organise reunions.",
         "french": "Enfin, la distance peut rendre les retrouvailles difficiles à organiser."
@@ -10076,6 +10200,11 @@
         "english": "Distance turns a simple visit into a trip that requires planning. Holidays, work schedules and budget constraints can limit the frequency of reunions, even when everyone would like to see each other more often.",
         "french": "La distance transforme une visite simple en déplacement à préparer. Les congés, les horaires et le budget peuvent limiter la fréquence des retrouvailles, même quand chacun souhaite se voir davantage."
       },
+      "978817603cd227d2daa269acaec37353e14b09a8409264285b088c8a70bfca96": {
+        "english": "A parent finishes work too late to collect his child. Before moving, he relied on the grandparents. He may then need to call a trusted neighbour whom he has already authorised with the school to collect the child.",
+        "french": "Un parent finit son travail trop tard pour récupérer son enfant. Avant de déménager, il comptait sur les grands-parents. Il peut alors avoir besoin d'appeler une voisine de confiance qu'il a déjà autorisée auprès de l'école.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "987c77c08987725f46d42f3bafc1f3abb2baada51c47151b8a4b4e21f0dcc825": {
         "english": "Even with regular phone calls, this person may still feel the absence of their family.",
         "french": "Même avec des appels réguliers, cette personne peut donc ressentir le manque de sa famille."
@@ -10093,6 +10222,11 @@
         "english": "When you get on well with your family, I do not think living far from them is easy. You may have chosen to leave and love your new life, while still missing them. Distance also changes very practical aspects of daily life.",
         "french": "Quand on s'entend bien avec sa famille, je ne trouve pas facile de vivre loin d'elle. On peut avoir choisi son départ et aimer sa nouvelle vie, tout en ressentant le manque. La distance change aussi des choses très pratiques au quotidien.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "c3600b4b868768e5f128c9f0efb9c59d6e2451adefe8fa5239b53eaa601652c3": {
+        "english": "If she is unavailable, he has to find another solution, for example asking to leave work early.",
+        "french": "Si elle n'est pas disponible, il doit chercher une autre solution, par exemple demander à quitter le travail plus tôt.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "c8c9adfa3c659337a54f5e102b9cb48a21e9a79d5b93aa1ff08b9ac0000a63be": {
         "english": "This is not just about missing them emotionally: you also need to find help locally.",
@@ -10174,6 +10308,11 @@
       "251d7f92e003413c333d3b5b1ac109d7b40c418c3e5c1e4e6fb4f2142152ea2d": {
         "english": "A child adds two numbers when they should be comparing them. The parent asks them to rephrase the instruction and spots the confusion. With the teacher’s help, the child learns to identify the larger number and can try the exercise again.",
         "french": "Un enfant additionne deux nombres alors qu'il faut les comparer. Le parent lui demande de reformuler la consigne et repère la confusion. Avec l'enseignant, l'enfant apprend à chercher le plus grand nombre et peut refaire l'exercice."
+      },
+      "2ab71e63617654ee34cc0ce99515691baaa03031ecd09b03a88f0f0cb59fa92d": {
+        "english": "We can also celebrate a good term at school with a family outing or a book we choose together. To me, this is a way of sharing the joy of an achievement, without promising a reward for every grade. What bothers me is automatic payment.",
+        "french": "On peut aussi fêter un bon trimestre avec une sortie en famille ou un livre choisi ensemble. Pour moi, cela permet de partager la joie d'une réussite, sans promettre une récompense pour chaque note. Ce qui me gêne, c'est le paiement automatique.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "2b1771e2fc801e364ed9c352b80a9f6d8be0d34b780f0c15d609701b33c274f5": {
         "english": "Furthermore, a final mark does not reflect the full extent of the work done.",
@@ -10336,6 +10475,11 @@
         "french": "Je ne pense pas qu'il faille éviter systématiquement de travailler en famille. Cela peut très bien fonctionner, mais le lien familial ne suffit pas pour choisir un associé. Je regarderais surtout ce qu'on sait déjà de sa façon de travailler.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
+      "0fca67f8327cedd9547fe42b48c7b5c6e1512a2323e237a3f1603d87ac2f88b8": {
+        "english": "When you have worked together before, you know how the other person reacts under pressure and what they can do. You can then divide up the roles according to each person's skills.",
+        "french": "Quand on a déjà travaillé ensemble, on sait comment l'autre réagit sous pression et ce qu'il sait faire. On peut alors répartir les rôles selon les compétences de chacun.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "105083f4ac5778a93c9db5b24c152b38b03406aa8e1d96d18d29b8283c55679f": {
         "english": "A brother and his sister work together. At a family meal, he criticises her for a late delivery. Their mother takes his side. The sister feels judged by her family for a professional mistake, and relations become strained.",
         "french": "Un frère et sa sœur travaillent ensemble. Au repas familial, il lui reproche une livraison en retard. Leur mère prend parti pour lui. La sœur se sent jugée par sa famille pour une erreur professionnelle, et les relations se tendent."
@@ -10395,6 +10539,11 @@
         "french": "Il faut aussi penser aux salariés qui ne font pas partie de la famille.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
+      "462db85177b48a20d2461174483cb985a932ddc815b82380b8306052c19ab744": {
+        "english": "If the relationship is strained, or you do not dare discuss a work problem with your relative, it is better to avoid working together. You can love one another very much and have incompatible ways of working: a good family relationship does not guarantee a good business partnership.",
+        "french": "Si la relation est tendue ou si l'on n'ose pas parler d'un problème de travail avec son proche, mieux vaut éviter cette collaboration. On peut beaucoup s'aimer et avoir des façons de travailler incompatibles : un bon lien familial ne garantit pas une bonne association.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "467fb245b0eed8cfc7a053c60a25cb87cbbb94f794f56d7aaa952083fa5703ed": {
         "english": "When starting a small business, you need to make quick decisions and be able to rely on someone. Knowing their strengths and limitations helps you divide up roles. But you must choose them for their skills, not just because they are family.",
         "french": "Au démarrage d'une petite entreprise, il faut décider vite et pouvoir compter sur quelqu'un. Connaître ses qualités et ses limites aide à répartir les rôles. Mais on doit le choisir pour ses compétences, pas seulement pour son lien familial.",
@@ -10423,6 +10572,11 @@
         "english": "The lateness is not resolved and the meal is spoilt. A meeting at the restaurant would have allowed them to discuss it without drawing in the other relatives.",
         "french": "Le retard n'est pas réglé et le repas est gâché. Une réunion au restaurant aurait permis d'en parler sans entraîner les autres proches.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "8b1a0108ce701978d67721d9a30a1d28f6a3101fbca137aeb756dfba88f506f4": {
+        "english": "Two sisters have already sold bread together at a market. One made the bread, while the other served customers and handled payments. Since this arrangement worked well, they keep the same roles when they open a bakery.",
+        "french": "Deux sœurs ont déjà vendu ensemble du pain au marché. L'une faisait le pain, l'autre s'occupait des clients et de la caisse. Comme cette organisation fonctionnait bien, elles la gardent lorsqu'elles ouvrent une boulangerie.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "8d4a6584eae68c533650281af0791fe9dc6056ff7f2c005fcc7a685c50fa518d": {
         "english": "Criticism may be heard as a personal attack. Conversely, keeping quiet to protect the relationship lets problems build up. You need to set aside times to discuss work, then stop that discussion when you get together as a family.",
@@ -10491,6 +10645,11 @@
         "french": "D'abord, connaître la manière de travailler d'un proche peut être un avantage.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "b4c945f67de54c454530a2730f496707e20ad7f4d48d85ac204def499c203e21": {
+        "english": "A brother and sister work at the same restaurant. At the family's Sunday meal, she criticises him in front of everyone for repeatedly arriving late for work. Their mother defends him, and the discussion turns into a three-way argument.",
+        "french": "Un frère et une sœur travaillent dans le même restaurant. Au repas de famille du dimanche, elle lui reproche ses retards au travail. Leur mère le défend, et la discussion devient une dispute à trois.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "b7dd0ac16a4a47a3439f68d49e875866b76be8153f76509a02bf271ac7c579ee": {
         "english": "Two sisters who have already organised events together could set up a catering business. One knows how to prepare meals, the other how to manage orders. They draw on their shared experience to divide up the work, rather than having to figure everything out when they take on their first contract.",
         "french": "Deux sœurs qui ont déjà organisé ensemble des événements peuvent créer une activité de restauration. L'une sait préparer les repas, l'autre gérer les commandes. Elles s'appuient sur une expérience commune pour répartir le travail, au lieu de tout découvrir au premier contrat."
@@ -10511,6 +10670,11 @@
       "cd128bf39d20441c6994e730de2c9659134aa4ad1d402ddd4318d9fc7a494e08": {
         "english": "When you know how a family member works, you can discuss commitments and boundaries more directly. This advantage exists if their skills match the project, not simply because you share the same surname.",
         "french": "Quand on connaît la manière de travailler d'un proche, on peut discuter plus directement des engagements et des limites. Cet avantage existe si les compétences correspondent au projet, pas simplement parce qu'on porte le même nom."
+      },
+      "ce5adbe00ffffdd21d2d04ba7126a1b4173b9a0a236c33ee57714df5e4e429f7": {
+        "english": "The lateness is not resolved and the meal is spoilt. It would have been better for the two of them to discuss it privately at work, rather than in front of the whole family.",
+        "french": "Le retard n'est pas réglé et le repas est gâché. Il aurait mieux valu en discuter entre eux au travail, plutôt que devant toute la famille.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "d69fa66cbbe6421c032aef0cebb93a626d39cd9d8e0ce20d25f5c084a0dee027": {
         "english": "A brother often arrives late at the restaurant he runs with his sister. She can raise this with him in a meeting, rather than in front of all their relatives at Sunday lunch.",

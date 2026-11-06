@@ -310,7 +310,7 @@
             "english": "A team depends on each person's preparation."
           },
           "example": {
-            "french": "Sans son texte, une comédienne empêcherait acteurs et techniciens de régler la scène.",
+            "french": "Sans connaître son texte, une comédienne empêcherait acteurs et techniciens de régler la scène.",
             "english": "Without knowing her lines, an actress would prevent actors and technicians from setting the scene."
           }
         }
@@ -494,8 +494,8 @@
             "english": "Other people can provide that support."
           },
           "example": {
-            "french": "Sans compatriotes connus, une arrivante trouve aide et amis d'autres pays.",
-            "english": "With no known compatriots, a newcomer finds help and friends from other countries."
+            "french": "Sans compatriotes connus : aide d'une collègue pour un formulaire, amis dans un groupe linguistique.",
+            "english": "No known compatriots: a colleague helps with a form; friends in a language exchange group."
           }
         }
       ],
@@ -632,8 +632,8 @@
             "english": "At a distance, you can ask your own questions."
           },
           "example": {
-            "french": "Une amie japonaise expliquerait le sol propre : sa famille s'y assied parfois.",
-            "english": "A Japanese friend would explain the clean floor: her family sometimes sits on it."
+            "french": "Une amie japonaise expliquerait pourquoi elle enlève ses chaussures : garder le sol propre, car sa famille s'y assied parfois.",
+            "english": "A Japanese friend would explain why she takes off her shoes: to keep the floor clean, since her family sometimes sits on it."
           }
         }
       ],
@@ -840,8 +840,8 @@
         "english": "Even speaking the language, we may not know the earlier project that explains a neighbour's mistrust."
       },
       "conclusion": {
-        "french": "La langue n'est pas un mur, mais elle aide à dépasser la surface.",
-        "english": "Language is not a wall, but it helps us go beyond the surface."
+        "french": "Apprendre en observant et grâce aux traductions ; parler la langue aide à suivre plus d'échanges.",
+        "english": "Learn through observation and translations; speaking the language helps us follow more exchanges."
       },
       "arguments": [
         {
@@ -998,8 +998,8 @@
             "english": "Talking with residents helps you understand social conventions and practise the local language."
           },
           "example": {
-            "french": "Chacun apporte un plat ; aidée à dire son choix, elle réutilise ensuite ces expressions.",
-            "english": "Everyone brings a dish; helped to say her choice, she then reuses these expressions."
+            "french": "Repas d'association : chacun apporte un plat. Une habituée aide l'arrivante à annoncer le sien ; l'arrivante réutilise ces expressions.",
+            "english": "Association meal: everyone brings a dish. A regular helps a newcomer say what she will bring; the newcomer then reuses these expressions."
           }
         },
         {
@@ -1112,8 +1112,8 @@
         "english": "Forgetting is possible, not automatic: practising language and traditions helps keep them."
       },
       "nuance": {
-        "french": "Temps et ressources comptent ; changer d'habitudes n'est pas oublier ce qu'on veut transmettre.",
-        "english": "Time and resources matter; changing habits is not forgetting what one wants to pass on."
+        "french": "Temps et ressources comptent ; changer d'habitudes n'est pas forcément oublier ce qu'on veut transmettre.",
+        "english": "Time and resources matter; changing habits does not necessarily mean forgetting what one wants to pass on."
       },
       "conclusion": {
         "french": "Mots et gestes peuvent s'oublier ; liens et pratique comptent, pas seulement les années.",
@@ -1182,8 +1182,8 @@
             "english": "Living far away makes it harder to be there in person when loved ones need help."
           },
           "example": {
-            "french": "Faute de congé ou d'argent pour le trajet, on ne peut pas toujours aider sur place un parent opéré.",
-            "english": "Without time off or money for travel, you may be unable to help a parent in person after surgery."
+            "french": "Une salariée sans congé immédiat voudrait aider son père opéré ; elle peut chercher une aide sur place.",
+            "english": "An employee cannot get immediate leave to help her father after surgery; she can seek help there for him."
           }
         },
         {
@@ -1480,8 +1480,8 @@
         "english": "Feeling happy at your parents' home is a respectable reason to stay."
       },
       "nuance": {
-        "french": "Sans place ou bonne entente, vivre séparément peut être préférable ; aucun âge ne convient à tous.",
-        "english": "Without space or good relations, living apart may be better; no age suits everyone."
+        "french": "Le coût du logement peut compter ; sans place ou bonne entente, vivre séparément peut être préférable. Aucun âge ne convient à tous.",
+        "english": "Housing costs can matter; without space or good relations, living apart may be better. No age suits everyone."
       },
       "conclusion": {
         "french": "Juger les responsabilités et l'accord familial, pas l'adresse.",
@@ -1510,8 +1510,8 @@
         },
         {
           "point": {
-            "french": "Participer aux dépenses et aux tâches selon ses moyens.",
-            "english": "Contribute to expenses and chores according to your means."
+            "french": "Un échange où les deux générations apportent quelque chose.",
+            "english": "Both generations can contribute and benefit."
           },
           "example": {
             "french": "Un jeune salarié contribue aux charges et fait les courses sans rappel parental.",
@@ -1642,8 +1642,8 @@
             "english": "Find practical help available locally."
           },
           "example": {
-            "french": "Retenu au travail, un parent appelle une voisine déjà autorisée par l'école ; elle récupère son enfant.",
-            "english": "Held up at work, a parent calls a neighbour already authorised by the school; she collects the child."
+            "french": "Retenu au travail, un parent peut solliciter une voisine de confiance ; si elle est indisponible, il doit chercher une autre solution.",
+            "english": "Held up at work, a parent may need to call a trusted neighbour; if she is unavailable, he has to find another solution."
           }
         },
         {
@@ -1652,8 +1652,8 @@
             "english": "Visits require time and money."
           },
           "example": {
-            "french": "À huit heures de train, une fille renonce à l'anniversaire de son père : congés et billet dépassent ses moyens.",
-            "english": "Eight hours away by train, a daughter misses her father's birthday because leave and fares are beyond her means."
+            "french": "Une femme vit et travaille loin de son père : deux jours de congé pour son anniversaire, mais un billet hors budget.",
+            "english": "A woman lives and works far from her father: visiting for his birthday needs two days off, but she cannot afford the ticket."
           }
         }
       ]
@@ -1664,8 +1664,8 @@
         "english": "Encourage without setting a price for every grade."
       },
       "nuance": {
-        "french": "Fêter une réussite n'est pas la même chose qu'un paiement automatique.",
-        "english": "Celebrating success is not the same as automatic payment."
+        "french": "Une sortie ou un livre pour célébrer les progrès, sans promettre une récompense pour chaque note.",
+        "english": "An outing or a book to celebrate progress, without promising a reward for every grade."
       },
       "conclusion": {
         "french": "Reconnaître le travail et expliquer comment progresser.",
@@ -1710,8 +1710,8 @@
         "english": "Do not rule out family, but check how well you work together."
       },
       "nuance": {
-        "french": "Si la relation est tendue ou qu'on n'ose pas dire non, mieux vaut éviter la collaboration.",
-        "english": "If relations are strained or nobody dares say no, it is better to avoid working together."
+        "french": "Si la relation est tendue ou si l'on n'ose pas parler d'un problème de travail avec son proche, mieux vaut éviter cette collaboration.",
+        "english": "If relations are strained or you do not dare discuss a work problem with your relative, it is better to avoid working together."
       },
       "conclusion": {
         "french": "Choisir selon le travail réel, sans faire subir les conflits aux autres.",
@@ -1724,8 +1724,8 @@
             "english": "Shared work experience helps divide roles."
           },
           "example": {
-            "french": "Après les marchés, deux sœurs ouvrent une boutique avec une répartition déjà testée : commandes et caisse.",
-            "english": "After working at markets, two sisters open a shop with tested roles: orders and checkout."
+            "french": "Deux sœurs ont vendu du pain au marché : l'une le faisait, l'autre tenait la caisse ; mêmes rôles dans leur boulangerie.",
+            "english": "Two sisters sold bread at a market: one made it, the other served customers and took payments; same roles in their bakery."
           }
         },
         {
@@ -1734,8 +1734,8 @@
             "english": "A work conflict can draw in other relatives."
           },
           "example": {
-            "french": "Au repas du dimanche, une sœur critique les retards de son frère ; leur mère prend parti et la dispute s'étend.",
-            "english": "At Sunday lunch, a sister criticises her brother's lateness; their mother takes sides and the dispute spreads."
+            "french": "Frère et sœur travaillent au même restaurant. Au repas familial, elle critique ses retards ; leur mère le défend, et la dispute s'étend.",
+            "english": "Siblings work at the same restaurant. At a family meal, she criticises his lateness; their mother defends him and the dispute spreads."
           }
         },
         {
@@ -2288,8 +2288,8 @@
             "english": "Plan the budget, family project and support actually available."
           },
           "example": {
-            "french": "Un couple vérifie salaire, économies et aide d'un proche pendant la recherche du second emploi.",
-            "english": "A couple checks income, savings and a loved one's support while the second partner seeks work."
+            "french": "Un couple vérifie salaire au Québec, économies et aide possible d'un proche pendant la recherche du second emploi.",
+            "english": "A couple checks pay in Quebec, savings and possible help from a loved one while the second partner seeks work."
           }
         }
       ],
@@ -2416,8 +2416,8 @@
             "english": "Be reliable so the team can organise its work."
           },
           "example": {
-            "french": "Prévenir assez tôt d'une absence pour permettre à l'équipe de trouver un remplaçant.",
-            "english": "Give early notice of absence so the team can find someone to take over."
+            "french": "Prévenir d'une absence pour que l'équipe puisse chercher un remplaçant.",
+            "english": "Give notice of an absence so the team can look for a replacement."
           }
         },
         {
@@ -2427,7 +2427,7 @@
           },
           "example": {
             "french": "Avec le référent, chercher des aliments sans cuisson pour une personne sans équipement.",
-            "english": "With the coordinator, find no-cook food for someone without cooking facilities."
+            "english": "With the coordinator, look for no-cook food for someone without cooking facilities."
           }
         }
       ],
@@ -2656,8 +2656,8 @@
             "english": "Retain skills that are hard to replace."
           },
           "example": {
-            "french": "Le départ d'une spécialiste en sécurité pour une offre mieux payée peut retarder un projet.",
-            "english": "A security specialist leaving for better pay can delay a project."
+            "french": "Le départ de la spécialiste pour une offre mieux payée peut retarder l'installation du système de sécurité.",
+            "english": "The specialist's move to a better-paid job may delay installation of the security system."
           }
         }
       ],

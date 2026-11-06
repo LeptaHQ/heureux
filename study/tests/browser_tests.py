@@ -5017,6 +5017,167 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.assert_reviewed_eo2_models_render(REVIEWED_GROUPS, 58)
 
+    def open_eo3_subject_picker(self):
+        first = self.first.response.prompts.get(is_canonical=True)
+        middle = self.second.response.prompts.get(is_canonical=True)
+        later_family = factories.make_family("picker-later")
+        later_family.order = first.family.order + 1
+        later_family.save(update_fields=["order"])
+        last = factories.make_response(
+            theme=self.theme, family=later_family,
+        ).prompts.get(is_canonical=True)
+        questions = (
+            "Les traditions font-elles partie de notre identité ?",
+            "Les repas partagés permettent-ils de mieux comprendre une culture ?",
+            "Faut-il voyager pour découvrir d'autres cultures, ou peut-on aussi "
+            "les découvrir grâce aux livres, aux rencontres et aux échanges à distance ?",
+        )
+        for number, (prompt, question) in enumerate(zip((first, middle, last), questions), 1):
+            prompt.number = number
+            prompt.text = question
+            prompt.save(update_fields=["number", "text"])
+        other_theme = factories.make_theme("picker-other-theme", task=self.task)
+        factories.make_response(theme=other_theme)
+        inactive = factories.make_response(theme=self.theme)
+        inactive.is_active = False
+        inactive.save(update_fields=["is_active"])
+        self.page.goto(self.live_server_url + prompt_detail_url(middle))
+        expect(self.page.locator("[data-subject-select]")).to_have_count(2)
+        return first, middle, last
+
+    def test_eo3_subject_picker_groups_subthemes_and_navigates_in_the_same_tab(self):
+        first, middle, last = self.open_eo3_subject_picker()
+        navigation = self.page.locator(".prompt-nav--subject").first
+        button = navigation.get_by_role("button", name="Choisir un sujet dans ce thème")
+        expect(button).to_have_accessible_name("Choisir un sujet dans ce thème Sujet 2 sur 3")
+        button.tap()
+        menu = navigation.get_by_role("listbox", name="Choisir un sujet dans ce thème")
+        expect(menu).to_be_visible()
+        expect(menu.get_by_role("option")).to_have_text([
+            f"Sujet {number} · {prompt.text}"
+            for number, prompt in enumerate((first, middle, last), 1)
+        ])
+        expect(menu.get_by_role("group", name=first.family.name)).to_have_count(1)
+        expect(menu.get_by_role("group", name=last.family.name)).to_have_count(1)
+        expect(menu.locator('[aria-selected="true"]')).to_have_text(f"Sujet 2 · {middle.text}")
+
+        menu.get_by_role("option", name=f"Sujet 3 · {last.text}", exact=True).tap()
+
+        self.page.wait_for_url(self.live_server_url + prompt_detail_url(last))
+        expect(self.page.locator("h1.detail-prompt")).to_have_text(last.text)
+        expect(self.page.locator(".prompt-nav__picker .custom-select__value")).to_have_text(
+            ["Sujet 3 sur 3", "Sujet 3 sur 3"],
+        )
+        self.assertEqual(len(self.context.pages), 1)
+
+    def test_eo3_subject_picker_keyboard_preserves_publication_opt_out(self):
+        first, middle, last = self.open_eo3_subject_picker()
+        alias = Prompt.objects.create(
+            content_key="test-prompt:picker-alias",
+            response=middle.response,
+            theme=self.theme,
+            family=last.family,
+            number=4,
+            text="Une autre consigne pour le même sujet ?",
+        )
+        original_url = self.live_server_url + prompt_detail_url(alias) + "?deduplicate=0"
+        self.page.goto(original_url)
+        navigation = self.page.locator(".prompt-nav--subject").first
+        button = navigation.get_by_role("button", name="Choisir un sujet dans ce thème")
+        button.focus()
+        self.page.keyboard.press("ArrowDown")
+        expect(navigation.get_by_role("option")).to_have_count(4)
+        self.page.keyboard.press("Escape")
+        expect(button).to_be_focused()
+        expect(button).to_have_attribute("aria-expanded", "false")
+        button.press("ArrowDown")
+        self.page.keyboard.press("Tab")
+        expect(button).to_have_attribute("aria-expanded", "false")
+        expect(navigation.get_by_role("listbox")).to_be_hidden()
+        button.press("Enter")
+        self.page.keyboard.press("End")
+        self.page.keyboard.press("Enter")
+        self.assertEqual(self.page.url, original_url)
+        button.press("Enter")
+        self.page.keyboard.press("ArrowUp")
+        self.assertEqual(self.page.url, original_url)
+
+        self.page.keyboard.press("Enter")
+
+        self.page.wait_for_url(
+            self.live_server_url + prompt_detail_url(last) + "?deduplicate=0",
+        )
+        expect(self.page.locator("h1.detail-prompt")).to_have_text(last.text)
+
+    def test_eo3_subject_picker_fits_mobile_and_desktop_and_opens_up_at_the_bottom(self):
+        self.open_eo3_subject_picker()
+        for width in (320, 1183):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            for row in (0, 1):
+                with self.subTest(width=width, row=row):
+                    navigation = self.page.locator(".prompt-nav--subject").nth(row)
+                    button = navigation.get_by_role(
+                        "button", name="Choisir un sujet dans ce thème",
+                    )
+                    button.click()
+                    menu = navigation.get_by_role("listbox")
+                    expect(menu).to_be_visible()
+                    box = menu.bounding_box()
+                    self.assertGreaterEqual(box["x"], 0)
+                    self.assertLessEqual(box["x"] + box["width"], width)
+                    self.assertGreaterEqual(box["y"], 0)
+                    self.assertLessEqual(box["y"] + box["height"], 845)
+                    self.assert_no_horizontal_overflow()
+                    self.page.keyboard.press("Escape")
+                    expect(button).to_be_focused()
+                    expect(menu).to_be_hidden()
+
+    def test_eo3_subject_picker_restores_both_rows_after_back_navigation(self):
+        first, middle, last = self.open_eo3_subject_picker()
+        source_url = self.page.url
+        destination = self.live_server_url + prompt_detail_url(last)
+        for row in (0, 1):
+            for attempt in range(2):
+                with self.subTest(row=row, attempt=attempt):
+                    navigation = self.page.locator(".prompt-nav--subject").nth(row)
+                    navigation.get_by_role(
+                        "button", name="Choisir un sujet dans ce thème",
+                    ).click()
+                    navigation.get_by_role(
+                        "option", name=f"Sujet 3 · {last.text}", exact=True,
+                    ).click()
+                    self.page.wait_for_url(destination)
+                    self.page.go_back()
+                    self.page.wait_for_url(source_url)
+                    expect(self.page.locator("h1.detail-prompt")).to_have_text(middle.text)
+                    expect(
+                        self.page.locator(".prompt-nav__picker .custom-select__value"),
+                    ).to_have_text(["Sujet 2 sur 3", "Sujet 2 sur 3"])
+        self.page.evaluate("""() => {
+          window.__subjectPickerChanges = 0;
+          document.querySelectorAll("[data-subject-select]").forEach(select => {
+            select.selectedIndex = 2;
+            const wrapper = select.closest(".custom-select");
+            wrapper.querySelector(".custom-select__value").textContent = "Stale subject";
+            wrapper.querySelectorAll("[role='option']").forEach((option, index) => {
+              option.setAttribute("aria-selected", index === 2 ? "true" : "false");
+            });
+            select.addEventListener("change", () => { window.__subjectPickerChanges++; });
+          });
+          window.dispatchEvent(new PageTransitionEvent("pageshow", {persisted: true}));
+        }""")
+        self.assertEqual(self.page.url, source_url)
+        self.assertEqual(self.page.evaluate("window.__subjectPickerChanges"), 0)
+        self.assertEqual(self.page.locator("[data-subject-select]").evaluate_all(
+            "selects => selects.map(select => select.selectedIndex)",
+        ), [1, 1])
+        expect(self.page.locator(".prompt-nav__picker .custom-select__value")).to_have_text(
+            ["Sujet 2 sur 3", "Sujet 2 sur 3"],
+        )
+        expect(self.page.locator(
+            '.prompt-nav__picker [role="option"][aria-selected="true"]',
+        )).to_have_text([f"Sujet 2 · {middle.text}", f"Sujet 2 · {middle.text}"])
+
     def open_eo3_language_response(self, key="culture:p30"):
         self._import_eo_tache_three_content()
         prompt = Prompt.objects.select_related("response", "theme__task__part").get(content_key=key)

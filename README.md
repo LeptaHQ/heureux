@@ -38,6 +38,12 @@ Socket handlers stay threaded, including idle browser connections. File-backed
 SQLite and PostgreSQL retain concurrent application work. Browser-side asynchronous
 response-ordering checks still run with their controlled delays.
 
+## Subject navigation
+
+On EO Tâche 3 subject pages, the **Sujet N sur M** counter opens a subject
+picker for the current theme, grouped by subtheme. It keeps the same ordering,
+previous/next links, and publication-deduplication setting.
+
 ## French narration across the app
 
 EE model answers, EO1 presentations, EO2 questions, vocabulary, learning examples,

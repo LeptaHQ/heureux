@@ -2761,12 +2761,17 @@ def _tache_two_subject_batch(month, batch_number):
     return batch
 
 
-def _subject_neighbors(items, selected, *, key, deduplicate):
+def _subject_navigation_items(items, *, key, deduplicate):
     if deduplicate:
         representatives = {}
         for item in items:
             representatives.setdefault(key(item), item)
         items = list(representatives.values())
+    return items
+
+
+def _subject_neighbors(items, selected, *, key, deduplicate):
+    items = _subject_navigation_items(items, key=key, deduplicate=deduplicate)
     selected_key = key(selected)
     index = next(i for i, item in enumerate(items) if key(item) == selected_key)
     return (
@@ -3710,7 +3715,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             theme__is_active=True,
             response__is_active=True,
             theme_id=selected_prompt.theme_id,
-        ).select_related("theme__task__part")
+        ).select_related("theme__task__part", "family")
     )
     order = (
         ("family__order", "family__name", "number", "pk")
@@ -3718,12 +3723,30 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         else ("number", "pk")
     )
     deduplicate = request.GET.get("deduplicate", "1") == "1"
-    prompt_position, prompt_total, previous_prompt, next_prompt = _subject_neighbors(
+
+    def navigation_key(prompt):
+        return prompt.response_id if deduplicate else prompt.pk
+
+    navigation_items = _subject_navigation_items(
         list(navigation_prompts.order_by(*order)),
-        selected_prompt,
-        key=lambda prompt: prompt.response_id if deduplicate else prompt.pk,
+        key=navigation_key,
         deduplicate=deduplicate,
     )
+    prompt_position, prompt_total, previous_prompt, next_prompt = _subject_neighbors(
+        navigation_items,
+        selected_prompt,
+        key=navigation_key,
+        deduplicate=False,
+    )
+    prompt_choices = [
+        {
+            "prompt": prompt,
+            "position": index,
+            "selected": navigation_key(prompt) == navigation_key(selected_prompt),
+            "url": routing.subject_selection_url(prompt_detail_url(prompt), request),
+        }
+        for index, prompt in enumerate(navigation_items, start=1)
+    ] if (part_slug, task_slug) == content_module.EO_TACHE_THREE_TASK else []
 
     related_phrases = (
         lean_phrase_rows(
@@ -3879,6 +3902,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "next_prompt": next_prompt,
             "prompt_position": prompt_position,
             "prompt_total": prompt_total,
+            "prompt_choices": prompt_choices,
             "task": task,
             "part": task.part,
             "response_content": response_content,

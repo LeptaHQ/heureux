@@ -3723,15 +3723,18 @@ class ResponsePromptNavigationTests(TestCase):
             f'<h1 class="detail-prompt">{self.middle_prompt.text}</h1>',
             html=True,
         )
-        self.assertContains(page, self._detail_url(self.first_prompt), count=2)
-        self.assertContains(page, self._detail_url(self.last_prompt), count=2)
+        self.assertContains(
+            page, f'href="{self._detail_url(self.first_prompt)}" rel="prev"', count=2,
+        )
+        self.assertContains(
+            page, f'href="{self._detail_url(self.last_prompt)}" rel="next"', count=2,
+        )
         self.assertContains(
             page,
-            '<span class="prompt-nav__position"><span>Sujet</span>'
-            "<strong>2</strong><span>sur 3</span></span>",
+            'data-short-label="Sujet 2 sur 3" selected',
             count=2,
-            html=True,
         )
+        self.assertContains(page, "data-custom-select data-subject-select", count=2)
         self.assertContains(page, "prompt-nav--subject", count=2)
         self.assertContains(
             page,
@@ -3742,6 +3745,62 @@ class ResponsePromptNavigationTests(TestCase):
             page,
             f'aria-label="Sujet suivant : {self.last_prompt.text}"',
             count=2,
+        )
+
+    def test_subject_picker_groups_only_active_subjects_in_the_selected_theme(self):
+        later_family = factories.make_family("navigation-later-subtheme")
+        later_family.order = self.family.order + 1
+        later_family.save(update_fields=["order"])
+        later = factories.make_response(theme=self.first_theme, family=later_family)
+        later_prompt = later.prompts.get(is_canonical=True)
+        factories.make_response(theme=self.second_theme, family=self.family)
+        inactive_response = factories.make_response(
+            theme=self.first_theme, family=self.family,
+        )
+        inactive_response.is_active = False
+        inactive_response.save(update_fields=["is_active"])
+        inactive_prompt = factories.make_response(
+            theme=self.first_theme, family=self.family,
+        ).prompts.get(is_canonical=True)
+        inactive_prompt.is_active = False
+        inactive_prompt.save(update_fields=["is_active"])
+
+        page = self.client.get(self._detail_url(self.middle_prompt))
+
+        choices = page.context["prompt_choices"]
+        self.assertEqual(
+            [choice["prompt"] for choice in choices],
+            [self.first_prompt, self.middle_prompt, self.last_prompt, later_prompt],
+        )
+        self.assertEqual([choice["position"] for choice in choices], [1, 2, 3, 4])
+        self.assertEqual(
+            [choice["selected"] for choice in choices], [False, True, False, False],
+        )
+        self.assertEqual(
+            [choice["url"] for choice in choices],
+            [self._detail_url(choice["prompt"]) for choice in choices],
+        )
+        for family in (self.family, later_family):
+            self.assertContains(page, f'<optgroup label="{family.name}">', count=2)
+        self.assertContains(page, 'for="prompt-select-top"', count=1)
+        self.assertContains(page, 'for="prompt-select-bottom"', count=1)
+
+    def test_other_tasks_keep_the_position_pill(self):
+        task = factories.make_task(self.part, "tache-1")
+        theme = factories.make_theme("navigation-eo1", task=task)
+        prompt = factories.make_response(theme=theme).prompts.get(is_canonical=True)
+
+        page = self.client.get(self._detail_url(prompt))
+
+        self.assertEqual(page.status_code, 200)
+        self.assertEqual(page.context["prompt_choices"], [])
+        self.assertNotContains(page, "data-subject-select")
+        self.assertContains(
+            page,
+            '<span class="prompt-nav__position"><span>Sujet</span>'
+            "<strong>1</strong><span>sur 1</span></span>",
+            count=2,
+            html=True,
         )
 
     def test_top_navigation_sits_above_the_prompt_card(self):
@@ -3782,12 +3841,24 @@ class ResponsePromptNavigationTests(TestCase):
         self.assertEqual(page.context["previous_prompt"], self.first_prompt)
         self.assertEqual(page.context["next_prompt"], self.last_prompt)
         self.assertContains(page, f'<h1 class="detail-prompt">{alias.text}</h1>', html=True)
+        choices = page.context["prompt_choices"]
+        self.assertEqual(len(choices), 3)
+        selected = [choice for choice in choices if choice["selected"]]
+        self.assertEqual(len(selected), 1)
+        self.assertEqual(selected[0]["prompt"], self.middle_prompt)
+        self.assertEqual(selected[0]["position"], 2)
 
         all_page = self.client.get(url, {"deduplicate": "0"})
         self.assertEqual(all_page.context["prompt_position"], 4)
         self.assertEqual(all_page.context["prompt_total"], 4)
         self.assertEqual(all_page.context["previous_prompt"], self.last_prompt)
         self.assertIsNone(all_page.context["next_prompt"])
+        all_choices = all_page.context["prompt_choices"]
+        self.assertEqual(len(all_choices), 4)
+        self.assertEqual(
+            [choice["prompt"] for choice in all_choices if choice["selected"]], [alias],
+        )
+        self.assertTrue(all(choice["url"].endswith("?deduplicate=0") for choice in all_choices))
         self.assertContains(
             all_page, f'href="{self._detail_url(self.last_prompt)}?deduplicate=0"', count=2,
         )
@@ -3817,6 +3888,11 @@ class ResponsePromptNavigationTests(TestCase):
         self.assertEqual(page.context["prompt_total"], 3)
         self.assertIsNone(page.context["previous_prompt"])
         self.assertEqual(page.context["next_prompt"], self.first_prompt)
+        self.assertEqual(
+            [choice["prompt"] for choice in page.context["prompt_choices"]],
+            [alias, self.first_prompt, self.last_prompt],
+        )
+        self.assertTrue(page.context["prompt_choices"][0]["selected"])
         next_page = self.client.get(self._detail_url(self.first_prompt))
         self.assertEqual(next_page.context["previous_prompt"], alias)
 
@@ -3852,6 +3928,9 @@ class ResponsePromptNavigationTests(TestCase):
         self.assertIsNone(page.context["next_prompt"])
         self.assertEqual(page.context["prompt_position"], 1)
         self.assertEqual(page.context["prompt_total"], 1)
+        self.assertEqual(
+            [choice["prompt"] for choice in page.context["prompt_choices"]], [alias],
+        )
         self.assertContains(
             page,
             f'<h1 class="detail-prompt">{alias.text}</h1>',

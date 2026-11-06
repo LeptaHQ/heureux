@@ -8053,7 +8053,8 @@ a.qrow:focus-visible {
   box-shadow: var(--card-focus-ring);
 }
 .prompt-nav__link--next { text-align: right; }
-.prompt-nav__position {
+.prompt-nav__position,
+.prompt-nav__picker {
   color: var(--text-soft);
   font-size: 0.82rem;
   font-weight: 600;
@@ -8118,7 +8119,8 @@ a.qrow:focus-visible {
 }
 @media (max-width: 640px) {
   .prompt-nav { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .prompt-nav__position {
+  .prompt-nav__position,
+  .prompt-nav__picker {
     grid-column: 1 / -1;
     grid-row: 1;
     justify-self: center;
@@ -8270,6 +8272,49 @@ a.qrow:focus-visible {
   padding-left: 0.6rem;
   font-weight: 800;
   color: var(--primary);
+}
+.custom-select__group-options {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.custom-select__group-label {
+  display: block;
+  padding: 0.6rem 0.7rem 0.25rem;
+  color: var(--text-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.prompt-nav__select,
+.prompt-nav__picker .custom-select__button {
+  min-height: 44px;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--text) 6%, transparent);
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.prompt-nav__select { max-width: 10rem; }
+.prompt-nav__picker .custom-select__list {
+  right: auto;
+  left: 50%;
+  width: min(36rem, calc(100vw - 2rem));
+  transform: translateX(-50%);
+}
+.prompt-nav__picker .custom-select__option {
+  align-items: flex-start;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+.prompt-nav--bottom .prompt-nav__picker .custom-select__list {
+  top: auto;
+  bottom: calc(100% + 6px);
 }
 
 /* ---------- Confirm dialog ---------- */

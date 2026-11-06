@@ -1190,7 +1190,30 @@
       list.hidden = true;
       button.setAttribute("aria-controls", list.id);
 
+      var groups = new Map();
       var optionEls = options.map(function (option, optionIndex) {
+        var parent = list;
+        var group = option.parentElement;
+        if (group.tagName === "OPTGROUP") {
+          if (!groups.has(group)) {
+            var groupEl = document.createElement("li");
+            groupEl.className = "custom-select__group";
+            groupEl.setAttribute("role", "group");
+            groupEl.setAttribute("aria-label", group.label);
+            var heading = document.createElement("span");
+            heading.className = "custom-select__group-label";
+            heading.setAttribute("aria-hidden", "true");
+            heading.textContent = group.label;
+            var groupList = document.createElement("ul");
+            groupList.className = "custom-select__group-options";
+            groupList.setAttribute("role", "presentation");
+            groupEl.appendChild(heading);
+            groupEl.appendChild(groupList);
+            list.appendChild(groupEl);
+            groups.set(group, groupList);
+          }
+          parent = groups.get(group);
+        }
         var item = document.createElement("li");
         item.className = "custom-select__option";
         item.setAttribute("role", "option");
@@ -1201,7 +1224,7 @@
           "aria-selected",
           option.selected ? "true" : "false"
         );
-        list.appendChild(item);
+        parent.appendChild(item);
         return item;
       });
 
@@ -1217,7 +1240,19 @@
 
       function syncButton() {
         var selected = options[select.selectedIndex] || options[0];
-        valueEl.textContent = selected ? selected.textContent : "";
+        valueEl.textContent = selected
+          ? selected.dataset.shortLabel || selected.textContent
+          : "";
+      }
+
+      function syncSelection() {
+        optionEls.forEach(function (item, itemIndex) {
+          item.setAttribute(
+            "aria-selected",
+            itemIndex === select.selectedIndex ? "true" : "false"
+          );
+        });
+        syncButton();
       }
 
       function setActive(nextIndex) {
@@ -1257,13 +1292,7 @@
         if (!option) return;
         var changed = select.selectedIndex !== optionIndex;
         select.selectedIndex = optionIndex;
-        optionEls.forEach(function (item, itemIndex) {
-          item.setAttribute(
-            "aria-selected",
-            itemIndex === optionIndex ? "true" : "false"
-          );
-        });
-        syncButton();
+        syncSelection();
         closeList(true);
         if (changed) {
           select.dispatchEvent(new Event("change", { bubbles: true }));
@@ -1327,6 +1356,25 @@
       document.addEventListener("click", function (event) {
         if (!wrapper.contains(event.target)) closeList(false);
       });
+
+      if (select.hasAttribute("data-subject-select")) {
+        var currentIndex = options.findIndex(function (option) {
+          return option.defaultSelected;
+        });
+        function restoreSubjectSelection() {
+          select.selectedIndex = currentIndex;
+          closeList(false);
+          syncSelection();
+          setActive(currentIndex);
+        }
+        select.addEventListener("change", function () {
+          var destination = select.value;
+          restoreSubjectSelection();
+          window.location.assign(destination);
+        });
+        window.addEventListener("pageshow", restoreSubjectSelection);
+        restoreSubjectSelection();
+      }
 
       syncButton();
     });

@@ -1,8 +1,8 @@
 {% load static %}/* Heureux service worker — offline app shell. */
-var CACHE = "heureux-v290";
+var CACHE = "heureux-v291";
 var SHELL = [
   "{% url 'offline' %}",
-  "{% static 'study/css/app.css' %}?v=278",
+  "{% static 'study/css/app.css' %}?v=279",
   "{% static 'study/js/theme-init.js' %}?v=4",
   "{% static 'study/js/speech.js' %}?v=6",
   "{% static 'study/js/audio-pin.js' %}?v=1",
@@ -11,7 +11,7 @@ var SHELL = [
   "{% static 'study/js/eo3-audio.js' %}?v=12",
   "{% static 'study/js/eo3-cached-reader.js' %}?v=3",
   "{% static 'study/js/flashcards.js' %}?v=5",
-  "{% static 'study/js/app.js' %}?v=73",
+  "{% static 'study/js/app.js' %}?v=74",
   "{% static 'study/js/selection-toolbar.js' %}?v=20",
   "{% static 'study/js/annotations.js' %}?v=43",
   "{% static 'study/js/eo2-question-languages.js' %}?v=2",

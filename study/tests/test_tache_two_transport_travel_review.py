@@ -1,4 +1,3 @@
-import copy
 import hashlib
 import json
 
@@ -7,8 +6,8 @@ from django.test import SimpleTestCase
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
 from study.tests.eo2_review_fixtures import (
-    ACCOMMODATION_FOLLOWUP_FIELDS, WORK_SCHOOL_GROUPS,
-    final_pass_projection, remove_followup_archives,
+    assert_review_preservation, pre_realness_history, PUBLISHED_ARCHIVE_INDEX,
+    remove_followup_archives,
 )
 from study.tests.transport_travel_review_fixtures import (
     REVIEWED_GROUPS, TRANSPORT_GROUPS, remove_transport_travel_review_archives,
@@ -58,24 +57,16 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
                 self.assertEqual(len(self.hints[row.group]), 8)
                 self.assertIn("merci", row.closing.casefold())
 
-    def test_models_and_cues_outside_reviewed_themes_and_later_accommodation_changes_are_exact(self):
-        reviewed = REVIEWED_GROUPS | WORK_SCHOOL_GROUPS | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
-        unrelated = {
-            "dialogues": {key: row for key, row in self.raw.items() if key not in reviewed},
-            "hints": {key: rows for key, rows in self.hints.items() if key not in reviewed},
-        }
-        self.assertEqual(
-            fingerprint(unrelated),
-            "908a24c5d012b4e75320da40cd3ef0fefee1c56eb2fe9fb744a8950c3bac04b9",
-        )
+    def test_original_public_editions_and_reviewed_registers_remain_available(self):
+        assert_review_preservation(self)
         self.assertEqual(
             fingerprint(sorted((key, row["register"]) for key, row in self.raw.items())),
-            "11b2868eb895bf97db1f6d38f4e757d9f2d2d0a0c859de9c3bad6e866c21e9d4",
+            "d37ae3561719f64c5a211ccb93012d37b90a08f2ec832397605ccac871d9755a",
         )
 
     def test_all_twenty_six_exact_published_layouts_are_archived_without_answers(self):
         snapshots = [
-            self.history["groups"][group]["revisions"][-1]
+            self.history["groups"][group]["revisions"][PUBLISHED_ARCHIVE_INDEX[group]]
             for group in sorted(REVIEWED_GROUPS)
         ]
         self.assertEqual(
@@ -92,7 +83,7 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
             )
 
     def test_every_prior_archive_and_geographic_substitution_is_exact(self):
-        previous = copy.deepcopy(self.history)
+        previous = pre_realness_history(self.history)
         remove_followup_archives(previous)
         remove_transport_travel_review_archives(previous)
         self.assertEqual(
@@ -112,28 +103,25 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
             self.assertFalse(value.position_claire)
             self.assertFalse(value.nuance)
 
-    def test_final_pass_and_authorized_followups_only_change_recorded_editorial_leaves(self):
-        self.assertEqual(
-            fingerprint(final_pass_projection(self.raw, self.hints)),
-            "154a014c34b5a6991656d0b4d744e50ae3849a7623fd0b4638193124ab455aaa",
-        )
+    def test_all_theme_review_preserves_public_editions_beyond_old_leaf_scopes(self):
+        assert_review_preservation(self)
 
-    def test_transit_enquiry_covers_destinations_tracking_tickets_return_and_inline_safety_hours(self):
+    def test_transit_enquiry_covers_destinations_live_information_tickets_and_safety_hours(self):
         row = self.by_group["newcomer-city-transit-service"]
         self.assertEqual(len(row.questions), 8)
         self.assertEqual(
             row.questions[1].question,
             "Lesquels desservent le centre-ville, la gare et les principaux sites touristiques ?",
         )
-        for place in ("centre-ville", "gare", "lieux de visite"):
+        for place in ("centre", "gare", "sites touristiques"):
             self.assertIn(place, row.questions[1].answer)
         for index, text in (
-            (2, "suivre les bus en temps réel"), (4, "correspondances"),
-            (5, "valider"), (6, "rentrer le soir"), (7, "caméras de surveillance"),
+            (2, "prochains passages en temps réel"), (4, "correspondances"),
+            (5, "valider"), (6, "circulent-ils le soir"), (7, "caméras de surveillance"),
         ):
             self.assertIn(text, row.questions[index].question)
-        self.assertIn("position des bus", row.questions[2].answer)
-        self.assertEqual(row.questions[2].follow_up_to, 1)
+        self.assertIn("prochains passages en temps réel", row.questions[2].answer)
+        self.assertIsNone(row.questions[2].follow_up_to)
         self.assertEqual(row.questions[4].follow_up_to, 4)
         self.assertIn("guichet", row.questions[5].answer)
         self.assertIn("lecteur", row.questions[5].answer)
@@ -147,7 +135,7 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
         self.assertIn("temps réel", self.hints[row.group][2]["french"])
         self.assertIn("24/7", self.hints[row.group][7]["english"])
         self.assertNotIn("agence", " ".join(q.question for q in row.questions))
-        self.assertIn("only if a service exists", row.note)
+        self.assertIn("only if that service exists", row.note)
 
     def test_breakdown_assistance_and_authorization_precede_reimbursement_paperwork(self):
         row = self.by_group["canada-car-breakdown-insurer"]
@@ -166,7 +154,7 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
 
     def test_private_car_has_history_and_proof_rather_than_a_scripted_tyre_only_route(self):
         row = self.by_group["private-owner-used-car-purchase"]
-        for index, text in ((2, "consomme"), (4, "accident"), (5, "factures"), (7, "vérification")):
+        for index, text in ((2, "consomme"), (4, "accident"), (5, "factures"), (7, "contrôle indépendant")):
             self.assertIn(text, row.questions[index].question)
         self.assertIn("pneus ou les freins", row.questions[3].question)
         self.assertEqual(row.questions[5].follow_up_to, 4)
@@ -214,27 +202,34 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
         self.assertIn("partager les frais", neighbour.questions[4].question)
         self.assertIn("essayer", neighbour.questions[7].question)
 
-    def test_montreal_plan_checks_work_route_calendar_validity_and_airport_coverage(self):
+    def test_montreal_plan_checks_work_route_calendar_validity_zones_and_late_returns(self):
         row = self.by_group["colleague-montreal-work-week-transit"]
         self.assertIn("lieu de travail", row.questions[0].question)
         self.assertIn("hébergement", row.questions[0].question)
         self.assertIn("deux adresses", row.questions[0].answer)
-        self.assertTrue(row.questions[1].question.startswith("Si j'arrive"))
+        self.assertIn("fréquence", row.questions[1].question)
+        self.assertTrue(row.questions[3].question.startswith("Si j'arrive"))
+        self.assertEqual(row.questions[3].follow_up_to, 3)
         self.assertIn("lundi au dimanche", row.questions[2].answer)
         self.assertIn("semaine suivante", row.questions[3].answer)
-        self.assertIn("aéroport", row.questions[4].question)
-        self.assertIn("747", row.questions[4].answer)
+        self.assertIn("zones", row.questions[4].question)
+        self.assertIn("zone A", row.questions[4].answer)
+        self.assertIn("OPUS", row.questions[5].question)
+        self.assertEqual(row.questions[7].follow_up_to, 7)
+        self.assertIn("bus de nuit", row.questions[7].answer)
 
     def test_host_friend_variant_keeps_accommodation_and_short_visit_context(self):
         row = self.dialogues["tache2:decembre:batch-04:subject-17"]
-        self.assertIn("already have accommodation", row.note)
+        self.assertIn("accommodation is already arranged", row.note)
         self.assertIn("Use tu", row.note)
-        self.assertIn("rather than automatically buying a monthly pass", row.note)
+        self.assertIn("rather than assuming a monthly subscription", row.note)
+        self.assertEqual(row.register, "tu")
         neighbour = self.by_group[row.group]
-        self.assertIn("dernier bus ou métro", neighbour.questions[3].question)
-        self.assertIn("déplacements de tous les jours", neighbour.questions[5].question)
+        self.assertIn("jusqu'à quelle heure peut-on rentrer", neighbour.questions[2].question)
+        self.assertIn("nombre de trajets prévus", neighbour.questions[5].question)
         self.assertIn("zones", neighbour.questions[6].question)
-        self.assertIn("abonnement mensuel", neighbour.questions[7].question)
+        self.assertIn("acheter la formule choisie", neighbour.questions[7].question)
+        self.assertEqual(neighbour.questions[7].follow_up_to, 6)
 
     def test_agencies_establish_dates_before_costs_and_do_not_invent_school_holidays(self):
         for group in (
@@ -245,8 +240,7 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
             self.assertIn("disponibles" if group.endswith("cruise") else "places",
                           row.questions[2].question)
             self.assertNotIn("vacances scolaires", " ".join(q.question for q in row.questions))
-            self.assertIn("illustrative" if group.endswith("cruise") else "examples"
-                          if group.endswith("stay") else "illustrative", row.note)
+            self.assertIn("simulated", row.note)
         cruise = self.by_group["travel-agency-canada-cruise"]
         self.assertIn("cabine intérieure partagée", cruise.questions[3].answer)
         self.assertIn("français", cruise.questions[6].question)
@@ -269,8 +263,9 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
         self.assertIn("m'accompagner", row.questions[0].question)
         self.assertNotIn("marcher", row.questions[3].answer)
         self.assertIn("tu préférerais marcher", row.questions[4].question)
-        self.assertEqual(row.questions[4].follow_up_to, 4)
-        self.assertIn("if they decline", row.note)
+        self.assertIsNone(row.questions[4].follow_up_to)
+        self.assertIn("If they decline", row.note)
+        self.assertIn("stop joint planning", row.note)
 
     def test_weather_backups_and_mountaineering_plans_do_not_repeat_or_assume_skiing(self):
         region = self.by_group["colleague-known-region-holiday"]

@@ -1,4 +1,3 @@
-import copy
 import hashlib
 import json
 
@@ -7,7 +6,8 @@ from django.test import SimpleTestCase
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
 from study.tests.eo2_review_fixtures import (
-    FOLLOWUP_GROUPS, FOLLOWUP_PROTECTED_SHA, remove_followup_archives,
+    FOLLOWUP_GROUPS, remove_followup_archives,
+    assert_review_preservation, pre_realness_history,
 )
 
 
@@ -43,16 +43,10 @@ class DirectorTrainingReviewTests(SimpleTestCase):
         catalogue.clear_catalogue_cache()
         super().tearDownClass()
 
-    def test_models_and_cues_outside_the_authorized_followups_are_exact(self):
+    def test_original_public_editions_and_training_publication_remain_available(self):
         edited = FOLLOWUP_GROUPS
         self.assertEqual(len(self.raw.keys() - edited), 147)
-        self.assertEqual(
-            fingerprint({
-                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
-                "hints": {g: row for g, row in self.hints.items() if g not in edited},
-            }),
-            FOLLOWUP_PROTECTED_SHA,
-        )
+        assert_review_preservation(self)
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == GROUP}, {KEY},
         )
@@ -67,7 +61,7 @@ class DirectorTrainingReviewTests(SimpleTestCase):
         )
         self.assertEqual(set(revisions[2]), {"group", "opening", "closing", "questions"})
         self.assertTrue(all("answer" not in q for q in revisions[2]["questions"]))
-        previous = copy.deepcopy(self.history)
+        previous = pre_realness_history(self.history)
         remove_followup_archives(previous)
         self.assertEqual(
             fingerprint(previous),

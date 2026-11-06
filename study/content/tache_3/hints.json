@@ -1537,7 +1537,7 @@
         {
           "point": {
             "french": "Une erreur vécue donne des points précis à vérifier.",
-            "english": "A lived mistake provides specific things to check."
+            "english": "Learning from someone else's mistake shows us what to check."
           },
           "example": {
             "french": "Un grand-père conseille de vérifier le coût d'une formation avant de démissionner, après sa propre erreur.",
@@ -1560,8 +1560,8 @@
             "english": "Factually sound advice can reflect priorities different from ours."
           },
           "example": {
-            "french": "Une grand-mère préfère un emploi stable près des siens ; sa petite-fille compare les risques mais garde son départ.",
-            "english": "A grandmother prefers a stable job nearby; her granddaughter weighs the risks but keeps her plan to leave."
+            "french": "Grand-mère : stabilité près des siens. Petite-fille : offre à l'étranger dans son domaine ; elle discute des risques puis accepte.",
+            "english": "Grandmother: stability near family. Granddaughter: job abroad in her field; discusses the risks, then accepts."
           }
         }
       ]
@@ -1596,8 +1596,8 @@
             "english": "A simple explanation avoids leaving children to imagine the worst."
           },
           "example": {
-            "french": "Les parents expliquent l'hospitalisation de la grand-mère et organisent un appel, sans promettre sa guérison.",
-            "english": "Parents explain the grandmother's hospital stay and arrange a call without promising recovery."
+            "french": "Les parents expliquent l'hospitalisation de la grand-mère et organisent un appel, sans promettre une guérison rapide.",
+            "english": "Parents explain the grandmother's hospital stay and arrange a call without promising a quick recovery."
           }
         },
         {
@@ -1807,7 +1807,7 @@
       },
       "conclusion": {
         "french": "La confiance vécue, pas seulement la parenté, fait l'amitié.",
-        "english": "Lived trust, not just kinship, makes a friendship."
+        "english": "Trust built together, not just being related, makes a friendship."
       },
       "arguments": [
         {
@@ -1848,8 +1848,8 @@
         "english": "Living alone makes choosing your routine easier, but not necessarily all daily life."
       },
       "nuance": {
-        "french": "La cohabitation aide si elle est respectueuse ; habiter seul n'empêche pas une vie sociale riche.",
-        "english": "Living together helps if it is respectful; living alone does not prevent a rich social life."
+        "french": "Pour la personne qui fait toutes les tâches du foyer, vivre seule peut être plus simple.",
+        "english": "For the person doing all the household chores, living alone can be easier."
       },
       "conclusion": {
         "french": "Comparer liberté, budget et aide disponible.",
@@ -1890,8 +1890,8 @@
     },
     "famille-p12": {
       "introduction": {
-        "french": "Distinguer des règles fermes et expliquées d'une autorité fondée sur la peur.",
-        "english": "Distinguish firm, explained rules from authority based on fear."
+        "french": "Fixer des limites, expliquer les règles et écouter l'enfant sans le faire obéir par la peur.",
+        "english": "Set limits, explain the rules and listen to the child without using fear to make them obey."
       },
       "nuance": {
         "french": "En cas de danger immédiat, intervenir d'abord et expliquer ensuite.",
@@ -1908,8 +1908,8 @@
             "english": "An explained rule helps respect others' needs."
           },
           "example": {
-            "french": "Pendant la sieste du bébé, un père explique le besoin de calme et propose de dessiner ailleurs.",
-            "english": "During the baby's nap, a father explains the need for quiet and suggests drawing elsewhere."
+            "french": "Le bébé dort : le père explique que son fils peut continuer à jouer avec son camion, mais sans faire sonner la sirène.",
+            "english": "The baby is asleep: a father explains that his son can keep playing with his toy truck, but without sounding its siren."
           }
         },
         {
@@ -1982,16 +1982,16 @@
     },
     "famille-p14": {
       "introduction": {
-        "french": "Chacun contribue selon ses possibilités, y compris à l'organisation.",
-        "english": "Everyone contributes according to their abilities, including to planning."
+        "french": "Chacun participe selon ses possibilités : repos, autonomie, moins de tensions.",
+        "english": "Everyone contributes according to their abilities: rest, independence and fewer tensions."
       },
       "nuance": {
         "french": "Adapter les tâches à l'âge et à la santé, sans exiger la même chose de tous.",
         "english": "Adapt tasks to age and health rather than expecting the same from everyone."
       },
       "conclusion": {
-        "french": "Partager les gestes et ce qu'il faut prévoir, sans rappels constants.",
-        "english": "Share both actions and planning, without constant reminders."
+        "french": "Partager selon ses moyens : temps de repos, gestes utiles et moins de tensions.",
+        "english": "Share according to abilities: time to rest, useful skills and fewer tensions."
       },
       "arguments": [
         {
@@ -2006,22 +2006,22 @@
         },
         {
           "point": {
-            "french": "Participer apprend à s'occuper de soi.",
-            "english": "Taking part teaches self-sufficiency."
+            "french": "Des essais guidés, puis de la pratique pour savoir faire seul.",
+            "english": "Guided attempts, then practice to learn to do the task alone."
           },
           "example": {
-            "french": "Un adolescent apprend à trier et laver son linge avec un parent, puis le fait régulièrement seul.",
-            "english": "A teenager learns to sort and wash laundry with a parent, then does it regularly alone."
+            "french": "Linge : trier, choisir le programme ; plusieurs lessives supervisées, puis laver seul ses vêtements.",
+            "english": "Laundry: sort, choose the wash programme; several supervised loads, then wash clothes without help."
           }
         },
         {
           "point": {
-            "french": "Prévoir et vérifier sont aussi du travail à partager.",
-            "english": "Planning and checking are also work to share."
+            "french": "Un accord clair et réaliste réduit les rappels et les disputes.",
+            "english": "A clear, realistic agreement reduces reminders and arguments."
           },
           "example": {
-            "french": "La personne chargée des courses vérifie les placards, fait la liste et achète sans qu'on lui dicte chaque article.",
-            "english": "The person handling shopping checks cupboards, makes the list and shops without being told every item."
+            "french": "Poubelles après le dîner : l'adolescent, sauf les soirs d'entraînement où son père prend le relais. Moins de disputes.",
+            "english": "Rubbish after dinner: the teenager, except on sports practice evenings when his father takes over. Fewer arguments."
           }
         }
       ]
@@ -2042,12 +2042,12 @@
       "arguments": [
         {
           "point": {
-            "french": "Un logement partagé peut libérer du budget pour un projet.",
-            "english": "Shared housing can free up money for a project."
+            "french": "Réduire les frais de logement pour garder une marge financière.",
+            "english": "Lower housing costs leave more money for other needs."
           },
           "example": {
-            "french": "À vingt-sept ans, une femme verse trois cents euros au lieu d'un loyer de neuf cents et finance sa formation.",
-            "english": "At 27, a woman contributes 300 euros instead of paying 900 in rent and funds her training."
+            "french": "27 ans : salaire de 1 400 euros, studio à 900 euros hors charges ; avec leur accord, contribution de 300 euros chez ses parents.",
+            "english": "At 27: earns 1,400 euros; studio costs 900 plus bills. With his parents' agreement, contributes 300 at home."
           }
         },
         {
@@ -2056,8 +2056,8 @@
             "english": "Support must work both ways."
           },
           "example": {
-            "french": "Un fils fait les courses lourdes et prépare le dîner quand son père rentre tard.",
-            "english": "A son does the heavy shopping and prepares dinner when his father comes home late."
+            "french": "Le père héberge son fils adulte ; le fils fait les courses et prépare le dîner quand son père travaille tard.",
+            "english": "The father lets his adult son live with him; the son shops and cooks dinner when his father works late."
           }
         },
         {
@@ -2066,8 +2066,8 @@
             "english": "Everyone must retain privacy and adult decision-making."
           },
           "example": {
-            "french": "Une adulte prévient d'un retour tardif sans demander la permission et évite le bruit pour ses parents.",
-            "english": "An adult gives notice of a late return without asking permission and avoids disturbing her parents."
+            "french": "Une femme annonce son retour tardif sans demander la permission ; elle rentre sans bruit pour ne pas réveiller ses parents.",
+            "english": "A woman tells her parents she'll be home late, without asking permission, and comes in quietly to avoid waking them."
           }
         }
       ]
@@ -2084,8 +2084,8 @@
             "english": "Help and repeated attempts develop the ability to adapt."
           },
           "example": {
-            "french": "Aidée par une voisine au premier appel, une arrivante prépare le suivant et obtient seule un rendez-vous.",
-            "english": "After a neighbour helps with the first call, a newcomer prepares the next one and books an appointment alone."
+            "french": "Elle parle peu français : une voisine l'aide à préparer l'appel au médecin ; plus tard, elle téléphone sans aide.",
+            "english": "She speaks little French: a neighbour helps her prepare a call to the doctor; later, she phones without help."
           }
         },
         {

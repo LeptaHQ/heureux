@@ -4,7 +4,9 @@ import json
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
-from study.tests.housing_work_fixtures import ORIGINAL_HOUSING_GROUPS
+from study.tests.eo2_review_fixtures import (
+    assert_review_preservation, pre_realness_history, preserved_public_layouts,
+)
 from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
 
 
@@ -76,30 +78,12 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                 self.assertEqual(len(self.hints[row.group]), 8)
                 self.assertIn("merci", row.closing.lower())
 
-    def test_arrival_and_housing_outside_the_later_authorized_reviews_are_unchanged(self):
-        raw = {
-            row["group"]: row
-            for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
-            for row in json.loads(path.read_text())["dialogues"]
-        }
-        expected = {
-            "arrivee": "eeb337d3fd34d07c863b10f58fa4da53bae6f1b91822e56eaa8042170a48e278",
-            "logement": "5856b77b61128d6d2b988dd3a589762ca8d8a5a7a04b1c6f8a17a3ba4b73a744",
-        }
-        for theme, digest in expected.items():
-            with self.subTest(theme=theme):
-                groups = (
-                    ORIGINAL_HOUSING_GROUPS if theme == "logement" else
-                    {row.group for key, row in self.dialogues.items() if self.themes[key] == theme}
-                )
-                snapshot = json.dumps(
-                    [raw[group] for group in sorted(groups)],
-                    ensure_ascii=False, sort_keys=True,
-                ).encode()
-                self.assertEqual(hashlib.sha256(snapshot).hexdigest(), digest)
-        self.assertNotIn("new-resident-neighbor-neighborhood-orientation", self.history)
+    def test_all_theme_review_preserves_arrival_housing_and_earlier_public_editions(self):
+        assert_review_preservation(self)
+        earlier = pre_realness_history({"version": 1, "groups": self.history})["groups"]
+        self.assertNotIn("new-resident-neighbor-neighborhood-orientation", earlier)
         self.assertEqual(
-            len(self.history["volunteer-local-association-information-office"]["revisions"]), 4,
+            len(earlier["volunteer-local-association-information-office"]["revisions"]), 4,
         )
 
     def test_all_eighteen_exact_previous_layouts_are_archived_without_hidden_answers(self):
@@ -142,9 +126,10 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
 
     def test_developments_archive_all_fourteen_exact_published_layouts_once(self):
         snapshots = []
+        earlier = pre_realness_history({"version": 1, "groups": self.history})["groups"]
         for group, revision in sorted(DEVELOPMENT_REVISIONS.items()):
             with self.subTest(group=group):
-                revisions = self.history[group]["revisions"]
+                revisions = earlier[group]["revisions"]
                 self.assertEqual(
                     len(revisions),
                     revision + (3 if group in {
@@ -170,19 +155,14 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
             "70c0d8597ac6451b3f4a1ecb89f47f579f8256c066f405eccd6acbd5fda44c8f",
         )
 
-    def test_previously_developed_routes_keep_their_exact_approved_visible_wording(self):
+    def test_previously_developed_routes_retain_their_exact_public_editions(self):
         protected = {
             "host-foreign-friends-city-advice",
             "neighbor-dog-care-week-paid",
             "trusted-person-temporary-pet-care",
             "volunteer-local-association-information-office",
         }
-        raw = {
-            row["group"]: row
-            for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
-            for row in json.loads(path.read_text())["dialogues"]
-            if row["group"] in protected
-        }
+        raw = preserved_public_layouts()
         snapshots = [
             {
                 "group": group, "opening": raw[group]["opening"], "closing": raw[group]["closing"],
@@ -212,7 +192,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                 snapshot = json.dumps(before, ensure_ascii=False, sort_keys=True).encode()
                 self.assertEqual(hashlib.sha256(snapshot).hexdigest(), digest)
                 self.assertEqual(
-                    len(self.history[group]["revisions"]),
+                    len(pre_realness_history({"version": 1, "groups": self.history})["groups"][group]["revisions"]),
                     4 if group == "neighbor-dog-care-week-paid" else 3,
                 )
 
@@ -229,7 +209,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                 snapshot = json.dumps(before, ensure_ascii=False, sort_keys=True).encode()
                 self.assertEqual(hashlib.sha256(snapshot).hexdigest(), digest)
                 self.assertEqual(
-                    len(self.history[group]["revisions"]),
+                    len(pre_realness_history({"version": 1, "groups": self.history})["groups"][group]["revisions"]),
                     4 if group == "volunteer-local-association-information-office" else 3,
                 )
 
@@ -292,23 +272,24 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("à la maison", self.hints[city.group][3]["french"])
         self.assertIn("at home", self.hints[city.group][3]["english"])
         nephews = self.by_group["friend-entertain-visiting-nephews"]
-        self.assertIn("où pourrais-je les emmener", nephews.questions[4].question)
-        self.assertIn("atelier ou une exposition interactive", nephews.questions[4].question)
+        self.assertIn("où pourrais-je les emmener", nephews.questions[5].question)
+        self.assertIn("atelier ou une exposition interactive", nephews.questions[5].question)
         self.assertIn("cuisson", nephews.questions[0].answer)
         self.assertIn("indices dessinés", nephews.questions[2].answer)
         self.assertIn("without explaining the preparation", nephews.questions[1].condition)
-        self.assertIn("Their ages and interests are not supplied", nephews.note)
+        self.assertIn("Their ages and interests are unknown", nephews.note)
 
     def test_pet_care_clarifies_presence_instead_of_implying_two_brief_daily_visits(self):
         pet = self.by_group["trusted-person-temporary-pet-care"]
         self.assertIn("quel âge", pet.questions[0].question)
         self.assertIn("combien de temps peut-il rester seul", pet.questions[2].question)
-        for detail in ("la nuit", "présence en journée", "quatre heures"):
+        for detail in ("la nuit", "en journée", "quatre heures"):
             self.assertIn(detail, pet.questions[2].answer)
         self.assertIn("sortie de dix minutes à midi", pet.questions[4].answer)
-        self.assertIn("adapt walks and overnight presence", pet.note)
+        self.assertIn("Adapt this dog's routine to the actual animal", pet.note)
         paid = self.by_group["neighbor-dog-care-week-paid"]
-        self.assertIn("présence la nuit", paid.questions[1].question)
+        self.assertIn("présence", paid.questions[1].question)
+        self.assertIn("le jour et la nuit", paid.questions[1].question)
         self.assertIn("Trois sorties", paid.questions[3].answer)
         self.assertIn("allergies", paid.questions[5].question)
         self.assertIn("soins particuliers", paid.questions[5].question)
@@ -327,10 +308,10 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                 self.assertEqual(
                     row.questions[0].question, "Quel animal vas-tu me confier, et quel âge a-t-il ?",
                 )
-                self.assertTrue(row.questions[3].question.startswith("Côté alimentation,"))
-                self.assertIn("me laisseras-tu sa nourriture ou devrai-je l'acheter", row.questions[3].question)
+                self.assertIn("sa nourriture et le matériel nécessaire", row.questions[3].question)
+                self.assertIn("devrai-je les acheter", row.questions[3].question)
                 self.assertIn("à quelles heures", row.questions[3].question)
-                self.assertIn("Je te laisserai ses croquettes", row.questions[3].answer)
+                self.assertIn("croquettes en portions mesurées", row.questions[3].answer)
                 self.assertIn("8 h et à 18 h", row.questions[3].answer)
                 self.assertIn("sorties ou de séances de jeu", row.questions[4].question)
                 self.assertIn("combien de temps doit durer chacune", row.questions[4].question)
@@ -358,14 +339,14 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertEqual(
             [cue["english"] for cue in self.hints[group][3:7]],
             [
-                "Food left by the owner or to buy, and feeding times",
+                "Food and equipment supplied or to buy, and feeding times",
                 "Daily number of outings or play sessions and duration of each",
                 "Behaviour on walks and sociability with unfamiliar people",
                 "Known allergies, special care or treatment during the absence",
             ],
         )
         self.assertIn(
-            "not yet agreed", self.dialogues["tache2:septembre:batch-05:subject-22"].note,
+            "before confirming", self.dialogues["tache2:septembre:batch-05:subject-22"].note,
         )
         self.assertIn(
             "Do not assume walks or overnight care",
@@ -401,7 +382,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         )
         self.assertTrue(row.questions[4].answer.startswith("Pour ces missions, non :"))
         self.assertIn("pendant trois mois", row.questions[4].answer)
-        self.assertIn("pour une aide ponctuelle", row.questions[4].answer)
+        self.assertIn("d'aide ponctuelle", row.questions[4].answer)
         self.assertEqual(
             self.hints[row.group][1]["english"],
             "Cultural association's activities and intended audiences",
@@ -431,13 +412,13 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         row = self.by_group["neighbor-dog-care-week-paid"]
         self.assertEqual(
             row.questions[2].question,
-            "Fournirez-vous sa nourriture ou devrai-je m'en occuper, et à quelles heures prend-il ses repas ?",
+            "Fournirez-vous sa nourriture et le matériel, comme la laisse et les sacs, et à quelles heures mange-t-il ?",
         )
-        self.assertIn("Je fournirai ses croquettes", row.questions[2].answer)
+        self.assertIn("croquettes en portions mesurées", row.questions[2].answer)
         self.assertIn("8 h et à 18 h", row.questions[2].answer)
         self.assertEqual(
             self.hints[row.group][2]["english"],
-            "Who provides the food and feeding times",
+            "Provision of food, leash and bags, and feeding times",
         )
         walks, behaviour = row.questions[3:5]
         self.assertEqual(
@@ -581,7 +562,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                 self.assertEqual(row.questions[2].follow_up_to, 2)
                 self.assertIn("If watering is requested", row.questions[2].condition)
                 self.assertIn("150 millilitres chacune à chaque passage", row.questions[2].answer)
-                self.assertIn("N'arrose pas les cactus", row.questions[2].answer)
+                self.assertIn("cactus de la chambre ne sont pas à arroser", row.questions[2].answer)
                 self.assertEqual(row.questions[3].question, before["questions"][2]["question"])
                 self.assertEqual(
                     [row.questions[index].question for index in (0, 1, 4)],
@@ -638,14 +619,14 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("explications et un accompagnement", environment.questions[5].question)
         self.assertEqual(
             environment.questions[7].question,
-            "Où est le point de rendez-vous, et comment serai-je prévenu en cas d'annulation ?",
+            "Pour une sortie de nettoyage, où est le point de rendez-vous, et comment serai-je prévenu en cas d'annulation ?",
         )
         self.assertEqual(self.hints[environment.group][7], {
-            "french": "Point de rendez-vous et notification en cas d'annulation",
-            "english": "Meeting point and how participants are notified of cancellation",
+            "french": "Rendez-vous du nettoyage et notification en cas d'annulation",
+            "english": "Cleanup meeting point and cancellation notification",
         })
-        self.assertIn("quinze minutes avant 9 h", environment.questions[7].answer)
-        self.assertIn("Confirmez ces détails lors de l'inscription", environment.questions[7].answer)
+        self.assertIn("8 h 45", environment.questions[7].answer)
+        self.assertIn("confirmer lors de l'inscription", environment.questions[7].answer)
 
     def test_meal_volunteering_checks_availability_before_distinct_general_and_beginner_tasks(self):
         group = "friend-homeless-meal-volunteering"
@@ -823,11 +804,12 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("avant le départ", row.questions[2].question)
         for detail in ("150 $", "repas et toutes les activités", "transport et le chalet"):
             self.assertIn(detail, row.questions[2].answer)
-        self.assertIn("Pas en permanence", row.questions[7].answer)
+        self.assertIn("tous deux sans réseau", row.questions[7].answer)
+        self.assertIn("second contact", row.questions[7].answer)
         self.assertIn("nos deux numéros", row.questions[7].answer)
         nephews = self.by_group["friend-entertain-visiting-nephews"]
-        self.assertIn("entrées des enfants et des adultes", nephews.questions[5].question)
-        self.assertIn("12 $ par enfant et 18 $ par adulte", nephews.questions[5].answer)
+        self.assertIn("entrées des enfants et des adultes", nephews.questions[7].question)
+        self.assertIn("12 $ par enfant et 18 $ par adulte", nephews.questions[7].answer)
 
     def test_volunteer_developments_cover_places_shifts_supplies_notice_and_first_visit(self):
         animals = self.by_group["animal-protection-association-invitation"]
@@ -870,9 +852,10 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
 
     def test_pet_urgency_replies_do_not_require_waiting_for_the_owners_response(self):
         paid = self.by_group["neighbor-dog-care-week-paid"]
-        self.assertIn("en cas d'urgence ou si je suis injoignable", paid.questions[6].answer)
+        self.assertIn("En cas d'urgence, le vétérinaire est le premier contact", paid.questions[6].answer)
+        self.assertIn("Si je suis injoignable", paid.questions[6].answer)
         unpaid = self.by_group["trusted-person-temporary-pet-care"]
-        self.assertIn("En urgence, contacte directement le vétérinaire", unpaid.questions[7].answer)
+        self.assertIn("En urgence, tu peux appeler directement le vétérinaire", unpaid.questions[7].answer)
 
     def test_parcel_errand_checks_contents_arrival_and_feasibility_before_accepting(self):
         row = self.by_group["help-friend-post-parcel"]
@@ -925,7 +908,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
             "Avez-vous une idée de la date de votre retour au travail, et souhaitez-vous que je transmette un message à l'équipe ?",
         )
         self.assertIn("lundi prochain", row.questions[6].answer)
-        self.assertIn("dites à l'équipe", row.questions[6].answer)
+        self.assertIn("dire à l'équipe", row.questions[6].answer)
         self.assertEqual(row.questions[7].follow_up_to, 7)
         self.assertEqual(
             self.hints[row.group][6]["english"],

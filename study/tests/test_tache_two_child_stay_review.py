@@ -1,4 +1,3 @@
-import copy
 import hashlib
 import json
 import re
@@ -8,6 +7,7 @@ from django.test import SimpleTestCase
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
 from study.tests.eo2_review_fixtures import (
+    assert_review_preservation, pre_realness_history,
     CAREER_QUESTION_FOLLOWUP_FIELDS, DAILY_DUTIES_FOLLOWUP_FIELDS, PUBLISHED_ARCHIVE_INDEX,
     INTERNAL_PAY_FOLLOWUP_FIELDS, INTERVIEW_CLOTHING_FOLLOWUP_FIELDS, RECRUITER_RICH_FOLLOWUP_FIELDS,
     ACCOMMODATION_FOLLOWUP_FIELDS, remove_followup_archives,
@@ -47,7 +47,7 @@ class ChildLanguageStayReviewTests(SimpleTestCase):
         catalogue.clear_catalogue_cache()
         super().tearDownClass()
 
-    def test_other_models_and_cues_except_the_authorized_later_followups_are_exact(self):
+    def test_original_public_editions_and_child_stay_publications_remain_available(self):
         edited = (
             {GROUP} | SCHOOL_NEIGHBOUR_FOLLOWUP_FIELDS.keys() | CAREER_QUESTION_FOLLOWUP_FIELDS.keys()
             | SURVEY_ROUTINE_FOLLOWUP_FIELDS.keys()
@@ -60,13 +60,7 @@ class ChildLanguageStayReviewTests(SimpleTestCase):
             | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
         )
         self.assertEqual(len(self.raw.keys() - edited), 152)
-        self.assertEqual(
-            fingerprint({
-                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
-                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
-            }),
-            "6e3a0444c077f3b2dcb0ef823221b1d04430a0dee3998b7fc02b6b30d9e06676",
-        )
+        assert_review_preservation(self)
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == GROUP},
             {"tache2:juin:batch-06:subject-27", "tache2:decembre:batch-05:subject-22"},
@@ -142,7 +136,7 @@ class ChildLanguageStayReviewTests(SimpleTestCase):
             "a8ac8364b80bbe6cc5d778920a0662880be0da50693da0dc26c80f4c4a541182",
         )
         self.assertTrue(all("answer" not in q for q in revisions[5]["questions"]))
-        previous = copy.deepcopy(self.history)
+        previous = pre_realness_history(self.history)
         previous["groups"][GROUP]["revisions"].pop()
         for group in (
             SCHOOL_NEIGHBOUR_FOLLOWUP_FIELDS | CAREER_QUESTION_FOLLOWUP_FIELDS

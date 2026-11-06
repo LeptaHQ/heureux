@@ -93,7 +93,7 @@ REVIEWED_CLAUSES = {
     "famille-p11": "il faut qu'on puisse obtenir de l'aide",
     "famille-p12": "le but n'est pas que l'enfant obéisse toujours",
     "famille-p13": "il faut que l'enfant puisse aussi pratiquer",
-    "famille-p14": "Il faut donc que chacun gère",
+    "famille-p14": "Il faut donc que chacun sache",
     "famille-p16": "Il n'est pas nécessaire que tout soit parfaitement égal",
     "famille-p2": "il faut que cette cohabitation convienne",
     "famille-p3": "il faut aussi qu'il tienne compte",

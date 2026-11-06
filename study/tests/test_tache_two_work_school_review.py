@@ -7,12 +7,13 @@ from django.test import SimpleTestCase
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
 from study.tests.eo2_review_fixtures import (
+    assert_review_preservation, pre_realness_history, preserved_public_layouts,
     DAILY_DUTIES_FOLLOWUP_FIELDS, INTERNAL_PAY_FOLLOWUP_FIELDS, INTERVIEW_CLOTHING_FOLLOWUP_FIELDS,
     ACCOMMODATION_FOLLOWUP_FIELDS,
     PUBLISHED_ARCHIVE_INDEX, RECRUITER_RICH_FOLLOWUP_FIELDS,
     SCHOOL_GROUPS, SESSION_EXTENT_FOLLOWUP_FIELDS,
     SURVEY_ROUTINE_FOLLOWUP_FIELDS,
-    TRANSPORT_TRAVEL_GROUPS, WORK_COMPARISON_CLOSING_FIELDS, WORK_GROUPS,
+    WORK_COMPARISON_CLOSING_FIELDS, WORK_GROUPS,
     WORK_SCHOOL_GROUPS as REVIEWED_GROUPS,
     final_pass_projection, remove_followup_archives, remove_latest_review_archives,
 )
@@ -59,19 +60,11 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
                 self.assertEqual(len(self.hints[row.group]), 8)
                 self.assertIn("merci", row.closing.casefold())
 
-    def test_dialogues_and_cues_outside_authorized_reviews_and_later_accommodation_changes_remain_published(self):
-        reviewed = REVIEWED_GROUPS | TRANSPORT_TRAVEL_GROUPS | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
-        unrelated = {
-            "dialogues": {key: row for key, row in self.raw.items() if key not in reviewed},
-            "hints": {key: rows for key, rows in self.hints.items() if key not in reviewed},
-        }
-        self.assertEqual(
-            fingerprint(unrelated),
-            "908a24c5d012b4e75320da40cd3ef0fefee1c56eb2fe9fb744a8950c3bac04b9",
-        )
+    def test_original_public_editions_and_reviewed_registers_remain_available(self):
+        assert_review_preservation(self)
         self.assertEqual(
             fingerprint(sorted((key, row["register"]) for key, row in self.raw.items())),
-            "11b2868eb895bf97db1f6d38f4e757d9f2d2d0a0c859de9c3bad6e866c21e9d4",
+            "d37ae3561719f64c5a211ccb93012d37b90a08f2ec832397605ccac871d9755a",
         )
 
     def test_exact_previous_published_layouts_are_archived_without_internal_replies(self):
@@ -89,7 +82,7 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
                 self.assertNotIn("answer", question)
 
     def test_every_earlier_archive_and_geographic_substitution_is_untouched(self):
-        previous = copy.deepcopy(self.history_document)
+        previous = pre_realness_history(self.history_document)
         remove_latest_review_archives(previous)
         self.assertEqual(
             fingerprint(previous),
@@ -108,24 +101,23 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
             self.assertFalse(value.position_claire)
             self.assertFalse(value.nuance)
 
-    def test_career_rephrase_changes_only_the_requested_question_and_keeps_all_cues(self):
+    def test_career_rephrase_remains_current_and_its_public_edition_is_preserved(self):
         group = "friend-planned-canadian-studies"
         row = copy.deepcopy(self.raw[group])
         self.assertEqual(
             row["questions"][3]["question"],
             "Qu'est-ce que cette formation apportera à ta carrière ?",
         )
-        row["questions"][3]["question"] = "<reviewed-career-question>"
         self.assertEqual(
-            fingerprint({"dialogue": row, "hints": self.hints[group]}),
-            "a0e0e4f557fe556b7976f8292d0d064c133320f5003dfec7c9d2192590a5f6f4",
+            fingerprint(preserved_public_layouts()[group]),
+            "c63672ff0f3d17e574438079152b6464487bc6dacc49b354eebc972fb3f48fa6",
         )
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == group},
             {"tache2:octobre:batch-09:subject-42"},
         )
 
-    def test_career_rephrase_preserves_other_models_except_authorized_later_changes(self):
+    def test_career_rephrase_retains_all_original_public_editions(self):
         group = "friend-planned-canadian-studies"
         edited = (
             {group} | SURVEY_ROUTINE_FOLLOWUP_FIELDS.keys() | SESSION_EXTENT_FOLLOWUP_FIELDS.keys()
@@ -137,24 +129,18 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
             | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
         )
         self.assertEqual(len(self.raw.keys() - edited), 154)
-        self.assertEqual(
-            fingerprint({
-                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
-                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
-            }),
-            "8f81644b87d736eceaaf8867bb171f8aa3b64a06d797b36e440a9dd9d0032c22",
-        )
+        assert_review_preservation(self)
 
     def test_career_rephrase_archives_the_published_layout_without_replies_or_older_changes(self):
         group = "friend-planned-canadian-studies"
-        revisions = self.history_document["groups"][group]["revisions"]
+        revisions = pre_realness_history(self.history_document)["groups"][group]["revisions"]
         self.assertEqual(len(revisions), 4)
         self.assertEqual(
             fingerprint(revisions[3]),
             "700180a0ab97570a826e4e9b8dc2b9fb93e762c99d9c2e21d7e8d9cf10529c31",
         )
         self.assertTrue(all("answer" not in q for q in revisions[3]["questions"]))
-        previous = copy.deepcopy(self.history_document)
+        previous = pre_realness_history(self.history_document)
         previous["groups"][group]["revisions"].pop()
         for changed in (
             SURVEY_ROUTINE_FOLLOWUP_FIELDS | SESSION_EXTENT_FOLLOWUP_FIELDS
@@ -190,19 +176,11 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
             self.hints[group][2]["english"], "Transport to classes and journey time",
         )
 
-    def test_survey_retains_all_seven_other_questions_replies_and_cues_when_reordered(self):
+    def test_survey_retains_its_exact_public_edition_after_later_reply_and_cue_reviews(self):
         group = "french-class-survey-francophone-student"
-        row = copy.deepcopy(self.raw[group])
-        original_order = (0, 1, 3, 4, 5, 6, 2, 7)
-        row["questions"] = [row["questions"][index] for index in original_order]
-        row["questions"][4]["follow_up_to"] = 4
-        row["questions"][6] = "<replaced-survey-question>"
-        row["note"] = "<reviewed-survey-note>"
-        cues = [copy.deepcopy(self.hints[group][index]) for index in original_order]
-        cues[6] = "<replaced-survey-cue>"
         self.assertEqual(
-            fingerprint({"dialogue": row, "hints": cues}),
-            "3e88f3b101ec3bf1d23beccea4c3895209847bca460b309ea575393ffe1db259",
+            fingerprint(preserved_public_layouts()[group]),
+            "5701a34ba85ea277e309b39e209a941305b867a3d6778dba8e3305ab78a36b76",
         )
         projected = final_pass_projection(self.raw, self.hints)[group]
         self.assertEqual(projected["dialogue"]["questions"][0]["question"], "<final-reviewed-field>")
@@ -210,7 +188,7 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
         self.assertEqual(projected["hints"][0]["english"], "<final-reviewed-field>")
         self.assertEqual(projected["hints"][2]["english"], "<final-reviewed-field>")
 
-    def test_survey_replacement_preserves_other_models_except_authorized_later_changes(self):
+    def test_survey_replacement_retains_public_editions_and_publication_identity(self):
         group = "french-class-survey-francophone-student"
         edited = (
             {group} | SESSION_EXTENT_FOLLOWUP_FIELDS.keys() | WORK_COMPARISON_CLOSING_FIELDS.keys()
@@ -221,13 +199,7 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
             | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
         )
         self.assertEqual(len(self.raw.keys() - edited), 155)
-        self.assertEqual(
-            fingerprint({
-                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
-                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
-            }),
-            "18b1bf454de34a2d3ee91e4df04df7e666e28e9121f8849bd37654ae96072539",
-        )
+        assert_review_preservation(self)
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == group},
             {"tache2:decembre:batch-08:subject-36"},
@@ -235,14 +207,14 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
 
     def test_survey_published_layout_is_archived_without_replies_or_older_history_changes(self):
         group = "french-class-survey-francophone-student"
-        revisions = self.history_document["groups"][group]["revisions"]
+        revisions = pre_realness_history(self.history_document)["groups"][group]["revisions"]
         self.assertEqual(len(revisions), 4)
         self.assertEqual(
             fingerprint(revisions[3]),
             "ff70342012491263c1ccb003225dd2e7034d2130834208d9a3deae5e79ceb5f8",
         )
         self.assertTrue(all("answer" not in q for q in revisions[3]["questions"]))
-        previous = copy.deepcopy(self.history_document)
+        previous = pre_realness_history(self.history_document)
         previous["groups"][group]["revisions"].pop()
         for changed in (
             SESSION_EXTENT_FOLLOWUP_FIELDS | WORK_COMPARISON_CLOSING_FIELDS
@@ -260,7 +232,7 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
             "d7cf731e33b3d70132645c2bdbf1c5b5990330fb5acf34841dde668401e000c9",
         )
 
-    def test_session_extent_rephrase_changes_only_the_requested_question(self):
+    def test_session_extent_rephrase_remains_current_and_its_public_edition_is_preserved(self):
         group = "calgary-university-adult-language-courses"
         row = copy.deepcopy(self.raw[group])
         question = row["questions"][4]["question"]
@@ -271,13 +243,12 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
         )
         previous = self.history_document["groups"][group]["revisions"][3]["questions"][4]["question"]
         self.assertEqual(question.split(", ", 1)[1], previous.split(", ", 1)[1])
-        row["questions"][4]["question"] = "<reviewed-session-question>"
         self.assertEqual(
-            fingerprint({"dialogue": row, "hints": self.hints[group]}),
-            "853be3e45497ab97003184d8b7ef5272cd398cff21497773acfc8c04544d2c44",
+            fingerprint(preserved_public_layouts()[group]),
+            "104df3479527aea4833ba6174e4ea7eb747428cd8f9046632d595d8a68423a0c",
         )
 
-    def test_session_extent_rephrase_preserves_other_models_except_authorized_later_changes(self):
+    def test_session_extent_rephrase_retains_public_editions_and_publication_identity(self):
         group = "calgary-university-adult-language-courses"
         edited = (
             {group} | WORK_COMPARISON_CLOSING_FIELDS.keys() | DAILY_DUTIES_FOLLOWUP_FIELDS.keys()
@@ -287,13 +258,7 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
             | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
         )
         self.assertEqual(len(self.raw.keys() - edited), 156)
-        self.assertEqual(
-            fingerprint({
-                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
-                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
-            }),
-            "52aafdaa22eb42c70413483a2f47b40237e7f96afbab7686c24da9bc7fbbae0a",
-        )
+        assert_review_preservation(self)
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == group},
             {"tache2:decembre:batch-09:subject-45"},
@@ -301,14 +266,14 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
 
     def test_session_extent_archives_the_published_layout_without_replies_or_older_changes(self):
         group = "calgary-university-adult-language-courses"
-        revisions = self.history_document["groups"][group]["revisions"]
+        revisions = pre_realness_history(self.history_document)["groups"][group]["revisions"]
         self.assertEqual(len(revisions), 4)
         self.assertEqual(
             fingerprint(revisions[3]),
             "8f4ef04975a1a1a05320fe056a4222273fa5ed1da3bf34790d599f13d16d407a",
         )
         self.assertTrue(all("answer" not in q for q in revisions[3]["questions"]))
-        previous = copy.deepcopy(self.history_document)
+        previous = pre_realness_history(self.history_document)
         previous["groups"][group]["revisions"].pop()
         for changed in (
             WORK_COMPARISON_CLOSING_FIELDS | DAILY_DUTIES_FOLLOWUP_FIELDS
@@ -339,7 +304,7 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
         )
         self.assertIn("not nationwide Canadian rules", row["note"])
 
-    def test_work_comparison_closing_preserves_other_models_except_the_authorized_duties_rephrase(self):
+    def test_work_comparison_retains_public_editions_and_publication_identity(self):
         group = "canadian-work-hours-home-country-comparison"
         edited = (
             {group} | DAILY_DUTIES_FOLLOWUP_FIELDS.keys() | RECRUITER_RICH_FOLLOWUP_FIELDS.keys()
@@ -348,13 +313,7 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
             | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
         )
         self.assertEqual(len(self.raw.keys() - edited), 157)
-        self.assertEqual(
-            fingerprint({
-                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
-                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
-            }),
-            "afdae0a41521fc2aca3c49863c9e0a3f503cc5ce6b881d2bf52ca2bec5178ef9",
-        )
+        assert_review_preservation(self)
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == group},
             {
@@ -365,14 +324,14 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
 
     def test_work_comparison_closing_archives_exact_published_layout_without_older_changes(self):
         group = "canadian-work-hours-home-country-comparison"
-        revisions = self.history_document["groups"][group]["revisions"]
+        revisions = pre_realness_history(self.history_document)["groups"][group]["revisions"]
         self.assertEqual(len(revisions), 4)
         self.assertEqual(
             fingerprint(revisions[3]),
             "00cab633eae02aec8898a4183f1001153b3572c729e32c2c07be9d567c1d37fc",
         )
         self.assertTrue(all("answer" not in q for q in revisions[3]["questions"]))
-        previous = copy.deepcopy(self.history_document)
+        previous = pre_realness_history(self.history_document)
         previous["groups"][group]["revisions"].pop()
         for changed in (
             DAILY_DUTIES_FOLLOWUP_FIELDS | RECRUITER_RICH_FOLLOWUP_FIELDS
@@ -403,7 +362,7 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
         self.assertEqual(projected["dialogue"]["questions"][1]["question"], "<final-reviewed-field>")
         self.assertEqual(projected["dialogue"]["questions"][4]["question"], "<final-reviewed-field>")
 
-    def test_daily_duties_rephrase_preserves_other_models_except_the_authorized_recruiter_update(self):
+    def test_daily_duties_rephrase_retains_public_editions_and_publication_identity(self):
         group = "former-colleague-new-job-to-change-employment"
         edited = (
             {group} | RECRUITER_RICH_FOLLOWUP_FIELDS.keys() | INTERNAL_PAY_FOLLOWUP_FIELDS.keys()
@@ -411,13 +370,7 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
             | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
         )
         self.assertEqual(len(self.raw.keys() - edited), 158)
-        self.assertEqual(
-            fingerprint({
-                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
-                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
-            }),
-            "cbe2eaaaacab36d4c7d60acd65526ac158d41769ce40c72fddb682864a725e54",
-        )
+        assert_review_preservation(self)
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == group},
             {"tache2:mai:batch-05:subject-24", "tache2:novembre:batch-02:subject-09"},
@@ -425,14 +378,14 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
 
     def test_daily_duties_rephrase_archives_published_layout_without_replies_or_older_changes(self):
         group = "former-colleague-new-job-to-change-employment"
-        revisions = self.history_document["groups"][group]["revisions"]
+        revisions = pre_realness_history(self.history_document)["groups"][group]["revisions"]
         self.assertEqual(len(revisions), 3)
         self.assertEqual(
             fingerprint(revisions[2]),
             "bfecb2f2d2c04ade6baaaf50f0882ac177a8e1b91fcc42fecbb69e92eca15bed",
         )
         self.assertTrue(all("answer" not in q for q in revisions[2]["questions"]))
-        previous = copy.deepcopy(self.history_document)
+        previous = pre_realness_history(self.history_document)
         previous["groups"][group]["revisions"].pop()
         for changed in (
             RECRUITER_RICH_FOLLOWUP_FIELDS | INTERNAL_PAY_FOLLOWUP_FIELDS
@@ -474,19 +427,9 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
         for before, after in ((0, 0), (2, 2), (5, 4), (7, 7)):
             self.assertEqual(old[before]["question"], row.questions[after].question)
 
-    def test_richer_recruiter_preserves_models_except_authorized_later_changes_and_keeps_coordonner(self):
+    def test_richer_recruiter_retains_public_editions_publication_identity_and_coordonner(self):
         group = "recruiter-scheduled-interview-preparation"
-        edited = (
-            {group} | INTERNAL_PAY_FOLLOWUP_FIELDS.keys() | INTERVIEW_CLOTHING_FOLLOWUP_FIELDS.keys()
-            | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
-        )
-        self.assertEqual(
-            fingerprint({
-                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
-                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
-            }),
-            "3a3e9d2f8a428b28ab7c58cf9a824f47e0e48ed5f17073ed182d599c7e5ebc5b",
-        )
+        assert_review_preservation(self)
         self.assertEqual(
             self.by_group["colleague-internal-job-change"].questions[1].question,
             "Pour coordonner ces projets, avec quels services travaillez-vous le plus souvent ?",
@@ -498,14 +441,14 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
 
     def test_richer_recruiter_archives_exact_published_layout_without_older_changes(self):
         group = "recruiter-scheduled-interview-preparation"
-        revisions = self.history_document["groups"][group]["revisions"]
+        revisions = pre_realness_history(self.history_document)["groups"][group]["revisions"]
         self.assertEqual(len(revisions), 4)
         self.assertEqual(
             fingerprint(revisions[3]),
             "5a409f255eb54c02fbe5a7b6cbdf12bf367ff6316e6e08ad50cdefa8d9de885c",
         )
         self.assertTrue(all("answer" not in q for q in revisions[3]["questions"]))
-        previous = copy.deepcopy(self.history_document)
+        previous = pre_realness_history(self.history_document)
         previous["groups"][group]["revisions"].pop()
         for changed in INTERNAL_PAY_FOLLOWUP_FIELDS | INTERVIEW_CLOTHING_FOLLOWUP_FIELDS:
             previous["groups"][changed]["revisions"] = (
@@ -545,18 +488,9 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
             "fd45e86123b0bcc91abcaf92c41afd37fc78447c72bed95379385b872df86cad",
         )
 
-    def test_internal_pay_update_preserves_other_models_except_authorized_later_changes(self):
+    def test_internal_pay_update_retains_public_editions_and_publication_identity(self):
         group = "colleague-internal-job-change"
-        edited = (
-            {group} | INTERVIEW_CLOTHING_FOLLOWUP_FIELDS.keys() | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
-        )
-        self.assertEqual(
-            fingerprint({
-                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
-                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
-            }),
-            "87e6ea9ce156bde0baaf31d06c61e92f3dced9ca4faf02d04840ca1cf398a905",
-        )
+        assert_review_preservation(self)
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == group},
             {"tache2:juin:batch-03:subject-15"},
@@ -564,14 +498,14 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
 
     def test_internal_pay_update_archives_published_layout_without_touching_older_history(self):
         group = "colleague-internal-job-change"
-        revisions = self.history_document["groups"][group]["revisions"]
+        revisions = pre_realness_history(self.history_document)["groups"][group]["revisions"]
         self.assertEqual(len(revisions), 3)
         self.assertEqual(
             fingerprint(revisions[2]),
             "8f4b18109300a92c91a8f016ca20e64be6ee5a512e55b9e816ab91f1769c1ae2",
         )
         self.assertTrue(all("answer" not in q for q in revisions[2]["questions"]))
-        previous = copy.deepcopy(self.history_document)
+        previous = pre_realness_history(self.history_document)
         previous["groups"][group]["revisions"].pop()
         for changed in INTERVIEW_CLOTHING_FOLLOWUP_FIELDS:
             previous["groups"][changed]["revisions"] = (
@@ -600,27 +534,14 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
             "french": "Vêtements et accessoires à éviter pour l'entretien",
             "english": "Clothes and accessories to avoid for the interview",
         })
-        projection = {"dialogue": copy.deepcopy(self.raw[group]), "hints": copy.deepcopy(self.hints[group])}
-        for path in INTERVIEW_CLOTHING_FOLLOWUP_FIELDS[group]:
-            node = projection
-            for key in path[:-1]:
-                node = node[key]
-            node[path[-1]] = "<reviewed-clothing-field>"
         self.assertEqual(
-            fingerprint(projection),
-            "58dd28f4f13f8b7ac364d97a0f85c971d0c34314663c31482ea0d7cdaa0475bb",
+            fingerprint(preserved_public_layouts()[group]),
+            "2e9d853b412dff9b2167762079ab96e99e33acc253018881c8af537cec1a5395",
         )
 
-    def test_interview_clothing_replacement_preserves_other_models_except_later_accommodation_changes(self):
+    def test_interview_clothing_replacement_retains_public_editions_and_publication_identity(self):
         group = "friend-upcoming-job-interview-advice"
-        edited = {group} | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
-        self.assertEqual(
-            fingerprint({
-                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
-                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
-            }),
-            "0166a25341c3698adc08d4ca51fcacc021a2b1fb3b5b6a647bc4b49333f9a7e2",
-        )
+        assert_review_preservation(self)
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == group},
             {
@@ -632,14 +553,14 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
 
     def test_interview_clothing_replacement_archives_only_the_published_layout(self):
         group = "friend-upcoming-job-interview-advice"
-        revisions = self.history_document["groups"][group]["revisions"]
+        revisions = pre_realness_history(self.history_document)["groups"][group]["revisions"]
         self.assertEqual(len(revisions), 3)
         self.assertEqual(
             fingerprint(revisions[2]),
             "ff68273ff972832965ecc5853dde10ad45e50b0df403039b2f2f44db068d1b88",
         )
         self.assertTrue(all("answer" not in question for question in revisions[2]["questions"]))
-        previous = copy.deepcopy(self.history_document)
+        previous = pre_realness_history(self.history_document)
         previous["groups"][group]["revisions"].pop()
         remove_followup_archives(previous, ACCOMMODATION_FOLLOWUP_FIELDS)
         self.assertEqual(
@@ -699,10 +620,10 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
 
     def test_newcomer_conditions_are_advertised_examples_not_countrywide_promises(self):
         row = self.by_group["newcomer-canada-friend-job-market"]
-        self.assertIn("profils de développeurs", row.questions[0].question)
-        self.assertIn("tests techniques", row.questions[3].question)
-        self.assertIn("IRCC", row.questions[4].answer)
-        self.assertIn("Service Canada", row.questions[5].answer)
+        self.assertIn("profils de développeurs", row.questions[2].question)
+        self.assertIn("tests techniques", row.questions[5].question)
+        self.assertIn("IRCC", row.questions[0].answer)
+        self.assertIn("Service Canada", row.questions[1].answer)
         self.assertIn("brut", row.questions[6].question)
         self.assertIn("annuel", row.questions[6].question)
         for detail in ("sur place", "hybride", "télétravail"):
@@ -729,10 +650,10 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
         self.assertIn("nouveaux élèves", neighbour.questions[4].question)
         self.assertIsNone(neighbour.questions[4].follow_up_to)
         self.assertIn("conseil scolaire", neighbour.questions[0].answer)
-        self.assertIn("faites confirmer la liste", neighbour.questions[7].answer)
-        self.assertIn("D'après ce que vous avez vu", parent.questions[4].question)
-        self.assertIn("j'ai vu l'animatrice", parent.questions[4].answer)
-        self.assertIn("tarifs actuels", parent.questions[7].answer)
+        self.assertIn("confirmer la liste complète", neighbour.questions[7].answer)
+        self.assertIn("D'après ce que vous avez vu", parent.questions[5].question)
+        self.assertIn("j'ai vu l'animatrice", parent.questions[5].answer)
+        self.assertIn("organizer confirms current eligibility, availability, fees", parent.note)
 
     def test_child_stay_and_study_project_use_experience_not_guaranteed_admission(self):
         stay = self.by_group["friend-child-language-stay-abroad"]
@@ -751,12 +672,12 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
     def test_game_and_survey_establish_format_before_following_the_reply(self):
         game = self.by_group["french-teacher-language-school-student-game"]
         survey = self.by_group["french-class-survey-francophone-student"]
-        self.assertIn("principe du jeu", game.questions[0].question)
-        self.assertIn("niveaux", game.questions[1].question)
-        self.assertEqual(game.questions[2].follow_up_to, 1)
-        self.assertEqual(game.questions[3].follow_up_to, 1)
-        self.assertIn("points", game.questions[3].question)
-        self.assertIn("date", game.questions[5].question)
+        self.assertIn("niveaux", game.questions[0].question)
+        self.assertIn("date", game.questions[1].question)
+        self.assertIn("principe du jeu", game.questions[2].question)
+        self.assertEqual(game.questions[3].follow_up_to, 3)
+        self.assertEqual(game.questions[4].follow_up_to, 3)
+        self.assertIn("points", game.questions[4].question)
         self.assertIn("où la pratiquez-vous", survey.questions[6].question)
         self.assertEqual(survey.questions[5].follow_up_to, 5)
         self.assertIn("cette activité", survey.questions[5].question)

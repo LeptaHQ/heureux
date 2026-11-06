@@ -1,4 +1,3 @@
-import copy
 import hashlib
 import json
 
@@ -6,11 +5,9 @@ from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
 from study.tests.eo2_review_fixtures import (
-    FOLLOWUP_GROUPS, FOLLOWUP_PROTECTED_SHA, HOUSE_FACILITIES_FOLLOWUP_FIELDS,
+    assert_review_preservation, pre_realness_history,
     remove_followup_archives,
 )
-from study.tests.housing_work_fixtures import ORIGINAL_HOUSING_GROUPS
-from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
 
 
 class TacheTwoEducationCorpusTests(SimpleTestCase):
@@ -64,66 +61,43 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         for index, question in enumerate(row.questions):
             if index != 1:
                 self.assertEqual(question.question, revisions[4]["questions"][index]["question"])
-        original = {"version": 1, "groups": copy.deepcopy(self.history)}
+        original = pre_realness_history({"version": 1, "groups": self.history})
         remove_followup_archives(original)
         self.assertEqual(
             hashlib.sha256(json.dumps(original, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
             "36a1200196a6395e28183bbaf39dcc356af054a04fdaafffd49f2653e78ebd7b",
         )
-        raw = {
-            item["group"]: item
-            for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
-            for item in json.loads(path.read_text())["dialogues"]
-        }
-        unrelated = {
-            "dialogues": {g: item for g, item in raw.items() if g not in FOLLOWUP_GROUPS},
-            "hints": {g: cues for g, cues in self.hints.items() if g not in FOLLOWUP_GROUPS},
-        }
-        self.assertEqual(
-            hashlib.sha256(json.dumps(unrelated, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
-            FOLLOWUP_PROTECTED_SHA,
-        )
+        assert_review_preservation(self)
 
-    def test_activity_location_and_staff_pickup_wording_preserves_other_held_drafts(self):
+    def test_activity_access_precedes_staff_pickup_and_preserves_earlier_editions(self):
         group = "parent-after-school-activity-advice"
         row = self.by_group[group]
         self.assertEqual(
-            row.questions[2].question,
+            row.questions[3].question,
             "Où se déroulent les activités, et un animateur vient-il chercher les enfants à l'école pour les accompagner jusqu'au lieu de l'activité ?",
         )
-        self.assertIn("un animateur accompagne", row.questions[2].answer)
-        self.assertEqual(self.hints[group][2], {
+        self.assertIn("un animateur accompagne", row.questions[3].answer)
+        self.assertEqual(self.hints[group][3], {
             "french": "Lieu des activités et trajet depuis l'école avec un animateur",
             "english": "Activity venue and a staff escort from school",
         })
         revisions = self.history[group]["revisions"]
-        self.assertEqual(len(revisions), 3)
+        self.assertEqual(
+            len(pre_realness_history({"version": 1, "groups": self.history})["groups"][group]["revisions"]), 3,
+        )
         self.assertEqual(
             hashlib.sha256(json.dumps(revisions[2], ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
             "03e8655150deedec85f3a37885bcc9835552c9541a968ebd1952b622e176cd3c",
         )
-        for index, question in enumerate(row.questions):
-            if index != 2:
-                self.assertEqual(question.question, revisions[2]["questions"][index]["question"])
-        original = {"version": 1, "groups": copy.deepcopy(self.history)}
+        for before, after in ((0, 0), (1, 1), (3, 4), (4, 5), (5, 6), (6, 7), (7, 2)):
+            self.assertEqual(row.questions[after].question, revisions[2]["questions"][before]["question"])
+        original = pre_realness_history({"version": 1, "groups": self.history})
         remove_followup_archives(original)
         self.assertEqual(
             hashlib.sha256(json.dumps(original, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
             "36a1200196a6395e28183bbaf39dcc356af054a04fdaafffd49f2653e78ebd7b",
         )
-        raw = {
-            item["group"]: item
-            for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
-            for item in json.loads(path.read_text())["dialogues"]
-        }
-        unrelated = {
-            "dialogues": {g: item for g, item in raw.items() if g not in FOLLOWUP_GROUPS},
-            "hints": {g: cues for g, cues in self.hints.items() if g not in FOLLOWUP_GROUPS},
-        }
-        self.assertEqual(
-            hashlib.sha256(json.dumps(unrelated, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
-            FOLLOWUP_PROTECTED_SHA,
-        )
+        assert_review_preservation(self)
 
     def test_exact_pre_audit_layouts_remain_archived_without_hidden_answers(self):
         snapshots = []
@@ -151,30 +125,8 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertNotEqual(self.history[school.group]["revisions"][0]["closing"], school.closing)
         self.assertIn("cours d'essai", school.closing)
 
-    def test_earlier_themes_remain_approved_except_the_authorized_house_facilities_followup(self):
-        rows = {
-            row["group"]: row
-            for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
-            for row in json.loads(path.read_text())["dialogues"]
-        }
-        expected = {
-            "arrivee": "eeb337d3fd34d07c863b10f58fa4da53bae6f1b91822e56eaa8042170a48e278",
-            "logement": "a524786ed4b34345571cbbfe0148d355ddc1b52965e0205dab486485003b00b7",
-            "vie-quartier": "3de4534126cd6233e3805ee89724c63644ee928b1b82f29acdcd51a3d5318c4c",
-        }
-        for theme, digest in expected.items():
-            with self.subTest(theme=theme):
-                groups = (
-                    ALL_NEIGHBOURHOOD_GROUPS if theme == "vie-quartier" else
-                    ORIGINAL_HOUSING_GROUPS if theme == "logement" else
-                    {row.group for key, row in self.dialogues.items() if self.themes[key] == theme}
-                )
-                groups = groups - HOUSE_FACILITIES_FOLLOWUP_FIELDS.keys()
-                snapshot = json.dumps(
-                    sorted((rows[group] for group in groups), key=lambda row: row["group"]),
-                    ensure_ascii=False, sort_keys=True,
-                ).encode()
-                self.assertEqual(hashlib.sha256(snapshot).hexdigest(), digest)
+    def test_all_theme_review_preserves_earlier_public_editions(self):
+        assert_review_preservation(self)
 
     def test_exact_first_review_layouts_remain_available_after_the_second_pass(self):
         rewritten = self.groups - {
@@ -216,7 +168,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
             "parent-after-school-activity-advice": {
                 1: ("sport", "dessin", "théâtre"),
                 2: ("âges", "groupe d'âge"),
-                4: ("jours", "commencent-elles", "se terminent-elles"),
+                5: ("jours", "commencent-elles", "se terminent-elles"),
             },
         }
         for group, questions in expected.items():
@@ -300,10 +252,10 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         neighbour = self.by_group["edmonton-newcomer-neighbor-schools"]
         self.assertIn("Edmonton", neighbour.note)
         self.assertIn("already have accommodation", neighbour.note)
-        self.assertIn("ages and language needs are not stated", neighbour.note)
-        self.assertIn("not admissions rules", neighbour.note)
-        self.assertIn("not admissions rules or verified current fees", neighbour.note)
-        self.assertIn("Adapt school levels", neighbour.note)
+        self.assertIn("ages and language needs are unstated", neighbour.note)
+        self.assertIn("school authority confirms eligibility", neighbour.note)
+        self.assertIn("neighbour reports experience, not guarantees", neighbour.note)
+        self.assertIn("Do not infer your children's school levels", neighbour.note)
         self.assertIn("écoles du quartier", neighbour.questions[0].question)
         self.assertIn("notre adresse", neighbour.questions[0].question)
         self.assertIn("à pied ou en bus", neighbour.questions[2].question)
@@ -311,15 +263,15 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertIn("près de la bibliothèque", neighbour.questions[2].answer)
         self.assertIn("D'après votre expérience", neighbour.questions[3].question)
         self.assertIn("premiers jours", neighbour.questions[4].question)
-        self.assertIn("école de mes enfants", neighbour.questions[4].answer)
+        self.assertIn("école primaire de mes enfants", neighbour.questions[4].answer)
         self.assertIn("conseil scolaire", neighbour.questions[0].answer)
         self.assertIn("confirmer la liste", neighbour.questions[7].answer)
         parent = self.by_group["parent-after-school-activity-advice"]
-        self.assertIn("ages are not", parent.note)
-        self.assertIn("Pour le dessin, j'ai payé", parent.questions[5].answer)
+        self.assertIn("ages are unstated", parent.note)
+        self.assertIn("Pour le dessin, j'ai payé", parent.questions[6].answer)
         self.assertIn("multisports", parent.questions[0].answer)
-        self.assertIn("multisports le vendredi", parent.questions[3].answer)
-        self.assertIn("tarifs actuels", parent.questions[7].answer)
+        self.assertIn("multisports le vendredi", parent.questions[4].answer)
+        self.assertIn("organizer confirms current eligibility, availability, fees", parent.note)
         stay = self.by_group["friend-child-language-stay-abroad"]
         self.assertIn("Tom is your friend's child; Jerry is yours", stay.note)
         self.assertIn("Canada and Tom's age are already known", stay.note)
@@ -336,25 +288,26 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         self.assertIn("visité le logement", stay.questions[4].answer)
         self.assertNotIn("test de langue", stay.questions[2].answer)
         self.assertIn("sont anglophones", neighbour.questions[1].answer)
-        self.assertIn("Au primaire de mes enfants", neighbour.questions[6].answer)
+        self.assertIn("Au primaire", neighbour.questions[6].answer)
         self.assertIn("l'an dernier", neighbour.questions[6].answer)
-        self.assertIn("Confirmez le tarif actuel", neighbour.questions[6].answer)
+        self.assertIn("confirmer le tarif actuel", neighbour.questions[6].answer)
 
     def test_game_scoring_and_future_study_plans_follow_the_actual_reply(self):
         game = self.by_group["french-teacher-language-school-student-game"]
         self.assertIn("already a student", game.note)
         self.assertIn("prizes or fees", game.note)
-        self.assertIn("principe du jeu", game.questions[0].question)
-        self.assertNotIn("équipes", game.questions[0].question)
-        self.assertIn("participants", game.questions[0].question)
-        self.assertIn("équipes", game.questions[0].answer)
-        self.assertNotIn("équipes", game.questions[1].answer)
-        self.assertIn("quatre personnes", game.questions[2].answer)
-        self.assertIn("gagnent-elles des points", game.questions[3].question)
-        self.assertEqual(game.questions[3].follow_up_to, 1)
-        self.assertIn("départager", game.questions[3].answer)
-        self.assertIn("téléphone", game.questions[4].question)
-        self.assertIn("À quelle date", game.questions[5].question)
+        self.assertIn("Qui peut participer", game.questions[0].question)
+        self.assertIn("À quelle date", game.questions[1].question)
+        self.assertIn("principe du jeu", game.questions[2].question)
+        self.assertNotIn("équipes", game.questions[2].question)
+        self.assertIn("participants", game.questions[2].question)
+        self.assertIn("équipes", game.questions[2].answer)
+        self.assertNotIn("équipes", game.questions[0].answer)
+        self.assertIn("quatre personnes", game.questions[3].answer)
+        self.assertIn("gagnent-elles des points", game.questions[4].question)
+        self.assertEqual(game.questions[4].follow_up_to, 3)
+        self.assertIn("départager", game.questions[4].answer)
+        self.assertIn("téléphone", game.questions[5].question)
         self.assertIn("Y a-t-il des récompenses", game.questions[6].question)
         self.assertIn("chaque membre", game.questions[6].answer)
         self.assertIn("à quel tarif", game.questions[7].question)
@@ -413,13 +366,13 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         expected = {
             "newcomer-canada-private-french-teacher": {
                 6: "Hourly rate and included learning materials",
-                7: "Trial before choosing individual lessons or a package",
+                7: "Availability of a trial, then per-session payment or a package",
                 8: "Rescheduling or cancellation deadline and handling of prepaid lessons",
             },
             "edmonton-newcomer-neighbor-schools": {
                 1: "Where to check local schools for your address and enrolment eligibility",
                 2: "Schools offering teaching in French",
-                3: "School locations and getting there on foot or by bus",
+                3: "Neighbour's children's schools: locations and access on foot or by bus",
                 4: "Experience of teachers: explanations and help for pupils",
                 5: "New pupils' first days: help from a classmate or teacher",
                 6: "Sports, music activities and clubs: lunchtime or after-school schedules",
@@ -435,10 +388,12 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
                 7: "Favourite free-time activity and where it takes place",
             },
             "french-teacher-language-school-student-game": {
-                1: "Game concept and tasks to complete in French",
-                4: "Scoring: correct answers or speed",
-                5: "Permitted use of mobile phones",
-                6: "Date, times and meeting point",
+                1: "Levels and students allowed to participate",
+                2: "Date, times and meeting point",
+                3: "Game concept and tasks to complete in French",
+                4: "Teams formed by students or the school",
+                5: "Scoring: correct answers or speed",
+                6: "Permitted use of mobile phones",
                 7: "Any prizes for the winners",
             },
             "friend-planned-canadian-studies": {
@@ -461,7 +416,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
                 8: "Backup plan if rain prevents outdoor activities",
             },
             "parent-after-school-activity-advice": {
-                2: "Eligible ages and grouping by age",
+                2: "Drawing workshops: eligible ages and grouping by age",
             },
             "language-school-new-language": {
                 3: "Training of teachers working with beginners",
@@ -474,7 +429,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
             "french-teacher-study-abroad-advice": {
                 1: "Choosing between an exchange, a full degree and a language stay",
                 2: "Comparing course content, teaching language and recognition of the qualification",
-                5: "Costs to budget for beyond tuition fees",
+                5: "Costs beyond tuition fees, especially accommodation and insurance",
             },
         }
         for group, questions in expected.items():

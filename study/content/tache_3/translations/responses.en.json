@@ -4396,6 +4396,11 @@
         "english": "A newcomer who has to move house frequently may find it difficult to attend a regular course. Finding more stable accommodation may enable them to resume their training, without their motivation or abilities having suddenly changed.",
         "french": "Un nouvel arrivant qui doit changer fréquemment de logement peut avoir du mal à suivre un cours régulier. Trouver un hébergement plus stable peut lui permettre de reprendre cette formation, sans que sa motivation ou ses capacités aient soudainement changé."
       },
+      "4cddcd2b0b3bb22f9972c7759cdcde24cb223c80f54a28b168bbd14219756563": {
+        "english": "A newcomer speaks little French and is nervous about calling the doctor's office. A neighbour helps her prepare what to say and stays with her during the call. A few weeks later, she books another appointment by phone without help.",
+        "french": "Une nouvelle arrivante parle encore peu français et n'ose pas appeler le cabinet médical. Une voisine l'aide à préparer ce qu'elle va dire et reste à ses côtés pendant l'appel. Quelques semaines plus tard, elle prend un autre rendez-vous par téléphone, sans aide.",
+        "review_note": "Editorial English aligned with the clarified language barrier, neighbour's practical help and later independent phone call. No provider call was made; previous French and English rows are retained."
+      },
       "52cacea3f5d31ad1a556e82dfb736c3f55d076d018ad87831b13e673623962fd": {
         "english": "That said, personalities and needs differ. Some people prefer to return home or change their plans, even with support. This choice does not prove that they are incapable: the life on offer may simply not suit them.",
         "french": "Cela dit, les tempéraments et les besoins diffèrent. Certaines personnes préfèrent repartir ou changer de projet, même avec du soutien. Ce choix ne prouve pas qu'elles sont incapables : la vie proposée peut simplement ne pas leur convenir.",
@@ -4440,9 +4445,19 @@
         "english": "I believe that many people can learn to adapt to life abroad, but this is not a guaranteed outcome for everyone. Progress can be made, but resources and local support are also needed. Willpower alone is not enough in every situation.",
         "french": "Je pense que beaucoup de personnes peuvent apprendre à s'adapter à l'étranger, mais ce n'est pas un résultat assuré pour tout le monde. On peut progresser, mais il faut aussi des moyens et de l'aide sur place. La volonté seule ne suffit pas dans toutes les situations."
       },
+      "a2e063f32bc7b3d32d5ffaf9933b2cad243994dbdc76b374bf2e2a0ca5a7f207": {
+        "english": "I think many people can learn to adapt to life in a foreign country, but success is not guaranteed for everyone. This ability is not fixed: it develops, and the conditions you arrive in matter a great deal.",
+        "french": "Je pense que beaucoup de personnes peuvent apprendre à s'adapter dans un pays étranger, mais ce n'est pas un résultat assuré pour tout le monde. Cette capacité n'est pas figée : elle se construit, et les conditions dans lesquelles on arrive comptent beaucoup.",
+        "review_note": "Editorial English aligned with the revised French introduction: adaptability is not fixed. No provider call was made; previous French and English rows are retained."
+      },
       "a37438d7c27b5a2830e7ade67b4783dd80bd75eac19778bd2190a8bd7c6081e4": {
         "english": "First and foremost, people can learn to cope better in their new country.",
         "french": "Tout d'abord, on peut apprendre à mieux se débrouiller dans le nouveau pays."
+      },
+      "a6757a7b84053bb7e45db4840a0770603a76896cbce1d8796369c38a4881da8e": {
+        "english": "We don't all arrive in the same circumstances. Some people already have housing and a steady income; others still need to find somewhere to live and a job. In that situation, finding a home and covering everyday costs take priority over language classes or local activities.",
+        "french": "On n'arrive pas tous dans les mêmes conditions. Certains ont déjà un logement et un revenu stable ; d'autres doivent encore chercher où vivre et trouver du travail. Dans ce cas, se loger et payer ses dépenses passent avant les cours de langue ou les activités locales.",
+        "review_note": "Editorial English aligned with the direct comparison of arrival circumstances and immediate priorities. No provider call was made; previous French and English rows are retained."
       },
       "a77919ac4d876d504d026719dfe7dd2bd1cc7149f2d20818f90c5b4068cba8ca": {
         "english": "The ability to adapt is therefore not set in stone from day one.",
@@ -8398,9 +8413,16 @@
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
       "e3ae708b10f37df748c973ab847ee021a2b8f5501ad71c0c3477d1ef070715b7": {
-        "english": "A female student has doubts about the course she chose with her parents' help. She first talks to a female friend to explore what she wants before raising the question with them.",
+        "editorial_history": [
+          {
+            "english": "A female student has doubts about the course she chose with her parents' help. She first talks to a female friend to explore what she wants before raising the question with them.",
+            "french": "Une étudiante doute du cursus choisi avec l'aide de ses parents. Elle en parle d'abord à une amie pour examiner ses envies, avant d'aborder cette question avec eux.",
+            "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+          }
+        ],
+        "english": "A student has doubts about the course she chose with her parents' help. She first talks to a friend to explore what she wants before raising the question with her parents.",
         "french": "Une étudiante doute du cursus choisi avec l'aide de ses parents. Elle en parle d'abord à une amie pour examiner ses envies, avant d'aborder cette question avec eux.",
-        "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+        "review_note": "Use ordinary student and friend wording rather than clinical gender labels, and name the parents to make the decision sequence clear. The complete preceding row is retained in editorial_history; no provider call or DeepL original was fabricated."
       },
       "e6acbd2dfc096467026838f4c70c876e66ff34cb38847e29f052e80a99107864": {
         "english": "Two brothers help each other with a move. Yet, when one has doubts about his relationship, he calls a friend he sees every week and with whom he talks about his personal life.",
@@ -8437,6 +8459,11 @@
       }
     },
     "eo/tache-3/famille-p11": {
+      "076cc97bd2fd9c9c543c66b3925f380f41e964779898d814296233f233d99b7e": {
+        "english": "Some costs do not go down when you live alone. An internet subscription, for example, can cost the same for one person as for two. Sharing these costs as a family can leave each person with more money.",
+        "french": "Certaines dépenses ne baissent pas quand on vit seul. Un abonnement internet, par exemple, peut coûter le même prix pour une personne que pour deux. En famille, partager ces frais peut laisser davantage de moyens à chacun.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "1041708912c705f194932f6273e50e2ca1e5bcdb8a0e2980e268f765f571b41b": {
         "english": "Two sisters share the cost of an internet subscription of forty euros a month, which works out at twenty euros each. If they each take out the same subscription in separate homes, they end up paying for two subscriptions instead of one: each would then have to pay forty euros.",
         "french": "Deux sœurs paient ensemble un abonnement Internet de quarante euros par mois, soit vingt euros chacune. Si elles prennent chacune le même abonnement dans des logements séparés, elles paient deux abonnements au lieu d'un : chacune doit alors payer quarante euros."
@@ -8482,6 +8509,11 @@
         "english": "Someone who comes home late from work can prepare a simple meal and then rest. They do not have to wait for a shared dinner or organise their evening around others.",
         "french": "Une personne qui rentre tard du travail peut préparer un repas simple puis aller se reposer. Elle n'a pas à attendre un dîner commun ni à organiser sa soirée en fonction des autres.",
         "review_note": "Se reposer allows resting without going to bed; preserve the same person's freedom to organise their evening without narrowing rest to sleep."
+      },
+      "43631ac673ec690dd6c9281c5a71e6b629b81f1aaaa77530b6b429b2be2d9226": {
+        "english": "In short, living alone makes some choices easier, but can cost more and require more planning. Family life can be easier if costs and chores are genuinely shared.",
+        "french": "En bref, vivre seul facilite certains choix, mais peut coûter plus cher et demander plus d'organisation. La vie en famille peut être plus facile si les frais et les tâches sont réellement partagés.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "4a35d71380fcf0411f0c5740366efd32477044014ffc6943d0a61ede3351e387": {
         "english": "Next, living alone means paying certain household expenses from a single income.",
@@ -8540,6 +8572,11 @@
         "french": "Le logement, l'abonnement internet et les équipements coûtent cher quand on ne les partage pas. Même si l'on consomme moins, certaines dépenses restent difficiles à réduire. En famille, on peut répartir ces charges, si chacun contribue réellement.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "7c6967e464b642495a5b9c5d37158728381bf189b13101855e35efdc243f0fa8": {
+        "english": "In my view, living alone is not necessarily easier than living with family. You can follow your own routine, but you also have more to deal with on your own. The comparison therefore depends on which costs and chores are actually shared.",
+        "french": "Pour moi, vivre seul n'est pas forcément plus facile que vivre en famille. On peut suivre son propre rythme, mais on assume aussi davantage de choses seul. La comparaison dépend donc des frais et des tâches qu'on partage réellement.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "7d236784b8d1af547692dffbf1e048833302de344323c83876ccc0909df066cb": {
         "english": "In conclusion, living alone makes certain choices easier, but can put a strain on your budget and make practical arrangements more difficult. You need to weigh up your actual circumstances against your priorities, rather than claiming that one way of life is easier for everyone.",
         "french": "En conclusion, vivre seul facilite certains choix, mais peut alourdir le budget et l'organisation pratique. Il faut comparer les conditions réelles et ses priorités, plutôt que déclarer une forme de vie plus facile pour tout le monde."
@@ -8548,6 +8585,11 @@
         "english": "Living alone does not mean having no family or friends. But you must be able to get help without relying on someone already being at home. You need to ask for this support and arrange visits around everyone's availability.",
         "french": "Vivre seul ne signifie pas n'avoir ni famille ni amis. Mais il faut qu'on puisse obtenir de l'aide sans compter sur quelqu'un déjà présent au logement. On doit demander ce soutien et organiser les passages selon les disponibilités de chacun.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "8a5eeda0080345f953095c022414dadf24a8f1418088f104554741abd1d8bc44": {
+        "english": "Finally, living alone can make everyday life harder when you need help.",
+        "french": "Enfin, vivre seul peut compliquer le quotidien quand on a besoin d'aide.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "8ac2dfc9743ba7155f0726ca087135c2d079cc8926bd943e61ff484a19f7efaa": {
         "english": "An internet subscription or certain household equipment costs almost as much for one person as for two. Consuming less is therefore not enough to divide every bill. In a family, sharing these expenses can leave each person with more money.",
@@ -8568,6 +8610,11 @@
         "english": "However, this sharing of responsibilities does not automatically happen within a family. If one person takes on all the tasks or if relationships are strained, living alone can become much simpler. Conversely, living alone does not prevent mutual support or a rich social life outside the home.",
         "french": "Cependant, ce partage n'existe pas automatiquement en famille. Si une seule personne assume toutes les tâches ou si les relations sont tendues, vivre seul peut devenir beaucoup plus simple. Inversement, habiter seul n'empêche ni l'entraide ni une vie sociale riche hors du logement."
       },
+      "ada8ca7eec5cf6df8c32673f1fe0b207c7a394727c3c73663b9d53fc10506f7d": {
+        "english": "This does not mean that family life is always easier. If one person does the shopping, cooking and cleaning for everyone, they carry the whole workload. For that person, living alone can mean less work day to day.",
+        "french": "Cela ne veut pas dire que vivre en famille soit toujours plus facile. Si une seule personne fait les courses, les repas et le ménage pour tout le monde, elle porte toute la charge. Pour cette personne, vivre seule peut donc alléger le quotidien.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "b6e28f35ac0d808d6e5c18aa0a51c64bbd3ecfc5918f8e1b5d4a826c7ca6d55f": {
         "english": "Finally, you must be able to get help when you can no longer do everything yourself.",
         "french": "Enfin, il faut qu'on puisse obtenir de l'aide lorsqu'on ne peut plus tout faire soi-même.",
@@ -8587,6 +8634,18 @@
         "english": "Living alone therefore makes it easier for her to rest: her home can accommodate her needs.",
         "french": "Vivre seule lui facilite donc le repos : son logement peut suivre ses besoins.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "d1f13dc7b6f9f530605ce34b4ed307e6b44902ed8d7e5c9cbd4d7af8f0f1b186": {
+        "editorial_history": [
+          {
+            "english": "If a health problem prevents you from getting groceries or preparing meals, you need help. When you live alone, you have to arrange this support: asking a relative when they can come, or scheduling deliveries.",
+            "french": "Si un problème de santé nous empêche de faire les courses ou de préparer les repas, il faut qu'on puisse obtenir de l'aide. Quand on vit seul, on doit organiser ce soutien : demander à un proche quand il peut venir ou prévoir des livraisons.",
+            "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+          }
+        ],
+        "english": "If a health problem prevents you from getting groceries or preparing meals, you need help. When you live alone, you have to arrange this support: asking someone close to you when they can come, or scheduling deliveries.",
+        "french": "Si un problème de santé nous empêche de faire les courses ou de préparer les repas, il faut qu'on puisse obtenir de l'aide. Quand on vit seul, on doit organiser ce soutien : demander à un proche quand il peut venir ou prévoir des livraisons.",
+        "review_note": "Preserve the general scope of un proche instead of narrowing the available support to relatives; the later sister example is only one possible case. The complete preceding row is retained in editorial_history; no provider call or DeepL original was fabricated."
       },
       "d5fda3ab01f8475a6029cf2a93f56b94da04e4d6cc3d0aeee988a20e4fa0e785": {
         "english": "Two sisters share an internet subscription costing forty euros a month: each pays twenty euros. They then move into separate homes and each takes out the same forty-euro subscription.",
@@ -8618,9 +8677,16 @@
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
       "ea783af54eb812f82d089dafd039dbe82053043f1d31de9917cd532cce7b6e42": {
-        "english": "They can stay at home, but it takes preparations that a family who were there and available could have partly spared them.",
+        "editorial_history": [
+          {
+            "english": "They can stay at home, but it takes preparations that a family who were there and available could have partly spared them.",
+            "french": "Elle peut rester chez elle, mais cela demande des préparatifs qu'une famille présente et disponible aurait pu lui épargner en partie.",
+            "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+          }
+        ],
+        "english": "They can stay at home, but this takes planning. With family at home and available to help, they might have had less to organise.",
         "french": "Elle peut rester chez elle, mais cela demande des préparatifs qu'une famille présente et disponible aurait pu lui épargner en partie.",
-        "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+        "review_note": "Make the English easier to follow while retaining the counterfactual, availability condition and only partial reduction in preparations. The complete preceding row is retained in editorial_history; no provider call or DeepL original was fabricated."
       },
       "ee3f1e3b10271c2ddcd793f5e99c398574d552f26b91cceb1bdeb8002a7ee64d": {
         "english": "Shopping, cooking and housework are still necessary when living alone. In a household where everyone pitches in, one person can take over when the other has a busy day.",
@@ -8636,6 +8702,11 @@
       "024788ac331ae7072c5f5f65203c77d750410188f07639d96c534eb41c31371a": {
         "english": "A calm response allows the problem to be resolved whilst maintaining a dialogue with the child.",
         "french": "Une réaction calme permet de régler le problème tout en gardant le dialogue avec l'enfant."
+      },
+      "0d71048c03e613b8c3b063aa4d6177efdd7e15c95470252e5b504654795bc914": {
+        "english": "I believe parents should set clear rules, but not make children obey out of fear. They can explain their decisions and listen to their child while still setting limits.",
+        "french": "Je suis pour des règles claires, mais pas pour une éducation fondée sur la peur. Les parents peuvent expliquer leurs décisions et écouter l'enfant sans renoncer à poser des limites.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "0dff0cb3b83bd717e3c165e5f8a3a1a7b882c29b34799d985269f1d148b73657": {
         "english": "Finally, offering age-appropriate choices helps children become independent.",
@@ -8664,6 +8735,11 @@
       "20294a5f9c85838ccd08922e1e32154d9a984bbcb987eede7b66526f5207dfdf": {
         "english": "When the baby is having a nap, his seven-year-old brother must play without making too much noise. His father explains why and suggests he draw in another room. The child can continue to keep himself occupied whilst the baby sleeps.",
         "french": "Quand le bébé fait sa sieste, son frère de sept ans doit jouer sans faire trop de bruit. Son père lui explique pourquoi et lui propose de dessiner dans une autre pièce. L'enfant peut continuer à s'occuper pendant que le bébé dort."
+      },
+      "208920c8b093e65403b19794c80ffb0ceb13f02fc7c69aaa0557667bc2a8cdcc": {
+        "english": "The child keeps playing without using the siren. He can still enjoy his game while letting the baby sleep.",
+        "french": "L'enfant continue à jouer sans faire sonner la sirène. Il peut ainsi s'amuser tout en laissant le bébé dormir.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "238fb6bef752fa1b52f4fad6944a32e4cfe36a367be669a10d0574cc3ee56286": {
         "english": "After damaging a library book, a child hesitates to show it, then tells their parent about it. The parent listens without shouting and helps them contact the library to find out how to replace it. The child can thus make amends for their mistake rather than hiding it.",
@@ -8721,6 +8797,11 @@
         "english": "If a child expects to be shouted at before they’ve even had a chance to explain themselves, they may hide what has happened. The problem then remains unresolved, and the parent cannot help them.",
         "french": "S'il s'attend à des cris avant même d'avoir pu s'expliquer, il risque de cacher ce qui s'est passé. Le problème reste alors sans solution, et le parent ne peut pas l'aider."
       },
+      "8011cf8ee11d0eba30a1a0cbd6a9f3d4688c0372a1ce24afbd4a41d16ef9fe6e": {
+        "english": "While the baby is having a nap, a seven-year-old boy sounds the siren on his toy truck. His father tells him, 'You can keep playing, but without the siren, so the baby can sleep.'",
+        "french": "Pendant la sieste du bébé, un garçon de sept ans fait sonner la sirène de son camion jouet. Son père lui dit : « Tu peux continuer à jouer, mais sans la sirène, pour laisser dormir le bébé. »",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "8504b331da9f5501f4cd9f9628fa7b57330e000db21142429965fcb4b15f2302": {
         "english": "A teenager must be home before 10 pm because transport becomes infrequent afterwards. They choose their outing, check their route and let their parents know if they are delayed.",
         "french": "Un adolescent doit rentrer avant vingt-deux heures parce que les transports deviennent rares ensuite. Il choisit sa sortie, vérifie son trajet et prévient en cas de retard.",
@@ -8755,6 +8836,11 @@
       "b0943df8b9e846e19e51231ff95ba9b1b4b5e974a876867ec8ece0b47eca800a": {
         "english": "Parents can set out what needs to be done without deciding every single detail. The aim is not for parents to decide everything indefinitely, but for children to learn to organise themselves.",
         "french": "Le parent peut fixer ce qui doit être fait sans décider de chaque détail. L'objectif n'est pas que le parent décide de tout indéfiniment, mais que l'enfant apprenne à s'organiser."
+      },
+      "b75793a73c8a7efc2cace883ba9fae3e8b5ebcc4729113b218a020dd8597178c": {
+        "english": "Parents can decide what needs to be done, then let the child suggest how to do it. Giving children choices suited to their age helps them learn to make decisions and follow through on what they have agreed to do.",
+        "french": "Les parents peuvent fixer ce qui doit être fait, puis laisser l'enfant proposer comment s'organiser. Avec des choix adaptés à son âge, l'enfant apprend à prendre des décisions et à respecter les engagements qu'il a lui-même pris.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "b7e73fbba50418efd827ce029b569c988aeb61493aa4cc0ca207c785dc84fdda": {
         "english": "Finally, the aim is not for children always to obey, but for them to learn to choose.",
@@ -9067,6 +9153,11 @@
       }
     },
     "eo/tache-3/famille-p14": {
+      "0350e9bb995b948bd33322d962039a3b1f5324eb738b7761650da9477ed9bba6": {
+        "english": "Everyday household skills are learned through practice. A parent first shows the child what to do, then guides them through their first attempts. By repeating the task with less and less help, the child learns to do it alone.",
+        "french": "Les gestes du quotidien s'apprennent avec de la pratique. Un parent montre d'abord comment faire, puis guide l'enfant pendant ses premiers essais. En répétant la tâche avec de moins en moins d'aide, l'enfant apprend à la faire seul.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "03fff20f8097502e66eea75cc51cef21c36c0e41b52f663014f320cf8087a954": {
         "english": "Furthermore, taking part helps people learn useful skills for living independently.",
         "french": "Ensuite, participer permet d'apprendre des gestes utiles pour vivre de manière autonome."
@@ -9092,6 +9183,16 @@
       "11fdde4853efc33a815a6129ac3e83d062fe64a97396f60d60b1e9b509b1c5a7": {
         "english": "Finally, a clear system of organisation prevents things from being overlooked and avoids arguments about what each person is supposed to do.",
         "french": "Enfin, une organisation claire évite les oublis et les disputes sur ce que chacun doit faire."
+      },
+      "171090dd8b35188c8c4c96da0489a02ee4279549a3dc55f248721000a17c6831": {
+        "english": "Yes, everyone in the household should do their share of the chores, according to their abilities. Keeping the home clean and organising everyday tasks should not fall to just one person.",
+        "french": "Oui, chaque membre du foyer devrait participer aux tâches selon ses possibilités. Le ménage et l'organisation du quotidien ne devraient pas reposer sur une seule personne.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "2af9ae67af72cb528bc46d5cc09e0edff54e439b038ce68cbb13aec034f36846": {
+        "english": "For example, a parent shows their teenage son how to sort laundry and choose the wash programme. The teenager then does several loads under the parent's supervision. Once he feels comfortable doing it, he washes his clothes without needing help.",
+        "french": "Par exemple, un parent montre à son adolescent comment trier le linge et choisir le programme de lavage. L'adolescent fait ensuite plusieurs lessives sous sa supervision. Une fois à l'aise, il lave ses vêtements sans avoir besoin d'aide.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "37f32d03db210a4241a24c0e7bc52a8d6bac298dcdb44c5f01e425a7199c6b99": {
         "english": "For children, contributing also prepares them for independence.",
@@ -9127,6 +9228,11 @@
         "french": "On ne sait pas gérer un logement simplement parce qu'on atteint un certain âge. Il faut apprendre à cuisiner, laver le linge et ranger le matériel utilisé. Les parents montrent les gestes, puis laissent essayer avec des responsabilités adaptées.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "56d278d5b10e6a1ee8c082357f9074148b32d6d80c51016469af0785c30b7c84": {
+        "english": "Finally, a clear division of chores can reduce arguments at home.",
+        "french": "Enfin, une répartition claire des tâches peut réduire les disputes à la maison.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "572622dfd97780f2be0f514966c752c9f70e2befc0a27c894c0252b45288c8f7": {
         "english": "A teenager can learn to sort the laundry and select the wash cycle with an adult. After several supervised attempts, they can take charge of a wash, rather than only discovering how to use the machine on the day they leave home.",
         "french": "Un adolescent peut apprendre à trier le linge et à choisir le programme de lavage avec un adulte. Après plusieurs essais accompagnés, il peut prendre en charge une lessive, plutôt que découvrir la machine seulement le jour où il quitte le domicile familial."
@@ -9140,6 +9246,11 @@
         "french": "Donc oui, chacun devrait contribuer selon ses moyens. Le partage devient réel quand personne n'a à tout faire ni à rappeler sans cesse aux autres ce qu'il reste à prévoir.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
+      "7e33a609b5127cd25e81a7f09492fa316829e3c1c6a232b2df60982f349ac9e9": {
+        "english": "The father has less need to remind his son, and this chore causes fewer arguments between them.",
+        "french": "Le père a moins besoin de relancer son fils, et cette tâche provoque moins de disputes entre eux.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "83df63b6b63a4d937d85d7b450ca53181182a7e3d942be4eafb1e0a6f5567be9": {
         "english": "The other person no longer has to remind them or check every step. The organisational work is shared too.",
         "french": "L'autre personne n'a plus à rappeler ni à vérifier chaque étape. Le travail d'organisation est lui aussi réparti.",
@@ -9149,6 +9260,11 @@
         "english": "In a couple where both partners work, one prepares dinner while the other lays the table and tidies the kitchen afterwards. Neither spends the whole evening managing the meal alone.",
         "french": "Dans un couple où les deux travaillent, l'un prépare le dîner pendant que l'autre met la table et range ensuite la cuisine. Personne ne passe toute la soirée à gérer seul le repas.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "8d8f6c4e70756e7bb8978471c027e6322a9cfd0368bbda422ebdb0816285fab9": {
+        "english": "The work does not fall to just one parent, and both have time to rest.",
+        "french": "Le travail ne repose pas sur un seul parent, et chacun garde du temps pour se reposer.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "93b463d03d6c5768985c9046a3a417632831d70f852282131f973ccbcdeea8af": {
         "english": "Everyone benefits from a meal, clean clothes or a tidy room. If just one person consistently carries out the tasks, they are using up their own rest time so that others can rest.",
@@ -9162,6 +9278,11 @@
       "9a0c091e38b3206571d77a157395916abf105fc8ad9b7ddeaf6dd149b422fe91": {
         "english": "Two parents come home from work at around six o’clock. Whilst one prepares dinner, the other sets the table and then does the washing-up after the meal. Once the kitchen is tidied up, they both have a moment to rest.",
         "french": "Deux parents rentrent du travail vers dix-huit heures. Pendant que l'un prépare le dîner, l'autre met la table, puis fait la vaisselle après le repas. Une fois la cuisine rangée, ils ont tous les deux un moment pour se reposer."
+      },
+      "9ace8f2b9250d86f17735bf6fe848da84b50e36defcb1a0a09e30f2a78e87f9e": {
+        "english": "Cooking, washing up and doing the laundry take time. If one person does it all, that leaves them less time to rest. Sharing the chores means they do not have to carry the whole workload alone.",
+        "french": "Préparer les repas, faire la vaisselle et laver le linge prennent du temps. Si une seule personne fait tout, c'est autant de temps en moins pour se reposer. Répartir ces tâches évite de lui laisser tout le travail.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "9b4f7bb41ab6b487df694a239cbe44f7d2edeab8946c83522acb155dbc2d9841": {
         "english": "But sharing remains incomplete if one person still has to plan everything.",
@@ -9201,10 +9322,20 @@
         "french": "La personne responsable des courses vérifie les placards, prépare la liste et achète les produits. Elle n'attend pas que quelqu'un d'autre remarque ce qui manque et lui dicte chaque article.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
+      "d35ae16761c0bec58ceffc0a241d9dd1fe4475438eab7bfdd2779b382dc11a09": {
+        "english": "A father often has to remind his teenage son to take out the rubbish, which ends up causing arguments. They then agree that the teenager will take it out after dinner, except on evenings when he has sports practice, when his father takes over.",
+        "french": "Un père doit souvent rappeler à son adolescent de sortir les poubelles, ce qui finit par créer des disputes. Ils se mettent alors d'accord : l'adolescent les sort après le dîner, sauf les soirs d'entraînement, où le père s'en charge.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "dd4e473abc2e1f6eab3347cde57ad5c75db1d16e4af07d871db35faf25d3342a": {
         "english": "Noticing what is missing, planning when to act and checking the result also take work. If someone gives every instruction, they remain responsible for the whole thing. Everyone therefore needs to manage their task from start to finish.",
         "french": "Remarquer ce qui manque, prévoir quand agir et vérifier le résultat demandent aussi du travail. Si quelqu'un distribue chaque consigne, il reste responsable de l'ensemble. Il faut donc que chacun gère sa tâche jusqu'au bout.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "e12d90ec32aa01855445951ce1101bcc3328fa2a0f1511c59a5e146d0f81aa66": {
+        "english": "When no one knows who should do what or when, reminders multiply and can feel like criticism. Everyone therefore needs to know what they are committing to do, taking their schedule into account.",
+        "french": "Quand personne ne sait qui doit faire quoi ni quand, les rappels se multiplient et peuvent être vécus comme des reproches. Il faut donc que chacun sache ce qu'il s'engage à faire, en tenant compte de ses horaires.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "e66adbea9902df82a562cb0908fa9dbe1554280863127f5913bffa434400357c": {
         "english": "However, illness, a disability or a particularly difficult period may justify a reduced contribution, or even no tasks at all. One should not have to perform a service in order to be recognised as a member of the household. A fair system adapts to actual abilities and can be reviewed.",
@@ -9232,6 +9363,11 @@
       "f15188ecbe0207e383aac2c97ae542cf613a6cc0e575ebae2f33a7ec0dd0a4e9": {
         "english": "They are then able to look after their own laundry without relying on anyone else.",
         "french": "Il sait alors s'occuper de son linge sans dépendre de quelqu'un d'autre."
+      },
+      "f3b65c5aad1a2d8880589ee400e181efc293729ac9ef203d08f6128acd1fd404": {
+        "english": "So yes, everyone should contribute according to their abilities. This leaves time to rest, teaches useful skills and helps limit everyday tensions.",
+        "french": "Donc oui, chacun devrait contribuer selon ses moyens. Cela permet de garder du temps pour se reposer, d'apprendre des gestes utiles et de limiter les tensions au quotidien.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "f6d75a9f8155df75ecf33d8e131e0ffaf4e7a8d2e860d38242dfee8457b446b6": {
         "english": "Yes, I think household chores should be shared, according to each person’s abilities. That doesn’t mean asking the same of a child as of an adult. We ensure that one person doesn’t have to do everything, we learn useful skills and we organise the home more effectively.",
@@ -9288,6 +9424,11 @@
         "french": "Une adulte qui rentre tard prévient ses parents sans demander l'autorisation de sortir. En échange, elle évite le bruit et respecte les espaces communs.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "2c76f4d38dd9bc3431920535cc8131cbe21e22ba31e737ecba4e2239d7d6fb2a": {
+        "english": "A woman tells her parents she'll be home late. She doesn't need their permission to go out, but she comes in quietly so she doesn't wake them.",
+        "french": "Une femme prévient ses parents qu'elle rentrera tard. Elle n'a pas à leur demander la permission de sortir, mais elle fait attention à ne pas les réveiller en rentrant.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "37584e10c9fe2d5b6a62b83e151d67109cc9ac169a835f64b02a7e490bde6b8a": {
         "english": "Preparing a meal or doing the shopping for several people can sometimes save everyone from having to do it separately. This works if the adults genuinely pitch in, rather than leaving the parents to do everything.",
         "french": "Préparer un repas ou faire les courses pour plusieurs personnes évite parfois que chacun s'en occupe séparément. Cela fonctionne si les adultes participent vraiment, au lieu de laisser les parents tout faire."
@@ -9301,6 +9442,11 @@
         "english": "So yes, staying with your parents can be practical if everyone benefits. The criterion is not age, but the balance between savings, mutual help and independence.",
         "french": "Donc oui, rester chez ses parents peut être pratique si chacun y trouve son compte. Le critère n'est pas l'âge, mais l'équilibre entre économies, entraide et indépendance.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "407bce101f1419179fbe71378208743a897681bdc27a00e7696c7916e7b59832": {
+        "english": "First, staying with your parents can help you avoid financial difficulty.",
+        "french": "D'abord, rester chez ses parents peut éviter de se mettre en difficulté financière.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "46e77544408f08d15d52e15e98be03a5ae50544cccc485323471ec40feb6c61c": {
         "english": "Next, living together can be an exchange rather than simply somewhere to stay.",
@@ -9320,6 +9466,11 @@
         "english": "Finally, a practical solution must also respect adults' freedom.",
         "french": "Enfin, une solution pratique doit aussi respecter la liberté des adultes.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "6330d00d334f7ec2eefbc61b76a42b286aa192804aa4ead72601d01eecd1d9a4": {
+        "english": "On a modest income, rent and bills can take up a large part of your budget. Even when you contribute to expenses at your parents' home, you may spend less on housing and be better able to cover your other needs.",
+        "french": "Quand on a un revenu modeste, un loyer et les charges peuvent absorber une grande partie du budget. Même en participant aux frais chez ses parents, on peut dépenser moins pour se loger et mieux couvrir ses autres besoins.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "6455ea37646daac7bbef13b98a17aebc4cfbfcb39baa19160c2c2e6bd1a2d58f": {
         "english": "For this to last, everyone's privacy and freedom must also be respected.",
@@ -9369,6 +9520,11 @@
         "french": "L'avantage le plus concret est de pouvoir consacrer une partie de son budget à un projet.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
+      "8e01c7184a0b4a300b966240493497d371d9d19d8f46f16ce2a013d441236ce9": {
+        "english": "He contributes to household expenses while keeping more money for his other needs.",
+        "french": "Il participe aux frais du foyer tout en gardant davantage d'argent pour ses autres dépenses.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "99177ffd12358ae56afe422432b751900be278c2ea8a20b5eea0d5929d5a9d80": {
         "english": "You can therefore use the money saved towards a project, even whilst contributing to family expenses.",
         "french": "On peut donc utiliser l'argent économisé pour un projet, même en participant aux dépenses familiales."
@@ -9413,9 +9569,19 @@
         "french": "Il faut discuter des horaires, des visites et des espaces privés. Le jeune respecte le foyer, mais les parents ne décident plus de tous ses choix. Sans cet équilibre, les économies peuvent s'accompagner de tensions permanentes.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "ec78e5e1e73e56274ffa152573f6eb423633e1702381fcd3258728bde4b5f0ec": {
+        "english": "A twenty-seven-year-old man earns fourteen hundred euros a month. A studio flat would cost him nine hundred euros a month, before bills. With his parents' agreement, he stays with them and contributes three hundred euros a month.",
+        "french": "Un homme de vingt-sept ans gagne mille quatre cents euros par mois. Un studio lui coûterait neuf cents euros, sans les charges. Avec l'accord de ses parents, il reste chez eux et leur verse trois cents euros par mois.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "ed1ffd4c554487e98388ae9e75498240e2b82bf449a7c3e2eca9549cec0318ed": {
         "english": "It is therefore possible to have a supportive environment whilst still making your own decisions.",
         "french": "On peut donc être entouré tout en continuant à décider pour soi-même."
+      },
+      "eec7499502b422239a8d071468e2cb743e3af2ea9fcb8547172ff39f695f7021": {
+        "english": "A father lets his adult son live with him. In return, his son does the shopping and prepares dinner when his father works late. This means his father comes home to a ready meal.",
+        "french": "Un père héberge son fils adulte. Le fils, de son côté, fait les courses et prépare le dîner les jours où son père travaille tard. En rentrant, le père trouve le repas prêt.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "f412e63c3f98fa8e35d130c8d407fc9089402320da3baaeca2a8ad67742f3449": {
         "deepl_english": "A 27-year-old is returning to education. A studio flat would cost her nine hundred euros a month, including service charges. She agrees with her parents to contribute three hundred euros towards the rent and service charges. The six hundred euros she saves could pay for her tuition fees.",
@@ -9669,6 +9835,11 @@
       }
     },
     "eo/tache-3/famille-p3": {
+      "03089f8a74ce10de8a91807f62d08d2680b4c16593ba44428d9cb69357c8f877": {
+        "english": "A grandfather had left his job before checking the cost of his training. When his granddaughter considers taking a course to change careers, he advises her to check whether her savings would cover the course fees before resigning.",
+        "french": "Un grand-père avait quitté son emploi avant de vérifier le coût de sa formation. Quand sa petite-fille envisage de se former à un autre métier, il lui conseille de vérifier si ses économies suffisent à payer les cours avant de démissionner.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "04a5cb7aab6c3527479099b76b44bde5461f1e50cc181a717c3c0026557eabb5": {
         "english": "We can keep the idea of showing initiative while adapting the method to current practices.",
         "french": "On peut retenir l'idée de faire preuve d'initiative en adaptant la méthode aux pratiques actuelles.",
@@ -9728,6 +9899,11 @@
         "english": "But this experience comes from the past, and some rules have changed.",
         "french": "Mais cette expérience vient du passé, et certaines règles ont changé.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "7a1b2cf632dec4d7f2bb336ba28bbc25c17c671a64e16ba0258a6a2f5fe38a7f": {
+        "english": "A grandmother recommends a stable job close to the family. Her granddaughter has received a job offer abroad in the field she studied. They discuss the risks, but the young woman chooses the role because it lets her start working in her chosen field.",
+        "french": "Une grand-mère recommande un emploi stable près de la famille à sa petite-fille. Celle-ci a reçu une offre à l'étranger dans le domaine qu'elle a étudié. Elles discutent des risques, mais la jeune femme choisit ce poste pour commencer à travailler dans sa spécialité.",
+        "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "7a968ce9f397a8282a172f77d14f79b6e228ecfafcec12e9287d9865c41970ef": {
         "deepl_english": "A loved one who listens to our wishes and constraints can help us weigh up various options to find the one that suits us best. This quality depends on the relationship, not automatically on their age.",

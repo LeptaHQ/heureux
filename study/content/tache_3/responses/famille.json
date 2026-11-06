@@ -84,7 +84,7 @@
         {
           "idea": "L'expérience vécue peut d'abord nous éviter de refaire une erreur.",
           "developpement": "Une personne qui a déjà traversé une situation peut expliquer ce qu'elle n'avait pas prévu et les conséquences de son choix. Ce récit donne des points précis à vérifier, bien plus utiles qu'un simple encouragement à faire attention.",
-          "exemple": "Un grand-père avait quitté son emploi avant de vérifier le coût d'une formation. Quand sa petite-fille envisage une reconversion, il lui conseille de comparer les frais avec ses économies avant de démissionner.",
+          "exemple": "Un grand-père avait quitté son emploi avant de vérifier le coût de sa formation. Quand sa petite-fille envisage de se former à un autre métier, il lui conseille de vérifier si ses économies suffisent à payer les cours avant de démissionner.",
           "consequence": "Elle fait son budget et vérifie que son projet est réaliste avant de quitter son poste."
         },
         {
@@ -96,7 +96,7 @@
         {
           "idea": "Même quand les informations sont exactes, le conseil peut refléter d'autres priorités que les nôtres.",
           "developpement": "Certains privilégient la sécurité, d'autres la créativité ou la liberté. Un aîné peut vouloir nous protéger en recommandant son propre choix. Pour qu'un conseil soit utile, il faut aussi qu'il tienne compte de nos capacités et de nos envies.",
-          "exemple": "Une grand-mère recommande un emploi stable près de la famille à sa petite-fille, qui souhaite travailler à l'étranger. Elles comparent les risques et le budget, mais la jeune femme garde son projet de départ.",
+          "exemple": "Une grand-mère recommande un emploi stable près de la famille à sa petite-fille. Celle-ci a reçu une offre à l'étranger dans le domaine qu'elle a étudié. Elles discutent des risques, mais la jeune femme choisit ce poste pour commencer à travailler dans sa spécialité.",
           "consequence": "Le conseil aide à réfléchir, mais ne remplace pas la décision de la personne concernée."
         }
       ],
@@ -326,7 +326,7 @@
       },
       "reformulation": "Est-ce que vivre seul simplifie vraiment la vie, ou est-ce qu'on échange certaines contraintes contre d'autres ?",
       "position": "Pour moi, vivre seul donne plus de liberté, mais ce n'est pas forcément plus facile sur le plan financier et pratique.",
-      "position_claire": "Vivre seul me paraît plus facile pour suivre son rythme, mais pas pour tout assumer. La même situation peut simplifier nos journées et compliquer notre budget. Avant de dire que c'est mieux qu'en famille, il faut donc préciser de quoi on parle.",
+      "position_claire": "Pour moi, vivre seul n'est pas forcément plus facile que vivre en famille. On peut suivre son propre rythme, mais on assume aussi davantage de choses seul. La comparaison dépend donc des frais et des tâches qu'on partage réellement.",
       "arguments": [
         {
           "idea": "D'abord, vivre seul permet de suivre son propre rythme.",
@@ -336,19 +336,19 @@
         },
         {
           "idea": "Cette liberté a cependant un coût, puisque certaines dépenses ne sont plus partagées.",
-          "developpement": "Un abonnement internet ou certains équipements coûtent presque autant pour une personne que pour deux. Consommer moins ne suffit donc pas à diviser toutes les factures. En famille, partager ces dépenses peut laisser davantage de moyens à chacun.",
+          "developpement": "Certaines dépenses ne baissent pas quand on vit seul. Un abonnement internet, par exemple, peut coûter le même prix pour une personne que pour deux. En famille, partager ces frais peut laisser davantage de moyens à chacun.",
           "exemple": "Deux sœurs partagent un abonnement internet à quarante euros par mois : chacune paie vingt euros. Elles prennent ensuite deux logements et souscrivent chacune le même abonnement à quarante euros.",
           "consequence": "Pour le même service, chacune dépense deux fois plus. Sur un petit budget, cette différence compte."
         },
         {
-          "idea": "La difficulté se voit aussi quand on ne peut temporairement plus tout faire soi-même.",
-          "developpement": "Vivre seul ne signifie pas n'avoir ni famille ni amis. Mais il faut qu'on puisse obtenir de l'aide sans compter sur quelqu'un déjà présent au logement. On doit demander ce soutien et organiser les passages selon les disponibilités de chacun.",
+          "idea": "Enfin, vivre seul peut compliquer le quotidien quand on a besoin d'aide.",
+          "developpement": "Si un problème de santé nous empêche de faire les courses ou de préparer les repas, il faut qu'on puisse obtenir de l'aide. Quand on vit seul, on doit organiser ce soutien : demander à un proche quand il peut venir ou prévoir des livraisons.",
           "exemple": "Après une opération du genou, une personne seule demande à sa sœur de faire les courses le samedi et prévoit des livraisons de repas pour la semaine. Elle organise ces aides avant de rentrer chez elle.",
           "consequence": "Elle peut rester chez elle, mais cela demande des préparatifs qu'une famille présente et disponible aurait pu lui épargner en partie."
         }
       ],
-      "nuance": "La cohabitation n'aide évidemment que si les relations sont respectueuses et les tâches partagées. Si une personne fait tout pour les autres, vivre seule peut être un soulagement. Habiter seul n'empêche d'ailleurs pas d'avoir une vie sociale riche.",
-      "conclusion": "En bref, vivre seul est plus facile pour décider, pas forcément pour tout assumer. Je choisirais selon mes besoins de liberté, mes moyens et la qualité de la cohabitation possible.",
+      "nuance": "Cela ne veut pas dire que vivre en famille soit toujours plus facile. Si une seule personne fait les courses, les repas et le ménage pour tout le monde, elle porte toute la charge. Pour cette personne, vivre seule peut donc alléger le quotidien.",
+      "conclusion": "En bref, vivre seul facilite certains choix, mais peut coûter plus cher et demander plus d'organisation. La vie en famille peut être plus facile si les frais et les tâches sont réellement partagés.",
       "argument_ids": [
         1,
         2,
@@ -361,13 +361,13 @@
       },
       "reformulation": "Faut-il être très strict avec ses enfants pour bien les éduquer ?",
       "position": "Je suis pour une autorité ferme et expliquée, mais pas pour une éducation fondée sur la peur.",
-      "position_claire": "Je distingue avoir de l'autorité et être autoritaire. Un enfant a besoin de règles, mais la peur ne l'aide pas à les comprendre. Je préfère une attitude ferme et expliquée, qui prépare son autonomie.",
+      "position_claire": "Je suis pour des règles claires, mais pas pour une éducation fondée sur la peur. Les parents peuvent expliquer leurs décisions et écouter l'enfant sans renoncer à poser des limites.",
       "arguments": [
         {
           "idea": "Les règles servent d'abord à apprendre à vivre avec les autres.",
           "developpement": "Un jeune enfant pense à ce qu'il a envie de faire sans toujours voir les besoins autour de lui. Le parent doit poser une limite, mais aussi en expliquer la raison et proposer une façon de continuer autrement.",
-          "exemple": "Pendant la sieste du bébé, un père demande à son fils de sept ans de faire moins de bruit. Il lui explique que le bébé dort et lui propose de dessiner dans une autre pièce.",
-          "consequence": "L'enfant continue son activité et le bébé peut dormir. La règle répond à un besoin qu'il peut comprendre."
+          "exemple": "Pendant la sieste du bébé, un garçon de sept ans fait sonner la sirène de son camion jouet. Son père lui dit : « Tu peux continuer à jouer, mais sans la sirène, pour laisser dormir le bébé. »",
+          "consequence": "L'enfant continue à jouer sans faire sonner la sirène. Il peut ainsi s'amuser tout en laissant le bébé dormir."
         },
         {
           "idea": "Mais si on fait respecter toutes les règles par la peur, l'enfant risque surtout de se taire.",
@@ -377,7 +377,7 @@
         },
         {
           "idea": "Enfin, le but n'est pas que l'enfant obéisse toujours, mais qu'il apprenne à choisir.",
-          "developpement": "Les parents peuvent expliquer une règle et laisser une marge de décision adaptée à l'âge. L'enfant exerce alors son jugement au lieu d'attendre un ordre pour chaque geste. La fermeté n'empêche donc pas d'écouter ses propositions.",
+          "developpement": "Les parents peuvent fixer ce qui doit être fait, puis laisser l'enfant proposer comment s'organiser. Avec des choix adaptés à son âge, l'enfant apprend à prendre des décisions et à respecter les engagements qu'il a lui-même pris.",
           "exemple": "Un adolescent propose de commencer ses devoirs à dix-sept heures. Sa mère accepte à condition qu'ils soient finis avant le dîner. Une semaine plus tard, il tient cet horaire sans qu'elle ait à le lui rappeler.",
           "consequence": "Il apprend à organiser son travail dans un cadre fixé par le parent. La confiance repose ainsi sur un engagement qu'il respecte."
         }
@@ -431,33 +431,33 @@
       },
       "reformulation": "Est-ce que chacun doit prendre une part du travail à la maison, même les enfants ?",
       "position": "Oui, pour moi, tous les membres du foyer devraient participer, selon leur âge et leurs possibilités.",
-      "position_claire": "Oui, chaque membre du foyer devrait participer aux tâches selon ses possibilités. Ce n'est pas simplement une faveur qu'on fait à la personne qui s'en occupe d'habitude. À mon avis, vivre ensemble implique aussi de prendre soin de son logement ensemble.",
+      "position_claire": "Oui, chaque membre du foyer devrait participer aux tâches selon ses possibilités. Le ménage et l'organisation du quotidien ne devraient pas reposer sur une seule personne.",
       "arguments": [
         {
           "idea": "D'abord, partager les tâches est une question de justice.",
-          "developpement": "Tout le monde profite des repas et du linge propre. Si une seule personne s'en occupe, les autres se reposent pendant qu'elle travaille. Participer n'est donc pas lui rendre service, mais assumer sa part de la vie commune.",
+          "developpement": "Préparer les repas, faire la vaisselle et laver le linge prennent du temps. Si une seule personne fait tout, c'est autant de temps en moins pour se reposer. Répartir ces tâches évite de lui laisser tout le travail.",
           "exemple": "Deux parents rentrent du travail à dix-huit heures. L'un prépare le dîner et l'autre met la table. Après le repas, le second fait la vaisselle. Une fois la cuisine rangée, tous les deux peuvent se reposer.",
-          "consequence": "Les deux gardent du temps libre : le repos de l'un ne dépend plus du travail de l'autre."
+          "consequence": "Le travail ne repose pas sur un seul parent, et chacun garde du temps pour se reposer."
         },
         {
           "idea": "Pour les enfants, cette participation prépare aussi l'autonomie.",
-          "developpement": "On ne sait pas gérer un logement simplement parce qu'on atteint un certain âge. Il faut apprendre à cuisiner, laver le linge et ranger le matériel utilisé. Les parents montrent les gestes, puis laissent essayer avec des responsabilités adaptées.",
-          "exemple": "Un adolescent apprend à trier son linge et à lancer une machine avec un parent. Ensuite, il s'occupe régulièrement de ses vêtements sans attendre que quelqu'un le fasse pour lui.",
+          "developpement": "Les gestes du quotidien s'apprennent avec de la pratique. Un parent montre d'abord comment faire, puis guide l'enfant pendant ses premiers essais. En répétant la tâche avec de moins en moins d'aide, l'enfant apprend à la faire seul.",
+          "exemple": "Par exemple, un parent montre à son adolescent comment trier le linge et choisir le programme de lavage. L'adolescent fait ensuite plusieurs lessives sous sa supervision. Une fois à l'aise, il lave ses vêtements sans avoir besoin d'aide.",
           "consequence": "Il acquiert une compétence concrète qui lui servira lorsqu'il quittera le foyer."
         },
         {
-          "idea": "Mais le partage reste incomplet si une seule personne doit encore tout prévoir.",
-          "developpement": "Remarquer ce qui manque, prévoir quand agir et vérifier le résultat demandent aussi du travail. Si quelqu'un distribue chaque consigne, il reste responsable de l'ensemble. Il faut donc que chacun gère sa tâche jusqu'au bout.",
-          "exemple": "La personne responsable des courses vérifie les placards, prépare la liste et achète les produits. Elle n'attend pas que quelqu'un d'autre remarque ce qui manque et lui dicte chaque article.",
-          "consequence": "L'autre personne n'a plus à rappeler ni à vérifier chaque étape. Le travail d'organisation est lui aussi réparti."
+          "idea": "Enfin, une répartition claire des tâches peut réduire les disputes à la maison.",
+          "developpement": "Quand personne ne sait qui doit faire quoi ni quand, les rappels se multiplient et peuvent être vécus comme des reproches. Il faut donc que chacun sache ce qu'il s'engage à faire, en tenant compte de ses horaires.",
+          "exemple": "Un père doit souvent rappeler à son adolescent de sortir les poubelles, ce qui finit par créer des disputes. Ils se mettent alors d'accord : l'adolescent les sort après le dîner, sauf les soirs d'entraînement, où le père s'en charge.",
+          "consequence": "Le père a moins besoin de relancer son fils, et cette tâche provoque moins de disputes entre eux."
         }
       ],
       "nuance": "Cela ne veut pas dire faire tous exactement la même chose. Un petit enfant peut ranger ses jouets, tandis qu'une personne malade peut être dispensée de tâches. Une répartition juste tient compte de ce que chacun peut réellement faire.",
-      "conclusion": "Donc oui, chacun devrait contribuer selon ses moyens. Le partage devient réel quand personne n'a à tout faire ni à rappeler sans cesse aux autres ce qu'il reste à prévoir.",
+      "conclusion": "Donc oui, chacun devrait contribuer selon ses moyens. Cela permet de garder du temps pour se reposer, d'apprendre des gestes utiles et de limiter les tensions au quotidien.",
       "argument_ids": [
         1,
         2,
-        3
+        4
       ]
     },
     "famille-p16": {
@@ -469,21 +469,21 @@
       "position_claire": "Vivre chez ses parents après vingt-cinq ans peut être pratique et raisonnable. Cet âge ne signifie pas qu'on ait tous les moyens de vivre seul. Mais pour que la solution reste agréable, elle doit apporter quelque chose à chacun et laisser une vraie liberté d'adulte.",
       "arguments": [
         {
-          "idea": "L'avantage le plus concret est de pouvoir consacrer une partie de son budget à un projet.",
-          "developpement": "Même en participant aux charges, on peut dépenser moins qu'en louant seul. Cette différence donne des moyens pour une formation ou un futur logement. Il faut cependant en parler avec les parents, puisque leur accueil rend cette économie possible.",
-          "exemple": "À vingt-sept ans, une femme reprend une formation. Avec l'accord de ses parents, elle leur verse trois cents euros par mois au lieu de payer neuf cents euros pour un studio. Les six cents euros économisés servent à payer ses cours.",
-          "consequence": "La cohabitation lui permet de financer une étape concrète sans supporter seule le coût d'un logement."
+          "idea": "D'abord, rester chez ses parents peut éviter de se mettre en difficulté financière.",
+          "developpement": "Quand on a un revenu modeste, un loyer et les charges peuvent absorber une grande partie du budget. Même en participant aux frais chez ses parents, on peut dépenser moins pour se loger et mieux couvrir ses autres besoins.",
+          "exemple": "Un homme de vingt-sept ans gagne mille quatre cents euros par mois. Un studio lui coûterait neuf cents euros, sans les charges. Avec l'accord de ses parents, il reste chez eux et leur verse trois cents euros par mois.",
+          "consequence": "Il participe aux frais du foyer tout en gardant davantage d'argent pour ses autres dépenses."
         },
         {
           "idea": "Mais cette aide ne doit pas aller dans un seul sens.",
           "developpement": "Le jeune adulte peut contribuer aux dépenses, aux repas ou aux démarches. Les parents apportent un logement et une présence quotidienne. Il n'est pas nécessaire que tout soit parfaitement égal, mais chacun doit connaître sa contribution et les attentes des autres.",
-          "exemple": "Un fils fait les courses lourdes et prépare le dîner quand son père rentre tard. Son père lui évite de payer un logement seul ; lui prend en charge une partie du quotidien.",
+          "exemple": "Un père héberge son fils adulte. Le fils, de son côté, fait les courses et prépare le dîner les jours où son père travaille tard. En rentrant, le père trouve le repas prêt.",
           "consequence": "La situation devient utile aux deux générations, au lieu de laisser le parent tout assurer."
         },
         {
           "idea": "Pour que cela dure, il faut aussi respecter l'intimité et la liberté de chacun.",
           "developpement": "Il faut discuter des horaires, des visites et des espaces privés. Le jeune respecte le foyer, mais les parents ne décident plus de tous ses choix. Sans cet équilibre, les économies peuvent s'accompagner de tensions permanentes.",
-          "exemple": "Une adulte qui rentre tard prévient ses parents sans demander l'autorisation de sortir. En échange, elle évite le bruit et respecte les espaces communs.",
+          "exemple": "Une femme prévient ses parents qu'elle rentrera tard. Elle n'a pas à leur demander la permission de sortir, mais elle fait attention à ne pas les réveiller en rentrant.",
           "consequence": "Elle garde sa liberté tandis que ses parents savent à quoi s'attendre et peuvent dormir au calme."
         }
       ],

@@ -33,6 +33,12 @@
       "fc3c2f4ecd0a65d28df6e7095820c114d536b09d68770f561574d7e2e3fd2aef": {
         "english": "How are things going with your colleagues: do you help each other out easily, or does everyone tend to work on their own?",
         "french": "Comment ça se passe avec tes collègues : vous vous entraidez facilement, ou chacun travaille plutôt de son côté ?"
+      },
+      "fdf29993f8b339d7b4774d874b7b9d2a6a1f1899612df1cdb266ef8fa5f92538": {
+        "english": "Does the company organise activities for colleagues and, if so, what kinds and how often?",
+        "french": "L'entreprise organise-t-elle des activités entre collègues et, si oui, de quel type et à quelle fréquence ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       }
     },
     "animal-protection-association-invitation": {
@@ -82,6 +88,12 @@
         "english": "Which languages do you currently offer for adults?",
         "french": "Quelles langues proposez-vous actuellement aux adultes ?"
       },
+      "a43d99f35a4e4e639bebf255f6c3b7bf3fca0d13aa05e621bc332232c6c9ab1b": {
+        "english": "How much does a term cost, and is the textbook included?",
+        "french": "Combien coûte une session, et le manuel est-il compris ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "bfeaabc7adbff33f8dc9e394567d12094a40cd5225c1714a63ebb6cf895f6e44": {
         "english": "What timetables do you offer, particularly in the evenings or on Saturdays?",
         "french": "Quels horaires proposez-vous, notamment en soirée ou le samedi ?"
@@ -116,13 +128,34 @@
         "english": "For a tent, how big are the pitches, and can we choose a quiet, shaded area?",
         "french": "Pour une tente, quelle est la taille des emplacements, et peut-on choisir une zone ombragée et calme ?"
       },
+      "2a90f96c0c517c5ca04b9fc910470125acaca8a1beca6d8a508a2562ae5e95de": {
+        "english": "Which pitches are available from 10 to 14 July for four people, for example for a tent or a motorhome, and with which hookups?",
+        "french": "Quels emplacements sont disponibles du 10 au 14 juillet pour quatre personnes, par exemple pour une tente ou un véhicule récréatif, et avec quels branchements ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
+      "5f0835ffe74304a860f47470d44df9acd35ed8a43af57b4c423103508fa2c60f": {
+        "english": "How do I book a pitch, and what payment is required in advance?",
+        "french": "Comment réserver un emplacement, et quel paiement est demandé à l'avance ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "b68fea3beb66b5848ce04a1541b83d03e5010cd81c3ce8ca02a5046de3ed5b6f": {
         "english": "If I need to change my dates or cancel, how far in advance can I do so, and how much would be refunded?",
         "french": "Si je dois modifier mes dates ou annuler, jusqu'à quand puis-je le faire et quelle somme serait remboursée ?"
       },
       "c96aec354d581d951cd1278fc43e2bb3e83be07e6bee46567b129428b9170e94": {
-        "english": "How do you work out the price per night, and what extra charges apply depending on the number of people or the facilities available?",
-        "french": "Comment calculez-vous le prix par nuit, et que faut-il ajouter selon le nombre de personnes ou les branchements ?"
+        "deepl_english": "How do you work out the price per night, and what extra charges apply depending on the number of people or the facilities available?",
+        "editorial_history": [
+          {
+            "english": "How do you work out the price per night, and what extra charges apply depending on the number of people or the facilities available?",
+            "french": "Comment calculez-vous le prix par nuit, et que faut-il ajouter selon le nombre de personnes ou les branchements ?"
+          }
+        ],
+        "english": "How do you work out the price per night, and what extra charges apply depending on the number of people or the hookups?",
+        "french": "Comment calculez-vous le prix par nuit, et que faut-il ajouter selon le nombre de personnes ou les branchements ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: branchements means campsite hookups, not facilities in general. Previous complete row retained in editorial_history."
       },
       "cef8e522770d9a0c5e479dd77cf603333b62b1c632f729b3c12ec93142fd797b": {
         "english": "To book a pitch, how do I check availability, and what payments are required in advance?",
@@ -193,8 +226,17 @@
         "french": "Si je veux demander un logement à loyer réduit, quelles conditions faut-il remplir et quel délai faut-il généralement prévoir ?"
       },
       "e530a0202dbb51323c4e3741795c4ecb17bc90fdf51793c5c158d1eb8143d136": {
-        "english": "For this reception centre, do I need to book online, by phone or in person, and what documents do I need to bring?",
-        "french": "Pour ce centre d'accueil, faut-il réserver en ligne, par téléphone ou sur place, et quels documents dois-je apporter ?"
+        "deepl_english": "For this reception centre, do I need to book online, by phone or in person, and what documents do I need to bring?",
+        "editorial_history": [
+          {
+            "english": "For this reception centre, do I need to book online, by phone or in person, and what documents do I need to bring?",
+            "french": "Pour ce centre d'accueil, faut-il réserver en ligne, par téléphone ou sur place, et quels documents dois-je apporter ?"
+          }
+        ],
+        "english": "For that newcomer centre, do I need to book online, by phone or in person, and what documents should I bring?",
+        "french": "Pour ce centre d'accueil, faut-il réserver en ligne, par téléphone ou sur place, et quels documents dois-je apporter ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: newcomer centre instead of reception centre; previous translation retained in editorial_history."
       },
       "ebbc7be6f0e57cd52a5c41643467509d554de518713b0e81949c4a18b62bdabf": {
         "english": "When it comes to these formalities, where should I start — health insurance or applying for a Social Insurance Number, for example?",
@@ -206,6 +248,18 @@
       }
     },
     "canada-newcomer-settlement-friend": {
+      "187e050eef34c116fb116d54aa5b98ff3fa3d3e7291a82b665b61f84f1858f1f": {
+        "english": "Which organization could help me check the documents and procedures possible before I have a permanent address?",
+        "french": "Quel organisme pourrait m'aider à vérifier les documents et les démarches possibles avant d'avoir une adresse définitive ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
+      "3ec9bf3e8d73a2a02fe24a524aea4c04852b31d972bd94f14497750b982fa142": {
+        "english": "Which neighbourhoods would you recommend for temporary accommodation, a shared flat or a small apartment?",
+        "french": "Quels quartiers me conseillerais-tu pour un logement temporaire, une colocation ou un petit appartement ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "5523a22e58512b476936b3325a5094eacfa62aa934b9cbd8c34f36646017d27a": {
         "english": "If I need medical care before I’ve found a GP, should I ring the provincial health service, book an appointment at a clinic or go for a walk-in consultation?",
         "french": "Si j'ai besoin de soins avant d'avoir un médecin de famille, dois-je appeler le service provincial, réserver dans une clinique ou chercher une consultation sans rendez-vous ?"
@@ -217,6 +271,12 @@
       "88205119d5df2036aaf21236cb1b95cbed092f13eb8778f2bb8fa79d606c65b3": {
         "english": "In Calgary, is it easy to get around by bus, metro or bike without a car?",
         "french": "À Calgary, peut-on se déplacer facilement en bus, en métro ou à vélo sans avoir de voiture ?"
+      },
+      "89ec4dbd76aba54912e4d77f2f502988e624588d854931b7aea322ed74bb417a": {
+        "english": "In Calgary, is it easy to get around by bus, CTrain or bicycle without a car?",
+        "french": "À Calgary, peut-on se déplacer facilement en bus, en CTrain ou à vélo sans avoir de voiture ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "bbfe2422dfcb1af2b719b37db0f91b3638a9e2ccb094da54b7fb7c2b36d2ad38": {
         "english": "For my first few months in Calgary, would you recommend temporary accommodation, a flat share or a small flat, and which well-connected neighbourhoods should I look in?",
@@ -321,16 +381,43 @@
         "french": "Quel moyen de transport utiliserez-vous, et quels équipements de sécurité sont prévus pour les enfants ?"
       },
       "5cef0aaabbdaee7449a19ed6a2f8642dbf30bb3f805d1f3a58cd0fbd20dc2ad2": {
-        "english": "Regarding the boat, will each child have a life jacket that fits them properly?",
-        "french": "Pour le canot, chaque enfant aura-t-il un gilet de sauvetage adapté à sa taille ?"
+        "deepl_english": "Regarding the boat, will each child have a life jacket that fits them properly?",
+        "editorial_history": [
+          {
+            "english": "Regarding the boat, will each child have a life jacket that fits them properly?",
+            "french": "Pour le canot, chaque enfant aura-t-il un gilet de sauvetage adapté à sa taille ?"
+          }
+        ],
+        "english": "For canoeing, will each child have a life jacket that fits them properly?",
+        "french": "Pour le canot, chaque enfant aura-t-il un gilet de sauvetage adapté à sa taille ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: canoe rather than generic boat; previous complete row retained in editorial_history."
       },
       "7ad27c2f2c65da55b456ae32b5e7fe830ece966fce64abd15ee3b7eb128deb20": {
-        "english": "How much should I pay you for my child’s stay, what costs are included, and do I need to pay you before we set off?",
-        "french": "Combien dois-je vous donner pour le séjour de mon enfant, quels frais sont compris et faut-il vous payer avant le départ ?"
+        "deepl_english": "How much should I pay you for my child’s stay, what costs are included, and do I need to pay you before we set off?",
+        "editorial_history": [
+          {
+            "english": "How much should I pay you for my child’s stay, what costs are included, and do I need to pay you before we set off?",
+            "french": "Combien dois-je vous donner pour le séjour de mon enfant, quels frais sont compris et faut-il vous payer avant le départ ?"
+          }
+        ],
+        "english": "How much should I pay you for my child’s stay, what costs are included, and do I need to pay you before departure?",
+        "french": "Combien dois-je vous donner pour le séjour de mon enfant, quels frais sont compris et faut-il vous payer avant le départ ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: the candidate's child travels, not the candidate; previous complete row retained in editorial_history."
       },
       "99a4132aa9bfdae919eaae4887ec34e8f7a5441f58d6850ec16b4d25f14826f2": {
-        "english": "What sort of accommodation have you arranged there, and is there a booking I need to make before we set off?",
-        "french": "Quel hébergement avez-vous prévu sur place, et y a-t-il une réservation à faire de mon côté avant le départ ?"
+        "deepl_english": "What sort of accommodation have you arranged there, and is there a booking I need to make before we set off?",
+        "editorial_history": [
+          {
+            "english": "What sort of accommodation have you arranged there, and is there a booking I need to make before we set off?",
+            "french": "Quel hébergement avez-vous prévu sur place, et y a-t-il une réservation à faire de mon côté avant le départ ?"
+          }
+        ],
+        "english": "What sort of accommodation have you arranged there, and is there a booking I need to make before departure?",
+        "french": "Quel hébergement avez-vous prévu sur place, et y a-t-il une réservation à faire de mon côté avant le départ ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: the candidate's child travels, not the candidate; previous complete row retained in editorial_history."
       },
       "a1049bfa4e563af2343015de9cc97783268b281922437f0d0ffa0db0078836f5": {
         "english": "Where are you planning to go on holiday, and when will you be going?",
@@ -339,6 +426,12 @@
       "d5933d0f44b30f0f0efd3c62afd3342c9e23d62b9d9f428ec75cc81bced33e9c": {
         "english": "Will you be contactable throughout the holiday, and how can I get updates on my child?",
         "french": "Serez-vous joignable pendant tout le séjour, et comment pourrai-je avoir des nouvelles de mon enfant ?"
+      },
+      "f40fd58d19602231c0a2704398eb16f5236f122b600e2da9a9c45b98cf977061": {
+        "english": "How can I get updates about my child, and who should I contact if I cannot reach you?",
+        "french": "Comment pourrai-je avoir des nouvelles de mon enfant, et qui contacter si vous n'êtes pas joignable ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       }
     },
     "colleague-babysitter-referral-needs": {
@@ -435,8 +528,17 @@
         "french": "Ballard est-il plutôt calme ou animé en été, surtout le soir et le week-end ?"
       },
       "616df3df9a6e51594deb23c4afa8fa794506c3e3ab6feafd296895f704b59fd2": {
-        "english": "How many bedrooms and bathrooms does the house have, and how many beds are there?",
-        "french": "De combien de chambres et de salles de bains dispose la maison, et quels couchages sont prévus ?"
+        "deepl_english": "How many bedrooms and bathrooms does the house have, and how many beds are there?",
+        "editorial_history": [
+          {
+            "english": "How many bedrooms and bathrooms does the house have, and how many beds are there?",
+            "french": "De combien de chambres et de salles de bains dispose la maison, et quels couchages sont prévus ?"
+          }
+        ],
+        "english": "How many bedrooms and bathrooms does the house have, and what sleeping arrangements are provided?",
+        "french": "De combien de chambres et de salles de bains dispose la maison, et quels couchages sont prévus ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: sleeping arrangements rather than only bed count; previous complete row retained in editorial_history."
       },
       "63edcfa808a539eb6c7cd5339072e9a0a3ab676c4619336d286ffaeca98fe0d6": {
         "deepl_english": "What facilities are available on site, and will we all be able to use them during our stay?",
@@ -463,8 +565,17 @@
         "french": "Quel hébergement est prévu : une chambre d'hôtel ou un appartement, et à quelle distance du centre de formation ?"
       },
       "12fe8f691d76ca703abb2027b9a52e78c89dc3885f150b8c3a0bf18b5335e33e": {
-        "english": "How will the transfer from the airport and the daily journeys between your accommodation and the training centre be organised?",
-        "french": "Comment seront organisés le transfert depuis l'aéroport et les trajets quotidiens entre le logement et le centre de formation ?"
+        "deepl_english": "How will the transfer from the airport and the daily journeys between your accommodation and the training centre be organised?",
+        "editorial_history": [
+          {
+            "english": "How will the transfer from the airport and the daily journeys between your accommodation and the training centre be organised?",
+            "french": "Comment seront organisés le transfert depuis l'aéroport et les trajets quotidiens entre le logement et le centre de formation ?"
+          }
+        ],
+        "english": "How will the transfer from the airport and the daily journeys between my accommodation and the training centre be organised?",
+        "french": "Comment seront organisés le transfert depuis l'aéroport et les trajets quotidiens entre le logement et le centre de formation ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: candidate's own accommodation, not the director's; previous complete row retained in editorial_history."
       },
       "136c98192d69f5d10febb6cf96f213c6e138324da4469344bf6c62d50870cb19": {
         "english": "What will the training timetable be, and will there be sessions at the weekend?",
@@ -516,6 +627,12 @@
         "english": "Where are these schools, and can you get there on foot or by bus?",
         "french": "Où se trouvent ces écoles, et peut-on s'y rendre à pied ou en bus ?"
       },
+      "b18abd2771c053660bcaefb62d88e4fd359b4d4ccd81a81dc276f09678b3d74d": {
+        "english": "Where are your children's schools, and can you get there on foot or by bus?",
+        "french": "Où se trouvent les écoles de vos enfants, et peut-on s'y rendre à pied ou en bus ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "f78dbd54aca94f29c1ed6551f421018107b1429c15f145a848a91e710a2c5dd1": {
         "english": "Where can I find out which local schools I can enrol my children in based on our address?",
         "french": "Où puis-je vérifier à quelles écoles du quartier je peux inscrire mes enfants en fonction de notre adresse ?"
@@ -533,6 +650,12 @@
       "551493cf4284a171fb286203ba6ef701e0f974d7af7783888fed477db8ec9ef3": {
         "english": "What is the exact size of the flat?",
         "french": "Quelle est la superficie exacte de l'appartement ?"
+      },
+      "64c2b4929a5a26e209dd475bfaf48780b5c6d218e4db1f996d9e803754cf3b78": {
+        "english": "How much are the monthly condominium fees, and what do they cover?",
+        "french": "À combien s'élèvent les frais de copropriété mensuels, et que couvrent-ils ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "7b5b7dd3b9ba693ef91b0bd79ba49b64a74fb26c44224efbd92ccc80e482ebeb": {
         "english": "How are the rooms laid out within this space?",
@@ -603,8 +726,17 @@
         "french": "Pour chaque offre, quelles charges sont comprises, et quels frais faut-il prévoir pour le stationnement ou la buanderie ?"
       },
       "24b86091a238d73ca4e2ffb6d08ce2de5620c80031d45cce03cbda36144c2cbe": {
-        "english": "And in terms of day-to-day life, what shops and services are within walking distance — such as a supermarket, chemist’s, GP surgery or library — in each of these neighbourhoods?",
-        "french": "Et pour la vie quotidienne, quels commerces et services sont accessibles à pied — épicerie, pharmacie, clinique ou bibliothèque — dans chacun de ces quartiers ?"
+        "deepl_english": "And in terms of day-to-day life, what shops and services are within walking distance — such as a supermarket, chemist’s, GP surgery or library — in each of these neighbourhoods?",
+        "editorial_history": [
+          {
+            "english": "And in terms of day-to-day life, what shops and services are within walking distance — such as a supermarket, chemist’s, GP surgery or library — in each of these neighbourhoods?",
+            "french": "Et pour la vie quotidienne, quels commerces et services sont accessibles à pied — épicerie, pharmacie, clinique ou bibliothèque — dans chacun de ces quartiers ?"
+          }
+        ],
+        "english": "And for everyday life, what shops and services are within walking distance — a grocery store, pharmacy, clinic or library — in each of these neighbourhoods?",
+        "french": "Et pour la vie quotidienne, quels commerces et services sont accessibles à pied — épicerie, pharmacie, clinique ou bibliothèque — dans chacun de ces quartiers ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: clinic instead of the narrower GP surgery; previous translation retained in editorial_history."
       },
       "76721206af4fb53a75ecb276783c4148d532f100a0e73a46945dbebd216a49db": {
         "english": "In terms of budget, what range of rents should I expect?",
@@ -749,20 +881,47 @@
         "french": "Est-ce qu'on a le droit d'utiliser son téléphone ?"
       },
       "49477e385b82ed4652b9c6ef148083a10c63a9c5f290930994756db6de1066c8": {
-        "english": "What is the aim of the competition, and what tasks do participants have to complete in French?",
-        "french": "Quel est le principe du jeu, et quelles tâches les participants doivent-ils accomplir en français ?"
+        "deepl_english": "What is the aim of the competition, and what tasks do participants have to complete in French?",
+        "editorial_history": [
+          {
+            "english": "What is the aim of the competition, and what tasks do participants have to complete in French?",
+            "french": "Quel est le principe du jeu, et quelles tâches les participants doivent-ils accomplir en français ?"
+          }
+        ],
+        "english": "How does the game work, and what tasks do participants have to complete in French?",
+        "french": "Quel est le principe du jeu, et quelles tâches les participants doivent-ils accomplir en français ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: game, not an already-established competition; previous complete row retained in editorial_history."
       },
       "63b0e704ba2b9b06e14018907119c87185ee150019e8a7a76bc84fd4635ac47a": {
         "english": "Who can take part: all students, or only those at certain levels?",
         "french": "Qui peut participer : tous les étudiants ou seulement certains niveaux ?"
       },
       "7d97d7bf215e411a302ecc1a58b0db2a96ba331d7164af6d3c4bbe4832df57dc": {
-        "english": "On what date and at what time will the competition take place, and where should we go?",
-        "french": "À quelle date et à quelles heures le jeu aura-t-il lieu, et où faudra-t-il se présenter ?"
+        "deepl_english": "On what date and at what time will the competition take place, and where should we go?",
+        "editorial_history": [
+          {
+            "english": "On what date and at what time will the competition take place, and where should we go?",
+            "french": "À quelle date et à quelles heures le jeu aura-t-il lieu, et où faudra-t-il se présenter ?"
+          }
+        ],
+        "english": "On what date and at what times will the game take place, and where should we go?",
+        "french": "À quelle date et à quelles heures le jeu aura-t-il lieu, et où faudra-t-il se présenter ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: game and plural event times; previous complete row retained in editorial_history."
       },
       "97d95833512d0b1e174acebbbb292a4efbc1bfdcff0a31e5832e671d3fcecb36": {
-        "english": "Is registration done online or at reception? What’s the deadline, and how much does it cost?",
-        "french": "L'inscription se fait-elle en ligne ou à l'accueil, jusqu'à quelle date et à quel tarif ?"
+        "deepl_english": "Is registration done online or at reception? What’s the deadline, and how much does it cost?",
+        "editorial_history": [
+          {
+            "english": "Is registration done online or at reception? What’s the deadline, and how much does it cost?",
+            "french": "L'inscription se fait-elle en ligne ou à l'accueil, jusqu'à quelle date et à quel tarif ?"
+          }
+        ],
+        "english": "Can I register online or at reception, by what date, and for what fee?",
+        "french": "L'inscription se fait-elle en ligne ou à l'accueil, jusqu'à quelle date et à quel tarif ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: one joined registration question matching the French; previous complete row retained in editorial_history."
       },
       "a9a3428c91f9fa417f08741336ac5e282897bdd654c29abdc29f7d8902f67e42": {
         "english": "Can we form our own team, or does the school organise the groups?",
@@ -849,8 +1008,17 @@
     },
     "friend-child-language-stay-abroad": {
       "27f5c20d696f8d3a6739b81dc8e11da931ee62fe55fd5de4dc3fecaddaee1422": {
-        "english": "Who accompanied the young people on outings, and who could they contact if there was a problem?",
-        "french": "Qui accompagnait les jeunes pendant les sorties, et qui pouvait-on joindre en cas de problème ?"
+        "deepl_english": "Who accompanied the young people on outings, and who could they contact if there was a problem?",
+        "editorial_history": [
+          {
+            "english": "Who accompanied the young people on outings, and who could they contact if there was a problem?",
+            "french": "Qui accompagnait les jeunes pendant les sorties, et qui pouvait-on joindre en cas de problème ?"
+          }
+        ],
+        "english": "Who accompanied the young people on outings, and who could you contact if there was a problem?",
+        "french": "Qui accompagnait les jeunes pendant les sorties, et qui pouvait-on joindre en cas de problème ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: parent-accessible emergency contact, not only the children's; previous complete row retained in editorial_history."
       },
       "4b9f4b3b64d4735a066c64ff8c38db722576e59942cba3aa739bae80a9378f6a": {
         "english": "How did that organisation help you organise Tom’s trip?",
@@ -927,8 +1095,17 @@
         "french": "Si je n'ai pas de références locatives au Canada, quels justificatifs puis-je fournir à la place, et faut-il un garant ?"
       },
       "53827d51166b5e6b252b59545bc4fd7b807a99286a1cbd289e84e00f9525e301": {
-        "english": "And in day-to-day life, is it easy to find supermarkets, chemists, a GP surgery and cafés in High Park?",
-        "french": "Et au quotidien, trouve-t-on facilement à High Park des épiceries, des pharmacies, une clinique et des cafés ?"
+        "deepl_english": "And in day-to-day life, is it easy to find supermarkets, chemists, a GP surgery and cafés in High Park?",
+        "editorial_history": [
+          {
+            "english": "And in day-to-day life, is it easy to find supermarkets, chemists, a GP surgery and cafés in High Park?",
+            "french": "Et au quotidien, trouve-t-on facilement à High Park des épiceries, des pharmacies, une clinique et des cafés ?"
+          }
+        ],
+        "english": "And for everyday life, is it easy to find grocery stores, pharmacies, a clinic and cafés in High Park?",
+        "french": "Et au quotidien, trouve-t-on facilement à High Park des épiceries, des pharmacies, une clinique et des cafés ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: clinic instead of the narrower GP surgery; previous translation retained in editorial_history."
       },
       "730d430050f5bcee5ff0e0a7349cd374a4bc3265fcdf74ef000dbf5df81970db": {
         "english": "How much rent should I expect to pay for a small flat in this area?",
@@ -1060,6 +1237,12 @@
       }
     },
     "friend-moving-abroad-sale": {
+      "004559ddc662ae68d173d46c979b80177719f3821b713243cd51622ea7874da8": {
+        "english": "If I buy the sofa and table, will I need to rent a van, and could anyone help me load them?",
+        "french": "Si je prends le canapé et la table, faut-il louer une camionnette, et quelqu'un pourra-t-il m'aider à les charger ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "2de48ea17d4daaab3c35d1f6f6167abb0818aa8547c2c5fa19d0e3e67b30093d": {
         "english": "When could I pop round to have a look at the items and try out the sofa before I make up my mind?",
         "french": "Quand pourrais-je passer voir les affaires et essayer le canapé avant de me décider ?"
@@ -1101,6 +1284,12 @@
       "62b9ad2f4dc04d892e3cabc2083fd4dfbf71cbae64311a7fbc5098d9cc1b122a": {
         "english": "Do you know where I can find the latest menu and opening hours before I book a table?",
         "french": "Tu sais où consulter la carte et les horaires à jour avant que je réserve ?"
+      },
+      "7786ab963d3372cab29f53e32c4d6381f04876b972862d6a2d7c63a93d8b93c7": {
+        "english": "How was the service during your meal?",
+        "french": "Comment s'est passé le service pendant ton repas ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "8b0cf8ed74ff80f7bd15b50e7da914afc9e6d148961aace9d79f811fa677cb27": {
         "english": "What sort of cuisine does the restaurant serve, and what dishes are available à la carte?",
@@ -1277,8 +1466,17 @@
         "french": "Pour obtenir un devis précis, devez-vous connaître l'adresse de livraison, les dimensions du canapé et les conditions d'accès au logement ?"
       },
       "952d38d4c1f517e1ab514355fc14e1b5a38230d92b911c48a59b4d44cbda2d12": {
-        "english": "Does this price include placing the sofa in the room of your choice and clearing away the packaging?",
-        "french": "Ce tarif comprend-il la mise en place dans la pièce choisie et l'enlèvement des emballages ?"
+        "deepl_english": "Does this price include placing the sofa in the room of your choice and clearing away the packaging?",
+        "editorial_history": [
+          {
+            "english": "Does this price include placing the sofa in the room of your choice and clearing away the packaging?",
+            "french": "Ce tarif comprend-il la mise en place dans la pièce choisie et l'enlèvement des emballages ?"
+          }
+        ],
+        "english": "Does this price include placing the sofa in the chosen room and clearing away the packaging?",
+        "french": "Ce tarif comprend-il la mise en place dans la pièce choisie et l'enlèvement des emballages ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: The candidate addresses an employee; 'the room of your choice' assigns the room choice to that employee. French 'la pièce choisie' is neutral. Replace only this phrase, not the question structure. Previous complete row retained in editorial_history."
       },
       "c02e43ea85e687a3f453793f3b261d7dd12229192d837e18f718d1a42adac192": {
         "english": "What sort of vehicle will the sofa be transported in, and how will it be protected during the journey?",
@@ -1367,12 +1565,36 @@
       "d872efb63d8bd6fdac1cce0374e2d9f70853646916ecaef3b7d6b837a69b18cd": {
         "english": "What’s the minimum size you’d need, and do you need a space to work from home?",
         "french": "Quelle superficie minimale te conviendrait, et as-tu besoin d'un espace pour travailler chez toi ?"
+      },
+      "e8ed7640bf38ffb3543212e58bab8960577c95dd209e430fd0ae2e8b3278e51e": {
+        "english": "Which places do you need to reach regularly, and what maximum journey time would you accept?",
+        "french": "Quels lieux dois-tu rejoindre régulièrement, et quel temps de trajet maximal accepterais-tu ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       }
     },
     "help-friend-moving-day": {
       "04e644f899abf9085dec63b905bd907f082e487077146344d3bcdbde69398a11": {
         "english": "Will you be able to dismantle the relevant furniture (the wardrobe, the bed and the table) and remove the legs from the sofa before we arrive?",
         "french": "Est-ce que tu pourras démonter les meubles concernés (l'armoire, le lit et la table) et retirer les pieds du canapé avant notre arrivée ?"
+      },
+      "299b53ee5ee11597cf86f9439b32058fdc1c2536e91d5bad3d9a164baae49d59": {
+        "english": "Could you dismantle the wardrobe, bed and table, and remove the sofa's legs if they are removable, before we arrive?",
+        "french": "Est-ce que tu pourras démonter l'armoire, le lit et la table, et retirer les pieds du canapé s'ils sont amovibles, avant notre arrivée ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
+      "3a8bd03ece3e2c72c1011614f667eca3701a67282b3149c973473c356b43aad9": {
+        "english": "Have you arranged a vehicle with a trolley, straps and blankets, or should I bring equipment?",
+        "french": "As-tu prévu un véhicule avec un chariot, des sangles et des couvertures, ou dois-je apporter du matériel ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
+      "43dc8ea198b5af5c8a33d466e5c415cf497f27c9c5e9bdd107886b4997160ad6": {
+        "english": "Which day are you moving, and from what time until what time would you need me?",
+        "french": "Quel jour déménages-tu, et de quelle heure à quelle heure aurais-tu besoin de moi ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "472bd5fee3d83a6e12b83c50704014d14b01757b8e37755c393a3bc1881a43e2": {
         "english": "Which items are the bulkiest or heaviest to move?",
@@ -1386,9 +1608,21 @@
         "english": "When we arrive, is there a lift, and will we be able to park the van near the entrance?",
         "french": "À l'arrivée, y a-t-il un ascenseur, et pourra-t-on garer la camionnette près de l'entrée ?"
       },
+      "7a0f538d869bc45c358d61e33afdaf551c1e89c329263c4910b6f2990bfcc101": {
+        "english": "At the destination, is there an elevator, and can we park near the entrance to unload?",
+        "french": "À l'arrivée, y a-t-il un ascenseur, et pourra-t-on stationner près de l'entrée pour décharger ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "9380fb46f01dab1ce07782992fd8e690719cd420588411ec229a72e05a728289": {
         "english": "Which day are you moving, and what time do you want to start?",
         "french": "Quel jour déménages-tu, et à quelle heure veux-tu commencer ?"
+      },
+      "d1d9f81e66f07ebcb46c48373a3563fffadf50c07767690ddfd96c24519dfb42": {
+        "english": "Apart from us, who will be there to help, and who will drive the vehicle?",
+        "french": "À part nous, qui sera là pour aider, et qui conduira le véhicule ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "d39bd76124ae46a45145ddd7e8ff518b13ccd08a18deeeb16f8f351f3be47810": {
         "english": "What van have you booked, and will we have a trolley, straps and blankets to protect the furniture?",
@@ -1438,9 +1672,21 @@
       }
     },
     "help-transport-heavy-objects-no-vehicle": {
+      "058482638a2728a03841874dd0bf2026b03725e637a0b1ad1d68f635b6e30232": {
+        "english": "Who can help us carry the heavy items safely on the stairs?",
+        "french": "Qui pourra nous aider à porter les objets lourds dans les escaliers en toute sécurité ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "0a2fd56208e57cf6ca0936847efac7f18398a0b640df72c72e956a2c96c91cc2": {
         "english": "What budget have you set aside for hiring a van and the equipment needed for the transport?",
         "french": "Quel budget avez-vous prévu pour louer une camionnette et le matériel nécessaire au transport ?"
+      },
+      "1b61589b20dc9756c171be582e88791e9c20f77bfddc05c6259c63e5f87fc302": {
+        "english": "Which day would you like to transport the items, and from what time until what time will you need me?",
+        "french": "Quel jour souhaitez-vous effectuer le transport, et de quelle heure à quelle heure aurez-vous besoin de moi ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "1df25448dcf89a64a2aeb019e1a7ee0786e6728434adb5536bc41e1af86f4972": {
         "english": "Are there stairs or a lift at both addresses, and is it possible to park near the entrances?",
@@ -1555,6 +1801,12 @@
       "6db90008aee9b9db9ffc1b5487d6da8cb3aabe9aea2a737a8593b3062ff58339": {
         "english": "If I need to change my dates or cancel, what notice periods do I need to give to avoid being charged?",
         "french": "Si je dois modifier mes dates ou annuler, quels délais faut-il respecter pour éviter des frais ?"
+      },
+      "740602c55dbf2fd0c94a84cf002c4a015ed0f8db22e77c46d6d6a1c5606c4381": {
+        "english": "For two people staying for two nights next weekend, what types of rooms would be available?",
+        "french": "Pour deux personnes et deux nuits le week-end prochain, quels types de chambres seraient disponibles ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "793e10a0d46c0cefbef35427d357056f44176873343de2a023312ae75e40020c": {
         "english": "For a two-night stay next weekend, what types of rooms would be available?",
@@ -1715,8 +1967,17 @@
     },
     "neighbor-child-one-day-care": {
       "0b12f4f9b6dcc45e3acd53f1b309fae2ba01dda7ddfcdb1b7acd7adeba3e4a3a": {
-        "english": "Should we plan for a nap or some quiet time? When, and what routines would help your child get some rest?",
-        "french": "Faut-il prévoir une sieste ou un temps calme, à quel moment et avec quelles habitudes pour aider votre enfant à se reposer ?"
+        "deepl_english": "Should we plan for a nap or some quiet time? When, and what routines would help your child get some rest?",
+        "editorial_history": [
+          {
+            "english": "Should we plan for a nap or some quiet time? When, and what routines would help your child get some rest?",
+            "french": "Faut-il prévoir une sieste ou un temps calme, à quel moment et avec quelles habitudes pour aider votre enfant à se reposer ?"
+          }
+        ],
+        "english": "Should I plan for a nap or some quiet time, and if so, when and with what routines to help your child rest?",
+        "french": "Faut-il prévoir une sieste ou un temps calme, à quel moment et avec quelles habitudes pour aider votre enfant à se reposer ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: one conditional rest question matching the French; previous complete row retained in editorial_history."
       },
       "1d51a58f955ce2297fdae05aa9ddfac0b6de01fe1699ee9e4b764fbd9a3918f9": {
         "english": "Will you be providing lunch and an afternoon snack, or should I sort those out, and at what times does your child usually eat?",
@@ -1755,6 +2016,18 @@
       "0e5debe489fe5a90a08d24ab522db71b092791099aff93a33acd455f06c985c6": {
         "english": "How does he behave on walks, and is he friendly with people he doesn’t know?",
         "french": "Comment se comporte-t-il pendant les promenades, et est-il sociable avec les personnes qu'il ne connaît pas ?"
+      },
+      "2019cb6a411c54d2fdd3c4281a66d82dab039ee0c57cb5567ecc18f488ae12bb": {
+        "english": "Will you provide his food and equipment, such as the leash and bags, and at what times does he eat?",
+        "french": "Fournirez-vous sa nourriture et le matériel, comme la laisse et les sacs, et à quelles heures mange-t-il ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
+      "2f3347f150c22ea8cf41d2dafc2471677002f44047a0bb63cad6f55105bcbedb": {
+        "english": "Would you like me to look after the dog at your home or mine, and how much daytime and overnight presence do you expect?",
+        "french": "Souhaitez-vous que je garde le chien chez vous ou chez moi, et quelle présence attendez-vous le jour et la nuit ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "8ba0349dfb560a3a05666a076102352d54aa6bc017bc87b31a4f8856336273d5": {
         "english": "How often does he need to be walked, and how long should I allow for each walk?",
@@ -1806,9 +2079,21 @@
         "english": "When it comes to cleaning up the riverbanks, what equipment is provided and what do we need to bring ourselves?",
         "french": "Pour le nettoyage des berges, quel matériel est fourni et que faut-il apporter soi-même ?"
       },
+      "ba3cb6f12d2f285ac8573798c2de56d8d840d161dcdd69d117121a4768a7531f": {
+        "english": "For a cleanup outing, where is the meeting point, and how will I be notified if it is cancelled?",
+        "french": "Pour une sortie de nettoyage, où est le point de rendez-vous, et comment serai-je prévenu en cas d'annulation ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "d3b562f5df47b8583f1ab5d3a6b8ad3b59dc284d58d12028f3e047456556c596": {
         "english": "Who takes part in the activities: mainly local residents, families or students?",
         "french": "Qui participe aux activités : surtout des habitants du quartier, des familles ou des étudiants ?"
+      },
+      "e16f01e6366676bfb8f19d964e4add5845a8f41b58e567d880da999b19ba26ef": {
+        "english": "Who should I contact to join the association, and can I meet the team before committing?",
+        "french": "Qui dois-je contacter pour rejoindre l'association, et peut-on d'abord rencontrer l'équipe avant de s'engager ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "e34faca2e9b705cf3af9f9945e6050c866c5d1c6c3eda3d5b7acd3655726bbcf": {
         "english": "Do you need to have any previous experience, or do you get guidance and support to help you get started?",
@@ -1883,9 +2168,21 @@
       "f1ab9abfac4252685fa742846fa912c2638e9012a62ddef61e1d7a9e4335d1d6": {
         "english": "What is the price per person, and what is included in that price?",
         "french": "Quel est le prix par personne, et qu'est-ce qui est compris dans ce tarif ?"
+      },
+      "f56d8b1693c1b253a50ba1b63f36e578b075bfedbc9cfa08ce19c278ff3ee09c": {
+        "english": "How far in advance is it best to register?",
+        "french": "Quel délai vaut-il mieux prévoir pour s'inscrire ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       }
     },
     "neighbor-seaside-house-rental": {
+      "0dbdc18a5647116a80b7b3005a703adb5835031945fbb07f62352eb257841b81": {
+        "english": "Can we walk to the beach and the shops, and how long should we allow?",
+        "french": "Peut-on rejoindre la plage et les commerces à pied, et combien de temps faut-il prévoir ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "0f2b0e840f0c1ee23a0a91abfb22bcf0ee783755a966c2547fbfdb493fbf0f03": {
         "english": "What facilities are available to tenants, for example a washing machine or a barbecue?",
         "french": "Quels équipements sont à la disposition des locataires, par exemple un lave-linge ou un barbecue ?"
@@ -2030,6 +2327,12 @@
         "english": "Is the atmosphere more relaxed or lively in the places you’d recommend?",
         "french": "Est-ce que l'ambiance est plutôt calme ou animée dans les endroits que vous conseillez ?"
       },
+      "24ead1203cfee04c5da97a808839548e0ea0d2044bae536e79ce10b625e64489": {
+        "english": "For the outings you suggest, how much should I budget for admission and a possible drink?",
+        "french": "Pour les sorties que vous proposez, quel budget faut-il prévoir, avec l'entrée et une éventuelle boisson ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "3b1e0bc9120d7864e31383f2f7cf8c39f7e3780ec9cc1977e306c2d046c04f67": {
         "english": "Can we walk home from these places, or is it better to arrange transport for later in the evening?",
         "french": "Peut-on rentrer à pied depuis ces endroits, ou vaut-il mieux prévoir un transport en fin de soirée ?"
@@ -2159,6 +2462,12 @@
       "abf0e4f3a8e3a70d1109cc5393da5423c22b87bde8a3b06ca259831c5917a841": {
         "english": "How will you assess my level at the start, and then my progress as the lessons go on?",
         "french": "Comment évaluerez-vous mon niveau au départ, puis mes progrès au fil des cours ?"
+      },
+      "b75923c74ee380858dace13762bbc0d7d6a29142c828b403b43729c81ef9a245": {
+        "english": "Do you offer a trial lesson, and can I then pay per session or choose a package?",
+        "french": "Est-ce que vous proposez un cours d'essai, et peut-on ensuite payer à la séance ou choisir un forfait ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       }
     },
     "newcomer-colleague-meet-people": {
@@ -2171,12 +2480,27 @@
         "french": "Où puis-je vérifier les horaires, et faut-il s'inscrire à l'avance pour le café, la randonnée ou la soirée d'accueil ?"
       },
       "44d62133ad1b61823be2119e50c07e04c6d1f8284c96fc4ad87a9559097f2d62": {
-        "english": "Outside of work, where would you recommend I go to meet people easily when you’re here on your own?",
-        "french": "En dehors du travail, quel endroit me conseilleriez-vous pour rencontrer facilement des gens quand on vient seul ?"
+        "deepl_english": "Outside of work, where would you recommend I go to meet people easily when you’re here on your own?",
+        "editorial_history": [
+          {
+            "english": "Outside of work, where would you recommend I go to meet people easily when you’re here on your own?",
+            "french": "En dehors du travail, quel endroit me conseilleriez-vous pour rencontrer facilement des gens quand on vient seul ?"
+          }
+        ],
+        "english": "Outside work, where would you recommend I go to meet people easily when coming alone?",
+        "french": "En dehors du travail, quel endroit me conseilleriez-vous pour rencontrer facilement des gens quand on vient seul ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: consistent first-person perspective; previous translation retained in editorial_history."
       },
       "45a2ab9d7646c87413fabe056c7a14f06c9b2da952362e6cc9c5b696b8b62bb7": {
         "english": "When you arrive on your own, does a group leader introduce you to the group, or do you have to strike up a conversation yourself?",
         "french": "Quand on arrive seul, est-ce qu'un animateur nous présente au groupe ou faut-il engager la conversation soi-même ?"
+      },
+      "58a04cfcb6b9c33ac474f00c01ffa4af99902a00e85398d0912c188a486e3399": {
+        "english": "Where can I check the schedules and registration conditions for the activities you recommend?",
+        "french": "Où puis-je vérifier les horaires et les conditions d'inscription des activités que vous me conseillez ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "5acb0fcff252f025cc110eb0c3f4a785d79e9de093e360d70604b1baeeaa9640": {
         "english": "At the office, do colleagues sometimes have lunch together or organise after-work get-togethers that I could join?",
@@ -2213,8 +2537,17 @@
         "french": "Quand on arrive seul, est-ce qu'un animateur nous présente au groupe ou faut-il engager la conversation soi-même ?"
       },
       "466e16afed8150d41dc1a3ec847c35877f0fd29abc403defa61ba18d97ba03d3": {
-        "english": "As I don’t know anyone yet, what would you suggest I start with: a coffee meet-up, a sports activity or volunteering?",
-        "french": "Comme je ne connais encore personne, par quoi me conseilleriez-vous de commencer : un café de conversation, une activité sportive ou du bénévolat ?"
+        "deepl_english": "As I don’t know anyone yet, what would you suggest I start with: a coffee meet-up, a sports activity or volunteering?",
+        "editorial_history": [
+          {
+            "english": "As I don’t know anyone yet, what would you suggest I start with: a coffee meet-up, a sports activity or volunteering?",
+            "french": "Comme je ne connais encore personne, par quoi me conseilleriez-vous de commencer : un café de conversation, une activité sportive ou du bénévolat ?"
+          }
+        ],
+        "english": "As I don’t know anyone yet, what would you suggest I start with: a conversation café, a sports activity or volunteering?",
+        "french": "Comme je ne connais encore personne, par quoi me conseilleriez-vous de commencer : un café de conversation, une activité sportive ou du bénévolat ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: conversation cafe instead of generic coffee meet-up; previous translation retained in editorial_history."
       },
       "942cb4f9ce3adb6542eba2349e6db1a3e5a69c75250eedc786d24424aa7b9847": {
         "english": "Do you know of any sports clubs, workshops or organisations where newcomers can take part regularly and meet the same people?",
@@ -2225,11 +2558,26 @@
         "french": "Pour le groupe de randonnée, quels frais faut-il prévoir, et peut-on faire un essai avant d'adhérer ?"
       },
       "c6e5bf6e8612258ae4532360c5581d083a5555cd9fb26f599aa70e29f4fa5da6": {
-        "english": "If you’re going on the next walk, could I come along? Where and what time would we meet?",
-        "french": "Si vous allez à la prochaine randonnée, pourrais-je vous accompagner, et où et à quelle heure se retrouverait-on ?"
+        "deepl_english": "If you’re going on the next walk, could I come along? Where and what time would we meet?",
+        "editorial_history": [
+          {
+            "english": "If you’re going on the next walk, could I come along? Where and what time would we meet?",
+            "french": "Si vous allez à la prochaine randonnée, pourrais-je vous accompagner, et où et à quelle heure se retrouverait-on ?"
+          }
+        ],
+        "english": "If you are going on the next hike, could I join you, and where and at what time would we meet?",
+        "french": "Si vous allez à la prochaine randonnée, pourrais-je vous accompagner, et où et à quelle heure se retrouverait-on ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: one joined question matching the French hike invitation; previous translation retained in editorial_history."
       }
     },
     "offered-room-in-existing-shared-apartment": {
+      "01fa10ed228c664383389efe667732e18708c0f26b1a5fd310131f4c1660ff40": {
+        "english": "Apart from you, who already lives in the apartment?",
+        "french": "À part toi, qui habite déjà dans l'appartement ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "14f6dc29c6ce5a2b4027f66afd7bc3089206a52206fc1f801ad7ecd365775012": {
         "english": "Who already lives in the flat?",
         "french": "Qui habite déjà dans l'appartement ?"
@@ -2245,6 +2593,18 @@
       "710f087e7ebd256a6b9cb54e8ba3f4c5c9bede26765bfbbb0883edfe844a9053": {
         "english": "What rules have you set regarding housekeeping, guests and quiet hours?",
         "french": "Quelles règles avez-vous fixées pour le ménage, les invités et les périodes calmes ?"
+      },
+      "7d44c0539737add710daa8dea513d6aecfe0252331ddff3926602d1fdf6b0208": {
+        "english": "Around the apartment, what shops and services are within walking distance, and how many minutes away is the subway?",
+        "french": "Autour de l'appartement, quels commerces et services sont accessibles à pied, et à combien de minutes se trouve le métro ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
+      "87efd927948ad443ea2750046d721bb577fafe34dc7be63dacf378b5c2965a46": {
+        "english": "With those different schedules, what rules have you set for cleaning, guests and quiet periods?",
+        "french": "Avec ces horaires différents, quelles règles avez-vous fixées pour le ménage, les invités et les périodes calmes ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "9c950ba95c587e5bca587a3e0a9d76e8ab6fc581c24760ccfb9edfa591405c73": {
         "english": "Would I be signing a tenancy agreement or a subletting agreement, and what’s the minimum term?",
@@ -2267,6 +2627,12 @@
       "18a2147573ca195f75e43d4944d335eb190abb2f20816e7130e0ed55a58413a2": {
         "english": "What commission do you charge for management, and what costs will I have to cover?",
         "french": "Quelle commission prenez-vous pour la gestion, et quels frais restent à ma charge ?"
+      },
+      "404cd0dbb85176d3fdf2a1c92dfa3c9be81b5803113b200efbe93f95b0bb6adc": {
+        "english": "How can I set a nightly rate suited to my home and dates?",
+        "french": "Comment fixer un tarif par nuit adapté à mon logement et à mes dates ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "6dfc3e6b9175b7b22caf082614da8e32ee7477761b1613a300eed257a61c8381": {
         "english": "What permits and insurance cover do I need to check before publishing the advert?",
@@ -2307,8 +2673,17 @@
         "french": "D'après ce que vous avez vu, comment les animateurs s'occupent-ils des enfants, notamment des plus timides ?"
       },
       "3f4296a1ace56301a8ddbb737afa0013e73d9d1ad449dae611e70976896e7301": {
-        "english": "How much does a session cost, and is there a discount if I enrol more than one child?",
-        "french": "Combien coûte une session, et existe-t-il une réduction lorsqu'on inscrit plusieurs enfants ?"
+        "deepl_english": "How much does a session cost, and is there a discount if I enrol more than one child?",
+        "editorial_history": [
+          {
+            "english": "How much does a session cost, and is there a discount if I enrol more than one child?",
+            "french": "Combien coûte une session, et existe-t-il une réduction lorsqu'on inscrit plusieurs enfants ?"
+          }
+        ],
+        "english": "How much does a full course cost, and is there a discount if I enrol more than one child?",
+        "french": "Combien coûte une session, et existe-t-il une réduction lorsqu'on inscrit plusieurs enfants ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: full-course fee rather than one lesson; previous complete row retained in editorial_history."
       },
       "44bb112b92dd53d4336916b7aa8802da25c9d560998b8400ebb9a381b392ed1c": {
         "english": "For the drawing workshop, are materials provided or do we need to bring our own?",
@@ -2360,9 +2735,21 @@
         "english": "When do these properties become available, and what is the minimum lease term?",
         "french": "À partir de quand ces logements sont-ils disponibles, et quelle est la durée minimale du bail ?"
       },
+      "c8789de544f8c87ec5bcb7758abd34bfaf9030314c0a9e7f145f18c7c4e9f2f9": {
+        "english": "Which utilities are usually included in the rent, and do I also have to pay agency fees?",
+        "french": "Quelles charges sont habituellement comprises dans le loyer, et dois-je aussi payer des frais d'agence ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "d3ab7da45990bbb69b4733db71b4517786abec2196316357640c3d9b581871f9": {
         "english": "What types of accommodation do you currently have available to let, and do tenants have to pay for your services?",
         "french": "Quels types de logements avez-vous actuellement à louer, et vos services sont-ils payants pour les locataires ?"
+      },
+      "fbdb6c7a881f904e6cb6c830b6198e5ee6dc34bf94e0f4aa22c3103c0f41b3aa": {
+        "english": "What types of accommodation do you currently have available to rent?",
+        "french": "Quels types de logements avez-vous actuellement à louer ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       }
     },
     "quebec-region-accommodation-tourist-office": {
@@ -2378,9 +2765,21 @@
         "english": "Do I book through you or directly with the accommodation provider, and what terms and conditions should I check before paying?",
         "french": "La réservation se fait-elle auprès de vous ou directement auprès de l'hébergeur, et quelles conditions faut-il vérifier avant de payer ?"
       },
+      "49ec7fbf567dd00acd1087d1ccae604a74b44d7eb09d56ac7486fe3a48a4a6dc": {
+        "english": "How can I check availability for those dates and how many people each property can accommodate?",
+        "french": "Comment vérifier les disponibilités pour ces dates et le nombre de personnes que chaque hébergement peut accueillir ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "4ce761ee984236ed6520cee8427f7076e64f419b37dadfdcdb86d922b8f17fa7": {
         "english": "How can I check availability for my dates and find offers that fit my budget?",
         "french": "Comment vérifier les disponibilités pour mes dates et obtenir des offres correspondant à mon budget ?"
+      },
+      "7699c0e9527b612be7b698a44aff6e2b4fb54ec3156a890eb2fb9a2cea36b31b": {
+        "english": "For two people from 10 to 14 July, what accommodation would you recommend in the region, for example a guesthouse, a hotel or a chalet?",
+        "french": "Pour deux personnes du 10 au 14 juillet, quels hébergements me conseilleriez-vous dans la région, par exemple un gîte, un hôtel ou un chalet ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "7bd56bd6919603e25f2315410a908285ad9639ad9bc14fde3dff2cc52bd764b2": {
         "english": "What budget per night should I allow for these different options, and are the prices quoted per person or per accommodation?",
@@ -2437,16 +2836,34 @@
         "french": "Avec qui aurai-je l'entretien, et quelles fonctions ces personnes occupent-elles dans l'entreprise ?"
       },
       "ac166f9b5cbae89aa1c4a730f8b4e7d75a11038dde13252c5ebb79f4c2433de8": {
-        "english": "For the role-play, what sort of task will I be asked to carry out, and is there anything I need to prepare in advance?",
-        "french": "Pour la mise en situation, quel type de tâche devrai-je réaliser, et faut-il préparer quelque chose à l'avance ?"
+        "deepl_english": "For the role-play, what sort of task will I be asked to carry out, and is there anything I need to prepare in advance?",
+        "editorial_history": [
+          {
+            "english": "For the role-play, what sort of task will I be asked to carry out, and is there anything I need to prepare in advance?",
+            "french": "Pour la mise en situation, quel type de tâche devrai-je réaliser, et faut-il préparer quelque chose à l'avance ?"
+          }
+        ],
+        "english": "For the practical exercise, what sort of task will I be asked to carry out, and is there anything I need to prepare in advance?",
+        "french": "Pour la mise en situation, quel type de tâche devrai-je réaliser, et faut-il préparer quelque chose à l'avance ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: practical exercise does not require enacted role-play; previous complete row retained in editorial_history."
       },
       "b4852ae90deeb2bd2a800e59a5c6c1bcc14e87a8bc5265032c75887ebcc13dc8": {
         "english": "For this role-play, do I need to prepare anything in advance, or will everything be done on the day?",
         "french": "Pour la mise en situation, faut-il préparer quelque chose à l'avance ou tout se fera-t-il sur place ?"
       },
       "b8e3ad1f33cf9cacc31539926240f600b9f2c71573778721d9faf6fc7c3b9229": {
-        "english": "What are the planned stages: an overview of my career, questions or a role-play?",
-        "french": "Quelles sont les étapes prévues : présentation de mon parcours, questions ou mise en situation ?"
+        "deepl_english": "What are the planned stages: an overview of my career, questions or a role-play?",
+        "editorial_history": [
+          {
+            "english": "What are the planned stages: an overview of my career, questions or a role-play?",
+            "french": "Quelles sont les étapes prévues : présentation de mon parcours, questions ou mise en situation ?"
+          }
+        ],
+        "english": "What are the planned stages: an overview of my career, questions or a practical exercise?",
+        "french": "Quelles sont les étapes prévues : présentation de mon parcours, questions ou mise en situation ?",
+        "provider": "editorial",
+        "review_note": "Editorial correction: practical exercise does not require enacted role-play; previous complete row retained in editorial_history."
       },
       "deebb96870e5389508496ebd4bf0b6b795590a92ff66eadaa348912da76ced61": {
         "english": "What time should I arrive, and how long will the interview last?",
@@ -2542,9 +2959,21 @@
         "english": "How many walks or play sessions should I plan for each day, and how long should each one last?",
         "french": "Combien de sorties ou de séances de jeu faut-il prévoir chaque jour, et combien de temps doit durer chacune ?"
       },
+      "6aad33a9c23b92eb23d850d98f8a82cc5fa64ee1dd98ac2fddcb4abfe7f15981": {
+        "english": "Where would you like it to stay, does someone need to be there overnight, and how long can it be left alone during the day?",
+        "french": "Où souhaites-tu qu'il reste, faut-il être présent la nuit et combien de temps peut-il rester seul en journée ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
+      },
       "7373530130905e722b385ca21026e30a285a4ae3a3b63db7ff0d4af08ebd9ad7": {
         "english": "Where would you like it to stay, and how long can it be left on its own during the day?",
         "french": "Où souhaites-tu qu'il reste, et combien de temps peut-il rester seul pendant la journée ?"
+      },
+      "83e8b57cfd22fc3a1b6d7228a7eb3135e1d5adfea9baa265cc5fcd8a4356ef0c": {
+        "english": "Will you leave me its food and the necessary equipment or will I need to buy them, and at what times does it eat?",
+        "french": "Me laisseras-tu sa nourriture et le matériel nécessaire ou devrai-je les acheter, et à quelles heures prend-il ses repas ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of revised French question; no new DeepL request."
       },
       "9f497104bdfb8293434e1bc7064c31f40dfdb0efaff6ffc33ee07ce1dc11df01": {
         "english": "As for food, will you leave me some of its food or will I need to buy some, and at what times does it usually eat?",

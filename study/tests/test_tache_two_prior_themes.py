@@ -4,7 +4,8 @@ import json
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
-from study.tests.housing_work_fixtures import ORIGINAL_HOUSING_GROUPS, ORIGINAL_WORK_GROUPS
+from study.tests.eo2_review_fixtures import assert_review_preservation
+from study.tests.housing_work_fixtures import ORIGINAL_WORK_GROUPS
 from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
 
 
@@ -35,27 +36,8 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
                     self.assertEqual(len(self.hints[row.group]), 8)
                     self.assertIn("merci", row.closing.lower())
 
-    def test_excluded_arrival_and_housing_themes_remain_exactly_unchanged(self):
-        rows = {
-            row["group"]: row
-            for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
-            for row in json.loads(path.read_text())["dialogues"]
-        }
-        expected = {
-            "arrivee": "eeb337d3fd34d07c863b10f58fa4da53bae6f1b91822e56eaa8042170a48e278",
-            "logement": "5856b77b61128d6d2b988dd3a589762ca8d8a5a7a04b1c6f8a17a3ba4b73a744",
-        }
-        for theme, digest in expected.items():
-            with self.subTest(theme=theme):
-                groups = ORIGINAL_HOUSING_GROUPS if theme == "logement" else {
-                    row.group for key, row in self.dialogues.items() if self.themes[key] == theme
-                }
-                snapshot = json.dumps(
-                    [rows[group] for group in sorted(groups)],
-                    ensure_ascii=False, sort_keys=True,
-                ).encode()
-                self.assertEqual(hashlib.sha256(snapshot).hexdigest(), digest)
-        self.assertNotIn("new-resident-neighbor-neighborhood-orientation", self.history)
+    def test_all_theme_review_retains_exact_arrival_housing_and_earlier_public_editions(self):
+        assert_review_preservation(self)
 
     def test_exact_pre_review_visible_layouts_remain_archived_without_simulated_answers(self):
         indices = {
@@ -126,7 +108,7 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
         )
         self.assertEqual(
             self.hints[parcel.group][5]["english"],
-            "Suggested post office and round-trip time including the deposit",
+            "Suggested post office and round-trip time including drop-off",
         )
 
     def test_volunteer_feasibility_covers_actual_hours_and_optional_versus_regular_commitment(self):
@@ -141,7 +123,7 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
         self.assertIn("Pour ces missions, non", office.questions[4].answer)
         self.assertIn("toutes les deux semaines", office.questions[4].answer)
         self.assertIn("trois mois", office.questions[4].answer)
-        self.assertIn("vérifiez", office.questions[4].answer)
+        self.assertIn("d'autres possibilités d'aide ponctuelle", office.questions[4].answer)
         self.assertEqual(
             self.hints[office.group][4]["english"],
             "Possibility of occasional help without a commitment lasting several months",
@@ -173,22 +155,24 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
         )
         self.assertNotIn("7,99", self.hints[grocery.group][6]["french"])
 
-    def test_interview_format_precedes_arrival_and_access_without_rewriting_learned_questions(self):
+    def test_interview_format_precedes_arrival_duration_and_access(self):
         recruiter = self.by_group["recruiter-scheduled-interview-preparation"]
         before = self.history[recruiter.group]["revisions"][1]
         self.assertNotIn("ma venue", recruiter.opening)
-        for old, new in ((2, 1), (1, 2), (3, 3)):
+        for old, new in ((2, 1), (3, 3)):
             self.assertEqual(
                 before["questions"][old - 1]["question"], recruiter.questions[new - 1].question,
             )
         self.assertEqual(recruiter.questions[1].follow_up_to, 1)
-        self.assertIn("connection time", recruiter.questions[1].condition)
+        self.assertIn("À quelle heure", recruiter.questions[1].question)
+        self.assertIn("combien de temps durera", recruiter.questions[1].question)
+        self.assertIn("arrival time or interview duration", recruiter.questions[1].condition)
         self.assertEqual(recruiter.questions[2].follow_up_to, 1)
         self.assertIn("online", recruiter.questions[2].condition)
         self.assertIn("connection time and link", recruiter.note)
         self.assertEqual(
             [row["english"] for row in self.hints[recruiter.group][:2]],
-            ["In-person or remote interview", "Arrival time on interview day"],
+            ["In-person or remote interview", "Arrival time and interview duration"],
         )
 
     def test_overtime_and_overseas_pay_questions_do_not_presuppose_extra_pay_or_adjustments(self):
@@ -218,7 +202,7 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
         self.assertIn("8 h et à 18 h", pet.questions[3].answer)
         self.assertIn("portions mesurées", pet.questions[3].answer)
         training = self.by_group["director-canada-fortnight-training"]
-        self.assertIn("paie le vol et l'hôtel", training.questions[3].answer)
+        self.assertIn("paie le vol et l'hébergement", training.questions[3].answer)
         self.assertIn("déplacements professionnels sur justificatifs", training.questions[3].answer)
         self.assertIn("60 $ par jour", training.questions[3].answer)
         self.assertIn("week-ends compris", training.questions[3].answer)

@@ -546,8 +546,9 @@ class TacheTwoDialogueViewTests(TestCase):
         practice = self.review()
         self.assertContains(detail, "data-tache-two-question", count=8)
         self.assertContains(detail, str(escape(dialogue.note)))
-        self.assertContains(detail, 'class="eo2-dialogue__topic"', count=3)
-        self.assertContains(detail, 'class="subject-hints__section"', count=3)
+        topics = len({question.topic for question in dialogue.questions})
+        self.assertContains(detail, 'class="eo2-dialogue__topic"', count=topics)
+        self.assertContains(detail, 'class="subject-hints__section"', count=topics)
         for topic in dict.fromkeys(question.topic for question in dialogue.questions):
             self.assertContains(detail, f'<h3 class="subject-hints__label" lang="fr">{topic}</h3>')
         self.assertNotContains(detail, "Task 2: how to practise effectively")
@@ -702,7 +703,10 @@ class TacheTwoDialogueViewTests(TestCase):
         self.assertContains(detail, self.edit_url + "#id_prompt_note")
         self.assertContains(detail, '<details class="eo2-prompt-note"', count=1)
         self.assertNotContains(detail, '<details class="eo2-prompt-note" open')
-        self.assertContains(detail, 'class="eo2-dialogue__topic"', count=3)
+        self.assertContains(
+            detail, 'class="eo2-dialogue__topic"',
+            count=len({question.topic for question in self.dialogue.questions}),
+        )
         practice = self.review()
         self.assertIn(note, practice["front_html"])
         self.assertIn('<details class="eo2-prompt-note"', practice["front_html"])
@@ -747,7 +751,10 @@ class TacheTwoDialogueViewTests(TestCase):
         detail = self.client.get(self.detail_url)
         self.assertContains(detail, str(escape(self.dialogue.note)))
         self.assertNotContains(detail, note)
-        self.assertContains(detail, 'class="eo2-dialogue__topic"', count=3)
+        self.assertContains(
+            detail, 'class="eo2-dialogue__topic"',
+            count=len({question.topic for question in self.dialogue.questions}),
+        )
 
     def test_invalid_note_is_reported_without_overwriting_the_saved_version(self):
         note = "Keep this saved English explanation."

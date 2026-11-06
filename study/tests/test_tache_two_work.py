@@ -1,12 +1,11 @@
-import hashlib
 import json
 
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
-from study.tests.eo2_review_fixtures import HOUSE_FACILITIES_FOLLOWUP_FIELDS, PUBLISHED_ARCHIVE_INDEX
-from study.tests.housing_work_fixtures import ORIGINAL_HOUSING_GROUPS, ORIGINAL_WORK_GROUPS
-from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
+from study.tests.eo2_review_fixtures import PUBLISHED_ARCHIVE_INDEX
+from study.tests.eo2_review_fixtures import assert_review_preservation, preserved_public_layouts
+from study.tests.housing_work_fixtures import ORIGINAL_WORK_GROUPS
 
 
 class TacheTwoWorkCorpusTests(SimpleTestCase):
@@ -36,7 +35,13 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
                     index = PUBLISHED_ARCHIVE_INDEX[group]
                     before, after = revisions[index - 1:index + 1]
                 else:
-                    before, after = revisions[-1], self.by_group[group]
+                    before = revisions[0]
+                    after = preserved_public_layouts()[group]
+                    self.assertEqual(len(before.questions), 8)
+                    self.assertEqual(before.opening, after["opening"])
+                    self.assertEqual(before.closing, after["closing"])
+                    self.assertEqual(len(self.hints[group]), 8)
+                    continue
                 self.assertEqual(len(before.questions), 8)
                 if group == "recruiter-scheduled-interview-preparation":
                     self.assertIn("ma venue", before.opening)
@@ -46,31 +51,8 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
                 self.assertEqual(before.closing, after.closing)
                 self.assertEqual(len(self.hints[group]), 8)
 
-    def test_earlier_themes_remain_approved_except_the_later_house_facilities_replacement(self):
-        _, themes = catalogue.tache_two_subject_themes()
-        rows = {
-            row["group"]: row
-            for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
-            for row in json.loads(path.read_text())["dialogues"]
-        }
-        expected = {
-            "arrivee": "eeb337d3fd34d07c863b10f58fa4da53bae6f1b91822e56eaa8042170a48e278",
-            "logement": "a524786ed4b34345571cbbfe0148d355ddc1b52965e0205dab486485003b00b7",
-            "vie-quartier": "3de4534126cd6233e3805ee89724c63644ee928b1b82f29acdcd51a3d5318c4c",
-        }
-        for theme, digest in expected.items():
-            with self.subTest(theme=theme):
-                groups = (
-                    ALL_NEIGHBOURHOOD_GROUPS if theme == "vie-quartier" else
-                    ORIGINAL_HOUSING_GROUPS if theme == "logement" else
-                    {row.group for key, row in self.dialogues.items() if themes[key] == theme}
-                )
-                groups = groups - HOUSE_FACILITIES_FOLLOWUP_FIELDS.keys()
-                snapshot = json.dumps(
-                    sorted((rows[group] for group in groups), key=lambda row: row["group"]),
-                    ensure_ascii=False, sort_keys=True,
-                ).encode()
-                self.assertEqual(hashlib.sha256(snapshot).hexdigest(), digest)
+    def test_all_theme_review_preserves_earlier_public_editions(self):
+        assert_review_preservation(self)
 
     def test_questions_name_concrete_information_without_assuming_the_role(self):
         expected = {
@@ -93,11 +75,12 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
                 7: ("dans ce cas-là",),
             },
             "newcomer-canada-friend-job-market": {
-                1: ("profils de développeurs", "Calgary"),
-                3: ("projets", "compétences techniques", "GitHub"),
-                4: ("étapes", "recrutement", "tests techniques"),
-                5: ("statut", "renseignements fiables"),
-                6: ("numéro d'assurance sociale", "demande", "documents"),
+                1: ("statut", "renseignements fiables"),
+                2: ("numéro d'assurance sociale", "demande", "documents"),
+                3: ("profils de développeurs", "Calgary"),
+                4: ("LinkedIn", "recruteurs spécialisés"),
+                5: ("projets", "compétences techniques", "GitHub"),
+                6: ("étapes", "recrutement", "tests techniques"),
                 7: ("salaire annuel brut",),
                 8: ("sur place", "hybride", "télétravail"),
             },
@@ -188,17 +171,18 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
     def test_advice_and_official_checks_keep_information_boundaries(self):
         friend = self.by_group["friend-upcoming-job-interview-advice"]
         recruiter = self.by_group["recruiter-scheduled-interview-preparation"]
-        self.assertIn("they are not interviewing you", friend.note)
+        self.assertIn("advice, not as a recruiter", friend.note)
         self.assertIn("already scheduled", recruiter.note)
         self.assertIsNone(friend.questions[1].follow_up_to)
         self.assertNotEqual(friend.questions[2].question, friend.questions[7].question)
         newcomer = self.by_group["newcomer-canada-friend-job-market"]
         self.assertIn("not hiring or legal guarantees", newcomer.note)
-        self.assertIn("IRCC", newcomer.questions[4].answer)
-        self.assertIn("Service Canada", newcomer.questions[5].answer)
-        self.assertIn("selon ton statut", newcomer.questions[5].answer)
-        self.assertIn("liste complète", newcomer.questions[5].answer)
-        self.assertEqual(newcomer.questions[5].follow_up_to, 5)
+        self.assertIn("IRCC", newcomer.questions[0].answer)
+        self.assertIn("Service Canada", newcomer.questions[1].answer)
+        self.assertIn("selon ton statut", newcomer.questions[1].answer)
+        self.assertIn("liste complète", newcomer.questions[1].answer)
+        self.assertIsNone(newcomer.questions[1].follow_up_to)
+        self.assertIn("once eligible", newcomer.note)
         self.assertNotIn("soir", newcomer.questions[6].answer)
         comparison = self.by_group["canadian-work-hours-home-country-comparison"]
         self.assertIn("not nationwide Canadian rules", comparison.note)

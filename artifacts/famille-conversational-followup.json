@@ -1,0 +1,270 @@
+{
+  "status": "PASS",
+  "scope": {
+    "immediate_before_snapshot": "/Users/cornelius/.copilot/session-state/5f76dde9-fc48-4be4-a815-ed009ff9ece6/files/famille-conversational-input.json",
+    "actual_final_export": "/Users/cornelius/.copilot/session-state/5f76dde9-fc48-4be4-a815-ed009ff9ece6/files/famille-conversational-final.json",
+    "models_reread_in_full": ["famille-p3", "famille-p4", "famille-p10", "famille-p11"],
+    "reading_coverage": "All current prompt variants, complete French responses, all 60 full English leaves, all 72 bilingual cue strings and the four exact curated subjunctives were reread in context.",
+    "comparison_boundary": "Compared these four model objects recursively against the actual immediate input snapshot. The much older before_current_request rows were not used as the before-state.",
+    "other_models": "The other eleven models were not reopened for editorial review. Their unchanged status, including protected culture-p16, is supplied by the parent rather than independently reverified in this bounded follow-up.",
+    "work_performed": "Read-only content review, direct snapshot comparison and numerical word/character counting. Only this requested report was written; no learning-set files were edited, no tests were run, and no external services or agents were used."
+  },
+  "summary": {
+    "verdict": "All four findings are resolved. The two parent-selected alternatives are natural, faithful and easier to retrieve than literal English. No substantial actionable issue remains.",
+    "actual_changed_strings": 7,
+    "full_english_records_changed": 3,
+    "cue_strings_changed": 4,
+    "cue_languages": {"french": 1, "english": 3},
+    "complete_french_response_changes": 0,
+    "other_changes_in_the_four_exported_model_objects": 0,
+    "complete_english_leaves_present": 60,
+    "preservation": "All four response objects are exactly equal to the immediate snapshot, including preparation fields, full spoken French, argument IDs/order and prompt signatures. Model-level prompts, IDs, subjunctives, historical material and remaining fields also match. The only differences are the seven strings listed below.",
+    "learning_threshold": "The existing familiar French, manageable sentences and meaningful causal development remain appropriate. No academic vocabulary, forced synonym changes, generic script or French-wide simplification is warranted. Natural subjunctives and relevant qualifications remain intact.",
+    "level_limitation": "The set remains suitable for a solid NCLC7 preparation target, not a promised score. This text-only follow-up cannot assess spontaneous adaptation, fluency, pronunciation or live TCF delivery."
+  },
+  "resolved_findings": [
+    {
+      "finding_id": "F01",
+      "model": "famille-p11",
+      "status": "PASS",
+      "integration": "Development integrated exactly as recommended; consequence uses the parent's conversational alternative.",
+      "assessment": "Someone close to you correctly includes friends and other close people rather than only relatives. The consequence now explicitly conditions the possible reduction in preparation on family being at home and available. 'Might have had less to organise' preserves both possibility and partial benefit. It does not promise that family removes the need to plan, nor suggest that living alone means having no support.",
+      "timeline": "The person arranges Saturday shopping and meal deliveries before returning home after surgery. The consequence contrasts that actual preparation with what available household family might have reduced. The retrospective 'might have had' is coherent with the planning already described.",
+      "further_change_needed": false
+    },
+    {
+      "finding_id": "F02",
+      "model": "famille-p4",
+      "status": "PASS",
+      "integration": "Both example cues integrated exactly as recommended.",
+      "assessment": "'Une guérison rapide' and 'a quick recovery' now recover the precise temporal qualification in 'guérira tout de suite' and 'recover straight away'. The cues still identify the hospital stay and arranged call. They appropriately condense the example without introducing certainty about recovery or suggesting that the parents conceal the reason for the absence.",
+      "further_change_needed": false
+    },
+    {
+      "finding_id": "F03",
+      "model": "famille-p10",
+      "status": "PASS",
+      "integration": "Both replacements integrated exactly as recommended.",
+      "assessment": "The student example reads as ordinary speech without unnecessary demographic labels. 'She' retains a clear reference, and naming her parents at the end clarifies whom she will approach next. 'Trust built together' is familiar English and retains the contrast between a relationship developed over time and mere kinship.",
+      "further_change_needed": false
+    },
+    {
+      "finding_id": "F04",
+      "model": "famille-p3",
+      "status": "PASS",
+      "integration": "The parent selected a conversational alternative to the initially recommended cue.",
+      "assessment": "'Learning from someone else's mistake shows us what to check' removes the calque and correctly takes the learner's perspective. The grandfather made the mistake; the granddaughter learns which costs to check. 'Someone else's' does not change the owner of the mistake in the example or imply that the granddaughter already resigned. The cue works with the unchanged full English 'lived experience', which is an acceptable expression.",
+      "further_change_needed": false
+    }
+  ],
+  "exact_actual_comparison": [
+    {
+      "path": "/models/famille-p3/hints/arguments/0/point/english",
+      "kind": "English cue",
+      "before": "A lived mistake provides specific things to check.",
+      "actual_final": "Learning from someone else's mistake shows us what to check.",
+      "parent_choice": true,
+      "final_characters": 60,
+      "character_cap": 120
+    },
+    {
+      "path": "/models/famille-p4/hints/arguments/1/example/french",
+      "kind": "French cue",
+      "before": "Les parents expliquent l'hospitalisation de la grand-mère et organisent un appel, sans promettre sa guérison.",
+      "actual_final": "Les parents expliquent l'hospitalisation de la grand-mère et organisent un appel, sans promettre une guérison rapide.",
+      "parent_choice": false,
+      "final_characters": 117,
+      "character_cap": 140
+    },
+    {
+      "path": "/models/famille-p4/hints/arguments/1/example/english",
+      "kind": "English cue",
+      "before": "Parents explain the grandmother's hospital stay and arrange a call without promising recovery.",
+      "actual_final": "Parents explain the grandmother's hospital stay and arrange a call without promising a quick recovery.",
+      "parent_choice": false,
+      "final_characters": 102,
+      "character_cap": 140
+    },
+    {
+      "path": "/models/famille-p10/english/argument-2-exemple",
+      "kind": "Full English record",
+      "before": "A female student has doubts about the course she chose with her parents' help. She first talks to a female friend to explore what she wants before raising the question with them.",
+      "actual_final": "A student has doubts about the course she chose with her parents' help. She first talks to a friend to explore what she wants before raising the question with her parents.",
+      "parent_choice": false
+    },
+    {
+      "path": "/models/famille-p10/hints/conclusion/english",
+      "kind": "English cue",
+      "before": "Lived trust, not just kinship, makes a friendship.",
+      "actual_final": "Trust built together, not just being related, makes a friendship.",
+      "parent_choice": false,
+      "final_characters": 65,
+      "character_cap": 130
+    },
+    {
+      "path": "/models/famille-p11/english/argument-4-developpement",
+      "kind": "Full English record",
+      "before": "If a health problem prevents you from getting groceries or preparing meals, you need help. When you live alone, you have to arrange this support: asking a relative when they can come, or scheduling deliveries.",
+      "actual_final": "If a health problem prevents you from getting groceries or preparing meals, you need help. When you live alone, you have to arrange this support: asking someone close to you when they can come, or scheduling deliveries.",
+      "parent_choice": false
+    },
+    {
+      "path": "/models/famille-p11/english/argument-4-consequence",
+      "kind": "Full English record",
+      "before": "They can stay at home, but it takes preparations that a family who were there and available could have partly spared them.",
+      "actual_final": "They can stay at home, but this takes planning. With family at home and available to help, they might have had less to organise.",
+      "parent_choice": true
+    }
+  ],
+  "per_model": {
+    "famille-p3": {
+      "status": "PASS",
+      "prompt_coverage": ["famille:p3"],
+      "full_model_assessment": "The position directly rejects 'always' without dismissing older people. The three tests remain different: an experienced mistake supplies checks, changed procedures require current information, and accurate advice must still fit individual priorities. Each reason develops its claim through a specific situation and a proportionate result. Respectful critical judgment in the nuance and conclusion follows naturally.",
+      "preserved_facts": [
+        "The grandfather left his job before checking training costs. His granddaughter is advised to check savings against course fees before resigning; the example does not invent a completed failed course or debt.",
+        "The company accepts only an online application, so the granddaughter checks and follows that actual procedure rather than generalising that in-person applications never work.",
+        "The grandmother prefers a stable job near family. The granddaughter has a real offer abroad in her studied field, discusses risks and accepts for a stated career reason.",
+        "Older people may remain well informed; their age alone is not a reason to reject their advice."
+      ],
+      "english_and_memorability": "All 15 complete English leaves remain unchanged and accurately track the French. The revised short cue now gives an immediately understandable learning action. Training fees, the online application and a motivated overseas offer remain distinct retrieval anchors. No simplification of the French is needed.",
+      "argument_ids": [1, 3, 4],
+      "exact_subjunctive": "il faut aussi qu'il tienne compte",
+      "subjunctive_present_and_unchanged": true,
+      "whole_response_exactly_unchanged": true,
+      "spoken_words_before": 420,
+      "spoken_words_final": 420,
+      "french_cue_words_before": 118,
+      "french_cue_words_final": 118,
+      "all_budgets_pass": true
+    },
+    "famille-p4": {
+      "status": "PASS",
+      "prompt_coverage": ["famille:p4", "famille:p17"],
+      "full_model_assessment": "Both consigne variants are answered by honest, age-appropriate explanation rather than unrestricted disclosure. Trust in the parent's word, making sense of an absence and actionable feedback are different reasons. The vaccination, hospital call and practised piano passage concretely establish how honesty helps without promising an ideal outcome.",
+      "preserved_facts": [
+        "The parent acknowledges a brief injection sensation and stays with the child rather than promising no sensation.",
+        "The grandmother is in hospital after a fall and is no longer seen on Wednesdays. Parents explain and arrange a call without promising immediate recovery.",
+        "The piano feedback names a hesitant ending; slow daily practice precedes more secure playing at the audition. No audition win is promised.",
+        "Children need not carry adult relationship conflicts or financial worries. Saying something is an adult matter or acknowledging uncertainty is distinguished from lying."
+      ],
+      "english_and_memorability": "Both complete responses remain unchanged and coherent. The two corrected cues retain exactly the relevant quick-recovery qualification while remaining short enough to reconstruct the scene. Quoted parental speech and concrete actions support recall without adding vocabulary or clause complexity.",
+      "argument_ids": [1, 2, 3],
+      "exact_subjunctive": "Il faut donc que la vérité soit adaptée",
+      "subjunctive_present_and_unchanged": true,
+      "whole_response_exactly_unchanged": true,
+      "spoken_words_before": 414,
+      "spoken_words_final": 414,
+      "french_cue_words_before": 105,
+      "french_cue_words_final": 106,
+      "all_budgets_pass": true
+    },
+    "famille-p10": {
+      "status": "PASS",
+      "prompt_coverage": ["famille:p10"],
+      "full_model_assessment": "The response distinguishes family affection from automatic best friendship without setting family and friends against each other. Enjoying shared interests, discussing a sensitive choice outside parental expectations, and building trust through years of mutual support remain separate mechanisms. The cousins demonstrate how kinship can coexist with genuine friendship rather than guaranteeing it.",
+      "preserved_facts": [
+        "The person loves their brother but seeks the friend's enjoyable conversation; neither bond is dismissed.",
+        "The student's course was chosen with parental help. She first explores her doubts with a friend and then speaks with her parents more calmly, without rejecting their support.",
+        "The cousins grew up together, attended the same school, share interests and have listened to and supported one another for years.",
+        "A close-knit family may provide most social contact if everyone feels free, but an outside best friend is not a betrayal."
+      ],
+      "english_and_memorability": "The student example now sounds natural while retaining the same actors and order of conversations. Naming the parents at the end makes the final reference effortless. The conclusion cue expresses built trust in ordinary English. The full response and other cues continue to reconstruct the same argument rather than a generic family-versus-friends script.",
+      "argument_ids": [1, 2, 3],
+      "exact_subjunctive": "L'amitié suppose qu'on puisse s'écouter",
+      "subjunctive_present_and_unchanged": true,
+      "whole_response_exactly_unchanged": true,
+      "spoken_words_before": 423,
+      "spoken_words_final": 423,
+      "french_cue_words_before": 112,
+      "french_cue_words_final": 112,
+      "all_budgets_pass": true
+    },
+    "famille-p11": {
+      "status": "PASS",
+      "prompt_coverage": ["famille:p11"],
+      "full_model_assessment": "The answer consistently weighs an individual's routine against unshared fixed costs and the need to arrange practical help. Each consideration has a different mechanism and a grounded example. The uneven-housework qualification is especially useful: living with others is not easier for someone who does all the work. The conclusion correctly makes shared costs and tasks conditional rather than assuming family life is automatically supportive.",
+      "preserved_facts": [
+        "The nurse sleeps in her own quiet flat after a night shift; the example does not assert that all solo homes are quiet.",
+        "The two sisters initially pay twenty euros each for one forty-euro internet subscription. In separate homes each pays forty for the same subscription, so each person's cost doubles.",
+        "A person living alone after knee surgery arranges Saturday shopping with a sister and meal deliveries for the week before returning home.",
+        "The general potential helper can be any close person, not only a relative; the particular example still involves a sister.",
+        "Family assistance would require people at home and available, and might reduce only some preparation.",
+        "A person doing all household shopping, cooking and cleaning can have less work when living alone."
+      ],
+      "english_and_memorability": "The development now has the correct inclusive meaning. The short two-sentence consequence is easier to say and understand, and does not create an ambiguous chain of family/they/them pronouns. The unchanged cues still recall arranged support, costs and workload. No French change is needed.",
+      "argument_ids": [1, 2, 4],
+      "exact_subjunctive": "il faut qu'on puisse obtenir de l'aide",
+      "subjunctive_present_and_unchanged": true,
+      "whole_response_exactly_unchanged": true,
+      "spoken_words_before": 421,
+      "spoken_words_final": 421,
+      "french_cue_words_before": 112,
+      "french_cue_words_final": 112,
+      "all_budgets_pass": true
+    }
+  },
+  "numerical_verification": {
+    "method": "Fresh Python str.split() whitespace counts for position_claire plus the twelve argument leaves plus nuance and conclusion. Preparation position/reformulation excluded. French cue totals sum the nine French cue leaves. Cue characters use Python len() including spaces and punctuation. Counts below describe the actual final export, not predicted replacements.",
+    "spoken_word_range": [300, 430],
+    "french_cue_word_cap": 140,
+    "cue_character_caps": {"introduction": 170, "point": 120, "example": 140, "nuance": 150, "conclusion": 130},
+    "all_stored_spoken_counts_match": true,
+    "all_four_models_pass": true,
+    "all_72_cue_strings_pass": true,
+    "cue_character_counts": {
+      "famille-p3": {
+        "introduction": {"french": 71, "english": 80},
+        "arguments/0/point": {"french": 52, "english": 60},
+        "arguments/0/example": {"french": 106, "english": 86},
+        "arguments/1/point": {"french": 65, "english": 64},
+        "arguments/1/example": {"french": 108, "english": 98},
+        "arguments/2/point": {"french": 65, "english": 66},
+        "arguments/2/example": {"french": 130, "english": 110},
+        "nuance": {"french": 70, "english": 67},
+        "conclusion": {"french": 69, "english": 65}
+      },
+      "famille-p4": {
+        "introduction": {"french": 61, "english": 65},
+        "arguments/0/point": {"french": 50, "english": 42},
+        "arguments/0/example": {"french": 104, "english": 89},
+        "arguments/1/point": {"french": 66, "english": 66},
+        "arguments/1/example": {"french": 117, "english": 102},
+        "arguments/2/point": {"french": 45, "english": 37},
+        "arguments/2/example": {"french": 108, "english": 103},
+        "nuance": {"french": 88, "english": 76},
+        "conclusion": {"french": 55, "english": 56}
+      },
+      "famille-p10": {
+        "introduction": {"french": 68, "english": 54},
+        "arguments/0/point": {"french": 58, "english": 92},
+        "arguments/0/example": {"french": 106, "english": 102},
+        "arguments/1/point": {"french": 56, "english": 48},
+        "arguments/1/example": {"french": 114, "english": 103},
+        "arguments/2/point": {"french": 52, "english": 50},
+        "arguments/2/example": {"french": 93, "english": 94},
+        "nuance": {"french": 84, "english": 79},
+        "conclusion": {"french": 60, "english": 65}
+      },
+      "famille-p11": {
+        "introduction": {"french": 72, "english": 84},
+        "arguments/0/point": {"french": 41, "english": 43},
+        "arguments/0/example": {"french": 87, "english": 80},
+        "arguments/1/point": {"french": 54, "english": 46},
+        "arguments/1/example": {"french": 110, "english": 104},
+        "arguments/2/point": {"french": 52, "english": 46},
+        "arguments/2/example": {"french": 114, "english": 97},
+        "nuance": {"french": 88, "english": 74},
+        "conclusion": {"french": 44, "english": 43}
+      }
+    }
+  },
+  "provenance_boundary": {
+    "parent_report": "The parent reports that all three changed full-English records retain complete prior rows in editorial_history and no provider calls were fabricated.",
+    "independently_verifiable_here": "The export exposes text leaves but contains no editorial_history field for these models. This follow-up confirms the three exact before/after text records against the immediate input snapshot; it does not independently certify storage-history completeness or provider-call provenance.",
+    "content_blocker": false
+  },
+  "substantial_actionable_findings": [],
+  "recommended_further_edits": [],
+  "final_recommendation": "Accept the integrated four-model polish as complete. Preserve the current French and proceed with learning and oral practice rather than another wording pass."
+}

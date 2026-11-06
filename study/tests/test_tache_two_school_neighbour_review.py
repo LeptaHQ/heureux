@@ -1,4 +1,3 @@
-import copy
 import hashlib
 import json
 import re
@@ -8,6 +7,7 @@ from django.test import SimpleTestCase
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
 from study.tests.eo2_review_fixtures import (
+    assert_review_preservation, pre_realness_history,
     CAREER_QUESTION_FOLLOWUP_FIELDS, DAILY_DUTIES_FOLLOWUP_FIELDS, PUBLISHED_ARCHIVE_INDEX,
     INTERNAL_PAY_FOLLOWUP_FIELDS, INTERVIEW_CLOTHING_FOLLOWUP_FIELDS, RECRUITER_RICH_FOLLOWUP_FIELDS,
     ACCOMMODATION_FOLLOWUP_FIELDS, remove_followup_archives,
@@ -47,7 +47,7 @@ class SchoolNeighbourReviewTests(SimpleTestCase):
         catalogue.clear_catalogue_cache()
         super().tearDownClass()
 
-    def test_other_models_and_cues_except_the_authorized_later_changes_are_exact(self):
+    def test_original_public_editions_and_school_neighbour_publications_remain_available(self):
         edited = (
             {GROUP} | CAREER_QUESTION_FOLLOWUP_FIELDS.keys() | SURVEY_ROUTINE_FOLLOWUP_FIELDS.keys()
             | SESSION_EXTENT_FOLLOWUP_FIELDS.keys()
@@ -59,13 +59,7 @@ class SchoolNeighbourReviewTests(SimpleTestCase):
             | ACCOMMODATION_FOLLOWUP_FIELDS.keys()
         )
         self.assertEqual(len(self.raw.keys() - edited), 153)
-        self.assertEqual(
-            fingerprint({
-                "dialogues": {g: row for g, row in self.raw.items() if g not in edited},
-                "hints": {g: cues for g, cues in self.hints.items() if g not in edited},
-            }),
-            "55f091bd7e014a6d51d082111f97a74df644123cdf16d037ca66b6969aa2581d",
-        )
+        assert_review_preservation(self)
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == GROUP},
             {"tache2:juillet:batch-04:subject-19", "tache2:juillet:batch-05:subject-24"},
@@ -83,14 +77,15 @@ class SchoolNeighbourReviewTests(SimpleTestCase):
         self.assertEqual(sum(bool(re.search(r"\badresse\b", q.question)) for q in row.questions), 1)
         self.assertIn("conseil scolaire", row.questions[0].answer)
         self.assertIn("confirmer si vous en dépendez", row.questions[0].answer)
-        self.assertIn("First check which schools serve your address", row.note)
-        self.assertIn("not admissions rules or verified current fees", row.note)
+        self.assertIn("First find where to verify schools serving your address", row.note)
+        self.assertIn("school authority confirms eligibility", row.note)
+        self.assertIn("neighbour reports experience, not guarantees", row.note)
 
     def test_transport_remains_a_short_separate_question_before_teachers(self):
         row = self.dialogue
         self.assertEqual(
             row.questions[2].question,
-            "Où se trouvent ces écoles, et peut-on s'y rendre à pied ou en bus ?",
+            "Où se trouvent les écoles de vos enfants, et peut-on s'y rendre à pied ou en bus ?",
         )
         self.assertEqual(row.questions[2].topic, row.questions[0].topic)
         self.assertIn("à pied", row.questions[2].answer)
@@ -98,7 +93,7 @@ class SchoolNeighbourReviewTests(SimpleTestCase):
         self.assertIn("près du parc", row.questions[2].answer)
         self.assertIn("près de la bibliothèque", row.questions[2].answer)
         self.assertEqual(
-            self.hints[GROUP][2]["english"], "School locations and getting there on foot or by bus",
+            self.hints[GROUP][2]["english"], "Neighbour's children's schools: locations and access on foot or by bus",
         )
 
     def test_teacher_quality_asks_for_experience_not_unverifiable_qualifications(self):
@@ -119,11 +114,9 @@ class SchoolNeighbourReviewTests(SimpleTestCase):
             "jours à l'école, par exemple par un camarade ou un enseignant ?",
         )
         self.assertIsNone(self.dialogue.questions[4].follow_up_to)
-        self.assertEqual(
-            self.raw[GROUP]["questions"][4]["answer"],
-            "Dans l'école de mes enfants, un camarade montre les lieux et les habitudes ; "
-            "l'enseignant prend aussi le temps de vérifier que tout se passe bien.",
-        )
+        answer = self.raw[GROUP]["questions"][4]["answer"]
+        for phrase in ("école primaire de mes enfants", "un camarade", "l'enseignant", "tout se passe bien"):
+            self.assertIn(phrase, answer)
         self.assertIn("classmate or teacher", self.hints[GROUP][4]["english"])
 
     def test_other_questions_cues_and_fees_are_retained_with_correct_relance_parent(self):
@@ -136,17 +129,17 @@ class SchoolNeighbourReviewTests(SimpleTestCase):
         self.assertEqual(self.dialogue.questions[6].follow_up_to, 6)
         self.assertIn("after-school gaps", self.dialogue.questions[6].condition)
         self.assertIn("l'an dernier", self.dialogue.questions[6].answer)
-        self.assertIn("Confirmez le tarif actuel", self.dialogue.questions[6].answer)
+        self.assertIn("confirmer le tarif actuel", self.dialogue.questions[6].answer)
 
     def test_published_snapshot_is_appended_without_touching_any_older_history(self):
-        revisions = self.history["groups"][GROUP]["revisions"]
+        revisions = pre_realness_history(self.history)["groups"][GROUP]["revisions"]
         self.assertEqual(len(revisions), 5)
         self.assertEqual(
             fingerprint(revisions[4]),
             "59fa956aa028aae48e0f78fda4a03902a84ddec77b879ac2f8e0326bc0abc7ad",
         )
         self.assertTrue(all("answer" not in q for q in revisions[4]["questions"]))
-        previous = copy.deepcopy(self.history)
+        previous = pre_realness_history(self.history)
         previous["groups"][GROUP]["revisions"].pop()
         for group in (
             CAREER_QUESTION_FOLLOWUP_FIELDS | SURVEY_ROUTINE_FOLLOWUP_FIELDS

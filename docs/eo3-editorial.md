@@ -662,6 +662,14 @@ as Culture 16; the truth-with-children and money-for-grades pairs remain shared.
 Preserve argument annotation identities for retained mechanisms and allocate
 new identities when a mechanism is genuinely replaced.
 
+Famille 14 separates protecting time for rest, learning practical household skills
+and reducing recurring disputes through clear, workable agreements. The third
+reason uses fresh identity 4; the former planning-ownership reason keeps retired
+identity 3. Keep the laundry example about demonstration, supervised practice and
+eventual competence, not unexplained independence or initiative. The father and
+teenager's rubbish arrangement names who acts and who covers training evenings;
+its result is fewer reminders and disputes, not a promise to end every disagreement.
+
 ## Prompt explanations
 
 EO3 subject pages and practice fronts use a collapsed English **Comprendre la

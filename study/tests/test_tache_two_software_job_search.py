@@ -1,4 +1,3 @@
-import copy
 import hashlib
 import json
 
@@ -7,7 +6,8 @@ from django.test import SimpleTestCase
 from study import catalogue, content_loader as content
 from study.tache_two_dialogues import dialogue_response
 from study.tests.eo2_review_fixtures import (
-    FOLLOWUP_GROUPS, FOLLOWUP_PROTECTED_SHA, remove_followup_archives,
+    FOLLOWUP_GROUPS, remove_followup_archives,
+    assert_review_preservation, pre_realness_history,
 )
 
 
@@ -43,15 +43,9 @@ class SoftwareJobSearchReviewTests(SimpleTestCase):
         catalogue.clear_catalogue_cache()
         super().tearDownClass()
 
-    def test_models_and_cues_outside_the_authorized_followups_stay_exact(self):
+    def test_original_public_editions_and_job_search_publication_remain_available(self):
         self.assertEqual(len(self.raw.keys() - FOLLOWUP_GROUPS), 147)
-        self.assertEqual(
-            fingerprint({
-                "dialogues": {g: row for g, row in self.raw.items() if g not in FOLLOWUP_GROUPS},
-                "hints": {g: row for g, row in self.hints.items() if g not in FOLLOWUP_GROUPS},
-            }),
-            FOLLOWUP_PROTECTED_SHA,
-        )
+        assert_review_preservation(self)
         self.assertEqual(
             {key for key, row in self.dialogues.items() if row.group == GROUP}, {KEY},
         )
@@ -59,13 +53,13 @@ class SoftwareJobSearchReviewTests(SimpleTestCase):
 
     def test_published_layout_is_archived_once_and_every_earlier_record_stays_exact(self):
         revisions = self.history["groups"][GROUP]["revisions"]
-        self.assertEqual(len(revisions), 3)
+        self.assertEqual(len(pre_realness_history(self.history)["groups"][GROUP]["revisions"]), 3)
         self.assertEqual(
             fingerprint(revisions[2]),
             "5ec63f50541756a126d9f81173b8a2e638d80276749ff50f0cc3389ba5e8fdeb",
         )
         self.assertTrue(all("answer" not in q for q in revisions[2]["questions"]))
-        previous = copy.deepcopy(self.history)
+        previous = pre_realness_history(self.history)
         remove_followup_archives(previous)
         self.assertEqual(
             fingerprint(previous),
@@ -75,43 +69,42 @@ class SoftwareJobSearchReviewTests(SimpleTestCase):
     def test_candidate_states_the_software_goal_without_treating_it_as_a_prompt_fact(self):
         row = self.dialogue
         self.assertIn("poste en développement logiciel", row.opening)
-        self.assertIn("your chosen field, not a prompt requirement", row.note)
-        self.assertIn("Calgary is the example city", row.note)
+        self.assertIn("field and Calgary are example choices, not prompt requirements", row.note)
         self.assertNotIn("service à la clientèle", json.dumps(self.raw[GROUP], ensure_ascii=False))
 
-    def test_opening_questions_cover_developer_roles_and_specialist_search_channels(self):
+    def test_developer_roles_and_search_channels_follow_authorization_and_sin_checks(self):
         row = self.dialogue
-        self.assertIn("profils de développeurs", row.questions[0].question)
-        self.assertIn("offres d'emploi", row.questions[0].question)
+        self.assertIn("profils de développeurs", row.questions[2].question)
+        self.assertIn("offres d'emploi", row.questions[2].question)
         for channel in ("LinkedIn", "sites des entreprises", "recruteurs spécialisés"):
-            self.assertIn(channel, row.questions[1].question)
-        self.assertEqual(row.questions[1].follow_up_to, 1)
+            self.assertIn(channel, row.questions[3].question)
+        self.assertEqual(row.questions[3].follow_up_to, 3)
 
     def test_cv_question_asks_for_project_evidence_without_requiring_confidential_code(self):
         row = self.dialogue
         for detail in ("projets", "compétences techniques", "GitHub"):
-            self.assertIn(detail, row.questions[2].question)
-        self.assertIn("projets publics peut aider", row.questions[2].answer)
-        self.assertIn("sans exposer de code confidentiel", row.questions[2].answer)
+            self.assertIn(detail, row.questions[4].question)
+        self.assertIn("projets publics peut aider", row.questions[4].answer)
+        self.assertIn("sans exposer de code confidentiel", row.questions[4].answer)
 
     def test_recruitment_question_covers_technical_assessment_without_guaranteeing_one_process(self):
         row = self.dialogue
-        self.assertIn("étapes habituelles du recrutement", row.questions[3].question)
-        self.assertIn("tests techniques", row.questions[3].question)
-        self.assertEqual(row.questions[3].follow_up_to, 1)
-        self.assertIn("recruitment stages", row.questions[3].condition)
-        self.assertIn("varie selon l'entreprise", row.questions[3].answer)
+        self.assertIn("étapes habituelles du recrutement", row.questions[5].question)
+        self.assertIn("tests techniques", row.questions[5].question)
+        self.assertEqual(row.questions[5].follow_up_to, 3)
+        self.assertIn("recruitment stages", row.questions[5].condition)
+        self.assertIn("varie selon l'entreprise", row.questions[5].answer)
 
-    def test_work_authorization_and_social_insurance_questions_remain_as_published(self):
+    def test_authorization_and_social_insurance_questions_lead_the_route(self):
         row = self.dialogue
         old = self.history["groups"][GROUP]["revisions"][2]
-        for index in (4, 5):
-            self.assertEqual(row.questions[index].question, old["questions"][index]["question"])
-            self.assertEqual(row.questions[index].follow_up_to, old["questions"][index]["follow_up_to"])
-            self.assertEqual(row.questions[index].condition,
-                             old["questions"][index].get("condition", ""))
-        self.assertIn("IRCC", row.questions[4].answer)
-        self.assertIn("Service Canada", row.questions[5].answer)
+        for before, after in ((4, 0), (5, 1)):
+            self.assertEqual(row.questions[after].question, old["questions"][before]["question"])
+            self.assertIsNone(row.questions[after].follow_up_to)
+        self.assertIn("IRCC", row.questions[0].answer)
+        self.assertIn("Service Canada", row.questions[1].answer)
+        self.assertIn("once eligible", row.note)
+        self.assertIn("Verify unresolved eligibility before proceeding", row.note)
         self.assertIn("not hiring or legal guarantees", row.note)
 
     def test_salary_is_gross_annual_and_figures_are_explicitly_illustrative(self):
@@ -139,6 +132,6 @@ class SoftwareJobSearchReviewTests(SimpleTestCase):
         self.assertTrue(all(
             not any((a.developpement, a.exemple, a.consequence)) for a in response.arguments
         ))
-        for index, phrase in ((0, "Developer profiles"), (2, "GitHub"), (3, "technical assessments"),
+        for index, phrase in ((2, "Developer profiles"), (4, "GitHub"), (5, "technical assessments"),
                               (6, "annual salary"), (7, "remote work")):
             self.assertIn(phrase, self.hints[GROUP][index]["english"])

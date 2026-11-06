@@ -346,10 +346,26 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("se soutiennent quand l'une traverse une difficulté", response(10).arguments[2].exemple)
         self.assertIn("chacune paie vingt euros", response(11).arguments[1].exemple)
         self.assertIn("chacune le même abonnement à quarante euros", response(11).arguments[1].exemple)
+        self.assertIn("Certaines dépenses ne baissent pas quand on vit seul", response(11).arguments[1].developpement)
+        self.assertIn("le même prix pour une personne que pour deux", response(11).arguments[1].developpement)
         self.assertIn("Après une opération", response(11).arguments[2].exemple)
-        self.assertIn("n'empêche d'ailleurs pas d'avoir une vie sociale riche", response(11).nuance)
+        self.assertIn("Si un problème de santé nous empêche", response(11).arguments[2].developpement)
+        self.assertIn("demander à un proche quand il peut venir", response(11).arguments[2].developpement)
+        self.assertIn("fait les courses, les repas et le ménage pour tout le monde", response(11).nuance)
+        self.assertIn("Pour cette personne, vivre seule peut donc alléger le quotidien", response(11).nuance)
+        self.assertNotIn("vie sociale", response(11).nuance)
+        self.assertIn("les frais et les tâches sont réellement partagés", response(11).conclusion)
+        self.assertIn("Je suis pour des règles claires", response(12).position_claire)
+        self.assertIn("écouter l'enfant sans renoncer à poser des limites", response(12).position_claire)
+        self.assertNotIn("Je distingue", response(12).position_claire)
+        self.assertIn("fait sonner la sirène de son camion jouet", response(12).arguments[0].exemple)
+        self.assertIn("continuer à jouer, mais sans la sirène", response(12).arguments[0].exemple)
+        self.assertIn("continue à jouer sans faire sonner la sirène", response(12).arguments[0].consequence)
+        self.assertNotIn("dessiner", response(12).arguments[0].exemple)
         self.assertIn("l'écoute sans crier", response(12).arguments[1].exemple)
         self.assertIn("contactent la bibliothèque", response(12).arguments[1].exemple)
+        self.assertIn("laisser l'enfant proposer comment s'organiser", response(12).arguments[2].developpement)
+        self.assertIn("respecter les engagements qu'il a lui-même pris", response(12).arguments[2].developpement)
         self.assertIn("sans qu'elle ait à le lui rappeler", response(12).arguments[2].exemple)
         self.assertIn("intervenir immédiatement", response(12).nuance)
         self.assertIn("pas obligé de réserver une langue à la maison et l'autre à l'école", response(13).nuance)
@@ -362,9 +378,9 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("ose discuter avec ses coéquipiers", response(13).arguments[2].exemple)
         self.assertIn("prend confiance pour parler", response(13).arguments[2].consequence)
         self.assertIn("selon ses possibilités", response(14).position_claire)
-        self.assertIn("vérifie les placards", response(14).arguments[2].exemple)
+        self.assertIn("sauf les soirs d'entraînement", response(14).arguments[2].exemple)
         self.assertIn("après vingt-cinq ans", response(16).position_claire)
-        self.assertIn("sans demander l'autorisation de sortir", response(16).arguments[2].exemple)
+        self.assertIn("pas à leur demander la permission de sortir", response(16).arguments[2].exemple)
         self.assertIn("n'impose pas de déménager à une date précise", response(16).nuance)
 
     def test_famille_retained_and_replaced_mechanisms_keep_distinct_annotation_ids(self):
@@ -377,7 +393,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             "famille-p11": (1, 2, 4),
             # Dialogue and intergenerational contact retain their IDs when reordered.
             "famille-p13": (1, 2, 3),
-            "famille-p14": (1, 2, 3),
+            "famille-p14": (1, 2, 4),
             # Restore the approved support / family confidence / personal achievement mechanisms.
             "culture-p16": (1, 4, 5),
         }.items():
@@ -686,7 +702,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("résultat assuré", response(1).position_claire)
         self.assertIn("pas figée", response(1).arguments[0].consequence)
         self.assertIn("accueil", response(1).conclusion)
-        self.assertIn("Pour le rendez-vous suivant", response(1).arguments[0].exemple)
+        self.assertIn("rendez-vous par téléphone, sans aide", response(1).arguments[0].exemple)
         self.assertNotIn("Au rendez-vous suivant", response(1).arguments[0].exemple)
         self.assertIn("la santé", response(2).nuance)
         self.assertNotIn("âge limite biologique", spoken_text(response(2)))

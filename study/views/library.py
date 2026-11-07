@@ -2787,9 +2787,8 @@ def _tache_two_theme_neighbors(
 ):
     """Locate a subject inside its theme.
 
-    Returns ``(theme, position, total, previous, next)`` where the
-    neighbours are dicts carrying the routing fields needed to build a
-    subject-detail URL.
+    Returns ``(theme, position, total, previous, next, items)`` where the
+    neighbours and ordered items carry the subject-detail routing fields.
     """
     themes, mapping = catalogue.tache_two_subject_themes()
     theme_by_slug = {theme.slug: theme for theme in themes}
@@ -2831,14 +2830,22 @@ def _tache_two_theme_neighbors(
                 response__is_active=True,
             ).values_list("content_key", "response_id")
         )
+
+    def navigation_key(item):
+        return response_ids.get(item["content_key"], item["content_key"])
+
+    navigation_items = _subject_navigation_items(
+        ordered, key=navigation_key, deduplicate=deduplicate,
+    )
     return (
         theme,
         *_subject_neighbors(
-            ordered,
+            navigation_items,
             {"content_key": target_key},
-            key=lambda item: response_ids.get(item["content_key"], item["content_key"]),
-            deduplicate=deduplicate,
+            key=navigation_key,
+            deduplicate=False,
         ),
+        navigation_items,
     )
 
 
@@ -3004,12 +3011,31 @@ def task_subject_detail(
         subject_total,
         previous_subject,
         next_subject,
+        navigation_items,
     ) = _tache_two_theme_neighbors(
         month.slug,
         batch.number,
         subject.number,
         deduplicate=request.GET.get("deduplicate", "1") == "1",
     )
+    subject_choices = [
+        {
+            "label": item["title"],
+            "position": index,
+            "selected": index == subject_position,
+            "url": routing.subject_selection_url(
+                reverse(
+                    "study:task_subject_detail",
+                    args=[
+                        part_slug, task_slug, item["month_slug"],
+                        item["batch_number"], item["number"],
+                    ],
+                ),
+                request,
+            ),
+        }
+        for index, item in enumerate(navigation_items, start=1)
+    ]
     subject_hints = catalogue.tache_two_subject_hints()[selected_prompt.content_key]
     subject_hint_sections = hint_section_presentation(
         published_dialogue(selected_prompt),
@@ -3042,6 +3068,7 @@ def task_subject_detail(
             "next_subject": next_subject,
             "subject_position": subject_position,
             "subject_total": subject_total,
+            "subject_choices": subject_choices,
             "selected_prompt": selected_prompt,
             "equivalent_subjects": equivalent_subjects,
             "subject_annotation_key": subject_annotation_key,
@@ -3717,9 +3744,10 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             theme_id=selected_prompt.theme_id,
         ).select_related("theme__task__part", "family")
     )
+    is_eo3 = (part_slug, task_slug) == content_module.EO_TACHE_THREE_TASK
     order = (
         ("family__order", "family__name", "number", "pk")
-        if (part_slug, task_slug) == ("eo", "tache-3")
+        if is_eo3
         else ("number", "pk")
     )
     deduplicate = request.GET.get("deduplicate", "1") == "1"
@@ -3741,12 +3769,14 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     prompt_choices = [
         {
             "prompt": prompt,
+            "label": prompt.text,
+            "group": prompt.family if is_eo3 else None,
             "position": index,
             "selected": navigation_key(prompt) == navigation_key(selected_prompt),
             "url": routing.subject_selection_url(prompt_detail_url(prompt), request),
         }
         for index, prompt in enumerate(navigation_items, start=1)
-    ] if (part_slug, task_slug) == content_module.EO_TACHE_THREE_TASK else []
+    ] if is_eo3 or part_slug == "ee" else []
 
     related_phrases = (
         lean_phrase_rows(
@@ -4274,15 +4304,34 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
         content_module.ee_writing_canonical_slug_by_slug(tache)
     )
     deduplicate = request.GET.get("deduplicate", "1") == "1"
-    position, total, previous_sujet, next_sujet = _subject_neighbors(
-        siblings,
-        sujet,
-        key=lambda item: (
-            canonical_slug_by_slug.get(item.slug, item.slug)
-            if deduplicate else item.pk
-        ),
-        deduplicate=deduplicate,
+
+    def navigation_key(item):
+        return canonical_slug_by_slug.get(item.slug, item.slug) if deduplicate else item.pk
+
+    navigation_items = _subject_navigation_items(
+        siblings, key=navigation_key, deduplicate=deduplicate,
     )
+    position, total, previous_sujet, next_sujet = _subject_neighbors(
+        navigation_items,
+        sujet,
+        key=navigation_key,
+        deduplicate=False,
+    )
+    sujet_choices = [
+        {
+            "label": item.prompt,
+            "position": index,
+            "selected": index == position,
+            "url": routing.subject_selection_url(
+                reverse(
+                    "study:writing_sujet_detail",
+                    args=[part_slug, task_slug, item.pk],
+                ),
+                request,
+            ),
+        }
+        for index, item in enumerate(navigation_items, start=1)
+    ]
     equivalent_sujets = [
         {
             "sujet": candidate,
@@ -4343,6 +4392,7 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
             "next_sujet": next_sujet,
             "position": position,
             "total": total,
+            "sujet_choices": sujet_choices,
             "personal_saved": request.GET.get("saved") == "1",
             "personal_reset": request.GET.get("reset") == "1",
             "response_deleted": request.GET.get("deleted") == "1",

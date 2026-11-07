@@ -160,6 +160,38 @@ class SubjectNavigationTemplateTests(SimpleTestCase):
                 )
                 self.assertNotIn('target="_blank"', source)
 
+    def test_subject_picker_renders_flat_choices_without_empty_groups(self):
+        rendered = render_to_string(
+            "study/partials/subject_navigation.html",
+            {
+                "position": 2,
+                "total": 2,
+                "choices": [
+                    {
+                        "position": 1,
+                        "label": "Premier sujet",
+                        "url": "/sujets/1/?deduplicate=0",
+                        "selected": False,
+                    },
+                    {
+                        "position": 2,
+                        "label": "Des idées & des projets ?",
+                        "url": "/sujets/2/?deduplicate=0",
+                        "selected": True,
+                    },
+                ],
+            },
+        )
+
+        self.assertInHTML(
+            '<option value="/sujets/2/?deduplicate=0" '
+            'data-short-label="Sujet 2 sur 2" selected>'
+            "Sujet 2 · Des idées &amp; des projets ?</option>",
+            rendered,
+        )
+        self.assertNotIn("<optgroup", rendered)
+        self.assertIn('data-custom-select data-subject-select', rendered)
+
     def test_subject_navigation_renders_round_arrows_around_position_pill(self):
         rendered = render_to_string(
             "study/partials/subject_navigation.html",

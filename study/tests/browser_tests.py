@@ -2673,7 +2673,7 @@ class BrowserTests(StaticLiveServerTestCase):
                     links.nth(5).click()
                 detail = opened.value
                 detail.wait_for_load_state()
-                position = detail.locator(".prompt-nav__position").first
+                position = detail.locator(".prompt-nav__picker .custom-select__value").first
                 previous_link = detail.locator('a[rel="prev"]').first
                 next_link = detail.locator('a[rel="next"]').first
                 expect(detail.locator(".prompt-nav--subject")).to_have_count(2)
@@ -2683,6 +2683,22 @@ class BrowserTests(StaticLiveServerTestCase):
                 next_link.click()
                 expect(position).to_have_text(f"Sujet 7 sur {total}")
                 previous_link.click()
+                expect(position).to_have_text(f"Sujet 6 sur {total}")
+                navigation = detail.locator(".prompt-nav--subject").first
+                self.assertEqual(
+                    navigation.locator("[data-subject-select]").evaluate(
+                        "select => Array.from(select.options, option => option.value)",
+                    ),
+                    expected_links,
+                )
+                navigation.get_by_role(
+                    "button", name="Choisir un sujet dans ce thème",
+                ).click()
+                navigation.get_by_role("option").nth(6).click()
+                detail.wait_for_url(self.live_server_url + expected_links[6])
+                expect(position).to_have_text(f"Sujet 7 sur {total}")
+                detail.go_back()
+                detail.wait_for_url(self.live_server_url + expected_links[5])
                 expect(position).to_have_text(f"Sujet 6 sur {total}")
                 detail.locator(".subject-page-back").click()
                 expect(detail.get_by_role("button", name="Dédupliquer", exact=True)).to_have_attribute(
@@ -5016,6 +5032,108 @@ class BrowserTests(StaticLiveServerTestCase):
         from study.tests.transport_travel_review_fixtures import REVIEWED_GROUPS
 
         self.assert_reviewed_eo2_models_render(REVIEWED_GROUPS, 58)
+
+    def other_subject_picker_pages(self):
+        self._import_eo_tache_two_content()
+        yield "eo2", reverse(
+            "study:task_subject_detail",
+            args=["eo", "tache-2", "janvier", 1, 1],
+        )
+        for tache, task in self._import_ee_writing_content().items():
+            sujet = task.writing_sujets.filter(is_active=True).order_by("order", "pk").first()
+            yield f"ee{tache}", reverse(
+                "study:writing_sujet_detail", args=["ee", task.slug, sujet.pk],
+            )
+        _, task = self._import_ee_tache_three_content()
+        prompt = Prompt.objects.filter(
+            theme__task=task, is_active=True, response__is_active=True,
+        ).select_related("theme__task__part").order_by("theme__order", "number", "pk").first()
+        yield "ee3", prompt_detail_url(prompt)
+
+    def test_other_subject_pickers_navigate_restore_history_and_keep_publication_mode(self):
+        for scope, path in self.other_subject_picker_pages():
+            for query in ("", "?deduplicate=0"):
+                with self.subTest(scope=scope, query=query):
+                    source_url = self.live_server_url + path + query
+                    self.page.goto(source_url)
+                    selects = self.page.locator("[data-subject-select]")
+                    expect(selects).to_have_count(2)
+                    options = selects.first.evaluate(
+                        "select => Array.from(select.options, option => "
+                        "({url: option.value, label: option.text}))",
+                    )
+                    selected_index = selects.first.evaluate("select => select.selectedIndex")
+                    self.assertGreater(len(options), 1)
+                    target_index = (selected_index + 1) % len(options)
+                    target = options[target_index]
+                    source_label = f"Sujet {selected_index + 1} sur {len(options)}"
+                    for row in (0, 1):
+                        navigation = self.page.locator(".prompt-nav--subject").nth(row)
+                        button = navigation.get_by_role(
+                            "button", name="Choisir un sujet dans ce thème",
+                        )
+                        button.click()
+                        menu = navigation.get_by_role("listbox")
+                        expect(menu.get_by_role("option")).to_have_text(
+                            [option["label"] for option in options],
+                        )
+                        expect(menu.get_by_role("group")).to_have_count(0)
+                        self.page.keyboard.press("Escape")
+                        expect(button).to_be_focused()
+                        button.press("ArrowDown")
+                        self.page.keyboard.press("Tab")
+                        expect(menu).to_be_hidden()
+                        button.click()
+                        menu.get_by_role("option").nth(selected_index).click()
+                        self.assertEqual(self.page.url, source_url)
+                        if row == 0:
+                            button.click()
+                            menu.get_by_role("option").nth(target_index).click()
+                        else:
+                            button.press("ArrowDown")
+                            self.page.keyboard.press("Home")
+                            for _ in range(target_index):
+                                self.page.keyboard.press("ArrowDown")
+                            self.page.keyboard.press("Enter")
+                        self.page.wait_for_url(self.live_server_url + target["url"])
+                        expect(
+                            self.page.locator(".prompt-nav__picker .custom-select__value"),
+                        ).to_have_text([
+                            f"Sujet {target_index + 1} sur {len(options)}",
+                        ] * 2)
+                        self.assertEqual(len(self.context.pages), 1)
+                        self.page.go_back()
+                        self.page.wait_for_url(source_url)
+                        expect(
+                            self.page.locator(".prompt-nav__picker .custom-select__value"),
+                        ).to_have_text([source_label] * 2)
+                        self.assertEqual(selects.evaluate_all(
+                            "selects => selects.map(select => select.selectedIndex)",
+                        ), [selected_index] * 2)
+
+    def test_other_subject_pickers_fit_mobile_desktop_and_both_navigation_rows(self):
+        for scope, path in self.other_subject_picker_pages():
+            for width in (320, 1183):
+                self.page.set_viewport_size({"width": width, "height": 844})
+                self.page.goto(self.live_server_url + path)
+                for row in (0, 1):
+                    with self.subTest(scope=scope, width=width, row=row):
+                        navigation = self.page.locator(".prompt-nav--subject").nth(row)
+                        button = navigation.get_by_role(
+                            "button", name="Choisir un sujet dans ce thème",
+                        )
+                        button.click()
+                        menu = navigation.get_by_role("listbox")
+                        expect(menu).to_be_visible()
+                        box = menu.bounding_box()
+                        self.assertGreaterEqual(box["x"], 0)
+                        self.assertLessEqual(box["x"] + box["width"], width)
+                        self.assertGreaterEqual(box["y"], 0)
+                        self.assertLessEqual(box["y"] + box["height"], 845)
+                        self.assert_no_horizontal_overflow()
+                        self.page.keyboard.press("Escape")
+                        expect(button).to_be_focused()
+                        expect(menu).to_be_hidden()
 
     def open_eo3_subject_picker(self):
         first = self.first.response.prompts.get(is_canonical=True)

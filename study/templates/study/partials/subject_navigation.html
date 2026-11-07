@@ -17,13 +17,17 @@ action names default to the subject wording.
   <div class="prompt-nav__picker">
     <label class="sr-only" for="prompt-select-{% if bottom %}bottom{% else %}top{% endif %}">Choisir un sujet dans ce thème</label>
     <select id="prompt-select-{% if bottom %}bottom{% else %}top{% endif %}" class="prompt-nav__select" data-custom-select data-subject-select>
-      {% regroup choices by prompt.family as choice_groups %}
+      {% regroup choices by group as choice_groups %}
       {% for group in choice_groups %}
+        {% if group.grouper %}
         <optgroup label="{{ group.grouper.name }}">
+        {% endif %}
           {% for choice in group.list %}
-          <option value="{{ choice.url }}" data-short-label="Sujet {{ choice.position }} sur {{ total }}"{% if choice.selected %} selected{% endif %}>Sujet {{ choice.position }} · {{ choice.prompt.text }}</option>
+          <option value="{{ choice.url }}" data-short-label="Sujet {{ choice.position }} sur {{ total }}"{% if choice.selected %} selected{% endif %}>Sujet {{ choice.position }} · {{ choice.label }}</option>
           {% endfor %}
+        {% if group.grouper %}
         </optgroup>
+        {% endif %}
       {% endfor %}
     </select>
   </div>

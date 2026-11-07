@@ -2935,6 +2935,15 @@ class QuestionBankViewTests(TestCase):
             self.assertEqual(theme["total"], len(theme["subjects"]))
 
     def test_subject_navigation_follows_group_selection_and_preserves_opt_out(self):
+        def subject_url(row):
+            return reverse(
+                "study:task_subject_detail",
+                args=[
+                    "eo", self.task.slug, row["month_slug"],
+                    row["batch_number"], row["number"],
+                ],
+            )
+
         browse_url = reverse("study:task_browse", args=["eo", self.task.slug])
         original = self.client.get(browse_url, {"deduplicate": "0"})
         for theme in original.context["subject_themes"]:
@@ -2955,14 +2964,22 @@ class QuestionBankViewTests(TestCase):
         alias = aliases[-1]
         index = list(representatives).index(alias["response_id"])
         self.assertGreater(index, 0)
-        url = reverse(
-            "study:task_subject_detail",
-            args=["eo", self.task.slug, alias["month_slug"], alias["batch_number"], alias["number"]],
-        )
+        url = subject_url(alias)
         page = self.client.get(url)
         self.assertEqual(page.context["selected_prompt"].content_key, alias["content_key"])
         self.assertEqual(page.context["subject_position"], index + 1)
         self.assertEqual(page.context["subject_total"], len(selected))
+        self.assertEqual(page.context["subject_choices"], [
+            {
+                "label": row["title"],
+                "position": number,
+                "selected": number == index + 1,
+                "url": subject_url(row),
+            }
+            for number, row in enumerate(selected, start=1)
+        ])
+        self.assertContains(page, "data-custom-select data-subject-select", count=2)
+        self.assertNotContains(page, "<optgroup")
         self.assertEqual(
             page.context["previous_subject"]["content_key"], selected[index - 1]["content_key"],
         )
@@ -2976,6 +2993,15 @@ class QuestionBankViewTests(TestCase):
         all_page = self.client.get(url, {"deduplicate": "0"})
         self.assertEqual(all_page.context["subject_total"], len(rows))
         self.assertEqual(all_page.context["subject_position"], rows.index(alias) + 1)
+        self.assertEqual(all_page.context["subject_choices"], [
+            {
+                "label": row["title"],
+                "position": number,
+                "selected": number == rows.index(alias) + 1,
+                "url": f"{subject_url(row)}?deduplicate=0",
+            }
+            for number, row in enumerate(rows, start=1)
+        ])
         self.assertContains(all_page, f'href="{browse_url}?deduplicate=0#theme-{theme["slug"]}"')
         self.assertNotContains(all_page, "model=1")
         self.assertNotContains(all_page, "Versions du sujet")

@@ -213,6 +213,29 @@ class WritingSujetViewTests(TestCase):
             args=["ee", sujet.task.slug, sujet.pk, card["key"]],
         )
 
+    def test_subject_picker_stays_in_the_active_task_and_category(self):
+        second = factories.make_writing_sujet(
+            self.task, slug="seconde-invitation", order=4,
+        )
+        factories.make_writing_sujet(
+            self.task, slug="invitation-inactive", is_active=False,
+        )
+        other_task = factories.make_task(self.part, "tache-2")
+        factories.make_writing_sujet(other_task, slug="autre-tache")
+
+        page = self.client.get(self._detail_url(self.multi))
+
+        self.assertEqual(page.context["total"], 2)
+        self.assertEqual(
+            [choice["url"] for choice in page.context["sujet_choices"]],
+            [self._detail_url(self.multi), self._detail_url(second)],
+        )
+        self.assertEqual(
+            [choice["label"] for choice in page.context["sujet_choices"]],
+            [self.multi.prompt, second.prompt],
+        )
+        self.assertContains(page, "data-subject-select", count=2)
+
     def test_main_response_has_edit_but_no_delete_and_rejects_direct_deletion(self):
         page = self.client.get(self._detail_url(self.multi))
         main = re.search(

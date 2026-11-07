@@ -3803,6 +3803,62 @@ class ResponsePromptNavigationTests(TestCase):
             html=True,
         )
 
+    def test_ee3_subject_picker_keeps_theme_prompt_order_and_alias_identity(self):
+        part = factories.make_part("ee")
+        task = factories.make_task(part, "tache-3")
+        theme = factories.make_theme("navigation-ee3", task=task)
+        later_family = factories.make_family("navigation-ee3-later")
+        later_family.order = self.family.order + 1
+        later_family.save(update_fields=["order"])
+        first = self._update_prompt(
+            factories.make_response(theme=theme, family=later_family),
+            number=1, text="Premier sujet écrit ?",
+        )
+        second = self._update_prompt(
+            factories.make_response(theme=theme, family=self.family),
+            number=2, text="Deuxième sujet écrit ?",
+        )
+        alias = Prompt.objects.create(
+            content_key="test-prompt:navigation-ee3-alias",
+            response=first.response, theme=theme, family=self.family,
+            number=3, text="Autre consigne du premier sujet écrit ?",
+        )
+        other_theme = factories.make_theme("navigation-ee3-other", task=task)
+        factories.make_response(theme=other_theme)
+        inactive = factories.make_response(theme=theme)
+        inactive.is_active = False
+        inactive.save(update_fields=["is_active"])
+
+        for selection, expected, position in (
+            ({}, [first, second], 1),
+            ({"deduplicate": "0"}, [first, second, alias], 3),
+        ):
+            with self.subTest(selection=selection):
+                page = self.client.get(self._detail_url(alias), selection)
+                choices = page.context["prompt_choices"]
+                self.assertEqual(page.context["selected_prompt"], alias)
+                self.assertEqual(page.context["prompt_position"], position)
+                self.assertEqual(page.context["prompt_total"], len(expected))
+                self.assertEqual([choice["prompt"] for choice in choices], expected)
+                self.assertEqual(
+                    [choice["label"] for choice in choices],
+                    [prompt.text for prompt in expected],
+                )
+                self.assertEqual(
+                    [choice["selected"] for choice in choices],
+                    [number == position for number in range(1, len(expected) + 1)],
+                )
+                self.assertTrue(all(choice["group"] is None for choice in choices))
+                self.assertEqual(
+                    [choice["url"] for choice in choices],
+                    [
+                        self._detail_url(prompt) + ("?deduplicate=0" if selection else "")
+                        for prompt in expected
+                    ],
+                )
+                self.assertContains(page, "data-subject-select", count=2)
+                self.assertNotContains(page, "<optgroup")
+
     def test_top_navigation_sits_above_the_prompt_card(self):
         rendered = self.client.get(self._detail_url(self.middle_prompt)).content.decode()
 

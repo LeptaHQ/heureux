@@ -40,9 +40,10 @@ response-ordering checks still run with their controlled delays.
 
 ## Subject navigation
 
-On EO Tâche 3 subject pages, the **Sujet N sur M** counter opens a subject
-picker for the current theme, grouped by subtheme. It keeps the same ordering,
-previous/next links, and publication-deduplication setting.
+On EO Tâches 2/3 and EE Tâches 1/2/3 subject pages, the **Sujet N sur M**
+counter opens a subject picker for the current theme or category. EO3 choices
+are grouped by subtheme. Each picker keeps the same ordering, previous/next
+links, and publication-deduplication setting.
 
 ## French narration across the app
 

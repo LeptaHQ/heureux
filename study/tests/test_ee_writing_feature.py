@@ -1311,23 +1311,48 @@ class EeWritingPageTests(TestCase):
                         page.context["next_sujet"],
                         selected[index + 1] if index + 1 < len(selected) else None,
                     )
+                    self.assertEqual(page.context["sujet_choices"], [
+                        {
+                            "label": candidate.prompt,
+                            "position": number,
+                            "selected": number == index + 1,
+                            "url": reverse(
+                                "study:writing_sujet_detail",
+                                args=["ee", task.slug, candidate.pk],
+                            ),
+                        }
+                        for number, candidate in enumerate(selected, start=1)
+                    ])
                     self.assertContains(
-                        page, f"Sujet {index + 1} sur {len(selected)}", count=1,
+                        page, f"Sujet {index + 1} sur {len(selected)}", count=3,
                     )
                     self.assertContains(
                         page,
-                        '<span class="prompt-nav__position"><span>Sujet</span>'
-                        f"<strong>{index + 1}</strong>"
-                        f"<span>sur {len(selected)}</span></span>",
+                        f'data-short-label="Sujet {index + 1} sur {len(selected)}" selected',
                         count=2,
-                        html=True,
                     )
+                    self.assertContains(page, "data-custom-select data-subject-select", count=2)
+                    self.assertNotContains(page, "<optgroup")
                     self.assertContains(page, "prompt-nav--subject", count=2)
                     self.assertContains(page, "prompt-nav--bottom", count=1)
                     self.assertContains(original, f'href="{detail_url}?deduplicate=0"')
                     all_page = self.client.get(detail_url, {"deduplicate": "0"})
                     self.assertEqual(all_page.context["position"], raw_index + 1)
                     self.assertEqual(all_page.context["total"], len(rows))
+                    self.assertEqual(
+                        [choice["url"] for choice in all_page.context["sujet_choices"]],
+                        [
+                            reverse(
+                                "study:writing_sujet_detail",
+                                args=["ee", task.slug, item["sujet"].pk],
+                            ) + "?deduplicate=0"
+                            for item in rows
+                        ],
+                    )
+                    self.assertEqual(
+                        [choice["selected"] for choice in all_page.context["sujet_choices"]],
+                        [number == raw_index for number in range(len(rows))],
+                    )
                     self.assertEqual(
                         all_page.context["previous_sujet"],
                         rows[raw_index - 1]["sujet"] if raw_index else None,

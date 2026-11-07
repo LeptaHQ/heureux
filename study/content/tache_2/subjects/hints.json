@@ -678,8 +678,8 @@
         "english": "Daytime frequency and last evening departures"
       },
       {
-        "french": "Caméras à bord et assistance joignable ou non 24 h sur 24",
-        "english": "Onboard cameras and whether assistance is available 24/7"
+        "french": "Caméras de surveillance et personnes à contacter en cas de problème",
+        "english": "Surveillance cameras and whom to contact if there is a problem"
       }
     ],
     "director-canada-fortnight-training": [
@@ -1754,8 +1754,8 @@
         "english": "Insurance included in the package"
       },
       {
-        "french": "Franchise en cas de dommage couvert",
-        "english": "Excess payable for covered damage"
+        "french": "Part des dégâts à payer malgré l'assurance",
+        "english": "Damage costs you still pay despite insurance"
       },
       {
         "french": "Documents nécessaires à la location",
@@ -1814,8 +1814,8 @@
         "english": "Paths towards downtown that avoid major roads"
       },
       {
-        "french": "État des pistes et séparation avec la circulation",
-        "english": "Path condition and separation from road traffic"
+        "french": "Entretien des pistes et passages sur la route avec les voitures",
+        "english": "Path maintenance and sections on roads shared with cars"
       },
       {
         "french": "Lieux où louer un vélo",
@@ -1826,16 +1826,16 @@
         "english": "Daily bicycle rental prices"
       },
       {
-        "french": "Équipement à prévoir pour circuler",
-        "english": "Equipment needed for getting around"
+        "french": "Équipement conseillé pour le vélo en ville : casque, bon antivol",
+        "english": "Recommended equipment for cycling in the city: helmet, good bike lock"
       },
       {
         "french": "Sources sur les travaux et les règles à vélo",
         "english": "Where to check path closures and cycling rules"
       },
       {
-        "french": "Stationnement du vélo près des services",
-        "english": "Bicycle parking near local services"
+        "french": "Supports à vélo pour stationner en sécurité au centre-ville",
+        "english": "Bike racks for secure parking downtown"
       }
     ],
     "colleague-babysitter-referral-needs": [
@@ -1908,28 +1908,28 @@
     ],
     "friend-carpooling-offer": [
       {
-        "french": "Trajets habituels de covoiturage",
-        "english": "Usual carpool routes"
+        "french": "Prochain départ d'Ottawa vers Montréal",
+        "english": "Next departure from Ottawa to Montréal"
       },
       {
-        "french": "Prochaines dates et heures disponibles",
-        "english": "Next available dates and departure times"
+        "french": "Durée du trajet et arrivée à Montréal",
+        "english": "Journey duration and drop-off in Montréal"
       },
       {
         "french": "Places encore disponibles",
         "english": "Seats still available"
       },
       {
-        "french": "Point de rendez-vous",
-        "english": "Meeting point"
+        "french": "Point de rendez-vous à Ottawa",
+        "english": "Meeting point in Ottawa"
       },
       {
         "french": "Prix d'une place sur le trajet",
         "english": "Fare for one seat on the route"
       },
       {
-        "french": "Quantité de bagages autorisée",
-        "english": "Amount of luggage allowed"
+        "french": "Place pour un sac de voyage",
+        "english": "Space for a travel bag"
       },
       {
         "french": "Réservation d'une place et moment du paiement",
@@ -2826,8 +2826,8 @@
     ],
     "neighbor-regular-carpool-invitation": [
       {
-        "french": "Trajet habituel et jours de déplacement",
-        "english": "Usual route and travel days"
+        "french": "Jours du trajet Gatineau-Ottawa",
+        "english": "Days of the Gatineau-Ottawa trips"
       },
       {
         "french": "Horaires de départ et de retour",
@@ -3200,36 +3200,36 @@
     ],
     "bicycle-rental-model-and-terms": [
       {
-        "french": "Modèles de vélos disponibles",
-        "english": "Available bicycle models"
+        "french": "Types de vélos : ville, tout-terrain, électrique",
+        "english": "Bicycle types: city, mountain and electric bikes"
       },
       {
-        "french": "Différences entre les modèles pour une journée en ville",
-        "english": "Differences between models for a day of city riding"
+        "french": "Modèle conseillé pour une promenade en ville et raisons du choix",
+        "english": "Recommended model for a city ride and reasons for the choice"
       },
       {
-        "french": "Tarifs horaires et journaliers selon le modèle",
-        "english": "Hourly and daily prices by model"
+        "french": "Location à l'heure, à la journée ou autre formule et tarifs",
+        "english": "Hourly, daily or other rental periods and prices"
       },
       {
-        "french": "Casque et antivol compris ou en supplément",
-        "english": "Helmet and lock included or extra"
+        "french": "Casque et antivol compris, sonnette et lumières sur le vélo",
+        "english": "Included helmet and lock, and a bell and lights fitted to the bicycle"
       },
       {
-        "french": "Documents et moyens de paiement nécessaires",
-        "english": "Required documents and payment methods"
+        "french": "Documents à apporter et moyens de paiement acceptés",
+        "english": "Documents to bring and accepted payment methods"
       },
       {
-        "french": "Montant et restitution du dépôt de garantie",
-        "english": "Security deposit amount and release"
+        "french": "Assurance contre le vol ou les dégâts et prix",
+        "english": "Theft or damage insurance and its price"
       },
       {
         "french": "Heure de retour du vélo et frais de retard",
         "english": "Bicycle return time and late fees"
       },
       {
-        "french": "Assistance en cas de crevaison",
-        "english": "Assistance with a puncture"
+        "french": "Assistance sur place en cas de problème avec le vélo",
+        "english": "On-site assistance if there is a problem with the bicycle"
       }
     ],
     "travel-agency-canada-cruise": [
@@ -3370,36 +3370,36 @@
     ],
     "canadian-city-resident-advice-transit": [
       {
-        "french": "Transports utilisés dans le quartier et vers le centre",
-        "english": "Transport used around the neighbourhood and to the centre"
+        "french": "Moyens de transport disponibles en ville",
+        "english": "Transport options available in the city"
       },
       {
         "french": "Trajet conseillé du quartier au centre-ville",
         "english": "Recommended route from the neighbourhood to the city centre"
       },
       {
-        "french": "Fréquence des passages et dernier retour possible",
-        "english": "Service frequency and last possible return"
+        "french": "Prix d'un trajet simple",
+        "english": "Single-journey fare"
+      },
+      {
+        "french": "Pass journée ou abonnement et choix selon la fréquence des trajets",
+        "english": "Day passes or subscriptions and choosing by travel frequency"
+      },
+      {
+        "french": "Correspondances comprises et limites des zones",
+        "english": "Included transfers and zone limits"
+      },
+      {
+        "french": "Achat des billets ou de l'abonnement et carte rechargeable",
+        "english": "Buying tickets or a subscription and getting a reloadable card"
       },
       {
         "french": "Validation d'un titre de transport",
         "english": "Validating a fare product"
       },
       {
-        "french": "Prix d'un trajet simple",
-        "english": "Single-journey fare"
-      },
-      {
-        "french": "Billets, pass journée ou abonnement selon le nombre de trajets",
-        "english": "Tickets, a day pass or a subscription based on the number of journeys"
-      },
-      {
-        "french": "Modes de transport et zones couverts par les formules",
-        "english": "Transport modes and zones covered by the fare options"
-      },
-      {
-        "french": "Achat de la formule choisie et nécessité d'une carte rechargeable",
-        "english": "Buying the chosen fare and whether a reloadable card is needed"
+        "french": "Fréquence des passages et dernier retour possible",
+        "english": "Service frequency and last possible return"
       }
     ],
     "friend-used-electric-bicycle-sale": [
@@ -3412,16 +3412,16 @@
         "english": "Frame and accessory colours"
       },
       {
-        "french": "Kilométrage du vélo",
-        "english": "Bicycle mileage"
+        "french": "Kilométrage et autonomie actuelle avec une charge complète",
+        "english": "Mileage and current range on a full charge"
       },
       {
         "french": "État général et dernière révision",
         "english": "Overall condition and last service"
       },
       {
-        "french": "Autonomie actuelle et conditions d'utilisation",
-        "english": "Current battery range and riding conditions"
+        "french": "Facture d'achat et factures d'entretien",
+        "english": "Purchase and maintenance invoices"
       },
       {
         "french": "Prix demandé et marge de négociation",
@@ -4526,8 +4526,8 @@
     ],
     "colleague-montreal-work-week-transit": [
       {
-        "french": "Trajet hébergement-travail et correspondances à prévoir",
-        "english": "Accommodation-to-work route and any transfers needed"
+        "french": "Trajet hôtel-réunions, de Berri-UQAM à McGill",
+        "english": "Hotel-to-meetings route, from Berri-UQAM to McGill"
       },
       {
         "french": "Fréquence des passages le matin",
@@ -4538,24 +4538,24 @@
         "english": "Recommended fare for one week and its price"
       },
       {
-        "french": "Rentabilité du titre hebdomadaire dès mercredi",
-        "english": "Weekly-pass value when arriving on Wednesday"
+        "french": "Validité de l'hebdomadaire en cas d'arrivée un mercredi",
+        "english": "Weekly-pass validity when arriving on a Wednesday"
       },
       {
-        "french": "Modes de transport et zones couverts par le titre conseillé",
-        "english": "Transport modes and zones covered by the recommended fare"
+        "french": "Correspondances comprises et limites de la zone A",
+        "english": "Included transfers and Zone A boundaries"
       },
       {
-        "french": "Achat et validation du titre sur carte OPUS ou autre support",
-        "english": "Buying and validating a fare on an OPUS card or another medium"
+        "french": "Achat du titre sur carte OPUS et validation",
+        "english": "Buying the fare on an OPUS card and validating it"
       },
       {
-        "french": "Derniers départs en semaine et le samedi soir",
-        "english": "Last departures on weekdays and Saturday nights"
+        "french": "Dernier métro de McGill vers Berri-UQAM, en semaine et le samedi",
+        "english": "Last métro from McGill to Berri-UQAM on weekdays and Saturdays"
       },
       {
-        "french": "Retour après un repas d'affaires quand les lignes ne circulent plus",
-        "english": "Getting home after a business dinner when the route is no longer running"
+        "french": "Retour à l'hôtel après un repas d'affaires quand le métro ne circule plus",
+        "english": "Getting back to the hotel after a business dinner when the métro has stopped"
       }
     ],
     "french-teacher-language-school-student-game": [

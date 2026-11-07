@@ -327,7 +327,7 @@
     {
       "group": "newcomer-city-transit-service",
       "register": "vous",
-      "note": "You are discovering the city's transport network and asking its information service for help. Use vous. Connect available modes to useful destinations, then check route information, fares, coverage, purchase, validation, frequency and return times. No departure from the agency, app or day pass is assumed. Ask assistance hours only if that service exists. The unnamed network, lines, prices and safety arrangements are illustrative, not verified local facts.",
+      "note": "You are discovering the city's transport network and asking its information service for help. Use vous. Connect available modes to useful destinations, then check route information, fares, coverage, purchase, validation, frequency and return times. No departure from the agency, app or day pass is assumed. Ask who can help if a problem occurs. The unnamed network, lines, prices and safety arrangements are illustrative, not verified local facts.",
       "opening": "Bonjour ! Je découvre la ville et j'aimerais comprendre comment utiliser les transports en commun.",
       "closing": "Merci pour ces explications. Je vais vérifier mon trajet avant de partir.",
       "questions": [
@@ -338,7 +338,7 @@
         {"topic": "Titres et tarifs", "question": "Avec ce pass, je peux changer de ligne et aller partout en ville sans payer de supplément ?", "answer": "Oui pour les correspondances entre bus, métro et tramway dans la zone urbaine ; les secteurs extérieurs demandent un autre titre.", "follow_up_to": 4, "condition": "If a pass is recommended without explaining transfers and zone coverage."},
         {"topic": "Titres et tarifs", "question": "Où peut-on acheter ce titre, et comment doit-on le valider avant de voyager ?", "answer": "Vous pouvez l'acheter au guichet ou aux distributeurs ; on le présente ensuite au lecteur en montant dans le bus ou le tram, et au portillon du métro.", "follow_up_to": null},
         {"topic": "Horaires et sécurité", "question": "Les transports passent tous les combien en journée, et jusqu'à quelle heure circulent-ils le soir ?", "answer": "Le métro et le tram passent toutes les dix minutes, jusqu'à minuit et demi. Les horaires des bus dépendent de la ligne ; nous pouvons regarder celles qui vous intéressent.", "follow_up_to": null},
-        {"topic": "Horaires et sécurité", "question": "Y a-t-il des caméras de surveillance à bord et, si vous proposez un service d'assistance, ce service est-il joignable 24 heures sur 24 ?", "answer": "Des caméras équipent les véhicules ; notre service d'assistance téléphonique reste joignable à toute heure via le numéro affiché à bord.", "follow_up_to": null}
+        {"topic": "Horaires et sécurité", "question": "Y a-t-il des caméras de surveillance à bord, et qui peut-on contacter en cas de problème ?", "answer": "Oui, nos véhicules ont des caméras. En cas de problème, adressez-vous au conducteur du bus ou à un agent en station ; les interphones du métro permettent aussi de contacter le personnel.", "follow_up_to": null}
       ]
     }
   ]

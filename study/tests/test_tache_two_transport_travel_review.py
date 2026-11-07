@@ -106,7 +106,7 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
     def test_all_theme_review_preserves_public_editions_beyond_old_leaf_scopes(self):
         assert_review_preservation(self)
 
-    def test_transit_enquiry_covers_destinations_live_information_tickets_and_safety_hours(self):
+    def test_transit_enquiry_covers_destinations_live_information_tickets_and_practical_help(self):
         row = self.by_group["newcomer-city-transit-service"]
         self.assertEqual(len(row.questions), 8)
         self.assertEqual(
@@ -125,17 +125,17 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
         self.assertEqual(row.questions[4].follow_up_to, 4)
         self.assertIn("guichet", row.questions[5].answer)
         self.assertIn("lecteur", row.questions[5].answer)
-        self.assertIn("si vous proposez un service", row.questions[7].question)
-        self.assertIn(
-            "ce service est-il joignable 24 heures sur 24", row.questions[7].question,
-        )
+        self.assertIn("qui peut-on contacter en cas de problème", row.questions[7].question)
         self.assertEqual(row.questions[7].question.count("?"), 1)
-        self.assertIn("à toute heure", row.questions[7].answer)
-        self.assertIn("numéro affiché", row.questions[7].answer)
+        self.assertIn("conducteur du bus", row.questions[7].answer)
+        self.assertIn("agent en station", row.questions[7].answer)
+        self.assertIn("interphones du métro", row.questions[7].answer)
+        self.assertNotIn("24 heures sur 24", row.questions[7].question)
         self.assertIn("temps réel", self.hints[row.group][2]["french"])
-        self.assertIn("24/7", self.hints[row.group][7]["english"])
+        self.assertIn("personnes à contacter", self.hints[row.group][7]["french"])
+        self.assertIn("whom to contact", self.hints[row.group][7]["english"])
         self.assertNotIn("agence", " ".join(q.question for q in row.questions))
-        self.assertIn("only if that service exists", row.note)
+        self.assertIn("illustrative, not verified local facts", row.note)
 
     def test_breakdown_covers_assistance_costs_and_late_arrival_followup(self):
         row = self.by_group["canada-car-breakdown-insurer"]
@@ -191,58 +191,207 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
         car = self.by_group["holiday-car-rental-agency"]
         self.assertIn("supplément", car.questions[2].question)
         self.assertIn("0,25 $", car.questions[2].answer)
+        self.assertEqual(
+            car.questions[4].question,
+            "En cas de dégâts, est-ce que l'assurance paie tout ou est-ce que je dois payer une partie ?",
+        )
         self.assertIn("franchise", car.questions[4].answer)
+        self.assertIn("jusqu'à 1 000 $", car.questions[4].answer)
+        self.assertIn("L'assurance paie le reste", car.questions[4].answer)
+        self.assertEqual(car.questions[4].follow_up_to, 4)
+        self.assertIn("malgré l'assurance", self.hints[car.group][4]["french"])
+        self.assertIn("still pay", self.hints[car.group][4]["english"])
         self.assertIn("dépôt de garantie", car.questions[6].question)
         self.assertIn("carburant", car.questions[7].answer)
         bike = self.by_group["bicycle-rental-model-and-terms"]
-        self.assertIn("différences", bike.questions[1].question)
-        self.assertIn("casque", bike.questions[3].question)
-        self.assertIn("dépôt", bike.questions[5].question)
+        self.assertIn("types de vélos", bike.questions[0].question)
+        self.assertIn("vélos tout-terrain", bike.questions[0].question)
+        self.assertIn("vélos électriques", bike.questions[0].question)
+        self.assertIn("quel modèle me conseillez-vous, et pourquoi", bike.questions[1].question)
+        self.assertEqual(bike.questions[1].follow_up_to, 1)
+        self.assertIn("je vous conseille le vélo de ville", bike.questions[1].answer)
+        self.assertIn("à l'heure, à la journée ou autrement", bike.questions[2].question)
+        for item in ("casque", "antivol", "sonnette", "lumières"):
+            self.assertIn(item, bike.questions[3].question)
+            self.assertIn(item, bike.questions[3].answer)
+        self.assertEqual(bike.questions[3].follow_up_to, 3)
+        self.assertIn("Quels documents dois-je apporter", bike.questions[4].question)
+        self.assertIn("moyens de paiement acceptez-vous", bike.questions[4].question)
+        self.assertIn("pièce d'identité", bike.questions[4].answer)
+        self.assertIn("carte de crédit à votre nom", bike.questions[4].answer)
+        self.assertIn("carte ou en espèces", bike.questions[4].answer)
+        self.assertIn("150 $ de garantie", bike.questions[4].answer)
+        self.assertIn("assurance contre le vol ou les dégâts", bike.questions[5].question)
+        self.assertIn("5 $ par jour", bike.questions[5].answer)
+        self.assertIn("si le vélo était attaché", bike.questions[5].answer)
+        self.assertIn("jusqu'à 100 $ de franchise", bike.questions[5].answer)
         self.assertIn("retard", bike.questions[6].question)
-        self.assertIn("crevais", bike.questions[7].question)
+        self.assertIn("à l'heure, respectez l'heure convenue", bike.questions[6].answer)
+        self.assertIn("vous pouvez venir m'aider", bike.questions[7].question)
+        self.assertIn("indiquez où vous êtes", bike.questions[7].answer)
+        self.assertIn("panne ou une crevaison", bike.questions[7].answer)
+        self.assertIn("10 km", bike.questions[7].answer)
+        self.assertIn("réparer ou échanger", bike.questions[7].answer)
         self.assertNotIn("autonomie", " ".join(q.question for q in bike.questions))
         self.assertIn("battery range if you choose", self.raw[bike.group]["note"])
+        self.assertIn("illustrative provider terms", self.raw[bike.group]["note"])
+        for index, french, english in (
+            (0, "tout-terrain", "mountain"),
+            (1, "raisons du choix", "reasons for the choice"),
+            (2, "autre formule", "other rental periods"),
+            (3, "sonnette et lumières", "a bell and lights"),
+            (4, "paiement acceptés", "accepted payment methods"),
+            (5, "Assurance", "insurance"),
+            (7, "Assistance sur place", "On-site assistance"),
+        ):
+            with self.subTest(cue=index + 1):
+                self.assertIn(french, self.hints[bike.group][index]["french"])
+                self.assertIn(english, self.hints[bike.group][index]["english"])
+        variant = self.dialogues["tache2:decembre:batch-04:subject-16"]
+        self.assertIn("purpose of the rental is not specified", variant.note)
+        self.assertIn("insurance, return and assistance", variant.note)
+        self.assertIn("illustrative", variant.note)
 
     def test_cycling_distinguishes_condition_road_sections_and_actual_battery_range(self):
         city = self.by_group["ottawa-newcomer-cycling-friend"]
         self.assertIn("grands axes", city.questions[1].question)
-        self.assertIn("bon état", city.questions[2].question)
-        self.assertIn("séparées", city.questions[2].question)
+        self.assertIn("bien entretenues", city.questions[2].question)
+        self.assertIn("rouler sur la route avec les voitures", city.questions[2].question)
+        self.assertEqual(city.questions[2].follow_up_to, 2)
         self.assertIn("certains raccordements", city.questions[2].answer)
+        self.assertEqual(
+            city.questions[5].question,
+            "Pour faire du vélo en ville, quel équipement me conseilles-tu, par exemple un casque ou un bon antivol ?",
+        )
+        self.assertIn("casque", city.questions[5].answer)
+        self.assertIn("éclairage", city.questions[5].answer)
+        self.assertIn("antivol", city.questions[5].answer)
+        self.assertIn("route avec les voitures", self.hints[city.group][2]["french"])
+        self.assertIn("shared with cars", self.hints[city.group][2]["english"])
+        self.assertIn("vélo en ville", self.hints[city.group][5]["french"])
+        self.assertIn("casque, bon antivol", self.hints[city.group][5]["french"])
+        self.assertIn("cycling in the city", self.hints[city.group][5]["english"])
+        self.assertIn("helmet, good bike lock", self.hints[city.group][5]["english"])
+        self.assertEqual(
+            city.questions[7].question,
+            "Est-ce qu'il y a des supports à vélo dans le centre-ville pour stationner mon vélo en sécurité ?",
+        )
+        self.assertIn("supports", city.questions[7].answer)
+        self.assertIn("Supports à vélo", self.hints[city.group][7]["french"])
+        self.assertIn("Bike racks", self.hints[city.group][7]["english"])
         sale = self.by_group["friend-used-electric-bicycle-sale"]
-        self.assertIn("kilomètres", sale.questions[2].question)
-        self.assertIn("charge complète", sale.questions[4].question)
-        self.assertIn("assistance modérée", sale.questions[4].answer)
+        self.assertEqual(
+            sale.questions[2].question,
+            "Quel est son kilométrage, et quelle distance peut-on parcourir avec une charge complète ?",
+        )
+        self.assertEqual(sum("charge complète" in q.question for q in sale.questions), 1)
+        for text in ("2 500 km", "60 km", "terrain plat", "assistance modérée", "70 km"):
+            self.assertIn(text, sale.questions[2].answer)
+        self.assertIn("facture d'achat et les factures d'entretien", sale.questions[4].question)
+        self.assertIn("révision du printemps", sale.questions[4].answer)
+        self.assertEqual(sale.questions[4].follow_up_to, 4)
+        self.assertIn("Kilométrage et autonomie", self.hints[sale.group][2]["french"])
+        self.assertIn("Mileage and current range", self.hints[sale.group][2]["english"])
+        self.assertIn("factures d'entretien", self.hints[sale.group][4]["french"])
+        self.assertIn("Purchase and maintenance invoices", self.hints[sale.group][4]["english"])
         self.assertNotIn("samedi", sale.closing)
 
     def test_carpools_distinguish_platform_booking_from_a_neighbourly_trial(self):
         friend = self.by_group["friend-carpooling-offer"]
+        self.assertIn("d'Ottawa à Montréal", friend.opening)
+        self.assertIn("prochain trajet vers Montréal", friend.questions[0].question)
+        self.assertIn("samedi", friend.questions[0].answer.casefold())
+        self.assertIn("8 h", friend.questions[0].answer)
+        self.assertIn("Combien de temps", friend.questions[1].question)
+        self.assertIn("où arrive-t-on", friend.questions[1].question)
+        self.assertIn("gare Centrale de Montréal", friend.questions[1].answer)
+        self.assertEqual(friend.questions[1].follow_up_to, 1)
         self.assertIn("places", friend.questions[2].question)
         self.assertIn("rendez-vous", friend.questions[3].question)
-        self.assertIn("bagages", friend.questions[5].question)
+        self.assertIn("gare d'Ottawa", friend.questions[3].answer)
+        self.assertIn("30 $", friend.questions[4].answer)
+        self.assertIn("2 $ de frais de réservation", friend.questions[4].answer)
+        self.assertIn("sac de voyage", friend.questions[5].question)
         self.assertIn("payer", friend.questions[6].question)
+        self.assertIn("payer les 30 $ sur la plateforme", friend.questions[6].answer)
         self.assertIn("annuler", friend.questions[7].question)
-        self.assertIn("No commute, vehicle ownership or driver role", friend.note)
+        self.assertIn("vendredi à 18 h", friend.questions[7].answer)
+        self.assertIn("récupérer 28 $", friend.questions[7].answer)
+        self.assertIn("2 $ de réservation restent dus", friend.questions[7].answer)
+        self.assertEqual(friend.questions[7].follow_up_to, 7)
+        self.assertIn("prompt does not fix a route or driver role", friend.note)
+        self.assertIn("illustrative, not universal rules", friend.note)
+        self.assertIn("regarder l'annonce", friend.closing)
+        self.assertIn("Prochain départ", self.hints[friend.group][0]["french"])
+        self.assertIn("drop-off in Montréal", self.hints[friend.group][1]["english"])
+        self.assertIn("travel bag", self.hints[friend.group][5]["english"])
         neighbour = self.by_group["neighbor-regular-carpool-invitation"]
+        self.assertIn("entre Gatineau et le centre-ville d'Ottawa", neighbour.opening)
+        self.assertEqual(neighbour.questions[0].question, "Quels jours de la semaine faites-vous ce trajet ?")
+        self.assertIn("lundi au jeudi", neighbour.questions[0].answer)
         self.assertIn("retrouverions-nous", neighbour.questions[2].question)
+        self.assertIn("devant chez vous", neighbour.questions[2].answer)
+        self.assertIn("centre Rideau", neighbour.questions[2].answer)
         self.assertIn("partager les frais", neighbour.questions[4].question)
+        self.assertIn("5 $ par aller-retour", neighbour.questions[4].answer)
+        self.assertIn("trajets que nous avons faits ensemble", neighbour.questions[5].answer)
+        self.assertIn("si je ne conduis pas", neighbour.questions[6].answer)
+        self.assertIn("Si vous ne venez pas, je pars", neighbour.questions[6].answer)
         self.assertIn("essayer", neighbour.questions[7].question)
+        self.assertIn("practice choices, not prompt facts", neighbour.note)
+        self.assertIn("Gatineau-Ottawa", self.hints[neighbour.group][0]["french"])
 
     def test_montreal_plan_checks_work_route_calendar_validity_zones_and_late_returns(self):
         row = self.by_group["colleague-montreal-work-week-transit"]
-        self.assertIn("lieu de travail", row.questions[0].question)
-        self.assertIn("hébergement", row.questions[0].question)
-        self.assertIn("deux adresses", row.questions[0].answer)
+        self.assertIn("hôtel est près du métro Berri-UQAM", row.opening)
+        self.assertIn("réunions près de la station McGill", row.opening)
+        self.assertIn("de mon hôtel au lieu de mes réunions", row.questions[0].question)
+        self.assertIn("ligne verte à Berri-UQAM", row.questions[0].answer)
+        self.assertIn("direction d'Angrignon", row.questions[0].answer)
+        self.assertIn("descendez à McGill", row.questions[0].answer)
+        self.assertIn("sans correspondance", row.questions[0].answer)
         self.assertIn("fréquence", row.questions[1].question)
+        self.assertIn("deux à quatre minutes", row.questions[1].answer)
         self.assertTrue(row.questions[3].question.startswith("Si j'arrive"))
+        self.assertIn("jusqu'au mardi suivant", row.questions[3].question)
         self.assertEqual(row.questions[3].follow_up_to, 3)
+        self.assertIn("33,25 $", row.questions[2].answer)
+        self.assertIn("hors carte OPUS", row.questions[2].answer)
         self.assertIn("lundi au dimanche", row.questions[2].answer)
+        self.assertIn("non sept jours à partir de l'achat", row.questions[2].answer)
+        self.assertNotIn("juillet 2026", row.questions[2].answer)
+        self.assertIn("dimanche à 23 h 59", row.questions[3].answer)
         self.assertIn("semaine suivante", row.questions[3].answer)
-        self.assertIn("zones", row.questions[4].question)
+        service = self.by_group["newcomer-city-transit-service"]
+        self.assertEqual(
+            row.questions[4].question,
+            service.questions[4].question.replace("ce pass", "ce titre").replace("en ville", "à Montréal"),
+        )
+        self.assertEqual(row.questions[4].follow_up_to, 3)
         self.assertIn("zone A", row.questions[4].answer)
-        self.assertIn("OPUS", row.questions[5].question)
+        self.assertIn("Laval ou Longueuil en métro", row.questions[4].answer)
+        self.assertIn("titre AB", row.questions[4].answer)
+        self.assertEqual(row.questions[5].question, service.questions[5].question)
+        self.assertIn("carte OPUS au guichet du métro", row.questions[5].answer)
+        self.assertIn("lecteur", row.questions[5].answer)
+        self.assertIn("portillon", row.questions[5].answer)
+        self.assertIn("de McGill à Berri-UQAM", row.questions[6].question)
+        self.assertIn("vers Honoré-Beaugrand", row.questions[6].answer)
+        self.assertIn("0 h 50 en semaine", row.questions[6].answer)
+        self.assertIn("1 h 21 le samedi", row.questions[6].answer)
+        self.assertIn("vérifiez l'horaire", row.questions[6].answer)
+        self.assertIn("comment pourrais-je rentrer à mon hôtel", row.questions[7].question)
         self.assertEqual(row.questions[7].follow_up_to, 7)
         self.assertIn("bus de nuit", row.questions[7].answer)
+        self.assertIn("practice choices; adapt them", row.note)
+        self.assertIn("fares and station times need reconfirming", row.note)
+        self.assertIn("https://www.stm.info/en/fares-pricing/weekly-pass", row.note)
+        self.assertIn("https://www.stm.info/en/schedules-and-routes/metro-McGill", row.note)
+        self.assertIn("Berri-UQAM à McGill", self.hints[row.group][0]["french"])
+        self.assertIn("Weekly-pass validity", self.hints[row.group][3]["english"])
+        self.assertIn("limites de la zone A", self.hints[row.group][4]["french"])
+        self.assertIn("OPUS", self.hints[row.group][5]["english"])
+        self.assertIn("Last métro from McGill to Berri-UQAM", self.hints[row.group][6]["english"])
 
     def test_host_friend_variant_keeps_accommodation_and_short_visit_context(self):
         row = self.dialogues["tache2:decembre:batch-04:subject-17"]
@@ -251,11 +400,28 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
         self.assertIn("rather than assuming a monthly subscription", row.note)
         self.assertEqual(row.register, "tu")
         neighbour = self.by_group[row.group]
-        self.assertIn("jusqu'à quelle heure peut-on rentrer", neighbour.questions[2].question)
-        self.assertIn("nombre de trajets prévus", neighbour.questions[5].question)
-        self.assertIn("zones", neighbour.questions[6].question)
-        self.assertIn("acheter la formule choisie", neighbour.questions[7].question)
-        self.assertEqual(neighbour.questions[7].follow_up_to, 6)
+        service = self.by_group["newcomer-city-transit-service"]
+        self.assertEqual(neighbour.questions[0].question, service.questions[0].question)
+        self.assertIn("À part les billets à l'unité", neighbour.questions[3].question)
+        self.assertIn("pass journée ou des abonnements", neighbour.questions[3].question)
+        self.assertIn("trois trajets payants", neighbour.questions[3].answer)
+        self.assertIn("sur un mois", neighbour.questions[3].answer)
+        self.assertEqual(neighbour.questions[3].follow_up_to, 3)
+        self.assertEqual(
+            neighbour.questions[4].question,
+            service.questions[4].question.replace("Avec ce pass", "Avec ces formules"),
+        )
+        self.assertIn("zones éloignées", neighbour.questions[4].answer)
+        self.assertEqual(neighbour.questions[4].follow_up_to, 4)
+        self.assertIn("billets ou un abonnement", neighbour.questions[5].question)
+        self.assertIn("carte rechargeable au guichet", neighbour.questions[5].answer)
+        self.assertIn("fais-y charger l'abonnement", neighbour.questions[5].answer)
+        self.assertIn("Pour les billets ou le pass journée", neighbour.questions[5].answer)
+        self.assertEqual(neighbour.questions[5].follow_up_to, 4)
+        self.assertEqual(neighbour.questions[6].question, "Comment valide-t-on un titre de transport ?")
+        self.assertIn("jusqu'à quelle heure peut-on rentrer", neighbour.questions[7].question)
+        self.assertIn("Included transfers", self.hints[row.group][4]["english"])
+        self.assertIn("carte rechargeable", self.hints[row.group][5]["french"])
 
     def test_agencies_establish_dates_before_costs_and_do_not_invent_school_holidays(self):
         for group in (

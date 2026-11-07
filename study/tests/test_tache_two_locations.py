@@ -22,7 +22,9 @@ from study.tache_two_location_history import LOCATION_HISTORY_PATH, load_locatio
 from . import factories
 from .test_tache_two_work_school_review import REVIEWED_GROUPS
 from .eo2_review_fixtures import PUBLISHED_ARCHIVE_INDEX
-from .transport_travel_review_fixtures import REVIEWED_GROUPS as TRANSPORT_TRAVEL_GROUPS
+from .transport_travel_review_fixtures import (
+    REVIEWED_GROUPS as TRANSPORT_TRAVEL_GROUPS, TRANSPORT_GROUPS,
+)
 
 
 class TacheTwoLocationCorpusTests(SimpleTestCase):
@@ -1208,17 +1210,35 @@ class PublishedTacheTwoHighlightTests(TestCase):
         self.assert_latest_review_preserves_questions_and_notes(TRANSPORT_TRAVEL_GROUPS)
 
     def test_transit_pass_rewording_preserves_other_questions_and_archived_notes(self):
-        self.assert_revision_highlights_preserved(
-            "newcomer-city-transit-service",
-            {1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8},
-            revision=2,
-        )
+        self.assert_all_archived_generations_preserved("newcomer-city-transit-service")
 
     def test_breakdown_clarification_preserves_retained_questions_and_archived_notes(self):
         self.assert_all_archived_generations_preserved("canada-car-breakdown-insurer")
 
     def test_private_car_warranty_question_preserves_retained_questions_and_archived_notes(self):
         self.assert_all_archived_generations_preserved("private-owner-used-car-purchase")
+
+    def test_rental_insurance_rewording_preserves_retained_questions_and_archived_notes(self):
+        self.assert_all_archived_generations_preserved("holiday-car-rental-agency")
+
+    def test_ottawa_cycling_clarifications_preserve_retained_questions_and_archived_notes(self):
+        self.assert_all_archived_generations_preserved("ottawa-newcomer-cycling-friend")
+
+    def test_concrete_carpool_routes_preserve_retained_questions_and_all_archived_notes(self):
+        for group in ("friend-carpooling-offer", "neighbor-regular-carpool-invitation"):
+            with self.subTest(group=group):
+                self.assert_all_archived_generations_preserved(group)
+
+    def test_neighbour_transit_revision_preserves_moved_questions_and_archived_notes(self):
+        self.assert_all_archived_generations_preserved("canadian-city-resident-advice-transit")
+
+    def test_ebike_mileage_rewording_preserves_other_questions_and_archived_notes(self):
+        self.assert_all_archived_generations_preserved("friend-used-electric-bicycle-sale")
+
+    def test_final_transport_pass_preserves_every_archived_generation(self):
+        for group in sorted(TRANSPORT_GROUPS):
+            with self.subTest(group=group):
+                self.assert_all_archived_generations_preserved(group)
 
     def test_director_training_followup_preserves_moved_questions_and_saved_notes(self):
         self.assert_latest_review_preserves_questions_and_notes({"director-canada-fortnight-training"})

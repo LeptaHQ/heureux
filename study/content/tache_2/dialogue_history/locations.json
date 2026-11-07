@@ -5098,6 +5098,21 @@
             {"topic": "Prix et vérification", "question": "Quel prix demandez-vous pour la voiture ?", "follow_up_to": null},
             {"topic": "Prix et vérification", "question": "Serait-il possible de prévoir un essai et une vérification avant l'achat ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "private-owner-used-car-purchase",
+          "opening": "Bonjour ! Merci de me recevoir. J'aimerais avoir quelques précisions sur la voiture que vous vendez.",
+          "closing": "Merci pour ces renseignements. Je vais examiner ces éléments avant de prendre une décision.",
+          "questions": [
+            {"topic": "Âge et utilisation", "question": "De quel modèle s'agit-il, et de quelle année est la voiture ?", "follow_up_to": null},
+            {"topic": "Âge et utilisation", "question": "Quel est son kilométrage actuel ?", "follow_up_to": null},
+            {"topic": "Âge et utilisation", "question": "Quelle est sa motorisation, et combien consomme-t-elle en moyenne ?", "follow_up_to": null},
+            {"topic": "État et entretien", "question": "Quels défauts ou travaux faut-il prévoir, par exemple sur les pneus ou les freins ?", "follow_up_to": null},
+            {"topic": "État et entretien", "question": "A-t-elle déjà eu un accident ou subi des réparations importantes ?", "follow_up_to": null},
+            {"topic": "État et entretien", "question": "Pour la révision dont vous parlez, avez-vous les factures et le détail des travaux effectués ?", "follow_up_to": 4, "condition": "If a service is mentioned without showing the maintenance records."},
+            {"topic": "Prix et vérification", "question": "Quel prix demandez-vous pour la voiture ?", "follow_up_to": null},
+            {"topic": "Prix et vérification", "question": "Serait-il possible de prévoir un essai et un contrôle indépendant avant l'achat ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -6098,6 +6113,21 @@
             {"topic": "Retour et sécurité", "question": "Pour rentrer le soir, jusqu'à quelle heure les transports circulent-ils ?", "follow_up_to": null},
             {"topic": "Retour et sécurité", "question": "Y a-t-il des caméras de surveillance à bord et, si vous proposez un service d'assistance, ce service est-il joignable 24 heures sur 24 ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "newcomer-city-transit-service",
+          "opening": "Bonjour ! Je découvre la ville et j'aimerais comprendre comment utiliser les transports en commun.",
+          "closing": "Merci pour ces explications. Je vais vérifier mon trajet avant de partir.",
+          "questions": [
+            {"topic": "Réseau et trajet", "question": "Quels moyens de transport peut-on utiliser pour circuler en ville ?", "follow_up_to": null},
+            {"topic": "Réseau et trajet", "question": "Lesquels desservent le centre-ville, la gare et les principaux sites touristiques ?", "follow_up_to": 1, "condition": "After modes are listed, unless useful destinations have already been covered."},
+            {"topic": "Réseau et trajet", "question": "Existe-t-il un plan du réseau ou un service pour consulter les itinéraires et les prochains passages en temps réel ?", "follow_up_to": null},
+            {"topic": "Titres et tarifs", "question": "Quel titre me conseilleriez-vous pour plusieurs trajets dans la journée, et combien coûte-t-il ?", "follow_up_to": null},
+            {"topic": "Titres et tarifs", "question": "Le titre conseillé couvre-t-il les correspondances et tous les secteurs de la ville ?", "follow_up_to": 4, "condition": "If a fare is recommended without explaining transfers and zone coverage."},
+            {"topic": "Titres et tarifs", "question": "Où peut-on acheter ce titre, et comment doit-on le valider avant de voyager ?", "follow_up_to": null},
+            {"topic": "Horaires et sécurité", "question": "Les transports passent tous les combien en journée, et jusqu'à quelle heure circulent-ils le soir ?", "follow_up_to": null},
+            {"topic": "Horaires et sécurité", "question": "Y a-t-il des caméras de surveillance à bord et, si vous proposez un service d'assistance, ce service est-il joignable 24 heures sur 24 ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -6152,6 +6182,36 @@
             {"topic": "Réparations et retour", "question": "Quelle aide est prévue pour mon retour si la voiture reste immobilisée ?", "follow_up_to": null},
             {"topic": "Suivi du dossier", "question": "Quels justificatifs dois-je conserver pour le dossier ?", "follow_up_to": null},
             {"topic": "Suivi du dossier", "question": "Comment pourrai-je suivre l'avancement de ma demande de remboursement ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "canada-car-breakdown-insurer",
+          "opening": "Bonjour ! Ma voiture vient de tomber en panne au Canada et j'ai besoin de votre assistance.",
+          "closing": "Merci pour votre aide. Je vais vous transmettre les renseignements nécessaires et suivre les consignes de l'assistance.",
+          "questions": [
+            {"topic": "Assistance immédiate", "question": "Pouvez-vous faire venir un dépanneur à ma position, et de quelles informations avez-vous besoin ?", "follow_up_to": null},
+            {"topic": "Assistance immédiate", "question": "Quel délai d'intervention pouvez-vous m'indiquer ?", "follow_up_to": 1, "condition": "If an intervention can be arranged and the wait is not specified."},
+            {"topic": "Assistance immédiate", "question": "Vers quel garage pourrait-on remorquer mon véhicule ?", "follow_up_to": null},
+            {"topic": "Prise en charge", "question": "Quels frais d'assistance et de remorquage mon contrat couvre-t-il ?", "follow_up_to": null},
+            {"topic": "Prise en charge", "question": "Avant d'autoriser une réparation, comment savoir si mon contrat la prend en charge ?", "follow_up_to": null},
+            {"topic": "Prise en charge", "question": "Pour les frais couverts, dois-je avancer l'argent ou pouvez-vous régler directement le prestataire ?", "follow_up_to": 4, "condition": "Once coverage is confirmed, unless payment arrangements have already been explained."},
+            {"topic": "Retour et justificatifs", "question": "Si la voiture doit rester au garage, quelle aide mon contrat prévoit-il pour rentrer ?", "follow_up_to": null},
+            {"topic": "Retour et justificatifs", "question": "Quels justificatifs dois-je conserver pour le dossier ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "canada-car-breakdown-insurer",
+          "opening": "Bonjour ! Ma voiture est en panne. Je suis sur le bord de la route, devant la gare d'Ottawa.",
+          "closing": "Merci pour votre aide. Je vais vous transmettre les renseignements nécessaires et suivre les consignes de l'assistance.",
+          "questions": [
+            {"topic": "Assistance immédiate", "question": "Pouvez-vous envoyer un dépanneur sur place ?", "follow_up_to": null},
+            {"topic": "Assistance immédiate", "question": "Quel délai d'intervention pouvez-vous m'indiquer ?", "follow_up_to": 1, "condition": "If an intervention can be arranged and the wait is not specified."},
+            {"topic": "Assistance immédiate", "question": "Si la voiture ne peut pas repartir, est-ce qu'il y a un garage à proximité où vous pouvez la faire remorquer ?", "follow_up_to": null},
+            {"topic": "Prise en charge", "question": "Qu'est-ce que mon contrat couvre : le dépannage, le remorquage, les réparations au garage ?", "follow_up_to": null},
+            {"topic": "Prise en charge", "question": "Comment obtenir un devis du garage avant d'autoriser les réparations ?", "follow_up_to": null},
+            {"topic": "Prise en charge", "question": "Est-ce que je dois payer le dépanneur et vous demander un remboursement, ou est-ce que vous le payez directement ?", "follow_up_to": 4, "condition": "Once coverage is confirmed, unless payment arrangements have already been explained."},
+            {"topic": "Retour et justificatifs", "question": "Si la voiture doit rester au garage, quelle aide mon contrat prévoit-il pour rentrer ?", "follow_up_to": null},
+            {"topic": "Retour et justificatifs", "question": "Quels justificatifs dois-je conserver pour le dossier ?", "follow_up_to": null}
           ]
         }
       ]

@@ -4392,6 +4392,11 @@
         "french": "Pour moi, on peut donc développer sa capacité à s'adapter. Mais cette progression demande du temps et dépend des moyens disponibles comme de l'accueil reçu.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "3d567ae4a3ce1b51c4bd7c237781eb43d5bc1a8c602cbe595367f3bf8009a454": {
+        "english": "Even when you make an effort to meet people, it is hard to form relationships if everyone else keeps to their own group. An invitation to chat or share a meal gives you a chance to get to know them.",
+        "french": "Même quand on fait des efforts pour rencontrer du monde, il est difficile de créer des liens si les autres restent entre eux. Une invitation à discuter ou à partager un repas donne une occasion de faire connaissance.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "48e82c0a82530a60a1bf6a9dea0aee9c8a6b365abb1a64a4884040e2736001e8": {
         "english": "A newcomer who has to move house frequently may find it difficult to attend a regular course. Finding more stable accommodation may enable them to resume their training, without their motivation or abilities having suddenly changed.",
         "french": "Un nouvel arrivant qui doit changer fréquemment de logement peut avoir du mal à suivre un cours régulier. Trouver un hébergement plus stable peut lui permettre de reprendre cette formation, sans que sa motivation ou ses capacités aient soudainement changé."
@@ -4428,6 +4433,11 @@
         "french": "Sa capacité d'adaptation n'est donc pas figée au premier jour : elle grandit avec l'expérience.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "7bb6c81710a520b80c7b1acab1fa6efc32eb44948463edb22f470f7daabcf1bc": {
+        "english": "He then feels less isolated and finds it easier to feel part of the team.",
+        "french": "Il se sent alors moins isolé et trouve plus facilement sa place dans l'équipe.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "890cae55af459d8551b4b1a8794036001d0bcbb0be0ed83c4f17e30b7c2a8a8f": {
         "english": "First, adapting is something you learn: it is not simply a personal gift.",
         "french": "D'abord, s'adapter s'apprend : ce n'est pas simplement un don personnel.",
@@ -4453,6 +4463,11 @@
       "a37438d7c27b5a2830e7ade67b4783dd80bd75eac19778bd2190a8bd7c6081e4": {
         "english": "First and foremost, people can learn to cope better in their new country.",
         "french": "Tout d'abord, on peut apprendre à mieux se débrouiller dans le nouveau pays."
+      },
+      "a58a51a9aa8e26cf0e5ea263dfd5fd3822d45193301d089b9100077fa4a8c5dd": {
+        "english": "A man who has just moved to the country eats lunch alone at his new job. A colleague invites him to join the others. They start having lunch together regularly, and he gradually gets to know the team.",
+        "french": "Un salarié qui vient d'arriver dans le pays mange seul le midi. Un collègue l'invite à rejoindre les autres à table. Ils commencent à déjeuner ensemble régulièrement, et il fait peu à peu connaissance avec l'équipe.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "a6757a7b84053bb7e45db4840a0770603a76896cbce1d8796369c38a4881da8e": {
         "english": "We don't all arrive in the same circumstances. Some people already have housing and a steady income; others still need to find somewhere to live and a job. In that situation, finding a home and covering everyday costs take priority over language classes or local activities.",
@@ -4517,6 +4532,11 @@
       }
     },
     "eo/tache-3/education-p10": {
+      "02233433bf2a46ebee50f7e5aa894fe8b1827ea5b04e61c3452398acb9731791": {
+        "english": "I could prepare and hand over a basket to a mother who has paid her rent but has little money left for groceries. With the food available at the organisation, she could prepare several meals for her family.",
+        "french": "Je pourrais préparer et remettre un panier à une mère qui a payé son loyer, mais à qui il reste peu d'argent pour les courses. Avec les produits disponibles dans l'association, elle pourrait préparer plusieurs repas pour sa famille.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "04e216ba25fe1864dbea3451f53a357f222c3c5a54161dcc888a4cd1991817b7": {
         "english": "When money is tight, receiving food eases an essential expense. Handing it over in person also allows a few minutes to talk, if the person wants to, rather than simply passing over a parcel.",
         "french": "Quand le budget est serré, recevoir des aliments soulage une dépense essentielle. Les remettre en main propre permet aussi de discuter quelques minutes, si la personne en a envie, plutôt que de faire seulement passer un colis.",
@@ -4588,6 +4608,11 @@
         "english": "My regular involvement would help to provide support that people can rely on, within the limits of the charity.",
         "french": "Ma régularité contribuerait à une aide sur laquelle les personnes peuvent compter, dans les limites de l'association."
       },
+      "933e22a26144ff7602d80f6c86d1451e0a8e7e137a48ef85e1b05865acd1de93": {
+        "english": "When money is tight, receiving food makes it possible to prepare meals while keeping some money for other expenses. By taking part in the distribution, I could contribute directly to that help.",
+        "french": "Quand le budget est serré, recevoir des aliments permet de préparer des repas tout en gardant un peu d'argent pour les autres dépenses. En participant à la distribution, je pourrais contribuer directement à cette aide.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "93ce41d17f875f93f44741e4ac4c7e593f3d0defd70a81e4785d2ac03c65aa5f": {
         "english": "My help would thus be useful during her week, with an exchange that would matter to me too.",
         "french": "Mon aide aurait ainsi une utilité dans sa semaine, avec un échange qui compte aussi pour moi.",
@@ -4600,6 +4625,11 @@
       "a33a396b07443a0aba51d9789c1962f5d0b19fab61fcf87587263d770ca9581e": {
         "english": "I would suggest a time slot that fits in with my other commitments, the frequency of which would be agreed with the charity. If I had to be absent, I would give sufficient notice so that the team could find a solution, rather than relying on my uncertain attendance.",
         "french": "Je proposerais un créneau compatible avec mes obligations, dont la fréquence serait convenue avec l'association. Si je devais m'absenter, je préviendrais suffisamment tôt pour que l'équipe puisse chercher une solution, au lieu de compter sur une présence incertaine."
+      },
+      "a39292a016007d08add9db57fd6b0655a43a5902438a41d4cda71f6dcf4b233a": {
+        "english": "First, I would like to help people cover their food needs.",
+        "french": "D'abord, j'aimerais aider des personnes à faire face à leurs dépenses alimentaires.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "a3bf9de7be4c2f2e6f5051e43b0946f4768159cf1aaa5ac420b41fbf3fa4d170": {
         "english": "I could welcome a mother collecting a basket for her family. While it was being prepared, we could talk about her son's return to school. I would give her the food for their meals after taking the time to listen.",
@@ -4643,6 +4673,11 @@
       "d22352fdb4f0d8242bf9896242abf6389cb5805119f701218c31004919dba877": {
         "english": "Helping also means respecting people, not just handing out food.",
         "french": "Aider, ce serait aussi respecter les personnes, pas seulement distribuer des produits."
+      },
+      "d4158e70bda564e38041e8393dbe34a1856cdc259f31f75f1a1112ec5ef3814c": {
+        "english": "The time I gave would thus help meet a practical need for her family.",
+        "french": "Mon temps servirait ainsi à répondre à un besoin concret de sa famille.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "da83d4e9c804d9707b9e8e2f966bf816efa6ea7fc0706b691ed52d4d9f5fca11": {
         "english": "Useful aid must take into account the practicalities of transporting, storing or preparing food. Listening to a request can prevent a prepared parcel from being difficult to use.",
@@ -4903,6 +4938,11 @@
         "french": "Une personne parle chaque semaine avec un partenaire qui lui signale les phrases peu claires. Elle les retravaille quinze minutes chaque soir. Après quelques mois, elle remarque qu'il comprend le récit de sa journée sans lui demander de reformuler.",
         "review_note": "Human-authored English for the Education editorial pass after independent review; productive speaking feedback and observed speaking progress are aligned. No DeepL original or provider call was made for this row."
       },
+      "9926d497a591af3df7706d5808ac2553fd24319e034005b1aa593f29775a8ea2": {
+        "english": "So it is not just about remembering vocabulary, but learning to use it correctly.",
+        "french": "Il ne s'agit donc pas seulement de retenir du vocabulaire, mais d'apprendre à l'utiliser correctement.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "a1db7cdcb74ddca36db5409c3e9fa7e3bc3448a48b5f22f38ab4628101f0661d": {
         "english": "Time and conversation partners are not always available. Without the opportunity to check what has been understood, you may repeat a mistake or remain hesitant despite putting in a lot of hard work on your own.",
         "french": "Le temps et les interlocuteurs ne sont pas toujours disponibles. Sans occasion de vérifier ce qui est compris, on peut répéter une erreur ou rester hésitant malgré un travail personnel sérieux."
@@ -4916,6 +4956,11 @@
         "english": "Yes, learning a foreign language can be difficult. You have to get to grips with how a new language works, apply your knowledge on the spot and find opportunities to practise. But the level of difficulty depends on your starting point and your ultimate goal: getting by whilst travelling is not the same as working in that language.",
         "french": "Oui, apprendre une langue étrangère peut être difficile. Il faut découvrir un nouveau fonctionnement, utiliser ses connaissances dans l'instant et trouver des occasions de pratique. Mais la difficulté dépend du point de départ et du but recherché : se débrouiller dans un voyage n'est pas la même chose que travailler dans cette langue.",
         "review_note": "Un nouveau fonctionnement refers to the language's system of sounds, word order and grammar, not a new way of thinking."
+      },
+      "aa654f565fb6abf1333a9437687709298288d34b5fd30e40d197aae534994f36": {
+        "english": "A learner knows the French words for 'yesterday' and 'go', but says 'hier, je vais au marché' — 'yesterday, I go to the market'. Someone explains how to say 'hier, je suis allé au marché' — 'yesterday, I went to the market'. The learner then needs practice using that past-tense form in other sentences.",
+        "french": "Un apprenant connaît « hier » et le verbe « aller », mais dit « hier, je vais au marché ». Quelqu'un lui explique comment dire « hier, je suis allé au marché ». Il doit ensuite s'entraîner à utiliser cette forme du passé dans d'autres phrases.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "c408553bd00f535c8b2cd9df678627d37d0d6d010470411985acc1a03939ef2c": {
         "english": "You then see the gap between what you know and what you manage to use in the moment.",
@@ -4950,6 +4995,11 @@
       "e734156e4f3121caa6f25f18326b6c39376fbb7f491e581a015d507b34ba4fbb": {
         "english": "Access to suitable support is just as important as the willingness to work at it.",
         "french": "L'accès à une aide adaptée compte autant que la volonté de travailler."
+      },
+      "f2aeea195d914fea70a31be9bbe041ef1113aac804ac3b5f6cbcfb1e083efaf1": {
+        "english": "A newcomer prepares a sentence to ask for a medical appointment. On the phone, the receptionist asks whether he has been to the practice before. He does not understand straight away and has to ask her to rephrase before answering.",
+        "french": "Un nouvel arrivant prépare une phrase pour demander un rendez-vous médical. Au téléphone, la secrétaire lui demande s'il est déjà venu au cabinet. Il ne comprend pas tout de suite et doit lui demander de reformuler avant de répondre.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "f64109c00cc9cd67b3fb4faf8dc2311756692eaf622ade1fd19f56587611899b": {
         "english": "Speaking speed, unexpected turns of phrase and the fear of making mistakes can complicate the exchange. So, being able to read a sentence does not necessarily mean you can respond just as easily when speaking.",
@@ -4997,10 +5047,20 @@
         "english": "A single image or piece of information does not always reveal how a city or an institution came into being. A book can outline the key stages and provide references for further reading.",
         "french": "Une image ou une information isolée ne dit pas toujours comment une ville ou une institution s'est construite. Un livre peut organiser les étapes et donner des références pour approfondir."
       },
+      "4b95427b42d04a2a5e81cedc47b0b28b162eb8bfe5d83c981f4f43623fab46dd": {
+        "english": "Someone who cannot travel to Japan borrows a novel translated into French. They follow a family's daily life in Tokyo, then look for a book about the city's history to better understand the places mentioned.",
+        "french": "Une personne qui ne peut pas voyager au Japon emprunte un roman traduit en français. Elle suit le quotidien d'une famille à Tokyo, puis cherche un livre sur l'histoire de la ville pour mieux comprendre les lieux évoqués.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "4c30713f31515f9f43e48bdf93fcec087b1bc0764eb3a3a0202ad7cdaea05c55": {
         "english": "Books thus allow us to go beyond a country's tourist image.",
         "french": "Les livres permettent ainsi d'aller au-delà de l'image touristique d'un pays.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "507bca5b33379862351ae06378cb809207688bcf4a753910dab4f1ef231b4546": {
+        "english": "Travelling takes time and money. At a library, we can borrow books written in other countries, sometimes translated into a language we understand. So we do not have to wait until we can travel to start discovering those countries.",
+        "french": "Un voyage demande du temps et de l'argent. À la bibliothèque, on peut emprunter des livres écrits dans d'autres pays, parfois traduits dans une langue qu'on comprend. On n'a donc pas besoin d'attendre de pouvoir partir pour commencer à les découvrir.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "59dea62ecc72f7e71d6717a6b839c7fe9b68ef63d40ccd441a6c26699dd16362": {
         "english": "Yes, books are a valuable way of getting to know a country, provided you do not treat a single work as a complete portrait. They can shed light on its history, present different experiences and open up this discovery to people who do not travel. However, reading benefits from comparing different perspectives.",
@@ -5053,6 +5113,16 @@
       "90454f1c92f0d842019dead49e1f9e7d72a8b2dd3541e2a4268b0e9ef4466703": {
         "english": "Someone who cannot afford to travel can borrow a collection of translated stories and consult the references listed at the end. They can build up a genuine understanding, even if they have no direct experience of the places described.",
         "french": "Une personne qui ne peut pas financer un voyage peut emprunter un recueil de récits traduits et consulter les références proposées à la fin. Elle construit une connaissance réelle, même si elle ne connaît pas directement les lieux décrits."
+      },
+      "988fca6dba6b150c5774b94186b09ab31dab449fb9b51c387749d4b0d073a986": {
+        "english": "In a Quebec novel, a young person hesitates about leaving his village to study in Montreal. The reader follows his discussions with his parents: he wants to continue his education, but worries about leaving them on their own. We then understand why leaving is difficult for him.",
+        "french": "Dans un roman québécois, un jeune hésite à quitter son village pour étudier à Montréal. Le lecteur suit ses discussions avec ses parents : il veut poursuivre ses études, mais s'inquiète de les laisser seuls. On comprend alors pourquoi ce départ est difficile pour lui.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
+      "9c18602db5539a4bf52a816a0da9d948d89df451e547b1716408a1bfd08064d9": {
+        "english": "We understand this family's life better, without assuming that all the other inhabitants live in the same way.",
+        "french": "On comprend mieux la vie de cette famille, sans supposer que tous les habitants vivent de la même façon.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "a5ee57e1397a317bf76501c9a3b002bc8564eb3034a0af077a9731439063497b": {
         "english": "Reading thus links present-day places to social history.",
@@ -5191,6 +5261,11 @@
         "english": "First and foremost, a mobile phone allows you to consult a source suited to your needs.",
         "french": "Tout d'abord, le téléphone permet de consulter une source adaptée au besoin."
       },
+      "ad55b9467931a331dcec199b01ff482ae24b010287f787de0e789be0de17d2de": {
+        "english": "Someone receives a photo supposedly showing a recent flood in their city. They search using the image and find the same photo in an article published five years earlier, in another country. They then know that the photo does not show the event being claimed.",
+        "french": "Une personne reçoit une photo censée montrer une inondation récente dans sa ville. Elle fait une recherche à partir de cette image et retrouve le même cliché dans un article publié cinq ans plus tôt, dans un autre pays. Elle sait alors que la photo ne montre pas l'événement annoncé.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "b5ab68137e12c38b41d8c7312f1ee550f217e14e13e6299319ae1a0c4fd08d13": {
         "english": "That is why a few checks make a real difference.",
         "french": "C'est pourquoi quelques vérifications font une vraie différence.",
@@ -5230,6 +5305,11 @@
       }
     },
     "eo/tache-3/education-p16": {
+      "02dcde4b37ad0f338730bc5db7d1467d6898e736ffd37be76ea8fb3e98bbed40": {
+        "english": "A small factory has only one technician who can adjust a specialised machine. She receives a better offer elsewhere. The company can offer her a pay rise to keep her, rather than risk the machine being out of operation while it finds and trains someone.",
+        "french": "Une petite usine a une seule technicienne capable de régler une machine spécialisée. Elle reçoit une meilleure offre ailleurs. L'entreprise peut lui proposer une augmentation pour la garder, plutôt que de risquer un arrêt de la machine le temps de trouver et de former quelqu'un.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "0a89cd379f1aa961836e8bfeb84a34aef7b8bdd90e5994d8fa9cb68076e4b9a6": {
         "english": "After training, a technician can identify the faulty sensor in a device that people thought would need replacing. She passes her method on to her colleagues. Recognising this contribution in her pay can encourage her to continue her training.",
         "french": "Après une formation, une technicienne peut identifier le capteur défectueux d'un appareil que l'on pensait devoir remplacer. Elle transmet sa méthode à ses collègues. Reconnaître cet apport dans son salaire peut l'encourager à poursuivre sa formation.",
@@ -5293,6 +5373,11 @@
         "english": "This does not make every pay gap acceptable. We need to fight discrimination: for equal work, women and men must be treated in the same way. Differences should remain reasonable, with known criteria and the possibility of discussing them.",
         "french": "Cela ne rend pas tous les écarts acceptables. Il faut lutter contre les discriminations : à travail égal, les femmes et les hommes doivent être traités de la même façon. Les différences doivent rester raisonnables, avec des critères connus et la possibilité de les discuter.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "7b3fd5f7a8145ea98b21179cf5d3a824c27f4c33f5b5c5243da3b6f42ef0f319": {
+        "english": "A company with a limited budget cannot always raise everyone's pay to match an outside offer. Being able to adjust a specialist's salary can help it retain that person when their departure risks holding up an activity.",
+        "french": "Une entreprise au budget limité ne peut pas toujours augmenter tous les salaires pour s'aligner sur une offre extérieure. Pouvoir ajuster celui d'un spécialiste peut l'aider à le garder, quand son départ risque de bloquer une activité.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "7e5a6630b318599925671c3c39a5080a6dcb1f4bee465b7017ea47d061de65f5": {
         "english": "This genuine responsibility can justify different pay.",
@@ -5458,6 +5543,11 @@
         "french": "Il faut aussi protéger la vie privée des personnes dont on parle.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "796bb8d9e867582895d3c84335cf4accf9281afcb7012670036af5152d52975f": {
+        "english": "On the page for a debate about a library closure, one resident criticises the decision. Another calls for an assault on the person responsible as they leave the meeting. The organiser reports the threat to the police and removes that appeal from the page, but keeps the criticism of the closure.",
+        "french": "Sur la page d'un débat sur la fermeture d'une bibliothèque, un habitant critique la décision. Un autre appelle à agresser le responsable à la sortie de la réunion. L'organisateur signale la menace à la police et retire cet appel de la page, mais conserve les critiques de la fermeture.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "829818c1cd9b226f9e107f263d3225ead4e6caa9747fb2660dbd1c5f4d38b12e": {
         "english": "Criticism can be forceful without announcing an assault. By contrast, a concrete call to attack someone creates a risk to their safety. Responding to this risk does not mean protecting their ideas from criticism.",
         "french": "Une critique peut être vive sans annoncer une agression. En revanche, un appel concret à attaquer quelqu'un crée un risque pour sa sécurité. Répondre à ce risque ne revient pas à protéger ses idées contre la critique.",
@@ -5482,6 +5572,11 @@
         "english": "These rules can therefore help several people to express themselves, rather than merely restricting free speech.",
         "french": "Ces règles peuvent donc aider plusieurs personnes à s'exprimer, pas seulement limiter la parole.",
         "review_note": "Plusieurs means several; many strengthens the quantity."
+      },
+      "a4f4969fe0bf9e770e13471245420e6727d5f0266887f513c5695c242cb1cab0": {
+        "english": "On a local forum, a resident proposes a cycle lane. Some people repeatedly post insults about her appearance. The moderators remove those messages and explain their decision, but keep criticism of the lane's cost and route.",
+        "french": "Sur un forum local, une habitante propose une piste cyclable. Certains publient sans arrêt des insultes sur son apparence. Les modérateurs retirent ces messages en expliquant leur décision, mais gardent les critiques sur le coût et le trajet de la piste.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "aa49a33180df725ac27bcde1ea522c65a3c95f5ebd9bb8022016656530300ecc": {
         "english": "So I support broad freedom of expression with targeted protections. Their purpose must remain to make discussion possible, not to eliminate disagreement.",
@@ -5615,6 +5710,11 @@
       "c061c7c2affcc92570632a0b9b3e069c48ef908b911a95eb1016268cb58fe360": {
         "english": "To show that one has understood, one must be able to explain one’s answer, not merely repeat a phrase. This kind of reasoning can be developed within the subjects of the curriculum themselves, without pitting knowledge against critical thinking.",
         "french": "Pour montrer qu'on a compris, il faut pouvoir expliquer sa réponse, pas seulement répéter une phrase. Ce raisonnement peut se travailler à l'intérieur même des matières du programme, sans opposer les connaissances à la réflexion."
+      },
+      "c29e2bc95fb7ef1bac8e427c9cf14cae189e88cbb0a5996453e7d9629f7305cd": {
+        "english": "Two pupils are preparing a poster: one wants lots of text, the other only pictures. The teacher asks how readers will understand their topic. They choose a short explanation under each picture, then divide up the work.",
+        "french": "Deux élèves préparent une affiche : l'un veut beaucoup de texte, l'autre seulement des images. Le professeur leur demande comment les lecteurs comprendront leur sujet. Ils choisissent une courte explication sous chaque image, puis se répartissent le travail.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "c396e1c45ae850eaea379d9f89c9fb8652078f0b1f4ca1c0267258adb20397c7": {
         "english": "This knowledge is useful when one knows how to apply it in everyday life.",
@@ -5768,6 +5868,11 @@
         "french": "Je pense que la télévision peut contribuer au développement de l'enfant, à condition d'être bien utilisée. Elle ne remplace ni le jeu ni les relations avec les autres. Mais un programme adapté peut apporter quelque chose, surtout quand l'enfant peut reprendre ce qu'il a vu ou en parler.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "b00629f0545adada0f557143027b12a3379d1bcf718aaef7fd89a158c5c6ed6d": {
+        "english": "After a scene in which a character excludes a friend from a game, a parent asks how the friend feels. The child says he is sad because he wanted to play with the others. They then imagine how the characters could invite him back.",
+        "french": "Après une scène où un personnage exclut un ami d'un jeu, un parent demande comment l'ami se sent. L'enfant répond qu'il est triste parce qu'il voulait jouer avec les autres. Ils imaginent ensuite comment les personnages pourraient lui proposer de revenir.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "b5021bc92ce6f9bd69991c627db07d5c1b0ec72de1072ef4b33fcfe1597d70cc": {
         "english": "The image then helps to understand a process, not just to watch it.",
         "french": "L'image aide alors à comprendre une transformation, pas seulement à la regarder."
@@ -5870,6 +5975,11 @@
         "french": "Oui, je suis d'accord : il n'est jamais trop tard pour apprendre. On associe souvent l'apprentissage à l'enfance et à l'école, alors qu'il peut continuer toute la vie. Ce qui change avec les années, c'est surtout le rythme, la méthode et ce qu'on souhaite apprendre.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "7bb44356557415d9ba7455fce4f91bac1bf87e8aa65046ac233c64888e026e0f": {
+        "english": "We do not always start from scratch when we learn. What we already know can help us understand what a new method is for and try it out on a familiar problem.",
+        "french": "On ne part pas toujours de zéro quand on apprend. Ce qu'on sait déjà permet de comprendre à quoi sert une nouvelle méthode et de l'essayer sur un problème familier.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "7f9121195f67c3b7e9e16d7fd1eacc00f9bd26bf268a27f6554e26a33d1f5d9e": {
         "english": "A workshop gives you a subject to explore and regular opportunities to talk to others. You can learn for pleasure without needing to gain a qualification.",
         "french": "Un atelier donne un sujet à explorer et des occasions régulières d'échanger. On peut apprendre pour le plaisir, sans qu'il soit nécessaire d'obtenir une qualification.",
@@ -5905,6 +6015,11 @@
         "english": "An older adult may need more repetition or written steps. By tackling one difficulty at a time, they can learn a new action rather than give up in the face of everything they do not know.",
         "french": "Un adulte plus âgé peut avoir besoin de répéter davantage ou de noter les étapes. En avançant sur une difficulté à la fois, il peut acquérir un geste nouveau au lieu de renoncer devant tout ce qu'il ne connaît pas.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "af9708249165937e0e4ca0069bbb52bc74d393f543460a8741063a0e5d6cd779": {
+        "english": "A man has kept his budget on paper for years. To learn to use a spreadsheet, he enters his rent and grocery expenses, then learns to calculate the total automatically. He understands why this feature is useful because he used to do that calculation by hand.",
+        "french": "Un homme tient depuis longtemps son budget sur papier. Pour apprendre à utiliser un tableur, il reprend ses dépenses de loyer et de courses, puis apprend à calculer le total automatiquement. Il comprend l'intérêt de cette fonction parce qu'il faisait ce calcul à la main.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "c0684c8556ad10c574d4a81c16cb7f52221c420359cefb1cf9bc9960fb9ffe8a": {
         "english": "He develops an activity that interests him while regularly meeting people to share it with.",
@@ -6050,6 +6165,11 @@
         "french": "On ouvre une deuxième possibilité, sans supprimer les exigences de la formation.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "c93fc3f0bab78fcde593a5e8091a2426e1e1d369c8fa88e0f7b035b029ed5b49": {
+        "english": "An adult who works in a shop wants to study management at university, but his old maths results are weak. He checks the entry requirements and takes the refresher course offered by the institution. He can then include recent results in his application.",
+        "french": "Un adulte qui travaille dans un magasin veut étudier la gestion à l'université, mais ses anciens résultats en mathématiques sont faibles. Il vérifie les conditions d'entrée et suit la remise à niveau proposée par l'établissement. Il peut ensuite présenter des résultats récents dans sa candidature.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "cdf55b5208cc164df7e9c20ba93276cc42316ed29207de85fdf6fd587bb096fd": {
         "english": "An adult interested in a course can enquire about any prerequisites they may be lacking and what preparatory courses are available. If they follow this path and meet the requirements, their application can be assessed on more relevant grounds than a past academic failure.",
         "french": "Un adulte intéressé par une formation peut demander quels prérequis lui manquent et quelles préparations sont proposées. S'il suit ce parcours et satisfait aux conditions, sa candidature peut être examinée sur des bases plus pertinentes qu'un échec scolaire ancien."
@@ -6115,6 +6235,11 @@
         "english": "Grades can thus help someone pass an important stage without guaranteeing success throughout the programme.",
         "french": "Les notes peuvent ainsi aider à franchir une étape importante, sans garantir la réussite du parcours.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "242b884df7b794a6c179bba4aa649ed5be6e7a8855b3897f236f1f3bd66ef5ec": {
+        "english": "A student who works in the evenings applies for a grant whose academic criteria she meets. Her teacher recommends her application by explaining the quality of her work. If she receives this aid and can adjust her working hours, she will be able to work less and devote more time to her classes.",
+        "french": "Une étudiante qui travaille le soir demande une bourse dont elle remplit les critères scolaires. Son professeur recommande son dossier en expliquant la qualité de ses travaux. Si elle obtient cette aide et peut aménager ses horaires, elle pourra travailler moins et consacrer plus de temps aux cours.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "2bacc5f62b5e37d27aa882cbaa47a5da4f9adb6e8fa30b9c150947af718af88a": {
         "english": "However, I do not think grades measure every skill or human quality. Modest results do not mean you have no future. The definition of success is also personal: for some, it means a good job; for others, starting a family or finding balance in life.",
@@ -6225,6 +6350,11 @@
       "d4e0d95680d10ad6d6a93aaa137126fd061af99370a0d3ea1c14d0050b66378a": {
         "english": "Recognising progress can therefore encourage effort beyond the assessment process.",
         "french": "La reconnaissance du progrès peut ainsi soutenir l'effort au-delà de l'évaluation."
+      },
+      "db57270f90b970989d9c6be9cc9f5870d7b19e464c535e8da8003bdc9a5d5d53": {
+        "english": "A pupil thinks he cannot succeed at maths. After several weeks of going back over his mistakes, he gets a good grade. When he encounters another difficult calculation, he tries to solve it instead of immediately telling himself he will fail.",
+        "french": "Un élève se croit incapable de réussir en maths. Après plusieurs semaines à revoir ses erreurs, il obtient une bonne note. Quand il rencontre un nouveau calcul difficile, il essaie de le résoudre au lieu de se dire immédiatement qu'il n'y arrivera pas.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "ea7c1c27e9d701919a249a318ebf463424a1bff73aab997e612323ed37cdc2a0": {
         "english": "First, good results can open up certain educational opportunities.",
@@ -6393,6 +6523,11 @@
       "f55c9728a2de6f372608c13a76077d9c7e1d8551631ac960a61bdb24821b64c4": {
         "english": "To learn the basics of a spreadsheet, a person can follow a tutorial, recreate the calculation in a test file and compare their result with the one provided. In this way, they check a specific action rather than passively watching the video.",
         "french": "Pour apprendre les bases d'un tableur, une personne peut suivre un tutoriel, refaire le calcul sur un fichier d'essai et comparer son résultat avec celui proposé. Elle vérifie ainsi une action précise au lieu de regarder passivement la vidéo."
+      },
+      "fc4e18b3bf6f7ced5df0014b2a078d9a13f2418d4513cf7d1f422970ea978e33": {
+        "english": "A learner describes a picture to an online partner. He wants to say that the book is on the table, but says 'dessous' (underneath) instead of 'dessus' (on top). His partner has him practise both words and explains why he understood the opposite.",
+        "french": "Un apprenant décrit une image à son partenaire en ligne. Il veut dire que le livre est sur la table, mais prononce « dessous » au lieu de « dessus ». Son partenaire lui fait reprendre les deux mots et lui explique pourquoi il avait compris le contraire.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       }
     },
     "eo/tache-3/education-p23": {
@@ -6466,6 +6601,11 @@
         "english": "Yes, educational trips can be very useful, but their benefit does not stem from the journey alone. A museum, an art gallery or another venue can offer first-hand observation, prompt questions and provide a different kind of shared experience. The visit must be tailored to the pupils’ needs and age.",
         "french": "Oui, les sorties pédagogiques peuvent être très utiles, mais leur bénéfice ne vient pas du déplacement seul. Un musée, une galerie ou un autre lieu peut offrir une observation concrète, susciter des questions et donner une expérience collective différente. Il faut relier la visite aux besoins et à l'âge des élèves.",
         "review_note": "Observation concrète means direct observation, not necessarily hands-on touching or practical manipulation."
+      },
+      "961f31db2d7971d243283ad0d6aa9650c9563fbe9fc3d050872b8dc40c1ddd39": {
+        "english": "At the zoo, a child who rarely speaks in class explains to his small group that penguins are birds even though they cannot fly. His classmates ask him questions, then they ask the guide how these animals move through the water.",
+        "french": "Au zoo, un enfant qui parle peu en classe explique à son petit groupe que les manchots sont des oiseaux, même s'ils ne volent pas. Ses camarades lui posent des questions, puis ils demandent au guide comment ces animaux se déplacent dans l'eau.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "a8d7e89554dd5d0f25e3acefd70824d6efb468c9e544bbe26e2dc20119853a03": {
         "english": "So outings are a useful addition to lessons when they form part of a genuine learning project. They can connect observation, a desire to investigate and participation in the group.",
@@ -6562,6 +6702,16 @@
         "french": "Il faut toutefois prévoir un besoin d'accessibilité, un usage pédagogique encadré et un moyen de joindre la famille en urgence. Pour que cette possibilité soit réelle, l'école doit indiquer clairement quel adulte ou quel numéro contacter.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "0d0d5488bba2cdd6afa5f324fe94afd5a2917188cc18965007286702368efcdc": {
+        "english": "During a presentation, a pupil takes out his phone and points it at a classmate. The teacher reminds him of the rule and asks him to put it away before he starts filming. The classmate can continue the presentation.",
+        "french": "Pendant un exposé, un élève sort son téléphone et le dirige vers un camarade. L'enseignant lui rappelle la règle et lui demande de le ranger avant qu'il commence à filmer. Le camarade peut poursuivre sa présentation.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
+      "0e415b044464b7969e57c3a36998b5928ad916e4fa4487e3963d04d65fd371dd": {
+        "english": "At break time, two pupils who no longer have their phones in their hands join classmates playing cards. They explain the rules to a new player and chat during the game.",
+        "french": "À la récréation, deux élèves qui n'ont plus leur téléphone à la main rejoignent des camarades autour d'un jeu de cartes. Ils expliquent les règles à un nouveau joueur et discutent pendant la partie.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "29ecdf69ed4651b7bca60d8ecc7c58e62e88d5ec124b599284d49bfd70b2f3f3": {
         "deepl_english": "Furthermore, a rule on taking photographs provides better protection of privacy.",
         "english": "Furthermore, a rule on taking photos or recording videos provides better protection of privacy.",
@@ -6592,6 +6742,11 @@
         "english": "This does not guarantee concentration, but it does remove a source of distraction.",
         "french": "Cela ne garantit pas la concentration, mais retire une source d'interruption."
       },
+      "5e249200f5297228eb7511ae7898e52c0b50195b1d9829a17d618039010031c1": {
+        "english": "The rule thus provides a way to intervene before an image is recorded and shared.",
+        "french": "La règle donne ainsi un moyen d'intervenir avant qu'une image soit enregistrée et partagée.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "5e64080b9d65c73ae7a53b9b2f9f5e5fbb9fb9b77a3954efa5d7b166725f1044": {
         "english": "During a phone-free break, two pupils join a card game offered in a room. They explain the rules to a new player and chat during the game, rather than each staying on their own screen.",
         "french": "Pendant une pause sans téléphone, deux élèves rejoignent un jeu de cartes proposé dans une salle. Ils expliquent les règles à un nouveau joueur et discutent pendant la partie, au lieu de rester chacun sur son écran.",
@@ -6605,6 +6760,11 @@
       "717bde161e3e08ff2deda26c5d844f2eeb22d567ca4d82b72c1e5e1c45621af4": {
         "english": "A pupil who checks a message may miss a change in instructions and start the wrong task. For the next activity, the devices are put away; they listen to the explanation right through to the end and can tell their group what to do.",
         "french": "Un élève qui consulte un message peut manquer un changement de consigne et commencer la mauvaise tâche. Pour l'activité suivante, les appareils sont rangés ; il écoute l'explication jusqu'au bout et peut dire à son groupe ce qu'il faut faire."
+      },
+      "73f1d76ebfaa52addc6c031f734ac74960f760544c2d4f56c27c9fe701e53e98": {
+        "english": "When devices are put away, it is harder to film a classmate discreetly. That matters because a mistake or an embarrassing moment can become a video shared throughout the school.",
+        "french": "Quand les appareils restent rangés, il est moins facile de filmer discrètement un camarade. C'est important, car une erreur ou un moment gênant peut devenir une vidéo partagée dans toute l'école.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "7b0ff7a76ccab3aa243dd86292be57ce92bcaf7b91fff9690bc62f4ce35f2bcd": {
         "english": "I am broadly in favour of banning phone use at school. I mean unrestricted use during the day, not a device used at the teacher's request. The aim is not to punish pupils, but to maintain good conditions for learning and getting along together.",
@@ -6705,6 +6865,11 @@
         "english": "Lessons must be prepared, the child must be helped, and their understanding must be checked. Even when motivated, parents do not always have enough time, resources or support.",
         "french": "Il faut préparer les leçons, aider l'enfant et vérifier ce qu'il a compris. Même motivés, les parents n'ont pas toujours assez de temps, de matériel ou d'aide."
       },
+      "31153be45f585e5aa52bde0cf548e7534e6501f9a25aefdf018a164fd0a7dc08": {
+        "english": "A pupil writes 'les enfants joue', leaving the verb singular even though he knows the plural rule. The teacher asks him to find the subject and then check the verb. This shows which step the pupil is forgetting, and they practise it together in other sentences.",
+        "french": "Un élève écrit « les enfants joue », alors qu'il connaît la règle du pluriel. Le professeur lui demande de retrouver le sujet, puis de vérifier le verbe. Il repère ainsi l'étape que l'élève oublie et la retravaille avec lui sur d'autres phrases.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "34efceaec9d5daba43ed01d8b0e72446d1873dfe6dc4f7add59058b79d4dc663": {
         "english": "First, a trained teacher can identify what a child has not understood.",
         "french": "D'abord, un enseignant formé peut repérer ce que l'enfant n'a pas compris.",
@@ -6783,6 +6948,16 @@
         "french": "Un élève sait réciter une règle de grammaire, mais ne l'applique pas dans une phrase nouvelle. Le professeur lui fait expliquer son choix, repère la confusion et propose un autre exercice. L'élève réussit alors à utiliser la règle.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "adef644ddfc4148ffaa42cce86e11589b727c0b50270340f3acae03295b336c4": {
+        "english": "A father teaches his daughter at home and prepares her reading and maths lessons. When he can no longer explain the science exercises, he looks for outside help. He then needs to add the cost of those lessons to the family budget and fit them into the week.",
+        "french": "Un père fait la classe à sa fille et prépare ses leçons de lecture et de calcul. Quand il ne sait plus expliquer les exercices de sciences, il cherche un soutien extérieur. Il doit alors ajouter le coût de ces cours au budget familial et les prévoir dans la semaine.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
+      "b20d26c55460dfa0ff9c55e9b20c619581e9a15ecea130ef4e941650b192e9ab": {
+        "english": "I understand why some parents choose to teach their child at home. It can meet the child's needs, but it takes real preparation. For most children, I prefer school, both for the teaching and for relationships with others.",
+        "french": "Je comprends que certains parents choisissent de faire la classe à la maison. Cela peut répondre aux besoins de leur enfant, mais ce choix demande une vraie préparation. Pour la plupart des enfants, je préfère l'école, pour l'enseignement et les relations avec les autres.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "b87ee2639ef783ec974da708d7866095d3a08d202b614dae8e66183cc7a4c5be": {
         "english": "Furthermore, school offers regular opportunities to work with different people.",
         "french": "Ensuite, l'école offre des occasions régulières de travailler avec des personnes différentes."
@@ -6840,6 +7015,11 @@
         "french": "Une personne comprend bien les documents écrits, mais se perd quand elle téléphone pour un rendez-vous médical. En simulant cet appel avant le départ, elle repère qu'elle doit travailler les horaires et apprendre à demander de répéter.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "0e78f1de28981aef8f40195b257e19b16125bd845e85e5046b74e28f72b832ce": {
+        "english": "A nurse contacts the professional order in Quebec to ask whether her qualification allows her to practise and what steps she needs to take. She also asks about the time and costs involved before counting on an income from that profession.",
+        "french": "Une infirmière contacte l'ordre professionnel au Québec pour savoir si son diplôme lui permet d'exercer et quelles démarches sont nécessaires. Elle demande aussi les délais et les frais à prévoir avant de compter sur un salaire dans ce métier.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "15816ae9bdbe31135988dd39fc63cafc0ee5580507671f513986601028fd5114": {
         "english": "A couple plans to leave together. One has a job; the other will need to look for work and practise French. They check whether one salary and their savings will cover the initial period, then ask someone close to them what help they could actually provide.",
         "french": "Un couple prévoit de partir ensemble. L'un a un emploi, l'autre devra chercher du travail et pratiquer le français. Ils vérifient si un seul salaire et leurs économies couvrent le début, puis demandent à un proche quelle aide il pourrait réellement apporter.",
@@ -6877,6 +7057,11 @@
         "english": "Someone can practise presenting their background to a French-speaking conversation partner, then ask the partner which parts remain unclear. This helps the learner identify the vocabulary they need to work on before relying solely on learning the language after arrival.",
         "french": "Une personne peut s'entraîner à présenter son parcours à un interlocuteur francophone, puis lui demander ce qui reste peu clair. Elle repère ainsi un vocabulaire à travailler avant de compter uniquement sur l'apprentissage après l'arrivée.",
         "review_note": "The speaker asks for feedback on what the listener did not understand, not for the listener to explain something unclear to the speaker."
+      },
+      "48b0db3f9f5658ce6b6b3e368b89f8c3778c23b33ccd85e43ccd4d5667b422f1": {
+        "english": "A couple plans to move together. One has already found a job in Quebec; the other will need to look for work. They compare the expected salary and their savings with the cost of rent, groceries and transport, then ask someone close to them what help they could actually provide.",
+        "french": "Un couple prévoit de partir ensemble. L'un a déjà trouvé un emploi au Québec ; l'autre devra chercher du travail. Ils comparent le salaire prévu et leurs économies au coût du loyer, des courses et des transports, puis demandent à un proche quelle aide il pourrait réellement apporter.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "50b38960253d7ca8ec65e7c21959a019ae3c8f599a9343e628c33481aba48cb3": {
         "english": "Next, is my career plan feasible under the envisaged conditions?",
@@ -6916,6 +7101,11 @@
         "english": "The second would be: is my career plan feasible in Quebec?",
         "french": "La deuxième serait : mon projet professionnel est-il réalisable au Québec ?",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "97913378c372a4d1b262418fe684d5611fd988381b2120586cf5e6cb83877704": {
+        "english": "This helps her avoid planning to start work immediately without checking her authorisation to practise.",
+        "french": "Elle évite ainsi de prévoir un début de travail immédiat sans avoir vérifié son droit d'exercer.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "9fcfaa20fe7c2b8449231d6e5c680a6543b7c21986f53c8b0b1feeb645000ad6": {
         "english": "For me, honest answers about language, work and resources help avoid some unpleasant surprises. They allow you to prepare or adjust your departure plans, without guaranteeing success.",
@@ -6984,6 +7174,11 @@
         "english": "The first would be: is my French good enough for everyday life?",
         "french": "La première serait : ai-je un niveau de français suffisant pour mon quotidien ?",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "ffd2157d0e324dce322f3f89d328e6c6d29fc3b0b7110ff8d306138f9c56b31c": {
+        "english": "Finally, do I have enough money, and who can I count on to help me settle in?",
+        "french": "Enfin, ai-je assez d'argent et sur qui puis-je compter pour m'installer ?",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       }
     },
     "eo/tache-3/education-p6": {
@@ -7001,6 +7196,11 @@
         "english": "People further afield can thus find out what is needed and provide useful assistance.",
         "french": "Des personnes plus éloignées peuvent ainsi savoir ce qui manque et apporter une aide utile."
       },
+      "0ad7405a88b722c2f7ebfada6b1045d58bcd2970ed70cc583b8d4847719d31f1": {
+        "english": "The exchange helps adapt the distribution to a difficulty that had not been anticipated.",
+        "french": "L'échange permet ainsi d'adapter la distribution à une difficulté qui n'avait pas été prévue.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "0f8dd68f97eaef89063e8042734d8eb6aab918206507b3236f1d1a3fe049e941": {
         "english": "Next, online tools help organise contributions better.",
         "french": "Ensuite, les outils en ligne permettent de mieux organiser les contributions.",
@@ -7010,6 +7210,11 @@
         "english": "However, fake fundraising appeals can circulate: you need to check where they come from before donating or sharing them. An outage can also leave people offline. Local contacts and emergency services therefore remain essential.",
         "french": "Cependant, de faux appels aux dons peuvent circuler : il faut vérifier leur origine avant de donner ou de partager. Une panne peut aussi laisser des personnes hors ligne. Les contacts sur place et les services de secours restent donc indispensables.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "1118fc0de2aaa9f636a8001cd5d4ba83c3b8b04de94d024e05a19f492a3360d4": {
+        "english": "After a flood, someone staying temporarily in a hotel cannot get to the distribution point. They message the organisation through its website. A volunteer who is available offers to bring a parcel to the hotel.",
+        "french": "Après une inondation, une personne hébergée provisoirement dans un hôtel ne peut pas se rendre au point de distribution. Elle écrit à l'association sur sa page Internet. Un bénévole disponible lui propose de lui apporter un colis à l'hôtel.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "116668219393122b9d6bc80a787fe4f072c156bef36bb6051844bfc4e603e7e5": {
         "english": "Via a private messaging service, someone in temporary accommodation can inform a charity representative that they are unable to carry a heavy parcel. The team then arranges a delivery with them, rather than treating the prepared parcel as a sufficient response.",
@@ -7072,6 +7277,11 @@
         "french": "Une association qui prépare des colis propose plusieurs créneaux de bénévolat et confirme les inscriptions. Elle évite ainsi que tous les volontaires arrivent au même moment, alors qu'un autre créneau reste vide.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "79a6977f2b95706c8c9efe51fc05d29d0cec0d54ed206d0f4d78fb616711d9e1": {
+        "english": "Finally, the Internet lets the people affected explain what help they need.",
+        "french": "Enfin, Internet permet aux personnes touchées de préciser l'aide dont elles ont besoin.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "7ece83e475179f48e30b2302fb0152020d2235ef6a6ba919e13bb0f09e3d7d83": {
         "english": "Firstly, the internet can quickly mobilise people beyond the affected neighbourhood.",
         "french": "Tout d'abord, Internet peut mobiliser rapidement des personnes au-delà du quartier touché."
@@ -7089,6 +7299,11 @@
       "a782c678263b84617f77236aa7af06d2e86d21aadf3813c6573e9829056a778d": {
         "english": "Aid can be better tailored to the situation on the ground.",
         "french": "L'aide peut mieux correspondre à la situation vécue."
+      },
+      "a93a0d1f6c4ea096800fe237783574120eb353294eb8e9849522bb9e7661e227": {
+        "english": "A general appeal does not cover everyone's situation. Through messaging, someone can explain what prevents them from receiving the help on offer, and the organisation can look for another solution.",
+        "french": "Un appel général ne décrit pas toutes les situations. Grâce à la messagerie, une personne peut expliquer ce qui l'empêche de recevoir l'aide proposée, et l'association peut chercher une autre solution.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "ac64818dc62e691cc0e3527cc64ac3bdb9f52282486a3d295bf7f41e38a6dd3d": {
         "english": "Finally, the people affected can express their own needs and stay in touch.",
@@ -7119,6 +7334,16 @@
         "french": "Des personnes plus éloignées peuvent ainsi apporter ce qui est réellement demandé.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "eb7f7be4e8fa5666843cae873b0c973fdeafba3b932b4f15b40aac0a7f55dd0c": {
+        "english": "Receiving lots of offers is not enough if they all arrive at once. An online schedule shows which slots are still available. Volunteers can therefore choose a time when the team needs them.",
+        "french": "Recevoir beaucoup de propositions ne suffit pas si elles arrivent toutes ensemble. Un planning en ligne indique les créneaux encore disponibles. Les volontaires choisissent ainsi un horaire où l'équipe a besoin d'eux.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
+      "ee14f393422d5d876351fcec2ad85e3b8e4ced86a39bdcd003b3973cf6be0582": {
+        "english": "An organisation preparing parcels posts its schedule online. The morning slot is full, so the next volunteers sign up for the afternoon. This prevents all the volunteers from arriving at the same time while another slot remains empty.",
+        "french": "Une association qui prépare des colis affiche son planning sur Internet. Le créneau du matin est complet : les volontaires suivants s'inscrivent l'après-midi. Elle évite ainsi que tous les volontaires arrivent au même moment, alors qu'un autre créneau reste vide.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "eeeac43b09dd408084bbebec9fac1f1c6f923f165fefce7ead17c78f5a620530": {
         "english": "The help is better suited to their situation, and their loved ones know what is happening.",
         "french": "L'aide correspond mieux à sa situation, et ses proches savent ce qui se passe.",
@@ -7139,6 +7364,11 @@
         "english": "Someone wishing to move from sales into management can learn how to forecast stock levels and draw up a budget whilst on a training course. They can then showcase these skills when applying for new roles, without assuming that a qualification will guarantee a promotion.",
         "french": "Une personne qui souhaite passer de la vente à la gestion peut apprendre à prévoir les stocks et à établir un budget pendant une formation. Elle peut ensuite présenter ces compétences pour demander de nouvelles missions, sans supposer qu'un diplôme lui assurera une promotion."
       },
+      "0edce88f0066289cea5dbd3dde9a32b9a61d21cd4f9214e1c8cf04ebb2d95bee": {
+        "english": "When you have already worked, you can connect an idea to a situation you have experienced. That helps you understand what the lesson is useful for and ask specific questions about what you did not know how to do.",
+        "french": "Quand on a déjà travaillé, on peut relier une notion à une situation vécue. Cela aide à comprendre à quoi sert le cours et à poser des questions précises sur ce qu'on ne savait pas faire.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "1c097de5d37dcbd53acf4d78ba5f13f2ab1bf97da5fb1636115084a493b9d6b0": {
         "english": "In conclusion, age alone should not close the door to further education. A meaningful goal, experience and a realistic timetable make it possible to prepare for this undertaking. It is also important to respect each person’s individual constraints and consider other possible paths.",
         "french": "En conclusion, l'âge seul ne devrait pas fermer la porte aux études. Un objectif utile, l'expérience et un emploi du temps réaliste permettent de préparer ce projet. Il faut aussi respecter les contraintes de chacun et les autres voies possibles."
@@ -7157,6 +7387,11 @@
         "english": "First and foremost, returning to study can help you change careers or gain a deeper understanding of a particular field.",
         "french": "Tout d'abord, reprendre des études peut aider à changer d'activité ou à approfondir un domaine."
       },
+      "34401de0d56043fb49dbcd25757533583009e3e38ea787dffe84c8bb241670a7": {
+        "english": "In a management class, a former waiter studies a complaint about a meal served too late. He remembers leaving a customer without an answer in that situation. He then understands why it helps to explain the delay and offer a solution.",
+        "french": "En cours de gestion, un ancien serveur étudie une réclamation pour un repas servi trop tard. Il se rappelle avoir laissé un client sans réponse dans cette situation. Il comprend alors l'intérêt d'expliquer le retard et de proposer une solution.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
       "3449039c27076a93922e1dff64f2872e5f80f81d5d40071f314e2e175f8dceeb": {
         "english": "However, entry requirements, funding, health or the range of courses available may limit one’s options. A short course may sometimes be more suitable than a long degree programme. Advocating for education at any age does not mean imposing it on anyone or guaranteeing a successful career change.",
         "french": "Cependant, les prérequis, le financement, la santé ou l'offre de formation peuvent limiter les choix. Une formation courte peut parfois mieux convenir qu'un long diplôme. Défendre les études à tout âge ne signifie ni les imposer ni garantir une reconversion réussie."
@@ -7165,6 +7400,11 @@
         "english": "You do not always have to give up your job to study full-time. Evening or distance courses can make a programme possible if the institution offers them.",
         "french": "On n'est pas toujours obligé d'abandonner son emploi pour étudier à plein temps. Les cours du soir ou à distance peuvent rendre un parcours possible, si l'établissement les propose.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "3ff47eee2ba200e633251dcbdb5bccf77fc2c9e39a5e862507b6a7d519f7bf37": {
+        "english": "A mother who left school at eighteen returns to studying accounting when her children become more independent. During the programme, she learns to record invoices and check accounts. She then prepares an application for an accounting assistant position.",
+        "french": "Une mère qui a quitté l'école à dix-huit ans reprend des études de comptabilité quand ses enfants deviennent plus autonomes. Pendant sa formation, elle apprend à enregistrer des factures et à vérifier des comptes. Elle prépare ensuite sa candidature pour un poste d'assistante comptable.",
+        "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
       },
       "40a97fda59811803b8667dcf8cda4d936da7dece099a5f3f21eaf59a4aec492e": {
         "english": "A former waiter takes a management course. In an exercise about customer complaints, he recognises a problem he previously encountered at the restaurant. He compares his reaction at the time with the suggested method and understands what he could have done differently.",

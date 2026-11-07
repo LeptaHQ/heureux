@@ -312,7 +312,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         questions = (
             "is my French good enough for everyday life?",
             "is my career plan feasible in Quebec?",
-            "do I have the financial resources and support from others to settle in?",
+            "do I have enough money, and who can I count on to help me settle in?",
         )
         for argument, question in zip(quebec.response.arguments, questions):
             self.assertIn(question, rows[fingerprint(argument.idea)]["english"])
@@ -320,8 +320,8 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             fingerprint(quebec.response.position_claire)
         ]["english"])
         qualification = rows[fingerprint(quebec.response.arguments[1].exemple)]["english"]
-        self.assertIn("If additional training is needed", qualification)
-        self.assertIn("rather than plan to start work immediately", qualification)
+        self.assertIn("whether her qualification allows her to practise", qualification)
+        self.assertIn("before counting on an income", qualification)
         volunteer = models["eo/tache-3/education-p10"]
         self.assertEqual(
             {key for key, _ in volunteer.source_prompts}, {"education:p10", "education:p24"},
@@ -378,9 +378,9 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             fingerprint(fields["argument-4-idea"])
         ]["english"])
         retention = rows[fingerprint(fields["argument-4-exemple"])]["english"]
-        self.assertIn("If she accepts a better-paid offer elsewhere", retention)
-        self.assertIn("the security system the team needs to install", retention)
-        self.assertIn("may have to postpone this installation", retention)
+        self.assertIn("She receives a better offer elsewhere", retention)
+        self.assertIn("can offer her a pay rise", retention)
+        self.assertIn("risk the machine being out of operation", retention)
         arts = models["eo/tache-3/culture-p13"]
         self.assertEqual(
             {key for key, _ in arts.source_prompts}, {"culture:p13", "education:p11"},
@@ -422,8 +422,10 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("not the same as saying they are essential or sufficient", introduction)
         self.assertIn("a successful life cannot be reduced to an academic record", introduction)
         example = rows[fingerprint(grades.response.arguments[2].exemple)]["english"]
+        self.assertIn("student who works in the evenings", example)
         self.assertIn("If she receives this aid", example)
-        self.assertIn("can reduce her paid working hours", example)
+        self.assertIn("and can adjust her working hours", example)
+        self.assertIn("will be able to work less", example)
         school = models["eo/tache-3/education-p18"]
         rows = data["groups"][school.group]
         introduction = rows[fingerprint(school.response.position_claire)]["english"]
@@ -436,24 +438,27 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         models = scoped_models()
-        for group, index, field, current, previous in (
+        for group, digest, current, previous in (
             (
-                "education-p1", 2, "exemple", "the employee knows who to turn to",
+                "education-p1",
+                "d485ec30753b481c63a84f29bca19406974f7749f7e1f338a0763ba06044ebc4",
+                "the employee knows who to turn to",
                 "In his first job, a manager",
             ),
             (
-                "education-p20", 1, "idea", "Wider access to university",
+                "education-p20",
+                fingerprint(models["eo/tache-3/education-p20"].response.arguments[1].idea),
+                "Wider access to university",
                 "An open university",
             ),
         ):
-            with self.subTest(group=group, field=field):
-                model = models[f"eo/tache-3/{group}"]
-                french = getattr(model.response.arguments[index], field)
-                row = data["groups"][model.group][fingerprint(french)]
+            with self.subTest(group=group, digest=digest):
+                row = data["groups"][f"eo/tache-3/{group}"][digest]
+                self.assertEqual(fingerprint(row["french"]), digest)
                 self.assertIn(current, row["english"])
                 self.assertNotIn(previous, row["english"])
                 preceding = row["editorial_history"][-1]
-                self.assertEqual(preceding["french"], french)
+                self.assertEqual(preceding["french"], row["french"])
                 self.assertIn(previous, preceding["english"])
                 self.assertIn("No DeepL original or provider call was made", preceding["review_note"])
                 self.assertIn("editorial_history", row["review_note"])
@@ -466,7 +471,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             ("education-p1", "argument-1-exemple", ("doctor's office", "without help"), ()),
             ("education-p5", "argument-3-exemple", ("found a job in Quebec", "what help they could actually provide"), ()),
             ("education-p7", "argument-1-consequence", ("concrete skills", "in her application"), ("change careers",)),
-            ("education-p16", "argument-4-exemple", ("the security system the team needs to install", "may have to postpone this installation"), ()),
+            ("education-p16", "argument-4-exemple", ("specialised machine", "while it finds and trains someone"), ()),
         )
         models = scoped_models()
         for name, field, required, forbidden in cases:
@@ -590,8 +595,6 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         for group, index, field, wording in (
             ("education-p2", 0, "exemple", "someone close to her"),
             ("education-p5", 2, "exemple", "someone close to them"),
-            ("education-p6", 2, "developpement", "a message to loved ones"),
-            ("education-p6", 2, "consequence", "their loved ones know"),
         ):
             with self.subTest(group=group, field=field):
                 model = models[f"eo/tache-3/{group}"]
@@ -600,9 +603,27 @@ class EO3ResponseLanguageTests(SimpleTestCase):
                 self.assertIn(wording, english)
                 self.assertNotIn("relative", english)
         solidarity = models["eo/tache-3/education-p6"]
-        example = data["groups"][solidarity.group][
-            fingerprint(solidarity.response.arguments[2].exemple)
-        ]["english"]
+        rows = data["groups"][solidarity.group]
+        for french, wording in (
+            (
+                "Une aide décidée sans les consulter peut être mal adaptée. Un échange direct permet de préciser un problème ; un message aux proches permet aussi de les rassurer.",
+                "a message to loved ones",
+            ),
+            (
+                "L'aide correspond mieux à sa situation, et ses proches savent ce qui se passe.",
+                "their loved ones know",
+            ),
+        ):
+            with self.subTest(historical_french=french):
+                row = rows[fingerprint(french)]
+                self.assertEqual(row["french"], french)
+                self.assertIn(wording, row["english"])
+                self.assertNotIn("relative", row["english"])
+        historical_example = (
+            "Une personne hébergée temporairement écrit à un référent qu'elle ne peut pas transporter un colis lourd. "
+            "Ils conviennent d'une livraison. Elle peut ensuite envoyer un message à sa famille pour dire qu'elle est en sécurité et reçoit de l'aide."
+        )
+        example = rows[fingerprint(historical_example)]["english"]
         self.assertIn("message their family", example)
 
     def test_living_with_parents_english_keeps_adult_freedom_and_reciprocal_consideration(self):

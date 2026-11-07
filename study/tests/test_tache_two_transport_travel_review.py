@@ -116,7 +116,7 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
         for place in ("centre", "gare", "sites touristiques"):
             self.assertIn(place, row.questions[1].answer)
         for index, text in (
-            (2, "prochains passages en temps réel"), (4, "correspondances"),
+            (2, "prochains passages en temps réel"), (4, "changer de ligne et aller partout en ville sans payer de supplément"),
             (5, "valider"), (6, "circulent-ils le soir"), (7, "caméras de surveillance"),
         ):
             self.assertIn(text, row.questions[index].question)
@@ -137,28 +137,54 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
         self.assertNotIn("agence", " ".join(q.question for q in row.questions))
         self.assertIn("only if that service exists", row.note)
 
-    def test_breakdown_assistance_and_authorization_precede_reimbursement_paperwork(self):
+    def test_breakdown_covers_assistance_costs_and_late_arrival_followup(self):
         row = self.by_group["canada-car-breakdown-insurer"]
-        self.assertIn("position", row.questions[0].question)
-        self.assertIn("localisation précise", row.questions[0].answer)
+        self.assertIn("sur le bord de la route, devant la gare d'Ottawa", row.opening)
+        self.assertEqual(row.questions[0].question, "Pouvez-vous envoyer un dépanneur sur place ?")
+        self.assertIn("voir si la voiture peut repartir", row.questions[0].answer)
+        self.assertIn("numéro de contrat", row.questions[0].answer)
+        self.assertIn("un numéro où vous joindre", row.questions[0].answer)
         self.assertIn("délai", row.questions[1].question)
-        self.assertIn("remorquer", row.questions[2].question)
-        self.assertIn("Avant d'autoriser", row.questions[4].question)
+        self.assertIn("Si la voiture ne peut pas repartir", row.questions[2].question)
+        self.assertIn("garage à proximité", row.questions[2].question)
+        self.assertIn("dépannage, le remorquage, les réparations au garage", row.questions[3].question)
         self.assertIn("limite de 200", row.questions[3].answer)
-        self.assertIn("ne sont pas couvertes", row.questions[4].answer)
-        self.assertIn("avancer", row.questions[5].question)
-        self.assertIn("réglons directement", row.questions[5].answer)
+        self.assertIn("réparations au garage ne sont pas couvertes", row.questions[3].answer)
+        self.assertIn("devis du garage avant d'autoriser", row.questions[4].question)
+        self.assertIn("l'accepter ou le refuser avant le début des travaux", row.questions[4].answer)
+        self.assertIn("payer le dépanneur et vous demander un remboursement", row.questions[5].question)
+        self.assertIn("vous le payez directement", row.questions[5].question)
+        self.assertIn("payons directement le dépanneur", row.questions[5].answer)
+        self.assertEqual(row.questions[5].follow_up_to, 4)
         self.assertIn("avant d'engager la dépense", row.questions[6].answer)
-        self.assertIn("justificatifs", row.questions[7].question)
-        self.assertIn("immediate safety", row.note)
+        self.assertEqual(
+            row.questions[7].question,
+            "Si le dépanneur n'arrive pas dans le délai prévu, qui dois-je appeler ?",
+        )
+        self.assertIn("Rappelez-nous à ce numéro", row.questions[7].answer)
+        self.assertIn("numéro de dossier", row.questions[7].answer)
+        self.assertIn("contacterons le dépanneur", row.questions[7].answer)
+        self.assertIn("immediate safety", row.note.casefold())
+        self.assertIn("remorquage et des réparations", self.hints[row.group][3]["french"])
+        self.assertIn("estimate before authorizing repairs", self.hints[row.group][4]["english"])
+        self.assertIn("claim reimbursement", self.hints[row.group][5]["english"])
+        self.assertIn("dépanneur est en retard", self.hints[row.group][7]["french"])
+        self.assertIn("Who to call", self.hints[row.group][7]["english"])
 
     def test_private_car_has_history_and_proof_rather_than_a_scripted_tyre_only_route(self):
         row = self.by_group["private-owner-used-car-purchase"]
+        self.assertIn("De quel modèle s'agit-il", row.questions[0].question)
         for index, text in ((2, "consomme"), (4, "accident"), (5, "factures"), (7, "contrôle indépendant")):
             self.assertIn(text, row.questions[index].question)
         self.assertIn("pneus ou les freins", row.questions[3].question)
         self.assertEqual(row.questions[5].follow_up_to, 4)
         self.assertIn("accrochage", row.questions[4].answer)
+        self.assertIn("garantie transférable", row.questions[5].question)
+        self.assertIn("garantie du constructeur est terminée", row.questions[5].answer)
+        self.assertIn("pas pris d'extension", row.questions[5].answer)
+        self.assertIn("transferable warranty", row.questions[5].condition)
+        self.assertIn("garantie transférable", self.hints[row.group][5]["french"])
+        self.assertIn("transferable warranty", self.hints[row.group][5]["english"])
         self.assertIn("contrôle indépendant", row.questions[7].answer)
 
     def test_rentals_cover_actual_extra_costs_and_returns_without_forcing_an_electric_bike(self):

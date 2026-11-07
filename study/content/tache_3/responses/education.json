@@ -25,9 +25,9 @@
         },
         {
           "idea": "L'accueil reçu sur place fait aussi une grande différence.",
-          "developpement": "On peut vouloir participer sans connaître les habitudes d'une équipe. Quelqu'un qui prend le temps de les expliquer évite des erreurs et permet d'oser poser des questions.",
-          "exemple": "Dans un premier emploi, une responsable explique les consignes de sécurité au nouveau salarié, puis lui montre comment signaler un problème. Le lendemain, il sait à qui s'adresser quand une consigne lui paraît peu claire.",
-          "consequence": "Il peut alors participer plus facilement, au lieu de rester à l'écart par peur de mal faire."
+          "developpement": "Même quand on fait des efforts pour rencontrer du monde, il est difficile de créer des liens si les autres restent entre eux. Une invitation à discuter ou à partager un repas donne une occasion de faire connaissance.",
+          "exemple": "Un salarié qui vient d'arriver dans le pays mange seul le midi. Un collègue l'invite à rejoindre les autres à table. Ils commencent à déjeuner ensemble régulièrement, et il fait peu à peu connaissance avec l'équipe.",
+          "consequence": "Il se sent alors moins isolé et trouve plus facilement sa place dans l'équipe."
         }
       ],
       "nuance": "Cela dit, les tempéraments et les besoins diffèrent. Certaines personnes préfèrent repartir ou changer de projet, même avec du soutien. Ce choix ne prouve pas qu'elles sont incapables : la vie proposée peut simplement ne pas leur convenir.",
@@ -51,8 +51,8 @@
         },
         {
           "idea": "Ensuite, l'expérience peut même faciliter un nouvel apprentissage.",
-          "developpement": "Ce qu'on apprend ne part pas toujours de zéro. On peut relier une notion nouvelle à un problème qu'on connaît déjà, et comprendre ainsi à quoi elle sert.",
-          "exemple": "Un homme qui tient son budget sur papier passe à un tableur. Il reprend ses catégories de dépenses et comprend la logique des colonnes. Il lui reste à apprendre comment entrer les chiffres et calculer le total.",
+          "developpement": "On ne part pas toujours de zéro quand on apprend. Ce qu'on sait déjà permet de comprendre à quoi sert une nouvelle méthode et de l'essayer sur un problème familier.",
+          "exemple": "Un homme tient depuis longtemps son budget sur papier. Pour apprendre à utiliser un tableur, il reprend ses dépenses de loyer et de courses, puis apprend à calculer le total automatiquement. Il comprend l'intérêt de cette fonction parce qu'il faisait ce calcul à la main.",
           "consequence": "Ses habitudes lui donnent donc des repères pour comprendre ce nouvel outil."
         },
         {
@@ -81,14 +81,14 @@
         },
         {
           "idea": "Cette règle peut aussi protéger les élèves contre les images prises sans leur accord.",
-          "developpement": "Une erreur ou un moment gênant ne devrait pas devenir un spectacle pour toute l'école. Une vidéo partagée peut prolonger l'humiliation bien après les cours.",
-          "exemple": "Un élève commence à filmer un camarade à son insu pendant un exposé. Un témoin alerte l'enseignant, qui fait cesser l'enregistrement et intervient pour empêcher sa diffusion. Le camarade peut terminer sa présentation sans continuer à être filmé.",
-          "consequence": "Une règle claire permet ainsi aux adultes et aux témoins de réagir dès l'enregistrement."
+          "developpement": "Quand les appareils restent rangés, il est moins facile de filmer discrètement un camarade. C'est important, car une erreur ou un moment gênant peut devenir une vidéo partagée dans toute l'école.",
+          "exemple": "Pendant un exposé, un élève sort son téléphone et le dirige vers un camarade. L'enseignant lui rappelle la règle et lui demande de le ranger avant qu'il commence à filmer. Le camarade peut poursuivre sa présentation.",
+          "consequence": "La règle donne ainsi un moyen d'intervenir avant qu'une image soit enregistrée et partagée."
         },
         {
           "idea": "Enfin, des pauses sans téléphone laissent plus de place aux échanges directs.",
           "developpement": "Quand chacun regarde son écran, il est plus difficile d'engager une conversation. Les jeux et les activités communes donnent au contraire une occasion de se parler.",
-          "exemple": "Pendant une pause sans téléphone, deux élèves rejoignent un jeu de cartes proposé dans une salle. Ils expliquent les règles à un nouveau joueur et discutent pendant la partie, au lieu de rester chacun sur son écran.",
+          "exemple": "À la récréation, deux élèves qui n'ont plus leur téléphone à la main rejoignent des camarades autour d'un jeu de cartes. Ils expliquent les règles à un nouveau joueur et discutent pendant la partie.",
           "consequence": "La pause devient alors un moment partagé, pas seulement une interruption entre deux cours."
         }
       ],
@@ -101,12 +101,12 @@
       },
       "reformulation": "Que penser du choix de faire l'instruction à la maison ?",
       "position": "Privilégier l'école, avec une instruction à domicile justifiée, préparée et suivie dans certaines situations.",
-      "position_claire": "Je comprends que certains parents retirent leur enfant de l'école, mais je préfère l'école pour la plupart des enfants. Faire la classe à la maison peut répondre à une situation particulière. Ce n'est toutefois pas un choix qu'on devrait faire seulement parce qu'on est mécontent d'un cours ou d'un professeur.",
+      "position_claire": "Je comprends que certains parents choisissent de faire la classe à la maison. Cela peut répondre aux besoins de leur enfant, mais ce choix demande une vraie préparation. Pour la plupart des enfants, je préfère l'école, pour l'enseignement et les relations avec les autres.",
       "arguments": [
         {
           "idea": "D'abord, un enseignant formé peut repérer ce que l'enfant n'a pas compris.",
           "developpement": "Il connaît les erreurs fréquentes et peut expliquer autrement. Un parent attentif peut beaucoup aider, mais il n'a pas toujours le recul nécessaire pour comprendre pourquoi l'enfant se trompe.",
-          "exemple": "Un élève sait réciter une règle de grammaire, mais ne l'applique pas dans une phrase nouvelle. Le professeur lui fait expliquer son choix, repère la confusion et propose un autre exercice. L'élève réussit alors à utiliser la règle.",
+          "exemple": "Un élève écrit « les enfants joue », alors qu'il connaît la règle du pluriel. Le professeur lui demande de retrouver le sujet, puis de vérifier le verbe. Il repère ainsi l'étape que l'élève oublie et la retravaille avec lui sur d'autres phrases.",
           "consequence": "Ce suivi évite de considérer une leçon comme acquise simplement parce qu'elle a été récitée."
         },
         {
@@ -118,7 +118,7 @@
         {
           "idea": "Enfin, enseigner à la maison demande des moyens importants et durables.",
           "developpement": "Préparer plusieurs matières, organiser les journées et vérifier les progrès prend du temps et peut obliger un parent à réduire son travail.",
-          "exemple": "Une famille accompagne facilement la lecture, mais cherche un soutien extérieur lorsque les sciences deviennent plus difficiles. Elle doit trouver une personne disponible et du matériel, puis adapter ses horaires pour assurer ce suivi.",
+          "exemple": "Un père fait la classe à sa fille et prépare ses leçons de lecture et de calcul. Quand il ne sait plus expliquer les exercices de sciences, il cherche un soutien extérieur. Il doit alors ajouter le coût de ces cours au budget familial et les prévoir dans la semaine.",
           "consequence": "Sans cette organisation, certaines matières risquent d'être moins travaillées, même avec beaucoup de bonne volonté."
         }
       ],
@@ -142,13 +142,13 @@
         {
           "idea": "La deuxième serait : mon projet professionnel est-il réalisable au Québec ?",
           "developpement": "Il faut examiner les offres d'emploi et les qualifications demandées. Pour certaines professions, exercer suppose aussi une autorisation : posséder un diplôme ne signifie pas automatiquement pouvoir l'utiliser sur place.",
-          "exemple": "Une personne qui exerce un métier réglementé consulte l'organisme québécois concerné pour connaître les démarches applicables à son parcours. Si une formation complémentaire est nécessaire, elle l'intègre à son calendrier au lieu de prévoir une prise de poste immédiate.",
-          "consequence": "Elle prépare ainsi un projet de travail plus réaliste, sans confondre qualification et embauche."
+          "exemple": "Une infirmière contacte l'ordre professionnel au Québec pour savoir si son diplôme lui permet d'exercer et quelles démarches sont nécessaires. Elle demande aussi les délais et les frais à prévoir avant de compter sur un salaire dans ce métier.",
+          "consequence": "Elle évite ainsi de prévoir un début de travail immédiat sans avoir vérifié son droit d'exercer."
         },
         {
-          "idea": "Enfin, ai-je les moyens financiers et humains pour m'installer ?",
+          "idea": "Enfin, ai-je assez d'argent et sur qui puis-je compter pour m'installer ?",
           "developpement": "Il faut que le logement, les transports et les dépenses avant un revenu confirmé soient prévus dans un budget. En famille, il faut aussi discuter du projet de chacun et des contacts sur lesquels compter.",
-          "exemple": "Un couple prévoit de partir ensemble. L'un a déjà trouvé un emploi au Québec ; l'autre devra chercher du travail et pratiquer le français. Ils vérifient si un seul salaire et leurs économies couvrent le début, puis demandent à un proche quelle aide il pourrait réellement apporter.",
+          "exemple": "Un couple prévoit de partir ensemble. L'un a déjà trouvé un emploi au Québec ; l'autre devra chercher du travail. Ils comparent le salaire prévu et leurs économies au coût du loyer, des courses et des transports, puis demandent à un proche quelle aide il pourrait réellement apporter.",
           "consequence": "Ils voient ainsi ce qu'ils peuvent financer et ce qu'ils devront organiser eux-mêmes."
         }
       ],
@@ -171,15 +171,15 @@
         },
         {
           "idea": "Ensuite, les outils en ligne permettent de mieux organiser les contributions.",
-          "developpement": "Recevoir beaucoup de propositions ne suffit pas si elles arrivent toutes ensemble. Un planning aide l'équipe à répartir les tâches et à confirmer quand chacun doit venir.",
-          "exemple": "Une association qui prépare des colis propose plusieurs créneaux de bénévolat et confirme les inscriptions. Elle évite ainsi que tous les volontaires arrivent au même moment, alors qu'un autre créneau reste vide.",
+          "developpement": "Recevoir beaucoup de propositions ne suffit pas si elles arrivent toutes ensemble. Un planning en ligne indique les créneaux encore disponibles. Les volontaires choisissent ainsi un horaire où l'équipe a besoin d'eux.",
+          "exemple": "Une association qui prépare des colis affiche son planning sur Internet. Le créneau du matin est complet : les volontaires suivants s'inscrivent l'après-midi. Elle évite ainsi que tous les volontaires arrivent au même moment, alors qu'un autre créneau reste vide.",
           "consequence": "L'équipe peut préparer les colis plus régulièrement, avec des bénévoles présents aux heures utiles."
         },
         {
-          "idea": "Enfin, les personnes touchées peuvent exprimer elles-mêmes leurs besoins et garder le contact.",
-          "developpement": "Une aide décidée sans les consulter peut être mal adaptée. Un échange direct permet de préciser un problème ; un message aux proches permet aussi de les rassurer.",
-          "exemple": "Une personne hébergée temporairement écrit à un référent qu'elle ne peut pas transporter un colis lourd. Ils conviennent d'une livraison. Elle peut ensuite envoyer un message à sa famille pour dire qu'elle est en sécurité et reçoit de l'aide.",
-          "consequence": "L'aide correspond mieux à sa situation, et ses proches savent ce qui se passe."
+          "idea": "Enfin, Internet permet aux personnes touchées de préciser l'aide dont elles ont besoin.",
+          "developpement": "Un appel général ne décrit pas toutes les situations. Grâce à la messagerie, une personne peut expliquer ce qui l'empêche de recevoir l'aide proposée, et l'association peut chercher une autre solution.",
+          "exemple": "Après une inondation, une personne hébergée provisoirement dans un hôtel ne peut pas se rendre au point de distribution. Elle écrit à l'association sur sa page Internet. Un bénévole disponible lui propose de lui apporter un colis à l'hôtel.",
+          "consequence": "L'échange permet ainsi d'adapter la distribution à une difficulté qui n'avait pas été prévue."
         }
       ],
       "nuance": "Cependant, de faux appels aux dons peuvent circuler : il faut vérifier leur origine avant de donner ou de partager. Une panne peut aussi laisser des personnes hors ligne. Les contacts sur place et les services de secours restent donc indispensables.",
@@ -196,13 +196,13 @@
         {
           "idea": "D'abord, les études permettent de préparer une nouvelle étape de sa vie.",
           "developpement": "Un changement de situation peut rendre possible un projet longtemps repoussé. Une formation apporte alors un cadre, des cours dans un ordre précis et un suivi pour avancer vers ce projet.",
-          "exemple": "Une mère qui a quitté l'école à dix-huit ans s'inscrit en comptabilité quand ses enfants deviennent plus autonomes. Au fil des exercices corrigés, elle apprend à établir un budget et prépare sa candidature pour un poste administratif.",
+          "exemple": "Une mère qui a quitté l'école à dix-huit ans reprend des études de comptabilité quand ses enfants deviennent plus autonomes. Pendant sa formation, elle apprend à enregistrer des factures et à vérifier des comptes. Elle prépare ensuite sa candidature pour un poste d'assistante comptable.",
           "consequence": "Elle a désormais des compétences concrètes à présenter dans sa candidature."
         },
         {
           "idea": "Ensuite, l'expérience peut devenir un atout pendant les cours.",
-          "developpement": "Un adulte sait souvent pourquoi il étudie. Il peut relier une notion à une situation réelle et poser une question précise, au lieu d'apprendre seulement pour réussir l'examen.",
-          "exemple": "Un ancien serveur suit une formation en gestion. Dans un exercice sur les réclamations des clients, il reconnaît un problème déjà rencontré au restaurant. Il compare sa réaction d'alors avec la méthode proposée et comprend ce qu'il aurait pu faire autrement.",
+          "developpement": "Quand on a déjà travaillé, on peut relier une notion à une situation vécue. Cela aide à comprendre à quoi sert le cours et à poser des questions précises sur ce qu'on ne savait pas faire.",
+          "exemple": "En cours de gestion, un ancien serveur étudie une réclamation pour un repas servi trop tard. Il se rappelle avoir laissé un client sans réponse dans cette situation. Il comprend alors l'intérêt d'expliquer le retard et de proposer une solution.",
           "consequence": "Ce qu'il a vécu donne ainsi du sens au cours et l'aide à utiliser la méthode."
         },
         {
@@ -225,10 +225,10 @@
       "position_claire": "J'aimerais participer à une distribution alimentaire dans une association de quartier, par exemple un samedi matin sur deux. Ce qui me plaît dans cette action, c'est de pouvoir apporter une aide concrète tout en rencontrant les personnes. Je choisirais un créneau que je pourrais vraiment tenir.",
       "arguments": [
         {
-          "idea": "D'abord, j'aimerais répondre à un besoin immédiat avec un vrai contact humain.",
-          "developpement": "Quand le budget est serré, recevoir des aliments soulage une dépense essentielle. Les remettre en main propre permet aussi de discuter quelques minutes, si la personne en a envie, plutôt que de faire seulement passer un colis.",
-          "exemple": "Je pourrais accueillir une mère qui vient chercher un panier pour sa famille. Pendant sa préparation, nous pourrions parler de la rentrée de son fils. Je lui remettrais les produits pour ses repas, après avoir pris le temps de l'écouter.",
-          "consequence": "Mon aide aurait ainsi une utilité dans sa semaine, avec un échange qui compte aussi pour moi."
+          "idea": "D'abord, j'aimerais aider des personnes à faire face à leurs dépenses alimentaires.",
+          "developpement": "Quand le budget est serré, recevoir des aliments permet de préparer des repas tout en gardant un peu d'argent pour les autres dépenses. En participant à la distribution, je pourrais contribuer directement à cette aide.",
+          "exemple": "Je pourrais préparer et remettre un panier à une mère qui a payé son loyer, mais à qui il reste peu d'argent pour les courses. Avec les produits disponibles dans l'association, elle pourrait préparer plusieurs repas pour sa famille.",
+          "consequence": "Mon temps servirait ainsi à répondre à un besoin concret de sa famille."
         },
         {
           "idea": "Pour que cette aide soit utile dans la durée, je voudrais être fiable.",
@@ -287,13 +287,13 @@
         {
           "idea": "D'abord, connaître des mots ne suffit pas pour construire une phrase.",
           "developpement": "La grammaire et l'ordre des mots peuvent être différents de ceux de sa langue. Même quand on comprend une règle, il faut la réutiliser plusieurs fois avant de pouvoir s'en servir facilement.",
-          "exemple": "Un apprenant connaît les mots « où », « vous » et « habitez », mais hésite sur leur ordre. Il prépare « Où habitez-vous ? », puis « Où travaillez-vous ? ». Dans un dialogue avec un partenaire, il réussit ensuite à poser ces questions sans relire son modèle.",
-          "consequence": "La structure devient plus familière grâce à ces essais, pas seulement parce qu'il a reconnu les mots."
+          "exemple": "Un apprenant connaît « hier » et le verbe « aller », mais dit « hier, je vais au marché ». Quelqu'un lui explique comment dire « hier, je suis allé au marché ». Il doit ensuite s'entraîner à utiliser cette forme du passé dans d'autres phrases.",
+          "consequence": "Il ne s'agit donc pas seulement de retenir du vocabulaire, mais d'apprendre à l'utiliser correctement."
         },
         {
           "idea": "Ensuite, une conversation demande de comprendre et de répondre sans tout préparer.",
           "developpement": "À l'oral, les gens parlent parfois vite et utilisent des formulations inattendues. On doit suivre ce qu'ils disent tout en cherchant sa propre réponse : c'est différent d'un exercice qu'on peut relire tranquillement.",
-          "exemple": "Pour demander un rendez-vous, un nouvel arrivant peut préparer ses phrases, puis être déstabilisé par une question imprévue au téléphone. Il devra peut-être faire répéter l'horaire et vérifier ce qu'il doit apporter avant de pouvoir confirmer.",
+          "exemple": "Un nouvel arrivant prépare une phrase pour demander un rendez-vous médical. Au téléphone, la secrétaire lui demande s'il est déjà venu au cabinet. Il ne comprend pas tout de suite et doit lui demander de reformuler avant de répondre.",
           "consequence": "On mesure alors l'écart entre ce qu'on connaît et ce qu'on arrive à utiliser dans l'instant."
         },
         {
@@ -328,13 +328,13 @@
         {
           "idea": "Les romans et les récits montrent aussi la vie de l'intérieur.",
           "developpement": "En suivant le point de vue d'un personnage, on découvre ses pensées, pas seulement ses gestes. Ses hésitations rendent plus compréhensibles des choix qui peuvent sembler étranges de l'extérieur.",
-          "exemple": "Dans un récit rural, un personnage peut hésiter à quitter sa famille pour étudier en ville. Le lecteur suit ses discussions avec ses parents et comprend à la fois son envie de partir et son inquiétude de les laisser seuls.",
-          "consequence": "Il comprend alors une expérience humaine située, sans en faire celle de tous les habitants."
+          "exemple": "Dans un roman québécois, un jeune hésite à quitter son village pour étudier à Montréal. Le lecteur suit ses discussions avec ses parents : il veut poursuivre ses études, mais s'inquiète de les laisser seuls. On comprend alors pourquoi ce départ est difficile pour lui.",
+          "consequence": "On comprend mieux la vie de cette famille, sans supposer que tous les habitants vivent de la même façon."
         },
         {
           "idea": "Enfin, les livres rendent cette découverte possible sans déplacement.",
-          "developpement": "Un voyage demande du temps et de l'argent. Quand des ouvrages sont disponibles en bibliothèque ou en traduction, on peut accéder à des voix éloignées avec des moyens plus modestes.",
-          "exemple": "Une personne qui ne peut pas financer un voyage peut emprunter un recueil de récits traduits. Elle découvre les quartiers et les métiers décrits, puis consulte les références proposées pour approfondir les questions qui l'intéressent.",
+          "developpement": "Un voyage demande du temps et de l'argent. À la bibliothèque, on peut emprunter des livres écrits dans d'autres pays, parfois traduits dans une langue qu'on comprend. On n'a donc pas besoin d'attendre de pouvoir partir pour commencer à les découvrir.",
+          "exemple": "Une personne qui ne peut pas voyager au Japon emprunte un roman traduit en français. Elle suit le quotidien d'une famille à Tokyo, puis cherche un livre sur l'histoire de la ville pour mieux comprendre les lieux évoqués.",
           "consequence": "Elle construit une connaissance réelle, même sans avoir visité les lieux."
         }
       ],
@@ -364,7 +364,7 @@
         {
           "idea": "C'est pourquoi quelques vérifications font une vraie différence.",
           "developpement": "Chercher l'auteur, la date et le contexte aide à comprendre ce qu'une publication montre réellement. Comparer des sources indépendantes apporte autre chose que compter les reprises du même message.",
-          "exemple": "Une photo présentée comme celle d'une catastrophe récente peut provenir d'un événement ancien. Retrouver sa publication d'origine et sa date permet d'éviter de la partager comme une preuve de la situation du jour.",
+          "exemple": "Une personne reçoit une photo censée montrer une inondation récente dans sa ville. Elle fait une recherche à partir de cette image et retrouve le même cliché dans un article publié cinq ans plus tôt, dans un autre pays. Elle sait alors que la photo ne montre pas l'événement annoncé.",
           "consequence": "Le téléphone peut donc servir à contrôler l'information, pas seulement à la diffuser."
         }
       ],
@@ -394,8 +394,8 @@
         },
         {
           "idea": "Enfin, une entreprise doit pouvoir garder les compétences difficiles à remplacer.",
-          "developpement": "Un spécialiste peut recevoir des offres d'autres employeurs. Un salaire unique peut alors empêcher l'entreprise de proposer une rémunération assez intéressante pour le retenir, même si son départ bloque une activité.",
-          "exemple": "Dans une petite entreprise, une informaticienne est la seule à maîtriser le système de sécurité que l'équipe doit installer. Si elle accepte une offre mieux payée ailleurs, l'entreprise peut devoir reporter cette installation le temps de trouver et former quelqu'un.",
+          "developpement": "Une entreprise au budget limité ne peut pas toujours augmenter tous les salaires pour s'aligner sur une offre extérieure. Pouvoir ajuster celui d'un spécialiste peut l'aider à le garder, quand son départ risque de bloquer une activité.",
+          "exemple": "Une petite usine a une seule technicienne capable de régler une machine spécialisée. Elle reçoit une meilleure offre ailleurs. L'entreprise peut lui proposer une augmentation pour la garder, plutôt que de risquer un arrêt de la machine le temps de trouver et de former quelqu'un.",
           "consequence": "Une certaine souplesse salariale peut donc aider à maintenir le travail de toute l'équipe."
         }
       ],
@@ -418,7 +418,7 @@
         {
           "idea": "D'abord, exprimer une opinion n'est pas la même chose que menacer une personne.",
           "developpement": "Une critique peut être vive sans annoncer une agression. En revanche, un appel concret à attaquer quelqu'un crée un risque pour sa sécurité. Répondre à ce risque ne revient pas à protéger ses idées contre la critique.",
-          "exemple": "Lors d'un débat sur la fermeture d'une bibliothèque, un habitant critique la décision. Un autre publie un appel à agresser le responsable à la sortie de la réunion. L'organisateur doit traiter ce danger, tout en laissant les opposants expliquer leur désaccord.",
+          "exemple": "Sur la page d'un débat sur la fermeture d'une bibliothèque, un habitant critique la décision. Un autre appelle à agresser le responsable à la sortie de la réunion. L'organisateur signale la menace à la police et retire cet appel de la page, mais conserve les critiques de la fermeture.",
           "consequence": "La limite porte alors sur la menace, pas sur l'opinion concernant la bibliothèque."
         },
         {
@@ -430,7 +430,7 @@
         {
           "idea": "Enfin, des règles claires permettent à davantage de personnes de participer au débat.",
           "developpement": "Quand chaque intervention entraîne des attaques personnelles répétées, certains préfèrent se taire. Les modérateurs peuvent agir sur ces comportements tout en gardant les critiques sur le fond.",
-          "exemple": "Sur un forum local, une équipe retire des attaques répétées contre une participante, mais conserve les objections à sa proposition. Elle explique quels messages enfreignent les règles et propose un réexamen. La participante peut alors répondre sans subir les mêmes attaques à chaque fois.",
+          "exemple": "Sur un forum local, une habitante propose une piste cyclable. Certains publient sans arrêt des insultes sur son apparence. Les modérateurs retirent ces messages en expliquant leur décision, mais gardent les critiques sur le coût et le trajet de la piste.",
           "consequence": "Les règles peuvent ainsi protéger plusieurs voix, plutôt que favoriser les plus agressives."
         }
       ],
@@ -460,7 +460,7 @@
         {
           "idea": "Enfin, l'école prépare les élèves à vivre et à travailler avec les autres.",
           "developpement": "En classe, on coopère avec des personnes qu'on n'a pas choisies. Écouter une proposition différente et régler un désaccord sans violence demande un apprentissage, comme les autres compétences.",
-          "exemple": "Pendant un projet de groupe, deux élèves veulent organiser leur affiche différemment. L'enseignant leur demande d'expliquer leurs choix. Ils retiennent les idées les plus claires des deux propositions, puis se répartissent les tâches pour rendre le travail à temps.",
+          "exemple": "Deux élèves préparent une affiche : l'un veut beaucoup de texte, l'autre seulement des images. Le professeur leur demande comment les lecteurs comprendront leur sujet. Ils choisissent une courte explication sous chaque image, puis se répartissent le travail.",
           "consequence": "Ils s'exercent à construire une solution commune, ce qui pourra aussi servir dans une équipe ou une association."
         }
       ],
@@ -491,7 +491,7 @@
         {
           "idea": "Enfin, une histoire regardée ensemble peut devenir un support de langage et d'échange.",
           "developpement": "L'adulte et l'enfant ont une situation commune à commenter. Raconter la scène et expliquer une réaction donnent une occasion de chercher des mots précis et d'écouter une autre interprétation.",
-          "exemple": "Après une scène où un personnage exclut un ami d'un jeu, un parent demande comment l'ami se sent. L'enfant essaie d'expliquer sa tristesse ; l'adulte l'aide à préciser ses mots et ils cherchent ce que les personnages pourraient se dire.",
+          "exemple": "Après une scène où un personnage exclut un ami d'un jeu, un parent demande comment l'ami se sent. L'enfant répond qu'il est triste parce qu'il voulait jouer avec les autres. Ils imaginent ensuite comment les personnages pourraient lui proposer de revenir.",
           "consequence": "C'est cette conversation, et pas seulement l'écran, qui permet de pratiquer l'expression et de réfléchir aux émotions."
         }
       ],
@@ -522,7 +522,7 @@
         {
           "idea": "Enfin, une scolarité moyenne ne devrait pas fermer définitivement la porte.",
           "developpement": "Les intérêts et les méthodes de travail peuvent évoluer après une scolarité moyenne ou une première expérience professionnelle. Un ancien dossier ne montre pas forcément ce qu'on est capable de faire aujourd'hui.",
-          "exemple": "Un adulte intéressé par une formation demande quels prérequis lui manquent et quelles préparations sont proposées. Il suit une remise à niveau, puis dépose sa candidature avec des résultats récents. L'établissement peut ainsi examiner ses capacités actuelles.",
+          "exemple": "Un adulte qui travaille dans un magasin veut étudier la gestion à l'université, mais ses anciens résultats en mathématiques sont faibles. Il vérifie les conditions d'entrée et suit la remise à niveau proposée par l'établissement. Il peut ensuite présenter des résultats récents dans sa candidature.",
           "consequence": "On ouvre une deuxième possibilité, sans supprimer les exigences de la formation."
         }
       ],
@@ -546,13 +546,13 @@
         {
           "idea": "Elles peuvent aussi donner confiance quand elles rendent les progrès visibles.",
           "developpement": "Voir l'effet d'un travail régulier aide à croire qu'on peut surmonter une difficulté. On retient alors une méthode qui a fonctionné, plutôt que de penser que tout dépend d'un talent naturel.",
-          "exemple": "Un élève améliore sa note en mathématiques en révisant un peu chaque jour et en reprenant ses erreurs. Plus tard, pour préparer un examen professionnel, il répartit de nouveau ses révisions sur plusieurs semaines, au lieu de tout faire la veille.",
+          "exemple": "Un élève se croit incapable de réussir en maths. Après plusieurs semaines à revoir ses erreurs, il obtient une bonne note. Quand il rencontre un nouveau calcul difficile, il essaie de le résoudre au lieu de se dire immédiatement qu'il n'y arrivera pas.",
           "consequence": "La confiance et les habitudes construites peuvent donc servir après l'école."
         },
         {
           "idea": "Enfin, de bons résultats peuvent attirer des soutiens supplémentaires.",
           "developpement": "Certaines bourses tiennent compte des notes, parmi d'autres conditions. Un enseignant qui connaît le travail d'un étudiant peut aussi appuyer sa candidature avec des exemples précis.",
-          "exemple": "Une étudiante demande une bourse dont elle remplit les critères scolaires. Son professeur accepte de recommander son dossier en expliquant la qualité de ses travaux. Si elle obtient cette aide, elle peut réduire ses heures de travail rémunéré et consacrer plus de temps aux cours.",
+          "exemple": "Une étudiante qui travaille le soir demande une bourse dont elle remplit les critères scolaires. Son professeur recommande son dossier en expliquant la qualité de ses travaux. Si elle obtient cette aide et peut aménager ses horaires, elle pourra travailler moins et consacrer plus de temps aux cours.",
           "consequence": "La reconnaissance scolaire peut ainsi améliorer concrètement les conditions de son projet."
         }
       ],
@@ -576,7 +576,7 @@
         {
           "idea": "Mais seul, on ne repère pas toujours ses propres erreurs.",
           "developpement": "Une explication peut paraître claire sans qu'on sache l'appliquer correctement. Quand l'erreur ne nous semble pas être une erreur, on risque de la répéter. Une autre personne peut la révéler.",
-          "exemple": "Un apprenant répète seul une phrase avec le mot « treize » en pensant bien le prononcer. Pendant un échange en ligne, son partenaire comprend « trente » et lui fait préciser le nombre. Ce malentendu lui montre ce qu'il doit retravailler.",
+          "exemple": "Un apprenant décrit une image à son partenaire en ligne. Il veut dire que le livre est sur la table, mais prononce « dessous » au lieu de « dessus ». Son partenaire lui fait reprendre les deux mots et lui explique pourquoi il avait compris le contraire.",
           "consequence": "Internet permet cet échange utile, mais avec l'aide du partenaire, l'apprentissage n'est plus entièrement solitaire."
         },
         {
@@ -612,7 +612,7 @@
         {
           "idea": "Enfin, la sortie fait vivre le groupe autrement.",
           "developpement": "Un lieu nouveau peut faire apparaître des connaissances qu'on n'utilise pas dans les cours habituels. Un élève discret peut alors avoir quelque chose à expliquer aux autres, à condition qu'on lui laisse le temps de s'exprimer.",
-          "exemple": "Au zoo, un enfant qui parle peu en classe peut expliquer à son petit groupe ce qu'il a déjà appris sur un animal. Ses camarades lui posent des questions, puis ils préparent ensemble une question pour le guide.",
+          "exemple": "Au zoo, un enfant qui parle peu en classe explique à son petit groupe que les manchots sont des oiseaux, même s'ils ne volent pas. Ses camarades lui posent des questions, puis ils demandent au guide comment ces animaux se déplacent dans l'eau.",
           "consequence": "Il participe à une activité commune et ses camarades découvrent ce qu'il peut leur apporter."
         }
       ],

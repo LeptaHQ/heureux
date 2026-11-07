@@ -1207,6 +1207,19 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_latest_transport_travel_review_preserves_all_retained_questions_and_note_bodies(self):
         self.assert_latest_review_preserves_questions_and_notes(TRANSPORT_TRAVEL_GROUPS)
 
+    def test_transit_pass_rewording_preserves_other_questions_and_archived_notes(self):
+        self.assert_revision_highlights_preserved(
+            "newcomer-city-transit-service",
+            {1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8},
+            revision=2,
+        )
+
+    def test_breakdown_clarification_preserves_retained_questions_and_archived_notes(self):
+        self.assert_all_archived_generations_preserved("canada-car-breakdown-insurer")
+
+    def test_private_car_warranty_question_preserves_retained_questions_and_archived_notes(self):
+        self.assert_all_archived_generations_preserved("private-owner-used-car-purchase")
+
     def test_director_training_followup_preserves_moved_questions_and_saved_notes(self):
         self.assert_latest_review_preserves_questions_and_notes({"director-canada-fortnight-training"})
 

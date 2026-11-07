@@ -1500,36 +1500,36 @@
     ],
     "canada-car-breakdown-insurer": [
       {
-        "french": "Envoi d'un dépanneur et renseignements à transmettre",
-        "english": "Sending roadside assistance and the information needed"
+        "french": "Envoi d'un dépanneur sur place",
+        "english": "Sending roadside assistance to your location"
       },
       {
         "french": "Délai d'arrivée du dépanneur",
         "english": "Roadside assistance arrival time"
       },
       {
-        "french": "Garage de destination du remorquage",
-        "english": "Garage to which the vehicle will be towed"
+        "french": "Garage proche si la voiture ne peut pas repartir",
+        "english": "Nearby garage if the car cannot get going again"
       },
       {
-        "french": "Frais d'assistance et de remorquage couverts",
-        "english": "Covered assistance and towing costs"
+        "french": "Couverture du dépannage, du remorquage et des réparations",
+        "english": "Coverage for roadside assistance, towing and garage repairs"
       },
       {
-        "french": "Vérification de la couverture avant d'autoriser les réparations",
-        "english": "Checking coverage before authorizing repairs"
+        "french": "Devis du garage avant d'autoriser les réparations",
+        "english": "Garage estimate before authorizing repairs"
       },
       {
-        "french": "Règlement direct ou avance des frais couverts",
-        "english": "Direct payment or paying covered costs upfront"
+        "french": "Payer puis demander un remboursement, ou paiement direct par l'assurance",
+        "english": "Pay and claim reimbursement, or have the insurer pay directly"
       },
       {
         "french": "Aide au retour si la voiture reste au garage",
         "english": "Help getting home if the car stays at the garage"
       },
       {
-        "french": "Justificatifs à conserver pour le dossier",
-        "english": "Supporting documents to keep for the claim"
+        "french": "Qui rappeler si le dépanneur est en retard",
+        "english": "Who to call if roadside assistance is late"
       }
     ],
     "canada-newcomer-settlement-friend": [
@@ -1656,8 +1656,8 @@
         "english": "Past accidents and major repairs"
       },
       {
-        "french": "Factures et travaux effectués lors des révisions",
-        "english": "Invoices and work carried out during servicing"
+        "french": "Factures d'entretien et garantie transférable éventuelle",
+        "english": "Maintenance invoices and any transferable warranty"
       },
       {
         "french": "Prix demandé pour la voiture",

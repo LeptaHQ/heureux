@@ -86,9 +86,11 @@ and familiar NCLC 7 language. Retain strong existing reasoning and reuse
 applicable words, phrases, expressions and examples; do not force the same
 answer onto different questions or paraphrase sound wording just for variety.
 
-An English outline or draft may help expose a missing explanation or weak
-example. Use it when helpful, but write idiomatic spoken French rather than a
-literal translation. Read the complete French intervention aloud as a connected
+Begin the content audit with each complete English intervention against every
+consigne, rather than reviewing isolated passages. Use this reading to expose
+missing explanations, overlapping arguments and weak examples. Then independently
+check the complete French: it must carry the reasoning in idiomatic spoken
+language, not depend on a clearer English gloss. Read it aloud as a connected
 answer. Check the full English translation against the final French too: a
 revised French passage must not keep an outdated English gloss, and updating
 the English Pistes alone does not update the full response.

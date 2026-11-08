@@ -116,15 +116,26 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
         for place in ("centre", "gare", "sites touristiques"):
             self.assertIn(place, row.questions[1].answer)
         for index, text in (
-            (2, "prochains passages en temps réel"), (4, "changer de ligne et aller partout en ville sans payer de supplément"),
-            (5, "valider"), (6, "circulent-ils le soir"), (7, "caméras de surveillance"),
+            (2, "prochains passages en temps réel"), (4, "valider"),
+            (5, "comment savoir quand descendre"), (6, "circulent-ils le soir"),
+            (7, "caméras de surveillance"),
         ):
             self.assertIn(text, row.questions[index].question)
         self.assertIn("prochains passages en temps réel", row.questions[2].answer)
         self.assertIsNone(row.questions[2].follow_up_to)
-        self.assertEqual(row.questions[4].follow_up_to, 4)
-        self.assertIn("guichet", row.questions[5].answer)
-        self.assertIn("lecteur", row.questions[5].answer)
+        self.assertIsNone(row.questions[4].follow_up_to)
+        self.assertIn("guichet", row.questions[4].answer)
+        self.assertIn("lecteur", row.questions[4].answer)
+        self.assertIn("Achat du titre et validation", self.hints[row.group][4]["french"])
+        self.assertIn("Buying the fare and validating", self.hints[row.group][4]["english"])
+        self.assertIn("faut-il demander l'arrêt", row.questions[5].question)
+        self.assertIn("annoncé et affiché", row.questions[5].answer)
+        self.assertIn("bouton d'arrêt", row.questions[5].answer)
+        self.assertIn("un peu avant le vôtre", row.questions[5].answer)
+        self.assertIsNone(row.questions[5].follow_up_to)
+        self.assertIn("demande d'arrêt", self.hints[row.group][5]["french"])
+        self.assertIn("requesting a stop", self.hints[row.group][5]["english"])
+        self.assertNotIn("pass sera encore valable", " ".join(q.question for q in row.questions))
         self.assertIn("qui peut-on contacter en cas de problème", row.questions[7].question)
         self.assertEqual(row.questions[7].question.count("?"), 1)
         self.assertIn("conducteur du bus", row.questions[7].answer)
@@ -152,11 +163,17 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
         self.assertIn("réparations au garage ne sont pas couvertes", row.questions[3].answer)
         self.assertIn("devis du garage avant d'autoriser", row.questions[4].question)
         self.assertIn("l'accepter ou le refuser avant le début des travaux", row.questions[4].answer)
-        self.assertIn("payer le dépanneur et vous demander un remboursement", row.questions[5].question)
-        self.assertIn("vous le payez directement", row.questions[5].question)
-        self.assertIn("payons directement le dépanneur", row.questions[5].answer)
-        self.assertEqual(row.questions[5].follow_up_to, 4)
-        self.assertIn("avant d'engager la dépense", row.questions[6].answer)
+        self.assertIn("Si la voiture doit rester au garage", row.questions[5].question)
+        self.assertIn("avant d'engager la dépense", row.questions[5].answer)
+        self.assertIn("Si les réparations prennent plusieurs jours", row.questions[6].question)
+        self.assertIn("mon contrat prévoit-il une voiture de remplacement", row.questions[6].question)
+        self.assertIn("ne comprend pas de voiture de remplacement", row.questions[6].answer)
+        self.assertIn("trouver une location", row.questions[6].answer)
+        self.assertIn("à votre charge", row.questions[6].answer)
+        self.assertEqual(row.questions[6].follow_up_to, 6)
+        self.assertEqual(row.questions[6].topic, row.questions[5].topic)
+        self.assertIn("help getting home", row.questions[6].condition)
+        self.assertIn("replacement-vehicle cover", row.questions[6].condition)
         self.assertEqual(
             row.questions[7].question,
             "Si le dépanneur n'arrive pas dans le délai prévu, qui dois-je appeler ?",
@@ -167,7 +184,10 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
         self.assertIn("immediate safety", row.note.casefold())
         self.assertIn("remorquage et des réparations", self.hints[row.group][3]["french"])
         self.assertIn("estimate before authorizing repairs", self.hints[row.group][4]["english"])
-        self.assertIn("claim reimbursement", self.hints[row.group][5]["english"])
+        self.assertIn("Aide au retour", self.hints[row.group][5]["french"])
+        self.assertIn("Help getting home", self.hints[row.group][5]["english"])
+        self.assertIn("Voiture de remplacement", self.hints[row.group][6]["french"])
+        self.assertIn("Replacement car if repairs take several days", self.hints[row.group][6]["english"])
         self.assertIn("dépanneur est en retard", self.hints[row.group][7]["french"])
         self.assertIn("Who to call", self.hints[row.group][7]["english"])
 
@@ -365,13 +385,13 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
         service = self.by_group["newcomer-city-transit-service"]
         self.assertEqual(
             row.questions[4].question,
-            service.questions[4].question.replace("ce pass", "ce titre").replace("en ville", "à Montréal"),
+            "Ce titre comprend-il les correspondances, et dans quelles zones est-il valable ?",
         )
         self.assertEqual(row.questions[4].follow_up_to, 3)
         self.assertIn("zone A", row.questions[4].answer)
         self.assertIn("Laval ou Longueuil en métro", row.questions[4].answer)
         self.assertIn("titre AB", row.questions[4].answer)
-        self.assertEqual(row.questions[5].question, service.questions[5].question)
+        self.assertEqual(row.questions[5].question, service.questions[4].question)
         self.assertIn("carte OPUS au guichet du métro", row.questions[5].answer)
         self.assertIn("lecteur", row.questions[5].answer)
         self.assertIn("portillon", row.questions[5].answer)
@@ -409,7 +429,7 @@ class TransportTravelDialogueReviewTests(SimpleTestCase):
         self.assertEqual(neighbour.questions[3].follow_up_to, 3)
         self.assertEqual(
             neighbour.questions[4].question,
-            service.questions[4].question.replace("Avec ce pass", "Avec ces formules"),
+            "Ces formules comprennent-elles les correspondances, et dans quelles zones sont-elles valables ?",
         )
         self.assertIn("zones éloignées", neighbour.questions[4].answer)
         self.assertEqual(neighbour.questions[4].follow_up_to, 4)

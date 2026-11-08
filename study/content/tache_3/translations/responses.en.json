@@ -1508,6 +1508,11 @@
         "english": "Reading helps to form a more considered judgement, rather than stopping at a single, isolated idea.",
         "french": "Cette lecture aide à construire un jugement plus réfléchi, au lieu de s'arrêter à une idée isolée."
       },
+      "64cb21f6fa0514b7669b213334c44257d119ef5a55143f44cf5ef7eeb5b5ad35": {
+        "english": "Of course, a book can complement a podcast or a workshop. To study a writer's style, reading their text remains particularly useful. But reading a lot is not enough: we still need to reflect on, understand and discuss what we read.",
+        "french": "Bien sûr, un livre peut compléter un podcast ou un atelier. Pour étudier le style d'un écrivain, lire son texte reste particulièrement utile. Mais lire beaucoup ne suffit pas : encore faut-il réfléchir, comprendre et discuter ce que l'on lit.",
+        "review_note": "Editorial English aligned with the reviewed podcast reference; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "682e9b3b8463f8ba22af0e19ae9a727ce730a930b26f3816d6b90b7662bbe85b": {
         "english": "It is therefore possible to acquire genuine musical knowledge without having read a single book on the subject.",
         "french": "On peut donc acquérir une vraie connaissance musicale sans avoir lu de livre sur le sujet."
@@ -1520,13 +1525,28 @@
         "english": "For example, an essay on car use in towns highlights the problems of pollution, but also explains that some residents have no bus service to take them to work. The reader understands why a total ban might cause them difficulties.",
         "french": "Par exemple, un essai sur la voiture en ville présente les problèmes de pollution, mais explique aussi que certains habitants n'ont pas de bus pour aller travailler. Le lecteur comprend pourquoi une interdiction totale pourrait les mettre en difficulté."
       },
+      "ac50f6953f205a5183699d6e6baa5e56257949c7900354a6f50d2fe051169a8c": {
+        "english": "A resident listens to a podcast about the history of her neighbourhood. A former factory worker explains that families settled near the factory so they could walk to work. She then understands why the neighbourhood developed around that factory.",
+        "french": "Une habitante écoute un podcast sur l'histoire de son quartier. Un ancien ouvrier y raconte que des familles se sont installées près de l'usine pour pouvoir aller travailler à pied. Elle comprend ainsi pourquoi le quartier s'est développé autour de cette usine.",
+        "review_note": "Editorial English aligned with the reviewed local-history example; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "aece21306671f2958357a1f1b19d9c62b51790f3e13c07efa354acbe3f30f631": {
         "english": "Finally, one also learns by taking part in cultural activities.",
         "french": "Enfin, on apprend aussi en pratiquant une activité culturelle."
       },
+      "b61013a605099d02761ae2061851f4c51191fdf68214fba2b19852ccc5e83bcf": {
+        "english": "Learning about the history of your neighbourhood in this way also broadens your cultural knowledge, even if you have not read a book on the subject.",
+        "french": "Comprendre ainsi l'histoire de son quartier, c'est aussi se cultiver, même sans avoir lu de livre sur le sujet.",
+        "review_note": "Editorial English aligned with the reviewed consequence about local cultural knowledge; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "b82d909d7baaaac6d40c62161884ce61a9e03feda1ef208a63e95ba04d3340e1": {
         "english": "Of course, a book can complement what one learns in a workshop or at a lecture. To study a writer’s style, reading their work remains particularly useful. But reading a great deal without seeking to understand does not guarantee that one is cultured.",
         "french": "Bien sûr, un livre peut compléter ce qu'on apprend dans un atelier ou une conférence. Pour étudier le style d'un écrivain, lire son texte reste particulièrement utile. Mais lire beaucoup, sans chercher à comprendre, ne garantit pas qu'on soit cultivé."
+      },
+      "b89d65aefc4648f328803bf1881eafc8ec58128e1ab4a0a8e2afe21c7910b57f": {
+        "english": "A podcast can tell the history of a place and let its residents share their stories. By listening to their accounts, we discover how they lived and what transformed their neighbourhood.",
+        "french": "Un podcast peut raconter l'histoire d'un lieu et donner la parole à ses habitants. En écoutant leurs témoignages, on découvre comment ils vivaient et ce qui a transformé leur quartier.",
+        "review_note": "Editorial English aligned with the reviewed explanation of learning through oral accounts; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "bc2d6ac13a9c16e8ddb3ffc9ebf413086899d59acdd3263e5c2bdfc4721a6e10": {
         "english": "Reading an essay requires following the thread over several pages. Understanding the author's point of view means following their arguments, but also the objections they examine.",
@@ -2952,6 +2972,11 @@
         "english": "A step-by-step guide, a table of contents and examples save you from having to search for each piece of information separately. This structure is useful when you’re starting out in a new field and don’t yet know what questions to ask.",
         "french": "Une progression, un sommaire et des exemples évitent de chercher chaque information séparément. Cette organisation est utile lorsqu'on commence un domaine et qu'on ne sait pas encore quelles questions poser."
       },
+      "67a584f1f79683a9b812badeaa9337413b623178eae8953818fb9ed5af7b984e": {
+        "english": "A pupil is learning about fractions. Their textbook shows a cake divided into four equal parts, two of which are coloured in: two quarters make a half. They then do exercises and check their answers against the answer key.",
+        "french": "Un élève apprend les fractions. Son manuel montre un gâteau partagé en quatre parts égales, dont deux sont coloriées : deux quarts font une moitié. Il fait ensuite des exercices et vérifie ses réponses avec le corrigé.",
+        "review_note": "Editorial English aligned with the reviewed fractions example; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "73fd35dd77fedb688866220897d886246e60797de1840384b8f939a876989513": {
         "deepl_english": "I do not think that books have become useless. Videos and digital tools have their place, but they do not diminish the value of reading. In particular, a book allows you to follow a line of thought, learn in a structured way and explore other experiences.",
         "english": "I do not think that books have become useless. Videos and digital tools have their place, but they do not eliminate the value of reading. In particular, a book allows you to follow a line of thought, learn in a structured way and explore other experiences.",
@@ -2985,6 +3010,11 @@
       "d3ef7379b6908833825ea40833a6f6a1de883a289ddef4546357b16258ca8b9c": {
         "english": "Books serve both as a learning journey and as a reference.",
         "french": "Le livre sert à la fois de parcours d'apprentissage et de référence."
+      },
+      "d6f7124eae6b43a51d517f2b62c722bdf50cd47f76ce8d5b0869224aa0b9ff31": {
+        "english": "A good textbook explains a method and offers exercises to apply it. The answer key helps you spot your mistakes; you can then reread the explanation and try again.",
+        "french": "Un bon manuel explique une méthode et propose des exercices pour l'appliquer. Grâce au corrigé, on repère ses erreurs ; on peut alors relire l'explication et recommencer.",
+        "review_note": "Editorial English aligned with the reviewed practice-and-correction explanation; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "da065139aa2bd75466357392e19f1ef2fa466a69b4cbacad6b200eaeb75b470b": {
         "english": "Reading a novel or a personal account allows us to visualise the scenes and understand the characters’ thoughts. We can put ourselves in their shoes and reflect on their choices, even when their lives are very different from our own.",

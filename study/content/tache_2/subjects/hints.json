@@ -666,12 +666,12 @@
         "english": "Recommended fare and price for several journeys in one day"
       },
       {
-        "french": "Correspondances et secteurs couverts par le titre conseillé",
-        "english": "Transfers and areas covered by the recommended fare"
-      },
-      {
         "french": "Achat du titre et validation avant de voyager",
         "english": "Buying the fare and validating it before travelling"
+      },
+      {
+        "french": "Repérage de son arrêt dans le bus et demande d'arrêt",
+        "english": "Knowing when to get off the bus and requesting a stop"
       },
       {
         "french": "Fréquence en journée et derniers départs le soir",
@@ -1520,12 +1520,12 @@
         "english": "Garage estimate before authorizing repairs"
       },
       {
-        "french": "Payer puis demander un remboursement, ou paiement direct par l'assurance",
-        "english": "Pay and claim reimbursement, or have the insurer pay directly"
-      },
-      {
         "french": "Aide au retour si la voiture reste au garage",
         "english": "Help getting home if the car stays at the garage"
+      },
+      {
+        "french": "Voiture de remplacement si les réparations prennent plusieurs jours",
+        "english": "Replacement car if repairs take several days"
       },
       {
         "french": "Qui rappeler si le dépanneur est en retard",

@@ -75,7 +75,7 @@
     {
       "group": "canada-car-breakdown-insurer",
       "register": "vous",
-      "note": "You call your insurer after a breakdown in Canada. Ottawa station is an illustrative landmark; give your actual location and contact details. Immediate safety takes priority over this practice script. Arrange assistance, then discuss towing if needed, coverage, a repair estimate, payment, getting home and whom to call if assistance is late. Coverage and amounts illustrate one contract, not universal Canadian rules; check your own guarantees. Use vous.",
+      "note": "You call your insurer after a breakdown in Canada. Ottawa station is an illustrative landmark; give your actual location and contact details. Immediate safety takes priority over this practice script. Arrange assistance, then discuss towing if needed, coverage, a repair estimate, getting home, a replacement car during repairs and whom to call if assistance is late. Coverage and amounts illustrate one contract, not universal Canadian rules; check your own guarantees. Use vous.",
       "opening": "Bonjour ! Ma voiture est en panne. Je suis sur le bord de la route, devant la gare d'Ottawa.",
       "closing": "Merci pour votre aide. Je vais vous transmettre les renseignements nécessaires et suivre les consignes de l'assistance.",
       "questions": [
@@ -84,8 +84,8 @@
         {"topic": "Assistance immédiate", "question": "Si la voiture ne peut pas repartir, est-ce qu'il y a un garage à proximité où vous pouvez la faire remorquer ?", "answer": "Oui, nous pouvons organiser le remorquage vers un garage partenaire proche de votre position ; nous vous confirmerons son adresse.", "follow_up_to": null},
         {"topic": "Prise en charge", "question": "Qu'est-ce que mon contrat couvre : le dépannage, le remorquage, les réparations au garage ?", "answer": "Votre contrat couvre le dépannage et le remorquage jusqu'au garage partenaire, dans la limite de 200 $ ; les réparations au garage ne sont pas couvertes.", "follow_up_to": null},
         {"topic": "Prise en charge", "question": "Comment obtenir un devis du garage avant d'autoriser les réparations ?", "answer": "Nous pouvons demander au garage de vous contacter avec un devis ; vous pourrez l'accepter ou le refuser avant le début des travaux.", "follow_up_to": null},
-        {"topic": "Prise en charge", "question": "Est-ce que je dois payer le dépanneur et vous demander un remboursement, ou est-ce que vous le payez directement ?", "answer": "Nous payons directement le dépanneur pour les frais couverts par votre contrat ; les réparations au garage restent à votre charge.", "follow_up_to": 4, "condition": "Once coverage is confirmed, unless payment arrangements have already been explained."},
         {"topic": "Retour et suivi", "question": "Si la voiture doit rester au garage, quelle aide mon contrat prévoit-il pour rentrer ?", "answer": "Nous pouvons organiser votre retour en taxi dans une limite de 50 $ ; au-delà, il faut mon accord avant d'engager la dépense.", "follow_up_to": null},
+        {"topic": "Retour et suivi", "question": "Si les réparations prennent plusieurs jours, mon contrat prévoit-il une voiture de remplacement ?", "answer": "Votre contrat ne comprend pas de voiture de remplacement. Nous pouvons vous aider à trouver une location, mais elle restera à votre charge.", "follow_up_to": 6, "condition": "After help getting home is discussed, unless replacement-vehicle cover has already been explained."},
         {"topic": "Retour et suivi", "question": "Si le dépanneur n'arrive pas dans le délai prévu, qui dois-je appeler ?", "answer": "Rappelez-nous à ce numéro avec votre numéro de dossier ; nous contacterons le dépanneur pour savoir où il en est.", "follow_up_to": null}
       ]
     },

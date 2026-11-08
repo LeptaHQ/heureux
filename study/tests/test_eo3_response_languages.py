@@ -1132,16 +1132,41 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("arrives at the hotel", result)
         self.assertIn("may feel more capable", result)
 
-    def test_requested_book_english_keeps_learning_retention_and_the_characters_choice(self):
+    def test_reading_alternatives_english_links_listening_to_local_historical_knowledge(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p20"]
+        rows = data["groups"][model.group]
+        argument = model.response.arguments[1]
+        development = rows[fingerprint(argument.developpement)]["english"]
+        self.assertIn("residents share their stories", development)
+        self.assertIn("how they lived", development)
+        example = rows[fingerprint(argument.exemple)]["english"]
+        self.assertIn("former factory worker", example)
+        self.assertIn("so they could walk to work", example)
+        self.assertIn("why the neighbourhood developed around that factory", example)
+        consequence = rows[fingerprint(argument.consequence)]["english"]
+        self.assertIn("broadens your cultural knowledge", consequence)
+        self.assertIn("even if you have not read a book", consequence)
+        nuance = rows[fingerprint(model.response.nuance)]["english"]
+        self.assertIn("complement a podcast or a workshop", nuance)
+
+    def test_requested_book_english_keeps_learning_practice_and_the_characters_choice(self):
         data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         book = scoped_models()["eo/tache-3/culture-p6"]
         rows = data["groups"][book.group]
         self.assertEqual({key for key, _ in book.source_prompts}, {"culture:p6", "education:p8"})
+        development = rows[fingerprint(book.response.arguments[1].developpement)]["english"]
+        self.assertIn("explains a method", development)
+        self.assertIn("spot your mistakes", development)
+        self.assertIn("reread the explanation and try again", development)
         example = rows[fingerprint(book.response.arguments[1].exemple)]["english"]
-        self.assertIn("A week later", example)
-        self.assertIn("can still explain these connections in their own words", example)
+        self.assertIn("four equal parts", example)
+        self.assertIn("two quarters make a half", example)
+        self.assertIn("do exercises and check their answers against the answer key", example)
         story = rows[fingerprint(book.response.arguments[2].exemple)]
         self.assertIn("their sick mother's side despite the danger", story["english"])
         self.assertIn("why leaving is not a simple decision", story["english"])

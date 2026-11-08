@@ -196,8 +196,8 @@
         },
         {
           "idea": "Ensuite, un livre bien choisi permet d'acquérir des connaissances solides et durables.",
-          "developpement": "Un ouvrage structuré explique les bases, puis développe le sujet avec des exemples. On peut reprendre un chapitre et vérifier ce qu'on a compris, plutôt que d'accumuler des informations isolées.",
-          "exemple": "Un étudiant prépare un examen d'histoire avec un manuel. Il étudie les causes d'une crise, puis ses conséquences. Une semaine plus tard, il peut encore expliquer ces liens avec ses propres mots.",
+          "developpement": "Un bon manuel explique une méthode et propose des exercices pour l'appliquer. Grâce au corrigé, on repère ses erreurs ; on peut alors relire l'explication et recommencer.",
+          "exemple": "Un élève apprend les fractions. Son manuel montre un gâteau partagé en quatre parts égales, dont deux sont coloriées : deux quarts font une moitié. Il fait ensuite des exercices et vérifie ses réponses avec le corrigé.",
           "consequence": "Il construit ainsi des connaissances organisées, qu'il peut réviser et utiliser plus tard."
         },
         {
@@ -681,9 +681,9 @@
         },
         {
           "idea": "Cela dit, l'écoute permet aussi d'approfondir ses connaissances.",
-          "developpement": "Une conférence peut expliquer un sujet étape par étape, comme un livre. Pour la musique, les extraits sonores permettent aussi d'entendre directement ce qu'on nous explique.",
-          "exemple": "Dans une conférence sur le jazz, un musicien joue une mélodie, puis en invente une variation sur le moment. Il explique ce qu'il a changé. En réécoutant les extraits, une auditrice comprend comment fonctionne l'improvisation, sans passer par un texte.",
-          "consequence": "On peut donc acquérir une vraie connaissance musicale sans avoir lu de livre sur le sujet."
+          "developpement": "Un podcast peut raconter l'histoire d'un lieu et donner la parole à ses habitants. En écoutant leurs témoignages, on découvre comment ils vivaient et ce qui a transformé leur quartier.",
+          "exemple": "Une habitante écoute un podcast sur l'histoire de son quartier. Un ancien ouvrier y raconte que des familles se sont installées près de l'usine pour pouvoir aller travailler à pied. Elle comprend ainsi pourquoi le quartier s'est développé autour de cette usine.",
+          "consequence": "Comprendre ainsi l'histoire de son quartier, c'est aussi se cultiver, même sans avoir lu de livre sur le sujet."
         },
         {
           "idea": "Enfin, on apprend aussi en pratiquant une activité culturelle.",
@@ -692,7 +692,7 @@
           "consequence": "La culture comprend donc aussi des savoir-faire qu'on apprend en faisant."
         }
       ],
-      "nuance": "Bien sûr, un livre peut compléter une conférence ou un atelier. Pour étudier le style d'un écrivain, lire son texte reste particulièrement utile. Mais lire beaucoup ne suffit pas : encore faut-il réfléchir, comprendre et discuter ce que l'on lit.",
+      "nuance": "Bien sûr, un livre peut compléter un podcast ou un atelier. Pour étudier le style d'un écrivain, lire son texte reste particulièrement utile. Mais lire beaucoup ne suffit pas : encore faut-il réfléchir, comprendre et discuter ce que l'on lit.",
       "conclusion": "En conclusion, la lecture n'est pas indispensable pour être cultivé, même si elle reste très utile. L'écoute et la pratique apportent aussi des connaissances : ces chemins peuvent se compléter plutôt que s'opposer.",
       "argument_ids": [
         1,

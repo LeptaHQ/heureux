@@ -207,7 +207,7 @@ class CultureEditorialTests(SimpleTestCase):
             (15, 2, ("séjour au Ghana", "même sans bien parler sa langue", "piler le manioc", "En essayant à mon tour")),
             (19, 1, ("parle français mais pas japonais", "documentaire sur les écoles", "sous-titres en français", "écoles au Japon", "des élèves nettoient leur classe", "lieux qu'ils utilisent ensemble")),
             (19, 2, ("présentation traduite", "projet de logements", "réunion du quartier", "certains voisins sont pour et d'autres contre")),
-            (20, 1, ("sans passer par un texte",)),
+            (20, 1, ("podcast sur l'histoire de son quartier", "ancien ouvrier", "aller travailler à pied", "quartier s'est développé autour de cette usine")),
             (24, 1, ("Dans une association", "chacun apporte un plat", "dans la langue du pays", "d'autres rencontres")),
             (26, 2, ("prévoir leurs visites à l'avance", "question d'organisation", "pas un refus de me voir")),
             (30, 2, ("attend que notre diplôme soit reconnu", "faire du bénévolat pour rencontrer des gens", "ne remplace pas le métier ni le revenu")),
@@ -784,10 +784,17 @@ class CultureEditorialTests(SimpleTestCase):
 
     def test_requested_book_arguments_show_durable_learning_and_a_characters_choices(self):
         learning = self.response(6).arguments[1]
-        for phrase in ("examen d'histoire", "les causes d'une crise", "Une semaine plus tard", "il peut encore expliquer", "avec ses propres mots"):
+        for phrase in ("apprend les fractions", "quatre parts égales", "deux sont coloriées", "deux quarts font une moitié", "Il fait ensuite des exercices", "vérifie ses réponses avec le corrigé"):
             self.assertIn(phrase, learning.exemple)
         self.assertIn("connaissances solides et durables", learning.idea)
-        self.assertIn("vérifier ce qu'on a compris", learning.developpement)
+        for phrase in ("explique une méthode", "exercices pour l'appliquer", "Grâce au corrigé", "on repère ses erreurs", "relire l'explication et recommencer"):
+            self.assertIn(phrase, learning.developpement)
+        self.assertIn("réviser et utiliser plus tard", learning.consequence)
+        cue = self.plans["eo/tache-3/culture-p6"].arguments[1].example
+        self.assertIn("deux quarts font une moitié", cue.french)
+        self.assertIn("exercices et corrigé", cue.french)
+        self.assertIn("two quarters make a half", cue.english)
+        self.assertIn("exercises and an answer key", cue.english)
         self.assertNotIn("beaucoup plus solides", learning.idea)
         story = self.response(6).arguments[2]
         self.assertIn("imaginer les scènes", story.developpement)
@@ -801,11 +808,18 @@ class CultureEditorialTests(SimpleTestCase):
     def test_reading_alternatives_demonstrate_listening_and_guided_practice(self):
         response = self.response(20)
         listening, practice = response.arguments[1:]
-        self.assertIn("une variation sur le moment", listening.exemple)
-        self.assertIn("Il explique ce qu'il a changé", listening.exemple)
-        self.assertIn("sans passer par un texte", listening.exemple)
+        self.assertIn("donner la parole à ses habitants", listening.developpement)
+        self.assertIn("En écoutant leurs témoignages", listening.developpement)
+        for phrase in ("l'histoire de son quartier", "Un ancien ouvrier", "près de l'usine", "aller travailler à pied", "pourquoi le quartier s'est développé autour de cette usine"):
+            self.assertIn(phrase, listening.exemple)
+        self.assertIn("c'est aussi se cultiver", listening.consequence)
+        self.assertIn("sans avoir lu de livre", listening.consequence)
+        cue = self.plans["eo/tache-3/culture-p20"].arguments[1].example
+        self.assertIn("aller travailler à pied", cue.french)
+        self.assertIn("so they could walk to work", cue.english)
         for phrase in ("motif de feuilles", "sa grand-mère", "repas de fête", "Les participants reproduisent", "sans passer par un livre"):
             self.assertIn(phrase, practice.exemple)
+        self.assertIn("compléter un podcast ou un atelier", response.nuance)
         self.assertIn("style d'un écrivain", response.nuance)
         self.assertIn("réfléchir, comprendre et discuter ce que l'on lit", response.nuance)
         self.assertIn("lire beaucoup", response.nuance)
@@ -828,7 +842,8 @@ class CultureEditorialTests(SimpleTestCase):
     def test_reading_necessity_and_personal_cultural_forgetting_keep_their_scope(self):
         reading = self.response(20)
         self.assertIn("la lecture n'est pas indispensable", reading.conclusion)
-        self.assertIn("sans passer par un texte", reading.arguments[1].exemple)
+        self.assertIn("écoute un podcast", reading.arguments[1].exemple)
+        self.assertIn("sans avoir lu de livre sur le sujet", reading.arguments[1].consequence)
         self.assertNotIn("elle lit peu", reading.arguments[1].exemple)
         forgetting = self.response(27)
         self.assertEqual(self.models["eo/tache-3/culture-p27"].argument_ids, (1, 4, 3))

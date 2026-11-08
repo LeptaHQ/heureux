@@ -6218,6 +6218,51 @@
             {"topic": "Horaires et sécurité", "question": "Les transports passent tous les combien en journée, et jusqu'à quelle heure circulent-ils le soir ?", "follow_up_to": null},
             {"topic": "Horaires et sécurité", "question": "Y a-t-il des caméras de surveillance à bord et, si vous proposez un service d'assistance, ce service est-il joignable 24 heures sur 24 ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "newcomer-city-transit-service",
+          "opening": "Bonjour ! Je découvre la ville et j'aimerais comprendre comment utiliser les transports en commun.",
+          "closing": "Merci pour ces explications. Je vais vérifier mon trajet avant de partir.",
+          "questions": [
+            {"topic": "Réseau et trajet", "question": "Quels moyens de transport peut-on utiliser pour circuler en ville ?", "follow_up_to": null},
+            {"topic": "Réseau et trajet", "question": "Lesquels desservent le centre-ville, la gare et les principaux sites touristiques ?", "follow_up_to": 1, "condition": "After modes are listed, unless useful destinations have already been covered."},
+            {"topic": "Réseau et trajet", "question": "Existe-t-il un plan du réseau ou un service pour consulter les itinéraires et les prochains passages en temps réel ?", "follow_up_to": null},
+            {"topic": "Titres et tarifs", "question": "Quel titre me conseilleriez-vous pour plusieurs trajets dans la journée, et combien coûte-t-il ?", "follow_up_to": null},
+            {"topic": "Titres et tarifs", "question": "Avec ce pass, je peux changer de ligne et aller partout en ville sans payer de supplément ?", "follow_up_to": 4, "condition": "If a pass is recommended without explaining transfers and zone coverage."},
+            {"topic": "Titres et tarifs", "question": "Où peut-on acheter ce titre, et comment doit-on le valider avant de voyager ?", "follow_up_to": null},
+            {"topic": "Horaires et sécurité", "question": "Les transports passent tous les combien en journée, et jusqu'à quelle heure circulent-ils le soir ?", "follow_up_to": null},
+            {"topic": "Horaires et sécurité", "question": "Y a-t-il des caméras de surveillance à bord, et qui peut-on contacter en cas de problème ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "newcomer-city-transit-service",
+          "opening": "Bonjour ! Je découvre la ville et j'aimerais comprendre comment utiliser les transports en commun.",
+          "closing": "Merci pour ces explications. Je vais vérifier mon trajet avant de partir.",
+          "questions": [
+            {"topic": "Réseau et trajet", "question": "Quels moyens de transport peut-on utiliser pour circuler en ville ?", "follow_up_to": null},
+            {"topic": "Réseau et trajet", "question": "Lesquels desservent le centre-ville, la gare et les principaux sites touristiques ?", "follow_up_to": 1, "condition": "After modes are listed, unless useful destinations have already been covered."},
+            {"topic": "Réseau et trajet", "question": "Existe-t-il un plan du réseau ou un service pour consulter les itinéraires et les prochains passages en temps réel ?", "follow_up_to": null},
+            {"topic": "Titres et tarifs", "question": "Quel titre me conseilleriez-vous pour plusieurs trajets dans la journée, et combien coûte-t-il ?", "follow_up_to": null},
+            {"topic": "Titres et tarifs", "question": "Ce pass comprend-il les correspondances, et dans quelles zones est-il valable ?", "follow_up_to": 4, "condition": "If a pass is recommended without explaining transfers and zone coverage."},
+            {"topic": "Titres et tarifs", "question": "Où peut-on acheter ce titre, et comment doit-on le valider avant de voyager ?", "follow_up_to": null},
+            {"topic": "Horaires et sécurité", "question": "Les transports passent tous les combien en journée, et jusqu'à quelle heure circulent-ils le soir ?", "follow_up_to": null},
+            {"topic": "Horaires et sécurité", "question": "Y a-t-il des caméras de surveillance à bord, et qui peut-on contacter en cas de problème ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "newcomer-city-transit-service",
+          "opening": "Bonjour ! Je découvre la ville et j'aimerais comprendre comment utiliser les transports en commun.",
+          "closing": "Merci pour ces explications. Je vais vérifier mon trajet avant de partir.",
+          "questions": [
+            {"topic": "Réseau et trajet", "question": "Quels moyens de transport peut-on utiliser pour circuler en ville ?", "follow_up_to": null},
+            {"topic": "Réseau et trajet", "question": "Lesquels desservent le centre-ville, la gare et les principaux sites touristiques ?", "follow_up_to": 1, "condition": "After modes are listed, unless useful destinations have already been covered."},
+            {"topic": "Réseau et trajet", "question": "Existe-t-il un plan du réseau ou un service pour consulter les itinéraires et les prochains passages en temps réel ?", "follow_up_to": null},
+            {"topic": "Titres et tarifs", "question": "Quel titre me conseilleriez-vous pour plusieurs trajets dans la journée, et combien coûte-t-il ?", "follow_up_to": null},
+            {"topic": "Titres et tarifs", "question": "Si je rentre après minuit, est-ce que ce pass sera encore valable ?", "follow_up_to": 4, "condition": "If a day pass is recommended without its expiry time being specified."},
+            {"topic": "Titres et tarifs", "question": "Où peut-on acheter ce titre, et comment doit-on le valider avant de voyager ?", "follow_up_to": null},
+            {"topic": "Horaires et sécurité", "question": "Les transports passent tous les combien en journée, et jusqu'à quelle heure circulent-ils le soir ?", "follow_up_to": null},
+            {"topic": "Horaires et sécurité", "question": "Y a-t-il des caméras de surveillance à bord, et qui peut-on contacter en cas de problème ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -6302,6 +6347,36 @@
             {"topic": "Prise en charge", "question": "Est-ce que je dois payer le dépanneur et vous demander un remboursement, ou est-ce que vous le payez directement ?", "follow_up_to": 4, "condition": "Once coverage is confirmed, unless payment arrangements have already been explained."},
             {"topic": "Retour et justificatifs", "question": "Si la voiture doit rester au garage, quelle aide mon contrat prévoit-il pour rentrer ?", "follow_up_to": null},
             {"topic": "Retour et justificatifs", "question": "Quels justificatifs dois-je conserver pour le dossier ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "canada-car-breakdown-insurer",
+          "opening": "Bonjour ! Ma voiture est en panne. Je suis sur le bord de la route, devant la gare d'Ottawa.",
+          "closing": "Merci pour votre aide. Je vais vous transmettre les renseignements nécessaires et suivre les consignes de l'assistance.",
+          "questions": [
+            {"topic": "Assistance immédiate", "question": "Pouvez-vous envoyer un dépanneur sur place ?", "follow_up_to": null},
+            {"topic": "Assistance immédiate", "question": "Quel délai d'intervention pouvez-vous m'indiquer ?", "follow_up_to": 1, "condition": "If an intervention can be arranged and the wait is not specified."},
+            {"topic": "Assistance immédiate", "question": "Si la voiture ne peut pas repartir, est-ce qu'il y a un garage à proximité où vous pouvez la faire remorquer ?", "follow_up_to": null},
+            {"topic": "Prise en charge", "question": "Qu'est-ce que mon contrat couvre : le dépannage, le remorquage, les réparations au garage ?", "follow_up_to": null},
+            {"topic": "Prise en charge", "question": "Comment obtenir un devis du garage avant d'autoriser les réparations ?", "follow_up_to": null},
+            {"topic": "Prise en charge", "question": "Est-ce que je dois payer le dépanneur et vous demander un remboursement, ou est-ce que vous le payez directement ?", "follow_up_to": 4, "condition": "Once coverage is confirmed, unless payment arrangements have already been explained."},
+            {"topic": "Retour et suivi", "question": "Si la voiture doit rester au garage, quelle aide mon contrat prévoit-il pour rentrer ?", "follow_up_to": null},
+            {"topic": "Retour et suivi", "question": "Si le dépanneur n'arrive pas dans le délai prévu, qui dois-je appeler ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "canada-car-breakdown-insurer",
+          "opening": "Bonjour ! Ma voiture est en panne. Je suis sur le bord de la route, devant la gare d'Ottawa.",
+          "closing": "Merci pour votre aide. Je vais vous transmettre les renseignements nécessaires et suivre les consignes de l'assistance.",
+          "questions": [
+            {"topic": "Assistance immédiate", "question": "Pouvez-vous envoyer un dépanneur sur place ?", "follow_up_to": null},
+            {"topic": "Assistance immédiate", "question": "Quel délai d'intervention pouvez-vous m'indiquer ?", "follow_up_to": 1, "condition": "If an intervention can be arranged and the wait is not specified."},
+            {"topic": "Assistance immédiate", "question": "Si la voiture ne peut pas repartir, est-ce qu'il y a un garage à proximité où vous pouvez la faire remorquer ?", "follow_up_to": null},
+            {"topic": "Prise en charge", "question": "Qu'est-ce que mon contrat couvre : le dépannage, le remorquage, les réparations au garage ?", "follow_up_to": null},
+            {"topic": "Prise en charge", "question": "Comment obtenir un devis du garage avant d'autoriser les réparations ?", "follow_up_to": null},
+            {"topic": "Prise en charge", "question": "Si les réparations prennent plusieurs jours, mon contrat prévoit-il une voiture de remplacement ?", "follow_up_to": 4, "condition": "After coverage is discussed, unless replacement-vehicle cover has already been explained."},
+            {"topic": "Retour et suivi", "question": "Si la voiture doit rester au garage, quelle aide mon contrat prévoit-il pour rentrer ?", "follow_up_to": null},
+            {"topic": "Retour et suivi", "question": "Si le dépanneur n'arrive pas dans le délai prévu, qui dois-je appeler ?", "follow_up_to": null}
           ]
         }
       ]
@@ -6523,6 +6598,21 @@
             {"topic": "Tarifs et abonnements", "question": "Quels modes de transport et quelles zones ces formules couvrent-elles ?", "follow_up_to": null},
             {"topic": "Tarifs et abonnements", "question": "Où peut-on acheter la formule choisie, et faut-il une carte rechargeable ?", "follow_up_to": 6, "condition": "If suitable fares are identified without explaining purchase and card requirements."}
           ]
+        },
+        {
+          "group": "canadian-city-resident-advice-transit",
+          "opening": "Bonjour ! Je ne connais pas encore les transports en commun d'ici, et j'aimerais tes conseils pour commencer à les utiliser.",
+          "closing": "Merci pour ton aide ! Je vais comparer les formules et vérifier mon trajet avant de partir.",
+          "questions": [
+            {"topic": "Modes de transport", "question": "Quels moyens de transport peut-on utiliser pour circuler en ville ?", "follow_up_to": null},
+            {"topic": "Modes de transport", "question": "Pour aller au centre-ville depuis le quartier, quel trajet me conseillerais-tu ?", "follow_up_to": 1, "condition": "If transport options are named without explaining a suitable route to the centre."},
+            {"topic": "Tarifs et abonnements", "question": "Combien coûte un trajet simple ?", "follow_up_to": null},
+            {"topic": "Tarifs et abonnements", "question": "À part les billets à l'unité, est-ce qu'il y a des pass journée ou des abonnements ?", "follow_up_to": 3, "condition": "After the single fare is given, unless other fare options are already explained."},
+            {"topic": "Tarifs et abonnements", "question": "Avec ces formules, je peux changer de ligne et aller partout en ville sans payer de supplément ?", "follow_up_to": 4, "condition": "If fares are recommended without explaining transfers and zone coverage."},
+            {"topic": "Tarifs et abonnements", "question": "Où peut-on acheter les billets ou un abonnement, et faut-il une carte rechargeable ?", "follow_up_to": 4, "condition": "After suitable fares are compared, unless purchase and card requirements are already explained."},
+            {"topic": "Fonctionnement et horaires", "question": "Comment valide-t-on un titre de transport ?", "follow_up_to": null},
+            {"topic": "Fonctionnement et horaires", "question": "Sur ce trajet, les transports passent tous les combien en journée, et jusqu'à quelle heure peut-on rentrer le soir ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -6607,6 +6697,21 @@
             {"topic": "Titres et tarifs", "question": "Où acheter ce titre, sur une carte OPUS ou un autre support, et comment le valider ?", "follow_up_to": null},
             {"topic": "Horaires", "question": "Jusqu'à quelle heure les lignes de ce trajet circulent-elles en semaine et le samedi soir ?", "follow_up_to": null},
             {"topic": "Horaires", "question": "Si ces lignes ne circulent plus après un repas d'affaires tardif, quelles seraient mes options pour rentrer ?", "follow_up_to": 7, "condition": "If your planned return is later than the last service identified."}
+          ]
+        },
+        {
+          "group": "colleague-montreal-work-week-transit",
+          "opening": "Bonjour ! Je vais travailler une semaine à Montréal. Mon hôtel est près du métro Berri-UQAM, et mes réunions près de la station McGill.",
+          "closing": "Merci beaucoup ! Avec tous ces conseils, je vais pouvoir me déplacer facilement pendant ma semaine à Montréal.",
+          "questions": [
+            {"topic": "Trajets", "question": "Pour aller de mon hôtel au lieu de mes réunions, quel trajet me conseilleriez-vous ?", "follow_up_to": null},
+            {"topic": "Trajets", "question": "À quelle fréquence les transports passent-ils sur ce trajet le matin ?", "follow_up_to": null},
+            {"topic": "Titres et tarifs", "question": "Pour une semaine, quel titre me conseilleriez-vous, et combien coûte-t-il ?", "follow_up_to": null},
+            {"topic": "Titres et tarifs", "question": "Si j'arrive un mercredi, ce titre sera-t-il valable jusqu'au mardi suivant ?", "follow_up_to": 3, "condition": "If weekly validity is explained without addressing a Wednesday-to-Tuesday stay."},
+            {"topic": "Titres et tarifs", "question": "Avec ce titre, je peux changer de ligne et aller partout à Montréal sans payer de supplément ?", "follow_up_to": 3, "condition": "After a fare is recommended, unless transfers and zone coverage are already explained."},
+            {"topic": "Titres et tarifs", "question": "Où peut-on acheter ce titre, et comment doit-on le valider avant de voyager ?", "follow_up_to": null},
+            {"topic": "Horaires", "question": "Pour rentrer de McGill à Berri-UQAM, jusqu'à quelle heure le métro circule-t-il en semaine et le samedi soir ?", "follow_up_to": null},
+            {"topic": "Horaires", "question": "Si le métro ne circule plus après un repas d'affaires, comment pourrais-je rentrer à mon hôtel ?", "follow_up_to": 7, "condition": "If your planned return is later than the last service identified."}
           ]
         }
       ]

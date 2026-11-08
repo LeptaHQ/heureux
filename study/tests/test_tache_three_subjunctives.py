@@ -156,8 +156,8 @@ class TacheThreeSubjunctiveTests(SimpleTestCase):
     def test_requested_book_revision_and_plan_remain_verbatim(self):
         directory = Path(__file__).resolve().parents[1] / 'content' / 'tache_3'
         for filename, expected in (
-            ('responses/culture.json', '35694b643e86ff1f5f557733c5e014c99890766644ba2cb5b6f4bfabac0eabfc'),
-            ('hints.json', 'bffa163b584925d8bd03b3935772984d37d5a11d459e665bb290467a04a8956e'),
+            ('responses/culture.json', '51f549f68b2877be43d002b778966d85a83fcc30690e94b14792e9acebbec8b3'),
+            ('hints.json', 'c9abd65a3fe7328c4d69164cbc0d110eda009fac90815af937bc468452ef2935'),
         ):
             with self.subTest(file=filename):
                 text = (directory / filename).read_text()

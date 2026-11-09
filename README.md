@@ -44,9 +44,19 @@ These cover the bundled corpus, private-response freshness, batched writing
 activity dates, lean subject navigation, and retirement checks
 against the original query semantics. A SQLite-only execution-step guard also
 covers unrelated vocabulary growth, but cannot establish PostgreSQL performance.
+Subject progress uses response-only queries for response cards and phrase-only
+queries for vocabulary cards, retaining retirement checks and suspended activity.
 Use `EXPLAIN (ANALYZE, BUFFERS)` on representative reads in an isolated seeded
 PostgreSQL database to evaluate planner changes; production network round trips,
 cold starts, concurrency and browser rendering require separate measurement.
+
+EO2/EO3 subject directories expose aggregate `Server-Timing` response metrics:
+`app` includes session/authentication, view work and template rendering; `db`
+measures SQL execution, with the query count in its description. It excludes
+connection setup/health checks and result fetching, which remain inside `app`.
+Compression, upstream queueing, network transfer and browser work are outside
+`app`. These headers contain no SQL text, parameters or learner identities;
+they do not cache progress or change the page's private/no-store policy.
 
 The Expression hub and oral/written landing pages are metadata-only navigation:
 titles, descriptions, icons and links, without catalogue/progress/due counts or

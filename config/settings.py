@@ -161,6 +161,7 @@ MIDDLEWARE = [
     "django.middleware.gzip.GZipMiddleware",
     "study.middleware.SecurityHeadersMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "study.middleware.DirectoryTimingMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",

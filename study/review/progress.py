@@ -49,7 +49,7 @@ from study.models import (
     Response,
     WritingSujetCompletion,
 )
-from study.catalogue.retirement import retired_task_filter
+from study.catalogue.retirement import retired_task_filter, retired_vocabulary
 
 
 SUBJECT_PATH_RE = re.compile(
@@ -805,7 +805,7 @@ def subject_progress_by_response(
         }
         for response_id in response_ids
     }
-    response_cards = Card.objects.current_content().filter(
+    response_cards = Card.objects.filter(
         Q(response_practice_started_at__isnull=False)
         | Q(subject_completed_at__isnull=False)
         | Q(subject_status_reset_at__isnull=False)
@@ -814,6 +814,7 @@ def subject_progress_by_response(
         user=user,
         card_type=CardType.SPINE,
         response_id__in=response_ids,
+        response__is_active=True,
     ).values(
         "response_id",
         "response_practice_started_at",
@@ -839,19 +840,21 @@ def subject_progress_by_response(
     vocabulary_response_ids = Response.objects.filter(
         pk__in=response_ids,
     ).exclude(retired_task_filter("theme__task__")).values("pk")
+    vocabulary_cards = Card.objects.filter(
+        ~Exists(retired_vocabulary().filter(pk=OuterRef("phrase_id"))),
+        user=user,
+        phrase__is_active=True,
+        phrase__tier=PhraseTier.SUBJECT,
+        phrase__source_prompts__is_active=True,
+        phrase__source_prompts__response_id__in=vocabulary_response_ids,
+    )
     if summary_only:
         # Summary cards only need to know whether vocabulary activity exists.
         # Filter to that sparse set before crossing the phrase-to-prompt table;
         # grouping every untouched vocabulary card made the Expression hub's
         # boolean check its dominant query.
         started_response_ids = (
-            Card.objects.current_content()
-            .filter(
-                user=user,
-                phrase__tier=PhraseTier.SUBJECT,
-                phrase__source_prompts__is_active=True,
-                phrase__source_prompts__response_id__in=vocabulary_response_ids,
-            )
+            vocabulary_cards
             .filter(started_activity)
             .order_by()
             .values_list(
@@ -867,13 +870,7 @@ def subject_progress_by_response(
         # Detailed views need the exact counts, but still aggregate in SQL
         # rather than hydrating every (card, sujet) pair in Python.
         vocabulary_rows = (
-            Card.objects.current_content()
-            .filter(
-                user=user,
-                phrase__tier=PhraseTier.SUBJECT,
-                phrase__source_prompts__is_active=True,
-                phrase__source_prompts__response_id__in=vocabulary_response_ids,
-            )
+            vocabulary_cards
             .order_by()
             .values("phrase__source_prompts__response_id")
             .annotate(

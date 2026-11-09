@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+from time import perf_counter
+
+from django.db import connection
 from django.http import JsonResponse
 from django.contrib.auth.views import redirect_to_login
 from django.conf import settings
@@ -9,6 +12,44 @@ from django.urls import Resolver404, resolve
 from django.utils.cache import patch_cache_control
 
 HEALTH_CHECK_PATH = "/healthz"
+
+
+class DirectoryTimingMiddleware:
+    """Expose aggregate request timings for the two oral subject directories."""
+
+    paths = {
+        "/expression/orale/tache-2/sujets/",
+        "/expression/orale/tache-3/sujets/",
+    }
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        if request.path_info not in self.paths:
+            return self.get_response(request)
+        query_count = 0
+        query_seconds = 0.0
+
+        def timed_execute(execute, sql, params, many, context):
+            nonlocal query_count, query_seconds
+            query_count += 1
+            started = perf_counter()
+            try:
+                return execute(sql, params, many, context)
+            finally:
+                query_seconds += perf_counter() - started
+
+        started = perf_counter()
+        with connection.execute_wrapper(timed_execute):
+            response = self.get_response(request)
+        timing = (
+            f"app;dur={(perf_counter() - started) * 1000:.1f}, "
+            f'db;dur={query_seconds * 1000:.1f};desc="{query_count} queries"'
+        )
+        previous = response.get("Server-Timing")
+        response["Server-Timing"] = f"{previous}, {timing}" if previous else timing
+        return response
 
 
 class HealthCheckMiddleware:

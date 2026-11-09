@@ -515,7 +515,7 @@ def hide_subject_highlights(user, response_id):
     return ids
 
 
-def _subject_highlight_rows(user, response_ids, *, _shapes=None):
+def _subject_highlight_rows(user, response_ids, *, _shapes=None, _grouped=False):
     """Fetch target-related candidates and their resolved response-key IDs."""
     highlights = Annotation.objects.filter(
         Q(source_key__startswith=RESPONSE_SOURCE_PREFIX)
@@ -577,7 +577,7 @@ def _subject_highlight_rows(user, response_ids, *, _shapes=None):
         other_ids = set(response_ids) - set(oral_by_id)
         if other_ids:
             other_rows, other_keys, other_prompts = _subject_highlight_rows(
-                user, other_ids, _shapes=shapes,
+                user, other_ids, _shapes=shapes, _grouped=_grouped,
             )
             return rows + other_rows, keys | other_keys, other_prompts
         return rows, keys, []
@@ -688,7 +688,13 @@ def _subject_highlight_rows(user, response_ids, *, _shapes=None):
         fields = ["source_path", "source_key", "created_at"]
         if shapes["response"]:
             fields.append("_matched_response_id")
-        batch_rows = list(candidates.filter(scope).order_by().values(*fields))
+        candidates = candidates.filter(scope).order_by()
+        if _grouped:
+            batch_rows = list(candidates.values(
+                *(field for field in fields if field != "created_at"),
+            ).annotate(created_at_earliest=Min("created_at"), created_at=Max("created_at")))
+        else:
+            batch_rows = list(candidates.values(*fields))
         if shapes["response"]:
             for row in batch_rows:
                 if (
@@ -919,13 +925,24 @@ def subject_progress_by_response(
             values["vocabulary_due"] = row["due"]
             values["_first_vocabulary_at"] = row["first_started"]
 
-    highlight_rows, response_by_content_key, prompt_rows = _subject_highlight_rows(
+    for response_id, (latest, earliest) in subject_highlight_times(
         user, response_ids,
+    ).items():
+        progress[response_id]["has_highlight"] = True
+        progress[response_id]["_latest_highlight_at"] = latest
+        progress[response_id]["_first_highlight_at"] = earliest
+    return _finish_subject_progress(progress)
+
+
+def subject_highlight_times(user, response_ids, *, grouped=False):
+    """Resolved highlight activity, without calculating card/vocabulary state."""
+    highlight_rows, response_by_content_key, prompt_rows = _subject_highlight_rows(
+        user, response_ids, **({"_grouped": True} if grouped else {}),
     )
     if not highlight_rows:
         # Nothing can match, so the three lookups that resolve highlights onto
         # responses have nothing to resolve.
-        return _finish_subject_progress(progress)
+        return {}
 
     path_matches = [
         (
@@ -964,6 +981,7 @@ def subject_progress_by_response(
             response_ids_by_subject_phrase.setdefault(phrase_id, set()).add(
                 response_id
             )
+    times = {}
     for row, path_match in path_matches:
         matched_response_ids = set()
         if path_match and not row["source_key"]:
@@ -998,20 +1016,16 @@ def subject_progress_by_response(
                 )
             )
         for response_id in matched_response_ids:
-            values = progress[response_id]
-            values["has_highlight"] = True
+            latest, earliest = times.get(response_id, (None, None))
             created_at = row.get("created_at", row.get("created_at_latest"))
             if created_at is not None:
-                values["_latest_highlight_at"] = max(
-                    values["_latest_highlight_at"] or created_at, created_at,
-                )
+                latest = max(latest or created_at, created_at)
             first_at = row.get("created_at_earliest") or created_at
             if first_at is not None:
-                values["_first_highlight_at"] = min(
-                    values["_first_highlight_at"] or first_at, first_at,
-                )
+                earliest = min(earliest or first_at, first_at)
+            times[response_id] = latest, earliest
 
-    return _finish_subject_progress(progress)
+    return times
 
 
 def _finish_subject_progress(progress) -> dict[int, SubjectProgress]:

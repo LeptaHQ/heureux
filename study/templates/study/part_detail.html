@@ -1,9 +1,8 @@
 {% extends "base.html" %}
-{% load static %}
 {% block title %}{{ part.name }} · Heureux{% endblock %}
 
 {% block content %}
-<div{% if deferred_stats %} data-expression-stats="{{ stats_url }}"{% endif %}>
+<div>
 <header class="area-hero area-hero--identity" style="--page-accent: {{ part.color }};">
   <div class="area-hero__copy">
     <p class="eyebrow"><a href="{% url 'study:expression' %}">Expression</a> · {{ part.short_name }}</p>
@@ -13,23 +12,10 @@
     </h1>
     <p>Choisis une tâche pour parcourir son contenu et t’entraîner.</p>
   </div>
-  <dl class="area-hero__metrics" aria-label="Contenu du parcours">
-    <div><dt>Tâches</dt><dd>{{ tasks|length }}</dd></div>
-    <div><dt>Parcours</dt><dd>{{ part.short_name }}</dd></div>
-    <div><dt>Mode</dt><dd>{% if available_task_count %}Actif{% else %}Préparation{% endif %}</dd></div>
-  </dl>
 </header>
-{% include "study/partials/expression_stats_status.html" %}
 
-{% if tasks %}
-  {% include "study/partials/collection_view_toggle.html" %}
-{% endif %}
-
-<div class="grid grid--decks grid--tasks area-section collection-table collection-table--decks" data-collection-view="adaptive" data-expression-stats-content>
+<div class="grid grid--decks grid--tasks area-section">
   {% include "study/partials/expression_task_cards.html" %}
 </div>
 </div>
-{% endblock %}
-{% block scripts %}
-  {% if deferred_stats %}<script src="{% static 'study/js/expression-stats.js' %}?v=1"></script>{% endif %}
 {% endblock %}

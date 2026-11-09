@@ -9,7 +9,6 @@ from django.db.models import Count, F, Prefetch, Q, Value, Window
 from django.db.models.functions import RowNumber, TruncDate
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils import timezone
 from django.views.decorators.http import require_http_methods, require_POST
@@ -79,6 +78,9 @@ from ..tache_two_dialogues import (
 )
 from ..ee_formulations import get_ee_formulations
 from ..formulation_progress import formulation_progress
+from ..expression_overview import (
+    expression_overview_summaries, writing_occurrence_progress,
+)
 from ..retirement import active_phrases, is_retired_vocabulary_task, retired_task_filter
 from ..progress import (
     card_unit_progress_from_rows,
@@ -119,18 +121,15 @@ from .helpers import (
     _memory_progress,
     _review_batches,
     _route_task,
-    _task_card,
-    _task_cards,
-    _task_content_counts,
     _task_phrases,
     _task_scope,
     _tache_two_progress,
     _tache_two_theme_progress,
+    _theme_vocabulary_batch_summary as _aggregate_vocabulary_batches,
     batch_rows,
     deck_stats,
     deck_stats_from_rows,
     empty_deck_stats,
-    expression_task_summaries,
     grouped_deck_stats,
     recent_review_sessions,
     review_batches_from_rows,
@@ -180,6 +179,7 @@ def _subject_stats_for_themes(
     now=None,
     *,
     response_ids_by_theme=None,
+    summary_only=False,
 ):
     now = now or timezone.now()
     if response_ids_by_theme is None:
@@ -191,7 +191,7 @@ def _subject_stats_for_themes(
         for theme_response_ids in response_ids_by_theme.values()
         for response_id in theme_response_ids
     }
-    progress = subject_progress_by_response(user, response_ids)
+    progress = subject_progress_by_response(user, response_ids, summary_only=summary_only)
     due_response_ids = set(
         Card.objects.active()
         .filter(
@@ -503,32 +503,6 @@ def _theme_vocabulary_directory_batches(task, user, themes):
     return review_batches_from_rows(rows, scope), batches_by_theme
 
 
-def _tache_two_theme_vocabulary_overview_context(user, task):
-    scope = _theme_vocabulary_scope(task)
-    batches = _review_batches(scope, user)
-    phrase_count = _distinct_count(
-        Phrase.objects.filter(
-            tier=PhraseTier.THEME,
-            is_active=True,
-            source_prompts__is_active=True,
-            source_prompts__theme__task=task,
-        )
-    )
-    next_batch = next(
-        (batch for batch in batches if batch["is_next"]),
-        None,
-    )
-    return {
-        "theme_count": len(catalogue.tache_two_subject_themes()[0]),
-        "phrase_count": phrase_count,
-        "batch_count": len(batches),
-        "progress_unit": "lots terminés",
-        "summary": _theme_vocabulary_batch_summary(batches),
-        "url": reverse("study:tache_two_theme_vocabulary"),
-        "review_url": next_batch["review_url"] if next_batch else "",
-    }
-
-
 def part_detail(request, part_slug):
     part = get_object_or_404(
         ExamPart.objects.filter(is_active=True).prefetch_related(
@@ -536,54 +510,15 @@ def part_detail(request, part_slug):
         ),
         slug=part_slug,
     )
-    now = timezone.now()
     part_tasks = list(part.tasks.all())
     if not part.available or not part_tasks:
         return render(
             request, "study/coming_soon.html", {"part": part, "task": None},
         )
-    with_stats = request.GET.get("stats") == "1"
     context = {
         "part": part,
-        "available_task_count": sum(task.available for task in part_tasks),
-        "deferred_stats": not with_stats,
-        "stats_url": f"{request.path}?stats=1",
+        "tasks": [{"task": task} for task in part_tasks],
     }
-    if not with_stats:
-        context["tasks"] = [{"task": task} for task in part_tasks]
-        return render(request, "study/part_detail.html", context)
-    content_counts = _task_content_counts(part_tasks, landing=True)
-    # The part page renders subject progress, the catalogue counts and the due
-    # response badge — never the vocabulary decks, queue badges or revisit
-    # count, each of which costs its own scan of the learner's whole deck. The
-    # subject summary itself comes from the same batched pass the expression
-    # hub uses, so it costs a fixed handful of queries rather than one set per
-    # task.
-    summaries = expression_task_summaries(
-        now,
-        request.user,
-        part_tasks,
-        content_counts,
-    )
-    for task in part_tasks:
-        if task.pk in content_counts:
-            content_counts[task.pk]["prompt_count"] = summaries[task.pk]["prompt_count"]
-    tasks = [
-        _task_card(
-            task,
-            now,
-            request.user,
-            with_deck_stats=False,
-            content_counts=content_counts,
-            summaries=summaries,
-        )
-        for task in part_tasks
-    ]
-    context["tasks"] = tasks
-    if request.headers.get("X-Requested-With") == "XMLHttpRequest":
-        return JsonResponse({
-            "html": render_to_string("study/partials/expression_task_cards.html", context, request=request),
-        })
     return render(
         request,
         "study/part_detail.html",
@@ -651,6 +586,7 @@ def _ee_tache_three_subject_context(user, task, *, deduplicate=False):
             prompt.response_id
             for prompt in prompts_by_key.values()
         },
+        summary_only=True,
     )
     response_occurrence_counts = {}
     for prompt in prompts_by_key.values():
@@ -751,37 +687,20 @@ def _ee_tache_three_subject_context(user, task, *, deduplicate=False):
 
 def _ee_tache_three_overview_context(user, task):
     source_months = _ee_tache_three_source_months()
-    source_keys = [
-        combinaison.content_key
-        for month in source_months
-        for combinaison in month.combinaisons
-    ]
-    response_id_by_key = dict(
-        Prompt.objects.filter(
-            content_key__in=source_keys,
-            theme__task=task,
-            is_active=True,
-            response__is_active=True,
-        ).values_list("content_key", "response_id")
-    )
-    if set(response_id_by_key) != set(source_keys):
-        raise RuntimeError("EE Tâche 3 content is not synchronized")
-    progress_by_response = subject_progress_by_response(
-        user,
-        set(response_id_by_key.values()),
-    )
-    all_progress = [
-        progress_by_response[response_id_by_key[source_key]]
-        for source_key in source_keys
-    ]
-    response_count = len(progress_by_response)
+    summary = expression_overview_summaries(
+        user, [task], with_components=True, require_published=True,
+    )[task.pk]
+    progress = summary["subject_progress"]
     return {
-        "_progress_by_response": progress_by_response,
+        "_formulation_progress": summary["formulation_progress"],
         "theme_count": len(_ee_subject_theme_data(3)[0]),
         "month_count": len(source_months),
-        "subject_count": len(all_progress),
-        "distinct_count": response_count,
-        "subject_summary": summarize_subject_progress(all_progress),
+        "subject_count": progress.total,
+        "distinct_count": summary["distinct_subject_count"],
+        "subject_summary": {
+            "progress": progress, "completed": progress.completed, "total": progress.total,
+            "started_new": max(progress.started - progress.completed, 0),
+        },
     }
 
 
@@ -943,7 +862,7 @@ def _ee_writing_subject_context(
     canonical_ids = {
         sujet.pk for sujet in canonical_by_slug.values()
     }
-    overrides = overrides_by_sujet(user, canonical_ids)
+    overrides = overrides_by_sujet(user, canonical_ids, metadata_only=True)
     progress_by_canonical = writing_sujet_progress_by_id(
         user,
         canonical_ids,
@@ -1072,35 +991,18 @@ def _ee_writing_overview_context(user, task, tache, sujet_ids_by_slug):
         for category in source_categories
         for source in category.sujets
     }
-    progress_by_canonical = writing_sujet_progress_by_id(
-        user,
-        canonical_ids,
-        task_id=task.pk,
-    )
-    occurrence_progress = [
-        progress_by_canonical[
-            sujet_ids_by_slug[canonical_slug_by_slug[source.slug]]
-        ]
+    from collections import Counter
+    weights = Counter(
+        sujet_ids_by_slug[canonical_slug_by_slug[source.slug]]
         for category in source_categories
         for source in category.sujets
-    ]
-    distinct_progress = list(progress_by_canonical.values())
+    )
+    progress = writing_occurrence_progress(user, task, weights)
     return {
         "category_count": len(source_categories),
-        "sujet_count": len(occurrence_progress),
+        "sujet_count": sum(weights.values()),
         "distinct_count": len(canonical_ids),
-        "response_count": len(canonical_ids),
-        "personalized_count": sum(
-            item.is_personalized for item in distinct_progress
-        ),
-        "completed_count": sum(
-            item.explicitly_completed for item in distinct_progress
-        ),
-        "subject_progress": progress_summary(
-            total=len(occurrence_progress),
-            started=sum(item.started for item in occurrence_progress),
-            completed=sum(item.completed for item in occurrence_progress),
-        ),
+        "subject_progress": progress,
         "writing_tache": tache,
     }
 
@@ -1126,21 +1028,12 @@ def task_detail(request, part_slug, task_slug):
             ),
         )
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
-        theme_vocabulary = _tache_two_theme_vocabulary_overview_context(
-            request.user,
-            task,
-        )
-        subject_state = _tache_two_theme_progress(request.user)
         return render(
             request,
             "study/tache_two_overview.html",
             {
                 "part": task.part,
                 "task": task,
-                "subject_summary": subject_state,
-                "subject_count": sum(theme["subject_count"] for theme in subject_state["themes"]),
-                "subject_theme_count": subject_state["theme_count"],
-                "theme_vocabulary": theme_vocabulary,
                 "ai_practice_prompt": content_module.load_ai_examiner_prompt(),
             },
         )
@@ -1208,7 +1101,7 @@ def task_detail(request, part_slug, task_slug):
     ):
         subject_context = _ee_tache_three_overview_context(request.user, task)
         catalog = get_ee_formulations()
-        _, formulations_progress = formulation_progress(request.user, catalog)
+        formulations_progress = subject_context.pop("_formulation_progress")
         return render(
             request,
             "study/ee_tache_three_overview.html",
@@ -1249,6 +1142,22 @@ def task_detail(request, part_slug, task_slug):
     response_ids_by_theme, prompt_counts = _prompt_response_ids_by_theme(
         active_themes, display_theme_slugs=display_theme_slugs,
     )
+    if is_eo_tache_three:
+        summary = expression_overview_summaries(
+            request.user, [task],
+        )[task.pk]["stats"]
+        response_stats = {
+            key: summary[key] for key in ("progress", "completed", "total", "started_new")
+        }
+        return render(
+            request, "study/eo_tache_three_overview.html",
+            {
+                "part": task.part, "task": task,
+                "theme_count": len(display_theme_slugs),
+                "prompt_count": sum(prompt_counts.values()),
+                "response_stats": response_stats, "subject_summary": response_stats,
+            },
+        )
     theme_stats, response_progress, due_response_ids = _subject_stats_for_themes(
         active_themes,
         request.user,
@@ -1273,14 +1182,6 @@ def task_detail(request, part_slug, task_slug):
         "response_stats": response_stats,
         "prompt_count": sum(prompt_counts.values()),
     }
-    if is_eo_tache_three:
-        context["theme_count"] = len(display_theme_slugs)
-        context["subject_summary"] = response_stats
-        return render(
-            request,
-            "study/eo_tache_three_overview.html",
-            context,
-        )
     # The catalogue counts this page shows all read the same phrase and prompt
     # tables, so they are one grouped scan each instead of four.
     task_phrase_counts = _task_phrases(task).aggregate(
@@ -1452,12 +1353,11 @@ def _oral_subject_themes(
     deduplicate=False,
     prompts=None,
 ):
-    subjects_by_theme = {item["theme"].pk: [] for item in themes}
     if prompts is None:
         prompts = (
             _lean_prompt_rows(
                 Prompt.objects.filter(
-                    theme_id__in=subjects_by_theme,
+                    theme_id__in=[item["theme"].pk for item in themes],
                     is_active=True,
                     response__is_active=True,
                 ).select_related("family")
@@ -1467,8 +1367,9 @@ def _oral_subject_themes(
     taxonomy = catalogue.eo_tache_three_taxonomy()
     if any(prompt.content_key in taxonomy.by_source for prompt in prompts):
         return _classified_oral_subject_themes(
-            themes, response_progress, prompts, deduplicate=deduplicate,
+            themes, response_progress, prompts, taxonomy, deduplicate=deduplicate,
         )
+    subjects_by_theme = {item["theme"].pk: [] for item in themes}
     family_labels = catalogue.eo_tache_three_family_labels()
     for prompt in prompts:
         subjects_by_theme[prompt.theme_id].append(
@@ -1543,8 +1444,7 @@ def _oral_subject_themes(
     return groups
 
 
-def _classified_oral_subject_themes(themes, response_progress, prompts, *, deduplicate):
-    taxonomy = catalogue.eo_tache_three_taxonomy()
+def _classified_oral_subject_themes(themes, response_progress, prompts, taxonomy, *, deduplicate):
     source_themes = {item["theme"].pk: item["theme"] for item in themes}
     icons = {theme.slug: theme.icon for theme in source_themes.values()}
     family_labels = catalogue.eo_tache_three_family_labels()
@@ -1609,7 +1509,7 @@ def browse(request, part_slug=None, task_slug=None):
         forced_task.slug,
     ) == content_module.QUESTION_BANK_TASK:
         subject_state = _tache_two_theme_progress(
-            request.user, deduplicate=deduplicate,
+            request.user, deduplicate=deduplicate, summary_only=True,
         )
         themes = subject_state["themes"]
         subject_prompt_map = {
@@ -1747,6 +1647,7 @@ def browse(request, part_slug=None, task_slug=None):
         theme_rows,
         request.user,
         response_ids_by_theme=response_ids_by_theme,
+        summary_only=oral_directory,
     )
     themes = [
         {
@@ -2738,17 +2639,15 @@ def _ee_tache_two_theme_vocabulary_context(user, task):
 
 
 def _ee_tache_two_theme_vocabulary_overview_context(user, task):
-    batches = _review_batches(_theme_vocabulary_scope(task), user)
-    next_batch = next(
-        (batch for batch in batches if batch["is_next"]),
-        None,
-    )
+    batch_count, progress = _aggregate_vocabulary_batches(_theme_vocabulary_scope(task), user)
     return {
         "theme_count": len(_ee_subject_theme_data(2)[0]),
         "phrase_count": _theme_vocabulary_phrases(task).count(),
-        "batch_count": len(batches),
-        "summary": _theme_vocabulary_batch_summary(batches),
-        "review_url": next_batch["review_url"] if next_batch else "",
+        "batch_count": batch_count,
+        "summary": {
+            "progress": progress, "completed": progress.completed, "total": progress.total,
+            "started_new": max(progress.started - progress.completed, 0),
+        },
     }
 
 

@@ -228,7 +228,7 @@ def _tache_two_progress(user, months):
     }
 
 
-def _tache_two_progress_by_content_key(user, months):
+def _tache_two_progress_by_content_key(user, months, *, summary_only=False):
     """Return {content_key: SubjectProgress} for every Tâche 2 subject."""
     content_keys = [
         content_module.tache_two_subject_content_key(
@@ -246,6 +246,7 @@ def _tache_two_progress_by_content_key(user, months):
     progress_by_response = subject_progress_by_response(
         user,
         set(response_id_by_content_key.values()),
+        summary_only=summary_only,
     )
     progress_by_content_key = {
         content_key: progress_by_response[response_id]
@@ -254,7 +255,7 @@ def _tache_two_progress_by_content_key(user, months):
     return progress_by_content_key, response_id_by_content_key
 
 
-def _tache_two_theme_progress(user, months=None, *, deduplicate=False):
+def _tache_two_theme_progress(user, months=None, *, deduplicate=False, summary_only=False):
     """Group Tâche 2 subjects with in-progress themes first."""
     if months is None:
         months = catalogue.tache_two_subject_months()
@@ -262,7 +263,7 @@ def _tache_two_theme_progress(user, months=None, *, deduplicate=False):
     dialogues = catalogue.tache_two_dialogues()
     themes, mapping = catalogue.tache_two_subject_themes()
     progress_by_content_key, response_id_by_content_key = (
-        _tache_two_progress_by_content_key(user, months)
+        _tache_two_progress_by_content_key(user, months, summary_only=summary_only)
     )
 
     subjects_by_theme = {theme.slug: [] for theme in themes}

@@ -1,11 +1,13 @@
-"""Landing navigation never waits for the private statistics batch."""
+"""Expression navigation reads only the statistics its cards render."""
 
 from io import StringIO
+from collections import Counter
 from types import SimpleNamespace
 from unittest.mock import patch
 
 from django.core.management import call_command
 from django.db import connection
+from django.db.models.query import QuerySet
 from django.test import TestCase
 from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
@@ -13,17 +15,16 @@ from django.utils import timezone
 
 from study.account_services import provision_user_study_data
 from study import catalogue
-from study.ee_formulations import get_ee_formulations
-from study.formulation_progress import formulation_progress_states
+from study.expression_overview import writing_occurrence_progress
 from study.models import (
     Annotation, AnnotationKind, Card, CardState, CardType,
-    MemoryQuestionProgress, PhraseTier, Prompt, Task,
+    PersonalWritingResponse, PhraseTier, Prompt, Response, Task,
+    WritingResponseOverride, WritingSujet, WritingSujetCompletion,
 )
 from study.oral_history import annotation_owners
-from study.progress import progress_summary, subject_progress_by_response
+from study.progress import progress_summary, subject_progress_by_response, writing_sujet_progress_by_id
 from study.views.helpers import (
-    _memory_progress, _review_batches, _task_card, _task_content_counts,
-    _theme_vocabulary_batch_summary, expression_task_summaries, summarize_review_batches,
+    _review_batches, _theme_vocabulary_batch_summary, summarize_review_batches,
 )
 
 from . import factories
@@ -49,22 +50,27 @@ class ExpressionLandingPerformanceTests(TestCase):
             reverse("study:part_detail", args=["ee"]),
         ]
 
-    def test_initial_pages_only_read_navigation_and_keep_links_live(self):
-        with patch("study.views.dashboard.expression_task_summaries", side_effect=AssertionError), \
-             patch("study.views.library.expression_task_summaries", side_effect=AssertionError), \
-             patch("study.views.library._task_content_counts", side_effect=AssertionError), \
-             patch("study.views.library._task_card", side_effect=AssertionError):
-            for url in self.urls:
+    def test_navigation_reads_only_metadata_without_statistics(self):
+        with patch("study.views.helpers.expression_task_summaries", side_effect=AssertionError), \
+             patch("study.views.helpers._task_content_counts", side_effect=AssertionError), \
+             patch("study.expression_overview.expression_overview_summaries", side_effect=AssertionError):
+            for url, budget in zip(self.urls, (3, 4, 4)):
                 with self.subTest(url=url):
                     with CaptureQueriesContext(connection) as queries:
                         page = self.client.get(url)
                     self.assertEqual(page.status_code, 200)
-                    self.assertEqual(len(queries), 4)
-                    self.assertContains(page, f'data-expression-stats="{url}?stats=1"')
-                    self.assertContains(page, "Les parcours restent accessibles")
-                    self.assertContains(page, "sans JavaScript")
-                    self.assertNotContains(page, "progress-status--new")
-                    self.assertNotContains(page, "0/0")
+                    self.assertEqual(len(queries), budget)
+                    for query in queries:
+                        for table in ("study_card", "study_annotation", "study_prompt", "study_writingsujet"):
+                            self.assertNotIn(f'"{table}"', query["sql"])
+                    self.assertNotContains(page, "data-expression-stats=")
+                    self.assertNotContains(page, "expression-stats.js")
+                    self.assertNotContains(page, "en chargement")
+                    self.assertNotContains(page, 'class="progress"')
+                    self.assertNotContains(page, 'class="area-hero__metrics"')
+                    self.assertNotContains(page, "terminés")
+                    self.assertNotContains(page, "catégories")
+                    self.assertNotContains(page, "fiches de vocabulaire")
                     self.assertEqual(page["Cache-Control"], "private, no-store")
         self.assertContains(
             self.client.get(self.urls[0]),
@@ -75,43 +81,149 @@ class ExpressionLandingPerformanceTests(TestCase):
             for task in Task.objects.filter(part__slug=part, is_active=True):
                 self.assertContains(page, reverse("study:task_detail", args=[part, task.slug]))
 
-    def test_one_private_batch_and_no_javascript_fallback_keep_complete_output(self):
-        for url, budget in zip(self.urls, (19, 15, 16)):
+    def test_obsolete_statistics_query_is_plain_navigation_not_an_api(self):
+        for url, budget in zip(self.urls, (3, 4, 4)):
             with self.subTest(url=url):
-                with CaptureQueriesContext(connection) as queries:
-                    batch = self.client.get(url, {"stats": "1"}, HTTP_X_REQUESTED_WITH="XMLHttpRequest")
-                self.assertEqual(batch.status_code, 200)
+                with self.assertNumQueries(budget):
+                    page = self.client.get(url, {"stats": "1"}, HTTP_X_REQUESTED_WITH="XMLHttpRequest")
+                self.assertEqual(page.status_code, 200)
+                self.assertTrue(page["Content-Type"].startswith("text/html"))
+                self.assertNotContains(page, "expression-stats.js")
+                self.assertNotContains(page, 'class="progress"')
+
+    def test_child_overview_groups_highlights_by_source_instead_of_loading_every_mark(self):
+        Annotation.objects.bulk_create([
+            Annotation(
+                user=self.user, task=self.prompt.theme.task, source_prompt=self.prompt,
+                kind=AnnotationKind.HIGHLIGHT, source_path="/review/",
+                source_key=f"response:{self.prompt.response.content_key}",
+                quote=f"Private words {index}", start_offset=index, end_offset=index + 1,
+            )
+            for index in range(1000)
+        ])
+        rows = []
+        iterate = QuerySet.__iter__
+
+        def record(queryset):
+            result = iterate(queryset)
+            if queryset.model is Annotation and queryset.query.group_by:
+                rows.append(len(queryset._result_cache))
+            return result
+
+        with patch.object(QuerySet, "__iter__", record), self.assertNumQueries(8):
+            page = self.client.get(reverse("study:task_detail", args=["eo", "tache-3"]))
+        self.assertEqual(page.status_code, 200)
+        self.assertEqual(rows, [1])
+        self.assertNotContains(page, "Private words")
+
+    def test_published_writing_overviews_preserve_occurrence_weighting_and_task_isolation(self):
+        from study.views.library import _ee_writing_sujet_ids_by_slug, _ee_writing_source_categories
+        from study import content_loader
+
+        for tache in (1, 2):
+            task = Task.objects.get(part__slug="ee", slug=f"tache-{tache}")
+            ids = _ee_writing_sujet_ids_by_slug(task, tache)
+            aliases = content_loader.ee_writing_canonical_slug_by_slug(tache)
+            weights = Counter(
+                ids[aliases[source.slug]]
+                for category in _ee_writing_source_categories(tache) for source in category.sujets
+            )
+            a, b, c, d = sorted(weights)[:4]
+            PersonalWritingResponse.objects.create(user=self.user, sujet_id=a, body="")
+            WritingResponseOverride.objects.create(
+                user=self.user, sujet_id=b, version_key="model-1", body="Edit", is_deleted=True,
+            )
+            WritingSujetCompletion.objects.create(user=self.user, sujet_id=c)
+            mark = Annotation.objects.create(
+                user=self.user, task=self.prompt.theme.task,
+                kind=AnnotationKind.HIGHLIGHT, hidden_on_source=True,
+                source_key=f"writing-sujet:{d}:model-1", quote="Hidden words",
+                start_offset=0, end_offset=5,
+            )
+            for user in (self.user, self.other):
+                full = writing_sujet_progress_by_id(user, weights, task_id=task.pk)
+                expected = progress_summary(
+                    total=sum(weights.values()),
+                    started=sum(weights[pk] * item.started for pk, item in full.items()),
+                    completed=sum(weights[pk] * item.completed for pk, item in full.items()),
+                )
+                with self.assertNumQueries(2):
+                    self.assertEqual(writing_occurrence_progress(user, task, weights), expected)
+            before = writing_occurrence_progress(self.user, task, weights)
+            Annotation.objects.filter(pk=mark.pk).update(task=None)
+            self.assertEqual(
+                writing_occurrence_progress(self.user, task, weights).started,
+                before.started + weights[d],
+            )
+
+    def test_child_overviews_do_not_build_directories_or_full_review_batches(self):
+        with patch("study.views.library._tache_two_theme_progress", side_effect=AssertionError), \
+             patch("study.views.library._review_batches", side_effect=AssertionError), \
+             patch("study.views.library.subject_progress_by_response", side_effect=AssertionError), \
+             patch("study.views.library.writing_sujet_progress_by_id", side_effect=AssertionError):
+            for part, task, budget in (("eo", "tache-2", 3), ("eo", "tache-3", 8), ("ee", "tache-1", 8),
+                                       ("ee", "tache-2", 8), ("ee", "tache-3", 7)):
+                with self.subTest(part=part, task=task), CaptureQueriesContext(connection) as queries:
+                    page = self.client.get(reverse("study:task_detail", args=[part, task]))
+                self.assertEqual(page.status_code, 200)
                 self.assertLessEqual(len(queries), budget)
-                self.assertEqual(batch["Cache-Control"], "private, no-store")
-                payload = batch.json()
-                self.assertIn('href="/expression/', payload["html"])
-                self.assertNotIn("en chargement", payload["html"])
-                fallback = self.client.get(url, {"stats": "1"})
-                self.assertEqual(fallback.status_code, 200)
-                self.assertNotContains(fallback, "data-expression-stats=")
-                self.assertNotContains(fallback, "expression-stats.js")
-                self.assertContains(fallback, payload["html"], html=True)
-                if url == self.urls[0]:
-                    self.assertContains(fallback, payload["metrics"], html=True)
+                self.assertNotContains(page, "data-expression-stats=")
+                self.assertNotContains(page, "en chargement")
+                if (part, task) == ("eo", "tache-2"):
+                    self.assertEqual(len(queries), 3)
+                    for query in queries:
+                        for table in ("study_card", "study_annotation", "study_prompt", "study_phrase"):
+                            self.assertNotIn(f'"{table}"', query["sql"])
+                    for key in ("subject_summary", "subject_count", "theme_vocabulary", "subject_theme_count"):
+                        self.assertNotIn(key, page.context)
 
-    def test_batch_is_fresh_after_completion_reset_and_account_switch(self):
-        url = self.urls[0] + "?stats=1"
+    def test_ee3_aggregate_overview_keeps_publication_sync_validation(self):
+        from study.views.library import _ee_tache_three_overview_context
+        task = Task.objects.get(part__slug="ee", slug="tache-3")
+        key = catalogue.ee_subject_keys(3)[0]
+        Prompt.objects.filter(content_key=key).update(is_active=False)
+        with self.assertRaisesMessage(RuntimeError, "content is not synchronized"):
+            _ee_tache_three_overview_context(self.user, task)
 
-        def metrics():
-            return self.client.get(url, HTTP_X_REQUESTED_WITH="XMLHttpRequest").json()["metrics"]
+    def test_eo3_overview_aggregates_and_directory_uses_existing_sparse_progress(self):
+        for route in ("task_detail", "task_browse"):
+            with patch(
+                "study.views.library.subject_progress_by_response",
+                wraps=subject_progress_by_response,
+            ) as progress:
+                page = self.client.get(reverse(f"study:{route}", args=["eo", "tache-3"]))
+            self.assertEqual(page.status_code, 200)
+            if route == "task_browse":
+                self.assertTrue(progress.call_args.kwargs["summary_only"])
+                self.assertContains(page, f'data-subject-progress-row="{self.prompt.response_id}"')
+            else:
+                progress.assert_not_called()
 
-        before = metrics()
-        card = Card.objects.get(user=self.user, response=self.prompt.response, card_type=CardType.SPINE)
-        Card.objects.filter(pk=card.pk).update(subject_completed_at=timezone.now(), state=CardState.NEW)
-        completed = metrics()
-        self.assertNotEqual(before, completed)
-        self.client.force_login(self.other)
-        self.assertEqual(metrics(), before)
-        self.client.force_login(self.user)
-        Card.objects.filter(pk=card.pk).update(subject_completed_at=None)
-        self.assertEqual(metrics(), before)
+    def test_writing_directory_counts_do_not_fetch_private_override_bodies(self):
+        from study.writing_responses import (
+            active_model_version_count, model_version_keys, overrides_by_sujet, replaced_model_key,
+        )
+        sujet = WritingSujet.objects.filter(is_active=True).first()
+        models = [{"body": "Public model"}]
+        key = model_version_keys(models)[0]
+        override = WritingResponseOverride.objects.create(
+            user=self.user, sujet=sujet, version_key=key, body="Very private " * 1000,
+        )
+        for body, deleted in (("Very private " * 1000, False), ("", False), ("", True)):
+            WritingResponseOverride.objects.filter(pk=override.pk).update(body=body, is_deleted=deleted)
+            full = overrides_by_sujet(self.user, [sujet.pk])[sujet.pk]
+            with CaptureQueriesContext(connection) as queries, self.assertNumQueries(1):
+                flags = overrides_by_sujet(self.user, [sujet.pk], metadata_only=True)[sujet.pk]
+            self.assertIsInstance(flags[key].body, bool)
+            self.assertNotIn('"study_writingresponseoverride"."body",', queries[0]["sql"])
+            self.assertEqual(active_model_version_count(models, full), active_model_version_count(models, flags))
+            self.assertEqual(
+                replaced_model_key(models, full, has_personal=True),
+                replaced_model_key(models, flags, has_personal=True),
+            )
+        self.assertEqual(overrides_by_sujet(self.other, [sujet.pk], metadata_only=True), {})
 
-    def test_batch_cannot_bypass_authentication_or_inactive_parts(self):
+    def test_navigation_cannot_bypass_authentication_or_inactive_parts(self):
         self.client.logout()
         for url in self.urls:
             page = self.client.get(url, {"stats": "1"}, HTTP_X_REQUESTED_WITH="XMLHttpRequest")
@@ -124,67 +236,6 @@ class ExpressionLandingPerformanceTests(TestCase):
         url = reverse("study:part_detail", args=[part.slug])
         self.assertEqual(self.client.get(url).status_code, 404)
         self.assertEqual(self.client.get(url, {"stats": "1"}).status_code, 404)
-
-    def test_lean_counts_preserve_every_rendered_card_value(self):
-        tasks = list(Task.objects.filter(is_active=True).select_related("part"))
-        now = timezone.now()
-        original = _task_content_counts(tasks)
-        summaries = expression_task_summaries(now, self.user, tasks, original)
-        lean = _task_content_counts(tasks, landing=True)
-        rendered = (
-            "stats", "response_stats", "prompt_count", "phrase_count",
-            "question_bank", "show_phrases",
-        )
-        for task in tasks:
-            lean[task.pk]["prompt_count"] = summaries[task.pk]["prompt_count"]
-            old = _task_card(task, now, self.user, with_deck_stats=False, content_counts=original, summaries=summaries)
-            new = _task_card(task, now, self.user, with_deck_stats=False, content_counts=lean, summaries=summaries)
-            for key in rendered:
-                if key == "prompt_count" and old["question_bank"]:
-                    continue
-                with self.subTest(task=task.slug, part=task.part.slug, key=key):
-                    self.assertEqual(new[key], old[key])
-
-    def test_memory_completions_are_batched_without_losing_task_or_user_scope(self):
-        catalogs = (get_ee_formulations(1), get_ee_formulations(3))
-        memories = catalogue.task_memoires("eo", "tache-1")
-        memory_key = next(iter(memories[0].question_keys))
-        for user, number, key in (
-            (self.user, memories[0].number, memory_key),
-            (self.user, 2, catalogs[0].entries[0].content_key),
-            (self.user, 1, catalogs[1].entries[0].content_key),
-            (self.other, 1, catalogs[0].entries[1].content_key),
-        ):
-            MemoryQuestionProgress.objects.create(
-                user=user, memory_number=number, question_key=key,
-            )
-        tasks = list(Task.objects.filter(is_active=True).select_related("part"))
-
-        def summarize():
-            return expression_task_summaries(timezone.now(), self.user, tasks)
-
-        with CaptureQueriesContext(connection) as queries:
-            summaries = summarize()
-        self.assertEqual(sum('"study_memoryquestionprogress"' in q["sql"] for q in queries), 1)
-        expected = formulation_progress_states(self.user, catalogs)
-        for task in tasks:
-            if task.part.slug == "ee" and task.slug in ("tache-1", "tache-3"):
-                self.assertEqual(
-                    summaries[task.pk]["formulation_progress"],
-                    expected[int(task.slug[-1])][2],
-                )
-        oral_task = next(t for t in tasks if (t.part.slug, t.slug) == ("eo", "tache-1"))
-        memory_states = _memory_progress(self.user, memories)
-        self.assertEqual(
-            summaries[oral_task.pk]["stats"]["completed"],
-            sum(state["progress"].completed for state in memory_states.values()),
-        )
-        MemoryQuestionProgress.objects.filter(
-            user=self.user, question_key=catalogs[0].entries[0].content_key,
-        ).update(memory_number=1)
-        writing_task = next(t for t in tasks if (t.part.slug, t.slug) == ("ee", "tache-1"))
-        changed = summarize()[writing_task.pk]["formulation_progress"]
-        self.assertEqual(changed.completed, expected[1][2].completed + 1)
 
 
 class ExpressionStatisticsProjectionTests(TestCase):
@@ -234,20 +285,23 @@ class ExpressionStatisticsProjectionTests(TestCase):
             })
             for index, (fields, _owner) in enumerate(cases)
         ]
-        selected = []
+        selected = {Prompt: [], Response: []}
+        iterate = QuerySet.__iter__
 
-        def record(execute, sql, params, many, context):
-            result = execute(sql, params, many, context)
-            selected.append(context["cursor"].rowcount)
+        def record(queryset):
+            result = iterate(queryset)
+            if queryset.model in selected:
+                selected[queryset.model].extend(queryset._result_cache)
             return result
 
-        with self.assertNumQueries(2), connection.execute_wrapper(record):
+        with self.assertNumQueries(2), patch.object(QuerySet, "__iter__", record):
             owners = annotation_owners(annotations)
         self.assertEqual(owners, {
             index: owner for index, (_fields, owner) in enumerate(cases)
             if owner is not None
         })
-        self.assertEqual(sum(selected), 3)  # One referenced prompt, two response roots.
+        self.assertEqual([row[0] for row in selected[Prompt]], [prompt.pk])
+        self.assertCountEqual([row[2] for row in selected[Response]], [response.pk, historical.pk])
         with self.assertNumQueries(1):
             self.assertEqual(annotation_owners([annotations[0]]), {0: response.pk})
         with self.assertNumQueries(0):
@@ -278,15 +332,15 @@ class ExpressionStatisticsProjectionTests(TestCase):
             user=self.user, response=oral, card_type=CardType.SPINE,
             subject_status_reset_at=reset_at,
         )
-        self.assertFalse(subject_progress_by_response(
+        self.assertEqual(subject_progress_by_response(
             self.user, [oral.pk], summary_only=True,
-        )[oral.pk].has_highlight)
+        )[oral.pk].status, "new")
         Annotation.objects.filter(
             user=self.user, source_prompt=oral.canonical_prompt, hidden_on_source=False,
         ).update(created_at=reset_at + timezone.timedelta(seconds=1))
-        self.assertTrue(subject_progress_by_response(
+        self.assertEqual(subject_progress_by_response(
             self.user, [oral.pk], summary_only=True,
-        )[oral.pk].has_highlight)
+        )[oral.pk].status, "active")
 
     def test_projected_lot_counts_preserve_stable_suspended_boundaries_and_freshness(self):
         scope = {"part": "eo", "task": "tache-2", "kind": "theme_vocab"}

@@ -12,29 +12,24 @@
         <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=task.icon only %}</span>
         <span>{{ task.name }}</span>
       </h1>
-      <div class="memory-overview-hero__actions">
-        {% include "study/partials/prompt_copy_button.html" with button_class="btn tache-two-ai-prompt-button" source_id="ai-practice-prompt-content" label="AI Practice Prompt" success_label="Copied!" error_label="Copy failed" toast_message="AI Practice Prompt copied to your clipboard." error_message="Could not copy the AI Practice Prompt." status_id="ai-practice-prompt-status" aria_label="Copy AI Practice Prompt" only %}
+      <div class="memory-overview-hero__actions memory-overview-hero__actions--practice">
+        {% include "study/partials/prompt_copy_button.html" with button_class="btn" source_id="ai-practice-prompt-content" label="AI Practice Prompt" success_label="Copied!" error_label="Copy failed" toast_message="AI Practice Prompt copied to your clipboard." error_message="Could not copy the AI Practice Prompt." status_id="ai-practice-prompt-status" aria_label="Copy AI Practice Prompt" only %}
         <span
           class="sr-only"
           id="ai-practice-prompt-status"
           role="status"
           aria-live="polite"
           data-ai-practice-prompt-status></span>
+        {% include "study/partials/tache_two_guidelines.html" %}
       </div>
-      {% include "study/partials/tache_two_guidelines.html" %}
     </div>
-    <dl class="memory-overview-hero__metrics" aria-label="Contenu de la Tâche 2">
-      <div><dt>Sujets</dt><dd>{{ subject_count }}</dd></div>
-      <div><dt>Thèmes</dt><dd>{{ theme_vocabulary.theme_count }}</dd></div>
-      <div><dt>Fiches de vocabulaire</dt><dd>{{ theme_vocabulary.phrase_count }}</dd></div>
-    </dl>
   </header>
 
   <div class="tache-two-overview-grid">
     <a
       class="tache-two-overview-panel tache-two-overview-panel--theme-vocabulary card"
       data-tache-two-overview-panel
-      href="{{ theme_vocabulary.url }}"
+      href="{% url 'study:tache_two_theme_vocabulary' %}"
       aria-labelledby="theme-vocabulary-overview-panel-title">
       <header class="tache-two-overview-panel__head">
         <span class="tache-two-overview-panel__icon" aria-hidden="true">
@@ -45,13 +40,7 @@
           <p>Des mots, expressions et fragments pour construire vos questions.</p>
         </div>
       </header>
-      <div class="tache-two-overview-panel__facts">
-        <span><b>{{ theme_vocabulary.theme_count }}</b> thèmes</span>
-        <span><b>{{ theme_vocabulary.phrase_count }}</b> fiches</span>
-        <span><b>{{ theme_vocabulary.batch_count }}</b> lots</span>
-      </div>
       <footer class="tache-two-overview-panel__footer">
-        {% include "study/partials/progress_summary.html" with summary=theme_vocabulary.summary unit_label="lots terminés" compact=True only %}
         <span class="tache-two-overview-panel__action">Ouvrir {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </footer>
     </a>
@@ -70,12 +59,7 @@
           <p>Les sujets complets, classés par thème.</p>
         </div>
       </header>
-      <div class="tache-two-overview-panel__facts">
-        <span><b>{{ subject_theme_count }}</b> thèmes</span>
-        <span><b>{{ subject_count }}</b> sujets</span>
-      </div>
       <footer class="tache-two-overview-panel__footer">
-        {% include "study/partials/progress_summary.html" with summary=subject_summary unit_label="sujets terminés" compact=True only %}
         <span class="tache-two-overview-panel__action">Ouvrir {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </footer>
     </a>

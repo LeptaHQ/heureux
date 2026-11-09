@@ -33,10 +33,8 @@ class NotePinningTests(TestCase):
         for value in ("1", "1", "0", "0"):
             result = self.client.post(
                 self.pin_url(note), {"is_pinned": value, "next": self.url},
-                HTTP_X_REQUESTED_WITH="fetch",
             )
-            self.assertEqual(result.status_code, 200)
-            self.assertEqual(result.json()["is_pinned"], value == "1")
+            self.assertEqual(result.status_code, 302)
             note.refresh_from_db()
             self.assertEqual(note.is_pinned, value == "1")
             self.assertEqual((note.body, note.created_at, note.updated_at), original)

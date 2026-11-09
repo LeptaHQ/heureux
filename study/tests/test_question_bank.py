@@ -2721,10 +2721,8 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "study/tache_two_overview.html")
         self.assertTrue(self.task.available)
-        self.assertEqual(response.context["subject_count"], 348)
-        self.assertEqual(response.context["theme_vocabulary"]["theme_count"], 18)
-        self.assertEqual(response.context["theme_vocabulary"]["phrase_count"], 810)
-        self.assertEqual(response.context["theme_vocabulary"]["batch_count"], 54)
+        for key in ("subject_count", "subject_summary", "subject_theme_count", "theme_vocabulary"):
+            self.assertNotIn(key, response.context)
         self.assertEqual(
             response.context["ai_practice_prompt"],
             load_ai_examiner_prompt(),
@@ -2751,10 +2749,10 @@ class QuestionBankViewTests(TestCase):
             response,
             'id="subject-overview-panel-title">Sujets</h2>',
         )
-        self.assertContains(response, "0/54")
-        self.assertContains(response, "lots terminés")
-        self.assertContains(response, "0/164")
-        self.assertContains(response, "sujets terminés")
+        self.assertNotContains(response, "lots terminés")
+        self.assertNotContains(response, "sujets terminés")
+        self.assertNotContains(response, "tache-two-overview-panel__facts")
+        self.assertNotContains(response, "memory-overview-hero__metrics")
         self.assertContains(
             response,
             reverse("study:tache_two_theme_vocabulary"),

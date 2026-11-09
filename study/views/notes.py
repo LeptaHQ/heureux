@@ -2030,11 +2030,6 @@ def annotation_pin_toggle(request, pk):
     redirect_url = target._replace(
         query=urlencode(params, doseq=True), fragment=f"note-{pk}"
     ).geturl()
-    if _is_fetch(request):
-        return JsonResponse(
-            {"id": annotation.pk, "is_pinned": annotation.is_pinned,
-             "redirect_url": redirect_url}
-        )
     return redirect(redirect_url)
 
 

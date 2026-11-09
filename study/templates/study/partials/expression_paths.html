@@ -1,4 +1,4 @@
 {% for path in paths %}
   {% url 'study:part_detail' path.part.slug as path_url %}
-  {% include "study/partials/path_card.html" with code=path.part.short_name|lower title=path.title available=path.available url=path_url task_count=path.task_count prompt_count=path.prompt_count seen=path.seen total=path.total progress=path.progress has_content=path.has_content content_unit=path.content_unit progress_unit=path.progress_unit action_label="Voir les tâches" loading=deferred_stats only %}
+  {% include "study/partials/path_card.html" with code=path.part.short_name|lower title=path.title available=path.available url=path_url description=path.description action_label="Voir les tâches" only %}
 {% endfor %}

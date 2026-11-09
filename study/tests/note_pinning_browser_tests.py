@@ -153,3 +153,27 @@ class NotePinningBrowserTests(StaticLiveServerTestCase):
         page.keyboard.press("Escape")
         page.get_by_role("button", name="Cartes", exact=True).click()
         self.assertLessEqual(page.locator(f"#note-{self.note.pk}").bounding_box()["height"], 222)
+
+    def test_action_circles_and_hover_backgrounds_are_uniform(self):
+        page = self.context(width=1280).new_page()
+        page.goto(self.url)
+        actions = page.locator(".annotation-card__actions .annotation-action:visible")
+        self.assertGreaterEqual(actions.count(), 5)
+        for action in actions.all():
+            action.hover()
+            shape = action.evaluate("""(button) => {
+                const icon = button.querySelector(".annotation-action__icon, .read-aloud-action__icon");
+                const style = getComputedStyle(button);
+                const rect = icon.getBoundingClientRect();
+                return {
+                    width: rect.width, height: rect.height,
+                    buttonWidth: button.getBoundingClientRect().width,
+                    buttonHeight: button.getBoundingClientRect().height,
+                    background: style.backgroundColor,
+                    radius: getComputedStyle(icon).borderRadius
+                };
+            }""")
+            self.assertEqual((shape["width"], shape["height"]), (36, 36))
+            self.assertEqual((shape["buttonWidth"], shape["buttonHeight"]), (44, 44))
+            self.assertEqual(shape["radius"], "50%")
+            self.assertEqual(shape["background"], "rgba(0, 0, 0, 0)")

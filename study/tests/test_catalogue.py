@@ -214,7 +214,7 @@ class CatalogueRequestTests(TestCase):
     def _pages(self):
         return {
             "dashboard": reverse("study:dashboard"),
-            "expression": reverse("study:expression") + "?stats=1",
+            "expression": reverse("study:expression"),
             "eo2-overview": reverse("study:task_detail", args=["eo", "tache-2"]),
             "eo2-directory": reverse("study:task_browse", args=["eo", "tache-2"]),
             "eo2-detail": reverse(
@@ -254,29 +254,10 @@ class CatalogueRequestTests(TestCase):
                     for _ in range(2):
                         self.assertEqual(self._html(self.client.get(url)), cold)
 
-    def _summary(self, response, task_slug):
-        self.assertEqual(response.status_code, 200)
-        paths = (
-            response.context["expression_paths"]
-            if "expression_paths" in response.context
-            else response.context["paths"]
-        )
-        return next(
-            row["stats"]
-            for path in paths
-            if path["part"].slug == "eo"
-            for row in path["tasks"]
-            if row["task"].slug == task_slug
-        )
-
     def test_warmed_pages_keep_progress_fresh_and_private(self):
         pages = self._pages()
         for url in pages.values():
             self.assertEqual(self.client.get(url).status_code, 200)
-        self.assertEqual(
-            self._summary(self.client.get(pages["expression"]), "tache-2")["completed"],
-            0,
-        )
 
         Card.objects.filter(
             user=self.user, response=self.prompt.response, card_type=CardType.SPINE
@@ -287,30 +268,17 @@ class CatalogueRequestTests(TestCase):
             memory_number=memory.number,
             question_key=memory.question_keys[0],
         )
-        group_count = Prompt.objects.filter(
-            theme__task=self.prompt.theme.task, is_active=True,
-        ).values("response_id").distinct().count()
-
         with self._no_bundled_reads():
-            response = self.client.get(pages["expression"])
-            summary = self._summary(response, "tache-2")
-            self.assertEqual(summary["total"], group_count)
-            self.assertEqual(summary["completed"], 1)
-            self.assertEqual(
-                self._summary(response, "tache-1")["completed"], 1
-            )
             detail = self.client.get(pages["eo2-detail"])
             self.assertTrue(detail.context["subject_progress"].explicitly_completed)
             self.assertEqual(detail.context["selected_prompt"].pk, self.prompt.pk)
             bank_page = self.client.get(pages["eo1-overview"])
             self.assertEqual(bank_page.context["memory_progress"].completed, 1)
             self.client.force_login(self.other)
-            self.client.force_login(self.other)
-            response = self.client.get(pages["expression"])
-            self.assertEqual(self._summary(response, "tache-2")["completed"], 0)
-            self.assertEqual(self._summary(response, "tache-1")["completed"], 0)
             detail = self.client.get(pages["eo2-detail"])
             self.assertFalse(detail.context["subject_progress"].explicitly_completed)
+            bank_page = self.client.get(pages["eo1-overview"])
+            self.assertEqual(bank_page.context["memory_progress"].completed, 0)
 
     def test_warmed_catalogue_does_not_cache_active_database_content(self):
         url = self._pages()["eo2-detail"]

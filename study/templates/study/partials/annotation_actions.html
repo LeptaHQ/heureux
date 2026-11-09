@@ -53,11 +53,11 @@ selected — never to the note you wrote about it.
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ request.get_full_path }}">
     <input type="hidden" name="is_pinned" value="{% if annotation.is_pinned %}0{% else %}1{% endif %}">
-    <button class="linkbtn annotation-action annotation-action--pin" type="submit"
+    <button class="linkbtn annotation-action" type="submit"
             aria-label="{% if annotation.is_pinned %}Désépingler la note{% else %}Épingler la note{% endif %}"
             aria-pressed="{{ annotation.is_pinned|yesno:'true,false' }}"
             title="{% if annotation.is_pinned %}Désépingler{% else %}Épingler{% endif %}">
-      <span class="annotation-action__icon" aria-hidden="true">{% include "study/partials/annotation_pin_icon.html" %}</span>
+      <span class="annotation-action__icon annotation-action__icon--pin" aria-hidden="true">{% include "study/partials/annotation_pin_icon.html" %}</span>
       <span class="sr-only">{% if annotation.is_pinned %}Désépingler la note{% else %}Épingler la note{% endif %}</span>
     </button>
   </form>

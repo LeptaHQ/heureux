@@ -6348,6 +6348,33 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.wait_for_url(self.live_server_url + edit_path)
         expect(self.page.locator("#id_prompt_note")).to_be_visible()
 
+    def test_tache_two_practice_tools_are_compact_and_guide_expands(self):
+        task = factories.make_task(self.part, "tache-2")
+        for width in (390, 1280):
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 844})
+                self.page.goto(self.live_server_url + reverse(
+                    "study:task_detail", args=[self.part.slug, task.slug]
+                ))
+                guide = self.page.locator(".eo2-guidelines")
+                summary = guide.locator("summary")
+                copy = self.page.get_by_role("button", name="Copy AI Practice Prompt")
+                expect(summary).to_be_visible()
+                expect(copy).to_be_visible()
+                self.assertLessEqual(guide.bounding_box()["height"], 48)
+                self.assertAlmostEqual(
+                    summary.bounding_box()["height"], copy.bounding_box()["height"], delta=2
+                )
+                self.assertEqual(self.page.evaluate(
+                    "() => document.documentElement.scrollWidth <= innerWidth"
+                ), True)
+                summary.click()
+                expect(guide).to_have_attribute("open", "")
+                expect(guide.locator(".eo2-guidelines__body")).to_be_visible()
+                expect(guide).to_contain_text("2 minutes of preparation")
+                summary.click()
+                expect(guide.locator(".eo2-guidelines__body")).not_to_be_visible()
+
     def test_tache_two_subjects_have_hints_and_preserve_practice_flow(self):
         command = Command()
         task_map = command._import_sections(load_sections())

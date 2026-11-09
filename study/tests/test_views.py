@@ -2740,11 +2740,7 @@ class TaskOrganizationTests(TestCase):
             self._task_url("study:task_detail"),
         )
         self.assertEqual(
-            linked_expression_only.context["response_stats"]["seen"],
-            0,
-        )
-        self.assertEqual(
-            linked_expression_only.context["themes"][0]["stats"]["seen"],
+            linked_expression_only.context["response_stats"]["progress"].started,
             0,
         )
         self.assertContains(linked_expression_only, "À commencer")
@@ -2759,20 +2755,14 @@ class TaskOrganizationTests(TestCase):
         direct_practice = self.client.get(
             self._task_url("study:task_detail"),
         )
-        self.assertEqual(direct_practice.context["response_stats"]["seen"], 1)
         self.assertEqual(
-            direct_practice.context["themes"][0]["stats"]["seen"],
-            1,
-        )
-        self.assertEqual(direct_practice.context["response_stats"]["due"], 1)
-        self.assertEqual(
-            direct_practice.context["themes"][0]["stats"]["due"],
+            direct_practice.context["response_stats"]["progress"].started,
             1,
         )
         self.assertContains(direct_practice, "En cours")
-        expression_hub = self.client.get(reverse("study:expression"), {"stats": "1"})
-        self.assertEqual(expression_hub.context["response_due"], 1)
-        self.assertContains(expression_hub, "Réponses à revoir")
+        expression_hub = self.client.get(reverse("study:expression"))
+        self.assertNotIn("response_due", expression_hub.context)
+        self.assertNotContains(expression_hub, "Réponses à revoir")
 
     def test_retired_subject_vocabulary_does_not_affect_response_progress(self):
         prompt = self.response_card.response.prompts.get(is_canonical=True)

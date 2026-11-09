@@ -2,9 +2,7 @@
 
 from __future__ import annotations
 
-from unittest.mock import patch
-
-from django.db.models import Prefetch, Q
+from django.db.models import Q
 from django.test import TestCase
 from django.test.utils import CaptureQueriesContext
 from django.db import connection
@@ -18,8 +16,6 @@ from study.models import (
     AnnotationKind,
     Card,
     CardState,
-    CardType,
-    ExamPart,
     PersonalWritingResponse,
     Phrase,
     PhraseCategory,
@@ -30,10 +26,6 @@ from study.models import (
     WritingSujet,
     WritingSujetCompletion,
 )
-from study.views.dashboard import (
-    _home_expression_paths,
-    _parts_with_task_summaries,
-)
 from study.views.helpers import (
     FUNCTIONAL_PHRASE_CATEGORY_NAMES,
     _task_card,
@@ -43,42 +35,6 @@ from study.views.helpers import (
 )
 
 from . import factories
-
-
-def legacy_expression_paths(now, user):
-    """The pre-batch expression paths, kept as the reference for the new ones.
-
-    This is what the expression hub used to run: a full :func:`_task_card` per
-    active task, folded into paths by
-    :func:`_home_expression_paths`.
-    """
-    parts = list(
-        ExamPart.objects.filter(is_active=True).prefetch_related(
-            Prefetch("tasks", queryset=Task.objects.filter(is_active=True))
-        )
-    )
-    tasks_by_part = [(part, list(part.tasks.all())) for part in parts]
-    content_counts = _task_content_counts(
-        [task for _, tasks in tasks_by_part for task in tasks]
-    )
-    return _home_expression_paths(
-        [
-            {
-                "part": part,
-                "tasks": [
-                    _task_card(
-                        task,
-                        now,
-                        user,
-                        with_deck_stats=False,
-                        content_counts=content_counts,
-                    )
-                    for task in tasks
-                ],
-            }
-            for part, tasks in tasks_by_part
-        ]
-    )
 
 
 def legacy_task_counts(task):
@@ -401,63 +357,15 @@ class TaskCardQueryBudgetTests(TestCase):
         self.assertEqual(response.status_code, 200)
         return len(ctx.captured_queries)
 
-    def _unbatched_query_count(self, url, view_module):
-        """Query count for the same page with the batch turned off.
-
-        An empty mapping sends every card back to looking its own counts up,
-        which is what the per-task version of ``_task_card`` used to do.
-        """
-        with patch(
-            f"study.views.{view_module}._task_content_counts",
-            return_value={},
-        ):
-            return self._query_count(url)
-
-    def test_expression_hub_summarizes_every_task_in_one_call(self):
-        with patch(
-            "study.views.dashboard.expression_task_summaries",
-            wraps=expression_task_summaries,
-        ) as batched:
-            self.client.get(reverse("study:expression"), {"stats": "1"})
-
-        self.assertEqual(batched.call_count, 1)
-        for call in batched.call_args_list:
-            tasks = list(call.args[2])
-            self.assertEqual(
-                sorted(task.pk for task in tasks),
-                sorted(
-                    Task.objects.filter(
-                        is_active=True,
-                        part__is_active=True,
-                    ).values_list("pk", flat=True)
-                ),
-            )
-
-    def test_part_detail_batches_content_counts_once(self):
-        with patch(
-            "study.views.library._task_content_counts",
-            wraps=_task_content_counts,
-        ) as batched:
-            self.client.get(
-                reverse("study:part_detail", args=[self.part.slug]), {"stats": "1"},
-            )
-
-        self.assertEqual(batched.call_count, 1)
-
-    def test_extra_tasks_do_not_add_content_count_queries(self):
-        """Extra tasks may add user progress queries, never content counts."""
-        url = reverse("study:part_detail", args=[self.part.slug]) + "?stats=1"
+    def test_extra_tasks_do_not_add_navigation_queries(self):
+        """Additional tasks stay in the same metadata prefetch."""
+        url = reverse("study:part_detail", args=[self.part.slug])
         before = self._query_count(url)
-
-        added_tasks = 2
         self._task_with_content("tache-4")
+        fallback = self._query_count(url)
         self._task_with_content("tache-5")
-
-        growth = self._query_count(url) - before
-        unbatched_growth = (
-            self._unbatched_query_count(url, "library") - before
-        )
-        self.assertLessEqual(growth, unbatched_growth - 4 * added_tasks)
+        self.assertEqual(fallback, before)
+        self.assertEqual(self._query_count(url), before)
 
     def test_extra_tasks_do_not_add_expression_page_queries(self):
         """The hub stays flat and the static home remains content-independent."""
@@ -473,19 +381,6 @@ class TaskCardQueryBudgetTests(TestCase):
         for url in pages:
             with self.subTest(url=url):
                 self.assertEqual(self._query_count(url), before[url])
-
-
-PATH_KEYS = (
-    "available",
-    "task_count",
-    "has_content",
-    "prompt_count",
-    "seen",
-    "total",
-    "due",
-    "progress",
-    "title",
-)
 
 
 class ExpressionPathSummaryTests(TestCase):
@@ -666,49 +561,6 @@ class ExpressionPathSummaryTests(TestCase):
         soon_theme = factories.make_theme("ex-tache-1-theme", task=soon_task)
         factories.make_spine_card(theme=soon_theme, user=self.user)
 
-    def _paths(self):
-        return {
-            path["part"].slug: path
-            for path in _home_expression_paths(
-                _parts_with_task_summaries(self.now, self.user)
-            )
-        }
-
-    def _comparable(self, paths):
-        return [
-            (path["part"].slug, {key: path[key] for key in PATH_KEYS})
-            for path in paths
-        ]
-
-    def test_paths_match_the_task_card_paths(self):
-        legacy = legacy_expression_paths(self.now, self.user)
-        batched = _home_expression_paths(
-            _parts_with_task_summaries(self.now, self.user)
-        )
-
-        self.assertEqual(self._comparable(batched), self._comparable(legacy))
-
-    def test_hub_totals_match_the_task_card_totals(self):
-        legacy = [
-            path
-            for path in legacy_expression_paths(self.now, self.user)
-            if path["available"]
-        ]
-        batched = [
-            path
-            for path in _home_expression_paths(
-                _parts_with_task_summaries(self.now, self.user)
-            )
-            if path["available"]
-        ]
-
-        for key in ("prompt_count", "total", "seen", "due"):
-            with self.subTest(key=key):
-                self.assertEqual(
-                    sum(path[key] for path in batched),
-                    sum(path[key] for path in legacy),
-                )
-
     def test_tache_two_keeps_publications_but_counts_equivalent_progress_once(self):
         summaries = expression_task_summaries(
             self.now,
@@ -723,21 +575,6 @@ class ExpressionPathSummaryTests(TestCase):
         self.assertEqual(stats["seen"], 2)
         self.assertEqual(stats["progress"].total, 347)
         self.assertEqual(stats["progress"].completed, 1)
-
-    def test_ordinary_tasks_collapse_aliases_onto_their_response(self):
-        summaries = expression_task_summaries(
-            self.now,
-            self.user,
-            [self.tache_three],
-        )
-        summary = summaries[self.tache_three.pk]
-
-        # Five prompts — four responses plus one alias — and one archived
-        # theme's prompt, over four responses with progress.
-        self.assertEqual(summary["prompt_count"], 6)
-        self.assertEqual(summary["stats"]["total"], 4)
-        self.assertEqual(summary["stats"]["seen"], 3)
-        self.assertEqual(summary["stats"]["completed"], 0)
 
     def test_due_counts_the_due_response_cards_of_each_task(self):
         summaries = expression_task_summaries(
@@ -841,7 +678,6 @@ class ExpressionPathSummaryTests(TestCase):
         self.assertEqual(card["stats"]["completed"], 2)
 
     def test_unavailable_tasks_and_parts_stay_empty(self):
-        paths = self._paths()
         unavailable_task = Task.objects.get(part=self.eo, slug="tache-1")
         summaries = expression_task_summaries(
             self.now,
@@ -852,37 +688,6 @@ class ExpressionPathSummaryTests(TestCase):
         self.assertEqual(
             summaries[unavailable_task.pk],
             {"prompt_count": 0, "stats": None},
-        )
-        self.assertEqual(paths["eo"]["task_count"], 3)
-        self.assertFalse(paths["ex"]["available"])
-        self.assertTrue(paths["ex"]["has_content"])
-
-    def test_rendered_hub_matches_the_task_card_numbers(self):
-        self.client.force_login(self.user)
-        legacy = [
-            path
-            for path in legacy_expression_paths(self.now, self.user)
-            if path["available"]
-        ]
-
-        response = self.client.get(reverse("study:expression"), {"stats": "1"})
-
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(
-            response.context["prompt_count"],
-            sum(path["prompt_count"] for path in legacy),
-        )
-        self.assertEqual(
-            response.context["card_total"],
-            sum(path["total"] for path in legacy),
-        )
-        self.assertEqual(
-            response.context["card_seen"],
-            sum(path["seen"] for path in legacy),
-        )
-        self.assertEqual(
-            response.context["response_due"],
-            sum(path["due"] for path in legacy),
         )
 
     def test_query_count_does_not_grow_with_the_number_of_tasks(self):

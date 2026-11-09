@@ -1731,6 +1731,23 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   gap: 0.65rem;
   margin-top: 0.75rem;
 }
+.memory-overview-hero__actions--practice { flex-wrap: wrap; }
+.eo2-guidelines { min-width: 0; }
+.eo2-guidelines summary { list-style: none; }
+.eo2-guidelines summary::-webkit-details-marker { display: none; }
+.eo2-guidelines[open] { flex-basis: 100%; }
+.eo2-guidelines[open] summary svg { transform: rotate(180deg); }
+.eo2-guidelines__body {
+  max-width: 72ch;
+  margin-top: 0.75rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.eo2-guidelines__body p:first-child { margin-top: 0; }
+.eo2-guidelines__body li + li { margin-top: 0.45rem; }
 .tache-two-ai-prompt-button {
   --icon-color: currentColor;
   min-width: 12.5rem;
@@ -5154,7 +5171,6 @@ html:has(.methodology-dialog[open]) {
   background: var(--success);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 12%, transparent);
 }
-.annotation-action--pin[aria-pressed="true"] { color: var(--success); }
 .annotation-card__open[hidden] { display: none; }
 .notes-pin-ready .annotation-card--pinned { cursor: pointer; }
 .notes-pin-ready .annotation-card--pinned:hover {
@@ -5421,7 +5437,7 @@ html:not([data-collection-view-mode="table"])
   gap: 0.35rem;
 }
 .annotation-text-action svg { flex: none; }
-.annotation-action {
+.linkbtn.annotation-action {
   width: 44px;
   height: 44px;
   /* Never let a crowded action row squeeze a tap target below 44px. */
@@ -5432,6 +5448,10 @@ html:not([data-collection-view-mode="table"])
   place-items: center;
   border-radius: 50%;
   align-items: center;
+}
+.linkbtn.annotation-action:hover:not(:disabled) { background: transparent; }
+.annotation-action:hover:not(:disabled) .annotation-action__icon {
+  filter: brightness(0.94);
 }
 .annotation-action__icon {
   display: inline-grid;
@@ -5519,6 +5539,14 @@ html:not([data-collection-view-mode="table"])
 .annotation-action__icon--edit {
   background: var(--primary-soft);
   color: var(--primary);
+}
+.annotation-action__icon--pin {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.annotation-action[aria-pressed="true"] .annotation-action__icon--pin {
+  background: var(--success-soft);
+  color: var(--success);
 }
 .annotation-action__icon--done {
   background: var(--success-soft);

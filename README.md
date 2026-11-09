@@ -47,26 +47,25 @@ Use `EXPLAIN (ANALYZE, BUFFERS)` on representative reads in an isolated seeded
 PostgreSQL database to evaluate planner changes; production network round trips,
 cold starts, concurrency and browser rendering require separate measurement.
 
-The Expression hub and oral/written landing pages render navigation immediately.
-Content totals and personal progress load in **one private, uncached batch per
-page**, with a visible loading state and retry on failure; unavailable statistics
-are never displayed as zero progress. The `?stats=1` link provides the complete
-server-rendered page without JavaScript. Landing cards reuse prompt totals and
-omit vocabulary/count aggregates they do not display. This shortens the
-navigation critical path, not the database/network cost of all statistics.
-The batch resolves oral annotation owners from referenced IDs/keys only, reuses
-annotation-shape counts and memory completions within the request, and projects
-writing-model availability without loading model JSON. Oral landing lot summaries
+The Expression hub and oral/written landing pages are metadata-only navigation:
+titles, descriptions, icons and links, without catalogue/progress/due counts or
+statistics requests. EO/EE task overviews aggregate the study progress they
+actually display without constructing full subject directories or review links.
+The EO2 task overview is also metadata-only navigation, retaining its practice
+prompt and links to subjects and vocabulary without summary statistics.
+Content-bearing subject, vocabulary and question pages retain their learning
+controls and data. Personal statistics remain private, uncached and recalculated
+on each request where displayed. Oral annotation owners reuse request-local
+identities; writing-model availability is projected without loading model JSON. Lot summaries
 aggregate stable phrase units in SQL rather than transferring every card; suspended
 units keep their original lot positions. No private progress is globally cached.
 
-Exercise the browser loading, retry, focus and no-JavaScript behavior against a
-disposable PostgreSQL instance:
+Exercise lean, JavaScript-free navigation against a disposable PostgreSQL instance:
 
 ```bash
 DATABASE_URL=postgresql://test_user@127.0.0.1:55439/heureux_test \
 DB_DISABLE_SERVER_SIDE_CURSORS=True python manage.py test \
-  study.tests.expression_stats_browser_tests
+  study.tests.expression_navigation_browser_tests
 ```
 
 CI runs `database-locking` tests, including public oral annotation preservation,

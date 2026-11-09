@@ -1,19 +1,14 @@
 {% extends "base.html" %}
-{% load static %}
 {% block title %}Expression · Heureux{% endblock %}
 
 {% block content %}
-<div class="area-page expression-hub"{% if deferred_stats %} data-expression-stats="{{ stats_url }}"{% endif %}>
+<div class="area-page expression-hub">
   <header class="area-hero">
     <div class="area-hero__copy">
       <h1>Expression</h1>
       <p>Réponses orales et écrites, organisées par tâche.</p>
     </div>
-    <dl class="area-hero__metrics" aria-label="Progression en expression" data-expression-stats-metrics>
-      {% include "study/partials/expression_metrics.html" %}
-    </dl>
   </header>
-  {% include "study/partials/expression_stats_status.html" %}
 
   <section class="area-section" aria-labelledby="expression-paths-title">
     <div class="section-heading">
@@ -22,12 +17,9 @@
       </div>
     </div>
 
-    <div class="expression-paths" data-expression-stats-content>
+    <div class="expression-paths">
       {% include "study/partials/expression_paths.html" %}
     </div>
   </section>
 </div>
-{% endblock %}
-{% block scripts %}
-  {% if deferred_stats %}<script src="{% static 'study/js/expression-stats.js' %}?v=1"></script>{% endif %}
 {% endblock %}

@@ -223,8 +223,12 @@ def _annotation_prompt_key(key):
     return None
 
 
-def annotation_owners(annotations):
-    """An explicit occurrence path outranks a historically shared source root."""
+def annotation_owners(annotations, *, known_prompts=(), known_responses=None):
+    """Occurrence priority, optionally reusing eligible request-local metadata.
+
+    Known prompts must be active semantic prompts; known response keys must map
+    to their semantic owner. Missing references still use the normal lookups.
+    """
     annotations = tuple(annotations)
     prompt_ids = set()
     prompt_keys = set()
@@ -242,13 +246,16 @@ def annotation_owners(annotations):
             key for key in (path_key, _annotation_prompt_key(annotation.source_key))
             if key is not None
         )
+    by_id = {prompt.pk: prompt for prompt in known_prompts}
+    by_key = {prompt.content_key: prompt for prompt in by_id.values()}
     prompts = [
         AnnotationPromptOwner(*row)
         for row in Prompt.objects.filter(
             is_active=True,
             response__semantic_group__gt="",
         ).filter(
-            Q(pk__in=prompt_ids) | Q(content_key__in=prompt_keys),
+            Q(pk__in=prompt_ids - by_id.keys())
+            | Q(content_key__in=prompt_keys - by_key.keys()),
         ).order_by().values_list(
             "pk",
             "content_key",
@@ -257,8 +264,8 @@ def annotation_owners(annotations):
             "theme__task__slug",
         )
     ]
-    by_id = {prompt.pk: prompt for prompt in prompts}
-    by_key = {prompt.content_key: prompt for prompt in prompts}
+    by_id.update((prompt.pk, prompt) for prompt in prompts)
+    by_key.update((prompt.content_key, prompt) for prompt in prompts)
     unresolved = [
         annotation for annotation in annotations
         if not (
@@ -272,14 +279,15 @@ def annotation_owners(annotations):
         if annotation.source_key.startswith(("response:", "subject-sidebar:"))
         and _annotation_prompt_key(annotation.source_key) is None
     }
-    response_by_key = {
+    response_by_key = dict(known_responses or {})
+    response_by_key.update({
         content_key: semantic_owner_id or response_id
         for content_key, semantic_owner_id, response_id
         in Response.objects.filter(
             Q(semantic_group__gt="") | Q(semantic_owner__isnull=False),
-            content_key__in=response_keys,
+            content_key__in=response_keys - response_by_key.keys(),
         ).values_list("content_key", "semantic_owner_id", "pk")
-    }
+    })
     phrase_keys = {
         match[1] for annotation in unresolved
         if (match := re.match(r"phrase:([^:]+):", annotation.source_key))

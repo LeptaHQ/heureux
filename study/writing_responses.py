@@ -3,16 +3,26 @@
 import hashlib
 import json
 from collections import Counter
+from types import SimpleNamespace
 from urllib.parse import urlencode
 
 from django.urls import reverse
+from django.db.models import Q
 
 from .models import WritingResponseOverride
 
 
-def overrides_by_sujet(user, sujet_ids):
+def overrides_by_sujet(user, sujet_ids, *, metadata_only=False):
+    """Optionally return only deletion/body-truthiness flags for version counts."""
     result = {}
-    for override in WritingResponseOverride.objects.filter(user=user, sujet_id__in=sujet_ids):
+    rows = WritingResponseOverride.objects.filter(user=user, sujet_id__in=sujet_ids)
+    if metadata_only:
+        for sujet, key, deleted, has_body in rows.order_by().annotate(
+            _has_body=~Q(body=""),
+        ).values_list("sujet_id", "version_key", "is_deleted", "_has_body"):
+            result.setdefault(sujet, {})[key] = SimpleNamespace(is_deleted=deleted, body=has_body)
+        return result
+    for override in rows:
         result.setdefault(override.sujet_id, {})[override.version_key] = override
     return result
 

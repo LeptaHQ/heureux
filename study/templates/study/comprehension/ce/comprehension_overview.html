@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Compréhension écrite · Heureux{% endblock %}
+
+{% block content %}
+<div class="ce-shell">
+  <nav class="ce-breadcrumb" aria-label="Fil d’Ariane">
+    <a href="{% url 'study:dashboard' %}">Accueil</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_hub' %}">Compréhension</a>
+    <span aria-hidden="true">›</span>
+    <span>Compréhension écrite</span>
+  </nav>
+
+  <header class="ce-library-hero">
+    <div class="ce-library-hero__copy">
+      <h1>Compréhension écrite</h1>
+      <div class="ce-library-hero__actions">
+        <a class="btn" href="{% url 'study:comprehension_vocabulary' %}">Vocabulaire des tests</a>
+        <a class="btn btn--primary ce-library-hero__study" href="{{ study_list_url }}">
+          Questions à étudier
+          <span class="ce-library-hero__study-count" data-question-study-mode-count="ecrite">{{ study_marked_count }}</span>
+        </a>
+      </div>
+    </div>
+    <div class="ce-library-hero__metrics" aria-label="Progression en compréhension écrite">
+      <div>
+        <strong>{{ published_count }}</strong>
+        <span>test{{ published_count|pluralize }} disponible{{ published_count|pluralize }}</span>
+      </div>
+      <div>
+        <strong>{{ completed_count }}</strong>
+        <span>test{{ completed_count|pluralize }} terminé{{ completed_count|pluralize }}</span>
+      </div>
+      <div>
+        <strong data-question-study-mode-count="ecrite">{{ study_marked_count }}</strong>
+        <span>questions à étudier</span>
+      </div>
+      <div>
+        <strong>{% if best_percentage is not None %}{{ best_percentage }} %{% else %}—{% endif %}</strong>
+        <span>meilleur résultat</span>
+      </div>
+    </div>
+  </header>
+
+  {% if groups %}
+    {% include "study/shared/partials/collection_view_toggle.html" %}
+  {% endif %}
+
+  <div class="ce-section-heading">
+    <h2>Batches</h2>
+    <p>{{ groups|length }} batches de 5 tests</p>
+  </div>
+
+  {% include "study/comprehension/partials/comprehension_batch_collection.html" with groups=groups batch_icon="book-open" accent="var(--ce-blue)" %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% include "study/comprehension/partials/comprehension_progress_script.html" %}
+{% endblock %}

@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 from django.test import SimpleTestCase
 
-from study.content_loader import (
+from study.catalogue.loader import (
     CONTENT_DIR,
     EE_MONTH_ORDER,
     EE_TACHE_CONTENT_PREFIXES,
@@ -286,7 +286,7 @@ class EeEquivalentGroupTests(SimpleTestCase):
                     original, replacement
                 )
                 with patch(
-                    "study.content_loader._ee_subject_signatures",
+                    "study.catalogue.loader._ee_subject_signatures",
                     return_value=signatures,
                 ):
                     with self.assertRaisesRegex(

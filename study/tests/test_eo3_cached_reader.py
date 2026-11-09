@@ -10,12 +10,12 @@ from django.test import TestCase, override_settings
 from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 
-from study.eo3_audio import narration_spec
+from study.expression.eo.tache_3.audio import narration_spec
 from study.models import EO3Narration, FrenchNarration, FrenchNarrationBudget, PersonalResponse, Prompt
-from study.oral_history import preferred_personal, preferred_personals
-from study.response_personalization import effective_response
-from study.routing import prompt_detail_url
-from study.tache_three_models import reviewed_model
+from study.expression.eo.history import preferred_personal, preferred_personals
+from study.expression.personalization import effective_response
+from study.navigation.routing import prompt_detail_url
+from study.expression.eo.tache_3.responses import reviewed_model
 from . import factories
 from .test_eo3_audio import AUDIO, AUDIO_SETTINGS
 
@@ -72,8 +72,8 @@ class CachedReaderTests(TestCase):
             nuance=content.nuance, conclusion=content.conclusion,
         )
 
-    @patch("study.french_audio.generate_prepared")
-    @patch("study.eo3_audio.synthesize")
+    @patch("study.audio.french.generate_prepared")
+    @patch("study.expression.eo.tache_3.audio.synthesize")
     def test_current_theme_current_position_order_and_no_generation(self, provider, prepare):
         self.cache(self.prompts[0])
         self.cache(self.prompts[1])

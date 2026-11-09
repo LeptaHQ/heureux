@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Sujets · {{ task.short_label }} · Heureux{% endblock %}
+
+{% block content %}
+{% include "study/expression/partials/task_nav.html" %}
+
+<div class="tache-two-subjects sortable-subject-directory ee-writing-subjects ee-writing-subjects--t{{ writing_tache }}" style="--subject-accent: {{ task.color }};">
+  <header class="memory-overview-hero directory-header">
+    <div class="memory-overview-hero__copy">
+      <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
+        <span class="title-with-icon__glyph">{% include "study/shared/partials/ui_icon.html" with name=task.icon only %}</span>
+        <span>{% if writing_tache == 1 %}Messages &amp; courriels{% else %}Récits &amp; expériences{% endif %}</span>
+      </h1>
+      <p>{% if writing_tache == 1 %}60–120{% else %}120–150{% endif %} mots · {% include "study/expression/ee/partials/writing_methodology_trigger.html" %}</p>
+    </div>
+    <dl class="memory-overview-hero__metrics" aria-label="Corpus de sujets">
+      <div><dt>Thèmes</dt><dd>{{ category_count }}</dd></div>
+      <div><dt>Sujets publiés</dt><dd>{{ sujet_count }}</dd></div>
+      <div><dt>Exercices distincts</dt><dd>{{ distinct_count }}</dd></div>
+      <div><dt>Réponses</dt><dd>{{ response_count }}</dd></div>
+    </dl>
+  </header>
+
+  {% include "study/shared/partials/collection_toolbar.html" with with_search=True progress_completed=subject_progress.completed progress_total=subject_progress.total progress_unit="sujets terminés" show_views=categories %}
+
+  {% include "study/expression/partials/subject_collection.html" with groups=categories kind="writing" secondary_label="Versions" prompt_source="ee-writing-prompts" %}
+</div>
+{% include "study/expression/ee/partials/writing_methodology_dialog.html" with tache=writing_tache only %}
+{{ subject_prompt_map|json_script:"ee-writing-prompts" }}
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% include "study/expression/partials/subject_progress_script.html" %}
+  <script src="{% static 'study/js/shared/prompt-copy.js' %}?v=3"></script>
+{% endblock %}

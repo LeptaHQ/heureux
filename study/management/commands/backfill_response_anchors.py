@@ -4,7 +4,7 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 
 from study.models import Annotation
-from study.public_response_annotations import capture_public_response_anchor
+from study.expression.eo.annotations import capture_public_response_anchor
 
 
 class Command(BaseCommand):

@@ -16,9 +16,9 @@ from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils.html import escape
 
-from study.course_content import CONTENT_ROOT, validate_coverage_ledger, validate_depth_report
-from study.course_practice import evidence_state, start_attempt, submit_check
-from study.learning_content import load_learning_catalog
+from study.learning.courses import CONTENT_ROOT, validate_coverage_ledger, validate_depth_report
+from study.learning.practice import evidence_state, start_attempt, submit_check
+from study.learning.catalogue import load_learning_catalog
 from study.models import CourseAttempt, CourseProduction, LearningLessonProgress
 
 from . import factories
@@ -271,7 +271,7 @@ class CourseRequestReliabilityTests(TestCase):
         check = submit_check(self.user, attempt.pk, {
             item["id"]: item["answers"][0] for item in attempt.snapshot["items"]
         })
-        with patch("study.course_practice.timezone.now",
+        with patch("study.learning.practice.timezone.now",
                    return_value=check.submitted_at + timedelta(days=8)):
             for _ in range(2):
                 review = start_attempt(self.user, self.lesson, "review")

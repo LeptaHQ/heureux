@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 
-from study import catalogue
+from study.catalogue import registry as catalogue
 
 
 class TacheThreeReuseTests(SimpleTestCase):

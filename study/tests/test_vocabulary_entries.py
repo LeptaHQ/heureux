@@ -8,7 +8,7 @@ from study.models import (
     Annotation, Card, CardState, MemoryQuestionProgress, Phrase, PhraseTier,
     Prompt, ReviewLog, ReviewSession, ThemeVocabularyProgress,
 )
-from study.queue import scoped_cards
+from study.review.queue import scoped_cards
 from . import factories
 
 

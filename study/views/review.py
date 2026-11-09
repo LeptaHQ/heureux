@@ -14,9 +14,9 @@ from django.urls import reverse
 from django.utils import timezone
 from django.views.decorators.http import require_GET, require_POST
 
-from .. import content_loader as content_module
-from .. import queue as queue_module
-from ..card_presentation import (
+from study.catalogue import loader as content_module
+from study.review import queue as queue_module
+from study.review.presentation import (
     card_payload,
     scope_from_request,
     scope_label,
@@ -33,17 +33,17 @@ from ..models import (
     ReviewSession,
     Theme,
 )
-from ..progress import mark_card_started, subject_progress_by_response
-from ..querysets import lean_prompt_rows
-from ..retirement import is_retired_vocabulary_scope, is_retired_vocabulary_task
-from ..routing import (
+from study.review.progress import mark_card_started, subject_progress_by_response
+from study.db.querysets import lean_prompt_rows
+from study.catalogue.retirement import is_retired_vocabulary_scope, is_retired_vocabulary_task
+from study.navigation.routing import (
     comprehension_vocabulary_url,
     prompt_detail_url,
     response_detail_url,
     review_url,
     theme_detail_url,
 )
-from ..srs import ProjectionUndoError, review as apply_review, undo_last
+from study.review.scheduling import ProjectionUndoError, review as apply_review, undo_last
 
 from .helpers import (
     _deck_stat_aggregates,
@@ -383,7 +383,7 @@ def review(
         "collection_return_url": collection_return_url,
         "collection_return_label": collection_return_label,
     }
-    return render(request, "study/review.html", context)
+    return render(request, "study/review/review.html", context)
 
 
 def _active_card_payload(
@@ -403,10 +403,10 @@ def _active_card_payload(
         "state_label": card.get_state_display(),
         "is_new": card.is_new,
         "front_html": render_to_string(
-            "study/partials/card_front.html", payload, request
+            "study/review/partials/card_front.html", payload, request
         ),
         "back_html": render_to_string(
-            "study/partials/card_back.html", payload, request
+            "study/review/partials/card_back.html", payload, request
         ),
         "annotation_source_key": payload["annotation_source_key"],
         "presentation_token": presentation_token,
@@ -592,7 +592,7 @@ def review_hub(request, part_slug, task_slug):
     )
     return render(
         request,
-        "study/review_hub.html",
+        "study/review/review_hub.html",
         {
             "part": part,
             "task": task,
@@ -656,12 +656,12 @@ def review_previous(request):
         )
         payload = _review_card_payload(card, request.user, session.scope)
         front = render_to_string(
-            "study/partials/card_front.html",
+            "study/review/partials/card_front.html",
             payload,
             request,
         )
         back = render_to_string(
-            "study/partials/card_back.html",
+            "study/review/partials/card_back.html",
             payload,
             request,
         )
@@ -1036,7 +1036,7 @@ def revisit_list(request, part_slug=None, task_slug=None):
     ]
     return render(
         request,
-        "study/revisit_list.html",
+        "study/review/revisit_list.html",
         {
             "part": part,
             "task": task,

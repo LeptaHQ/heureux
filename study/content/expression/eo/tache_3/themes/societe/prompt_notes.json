@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "culture-p2": {
+      "prompt_signatures": {
+        "culture:p2": "9f93030b12c06e8129bdb9746680fa41f20f2f4a6988c6d19bdff4215b617eb7"
+      },
+      "note": "Here, adults are being described as pessimistic about young people: expecting little from them or focusing on their faults. Decide whether that is a fair generalization. You could discuss unfamiliar habits, negative stories in the media, and opportunities for adults and young people to work together. Distinguish a specific concern from a judgment about an entire generation. Adults do not all share the same outlook, and criticism is not automatically pessimism."
+    },
+    "culture-p3": {
+      "prompt_signatures": {
+        "culture:p3": "072bbde83d4ac2d82c987324c1cb6eee151ea611c0aa011eae9c847bbffc0322",
+        "economie:p5": "c109ec80e4fba84d57836af846656910aae140329381bc28fe385d37a61301ac"
+      },
+      "note": "Both versions ask about the limits of state control, although one says the state cannot control everything and the other asks whether it can. Discuss what public authorities can regulate, what is difficult to enforce, and where personal freedom should limit intervention. Traffic rules, noise complaints or waste collection give concrete examples. Distinguish inability to monitor every action from a reason to abandon public responsibilities; cooperation can complement rules."
+    },
+    "culture-p4": {
+      "prompt_signatures": {
+        "culture:p4": "e2bdd518b8f561d0f7acfd850bd5ebca8bad04cfcc59b113b2b5c68cabc3251c"
+      },
+      "note": "You must choose a priority cause and explain why it deserves attention now, rather than list every important problem. Social causes concern living conditions and inequality; humanitarian causes concern urgent human needs; cultural causes can involve access to culture or preserving heritage. Make your criterion clear, such as urgency, severity or effects on other needs. A feasible action and the people it helps can illustrate your reasons. Choosing one cause does not make all the others unimportant."
+    },
+    "culture-p8": {
+      "prompt_signatures": {
+        "culture:p8": "0ada09f38e774790e54cac1a6142cbfdaf6652963769a469457a4fda7d127826"
+      },
+      "note": "The subject is older people's view of young people, not all adults' views. 'Pessimistic' means tending to expect problems or see the negative side. Discuss differences in experience, the visibility of unfamiliar habits and the effect of regular contact between generations. A shared project can illustrate how impressions change. Avoid presenting age as a guarantee of either wisdom or prejudice; some older people are encouraging and some concerns are specific and justified."
+    },
+    "culture-p16": {
+      "prompt_signatures": {
+        "culture:p16": "81864fe832b7ea41edc74fa500e43a7dd3cee51fab050b60acdece4c3fe214a1",
+        "famille:p8": "81864fe832b7ea41edc74fa500e43a7dd3cee51fab050b60acdece4c3fe214a1"
+      },
+      "note": "The precise issue is whether having friends is a necessary condition for happiness. You can value friendship without claiming that everyone without friends must be unhappy. Consider emotional support, shared activities and other meaningful connections or pursuits. Distinguish chosen solitude from unwanted loneliness, and friends from all human contact. Examples should show different possible sources of satisfaction rather than diagnose a person's happiness from the size of their social circle."
+    },
+    "culture-p33": {
+      "prompt_signatures": {
+        "culture:p33": "6222e19aa45ac8112ec7fa507637198809c656bc5b983d171fa4664f6a88e2cc"
+      },
+      "note": "Having 'a place in politics' can mean participating, speaking publicly or seeking elected responsibility. Separate a celebrity's right to participate from whether fame demonstrates the skills needed for a public role. Discuss visibility, mobilizing attention, understanding issues and accountability. A campaign supporting a cause is not the same as governing. Evaluate proposals and conduct without assuming either that public figures are unqualified or that popularity guarantees competence."
+    },
+    "famille-p3": {
+      "prompt_signatures": {
+        "famille:p3": "125dfa6ff8574a3a357b4d80ca3edd3d4cd6a71539a8eba398ba994b853907bf"
+      },
+      "note": "The key word is 'always': experience can make advice valuable without making every older person's advice appropriate. Discuss practical experience, familiarity with a situation and the ability to listen. Explain when older advice might need updating or specialist knowledge. A useful example compares a familiar everyday problem with a new technical or professional issue. Judge relevance and reasoning, not age alone, while avoiding dismissive stereotypes about older people."
+    },
+    "famille-p9": {
+      "prompt_signatures": {
+        "famille:p9": "4714ea9036a6b200db1cd7408cfdbaff5d9d6eede9d94f49f4d6bfc1e0f7e5c0"
+      },
+      "note": "The question concerns whether friends are necessary for living well, a broader issue than being happy at every moment. Discuss practical support, confidence, shared activities and alternative meaningful connections. Distinguish friends from relatives and acquaintances without claiming only one kind of bond can help. Chosen solitude is not the same as unwanted isolation. Explain friendship's value while leaving room for different ways of building a satisfying life."
+    },
+    "education-p6": {
+      "prompt_signatures": {
+        "education:p6": "f8842d6f90e5cee77b366dbab1b8f270f6c65a74e0b1c333c553548c92c04a0d"
+      },
+      "note": "The question asks whether Internet helps solidarity, with disasters or current events as examples. Discuss sharing verified needs, organizing practical assistance and maintaining accountability. Explain who uses a platform to do what, rather than just saying information spreads quickly. False appeals, privacy and access are relevant limitations. Internet can support a wider chain of action; it does not itself deliver supplies or replace the people and services doing the work."
+    },
+    "education-p10": {
+      "prompt_signatures": {
+        "education:p10": "1a598d52b7fec20088c556a057322ba2bd20febd7ae39fa5c3925567d88a2ea3",
+        "education:p24": "1a598d52b7fec20088c556a057322ba2bd20febd7ae39fa5c3925567d88a2ea3"
+      },
+      "note": "You are asked which solidarity action you would like to do. Choose a specific form of help and explain your motivation, likely contribution and a workable level of commitment. Conditional language is appropriate if you have not actually volunteered. Food-aid preparation, accompaniment or a local project could work, but explain the role and coordination needed. Respect the recipients' choices and avoid promising specialist help or more time than you can realistically give."
+    },
+    "education-p17": {
+      "prompt_signatures": {
+        "education:p17": "ea2db8f45b268a22ed9fc4eb7a3d0dcc4ded78519e1051d903a5d91ca742411a"
+      },
+      "note": "The question concerns limits to freedom of expression. Distinguish disagreement and criticism from threats, harassment or exposing someone's private information. Explain what harm a limit is intended to prevent and how to keep it proportionate. A workplace, public debate or online exchange can provide a concrete example. Do not label every offensive opinion illegal or present one country's rules as universal. Restrictions also require scrutiny so they do not simply silence criticism."
+    },
+    "sante-p4": {
+      "prompt_signatures": {
+        "sante:p4": "72f23fb615273c65b99bb2ab60f85d520f508204d1225705fdb2213d214b7f15"
+      },
+      "note": "The question offers the state or citizens as possible helpers, but you can argue for complementary responsibilities. Compare regular public support and services with direct local assistance and practical accompaniment. Explain who can do what and why coordination matters. Helping people in difficulty does not mean everyone can rely on family, work or donations. Avoid turning shared responsibility into a reason for public authorities to withdraw or for individuals to control recipients' choices."
+    },
+    "sante-p14": {
+      "prompt_signatures": {
+        "sante:p14": "de76f64ae633b6f821a8e6ad66af4e1773d235efcfa8861ba74aafc7f1435a88"
+      },
+      "note": "Compare ease of daily life for an older person in a city and in the countryside. Relevant dimensions include access to services, usable transport, housing and familiar relationships. A nearby clinic is helpful only if it is accessible, and an urban address does not remove isolation. Explain a specific routine or journey. Avoid treating all older people as dependent or all rural places as poorly served; individual needs and local arrangements matter."
+    },
+    "technologie-p1": {
+      "prompt_signatures": {
+        "technologie:p1": "348196cb1a59c9ae05f822508f533299d1b7f8fa9b9fa0f6a6922548b18cd836",
+        "technologie:p9": "348196cb1a59c9ae05f822508f533299d1b7f8fa9b9fa0f6a6922548b18cd836"
+      },
+      "note": "Social networks can make first contact easier, but meeting someone and forming a friendship are different stages. Discuss finding shared interests, approaching people and maintaining exchanges or activities over time. Online friendships can be genuine; physical proximity is not the only test. Explain how contact develops in a plausible situation. Privacy, trust and superficial interaction are meaningful limits, not reasons to dismiss every relationship formed online."
+    },
+    "technologie-p4": {
+      "prompt_signatures": {
+        "technologie:p4": "62eea14a221cfb0c2c3bcfd95ea5b90cba677f2859dfade0d0403648fbffb159"
+      },
+      "note": "This wording presents Internet as making people lonely or socially isolated. Test that broad causal claim rather than only list risks. Consider maintaining distant relationships, finding activities and the conditions in which online time replaces wanted contact. Being physically alone is not always loneliness, and online exchanges can be meaningful. Explain what Internet changes in one situation while recognizing wider factors such as work schedules, access and local opportunities."
+    },
+    "technologie-p7": {
+      "prompt_signatures": {
+        "technologie:p7": "78f09560dec9e014e6c1cc4c4c137f6f831f28d04c3eb2f357a5325a10e9fb59"
+      },
+      "note": "The wording says Internet can make people isolated, so you are assessing a possibility rather than an inevitable effect. Explore mechanisms such as displacing desired activities, discouraging comparisons or contacts that receive little response. Explain the circumstances in which one risk appears. Balance this with genuine online support and available alternatives. Do not reduce isolation to a simple personal failure or suggest every user experiences the same outcome."
+    },
+    "technologie-p20": {
+      "prompt_signatures": {
+        "technologie:p20": "e71bb900b75a0b094e3000e2872a7233ca6adfac38a34f9c1dae74c957216a8f",
+        "environnement:p5": "9a9dcad882173b779c0a566969a891a47cf67fc34a68b7930c2997074766db7b",
+        "environnement:p10": "e71bb900b75a0b094e3000e2872a7233ca6adfac38a34f9c1dae74c957216a8f",
+        "environnement:p15": "3064965956b03674de919bf247d5d37f357c61d33f76704aad8271867a559ddc"
+      },
+      "note": "The variants ask whether living without a car is possible or whether a car is indispensable. Examine complete journeys, nearby services and less predictable needs. Check schedules, accessibility and cost rather than generalize from a city or rural address. Not owning a car differs from never using one: carpooling, taxis and rentals still involve cars. The aim is to assess workable alternatives, not blame people whose needs are poorly served."
+    },
+    "environnement-p1": {
+      "prompt_signatures": {
+        "environnement:p1": "c32aa1d6bd139747941504fbafe0abdb17ca11afd86b6374884e42eba2e3420e"
+      },
+      "note": "You are asked which citizen actions you admire and why. Choose concrete actions, such as preparing food aid, visiting someone who wants company or maintaining an environmental project. Explain who benefits and how the action is organized. Admiration can rest on respect, reliability and useful effort rather than dramatic gestures. Do not invent your own volunteering history or imply that people with little time or money are less generous."
+    },
+    "environnement-p6": {
+      "prompt_signatures": {
+        "environnement:p6": "4476b6ff426d54e97ddc974a7fb5d2bcb71905234ddcf194ba7f4f319e0a3bb0"
+      },
+      "note": "Limiting car traffic across a city is broader than banning cars from the center. Discuss noise and street conditions, reliable alternatives and how space is shared. Explain an actual measure, such as changes around a school, and what happens on neighboring streets. Necessary access, mobility needs and delivery arrangements matter. More restrictions do not automatically mean less total traffic if journeys are merely displaced."
+    },
+    "environnement-p8": {
+      "prompt_signatures": {
+        "environnement:p8": "c2c229f3b921c1d6aead88c723b5292590494551da66bb6768b8f4357acb10a2"
+      },
+      "note": "This asks about banning car use in city centers, not reducing every car journey throughout a city. Clarify the area, times and necessary access before assessing pedestrian space, conflicts and enforceable rules. Deliveries, disability access and effects on surrounding streets need practical arrangements. A defined pedestrian zone and an absolute ban with no exceptions are different policies. Avoid promising commercial success or easy alternatives for every visitor."
+    },
+    "economie-p22": {
+      "prompt_signatures": {
+        "economie:p22": "019f88d0b30538d9c9211ae12ba398c5b45cb8bbf30fdca4242dd6d830ae5436"
+      },
+      "note": "Free public transport means no fare for the passenger, not no cost for the city. Discuss household budgets, access to activities and simpler ticketing, then compare financing the policy with improving frequency and accessibility. Explain who benefits, including whether they already receive free travel. More public-transport journeys do not prove fewer car journeys: some may replace walking or cycling. Targeted reductions and universal free fares are different options."
+    },
+    "economie-p23": {
+      "prompt_signatures": {
+        "economie:p23": "9d69eccc22e68f74ba307ea18541c926dd21ae116caa866d88974034a70121bd"
+      },
+      "note": "The word 'only' is central: the question challenges whether anyone besides associations and NGOs can help the poorest people. Consider public support, responsible employment practices and practical help from individuals. Explain distinct contributions and how they complement rather than replace one another. Not everyone can work or rely on relatives. Recognize the expertise of associations without assuming all are fragile or allowing charity to substitute for social rights and dignity."
+    },
+    "economie-p24": {
+      "prompt_signatures": {
+        "economie:p24": "6afb4ede7fa1560872373205d8b0c5a09c193edae35f640d2f08b9b69310f726"
+      },
+      "note": "This is a broad opinion about living without a car, so discuss desirability and trade-offs as well as feasibility. Compare total costs, everyday convenience and effects on shared space, using complete journeys and real access needs. An urban address does not guarantee usable alternatives. Distinguish not owning a car from never using one: rental and carpooling remain car journeys. A useful alternative should preserve autonomy rather than shift every trip onto a helpful relative."
+    }
+  }
+}

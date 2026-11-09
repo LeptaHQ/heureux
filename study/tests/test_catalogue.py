@@ -16,9 +16,9 @@ from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from study import catalogue
-from study import content_loader as content
-from study.account_services import provision_user_study_data
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
+from study.accounts.services import provision_user_study_data
 from study.models import Card, CardType, MemoryQuestionProgress, Prompt
 from study.views import library
 

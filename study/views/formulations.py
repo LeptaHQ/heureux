@@ -9,11 +9,11 @@ from django.shortcuts import redirect, render
 from django.urls import Resolver404, resolve, reverse
 from django.views.decorators.http import require_GET, require_POST
 
-from ..content_loader import ee_writing_sujet_slug
-from ..ee_formulation_language import formulation_language_for
-from ..ee_formulation_vocabulary import formulation_vocabulary_for
-from ..ee_formulations import get_ee_formulations
-from ..formulation_progress import (
+from study.catalogue.loader import ee_writing_sujet_slug
+from study.expression.ee.formulations.languages import formulation_language_for
+from study.expression.ee.formulations.vocabulary import formulation_vocabulary_for
+from study.expression.ee.formulations.catalogue import get_ee_formulations
+from study.expression.ee.formulations.progress import (
     formulation_entry_progress_payload,
     formulation_language_content_key,
     formulation_language_item_id,
@@ -21,7 +21,7 @@ from ..formulation_progress import (
     formulation_progress_state,
 )
 from ..models import MemoryQuestionProgress, Prompt, WritingSujet
-from ..progress import progress_summary
+from study.review.progress import progress_summary
 from .helpers import _route_task
 
 
@@ -393,7 +393,7 @@ def formulations(request, tache=3):
                         kind="theme", tache=tache,
                     )
                 )
-    return render(request, "study/formulation_directory.html", {
+    return render(request, "study/expression/ee/formulations/formulation_directory.html", {
         "part": task.part,
         "task": task,
         "progress": progress,
@@ -545,7 +545,7 @@ def formulation_collection(request, kind, slug="", tache=3):
     language_bank = _language_bank_for(
         definition["category"], tache=tache,
     )
-    return render(request, "study/formulations.html", {
+    return render(request, "study/expression/ee/formulations/formulations.html", {
         "part": task.part,
         "task": task,
         "annotation_task": task,
@@ -626,7 +626,7 @@ def formulation_entry(request, slug, tache=3):
         tache=tache,
     )
     kind = "function" if category.kind == "function" else "theme"
-    return render(request, "study/formulation_entry.html", {
+    return render(request, "study/expression/ee/formulations/formulation_entry.html", {
         "part": task.part,
         "task": task,
         "annotation_task": task,
@@ -679,7 +679,7 @@ def formulation_language_reference(request, slug, tache=3):
         for example in item.examples
         for source_key, _field in example.provenance
     }, tache=tache)
-    return render(request, "study/formulation_language.html", {
+    return render(request, "study/expression/ee/formulations/formulation_language.html", {
         "part": task.part,
         "task": task,
         "tache": tache,

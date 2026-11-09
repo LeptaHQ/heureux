@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% load static study_markdown %}
+{% block title %}Apprendre · Heureux{% endblock %}
+
+{% block content %}
+<div class="learn-page" data-learning-catalog>
+  <header class="area-hero learn-hero">
+    <div class="area-hero__copy">
+      <p class="eyebrow">Cours guidés</p>
+      <h1>{{ catalog.title }}</h1>
+      <p lang="en">{{ catalog.description }}</p>
+    </div>
+    <dl class="area-hero__metrics" aria-label="Progression des leçons">
+      <div><dt>{% if scope == 'course' %}Catégories{% else %}Parcours{% endif %}</dt><dd>{{ modules|length }}</dd></div>
+      <div><dt>Leçons</dt><dd>{{ lesson_count }}</dd></div>
+      <div><dt>Terminées</dt><dd><span data-learning-completed-total>{{ summary.completed }}</span><span class="hero-metric__total">/ {{ summary.total }}</span></dd></div>
+    </dl>
+  </header>
+
+  <nav class="learn-module-filters" aria-label="Collection Apprendre">
+    <a class="btn{% if scope == 'course' %} btn--primary{% endif %}" href="{{ course_url }}"{% if scope == 'course' %} aria-current="page"{% endif %}>Cours A1–B2 et préparation C1</a>
+    <a class="btn{% if scope == 'reference' %} btn--primary{% endif %}" href="{{ reference_url }}"{% if scope == 'reference' %} aria-current="page"{% endif %}>Bibliothèque de référence</a>
+  </nav>
+  {% if not course_available %}<p lang="en">The original course is not installed yet. Your reference lessons, notes and reading progress remain available.</p>{% endif %}
+  {% if scope == 'reference' %}<p lang="en">The small check marks reading completion only, not assessed grammar control or an official level.</p>{% endif %}
+
+  <section class="learn-library" aria-labelledby="learn-library-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Bibliothèque</p>
+        <h2 id="learn-library-title">Toutes les leçons</h2>
+      </div>
+      <div class="learn-library__heading-tools">
+        <p class="learn-library__result" role="status" aria-live="polite" data-learning-result>{{ lesson_count }} leçons affichées</p>
+        {% include "study/shared/partials/collection_view_toggle.html" %}
+      </div>
+    </div>
+
+    <div class="learn-toolbar card">
+      <label class="learn-search" for="learn-search">
+        <span class="sr-only">Rechercher une leçon</span>
+        {% include "study/shared/partials/ui_icon.html" with name="search" only %}
+        <input id="learn-search" type="search" placeholder="Rechercher une règle, une stratégie…" autocomplete="off" data-learning-search>
+      </label>
+      <div class="learn-filters" role="group" aria-label="Filtrer par progression">
+        <button class="is-active" type="button" data-learning-status-filter="all" aria-pressed="true">Toutes</button>
+        <button type="button" data-learning-status-filter="unfinished" aria-pressed="false">À faire</button>
+        <button type="button" data-learning-status-filter="done" aria-pressed="false">Terminées</button>
+      </div>
+      {% if scope == 'course' %}
+        <label class="learn-level-filter" for="learn-level">Niveau CEFR
+          <select id="learn-level" class="search-form__select" data-learning-level-filter>
+            <option value="all">Tous les niveaux</option>
+            {% for level in cefr_levels %}<option value="{{ level }}">{{ level }}</option>{% endfor %}
+          </select>
+        </label>
+        <p class="learn-reading-note" lang="en">Checkboxes mark reading, not assessed control or certification.</p>
+      {% endif %}
+    </div>
+    <p class="memory-progress-error hidden" role="alert" data-learning-progress-error></p>
+
+    <div class="learn-module-filters" role="group" aria-label="{% if scope == 'course' %}Filtrer par catégorie{% else %}Filtrer par parcours{% endif %}">
+      <button class="is-active" type="button" data-learning-module-filter="all" aria-pressed="true">{% if scope == 'course' %}Toutes les catégories{% else %}Tous les parcours{% endif %}</button>
+      {% for item in modules %}
+        <button type="button" data-learning-module-filter="{{ item.module.slug }}" aria-pressed="false">{{ item.module.title }}</button>
+      {% endfor %}
+    </div>
+
+    <div class="learn-modules t1-table-groups">
+      {% for item in modules %}
+        <details
+          class="learn-module t1-theme t1-table-group"
+          aria-labelledby="learn-module-{{ item.module.slug }}"
+          data-learning-module="{{ item.module.slug }}"
+          data-learning-module-details
+        >
+          {% with title_id="learn-module-"|add:item.module.slug %}
+            {% include "study/shared/partials/theme_group_summary.html" with title=item.module.title title_id=title_id description=item.module.description icon=item.module.icon count=item.progress.total count_label="leçon" status=item.progress.status completed=item.progress.completed total=item.progress.total learning=True only %}
+          {% endwith %}
+
+          <div
+            class="learn-lesson-grid collection-table collection-table--learn"
+            id="learn-module-lessons-{{ item.module.slug }}"
+            data-collection-view="adaptive"
+            data-learning-module-lessons
+          >
+            <div class="collection-table-header collection-table-header--learn" data-collection-table-header aria-hidden="true">
+              <span>No</span>
+              <span>Leçon</span>
+              <span>Niveau</span>
+              <span>Durée</span>
+              <span>Progression</span>
+              <span></span>
+            </div>
+            {% for row in item.lessons %}
+              <article
+                class="learn-lesson-card card{% if row.completed %} is-completed{% endif %}"
+                id="lesson-{{ row.lesson.slug }}"
+                data-collection-item
+                data-learning-lesson
+                data-learning-lesson-id="{{ row.lesson.id }}"
+                data-learning-module-name="{{ item.module.slug }}"
+                data-learning-status="{{ row.status }}"
+                data-learning-level="{{ row.lesson.cefr_level }}"
+                data-learning-search-text="{{ row.lesson.searchable_text }}"
+              >
+                <span class="learn-lesson-card__number">{{ forloop.counter|stringformat:"02d" }}</span>
+                <span class="learn-lesson-card__body">
+                  <span class="learn-lesson-card__meta">
+                    <span>{{ row.lesson.level }}</span>
+                    <span>{{ row.lesson.duration_minutes }} min</span>
+                  </span>
+                  <strong><a href="{{ row.url }}">{{ row.lesson.title }}</a></strong>
+                  <span lang="en">{{ row.lesson.summary|markdown_inline }}</span>
+                </span>
+                <span class="learn-lesson-card__level">{{ row.lesson.level }}</span>
+                <span class="learn-lesson-card__duration">{{ row.lesson.duration_minutes }} min</span>
+                <span class="progress-status progress-status--{{ row.status }}" data-learning-card-status>{{ row.status_label }}</span>
+                <form class="subject-completion-check learning-lesson-check{% if row.completed %} is-complete{% endif %}" method="post" action="{{ row.progress_url }}" data-learning-card-progress>
+                  {% csrf_token %}
+                  <input type="hidden" name="completed" value="{% if row.completed %}0{% else %}1{% endif %}" data-learning-card-completed-input>
+                  <button
+                    type="submit"
+                    role="checkbox"
+                    aria-checked="{{ row.completed|yesno:'true,false' }}"
+                    aria-label="{% if row.completed %}Marquer la lecture à faire : {% else %}Marquer la lecture terminée : {% endif %}{{ row.lesson.title }}"
+                    title="{% if row.completed %}Lecture terminée{% else %}Marquer la lecture terminée{% endif %}"
+                    data-learning-card-check
+                  >
+                    {% include "study/shared/partials/ui_icon.html" with name="check" only %}
+                  </button>
+                </form>
+              </article>
+            {% endfor %}
+          </div>
+        </details>
+      {% endfor %}
+    </div>
+
+    <div class="empty learn-library__empty hidden" data-learning-empty>
+      <strong>Aucune leçon ne correspond à ces filtres.</strong>
+      <p>Essaie un autre mot-clé ou affiche {% if scope == 'course' %}toutes les catégories{% else %}tous les parcours{% endif %}.</p>
+      <button class="btn" type="button" data-learning-reset>Réinitialiser les filtres</button>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/learning/learning.js' %}?v=13"></script>
+{% endblock %}

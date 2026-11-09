@@ -1,0 +1,512 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "famille-p1": {
+      "introduction": {
+        "french": "Les parents peuvent autoriser l'accès à un âge adapté, avec un accompagnement.",
+        "english": "Parents can allow access at an appropriate age, with guidance."
+      },
+      "nuance": {
+        "french": "Accompagner ne signifie pas lire tous les messages ; assouplir les règles quand elles sont respectées.",
+        "english": "Guidance does not mean reading every message; ease rules when they are respected."
+      },
+      "conclusion": {
+        "french": "Apprendre à se protéger plutôt que tout permettre ou tout interdire.",
+        "english": "Teach self-protection rather than allowing or banning everything."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Apprendre à repérer les informations privées avant de publier.",
+            "english": "Learn to spot private information before posting."
+          },
+          "example": {
+            "french": "Une mère aide une adolescente à masquer son adresse visible dans une vidéo.",
+            "english": "A mother helps a teenager hide the address visible in her video."
+          }
+        },
+        {
+          "point": {
+            "french": "Les notifications peuvent retarder le coucher et interrompre le sommeil.",
+            "english": "Notifications can delay bedtime and interrupt sleep."
+          },
+          "example": {
+            "french": "Un adolescent laisse son téléphone au salon pour ne plus répondre à ses amis jusqu'à minuit.",
+            "english": "A teenager leaves his phone in the living room so he no longer stays up replying to friends until midnight."
+          }
+        },
+        {
+          "point": {
+            "french": "Pouvoir demander de l'aide sans craindre une punition.",
+            "english": "Be able to ask for help without fearing punishment."
+          },
+          "example": {
+            "french": "Un enfant montre la demande de photo d'un inconnu à son père ; ils gardent une preuve, bloquent et signalent.",
+            "english": "A child shows a stranger's photo request to his father; they save evidence, block and report."
+          }
+        }
+      ]
+    },
+    "famille-p2": {
+      "introduction": {
+        "french": "Se sentir bien chez ses parents est une raison respectable d'y rester.",
+        "english": "Feeling happy at your parents' home is a respectable reason to stay."
+      },
+      "nuance": {
+        "french": "Le coût du logement peut compter ; sans place ou bonne entente, vivre séparément peut être préférable. Aucun âge ne convient à tous.",
+        "english": "Housing costs can matter; without space or good relations, living apart may be better. No age suits everyone."
+      },
+      "conclusion": {
+        "french": "Juger les responsabilités et l'accord familial, pas l'adresse.",
+        "english": "Judge responsibilities and family agreement, not the address."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Aimer la vie familiale ne signifie pas refuser de grandir.",
+            "english": "Enjoying family life does not mean refusing to grow up."
+          },
+          "example": {
+            "french": "Une salariée de vingt-six ans aime dîner avec ses parents et organise seule ses projets.",
+            "english": "A 26-year-old worker enjoys dinner with her parents and organises her own plans."
+          }
+        },
+        {
+          "point": {
+            "french": "Le bien-être doit aussi être celui des parents.",
+            "english": "The arrangement must suit the parents too."
+          },
+          "example": {
+            "french": "Pour respecter le sommeil de sa mère, un fils invite ses amis le samedi plutôt qu'en semaine.",
+            "english": "To respect his mother's sleep, a son invites friends on Saturday rather than during the week."
+          }
+        },
+        {
+          "point": {
+            "french": "Un échange où les deux générations apportent quelque chose.",
+            "english": "Both generations can contribute and benefit."
+          },
+          "example": {
+            "french": "Un jeune salarié contribue aux charges et fait les courses sans rappel parental.",
+            "english": "A young worker contributes to bills and does the shopping without parental reminders."
+          }
+        }
+      ]
+    },
+    "famille-p4": {
+      "introduction": {
+        "french": "Dire une vérité compréhensible ne signifie pas tout raconter.",
+        "english": "Telling an understandable truth does not mean telling everything."
+      },
+      "nuance": {
+        "french": "Ne pas faire porter les soucis d'adultes à l'enfant ; reconnaître aussi ce qu'on ignore.",
+        "english": "Do not burden children with adult worries; acknowledge what you do not know."
+      },
+      "conclusion": {
+        "french": "Donner une explication vraie, utile et adaptée à l'âge.",
+        "english": "Give a truthful, useful and age-appropriate explanation."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "L'honnêteté permet à l'enfant de croire le parent.",
+            "english": "Honesty helps children trust their parent."
+          },
+          "example": {
+            "french": "Avant un vaccin, annoncer une petite piqûre et rester présent plutôt que promettre l'absence de douleur.",
+            "english": "Before a vaccine, explain the brief sting and stay present rather than promising no pain."
+          }
+        },
+        {
+          "point": {
+            "french": "Une explication simple évite de laisser l'enfant imaginer le pire.",
+            "english": "A simple explanation avoids leaving children to imagine the worst."
+          },
+          "example": {
+            "french": "Les parents expliquent l'hospitalisation de la grand-mère et organisent un appel, sans promettre une guérison rapide.",
+            "english": "Parents explain the grandmother's hospital stay and arrange a call without promising a quick recovery."
+          }
+        },
+        {
+          "point": {
+            "french": "Un retour honnête indique comment progresser.",
+            "english": "Honest feedback shows how to improve."
+          },
+          "example": {
+            "french": "Avant une audition de piano, travailler lentement la fin hésitante ; l'enfant la joue ensuite plus sûrement.",
+            "english": "Before a piano audition, practise the hesitant ending slowly; the child then plays it more confidently."
+          }
+        }
+      ]
+    },
+    "famille-p5": {
+      "introduction": {
+        "french": "La distance demande une adaptation, même quand le départ est choisi.",
+        "english": "Distance requires adjustment even when leaving was a choice."
+      },
+      "nuance": {
+        "french": "La distance peut mieux convenir si les relations sont difficiles ; adaptation ne veut pas dire malheur.",
+        "english": "Distance may suit difficult relationships better; adjustment does not mean unhappiness."
+      },
+      "conclusion": {
+        "french": "Garder le lien et organiser une vie locale pour trouver son équilibre.",
+        "english": "Keep in touch and organise local life to find a balance."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Les appels ne remplacent pas tous les moments spontanés.",
+            "english": "Calls do not replace every spontaneous moment."
+          },
+          "example": {
+            "french": "Malgré l'appel du dimanche, la photo d'un repas improvisé chez sa sœur fait ressentir le manque.",
+            "english": "Despite a Sunday call, a photo of an unplanned meal at her sister's makes someone feel the distance."
+          }
+        },
+        {
+          "point": {
+            "french": "Retrouver une aide concrète disponible sur place.",
+            "english": "Find practical help available locally."
+          },
+          "example": {
+            "french": "Retenu au travail, un parent peut solliciter une voisine de confiance ; si elle est indisponible, il doit chercher une autre solution.",
+            "english": "Held up at work, a parent may need to call a trusted neighbour; if she is unavailable, he has to find another solution."
+          }
+        },
+        {
+          "point": {
+            "french": "Les visites demandent du temps et un budget.",
+            "english": "Visits require time and money."
+          },
+          "example": {
+            "french": "Une femme vit et travaille loin de son père : deux jours de congé pour son anniversaire, mais un billet hors budget.",
+            "english": "A woman lives and works far from her father: visiting for his birthday needs two days off, but she cannot afford the ticket."
+          }
+        }
+      ]
+    },
+    "famille-p6": {
+      "introduction": {
+        "french": "Encourager sans fixer un tarif pour chaque note.",
+        "english": "Encourage without setting a price for every grade."
+      },
+      "nuance": {
+        "french": "Une sortie ou un livre pour célébrer les progrès, sans promettre une récompense pour chaque note.",
+        "english": "An outing or a book to celebrate progress, without promising a reward for every grade."
+      },
+      "conclusion": {
+        "french": "Reconnaître le travail et expliquer comment progresser.",
+        "english": "Recognise effort and explain how to improve."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Le paiement risque de rendre la motivation conditionnelle.",
+            "english": "Payment risks making motivation conditional."
+          },
+          "example": {
+            "french": "Payé pour ses notes, un enfant demande si son exposé non noté rapporte aussi de l'argent.",
+            "english": "Paid for grades, a child asks whether an ungraded presentation also earns money."
+          }
+        },
+        {
+          "point": {
+            "french": "La note finale ne mesure pas tous les efforts.",
+            "english": "The final grade does not measure all effort."
+          },
+          "example": {
+            "french": "Une sœur a seize, son frère progresse de huit à douze ; payé à partir de quinze, seul son résultat à elle compte.",
+            "english": "A sister scores 16; her brother improves from 8 to 12. With payment starting at 15, only her result counts."
+          }
+        },
+        {
+          "point": {
+            "french": "Un retour précis donne une méthode à réutiliser.",
+            "english": "Specific feedback provides a method to reuse."
+          },
+          "example": {
+            "french": "Le parent relève la relecture des consignes ; l'enfant décide de garder cette méthode au prochain contrôle.",
+            "english": "The parent highlights rereading instructions; the child decides to keep that method for the next test."
+          }
+        }
+      ]
+    },
+    "famille-p10": {
+      "introduction": {
+        "french": "La famille n'est pas automatiquement notre cercle de meilleurs amis.",
+        "english": "Family members are not automatically our best friends."
+      },
+      "nuance": {
+        "french": "Une famille soudée peut suffire, mais un meilleur ami extérieur n'est pas une faute.",
+        "english": "A close family may be enough, but having a best friend outside it is not wrong."
+      },
+      "conclusion": {
+        "french": "La confiance vécue, pas seulement la parenté, fait l'amitié.",
+        "english": "Trust built together, not just being related, makes a friendship."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "L'affection familiale ne garantit pas les mêmes affinités.",
+            "english": "Family affection does not automatically mean sharing interests or enjoying the same company."
+          },
+          "example": {
+            "french": "Une personne aime les repas avec son frère, mais retrouve un ami pour rire et discuter pendant des heures.",
+            "english": "Someone enjoys meals with their brother but seeks out a friend for hours of laughter and conversation."
+          }
+        },
+        {
+          "point": {
+            "french": "Les attentes des parents peuvent freiner une confidence.",
+            "english": "Parents' expectations can make confiding harder."
+          },
+          "example": {
+            "french": "Une étudiante parle de ses doutes sur son cursus à une amie avant d'en discuter plus sereinement avec ses parents.",
+            "english": "A student discusses doubts about her course with a friend before speaking more calmly with her parents."
+          }
+        },
+        {
+          "point": {
+            "french": "Un proche peut gagner la confiance par son attitude.",
+            "english": "A relative can earn trust through their behaviour."
+          },
+          "example": {
+            "french": "Deux cousines ont grandi ensemble, partagé la même école et se soutiennent depuis des années.",
+            "english": "Two cousins grew up together, went to the same school and have supported each other for years."
+          }
+        }
+      ]
+    },
+    "famille-p11": {
+      "introduction": {
+        "french": "Vivre seul facilite le choix du rythme, pas forcément tout le quotidien.",
+        "english": "Living alone makes choosing your routine easier, but not necessarily all daily life."
+      },
+      "nuance": {
+        "french": "Pour la personne qui fait toutes les tâches du foyer, vivre seule peut être plus simple.",
+        "english": "For the person doing all the household chores, living alone can be easier."
+      },
+      "conclusion": {
+        "french": "Comparer liberté, budget et aide disponible.",
+        "english": "Compare freedom, budget and available help."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Seul, on adapte le logement à son rythme.",
+            "english": "Alone, you adapt your home to your routine."
+          },
+          "example": {
+            "french": "Une infirmière dort au calme après une garde de nuit sans négocier les bruits du matin.",
+            "english": "A nurse sleeps peacefully after a night shift without negotiating morning noise."
+          }
+        },
+        {
+          "point": {
+            "french": "Certaines dépenses ne diminuent pas quand on vit seul.",
+            "english": "Some expenses do not fall when you live alone."
+          },
+          "example": {
+            "french": "Deux sœurs paient vingt euros chacune pour internet ; séparées, chacune paie quarante pour le même abonnement.",
+            "english": "Two sisters each pay 20 euros for shared internet; living apart, each pays 40 for the same subscription."
+          }
+        },
+        {
+          "point": {
+            "french": "Une aide temporaire doit être demandée et organisée.",
+            "english": "Temporary help must be requested and arranged."
+          },
+          "example": {
+            "french": "Avant son retour après une opération du genou, une personne organise les courses avec sa sœur et des repas livrés.",
+            "english": "Before returning after knee surgery, someone arranges shopping with a sister and meal deliveries."
+          }
+        }
+      ]
+    },
+    "famille-p12": {
+      "introduction": {
+        "french": "Fixer des limites, expliquer les règles et écouter l'enfant sans le faire obéir par la peur.",
+        "english": "Set limits, explain the rules and listen to the child without using fear to make them obey."
+      },
+      "nuance": {
+        "french": "En cas de danger immédiat, intervenir d'abord et expliquer ensuite.",
+        "english": "In immediate danger, intervene first and explain afterwards."
+      },
+      "conclusion": {
+        "french": "Fixer un cadre qui apprend à comprendre et à agir de façon autonome.",
+        "english": "Set boundaries that teach understanding and independent action."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Une règle expliquée aide à respecter les besoins des autres.",
+            "english": "An explained rule helps respect others' needs."
+          },
+          "example": {
+            "french": "Le bébé dort : le père explique que son fils peut continuer à jouer avec son camion, mais sans faire sonner la sirène.",
+            "english": "The baby is asleep: a father explains that his son can keep playing with his toy truck, but without sounding its siren."
+          }
+        },
+        {
+          "point": {
+            "french": "La peur peut pousser à cacher les erreurs.",
+            "english": "Fear can lead children to hide mistakes."
+          },
+          "example": {
+            "french": "Un enfant avoue avoir abîmé un livre ; son parent l'écoute et ils contactent la bibliothèque pour le remplacer.",
+            "english": "A child admits damaging a book; the parent listens and they contact the library to replace it."
+          }
+        },
+        {
+          "point": {
+            "french": "Des choix adaptés à l'âge préparent l'autonomie.",
+            "english": "Age-appropriate choices prepare children for independence."
+          },
+          "example": {
+            "french": "Un adolescent propose les devoirs à dix-sept heures ; une semaine plus tard, il tient son engagement sans rappel.",
+            "english": "A teenager proposes homework at five; a week later, he keeps his commitment without reminders."
+          }
+        }
+      ]
+    },
+    "famille-p13": {
+      "introduction": {
+        "french": "Garder la langue familiale et soutenir la pratique de la langue locale.",
+        "english": "Keep the family language and support practice in the local language."
+      },
+      "nuance": {
+        "french": "Pas de séparation stricte : lire dans la langue locale chez soi et parler la langue familiale en promenade.",
+        "english": "No strict separation: read in the local language at home and speak the family language on a walk."
+      },
+      "conclusion": {
+        "french": "Donner une vraie place aux deux langues pour communiquer dans les deux univers.",
+        "english": "Give both languages a real place to communicate in both settings."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "La langue la mieux maîtrisée permet un dialogue approfondi.",
+            "english": "The language parents know best allows deeper conversation."
+          },
+          "example": {
+            "french": "Un enfant rentre triste ; sa mère écoute les détails dans leur langue et peut mieux le rassurer.",
+            "english": "A child comes home upset; his mother hears the details in their language and can reassure him better."
+          }
+        },
+        {
+          "point": {
+            "french": "La langue familiale permet de parler directement aux grands-parents.",
+            "english": "The family language allows direct conversation with grandparents."
+          },
+          "example": {
+            "french": "Devant une ancienne photo, un petit-fils pose ses propres questions à sa grand-mère sans traduction.",
+            "english": "Looking at an old photo, a grandson asks his grandmother his own questions without translation."
+          }
+        },
+        {
+          "point": {
+            "french": "Une pratique régulière de la langue locale aide à participer.",
+            "english": "Regular practice in the local language helps participation."
+          },
+          "example": {
+            "french": "Des parents peu à l'aise dans la langue inscrivent leur enfant au football ; il comprend les consignes et ose parler.",
+            "english": "Parents with limited local language skills enrol their child in football; he understands instructions and dares to speak."
+          }
+        }
+      ]
+    },
+    "famille-p14": {
+      "introduction": {
+        "french": "Chacun participe selon ses possibilités : repos, autonomie, moins de tensions.",
+        "english": "Everyone contributes according to their abilities: rest, independence and fewer tensions."
+      },
+      "nuance": {
+        "french": "Adapter les tâches à l'âge et à la santé, sans exiger la même chose de tous.",
+        "english": "Adapt tasks to age and health rather than expecting the same from everyone."
+      },
+      "conclusion": {
+        "french": "Partager selon ses moyens : temps de repos, gestes utiles et moins de tensions.",
+        "english": "Share according to abilities: time to rest, useful skills and fewer tensions."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Partager les tâches protège le repos de chacun.",
+            "english": "Sharing chores protects everyone's rest."
+          },
+          "example": {
+            "french": "Deux parents : l'un cuisine, l'autre met la table, puis fait la vaisselle après le repas. Tous deux se reposent ensuite.",
+            "english": "Two parents: one cooks; the other sets the table and washes up after the meal. Both can then rest."
+          }
+        },
+        {
+          "point": {
+            "french": "Des essais guidés, puis de la pratique pour savoir faire seul.",
+            "english": "Guided attempts, then practice to learn to do the task alone."
+          },
+          "example": {
+            "french": "Linge : trier, choisir le programme ; plusieurs lessives supervisées, puis laver seul ses vêtements.",
+            "english": "Laundry: sort, choose the wash programme; several supervised loads, then wash clothes without help."
+          }
+        },
+        {
+          "point": {
+            "french": "Un accord clair et réaliste réduit les rappels et les disputes.",
+            "english": "A clear, realistic agreement reduces reminders and arguments."
+          },
+          "example": {
+            "french": "Poubelles après le dîner : l'adolescent, sauf les soirs d'entraînement où son père prend le relais. Moins de disputes.",
+            "english": "Rubbish after dinner: the teenager, except on sports practice evenings when his father takes over. Fewer arguments."
+          }
+        }
+      ]
+    },
+    "famille-p16": {
+      "introduction": {
+        "french": "Après vingt-cinq ans, vivre chez ses parents peut rester pratique et raisonnable.",
+        "english": "After 25, living with your parents can still be practical and reasonable."
+      },
+      "nuance": {
+        "french": "Il faut l'accord des parents et assez de place ; l'âge seul ne décide pas du départ.",
+        "english": "Parents must agree and there must be enough space; age alone does not decide when to leave."
+      },
+      "conclusion": {
+        "french": "Équilibrer économies, entraide et indépendance.",
+        "english": "Balance savings, mutual help and independence."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Réduire les frais de logement pour garder une marge financière.",
+            "english": "Lower housing costs leave more money for other needs."
+          },
+          "example": {
+            "french": "27 ans : salaire de 1 400 euros, studio à 900 euros hors charges ; avec leur accord, contribution de 300 euros chez ses parents.",
+            "english": "At 27: earns 1,400 euros; studio costs 900 plus bills. With his parents' agreement, contributes 300 at home."
+          }
+        },
+        {
+          "point": {
+            "french": "L'entraide doit fonctionner dans les deux sens.",
+            "english": "Support must work both ways."
+          },
+          "example": {
+            "french": "Le père héberge son fils adulte ; le fils fait les courses et prépare le dîner quand son père travaille tard.",
+            "english": "The father lets his adult son live with him; the son shops and cooks dinner when his father works late."
+          }
+        },
+        {
+          "point": {
+            "french": "Chacun doit garder son intimité et ses décisions d'adulte.",
+            "english": "Everyone must retain privacy and adult decision-making."
+          },
+          "example": {
+            "french": "Une femme annonce son retour tardif sans demander la permission ; elle rentre sans bruit pour ne pas réveiller ses parents.",
+            "english": "A woman tells her parents she'll be home late, without asking permission, and comes in quietly to avoid waking them."
+          }
+        }
+      ]
+    }
+  }
+}

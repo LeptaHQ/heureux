@@ -10,7 +10,7 @@ from unittest.mock import patch
 from django.test import SimpleTestCase, TestCase
 from django.utils import timezone
 
-from study import content_loader as content
+from study.catalogue import loader as content
 from study.management.commands.import_content import Command
 from study.models import (
     Annotation,
@@ -25,8 +25,8 @@ from study.models import (
     ReviewLog,
     ReviewSession,
 )
-from study.oral_history import snapshot
-from study.routing import prompt_detail_url
+from study.expression.eo.history import snapshot
+from study.navigation.routing import prompt_detail_url
 
 from . import factories
 from .test_ee_tache_three_memory_translations import AnnotationRootText

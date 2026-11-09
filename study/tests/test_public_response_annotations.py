@@ -11,19 +11,19 @@ from django.test import SimpleTestCase, TestCase, tag
 from django.urls import reverse
 from django.utils import timezone
 
-from study import catalogue
-from study.account_services import provision_user_study_data
+from study.catalogue import registry as catalogue
+from study.accounts.services import provision_user_study_data
 from study.models import Annotation, AnnotationKind, Card, PersonalResponse, Prompt
-from study.oral_highlights import AnnotationRootText
-from study.oral_history import variant_annotation_key
-from study.public_annotation_migration import PUBLIC_DIGESTS
-from study.public_response_annotations import (
+from study.notes.anchors import AnnotationRootText
+from study.expression.eo.history import variant_annotation_key
+from study.notes.history import PUBLIC_DIGESTS
+from study.expression.eo.annotations import (
     _annotations_for_update, capture_rendered_response_anchor, current_anchor,
     render_current_response, response_field_anchor,
 )
-from study.routing import prompt_detail_url
-from study.response_personalization import effective_response
-from study.tache_two_dialogues import dialogue_response
+from study.navigation.routing import prompt_detail_url
+from study.expression.personalization import effective_response
+from study.expression.eo.tache_2.dialogues import dialogue_response
 
 from . import factories
 

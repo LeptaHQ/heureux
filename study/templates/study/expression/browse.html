@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static study_links %}
+{% block title %}Sujets · {{ task.short_label }} · Heureux{% endblock %}
+
+{% block content %}
+{% include "study/expression/partials/task_nav.html" %}
+<div class="page-head directory-header">
+  <h1>Sujets &amp; réponses</h1>
+  <p>{% if oral_directory %}{{ display_count }} sujets affichés · {{ publication_count }} publications · {{ response_count }} groupes équivalents{% else %}{{ prompt_count }} sujets · {{ response_count }} réponses uniques{% endif %} · {{ theme_count }} thèmes.</p>
+</div>
+
+{% if not task_locked %}
+{% include "study/shared/partials/scope_filter.html" %}
+{% endif %}
+
+{% include "study/shared/partials/collection_toolbar.html" with with_search=True progress_completed=subject_summary.completed progress_total=subject_summary.total progress_unit="sujets terminés" show_views=themes|default:families %}
+
+{% if not oral_directory %}
+<div class="section-heading">
+  <div>
+    <h2>Par thème</h2>
+  </div>
+  {% if task %}
+    <a href="{% url 'study:task_phrases' part.slug task.slug %}">{{ phrase_count }} expressions associées {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</a>
+  {% endif %}
+</div>
+{% endif %}
+{% if oral_directory %}
+  {% if subject_themes %}
+    {% include "study/expression/partials/subject_collection.html" with groups=subject_themes kind="eo3" secondary_label="Vocabulaire" prompt_source="oral-subject-prompts" %}
+    {{ subject_prompt_map|json_script:"oral-subject-prompts" }}
+  {% else %}
+    <p class="muted">Aucun contenu pour cette sélection pour l'instant.</p>
+  {% endif %}
+{% else %}
+<div class="grid grid--decks collection-table collection-table--decks" data-collection-view="adaptive">
+  {% include "study/shared/partials/collection_table_header.html" with variant="decks" column_1="Thème" column_2="Contenu" column_3="Progression" column_4="État" only %}
+  {% for item in themes %}
+    {% subject_group_url part.slug task.slug item.theme.slug as theme_url %}
+    {% include "study/review/partials/deck_card.html" with url=theme_url available=True color=item.theme.color icon=item.theme.icon name=item.theme.display_name due=item.stats.due stats=item.stats count_prompts=item.prompt_count count_responses=item.stats.total only %}
+  {% empty %}
+    <p class="muted">Aucun contenu pour cette sélection pour l'instant.</p>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if not oral_directory %}
+<h2 style="margin-top:2rem;">Par famille de sujets</h2>
+<p class="muted mt-0">Regroupez les formulations proches pour réutiliser les mêmes structures et arguments.</p>
+<div class="qlist collection-table collection-table--qrows" data-collection-view="adaptive">
+  {% include "study/shared/partials/collection_table_header.html" with variant="qrows" column_1="N°" column_2="Famille" column_3="Sujets" only %}
+  {% for family in families %}
+    <a class="qrow" data-collection-item href="{% url 'study:task_family_detail' part.slug task.slug family.slug %}">
+      <span class="qrow__num">{{ family.order }}</span>
+      <span class="qrow__text">{{ family.name }}</span>
+      <span class="qrow__meta qrow__meta--state">
+        <span class="progress-status progress-status--{{ family.progress.status }}">{{ family.progress.label }}</span>
+        <span class="chip">{{ family.n }} sujet{{ family.n|pluralize }}</span>
+      </span>
+    </a>
+  {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
+{% block scripts %}
+  {{ block.super }}
+  {% include "study/expression/partials/subject_progress_script.html" %}
+  {% if subject_deduplication_available %}<script src="{% static 'study/js/shared/prompt-copy.js' %}?v=3"></script>{% endif %}
+{% endblock %}

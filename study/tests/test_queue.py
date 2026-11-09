@@ -7,7 +7,8 @@ from datetime import timedelta
 from django.test import TestCase
 from django.utils import timezone
 
-from study import queue as q, srs
+from study.review import queue as q
+from study.review import scheduling as srs
 from study.models import CardState, CardType, PhraseTier, Rating, ReviewLog
 
 from .factories import (

@@ -14,7 +14,7 @@ from django.core.management import call_command
 from django.core.management.base import CommandError
 from django.test import SimpleTestCase
 
-from study.course_content import (
+from study.learning.courses import (
     BENCHMARK_COUNTS,
     CONTENT_ROOT,
     DEPTH_BASELINE_COMMIT,

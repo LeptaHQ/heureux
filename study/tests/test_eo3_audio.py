@@ -14,10 +14,10 @@ from django.template.loader import render_to_string
 from django.test import SimpleTestCase, TestCase, override_settings
 from django.urls import reverse
 
-from study import catalogue
-from study.account_services import provision_user_study_data
-from study.card_presentation import card_payload
-from study.eo3_audio import (
+from study.catalogue import registry as catalogue
+from study.accounts.services import provision_user_study_data
+from study.review.presentation import card_payload
+from study.expression.eo.tache_3.audio import (
     MAX_AUDIO_BYTES, MAX_ERROR_BYTES, NarrationError, PreSynthesisRejection, VOICE_SETTINGS,
     _check_provider_request, generate_narration, narration_presentation, narration_spec, synthesize,
     word_timings,
@@ -25,10 +25,10 @@ from study.eo3_audio import (
 from study.models import (
     Card, CardType, EO3Narration, FrenchNarration, PersonalResponse, Prompt, Response,
 )
-from study.response_personalization import effective_response
-from study.oral_highlights import AnnotationRootText
-from study.routing import prompt_detail_url
-from study.tache_three_models import spoken_text
+from study.expression.personalization import effective_response
+from study.notes.anchors import AnnotationRootText
+from study.navigation.routing import prompt_detail_url
+from study.expression.eo.tache_3.responses import spoken_text
 
 from . import factories
 
@@ -110,7 +110,7 @@ class EO3AudioSpecTests(SimpleTestCase):
         ):
             with self.settings(**setting):
                 self.assertNotEqual(original.fingerprint, narration_spec(self.model).fingerprint)
-        with patch("study.eo3_audio.VOICE_SETTINGS", {"speed": 0.9}):
+        with patch("study.expression.eo.tache_3.audio.VOICE_SETTINGS", {"speed": 0.9}):
             self.assertNotEqual(original.fingerprint, narration_spec(self.model).fingerprint)
         self.assertEqual(original.fingerprint, narration_spec(self.model).fingerprint)
 
@@ -141,7 +141,7 @@ class EO3AudioSpecTests(SimpleTestCase):
         self.assertEqual(word_timings(text, list("Autre texte"), starts[:11], ends[:11]), [])
         self.assertEqual(word_timings(text, characters, starts, ends[:-1]), [])
 
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_timed_provider_request_returns_audio_and_word_timings(self, factory):
         spec = narration_spec(self.model)
         requests = self.provider(factory, timed_upstream(spec.text))
@@ -165,13 +165,13 @@ class EO3AudioSpecTests(SimpleTestCase):
                 self.provider(factory, response)
                 synthesize(spec, timing=True)
 
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_provider_request_is_server_only_normal_speed_and_bounded(self, factory):
         requests = self.provider(factory, upstream())
         spec = narration_spec(self.model)
         with patch.object(
             RawTextToSpeechClient, "convert", autospec=True, side_effect=RawTextToSpeechClient.convert,
-        ) as convert, patch("study.eo3_audio.httpx.Client", wraps=httpx.Client) as client:
+        ) as convert, patch("study.expression.eo.tache_3.audio.httpx.Client", wraps=httpx.Client) as client:
             self.assertEqual(synthesize(spec), AUDIO)
         self.assertEqual(convert.call_args.kwargs["request_options"], {
             "max_retries": 0, "timeout_in_seconds": 90, "chunk_size": 8192,
@@ -192,14 +192,14 @@ class EO3AudioSpecTests(SimpleTestCase):
         self.assertTrue(all(value == 90 for value in request.extensions["timeout"].values()))
         factory.assert_called_once_with(retries=0)
 
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_missing_key_makes_no_request(self, factory):
         with self.settings(ELEVENLABS_API_KEY=""):
             with self.assertRaisesMessage(NarrationError, "API_KEY"):
                 synthesize(narration_spec(self.model))
         factory.assert_not_called()
 
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_provider_errors_are_explicit_sanitized_and_never_retried(self, factory):
         for error in (
             httpx.ConnectError("private provider detail"),
@@ -215,7 +215,7 @@ class EO3AudioSpecTests(SimpleTestCase):
                 self.assertNotIn(AUDIO_SETTINGS["ELEVENLABS_API_KEY"], str(caught.exception))
                 self.assertEqual(len(requests), 1)
 
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_only_exact_structured_free_tier_rejection_is_definitive(self, factory):
         for http_code in (401, 403):
             for field in ("code", "status"):
@@ -229,7 +229,7 @@ class EO3AudioSpecTests(SimpleTestCase):
                 self.assertNotIn("private provider detail", str(caught.exception))
                 self.assertEqual(caught.exception.code, "free_users_not_allowed")
 
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_unknown_malformed_conflicting_and_server_errors_stay_ambiguous(self, factory):
         for http_code, body in (
             (403, b'{"detail":{"code":"voice_access_denied"}}'),
@@ -253,7 +253,7 @@ class EO3AudioSpecTests(SimpleTestCase):
             self.assertNotIn("private detail", str(caught.exception))
             self.assertEqual(len(requests), 1)
 
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_incomplete_error_body_does_not_prove_nonbillable_rejection(self, factory):
         self.provider(factory, httpx.Response(403, stream=BrokenStream()))
         with self.assertRaises(NarrationError) as caught:
@@ -268,7 +268,7 @@ class EO3AudioSpecTests(SimpleTestCase):
                 synthesize(narration_spec(self.model))
             self.assertNotIsInstance(caught.exception, PreSynthesisRejection)
 
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_non_audio_empty_corrupt_and_oversized_responses_fail(self, factory):
         for data, content_type in (
             (b'{"error":"quota"}', "application/json"),
@@ -280,7 +280,7 @@ class EO3AudioSpecTests(SimpleTestCase):
                 with self.assertRaisesMessage(NarrationError, "invalid or oversized"):
                     synthesize(narration_spec(self.model))
 
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_provider_redirects_are_not_followed_with_credentials(self, factory):
         requests = self.provider(factory, upstream(status=302, headers={"Location": "https://another-host.invalid"}))
         with self.assertRaisesMessage(NarrationError, "HTTP 302"):
@@ -290,14 +290,14 @@ class EO3AudioSpecTests(SimpleTestCase):
             with self.assertRaisesMessage(NarrationError, "fixed ElevenLabs"):
                 _check_provider_request(httpx.Request("POST", url))
 
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_adapter_rejects_invalid_sources_before_networking(self, factory):
         for changes in ({"voice_id": "../voice"}, {"text": "x" * 10001}, {"text": ""}, {"model_id": "model?bad"}):
             with self.subTest(changes=changes), self.assertRaisesMessage(NarrationError, "Invalid narration"):
                 synthesize(replace(narration_spec(self.model), **changes))
         factory.assert_not_called()
 
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_sdk_audio_stream_stops_at_limit_and_rejects_truncation_and_encoding(self, factory):
         chunks = []
 
@@ -320,7 +320,7 @@ class EO3AudioSpecTests(SimpleTestCase):
             with self.assertRaises(NarrationError):
                 synthesize(narration_spec(self.model))
 
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_error_hook_stops_before_sdk_can_buffer_unbounded_error_body(self, factory):
         chunks = []
 
@@ -360,7 +360,7 @@ class EO3AudioTests(TestCase):
             voice_id=self.spec.voice_id, model_id=self.spec.model_id, audio=AUDIO,
         )
 
-    @patch("study.eo3_audio.synthesize", return_value=(AUDIO, TIMING))
+    @patch("study.expression.eo.tache_3.audio.synthesize", return_value=(AUDIO, TIMING))
     def test_generation_is_persistent_and_reuses_without_another_paid_call(self, provider):
         self.assertTrue(generate_narration(self.spec, pin=AUDIO_PIN))
         self.assertFalse(generate_narration(self.spec))
@@ -368,13 +368,13 @@ class EO3AudioTests(TestCase):
         self.assertEqual(EO3Narration.objects.get().timing, TIMING)
         provider.assert_called_once_with(self.spec, timing=True)
 
-    @patch("study.eo3_audio.synthesize", side_effect=NarrationError("Provider failed."))
+    @patch("study.expression.eo.tache_3.audio.synthesize", side_effect=NarrationError("Provider failed."))
     def test_failure_rolls_back_the_reservation(self, provider):
         with self.assertRaisesMessage(NarrationError, "Provider failed"):
             generate_narration(self.spec, pin=AUDIO_PIN)
         self.assertFalse(EO3Narration.objects.exists())
 
-    @patch("study.eo3_audio.synthesize")
+    @patch("study.expression.eo.tache_3.audio.synthesize")
     def test_command_estimate_and_confirmation_prevent_unintended_spend(self, provider):
         output = StringIO()
         call_command("generate_eo3_audio", group="culture-p1", dry_run=True, stdout=output)
@@ -389,7 +389,7 @@ class EO3AudioTests(TestCase):
         provider.assert_not_called()
         self.assertFalse(EO3Narration.objects.exists())
 
-    @patch("study.eo3_audio.synthesize", return_value=(AUDIO, TIMING))
+    @patch("study.expression.eo.tache_3.audio.synthesize", return_value=(AUDIO, TIMING))
     @patch("study.management.commands.generate_eo3_audio.command_generation_pin", return_value=AUDIO_PIN)
     def test_confirmed_command_generates_one_and_skips_cached_audio_without_key(self, pin_prompt, provider):
         call_command("generate_eo3_audio", group="culture-p1", confirm_cost=True, stdout=StringIO())
@@ -399,7 +399,7 @@ class EO3AudioTests(TestCase):
         pin_prompt.assert_called_once()
         self.assertEqual(EO3Narration.objects.count(), 1)
 
-    @patch("study.eo3_audio.synthesize")
+    @patch("study.expression.eo.tache_3.audio.synthesize")
     def test_playback_never_generates_and_requires_login(self, provider):
         self.assertEqual(self.client.get(self.url).status_code, 404)
         self.save_recording()
@@ -481,8 +481,8 @@ class EO3AudioTests(TestCase):
             "hide_help": True,
             "csrf_token": "test-token",
         }
-        legacy = render_to_string("study/partials/subject_progress_control.html", context)
-        compact = render_to_string("study/partials/subject_progress_control.html", {
+        legacy = render_to_string("study/expression/partials/subject_progress_control.html", context)
+        compact = render_to_string("study/expression/partials/subject_progress_control.html", {
             **context, "compact_audio_control": True, "read_audio": {"ready": True},
         })
         self.assertEqual(
@@ -497,10 +497,10 @@ class EO3AudioTests(TestCase):
         card = Card.objects.get(user=self.user, response=self.prompt.response, card_type=CardType.SPINE)
         with self.settings(EO3_AUDIO_ENABLED=False):
             before = self.client.get(prompt_detail_url(self.prompt))
-            before_back = render_to_string("study/partials/card_back.html", card_payload(card, prompt=self.prompt))
+            before_back = render_to_string("study/review/partials/card_back.html", card_payload(card, prompt=self.prompt))
         after = self.client.get(prompt_detail_url(self.prompt))
         payload = card_payload(card, prompt=self.prompt)
-        after_back = render_to_string("study/partials/card_back.html", payload)
+        after_back = render_to_string("study/review/partials/card_back.html", payload)
         self.assertEqual(payload["eo3_audio"]["url"], self.url)
         self.assertContains(after, 'aria-checked="true" data-eo3-speed="0.85"')
         self.assertContains(after, 'data-eo3-speed="2">2×</button>')
@@ -516,7 +516,7 @@ class EO3AudioTests(TestCase):
             AnnotationRootText("<div data-annotation-root>" + after_back + "</div>").text,
         )
         self.assertNotIn('class="answer" data-read-aloud-text', after_back)
-        front = render_to_string("study/partials/card_front.html", payload)
+        front = render_to_string("study/review/partials/card_front.html", payload)
         self.assertNotIn("data-eo3-player", front)
 
     @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=False)
@@ -595,11 +595,11 @@ class EO3OnDemandNarrationTests(TestCase):
         )
 
     def test_any_response_is_generated_once_then_reused(self):
-        from study.eo3_audio import narration_presentation
+        from study.expression.eo.tache_3.audio import narration_presentation
         presentation = narration_presentation(self.model)
         self.assertTrue(presentation["on_demand"])
         self.assertEqual(presentation["prepare_url"], self.url)
-        with patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING)) as provider:
+        with patch("study.audio.french.synthesize", return_value=(AUDIO, TIMING)) as provider:
             first = self.prepare()
             second = self.prepare()
         self.assertEqual(first.status_code, 200, first.content)
@@ -615,9 +615,9 @@ class EO3OnDemandNarrationTests(TestCase):
         self.assertEqual(json.loads(ready["timing"]), TIMING)
 
     def test_failed_generation_can_be_retried_by_clicking_again(self):
-        with patch("study.french_audio.synthesize", side_effect=NarrationError("Provider failed.")):
+        with patch("study.audio.french.synthesize", side_effect=NarrationError("Provider failed.")):
             self.assertEqual(self.prepare().status_code, 409)
-        with patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING)) as provider:
+        with patch("study.audio.french.synthesize", return_value=(AUDIO, TIMING)) as provider:
             self.assertEqual(self.prepare().status_code, 200)
         provider.assert_called_once()
         self.assertTrue(EO3Narration.objects.filter(pk=self.spec.fingerprint).exists())
@@ -650,7 +650,7 @@ class EO3OnDemandNarrationTests(TestCase):
         self.assertContains(page, presentation["prepare_url"])
         self.assertNotContains(page, self.url)
 
-        with patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING)) as provider:
+        with patch("study.audio.french.synthesize", return_value=(AUDIO, TIMING)) as provider:
             prepared = self.client.post(
                 presentation["prepare_url"], data=json.dumps({"confirm_cost": True, "pin": AUDIO_PIN}),
                 content_type="application/json",
@@ -677,7 +677,7 @@ class EO3OnDemandNarrationTests(TestCase):
 
     def test_an_edit_keeps_paid_audio_until_explicit_pin_protected_refresh(self):
         first = self.edit(self.user, "Première version.")[1]
-        with patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING)):
+        with patch("study.audio.french.synthesize", return_value=(AUDIO, TIMING)):
             self.client.post(first["prepare_url"], data=json.dumps({"confirm_cost": True, "pin": AUDIO_PIN}),
                              content_type="application/json")
             second = self.edit(self.user, "Deuxième version.")[1]

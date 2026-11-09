@@ -9,11 +9,11 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
-from .. import catalogue
-from .. import content_loader as content_module
-from .. import queue as queue_module
-from ..ee_formulations import get_ee_formulations
-from ..formulation_progress import (
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content_module
+from study.review import queue as queue_module
+from study.expression.ee.formulations.catalogue import get_ee_formulations
+from study.expression.ee.formulations.progress import (
     formulation_progress,
     formulation_progress_states,
 )
@@ -30,7 +30,7 @@ from ..models import (
     Theme,
     WritingSujet,
 )
-from ..progress import (
+from study.review.progress import (
     MATURE_INTERVAL_DAYS,
     ProgressSummary,
     SubjectProgress,
@@ -40,7 +40,7 @@ from ..progress import (
     summarize_subject_progress,
     writing_sujet_progress_by_id,
 )
-from ..routing import review_url
+from study.navigation.routing import review_url
 
 MATURE_DAYS = MATURE_INTERVAL_DAYS
 

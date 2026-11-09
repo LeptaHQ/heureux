@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% block title %}Résultats · {{ test.title }} · {{ test.mode_title }} · Heureux{% endblock %}
+
+{% block content %}
+<div class="ce-shell ce-results">
+  <nav class="ce-breadcrumb" aria-label="Fil d’Ariane">
+    <a href="{% url 'study:dashboard' %}">Accueil</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_hub' %}">Compréhension</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url test.overview_route %}">{{ test.get_mode_display }}</a>
+    {% if group_number %}
+      <span aria-hidden="true">›</span>
+      <a href="{% url test.group_route group_number %}">{{ test.group_label }} {{ group_number }}</a>
+    {% endif %}
+    <span aria-hidden="true">›</span>
+    <a href="{% url test.detail_route test.slug %}">{{ test.title }}</a>
+    <span aria-hidden="true">›</span>
+    <span>Résultats</span>
+  </nav>
+
+  <header class="ce-results-hero">
+    <div class="ce-results-hero__score">
+      <strong>{{ attempt.score }}</strong>
+      <span>sur {{ attempt.total_questions }}</span>
+    </div>
+    <div class="ce-results-hero__copy">
+      <h1>{{ test.title }}</h1>
+      <p>{% if is_error_practice %}Entraînement ciblé terminé{% else %}Tentative terminée{% endif %} · <b>{{ attempt.percentage }} %</b></p>
+      <div class="ce-results-hero__facts">
+        <span class="is-correct"><b>{{ attempt.score }}</b> bonnes réponses</span>
+        <span class="is-wrong"><b>{{ wrong_count }}</b> à revoir</span>
+        <span>Tentative du <b>{{ attempt.completed_at|date:"j M Y" }}</b></span>
+      </div>
+    </div>
+    <div class="ce-results-hero__actions">
+      {% include "study/comprehension/partials/comprehension_progress_control.html" with test=test %}
+      {% if wrong_count and test.is_active and test.is_published %}
+      <form method="post" action="{% url test.start_route test.slug %}">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="errors">
+        <input type="hidden" name="attempt_id" value="{{ attempt.pk }}">
+        <button class="btn btn--primary" type="submit">Repratiquer mes {{ wrong_count }} erreur{{ wrong_count|pluralize }}</button>
+      </form>
+      {% endif %}
+      {% if test.is_active and test.is_published %}
+      <form method="post" action="{% url test.start_route test.slug %}">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="continue">
+        <button class="btn{% if not wrong_count %} btn--primary{% endif %}" type="submit">Refaire le test complet</button>
+      </form>
+      {% else %}
+        <span class="ce-results-archived">Ce test n’est plus disponible et ne peut pas être recommencé.</span>
+      {% endif %}
+      {% if has_vocabulary %}
+        <a class="btn" href="{% if test.mode == 'orale' %}{% url 'study:comprehension_oral_test_vocabulary' test.slug %}{% else %}{% url 'study:comprehension_test_vocabulary' test.slug %}{% endif %}">Pratiquer le vocabulaire</a>
+      {% endif %}
+      {% if group_number %}
+        <a class="btn" href="{% url test.group_route group_number %}">Retour au {{ test.group_label_lower }}</a>
+      {% else %}
+        <a class="btn" href="{% url test.overview_route %}">Retour aux tests</a>
+      {% endif %}
+      <a class="btn" href="{% url test.study_list_route %}">Questions à étudier</a>
+    </div>
+  </header>
+
+  <section class="ce-results-map" aria-labelledby="ce-results-map-title">
+    <div class="ce-results-map__head">
+      <div>
+        <p class="eyebrow">Vue d’ensemble</p>
+        <h2 id="ce-results-map-title">Réponses</h2>
+      </div>
+      <div class="ce-results-map__legend" aria-label="Résumé des réponses">
+        <span class="is-correct"><b>{{ attempt.score }}</b> correcte{{ attempt.score|pluralize }}</span>
+        <span class="is-wrong"><b>{{ wrong_count }}</b> à revoir</span>
+        <span
+          class="is-to-study{% if not study_marked_count %} hidden{% endif %}"
+          data-question-study-results-count
+        ><b data-question-study-results-value>{{ study_marked_count }}</b> à étudier</span>
+      </div>
+    </div>
+    <div class="ce-results-map__grid">
+      {% for item in review_items %}
+        <a href="#question-{{ item.question.number }}" class="{% if item.answer.is_correct %}is-correct{% else %}is-wrong{% endif %}{% if item.is_to_study %} is-to-study{% endif %}" data-question-study-map="{{ item.answer.question_id }}" data-question-study-base-label="Question {{ item.question.number }}, {% if item.answer.is_correct %}correcte{% else %}incorrecte{% endif %}" aria-label="Question {{ item.question.number }}, {% if item.answer.is_correct %}correcte{% else %}incorrecte{% endif %}{% if item.is_to_study %}, à étudier{% endif %}">
+          {{ item.question.number }}
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="ce-review-list" aria-labelledby="ce-review-title">
+    <div class="ce-section-heading">
+      <div>
+        <p class="eyebrow">Question par question</p>
+        <h2 id="ce-review-title">Correction détaillée</h2>
+        <p>Ouvrez une question pour revoir le document, vos choix et les explications.</p>
+      </div>
+    </div>
+
+    {% for item in review_items %}
+      <details class="ce-review-item{% if item.answer.is_correct %} is-correct{% else %} is-wrong{% endif %}{% if item.is_to_study %} is-to-study{% endif %}" id="question-{{ item.question.number }}" data-question-study-row="{{ item.answer.question_id }}">
+        <summary>
+          <span class="ce-review-item__number">{{ item.question.number }}</span>
+          <span class="ce-review-item__prompt">{{ item.question.prompt_fr }}</span>
+          <span class="ce-review-item__status">
+            <span class="question-study-badge">À étudier</span>
+            {% if item.answer.is_correct %}Correcte <b>{% include "study/shared/partials/ui_icon.html" with name="check" only %}</b>{% else %}À revoir <b>{% include "study/shared/partials/ui_icon.html" with name="x" only %}</b>{% endif %}
+          </span>
+        </summary>
+        <div class="ce-review-item__body">
+          <div class="ce-review-item__actions">
+            {% include "study/comprehension/partials/comprehension_question_study_form.html" with csrf_token=csrf_token marker=item.study_marker next_url=request.get_full_path variant="review" show_text=True only %}
+          </div>
+          <div class="ce-review-item__passage">{{ item.question.passage_fr }}</div>
+          {% if test.mode == "orale" %}
+            {% include "study/comprehension/co/partials/comprehension_audio_reader.html" with question=item.question compact=True request=request only %}
+          {% endif %}
+          <div class="ce-review-item__choices">
+            {% for choice in item.choices %}
+              <div class="{% if choice.is_correct %}is-correct{% elif choice.letter == item.selected_letter %}is-wrong{% endif %}">
+                <span>{{ choice.letter }}</span>
+                <p>{{ choice.text_fr }}</p>
+                {% if choice.is_correct %}<b>Bonne réponse</b>{% elif choice.letter == item.selected_letter %}<b>Votre choix</b>{% endif %}
+              </div>
+            {% endfor %}
+          </div>
+
+          {% if item.question.correct_explanation %}
+            <details class="ce-rationales ce-rationales--explanation" open>
+              <summary><span aria-hidden="true">EN</span> Explication en anglais</summary>
+              <div>
+                <div class="ce-review-item__explanation">
+                  <h3>Explication</h3>
+                  <p>{{ item.question.correct_explanation }}</p>
+                </div>
+              </div>
+            </details>
+          {% endif %}
+
+          <details class="ce-rationales">
+            <summary>Voir les autres explications en anglais</summary>
+            <div>
+              {% for choice in item.choices %}
+                {% if not choice.is_correct and choice.rationale %}
+                  <article{% if choice.letter == item.selected_letter %} class="is-selected"{% endif %}>
+                    <span>{{ choice.letter }}</span>
+                    <p>{{ choice.rationale }}</p>
+                  </article>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </details>
+
+          <details class="ce-translation">
+            <summary><span aria-hidden="true">EN</span> Voir la traduction anglaise</summary>
+            <div class="ce-translation__body">
+              {% if item.question.passage_en %}
+                <section>
+                  <small>{{ test.source_label }}</small>
+                  <p>{{ item.question.passage_en }}</p>
+                </section>
+              {% endif %}
+              <section>
+                <small>Question</small>
+                <p><strong>{{ item.question.prompt_en }}</strong></p>
+                <ol class="ce-translation__choices">
+                  {% for choice in item.choices %}
+                    <li><span>{{ choice.letter }}</span>{{ choice.text_en }}</li>
+                  {% endfor %}
+                </ol>
+              </section>
+            </div>
+          </details>
+        </div>
+      </details>
+    {% endfor %}
+  </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% include "study/comprehension/partials/comprehension_progress_script.html" %}
+{% endblock %}

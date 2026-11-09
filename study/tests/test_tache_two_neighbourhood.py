@@ -3,7 +3,8 @@ import json
 
 from django.test import SimpleTestCase
 
-from study import catalogue, content_loader as content
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
 from study.tests.eo2_review_fixtures import (
     assert_review_preservation, pre_realness_history, preserved_public_layouts,
 )

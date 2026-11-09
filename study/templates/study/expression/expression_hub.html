@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Expression · Heureux{% endblock %}
+
+{% block content %}
+<div class="area-page expression-hub">
+  <header class="area-hero">
+    <div class="area-hero__copy">
+      <h1>Expression</h1>
+      <p>Réponses orales et écrites, organisées par tâche.</p>
+    </div>
+  </header>
+
+  <section class="area-section" aria-labelledby="expression-paths-title">
+    <div class="section-heading">
+      <div>
+        <h2 id="expression-paths-title">Choisir un parcours</h2>
+      </div>
+    </div>
+
+    <div class="expression-paths">
+      {% include "study/expression/partials/expression_paths.html" %}
+    </div>
+  </section>
+</div>
+{% endblock %}

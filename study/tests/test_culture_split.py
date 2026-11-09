@@ -8,8 +8,10 @@ from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 from django.utils.html import escape
 
-from study import catalogue, content_loader as content, srs
-from study.account_services import provision_user_study_data
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
+from study.review import scheduling as srs
+from study.accounts.services import provision_user_study_data
 from study.models import (
     Annotation, AnnotationKind, Card, CardType, MemoryQuestionProgress,
     PersonalQuestionResponse, PersonalResponse, Phrase, Prompt, Rating,

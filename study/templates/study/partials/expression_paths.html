@@ -1,4 +1,0 @@
-{% for path in paths %}
-  {% url 'study:part_detail' path.part.slug as path_url %}
-  {% include "study/partials/path_card.html" with code=path.part.short_name|lower title=path.title available=path.available url=path_url description=path.description action_label="Voir les tâches" only %}
-{% endfor %}

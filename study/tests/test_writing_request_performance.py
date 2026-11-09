@@ -11,12 +11,12 @@ from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils import timezone
 
-from study import content_loader
+from study.catalogue import loader as content_loader
 from study.models import (
     Annotation, PersonalWritingResponse, WritingResponseOverride,
     WritingSujet, WritingSujetCompletion,
 )
-from study.progress import writing_sujet_progress_by_id, writing_sujet_started_at
+from study.review.progress import writing_sujet_progress_by_id, writing_sujet_started_at
 
 from . import factories
 

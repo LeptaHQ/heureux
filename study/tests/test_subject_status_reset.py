@@ -9,15 +9,15 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.html import escape
 
-from study.account_services import provision_user_study_data
-from study import catalogue
+from study.accounts.services import provision_user_study_data
+from study.catalogue import registry as catalogue
 from study.models import Annotation, AnnotationKind, Card, CardType, PersonalResponse, Prompt
-from study.oral_highlights import AnnotationRootText
-from study.progress import mark_card_started, subject_progress_by_response
-from study.oral_highlights import _render_questions
-from study.oral_history import variant_annotation_key
-from study.tache_two_dialogues import dialogue_response
-from study.routing import prompt_detail_url, review_url
+from study.notes.anchors import AnnotationRootText
+from study.review.progress import mark_card_started, subject_progress_by_response
+from study.notes.anchors import _render_questions
+from study.expression.eo.history import variant_annotation_key
+from study.expression.eo.tache_2.dialogues import dialogue_response
+from study.navigation.routing import prompt_detail_url, review_url
 
 from . import factories
 

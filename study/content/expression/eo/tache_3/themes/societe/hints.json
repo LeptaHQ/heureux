@@ -1,0 +1,1064 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "culture-p2": {
+      "introduction": {
+        "french": "Certains adultes sont pessimistes, pas tous.",
+        "english": "Some adults are pessimistic, not all."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Un passé embelli fausse la comparaison.",
+            "english": "An idealised past distorts the comparison."
+          },
+          "example": {
+            "french": "Un adulte peut critiquer les bavardages puis se rappeler les siens.",
+            "english": "An adult may criticise chatting, then remember doing it too."
+          }
+        },
+        {
+          "point": {
+            "french": "La répétition d'images déforme le jugement.",
+            "english": "Repeated images distort judgments."
+          },
+          "example": {
+            "french": "Une même bagarre circule : un spectateur pourrait généraliser.",
+            "english": "The same fight circulates: a viewer might generalise."
+          }
+        },
+        {
+          "point": {
+            "french": "Le contact donne des faits précis.",
+            "english": "Direct contact provides specific facts."
+          },
+          "example": {
+            "french": "Collecte : un adulte peut voir des lycéens ponctuels et organisés.",
+            "english": "Food collection: an adult may see punctual, organised high-school students."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Un parent peut légitimement s'inquiéter d'un risque précis, sans généraliser.",
+        "english": "A parent can legitimately worry about a specific risk without generalising."
+      },
+      "conclusion": {
+        "french": "Comparer justement et rencontrer les jeunes avant de juger.",
+        "english": "Compare fairly and meet young people before judging."
+      }
+    },
+    "culture-p3": {
+      "introduction": {
+        "french": "L'État est essentiel, mais ne peut pas tout contrôler.",
+        "english": "The state is essential but cannot control everything."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Les contrôles ont des moyens limités.",
+            "english": "Enforcement resources are limited."
+          },
+          "example": {
+            "french": "Vitesse : certaines rues restent sans surveillance.",
+            "english": "Speeding: some streets remain unmonitored."
+          }
+        },
+        {
+          "point": {
+            "french": "Un contrôle total menacerait les libertés.",
+            "english": "Total control would threaten freedoms."
+          },
+          "example": {
+            "french": "Bruit : intervenir après signalement, pas écouter tous les logements.",
+            "english": "Noise: respond to reports, not listen inside every home."
+          }
+        },
+        {
+          "point": {
+            "french": "La coopération suppose des règles comprises.",
+            "english": "Cooperation requires understood rules."
+          },
+          "example": {
+            "french": "Tri : après les explications du gardien, les habitants séparent leurs déchets.",
+            "english": "Sorting: after the caretaker's explanation, residents separate their waste."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Ces limites n'excusent pas l'inaction ni l'abandon des services essentiels.",
+        "english": "These limits excuse neither inaction nor abandoning essential services."
+      },
+      "conclusion": {
+        "french": "Un cadre solide et proportionné, pas une surveillance générale.",
+        "english": "A strong, proportionate framework, not blanket surveillance."
+      }
+    },
+    "culture-p4": {
+      "introduction": {
+        "french": "Priorité : lutter contre la pauvreté et l'exclusion.",
+        "english": "Priority: fight poverty and exclusion."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Les besoins essentiels sont urgents.",
+            "english": "Basic needs are urgent."
+          },
+          "example": {
+            "french": "Un parent peut nourrir ses enfants grâce à une aide, sans sacrifier le loyer.",
+            "english": "Aid may let a parent feed their children without sacrificing rent."
+          }
+        },
+        {
+          "point": {
+            "french": "La précarité entraîne des difficultés liées.",
+            "english": "Insecurity creates interconnected difficulties."
+          },
+          "example": {
+            "french": "Un élève souvent relogé : la stabilité retire des obstacles, sans garantir sa réussite.",
+            "english": "A pupil often moves: stability removes obstacles without guaranteeing success."
+          }
+        },
+        {
+          "point": {
+            "french": "Comprendre les démarches aide à exercer ses droits.",
+            "english": "Understanding procedures helps people claim their rights."
+          },
+          "example": {
+            "french": "Un accompagnateur explique la demande d'aide au logement pour que la personne la fasse elle-même.",
+            "english": "A support worker explains a housing-aid application so the person can make it themselves."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Guerre, catastrophe ou manque d'eau peuvent devenir prioritaires localement.",
+        "english": "War, disaster or lack of water may take priority locally."
+      },
+      "conclusion": {
+        "french": "Répondre aux besoins essentiels pour participer à la société, pas seulement survivre.",
+        "english": "Meet basic needs to participate in society, not just survive."
+      }
+    },
+    "culture-p8": {
+      "introduction": {
+        "french": "Certaines personnes âgées sont pessimistes, pas toutes.",
+        "english": "Some older people are pessimistic, not all."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Le souvenir sélectionne les bons moments.",
+            "english": "Memory selects the good moments."
+          },
+          "example": {
+            "french": "Une personne retraitée peut critiquer les disputes puis se rappeler les siennes.",
+            "english": "A retired person may criticise arguments, then remember their own."
+          }
+        },
+        {
+          "point": {
+            "french": "Des images répétées peuvent sembler représenter tous les jeunes.",
+            "english": "Repeated images may seem to represent all young people."
+          },
+          "example": {
+            "french": "La même bagarre pourrait faire craindre à une grand-mère une violence fréquente.",
+            "english": "The same fight might make a grandmother fear frequent violence."
+          }
+        },
+        {
+          "point": {
+            "french": "Le contact permet de revoir les étiquettes.",
+            "english": "Contact makes it possible to reconsider labels."
+          },
+          "example": {
+            "french": "Collecte : une personne âgée peut voir des lycéens ponctuels et organisés.",
+            "english": "Food collection: an older person may see punctual, organised high-school students."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Certains connaissent bien les jeunes ; une inquiétude peut venir de l'affection.",
+        "english": "Some know young people well; concern may come from affection."
+      },
+      "conclusion": {
+        "french": "Recul sur les souvenirs et les images, échanges réguliers.",
+        "english": "Perspective on memories and images, regular exchanges."
+      }
+    },
+    "culture-p16": {
+      "introduction": {
+        "french": "On peut être heureux sans amis, même si l'amitié apporte beaucoup.",
+        "english": "You can be happy without friends, even though friendship brings a lot."
+      },
+      "nuance": {
+        "french": "Distinguer le choix de vivre sans amis d'une solitude qui fait souffrir.",
+        "english": "Distinguish choosing life without friends from painful loneliness."
+      },
+      "conclusion": {
+        "french": "Famille et satisfactions personnelles peuvent aussi contribuer au bonheur.",
+        "english": "Family and personal satisfaction can also contribute to happiness."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Un ami aide à prendre du recul après un échec.",
+            "english": "A friend helps put a setback in perspective."
+          },
+          "example": {
+            "french": "Après un refus d'embauche, une amie écoute une candidate et l'aide à préparer le prochain entretien.",
+            "english": "After a job rejection, a friend listens to an applicant and helps her prepare for the next interview."
+          }
+        },
+        {
+          "point": {
+            "french": "Cette écoute peut aussi venir d'un autre proche.",
+            "english": "That listening support can also come from another loved one."
+          },
+          "example": {
+            "french": "Sans cercle d'amis, une personne parle d'un souci au travail à sa sœur et raccroche soulagée.",
+            "english": "Someone without a circle of friends tells her sister about a work concern and ends the call relieved."
+          }
+        },
+        {
+          "point": {
+            "french": "Progresser dans une activité peut donner plaisir et fierté.",
+            "english": "Progress in an activity can bring pleasure and pride."
+          },
+          "example": {
+            "french": "Après plusieurs semaines de piano, une personne joue un morceau entier et le rejoue, fière de ses progrès.",
+            "english": "After weeks of piano practice, someone plays a whole piece and enjoys replaying it, proud of the progress."
+          }
+        }
+      ]
+    },
+    "culture-p33": {
+      "introduction": {
+        "french": "Une place comme citoyens, mais la notoriété ne prouve pas la compétence politique.",
+        "english": "A place as citizens, but fame does not prove political competence."
+      },
+      "nuance": {
+        "french": "Avance de visibilité et intérêts possibles ; la compétence ne se déduit pas de la célébrité.",
+        "english": "Extra media attention and possible interests; do not infer competence by fame alone."
+      },
+      "conclusion": {
+        "french": "Préparation, programme et décisions expliquées, pas admiration.",
+        "english": "Preparation, programme and accountable decisions, not admiration."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "L'expérience professionnelle d'une célébrité peut enrichir le débat public.",
+            "english": "A celebrity's professional experience can enrich public debate."
+          },
+          "example": {
+            "french": "Une sportive explique pourquoi l'absence de bus empêche des jeunes de rejoindre le gymnase le soir.",
+            "english": "An athlete explains why a lack of buses prevents young people from reaching the gym in the evening."
+          }
+        },
+        {
+          "point": {
+            "french": "La notoriété peut aider à mobiliser le public autour d'une cause.",
+            "english": "Fame can help mobilise the public around a cause."
+          },
+          "example": {
+            "french": "Un acteur relaie une association sur l'accessibilité des transports et invite à une réunion publique.",
+            "english": "An actor shares an association's concerns about transport accessibility and invites people to a public meeting."
+          }
+        },
+        {
+          "point": {
+            "french": "Être connu ne suffit pas pour bien exercer une fonction politique.",
+            "english": "Being well known is not enough to do a political job well."
+          },
+          "example": {
+            "french": "Interroger une candidate sur le financement et l'entretien du gymnase proposé.",
+            "english": "Ask a candidate about funding and maintaining the proposed sports hall."
+          }
+        }
+      ]
+    },
+    "famille-p3": {
+      "introduction": {
+        "french": "Écouter l'expérience des aînés sans croire tous leurs conseils adaptés.",
+        "english": "Listen to older people's experience without assuming every piece of advice fits."
+      },
+      "nuance": {
+        "french": "Ne pas rejeter un avis à cause de l'âge ; demander ce qui le justifie.",
+        "english": "Do not reject advice because of age; ask for the reasons behind it."
+      },
+      "conclusion": {
+        "french": "Confronter l'expérience aux faits actuels et garder son propre choix.",
+        "english": "Compare experience with current facts and retain your own choice."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Une erreur vécue donne des points précis à vérifier.",
+            "english": "Learning from someone else's mistake shows us what to check."
+          },
+          "example": {
+            "french": "Un grand-père conseille de vérifier le coût d'une formation avant de démissionner, après sa propre erreur.",
+            "english": "After his own mistake, a grandfather advises checking training costs before resigning."
+          }
+        },
+        {
+          "point": {
+            "french": "Les démarches peuvent avoir changé depuis l'expérience de l'aîné.",
+            "english": "Procedures may have changed since the older person's experience."
+          },
+          "example": {
+            "french": "Une candidate vérifie : malgré le conseil du CV en main propre, l'entreprise exige une candidature en ligne.",
+            "english": "An applicant checks: despite advice to hand in her CV, the company requires an online application."
+          }
+        },
+        {
+          "point": {
+            "french": "Un conseil exact peut refléter d'autres priorités que les nôtres.",
+            "english": "Factually sound advice can reflect priorities different from ours."
+          },
+          "example": {
+            "french": "Grand-mère : stabilité près des siens. Petite-fille : offre à l'étranger dans son domaine ; elle discute des risques puis accepte.",
+            "english": "Grandmother: stability near family. Granddaughter: job abroad in her field; discusses the risks, then accepts."
+          }
+        }
+      ]
+    },
+    "famille-p9": {
+      "introduction": {
+        "french": "Les amis enrichissent la vie sans être indispensables à chacun.",
+        "english": "Friends enrich life without being essential for everyone."
+      },
+      "nuance": {
+        "french": "Un groupe ne remplace pas forcément un confident ; approfondir les liens si ce besoin existe.",
+        "english": "A group does not necessarily replace a confidant; deepen connections if that need exists."
+      },
+      "conclusion": {
+        "french": "Entretenir des liens fiables, quel que soit leur nom.",
+        "english": "Maintain reliable connections, whatever they are called."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Un ami peut apporter une aide concrète en cas de difficulté.",
+            "english": "A friend can offer practical help in a difficult situation."
+          },
+          "example": {
+            "french": "Un ami accompagne une personne malade à sa consultation de suivi à l'hôpital et la ramène.",
+            "english": "A friend accompanies a sick person to a hospital follow-up appointment and brings them home."
+          }
+        },
+        {
+          "point": {
+            "french": "L'encouragement d'un ami aide à essayer puis à persévérer.",
+            "english": "A friend's encouragement helps someone try and then persevere."
+          },
+          "example": {
+            "french": "Accompagnée puis encouragée par un ami à la chorale, une personne timide répète et chante à son premier concert.",
+            "english": "Supported by a friend at choir, a shy person keeps rehearsing and sings in a first concert."
+          }
+        },
+        {
+          "point": {
+            "french": "Une vie sociale est possible même sans amis.",
+            "english": "A social life is possible even without friends."
+          },
+          "example": {
+            "french": "Un retraité sans amis marche avec le même groupe chaque mardi, sans fréquenter ses membres en dehors des sorties.",
+            "english": "A retiree with no friends walks with the same group each Tuesday but does not see its members outside the outings."
+          }
+        }
+      ]
+    },
+    "education-p6": {
+      "introduction": {
+        "french": "Internet relie besoins et personnes prêtes à agir ; l'aide doit devenir concrète.",
+        "english": "The Internet connects needs with people ready to act; help must then become concrete."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Diffuser les besoins au-delà du quartier touché.",
+            "english": "Spread information about needs beyond the affected neighbourhood."
+          },
+          "example": {
+            "french": "Après une inondation, des habitants d'une commune voisine relaient l'appel et organisent un dépôt de couvertures.",
+            "english": "After a flood, residents of a neighbouring town relay the appeal and organise a blanket drop-off."
+          }
+        },
+        {
+          "point": {
+            "french": "Un planning en ligne montre où des bénévoles sont encore nécessaires.",
+            "english": "An online schedule shows when volunteers are still needed."
+          },
+          "example": {
+            "french": "Le créneau du matin est complet ; les bénévoles suivants s'inscrivent l'après-midi.",
+            "english": "The morning slot is full, so the next volunteers sign up for the afternoon."
+          }
+        },
+        {
+          "point": {
+            "french": "Les personnes touchées peuvent expliquer leurs difficultés et demander une aide adaptée.",
+            "english": "People affected can explain their difficulties and ask for suitable help."
+          },
+          "example": {
+            "french": "Depuis son hébergement provisoire, une personne écrit à l'association ; un bénévole disponible propose une livraison.",
+            "english": "From temporary accommodation, someone messages the organisation; an available volunteer offers delivery."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Vérifier les collectes ; pannes et personnes hors ligne exigent aussi des contacts sur place.",
+        "english": "Check appeals; outages and people being offline mean local contacts remain essential."
+      },
+      "conclusion": {
+        "french": "Un complément utile, mais publier ne suffit pas à apporter l'aide.",
+        "english": "A useful complement, but posting is not the same as delivering help."
+      }
+    },
+    "education-p10": {
+      "introduction": {
+        "french": "J'aimerais aider régulièrement dans une distribution alimentaire de quartier.",
+        "english": "I would like to help regularly at a neighbourhood food distribution."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Aider à préparer des repas quand le budget est serré.",
+            "english": "Help people prepare meals when money is tight."
+          },
+          "example": {
+            "french": "Après avoir payé son loyer, une mère manque d'argent pour les courses ; le panier aide sa famille à préparer des repas.",
+            "english": "After paying her rent, a mother has little money for groceries; the basket helps her family prepare meals."
+          }
+        },
+        {
+          "point": {
+            "french": "Être fiable pour faciliter l'organisation.",
+            "english": "Be reliable so the team can organise its work."
+          },
+          "example": {
+            "french": "Prévenir d'une absence pour que l'équipe puisse chercher un remplaçant.",
+            "english": "Give notice of an absence so the team can look for a replacement."
+          }
+        },
+        {
+          "point": {
+            "french": "Écouter sans décider à la place des personnes.",
+            "english": "Listen without making decisions on people's behalf."
+          },
+          "example": {
+            "french": "Avec le référent, chercher des aliments sans cuisson pour une personne sans équipement.",
+            "english": "With the coordinator, look for no-cook food for someone without cooking facilities."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Les dons achètent ce qui manque ; je préférerais le temps et le contact.",
+        "english": "Donations buy missing supplies; I would prefer giving time and having direct contact."
+      },
+      "conclusion": {
+        "french": "Une aide régulière et respectueuse, adaptée à ce que je pourrais tenir.",
+        "english": "Regular, respectful help suited to a commitment I could keep."
+      }
+    },
+    "education-p17": {
+      "introduction": {
+        "french": "Oui aux limites ciblées, sans faire taire les désaccords.",
+        "english": "Support targeted limits without silencing disagreement."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Distinguer critique et menace concrète.",
+            "english": "Distinguish criticism from a concrete threat."
+          },
+          "example": {
+            "french": "L'organisateur signale et retire un appel à agresser le responsable, mais garde les critiques de la fermeture.",
+            "english": "The organiser reports and removes a call to assault the person responsible, but keeps criticism of the closure."
+          }
+        },
+        {
+          "point": {
+            "french": "Protéger la vie privée sans interdire de raconter un conflit.",
+            "english": "Protect privacy without banning discussion of a dispute."
+          },
+          "example": {
+            "french": "Un voisin reçoit des appels insistants après la publication de son numéro privé.",
+            "english": "A neighbour receives persistent calls after their private number is published."
+          }
+        },
+        {
+          "point": {
+            "french": "Des règles claires peuvent protéger la participation.",
+            "english": "Clear rules can protect participation."
+          },
+          "example": {
+            "french": "Le forum retire les insultes sur l'apparence d'une participante, mais garde les critiques de sa piste cyclable.",
+            "english": "The forum removes insults about a participant's appearance but keeps criticism of her cycle-lane proposal."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Choquer ne suffit pas ; les limites doivent être précises, équitables et contestables.",
+        "english": "Causing offence is not enough; limits must be specific, fair and challengeable."
+      },
+      "conclusion": {
+        "french": "Protéger les personnes et la discussion, pas éliminer le désaccord.",
+        "english": "Protect people and discussion, not eliminate disagreement."
+      }
+    },
+    "sante-p4": {
+      "introduction": {
+        "french": "L'État doit organiser une aide durable ; les citoyens peuvent la compléter.",
+        "english": "The state should organize lasting support; citizens can complement it."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Une aide régulière, sans attendre une nouvelle collecte.",
+            "english": "Regular help without waiting for another collection."
+          },
+          "example": {
+            "french": "Une aide publique accordée pour plusieurs mois permet de prévoir son budget après une perte d'emploi.",
+            "english": "Public support granted for several months helps someone plan a budget after losing a job."
+          }
+        },
+        {
+          "point": {
+            "french": "Une présence régulière face à l'isolement.",
+            "english": "Regular contact to address isolation."
+          },
+          "example": {
+            "french": "Reprendre ensemble la discussion sur un livre, sans imposer la visite.",
+            "english": "Continue discussing a book together without imposing the visit."
+          }
+        },
+        {
+          "point": {
+            "french": "Des services et associations qui se parlent pour orienter vers la bonne aide.",
+            "english": "Services and associations communicate to direct people to the right help."
+          },
+          "example": {
+            "french": "Orienter vers l'hébergement avec l'accord de la personne.",
+            "english": "Refer for housing support with the person's consent."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Ne pas transférer les obligations publiques aux bénévoles.",
+        "english": "Do not transfer public duties to volunteers."
+      },
+      "conclusion": {
+        "french": "Une aide publique régulière, complétée par l'écoute et l'accompagnement.",
+        "english": "Regular public help, complemented by listening and practical support."
+      }
+    },
+    "sante-p14": {
+      "introduction": {
+        "french": "La ville peut faciliter la vie si les services, les transports et les activités sont réellement accessibles.",
+        "english": "City life can be easier if services, transport and activities are genuinely accessible."
+      },
+      "nuance": {
+        "french": "Un village bien relié peut mieux convenir.",
+        "english": "A well-connected village may suit someone better."
+      },
+      "conclusion": {
+        "french": "Services, mobilité et relations réellement accessibles.",
+        "english": "Truly accessible services, mobility and relationships."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "La proximité des services.",
+            "english": "Nearby services."
+          },
+          "example": {
+            "french": "Rejoindre une pharmacie par un trajet adapté.",
+            "english": "Reach a pharmacy along a suitable route."
+          }
+        },
+        {
+          "point": {
+            "french": "Une mobilité sans voiture.",
+            "english": "Mobility without a car."
+          },
+          "example": {
+            "french": "Prendre un bus accessible vers l'hôpital sans demander à un proche de conduire.",
+            "english": "Take an accessible bus to the hospital without asking a relative to drive."
+          }
+        },
+        {
+          "point": {
+            "french": "Des occasions régulières de contact.",
+            "english": "Regular opportunities for contact."
+          },
+          "example": {
+            "french": "Revenir chaque semaine à un atelier de lecture.",
+            "english": "Return weekly to a reading workshop."
+          }
+        }
+      ]
+    },
+    "technologie-p1": {
+      "introduction": {
+        "french": "Des contacts facilités, pas une amitié garantie.",
+        "english": "Easier contact, not guaranteed friendship."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Trouver un intérêt commun.",
+            "english": "Find a shared interest."
+          },
+          "example": {
+            "french": "Une personne rejoint un groupe local de randonnée pour trouver des interlocuteurs.",
+            "english": "A person joins a local hiking group to find people to talk to."
+          }
+        },
+        {
+          "point": {
+            "french": "Préparer le premier échange.",
+            "english": "Prepare the first exchange."
+          },
+          "example": {
+            "french": "Dans un groupe photo, commenter une technique puis poursuivre la discussion après une réponse.",
+            "english": "In a photography group, comment on a technique, then continue the discussion after a reply."
+          }
+        },
+        {
+          "point": {
+            "french": "S'écouter et tenir ses engagements pour construire la confiance.",
+            "english": "Listen to each other and keep commitments to build trust."
+          },
+          "example": {
+            "french": "Lire les textes de l'autre et lui envoyer ses remarques au moment convenu.",
+            "english": "Read each other's texts and send feedback at the agreed time."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Des profils peuvent tromper ; protéger ses informations privées et rester prudent lors d'une rencontre.",
+        "english": "Profiles can be misleading; protect private information and take care when meeting."
+      },
+      "conclusion": {
+        "french": "Une porte d'entrée vers une relation à construire.",
+        "english": "An entry point to a relationship that must be built."
+      }
+    },
+    "technologie-p4": {
+      "introduction": {
+        "french": "Internet ne rend pas forcément solitaire.",
+        "english": "Internet does not necessarily make people lonely."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Maintenir une présence à distance.",
+            "english": "Maintain presence across distance."
+          },
+          "example": {
+            "french": "Des proches de deux pays échangent chaque semaine en vidéo pour parler de leurs difficultés ou projets.",
+            "english": "Loved ones in two countries talk by video each week about their difficulties or plans."
+          }
+        },
+        {
+          "point": {
+            "french": "Trouver une activité près de chez soi.",
+            "english": "Find an activity close to home."
+          },
+          "example": {
+            "french": "Trouver en ligne un atelier de réparation, s'y rendre avec un objet et participer avec les voisins.",
+            "english": "Find a repair workshop online, go there with an object and take part with neighbours."
+          }
+        },
+        {
+          "point": {
+            "french": "Participer malgré les difficultés de déplacement.",
+            "english": "Participate despite travel barriers."
+          },
+          "example": {
+            "french": "Présenter un livre dans un club à distance faute de transport adapté.",
+            "english": "Present a book to an online club when accessible transport is unavailable."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Certains usages peuvent isoler ; les plateformes doivent aussi limiter les sollicitations envahissantes.",
+        "english": "Some uses can isolate; platforms must also limit intrusive demands for attention."
+      },
+      "conclusion": {
+        "french": "Évaluer les possibilités et la qualité des liens.",
+        "english": "Assess opportunities and relationship quality."
+      }
+    },
+    "technologie-p7": {
+      "introduction": {
+        "french": "Un risque possible, pas un effet automatique.",
+        "english": "A possible risk, not an automatic effect."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Des rencontres repoussées.",
+            "english": "Postponed meetings."
+          },
+          "example": {
+            "french": "Décliner plusieurs invitations pour regarder des vidéos, puis ne plus voir les amis qu'on voulait retrouver.",
+            "english": "Decline several invitations to watch videos, then stop seeing friends you wanted to meet."
+          }
+        },
+        {
+          "point": {
+            "french": "Les moments choisis des autres peuvent fausser la comparaison.",
+            "english": "Other people's selected moments can distort the comparison."
+          },
+          "example": {
+            "french": "Voir une photo de fête et croire être le seul à passer une soirée calme.",
+            "english": "See a party photo and believe you are the only one spending a quiet evening."
+          }
+        },
+        {
+          "point": {
+            "french": "Un manque d'écoute réelle.",
+            "english": "A lack of attentive listening."
+          },
+          "example": {
+            "french": "Après une séparation, demander à parler dans un groupe mais ne recevoir que des symboles, sans interlocuteur.",
+            "english": "After a separation, ask to talk in a group but receive only symbols, with no one to talk to."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Des liens en ligne peuvent être profonds ; les plateformes doivent aussi limiter les sollicitations envahissantes.",
+        "english": "Online relationships can be deep; platforms must also limit intrusive demands for attention."
+      },
+      "conclusion": {
+        "french": "Préserver les rencontres et l'écoute sans accuser tout Internet.",
+        "english": "Protect meetings and attentive listening without blaming all of the Internet."
+      }
+    },
+    "technologie-p20": {
+      "introduction": {
+        "french": "Une possibilité à vérifier sur les besoins réels.",
+        "english": "A possibility to check against real needs."
+      },
+      "nuance": {
+        "french": "Le covoiturage reste un usage de voiture.",
+        "english": "Carpooling still involves car use."
+      },
+      "conclusion": {
+        "french": "Pas indispensable pour tous, pas remplaçable partout.",
+        "english": "Not essential for everyone, not replaceable everywhere."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Des trajets complets adaptés.",
+            "english": "Suitable complete journeys."
+          },
+          "example": {
+            "french": "Si le travail finit après le dernier bus, le trajet retour n'est plus assuré.",
+            "english": "If work finishes after the last bus, the return journey is no longer covered."
+          }
+        },
+        {
+          "point": {
+            "french": "Des services proches.",
+            "english": "Nearby services."
+          },
+          "example": {
+            "french": "Organiser courses et activités à distance accessible.",
+            "english": "Arrange shopping and activities within reach."
+          }
+        },
+        {
+          "point": {
+            "french": "Un budget de transport soutenable.",
+            "english": "An affordable transport budget."
+          },
+          "example": {
+            "french": "Comparer les frais de voiture aux abonnements de bus et aux billets de train.",
+            "english": "Compare car costs with bus passes and train tickets."
+          }
+        }
+      ]
+    },
+    "environnement-p1": {
+      "introduction": {
+        "french": "Admirer l'utilité, le respect et l'organisation.",
+        "english": "Admire usefulness, respect and organization."
+      },
+      "nuance": {
+        "french": "Dons et actions ponctuelles ont aussi leur valeur.",
+        "english": "Donations and one-off actions also have value."
+      },
+      "conclusion": {
+        "french": "Répondre aux besoins sans classement moral.",
+        "english": "Meet needs without ranking people's morality."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Une aide alimentaire adaptée.",
+            "english": "Suitable food assistance."
+          },
+          "example": {
+            "french": "Si le stock le permet, donner des conserves prêtes à manger à une personne sans moyen de cuisson.",
+            "english": "If stock allows, give ready-to-eat canned food to someone without cooking facilities."
+          }
+        },
+        {
+          "point": {
+            "french": "Des visites régulières pour un lien de confiance.",
+            "english": "Regular visits to build trust."
+          },
+          "example": {
+            "french": "Reprendre ensemble la discussion sur un livre, sans imposer la visite.",
+            "english": "Continue discussing a book together without imposing the visit."
+          }
+        },
+        {
+          "point": {
+            "french": "Un projet écologique entretenu.",
+            "english": "A maintained environmental project."
+          },
+          "example": {
+            "french": "Entretenir un espace fleuri adapté qui nourrit certains insectes.",
+            "english": "Maintain a suitable flower patch that feeds some insects."
+          }
+        }
+      ]
+    },
+    "environnement-p6": {
+      "introduction": {
+        "french": "Limiter dans les secteurs saturés, avec des alternatives.",
+        "english": "Limit traffic in congested areas with alternatives."
+      },
+      "nuance": {
+        "french": "Prévoir les accès nécessaires et le trafic déplacé.",
+        "english": "Plan necessary access and displaced traffic."
+      },
+      "conclusion": {
+        "french": "Moins de nuisances, de meilleures alternatives, un espace partagé.",
+        "english": "Less nuisance, better alternatives and shared space."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Réduire des nuisances locales.",
+            "english": "Reduce local nuisance."
+          },
+          "example": {
+            "french": "Une rue résidentielle n'est plus un raccourci ; comparer le bruit et les effets dans les rues voisines.",
+            "english": "A residential street stops being a shortcut; compare noise and effects on neighbouring streets."
+          }
+        },
+        {
+          "point": {
+            "french": "Donner la priorité aux bus pour fiabiliser les trajets.",
+            "english": "Give buses priority to make journeys more reliable."
+          },
+          "example": {
+            "french": "Un couloir réservé peut rendre l'arrivée du bus plus prévisible, si les correspondances suivent.",
+            "english": "A dedicated lane can make the bus arrival more predictable if connections work too."
+          }
+        },
+        {
+          "point": {
+            "french": "Libérer de la place pour marcher et attendre.",
+            "english": "Free space for walking and waiting."
+          },
+          "example": {
+            "french": "Transformer des places de stationnement près d'une école en zone où les familles attendent sans se tenir entre les voitures.",
+            "english": "Turn parking spaces near a school into an area where families wait without standing between cars."
+          }
+        }
+      ]
+    },
+    "environnement-p8": {
+      "introduction": {
+        "french": "Des zones justifiées, pas une interdiction uniforme.",
+        "english": "Justified zones, not a uniform ban."
+      },
+      "nuance": {
+        "french": "Vérifier accès, rues voisines et effets commerciaux.",
+        "english": "Check access, neighbouring streets and business effects."
+      },
+      "conclusion": {
+        "french": "Des zones piétonnes préparées et évaluées.",
+        "english": "Prepared and evaluated pedestrian zones."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Laisser les piétons circuler sans éviter les voitures.",
+            "english": "Let pedestrians move without avoiding cars."
+          },
+          "example": {
+            "french": "Une poussette avance sans éviter les voitures ; les livraisons ont d’autres horaires.",
+            "english": "A pushchair moves without avoiding cars; deliveries have separate times."
+          }
+        },
+        {
+          "point": {
+            "french": "Garder un espace public partagé.",
+            "english": "Keep public space shared."
+          },
+          "example": {
+            "french": "Installer des bancs sans réserver tout aux terrasses.",
+            "english": "Provide benches without reserving everything for cafés."
+          }
+        },
+        {
+          "point": {
+            "french": "Réduire le bruit et les émissions du trafic ordinaire.",
+            "english": "Reduce noise and emissions from ordinary traffic."
+          },
+          "example": {
+            "french": "Une rue résidentielle n'est plus un raccourci ; comparer le bruit et les effets dans les rues voisines.",
+            "english": "A residential street stops being a shortcut; compare noise and effects on neighbouring streets."
+          }
+        }
+      ]
+    },
+    "economie-p22": {
+      "introduction": {
+        "french": "Gratuité pour l'usager, avec financement et service fiable.",
+        "english": "Free for the passenger, with funding and reliable service."
+      },
+      "nuance": {
+        "french": "Préserver fréquences et accessibilité ; plus de voyages ne prouve pas moins de voitures.",
+        "english": "Preserve frequency and accessibility; more trips do not prove fewer cars."
+      },
+      "conclusion": {
+        "french": "Une gratuité utile, financée et intégrée à un bon réseau.",
+        "english": "Useful, funded free travel integrated into a good network."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Alléger les dépenses de ceux qui paient leurs trajets.",
+            "english": "Reduce expenses for those who pay for their journeys."
+          },
+          "example": {
+            "french": "Un abonnement jusque-là payé devient une économie réelle.",
+            "english": "A previously paid pass becomes an actual saving."
+          }
+        },
+        {
+          "point": {
+            "french": "Encourager un remplacement réel de trajets automobiles.",
+            "english": "Encourage actual replacement of car journeys."
+          },
+          "example": {
+            "french": "Un bus direct devenu gratuit peut conduire un automobiliste à laisser sa voiture chez lui.",
+            "english": "A direct bus becoming free may lead a driver to leave the car at home."
+          }
+        },
+        {
+          "point": {
+            "french": "Faciliter la participation à la vie de la ville.",
+            "english": "Facilitate participation in city life."
+          },
+          "example": {
+            "french": "Si une ligne accessible et gratuite dessert la bibliothèque, le prix du trajet ne bloque plus la rencontre.",
+            "english": "If an accessible free route serves the library, the fare no longer blocks attending the meeting."
+          }
+        }
+      ]
+    },
+    "economie-p23": {
+      "introduction": {
+        "french": "D’autres personnes et organismes peuvent aider, en plus des associations et ONG.",
+        "english": "Other people and organizations can help alongside associations and NGOs."
+      },
+      "nuance": {
+        "french": "Tout le monde ne peut pas travailler ni compter sur un entourage disponible ; préserver droits et dignité.",
+        "english": "Not everyone can work or rely on people around them; preserve rights and dignity."
+      },
+      "conclusion": {
+        "french": "Faire agir ensemble services publics, employeurs, citoyens et associations.",
+        "english": "Coordinate public services, employers, citizens and associations."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Organiser une aide publique régulière.",
+            "english": "Organize regular public support."
+          },
+          "example": {
+            "french": "Une aide publique accordée pour plusieurs mois permet de prévoir son budget après une perte d'emploi.",
+            "english": "Public support granted for several months helps someone plan a budget after losing a job."
+          }
+        },
+        {
+          "point": {
+            "french": "Agir par l'emploi et ses conditions.",
+            "english": "Act through employment and its conditions."
+          },
+          "example": {
+            "french": "Recruter avec accompagnement et planning annoncé.",
+            "english": "Recruit with support and an announced schedule."
+          }
+        },
+        {
+          "point": {
+            "french": "Aider directement avec l’accord de la personne.",
+            "english": "Help directly with the person’s consent."
+          },
+          "example": {
+            "french": "Un voisin accompagne une personne à une distribution alimentaire avec son accord.",
+            "english": "A neighbor accompanies someone to a food distribution with their consent."
+          }
+        }
+      ]
+    },
+    "economie-p24": {
+      "introduction": {
+        "french": "Un choix intéressant si l’on peut encore se déplacer selon ses besoins.",
+        "english": "An appealing choice if people can still make the journeys they need."
+      },
+      "nuance": {
+        "french": "Covoiturage et location restent automobiles ; ne pas culpabiliser les personnes mal desservies.",
+        "english": "Carpooling and rentals still use cars; do not blame poorly served people."
+      },
+      "conclusion": {
+        "french": "Dépenser moins, bouger davantage et désencombrer les rues sans perdre son autonomie.",
+        "english": "Spend less, move more and reduce street congestion without losing independence."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Comparer tous les coûts.",
+            "english": "Compare all costs."
+          },
+          "example": {
+            "french": "Mettre abonnement et alternatives face à assurance, entretien et stationnement.",
+            "english": "Compare passes and alternatives with insurance, maintenance and parking."
+          }
+        },
+        {
+          "point": {
+            "french": "Intégrer une activité physique aux trajets ordinaires.",
+            "english": "Build physical activity into everyday journeys."
+          },
+          "example": {
+            "french": "Une personne travaillant assise rejoint son bureau à pied par un parcours sûr et adapté.",
+            "english": "A seated worker walks to the office along a safe, suitable route."
+          }
+        },
+        {
+          "point": {
+            "french": "Libérer de la place dans les rues.",
+            "english": "Free up space in the streets."
+          },
+          "example": {
+            "french": "Un chemin sûr vers l'école remplace certains dépôts en voiture et désencombre l'entrée.",
+            "english": "A safe school route replaces some car drop-offs and reduces entrance congestion."
+          }
+        }
+      ]
+    }
+  }
+}

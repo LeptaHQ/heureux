@@ -1,8 +1,8 @@
 from django.core.management.base import BaseCommand, CommandError
 
-from study.eo3_audio import NarrationError
-from study.audio_pin import AudioPinError, command_generation_pin
-from study.french_audio import SpeechError, generate_prepared, has_saved_recording
+from study.expression.eo.tache_3.audio import NarrationError
+from study.audio.pins import AudioPinError, command_generation_pin
+from study.audio.french import SpeechError, generate_prepared, has_saved_recording
 from study.models import FrenchNarration, FrenchNarrationBudget
 
 

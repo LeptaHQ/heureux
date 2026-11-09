@@ -1,0 +1,533 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "theme": "education",
+  "responses": {
+    "education-p2": {
+      "prompt_signatures": {
+        "education:p2": "db9141e6055b86d29c9504a89390d23c93e9d7b8efc78601e66627bfebd14994",
+        "education:p9": "d4577db2667b2e4b5f9426e87697ee28b925700bfc3dc29b27f7f434f8c7def1",
+        "education:p25": "f01708e176d90e749b4458e90e72c384b2d3111ea2c71072f6c3fe5ea9417f50"
+      },
+      "reformulation": "Peut-on continuer à apprendre à tout âge ?",
+      "position": "Oui, avec un rythme et des méthodes adaptés, sans confondre apprendre et obtenir un diplôme.",
+      "position_claire": "Oui, je suis d'accord : il n'est jamais trop tard pour apprendre. On associe souvent l'apprentissage à l'enfance et à l'école, alors qu'il peut continuer toute la vie. Ce qui change avec les années, c'est surtout le rythme, la méthode et ce qu'on souhaite apprendre.",
+      "arguments": [
+        {
+          "idea": "D'abord, apprendre plus lentement ne signifie pas être incapable d'apprendre.",
+          "developpement": "Un adulte plus âgé peut avoir besoin de répéter davantage ou de noter les étapes. En avançant sur une difficulté à la fois, il peut acquérir un geste nouveau au lieu de renoncer devant tout ce qu'il ne connaît pas.",
+          "exemple": "Une retraitée veut envoyer des photos à ses petits-enfants. Au début, elle suit les étapes écrites avec un proche. Après plusieurs semaines d'essais, elle joint une photo à son message sans regarder sa feuille.",
+          "consequence": "Elle a réellement appris quelque chose, même si cela lui a demandé du temps."
+        },
+        {
+          "idea": "Ensuite, l'expérience peut même faciliter un nouvel apprentissage.",
+          "developpement": "On ne part pas toujours de zéro quand on apprend. Ce qu'on sait déjà permet de comprendre à quoi sert une nouvelle méthode et de l'essayer sur un problème familier.",
+          "exemple": "Un homme tient depuis longtemps son budget sur papier. Pour apprendre à utiliser un tableur, il reprend ses dépenses de loyer et de courses, puis apprend à calculer le total automatiquement. Il comprend l'intérêt de cette fonction parce qu'il faisait ce calcul à la main.",
+          "consequence": "Ses habitudes lui donnent donc des repères pour comprendre ce nouvel outil."
+        },
+        {
+          "idea": "Enfin, continuer à apprendre nourrit la curiosité et crée des liens.",
+          "developpement": "Un atelier donne un sujet à explorer et des occasions régulières d'échanger. On peut apprendre pour le plaisir, sans qu'il soit nécessaire d'obtenir une qualification.",
+          "exemple": "Après sa retraite, un ancien chauffeur rejoint un atelier de dessin à la bibliothèque. Chaque mardi, il essaie une technique, compare ses dessins avec ceux du groupe et discute de ce qu'il pourrait améliorer.",
+          "consequence": "Il développe une activité qui l'intéresse tout en retrouvant des personnes avec qui la partager."
+        }
+      ],
+      "nuance": "Bien sûr, la santé peut limiter certains projets. Une prononciation parfaite dans une nouvelle langue peut aussi être plus difficile à acquérir tard. Il faut parfois modifier son objectif, mais cela ne veut pas dire qu'on ne peut plus rien apprendre.",
+      "conclusion": "Pour moi, l'âge ne doit donc pas être une raison de renoncer. On peut continuer à découvrir et à progresser, en acceptant son propre rythme."
+    },
+    "education-p3": {
+      "prompt_signatures": {
+        "education:p3": "8d57879e771a0bb340f382f42bea67d500e1748531aac02e9781fb5ad0da03f5"
+      },
+      "reformulation": "Faut-il interdire l'usage libre du téléphone à l'école ?",
+      "position": "Oui à l'interdiction de l'usage libre, avec des exceptions organisées.",
+      "position_claire": "Je suis plutôt favorable à l'interdiction de l'usage du téléphone à l'école. Je parle de l'usage libre pendant la journée, pas d'un appareil utilisé à la demande du professeur. L'idée n'est pas de punir les élèves, mais de préserver de bonnes conditions pour apprendre et vivre ensemble.",
+      "arguments": [
+        {
+          "idea": "D'abord, ranger le téléphone aide à garder l'attention sur le cours.",
+          "developpement": "Quand l'appareil est à portée de main, un message peut interrompre l'élève au moment où il doit suivre une explication. Il lui faut ensuite retrouver le fil, parfois sans savoir ce qu'il a manqué.",
+          "exemple": "Pendant un exercice de mathématiques, un élève sent son téléphone vibrer et regarde discrètement un message. Quand il revient au travail, il ne sait plus quelle étape il devait faire et doit relire la consigne depuis le début.",
+          "consequence": "Ranger l'appareil ne garantit pas la concentration, mais retire une source d'interruption."
+        },
+        {
+          "idea": "Cette règle peut aussi protéger les élèves contre les images prises sans leur accord.",
+          "developpement": "Quand les appareils restent rangés, il est moins facile de filmer discrètement un camarade. C'est important, car une erreur ou un moment gênant peut devenir une vidéo partagée dans toute l'école.",
+          "exemple": "Pendant un exposé, un élève sort son téléphone et le dirige vers un camarade. L'enseignant lui rappelle la règle et lui demande de le ranger avant qu'il commence à filmer. Le camarade peut poursuivre sa présentation.",
+          "consequence": "La règle donne ainsi un moyen d'intervenir avant qu'une image soit enregistrée et partagée."
+        },
+        {
+          "idea": "Enfin, des pauses sans téléphone laissent plus de place aux échanges directs.",
+          "developpement": "Quand chacun regarde son écran, il est plus difficile d'engager une conversation. Les jeux et les activités communes donnent au contraire une occasion de se parler.",
+          "exemple": "À la récréation, deux élèves qui n'ont plus leur téléphone à la main rejoignent des camarades autour d'un jeu de cartes. Ils expliquent les règles à un nouveau joueur et discutent pendant la partie.",
+          "consequence": "La pause devient alors un moment partagé, pas seulement une interruption entre deux cours."
+        }
+      ],
+      "nuance": "Il faut toutefois prévoir des exceptions pour les besoins d'accessibilité et les activités pédagogiques encadrées, ainsi qu'un moyen de joindre la famille en urgence. Pour que cette possibilité soit réelle, l'école doit indiquer clairement quel adulte ou quel numéro contacter.",
+      "conclusion": "Je choisirais donc une règle claire contre l'usage libre, avec ces exceptions. Elle servirait l'attention, la vie privée et les relations entre élèves, plutôt qu'une interdiction sans explication."
+    },
+    "education-p4": {
+      "prompt_signatures": {
+        "education:p4": "035b435d08b5de8b8b62cabefdd8db7a4845c8ba22f8f6633e0ab108ef935e3d"
+      },
+      "reformulation": "Que penser du choix de faire l'instruction à la maison ?",
+      "position": "Privilégier l'école, avec une instruction à domicile justifiée, préparée et suivie dans certaines situations.",
+      "position_claire": "Je comprends que certains parents choisissent de faire la classe à la maison. Cela peut répondre aux besoins de leur enfant, mais ce choix demande une vraie préparation. Pour la plupart des enfants, je préfère l'école, pour l'enseignement et les relations avec les autres.",
+      "arguments": [
+        {
+          "idea": "D'abord, un enseignant formé peut repérer ce que l'enfant n'a pas compris.",
+          "developpement": "Il connaît les erreurs fréquentes et peut expliquer autrement. Un parent attentif peut beaucoup aider, mais il n'a pas toujours le recul nécessaire pour comprendre pourquoi l'enfant se trompe.",
+          "exemple": "Un élève écrit « les enfants joue », alors qu'il connaît la règle du pluriel. Le professeur lui demande de retrouver le sujet, puis de vérifier le verbe. Il repère ainsi l'étape que l'élève oublie et la retravaille avec lui sur d'autres phrases.",
+          "consequence": "Ce suivi évite de considérer une leçon comme acquise simplement parce qu'elle a été récitée."
+        },
+        {
+          "idea": "L'école apprend aussi à vivre avec des enfants qu'on n'a pas choisis.",
+          "developpement": "On doit attendre son tour, respecter des règles communes et gérer des désaccords. Ces situations quotidiennes dépassent les relations déjà connues dans la famille.",
+          "exemple": "En sport, un enfant rejoint une équipe avec des camarades qui jouent autrement que lui. Quand son équipe perd, le professeur l'aide à écouter leurs propositions et à reprendre la partie sans imposer toutes ses décisions.",
+          "consequence": "Il apprend à accepter que les autres ne procèdent pas comme lui, tout en trouvant sa place dans le groupe."
+        },
+        {
+          "idea": "Enfin, enseigner à la maison demande des moyens importants et durables.",
+          "developpement": "Préparer plusieurs matières, organiser les journées et vérifier les progrès prend du temps et peut obliger un parent à réduire son travail.",
+          "exemple": "Un père fait la classe à sa fille et prépare ses leçons de lecture et de calcul. Quand il ne sait plus expliquer les exercices de sciences, il cherche un soutien extérieur. Il doit alors ajouter le coût de ces cours au budget familial et les prévoir dans la semaine.",
+          "consequence": "Sans cette organisation, certaines matières risquent d'être moins travaillées, même avec beaucoup de bonne volonté."
+        }
+      ],
+      "nuance": "Cela dit, un problème de santé ou du harcèlement peuvent justifier une autre solution. L'instruction à domicile n'implique pas forcément l'isolement. Il faut respecter les règles applicables, suivre les apprentissages et prévoir des activités avec d'autres enfants.",
+      "conclusion": "Je privilégierais donc l'école pour l'enseignement et la vie collective. L'instruction à la maison peut rester une solution, si elle répond aux besoins de l'enfant et si les moyens suivent."
+    },
+    "education-p7": {
+      "prompt_signatures": {
+        "education:p7": "232ff62b8651cec452aae28e4a51031cb72e9768341363513fabed0489be0d73"
+      },
+      "reformulation": "L'âge devrait-il empêcher de commencer ou de reprendre des études ?",
+      "position": "Non : un projet d'études peut se construire à tout âge avec une organisation adaptée.",
+      "position_claire": "Je pense qu'il n'y a pas d'âge pour reprendre des études. À quarante ou cinquante ans, on ne vit pas forcément les cours comme à dix-huit ans, mais cela ne les rend pas inutiles ou impossibles. Un projet clair peut donner une bonne raison de retourner en formation.",
+      "arguments": [
+        {
+          "idea": "D'abord, les études permettent de préparer une nouvelle étape de sa vie.",
+          "developpement": "Un changement de situation peut rendre possible un projet longtemps repoussé. Une formation apporte alors un cadre, des cours dans un ordre précis et un suivi pour avancer vers ce projet.",
+          "exemple": "Une mère qui a quitté l'école à dix-huit ans reprend des études de comptabilité quand ses enfants deviennent plus autonomes. Pendant sa formation, elle apprend à enregistrer des factures et à vérifier des comptes. Elle prépare ensuite sa candidature pour un poste d'assistante comptable.",
+          "consequence": "Elle a désormais des compétences concrètes à présenter dans sa candidature."
+        },
+        {
+          "idea": "Ensuite, l'expérience peut devenir un atout pendant les cours.",
+          "developpement": "Quand on a déjà travaillé, on peut relier une notion à une situation vécue. Cela aide à comprendre à quoi sert le cours et à poser des questions précises sur ce qu'on ne savait pas faire.",
+          "exemple": "En cours de gestion, un ancien serveur étudie une réclamation pour un repas servi trop tard. Il se rappelle avoir laissé un client sans réponse dans cette situation. Il comprend alors l'intérêt d'expliquer le retard et de proposer une solution.",
+          "consequence": "Ce qu'il a vécu donne ainsi du sens au cours et l'aide à utiliser la méthode."
+        },
+        {
+          "idea": "Enfin, certains formats permettent de concilier études et responsabilités.",
+          "developpement": "On n'est pas toujours obligé d'abandonner son emploi pour étudier à plein temps. Les cours du soir ou à distance peuvent rendre un parcours possible, si l'établissement les propose.",
+          "exemple": "Un adulte salarié choisit un parcours à temps partiel avec deux cours du soir. Après avoir vérifié ses horaires et le coût, il reporte les autres cours à l'année suivante et réserve deux soirées pour ses devoirs.",
+          "consequence": "Cette organisation peut rendre le projet réalisable, quel que soit l'âge du départ."
+        }
+      ],
+      "nuance": "Cela demande tout de même un effort : avec un travail ou une famille, le temps libre est limité. Il faut vérifier les prérequis et le financement. Un rythme adapté aide à tenir, mais un diplôme ne garantit pas une reconversion.",
+      "conclusion": "Je ne fermerais donc pas la porte aux études à cause de l'âge. Ce qui compte, c'est un objectif qui a du sens et une organisation qui permet de le poursuivre."
+    },
+    "education-p13": {
+      "prompt_signatures": {
+        "education:p13": "df9b5552ea107ec115a67912cffc84c2b52881baf9ac4db59cc0a34d79021375"
+      },
+      "reformulation": "Pourquoi l'apprentissage d'une langue étrangère peut-il être difficile ?",
+      "position": "Oui, la difficulté est réelle, mais des objectifs progressifs et une pratique régulière permettent d'avancer.",
+      "position_claire": "Oui, je suis d'accord : apprendre une langue étrangère est difficile. Il ne suffit pas de mémoriser quelques mots pour se sentir à l'aise dans un échange. Mais tout dépend aussi de l'objectif : se débrouiller pendant un voyage et travailler dans cette langue ne demandent pas le même niveau.",
+      "arguments": [
+        {
+          "idea": "D'abord, connaître des mots ne suffit pas pour construire une phrase.",
+          "developpement": "La grammaire et l'ordre des mots peuvent être différents de ceux de sa langue. Même quand on comprend une règle, il faut la réutiliser plusieurs fois avant de pouvoir s'en servir facilement.",
+          "exemple": "Un apprenant connaît « hier » et le verbe « aller », mais dit « hier, je vais au marché ». Quelqu'un lui explique comment dire « hier, je suis allé au marché ». Il doit ensuite s'entraîner à utiliser cette forme du passé dans d'autres phrases.",
+          "consequence": "Il ne s'agit donc pas seulement de retenir du vocabulaire, mais d'apprendre à l'utiliser correctement."
+        },
+        {
+          "idea": "Ensuite, une conversation demande de comprendre et de répondre sans tout préparer.",
+          "developpement": "À l'oral, les gens parlent parfois vite et utilisent des formulations inattendues. On doit suivre ce qu'ils disent tout en cherchant sa propre réponse : c'est différent d'un exercice qu'on peut relire tranquillement.",
+          "exemple": "Un nouvel arrivant prépare une phrase pour demander un rendez-vous médical. Au téléphone, la secrétaire lui demande s'il est déjà venu au cabinet. Il ne comprend pas tout de suite et doit lui demander de reformuler avant de répondre.",
+          "consequence": "On mesure alors l'écart entre ce qu'on connaît et ce qu'on arrive à utiliser dans l'instant."
+        },
+        {
+          "idea": "Enfin, l'apprentissage demande de persévérer même quand les progrès paraissent lents.",
+          "developpement": "On peut travailler sérieusement sans que les progrès soient immédiatement visibles. Une pratique régulière avec des retours aide à voir ce qui s'améliore, plutôt que de rester concentré sur toutes ses erreurs.",
+          "exemple": "Une personne parle chaque semaine avec un partenaire qui lui signale les phrases peu claires. Elle les retravaille quinze minutes chaque soir. Après quelques mois, elle remarque qu'il comprend le récit de sa journée sans lui demander de reformuler.",
+          "consequence": "Ce progrès concret lui donne une raison de continuer, même si elle hésite encore en parlant."
+        }
+      ],
+      "nuance": "L'apprentissage peut être plus facile quand on entend et pratique souvent la langue autour de soi. Avec peu de temps ou de ressources, on avancera parfois moins vite : des objectifs progressifs sont alors plus réalistes que la perfection immédiate.",
+      "conclusion": "C'est donc difficile, oui, parce qu'il faut construire des phrases, réagir à l'oral et tenir dans la durée. Mais ces difficultés peuvent se travailler, étape par étape.",
+      "argument_ids": [
+        1,
+        2,
+        4
+      ]
+    },
+    "education-p18": {
+      "prompt_signatures": {
+        "education:p18": "48995d83eea68fcc9b56343cf1d994bd995f9cebf50599589105b8e933217f87"
+      },
+      "reformulation": "Enseigner le programme doit-il être la priorité de l'école ?",
+      "position": "Le programme est une priorité essentielle, pas la seule mission de l'école.",
+      "position_claire": "Oui, enseigner le programme est une priorité essentielle de l'école. Les familles doivent pouvoir compter sur de vrais apprentissages. Mais une priorité n'est pas une mission exclusive : apprendre à réfléchir et à vivre avec les autres fait aussi partie du travail de l'école, souvent pendant les mêmes cours.",
+      "arguments": [
+        {
+          "idea": "D'abord, le programme donne des bases communes utiles au-delà de la classe.",
+          "developpement": "Lire, écrire et calculer permettent de poursuivre ses études, mais aussi de faire des choix quotidiens. L'école doit consacrer du temps à ces bases et vérifier que les élèves savent s'en servir.",
+          "exemple": "Un élève peut lire les horaires de deux bus et calculer si le temps entre les deux suffit pour changer d'arrêt. Il choisit ensuite une correspondance réalisable : la lecture et le calcul lui servent à préparer un trajet.",
+          "consequence": "Ces apprentissages lui donnent donc plus d'autonomie, au lieu de rester de simples exercices."
+        },
+        {
+          "idea": "Apprendre un contenu doit aussi exercer l'esprit critique.",
+          "developpement": "Face à des informations contradictoires, savoir réciter une réponse ne suffit pas toujours. À l'intérieur même des matières, on peut apprendre à comparer les sources et à expliquer sur quoi repose une conclusion.",
+          "exemple": "Pour étudier une grève en histoire, les élèves comparent une affiche syndicale et un article de journal. Ils cherchent qui s'exprime, ce que chaque document met en avant et quels faits peuvent être vérifiés. Ils comprennent ainsi pourquoi les deux récits diffèrent.",
+          "consequence": "Le raisonnement aide à comprendre le programme, sans remplacer les connaissances qu'il transmet."
+        },
+        {
+          "idea": "Enfin, l'école prépare les élèves à vivre et à travailler avec les autres.",
+          "developpement": "En classe, on coopère avec des personnes qu'on n'a pas choisies. Écouter une proposition différente et régler un désaccord sans violence demande un apprentissage, comme les autres compétences.",
+          "exemple": "Deux élèves préparent une affiche : l'un veut beaucoup de texte, l'autre seulement des images. Le professeur leur demande comment les lecteurs comprendront leur sujet. Ils choisissent une courte explication sous chaque image, puis se répartissent le travail.",
+          "consequence": "Ils s'exercent à construire une solution commune, ce qui pourra aussi servir dans une équipe ou une association."
+        }
+      ],
+      "nuance": "Bien sûr, le temps scolaire est limité et l'école ne peut pas résoudre seule toutes les difficultés familiales ou sociales. Transmettre des savoirs et aider les élèves à coopérer font partie de ses missions, sans que les enseignants aient à remplacer tous les autres adultes.",
+      "conclusion": "Pour moi, le programme reste donc prioritaire. Bien l'enseigner, c'est transmettre des savoirs tout en développant la réflexion et la coopération, pas choisir entre ces objectifs."
+    },
+    "education-p19": {
+      "prompt_signatures": {
+        "education:p19": "6b5865f273f0bf50d084bea620770f41fe9a9665a1ffe6c256ae01b6a060db18",
+        "technologie:p14": "1738f692aa63f44c516593e1360b9249a459c76908a00ea90f0ee52554d16066"
+      },
+      "reformulation": "À quelles conditions la télévision peut-elle contribuer au développement des enfants ?",
+      "position": "Un support possible de développement, avec des contenus adaptés et une place limitée.",
+      "position_claire": "Je pense que la télévision peut contribuer au développement de l'enfant, à condition d'être bien utilisée. Elle ne remplace ni le jeu ni les relations avec les autres. Mais un programme adapté peut apporter quelque chose, surtout quand l'enfant peut reprendre ce qu'il a vu ou en parler.",
+      "arguments": [
+        {
+          "idea": "D'abord, des images accompagnées d'explications peuvent rendre un phénomène plus concret.",
+          "developpement": "Certaines transformations sont trop lentes pour être observées pendant une seule activité. Une émission peut en montrer les étapes et donner à l'enfant des repères qu'il retrouvera ensuite dans la réalité.",
+          "exemple": "Un documentaire montre une graine qui germe grâce à des images prises sur plusieurs jours. Avec un adulte, l'enfant repère la racine, puis les premières feuilles. En faisant pousser une graine à la maison, il peut reconnaître ces étapes.",
+          "consequence": "L'image l'aide alors à comprendre ce qui change, pas seulement à regarder une plante."
+        },
+        {
+          "idea": "La télévision peut aussi faire découvrir des modes de vie éloignés.",
+          "developpement": "Un enfant ne rencontre pas tous les paysages ni toutes les façons de vivre dans son quartier. Un reportage bien expliqué peut l'aider à comprendre une situation différente, plutôt qu'à la trouver simplement bizarre.",
+          "exemple": "Une émission montre des enfants marchant longtemps jusqu'à leur école dans une région montagneuse. En comparant ce trajet avec le sien, l'enfant comprend pourquoi leur journée commence plus tôt et demande s'il existe un autre moyen de transport.",
+          "consequence": "Il découvre que les conditions de vie influencent les habitudes, sans que cet exemple représente tout un pays."
+        },
+        {
+          "idea": "Enfin, une histoire regardée ensemble peut devenir un support de langage et d'échange.",
+          "developpement": "L'adulte et l'enfant ont une situation commune à commenter. Raconter la scène et expliquer une réaction donnent une occasion de chercher des mots précis et d'écouter une autre interprétation.",
+          "exemple": "Après une scène où un personnage exclut un ami d'un jeu, un parent demande comment l'ami se sent. L'enfant répond qu'il est triste parce qu'il voulait jouer avec les autres. Ils imaginent ensuite comment les personnages pourraient lui proposer de revenir.",
+          "consequence": "C'est cette conversation, et pas seulement l'écran, qui permet de pratiquer l'expression et de réfléchir aux émotions."
+        }
+      ],
+      "nuance": "Cependant, il faut que le contenu et la durée soient adaptés à l'âge et aux besoins de l'enfant. Le sommeil, le jeu et les échanges réels doivent garder leur place. Un programme distrayant peut aussi être agréable sans devoir devenir un cours.",
+      "conclusion": "La télévision peut donc soutenir certains apprentissages et certaines conversations. Son intérêt dépend de ce qu'on regarde et de la place qu'elle prend dans un quotidien varié."
+    },
+    "education-p20": {
+      "prompt_signatures": {
+        "education:p20": "b77434be329df257e42b5a0aa0424861d0810108d3b8d9e00b9eb6e2e7d48e8b",
+        "economie:p19": "b77434be329df257e42b5a0aa0424861d0810108d3b8d9e00b9eb6e2e7d48e8b"
+      },
+      "reformulation": "Que signifierait une université accessible à tous ?",
+      "position": "Une vraie chance d'étudier, sans admission automatique ni obligation d'y aller.",
+      "position_claire": "Oui, je pense que l'université devrait être accessible à tout le monde, au sens où chacun devrait avoir une vraie chance d'y entrer. Cela ne signifie ni accepter toutes les candidatures sans conditions, ni envoyer tout le monde à l'université. Il s'agit de lever les obstacles injustes.",
+      "arguments": [
+        {
+          "idea": "D'abord, le milieu familial ou l'argent ne devraient pas décider à la place des capacités.",
+          "developpement": "Les frais d'études et de logement comptent, mais le manque d'informations peut aussi décourager une candidature. Une aide financière n'est utile que si la personne sait qu'elle existe et peut la demander.",
+          "exemple": "Une élève motivée, dont les parents ne connaissent pas l'université, pense devoir renoncer à une formation loin de chez elle. Un conseiller l'aide à vérifier les bourses disponibles et à remplir un dossier. Si elle obtient l'aide, elle peut envisager ce projet plus sérieusement.",
+          "consequence": "Une meilleure information peut ainsi transformer une envie d'étudier en projet réalisable."
+        },
+        {
+          "idea": "Une université ouverte peut aussi profiter à toute la société.",
+          "developpement": "On a besoin de personnes formées pour soigner, enseigner ou faire de la recherche. Écarter des candidats capables pour des raisons financières peut priver les autres de compétences utiles.",
+          "exemple": "Un jeune d'une région rurale peut suivre une formation universitaire en soins infirmiers grâce à une aide financière. Une fois diplômé, il peut choisir de revenir travailler dans sa région et participer aux soins des habitants.",
+          "consequence": "L'aide aux études peut donc avoir des effets au-delà du parcours de l'étudiant."
+        },
+        {
+          "idea": "Enfin, une scolarité moyenne ne devrait pas fermer définitivement la porte.",
+          "developpement": "Les intérêts et les méthodes de travail peuvent évoluer après une scolarité moyenne ou une première expérience professionnelle. Un ancien dossier ne montre pas forcément ce qu'on est capable de faire aujourd'hui.",
+          "exemple": "Un adulte qui travaille dans un magasin veut étudier la gestion à l'université, mais ses anciens résultats en mathématiques sont faibles. Il vérifie les conditions d'entrée et suit la remise à niveau proposée par l'établissement. Il peut ensuite présenter des résultats récents dans sa candidature.",
+          "consequence": "On ouvre une deuxième possibilité, sans supprimer les exigences de la formation."
+        }
+      ],
+      "nuance": "Bien sûr, il faut des places, des enseignants et des moyens suffisants. Les conditions d'admission doivent être claires. Il faut aussi valoriser les formations professionnelles : pour certains projets, elles conviennent mieux, et ce choix mérite autant de respect.",
+      "conclusion": "Je souhaite que l'université soit accessible à ceux qui veulent s'y préparer, quels que soient leurs moyens ou leur parcours. Ouvrir cette possibilité ne signifie pas en faire la seule voie de réussite."
+    },
+    "education-p21": {
+      "prompt_signatures": {
+        "education:p21": "844ecf3d1538124a66421e49dc00dfad54c2110cc8d99fb193d7f4426829d011"
+      },
+      "reformulation": "Dans quelle mesure de bonnes notes peuvent-elles contribuer à réussir sa vie ?",
+      "position": "Elles peuvent aider certains projets, sans définir toute la réussite.",
+      "position_claire": "Oui, de bonnes notes peuvent contribuer à la réussite dans la vie. Ce n'est pas la même chose que dire qu'elles sont indispensables ou suffisantes. Elles peuvent donner des moyens de réaliser certains projets, mais une vie réussie ne se résume pas à un dossier scolaire.",
+      "arguments": [
+        {
+          "idea": "D'abord, de bons résultats peuvent ouvrir certaines possibilités de formation.",
+          "developpement": "Quand un établissement sélectionne les candidats sur dossier, les notes montrent une partie des bases qu'ils maîtrisent. Avoir des résultats solides peut donc donner plus de choix pour la suite.",
+          "exemple": "Un élève qui souhaite suivre une formation scientifique peut présenter de bonnes notes dans les matières concernées. Elles soutiennent sa candidature. S'il est admis, il peut commencer à se former dans le domaine qui l'intéresse, au lieu d'abandonner ce projet dès la sélection.",
+          "consequence": "Les notes peuvent ainsi aider à franchir une étape importante, sans garantir la réussite du parcours."
+        },
+        {
+          "idea": "Elles peuvent aussi donner confiance quand elles rendent les progrès visibles.",
+          "developpement": "Voir l'effet d'un travail régulier aide à croire qu'on peut surmonter une difficulté. On retient alors une méthode qui a fonctionné, plutôt que de penser que tout dépend d'un talent naturel.",
+          "exemple": "Un élève se croit incapable de réussir en maths. Après plusieurs semaines à revoir ses erreurs, il obtient une bonne note. Quand il rencontre un nouveau calcul difficile, il essaie de le résoudre au lieu de se dire immédiatement qu'il n'y arrivera pas.",
+          "consequence": "La confiance et les habitudes construites peuvent donc servir après l'école."
+        },
+        {
+          "idea": "Enfin, de bons résultats peuvent attirer des soutiens supplémentaires.",
+          "developpement": "Certaines bourses tiennent compte des notes, parmi d'autres conditions. Un enseignant qui connaît le travail d'un étudiant peut aussi appuyer sa candidature avec des exemples précis.",
+          "exemple": "Une étudiante qui travaille le soir demande une bourse dont elle remplit les critères scolaires. Son professeur recommande son dossier en expliquant la qualité de ses travaux. Si elle obtient cette aide et peut aménager ses horaires, elle pourra travailler moins et consacrer plus de temps aux cours.",
+          "consequence": "La reconnaissance scolaire peut ainsi améliorer concrètement les conditions de son projet."
+        }
+      ],
+      "nuance": "Cependant, je ne pense pas que les notes mesurent toutes les compétences ni les qualités humaines. Des résultats modestes ne condamnent pas l'avenir. La définition de la réussite est aussi personnelle : pour certains, c'est un bon poste ; pour d'autres, fonder une famille ou équilibrer sa vie.",
+      "conclusion": "Les bonnes notes sont donc une aide possible, pas une mesure de la valeur d'une personne. Elles peuvent soutenir un parcours sans décider, à elles seules, de la réussite d'une vie."
+    },
+    "education-p22": {
+      "prompt_signatures": {
+        "education:p22": "c164f94cac22b63d7702c874104d7f0ce96233b96cedbe49ee29356554351cc5"
+      },
+      "reformulation": "Internet permet-il de tout apprendre entièrement seul ?",
+      "position": "Beaucoup de choses seul, mais pas tout sans retour humain ni pratique encadrée.",
+      "position_claire": "On peut beaucoup apprendre seul grâce à Internet, mais je ne suis pas d'accord avec le mot « tout ». Trouver une explication ne signifie pas forcément maîtriser une compétence. Cela dépend de ce qu'on veut apprendre et de la possibilité de vérifier ce qu'on fait.",
+      "arguments": [
+        {
+          "idea": "D'abord, des ressources bien faites permettent de véritables apprentissages autonomes.",
+          "developpement": "Une démonstration montre les étapes d'une tâche. On peut l'arrêter, essayer et reprendre un passage difficile, sans attendre qu'un cours collectif y revienne. Cela laisse du temps pour comprendre à son rythme.",
+          "exemple": "Pour réparer la chambre à air de son vélo, une personne suit un tutoriel. Elle arrête la vidéo pour repérer le trou et poser une rustine, puis vérifie que la chambre regonflée ne perd plus d'air.",
+          "consequence": "Elle a accompli une tâche qu'elle ne savait pas faire auparavant : ce n'est pas seulement regarder une vidéo."
+        },
+        {
+          "idea": "Mais seul, on ne repère pas toujours ses propres erreurs.",
+          "developpement": "Une explication peut paraître claire sans qu'on sache l'appliquer correctement. Quand l'erreur ne nous semble pas être une erreur, on risque de la répéter. Une autre personne peut la révéler.",
+          "exemple": "Un apprenant décrit une image à son partenaire en ligne. Il veut dire que le livre est sur la table, mais prononce « dessous » au lieu de « dessus ». Son partenaire lui fait reprendre les deux mots et lui explique pourquoi il avait compris le contraire.",
+          "consequence": "Internet permet cet échange utile, mais avec l'aide du partenaire, l'apprentissage n'est plus entièrement solitaire."
+        },
+        {
+          "idea": "Enfin, certaines compétences exigent une pratique réelle encadrée.",
+          "developpement": "Comprendre une procédure ne suffit pas quand il faut coordonner ses gestes et réagir sans mettre les autres en danger. La présence d'un cours en ligne ne remplace pas des conditions sûres de pratique.",
+          "exemple": "Une personne regarde une vidéo sur le démarrage d'une voiture. Au cours de conduite, elle cale et reprend le geste avec le moniteur à côté d'elle. Elle découvre la coordination qu'elle n'avait jamais pratiquée devant l'écran.",
+          "consequence": "La vidéo prépare la séance, mais elle ne remplace ni l'expérience ni l'encadrement."
+        }
+      ],
+      "nuance": "Apprendre seul demande aussi de la discipline : sans horaire fixe, on peut reporter les exercices puis abandonner. Cela ne condamne pas l'apprentissage autonome. Selon l'objectif et ce qu'on sait déjà, on peut avancer seul ou choisir un professeur ou un groupe pour aller plus loin.",
+      "conclusion": "Internet ouvre donc beaucoup de possibilités, mais pas celle de tout maîtriser entièrement seul. Il faut distinguer l'accès aux explications, les retours sur ses erreurs et la pratique nécessaire."
+    },
+    "education-p23": {
+      "prompt_signatures": {
+        "education:p23": "7b3d388ba775ad14c24c8ca0f025967e01024f44877af0f23208acd877af623b"
+      },
+      "reformulation": "Qu'est-ce qui rend une sortie pédagogique bénéfique aux enfants ?",
+      "position": "Une sortie préparée peut développer connaissances, curiosité et vie collective.",
+      "position_claire": "Oui, je pense que les sorties pédagogiques sont bénéfiques pour les enfants, surtout quand elles sont bien préparées. Sortir de l'école ne suffit pas à faire apprendre, mais un musée, une galerie ou un zoo peut offrir des occasions de comprendre et de participer autrement.",
+      "arguments": [
+        {
+          "idea": "D'abord, observer un objet réel peut compléter une explication en classe.",
+          "developpement": "La taille, la forme et les détails deviennent plus faciles à examiner. Avec une question précise, les enfants apprennent à chercher des indices et à expliquer ce qu'ils en déduisent.",
+          "exemple": "Dans un musée, les élèves comparent les dents de deux fossiles, pointues sur l'un et larges et plates sur l'autre. Avec l'enseignant, ils relient ces différences à des hypothèses sur l'alimentation des animaux, puis distinguent ce qu'ils ont vu de ce qu'ils supposent.",
+          "consequence": "L'objet sert alors à construire un raisonnement, pas seulement à rendre la leçon plus spectaculaire."
+        },
+        {
+          "idea": "Une découverte peut aussi donner envie d'approfondir un sujet.",
+          "developpement": "Un enfant peut rencontrer une question qu'il ne se posait pas avant la visite. S'il a ensuite la possibilité de chercher et d'essayer, son intérêt continue au-delà de la sortie.",
+          "exemple": "Dans une galerie, un enfant demande pourquoi un artiste utilise des matériaux de récupération. De retour en classe, le groupe compare plusieurs œuvres, puis fabrique une petite sculpture en expliquant le choix des objets, plutôt qu'en copiant seulement une forme.",
+          "consequence": "La curiosité devient ainsi le point de départ d'un nouveau travail."
+        },
+        {
+          "idea": "Enfin, la sortie fait vivre le groupe autrement.",
+          "developpement": "Un lieu nouveau peut faire apparaître des connaissances qu'on n'utilise pas dans les cours habituels. Un élève discret peut alors avoir quelque chose à expliquer aux autres, à condition qu'on lui laisse le temps de s'exprimer.",
+          "exemple": "Au zoo, un enfant qui parle peu en classe explique à son petit groupe que les manchots sont des oiseaux, même s'ils ne volent pas. Ses camarades lui posent des questions, puis ils demandent au guide comment ces animaux se déplacent dans l'eau.",
+          "consequence": "Il participe à une activité commune et ses camarades découvrent ce qu'il peut leur apporter."
+        }
+      ],
+      "nuance": "Ces bénéfices dépendent toutefois de la préparation : un thème clair, un encadrement suffisant et un suivi en classe. Il faut aussi prévoir le coût et l'accessibilité. Pour un zoo, les conditions de vie des animaux comptent dans le choix du lieu ; une autre visite peut être préférable.",
+      "conclusion": "Les sorties sont donc un complément utile aux cours, quand elles font partie d'un vrai projet d'apprentissage. Elles peuvent relier observation, envie de chercher et participation au groupe.",
+      "argument_ids": [
+        1,
+        2,
+        4
+      ]
+    },
+    "technologie-p16": {
+      "prompt_signatures": {
+        "technologie:p16": "de4ef294c24ca1d1bbd82eec47b282ec3f31afd8c79dd96b153ef9fce9a26bf3"
+      },
+      "reformulation": "Faut-il interdire tout usage du portable aux enfants ?",
+      "position": "Préférer des usages limités et accompagnés à une interdiction universelle.",
+      "position_claire": "Je ne choisirais pas une interdiction absolue du téléphone pour tous les enfants. Je partirais du besoin, des risques et de l'accompagnement disponible. Utiliser ponctuellement un appareil pour appeler un parent n'est pas la même chose qu'avoir un accès personnel sans limite à toutes les applications.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, un usage défini peut répondre à un besoin précis.",
+          "developpement": "Le téléphone ne doit pas être donné seulement parce que les autres en ont un. Il faut savoir quelle fonction est nécessaire et vérifier si une solution simple suffit, plutôt qu'ouvrir immédiatement tous les usages possibles.",
+          "exemple": "Si son cours de musique se termine plus tôt que prévu, un enfant peut appeler son parent avec un appareil limité aux contacts autorisés. Ils confirment le lieu où il doit attendre ; le parent sait alors quand et où le retrouver.",
+          "consequence": "L'enfant peut donc appeler son parent sans avoir accès à toutes les applications."
+        },
+        {
+          "idea": "Ensuite, un usage accompagné peut apprendre à protéger ses informations.",
+          "developpement": "Interdire un appareil ne suffit pas à expliquer ce qu'il ne faut pas partager. Un adulte peut montrer comment choisir les destinataires et demander à l'enfant d'expliquer ses choix avant d'autoriser un échange.",
+          "exemple": "Avant d'utiliser une application, un enfant vérifie avec un adulte qui peut voir son profil. Il retire son adresse et explique pourquoi il ne transmettra pas de photo à un inconnu.",
+          "consequence": "Il apprend ainsi à reconnaître une situation risquée et à agir, plutôt qu'à suivre seulement une interdiction."
+        },
+        {
+          "idea": "Enfin, il faut apprendre à demander de l'aide lorsqu'un échange devient problématique.",
+          "developpement": "Face au harcèlement ou à un message inquiétant, l'enfant peut se taire par peur d'être puni. L'adulte ne peut alors pas l'aider. Il faut que l'enfant sache qu'il peut parler d'un problème sans être immédiatement tenu pour responsable.",
+          "exemple": "Un enfant qui reçoit une demande de photo d'un inconnu peut montrer le message à un adulte de confiance. Ensemble, ils bloquent le contact et signalent le message ; l'enfant ne reste pas seul face à une demande qu'il ne sait pas gérer.",
+          "consequence": "L'enfant sait ainsi quoi faire si un problème arrive, pas seulement ce qui est interdit."
+        }
+      ],
+      "nuance": "Cependant, l'âge, les besoins de santé et les règles de l'école comptent. Les contenus, les contacts et les horaires doivent rester limités. Certains usages peuvent être retardés ou interdits, et aucun appareil personnel n'est obligatoire. Il faut que l'accompagnement soit toujours adapté aux capacités de l'enfant.",
+      "conclusion": "En conclusion, il faut savoir pourquoi l'enfant utilise un téléphone, lui apprendre à se protéger et rester disponible pour l'aider. On peut autoriser certains usages et en refuser d'autres, sans choisir entre tout permettre et tout interdire."
+    },
+    "technologie-p19": {
+      "prompt_signatures": {
+        "technologie:p19": "f8dcaec92f7c8a1bf9589290693c4d037e29b256c8702bc71455736a907f0771"
+      },
+      "reformulation": "Comment un jeu vidéo peut-il participer aux apprentissages de l'enfant ?",
+      "position": "Par des activités précises de raisonnement, de création et de coopération, sans effet automatique.",
+      "position_claire": "Oui, certains jeux vidéo peuvent participer aux apprentissages d'un enfant. Il faut toutefois décrire ce qu'il fait réellement : résoudre un problème, exprimer son imagination ou coopérer. Ce n'est pas le simple temps passé à jouer qui garantit un bénéfice, et aucun jeu ne remplace à lui seul les autres expériences.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, essayer puis corriger une solution peut apprendre à raisonner.",
+          "developpement": "L'enfant peut essayer une solution et voir pourquoi elle ne fonctionne pas. En changeant un élément puis en recommençant, il comprend mieux ce qui produit le résultat, au lieu de chercher seulement à gagner vite.",
+          "exemple": "Dans un jeu de logique, un enfant peut devoir diriger une bille vers une sortie. Il constate qu'une rampe l'envoie contre un obstacle, la tourne puis relance l'essai : la bille atteint cette fois la sortie.",
+          "consequence": "Le jeu offre alors une occasion de raisonner sur ses décisions."
+        },
+        {
+          "idea": "Ensuite, un outil de création peut aider l'enfant à exprimer son imagination.",
+          "developpement": "Dans un jeu de création, l'enfant peut choisir une histoire et inventer un décor pour l'exprimer. Il ne cherche pas seulement la solution prévue par le jeu : il imagine ce qu'il veut raconter et donne une forme à ses idées.",
+          "exemple": "Un enfant peut créer un décor pour raconter une histoire à ses proches. Il remplace un mur par un pont afin que ses personnages puissent se rencontrer, puis explique ce changement à ceux qui regardent.",
+          "consequence": "Il apprend à exprimer une idée personnelle et à expliquer ses choix."
+        },
+        {
+          "idea": "Enfin, un jeu à plusieurs peut apprendre à coopérer.",
+          "developpement": "Quand plusieurs participants ont des rôles complémentaires, ils doivent transmettre une information et écouter la réponse. Chacun doit pouvoir jouer son rôle ; jouer ensemble ne suffit pas si une personne décide toujours pour les autres.",
+          "exemple": "Dans un jeu d'enquête adapté, deux enfants peuvent avoir des indices différents. L'un décrit sa carte, l'autre ses symboles ; en rapprochant leurs informations, ils trouvent le passage recherché. À l'étape suivante, ils échangent les rôles.",
+          "consequence": "Pour avancer, chacun doit donc écouter l'autre et apporter son information."
+        }
+      ],
+      "nuance": "Cependant, les contenus, les contacts et les achats doivent être encadrés selon l'âge et les besoins. Le jeu doit garder une place compatible avec le repos et les autres activités. Ces exemples montrent des possibilités, pas une hausse garantie de l'intelligence ou des résultats.",
+      "conclusion": "En conclusion, je retiens des apprentissages possibles par les essais, la création et la coopération. Leur valeur dépend du jeu et de l'accompagnement, sans transformer tout loisir numérique en méthode éducative obligatoire."
+    },
+    "sante-p2": {
+      "prompt_signatures": {
+        "sante:p2": "554f7e165e1b36297164ca91f4897caa16a787672a9add14f084c69b0fae66fc"
+      },
+      "reformulation": "Quand le temps d'écran des enfants devient-il excessif ?",
+      "position": "Il devient excessif lorsqu'il prend la place d'activités et de besoins importants.",
+      "position_claire": "Oui, je pense que les écrans prennent trop de place dans le quotidien de certains enfants. C'est le cas lorsqu'ils retardent le coucher, remplacent les autres activités ou empêchent de discuter pendant les moments partagés. Pour juger cet usage, il faut donc regarder ses effets sur la journée.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, un écran peut prolonger une activité au détriment du repos.",
+          "developpement": "Lorsqu'une vidéo en entraîne une autre, il devient difficile de décider quand s'arrêter. Le problème concret est le temps qui disparaît avant le coucher, pas seulement la présence d'un appareil dans la maison.",
+          "exemple": "Un enfant peut continuer à regarder des épisodes alors que son heure de coucher approche. Prévoir l'arrêt avant la routine du soir permet de conserver du temps pour se préparer et se coucher, plutôt que négocier après chaque vidéo.",
+          "consequence": "Fixer l'heure d'arrêt permet donc de garder assez de temps pour le repos."
+        },
+        {
+          "idea": "Ensuite, un usage envahissant réduit les occasions d'apprendre autrement.",
+          "developpement": "Manipuler des objets, inventer un jeu et bouger ne sollicitent pas les mêmes capacités que regarder une vidéo. Si les écrans occupent tous les temps libres, l'enfant a moins d'occasions d'exercer ces capacités dans des situations variées.",
+          "exemple": "Au lieu de regarder des vidéos de construction tout un après-midi, deux enfants peuvent fabriquer un pont avec des cubes. Ils testent plusieurs supports quand il tombe : ils mettent une idée à l'épreuve, plutôt que suivre seulement une démonstration.",
+          "consequence": "La variété des activités permet donc d'apprendre en faisant, pas seulement de changer de loisir."
+        },
+        {
+          "idea": "Enfin, l'attention donnée à l'écran peut interrompre les échanges proches.",
+          "developpement": "Être dans la même pièce ne suffit pas pour discuter. Quand chacun suit un contenu différent, les questions et les récits du quotidien trouvent moins de place, y compris si les adultes utilisent eux aussi leur téléphone.",
+          "exemple": "Pendant un repas, une famille peut ranger les appareils et laisser chacun raconter un événement de sa journée. La règle concerne également les parents, pour ne pas demander aux enfants un effort que les autres refusent.",
+          "consequence": "Chacun peut ainsi écouter les autres et leur parler sans être interrompu par un écran."
+        }
+      ],
+      "nuance": "Cependant, un appel à un proche, un travail scolaire et une vidéo regardée sans fin n'ont pas la même fonction. L'âge, le contenu et les contraintes familiales comptent. Il faut qu'il y ait des règles réalistes et des alternatives accessibles, sans culpabiliser les parents ni inventer un nombre d'heures valable pour tous.",
+      "conclusion": "En conclusion, le temps devient trop important lorsqu'il déséquilibre le quotidien. Je privilégierais des limites compréhensibles qui préservent le repos, les activités variées et les échanges, tout en gardant les usages utiles."
+    },
+    "sante-p19": {
+      "prompt_signatures": {
+        "sante:p19": "386b1e0da566112904b1e3853733d2b2e480cef2408f7f009e22ee3a113e0def"
+      },
+      "reformulation": "Quels effets négatifs des jeux vidéo faut-il examiner chez les enfants ?",
+      "position": "Des risques existent selon le temps, le contenu et le fonctionnement du jeu, sans condamnation générale.",
+      "position_claire": "Les jeux vidéo peuvent avoir des effets négatifs sur les enfants, mais cela dépend de leur usage. Je regarderais le temps de jeu, les contenus et les contacts, puis ce qui pousse à continuer ou à dépenser. Mieux vaut examiner ces risques que juger tous les joueurs.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, le jeu peut repousser des activités ou des obligations importantes.",
+          "developpement": "Une partie prend du temps, et son rythme ne correspond pas toujours à celui de la famille. Si les sessions se prolongent sans limite prévue, les devoirs, les repas ou le coucher peuvent être décalés.",
+          "exemple": "Un enfant peut commencer une nouvelle partie alors qu'il doit encore préparer une lecture pour le lendemain. S'il attend la fin pour ouvrir son livre, il repousse soit le travail, soit le coucher. Décider à l'avance de l'heure de la dernière partie permet d'éviter ce conflit.",
+          "consequence": "Le temps pris par le jeu peut donc empiéter concrètement sur le travail ou le repos."
+        },
+        {
+          "idea": "Ensuite, le contenu et les échanges en ligne doivent convenir à l'enfant.",
+          "developpement": "Un jeu ne se définit pas seulement par son titre ou ses images. Il peut comporter des scènes difficiles ou des discussions avec des inconnus, dont un enfant ne sait pas toujours évaluer les intentions.",
+          "exemple": "Un adulte peut regarder avec lui les paramètres de conversation et convenir de la conduite à tenir face à un message insultant. Il prévoit comment signaler le problème et demander de l'aide, plutôt que laisser l'enfant répondre seul.",
+          "consequence": "L'enfant sait ainsi demander de l'aide, sans qu'on suppose que jouer le rend agressif."
+        },
+        {
+          "idea": "Enfin, certaines fonctionnalités peuvent rendre l'arrêt ou le refus d'achat plus difficile.",
+          "developpement": "Une récompense disponible quelques heures peut donner peur de la manquer. L'enfant risque alors de continuer ou de payer sans réfléchir. Il faut distinguer ce qui est nécessaire pour jouer de ce qui sert surtout à le faire rester ou acheter.",
+          "exemple": "Un enfant peut croire qu'il doit acheter immédiatement un objet proposé pour une durée limitée. Désactiver les achats non autorisés et en discuter permet de décider autrement que sous la pression du compte à rebours.",
+          "consequence": "Une règle concrète protège mieux qu'un reproche après la dépense."
+        }
+      ],
+      "nuance": "Cependant, un jeu choisi peut aussi être un loisir créatif ou un moment partagé. Tous ne comportent pas ces fonctionnalités, et aucun effet n'est identique pour chaque enfant. L'âge, l'accessibilité et les autres activités doivent guider les limites, sans humilier les joueurs.",
+      "conclusion": "En conclusion, je prends ces risques au sérieux sans condamner tous les jeux vidéo. Des horaires prévus, des contenus adaptés et des règles sur les contacts et les achats permettent d'agir sur ces problèmes."
+    },
+    "culture-p6": {
+      "prompt_signatures": {
+        "culture:p6": "fc0ce9ca802d4006bf3288d9985ef4699a401d2ae7048bfdf07be1ac0f946fa6",
+        "education:p8": "c36306e9511dc1a67fab8c81b94916a71f33d24ee00205b7c820525fc37947cc"
+      },
+      "reformulation": "Le livre a-t-il perdu son utilité face aux autres médias ?",
+      "position": "Le livre reste utile, sans être supérieur dans tous les usages.",
+      "position_claire": "Je ne pense pas que le livre soit devenu inutile. Les vidéos et les outils numériques ont leur place, mais ils ne font pas disparaître l'intérêt de la lecture. Un livre permet notamment de suivre une réflexion, d'apprendre de façon organisée et d'explorer d'autres expériences.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, le livre reste un outil très puissant pour développer la réflexion et la concentration.",
+          "developpement": "En effet, lire demande de prendre du temps, de suivre une pensée longue et de tenir son attention sur plusieurs pages, parfois plusieurs heures. On peut ainsi ralentir, relier les idées et examiner un raisonnement dans son ensemble.",
+          "exemple": "Une personne lit un essai sur la voiture en ville une heure chaque soir. Elle suit les arguments sur la pollution, puis ceux sur les besoins des habitants sans transports en commun. Elle comprend ainsi les objections à une interdiction totale.",
+          "consequence": "Cette lecture aide à construire une réflexion plus profonde et plus structurée, au lieu de retenir une idée isolée."
+        },
+        {
+          "idea": "Ensuite, un livre bien choisi permet d'acquérir des connaissances solides et durables.",
+          "developpement": "Un bon manuel explique une méthode et propose des exercices pour l'appliquer. Grâce au corrigé, on repère ses erreurs ; on peut alors relire l'explication et recommencer.",
+          "exemple": "Un élève apprend les fractions. Son manuel montre un gâteau partagé en quatre parts égales, dont deux sont coloriées : deux quarts font une moitié. Il fait ensuite des exercices et vérifie ses réponses avec le corrigé.",
+          "consequence": "Il construit ainsi des connaissances organisées, qu'il peut réviser et utiliser plus tard."
+        },
+        {
+          "idea": "Enfin, le livre nourrit l'imagination, la sensibilité et l'esprit critique.",
+          "developpement": "Lire un roman ou un témoignage nous fait imaginer les scènes et comprendre les pensées des personnages. On peut se mettre à leur place et réfléchir à leurs choix, même quand leur vie est très différente de la nôtre.",
+          "exemple": "Dans un récit de guerre, un personnage reste auprès de sa mère malade malgré le danger. Le lecteur imagine la peur du personnage et comprend pourquoi partir n'est pas une décision simple.",
+          "consequence": "Cette expérience nourrit la sensibilité et aide à examiner une situation avant de juger les personnes."
+        }
+      ],
+      "nuance": "Cependant, le livre n'est pas la seule manière de s'informer ou de se cultiver. Les documentaires, les podcasts ou les conférences en ligne peuvent aussi être de grande qualité. Un livre peut aussi se lire sur un écran. L'idéal est de combiner ces différentes ressources.",
+      "conclusion": "En conclusion, le livre reste utile pour développer la réflexion, construire des connaissances solides et nourrir l'imagination et la sensibilité. Plutôt que de l'opposer au numérique, je préfère choisir des ressources de qualité qui se complètent."
+    },
+    "culture-p13": {
+      "prompt_signatures": {
+        "culture:p13": "bea59956e18ae2fd2ce84f131731edb6a5bd1543ee8fc54db2ff45c96e2b7aa1",
+        "education:p11": "cb450a97fab4f1e49e5d48ed761d5f2440bcce14dd44976eb9c14778a04f0f82"
+      },
+      "reformulation": "Les matières culturelles doivent-elles garder une place à l'école ?",
+      "position": "Non à leur suppression : elles développent l'expression, ouvrent à d'autres cultures et révèlent des talents.",
+      "position_claire": "Non, je ne suis pas d'accord avec cette proposition. Supprimer la musique, le dessin ou le théâtre de l'école serait une erreur. L'école doit apprendre à lire et à compter, mais elle peut aussi donner aux enfants d'autres moyens de comprendre le monde et de s'exprimer.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, les matières culturelles développent l'expression personnelle, la sensibilité et l'esprit critique.",
+          "developpement": "Créer ou jouer un rôle demande de faire des choix et de les expliquer. L'élève cherche comment exprimer une émotion, puis écoute les réactions des autres et réfléchit à sa manière de la représenter.",
+          "exemple": "Dans une scène, un élève joue un enfant qui arrive dans une nouvelle école. Il choisit une voix hésitante et des pauses pour montrer sa peur. Ses camarades discutent de ce que cette manière de jouer leur fait comprendre.",
+          "consequence": "Il apprend donc à exprimer ce qu'il pense et à comprendre les émotions des autres."
+        },
+        {
+          "idea": "Ensuite, les matières culturelles ouvrent les élèves à la diversité du monde.",
+          "developpement": "Découvrir une chanson ou une peinture, c'est aussi découvrir le pays et l'époque où elle a été créée. Ce contexte aide à comprendre des traditions différentes des siennes.",
+          "exemple": "Une classe observe une peinture mexicaine sur la fête des Morts. Le professeur explique que les fleurs et les photos des proches décédés servent à leur rendre hommage. Les élèves découvrent le sens de cette tradition.",
+          "consequence": "Cela nourrit leur curiosité et les aide à comprendre des pratiques différentes des leurs."
+        },
+        {
+          "idea": "Enfin, les matières culturelles peuvent révéler des talents et préparer à de vrais métiers.",
+          "developpement": "L'école permet d'essayer ces activités sans que les parents aient à payer des cours privés. Un élève peut découvrir un intérêt et envisager une formation, car les métiers artistiques demandent de la technique et du travail.",
+          "exemple": "Une élève prépare une affiche en cours de dessin. Elle agrandit les titres et simplifie les images pour mieux transmettre son message. Ce travail lui donne envie de découvrir le métier de graphiste.",
+          "consequence": "L'école peut ainsi faire découvrir une voie professionnelle à laquelle l'élève n'aurait pas pensé."
+        }
+      ],
+      "nuance": "Bien sûr, la lecture et le calcul restent prioritaires, et les arts demandent du matériel et des enseignants formés. Il faut donc leur donner une place raisonnable avec les moyens disponibles, sans les opposer aux apprentissages fondamentaux.",
+      "conclusion": "Je garderais donc ces matières à l'école. Elles aident les élèves à s'exprimer, à découvrir d'autres cultures et parfois à trouver une voie professionnelle. Elles complètent ainsi les apprentissages fondamentaux."
+    }
+  }
+}

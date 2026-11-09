@@ -18,10 +18,10 @@ from django.db.models import Max, Q
 from django.urls import reverse
 from django.utils import timezone
 
-from study import content_loader as content
-from study.retirement import active_phrases
-from study.tache_two_dialogues import load_tache_two_dialogues
-from study.account_services import (
+from study.catalogue import loader as content
+from study.catalogue.retirement import active_phrases
+from study.expression.eo.tache_2.dialogues import load_tache_two_dialogues
+from study.accounts.services import (
     acquire_study_data_lock,
     provision_user_study_data,
     users_with_study_state,
@@ -121,8 +121,8 @@ class Command(BaseCommand):
             *content.ee_tache_three_families(ee_tache_three_months),
         ]
         standard_responses = content.parse_responses()
-        from study.tache_three_models import load_tache_three_models
-        from study.tache_three_prompt_notes import load_tache_three_prompt_notes
+        from study.expression.eo.tache_3.responses import load_tache_three_models
+        from study.expression.eo.tache_3.prompt_notes import load_tache_three_prompt_notes
 
         load_tache_three_models(responses=standard_responses)
         load_tache_three_prompt_notes(responses=standard_responses)
@@ -263,18 +263,18 @@ class Command(BaseCommand):
         command_path = Path(__file__).resolve()
         parser_path = Path(content.__file__).resolve()
         files = [
-            ("import_content.py", command_path),
-            ("content_loader.py", parser_path),
+            ("management/commands/import_content.py", command_path),
+            ("catalogue/loader.py", parser_path),
         ]
         study_dir = content.CONTENT_DIR.parent
         files.extend(
             (name, study_dir / name)
             for name in (
-                "account_services.py", "models.py", "oral_history.py",
-                "writing_responses.py",
-                "tache_two_dialogues.py",
-                "tache_three_models.py",
-                "tache_three_prompt_notes.py",
+                "accounts/services.py", "models.py", "expression/eo/history.py",
+                "expression/ee/responses.py",
+                "expression/eo/tache_2/dialogues.py",
+                "expression/eo/tache_3/responses.py",
+                "expression/eo/tache_3/prompt_notes.py",
             )
         )
         files.extend(
@@ -294,17 +294,20 @@ class Command(BaseCommand):
             # These sources are loaded directly at runtime, not stored by this importer.
             and not path.is_relative_to(content.CONTENT_DIR / "learning")
             and not path.is_relative_to(
-                content.CONTENT_DIR / "tache_2" / "dialogues"
+                content.QUESTION_BANK_DIR / "dialogues"
             )
             and not path.is_relative_to(
-                content.CONTENT_DIR / "tache_2" / "dialogue_history"
+                content.QUESTION_BANK_DIR / "dialogue_history"
             )
             and path not in {
                 content.TACHE_TWO_SUBJECT_HINTS_PATH,
-                content.TACHE_THREE_SUBJECT_HINTS_PATH,
                 content.EE_TACHE_ONE_SUBJECT_HINTS_PATH,
-                content.CONTENT_DIR / "tache_2" / "EDITORIAL_PLAYBOOK.md",
+                content.QUESTION_BANK_DIR / "EDITORIAL_PLAYBOOK.md",
             }
+            and not (
+                path.is_relative_to(content.EO_TACHE_THREE_THEMES_DIR)
+                and path.name == "hints.json"
+            )
         )
         digest = hashlib.sha256()
         for label, path in sorted(files):
@@ -448,13 +451,13 @@ class Command(BaseCommand):
         model_targets = {}
         override_model_targets = {}
         if task_key == "ee/tache-2":
-            from study.writing_responses import model_update_targets
+            from study.expression.ee.responses import model_update_targets
 
             model_targets = model_update_targets(
                 imported_sujets, content.load_ee_tache_two_response_key_updates()
             )
         elif task_key == "ee/tache-1":
-            from study.writing_responses import model_version_keys
+            from study.expression.ee.responses import model_version_keys
 
             # EE1 intentionally keeps one current repository default. Carry a
             # learner's edit or deletion of the former primary model onto its
@@ -506,7 +509,7 @@ class Command(BaseCommand):
         }
         model_key_moves = []
         archived_model_keys = []
-        from study.writing_responses import model_version_keys, remap_model_overrides
+        from study.expression.ee.responses import model_version_keys, remap_model_overrides
 
         model_targets = model_targets or {}
         override_targets = dict(model_targets)
@@ -1545,7 +1548,7 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def _reconcile_response_cards(self, response_by_key):
-        from study.oral_history import snapshot
+        from study.expression.eo.history import snapshot
 
         all_source_plan = getattr(self, "_response_sources", {})
         self._oral_review_sessions = []
@@ -1719,7 +1722,7 @@ class Command(BaseCommand):
             )
 
     def _reconcile_oral_review_sessions(self):
-        from study.oral_history import snapshot
+        from study.expression.eo.history import snapshot
 
         for session in self._oral_review_sessions:
             if session.current_card_id is None or session.current_card.response_id is None:

@@ -1,0 +1,420 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "sante-p1": {
+      "introduction": {
+        "french": "Encourager une compétition choisie et adaptée.",
+        "english": "Encourage voluntary, suitable competition."
+      },
+      "nuance": {
+        "french": "Ces apprentissages existent aussi sans compétition.",
+        "english": "These lessons also exist without competition."
+      },
+      "conclusion": {
+        "french": "Progresser, respecter, coopérer sans obligation de gagner.",
+        "english": "Improve, respect and cooperate without an obligation to win."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Un objectif pour s'entraîner régulièrement.",
+            "english": "A goal that encourages regular practice."
+          },
+          "example": {
+            "french": "Travailler les passes chaque semaine et constater des progrès même après une défaite.",
+            "english": "Practise passes weekly and notice improvement even after losing."
+          }
+        },
+        {
+          "point": {
+            "french": "Le respect dans le désaccord.",
+            "english": "Respect during disagreement."
+          },
+          "example": {
+            "french": "Demander calmement une explication à l'arbitre.",
+            "english": "Calmly ask the referee for an explanation."
+          }
+        },
+        {
+          "point": {
+            "french": "La coopération dans l'équipe.",
+            "english": "Cooperation within the team."
+          },
+          "example": {
+            "french": "Valoriser une passe et faire participer les remplaçants.",
+            "english": "Value a pass and let substitutes participate."
+          }
+        }
+      ]
+    },
+    "sante-p6": {
+      "introduction": {
+        "french": "Arrêter la viande n'est pas une condition de bonne santé pour tous.",
+        "english": "Giving up meat is not a universal requirement for good health."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Supprimer la viande ne suffit pas à équilibrer les repas.",
+            "english": "Removing meat is not enough to make meals balanced."
+          },
+          "example": {
+            "french": "Retirer la viande ne corrige pas une journée de biscuits.",
+            "english": "Removing meat does not fix a day of biscuits."
+          }
+        },
+        {
+          "point": {
+            "french": "Une place possible pour la viande dans des repas variés.",
+            "english": "Meat can have a place in varied meals."
+          },
+          "example": {
+            "french": "Prévoir légumes, riz et poulet pour un repas, puis des lentilles un autre jour.",
+            "english": "Plan vegetables, rice and chicken for one meal, then lentils another day."
+          }
+        },
+        {
+          "point": {
+            "french": "Prévoir par quoi remplacer la viande.",
+            "english": "Plan what will replace meat."
+          },
+          "example": {
+            "french": "Prévoir un plat de lentilles et de légumes plutôt que retirer le steak et garder les pommes de terre.",
+            "english": "Plan lentils and vegetables instead of removing the steak and keeping only the potatoes."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Le choix et les besoins particuliers comptent.",
+        "english": "Personal choice and specific needs matter."
+      },
+      "conclusion": {
+        "french": "Une alimentation adaptée, avec ou sans viande.",
+        "english": "A suitable diet, with or without meat."
+      }
+    },
+    "sante-p8": {
+      "introduction": {
+        "french": "Encourager l'activité sans imposer un sport.",
+        "english": "Encourage activity without imposing a sport."
+      },
+      "nuance": {
+        "french": "Des règles peuvent demander de bouger régulièrement, sans imposer le même sport ni ignorer les difficultés.",
+        "english": "Rules can require regular movement without imposing the same sport or ignoring difficulties."
+      },
+      "conclusion": {
+        "french": "Comprendre, proposer et adapter.",
+        "english": "Understand, offer and adapt."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Comprendre les réticences.",
+            "english": "Understand reluctance."
+          },
+          "example": {
+            "french": "Après avoir écouté sa peur des moqueries, proposer un premier essai en petit groupe.",
+            "english": "After listening to the child's fear of mockery, arrange a first try in a small group."
+          }
+        },
+        {
+          "point": {
+            "french": "Trouver une activité que l'enfant a envie de reprendre.",
+            "english": "Find an activity the child wants to keep doing."
+          },
+          "example": {
+            "french": "Essayer le vélo, puis apprendre à garder l'équilibre et à freiner sur un parcours facile.",
+            "english": "Try cycling, then learn balance and braking on an easy route."
+          }
+        },
+        {
+          "point": {
+            "french": "Rendre la pratique accessible.",
+            "english": "Make participation accessible."
+          },
+          "example": {
+            "french": "Une activité scolaire gratuite et adaptée au handicap permet à l'enfant de participer.",
+            "english": "A free school activity adapted to the child's disability makes participation possible."
+          }
+        }
+      ]
+    },
+    "sante-p9": {
+      "introduction": {
+        "french": "Un choix informé, pas une obligation de jeunesse.",
+        "english": "An informed choice, not compulsory youthfulness."
+      },
+      "nuance": {
+        "french": "Ne pas deviner les motivations ni garantir le bien-être.",
+        "english": "Do not guess motives or guarantee well-being."
+      },
+      "conclusion": {
+        "french": "Liberté, information et respect des personnes.",
+        "english": "Freedom, information and respect for people."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Valoriser plusieurs apparences.",
+            "english": "Value diverse appearances."
+          },
+          "example": {
+            "french": "Montrer des professionnels de plusieurs âges.",
+            "english": "Show professionals of different ages."
+          }
+        },
+        {
+          "point": {
+            "french": "Comprendre l'intervention.",
+            "english": "Understand the procedure."
+          },
+          "example": {
+            "french": "Préparer une consultation plutôt que suivre une promotion.",
+            "english": "Prepare a consultation rather than follow a promotion."
+          }
+        },
+        {
+          "point": {
+            "french": "Comprendre un souhait personnel sans le réduire à la pression sociale.",
+            "english": "Understand a personal wish without reducing it to social pressure."
+          },
+          "example": {
+            "french": "Écouter une adulte gênée par ses paupières, même si ses proches ne voient aucun défaut.",
+            "english": "Listen to an adult bothered by her eyelids even if relatives see no flaw."
+          }
+        }
+      ]
+    },
+    "sante-p10": {
+      "introduction": {
+        "french": "Une vente encadrée plutôt qu'une interdiction automatique.",
+        "english": "Regulated sales rather than an automatic total ban."
+      },
+      "nuance": {
+        "french": "Distinguer les produits et évaluer les dommages.",
+        "english": "Distinguish the products and assess harms."
+      },
+      "conclusion": {
+        "french": "Restreindre, évaluer et accompagner.",
+        "english": "Restrict, assess and support."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Des restrictions appliquées.",
+            "english": "Enforced targeted restrictions."
+          },
+          "example": {
+            "french": "Vérifier l'âge puis refuser une vente d'alcool à un mineur.",
+            "english": "Check age, then refuse to sell alcohol to a minor."
+          }
+        },
+        {
+          "point": {
+            "french": "Anticiper les circuits non contrôlés.",
+            "english": "Anticipate uncontrolled channels."
+          },
+          "example": {
+            "french": "Un vendeur non déclaré rend l'origine du tabac plus difficile à vérifier.",
+            "english": "An undeclared seller makes the origin of tobacco harder to verify."
+          }
+        },
+        {
+          "point": {
+            "french": "Rendre l'aide accessible.",
+            "english": "Make support accessible."
+          },
+          "example": {
+            "french": "Prévoir avec un professionnel des aides et un suivi pour arrêter de fumer.",
+            "english": "Plan suitable help and follow-up with a professional to stop smoking."
+          }
+        }
+      ]
+    },
+    "sante-p11": {
+      "introduction": {
+        "french": "Le retrait de l'État vendeur ne suffit pas ; ne pas le confondre avec une interdiction générale.",
+        "english": "State withdrawal as a seller is not enough; do not confuse it with a general ban."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Changer de vendeur ne supprime pas les produits.",
+            "english": "Changing the seller does not remove the products."
+          },
+          "example": {
+            "french": "Un magasin public peut être remplacé par des commerces privés.",
+            "english": "A public shop may be replaced by private retailers."
+          }
+        },
+        {
+          "point": {
+            "french": "La santé doit passer avant l'argent rapporté par les ventes.",
+            "english": "Health must come before money earned from sales."
+          },
+          "example": {
+            "french": "Retirer une prime liée aux bouteilles vendues supprime une incitation à augmenter les ventes.",
+            "english": "Removing a bonus tied to bottles sold removes an incentive to increase sales."
+          }
+        },
+        {
+          "point": {
+            "french": "Le vendeur ne doit pas être seul à contrôler son travail.",
+            "english": "The seller must not be the only one checking its work."
+          },
+          "example": {
+            "french": "Un contrôle extérieur repère l'absence de vérification d'âge et conduit à revoir les procédures.",
+            "english": "An outside inspection identifies missing age checks and prompts revised procedures."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Ne confondre ni propriété et protection, ni retrait et interdiction.",
+        "english": "Do not equate ownership with protection or withdrawal with prohibition."
+      },
+      "conclusion": {
+        "french": "Contrôle réel et priorité sanitaire.",
+        "english": "Effective oversight and a health-first approach."
+      }
+    },
+    "sante-p13": {
+      "introduction": {
+        "french": "Respecter le choix et organiser les repas.",
+        "english": "Respect the choice and plan meals."
+      },
+      "nuance": {
+        "french": "Ni garantie nutritionnelle ni jugement des autres.",
+        "english": "Neither a nutritional guarantee nor a judgment of others."
+      },
+      "conclusion": {
+        "french": "Un choix adapté, pas un modèle imposé.",
+        "english": "A suitable choice, not an imposed model."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Une conviction mise en pratique.",
+            "english": "Putting a conviction into practice."
+          },
+          "example": {
+            "french": "Remplacer ses achats de viande après s'être informé sur les conditions d'élevage.",
+            "english": "Replace meat purchases after learning about farming conditions."
+          }
+        },
+        {
+          "point": {
+            "french": "Des repas variés avec d'autres sources de protéines.",
+            "english": "Varied meals with other protein sources."
+          },
+          "example": {
+            "french": "Prévoir une soupe de lentilles, puis une omelette avec pain et crudités pour un autre dîner.",
+            "english": "Plan lentil soup, then an omelette with bread and raw vegetables for another dinner."
+          }
+        },
+        {
+          "point": {
+            "french": "Des repas partagés possibles.",
+            "english": "Shared meals remain possible."
+          },
+          "example": {
+            "french": "Prévoir une base commune et des aliments séparés.",
+            "english": "Provide a shared base with separate additions."
+          }
+        }
+      ]
+    },
+    "sante-p17": {
+      "introduction": {
+        "french": "Le stress peut pousser à agir, mais il n'est pas nécessaire pour être motivé.",
+        "english": "Stress can prompt action, but motivation does not require it."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Une petite inquiétude peut pousser à se préparer.",
+            "english": "A little worry can prompt preparation."
+          },
+          "example": {
+            "french": "Répéter une introduction avant une présentation.",
+            "english": "Rehearse an introduction before presenting."
+          }
+        },
+        {
+          "point": {
+            "french": "Une pression trop forte peut faire perdre le fil.",
+            "english": "Too much pressure can make someone lose the thread."
+          },
+          "example": {
+            "french": "Un interlocuteur reformule calmement quand la personne perd le fil pendant l'entretien.",
+            "english": "The other person calmly rephrases an interview question when the candidate loses the thread."
+          }
+        },
+        {
+          "point": {
+            "french": "Récupérer après une période de pression.",
+            "english": "Recover after a period of pressure."
+          },
+          "example": {
+            "french": "Après une urgence, reporter une tâche et organiser un relais pour permettre du repos.",
+            "english": "After an urgent task, postpone another task and arrange cover to allow rest."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Les réactions varient ; repos et soutien comptent, et une difficulté persistante mérite de l'aide.",
+        "english": "Reactions vary; rest and support matter, and persistent difficulties deserve appropriate help."
+      },
+      "conclusion": {
+        "french": "Préparer et soutenir plutôt qu'augmenter la pression.",
+        "english": "Prepare and support rather than increase pressure."
+      }
+    },
+    "sante-p23": {
+      "introduction": {
+        "french": "Certains traitements sont indispensables, mais tous n'ont pas besoin d'en prendre chaque jour.",
+        "english": "Some treatments are essential, but not everyone needs medicine every day."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Des traitements indispensables.",
+            "english": "Essential treatments."
+          },
+          "example": {
+            "french": "L'insuline reste nécessaire dans le diabète de type 1.",
+            "english": "Insulin remains necessary in type 1 diabetes."
+          }
+        },
+        {
+          "point": {
+            "french": "La prévention ne passe pas toujours par un médicament.",
+            "english": "Prevention does not always involve medicine."
+          },
+          "example": {
+            "french": "Sans indication de médicament, marcher à midi comme convenu lors d'un rendez-vous préventif.",
+            "english": "With no indication for medication, walk at lunchtime as agreed at a preventive appointment."
+          }
+        },
+        {
+          "point": {
+            "french": "Comprendre pourquoi prendre un produit et s'il convient.",
+            "english": "Understand why to take a product and whether it is suitable."
+          },
+          "example": {
+            "french": "Demander au pharmacien si le médicament d'un proche convient et vérifier les associations.",
+            "english": "Ask a pharmacist whether a relative's medicine is suitable and check interactions."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Ne pas en avoir besoin aujourd'hui ne garantit pas l'avenir ; ne pas modifier un traitement sans avis médical.",
+        "english": "Not needing medicine today does not rule out future needs; never change prescribed treatment without medical advice."
+      },
+      "conclusion": {
+        "french": "Accès aux traitements nécessaires et conseils pour bien les utiliser.",
+        "english": "Access to necessary treatments and advice on using them correctly."
+      }
+    }
+  }
+}

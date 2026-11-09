@@ -3,7 +3,8 @@ import re
 
 from django.test import SimpleTestCase
 
-from study import catalogue, content_loader as content
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
 from study.tests.eo2_review_fixtures import (
     FINAL_PASS_FIELDS, PUBLISHED_ARCHIVE_INDEX, PUBLISHED_LAYOUT_SHA, REVIEWED_GROUPS,
 )

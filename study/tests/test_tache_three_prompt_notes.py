@@ -10,8 +10,9 @@ from unittest.mock import patch
 
 from django.test import SimpleTestCase
 
-from study import catalogue, content_loader as content
-from study.tache_three_prompt_notes import (
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
+from study.expression.eo.tache_3.prompt_notes import (
     NOTES_PATH, load_tache_three_prompt_notes, prompt_note_for_response,
 )
 
@@ -21,7 +22,7 @@ class TacheThreePromptNoteTests(SimpleTestCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.sources = content.parse_responses()
-        cls.payload = json.loads(NOTES_PATH.read_text())
+        cls.payload = content.load_eo3_catalogue(NOTES_PATH, "prompt_notes.json")
 
     def setUp(self):
         catalogue.clear_catalogue_cache()
@@ -154,7 +155,7 @@ class TacheThreePromptNoteTests(SimpleTestCase):
 
     def test_cache_is_immutable_clearable_and_does_not_cache_validation_failures(self):
         with patch(
-            "study.tache_three_prompt_notes.load_tache_three_prompt_notes",
+            "study.expression.eo.tache_3.prompt_notes.load_tache_three_prompt_notes",
             wraps=load_tache_three_prompt_notes,
         ) as loader:
             notes = catalogue.tache_three_prompt_notes()
@@ -169,7 +170,7 @@ class TacheThreePromptNoteTests(SimpleTestCase):
             self.assertEqual(loader.call_count, 2)
         catalogue.clear_catalogue_cache()
         with patch(
-            "study.tache_three_prompt_notes.load_tache_three_prompt_notes",
+            "study.expression.eo.tache_3.prompt_notes.load_tache_three_prompt_notes",
             side_effect=ValueError("Invalid notes"),
         ) as loader:
             for _ in range(2):

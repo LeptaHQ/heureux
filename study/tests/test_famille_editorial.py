@@ -4,8 +4,9 @@ import json
 
 from django.test import SimpleTestCase
 
-from study import catalogue, content_loader as content
-from study.tache_three_models import spoken_text
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
+from study.expression.eo.tache_3.responses import spoken_text
 
 
 class FamilleEditorialTests(SimpleTestCase):
@@ -27,10 +28,10 @@ class FamilleEditorialTests(SimpleTestCase):
         return self.models[f"eo/tache-3/famille-p{number}"].response
 
     def test_explicitly_excluded_canadian_cohabitation_is_unchanged(self):
-        directory = content.CONTENT_DIR / "tache_3"
+        directory = content.EO_TACHE_THREE_THEMES_DIR / "famille"
         for filename, expected in (
-            ("responses/famille.json", "870c863086dcae67336853076b5408c3db89028b3c30e07572fce9e683323c7f"),
-            ("hints.json", "5ddc21b9b69a3f3fa715d2464df8fc14306310726c64eafe037ec51ad39681cd"),
+            ("responses.json", "48eeffe35b932b4fb21a374ed8e108ce53936c52e8d10d88a5afb4f955469755"),
+            ("hints.json", "ee72f91e088b83870e6b0063d320648f4baeb1882425ff93f69bab509bb59571"),
             ("prompt_notes.json", "1421a647b36b31652e877a8703a8269b9e7e759a06e4658dfa8e47216aa097f9"),
         ):
             with self.subTest(file=filename):

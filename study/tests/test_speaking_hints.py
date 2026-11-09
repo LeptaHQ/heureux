@@ -14,11 +14,11 @@ from django.test.utils import CaptureQueriesContext
 from django.utils import timezone
 from django.utils.html import escape
 
-from study import catalogue
-from study import content_loader as content
-from study.account_services import provision_user_study_data
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
+from study.accounts.services import provision_user_study_data
 from study.models import Annotation, AnnotationKind, Card, CardType, PersonalResponse, Prompt
-from study.routing import prompt_detail_url
+from study.navigation.routing import prompt_detail_url
 
 from . import factories
 
@@ -37,7 +37,7 @@ class SpeakingHintsContentTests(SimpleTestCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.responses = content.parse_responses()
-        cls.payload = json.loads(content.TACHE_THREE_SUBJECT_HINTS_PATH.read_text(encoding="utf-8"))
+        cls.payload = content.load_eo3_catalogue(content.TACHE_THREE_SUBJECT_HINTS_PATH, "hints.json")
 
     def setUp(self):
         catalogue.clear_catalogue_cache()
@@ -101,7 +101,7 @@ class SpeakingHintsContentTests(SimpleTestCase):
         with patch.object(content, "load_tache_three_subject_hints", wraps=content.load_tache_three_subject_hints) as loader:
             plans = catalogue.tache_three_subject_hints()
             self.assertIs(catalogue.tache_three_subject_hints(), plans)
-            loader.assert_called_once_with()
+            loader.assert_called_once_with(responses=catalogue._eo3_sources())
             key, plan = next(iter(plans.items()))
             with self.assertRaises(TypeError):
                 plans[key] = plan
@@ -116,18 +116,17 @@ class SpeakingHintsContentTests(SimpleTestCase):
     def test_translations_preserve_the_people_and_conditions_in_the_model(self):
             plans = catalogue.tache_three_subject_hints()
             abroad = plans["eo/tache-3/culture-p5"].introduction
-            self.assertIn("le départ seul", abroad.french)
-            self.assertIn("moving abroad is not enough", abroad.english)
+            self.assertIn("possible, pas automatique", abroad.french)
+            self.assertIn("possible, not automatic", abroad.english)
             self.assertNotIn("leaving alone", abroad.english)
-            film = plans["eo/tache-3/culture-p12"].arguments[1].example
-            self.assertIn("sœurs éloignées", film.french)
-            self.assertIn("sisters living apart", film.english)
-            self.assertIn("au téléphone", film.french)
-            self.assertIn("by phone", film.english)
-            self.assertNotIn("relatives", film.english)
-            self.assertNotIn("same evening", film.english)
+            match = plans["eo/tache-3/culture-p12"].arguments[1].example
+            self.assertIn("Coupe du monde chez un voisin", match.french)
+            self.assertIn("discuter à la mi-temps", match.french)
+            self.assertIn("World Cup at a neighbour", match.english)
+            self.assertIn("talk at half-time", match.english)
             theatre = plans["eo/tache-3/culture-p7"].arguments[2].example
-            self.assertIn("fellow actors and technicians", theatre.english)
+            self.assertIn("an actress", theatre.english)
+            self.assertIn("actors and technicians", theatre.english)
             visit = plans["eo/tache-3/culture-p29"].arguments[1].example
             self.assertIn("Faute de congé ou d'argent", visit.french)
             self.assertIn("Without time off or money", visit.english)
@@ -366,15 +365,15 @@ class SpeakingPromptNotesViewTests(TestCase):
             page.content.index(b"response-sidebar-card--status"),
         )
         self.assertNotContains(page, "subject-progress-control__help")
-        self.assertContains(page, "Pratiquer cette réponse")
-        self.assertContains(page, "Vocabulaire de ce sujet")
+        self.assertNotContains(page, "Pratiquer cette réponse")
+        self.assertNotContains(page, "Vocabulaire de ce sujet")
         self.assertContains(page, "data-subject-completion-form")
 
     def test_warm_note_requests_do_not_reread_sources_or_add_queries(self):
         url = prompt_detail_url(self.prompt("culture:p1"))
         self.client.get(url)
         with (
-            patch("study.tache_three_prompt_notes.load_tache_three_prompt_notes", side_effect=AssertionError("Uncached notes")),
+            patch("study.expression.eo.tache_3.prompt_notes.load_tache_three_prompt_notes", side_effect=AssertionError("Uncached notes")),
             patch.object(content, "load_tache_three_subject_hints", side_effect=AssertionError("Uncached plans")),
         ):
             with patch.object(content, "parse_responses", side_effect=AssertionError("Uncached source")):
@@ -401,7 +400,7 @@ class SpeakingPromptNotesViewTests(TestCase):
         writing = Prompt.objects.select_related("theme__task__part").filter(
             theme__task__part__slug="ee", theme__task__slug="tache-3", is_active=True,
         ).first()
-        with patch("study.catalogue.tache_three_prompt_notes", side_effect=AssertionError("EO3 lookup on EE")):
+        with patch("study.catalogue.registry.tache_three_prompt_notes", side_effect=AssertionError("EO3 lookup on EE")):
             page = self.client.get(prompt_detail_url(writing))
         self.assertEqual(page.status_code, 200)
         self.assertNotContains(page, "subject-hints--speaking")

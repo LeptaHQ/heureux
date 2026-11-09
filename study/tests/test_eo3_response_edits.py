@@ -9,16 +9,16 @@ from django.test import TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
-from study import catalogue
-from study.card_presentation import _spine_payload
-from study.french_audio import SpeechError, normalize_text, resolve_sources
+from study.catalogue import registry as catalogue
+from study.review.presentation import _spine_payload
+from study.audio.french import SpeechError, normalize_text, resolve_sources
 from study.models import Annotation, AnnotationKind, Card, CardType, OralStateSnapshot, PersonalResponse, Prompt
-from study.oral_highlights import AnnotationRootText
-from study.oral_history import legacy_variant_annotation_key, snapshot, variant_annotation_key
-from study.public_response_annotations import capture_rendered_response_anchor, render_current_response
-from study.response_personalization import effective_response
-from study.routing import prompt_detail_url
-from study.tache_three_models import annotation_arguments, response_text, spoken_text
+from study.notes.anchors import AnnotationRootText
+from study.expression.eo.history import legacy_variant_annotation_key, snapshot, variant_annotation_key
+from study.expression.eo.annotations import capture_rendered_response_anchor, render_current_response
+from study.expression.personalization import effective_response
+from study.navigation.routing import prompt_detail_url
+from study.expression.eo.tache_3.responses import annotation_arguments, response_text, spoken_text
 
 from . import factories
 
@@ -202,7 +202,7 @@ class EO3ResponseEditTests(TestCase):
         self.assertFalse(payload["eo3_audio"]["ready"])
         self.assertIn(after.arguments[0].exemple, payload["speech_text"])
         self.assertTrue(payload["response_content"].is_personal)
-        back = render_to_string("study/partials/card_back.html", payload)
+        back = render_to_string("study/review/partials/card_back.html", payload)
         grant = re.search(r'data-speech-grant="([^"]+)"', back)
         self.assertIsNotNone(grant)
         sources = [{"grant": grant[1]}]
@@ -303,7 +303,7 @@ class EO3ResponseEditTests(TestCase):
             )),
             argument_ids=(1, 4, 5),
         )
-        with patch("study.catalogue.tache_three_models", return_value={**models, group: replacement}):
+        with patch("study.catalogue.registry.tache_three_models", return_value={**models, group: replacement}):
             self.assertEqual(
                 [argument.annotation_id for argument in annotation_arguments(self.prompt, current)],
                 [1, 2, 3],
@@ -378,7 +378,7 @@ class EO3ResponseEditTests(TestCase):
                     render_current_response(self.prompt, content, "position", self.user).text,
                 )
                 payload = _spine_payload(self.card, prompt=self.prompt)
-                practice = render_to_string("study/partials/card_back.html", payload)
+                practice = render_to_string("study/review/partials/card_back.html", payload)
                 self.assertInHTML(
                     f'<p class="spine-text" lang="fr">{content.position}</p>',
                     practice,
@@ -529,7 +529,7 @@ class EO3ResponseEditTests(TestCase):
             source_id=987654, digest="malformed-private", payload={"fields": {"arguments": None}},
         )
         before = Annotation.objects.filter(pk=mark.pk).values().get()
-        with self.assertLogs("study.public_response_annotations", level="WARNING") as logged:
+        with self.assertLogs("study.expression.eo.annotations", level="WARNING") as logged:
             self.visible()
         self.assertTrue(any(str(record.pk) in message for message in logged.output))
         self.assertEqual(Annotation.objects.filter(pk=mark.pk).values().get(), before)

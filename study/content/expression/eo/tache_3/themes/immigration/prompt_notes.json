@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "culture-p1": {
+      "prompt_signatures": {
+        "culture:p1": "fa414c11c13e61ea42f266f306d7c36d8016cc1415d5ab469c9359c13fe966ed"
+      },
+      "note": "The question asks how far everyday habits should change after moving to another country, not whether you should abandon your identity. Separate practical adjustments, such as clothing for the climate or local working hours, from private choices such as food and family celebrations. Explain which changes help daily life and which traditions can remain. A gradual adjustment is a useful middle position; neither complete assimilation nor refusal to adapt is required."
+    },
+    "culture-p5": {
+      "prompt_signatures": {
+        "culture:p5": "2eb0c8794fe720c2fabd90517a8a87d1f8a8c627198038924bf35b3dd9c0547c"
+      },
+      "note": "This asks whether achieving personal goals abroad is possible, not whether moving guarantees success. Define a plausible goal, such as studying, developing a career or building an independent life. Consider how preparation, language, access to opportunities and support could help, then explain a real obstacle. Keep possibility separate from ease: a demanding path can still be achievable. Use a hypothetical example unless the experience is genuinely your own."
+    },
+    "culture-p9": {
+      "prompt_signatures": {
+        "culture:p9": "da46c6e5a418bc9dd38226877c866b1b097bfcad745139cd9e9384bd952ea29c"
+      },
+      "note": "Focus on adaptation after moving abroad: learning how to function in a different everyday environment. Language, administrative routines, unfamiliar social expectations and loss of familiar support are possible angles. Explain how one concrete task becomes difficult and what makes it more manageable. Do not turn the answer into a claim that life abroad is always bad. Adaptation can take effort while the overall experience remains worthwhile."
+    },
+    "culture-p11": {
+      "prompt_signatures": {
+        "culture:p11": "59d1f4423231cfd5714eecfc1ff42d846c8e51439c67ffeb575a60a85747d3ca"
+      },
+      "note": "The wording suggests that people living abroad should spend time with people from their country of origin. It does not say they should socialize only with them. Discuss practical guidance, speaking a familiar language and emotional support, alongside opportunities to build relationships with other residents. Explain how a familiar community can help without assuming everyone from one country shares the same views. Keep support separate from isolation."
+    },
+    "culture-p17": {
+      "prompt_signatures": {
+        "culture:p17": "c45ba839f00e60ed3bc54134bfff4163356f85d4812a8d0e012b368bf0ef2f3a",
+        "culture:p22": "c45ba839f00e60ed3bc54134bfff4163356f85d4812a8d0e012b368bf0ef2f3a"
+      },
+      "note": "Pay attention to 'always positive': one counterexample can challenge that absolute claim, even if living abroad often has benefits. Explore learning and opportunities, but also isolation, costs or difficulties accessing work. Separate a useful lesson from an experience that was genuinely beneficial overall; suffering need not be justified as personal growth. Explain what support and conditions affect the outcome rather than promise that moving abroad inevitably improves someone's life."
+    },
+    "culture-p21": {
+      "prompt_signatures": {
+        "culture:p21": "c2723119d9da7c64f36176ae97054fa365d679228b76050d17854d37c6943a5f"
+      },
+      "note": "You are giving an opinion about people who prefer solo travel, not proving that everyone should travel alone. Discuss freedom over plans, opportunities for encounters and responsibility for practical decisions. Compare these with sharing costs, company and help when difficulties arise. A realistic example might involve choosing a day's itinerary or handling a disruption. Being alone does not automatically mean being lonely, unsafe or adventurous."
+    },
+    "culture-p24": {
+      "prompt_signatures": {
+        "culture:p24": "1820d6d18fe1ecbf446ab5e4cc615a5fc7117836777166dc89621337e8af4c77",
+        "culture:p28": "1820d6d18fe1ecbf446ab5e4cc615a5fc7117836777166dc89621337e8af4c77"
+      },
+      "note": "The word 'indispensable' makes this a question about necessity, not just the advantages of meeting local residents. Consider practical understanding, participation in local activities and feeling connected. Discuss what supportive relationships can offer while recognizing barriers such as language, exclusion or limited opportunities to meet. Residents are not a single cultural group, and integration is not only the newcomer's responsibility. Avoid treating nationality as a test of whether a relationship counts."
+    },
+    "culture-p25": {
+      "prompt_signatures": {
+        "culture:p25": "6b1a31c20a112abedb9318629a0c580e46540b38c9d6405ef800b12f840edab8"
+      },
+      "note": "Explain why people choose to live abroad, rather than argue only whether the move is good. Possible motivations include work, education, joining loved ones, safety and a desired way of life. Develop several distinct reasons with plausible situations. A person can have mixed motivations and still face constraints; an economic decision is not automatically either completely free or entirely forced. Do not invent proportions for different types of migration."
+    },
+    "culture-p26": {
+      "prompt_signatures": {
+        "culture:p26": "474387a477b3c1bb39351393fe7cb8e8a779ce1fdec83b99d80dee86c949582b"
+      },
+      "note": "This is a personal, conditional question: if you immigrated, would learning about the destination matter to you? You do not need to claim you have already moved. Discuss information that would affect real decisions, such as work conditions, housing, services or social expectations. Explain what you would check and why. Preparation should use current, relevant information rather than national stereotypes or the assumption that everything can be predicted before arrival."
+    },
+    "culture-p29": {
+      "prompt_signatures": {
+        "culture:p29": "a7dfff4961a2b2f915363ab3225b1cd2748e2d8d72b17f33cf6c28e82e20787a"
+      },
+      "note": "This is a broad evaluation of living abroad, covering more than the initial adjustment. Possible angles include practical security, maintaining relationships and managing everyday responsibilities over time. Show how a specific difficulty arises and what resources can help. Do not assume every destination or personal situation is alike. You can acknowledge lasting demands while recognizing that someone may still prefer the life they have built."
+    },
+    "culture-p30": {
+      "prompt_signatures": {
+        "culture:p30": "d8a4ef92e86e2c89042b1a107fad521e6d5f20219e39e1e965ce81c496e5b465"
+      },
+      "note": "Integration means participating and finding a place in society, not simply learning to use local services. Discuss communication, work or activities, relationships and access to opportunities. Explain how both newcomers and institutions or residents can help or create barriers. Integration does not require abandoning all previous habits or proving one's worth through friendship with a particular nationality. Compare conditions that make participation easier or harder rather than blame individual effort alone."
+    },
+    "culture-p35": {
+      "prompt_signatures": {
+        "culture:p35": "76959f7b0b95fc3b39c35f07190333605412c135091cc5336095a1fc2d257afe"
+      },
+      "note": "The claim asks whether immigration contributes to the host country. Discuss concrete contributions through work, exchange of knowledge, local participation or cultural activity, and explain how opportunities allow them to develop. Do not reduce people to labor shortages or assume all immigrants have the same skills and experiences. Recognition, fair access and inclusion matter. Contributions can support your reasoning without making human dignity conditional on economic usefulness."
+    },
+    "education-p1": {
+      "prompt_signatures": {
+        "education:p1": "6f7de146a46144402f3735f18fa52c8ff4a57fe5b59a70cc9eb050de8a7429ad"
+      },
+      "note": "The word 'everyone' makes this a question about a universal capacity to adapt abroad. Discuss language learning, practical resources, support and barriers such as exclusion or unsuitable living conditions. Capacity can develop, but individual motivation alone does not guarantee success. A concrete task can show how support changes what is possible. Distinguish adapting from losing one's identity, and avoid treating a difficult experience as proof of permanent personal inability."
+    },
+    "education-p5": {
+      "prompt_signatures": {
+        "education:p5": "4d9a0804fe223b8176bd5fc3376444e29f51a9a4512189af384267a3ac4b89f2"
+      },
+      "note": "This prompt specifically asks for three important questions before beginning immigration procedures for Quebec, and why those three matter. State actual questions rather than only three topic labels. Useful areas include applicable status, a workable employment plan and a viable household budget. Explain which decision each answer would inform and where it should be verified. Do not invent your occupation, family circumstances, eligibility, fees or processing times."
+    },
+    "economie-p14": {
+      "prompt_signatures": {
+        "economie:p14": "79d17d5e367a7912ef49262836b9c115f682bf64ff9c336adda82b852ba7de5f"
+      },
+      "note": "The wording suggests people often emigrate because they have no other choice. Distinguish leaving danger, responding to severe economic pressure and pursuing a chosen project such as joining a partner. A constrained choice is not always literal absence of alternatives, and several motives can coexist. Explain the differences without inventing which category is the majority. Avoid assuming people who stay are safer or have more freedom than those who leave."
+    }
+  }
+}

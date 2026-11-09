@@ -3,7 +3,7 @@ from django.test import SimpleTestCase
 
 
 class CollectionToolbarTests(SimpleTestCase):
-    template = "study/partials/collection_toolbar.html"
+    template = "study/shared/partials/collection_toolbar.html"
 
     def test_progress_accepts_zero_but_not_missing_totals(self):
         for context in ({}, {"progress_total": None}, {"progress_total": ""}):

@@ -15,7 +15,7 @@ from study.models import (
     WritingSujetCompletion,
 )
 from study.views.library import _learning_activity, _stats_scope_cards
-from study.writing_responses import model_version_keys
+from study.expression.ee.responses import model_version_keys
 
 from . import factories
 

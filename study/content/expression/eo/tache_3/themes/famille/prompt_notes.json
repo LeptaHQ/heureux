@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "famille-p1": {
+      "prompt_signatures": {
+        "famille:p1": "bf9bbfd61b03f22aeffed1f86ef6855838fbe159c975015160c67993f92f9ce1"
+      },
+      "note": "You are discussing parental permission for children to use social networks, not an unrestricted right or a complete technology ban. Consider age, the platform's access rules, privacy, contact with others and practical supervision. A concrete situation could involve a suspicious message or sharing a photo. Explain how a child can ask for help. Do not assume a private profile removes all risk or that a single age rule settles every case."
+    },
+    "famille-p2": {
+      "prompt_signatures": {
+        "famille:p2": "360c7c78e7b2f2309a7cf1fb303e3473c24d00db8e11baffe8003e2ebbbeda50"
+      },
+      "note": "The prompt already says these young Canadian adults prefer living with their parents because they feel comfortable there. Evaluate that choice rather than replace their reason with an invented financial necessity. Consider autonomy, household agreements, relationships and personal plans. Living at home does not prove immaturity, and moving out does not guarantee independence. Distinguish an arrangement that works for everyone from one involving unwanted dependence or unequal responsibilities."
+    },
+    "famille-p4": {
+      "prompt_signatures": {
+        "famille:p4": "b31322bc760f8ca6e563245c40bf76410b4f08e25c813267364a7c60619425f0",
+        "famille:p17": "7832e0cd3510504ae2df8073f5114f884ed8758efc31faa89547fd3cb3ab5709"
+      },
+      "note": "This asks whether children should always be told the truth. Separate honesty from revealing every adult detail immediately. Consider trust, understandable explanations and reassurance that does not make false promises. A child asking about a difficult event can illustrate how to adapt language or admit uncertainty. The child's age and privacy boundaries matter. Avoid arguing that lying is the only way to protect a child or that honesty requires an unfiltered explanation."
+    },
+    "famille-p5": {
+      "prompt_signatures": {
+        "famille:p5": "fd154786162c69d9720b7af68a7551a0b451299d230975b1babfa592c883d9e4"
+      },
+      "note": "Focus on the ease or difficulty of living far from family. Distance can affect emotional contact, practical help and participation in important moments. Calls and planned visits may help, but they do not replace every kind of presence. Also consider independence and other local relationships without assuming all families are supportive. Explain a specific situation, such as an unexpected need or a celebration, rather than declare distance equally painful for everyone."
+    },
+    "famille-p6": {
+      "prompt_signatures": {
+        "famille:p6": "12b69a1c0b9fa10a0280831af3ed78b5ec94f9338627c8b5c601e97a45bb6c59",
+        "famille:p15": "64392b5039c00ea0da52b8252e156672048bfb094f961f69944f22306ad9bdbf"
+      },
+      "note": "The issue is paying children for good grades, not all pocket money or rewards for effort. Consider short-term motivation, what grades actually reflect and fairness between children with different needs. Explain how a child might respond to a payment rule and what alternative recognition could encourage learning. Do not assume money always destroys motivation or that a higher grade proves greater effort. The aim is to evaluate the reward system, not blame a child."
+    },
+    "famille-p10": {
+      "prompt_signatures": {
+        "famille:p10": "decf78f96135755db20646f2a86a55828c2d521e90c53f9afb6055fdcf1b8112"
+      },
+      "note": "The claim equates family members with our best friends. Compare kinship with friendship based on trust, chosen contact, shared interests and freedom to confide. A relative can also be a close friend, but the relationship is not guaranteed by family status. Consider privacy and disagreements without assuming either all families are safe or all non-family friendships are stronger. The task is to assess the generalization, not choose one relationship type for everyone."
+    },
+    "famille-p11": {
+      "prompt_signatures": {
+        "famille:p11": "a9acb95404f3a7d89085c5f3075daa085012d20c8659f1ffafc2e6d39c7ad628"
+      },
+      "note": "Compare the practical ease of living alone and in a family household. Useful dimensions include control over routines, sharing costs and tasks, and availability of support. A concrete decision about meals, bills or a schedule can show both an advantage and a constraint. Living alone does not mean having no relationships; living in a family does not mean receiving reliable help. Keep 'easier' separate from 'better' or 'happier'."
+    },
+    "famille-p12": {
+      "prompt_signatures": {
+        "famille:p12": "5325b18f4bbff7073357832fb64e70d08af9fc0f6ec9ce474bdaa877c9e4e1a5"
+      },
+      "note": "Clarify 'authoritarian': strict control and unquestionable obedience are different from setting firm, consistent boundaries. Discuss safety rules, explanations, appropriate consequences and opportunities for children to learn responsibility. Use an everyday disagreement rather than extreme assumptions. You can support parental authority without endorsing humiliation, threats or violence. Consider how age and circumstances change the response, and avoid presenting permissiveness as the only alternative to harsh control."
+    },
+    "famille-p13": {
+      "prompt_signatures": {
+        "famille:p13": "e894611efc8ac352d6ae215ca459a2fbbbfe354b5ed1e9d64d724b283db257f2"
+      },
+      "note": "The question offers the family's first language and the host country's language, but you can explain why both may have a place. Consider communication within the family, links with relatives and participation at school or outside home. Explain a practical language routine without assuming perfect bilingualism will follow. The parents' actual language skills and the child's needs matter; do not prescribe a rule that makes meaningful family communication harder."
+    },
+    "famille-p14": {
+      "prompt_signatures": {
+        "famille:p14": "a5c527897521f4d7c8754e49277dc34e864d7d26e4d227d1f728a6074194906d"
+      },
+      "note": "Pay attention to 'all members': participation does not require identical tasks or equal physical effort. Discuss fair sharing, learning everyday skills and making household needs visible. Give examples suited to different ages and capacities, such as sorting laundry, preparing a meal or planning supplies. Illness, disability and workload can change what is reasonable. Avoid treating unpaid care or planning as doing nothing, or assuming every household has the same structure."
+    },
+    "famille-p16": {
+      "prompt_signatures": {
+        "famille:p16": "36ebf15d7653f5671feb09204b2631e19ed5cdfe07b3e1e1c912f563ca85e2d4"
+      },
+      "note": "The prompt asks whether living with parents after 25 can be practical. Focus on costs, shared tasks, access to work or study, and the conditions needed for adult autonomy. It does not require proving that everyone should leave at a particular age. Discuss an arrangement with clear responsibilities and privacy. Distinguish financial convenience from emotional wellbeing, and acknowledge that staying may be chosen or constrained rather than equally available to all."
+    }
+  }
+}

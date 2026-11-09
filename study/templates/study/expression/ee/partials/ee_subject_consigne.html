@@ -1,0 +1,19 @@
+<section class="tache-two-consigne ee-subject-consigne" aria-labelledby="{{ title_id }}">
+  <span class="tache-two-consigne__icon" aria-hidden="true">
+    {% include "study/shared/partials/ui_icon.html" with name="file-text" only %}
+  </span>
+  <div>
+    <div class="tache-two-consigne__heading">
+      <h2 id="{{ title_id }}">Consigne</h2>
+      <div class="tache-two-consigne__actions">
+        {% include "study/shared/partials/prompt_copy_button.html" with button_class="btn btn--sm prompt-copy-button tache-two-consigne__copy" source_id=subject_source_id label="Copier le sujet" success_label="Copié !" aria_label="Copier le sujet" only %}
+      </div>
+    </div>
+    {% if summary_text %}
+      <p class="ee-subject-consigne__summary">{{ summary_text }}</p>
+      <p class="ee-subject-consigne__subject"><strong>Sujet :</strong> {{ subject_text }}</p>
+    {% else %}
+      <p>{{ subject_text|linebreaksbr }}</p>
+    {% endif %}
+  </div>
+</section>

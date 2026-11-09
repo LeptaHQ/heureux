@@ -7,7 +7,7 @@ from ..models import ExamPart, Task
 
 
 def dashboard(request):
-    return render(request, "study/dashboard.html")
+    return render(request, "study/dashboard/dashboard.html")
 
 
 def expression_hub(request):
@@ -29,4 +29,4 @@ def expression_hub(request):
     paths.sort(key=lambda path: (
         {"ee": 0, "eo": 1}.get(path["part"].slug, 2), path["part"].order,
     ))
-    return render(request, "study/expression_hub.html", {"paths": paths})
+    return render(request, "study/expression/expression_hub.html", {"paths": paths})

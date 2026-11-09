@@ -12,13 +12,13 @@ from django.db.models import Exists, OuterRef, Q
 from django.test import TestCase
 from django.test.utils import CaptureQueriesContext
 
-from study.account_services import provision_user_study_data
+from study.accounts.services import provision_user_study_data
 from study.models import (
     Card, CardQuerySet, ComprehensionQuestion, PersonalResponse, Phrase, Prompt,
 )
-from study.oral_history import preferred_personal
-from study.retirement import active_phrases, retired_task_filter, retired_vocabulary
-from study.routing import prompt_detail_url
+from study.expression.eo.history import preferred_personal
+from study.catalogue.retirement import active_phrases, retired_task_filter, retired_vocabulary
+from study.navigation.routing import prompt_detail_url
 
 from . import factories
 

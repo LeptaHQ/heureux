@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "culture-p7": {
+      "prompt_signatures": {
+        "culture:p7": "403046d33eb0d153a742a4f2666f012cfc4fbd465845e25c2aaeb6d7dc8544a9"
+      },
+      "note": "Calling artistic occupations 'not serious' questions their status as real work. Explain what professional work involves: preparation, technical skill, deadlines, responsibility and payment. Music rehearsals, film production or a commissioned illustration can make those demands visible. You may acknowledge uncertain income or competitive entry without treating instability as proof that an occupation has no value. Distinguish enjoying an art as a hobby from doing it professionally."
+    },
+    "culture-p34": {
+      "prompt_signatures": {
+        "culture:p34": "d8c08166d4ea5440db70382b2129a9f0ac560812dc62ae2dc41c3438027400b7"
+      },
+      "note": "The topic is changing consumption habits in developed countries, not a single product or a judgment about every consumer. Choose identifiable trends, such as online buying, second-hand goods, repairs or frequent replacement. Explain their practical attractions and trade-offs using concrete purchasing decisions. Access, price and marketing shape choices, so avoid presenting responsible consumption as simply a matter of willpower. A newer habit is not automatically more sustainable."
+    },
+    "famille-p7": {
+      "prompt_signatures": {
+        "famille:p7": "5e28dbf05a8f95c4afb5494bc8920159fcaf55a9d0bb198d8bd43a3b42787415"
+      },
+      "note": "You are evaluating the advice to avoid working with relatives. Discuss trust and shared knowledge, but also unclear authority, pay, performance feedback and the boundary between work and family life. A concrete disagreement over a schedule or responsibility makes the issue easier to explain. Family closeness does not guarantee fair treatment or inevitable conflict. Consider what explicit agreements and the freedom to refuse could change."
+    },
+    "education-p12": {
+      "prompt_signatures": {
+        "education:p12": "e4389f669e0bd038041dd8196d7df5c2336f779c47579d95be778da767a7c4f6"
+      },
+      "note": "The claim is that studies help professional success, not that a diploma guarantees it or that success is only academic. Discuss relevant knowledge, access to certain professions and learning how to approach work. Connect each benefit to a concrete task or opportunity. Also consider experience, practical training and recruitment conditions. Avoid ranking occupations by prestige or assuming people without long studies cannot build successful careers."
+    },
+    "education-p16": {
+      "prompt_signatures": {
+        "education:p16": "c0c3e1d47b2615c3ffa18690a755d54956df8eddd1b7c2be91568c731bb14be1",
+        "economie:p12": "c0c3e1d47b2615c3ffa18690a755d54956df8eddd1b7c2be91568c731bb14be1"
+      },
+      "note": "This asks whether everyone in one company should receive exactly the same salary. Distinguish identical amounts from fair pay for work of comparable value. Responsibilities, working time, relevant skills and difficult conditions are possible criteria to examine. Explain a concrete comparison and how a difference could be justified or challenged. Supporting some differences does not justify discrimination, very low pay or unlimited gaps; do not equate a job title with personal worth."
+    },
+    "sante-p3": {
+      "prompt_signatures": {
+        "sante:p3": "6ce2a94efbdbfa4440ccac62d579c95eb209b0b343f161407350e16378d26fb3"
+      },
+      "note": "Discuss combining employment and studies, not whether either activity is difficult by itself. Possible tensions include overlapping schedules, time for learning and recovery, and the need for income. Show how a particular shift or deadline creates a problem and what an adjustment could change. Not everyone can simply work fewer hours. Recognize useful experience and feasible combinations without claiming motivation alone can remove financial or timetable constraints."
+    },
+    "sante-p7": {
+      "prompt_signatures": {
+        "sante:p7": "feaf571833e452ea31c7fd73edf91611039fe000a38eefddfaba187442b9e873"
+      },
+      "note": "The issue is affordability of organic food, not whether organic farming is useful. Consider product prices, shopping locations, household needs and the size of the budget. Explain how a particular choice can be accessible to one household and difficult for another. Buying an occasional organic item differs from replacing an entire basket. Do not equate organic with nutritionally superior, shame cheaper choices or claim planning removes every price barrier."
+    },
+    "sante-p15": {
+      "prompt_signatures": {
+        "sante:p15": "f92895b6c9580c82e6a07542aa6a617ad4c042432049f204b9675ec10badf2e9",
+        "sante:p18": "f92895b6c9580c82e6a07542aa6a617ad4c042432049f204b9675ec10badf2e9"
+      },
+      "note": "The question asks whether making people work until 70 is acceptable, not whether some people may freely choose to continue. Discuss differences between jobs, health and personal circumstances, and how income or retirement options affect genuine choice. Distinguish a general age rule from an adaptable arrangement. Use plausible work situations rather than invent pension laws or assume everyone remains equally able to work. Continuing voluntarily and being compelled are central to the comparison."
+    },
+    "sante-p20": {
+      "prompt_signatures": {
+        "sante:p20": "4737ed581dcc06b51a6be95a5659ba4f67268de42e3c7c09edf97f35c00233c9"
+      },
+      "note": "The question distinguishes earning a lot from having enough to live. Explain what basic security requires and how costs depend on location, household size, health and obligations. Consider spending choices and public or shared resources without pretending they make money unnecessary. A practical budget trade-off works better than a universal income figure. Do not romanticize hardship or assume low income reflects poor choices."
+    },
+    "sante-p22": {
+      "prompt_signatures": {
+        "sante:p22": "af0af57df3347d21647013327f4fc00ab175364ae1bf7b435463abd22dcc02da"
+      },
+      "note": "This concerns whether a good salary is necessary for happiness. Separate material security from the whole experience of being happy. Relationships, chosen activities and the working conditions attached to the salary are useful dimensions. Explain a realistic trade-off while recognizing that not everyone can choose their job or hours. Avoid a universal income threshold, the claim money does not matter, or the assumption that wealth guarantees satisfaction."
+    },
+    "technologie-p18": {
+      "prompt_signatures": {
+        "technologie:p18": "8855b4ed42d096d15e980cc692a45c0e4a009b228a75a60cac0c5a6d1f1706c5"
+      },
+      "note": "Pay attention to 'all purchases': the issue is feasibility, not whether you prefer shopping online. Consider available goods, payment, delivery and items or services with special access conditions. Trying clothes in a shop is a preference, not proof that online buying is impossible. Buying and paying online with collection in store still counts as an online purchase. Explain the limits for a specific household without inventing universal sales rules."
+    },
+    "technologie-p22": {
+      "prompt_signatures": {
+        "technologie:p22": "845c4194c4abbf6fe6580e06bd8a1c8ef6ce334a286d8a3c3fbce4fcd108e5e8",
+        "technologie:p23": "b086405e70edcf648c661da1b9734e2f21a10f1f7863e49dee46b4ec04b64112",
+        "technologie:p26": "4b65b6112933fdda6ed0269ff9ac62b042e40418b71f828e501811e46114e788"
+      },
+      "note": "The question concerns changes in workplace behavior, not just the existence of useful technology. Discuss observable practices such as faster exchanges, shared documents, remote coordination or expectations of availability. Show how a task or interaction worked differently and what follows from that change. Not every occupation can be remote, and quick communication can also interrupt concentration. Evaluate conditions and boundaries without inventing a universal legal right or productivity gain."
+    },
+    "economie-p1": {
+      "prompt_signatures": {
+        "economie:p1": "8ce14c1f161e65b080bb6d543cdc92fab5c07d7f47f5be1618143abead557ee1"
+      },
+      "note": "This is a conditional personal projection about finding work in Canada, not a general promise about the labor market. Use your actual skills and plans if known; otherwise explain what you would check. Profession-specific authorization, the language of a role and real matching vacancies are useful angles. Requirements vary by occupation and province or territory. Do not invent a biography, a universal bilingualism rule, labor shortages or a guaranteed hiring timetable."
+    },
+    "economie-p2": {
+      "prompt_signatures": {
+        "economie:p2": "11ecb72884dfe715803dc2757e3be41add77be74fc0ee94d9eab2ab36196b6ed"
+      },
+      "note": "The broad wording about athletes needs careful scope: earnings differ, and the debate often concerns a highly visible minority. Separate commercial revenue from judgments about fairness, choices within sports budgets and public images of success. A sports club's funds are not automatically available to hospitals or schools. Recognize effort, audience value and short careers without assuming every amount is justified or that all professional athletes are wealthy."
+    },
+    "economie-p3": {
+      "prompt_signatures": {
+        "economie:p3": "2f796b7b2023a58874e7b3ee82ee8fe58f9ba90de593341c7ab59c32a3233ca2"
+      },
+      "note": "The claim is that everyone is capable of management, not merely that everyone wants a promotion. Discuss coordinating people, making accountable decisions and managing resources. A good salesperson is not automatically ready to organize a team. Skills can develop through training and supported practice, so lack of readiness is not proof of permanent inability. Likewise, refusing a role does not prove someone could not do it. Evaluate capability against actual responsibilities."
+    },
+    "economie-p4": {
+      "prompt_signatures": {
+        "economie:p4": "257da7c5bc731bd0e129146fd05aaf04d3fcd37bbb731adc4dc6b5df17e950a4"
+      },
+      "note": "You are assessing whether employers should permit a workplace nap, not require it or use it to justify insufficient sleep. Discuss possible attention recovery, the ability to report fatigue and practical cover during a planned break. A quiet place, continuity of service and time to wake properly matter. Avoid guaranteed health or accident-reduction claims, fixed medical doses, or an example where someone resumes dangerous work while still drowsy."
+    },
+    "economie-p6": {
+      "prompt_signatures": {
+        "economie:p6": "58f8a018296885a6be7d692ff547b3a063a308e66d34a50708c31aa135c8a371",
+        "economie:p21": "58f8a018296885a6be7d692ff547b3a063a308e66d34a50708c31aa135c8a371"
+      },
+      "note": "Workplace wellbeing concerns daily working conditions, not just leisure perks. Consider a manageable workload, respectful problem reporting and conditions that help an experienced team remain together. Explain what an employer or team actually changes, such as priorities or a predictable schedule. Wellbeing and performance need not be opposites, but no measure guarantees fewer absences or departures. Avoid blaming individual resilience when the difficulty comes from organization."
+    },
+    "economie-p9": {
+      "prompt_signatures": {
+        "economie:p9": "f2540f9f64e308e67296167685fcbe23723dc64a6bec6653395f40f15bf7d5cd",
+        "economie:p13": "f2540f9f64e308e67296167685fcbe23723dc64a6bec6653395f40f15bf7d5cd"
+      },
+      "note": "The statement makes salary the most important job criterion. Compare pay with conditions, meaningful or interesting work and income continuity, using choices that are financially feasible. Explain a trade-off rather than dismiss money as superficial. Salary can legitimately be a priority for basic needs or a savings plan. Not everyone has several offers, and a lasting contract is not an absolute guarantee against losing employment."
+    },
+    "economie-p10": {
+      "prompt_signatures": {
+        "economie:p10": "52807fc88b9aeb0bfb5b04b5d2ba5eff033e7f31a0093a52b24620dc5b82127a"
+      },
+      "note": "The issue is whether being young can make job search harder. Focus on early-career obstacles such as proving experience, finding contacts and financing a search, without assuming all young people are beginners. Explain a recruitment situation and what would reduce the barrier. Older applicants can face different obstacles too. Do not use short-term employment itself as the sole proof that finding work is difficult, or invent current shortages in whole sectors."
+    },
+    "economie-p15": {
+      "prompt_signatures": {
+        "economie:p15": "dbaf926a1efb843e7ed14a334629410385ffbdb8663cd344567f756e300047a0"
+      },
+      "note": "Assess how easy it is to go abroad for work, not simply whether it is possible. Separate the right to work, communication in the workplace and authorization for a regulated profession. An employer's offer does not settle every applicable rule, but a permit is not required in every mobility arrangement either. Explain the checks needed for a particular destination and status without inventing universal procedures, costs or delays."
+    },
+    "economie-p16": {
+      "prompt_signatures": {
+        "economie:p16": "4e1ef5e7e84c904c31522ef181fe481e31923b8fa6d647fe393d83e20ba1de60"
+      },
+      "note": "You must explain reasons a country might develop tourism. Visitor spending, complementary activity in regions and funding or transmission of heritage are distinct possible goals. Show how money or activity reaches local people rather than just saying tourism is good for the economy. Consider seasonality, housing and resident participation. More arrivals do not automatically preserve services, create well-paid jobs or finance maintenance; organization and resource allocation matter."
+    },
+    "economie-p17": {
+      "prompt_signatures": {
+        "economie:p17": "c55a925b40cf47ca217a8de493ec4c9764835ef7e78967bce824fff58c841801"
+      },
+      "note": "The question asks your preference between a male and a female manager. You may explain that you have no preference based on sex, then identify the behaviors you value: clear priorities, respect and fair decisions. Concrete work situations make that answer substantive. Do not assign authority, empathy or technical skill to one sex. A past experience may affect trust, but it does not predict how every new manager will behave."
+    },
+    "economie-p18": {
+      "prompt_signatures": {
+        "economie:p18": "27e83dacb8e839232cb16fc92f54238929ca596905a626c289634bff13acd246"
+      },
+      "note": "The issue is earning a lot to enjoy life, not having no need for money. Discuss accessible shared pleasures, personally meaningful activities and time to enjoy them. A specific activity or choice about extra work can illustrate the trade-off. Basic security, health and family obligations change what resources someone needs. Avoid a universal happiness threshold or romanticizing poverty; inexpensive enjoyment does not erase material hardship."
+    },
+    "economie-p20": {
+      "prompt_signatures": {
+        "economie:p20": "43dc7d59dde67bee63c3643eb3292038bf6a7fd21b19dc1e9f3ce1d15b4d1f2e"
+      },
+      "note": "This asks whether the hardest occupations receive the highest pay. Difficulty can be physical, technical, emotional or connected to responsibility. Compare those demands with recruitment conditions, employer resources and bargaining arrangements. A concrete pay-setting situation is more useful than unsupported rankings of occupations. Office work is not necessarily easy and manual work is not unskilled. Explaining market influences does not mean every resulting difference is fair."
+    }
+  }
+}

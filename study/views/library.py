@@ -13,11 +13,11 @@ from django.urls import reverse
 from django.utils import timezone
 from django.views.decorators.http import require_http_methods, require_POST
 
-from .. import catalogue
-from .. import content_loader as content_module
-from .. import queue as queue_module
-from ..card_presentation import scope_label
-from ..catalogue import (
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content_module
+from study.review import queue as queue_module
+from study.review.presentation import scope_label
+from study.catalogue.registry import (
     ee_subject_themes as _ee_subject_theme_data,
     ee_tache_three_months as _ee_tache_three_source_months,
     ee_tache_three_sources_by_key as _ee_tache_three_sources_by_key,
@@ -63,26 +63,26 @@ from ..models import (
     WritingSujetCompletion,
     WritingResponseOverride,
 )
-from .. import routing
-from ..oral_highlights import (
+from study.navigation import routing
+from study.notes.anchors import (
     ee_tache_three_position_blocks,
     preserve_ee_tache_three_highlights,
     preserve_tache_two_highlights,
 )
-from ..response_personalization import effective_response
-from ..tache_two_dialogues import (
+from study.expression.personalization import effective_response
+from study.expression.eo.tache_2.dialogues import (
     hint_section_presentation,
     prompt_note_presentation,
     published_dialogue,
     question_presentation,
 )
-from ..ee_formulations import get_ee_formulations
-from ..formulation_progress import formulation_progress
-from ..expression_overview import (
+from study.expression.ee.formulations.catalogue import get_ee_formulations
+from study.expression.ee.formulations.progress import formulation_progress
+from study.expression.overview import (
     expression_overview_summaries, writing_occurrence_progress,
 )
-from ..retirement import active_phrases, is_retired_vocabulary_task, retired_task_filter
-from ..progress import (
+from study.catalogue.retirement import active_phrases, is_retired_vocabulary_task, retired_task_filter
+from study.review.progress import (
     card_unit_progress_from_rows,
     combine_progress,
     hide_subject_highlights,
@@ -91,25 +91,25 @@ from ..progress import (
     summarize_subject_progress,
     writing_sujet_progress_by_id,
 )
-from ..querysets import (
+from study.db.querysets import (
     lean_phrase_rows,
     lean_prompt_rows as _lean_prompt_rows,
 )
-from ..routing import (
+from study.navigation.routing import (
     comprehension_skill,
     comprehension_vocabulary_url,
     prompt_detail_url,
     review_url,
     vocabulary_url,
 )
-from ..writing_responses import (
+from study.expression.ee.responses import (
     active_model_version_count,
     overrides_by_sujet,
     replaced_model_key,
     writing_model_versions,
     writing_version_edit_url,
 )
-from ..writing_annotations import (
+from study.expression.ee.annotations import (
     preserve_edited_writing_annotations,
     preserve_ee1_response_annotations,
 )
@@ -180,8 +180,8 @@ def _subject_stats_for_themes(
     *,
     response_ids_by_theme=None,
     summary_only=False,
+    include_due=True,
 ):
-    now = now or timezone.now()
     if response_ids_by_theme is None:
         response_ids_by_theme, _prompt_counts = (
             _prompt_response_ids_by_theme(themes)
@@ -192,27 +192,33 @@ def _subject_stats_for_themes(
         for response_id in theme_response_ids
     }
     progress = subject_progress_by_response(user, response_ids, summary_only=summary_only)
-    due_response_ids = set(
-        Card.objects.active()
-        .filter(
-            user=user,
-            card_type=CardType.SPINE,
-            response_id__in=response_ids,
-            state__in={
-                CardState.LEARNING,
-                CardState.RELEARNING,
-                CardState.REVIEW,
-            },
-            due__lte=now,
+    due_response_ids = None
+    if include_due:
+        now = now or timezone.now()
+        due_response_ids = set(
+            Card.objects.active()
+            .filter(
+                user=user,
+                card_type=CardType.SPINE,
+                response_id__in=response_ids,
+                state__in={
+                    CardState.LEARNING,
+                    CardState.RELEARNING,
+                    CardState.REVIEW,
+                },
+                due__lte=now,
+            )
+            .values_list("response_id", flat=True)
         )
-        .values_list("response_id", flat=True)
-    )
     stats = {}
     for theme_id, theme_response_ids in response_ids_by_theme.items():
         summary = summarize_subject_progress(
             progress[response_id] for response_id in theme_response_ids
         )
-        summary["due"] = len(theme_response_ids & due_response_ids)
+        if due_response_ids is not None:
+            summary["due"] = len(theme_response_ids & due_response_ids)
+        else:
+            summary.pop("due", None)
         stats[theme_id] = summary
     return stats, progress, due_response_ids
 
@@ -513,7 +519,7 @@ def part_detail(request, part_slug):
     part_tasks = list(part.tasks.all())
     if not part.available or not part_tasks:
         return render(
-            request, "study/coming_soon.html", {"part": part, "task": None},
+            request, "study/shared/coming_soon.html", {"part": part, "task": None},
         )
     context = {
         "part": part,
@@ -522,7 +528,7 @@ def part_detail(request, part_slug):
     }
     return render(
         request,
-        "study/part_detail.html",
+        "study/expression/part_detail.html",
         context,
     )
 
@@ -1014,14 +1020,14 @@ def task_detail(request, part_slug, task_slug):
     if not task.available:
         return render(
             request,
-            "study/coming_soon.html",
+            "study/shared/coming_soon.html",
             {"part": task.part, "task": task},
         )
     if (task.part.slug, task.slug) == content_module.EO_TACHE_ONE_TASK:
         question_bank = _load_task_memoires(task)[0]
         return render(
             request,
-            "study/question_bank.html",
+            "study/expression/question_bank.html",
             _question_bank_page_context(
                 request.user,
                 task,
@@ -1031,7 +1037,7 @@ def task_detail(request, part_slug, task_slug):
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
         return render(
             request,
-            "study/tache_two_overview.html",
+            "study/expression/eo/tache_2/tache_two_overview.html",
             {
                 "part": task.part,
                 "task": task,
@@ -1092,7 +1098,7 @@ def task_detail(request, part_slug, task_slug):
             )
         return render(
             request,
-            "study/ee_writing_overview.html",
+            "study/expression/ee/ee_writing_overview.html",
             context,
         )
     if (
@@ -1104,7 +1110,7 @@ def task_detail(request, part_slug, task_slug):
         formulations_progress = subject_context.pop("_formulation_progress")
         return render(
             request,
-            "study/ee_tache_three_overview.html",
+            "study/expression/ee/tache_3/ee_tache_three_overview.html",
             {
                 "part": task.part,
                 "task": task,
@@ -1126,7 +1132,7 @@ def task_detail(request, part_slug, task_slug):
     ):
         return render(
             request,
-            "study/ee_tache_one_subjects.html",
+            "study/expression/ee/tache_1/ee_tache_one_subjects.html",
             {
                 "part": task.part,
                 "task": task,
@@ -1150,7 +1156,7 @@ def task_detail(request, part_slug, task_slug):
             key: summary[key] for key in ("progress", "completed", "total", "started_new")
         }
         return render(
-            request, "study/eo_tache_three_overview.html",
+            request, "study/expression/eo/tache_3/eo_tache_three_overview.html",
             {
                 "part": task.part, "task": task,
                 "theme_count": len(display_theme_slugs),
@@ -1217,7 +1223,7 @@ def task_detail(request, part_slug, task_slug):
             ),
         }
     )
-    return render(request, "study/task_detail.html", context)
+    return render(request, "study/expression/task_detail.html", context)
 
 
 def _scope_filters(request, forced_task=None, forced_part_slug=None):
@@ -1237,7 +1243,7 @@ def _scope_filters(request, forced_task=None, forced_part_slug=None):
                 args=[forced_task.part.slug],
             ),
             "scope_review_url": review_url({**scope, "kind": "spine"}),
-            "scope_label": scope_label(scope),
+            "scope_label": f"{forced_task.part.short_name} · {forced_task.name}",
             "scope": scope,
             "task": forced_task,
             "part": forced_task.part,
@@ -1501,7 +1507,7 @@ def browse(request, part_slug=None, task_slug=None):
     if forced_task and not forced_task.available:
         return render(
             request,
-            "study/coming_soon.html",
+            "study/shared/coming_soon.html",
             {"part": forced_task.part, "task": forced_task},
         )
     if forced_task and (
@@ -1519,7 +1525,7 @@ def browse(request, part_slug=None, task_slug=None):
         }
         return render(
             request,
-            "study/tache_two_subjects.html",
+            "study/expression/eo/tache_2/tache_two_subjects.html",
             {
                 "part": forced_task.part,
                 "task": forced_task,
@@ -1549,7 +1555,7 @@ def browse(request, part_slug=None, task_slug=None):
     if writing_context is not None:
         return render(
             request,
-            "study/ee_writing_subjects.html",
+            "study/expression/ee/ee_writing_subjects.html",
             {
                 "part": forced_task.part,
                 "task": forced_task,
@@ -1568,7 +1574,7 @@ def browse(request, part_slug=None, task_slug=None):
     ):
         return render(
             request,
-            "study/ee_tache_three_subjects.html",
+            "study/expression/ee/tache_3/ee_tache_three_subjects.html",
             {
                 "part": forced_task.part,
                 "task": forced_task,
@@ -1591,7 +1597,7 @@ def browse(request, part_slug=None, task_slug=None):
     ):
         return render(
             request,
-            "study/ee_tache_one_subjects.html",
+            "study/expression/ee/tache_1/ee_tache_one_subjects.html",
             {
                 "part": forced_task.part,
                 "task": forced_task,
@@ -1648,6 +1654,7 @@ def browse(request, part_slug=None, task_slug=None):
         request.user,
         response_ids_by_theme=response_ids_by_theme,
         summary_only=oral_directory,
+        include_due=not oral_directory,
     )
     themes = [
         {
@@ -1769,7 +1776,7 @@ def browse(request, part_slug=None, task_slug=None):
     }
     if oral_directory:
         context.update(deduplication_context)
-    return render(request, "study/browse.html", context)
+    return render(request, "study/expression/browse.html", context)
 
 
 def _canonical_numbers_by_response(response_ids) -> dict:
@@ -1895,7 +1902,7 @@ def theme_detail(request, part_slug, task_slug, slug):
             stats = summarize_subject_progress(row["progress"] for row in rows)
         return render(
             request,
-            "study/ee_tache_three_month.html",
+            "study/expression/ee/tache_3/ee_tache_three_month.html",
             {
                 "theme": theme,
                 "task": task,
@@ -1926,7 +1933,7 @@ def theme_detail(request, part_slug, task_slug, slug):
             rows = list(representatives.values())
     return render(
         request,
-        "study/theme_detail.html",
+        "study/expression/theme_detail.html",
         {
             "theme": theme,
             "task": task,
@@ -1996,7 +2003,7 @@ def task_memories(request, part_slug, task_slug):
     memories = _load_task_memoires(task)
     return render(
         request,
-        "study/tache_two_memories.html",
+        "study/expression/eo/tache_2/tache_two_memories.html",
         {
             "part": task.part,
             "task": task,
@@ -2197,7 +2204,7 @@ def tache_two_theme_vocabulary(request):
     )
     return render(
         request,
-        "study/tache_two_theme_vocabulary.html",
+        "study/expression/eo/tache_2/tache_two_theme_vocabulary.html",
         {
             "part": task.part,
             "task": task,
@@ -2408,7 +2415,7 @@ def tache_two_theme_vocabulary_detail(request, theme_slug):
     )
     return render(
         request,
-        "study/theme_vocabulary_detail.html",
+        "study/vocabulary/theme_vocabulary_detail.html",
         _theme_vocabulary_detail_context(
             request,
             task=task,
@@ -2654,7 +2661,7 @@ def _ee_tache_two_theme_vocabulary_overview_context(user, task):
 def _ee_tache_two_theme_vocabulary_directory(request, task):
     return render(
         request,
-        "study/task_vocabulary.html",
+        "study/vocabulary/task_vocabulary.html",
         {
             "part": task.part,
             "task": task,
@@ -2677,7 +2684,7 @@ def _ee_tache_two_theme_vocabulary_detail(request, task, theme):
         raise Http404
     return render(
         request,
-        "study/theme_vocabulary_detail.html",
+        "study/vocabulary/theme_vocabulary_detail.html",
         _theme_vocabulary_detail_context(
             request,
             task=task,
@@ -2834,7 +2841,7 @@ def task_subject_batch(request, part_slug, task_slug, month_slug, batch_number):
     }
     return render(
         request,
-        "study/tache_two_subject_batch.html",
+        "study/expression/eo/tache_2/tache_two_subject_batch.html",
         {
             "part": task.part,
             "task": task,
@@ -2955,7 +2962,6 @@ def task_subject_detail(
         request.user,
         {response.pk},
     )[response.pk]
-    task_scope = {"part": task.part.slug, "task": task.slug}
     from .oral import oral_response_context
     oral_context = oral_response_context(request, selected_prompt)
     response_content = oral_context.get("response_content") or effective_response(
@@ -3001,7 +3007,7 @@ def task_subject_detail(
     )
     return render(
         request,
-        "study/tache_two_subject_detail.html",
+        "study/expression/eo/tache_2/tache_two_subject_detail.html",
         {
             "part": task.part,
             "task": task,
@@ -3032,13 +3038,6 @@ def task_subject_detail(
             "subject_annotation_key": subject_annotation_key,
             "response": response,
             "subject_progress": subject_progress,
-            "response_review_url": review_url(
-                {
-                    **task_scope,
-                    "kind": "spine",
-                    "response": str(response.pk),
-                }
-            ),
             "personal_saved": request.GET.get("saved") == "1",
             "personal_reset": request.GET.get("reset") == "1",
             **oral_context,
@@ -3232,7 +3231,7 @@ def eo_tache_one_response(request):
     if not task.available:
         return render(
             request,
-            "study/coming_soon.html",
+            "study/shared/coming_soon.html",
             {"part": task.part, "task": task},
         )
     page_url = reverse("study:eo_tache_one_response")
@@ -3280,7 +3279,7 @@ def eo_tache_one_response(request):
     )
     return render(
         request,
-        "study/eo_tache_one_response.html",
+        "study/expression/eo/tache_1/eo_tache_one_response.html",
         {
             "part": task.part,
             "task": task,
@@ -3317,7 +3316,7 @@ def task_memory_detail(request, part_slug, task_slug, memory_number):
     question_bank = _memory_by_number(memories, memory_number)
     return render(
         request,
-        "study/question_bank.html",
+        "study/expression/question_bank.html",
         _question_bank_page_context(
             request.user,
             task,
@@ -3575,7 +3574,7 @@ def family_detail(request, part_slug, task_slug, slug):
         rows = list(representatives.values())
     return render(
         request,
-        "study/family_detail.html",
+        "study/expression/family_detail.html",
         {
             "family": family,
             "subject_deduplication_available": oral_directory,
@@ -3816,7 +3815,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     if (task.part.slug, task.slug) == content_module.EO_TACHE_THREE_TASK:
         subject_hints = catalogue.tache_three_subject_plan(response.semantic_group)
     if ee_response:
-        from ..oral_history import variant_annotation_key
+        from study.expression.eo.history import variant_annotation_key
 
         ee_annotation_key = variant_annotation_key(
             selected_prompt,
@@ -3901,7 +3900,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             )
     return render(
         request,
-        "study/response_detail.html",
+        "study/expression/response_detail.html",
         {
             "response": response,
             "selected_prompt": selected_prompt,
@@ -3941,13 +3940,16 @@ def response_detail(request, part_slug, task_slug, prompt_id):
                     content_module.EO_TACHE_THREE_TASK,
                 }
             ),
-            "response_review_url": review_url(
-                {
-                    **task_scope,
-                    "kind": "spine",
-                    "response": str(response.pk),
-                    "prompt": str(selected_prompt.pk),
+            **(
+                {"response_review_url": review_url({
+                    **task_scope, "kind": "spine",
+                    "response": str(response.pk), "prompt": str(selected_prompt.pk),
+                })}
+                if (task.part.slug, task.slug) not in {
+                    content_module.QUESTION_BANK_TASK,
+                    content_module.EO_TACHE_THREE_TASK,
                 }
+                else {}
             ),
             "personal_saved": request.GET.get("saved") == "1",
             "personal_reset": request.GET.get("reset") == "1",
@@ -3958,8 +3960,8 @@ def response_detail(request, part_slug, task_slug, prompt_id):
 
 @transaction.atomic
 def edit_response(request, part_slug, task_slug, prompt_id):
-    from ..oral_history import lock_study_user, preferred_personal, save_personal, snapshot
-    from ..public_response_annotations import preserve_eo3_response_annotations
+    from study.expression.eo.history import lock_study_user, preferred_personal, save_personal, snapshot
+    from study.expression.eo.annotations import preserve_eo3_response_annotations
     if "model" in request.GET or "personal" in request.GET:
         raise Http404
     task = _route_task(part_slug, task_slug, request=request)
@@ -4106,7 +4108,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
             return redirect(routing.subject_selection_url(f"{detail_url}?saved=1", request))
         return render(
             request,
-            "study/response_edit.html",
+            "study/expression/response_edit.html",
             {
                 "response": response,
                 "selected_prompt": selected_prompt,
@@ -4185,7 +4187,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         )
     return render(
         request,
-        "study/response_edit.html",
+        "study/expression/response_edit.html",
         {
             "response": response,
             "selected_prompt": selected_prompt,
@@ -4328,7 +4330,7 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
         subject_hints = catalogue.ee_tache_one_subject_hints()[canonical.slug]
     return render(
         request,
-        "study/writing_sujet_detail.html",
+        "study/expression/ee/writing_sujet_detail.html",
         {
             "part": task.part,
             "task": task,
@@ -4530,7 +4532,7 @@ def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
         version_cards = [item for item in version_cards if item["key"] not in hidden_keys]
     return render(
         request,
-        "study/writing_sujet_edit.html",
+        "study/expression/ee/writing_sujet_edit.html",
         {
             "part": task.part,
             "task": task,
@@ -4801,7 +4803,7 @@ def phrases(
     if task and not task.available:
         return render(
             request,
-            "study/coming_soon.html",
+            "study/shared/coming_soon.html",
             {"part": task.part, "task": task},
         )
     if task and is_retired_vocabulary_task(task.part.slug, task.slug):
@@ -5156,12 +5158,12 @@ def phrases(
         else vocabulary_url(task=task)
     )
 
-    template_name = "study/phrases.html"
+    template_name = "study/vocabulary/phrases.html"
     if task and not selected:
         template_name = (
-            "study/task_vocabulary_theme.html"
+            "study/vocabulary/task_vocabulary_theme.html"
             if vocabulary_theme
-            else "study/task_vocabulary.html"
+            else "study/vocabulary/task_vocabulary.html"
         )
     return render(
         request,
@@ -5482,7 +5484,7 @@ def search(request, part_slug=None, task_slug=None):
     phrase_total = _distinct_count(phrase_scope)
     return render(
         request,
-        "study/search.html",
+        "study/search/search.html",
         {
             "part": task.part if task else None,
             "task": task,
@@ -5905,4 +5907,4 @@ def stats(request, part_slug=None, task_slug=None):
         ),
         **filters,
     }
-    return render(request, "study/stats.html", context)
+    return render(request, "study/progress/stats.html", context)

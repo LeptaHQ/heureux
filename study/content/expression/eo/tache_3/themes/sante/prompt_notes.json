@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "sante-p1": {
+      "prompt_signatures": {
+        "sante:p1": "e89be2474369e46402299e5e0bfd69d71e423be119e712808ef6766b6daba22f",
+        "sante:p5": "194c729cf9ecec8467e9db0541d5959601ec0a9143ffd2494422fe0edb2d697a"
+      },
+      "note": "Encouraging sports competitions is different from forcing participation or recommending physical activity in general. Discuss learning to prepare, handle results and cooperate under shared rules. Explain an actual competition situation, including how adults respond to mistakes or defeat. Some children may prefer noncompetitive activities. Benefits depend on suitable expectations and support, so do not treat winning, pressure or public ranking as necessary for every child's development."
+    },
+    "sante-p6": {
+      "prompt_signatures": {
+        "sante:p6": "7b9684ff94d0a40705e4f1b750ecf4824bd7c8080ba6898f1dbac7a7cdf4b10d"
+      },
+      "note": "The claim makes giving up meat a requirement for good health. Distinguish that necessity claim from choosing to eat less meat or adopting a vegetarian diet. Discuss the overall balance of meals, different food sources and individual needs, without giving a personalized medical prescription. A realistic meal comparison is more useful than labeling one ingredient healthy or unhealthy in all quantities. Avoid promising that removing meat prevents illness or automatically produces a balanced diet."
+    },
+    "sante-p8": {
+      "prompt_signatures": {
+        "sante:p8": "2896073c7537d455aff66e645acf9581ae445fbf7920dc2fe0ea0e0aa80ff8c4"
+      },
+      "note": "The word 'obliger' means making children do sport, so distinguish an obligation from encouragement and from offering varied physical activities. Discuss safety, enjoyment, participation and a child's ability to choose or adapt an activity. A concrete refusal may reveal fear, access difficulties or a mismatch rather than laziness. You may defend adapted requirements or prefer encouragement; explain how adults would respond. Avoid claiming one sport or intensity is suitable for every child."
+    },
+    "sante-p9": {
+      "prompt_signatures": {
+        "sante:p9": "77becdb91af15702edc10952b30bae081b6720a81235ff6a93bd85039e68f56b",
+        "sante:p24": "f88766bfeff03b04f6742d5b6481c24f66f17ce927df1bb96fdc13c0a501228d"
+      },
+      "note": "The prompt concerns cosmetic surgery intended to maintain a youthful appearance. Discuss personal choice, social pressure, realistic expectations and access to qualified advice. Distinguish a person's informed decision from a belief that ageing must be corrected. You can question beauty standards without insulting people who choose a procedure. Do not promise results, diagnose motives or generalize the risks and benefits of different interventions."
+    },
+    "sante-p10": {
+      "prompt_signatures": {
+        "sante:p10": "b595b4c8a8ea05656c5728db65c84f797bc2d37fa1459a6e5e35323a2362c392",
+        "sante:p12": "b595b4c8a8ea05656c5728db65c84f797bc2d37fa1459a6e5e35323a2362c392"
+      },
+      "note": "This is about banning all sales of alcohol and tobacco, not only changing who sells them. Consider the public-health aim, how a ban would be implemented and possible effects such as informal sales or reduced oversight. Compare prohibition with regulation and support without assuming one measure solves every problem. Alcohol and tobacco also have distinct risks and contexts. You do not need invented consumption figures or a claim that current law is the same everywhere."
+    },
+    "sante-p11": {
+      "prompt_signatures": {
+        "sante:p11": "be08c80bbbd418437772eb66c2527aaed4126d25de49c0637e28ff48c0779071"
+      },
+      "note": "Read the wording carefully: it can mean that the state should stop being the seller of alcohol and tobacco. That is different from banning every seller. Discuss the state's possible roles in selling, regulating and protecting health, and explain what would replace state sales if relevant. The prompt does not establish a particular national retail system. If you interpret it as a wider ban, make that interpretation explicit rather than silently change the question."
+    },
+    "sante-p13": {
+      "prompt_signatures": {
+        "sante:p13": "68d8ef9619a89d66fb2fb1bebbeec3e003dcb950f896126b5e5957e8d437667e"
+      },
+      "note": "Give an opinion about choosing a vegetarian way of eating, rather than prove that everybody must adopt it. Consider ethical or environmental motivations, meal variety and the practical task of meeting nutritional needs. Vegetarian diets and vegan diets are not identical. Explain a realistic food choice without promising automatic health benefits or giving medical instructions. Costs, habits and access can affect how someone puts the choice into practice."
+    },
+    "sante-p17": {
+      "prompt_signatures": {
+        "sante:p17": "2e3f11a8e6c252738d3eec138ef1617dc3ac6ffad70bed1017d8a4a41d60a591",
+        "sante:p21": "127a037ef0a154610a1abda3359ee6d78e3c3d0c212c383f70207e7b203c2dbf"
+      },
+      "note": "The statement says stress is stimulating. Separate a manageable short-term tension that prompts preparation from overwhelming or persistent pressure. Explain the chain from an event to a person's response, such as rehearsing before a presentation or losing the thread in an interview. Reactions and available support vary. Motivation does not require suffering, and organizational problems cannot always be solved by telling someone to manage their emotions better."
+    },
+    "sante-p23": {
+      "prompt_signatures": {
+        "sante:p23": "695fdcacd6954d17183c2b33cdf18ce401fd56aac5c48c824d5b0a245e90e8a2"
+      },
+      "note": "The word 'impossible' makes this an absolute claim about living without medicines. Distinguish people who do not need regular medication from those for whom treatment is essential. Discuss prevention, occasional care and appropriate access without treating them as substitutes for prescribed treatment. A person with a long-term condition offers a useful limit to generalization. Do not advise stopping medicine, diagnose symptoms or suggest that willpower and lifestyle remove all medical needs."
+    }
+  }
+}

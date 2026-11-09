@@ -1,0 +1,608 @@
+{
+  "generated_at": "2026-11-05T03:26:14.080137+00:00",
+  "provider": "deepl",
+  "reviewed_at": "2026-11-05T07:53:15.655781+00:00",
+  "source_language": "FR",
+  "target_language": "EN-GB",
+  "version": 1,
+  "groups": {
+    "eo/tache-3/sante-p1": {
+      "10fefb27f7b807020f4ac652685fd18ae4833cd75c061cfb26ea4f317fcd03dc": {
+        "english": "Before a small tournament, a child can practise their passing every week with their coach. After the match, they can see if the child is better at receiving the ball and then passing it on, even if their team has lost.",
+        "french": "Avant un petit tournoi, un enfant peut travailler ses passes chaque semaine avec son entraîneur. Après le match, ils regardent s'il arrive mieux à recevoir le ballon puis à le transmettre, même si son équipe a perdu."
+      },
+      "1618fe5ffae97a07d0ff138f96124b8af26d41bea95dc0b862be96cd2713ad0b": {
+        "english": "The objective can thus support regular participation and make progress visible.",
+        "french": "L'objectif peut ainsi soutenir une pratique régulière et rendre les progrès visibles."
+      },
+      "1a0232ac8259b9c0b3237c662462edfdf5f71130b2f0c28dec778bcba5952de6": {
+        "english": "Collective success is no longer limited to a single star player.",
+        "french": "La réussite collective ne se réduit plus à une vedette."
+      },
+      "25714c2362e1856162b7cd3276305ef7ed1599af364301ab24f9ea19b61bfbb2": {
+        "english": "During a match, a coach can involve substitutes and highlight a defensive contribution or a decisive pass. The children see how several actions contribute to the same result.",
+        "french": "Lors d'une rencontre, un éducateur peut faire participer les remplaçants et souligner une aide défensive ou une passe décisive. Les enfants voient comment plusieurs actions contribuent au même résultat."
+      },
+      "3be0137474413ae0259d2735d323577060c1531cc26bc970ab5902ef939a0eb4": {
+        "english": "In a team, everyone must take into account what their teammates are capable of. The coach can allocate roles and also praise those who help others, rather than focusing solely on the best player.",
+        "french": "Dans une équipe, il faut que chacun tienne compte de ce que ses partenaires savent faire. L'entraîneur peut répartir les rôles et féliciter aussi ceux qui aident les autres, au lieu de s'intéresser seulement au meilleur joueur."
+      },
+      "684412f34e195b148ccc7284166a27318d8a0131c4111620bb17ad20ddcdca12": {
+        "english": "Finally, a shared goal can make cooperation more tangible.",
+        "french": "Enfin, un objectif commun peut rendre la coopération plus concrète."
+      },
+      "6acf500f3a58bccdc957f2d46a7ef3d4b673de53623aaf8fdc7c7336e97f62e2": {
+        "english": "An eagerly anticipated competition can make a child want to come back and train regularly. Repeating movements and learning to link them together develops coordination; the benefit therefore does not depend solely on the final ranking.",
+        "french": "Une épreuve attendue peut donner envie de revenir s'entraîner régulièrement. Répéter des gestes et apprendre à les enchaîner développe la coordination ; le bénéfice ne dépend donc pas uniquement du classement."
+      },
+      "6b1b70a7d5f895d9bd736db53d1656e3432d0e23dc6f058bf487040918523989": {
+        "english": "First and foremost, a competition can provide a concrete goal for training.",
+        "french": "Tout d'abord, une rencontre peut donner un objectif concret à l'entraînement."
+      },
+      "7b4e1836a83b09b9b4b0d3588a7c8d6404fa173fd524c31c736cd802482a0de0": {
+        "english": "Furthermore, competition provides an opportunity to practise respect in situations of disagreement.",
+        "french": "Ensuite, la compétition permet d'exercer le respect dans une situation de désaccord."
+      },
+      "99ca6193cfcfa917efbaeb7e0f6bc2288f9b940e5a1a9a55a20e3610a9492752": {
+        "english": "In conclusion, I would encourage competition that fosters progress, respect and cooperation. It remains one educational opportunity amongst many, not a test that determines a child’s worth.",
+        "french": "En conclusion, j'encouragerais une compétition qui fait progresser, respecter et coopérer. Elle reste une possibilité éducative parmi d'autres, pas une épreuve qui déciderait de la valeur de l'enfant."
+      },
+      "a97916dc49e505b7d44f469c26a29573e7483df57098b2b2b83ae6bf55325689": {
+        "english": "In this way, children learn to remain respectful, even when they disagree.",
+        "french": "L'enfant apprend ainsi à rester respectueux, même lorsqu'il n'est pas d'accord."
+      },
+      "bd72ccca2f5c476babd3b9bfff39cd5774a47ec4764b9e1d3185fdd2eb4c83d6": {
+        "english": "A referee’s decision or a defeat can be disappointing. An adult can help the child express their disappointment without humiliating the other person or rejecting the rules.",
+        "french": "Une décision d'arbitrage ou une défaite peut décevoir. Un adulte peut aider l'enfant à exprimer sa déception sans humilier l'autre ni refuser les règles."
+      },
+      "bf0ec64bf9a6849a6780f72e7d75b45bb7eabb6c4c32ba3323ee02fa20851fb3": {
+        "english": "Yes, I would encourage children who wish to do so to try a suitable competition. It can provide a goal for their sporting activities, teach them to respect an opponent and foster teamwork. But taking part must not become an obligation to win, nor a condition for enjoying the sport.",
+        "french": "Oui, j'encouragerais les enfants qui le souhaitent à essayer une compétition adaptée. Elle peut donner un objectif à la pratique, apprendre à respecter un adversaire et faire coopérer une équipe. Mais participer ne doit pas devenir une obligation de gagner ni une condition pour apprécier le sport."
+      },
+      "e3d1f5a7dcbe7904abc8307d3c1c2993e78bb14c91c24fa33d8e5eabe2dee133": {
+        "english": "However, these lessons can also be learnt outside of competition. If a child is struggling with the pressure or does not want to take part, we must listen to them and suggest an alternative activity. Age, ability, rest and enjoyment must guide adults.",
+        "french": "Cependant, ces apprentissages existent aussi hors compétition. Si un enfant souffre de la pression ou ne veut pas participer, il faut l'écouter et proposer une autre pratique. L'âge, les capacités, le repos et le plaisir doivent guider les adultes."
+      },
+      "f838d846c213a60e254bdeda2f2a09add119ea20b76a1a1302eddf6563c0c0f1": {
+        "deepl_english": "Following a disputed decision, the coach can encourage a player to ask for an explanation calmly, and then to resume play. The coach should value this attitude rather than an insult or a victory achieved through cheating.",
+        "english": "After a disputed point, the coach can encourage a player to ask for an explanation calmly, and then to resume play. The coach values this attitude rather than an insult or a victory achieved through cheating.",
+        "french": "Après un point contesté, l'entraîneur peut inviter un joueur à demander une explication calmement, puis à reprendre le jeu. Il valorise cette attitude plutôt qu'une insulte ou une victoire obtenue en trichant.",
+        "review_note": "Restores the disputed point and removes the added should from the described example."
+      }
+    },
+    "eo/tache-3/sante-p10": {
+      "0d854c2e7f48e8efbe6b6b82810a8f2c61db0aa92246a746c970c9958d344fbb": {
+        "english": "Furthermore, banning all sales does not guarantee that all consumption will cease.",
+        "french": "Ensuite, interdire toute vente ne garantit pas que toute consommation cesse."
+      },
+      "312efd1b8bc70095e137fb839983daf7b8b9ba8f9b29a5180ee429493cee6f52": {
+        "english": "Banning authorised sales does not, therefore, necessarily eliminate the supply.",
+        "french": "Supprimer la vente autorisée ne supprime donc pas nécessairement l'approvisionnement."
+      },
+      "37a26a8e167889a26a4e4f37cb9a163b26521027f820618a6e25da00c2f032de": {
+        "english": "In a shop subject to age restrictions, a sales assistant may ask for proof of age and refuse to sell alcohol to a minor. Inspections ensure this practice is followed: the restriction affects access, not just a warning sign on display.",
+        "french": "Dans un commerce soumis à une règle d'âge, un vendeur peut demander une pièce d'identité et refuser une vente d'alcool à un mineur. Des contrôles vérifient cette pratique : la restriction agit sur l'accès, pas seulement sur un avertissement affiché."
+      },
+      "4299a293e1ced1c999216566f3514f4ee4dacb3da0f18641ac15ef8865d175a7": {
+        "english": "Restricting advertising and access for minors aims to prevent new instances of risky consumption. Certain rules also protect others: a person may be exposed to second-hand smoke without having chosen to smoke themselves. Both products therefore require appropriate measures.",
+        "french": "Limiter la promotion et l'accès des mineurs vise à éviter de nouvelles consommations à risque. Certaines règles protègent aussi autrui : une personne peut subir la fumée du tabac sans avoir choisi de fumer. Les deux produits demandent donc des mesures adaptées."
+      },
+      "45bd9fbff9580f1d54eb9fddc226315dda10fc99a930b7856cbf298180a780ba": {
+        "english": "Finally, addiction requires access to appropriate support.",
+        "french": "Enfin, une dépendance exige un accès à une aide adaptée."
+      },
+      "661798d0102e501887ff520172cd152b8102238a2c3ed4167222e4e169a59479": {
+        "english": "A consumer could buy tobacco from an unregistered seller, with no reliable indication of its origin. The authorities would then find it more difficult to trace the supplier than if they were inspecting a registered business.",
+        "french": "Un consommateur pourrait acheter du tabac auprès d'un vendeur non déclaré, sans indication fiable de son origine. L'autorité aurait alors plus de mal à retrouver le fournisseur qu'en contrôlant un commerce identifié."
+      },
+      "6cf618025a7cb07128280734c3fbcbaf17efaf48b862dbae90a0c58f29eada23": {
+        "english": "A person with an addiction cannot always stop drinking or smoking on their own. Explaining the support available to them and enabling them to seek advice addresses this difficulty, whereas making them feel guilty does not teach them how to stop.",
+        "french": "Une personne dépendante ne peut pas toujours arrêter seule de boire ou de fumer. Lui expliquer les aides disponibles et lui permettre de consulter répond à cette difficulté, alors que la culpabiliser ne lui apprend pas comment arrêter."
+      },
+      "816ce6f4ca322cd780adaa60b36121ef0921c9a31911b9a5b1745ea749ed7c04": {
+        "english": "Effectively enforced regulations can therefore provide protection without eliminating all sales.",
+        "french": "Des règles appliquées peuvent donc protéger sans supprimer toute vente."
+      },
+      "8a6b3b0f8f8c1ed1e4922e3d4c38883eb6a78860762442a04969e40ae03e8312": {
+        "english": "During a consultation, someone who wants to give up smoking can discuss with a professional what triggers their cravings and the appropriate support available. They leave with a planned follow-up programme, rather than simply being told to stop.",
+        "french": "En consultation, une personne qui veut arrêter de fumer peut examiner avec un professionnel ce qui déclenche ses envies et les aides adaptées. Elle repart avec un suivi prévu, plutôt qu'une simple consigne d'arrêter."
+      },
+      "a01101568e9970554c8a5fc69022463730bc95c926f191992222884f84b9fb3f": {
+        "english": "People may continue to buy from unregistered sellers. This makes it more difficult to verify the products and the conditions of sale. This risk must be anticipated, even if it does not arise with every ban. It is not a reason to abandon the rules.",
+        "french": "Des personnes peuvent continuer à acheter auprès de vendeurs non déclarés. Il devient alors plus difficile de vérifier les produits et les conditions de vente. Ce risque doit être prévu, même s'il ne suit pas chaque interdiction. Ce n'est pas une raison de renoncer aux règles."
+      },
+      "bd19ae9b10b75d0dac56782c3336277d864110fd772372bd4e6efbee533d2962": {
+        "english": "Support therefore complements the restrictions.",
+        "french": "L'aide complète donc les restrictions."
+      },
+      "ce92c05c7d9225070e943678ececaa866560aeba60c7b6143d51535b8ca63f33": {
+        "english": "I am in favour of strong government action against the harms caused by tobacco and alcohol, but I would not automatically opt for a total ban on their sale. We must protect the public, ensure the rules are enforced and provide support for those affected. None of these objectives can be achieved by an announcement alone.",
+        "french": "Je suis favorable à une intervention forte de l'État contre les dommages du tabac et de l'alcool, mais je ne choisirais pas automatiquement une interdiction totale de leur vente. Il faut protéger la population, prévoir l'application des règles et accompagner les personnes concernées. Aucun de ces objectifs ne se règle par une annonce seule."
+      },
+      "d189e3ae03735c6a53af6e942a7efdfeeb13c382dc318aad6b35ce59799265e4": {
+        "deepl_english": "In conclusion, I would opt for controlled regulations, the effects of which are monitored, and accessible support to help people quit. Simply announcing a blanket ban is not enough: we must also know how to enforce it and provide support for those affected.",
+        "english": "In conclusion, I would opt for regulations backed by compliance checks, whose effects are monitored, and accessible support to help people quit. Simply announcing a blanket ban is not enough: we must also know how to enforce it and provide support for those affected.",
+        "french": "En conclusion, je choisirais des règles contrôlées, dont on vérifie les effets, et une aide accessible pour arrêter. Annoncer une interdiction générale ne suffit pas : il faut aussi savoir comment la faire respecter et accompagner les personnes.",
+        "review_note": "Controlled regulations is an unnatural literal rendering of règles contrôlées; the source means enforcement checks."
+      },
+      "f7f897e90293c585eaea16684160138982d7900ff4c6191f82099ef49c84f835": {
+        "english": "However, favouring regulation does not mean advocating consumption or denying the harm caused. Certain targeted bans may be justified. We must distinguish between the two products, evaluate the results and strengthen measures where protection remains inadequate, without making tax revenue the priority.",
+        "french": "Cependant, préférer une réglementation n'est pas défendre la consommation ni nier les dommages. Certaines interdictions ciblées peuvent être justifiées. Il faut distinguer les deux produits, évaluer les résultats et renforcer les mesures lorsque la protection reste insuffisante, sans faire des recettes fiscales la priorité."
+      },
+      "fc0b178f1d2524e76426b96a603a4090a9827eede83145d502e2c28fb0dab9a9": {
+        "english": "First and foremost, targeted restrictions can address specific situations.",
+        "french": "Tout d'abord, des restrictions ciblées peuvent agir sur des situations précises."
+      }
+    },
+    "eo/tache-3/sante-p11": {
+      "134d4f152b54519be8685c7dd26c5e5aa0e4d47713ac2540c9e5c792e49bd72d": {
+        "english": "Finally, the seller should not be solely responsible for ensuring that customers’ health is protected.",
+        "french": "Enfin, le vendeur ne doit pas être seul à vérifier qu'il protège la santé des clients."
+      },
+      "23e0cc5dc99613decc6244513e5b8c7eb64c16be99c156e54b6573ecdbf77f72": {
+        "english": "An external audit may find that a state-run shop is selling alcohol without checking the customer’s age. Its report may lead to a review of procedures and staff training, even if the operator would prefer to avoid such constraints.",
+        "french": "Un contrôle extérieur peut constater qu'un magasin public vend sans vérifier l'âge. Son rapport peut conduire à revoir les procédures et à former les équipes, même si l'opérateur préférerait éviter ces contraintes."
+      },
+      "49ac859d3cfc01c822c11556d378c431c8d6341b47a5f802b096502de6c4adf8": {
+        "english": "First and foremost, changing the seller does not make the products disappear.",
+        "french": "Tout d'abord, changer de vendeur ne fait pas disparaître les produits."
+      },
+      "61475ab4126e358f014a171f226f56baf5d51f047084793d3cab31af42157e3a": {
+        "deepl_english": "A public body could receive a bonus calculated on the basis of the number of bottles sold. Its staff would no longer have to boost sales to receive this bonus and could prioritise compliance with controls.",
+        "english": "A public body could remove a bonus calculated on the basis of the number of bottles sold. Its staff would no longer have to boost sales to receive this bonus and could prioritise compliance with controls.",
+        "french": "Un organisme public pourrait retirer une prime calculée sur les bouteilles vendues. Ses équipes n'auraient plus à augmenter les ventes pour toucher cette prime et pourraient donner la priorité au respect des contrôles.",
+        "review_note": "Retirer means remove the bonus here, not receive it; the following sentence confirms the incentive is withdrawn."
+      },
+      "6c3c2d4ce1896098238f6fdc80807623fbbed80c0befe431b4dfbd424ecb5768": {
+        "english": "We must therefore scrutinise the rules and controls, not merely consider who owns the shop.",
+        "french": "Il faut donc vérifier les règles et les contrôles, pas seulement savoir à qui appartient le magasin."
+      },
+      "6faabb4626a68ebd125c1eaf49d2782e3e4bb7405615d69b64d7b6256432d309": {
+        "english": "In conclusion, I would not make the withdrawal of the state as a seller an automatic response. I would call for effective oversight, limited commercial interests and independent public health decisions, whether the sale is public or private.",
+        "french": "En conclusion, je ne ferais pas du retrait de l'État vendeur une réponse automatique. Je demanderais un contrôle réel, des intérêts commerciaux limités et des décisions sanitaires indépendantes, que la vente soit publique ou privée."
+      },
+      "77dca6d2ee11432febccaf86516ef85530f956d1fef08091b15dcd8123ad32e3": {
+        "english": "If the seller is the sole judge of its own operations, it may downplay its mistakes. External oversight makes these mistakes visible and allows for corrective action to be demanded, without relying on the judgement of the body conducting the sales.",
+        "french": "Si le vendeur est seul à juger son fonctionnement, il peut minimiser ses erreurs. Un contrôle extérieur permet de les rendre visibles et de demander des corrections, sans dépendre du jugement de l'organisme qui réalise les ventes."
+      },
+      "92c6c67e9140da37605ea1349903e4b03a8ada147c873c633c1b9ccc126a3d60": {
+        "english": "When it comes to sales carried out directly by a public body, I do not believe that the state’s withdrawal is a sufficient solution. The state does not sell directly everywhere. Where it does, I would look at the oversight of sales, financial interests and the priority given to public health.",
+        "french": "Si l'on parle des ventes assurées directement par un organisme public, je ne pense pas que son retrait soit une solution suffisante. L'État ne vend pas lui-même partout. Là où il le fait, je regarderais le contrôle des ventes, les intérêts financiers et la place donnée à la santé."
+      },
+      "9bcc6cf8eb712cd4ccbdbe3bfaeb019bea0dc3f1b0d4c674c57273724c2cf888": {
+        "english": "The priority must be made explicit, even if it reduces revenue.",
+        "french": "La priorité doit être explicite, même si elle réduit les recettes."
+      },
+      "9d911bc773269562c943800ad88964a831a8dc1cfc1622565058cb27d92c8b6f": {
+        "deepl_english": "Even when it sells the property itself, the State must therefore accept oversight and correct its mistakes.",
+        "english": "Even when it sells these products itself, the state must therefore accept oversight and correct its mistakes.",
+        "french": "Même lorsqu'il vend lui-même, l'État doit donc accepter un contrôle et corriger ses erreurs.",
+        "review_note": "The state is selling tobacco or alcohol, not property."
+      },
+      "a2f34b90decf5d99299410de164d2811a4850d172c5e2c933a9435c5568f190e": {
+        "english": "When the state makes money from sales, it may be tempted to continue them. But the revenue generated by harmful products must not take precedence over public health, nor must it prevent sales from being restricted.",
+        "french": "Lorsque l'État gagne de l'argent grâce aux ventes, il peut être tenté de les maintenir. Mais l'argent rapporté par des produits nocifs ne doit pas passer avant la santé de la population ni empêcher de limiter les ventes."
+      },
+      "a891e0f3925ed416187c5edccd8b2714a0ba9d613a6af394013109275545118b": {
+        "english": "A publicly-run shop could close and be replaced by several authorised businesses. Without conditions governing their operation and without inspections, a change of ownership would not, in itself, constitute an improvement in protection.",
+        "french": "Un magasin public pourrait fermer et être remplacé par plusieurs commerces autorisés. Sans conditions sur leur fonctionnement et sans inspections, le changement de propriétaire ne constituerait pas à lui seul une amélioration de la protection."
+      },
+      "c387f6ae9659427912d3bcca235a0ba478a81f49e5acc1c8c05ca221c85862d0": {
+        "english": "If a public sale is replaced by a private sale, access may continue. The relevant question is therefore which rules apply and who monitors compliance with them, rather than assuming that the withdrawal of public provision automatically stops consumption.",
+        "french": "Si une vente publique est remplacée par une vente privée, l'accès peut continuer. La question utile est donc de savoir quelles règles s'appliquent et qui vérifie leur respect, plutôt que croire que le retrait public arrête automatiquement la consommation."
+      },
+      "d6ee2abc469bb9e0473e2f81242ceb427333a31f170f180f7a50bf6868fcce1d": {
+        "english": "Furthermore, the State must not be driven by a target of increasing sales.",
+        "french": "Ensuite, l'État ne doit pas dépendre d'un objectif de ventes croissantes."
+      },
+      "edfc685441faa2b42162f8775d9e4eee36d9b1c32aecdd4c7f5610b4061e22de": {
+        "english": "However, if the question implies banning all sales, I would favour strong regulation and appropriate support rather than a blanket ban announced in isolation. Neither public nor private ownership guarantees protection. We must examine the rules that are actually being applied.",
+        "french": "Cependant, si la question signifie interdire toute vente, je privilégierais une réglementation forte et une aide adaptée plutôt qu'une interdiction générale annoncée seule. Ni une propriété publique ni une propriété privée ne garantit la protection. Il faut examiner les règles effectivement appliquées."
+      }
+    },
+    "eo/tache-3/sante-p13": {
+      "068b0528f6af411c55079072f12a443ea296338b443d12c5e9fe035bc87e9f15": {
+        "english": "However, constraints relating to health, budget or access to food vary. No single approach can guarantee a good balance on its own. Eating meat does not automatically make a person irresponsible, and choosing a vegetarian diet should not mean having to justify every meal.",
+        "french": "Cependant, les contraintes de santé, de budget ou d'accès aux produits varient. Aucune formule ne garantit à elle seule un bon équilibre. Manger de la viande ne rend pas automatiquement une personne irresponsable, et choisir le végétarisme ne devrait pas obliger à justifier chaque assiette."
+      },
+      "43c1ce369f866375b7ffa77b06137953b6be875ed539fc762c5257aff88dc032": {
+        "english": "First and foremost, this choice can enable a person to put their beliefs into practice.",
+        "french": "Tout d'abord, ce choix peut permettre de mettre une conviction en pratique."
+      },
+      "672323a7527908b7d34e057206a55e9a2dd6620e001c9b0c4c8c71f2b3ec0c9a": {
+        "english": "Everyone can therefore share a meal without being forced to eat the same as everyone else.",
+        "french": "Chacun peut ainsi partager le repas sans être obligé de manger comme les autres."
+      },
+      "7c448eb6b4065d198340f6689c696c9fc1414e3156cb256bcf6d48b6330bf2c2": {
+        "deepl_english": "Someone concerned about animal welfare may decide to stop funding these practices by buying meat. In doing so, they are acting in accordance with their convictions, even if their decision alone does not change the entire sector.",
+        "english": "Someone concerned about the conditions in which animals are raised may decide to stop buying meat so as not to fund these practices any longer. In doing so, they are acting in accordance with their convictions, even if their decision alone does not change the entire sector.",
+        "french": "Une personne préoccupée par les conditions d'élevage peut décider de ne plus financer ces pratiques en achetant de la viande. Elle agit ainsi selon ses convictions, même si sa décision seule ne change pas tout le secteur.",
+        "review_note": "Makes clear that stopping meat purchases is how they stop funding the practices, rather than buying meat to stop funding them."
+      },
+      "9101ba532a01a337c2c86a1d9f1824a074cbff47dd3b294c5e4a2198f703a9ba": {
+        "english": "Finally, a few adjustments can make it possible to share meals without imposing a single choice.",
+        "french": "Enfin, quelques adaptations peuvent permettre de partager les repas sans imposer un seul choix."
+      },
+      "b1a648b3ccca1c3a2468efb57ca24fc4965c925746e072c71380f32d5deb2ed6": {
+        "english": "In conclusion, I am in favour of respecting this choice when it is organised and adapted. Personal convictions, varied meals and communal living can go hand in hand, without presenting any one model as a universal obligation.",
+        "french": "En conclusion, je suis favorable au respect de ce choix lorsqu'il est organisé et adapté. Convictions, repas variés et vie commune peuvent aller ensemble, sans présenter un modèle comme une obligation universelle."
+      },
+      "b64c52cbd0c7f0a283139368e379db06bc0bb489fc16b82437bbf2c7ab772e60": {
+        "english": "For a family meal, you could prepare a dish of vegetables and beans that suits everyone, then serve other foods separately. The vegetarian person can join in the meal without asking everyone else to change their diet.",
+        "french": "Pour un repas familial, on peut préparer un plat de légumes et de haricots qui convient à tous, puis proposer séparément les autres aliments. La personne végétarienne participe au repas sans demander que tout le monde change son alimentation."
+      },
+      "bea548e87c7bb840be8fbb0696f20f423dc4e26d5334e9275669d92740e97c35": {
+        "english": "After finding out about farming practices, a person can replace the meat in their usual meals with vegetarian recipes. Their shopping list changes: they no longer buy the products they wish to do without.",
+        "french": "Après s'être informée sur les conditions d'élevage, une personne peut remplacer la viande de ses repas habituels par des recettes végétariennes. Sa liste de courses change : elle ne commande plus les produits dont elle souhaite se passer."
+      },
+      "c99c1eea9f3c50f6d6d9c440140b24225b33613d20ee2acc2ca4cb1047a158b3": {
+        "deepl_english": "Lentils and chickpeas are particularly good sources of protein; eggs and dairy products may also have a place depending on the chosen diet. It is important to ensure the necessary nutritional intake is met, seeking professional advice where a particular situation requires it.",
+        "english": "Lentils and chickpeas provide protein, amongst other nutrients; eggs and dairy products may also have a place depending on the chosen diet. It is important to ensure the necessary nutritional intake is met, seeking professional advice where a particular situation requires it.",
+        "french": "Les lentilles et les pois chiches apportent notamment des protéines ; les œufs et les produits laitiers peuvent aussi avoir une place selon le régime choisi. Il faut organiser les apports nécessaires, avec un conseil professionnel lorsqu'une situation particulière le demande.",
+        "review_note": "Notamment means among other things, not a strengthened claim that they are particularly good protein sources."
+      },
+      "d5bcc671a13d83e505f8ec4cfeb9d854359c00a353b33b637c951e193fa60518": {
+        "english": "Someone might prepare a lentil and vegetable soup for one dinner, then an omelette with bread and raw vegetables for the next. They have two complete meals, not just side dishes for the family meal.",
+        "french": "Une personne peut préparer une soupe de lentilles et de légumes pour un dîner, puis une omelette avec du pain et des crudités pour le suivant. Elle dispose de deux plats construits, pas seulement des accompagnements du repas familial."
+      },
+      "d752df12c18309db7331a9d2265f4eeefe124998eb002c3d83085b7bf41fa43b": {
+        "deepl_english": "A meal is also a time to be together. Preparing a shared meal and explaining what everyone can eat allows us to respect people’s beliefs without leaving anyone out.",
+        "english": "A meal is also a time to be together. Preparing a common base for the meal and explaining what each person can eat allows us to respect people's beliefs without leaving anyone out.",
+        "french": "Un repas est aussi un moment pour être ensemble. Préparer une base commune et expliquer ce que chacun peut manger permet de respecter les convictions sans laisser quelqu'un à l'écart.",
+        "review_note": "Base commune is the shared base of the meal, not necessarily a single shared meal for everyone."
+      },
+      "e1ed648d279cdfd03f14299e12b934144a703469fc2f6af9f9438cfbf06cef4a": {
+        "english": "This choice deserves to be understood before it is judged.",
+        "french": "Le choix mérite d'être compris avant d'être jugé."
+      },
+      "e4fa9d57b5924c8e2fc47aa3f2e19278192f91d93732896df33af1a8d6469ad1": {
+        "english": "To eat well, therefore, one must plan what goes into meals, not just say that they are vegetarian.",
+        "french": "Pour bien manger, il faut donc prévoir ce qui compose les repas, pas seulement dire qu'ils sont végétariens."
+      },
+      "ec57964cae987ef756325697cdefb681c52a9384b83c7cf381be4d858c154d14": {
+        "english": "Furthermore, a varied diet makes it possible to put together proper meals without meat.",
+        "french": "Ensuite, des aliments variés permettent de composer de vrais repas sans viande."
+      },
+      "f7c98fd7536c23a61f3f425a1e84c5e918a4a04943134fec7c9f130a9be1d8b5": {
+        "english": "I regard vegetarianism as a respectable choice, which can be consistent with a person’s beliefs. But simply removing meat is not enough to organise one’s diet. One must also put together varied meals and be able to share them with others.",
+        "french": "Je considère le végétarisme comme un choix respectable, qui peut être cohérent avec les convictions d'une personne. Mais retirer la viande ne suffit pas à organiser une alimentation. Il faut aussi composer des repas variés et pouvoir les partager avec les autres."
+      }
+    },
+    "eo/tache-3/sante-p17": {
+      "0b969ea0213ae4b2d61f4d51051c2ff3c9945a5e349eb46160a1e60467df8455": {
+        "english": "First and foremost, a specific deadline can encourage you to organise your preparation.",
+        "french": "Tout d'abord, une échéance précise peut inciter à organiser sa préparation."
+      },
+      "15bfea2db2b12eb3e82522f2a3ed5eba0b57e2244bf64a660429c9e0cc7cb96a": {
+        "english": "Increasing the pressure is therefore not a universal method of achieving efficiency.",
+        "french": "Augmenter la pression n'est donc pas une méthode universelle d'efficacité."
+      },
+      "2b78b070c0233fdeaf565ea6f74b86c2d1f01f0727f45eba58ea0cbfce6b9f7b": {
+        "english": "During an interview, a person may lose their train of thought after an unexpected question. An interviewer who calmly rephrases the question allows them to get back on track, whereas a humiliating remark would simply add to the difficulty without providing any useful information.",
+        "french": "Pendant un entretien, une personne peut perdre le fil après une question imprévue. Un interlocuteur qui reformule calmement lui permet de reprendre, alors qu'une remarque humiliante ajouterait une difficulté sans apporter d'information."
+      },
+      "2fe60c844edeea7fe7c9a694658d736fb2398e160f6162e10e97dae0f61a4f19": {
+        "english": "Finally, after a period of pressure, you need time to recover.",
+        "french": "Enfin, après une période de pression, il faut du temps pour récupérer."
+      },
+      "597da470186fa20c176a1d67d86da7707e422b90551a5efba2ebe1bc750af5ee": {
+        "english": "In conclusion, a little stress can spur you into action, but too much pressure can also paralyse you. I prefer achievable goals, time to prepare and support rather than more stress to achieve results.",
+        "french": "En conclusion, un peu de stress peut pousser à agir, mais trop de pression peut aussi bloquer. Je préfère des objectifs réalisables, du temps pour se préparer et du soutien plutôt que davantage de stress pour obtenir des résultats."
+      },
+      "63e99bce8136954fd33ab6b38ef702b0693d11d0e7a091da2d105b3999e4ae14": {
+        "english": "To allow for rest, we also need to adjust timetables or redistribute the workload.",
+        "french": "Pour permettre le repos, il faut aussi qu'on change les horaires ou répartisse autrement le travail."
+      },
+      "6b962e9e5f2f525f196fabfef86ac7ec8a735a590ce13aa689da5bc5d82cd3bd": {
+        "deepl_english": "In this case, the stress spurred us on to prepare, but we could just as easily have done so without feeling anxious.",
+        "english": "In this case, the stress spurred the person on to prepare, but they could also have done so without feeling anxious.",
+        "french": "Dans ce cas, le stress a poussé à se préparer, mais on aurait aussi pu le faire sans être inquiet.",
+        "review_note": "Removes the unsupported just as easily and keeps the person in the example as the subject."
+      },
+      "836bca43a566000a1bbfc4c1d900f817c777a4d1f727cd7aea66b5e7dcfd79a9": {
+        "deepl_english": "Furthermore, too much pressure can actually hinder what we’re good at.",
+        "english": "Furthermore, too much pressure can actually hinder our ability to do things we know how to do.",
+        "french": "Ensuite, une pression trop forte peut au contraire gêner ce que l'on sait faire.",
+        "review_note": "Savoir faire means knowing how to do something, not necessarily being good at it."
+      },
+      "858b7ab73a8d3d2cfcaa2286d57a69d55472e7a7a3e96593c22a99de8aaf7092": {
+        "english": "Even manageable tasks can become difficult to tackle one after the other if there are no breaks at all. The duration of the pressure therefore matters just as much as its intensity: completing one urgent task is not enough if the next one starts straight away, without any time to rest.",
+        "french": "Même des tâches réalisables peuvent devenir difficiles à enchaîner si toute pause disparaît. La durée de la pression compte donc autant que son intensité : terminer une urgence ne suffit pas si la suivante commence aussitôt, sans temps de repos."
+      },
+      "b1f2254c70d26a4f437dd55a59fe257951774b03a1137faa13c6bcd4a5cc5fee": {
+        "english": "Stress can sometimes spur you on to prepare or take action, but you don’t need to be stressed to be motivated. A little anxiety before a presentation and excessive daily pressure do not have the same effects. It is important to distinguish between what helps you get started and what prevents you from moving forward.",
+        "french": "Le stress peut parfois pousser à se préparer ou à agir, mais on n'a pas besoin d'être stressé pour être motivé. Une petite inquiétude avant une présentation et une pression trop forte chaque jour n'ont pas les mêmes effets. Il faut distinguer ce qui aide à commencer de ce qui empêche d'avancer."
+      },
+      "b5c270bf112229b535282136221651ab9ecd03fb1ea5a1f5defa89cf204fc6c7": {
+        "english": "If you know what needs to be done and the task is achievable, a little anxiety can encourage you to get started sooner. It is then the preparation that helps you make progress, not the suffering itself.",
+        "french": "Si l'on sait ce qu'il faut faire et que la tâche est réalisable, une petite inquiétude peut pousser à commencer plus tôt. C'est alors la préparation qui aide à progresser, pas le fait de souffrir."
+      },
+      "d0c6caab88a2834c133fdd2b24ee6ed4a49b203f644bc3a01d333f8bb53b0045": {
+        "english": "Before a presentation, someone who is feeling a little anxious can practise their introduction and check their presentation materials. They turn a worry into preparation, rather than leaving the task until the last minute.",
+        "french": "Avant une présentation, une personne un peu inquiète peut répéter son introduction et vérifier son support. Elle transforme une préoccupation en préparation, plutôt que laisser la tâche jusqu'au dernier moment."
+      },
+      "ec5fd9de87dc57ae078c3fcba8a739826d96b6ccbea945a8569f90a13ebe7f9c": {
+        "english": "A task doesn’t become any easier simply because you’re more afraid of getting it wrong. When you focus solely on the possibility of making a mistake, you may find it hard to listen to instructions or gather your thoughts.",
+        "french": "Une tâche ne devient pas plus facile parce qu'on a davantage peur de la rater. Quand on pense seulement à l'erreur possible, on peut avoir du mal à écouter la consigne ou à retrouver ses idées."
+      },
+      "ef4883928700610f2812c4794f8e4f234bbcc44be0d8481086d17cca22aaa50a": {
+        "deepl_english": "After an urgent deadline, a team can postpone a secondary task and organise a rota to allow for rest. In this way, they avoid treating every day as an exception, rather than simply asking everyone to manage their stress better.",
+        "english": "After an urgent delivery, a team can postpone a secondary task and arrange for someone else to take over to allow for rest. In this way, they avoid treating every day as an exception, rather than simply asking everyone to manage their stress better.",
+        "french": "Après une livraison urgente, une équipe peut reporter une tâche secondaire et organiser un relais pour permettre du repos. Elle évite ainsi de traiter chaque journée comme une exception, plutôt que demander seulement à chacun de mieux gérer son stress.",
+        "review_note": "Livraison is delivery, not deadline; relais means arranging cover rather than necessarily establishing a rota."
+      },
+      "f99b3234d55f6451f0f9d81e39b442a7891032e3013da7115ea2f81ee70dd400": {
+        "english": "However, reactions vary, and it is possible to be motivated without feeling stressed. Rest and support are important; a persistent difficulty warrants appropriate help. We must not glorify exhaustion or reduce every situation to a matter of character.",
+        "french": "Cependant, les réactions varient et l'on peut être motivé sans se sentir stressé. Le repos et le soutien comptent ; une difficulté persistante mérite une aide appropriée. Il ne faut pas valoriser l'épuisement ni réduire toutes les situations à une question de caractère."
+      }
+    },
+    "eo/tache-3/sante-p23": {
+      "36b1b42b0f7b0351fc5459643b3cc58b0c9489e9ff3ea36fc44990eae52e672e": {
+        "english": "Physical activity, a varied diet and sufficient sleep are also part of prevention. Someone who does not require regular treatment can work on these habits; their approach to health is therefore not limited to a daily prescription.",
+        "french": "L'activité physique, des repas variés et un sommeil suffisant font aussi partie de la prévention. Une personne sans indication de traitement régulier peut agir sur ces habitudes ; sa démarche de santé ne se résume donc pas à une prescription quotidienne."
+      },
+      "36d46e8c26e6beed30f2190e4d58171371ecad07c20ddd76a832efcd8b0ec7e7": {
+        "english": "I wouldn’t say that everyone necessarily needs to take medication to live. But some treatments are essential, and no one can predict all their future needs. The right question is one of appropriate use in each situation, not of a universal obligation or a refusal on principle.",
+        "french": "Je ne dirais pas que chaque personne doit nécessairement prendre des médicaments pour vivre. Mais certains traitements sont indispensables, et personne ne peut prévoir tous ses besoins futurs. La bonne question est celle d'un usage adapté à la situation, pas d'une obligation universelle ni d'un refus de principe."
+      },
+      "3e264fffaf1c263dbef5ff03452bce0e5a613973e34b830ef8bd9f2c231a2173": {
+        "english": "Furthermore, looking after one’s health does not always involve taking medication.",
+        "french": "Ensuite, prendre soin de sa santé ne passe pas toujours par un médicament."
+      },
+      "4c62b45985a3545fd8c1eeded49447eb34a2a9976e45f0e0d068f7268cfbb0e9": {
+        "english": "Recognising this necessity prevents the debate from turning into a rejection of healthcare.",
+        "french": "Reconnaître cette nécessité évite de transformer le débat en rejet des soins."
+      },
+      "540ebe78040e81da6012029d80b93e3b11dd2e49552737c4cdaf9e072d05f672": {
+        "english": "Prevention therefore makes room for other measures, without rendering treatments unnecessary.",
+        "french": "La prévention donne ainsi une place à d'autres actions, sans rendre les traitements inutiles."
+      },
+      "577833a425dca09739a7391d6787c3f53b5a35d1ecff22a77f3634cff589c9e8": {
+        "english": "Following a preventive health check-up, an adult who spends much of their time sitting may go for a walk during their lunch break, as agreed with the healthcare professional. Without being prescribed any medication, they can counteract their long periods of inactivity by making a practical change to their daily routine.",
+        "french": "Après un rendez-vous préventif, un adulte souvent assis peut marcher pendant sa pause de midi comme convenu avec le professionnel. Sans indication de médicament, il agit sur ses longues périodes d'inactivité par un changement concret de sa journée."
+      },
+      "6b44ee5aa43d2eee8edce0b7537792b871cae3b8bb684cb090e72e862e71add1": {
+        "english": "However, not needing medication today does not guarantee a lifetime without treatment. Lifestyle choices and prevention complement medical care without replacing it. You should never alter or stop a prescribed treatment without consulting a qualified healthcare professional.",
+        "french": "Cependant, ne pas avoir besoin d'un médicament aujourd'hui ne garantit pas une vie entière sans traitement. Les habitudes de vie et la prévention complètent les soins sans les remplacer. Il ne faut jamais modifier ou arrêter un traitement prescrit sans l'avis du professionnel compétent."
+      },
+      "7cadec682c50b08bee21ded7c85eb1f0f2dac247323c8c791e5049f5ee90b95f": {
+        "english": "Finally, it is important to understand why you are taking a medicine, rather than simply buying it out of habit.",
+        "french": "Enfin, il faut comprendre pourquoi prendre un médicament, plutôt que l'acheter par habitude."
+      },
+      "af18f8858244cf48afde5cac50f8abb490b500d3dbf5a8af3cef953274b88341": {
+        "english": "A person with type 1 diabetes needs insulin. Changing their diet or taking up more exercise does not eliminate this need: their treatment must continue to be managed in consultation with the healthcare professionals supporting them.",
+        "french": "Une personne atteinte d'un diabète de type 1 a besoin d'insuline. Modifier ses repas ou faire davantage d'exercice ne supprime pas ce besoin : son traitement doit rester organisé avec les professionnels qui l'accompagnent."
+      },
+      "b2e1b8e0ce0c7c86bd550ecfb7d0260a04a6188527b2672728f3edc88f5a5d4f": {
+        "english": "Taking more medicines does not automatically mean better care. A healthcare professional can explain their benefits, precautions and limitations, particularly when several medicines are being considered together.",
+        "french": "Prendre davantage de produits ne signifie pas automatiquement mieux se soigner. Un professionnel peut expliquer l'utilité, les précautions et les limites, notamment lorsque plusieurs produits sont envisagés ensemble."
+      },
+      "bfb325f4f0154047be78e0076bb23b961698359ff074f738ab128be285b3d122": {
+        "english": "When an illness requires medication, the person must be able to obtain it and receive follow-up care. Leading them to believe that eating well or exercising is enough to replace it can put their health at risk.",
+        "french": "Lorsqu'une maladie exige un médicament, il faut que la personne puisse l'obtenir et être suivie. Lui faire croire que bien manger ou faire du sport suffit à le remplacer peut mettre sa santé en danger."
+      },
+      "c10edbcb35c405424a2cd34c8a1e09391736c7df15fc29b3ef01062df556ecbb": {
+        "english": "First and foremost, some treatments are essential, even with a healthy lifestyle.",
+        "french": "Tout d'abord, certains traitements sont indispensables, même avec de bonnes habitudes de vie."
+      },
+      "c79b7dd33051a120c9625b06508f3a612b2ea3bd8d263afeddaf6e358a4e375c": {
+        "english": "In conclusion, some people need medication every day, whilst others do not. I advocate access to necessary treatments and guidance on how to use them properly, without assuming that medication must always be taken or that medicine should be rejected.",
+        "french": "En conclusion, certaines personnes ont besoin de médicaments chaque jour, d'autres non. Je défends l'accès aux traitements nécessaires et les conseils pour bien les utiliser, sans penser qu'il faut toujours en prendre ni rejeter la médecine."
+      },
+      "deff256c83ba48ad3614d83687e91af7d0388512343d1e8e1566bc83f80ef690": {
+        "english": "An adult to whom a relative offers their own medication can show the pharmacist the medicines they are already taking. The pharmacist will check for any interactions and can explain why that particular medicine is unsuitable for their situation, rather than simply letting them copy a prescription.",
+        "french": "Un adulte à qui un proche propose son médicament peut montrer au pharmacien les produits qu'il prend déjà. Celui-ci vérifie les associations et peut expliquer pourquoi ce produit ne convient pas à sa situation, au lieu de le laisser copier une ordonnance."
+      },
+      "e7468c4db4e9598a55f76267718cb939f9dc1c812bf6d6b5a9c72d3748e343c5": {
+        "deepl_english": "Seeking advice therefore ensures you take a suitable product, rather than simply adding yet another one.",
+        "english": "Seeking advice therefore helps you take a suitable product, rather than simply adding yet another one.",
+        "french": "Demander conseil permet donc de prendre un produit adapté, pas simplement d'en ajouter un de plus.",
+        "review_note": "Permet does not guarantee a suitable choice; ensures overstates the claim."
+      }
+    },
+    "eo/tache-3/sante-p6": {
+      "0d6d4dcc5b5f26c83cf0e666d9d9dbe972a4f53d1bf6469c85a15d0455853e74": {
+        "english": "Meat provides, in particular, protein and iron, although other foods can also contribute to the necessary intake. The quantity and type of meat matter: including an appropriate portion is not the same as consuming large amounts of processed meat products.",
+        "french": "Elle apporte notamment des protéines et du fer, même si d'autres aliments peuvent aussi contribuer aux apports nécessaires. La quantité et le type de viande comptent : inclure une portion adaptée n'est pas la même chose que multiplier les produits de charcuterie."
+      },
+      "223ae15f5c8b6bd0e9776e296b8ce7325833b45b8287801895477d7e3d641b00": {
+        "english": "A person may cut out meat whilst continuing to consume mainly sugary drinks and biscuits throughout the day. Introducing varied meals addresses a problem that simply cutting out meat alone had failed to resolve.",
+        "french": "Une personne peut retirer la viande tout en gardant surtout des boissons sucrées et des biscuits dans sa journée. Ajouter des repas variés répond à un problème que la suppression, à elle seule, n'avait pas réglé."
+      },
+      "237972f1104e539b606f7cc3ddc16280f2aadd1a614c65a16028c7cdeb672081": {
+        "english": "It is therefore the content of one’s meals that matters.",
+        "french": "C'est donc le contenu des repas qui compte."
+      },
+      "32664807978476af8b9c21d0aca30e9599b8feab78cea161b1c514e3aab773a5": {
+        "deepl_english": "Someone who wants to give up meat might start by simply removing the steak from their plate. With the right advice, they can learn to prepare a dish of lentils and vegetables, rather than just sticking to potatoes.",
+        "english": "Someone who wants to give up meat might initially plan simply to remove the steak from their plate. With the right advice, they can learn to prepare a dish of lentils and vegetables, rather than just sticking to potatoes.",
+        "french": "Une personne qui veut arrêter la viande peut d'abord prévoir de retirer simplement le steak de son assiette. Avec un conseil adapté, elle apprend à préparer un plat de lentilles et de légumes, au lieu de garder uniquement les pommes de terre.",
+        "review_note": "Prévoir means initially plan to remove the steak, not necessarily already start doing so."
+      },
+      "326a130bebd54c07de43e80539577f5f60aed31fd82102edc00391305ba052e6": {
+        "english": "In conclusion, I advocate a varied and balanced diet rather than a universal requirement to give up meat. Whether or not one eats meat is, in neither case, sufficient to guarantee good health.",
+        "french": "En conclusion, je défends une alimentation variée et adaptée plutôt qu'une obligation universelle d'arrêter la viande. Manger ou non de la viande ne suffit, dans aucun des deux cas, à garantir la bonne santé."
+      },
+      "3d65a406d98a5c3874041146a3e08a7bec7b514f84b094f535ccace606447a8f": {
+        "english": "Furthermore, meat can have a place in a varied diet.",
+        "french": "Ensuite, la viande peut avoir une place dans une alimentation variée."
+      },
+      "45f181cd42dc5c28a4de4f2b44bb33afcd9c301393b12942ebf5c863b3585029": {
+        "english": "Planning meals is more helpful than simply cutting out meat.",
+        "french": "Prévoir les repas est plus utile que supprimer simplement la viande."
+      },
+      "461f41d7037cf307b3f8bcf87fad191e5a68585fc64babc9810da858b33f570a": {
+        "deepl_english": "No, I would not make a complete ban on meat a universal prerequisite for good health. A balanced diet, a variety of food sources and an individual’s specific needs matter more than simply excluding a single food group. This does not mean that every quantity or every food product is equally beneficial.",
+        "english": "No, I would not make giving up meat completely a universal prerequisite for good health. A balanced diet, a variety of food sources and an individual's specific needs matter more than simply excluding a single food. This does not mean that every quantity or every food product is equally beneficial.",
+        "french": "Non, je ne ferais pas de l'arrêt total de la viande une condition universelle de bonne santé. L'équilibre du repas, la diversité des sources alimentaires et les besoins de la personne comptent davantage qu'une seule exclusion. Cela ne signifie pas que toute quantité ou tout produit se vaut.",
+        "review_note": "Arrêt total is an individual stopping meat consumption, not a ban on meat."
+      },
+      "47df8a814b6424a2a80bf8f0672cd7dd8744c6a16be30b7c2ec93c65e1a63c25": {
+        "english": "However, reducing certain types of consumption or choosing a vegetarian diet can serve valid purposes. The quantity, the type of food and health considerations all matter. In cases of specific needs, the advice of a professional is more useful than a general rule learnt in a debate.",
+        "french": "Cependant, réduire certaines consommations ou choisir le végétarisme peut répondre à des objectifs cohérents. La quantité, le type de produit et les indications de santé comptent. En cas de besoin particulier, l'avis d'un professionnel est plus utile qu'une règle générale apprise dans un débat."
+      },
+      "6b79bd231f043dc31c8be60a8b6a6f535de9b2c5608df7f83fc9cb94e3bc148f": {
+        "deepl_english": "A balanced diet can therefore be achieved without imposing a total ban.",
+        "english": "A balanced diet can therefore be achieved without requiring people to give up meat completely.",
+        "french": "L'équilibre peut donc se construire sans imposer une suppression totale.",
+        "review_note": "Suppression totale refers to removing meat from the diet, not banning it."
+      },
+      "6b7c8252b795043e73e14b213ed1eb894f470ead27497db13cea429f7f624cff": {
+        "english": "Finally, any change in diet must be tailored to one’s personal circumstances.",
+        "french": "Enfin, un changement alimentaire doit être préparé selon la situation personnelle."
+      },
+      "ab2dc422c62416647d255f56e137500366890ce278be35881f3c77789b93d74e": {
+        "english": "First and foremost, simply cutting out one food is not enough to balance out everything else.",
+        "french": "Tout d'abord, supprimer un aliment ne suffit pas à équilibrer tout le reste."
+      },
+      "bd661dfc2e8845ecc95a948da80fdf5db158f298a3277743ae993fae564d7917": {
+        "english": "Needs and constraints vary from person to person. Removing a food without replacing it can result in nutritionally incomplete meals. This does not mean that vegetarianism is bad, but rather that one must learn to put together meals differently.",
+        "french": "Les besoins et les contraintes varient d'une personne à l'autre. Retirer un aliment sans le remplacer peut laisser des repas incomplets. Cela ne veut pas dire que le végétarisme est mauvais, mais qu'il faut apprendre à composer ses repas autrement."
+      },
+      "c8b844c466837ee01421fa09e65719c7e85444ae173c849be9200c41b5e9aeee": {
+        "english": "We need to look at what we eat throughout the day: vegetables, cereals, sources of protein and other foods. The presence or absence of a piece of meat does not determine whether the rest of the meals are balanced.",
+        "french": "Il faut qu'on regarde ce que l'on mange toute la journée : les légumes, les céréales, les sources de protéines et les autres aliments. La présence ou l'absence d'un morceau de viande ne dit pas si le reste des repas est équilibré."
+      },
+      "e6101e24aa84fe9179283a73697a1a2847e5887f4d98779bec8f81a0b52b4eb9": {
+        "english": "A family might plan a meal with vegetables, rice and a portion of chicken, then cook lentils on another day. Meat complements certain meals without becoming their sole component or excluding plant-based sources.",
+        "french": "Une famille peut prévoir un repas avec des légumes, du riz et une portion de poulet, puis cuisiner des lentilles un autre jour. La viande complète certains repas sans devenir leur seul élément ni exclure les sources végétales."
+      }
+    },
+    "eo/tache-3/sante-p8": {
+      "0f275953dd213624e245cfea4c2dc9bb055f1fc42e23f7f1720479a85c193c8b": {
+        "english": "Helping the child to take part is therefore more useful than simply telling them to do sport.",
+        "french": "Aider l'enfant à participer est donc plus utile que lui répéter de faire du sport."
+      },
+      "12c34057b7fd1ff3b20b610d2336a47936e1b60c65568ee63d82d5c16281648f": {
+        "english": "This choice can therefore support learning and help ensure the activity is sustained over the long term.",
+        "french": "Le choix peut ainsi soutenir des apprentissages et une pratique qui dure."
+      },
+      "1469071b0d9ac9330e1761ccae5461ca0786a646224b87101b31643586e98873": {
+        "english": "A family that cannot afford a sports club can find a free activity offered by the school, adapted to the child’s disability. The absence of membership fees and accessible supervision then enable the child to take part, something that compulsory enrolment in a club would not have made possible.",
+        "french": "Une famille qui ne peut pas payer un club peut trouver une activité gratuite proposée par l'école, adaptée au handicap de l'enfant. L'absence de cotisation et un encadrement accessible permettent alors sa participation, qu'une inscription obligatoire en club ne rendait pas possible."
+      },
+      "2c4a7847514128369088b868777dcac25465167ea6c306bbe8278604555131f8": {
+        "deepl_english": "However, listening to the child does not prevent us from setting rules. Schools can organise suitable physical activities and parents can set aside time for physical activity. We can encourage the child to be physically active on a regular basis without always forcing them to do the same sport or ignoring their difficulties.",
+        "english": "However, listening to the child does not prevent us from setting rules. Schools can organise suitable physical activities and parents can set aside time for physical activity. We can ask the child to be physically active on a regular basis without always forcing them to do the same sport or ignoring their difficulties.",
+        "french": "Cependant, écouter l'enfant n'empêche pas de fixer des règles. L'école peut organiser des activités physiques adaptées et les parents prévoir des moments pour bouger. On peut demander à l'enfant de bouger régulièrement sans lui imposer toujours le même sport ni ignorer ses difficultés.",
+        "review_note": "Demander permits asking the child to be active, not merely encouraging them; the nuance allows rules."
+      },
+      "3252759154ff9a7540d1cfc14c9ef9e585f2db4159217087fa22f1e269a4a12d": {
+        "english": "The cost of registration, a lack of equipment or a journey that is too long may prevent a child from taking part. Asking them to make an effort does not pay the club’s fees, nor does it bring the club closer to their home. It would be unfair to blame them for these obstacles.",
+        "french": "Le prix de l'inscription, le manque d'équipement ou un trajet trop long peut empêcher un enfant de participer. Lui demander de faire un effort ne paie pas le club et ne le rapproche pas de chez lui. Il serait injuste de lui reprocher ces obstacles."
+      },
+      "3318f006cb2061f07477b7ae241287282c4868fc724cfb756a6d7749e9c87a09": {
+        "english": "Understanding why a child refuses to take part enables us to choose a more appropriate response.",
+        "french": "Comprendre le refus permet de choisir une réponse plus adaptée."
+      },
+      "442c5a47f530ed89d8047e53a92c633aa6ef451dd32f80729c15d87f5df9774f": {
+        "deepl_english": "A child with little interest in football might try cycling in a suitable setting. By starting with an easy route, they can learn to keep their balance and then to brake at the right moment, and feel keen to try again.",
+        "english": "A child with little interest in football might try cycling in a suitable setting. By repeating an easy route, they can learn to keep their balance and then to brake at the right place, and feel keen to try again.",
+        "french": "Un enfant peu intéressé par le football peut essayer le vélo dans un cadre adapté. En reprenant un parcours facile, il peut apprendre à garder son équilibre puis à freiner au bon endroit, et avoir envie de recommencer.",
+        "review_note": "En reprenant is repeating the route, not starting with it; endroit is place rather than moment."
+      },
+      "61afeb0ad79139dcf5e469350a9ac8231b46a4dc450d32bd2559d9507ff7019b": {
+        "english": "In conclusion, I would favour an activity that is encouraged and accessible, developed together with the child. Understanding, suggesting and adapting seems to me to be a more sound approach than imposing the same activity on everyone, regardless of their difficulties.",
+        "french": "En conclusion, je privilégierais une activité encouragée et accessible, construite avec l'enfant. Comprendre, proposer et adapter me paraît plus solide qu'imposer une même pratique à tous, quelles que soient leurs difficultés."
+      },
+      "802439c499efa345eb2ac39527e443077aa385e0f03a6fce4bd12985bd878588": {
+        "deepl_english": "Furthermore, there are many different forms of activity that can meet the need for physical activity.",
+        "english": "Furthermore, several forms of activity can meet the need to be physically active.",
+        "french": "Ensuite, plusieurs formes d'activité peuvent répondre au besoin de bouger.",
+        "review_note": "Plusieurs means several; many unnecessarily increases the quantity."
+      },
+      "896779fe355e95276dad32a2878700d2a5867e9e5302fa11bbc0d4e87b52a905": {
+        "english": "A child may avoid an activity because they do not understand the instructions, fear being teased or feel they are struggling. Simply repeating that they must take part does not help to identify what is holding them back.",
+        "french": "Un enfant peut éviter une activité parce qu'il ne comprend pas les consignes, craint les moqueries ou se sent en difficulté. Répéter qu'il doit participer ne permet pas de savoir ce qui bloque."
+      },
+      "8fdf412622fbbfa4f98e282e4f7a7f53f61f73c8b94cb023733d193a228fd5d3": {
+        "english": "I am in favour of regular physical activity for children, but not of a rigid obligation to practise a sport chosen by adults. We need to understand their reluctance, allow room for their preferences and make participation possible. Encouraging is not simply the same as ordering.",
+        "french": "Je suis favorable à une activité physique régulière pour les enfants, mais pas à l'obligation rigide de pratiquer un sport choisi par les adultes. Il faut comprendre les réticences, laisser une place aux préférences et rendre la participation possible. Encourager n'est pas simplement ordonner."
+      },
+      "911ed87760899db1cccc41210b4463e6c7d27ea22b3dc708a1cf6ab11b7204a7": {
+        "english": "Not liking a particular sport does not mean rejecting all physical activity. An activity they enjoy can make them want to come back regularly; taking part in this way helps them develop coordination and motor skills, rather than simply participating to avoid a punishment.",
+        "french": "Ne pas aimer un sport ne signifie pas rejeter tout mouvement. Une activité appréciée peut donner envie de revenir régulièrement ; cette pratique permet de travailler la coordination et les gestes, plutôt que participer seulement pour éviter une punition."
+      },
+      "b7a860ab921f32823b8f9cf64806e8bac9bb0d5d172f3e0d1d68ae03ae2c2032": {
+        "deepl_english": "Finally, access to the necessary equipment is just as important as encouragement.",
+        "english": "Finally, practical access is just as important as encouragement.",
+        "french": "Enfin, l'accès matériel compte autant que les encouragements.",
+        "review_note": "Accès matériel includes fees, equipment and travel in the next block, not only access to equipment."
+      },
+      "dff84f5fbcfad9b9d831ad742fc18433dc0316f146d967e76e04d04dd16b50b4": {
+        "english": "A child may refuse to take part in a lesson because they’re afraid of being teased. After discussing this with them, the parent and the teacher can arrange a small-group session: this allows the child to try out the exercises without having to face the whole class straight away.",
+        "french": "Un enfant peut refuser un cours parce qu'il craint les moqueries. Après en avoir parlé avec lui, le parent et l'éducateur peuvent prévoir une séance en petit groupe : il essaie alors les exercices sans s'exposer d'emblée devant toute la classe."
+      },
+      "f1048994ff5bdbcd995ec8bb684e8fb1d497989919916a8ae0e5a529941ca322": {
+        "english": "First and foremost, a refusal may indicate an obstacle that cannot be resolved by making it compulsory.",
+        "french": "Tout d'abord, un refus peut signaler un obstacle qu'une obligation ne résout pas."
+      }
+    },
+    "eo/tache-3/sante-p9": {
+      "024e5c15c458f4dfae612ea797071ef85751e15879d99a472746a694c6a99f94": {
+        "english": "Information must inform the choice and not serve as a mere formality.",
+        "french": "Il faut que l'information éclaire le choix et ne serve pas de simple formalité."
+      },
+      "0864fc8855a05849463114a2948e74efbfca617c4d6b08fcafba07399a02842c": {
+        "english": "A person may wish to regain an appearance with which they identify more closely. This feeling is not always apparent to those around them; listening to them helps us understand their objective, rather than assuming they simply want to please others.",
+        "french": "Une personne peut souhaiter retrouver une apparence dans laquelle elle se reconnaît davantage. Ce ressenti n'est pas toujours visible pour l'entourage ; l'écouter permet de comprendre son objectif plutôt que supposer qu'elle veut seulement plaire aux autres."
+      },
+      "097badf6f8c6bfa97b059d613b33633d899ea9e140728e53f7c1077f1115c015": {
+        "english": "Finally, an individual’s decision is not necessarily driven solely by social pressure.",
+        "french": "Enfin, une démarche individuelle ne se réduit pas forcément à la pression sociale."
+      },
+      "0e3aa694168deaf03deb6d8830bbaa82156d767bb2135c09e5c56213f5760646": {
+        "deepl_english": "I respect the choice of an adult who is considering cosmetic surgery, but I have reservations about the idea that the signs of ageing should be erased. A distinction must be made between an individual’s decision, the medical grounds for that decision, and the societal pressure surrounding appearance.",
+        "english": "I respect the choice of an adult who is considering a cosmetic procedure, but I have reservations about the idea that the signs of ageing should be erased. A distinction must be made between an individual's decision, the medical considerations involved in that decision, and the societal pressure surrounding appearance.",
+        "french": "Je respecte le choix d'une personne adulte qui envisage une intervention esthétique, mais je suis réservé devant l'idée qu'il faudrait effacer les signes de l'âge. Il faut distinguer la décision individuelle, les conditions médicales de cette décision et la pression collective autour de l'apparence.",
+        "review_note": "Conditions médicales means the medical conditions and considerations surrounding the decision, not its medical grounds or justification."
+      },
+      "41247069bea8c9ec21d5d97c3038db8b1e9894ee7460b0c205bd0b31b622b173": {
+        "english": "This is not an ordinary purchase where one could simply return the item to undo all its effects. It is essential to understand the risks, the limitations of the results and the aftercare, without basing one’s decision solely on an advert.",
+        "french": "Ce n'est pas un achat ordinaire dont on pourrait annuler tous les effets en le rapportant. Il faut comprendre les risques, les limites du résultat et le suivi, sans se décider uniquement à partir d'une publicité."
+      },
+      "5914ef76ce22dd3e94fa26eb12224e100acfafa75c8da28aa358fa2c0e488c17": {
+        "english": "Furthermore, undergoing surgery requires a truly informed decision.",
+        "french": "Ensuite, une intervention suppose une décision réellement informée."
+      },
+      "6258ed475fb24a6ec79b7cc7a62216a3ffdf78e1a714be4ed641429e3510afb4": {
+        "english": "First and foremost, one should not have to look young in order to be respected.",
+        "french": "Tout d'abord, on ne devrait pas avoir besoin de paraître jeune pour être respecté."
+      },
+      "6c1d87194f3453dd9ddd4c03f53379b23dee1f728e6241dde89c2366decac0a1": {
+        "deepl_english": "A person can prepare their questions for a consultation and ask what a surgical procedure might or might not change. They take the time to reflect rather than booking under pressure from a limited range of options.",
+        "english": "A person can prepare their questions for a consultation and ask what a surgical procedure might or might not change. They take the time to reflect rather than booking under pressure from a limited promotional offer.",
+        "french": "Une personne peut préparer ses questions pour une consultation et demander ce qu'une opération pourrait ou non modifier. Elle prend le temps de réfléchir au lieu de réserver sous la pression d'une offre limitée.",
+        "review_note": "Offre limitée is a restricted promotional offer, not a limited range of options; avoids specifying an unstated time limit."
+      },
+      "7bed5538de6d034539523090b9d87c893f66fd04104204b2ee32e112c6fea91b": {
+        "english": "However, one cannot judge a person’s motivations based on their appearance. Surgery does not guarantee well-being; everyone must also be free to choose not to undergo any procedure without facing criticism. Medical assessment is a matter for qualified professionals and the person concerned.",
+        "french": "Cependant, on ne peut pas connaître les motivations d'une personne à partir de son apparence. Une opération ne garantit pas le bien-être ; chacun doit aussi pouvoir ne rien faire sans subir de remarques. L'évaluation médicale appartient aux professionnels compétents et à la personne concernée."
+      },
+      "b1136121ad46442bba04c955ca8c5d4e6d31cc634f431622afe0acbd6e215846": {
+        "english": "Listening does not mean you have to approve of the operation, but it does allow for a respectful discussion of the matter.",
+        "french": "Écouter n'oblige pas à approuver l'opération, mais permet d'en discuter avec respect."
+      },
+      "b2f27bcafccfce02d0fba33c8fc2b9dd27fd0c865c33b686c23573da0d7744b2": {
+        "english": "In conclusion, I advocate for free and informed choice, without any social obligation to look young. Attention must be focused on pressure, information and respect, rather than on judging those who have had surgery.",
+        "french": "En conclusion, je défends un choix libre et informé, sans obligation sociale de paraître jeune. La vigilance doit porter sur la pression, l'information et le respect, plutôt que sur le jugement des personnes opérées."
+      },
+      "b677af13b41993e4ffdb1fc77d2f6c9f86c6b7f7101911ac33a8d2628916b358": {
+        "english": "We can influence collective attitudes rather than asking everyone to change.",
+        "french": "On peut agir sur le regard collectif plutôt que demander à chacun de changer."
+      },
+      "bb724e8327ff4e4c946771ec0ff0ab0584891979d96557a6f1b217957877fe0d": {
+        "english": "An adult woman may tell her loved ones that she wishes to alter the appearance of her eyelids, even if they see no flaw. By listening to her rather than mocking her, they can understand what bothers her without deciding on her appearance for her.",
+        "french": "Une adulte peut dire à ses proches qu'elle souhaite corriger l'aspect de ses paupières, même s'ils ne voient aucun défaut. En l'écoutant plutôt qu'en se moquant, ils comprennent ce qui la gêne sans décider de son apparence à sa place."
+      },
+      "c5a0f528126bdcb0c2428e33c7a8e49e23bcd655e4d20a455db42b03ccd89a4d": {
+        "english": "A recruitment campaign can feature professionals of various ages without systematically erasing their wrinkles. In this way, it serves as a reminder that competence is not solely reflected in a smooth or youthful appearance.",
+        "french": "Une campagne de recrutement peut montrer des professionnels de plusieurs âges sans effacer systématiquement leurs rides. Elle rappelle ainsi que la compétence ne se lit pas uniquement dans une apparence lisse ou jeune."
+      },
+      "cd93badc69d418febce23267667024aab946d7e7e23371813f710be388214911": {
+        "english": "If adverts and the media always show young faces, wrinkles eventually come to be seen as flaws that need correcting. Showing people with wrinkles as well serves as a reminder that ageing is normal.",
+        "french": "Si les publicités et les médias montrent toujours des visages jeunes, les rides finissent par sembler être des défauts à corriger. Montrer aussi des personnes qui ont des rides permet de rappeler que vieillir est normal."
+      }
+    }
+  }
+}

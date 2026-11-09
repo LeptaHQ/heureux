@@ -7,13 +7,13 @@ from unittest.mock import patch
 from django.test import TestCase
 from django.urls import reverse
 
-from study import content_loader as content
+from study.catalogue import loader as content
 from study.management.commands.import_content import Command
 from study.models import (
     Annotation, AnnotationKind, PersonalWritingResponse,
     WritingResponseOverride, WritingSujet, WritingSujetCompletion,
 )
-from study.writing_responses import model_version_keys, writing_model_versions
+from study.expression.ee.responses import model_version_keys, writing_model_versions
 
 from . import factories
 

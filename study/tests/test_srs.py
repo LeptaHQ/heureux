@@ -5,7 +5,7 @@ from __future__ import annotations
 from django.test import TestCase
 from django.utils import timezone
 
-from study import srs
+from study.review import scheduling as srs
 from study.models import CardState, Rating, ReviewLog
 
 from .factories import make_spine_card

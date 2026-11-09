@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "environnement-p2": {
+      "prompt_signatures": {
+        "environnement:p2": "ffcb2d96446d745479397946d359d34fe5801d32087bb48f41d88828092f7ab2"
+      },
+      "note": "This asks whether zoos have a useful purpose, not directly whether all should close. Examine education, documented conservation and appropriate care or research, explaining the conditions needed for each. Showing animals does not automatically teach visitors or protect a species. Welfare is central, and a real conservation example does not justify every enclosure. Evaluate demonstrable contributions rather than accept a general claim that any zoo helps nature."
+    },
+    "environnement-p3": {
+      "prompt_signatures": {
+        "environnement:p3": "d9a81ce80aa996943e9abe3512ced2194d06fb7e136dbab5e4d64d62a11156bc"
+      },
+      "note": "The important word is 'everyone'. Discuss feasible ways to reduce avoidable waste, but consider unequal access, medical needs and packaging or collection systems outside individual control. Food planning, repair and reuse can give different examples. Sorting existing waste is not the same as preventing it. Explain a realistic change without assuming safe drinking water, repair services or reusable options are equally available to all."
+    },
+    "environnement-p4": {
+      "prompt_signatures": {
+        "environnement:p4": "4c79722fb9d3d867de4021b29a4d8113e941ce88c517de2b72b242587e5e43ff"
+      },
+      "note": "The question concerns closing zoos, so consider what happens to the animals and which purposes justify continued operation. Compare verifiable welfare standards, genuine conservation or education, and enforcement when an establishment fails. Closing a site does not mean all its animals can simply be released into the wild. Avoid defending every zoo or assuming all alternatives are immediately available. A conditional policy needs a practical transition, not an indefinite excuse to delay action."
+    },
+    "environnement-p7": {
+      "prompt_signatures": {
+        "environnement:p7": "1b1abc1969b42bc4aca6ba5aacab17d498c6b6efe157d8fd4c8b54a280c0d095",
+        "environnement:p12": "b869421d9ebf7510a19a4483d6cea46e8407918de410cbe6b8884e38a9ff65a6",
+        "economie:p8": "cb3adaa55c5d91ad23111c863b7220a537924f1c74723551a823d5db11be188f"
+      },
+      "note": "The issue is increasing the availability of organic products in supermarkets, not organic agriculture as a whole. Consider easier access, meaningful price and label comparisons, and the purchasing relationship with producers. Explain a shopping or supply situation without promising lower prices or fair contracts automatically. Organic does not necessarily mean local, nutritionally balanced or impact-free. Evaluate whether the expanded offer gives people a useful choice. One source stops after the statement about increasing availability; no missing question wording should be invented."
+    },
+    "environnement-p9": {
+      "prompt_signatures": {
+        "environnement:p9": "4275703358b58bfaef56dbbe665ff40a0f2c0b49eb49945f43839d8ce8a36500",
+        "environnement:p16": "4275703358b58bfaef56dbbe665ff40a0f2c0b49eb49945f43839d8ce8a36500"
+      },
+      "note": "The statement concerns harm to some regions, not a claim that every visitor destroys every destination. Discuss pressure on sites and resources, housing and everyday services for residents. Explain how a particular change can create a problem, without presenting an invented local example as a verified event. Tourism can also support livelihoods and maintenance. Ask how residents participate and benefits are shared rather than simply blame tourists."
+    },
+    "environnement-p11": {
+      "prompt_signatures": {
+        "environnement:p11": "ae64d44c3b70ba054072e99f11f9638007526497f7afc376e236a8e362384c9b"
+      },
+      "note": "The prompt requires an opinion about pollution-reduction measures in your own country. Name measures you genuinely know and explain how they work, whether people can use them and what evidence supports your judgment. The French waste-policy model is a documented example to adapt, not an assumption about your country. The existence of a rule does not prove local implementation or lower pollution. Distinguish prevention, collection and measured results."
+    },
+    "environnement-p13": {
+      "prompt_signatures": {
+        "environnement:p13": "791b22c7a1fbd82051f4354c6bca0da90352be8de1bc42d9b76745499c371cd4"
+      },
+      "note": "Discuss developing organic agriculture as a production system, not merely adding organic products to supermarket shelves. Useful angles include farming practices, meaningful certification and the conditions under which producers can change methods. Explain a mechanism such as crop rotation without claiming organic means no treatment, guaranteed health benefits or automatic environmental superiority. Rules vary by certification system; the model's European example is not a global rule."
+    },
+    "environnement-p14": {
+      "prompt_signatures": {
+        "environnement:p14": "a41fae915b67e4c5f4fb41380481274a8a34f55c28b3cb821ea6a55e1f120780",
+        "economie:p7": "a41fae915b67e4c5f4fb41380481274a8a34f55c28b3cb821ea6a55e1f120780"
+      },
+      "note": "The question asks whether economic development and environmental protection can be compatible. Define the kind of activity or change involved, such as repairs, lower-resource processes or services, and explain the mechanism. New value does not always require more material output, but services also use resources. Compare impacts over the full activity and consider rising volumes. Efficiency improvements alone do not prove that total environmental harm is falling."
+    }
+  }
+}

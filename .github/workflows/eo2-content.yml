@@ -3,20 +3,20 @@ name: EO2 content
 on:
   push:
     paths:
-      - "study/content/tache_2/dialogues/**"
-      - "study/content/tache_2/dialogue_history/**"
-      - "study/content/tache_2/subjects/hints.json"
-      - "study/content/tache_2/translations/**"
-      - "study/eo2_question_languages.py"
+      - "study/content/expression/eo/tache_2/dialogues/**"
+      - "study/content/expression/eo/tache_2/dialogue_history/**"
+      - "study/content/expression/eo/tache_2/subjects/hints.json"
+      - "study/content/expression/eo/tache_2/translations/**"
+      - "study/expression/eo/tache_2/languages.py"
       - "study/management/commands/prepare_eo2_translations.py"
       - "study/tests/test_eo2_question_languages.py"
   pull_request:
     paths:
-      - "study/content/tache_2/dialogues/**"
-      - "study/content/tache_2/dialogue_history/**"
-      - "study/content/tache_2/subjects/hints.json"
-      - "study/content/tache_2/translations/**"
-      - "study/eo2_question_languages.py"
+      - "study/content/expression/eo/tache_2/dialogues/**"
+      - "study/content/expression/eo/tache_2/dialogue_history/**"
+      - "study/content/expression/eo/tache_2/subjects/hints.json"
+      - "study/content/expression/eo/tache_2/translations/**"
+      - "study/expression/eo/tache_2/languages.py"
       - "study/management/commands/prepare_eo2_translations.py"
       - "study/tests/test_eo2_question_languages.py"
 

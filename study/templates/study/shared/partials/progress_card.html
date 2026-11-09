@@ -1,0 +1,23 @@
+<a
+  class="memory-entry{% block progress_card_classes %}{% endblock %} card memory-entry--{{ progress.status }}"
+  href="{{ card_url }}"
+  data-collection-item
+  {% block progress_card_attributes %}{% endblock %}>
+  <span class="memory-entry__icon" aria-hidden="true">{% include "study/shared/partials/ui_icon.html" with name=card_icon only %}</span>
+  <div class="memory-entry__body">
+    {% block progress_card_body %}{% endblock %}
+  </div>
+  <div class="memory-entry__progress">
+    <div class="memory-entry__progress-copy">
+      <span class="progress-status progress-status--{{ progress.status }}">{{ progress.label }}</span>
+      <span>{{ progress.completed }}/{{ progress.total }} {{ progress_unit }}</span>
+    </div>
+    <div class="progress" aria-label="{{ progress.percent }} % terminé">
+      <span class="memory-progress-fill memory-progress-fill--{{ progress.status }}" style="width: {{ progress.percent }}%;"></span>
+    </div>
+  </div>
+  <span class="memory-entry__action">
+    Ouvrir
+    {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}
+  </span>
+</a>

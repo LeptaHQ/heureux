@@ -7,8 +7,8 @@ from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils import timezone
 
-from study import queue
-from study.formulation_progress import (
+from study.review import queue
+from study.expression.ee.formulations.progress import (
     formulation_language_content_key,
     formulation_progress,
 )
@@ -16,9 +16,9 @@ from study.models import (
     Annotation, AnnotationKind, Card, CardState, MemoryQuestionProgress, Phrase,
     PhraseTier, Rating, ReviewLog, ReviewSession, ThemeVocabularyProgress,
 )
-from study.retirement import active_phrases
-from study.progress import progress_summary
-from study.srs import review as apply_review
+from study.catalogue.retirement import active_phrases
+from study.review.progress import progress_summary
+from study.review.scheduling import review as apply_review
 from study.views.helpers import expression_task_summaries, _task_card
 from . import factories
 from .formulation_fixtures import THEMES, formulation_catalog, mock_catalog

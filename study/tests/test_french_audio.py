@@ -12,15 +12,15 @@ from django.test import Client, SimpleTestCase, TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
-from study.eo3_audio import NarrationError, PreSynthesisRejection, SAMPLE_REJECTION_LIMIT
-from study import catalogue
-from study.eo3_audio import SAMPLE_GROUP, narration_presentation, narration_spec
-from study.french_audio import (
+from study.expression.eo.tache_3.audio import NarrationError, PreSynthesisRejection, SAMPLE_REJECTION_LIMIT
+from study.catalogue import registry as catalogue
+from study.expression.eo.tache_3.audio import SAMPLE_GROUP, narration_presentation, narration_spec
+from study.audio.french import (
     MAX_TEXT, SALT, SpeechError, enqueue, generate_prepared, resolve_sources,
     source_grant, speech_spec,
 )
 from study.models import EO3Narration, FrenchNarration, FrenchNarrationBudget, WritingResponseOverride
-from study.oral_highlights import AnnotationRootText
+from study.notes.anchors import AnnotationRootText
 
 from . import factories
 from .test_eo3_audio import AUDIO, AUDIO_PIN, AUDIO_SETTINGS, TIMING
@@ -96,7 +96,7 @@ class FrenchSourceTests(SimpleTestCase):
         ):
             with self.settings(**settings):
                 self.assertNotEqual(original.fingerprint, speech_spec("Bonjour.").fingerprint)
-        with patch("study.french_audio.VOICE_SETTINGS", {"speed": 0.9}):
+        with patch("study.audio.french.VOICE_SETTINGS", {"speed": 0.9}):
             self.assertNotEqual(original.fingerprint, speech_spec("Bonjour.").fingerprint)
 
     def test_template_issues_only_bounded_french_source_without_text_changes(self):
@@ -138,7 +138,7 @@ class FrenchAudioTests(TestCase):
             audio=AUDIO * 10, status="ready",
         )
 
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_http_only_resolves_cache_never_generates_or_enqueues_implicitly(self, provider):
         response = self.post()
         self.assertEqual(response.json()["state"], "missing")
@@ -178,7 +178,7 @@ class FrenchAudioTests(TestCase):
         self.client.force_login(self.other)
         self.assertEqual(self.post().status_code, 403)
 
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_private_resolve_requires_new_explicit_consent_even_when_cached(self, provider):
         recording = self.ready(private=True)
         self.source = {"grant": source_grant(self.text, self.user.pk)}
@@ -215,7 +215,7 @@ class FrenchAudioTests(TestCase):
             self.assertEqual(self.client.get(url).status_code, 404)
 
     @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=500)
-    @patch("study.french_audio.synthesize", return_value=AUDIO)
+    @patch("study.audio.french.synthesize", return_value=AUDIO)
     def test_preparation_needs_confirmation_and_is_deduplicated_and_bounded(self, provider):
         self.assertEqual(self.post().json()["state"], "missing")
         self.assertEqual(self.post(prepare=True).status_code, 400)
@@ -239,7 +239,7 @@ class FrenchAudioTests(TestCase):
         with self.assertRaisesMessage(SpeechError, "Limite"):
             enqueue(self.spec, self.user.pk, None)
 
-    @patch("study.french_audio.synthesize", return_value=AUDIO)
+    @patch("study.audio.french.synthesize", return_value=AUDIO)
     @patch("study.management.commands.prepare_french_audio.command_generation_pin", return_value=AUDIO_PIN)
     def test_operator_requires_exact_id_confirmation_feature_gate_and_budget(self, pin_prompt, provider):
         recording = enqueue(self.spec, self.user.pk, None)
@@ -254,7 +254,7 @@ class FrenchAudioTests(TestCase):
         provider.assert_not_called()
 
     @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=500)
-    @patch("study.french_audio.synthesize", return_value=AUDIO)
+    @patch("study.audio.french.synthesize", return_value=AUDIO)
     def test_operator_reserves_once_persists_audio_and_reuses_without_key(self, provider):
         recording = enqueue(self.spec, self.user.pk, None)
         self.assertTrue(generate_prepared(recording.pk, pin=AUDIO_PIN))
@@ -267,7 +267,7 @@ class FrenchAudioTests(TestCase):
         provider.assert_called_once_with(self.spec)
 
     @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=500)
-    @patch("study.french_audio.synthesize", side_effect=NarrationError("Provider failed; inspect usage."))
+    @patch("study.audio.french.synthesize", side_effect=NarrationError("Provider failed; inspect usage."))
     def test_uncertain_failure_is_not_refunded_or_automatically_retried(self, provider):
         recording = enqueue(self.spec, self.user.pk, None)
         with self.assertRaisesMessage(NarrationError, "Provider failed"):
@@ -279,7 +279,7 @@ class FrenchAudioTests(TestCase):
         provider.assert_called_once()
 
     @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=500)
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_stale_requests_configuration_and_concurrent_work_fail_before_spend(self, provider):
         recording = enqueue(self.spec, self.user.pk, None)
         with self.settings(ELEVENLABS_VOICE_ID="OtherVoice"):
@@ -333,7 +333,7 @@ class FrenchReaderTemplateTests(TestCase):
         )
 
     def test_private_override_of_shared_ee_model_does_not_receive_public_grant(self):
-        from study.writing_responses import model_version_keys
+        from study.expression.ee.responses import model_version_keys
 
         WritingResponseOverride.objects.create(
             user=self.user, sujet=self.sujet,
@@ -357,7 +357,7 @@ class InAppSampleTests(TestCase):
     def prepare(self, **kwargs):
         return self.client.post(self.url, {"confirm_cost": True, "pin": AUDIO_PIN, **kwargs}, content_type="application/json")
 
-    @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
+    @patch("study.audio.french.synthesize", return_value=(AUDIO, TIMING))
     def test_one_authorized_public_sample_writes_current_eo3_cache_and_reuses(self, provider):
         self.assertEqual(narration_presentation(self.model)["prepare_url"], self.url)
         response = self.prepare()
@@ -374,7 +374,7 @@ class InAppSampleTests(TestCase):
         self.assertEqual(self.client.get(narration_presentation(self.model)["url"]).content, AUDIO)
         provider.assert_called_once_with(self.spec, timing=True)
 
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_confirmation_csrf_login_group_voice_and_feature_gate(self, provider):
         self.assertEqual(self.client.get(self.url).status_code, 405)
         self.assertEqual(self.prepare(confirm_cost=False).status_code, 400)
@@ -396,7 +396,7 @@ class InAppSampleTests(TestCase):
         self.assertFalse(EO3Narration.objects.exists())
         self.assertFalse(FrenchNarrationBudget.objects.exists())
 
-    @patch("study.french_audio.synthesize", side_effect=NarrationError("Provider timeout; inspect usage."))
+    @patch("study.audio.french.synthesize", side_effect=NarrationError("Provider timeout; inspect usage."))
     def test_ambiguous_sample_failure_claim_is_durable_and_never_retried(self, provider):
         self.assertEqual(self.prepare().status_code, 409)
         self.assertEqual(self.prepare().status_code, 409)
@@ -407,7 +407,7 @@ class InAppSampleTests(TestCase):
         self.assertTrue(presentation["sample_attempted"])
         provider.assert_called_once()
 
-    @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
+    @patch("study.audio.french.synthesize", return_value=(AUDIO, TIMING))
     def test_claim_is_global_even_after_text_or_model_changes(self, provider):
         self.assertEqual(self.prepare().status_code, 200)
         edited = replace(self.model, response=replace(self.model.response, conclusion="Autre conclusion."))
@@ -419,7 +419,7 @@ class InAppSampleTests(TestCase):
             }, content_type="application/json").status_code, 409)
         provider.assert_called_once()
 
-    @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
+    @patch("study.audio.french.synthesize", return_value=(AUDIO, TIMING))
     def test_missing_key_does_not_consume_the_single_attempt(self, provider):
         with self.settings(ELEVENLABS_API_KEY=""):
             self.assertEqual(self.prepare().status_code, 409)
@@ -427,7 +427,7 @@ class InAppSampleTests(TestCase):
         self.assertEqual(self.prepare().status_code, 200)
         provider.assert_called_once()
 
-    @patch("study.french_audio.synthesize", side_effect=PreSynthesisRejection())
+    @patch("study.audio.french.synthesize", side_effect=PreSynthesisRejection())
     def test_verified_plan_denial_keeps_proof_and_requires_a_different_voice(self, provider):
         response = self.prepare()
         self.assertEqual(response.status_code, 409)
@@ -458,7 +458,7 @@ class InAppSampleTests(TestCase):
             self.assertEqual(self.prepare().status_code, 200)
         self.assertEqual(provider.call_count, 2)
 
-    @patch("study.french_audio.synthesize", side_effect=PreSynthesisRejection())
+    @patch("study.audio.french.synthesize", side_effect=PreSynthesisRejection())
     def test_verified_denials_are_globally_bounded_across_voices(self, provider):
         for index in range(SAMPLE_REJECTION_LIMIT + 1):
             with self.settings(ELEVENLABS_VOICE_ID=f"RestrictedVoice{index}"):
@@ -470,7 +470,7 @@ class InAppSampleTests(TestCase):
         self.assertFalse(FrenchNarrationBudget.objects.get().sample_claimed)
         self.assertFalse(narration_presentation(self.model)["prepare_url"])
 
-    @patch("study.french_audio.synthesize", side_effect=NarrationError("HTTP 403 without proof."))
+    @patch("study.audio.french.synthesize", side_effect=NarrationError("HTTP 403 without proof."))
     def test_unclassified_legacy_failure_stays_locked_after_voice_change(self, provider):
         self.assertEqual(self.prepare().status_code, 409)
         self.assertEqual(FrenchNarration.objects.get().status, "failed")

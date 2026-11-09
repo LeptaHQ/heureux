@@ -7,8 +7,8 @@ from unittest.mock import patch
 
 from django.test import SimpleTestCase
 
-from study import catalogue
-from study import content_loader as content
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
 
 
 class SubjectHintsTests(SimpleTestCase):

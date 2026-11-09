@@ -5,8 +5,9 @@ import re
 
 from django.test import SimpleTestCase
 
-from study import catalogue, content_loader as content
-from study.tache_two_dialogues import dialogue_response
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
+from study.expression.eo.tache_2.dialogues import dialogue_response
 from study.tests.housing_work_fixtures import RECLASSIFIED_GROUPS
 from study.tests.eo2_review_fixtures import (
     HOUSE_FACILITIES_FOLLOWUP_FIELDS, REVIEWED_GROUPS,

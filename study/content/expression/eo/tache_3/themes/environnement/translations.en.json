@@ -1,0 +1,534 @@
+{
+  "generated_at": "2026-11-05T03:26:14.080137+00:00",
+  "provider": "deepl",
+  "reviewed_at": "2026-11-05T07:53:15.655781+00:00",
+  "source_language": "FR",
+  "target_language": "EN-GB",
+  "version": 1,
+  "groups": {
+    "eo/tache-3/environnement-p11": {
+      "02b1d2ee370ecd5e266d7b290f810365249323a430188785ac2f13c1e83ddeea": {
+        "english": "A person can read the instructions on a used appliance, check the local arrangements and take it to the appropriate collection point. The appliance is thus channelled into the designated recycling stream, rather than ending up in ordinary rubbish.",
+        "french": "Une personne peut lire l'indication portée sur un appareil usagé, vérifier les modalités locales et le remettre au point de collecte adapté. L'appareil rejoint ainsi une filière prévue pour lui, plutôt que les ordures courantes."
+      },
+      "0b5d17a4132f345cccf850f6a0a34558884a9e82ba82456fe79ab1a6816d1f2a": {
+        "english": "Sorting does not guarantee that every material will be reused or turned into a resource. We need to monitor collection and processing, explain the difficulties encountered and use this information to improve the service.",
+        "french": "Trier ne garantit pas que chaque matière sera réutilisée ou transformée en ressource. Il faut suivre la collecte et le traitement, expliquer les difficultés rencontrées et s'appuyer sur ces informations pour améliorer le service."
+      },
+      "1d1d027dce6d2f069a6c4e90b1216bef7933d89e693714b4c81f17ccc0713bb1": {
+        "deepl_english": "In a local authority that offers a shared composting scheme, a household can bring its food waste that is accepted by the service. With appropriate maintenance and monitoring, it decomposes and helps to produce compost for planting, rather than ending up in the ordinary bin.",
+        "english": "In a municipality that offers a shared composting scheme, a household can bring peelings that are accepted by the service. With appropriate maintenance and monitoring, they decompose and help to produce compost for planting, rather than ending up in the ordinary bin.",
+        "french": "Dans une commune qui propose un compostage partagé, un foyer peut apporter ses épluchures acceptées par le service. Avec un entretien et un suivi adaptés, elles se décomposent et contribuent à produire du compost pour les plantations, plutôt que rejoindre le bac ordinaire.",
+        "review_note": "Preserves the specific peelings in the example rather than broadening them to all food waste."
+      },
+      "1ecfafa8b812c5b94ec5bc43a92f783a4ae30414c07756f5d9f2141a656de8a3": {
+        "english": "I welcome this recycling of materials, not just a change of bin.",
+        "french": "J'apprécie cette récupération de matière, pas seulement un changement de bac."
+      },
+      "253650ea726e66c94eb5a575181c85c96ee334f8c55b79ace25d4c3186b94e30": {
+        "english": "I would expect the results to be used to improve the service, not merely to launch a publicity campaign.",
+        "french": "J'attendrais que les résultats servent à améliorer le service, pas seulement à faire une campagne de communication."
+      },
+      "4c7f58a0a140197934a13fa216f576556fa6982db1a605d5d400809986eb2260": {
+        "english": "However, the organisation varies from place to place, and I do not take this to mean that there has been a measurable national success. Above all, efficient collection does not make it desirable to produce ever more waste. Reducing waste at source remains essential: sorting is no substitute for prevention.",
+        "french": "Cependant, l'organisation varie localement, et je n'en déduis pas une réussite nationale mesurée. Surtout, une collecte efficace ne rend pas souhaitable de produire toujours plus de déchets. Réduire à la source reste nécessaire : trier ne remplace pas la prévention."
+      },
+      "77443a82d158eba5fff2a48d48f5d85432a5b390de8274a091d047cd56f0c512": {
+        "english": "Furthermore, separate collection can enable food waste to be processed appropriately.",
+        "french": "Ensuite, une collecte séparée peut permettre un traitement adapté des déchets alimentaires."
+      },
+      "8189de32c75e900066e88d5dd8b493a0bd8dd1a55f2b0f659e62b5cb5b2e5bbf": {
+        "english": "In conclusion, I support these measures provided they are accompanied by clear guidelines, accessible facilities and effective monitoring. Their existence is a starting point, not proof that pollution has already decreased everywhere.",
+        "french": "En conclusion, je soutiens ces mesures si elles associent des consignes claires, des équipements accessibles et un suivi réel. Leur existence est un point de départ, pas la preuve que la pollution a déjà diminué partout."
+      },
+      "89e3763798cd9022adcc8a0afdba2789ecde1ded725882e77a09731c233a7222": {
+        "english": "To give a concrete example, I will refer here to the French measures on waste, in particular the ‘Info-tri’ scheme and the sorting of bio-waste. I consider them useful in principle, but simply announcing a rule is not enough. People need to understand the guidelines, have a practical solution at their disposal, and be able to check what happens to the waste.",
+        "french": "Pour donner un exemple concret, je prends ici les mesures françaises sur les déchets, notamment l'Info-tri et le tri des biodéchets. Je les juge utiles dans leur principe, mais une règle annoncée ne suffit pas. Il faut comprendre les consignes, disposer d'une solution réelle et vérifier ce que deviennent les déchets."
+      },
+      "ade568198f5353ad3840b34ede911fe60c584bd77a733a5c4c1c5f694c4b54f3": {
+        "english": "I welcome a measure that links information to a straightforward action.",
+        "french": "J'apprécie une mesure qui relie l'information à un geste compréhensible."
+      },
+      "aed5f5373b06f4c512844e30000998414c5f099cc70cc9b7841040c9a425f5b2": {
+        "english": "A local authority can publish the quantities collected and explain the sorting errors that prevent certain types of waste from being processed. If monitoring reveals a collection point that is inaccessible without a car, it can set up a point closer to residential areas: this means more residents will then have a viable solution.",
+        "french": "Une collectivité peut publier les quantités collectées et expliquer les erreurs de tri qui empêchent certains traitements. Si le suivi révèle un point de dépôt inaccessible sans voiture, elle peut installer un point près des logements : davantage d'habitants disposent alors d'une solution utilisable."
+      },
+      "d4b4b34c376b9909c438c84d612016b5366876fa55f666fd3bc10a8e4559b0e1": {
+        "english": "Finally, effectiveness must be monitored beyond the guidelines provided to residents.",
+        "french": "Enfin, l'efficacité doit être suivie au-delà des consignes données aux habitants."
+      },
+      "e5df6449ce985a51426da8150bc1a5ae50f7cc05b27234e9b60a26243a3788e2": {
+        "english": "The French framework provides for locally organised solutions for sorting bio-waste. Separating food waste, in particular, allows it to be composted to enrich the soil, rather than being thrown away with other rubbish.",
+        "french": "Le cadre français prévoit des solutions de tri des biodéchets, organisées localement. Séparer les restes permet notamment de les composter pour nourrir les sols, au lieu de les jeter avec les autres ordures."
+      },
+      "e679a73414e225a8797c6f660df6398af96ab7eca6d2a79e207b224f3c6a11bb": {
+        "english": "First and foremost, clear information helps people to dispose of waste in the right place.",
+        "french": "Tout d'abord, une information claire aide à déposer les déchets au bon endroit."
+      },
+      "f4d831f3822f72f51b07411d8dcb1807cd37f8814a55577fae194db3c7b3ad82": {
+        "english": "The ‘Info-tri’ guide indicates where to dispose of a product or its packaging. It is a practical guide, as not all materials follow the same recycling route and a vague symbol does not always make it clear what to do.",
+        "french": "L'Info-tri indique où déposer un produit ou son emballage. C'est un repère pratique, car les matériaux ne suivent pas tous le même parcours et un symbole vague ne permet pas toujours de savoir quoi faire."
+      }
+    },
+    "eo/tache-3/environnement-p13": {
+      "0a63e67af4dda2f042509f50eee5ba55c48609f4fe010846fbd784449f079384": {
+        "english": "A reassuring phrase on a label does not explain how the product was produced. Rules and monitoring provide verifiable substance to the commitment, for buyers who wish to support these practices.",
+        "french": "Un mot rassurant sur une étiquette n'explique pas comment le produit a été obtenu. Des règles et un suivi donnent un contenu vérifiable à l'engagement, pour les acheteurs qui souhaitent soutenir ces pratiques."
+      },
+      "18d2274da5dffce2328741f99088460ea2282a26e468d3dfef03179c501f2d29": {
+        "deepl_english": "A market gardener can weed mechanically between rows of carrots. They remove the weeds without preparing or spraying a synthetic herbicide, thereby eliminating any opportunity for contact with such a product.",
+        "english": "A market gardener can weed mechanically between rows of carrots. They remove the weeds without preparing or spraying a synthetic herbicide, thereby eliminating this particular opportunity for contact with that product.",
+        "french": "Un maraîcher peut désherber mécaniquement entre ses rangs de carottes. Il retire les herbes sans préparer ni pulvériser un herbicide de synthèse, ce qui supprime cette occasion de contact avec ce produit.",
+        "review_note": "This occasion of contact does not mean every possible opportunity for contact."
+      },
+      "1aa43f7234dc08a282f1096ccc25d1bb53b995af9e99a08beb66d68801252b57": {
+        "english": "A legume can fix nitrogen from the air thanks to the bacteria in its roots. When its residues decompose, they partly nourish the next crop. The crop rotations provided for under the European framework make it possible to organise this cycle.",
+        "french": "Une légumineuse peut fixer l'azote de l'air grâce aux bactéries de ses racines. Quand ses résidus se décomposent, ils nourrissent en partie la culture suivante. Les rotations prévues dans le cadre européen permettent d'organiser ce cycle."
+      },
+      "336baa1a1a6cc80d494d785c3fdc820caabf6c581594dad8aa721b3d8b2b252b": {
+        "english": "However, results vary depending on crops, locations and yields. Switching to organic farming requires time, expertise and sales that cover the costs; access to food is also important. Other farms can adopt useful practices without it all boiling down to a conflict between two camps.",
+        "french": "Cependant, les résultats varient selon les cultures, les lieux et les rendements. Passer au bio demande du temps, des compétences et des ventes qui couvrent les coûts ; l'accès à l'alimentation compte aussi. D'autres exploitations peuvent adopter des pratiques utiles sans que tout se résume à une opposition entre deux camps."
+      },
+      "3fcaed296cf22caec77b6cd0fea371e7f9b68b6219076abdcb874466d917c55b": {
+        "english": "A cereal farmer can grow peas before wheat and return the crop residues to the soil. As these decompose, they provide some of the nutrients needed by the wheat; the farmer checks what is lacking before adjusting the inputs.",
+        "french": "Un céréalier peut cultiver des pois avant du blé et restituer les résidus au sol. Leur décomposition fournit une partie des éléments nécessaires au blé ; il vérifie ce qui manque avant d'ajuster les apports."
+      },
+      "42adc69deebcafebfd0fc39fa671a29b432555360d67e42a1ab0c056e7c4ee4f": {
+        "english": "Within the European framework, the rules provide for other farming methods. If a worker replaces a chemical treatment with a mechanical method, they no longer have to handle the product in question. This does not mean a complete absence of treatment, nor does it guarantee health benefits.",
+        "french": "Dans le cadre européen, les règles prévoient d'autres méthodes pour cultiver. Si le travailleur remplace un traitement par une méthode mécanique, il n'a plus à manipuler le produit concerné. Il ne s'agit pas d'une absence absolue de traitement ni d'une garantie pour la santé."
+      },
+      "4328f268f6030d3338e1f16125c5a519efa7f0f73a6165d009353bddfee37930": {
+        "english": "I am in favour of the development of organic farming. Limiting the use of certain synthetic products, maintaining soil fertility and monitoring methods all seem to me to be beneficial. However, the label guarantees neither all the environmental benefits nor the nutritional quality of every product.",
+        "french": "Je suis favorable au développement de l'agriculture biologique. Limiter l'usage de certains produits de synthèse, entretenir la fertilité des sols et contrôler les méthodes me semblent utiles. Le label ne garantit cependant ni tous les bénéfices environnementaux ni la qualité nutritionnelle de chaque produit."
+      },
+      "5e14572e244b9d1c3759d41f82f71bb9d5ae5cbd36f119ff08cdf022cfe2b1eb": {
+        "english": "Furthermore, crop rotations can help maintain soil fertility.",
+        "french": "Ensuite, les rotations peuvent contribuer à entretenir la fertilité des sols."
+      },
+      "6b06210df47db50fc065b04b79d78fcccbe3f7005c23809bf0d86a6e766bb6db": {
+        "english": "It is a way of maintaining production capacity, not merely changing a label.",
+        "french": "C'est une façon de maintenir la capacité de produire, pas seulement de changer une étiquette."
+      },
+      "8a945f5206d8d06f3529757cd092141f4f7c4a6774a33244ed64356208c90729": {
+        "english": "Trust therefore rests on shared conditions, not just on advertising.",
+        "french": "La confiance repose alors sur des conditions communes, pas seulement sur une publicité."
+      },
+      "93eb0f0a170d4b89c5d96de7fa0118ea270d62168ff3d2ec23fef52b2ff6fcc0": {
+        "english": "On a packet of flour, a shopper can check the label and the certification body listed. In this way, they can identify the production framework, then check the origin separately: organic certification does not tell them that the wheat was grown near their home.",
+        "french": "Sur un paquet de farine, un acheteur peut vérifier le label et l'organisme de contrôle indiqué. Il identifie ainsi le cadre de production, puis lit séparément l'origine : la certification bio ne lui dit pas que le blé a poussé près de chez lui."
+      },
+      "b79435783449220f206b9a010bfe0f0bc64f004ac8c936258275599bf8a220d8": {
+        "english": "In conclusion, I support organic farming for its alternative methods, soil fertility and transparency. Its development must be sustainable and its effects carefully assessed: a label does not solve everything.",
+        "french": "En conclusion, je soutiens le bio pour ses méthodes alternatives, la fertilité des sols et la transparence. Son développement doit être viable et ses effets mesurés : un label ne résout pas tout."
+      },
+      "bf6a8c97c37f2cd3afa640f9726a171346731b4be60f1c0da31ea41cc69a250d": {
+        "deepl_english": "Finally, regulated standards enable buyers to know exactly which methods they are supporting.",
+        "english": "Finally, standards backed by checks enable buyers to know which methods they are supporting.",
+        "french": "Enfin, des règles contrôlées permettent à l'acheteur de savoir quelles méthodes il soutient.",
+        "review_note": "Contrôlées refers to compliance checks; removes the added exactly."
+      },
+      "c627b26c783827fda69552421e558290f9400b75c0f108d93c00031aac9f4107": {
+        "deepl_english": "It is a practical concern, without implying that all alternative methods are harmless.",
+        "english": "This is a concrete benefit, without implying that all alternative methods are harmless.",
+        "french": "C'est un intérêt concret, sans rendre toutes les méthodes alternatives inoffensives.",
+        "review_note": "Intérêt is a benefit here, not a concern."
+      },
+      "e35462e526c1ab7bad0c210d1314949bbd37aa3687eebbee2a944a4ebfac2c58": {
+        "english": "First and foremost, this production method limits the use of certain synthetic products.",
+        "french": "Tout d'abord, ce mode de production limite le recours à certains produits de synthèse."
+      }
+    },
+    "eo/tache-3/environnement-p14": {
+      "0e34512828bf25a7fabd1b889160eea5429fef2eb8b66b6982c5fe7c640be106": {
+        "english": "First and foremost, maintenance and repair can generate economic activity by extending the useful life of objects.",
+        "french": "Tout d'abord, entretenir et réparer peut créer une activité en prolongeant l'usage des objets."
+      },
+      "2831ec0b99a3f58834a29ee15483f4f88a506f5a7b2b3f2b0002f65b2bc24b2f": {
+        "english": "Yes, it is possible to develop certain economic activities whilst limiting environmental damage. But this requires choosing what we produce, how we produce it and which limits we respect. Creating value must not automatically mean extracting more resources, nor should every innovation be regarded as environmentally friendly.",
+        "french": "Oui, on peut développer certaines activités économiques tout en limitant les dommages environnementaux. Mais cela demande de choisir ce que l'on produit, comment on le produit et quelles limites on respecte. Créer de la valeur ne doit pas signifier automatiquement extraire davantage ni considérer toute innovation comme écologique."
+      },
+      "2a2192ecaf4a326982e7c5d2657106c5a261bf04c09f8b862521b783d23ab7a9": {
+        "english": "However, no activity is without impact, and certain production processes will need to be scaled back or transformed. The transition requires investment and support for workers. We must examine the actual effects, without promising unlimited material growth or shifting the entire burden onto consumers.",
+        "french": "Cependant, aucune activité n'est sans impact et certaines productions devront être réduites ou transformées. La transition demande des investissements et un accompagnement des travailleurs. Il faut examiner les effets réels, sans promettre une croissance matérielle illimitée ni reporter tout l'effort sur les consommateurs."
+      },
+      "2db9100f63684ed48451e8935bcdb907aac521105acfdb5db9914d0b32766ed4": {
+        "english": "Finally, consistent rules can guide economic activity and prevent gains from being undermined.",
+        "french": "Enfin, des règles cohérentes peuvent orienter l'activité et éviter que les gains soient annulés."
+      },
+      "3cefe7e86d252bb1833a244af924652806495552f4bb68c0642a4c25a8e55cfb": {
+        "english": "A business can be paid to provide a service rather than simply selling a new product. If the repair is appropriate and safe, it maintains the item’s usefulness whilst avoiding immediate replacement.",
+        "french": "Une entreprise peut être rémunérée pour rendre un service plutôt que vendre uniquement un produit neuf. Si la réparation est adaptée et sûre, elle maintient une utilité tout en évitant un remplacement immédiat."
+      },
+      "53c46039ea77fa8c0dd38674bc6c7dcadddf6ece8dfe15de78decc4d781f7a00": {
+        "english": "A company can review a washing process to minimise the water required, then measure both consumption and the quality achieved. It must also assess how waste is treated, rather than simply congratulating itself on a single lower water bill.",
+        "french": "Une entreprise peut revoir un procédé de lavage pour limiter l'eau nécessaire, puis mesurer la consommation et la qualité obtenue. Elle doit aussi vérifier le traitement des rejets, plutôt que se féliciter d'une seule facture d'eau plus faible."
+      },
+      "5d2624f3b2dda0dac7708d8713d5e25dc872575ec5555d2d7a6565f2f7edc797": {
+        "english": "Furthermore, better-designed processes can reduce certain forms of consumption.",
+        "french": "Ensuite, des procédés mieux conçus peuvent réduire certaines consommations."
+      },
+      "736e6c5d10d2e7652b947be9466e92bfb5140b1806e04bb0f3fe638f9cc34e83": {
+        "english": "The workshop therefore makes money by helping the customer keep their bag for longer.",
+        "french": "L'atelier gagne donc de l'argent en aidant le client à garder son sac plus longtemps."
+      },
+      "8a0af2c311ddcc248126f3ee4d27bac89745584b520e8816af7e453adc2d568b": {
+        "deepl_english": "Progress is based on action, not just the word ‘green’.",
+        "english": "Progress is based on measurements, not just the word ‘green’.",
+        "french": "Le progrès repose sur des mesures, pas sur le mot vert.",
+        "review_note": "Mesures means measurements here, as the preceding example measures consumption and treatment."
+      },
+      "a9efa9f02b805440850c7026a5340721cd90d13b0f128ec6f3bbc037bdb4a143": {
+        "english": "Providing the same service using fewer materials or less energy can reduce environmental damage. Every stage must be scrutinised, as savings in one area may lead to increased consumption or pollution elsewhere.",
+        "french": "Rendre le même service avec moins de matière ou d'énergie peut réduire les dommages à l'environnement. Il faut vérifier toutes les étapes, car une économie à un endroit peut entraîner une consommation ou une pollution ailleurs."
+      },
+      "acaf811140901f2c3c689c3d5799c498c7645e9ecafefcb16dc7e586a97bc18e": {
+        "english": "A local authority can specify repairable products in its procurement and make provision for their maintenance. It monitors the lifespan of products and the quantities replaced, rather than buying more items simply because each model is marketed as being less polluting.",
+        "french": "Une collectivité peut demander des produits réparables dans ses achats et prévoir leur entretien. Elle suit la durée d'usage et les quantités remplacées, au lieu d'acheter davantage d'objets simplement parce que chaque modèle est présenté comme moins polluant."
+      },
+      "bbd7c949448bd279c703afde775092b792ed72576cc11821ac1331dfade094c9": {
+        "english": "Even if each individual item pollutes less, an increase in volume can negate this progress: we manufacture so many items that total pollution increases. Public authorities and businesses must therefore also set limits on the total resources used and the damage caused.",
+        "french": "Même si chaque objet pollue moins, une hausse des volumes peut annuler ce progrès : on fabrique tellement d'objets que la pollution totale augmente. Les pouvoirs publics et les entreprises doivent donc aussi fixer des limites sur l'ensemble des ressources utilisées et des dommages causés."
+      },
+      "e10f05f9fa19fb987fb5eafbf900b86e3c2bde653801855057879bd5372dbe64": {
+        "english": "In conclusion, repairing items, producing with fewer resources and respecting limits can better reconcile the economy and the environment. This requires verifying the results: producing more does not guarantee that we are protecting nature more effectively.",
+        "french": "En conclusion, réparer, produire avec moins de ressources et respecter des limites peut mieux concilier économie et environnement. Cela demande de vérifier les résultats : produire davantage ne garantit pas que l'on protège mieux la nature."
+      },
+      "e4f88cd842965a6af4d21d59032a5d86b2d10b8f0c46e4218f6f0eb0e19c896a": {
+        "deepl_english": "Such purchases can therefore support manufacturers of sustainable goods, without driving ever-increasing demand for products.",
+        "english": "Such purchases can therefore support manufacturers of long-lasting goods, without ordering ever more products.",
+        "french": "Ces achats peuvent donc soutenir les fabricants d'objets durables, sans commander toujours plus de produits.",
+        "review_note": "Durables refers to longevity in this repair-and-maintenance example, not a general sustainability label."
+      },
+      "fe0ee605d432a069883c5942d618d43a9728f72810484be384e6afa09bb78b6f": {
+        "english": "Someone can have the damaged fastening on a bag replaced at a repair shop. If the repair is safe and affordable, they pay for the work and continue to use the bag instead of throwing it away.",
+        "french": "Une personne peut faire remplacer la fermeture abîmée d'un sac dans un atelier. Si la réparation est sûre et abordable, elle paie l'intervention et continue à utiliser le sac au lieu de le jeter."
+      }
+    },
+    "eo/tache-3/environnement-p2": {
+      "0e7a49db47aaddb5642f9355f9db6107840710b27bb2f2717930d0fb5aef5c8e": {
+        "deepl_english": "In conclusion, zoos can help us understand animals, protect species and improve animal welfare. Each zoo must demonstrate this and respect the animals’ needs; not all zoos are necessarily useful.",
+        "english": "In conclusion, zoos can help us understand animals, protect species and improve animal care. Each zoo must demonstrate this and respect the animals’ needs; not all zoos are necessarily useful.",
+        "french": "En conclusion, les zoos peuvent aider à comprendre les animaux, protéger des espèces et améliorer les soins. Chaque zoo doit le prouver et respecter les besoins des animaux ; tous les parcs ne sont pas forcément utiles.",
+        "review_note": "Soins means care, distinct from the broader welfare mentioned elsewhere."
+      },
+      "1a0f9f19d1ff98ebf6f9ce2bc177d17837c526087c49b3895487853ba7914df8": {
+        "english": "Maintaining a population in captivity can help to protect an endangered species. Monitoring, partnerships and potential habitats must be organised; breeding animals does not guarantee their return to the wild.",
+        "french": "Garder une population en captivité peut aider à protéger une espèce menacée. Il faut organiser le suivi, les partenaires et les habitats possibles ; faire naître des animaux ne garantit pas leur retour dans la nature."
+      },
+      "2f886ad956fc3b5ce062b87b66c79f74a6cfb025781141bbf42d025cf6100735": {
+        "english": "Regularly observing animals allows us to study their diet or social behaviour, rather than relying on a single visit. By following the same method, several facilities can compare their results. This work must respect the animals’ welfare.",
+        "french": "Observer régulièrement les animaux permet d'étudier leur alimentation ou leurs relations, au lieu de se fier à une simple visite. En suivant la même méthode, plusieurs établissements peuvent comparer leurs résultats. Ce travail doit respecter le bien-être des animaux."
+      },
+      "5778b8b67b6fd801a97370af5748e88fcee2e1f388214ef43a9c6c738edcc171": {
+        "english": "Finally, scientific monitoring can yield insights into the animals’ needs.",
+        "french": "Enfin, un suivi scientifique peut produire des connaissances sur les besoins des animaux."
+      },
+      "6931eac0c09bf333ec76f5d0cdae07845636079a3baeccd45288dca82c5b5237": {
+        "english": "Visitors must be told where the animal lives, how it behaves and what it needs. Without these explanations, they are likely to be looking primarily for an amusing sight or a spectacular reaction.",
+        "french": "Il faut expliquer au visiteur où vit l'animal, comment il se comporte et de quoi il a besoin. Sans ces explications, il risque surtout de chercher une image amusante ou une réaction spectaculaire."
+      },
+      "6baab28793d65f0057cd886af2e18329012098c60e5e0fa06fbd62603c8e40a3": {
+        "english": "During a guided tour, an educator can explain why an animal needs a place to retreat to and why it should not be disturbed in order to coax it out. Children then discuss the animal’s needs, rather than just its size.",
+        "french": "Pendant une visite encadrée, un éducateur peut expliquer pourquoi un animal doit disposer d'un espace de retrait et pourquoi il ne faut pas le déranger pour le faire apparaître. Les enfants discutent alors d'un besoin, pas seulement de la taille de l'animal."
+      },
+      "6c12d50b9656a247b0357ef9988cbc69d0443370416aaa3bdf93f866c7d89181": {
+        "english": "However, not all species and not all facilities are suited to these functions. A visit does not guarantee that the animal is treated with respect, and other forms of education exist. The protection of natural habitats remains necessary, even if a captive breeding programme is justified.",
+        "french": "Cependant, toutes les espèces et tous les établissements ne se prêtent pas à ces fonctions. Une visite ne garantit pas que l'animal soit respecté, et d'autres formes d'éducation existent. La protection des milieux naturels reste nécessaire, même si un programme en captivité est justifié."
+      },
+      "6ea8df32b991b4cfc064e634b8afab7125222aa0a7770be887f62c9e2213ff1b": {
+        "english": "Firstly, guided observation can help people understand the animals’ needs.",
+        "french": "Tout d'abord, une observation expliquée peut faire comprendre les besoins des animaux."
+      },
+      "7b4395762de9c086bb74c180ec49f135dafa189b3ab70172b753bf4a996dde4a": {
+        "english": "A zoo must demonstrate what it contributes to the programme, not merely display a slogan.",
+        "french": "Le zoo doit montrer ce qu'il apporte au programme, pas seulement afficher un slogan."
+      },
+      "7b4f199e9876ac45cae551ce6dd2c5dff6d52b1dd5ea752f9dfd9cf57724e324": {
+        "english": "A zoo may be useful, but simply displaying animals is not enough to prove it. I would look at the educational displays, conservation programmes and knowledge relevant to animal care. This must never be used to excuse poor living conditions.",
+        "french": "Un parc zoologique peut être utile, mais montrer des animaux ne suffit pas à le prouver. Je regarderais les explications, les programmes de conservation et les connaissances utiles aux soins. Cela ne doit jamais excuser de mauvaises conditions de vie."
+      },
+      "cabebdbb238833251121baddac462d15fb0bb1c37946b3b8d0910438401f1f07": {
+        "english": "Researchers can compare access to food before and after the addition of several feeding points. If their records show that an individual remains excluded, they identify a problem that the mere quantity of food did not reveal, and then share their observations.",
+        "french": "Des chercheurs peuvent comparer l'accès à la nourriture avant et après l'ajout de plusieurs points de nourrissage. Si leurs relevés montrent qu'un individu reste écarté, ils repèrent un problème que la simple quantité de nourriture ne révélait pas, puis partagent leurs observations."
+      },
+      "d687c5ba39269fad45a8850b0a0558daedd3ec5d48d6ae0c8c3483655d573833": {
+        "english": "What one learns therefore depends on the explanations provided during the visit.",
+        "french": "Ce que l'on apprend dépend donc des explications données pendant la visite."
+      },
+      "d8ddafe3eb7f25ff19dacc964aa0600695ca3c6fae4eaca79b381bf092d0766e": {
+        "english": "In this way, knowledge and care can be improved, without automatically applying these findings to wild animals.",
+        "french": "On peut ainsi améliorer les connaissances et les soins, sans transposer automatiquement ces résultats aux animaux sauvages."
+      },
+      "f2621bc562ed28d7645684a4f25dbddabaa9faea8b3c031b179f805726aec41e": {
+        "english": "Furthermore, a facility may participate in a coordinated conservation programme.",
+        "french": "Ensuite, un établissement peut participer à un programme de conservation coordonné."
+      },
+      "f5da6e74b5a4ccda8ea126f09cb8baee342cb7dd6e182ed53cf88375ea5dd35d": {
+        "english": "The European bison was successfully reintroduced after surviving in captivity. This case demonstrates the value of a population managed in collaboration with partners and a suitable host habitat, but it does not mean that every species or every zoo will achieve the same result.",
+        "french": "Le bison d'Europe a pu être réintroduit après avoir survécu en captivité. Ce cas montre l'intérêt d'une population suivie avec des partenaires et un habitat d'accueil, mais pas que toute espèce ou tout zoo obtiendra le même résultat."
+      }
+    },
+    "eo/tache-3/environnement-p3": {
+      "0e1a58efa18a3b2178843d99b7fd277886c981bb1ebec08a903db143a20b171b": {
+        "english": "First and foremost, taking a look at what ends up in the bin can reveal avoidable waste.",
+        "french": "Tout d'abord, regarder ce qui finit à la poubelle peut révéler une perte évitable."
+      },
+      "14d1b3e3b4d70308d1e7ba5657e6f6e23e817f33632e0ea4ca02974e7407a078": {
+        "english": "Many people can reduce some of their waste, but I would be cautious about saying ‘everyone’. The possibilities depend on individual needs, housing circumstances and the services available. We can look for avoidable waste, extend the life of objects and call for better-designed systems, without holding every individual responsible for everything.",
+        "french": "Beaucoup de personnes peuvent réduire une partie de leurs déchets, mais je serais prudent avec « tout le monde ». Les possibilités dépendent des besoins, du logement et de l'offre disponible. On peut chercher des pertes évitables, prolonger l'usage des objets et demander des systèmes mieux conçus, sans rendre chaque personne responsable de tout."
+      },
+      "2e5f18810fbb3bc280a186c2b71182e52ee31f847b065e8e85be0753d49a940f": {
+        "english": "A shop can offer a reusable container with an accessible return scheme: once washed, the same container can be used for several purchases instead of being thrown away after each one. Without this service nearby, the same person may remain reliant on pre-packaged portions.",
+        "french": "Un commerce peut proposer un contenant réutilisable avec un retour accessible : après lavage, le même récipient sert pour plusieurs achats au lieu d'être jeté après chacun. Sans ce service à proximité, la même personne peut rester dépendante des portions emballées."
+      },
+      "2e60a2ff153cfffdd229541db03201794d64d05b15abf8f1d5df9a37d029df5a": {
+        "english": "Producers and retailers therefore also have their share of responsibility.",
+        "french": "Les producteurs et les commerces ont donc aussi leur part de responsabilité."
+      },
+      "35c986e1b9277b745db6b872933c433914685cec7f1577ee1f442d0dd32828e2": {
+        "english": "Buying or preparing more than one actually uses sometimes creates waste without meeting a need. A simple observation can help to adjust quantities, without assuming that every household wastes food deliberately.",
+        "french": "Acheter ou préparer davantage que ce que l'on utilise crée parfois des déchets sans répondre à un besoin. Une observation simple peut aider à ajuster les quantités, sans supposer que chaque ménage gaspille volontairement."
+      },
+      "3e96a3b0b38cd0ce17c413eedb597b1cd4dd1d9ed07c147dcc92d0c503a15db6": {
+        "deepl_english": "Producers or retailers often opt for packaging, spare parts and reusable containers. When the service is easily accessible, many customers can reuse their containers regularly, rather than having to sort it out on their own.",
+        "english": "Producers or retailers often choose the packaging, spare parts and reusable containers. When the service is easily accessible, several customers can reuse their containers regularly, rather than each having to manage on their own.",
+        "french": "Le producteur ou le commerce choisit souvent l'emballage, les pièces de rechange et les contenants réutilisables. Quand le service est facile d'accès, plusieurs clients peuvent réutiliser leurs contenants régulièrement, au lieu de devoir se débrouiller chacun de leur côté.",
+        "review_note": "Chooses the arrangements is not opts for these products; plusieurs means several, not many."
+      },
+      "407fe39b36dd687e6cd55bcd5686560e08a72e688d518b03462fc64aebba2f05": {
+        "english": "Finally, some waste is the result of decisions made before a purchase is made.",
+        "french": "Enfin, certains déchets dépendent de décisions prises avant l'achat."
+      },
+      "802ee32067fe206d69a3e6f598f02282aed3dee74f84d14659f1ab100f80f723": {
+        "english": "In conclusion, everyone should be able to reduce their waste according to their means, with services to help them do so. Wasting less and keeping items for longer are useful approaches, without imposing the same obligation on everyone or judging people.",
+        "french": "En conclusion, chacun doit pouvoir réduire ses déchets selon ses moyens, avec des services qui l'y aident. Moins gaspiller et garder les objets plus longtemps sont des pistes utiles, sans imposer la même obligation à tous ni juger les personnes."
+      },
+      "b52474171920899bea80039e467d43f6c12464179fc39361115edc821fd47cc7": {
+        "english": "Someone who throws away half a large bag of salad every week could opt for a smaller pack. If they finish it, they won’t throw away the leftovers, whilst also checking that the price suits them.",
+        "french": "Une personne qui jette chaque semaine la moitié d'un grand sachet de salade peut choisir un format plus petit. Si elle le termine, elle ne jette plus le surplus, en vérifiant aussi que le prix lui convient."
+      },
+      "b5f1541f492fcf299562989479998e4c5c0a8aacdfd02d0a3b50237047f4b4f8": {
+        "deepl_english": "However, medical needs, difficulties with storage or a lack of equipment may limit the changes that can be made. We must neither remove necessary safeguards nor present bulk goods as being universally accessible. Sorting and reducing waste are two useful, but distinct, actions.",
+        "english": "However, medical needs, difficulties with storage or a lack of equipment may limit the changes that can be made. We must neither remove necessary safeguards nor present goods sold loose as being universally accessible. Sorting and reducing waste are two useful, but distinct, actions.",
+        "french": "Cependant, un besoin médical, une difficulté de conservation ou un manque d'équipement peut limiter les changements. Il ne faut ni supprimer une protection nécessaire ni présenter le vrac comme accessible partout. Trier et réduire sont deux actions utiles, mais différentes.",
+        "review_note": "Vrac means unpackaged goods sold loose here, not simply bulk quantities."
+      },
+      "dd1cccc5ef3497b4b65694019fefc8531eb7e08d1185aa6ac7325a6a42467bed": {
+        "english": "Furthermore, reusing or repairing items can delay the need to replace them.",
+        "french": "Ensuite, réutiliser ou réparer peut retarder le remplacement d'un objet."
+      },
+      "e9b6caeada02a056990c8ba0e633aebb98af802e5fa6a9391810a32d64700aa3": {
+        "english": "We can therefore start by reducing what we throw away at home.",
+        "french": "On peut donc commencer par réduire ce que l'on jette chez soi."
+      },
+      "e9df83b6d7a02add74c4d7a3a6f2abf240007d913249e3b0f16427b94062f9ff": {
+        "english": "Throwing away less does not simply mean sorting what is thrown away more effectively. Where an item remains safe and usable, extending its life can prevent a new purchase and immediate waste. An affordable repair can also ease the strain on the household budget.",
+        "french": "Jeter moins ne signifie pas seulement mieux trier ce qui est jeté. Lorsque l'objet reste sûr et utilisable, prolonger son usage peut éviter un nouvel achat et un déchet immédiat. Une réparation abordable peut aussi alléger le budget."
+      },
+      "fe0ee605d432a069883c5942d618d43a9728f72810484be384e6afa09bb78b6f": {
+        "english": "Someone can have a damaged bag fastening replaced at a repair shop. If the repair is safe and affordable, they pay for the work and continue to use the bag instead of throwing it away.",
+        "french": "Une personne peut faire remplacer la fermeture abîmée d'un sac dans un atelier. Si la réparation est sûre et abordable, elle paie l'intervention et continue à utiliser le sac au lieu de le jeter."
+      },
+      "ff0ce1e36635968b28d8edbeffc6555fce57db4d27313f41e98035820e1db2cb": {
+        "english": "Looking after an item therefore enables you to keep it for longer.",
+        "french": "Entretenir un objet permet donc de le garder plus longtemps."
+      }
+    },
+    "eo/tache-3/environnement-p4": {
+      "1c6ac11de0a4e1d4d2d17d57ee81153726e2d95d36997818225f5bbfe61f2f0b": {
+        "english": "I would prefer to preserve a genuine contribution rather than abolish all such facilities indiscriminately.",
+        "french": "Je préférerais préserver une contribution réelle plutôt que supprimer toutes les structures sans distinction."
+      },
+      "3082c69978226f047a722ac52e3c42485c4be549b9f3a34190cf97c508255073": {
+        "english": "In conclusion, I would look at the care provided, the zoo’s purpose and the results of the inspections. A zoo can be improved or closed if the animals’ needs cannot be met.",
+        "french": "En conclusion, je regarderais les soins, l'utilité du zoo et les résultats des contrôles. On peut améliorer un parc ou le fermer si les besoins des animaux ne peuvent pas être respectés."
+      },
+      "32bb93441b6d141a65324a4ec1e019d3602a2b47efd250a17830982dfb17b1b9": {
+        "english": "If a zoo is to close, those in charge must identify suitable locations capable of accommodating the animals concerned and organise their transport with the help of specialists. Moving them to an unsuitable facility would not constitute an improvement simply because the old zoo has closed.",
+        "french": "Si un parc doit fermer, les responsables doivent identifier des lieux capables d'accueillir les animaux concernés et préparer le transport avec des spécialistes. Les déplacer vers une installation inadaptée ne constituerait pas une amélioration simplement parce que l'ancien zoo a disparu."
+      },
+      "3f31e615257c31e5d13a50920e7958a467244a76c27c259b1dd40dd91acbeb93": {
+        "english": "However, a necessary closure must not be delayed indefinitely on the pretext that a transfer is complicated. Resources and planning are required. Alternatives, notably habitat conservation, must also be supported without assuming that they can immediately replace every animal’s place of care.",
+        "french": "Cependant, une fermeture nécessaire ne doit pas être retardée indéfiniment sous prétexte qu'un transfert est compliqué. Il faut des moyens et une planification. Les alternatives, notamment la protection des habitats, doivent aussi être soutenues sans supposer qu'elles remplacent immédiatement chaque place d'accueil."
+      },
+      "4a4face7e2ad0123f253aff13a77c29707586ba9b1c4cb4512a4a7360f53ea37": {
+        "english": "Some facilities may participate in coordinated programmes to maintain a threatened population. This function deserves to be retained where it is well-documented and compatible with animal welfare, though this does not justify the existence of every park.",
+        "french": "Certains établissements peuvent participer à des programmes coordonnés pour maintenir une population menacée. Cette fonction mérite d'être conservée lorsqu'elle est documentée et compatible avec le bien-être animal, sans justifier tous les parcs."
+      },
+      "5ccf336432a65e75797bcb9196a304a3ea61943538ae17b6dec130299a494ce1": {
+        "deepl_english": "Finally, a carefully managed reform can improve living conditions on site.",
+        "english": "Finally, reform backed by checks can improve living conditions on site.",
+        "french": "Enfin, une réforme contrôlée peut améliorer les conditions de vie sur place.",
+        "review_note": "Contrôlée refers to verifying the reform through inspections, not merely managing it carefully."
+      },
+      "5ed7b20799c59e39516d104da3b54c799c9b0da03083071e1a70354c5b41561c": {
+        "english": "The outcome must be assessed from the animals’ perspective.",
+        "french": "Le résultat doit être jugé du point de vue des animaux."
+      },
+      "6bd405419d077d0a19407a6843818054f3db23af4656010679fbbb9d9683897e": {
+        "english": "I would not opt for the automatic closure of all zoos, but nor would I keep them open simply out of habit. We must plan for the animals’ future, assess the purpose of each zoo and ensure their needs are met. In some cases, this may lead to closure.",
+        "french": "Je ne choisirais pas la fermeture automatique de tous les zoos, mais je ne les garderais pas non plus ouverts par habitude. Il faut prévoir ce que deviendront les animaux, vérifier l'utilité de chaque zoo et faire respecter leurs besoins. Dans certains cas, cela peut conduire à une fermeture."
+      },
+      "6ce414f0525fb52b10f765be9573a280aaa93a0dfb740f6525be9c9583579b80": {
+        "english": "Furthermore, closing all zoos could also lead to the loss of programmes that are beneficial to endangered species.",
+        "french": "Ensuite, fermer tous les zoos pourrait aussi faire disparaître des programmes utiles aux espèces menacées."
+      },
+      "7456cfb69168e530f149a2e64e662dc6c85f16df91d25f36e45a921ae1d4e2c4": {
+        "english": "Where the facility can be adapted, addressing a problem with space or access to care allows action to be taken without relocating all the animals. However, clear objectives and deadlines are required, followed by verification of the actual improvements made.",
+        "french": "Lorsque le lieu peut être adapté, corriger un problème d'espace ou d'accès aux soins permet d'agir sans déplacer tous les animaux. Il faut toutefois des objectifs et des délais clairs, puis vérifier l'amélioration réelle."
+      },
+      "751570732862163ab91dc23281f36251683a455cce70aadab6a69f0bd1a83ece": {
+        "english": "Closing a facility does not negate the animals’ needs for care and space. A decision to release animals into the wild cannot be made without assessing the species, the individual animal and the receiving environment; a transfer also requires specialist expertise.",
+        "french": "La fermeture d'un lieu n'efface pas leurs besoins de soins et d'espace. Une remise en liberté ne peut pas être décidée sans évaluer l'espèce, l'individu et le milieu d'accueil ; un transfert demande lui aussi des compétences."
+      },
+      "7619cf4ca59e8cce98a527ffe38f4382ab85cb9fd0b9ada7f15b9d7042dd4f20": {
+        "english": "A park can create retreat areas so that the animals can move away from visitors. An inspection then checks access to and use of these areas. If conditions remain unacceptable, closure or an organised transfer must be possible.",
+        "french": "Un parc peut aménager des espaces de retrait pour que les animaux puissent s'éloigner des visiteurs. Un contrôle vérifie ensuite leur accès et leur utilisation. Si les conditions restent inacceptables, une fermeture ou un transfert organisé doit pouvoir suivre."
+      },
+      "7695f26b3de81c854159b8118011ec9768f1fb5b9109af1a89a042cd47652000": {
+        "english": "The park may remain open if conditions genuinely improve, not on the basis of a mere promise.",
+        "french": "Le parc peut rester ouvert si les conditions s'améliorent réellement, pas sur une simple promesse."
+      },
+      "a53c529857257282b96ea05b50f3368dfc4c91cd74001ab009a16e8193327f9a": {
+        "english": "First and foremost, closing a facility requires making arrangements for the care of its animals.",
+        "french": "Tout d'abord, fermer un établissement exige de prévoir la prise en charge de ses animaux."
+      },
+      "f5da6e74b5a4ccda8ea126f09cb8baee342cb7dd6e182ed53cf88375ea5dd35d": {
+        "english": "The European bison was successfully reintroduced after surviving in captivity. This case demonstrates the value of a population managed in collaboration with partners and a suitable habitat, but it does not mean that every species or every zoo will achieve the same result.",
+        "french": "Le bison d'Europe a pu être réintroduit après avoir survécu en captivité. Ce cas montre l'intérêt d'une population suivie avec des partenaires et un habitat d'accueil, mais pas que toute espèce ou tout zoo obtiendra le même résultat."
+      }
+    },
+    "eo/tache-3/environnement-p7": {
+      "07bb628c1a07237388d41388783fd039cff5749669eb99e450f88c8eea32c7d1": {
+        "english": "Finally, regular orders can help producers plan their business.",
+        "french": "Enfin, des commandes régulières peuvent aider les producteurs à planifier leur activité."
+      },
+      "0edb5869a47450d410471888d80e68516fb91c69e6efec7706a93a6e4f71ce07": {
+        "deepl_english": "Families therefore have more choice without having to completely change the way they organise their lives.",
+        "english": "The family therefore has more choice without having to completely change the way they organise their lives.",
+        "french": "La famille a donc plus de choix sans changer toute son organisation.",
+        "review_note": "Preserves the particular family from the preceding example rather than generalising to all families."
+      },
+      "15dbd8fd61e7f6e42ed2f37d8f82c03765e7239837619c984d1d05745d390283": {
+        "english": "People do not always have the time or the means to visit a specialist shop. Finding a few organic products in their usual shop broadens their options, even if they do not completely change the contents of their shopping basket.",
+        "french": "Une personne n'a pas toujours le temps ou les moyens de fréquenter un magasin spécialisé. Trouver quelques produits dans son commerce habituel élargit ses options, même si elle ne transforme pas entièrement son panier."
+      },
+      "1605fb5cb14f9177e50d3bb80919ac5a8b98138797bfd3e51fa4bda6d644ae9b": {
+        "english": "A farm needs to forecast its sales and costs. Relatively stable orders can help organise production, but prices and contracts must also enable producers to make a living from their work.",
+        "french": "Une exploitation a besoin de prévoir ses ventes et ses coûts. Des commandes relativement stables peuvent aider à organiser la production, mais les prix et le contrat doivent aussi permettre aux producteurs de vivre de leur travail."
+      },
+      "19d0bef39d2962a2b9a854ae17b280fd9242efa9dbf47728470a8cd62208b17d": {
+        "english": "A family can add organic lentils to their regular shopping without having to make a second trip. They check that the price and quantity fit their budget, rather than assuming the product is affordable simply because it’s available.",
+        "french": "Une famille peut ajouter des lentilles bio à ses courses ordinaires sans organiser un deuxième trajet. Elle vérifie que le prix et la quantité correspondent à son budget, plutôt que supposer que l'offre est abordable parce qu'elle existe."
+      },
+      "312fa9f0eb6b2c5ebbc1e163563d9469477fb67d1e6a38e3bc6d96ff5835f1a0": {
+        "english": "A retailer may source vegetables from an organic farm that uses mechanical weeding between the rows. This produce then finds buyers, which supports production methods that avoid the use of synthetic herbicides.",
+        "french": "Une enseigne peut acheter les légumes d'une exploitation bio qui désherbe mécaniquement entre les rangs. Cette récolte trouve alors des acheteurs, ce qui soutient une production évitant l'application d'un herbicide de synthèse."
+      },
+      "4ac1d091eb368ad2a6ee0a14518948affc6422a3c3b83f63c0bf9d5ba4145cc2": {
+        "english": "Within the European framework, organic regulations notably restrict the use of synthetic products and encourage alternative methods. By purchasing produce from these farms, retailers support these methods, without guaranteeing that every food item has the lowest overall environmental impact.",
+        "french": "Dans le cadre européen, les règles biologiques limitent notamment l'usage de produits de synthèse et encouragent d'autres méthodes. En achetant la production de ces exploitations, le commerce soutient ces méthodes, sans garantir que chaque aliment a le plus faible impact total."
+      },
+      "4d536bf83898f522b2fee873bcc452a0d56118a37b952d608cbad4492b29963c": {
+        "deepl_english": "However, an organic product is not automatically local, packaging-free or the best choice for every need. The label must be verified, without neglecting the price. A varied and accessible range of conventional products also has its place; customers should not be judged by the contents of their shopping basket.",
+        "english": "However, an organic product is not automatically local, packaging-free or a better choice for every need. The label must be verified, without neglecting the price. A varied and accessible range of conventional products also has its place; customers should not be judged by the contents of their shopping basket.",
+        "french": "Cependant, un produit bio n'est pas automatiquement local, sans emballage ni meilleur pour chaque besoin. Il faut que le label soit contrôlé, sans négliger le prix. Une offre conventionnelle variée et accessible garde également sa place ; il ne faut pas juger les clients sur leur panier.",
+        "review_note": "Meilleur is comparative better, not the superlative best."
+      },
+      "52bf21587a48310f3bc7faf4c0b25c9dcdb9a2239d4e5e4a482dcaec1fdd91f1": {
+        "english": "Yes, I believe having organic products in supermarkets is a positive thing, subject to certain conditions. It can make shopping easier and support organic producers. But a larger organic section does not guarantee prices that are affordable for everyone, nor does it guarantee an improvement in all the retailer’s practices.",
+        "french": "Oui, avoir des produits bio dans les supermarchés me paraît positif, à certaines conditions. Cela peut faciliter les achats et soutenir les producteurs bio. Mais un rayon plus grand ne garantit ni des prix accessibles à tous ni une amélioration de toutes les pratiques de l'enseigne."
+      },
+      "59ddff9d881ec1ad1bf8963c3140d5753cc4ae2b8301600f9bdae9b74e12ae9f": {
+        "english": "A retailer can agree with producers on a volume and a delivery schedule. Producers can then plan their sowing and harvesting around these orders. This requires a viable level of remuneration, not prices that put them in difficulty.",
+        "french": "Une enseigne peut convenir avec des producteurs d'un volume et d'un calendrier de livraison. Ceux-ci peuvent alors planifier les semis et la récolte pour ces commandes. Cela suppose une rémunération viable, pas des prix qui les mettent en difficulté."
+      },
+      "6ec832536bb280f454ae0d88c65882dfc8c8ab8378e4ca3b4b96d431a9bb46e8": {
+        "english": "We must therefore consider what orders bring to producers, not just to the shop’s image.",
+        "french": "Il faut donc regarder ce que les commandes apportent aux producteurs, pas seulement à l'image du magasin."
+      },
+      "959228c97caf769c5679ad2df2867ded2aeb2d288de68feff931fa77e53a148f": {
+        "english": "First and foremost, this availability can broaden access to organic products.",
+        "french": "Tout d'abord, cette présence peut élargir l'accès aux produits bio."
+      },
+      "bae12c13aef5a4f4e8d2ddebe3d23e7d89273f395f252b0a0ce76c0f6cfd3afb": {
+        "english": "In conclusion, offering more organic produce can make shopping easier, support certain farming methods and help producers sell their goods. We need to check prices, practices and contracts, not just count the products on the shelves.",
+        "french": "En conclusion, davantage de bio peut faciliter les achats, soutenir certaines méthodes agricoles et aider les producteurs à vendre. Il faut vérifier les prix, les pratiques et les contrats, pas seulement compter les produits en rayon."
+      },
+      "c64211e589e9288ece89a93b700a6b72033ab4c56df92ce6299ef6a805a3c4e6": {
+        "english": "Furthermore, this range can support a form of agriculture that limits the use of certain synthetic products.",
+        "french": "Ensuite, cette offre peut soutenir une agriculture qui limite l'usage de certains produits de synthèse."
+      },
+      "ee18c45252647091a2ef676327d6c2d2707210ec20f85889ac00f191dd601189": {
+        "english": "The environmental benefit lies in the farming methods supported, not simply in the colour of the packaging.",
+        "french": "L'intérêt environnemental tient aux méthodes soutenues, pas simplement à la couleur de l'emballage."
+      }
+    },
+    "eo/tache-3/environnement-p9": {
+      "0d69eae6f3f8699c9d14b638fc2a2bca8d4d3d1aaa05cee9d66926984d2237bb": {
+        "english": "On a fragile footpath, visitors who stray from the route to avoid a queue may damage the surrounding vegetation. Restricting access at certain times and clearly signposting authorised routes can reduce this pressure, without assuming that every visitor is deliberately acting against the site’s interests.",
+        "french": "Sur un sentier fragile, des visiteurs qui sortent du parcours pour éviter une file peuvent abîmer la végétation autour. Limiter les entrées à certains moments et expliquer le passage autorisé peut réduire cette pression, sans supposer que chaque visiteur agit volontairement contre le lieu."
+      },
+      "296ca24765e30a542e7f71a72d043127ac4d9893a528d86ae84ebf9be70b02a4": {
+        "english": "Yes, tourism can cause damage to certain regions when the number of visitors exceeds what the area and its residents can cope with. I am thinking of natural resources, accommodation and everyday services. But this is not an inevitable consequence of all visits: we must consider the volume of visitors, the organisation of the industry and the role given to local residents.",
+        "french": "Oui, le tourisme peut dégrader certaines régions lorsque l'accueil dépasse ce que les lieux et les habitants peuvent supporter. Je pense aux ressources naturelles, au logement et aux services du quotidien. Mais ce n'est pas une conséquence obligatoire de toute visite : il faut regarder le volume, l'organisation et la place donnée aux habitants."
+      },
+      "401451e235da0b47ff7eb38fe5a1d49fa1896ba0aa9de285f1ab279c2537ed95": {
+        "english": "In a neighbourhood where several flats are being converted to short-term tourist lets, a family looking for an annual tenancy may find fewer options available. The local authority must monitor this trend and other sources of tension before deciding on a policy.",
+        "french": "Dans un quartier où plusieurs appartements passent à la location touristique, une famille qui cherche un bail annuel peut avoir moins d'offres disponibles. La collectivité doit suivre cette évolution et les autres causes de tension avant de choisir une règle."
+      },
+      "48de3322eef444e8231a121ac8215ad3f258b38fec2bb140ba5ea454c2b737c4": {
+        "english": "When accommodation is reserved for short stays, it is no longer made available to local residents in the same way. The impact depends on the local market, but this must be examined rather than focusing solely on revenue from tourism.",
+        "french": "Quand des logements sont réservés aux séjours courts, ils ne sont plus proposés de la même manière aux habitants. L'effet dépend du marché local, mais il faut l'examiner plutôt que regarder uniquement les recettes des visites."
+      },
+      "4c7814761735cf8411e34020397159473fe146ac478f22455fc82cd717fb8a59": {
+        "english": "First and foremost, too many visitors can damage sites and overload facilities.",
+        "french": "Tout d'abord, trop de visiteurs peuvent abîmer les sites et surcharger les équipements."
+      },
+      "668413d5155b09e922cc3067d1ac1abfa98a3939604a8b2d2126f85bf0e3c7e1": {
+        "deepl_english": "Furthermore, tourist accommodation may compete with sustainable housing.",
+        "english": "Furthermore, tourist accommodation may compete with long-term housing.",
+        "french": "Ensuite, l'hébergement touristique peut entrer en concurrence avec le logement durable.",
+        "review_note": "Logement durable means housing for long-term residents, not environmentally sustainable housing."
+      },
+      "6b2628177bc1650aa46237a53c626499b7f75b2dc74de933fdad015300c8508b": {
+        "english": "Finally, the area’s activities may be geared towards a single target audience.",
+        "french": "Enfin, les activités du territoire peuvent se concentrer sur un seul public."
+      },
+      "8c838090af544908bddae00d5b7486fe6a94fa9ad8f9b82cda34792428aefb10": {
+        "english": "A profitable activity does not automatically meet all local needs.",
+        "french": "Une activité rentable ne répond pas automatiquement à tous les besoins locaux."
+      },
+      "961b1251438e875bf940e53938d0599911d8fab6e1bec39fb5e3e54fdfc77ff6": {
+        "english": "However, tourism can provide income and contribute to the preservation of heritage. Local residents must be involved in decision-making and benefit from the activity. Spreading visits across different periods, regulating certain practices and funding facilities may be preferable to a blanket rejection of visitors.",
+        "french": "Cependant, le tourisme peut fournir des revenus et contribuer à l'entretien d'un patrimoine. Les habitants doivent participer aux choix et bénéficier de l'activité. Diversifier les périodes, encadrer certains usages et financer les équipements peut être préférable à un rejet général des visiteurs."
+      },
+      "c199727cd553a06799d4b4514c0943b4580a6e84cab9a29fbe72a1602db4e117": {
+        "english": "The number of visitors must be adapted to the site’s capacity.",
+        "french": "Il faut adapter le nombre de visiteurs aux limites du site."
+      },
+      "c211e766d891fc97a49dd9247dcb4c7efdc3c1e07a998aac183b910491cf8788": {
+        "english": "We must therefore give as much consideration to those who live there as to those who come for a few days.",
+        "french": "Il faut donc penser autant à ceux qui vivent sur place qu'à ceux qui viennent quelques jours."
+      },
+      "cd1b2369355b07acb507523fefea4354e402a4fe1d21ab101a89fa2e78b8fa48": {
+        "deepl_english": "A footpath, a water reservoir or a drainage system does not have unlimited capacity. If visitor numbers increase without appropriate organisation, such activities may damage the very things people came to discover.",
+        "english": "A footpath, a water reservoir or a waste collection system does not have unlimited capacity. If visitor numbers increase without appropriate organisation, such activities may damage the very things people came to discover.",
+        "french": "Un sentier, une réserve d'eau ou un système de collecte n'a pas une capacité illimitée. Si le nombre de visiteurs augmente sans organisation adaptée, les usages peuvent dégrader ce que l'on venait justement découvrir.",
+        "review_note": "Collecte is waste collection in this context, not drainage."
+      },
+      "ecd7575cadba4670f562bf0e165f8c08a02401147467a3f0a9bee6c8c9a855ee": {
+        "english": "A shop selling everyday goods may be replaced by a souvenir shop. If essential shopping becomes a journey further afield, local residents must make more trips, even when the high street remains economically vibrant.",
+        "french": "Un commerce de produits courants peut être remplacé par une boutique de souvenirs. Si les achats essentiels deviennent éloignés, les habitants doivent organiser davantage de déplacements, même lorsque la rue reste économiquement animée."
+      },
+      "ee35ec7840a6cc4743ff76ddcbddb704c62bed6229f07f706940f10c5321e96c": {
+        "english": "In conclusion, I take the risk of damage seriously without condemning all tourism. Resources, accommodation and services must guide an organisational framework that allows people to visit an area without making daily life there impossible.",
+        "french": "En conclusion, je prends le risque de dégradation au sérieux sans condamner tout tourisme. Ressources, logement et services doivent guider une organisation qui permette de visiter un territoire sans rendre sa vie quotidienne impossible."
+      },
+      "f4c894c44c843043ebeb795a446c577eae1b041fdef352fbe82913ae31d39d68": {
+        "english": "If shops cater primarily to visitors, local residents risk losing essential services. The aim is not to keep a neighbourhood unchanged, but to enable residents to continue doing their daily shopping there.",
+        "french": "Si les commerces visent principalement les visiteurs, les habitants risquent de perdre des services nécessaires. Il ne s'agit pas de garder un quartier inchangé, mais de permettre aux habitants de continuer à y faire leurs achats quotidiens."
+      }
+    }
+  }
+}

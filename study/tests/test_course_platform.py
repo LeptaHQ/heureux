@@ -17,16 +17,16 @@ from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils import timezone
 
-from study.course_content import (
+from study.learning.courses import (
     CONTENT_ROOT, PUBLISHED_MARKUP_VERSIONS, CourseLesson, _bundled_course_catalog,
     build_course_catalog, content_digest,
     load_course_catalog, normalize_answer, parse_course_lesson, validate_coverage_ledger,
 )
-from study.course_practice import (
+from study.learning.practice import (
     PracticeError, _answer, _complete, _selected_items, abandon_attempt, evidence_state,
     practice_event, practice_guidance, start_attempt, submit_check,
 )
-from study.learning_content import load_learning_catalog
+from study.learning.catalogue import load_learning_catalog
 from study.models import Annotation, CourseAttempt, CourseProduction, LearningLessonProgress
 from study.templatetags.study_markdown import render_markdown_inline
 from study.views.account import ACCOUNT_EXPORT_VERSION
@@ -150,7 +150,7 @@ class CourseSchemaTests(SimpleTestCase):
             (path / "lesson.json").write_text(json.dumps(course_payload()), encoding="utf-8")
             self.assertEqual(len(load_course_catalog(Path(directory)).lessons), 1)
             _bundled_course_catalog.cache_clear()
-            with patch("study.course_content.COURSE_ROOT", Path(directory)):
+            with patch("study.learning.courses.COURSE_ROOT", Path(directory)):
                 self.assertIs(load_course_catalog(), load_course_catalog())
             _bundled_course_catalog.cache_clear()
 
@@ -473,10 +473,10 @@ class CoursePlatformTests(TestCase):
         self.assertFalse(retry.independent)
         self.assertTrue(retry.criterion_met)
         self.assertEqual(first.results["correct"], 0)
-        with patch("study.course_practice.timezone.now", return_value=retry.submitted_at + timedelta(days=7) - timedelta(seconds=1)):
+        with patch("study.learning.practice.timezone.now", return_value=retry.submitted_at + timedelta(days=7) - timedelta(seconds=1)):
             with self.assertRaises(PracticeError):
                 self.start("review")
-        with patch("study.course_practice.timezone.now", return_value=retry.submitted_at + timedelta(days=7)):
+        with patch("study.learning.practice.timezone.now", return_value=retry.submitted_at + timedelta(days=7)):
             self.assertTrue(evidence_state(self.user, self.lesson)["review_due"])
             review = self.start("review")
             self.assertTrue(evidence_state(self.user, self.lesson)["fresh_review_available"])
@@ -489,7 +489,7 @@ class CoursePlatformTests(TestCase):
 
     def test_failed_review_remains_due_and_exhaustion_allows_rehearsal(self):
         check = self.submit(self.start())
-        with patch("study.course_practice.timezone.now", return_value=check.submitted_at + timedelta(days=8)):
+        with patch("study.learning.practice.timezone.now", return_value=check.submitted_at + timedelta(days=8)):
             review = self.submit(self.start("review"), False)
             self.assertTrue(evidence_state(self.user, self.lesson)["review_due"])
             retry = self.submit(self.start("review"))
@@ -528,7 +528,7 @@ class CoursePlatformTests(TestCase):
         self.assertEqual(evidence["check"].pk, check.pk)
         self.assertEqual(evidence["due_at"], check.submitted_at + timedelta(days=7))
         self.assertFalse(any(row["older_content"] for row in practice_guidance(self.user, formatted)))
-        with patch("study.course_practice.timezone.now", return_value=evidence["due_at"]):
+        with patch("study.learning.practice.timezone.now", return_value=evidence["due_at"]):
             review = start_attempt(self.user, formatted, "review")
         self.assertEqual(review.review_of_id, check.pk)
         check.refresh_from_db()
@@ -550,7 +550,7 @@ class CoursePlatformTests(TestCase):
             self.assertFalse(any(
                 row["older_content"] for row in practice_guidance(self.user, self.lesson)
             ))
-            with patch("study.course_practice.timezone.now", return_value=evidence["due_at"]):
+            with patch("study.learning.practice.timezone.now", return_value=evidence["due_at"]):
                 review = start_attempt(self.user, self.lesson, "review")
             self.assertEqual(review.review_of_id, check.pk)
             changed = replace(self.lesson, summary="Teach a different distinction.")
@@ -764,7 +764,7 @@ class CourseGuidanceTests(TestCase):
                 item for item in self.lesson.practice
                 if item.pool != "practice" or item.section_id == f"section-{index}"
             ))
-            with patch("study.course_practice.timezone.now", return_value=now + timedelta(minutes=index)):
+            with patch("study.learning.practice.timezone.now", return_value=now + timedelta(minutes=index)):
                 self.finish_learning(start_attempt(self.user, focused, "practice"), False)
         attempt = start_attempt(self.user, self.lesson, "practice")
         self.assertEqual(
@@ -925,7 +925,7 @@ class CourseGuidanceTests(TestCase):
         self.assertFalse(second.independent)
         first.refresh_from_db()
         self.assertEqual(first.results["correct"], 0)
-        with patch("study.course_practice.timezone.now", return_value=second.submitted_at + timedelta(days=7)):
+        with patch("study.learning.practice.timezone.now", return_value=second.submitted_at + timedelta(days=7)):
             review = self.finish_check(start_attempt(self.user, self.lesson, "review"), False)
             row = practice_guidance(self.user, self.lesson)[0]
             self.assertEqual((row["assessed"], row["correct"], row["fresh"], row["rehearsed"]), (12, 8, 4, 8))

@@ -27,14 +27,15 @@ from django.utils import timezone
 from django.utils.html import escape
 
 from config import urls as config_urls
-from study import content_loader as content_module
-from study import queue as queue_module
-from study import srs, views as study_views
-from study.account_services import provision_user_study_data
-from study.content_loader import load_sections
+from study.catalogue import loader as content_module
+from study.review import queue as queue_module
+from study.review import scheduling as srs
+from study import views as study_views
+from study.accounts.services import provision_user_study_data
+from study.catalogue.loader import load_sections
 from study.management.commands.import_content import Command
 from study.middleware import HealthCheckMiddleware
-from study.oral_history import variant_annotation_key
+from study.expression.eo.history import variant_annotation_key
 from study.models import (
     Annotation,
     AnnotationKind,
@@ -54,15 +55,15 @@ from study.models import (
     ReviewSession,
     Settings,
 )
-from study.response_personalization import effective_response
-from study.routing import (
+from study.expression.personalization import effective_response
+from study.navigation.routing import (
     prompt_detail_url,
     response_detail_url,
     subject_group_url,
     subject_selection_url,
     theme_detail_url,
 )
-from study.oral_highlights import ee_tache_three_position_blocks
+from study.notes.anchors import ee_tache_three_position_blocks
 
 from . import factories
 from .vocabulary_assertions import assert_vocabulary_lot_tables
@@ -173,13 +174,13 @@ class PWATests(TestCase):
         self.assertRegex(body, r'var CACHE = "heureux-v\d+"')
         for asset in (
             "study/css/app.css",
-            "study/js/memory-progress.js",
+            "study/js/expression/memory-progress.js",
             "study/js/theme-init.js",
             "study/js/app.js",
-            "study/js/selection-toolbar.js",
-            "study/js/annotations.js",
-            "study/js/subject-progress.js",
-            "study/js/comprehension-progress.js",
+            "study/js/notes/selection-toolbar.js",
+            "study/js/notes/annotations.js",
+            "study/js/expression/subject-progress.js",
+            "study/js/comprehension/comprehension-progress.js",
             "study/icons/ui-icons.svg",
         ):
             self.assertRegex(body, re.escape(asset) + r"\?v=\d+")
@@ -212,19 +213,19 @@ class PWATests(TestCase):
         self.assertNotIn("comprehension-progress.js", base)
 
         subject_pages = (
-            "browse.html",
-            "ee_tache_one_subjects.html",
-            "ee_tache_three_month.html",
-            "ee_tache_three_subjects.html",
-            "ee_writing_subjects.html",
-            "family_detail.html",
-            "response_detail.html",
-            "search.html",
-            "tache_two_subject_batch.html",
-            "tache_two_subject_detail.html",
-            "tache_two_subjects.html",
-            "theme_detail.html",
-            "writing_sujet_detail.html",
+            "expression/browse.html",
+            "expression/ee/tache_1/ee_tache_one_subjects.html",
+            "expression/ee/tache_3/ee_tache_three_month.html",
+            "expression/ee/tache_3/ee_tache_three_subjects.html",
+            "expression/ee/ee_writing_subjects.html",
+            "expression/family_detail.html",
+            "expression/response_detail.html",
+            "search/search.html",
+            "expression/eo/tache_2/tache_two_subject_batch.html",
+            "expression/eo/tache_2/tache_two_subject_detail.html",
+            "expression/eo/tache_2/tache_two_subjects.html",
+            "expression/theme_detail.html",
+            "expression/ee/writing_sujet_detail.html",
         )
         for path in subject_pages:
             with self.subTest(path=path):
@@ -234,14 +235,14 @@ class PWATests(TestCase):
                 )
 
         comprehension_pages = (
-            "comprehension_group.html",
-            "comprehension_oral_overview.html",
-            "comprehension_overview.html",
-            "comprehension_question.html",
-            "comprehension_question_study.html",
-            "comprehension_results.html",
-            "comprehension_study_list.html",
-            "comprehension_test.html",
+            "comprehension/comprehension_group.html",
+            "comprehension/co/comprehension_oral_overview.html",
+            "comprehension/ce/comprehension_overview.html",
+            "comprehension/comprehension_question.html",
+            "comprehension/comprehension_question_study.html",
+            "comprehension/comprehension_results.html",
+            "comprehension/comprehension_study_list.html",
+            "comprehension/comprehension_test.html",
         )
         for path in comprehension_pages:
             with self.subTest(path=path):
@@ -481,7 +482,7 @@ class SmokeTests(TestCase):
                     {"kind": "vocab", "test": test.slug}, "grouped",
                 )
 
-                self.assertTemplateUsed(detail, "study/partials/review_batches.html")
+                self.assertTemplateUsed(detail, "study/review/partials/review_batches.html")
                 self.assertContains(detail, "batch-card--compact", count=2)
                 for hook in FLASHCARD_DECK_HOOKS:
                     with self.subTest(hook=hook):
@@ -674,8 +675,8 @@ class SmokeTests(TestCase):
         self.assertContains(response, "data-translation-close", count=2)
         self.assertContains(response, 'id="translation-panel"')
         self.assertContains(response, 'id="selection-note-panel"')
-        self.assertContains(response, "study/js/selection-toolbar.js")
-        self.assertContains(response, "study/js/annotations.js")
+        self.assertContains(response, "study/js/notes/selection-toolbar.js")
+        self.assertContains(response, "study/js/notes/annotations.js")
         self.assertContains(response, 'rel="noopener noreferrer"')
 
     def test_primary_navigation_marks_each_personal_area_current(self):
@@ -767,7 +768,7 @@ class SmokeTests(TestCase):
         self.assertIsNone(response.context["content_task"])
 
     def test_written_expression_opens_three_task_section_cards(self):
-        from study.ee_formulations import get_ee_formulations
+        from study.expression.ee.formulations.catalogue import get_ee_formulations
 
         task_map = Command()._import_sections(load_sections())
 
@@ -1450,7 +1451,7 @@ class EeTacheThreePageTests(TestCase):
         )
 
     def test_alias_edit_preserves_a_matching_legacy_document_highlight(self):
-        from study.oral_highlights import _render_ee_tache_three_root
+        from study.notes.anchors import _render_ee_tache_three_root
 
         prompt = Prompt.objects.filter(
             theme__task=self.task,
@@ -1511,7 +1512,7 @@ class EeTacheThreePageTests(TestCase):
         )
 
     def test_edit_does_not_claim_another_alias_legacy_highlight(self):
-        from study.oral_highlights import _render_ee_tache_three_root
+        from study.notes.anchors import _render_ee_tache_three_root
 
         response = Response.objects.filter(
             theme__task=self.task,
@@ -1566,8 +1567,8 @@ class EeTacheThreePageTests(TestCase):
         )
 
     def test_review_highlights_follow_an_ee3_response_edit(self):
-        from study.oral_highlights import _render_response_review_root
-        from study.progress import subject_progress_by_response
+        from study.notes.anchors import _render_response_review_root
+        from study.review.progress import subject_progress_by_response
 
         response = Response.objects.filter(
             theme__task=self.task,
@@ -1666,8 +1667,8 @@ class EeTacheThreePageTests(TestCase):
         self.assertEqual(legacy_back.source_key, f"{new_key}:back")
 
     def test_queryless_legacy_review_highlight_keeps_its_alias(self):
-        from study.oral_highlights import _render_response_review_root
-        from study.progress import subject_progress_by_response
+        from study.notes.anchors import _render_response_review_root
+        from study.review.progress import subject_progress_by_response
 
         response = Response.objects.filter(
             theme__task=self.task,
@@ -1773,12 +1774,12 @@ class EeTacheThreePageTests(TestCase):
         response = self.client.get(self._task_url("study:task_detail"))
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "study/ee_tache_three_overview.html")
+        self.assertTemplateUsed(response, "study/expression/ee/tache_3/ee_tache_three_overview.html")
         self.assertEqual(response.context["theme_count"], 11)
         self.assertEqual(response.context["month_count"], 11)
         self.assertEqual(response.context["subject_count"], 138)
         self.assertEqual(response.context["distinct_count"], 78)
-        from study.ee_formulations import get_ee_formulations
+        from study.expression.ee.formulations.catalogue import get_ee_formulations
         self.assertEqual(response.context["formulation_count"], len(get_ee_formulations().entries))
         self.assertContains(
             response,
@@ -1838,7 +1839,7 @@ class EeTacheThreePageTests(TestCase):
         self.assertEqual(page.context["progress"].completed, 0)
 
     def test_formulation_examples_all_resolve_to_known_active_subjects(self):
-        from study.ee_formulations import get_ee_formulations
+        from study.expression.ee.formulations.catalogue import get_ee_formulations
 
         page = self.client.get(reverse("study:ee_formulation_search"))
         rows = page.context["rows"]
@@ -1858,7 +1859,7 @@ class EeTacheThreePageTests(TestCase):
         ]
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "study/ee_tache_three_subjects.html")
+        self.assertTemplateUsed(response, "study/expression/ee/tache_3/ee_tache_three_subjects.html")
         self.assertEqual(
             [theme["name"] for theme in response.context["subject_themes"]],
             expected_themes,
@@ -1974,7 +1975,7 @@ class EeTacheThreePageTests(TestCase):
         expected_count = Prompt.objects.filter(theme=prompt.theme).values("response_id").distinct().count()
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "study/ee_tache_three_month.html")
+        self.assertTemplateUsed(response, "study/expression/ee/tache_3/ee_tache_three_month.html")
         self.assertEqual(
             response.context["subject_theme"]["name"],
             prompt.theme.display_name,
@@ -2490,7 +2491,7 @@ class TaskOrganizationTests(TestCase):
 
         url = self._task_url("study:task_browse")
         page = self.client.get(url, {"deduplicate": "0"})
-        self.assertTemplateUsed(page, "study/partials/subject_collection.html")
+        self.assertTemplateUsed(page, "study/expression/partials/subject_collection.html")
         self.assertContains(page, "data-t1-table-theme", count=3)
         self.assertContains(page, "data-subject-family-group", count=2)
         self.assertContains(page, "data-subject-collection-row", count=3)
@@ -3114,7 +3115,7 @@ class TaskOrganizationTests(TestCase):
             self._task_url("study:task_review"), {"kind": "spine"}
         )
         self.assertEqual(practice.status_code, 200)
-        self.assertTemplateUsed(practice, "study/review.html")
+        self.assertTemplateUsed(practice, "study/review/review.html")
 
     def test_primary_navigation_resolves_same_slug_task_by_part(self):
         written_task = factories.make_task(
@@ -3203,7 +3204,7 @@ class CategoryBatchViewsTests(TestCase):
             [batch["card_count"] for batch in response.context["review_batches"]],
             [20, 12],
         )
-        self.assertTemplateUsed(response, "study/partials/review_batches.html")
+        self.assertTemplateUsed(response, "study/review/partials/review_batches.html")
         self.assertContains(response, "Lots guidés")
         self.assertContains(response, "Lot 02")
         self.assertContains(response, "batch=2")
@@ -4895,7 +4896,7 @@ class SettingsActionTests(TestCase):
         self.assertNotContains(response, "max_reviews_per_day")
 
     def test_reset_clears_progress(self):
-        from study import srs
+        from study.review import scheduling as srs
 
         card = factories.make_spine_card(
             user=self.user,

@@ -19,17 +19,18 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.html import escape
 
-from study import catalogue, content_loader as content
-from study.account_services import provision_user_study_data
-from study.card_presentation import card_payload
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
+from study.accounts.services import provision_user_study_data
+from study.review.presentation import card_payload
 from study.models import (
     Annotation, AnnotationKind, Card, CardType, PersonalResponse, Prompt,
 )
-from study.oral_highlights import AnnotationRootText
-from study.oral_history import variant_annotation_key
-from study.response_personalization import EffectiveArgument, EffectiveResponse, effective_response
-from study.routing import prompt_detail_url
-from study.tache_three_models import (
+from study.notes.anchors import AnnotationRootText
+from study.expression.eo.history import variant_annotation_key
+from study.expression.personalization import EffectiveArgument, EffectiveResponse, effective_response
+from study.navigation.routing import prompt_detail_url
+from study.expression.eo.tache_3.responses import (
     MODELS_DIR, load_tache_three_models, reviewed_model, spoken_text,
 )
 
@@ -52,7 +53,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.sources = content.parse_responses()
-        cls.payload = json.loads((MODELS_DIR / "culture.json").read_text())
+        cls.payload = json.loads((MODELS_DIR / "immigration" / "responses.json").read_text())
 
     def setUp(self):
         catalogue.clear_catalogue_cache()
@@ -60,9 +61,9 @@ class TacheThreeModelContentTests(SimpleTestCase):
 
     def load(self, payload):
         with TemporaryDirectory() as directory:
-            path = Path(directory) / "culture.json"
+            path = Path(directory) / "immigration.json"
             path.write_text(json.dumps(payload), encoding="utf-8")
-            return load_tache_three_models(Path(directory), responses=self.sources)
+            return load_tache_three_models(path, responses=self.sources)
 
     def test_argument_identities_are_optional_unique_and_independent_of_spoken_order(self):
         payload = deepcopy(self.payload)
@@ -1007,18 +1008,16 @@ class TacheThreeModelContentTests(SimpleTestCase):
                 self.assertIn(english, cue.english)
 
     def test_published_storage_and_vocabulary_provenance_are_unchanged(self):
-        root = content.CONTENT_DIR.parent.parent
-        for relative, expected in {
-            "study/content/responses": "4af8a23c7b8e1f82a9a6da123242dbccda9ef1f19e58c252d00f1433cbfc6823",
-            "study/content/subject_vocabulary": "2415a32bccf94004f9293d46faaef4b36677c6aefd79b765f54225afa44fea99",
-            "study/content/phrases.tsv": "2643dfa0d3cf26cf68e50062a05c4bd803e03425a879e8a00fb195e1e200c09e",
-        }.items():
-            path = root / relative
+        for path, relative, expected in (
+            (content.RESPONSES_DIR, "study/content/responses", "4af8a23c7b8e1f82a9a6da123242dbccda9ef1f19e58c252d00f1433cbfc6823"),
+            (content.SUBJECT_VOCABULARY_DIR, "study/content/subject_vocabulary", "2415a32bccf94004f9293d46faaef4b36677c6aefd79b765f54225afa44fea99"),
+            (content.PHRASES_PATH, "study/content/phrases.tsv", "2643dfa0d3cf26cf68e50062a05c4bd803e03425a879e8a00fb195e1e200c09e"),
+        ):
             paths = sorted(path.rglob("*")) if path.is_dir() else [path]
             digest = hashlib.sha256()
             for source in paths:
                 if source.is_file():
-                    label = source.relative_to(root).as_posix()
+                    label = relative if source == path else f"{relative}/{source.relative_to(path).as_posix()}"
                     digest.update(label.encode() + b"\0" + source.read_bytes() + b"\0")
             self.assertEqual(digest.hexdigest(), expected, relative)
         self.assertEqual(len(content.parse_response_storage()), 130)
@@ -1028,7 +1027,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertTrue(content.parse_subject_vocabulary(self.sources))
 
     def test_unreviewed_models_keep_their_original_effective_content(self):
-        with patch("study.catalogue.tache_three_models", return_value={}):
+        with patch("study.catalogue.registry.tache_three_models", return_value={}):
             for source in self.sources:
                 for prompt in source.prompts:
                     self.assertEqual(
@@ -1047,7 +1046,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         with self.assertRaises(FrozenInstanceError):
             model.response.arguments[0].exemple = "Changed"
         catalogue.clear_catalogue_cache()
-        with patch("study.tache_three_models.load_tache_three_models", side_effect=ValueError("Invalid model")) as loader:
+        with patch("study.expression.eo.tache_3.responses.load_tache_three_models", side_effect=ValueError("Invalid model")) as loader:
             for _ in range(2):
                 with self.assertRaisesMessage(ValueError, "Invalid model"):
                     catalogue.tache_three_models()
@@ -1059,7 +1058,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         with self.assertRaisesMessage(ValueError, "coverage"):
             self.load(invalid)
         invalid = deepcopy(self.payload)
-        invalid["responses"]["culture-p3"]["prompt_signatures"].pop("economie:p5")
+        invalid["responses"]["culture-p17"]["prompt_signatures"].pop("culture:p22")
         with self.assertRaisesMessage(ValueError, "re-audit"):
             self.load(invalid)
         invalid = deepcopy(self.payload)
@@ -1104,12 +1103,12 @@ class TacheThreeModelContentTests(SimpleTestCase):
             root = Path(directory)
             with self.assertRaisesMessage(ValueError, "empty"):
                 load_tache_three_models(root, responses=self.sources)
-            (root / "culture.json").write_text(
+            (root / "immigration.json").write_text(
                 json.dumps(self.payload).replace('"version": 1', '"version": 1, "version": 1'),
                 encoding="utf-8",
             )
             with self.assertRaises(ValueError):
-                load_tache_three_models(root, responses=self.sources)
+                load_tache_three_models(root / "immigration.json", responses=self.sources)
         invalid = deepcopy(self.payload)
         invalid["responses"]["culture-p999"] = invalid["responses"]["culture-p1"]
         with self.assertRaisesMessage(ValueError, "coverage"):
@@ -1184,12 +1183,12 @@ class TacheThreeModelViewTests(TestCase):
                     card = Card.objects.get(user=self.user, response=prompt.response, card_type=CardType.SPINE)
                     payload = card_payload(card, prompt=prompt)
                     self.assertIs(payload["eo3_prompt_note"], note)
-                    front = render_to_string("study/partials/card_front.html", payload)
+                    front = render_to_string("study/review/partials/card_front.html", payload)
                     self.assertIn("Comprendre la consigne", front)
                     self.assertIn(escape(note.note), front)
                     self.assertNotIn("subject-hints--speaking", front)
                     self.assertIs(payload["eo3_pistes"], plan)
-                    rendered = render_to_string("study/partials/card_back.html", payload)
+                    rendered = render_to_string("study/review/partials/card_back.html", payload)
                     self.assertIn("subject-hints--speaking", rendered)
                     for cue in (plan.introduction, plan.nuance, plan.conclusion):
                         self.assertIn(escape(cue.french), rendered)
@@ -1225,7 +1224,7 @@ class TacheThreeModelViewTests(TestCase):
 
     def test_original_and_private_annotation_layouts_remain_exactly_reproducible(self):
         archive = json.loads(
-            (content.CONTENT_DIR / "tache_3/layout_history/original.json").read_text()
+            (content.EO_TACHE_THREE_ARCHIVE_DIR / "layout_history/original.json").read_text()
         )
         for key in ("culture:p1", "culture:p3", "economie:p5", "famille:p1"):
             prompt = self.prompt(key)
@@ -1237,9 +1236,9 @@ class TacheThreeModelViewTests(TestCase):
             for is_personal in (False, True):
                 value = EffectiveResponse(**{**asdict(original), "arguments": original.arguments, "is_personal": is_personal})
                 contexts = {
-                    "study/response_detail.html": page.context[0].flatten(),
+                    "study/expression/response_detail.html": page.context[0].flatten(),
                     **{
-                        f"study/partials/card_{surface}.html": card_payload(card, prompt=prompt)
+                        f"study/review/partials/card_{surface}.html": card_payload(card, prompt=prompt)
                         for surface in ("front", "back")
                     },
                 }
@@ -1253,7 +1252,7 @@ class TacheThreeModelViewTests(TestCase):
                         "eo3_pistes": None,
                     }
                     source = archive["templates"][name]
-                    if name == "study/response_detail.html":
+                    if name == "study/expression/response_detail.html":
                         # The archived sidebar buttons are gone; excluding them keeps offsets comparable.
                         actions = '<div class="response-sidebar-actions">'
                         self.assertEqual(source.count(actions), 1)

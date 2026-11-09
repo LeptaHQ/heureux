@@ -7,7 +7,7 @@ from unittest.mock import patch
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 
-from study import content_loader as content
+from study.catalogue import loader as content
 from study.models import MemoryQuestionProgress
 from study.views.library import _memory_sections
 

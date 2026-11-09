@@ -30,7 +30,7 @@ from ..models import (
     Phrase,
     PhraseTier,
 )
-from ..progress import progress_summary
+from study.review.progress import progress_summary
 
 COMPREHENSION_GROUP_SIZE = 5
 
@@ -475,7 +475,7 @@ def _comprehension_summary(user):
 def comprehension_hub(request):
     return render(
         request,
-        "study/comprehension_hub.html",
+        "study/comprehension/comprehension_hub.html",
         {"comprehension": _comprehension_summary(request.user)},
     )
 
@@ -787,7 +787,7 @@ def comprehension_overview(request):
     return _comprehension_overview_response(
         request,
         mode=ComprehensionMode.ECRITE,
-        template="study/comprehension_overview.html",
+        template="study/comprehension/ce/comprehension_overview.html",
     )
 
 
@@ -796,7 +796,7 @@ def comprehension_oral_overview(request):
     return _comprehension_overview_response(
         request,
         mode=ComprehensionMode.ORALE,
-        template="study/comprehension_oral_overview.html",
+        template="study/comprehension/co/comprehension_oral_overview.html",
     )
 
 
@@ -810,7 +810,7 @@ def _comprehension_group_detail_response(request, *, mode, group_number):
     routes = COMPREHENSION_ROUTE_NAMES[mode]
     return render(
         request,
-        "study/comprehension_group.html",
+        "study/comprehension/comprehension_group.html",
         {
             "group": group,
             "overview_route": routes["overview"],
@@ -912,7 +912,7 @@ def comprehension_test_detail(
         ]
     return render(
         request,
-        "study/comprehension_test.html",
+        "study/comprehension/comprehension_test.html",
         {
             "test": test,
             "questions": questions,
@@ -1134,7 +1134,7 @@ def _comprehension_study_list_response(request, *, mode):
 
     return render(
         request,
-        "study/comprehension_study_list.html",
+        "study/comprehension/comprehension_study_list.html",
         {
             "mode": mode,
             "mode_title": (
@@ -1221,7 +1221,7 @@ def comprehension_question_study(
     )
     return render(
         request,
-        "study/comprehension_question_study.html",
+        "study/comprehension/comprehension_question_study.html",
         {
             "test": test,
             "question": question,
@@ -1579,7 +1579,7 @@ def comprehension_question(
             _comprehension_question_url(locked_attempt, resume_number)
         )
     if request.method != "POST":
-        return render(request, "study/comprehension_question.html", context)
+        return render(request, "study/comprehension/comprehension_question.html", context)
 
     if context["answer"] is not None:
         return redirect(_comprehension_question_url(attempt, number))
@@ -1608,7 +1608,7 @@ def comprehension_question(
         context["answer_error"] = "Choisissez une réponse."
         return render(
             request,
-            "study/comprehension_question.html",
+            "study/comprehension/comprehension_question.html",
             context,
             status=400,
         )
@@ -1717,7 +1717,7 @@ def comprehension_results(
         )
     return render(
         request,
-        "study/comprehension_results.html",
+        "study/comprehension/comprehension_results.html",
         {
             "attempt": attempt,
             "test": attempt.test,

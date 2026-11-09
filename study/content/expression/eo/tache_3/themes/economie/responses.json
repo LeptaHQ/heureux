@@ -1,0 +1,753 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "theme": "economie",
+  "responses": {
+    "famille-p7": {
+      "prompt_signatures": {
+        "famille:p7": "5e28dbf05a8f95c4afb5494bc8920159fcaf55a9d0bb198d8bd43a3b42787415"
+      },
+      "reformulation": "Travailler avec un proche est-il trop risqué, ou peut-on séparer la relation familiale de la relation professionnelle ?",
+      "position": "Je ne pense pas qu'il faille l'éviter systématiquement, mais il faut pouvoir se parler aussi franchement qu'entre collègues.",
+      "position_claire": "Je ne pense pas qu'il faille éviter systématiquement de travailler en famille. Cela peut très bien fonctionner, mais le lien familial ne suffit pas pour choisir un associé. Je regarderais surtout ce qu'on sait déjà de sa façon de travailler.",
+      "arguments": [
+        {
+          "idea": "D'abord, connaître la manière de travailler d'un proche peut être un avantage.",
+          "developpement": "Quand on a déjà travaillé ensemble, on sait comment l'autre réagit sous pression et ce qu'il sait faire. On peut alors répartir les rôles selon les compétences de chacun.",
+          "exemple": "Deux sœurs ont déjà vendu ensemble du pain au marché. L'une faisait le pain, l'autre s'occupait des clients et de la caisse. Comme cette organisation fonctionnait bien, elles la gardent lorsqu'elles ouvrent une boulangerie.",
+          "consequence": "Elles commencent avec des habitudes de travail déjà testées, plutôt qu'en supposant que leur bonne entente suffira."
+        },
+        {
+          "idea": "Le risque, c'est que les difficultés du travail entrent aussi dans la vie familiale.",
+          "developpement": "On retrouve son associé aux repas de famille. Si on y règle un problème professionnel, les proches peuvent se sentir obligés de prendre parti. Un désaccord entre deux collègues devient alors une tension qui touche tout le monde.",
+          "exemple": "Un frère et une sœur travaillent dans le même restaurant. Au repas de famille du dimanche, elle lui reproche ses retards au travail. Leur mère le défend, et la discussion devient une dispute à trois.",
+          "consequence": "Le retard n'est pas réglé et le repas est gâché. Il aurait mieux valu en discuter entre eux au travail, plutôt que devant toute la famille."
+        },
+        {
+          "idea": "Il faut aussi penser aux salariés qui ne font pas partie de la famille.",
+          "developpement": "Ils doivent pouvoir faire confiance aux décisions sur les horaires et les promotions. Si le lien familial passe avant le travail accompli, ils peuvent se sentir moins considérés. Les mêmes critères doivent donc s'appliquer à chacun.",
+          "exemple": "Le fils du patron demande à devenir chef d'équipe. Son père le nomme parce que c'est son fils, sans examiner la candidature d'un collègue plus expérimenté.",
+          "consequence": "Ce collègue a de bonnes raisons de trouver la décision injuste. La parenté ne doit pas dispenser de faire ses preuves."
+        }
+      ],
+      "nuance": "Si la relation est tendue ou si l'on n'ose pas parler d'un problème de travail avec son proche, mieux vaut éviter cette collaboration. On peut beaucoup s'aimer et avoir des façons de travailler incompatibles : un bon lien familial ne garantit pas une bonne association.",
+      "conclusion": "Donc, je ne rejetterais pas une collaboration parce qu'elle est familiale. Je vérifierais plutôt qu'on sait travailler ensemble et parler franchement, sans demander aux proches ni aux salariés de subir nos désaccords.",
+      "argument_ids": [
+        1,
+        2,
+        4
+      ]
+    },
+    "education-p12": {
+      "prompt_signatures": {
+        "education:p12": "e4389f669e0bd038041dd8196d7df5c2336f779c47579d95be778da767a7c4f6"
+      },
+      "reformulation": "Comment les études peuvent-elles soutenir une réussite professionnelle ?",
+      "position": "Oui : connaissances, accès à certains postes et méthodes de travail, sans garantie de carrière.",
+      "position_claire": "Je suis plutôt d'accord : faire des études aide à réussir sa vie professionnelle. Ce n'est pas le seul chemin, mais une formation peut donner des bases qu'on utilisera longtemps. Pour moi, son intérêt ne se résume donc pas au fait d'avoir un diplôme à montrer.",
+      "arguments": [
+        {
+          "idea": "D'abord, les études donnent des connaissances structurées pour comprendre un métier.",
+          "developpement": "On apprend progressivement, avec des exercices et des corrections. Cela permet de comprendre pourquoi on suit une méthode, puis de l'adapter à un cas nouveau au lieu de répéter un geste sans réfléchir.",
+          "exemple": "Dans un exercice de comptabilité, un étudiant compte deux fois une facture. En reprenant les étapes avec le professeur, il retrouve le doublon et corrige le total. Plus tard, devant un résultat inhabituel au travail, il sait quelles pièces vérifier.",
+          "consequence": "La formation lui donne ainsi des moyens de comprendre et de contrôler ce qu'il fait."
+        },
+        {
+          "idea": "Ensuite, une qualification peut ouvrir l'accès à certains postes.",
+          "developpement": "Certains employeurs exigent qu'on ait une formation précise. L'obtenir permet de présenter une candidature qui n'aurait pas été possible auparavant, au début d'une carrière ou pour évoluer.",
+          "exemple": "Un salarié d'atelier suit une formation en maintenance et apprend à diagnostiquer des pannes. Une offre de technicien demande cette qualification : il peut présenter son titre et ses travaux pratiques pour postuler à ce rôle plus autonome.",
+          "consequence": "La formation élargit donc ses possibilités professionnelles, sans décider de l'embauche."
+        },
+        {
+          "idea": "Enfin, les études développent des méthodes utiles dans le travail quotidien.",
+          "developpement": "Préparer un dossier collectif demande de répartir les tâches, de respecter un calendrier et de présenter un résultat cohérent. Ces habitudes servent même quand le métier ne reprend pas exactement le contenu des cours.",
+          "exemple": "Pour une présentation, un groupe d'étudiants répartit les recherches et fixe une date pour tout relire. Dans son premier emploi, l'un d'eux reprend cette organisation pour un rapport commun : chaque collègue sait quoi préparer et quand l'envoyer.",
+          "consequence": "Il utilise donc une manière de travailler apprise pendant ses études, pas seulement des connaissances à réciter."
+        }
+      ],
+      "nuance": "Cela dit, on peut aussi réussir par l'apprentissage professionnel ou l'expérience. Les études coûtent du temps et de l'argent, et toutes ne correspondent pas à chaque projet. Il faut examiner ce qu'elles apportent réellement, sans dévaloriser les autres parcours.",
+      "conclusion": "Je vois donc les études comme un appui important pour une carrière : elles donnent des bases, ouvrent certaines portes et apprennent à travailler. Ensuite, il reste à utiliser ces acquis."
+    },
+    "education-p16": {
+      "prompt_signatures": {
+        "education:p16": "c0c3e1d47b2615c3ffa18690a755d54956df8eddd1b7c2be91568c731bb14be1",
+        "economie:p12": "c0c3e1d47b2615c3ffa18690a755d54956df8eddd1b7c2be91568c731bb14be1"
+      },
+      "reformulation": "Tous les salariés d'une entreprise devraient-ils recevoir un salaire identique ?",
+      "position": "Des différences justifiées et transparentes, sans écarts excessifs.",
+      "position_claire": "Je ne pense pas qu'un salaire exactement identique pour tous soit toujours juste. Cela paraît égalitaire, mais les personnes n'ont pas forcément les mêmes missions. Je défends plutôt des différences que l'entreprise peut expliquer, tout en limitant les écarts excessifs.",
+      "arguments": [
+        {
+          "idea": "D'abord, certains postes comportent des responsabilités particulières.",
+          "developpement": "Organiser le travail d'une équipe ajoute des décisions à prendre et des problèmes à régler. Le salaire peut reconnaître cette charge supplémentaire, sans diminuer la valeur du travail des autres.",
+          "exemple": "Sur un chantier, deux équipes peuvent prévoir d'intervenir au même endroit en même temps. La personne chargée de les coordonner modifie le planning et vérifie l'ordre des travaux pour éviter qu'une intervention bloque l'autre. Elle doit suivre l'ensemble, pas seulement sa propre tâche.",
+          "consequence": "Cette responsabilité réelle peut justifier une rémunération différente."
+        },
+        {
+          "idea": "Le salaire peut aussi encourager la progression professionnelle.",
+          "developpement": "Une formation exige du temps et des efforts. Si l'acquisition de compétences utiles peut conduire à une augmentation, les salariés ont une raison supplémentaire de se former. Il faut expliquer comment accéder à cette évolution.",
+          "exemple": "Après une formation, une technicienne peut identifier le capteur défectueux d'un appareil que l'on pensait devoir remplacer. Elle transmet sa méthode à ses collègues. Reconnaître cet apport dans son salaire peut l'encourager à poursuivre sa formation.",
+          "consequence": "Cette reconnaissance donne une perspective concrète aux salariés qui souhaitent développer leurs compétences."
+        },
+        {
+          "idea": "Enfin, une entreprise doit pouvoir garder les compétences difficiles à remplacer.",
+          "developpement": "Une entreprise au budget limité ne peut pas toujours augmenter tous les salaires pour s'aligner sur une offre extérieure. Pouvoir ajuster celui d'un spécialiste peut l'aider à le garder, quand son départ risque de bloquer une activité.",
+          "exemple": "Une petite usine a une seule technicienne capable de régler une machine spécialisée. Elle reçoit une meilleure offre ailleurs. L'entreprise peut lui proposer une augmentation pour la garder, plutôt que de risquer un arrêt de la machine le temps de trouver et de former quelqu'un.",
+          "consequence": "Une certaine souplesse salariale peut donc aider à maintenir le travail de toute l'équipe."
+        }
+      ],
+      "nuance": "Cela ne rend pas tous les écarts acceptables. Il faut lutter contre les discriminations : à travail égal, les femmes et les hommes doivent être traités de la même façon. Les différences doivent rester raisonnables, avec des critères connus et la possibilité de les discuter.",
+      "conclusion": "En conclusion, je choisirais des salaires justes plutôt qu'un salaire identique pour tous. Reconnaître les responsabilités, encourager la formation et garder des compétences utiles peut justifier des différences, mais pas des privilèges sans explication.",
+      "argument_ids": [
+        1,
+        3,
+        4
+      ]
+    },
+    "technologie-p18": {
+      "prompt_signatures": {
+        "technologie:p18": "8855b4ed42d096d15e980cc692a45c0e4a009b228a75a60cac0c5a6d1f1706c5"
+      },
+      "reformulation": "Peut-on effectuer tous ses achats en ligne dans toutes les situations ?",
+      "position": "Certains paniers courants peuvent être entièrement achetés en ligne, mais pas universellement.",
+      "position_claire": "Oui, certaines personnes peuvent faire tous leurs achats courants en ligne si les produits et les services nécessaires sont disponibles. Mais ce n'est pas possible pour tous, partout. Il faut pouvoir trouver les produits, les recevoir ou les retirer, et terminer la commande.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, une offre variée permet de réunir de nombreux achats habituels.",
+          "developpement": "Les aliments, les livres ou les fournitures peuvent être proposés par des vendeurs différents. Une personne dont les besoins sont couverts peut organiser ses commandes sans passer par un achat au comptoir.",
+          "exemple": "Un foyer peut commander ses courses auprès d'un commerce desservant son adresse, puis acheter des fournitures scolaires sur un autre site. Si chaque besoin courant trouve une offre adaptée, l'ensemble de ce panier peut être acheté en ligne.",
+          "consequence": "Plusieurs vendeurs peuvent ainsi remplacer les passages dans différents magasins."
+        },
+        {
+          "idea": "Ensuite, la commande dépend de conditions matérielles qui ne sont pas garanties partout.",
+          "developpement": "Trouver le produit sur un site ne suffit pas : il faut pouvoir l'obtenir à temps. Le vendeur doit livrer à l'adresse souhaitée ou proposer un retrait accessible, à un prix que l'on peut payer.",
+          "exemple": "Une personne peut trouver un produit mais constater qu'aucun vendeur ne dessert son adresse avant la date nécessaire. Un retrait pourrait résoudre le problème s'il est accessible ; sinon, la présence d'une page de vente ne suffit pas.",
+          "consequence": "Il faut donc vérifier comment et quand on pourra récupérer l'achat."
+        },
+        {
+          "idea": "Enfin, l'accès numérique et les moyens de paiement peuvent limiter cette option.",
+          "developpement": "Savoir consulter une page ne signifie pas pouvoir terminer un achat. Il faut que l'interface soit utilisable, que la connexion soit disponible et qu'un moyen de paiement accepté soit proposé, sans exposer inutilement ses données.",
+          "exemple": "Une personne peut sélectionner ses produits puis découvrir que le vendeur exige un moyen de paiement qu'elle ne possède pas. Tant qu'aucune alternative adaptée n'est offerte, elle ne peut pas réaliser cet achat de cette manière.",
+          "consequence": "Un site peut donc fonctionner sans permettre à chaque personne d'y acheter."
+        }
+      ],
+      "nuance": "Cependant, préférer essayer des chaussures ne prouve pas qu'elles sont impossibles à acheter en ligne. Les retours et le conseil peuvent aussi être organisés à distance. Une commande payée en ligne puis retirée en magasin reste un achat en ligne, même sans livraison à domicile.",
+      "conclusion": "En conclusion, certains foyers peuvent tout acheter en ligne, mais pas tous. Cela dépend des produits disponibles, de la livraison ou du retrait, et des moyens de commander et payer. Préférer un magasin est une autre question."
+    },
+    "technologie-p22": {
+      "prompt_signatures": {
+        "technologie:p22": "845c4194c4abbf6fe6580e06bd8a1c8ef6ce334a286d8a3c3fbce4fcd108e5e8",
+        "technologie:p23": "b086405e70edcf648c661da1b9734e2f21a10f1f7863e49dee46b4ec04b64112",
+        "technologie:p26": "4b65b6112933fdda6ed0269ff9ac62b042e40418b71f828e501811e46114e788"
+      },
+      "reformulation": "Comment Internet a-t-il changé les comportements au travail ?",
+      "position": "Il modifie les échanges, la coopération et les attentes de disponibilité.",
+      "position_claire": "Oui, Internet a changé de nombreuses pratiques au travail. Les informations circulent autrement, les équipes peuvent modifier un même document et la possibilité d'envoyer un message transforme les attentes de réponse. Ces changements ne sont pas automatiquement des progrès : leur intérêt dépend de l'organisation, des métiers et des règles communes.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, on peut prévenir toute une équipe sans attendre une réunion.",
+          "developpement": "Une consigne envoyée à tous peut être lue dès qu'elle arrive. Encore faut-il préciser ce qui change et quelle version suivre : sinon, chacun risque d'appliquer une instruction différente ou de redemander la même information.",
+          "exemple": "Un responsable peut annoncer une modification de planning dans un canal prévu et demander aux personnes concernées de confirmer qu'elles l'ont vue. Il évite d'envoyer des consignes différentes dans plusieurs conversations privées.",
+          "consequence": "Chacun doit donc lire les changements et confirmer qu'il en a pris connaissance."
+        },
+        {
+          "idea": "Ensuite, les outils partagés permettent une coopération qui n'exige pas toujours le même lieu.",
+          "developpement": "Des collègues peuvent consulter les mêmes données et voir les modifications, même à distance. Mais ils doivent décider qui fait quoi, comment donner un avis et quand le travail est prêt. Le document partagé ne prend pas ces décisions à leur place.",
+          "exemple": "Deux collègues éloignés peuvent préparer un rapport dans un document commun. L'un rassemble les informations, l'autre vérifie les références, puis ils examinent les remarques avant d'envoyer la version finale.",
+          "consequence": "On peut ainsi travailler à distance sans confondre les tâches de chacun."
+        },
+        {
+          "idea": "Enfin, la possibilité de contacter à toute heure peut brouiller les limites du travail.",
+          "developpement": "Un envoi tardif peut être compris comme une demande immédiate, même si ce n'était pas l'intention. Il faut que les règles définissent les urgences et les délais de réponse, sans laisser chaque salarié deviner ce qui est attendu.",
+          "exemple": "Une équipe peut convenir qu'un message envoyé le soir sera traité au prochain temps de travail, sauf procédure d'urgence explicite. Le responsable applique lui aussi cette règle au lieu de valoriser les réponses nocturnes.",
+          "consequence": "Il devient plus facile de ne pas répondre le soir si toute l'équipe respecte la même règle."
+        }
+      ],
+      "nuance": "Cependant, certains métiers exigent une présence matérielle, et les outils ne remplacent ni la formation ni l'expertise. Des personnes peuvent également être exclues si l'accès ou l'accompagnement manque. Il faut évaluer les usages et adapter les pratiques, sans promettre une efficacité automatique.",
+      "conclusion": "En conclusion, Internet change la manière de transmettre les consignes, de travailler ensemble et de répondre aux collègues. Ces outils aident si chacun sait quoi faire et quand répondre, pas simplement parce qu'on échange davantage de messages."
+    },
+    "sante-p3": {
+      "prompt_signatures": {
+        "sante:p3": "6ce2a94efbdbfa4440ccac62d579c95eb209b0b343f161407350e16378d26fb3"
+      },
+      "reformulation": "Pourquoi cumuler un emploi et des études peut-il être difficile ?",
+      "position": "C'est souvent difficile, mais les conditions peuvent rendre le cumul réalisable.",
+      "position_claire": "Oui, travailler et étudier en même temps peut être difficile. Les horaires se chevauchent parfois, le repos manque et on ne peut pas toujours renoncer au salaire. Ce n'est pas simplement une question de volonté.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, les deux emplois du temps ne sont pas toujours compatibles.",
+          "developpement": "Un cours, un trajet et une prise de poste occupent des heures précises. Même une personne organisée ne peut pas être à deux endroits à la fois, surtout lorsque les horaires changent au dernier moment.",
+          "exemple": "Un étudiant peut terminer un cours à dix-sept heures et devoir commencer son travail à la même heure de l'autre côté de la ville. Il doit négocier un horaire différent ou renoncer à l'un des créneaux ; préparer un agenda ne résout pas ce conflit.",
+          "consequence": "La difficulté vient ici de contraintes concrètes, pas d'un manque de discipline."
+        },
+        {
+          "idea": "Ensuite, on risque de prendre sur son sommeil pour tout terminer.",
+          "developpement": "Après le travail, il reste parfois des lectures ou des devoirs à faire. Si chaque retard est rattrapé sur le temps de repos, la personne peut avoir plus de mal à rester attentive et à maintenir ses activités personnelles.",
+          "exemple": "Après une fermeture tardive, un étudiant peut encore devoir rédiger un travail pour le lendemain. En le terminant pendant la nuit, il ne garde que quelques heures pour dormir avant les cours : il rattrape le devoir sur son temps de repos.",
+          "consequence": "Il faut donc qu'un planning réalisable prévoie du repos, sans simplement remplir les heures."
+        },
+        {
+          "idea": "Enfin, le besoin de revenu peut empêcher de réduire la charge au moment nécessaire.",
+          "developpement": "Travailler n'est pas toujours un choix que l'on peut suspendre pendant les études. Si ce revenu paie des dépenses indispensables, prendre moins d'heures libère du temps mais crée un autre problème immédiat.",
+          "exemple": "Pendant les examens, un étudiant peut supprimer deux services pour réviser, puis constater que son salaire ne couvrira plus le loyer. Une aide financière ou des horaires adaptés pourraient lui permettre de réviser sans manquer d'argent pour ses dépenses.",
+          "consequence": "Le financement des études compte donc aussi : il faut pouvoir payer ses dépenses."
+        }
+      ],
+      "nuance": "Cependant, un emploi limité, des horaires prévisibles et un soutien adapté peuvent rendre le cumul possible. Le travail apporte aussi un revenu et de l'expérience. Il ne faut ni annoncer un échec inévitable ni présenter cette charge comme une obligation formatrice pour tous.",
+      "conclusion": "En conclusion, travailler et étudier en même temps est exigeant à cause des horaires, du repos et des besoins financiers. Pour y arriver, il faut une charge supportable et des horaires adaptés, pas seulement demander à la personne de faire toujours plus d'efforts."
+    },
+    "sante-p7": {
+      "prompt_signatures": {
+        "sante:p7": "feaf571833e452ea31c7fd73edf91611039fe000a38eefddfaba187442b9e873"
+      },
+      "reformulation": "Le bio est-il exclusivement réservé aux plus riches ?",
+      "position": "Non, mais les moyens et l'offre disponible rendent l'accès inégal.",
+      "position_claire": "Je ne dirais pas que les produits bio sont réservés exclusivement aux plus riches. Mais il est plus facile d'en acheter quand on peut les payer après les dépenses essentielles et les trouver près de chez soi. Acheter quelques produits bio n'est pas la même chose qu'un panier entièrement bio chaque semaine.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, un écart de prix peut limiter le choix d'un ménage.",
+          "developpement": "Il faut aussi que le budget alimentaire laisse de la place au logement et aux autres dépenses essentielles. Même un supplément modeste pour chaque produit peut devenir important lorsqu'il s'applique à tout un panier.",
+          "exemple": "Une famille peut comparer deux paquets de pâtes de même poids et constater que l'option bio dépasse ce qu'elle avait prévu. Choisir l'autre paquet lui permet de respecter son budget, sans révéler un désintérêt pour la qualité.",
+          "consequence": "La liberté de choix dépend donc des moyens réellement disponibles."
+        },
+        {
+          "idea": "Ensuite, l'accès ne se résume pas au prix affiché.",
+          "developpement": "Il faut pouvoir trouver les produits et se rendre au magasin. Un déplacement supplémentaire ou un conditionnement trop grand peut rendre une offre peu pratique, même si le prix à l'unité paraît intéressant.",
+          "exemple": "Une personne sans voiture peut trouver une promotion dans un magasin éloigné, mais devoir payer un trajet et y consacrer une partie de sa journée. Acheter près de chez elle peut rester le choix le plus réaliste.",
+          "consequence": "Il faut donc compter aussi le temps et le prix du trajet pour savoir si l'offre est accessible."
+        },
+        {
+          "idea": "Enfin, une consommation partielle reste possible sans être réservée aux très hauts revenus.",
+          "developpement": "Tous les produits et tous les commerces n'ont pas le même prix. Comparer le prix au poids et acheter la quantité nécessaire peut permettre de choisir quelques produits bio. Cela ne rend pas pour autant un panier entièrement bio abordable pour chacun.",
+          "exemple": "Un consommateur peut trouver des lentilles bio d'une marque de distributeur à un prix compatible avec son budget, tout en achetant ses autres produits sans ce label. Il choisit selon l'offre réelle, pas selon une obligation de tout changer.",
+          "consequence": "On peut donc acheter certains produits bio sans avoir un très haut revenu."
+        }
+      ],
+      "nuance": "Cependant, ces possibilités ne suppriment pas les inégalités. Une promotion ne résout pas un budget insuffisant, et le label bio ne dit pas à lui seul si un repas est équilibré. L'accès de tous à une alimentation suffisante et variée doit rester prioritaire.",
+      "conclusion": "En conclusion, le bio n'est pas réservé uniquement aux plus riches, mais l'accès reste inégal. Je regarderais le budget complet, la proximité de l'offre et les choix partiels possibles, sans juger les personnes sur leurs achats."
+    },
+    "sante-p15": {
+      "prompt_signatures": {
+        "sante:p15": "f92895b6c9580c82e6a07542aa6a617ad4c042432049f204b9675ec10badf2e9",
+        "sante:p18": "f92895b6c9580c82e6a07542aa6a617ad4c042432049f204b9675ec10badf2e9"
+      },
+      "reformulation": "Peut-on imposer à tous de travailler jusqu'à 70 ans ?",
+      "position": "Pas comme règle uniforme : métiers, santé et parcours doivent être considérés.",
+      "position_claire": "Je ne trouve pas acceptable d'obliger tout le monde à travailler jusqu'à 70 ans. Les métiers, la santé et les années déjà travaillées diffèrent. Certaines personnes continuent volontairement, mais leur choix ne justifie pas une obligation pour tous.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, les contraintes des métiers doivent être prises en compte.",
+          "developpement": "Porter des charges, travailler de nuit ou rester dans une situation de forte tension ne pose pas les mêmes difficultés qu'un poste aménagé. Le titre du métier ne suffit toutefois pas : il faut regarder les tâches réellement exercées.",
+          "exemple": "Une salariée peut devoir porter des cartons toute la journée. Réduire ces ports de charge avec un matériel adapté change son effort quotidien ; lui demander seulement de continuer jusqu'à 70 ans laisse la contrainte intacte.",
+          "consequence": "Une mesure juste doit examiner les conditions, pas seulement l'âge."
+        },
+        {
+          "idea": "Ensuite, deux personnes du même âge peuvent avoir des besoins de santé différents.",
+          "developpement": "L'âge ne dit pas à lui seul si une personne peut continuer son travail sans trop de difficultés. Il faut examiner sa situation et adapter le poste ou les horaires, plutôt que lui demander de faire comme un collègue qui semble aller bien.",
+          "exemple": "Deux salariés peuvent occuper le même poste, mais l'un a besoin de rendez-vous médicaux réguliers. Un horaire aménagé lui permet de s'y rendre, alors qu'un planning identique à celui de son collègue peut bloquer l'accès à ses soins.",
+          "consequence": "Pour être juste, il faut donc tenir compte des besoins de santé, même entre collègues du même âge."
+        },
+        {
+          "idea": "Enfin, il faut tenir compte du nombre d'années déjà travaillées.",
+          "developpement": "Partir à la retraite au même âge ne signifie pas avoir travaillé aussi longtemps. Une personne qui a commencé tôt aura travaillé davantage d'années. Cette différence compte aussi, même à santé et tâches comparables.",
+          "exemple": "Deux salariés aux carrières continues peuvent avoir commencé à dix-huit et à vingt-huit ans. Les faire tous deux travailler jusqu'à 70 ans impose dix années d'activité supplémentaires au premier ; il faudrait expliquer comment leur retraite tiendrait compte de cette différence.",
+          "consequence": "Le nombre d'années déjà travaillées doit donc compter dans la décision, pas seulement l'âge de départ."
+        }
+      ],
+      "nuance": "Cependant, financer les retraites et organiser le travail sont de vraies questions collectives. Certaines personnes souhaitent continuer et doivent pouvoir l'envisager dans de bonnes conditions. Cela ne prouve pas qu'un âge de 70 ans convienne à tous ni qu'un dispositif unique soit suffisant.",
+      "conclusion": "En conclusion, je refuse l'obligation uniforme, pas toute activité à 70 ans. Une politique acceptable doit tenir compte des tâches, de la santé et du parcours, avec des adaptations dont les conséquences sont clairement expliquées."
+    },
+    "sante-p20": {
+      "prompt_signatures": {
+        "sante:p20": "4737ed581dcc06b51a6be95a5659ba4f67268de42e3c7c09edf97f35c00233c9"
+      },
+      "reformulation": "Faut-il être riche pour disposer des moyens de vivre ?",
+      "position": "Il faut des ressources suffisantes, dont le niveau dépend des besoins et du contexte.",
+      "position_claire": "Il n'est pas nécessaire d'être riche pour vivre, mais il faut avoir assez pour ses besoins. Le mot « beaucoup » ne dit pas quelles dépenses il faut couvrir. Je distinguerais les besoins essentiels, les différences de coût de la vie et les aides disponibles en plus du salaire.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, certains besoins imposent des dépenses que l'on ne peut pas simplement supprimer.",
+          "developpement": "Il faut qu'on puisse payer son logement, sa nourriture et les déplacements nécessaires. Si le budget ne suffit pas pour cela, conseiller d'acheter moins ne règle pas le problème : certaines dépenses restent à payer, même en faisant attention.",
+          "exemple": "Une personne peut supprimer ses abonnements de loisirs et cuisiner chez elle, puis constater que le loyer et les courses dépassent encore son budget. Ces économies ne suffisent pas : il lui faut davantage d'argent ou des dépenses fixes moins élevées.",
+          "consequence": "Un revenu suffisant est une question de conditions de vie, pas de luxe."
+        },
+        {
+          "idea": "Ensuite, une même somme ne permet pas de vivre de la même manière partout.",
+          "developpement": "Le coût du logement, les transports et les personnes à charge modifient le budget. Comparer deux salaires sans regarder ces éléments peut donner une image trompeuse de ce qui est confortable ou insuffisant.",
+          "exemple": "Deux personnes peuvent gagner chacune 1 800 euros, mais payer respectivement 500 et 1 000 euros de loyer. Après ce seul paiement, il reste 500 euros de moins à la seconde pour les autres besoins, sans différence de comportement d'achat.",
+          "consequence": "Le niveau nécessaire se comprend donc à partir d'une situation concrète."
+        },
+        {
+          "idea": "Enfin, les moyens de vivre ne proviennent pas uniquement d'un haut salaire.",
+          "developpement": "Des aides auxquelles on a droit, des services publics ou des dépenses partagées peuvent réduire certaines dépenses personnelles. On a toujours besoin d'argent, mais pas forcément d'un haut salaire.",
+          "exemple": "Un transport public adapté peut permettre à un foyer de se passer d'une voiture pour ses trajets habituels. Il évite alors des dépenses d'entretien et d'assurance, si cette solution répond réellement à ses déplacements.",
+          "consequence": "Des services publics adaptés réduisent ainsi certaines dépenses du foyer."
+        }
+      ],
+      "nuance": "Cependant, toutes les dépenses ne sont pas évitables et toutes les alternatives ne sont pas disponibles. Il ne faut pas idéaliser une vie avec très peu de moyens ni juger la pauvreté comme un défaut de gestion. Il faut aussi pouvoir payer une dépense imprévue.",
+      "conclusion": "En conclusion, il faut avoir assez pour ses besoins, pas forcément être riche. La somme nécessaire dépend du coût de la vie et des aides disponibles. Pouvoir payer ses dépenses et prévoir un imprévu n'est pas la même chose que vouloir toujours gagner plus."
+    },
+    "sante-p22": {
+      "prompt_signatures": {
+        "sante:p22": "af0af57df3347d21647013327f4fc00ab175364ae1bf7b435463abd22dcc02da"
+      },
+      "reformulation": "Un bon salaire est-il une condition nécessaire pour être heureux ?",
+      "position": "Il peut soutenir le bien-être sans être une condition universelle ni une garantie.",
+      "position_claire": "Un bon salaire peut faciliter la vie, mais je n'en ferais pas une condition universelle du bonheur. Il faut des moyens pour vivre sans insécurité permanente ; au-delà de cette question, les relations, les activités choisies et les conditions de travail comptent aussi. Aucun montant ne résume toutes ces dimensions.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, un revenu suffisant peut réduire certaines inquiétudes matérielles.",
+          "developpement": "Pouvoir payer les dépenses courantes et faire face à un imprévu laisse davantage de place à d'autres préoccupations. Cela explique pourquoi le salaire compte réellement, sans prouver qu'il faut gagner beaucoup dans toutes les situations.",
+          "exemple": "Une personne qui peut payer une réparation nécessaire sans renoncer à ses courses évite un choix très difficile. Cette sécurité peut venir d'un revenu adapté à ses charges, pas forcément d'un salaire considéré comme élevé partout.",
+          "consequence": "Ce qui rassure, c'est donc de pouvoir couvrir ses dépenses, pas seulement d'afficher un gros salaire."
+        },
+        {
+          "idea": "Ensuite, des relations de confiance apportent quelque chose que le salaire n'achète pas.",
+          "developpement": "Être écouté et savoir que l'on compte pour quelqu'un aide à se sentir moins seul. Pour construire ces liens, il faut qu'on prenne du temps l'un pour l'autre et qu'on s'écoute, pas forcément qu'on paie des sorties coûteuses.",
+          "exemple": "Deux amis peuvent se retrouver régulièrement pour une promenade. Lorsque l'un traverse une période difficile, l'autre l'écoute puis reprend de ses nouvelles quelques jours plus tard. Celui qui va mal voit qu'il peut compter sur son ami, même sans sortie coûteuse.",
+          "consequence": "Le bonheur peut donc s'appuyer sur des liens solides sans exiger un haut salaire."
+        },
+        {
+          "idea": "Enfin, les conditions attachées au salaire peuvent entrer en conflit avec ce qui compte.",
+          "developpement": "Un poste mieux payé peut demander des horaires ou des déplacements difficiles à concilier avec ses priorités. Il faut examiner l'ensemble de la proposition, et pas uniquement le montant annoncé.",
+          "exemple": "Une personne peut comparer une promotion impliquant de fréquents déplacements avec un poste moins payé mais compatible avec ses engagements familiaux. Si ses besoins restent couverts, elle peut choisir le second poste pour préserver sa vie familiale.",
+          "consequence": "Un poste moins payé peut donc mieux convenir à la vie que l'on souhaite, si l'on a assez pour vivre."
+        }
+      ],
+      "nuance": "Cependant, on ne choisit pas toujours ses horaires ou son emploi, et un manque d'argent peut être très éprouvant. Il ne faut ni glorifier les difficultés matérielles ni fixer un seuil de bonheur valable pour tous. Les besoins et les possibilités varient.",
+      "conclusion": "En conclusion, un bon salaire peut aider, mais ne rend pas forcément heureux. Je regarderais aussi si l'on peut payer ses dépenses, compter sur ses proches et garder du temps pour eux."
+    },
+    "culture-p7": {
+      "prompt_signatures": {
+        "culture:p7": "403046d33eb0d153a742a4f2666f012cfc4fbd465845e25c2aaeb6d7dc8544a9"
+      },
+      "reformulation": "Les métiers artistiques méritent-ils d'être reconnus comme des professions sérieuses ?",
+      "position": "Les métiers artistiques sont sérieux : leur dimension créative n'enlève rien au travail et aux responsabilités.",
+      "position_claire": "Je ne suis pas d'accord : les métiers artistiques sont des métiers sérieux. Le plaisir que le public retire d'un concert ou d'un film ne doit pas masquer le travail nécessaire. La créativité n'enlève rien aux exigences professionnelles.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, une prestation artistique demande un travail régulier, même quand l'inspiration manque.",
+          "developpement": "L'artiste ne peut pas seulement attendre d'avoir une bonne idée. Il doit préparer son travail, répéter et corriger les défauts pour présenter un résultat suffisamment maîtrisé au moment prévu.",
+          "exemple": "Avant un concert, un musicien reprend les passages difficiles et répète avec les autres membres du groupe. Le public entend une prestation courte, mais celle-ci repose sur des séances de travail qui ne sont pas visibles sur scène.",
+          "consequence": "Le résultat peut sembler spontané précisément parce qu'il a été préparé."
+        },
+        {
+          "idea": "Ensuite, ces métiers reposent sur des compétences précises qu'il faut développer.",
+          "developpement": "La créativité ne dispense pas de maîtriser des techniques et des outils. Pour répondre à une commande, l'artiste doit produire un résultat précis dans le délai prévu, pas seulement quelque chose qui lui plaît.",
+          "exemple": "Pour un album destiné aux enfants, une illustratrice doit dessiner le même personnage sous plusieurs angles. Elle travaille les proportions et les expressions pour qu'il reste reconnaissable d'une page à l'autre, et livre ses dessins à la date convenue avec l'éditeur.",
+          "consequence": "Ce savoir-faire permet de répondre à une demande, comme dans d'autres professions."
+        },
+        {
+          "idea": "Enfin, le travail artistique implique des engagements envers d'autres personnes.",
+          "developpement": "Les créations s'inscrivent souvent dans un projet avec un budget, un calendrier et des collaborateurs. Un retard ou un travail mal préparé peut empêcher toute une équipe d'avancer.",
+          "exemple": "Une comédienne doit connaître son texte avant une répétition collective. Si elle arrive sans préparation, les autres acteurs et les techniciens ne peuvent pas régler correctement la scène, alors que la salle est déjà réservée pour le spectacle.",
+          "consequence": "Sa responsabilité dépasse donc sa seule envie de s'exprimer."
+        }
+      ],
+      "nuance": "Cela ne signifie pas que toute œuvre doive plaire à tout le monde, ni que les revenus soient stables. La précarité peut rendre ces carrières difficiles. Mais une œuvre qui ne nous plaît pas peut tout de même avoir demandé des compétences et un travail rigoureux.",
+      "conclusion": "En conclusion, les métiers artistiques méritent la même considération que les autres lorsqu'ils reposent sur un travail maîtrisé et des engagements tenus. Créer demande de la liberté, mais aussi des compétences, de la discipline et une véritable responsabilité.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
+    },
+    "culture-p34": {
+      "prompt_signatures": {
+        "culture:p34": "d8c08166d4ea5440db70382b2129a9f0ac560812dc62ae2dc41c3438027400b7"
+      },
+      "reformulation": "Comment juger l'évolution des habitudes de consommation dans les pays développés ?",
+      "position": "Les nouvelles habitudes de consommation apportent des services utiles, mais peuvent aussi multiplier les achats inutiles.",
+      "position_claire": "Dans les pays développés, les nouvelles habitudes de consommation ont des avantages et des risques. Commander en ligne répond parfois à un besoin, mais cette facilité peut pousser à acheter trop. L'usage compte autant que l'outil.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, les services numériques peuvent rendre certains achats plus accessibles.",
+          "developpement": "Comparer les offres et commander sans se déplacer répond à un besoin réel pour des personnes éloignées des magasins ou ayant des difficultés de mobilité. La facilité peut donc être un service, pas seulement une invitation à consommer.",
+          "exemple": "Une personne qui ne peut pas porter des courses lourdes peut préparer une liste et se faire livrer les produits nécessaires. Elle évite un déplacement difficile, à condition de vérifier les frais et de rester dans son budget.",
+          "consequence": "Ce service peut donc aider la personne à faire ses courses de façon plus autonome."
+        },
+        {
+          "idea": "Ensuite, acheter en quelques clics peut pousser à dépenser sans réfléchir.",
+          "developpement": "Les sites peuvent remettre sous nos yeux un produit qu'on a déjà regardé. Le paiement en un clic réduit ensuite le temps de réflexion : on risque d'acheter avant de vérifier si l'objet est vraiment utile.",
+          "exemple": "Après avoir consulté des chaussures en ligne, une personne peut recevoir plusieurs annonces similaires. Si elle achète une nouvelle paire uniquement parce qu'une offre semble urgente, elle risque de dépasser son budget alors que ses chaussures actuelles lui conviennent encore.",
+          "consequence": "Cette facilité peut donc augmenter les dépenses sans mieux répondre aux besoins."
+        },
+        {
+          "idea": "Enfin, l'occasion et la réparation permettent d'utiliser les objets plus longtemps.",
+          "developpement": "Grâce aux plateformes d'occasion, on peut revendre un objet à quelqu'un qui en a besoin. Un atelier peut aussi nous aider à le réparer. Dans les deux cas, l'objet reste utile au lieu d'être remplacé par du neuf.",
+          "exemple": "Une famille peut acheter un vélo d'enfant d'occasion, vérifier son état puis le revendre quand il devient trop petit. Le même vélo sert à plusieurs enfants, ce qui évite certains achats neufs et permet de limiter la dépense.",
+          "consequence": "Ces pratiques peuvent donc limiter le remplacement des objets, plutôt que simplement multiplier les achats."
+        }
+      ],
+      "nuance": "Cependant, bien que l'achat d'occasion soit souvent plus économique, il peut multiplier les achats inutiles. Les frais de livraison et la qualité comptent aussi. Une pratique numérique ou une bonne affaire n'est donc pas automatiquement raisonnable.",
+      "conclusion": "En conclusion, ces habitudes sont utiles quand elles facilitent l'accès aux produits et prolongent leur utilisation. Le progrès, c'est de mieux répondre à ses besoins en respectant son budget et en préservant les ressources.",
+      "argument_ids": [
+        1,
+        2,
+        3
+      ]
+    },
+    "economie-p1": {
+      "prompt_signatures": {
+        "economie:p1": "8ce14c1f161e65b080bb6d543cdc92fab5c07d7f47f5be1618143abead557ee1"
+      },
+      "reformulation": "Évaluer une future recherche d'emploi au Canada sans inventer de métier ni de parcours personnel.",
+      "position": "Je préparerais ce projet sans présumer une embauche facile.",
+      "position_claire": "Si je m'installais au Canada, je penserais pouvoir trouver du travail, mais sans compter sur une recherche facile. Je regarderais l'accès à mon métier, la langue demandée et les offres correspondant à mon profil. La motivation seule ne suffit pas.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, je vérifierais si je peux exercer le métier visé.",
+          "developpement": "Un diplôme et une expérience peuvent avoir de la valeur sans donner automatiquement toutes les autorisations nécessaires. Au Canada, l'accès à une profession réglementée dépend notamment de l'organisme compétent dans la province ou le territoire concerné.",
+          "exemple": "Si je visais une profession infirmière après une formation à l'étranger, je contacterais cet organisme avant le départ. Si une étape obligatoire me manquait, je devrais la préparer avant de pouvoir exercer, même avec un employeur intéressé par mon profil.",
+          "consequence": "Trouver un employeur et obtenir le droit d'exercer sont donc deux démarches différentes."
+        },
+        {
+          "idea": "Ensuite, je devrais pouvoir montrer que je communique dans la langue du poste.",
+          "developpement": "Comprendre une annonce ne suffit pas toujours pour expliquer son expérience ou répondre à un client. Les attentes varient selon les tâches et le lieu ; je ne supposerais pas que tous les postes exigent le même bilinguisme.",
+          "exemple": "Pour un poste d'accueil, je préparerais une présentation de mon parcours et des réponses à des demandes courantes. Un entretien d'entraînement ferait apparaître les expressions qui me manquent avant de rencontrer un employeur.",
+          "consequence": "Je saurais ainsi quelles expressions travailler, au lieu de compter seulement sur un certificat de langue."
+        },
+        {
+          "idea": "Enfin, je comparerais mes compétences à des offres concrètes.",
+          "developpement": "Le nom d'un secteur ne dit pas si les postes disponibles correspondent à mon expérience, à mes horaires possibles ou à la région choisie. Il faut examiner les missions et les conditions, pas seulement entendre qu'un pays recrute.",
+          "exemple": "Je pourrais relever plusieurs annonces récentes dans la ville envisagée et noter les compétences qui reviennent. Si elles demandent un outil que je ne maîtrise pas, je saurais quoi apprendre ou quelles autres offres cibler.",
+          "consequence": "La recherche deviendrait plus réaliste, sans garantie d'embauche."
+        }
+      ],
+      "nuance": "Cependant, une personne disposant déjà d'une offre adaptée et des autorisations nécessaires peut s'installer plus facilement. À l'inverse, une bonne préparation n'élimine ni la concurrence ni les délais. Je prévoirais donc de l'argent pour vivre pendant la recherche et du temps pour les démarches, sans annoncer une durée certaine.",
+      "conclusion": "En conclusion, je serais confiant dans le projet, mais prudent sur sa facilité. Vérifier l'accès au métier, préparer les échanges au travail et cibler des offres réelles me semble plus solide que croire qu'on recrute facilement partout au Canada."
+    },
+    "economie-p2": {
+      "prompt_signatures": {
+        "economie:p2": "11ecb72884dfe715803dc2757e3be41add77be74fc0ee94d9eab2ab36196b6ed"
+      },
+      "reformulation": "Juger les revenus extrêmes de certaines vedettes sans généraliser à tous les sportifs.",
+      "position": "Certains revenus me paraissent excessifs, sans remettre en cause la valeur du sport.",
+      "position_claire": "Je trouve certains revenus de vedettes sportives excessifs, sans généraliser à tous les sportifs. Ma critique porte sur des écarts extrêmes et sur la place donnée à l'argent. Le talent et le plaisir apporté au public méritent une rémunération, sans rendre toute somme indiscutable.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, une forte valeur commerciale ne correspond pas forcément à une plus grande utilité sociale.",
+          "developpement": "Les revenus du spectacle peuvent dépendre d'une audience et de contrats publicitaires. Ces contrats expliquent de hauts revenus, mais ne prouvent pas qu'un sportif mérite d'être payé tellement plus que ceux qui rendent d'autres services.",
+          "exemple": "Un annonceur peut payer pour que sa marque apparaisse pendant un match très suivi. Une équipe de soins qui accompagne des personnes dépendantes ne vend pas cette visibilité : ses services restent essentiels sans attirer les mêmes contrats.",
+          "consequence": "On peut donc comprendre d'où vient l'argent sans juger le montant raisonnable."
+        },
+        {
+          "idea": "Ensuite, la répartition des moyens à l'intérieur du sport mérite discussion.",
+          "developpement": "Lorsqu'un club dispose d'un budget limité, consacrer une très grande part à une seule personne réduit les possibilités pour d'autres priorités. Il faut regarder les ressources qui restent pour l'encadrement, les installations et la formation.",
+          "exemple": "Un club au budget limité peut choisir un contrat très coûteux puis reporter l'achat de matériel pour ses jeunes, faute de moyens restants. Même si la vedette attire du public, l'argent du contrat n'est plus disponible pour ce matériel.",
+          "consequence": "La réussite sportive ne devrait pas faire oublier l'ensemble de ceux qui la rendent possible."
+        },
+        {
+          "idea": "Enfin, voir surtout ces fortunes peut faire croire que réussir, c'est devenir riche.",
+          "developpement": "Quand seuls les contrats spectaculaires retiennent l'attention, on risque de confondre bien pratiquer un sport, devenir célèbre et devenir riche. Ce sont pourtant des objectifs différents, qui ne décrivent pas tous les parcours.",
+          "exemple": "Un adolescent impressionné par les revenus des champions peut juger inutile de poursuivre sa formation. Son éducateur lui présente des sportifs moins médiatisés qui étudient aussi : le jeune découvre alors d'autres façons de réussir dans ce milieu.",
+          "consequence": "Cela permet d'apprécier le sport sans réduire sa valeur à un montant."
+        }
+      ],
+      "nuance": "Cependant, les vedettes peuvent générer d'importantes recettes, et une carrière peut être courte ou interrompue. Cela explique des revenus sans les rendre indiscutables. Une baisse ne financerait pas automatiquement les services publics : les budgets des clubs et des hôpitaux sont différents.",
+      "conclusion": "En conclusion, je critique certains excès, pas le fait de rémunérer les sportifs. La valeur du sport, l'équilibre des budgets et la diversité des réussites doivent rester visibles derrière les contrats des vedettes."
+    },
+    "economie-p3": {
+      "prompt_signatures": {
+        "economie:p3": "2f796b7b2023a58874e7b3ee82ee8fe58f9ba90de593341c7ab59c32a3233ca2"
+      },
+      "reformulation": "Distinguer une capacité à développer d'une aptitude automatique et universelle à diriger.",
+      "position": "Une aptitude à diriger peut se développer, mais ne doit pas être supposée universelle.",
+      "position_claire": "Je ne dirais pas que chacun est forcément capable d'occuper une fonction de responsable. Beaucoup peuvent s'y préparer, mais l'aptitude doit être vérifiée, pas supposée. Coordonner, décider et gérer des moyens demandent des compétences que la seule réussite dans son métier ne démontre pas.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, coordonner une équipe est différent de réussir seul ses propres tâches.",
+          "developpement": "Un responsable doit comprendre les difficultés de plusieurs personnes et organiser leur travail ensemble. S'il fait tout lui-même ou donne des instructions contradictoires, sa compétence technique ne suffit plus à faire fonctionner l'équipe.",
+          "exemple": "Un excellent vendeur promu responsable peut continuer à servir tous les clients sans expliquer à ses collègues comment répartir l'accueil et les commandes. Le magasin se désorganise malgré ses bonnes ventes personnelles. Il doit apprendre à déléguer et à vérifier la répartition.",
+          "consequence": "La promotion implique donc un changement de rôle, pas seulement un titre."
+        },
+        {
+          "idea": "Ensuite, il faut savoir choisir entre plusieurs demandes et expliquer ses décisions.",
+          "developpement": "On ne peut pas toujours satisfaire toutes les demandes en même temps. Un responsable doit examiner les contraintes, annoncer un choix et répondre aux objections, sans éviter systématiquement le désaccord ni imposer une décision sans explication.",
+          "exemple": "Dans une association, deux équipes demandent la même salle. Le responsable donne la priorité à l'activité dont la date est déjà annoncée et propose un autre créneau à l'autre équipe. Chacune peut alors organiser sa réunion sur une base claire.",
+          "consequence": "On juge donc sa capacité à décider dans les faits, pas seulement sa bonne volonté."
+        },
+        {
+          "idea": "Enfin, des compétences pratiques de gestion sont nécessaires.",
+          "developpement": "Organiser un budget ou un planning exige que l'on connaisse les ressources disponibles et les engagements pris. La motivation ne remplace pas ces informations, et une erreur peut mettre les autres en difficulté.",
+          "exemple": "Avant une activité associative, un futur responsable prépare un budget avec une personne expérimentée. Il compare le coût de la salle et du matériel aux recettes possibles. Si les dépenses dépassent les moyens, il choisit un lieu moins cher avant de s'engager.",
+          "consequence": "En s'exerçant avec de l'aide, le futur responsable voit ce qu'il maîtrise et ce qu'il doit apprendre."
+        }
+      ],
+      "nuance": "Cependant, un manque actuel de préparation n'est pas une incapacité définitive. La formation peut développer les aptitudes, à vérifier ensuite en pratique. Refuser une promotion ne prouve pas non plus une incapacité : on peut ne pas vouloir ce rôle ou ces conditions.",
+      "conclusion": "En conclusion, un responsable doit apprendre et montrer qu'il sait tenir son poste. Bien connaître un métier, vouloir diriger et savoir gérer une équipe sont trois choses différentes."
+    },
+    "economie-p4": {
+      "prompt_signatures": {
+        "economie:p4": "257da7c5bc731bd0e129146fd05aaf04d3fcd37bbb731adc4dc6b5df17e950a4"
+      },
+      "reformulation": "Évaluer l'autorisation d'une sieste volontaire et organisée, pas une obligation ni une solution médicale.",
+      "position": "Autoriser un repos planifié lorsque le service et la sécurité le permettent.",
+      "position_claire": "Je suis favorable à une courte sieste quand l'organisation le permet, sans l'imposer ni remplacer le sommeil nécessaire. Une pause planifiée peut aider à récupérer, rendre la fatigue plus facile à signaler et ouvrir cette possibilité à davantage de salariés.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, un repos peut aider à retrouver de l'attention.",
+          "developpement": "Continuer une tâche en luttant contre la somnolence n'est pas forcément efficace. Une sieste prévue peut contribuer à la vigilance, à condition qu'on ait aussi le temps de se réveiller correctement avant de reprendre le travail.",
+          "exemple": "Une personne somnolente relit plusieurs fois un document sans en suivre le raisonnement. Après une pause autorisée dans un espace calme et un temps de réveil, elle peut retrouver le fil et reprendre ses vérifications.",
+          "consequence": "La pause peut aider à se concentrer, sans garantir le même résultat pour tous."
+        },
+        {
+          "idea": "Ensuite, une autorisation claire permet de parler de fatigue sans la cacher.",
+          "developpement": "Si se reposer est toujours considéré comme un manque de sérieux, un salarié peut hésiter à signaler qu'il n'est plus assez attentif. Reconnaître ce besoin ouvre une discussion sur la charge de travail et les horaires.",
+          "exemple": "Un salarié demande à dormir pendant sa pause parce qu'il somnole. Comme la difficulté se répète, il en parle avec son responsable, qui décale sa prochaine prise de poste pour allonger la récupération. La sieste permet ainsi d'aborder un problème d'horaires jusque-là caché.",
+          "consequence": "La pause doit permettre de mieux organiser le travail, pas de faire accepter l'épuisement."
+        },
+        {
+          "idea": "Enfin, une règle commune peut rendre l'accès au repos plus équitable.",
+          "developpement": "Sans organisation, une personne disposant d'un bureau isolé peut se reposer discrètement, tandis qu'une autre reste exposée au regard du public. Prévoir un lieu et des relais permet de ne pas réserver cette possibilité aux postes les moins visibles.",
+          "exemple": "À un accueil, deux collègues peuvent alterner leurs pauses avec l'accord du responsable et utiliser un espace calme. Le relais permet alors à ces salariés de bénéficier eux aussi d'un repos, sans laisser l'accueil fermé ni devoir se cacher.",
+          "consequence": "Les collègues ont ainsi des possibilités de repos plus équitables, sans interrompre le service."
+        }
+      ],
+      "nuance": "Cependant, toutes les tâches ne permettent pas cette organisation. Avant une activité à risque, il faut retrouver une vigilance suffisante, pas seulement attendre une sonnerie. Une fatigue persistante mérite une attention adaptée ; la sieste ne justifie ni des horaires intenables ni un manque chronique de sommeil.",
+      "conclusion": "En conclusion, j'autoriserais une sieste volontaire et encadrée là où elle est réalisable. Récupération, dialogue sur la fatigue et accès équitable doivent aller ensemble, sans présenter cette pause comme une garantie de santé ou de sécurité."
+    },
+    "economie-p6": {
+      "prompt_signatures": {
+        "economie:p6": "58f8a018296885a6be7d692ff547b3a063a308e66d34a50708c31aa135c8a371",
+        "economie:p21": "58f8a018296885a6be7d692ff547b3a063a308e66d34a50708c31aa135c8a371"
+      },
+      "reformulation": "Expliquer pourquoi le bien-être au travail mérite des mesures concrètes et pas seulement des avantages symboliques.",
+      "position": "Le bien-être peut protéger les personnes, aider à bien travailler et donner envie de rester dans l'équipe.",
+      "position_claire": "Oui, il est important de favoriser le bien-être au travail. Au-delà des activités agréables, il faut regarder la charge, les relations et les moyens disponibles. Un cadre respectueux protège les personnes, aide à bien travailler et donne des raisons de rester dans l'équipe.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, les exigences doivent rester compatibles avec la santé.",
+          "developpement": "Une accumulation de demandes sans priorités ni possibilités de récupération peut épuiser. Agir sur l'organisation est plus utile que demander à chacun de supporter seul une charge excessive ou de mieux gérer son stress.",
+          "exemple": "Un salarié reçoit trois tâches urgentes qu'il ne peut pas terminer dans la journée. Son responsable précise laquelle passe en premier, reporte une échéance et répartit une partie du travail. Il modifie la cause de la pression plutôt que proposer seulement un conseil de détente.",
+          "consequence": "Le bien-être suppose des conditions qui permettent de tenir dans la durée."
+        },
+        {
+          "idea": "Ensuite, un climat d'écoute aide à résoudre les problèmes du travail.",
+          "developpement": "Quand une personne peut signaler une difficulté sans être humiliée, l'équipe obtient une information utile. Elle peut corriger une méthode ou demander les moyens nécessaires, au lieu de découvrir le problème trop tard.",
+          "exemple": "Une employée remarque que deux consignes de préparation se contredisent. Si elle peut le dire, l'équipe clarifie la procédure avant d'envoyer une commande incomplète. Si elle craint une remarque agressive, elle risque de choisir seule sans pouvoir vérifier.",
+          "consequence": "Le respect n'est donc pas opposé à l'exigence : il facilite un travail plus fiable."
+        },
+        {
+          "idea": "Enfin, de bonnes conditions peuvent donner envie aux salariés de rester dans l'équipe.",
+          "developpement": "Lorsqu'une personne trouve une organisation compatible avec sa vie et se sent considérée, elle peut avoir davantage de raisons de rester. L'entreprise peut ainsi garder son savoir-faire et éviter de former sans cesse de nouvelles personnes.",
+          "exemple": "Une salariée expérimentée envisage de partir parce que ses horaires changent au dernier moment. Un planning plus prévisible peut rendre le poste à nouveau compatible avec ses contraintes. Si elle reste, elle continue aussi à accompagner les nouveaux collègues.",
+          "consequence": "Pour donner envie de rester, il faut donc résoudre les difficultés, pas seulement demander aux salariés d'être fidèles."
+        }
+      ],
+      "nuance": "Cependant, aucune mesure ne garantit l'absence de conflit, de fatigue ou de départ. Les objectifs restent nécessaires et les ressources ne sont pas illimitées. Il faut discuter les priorités avec l'équipe et suivre les difficultés, sans remplacer des conditions correctes par une salle de loisirs ou une animation.",
+      "conclusion": "En conclusion, prendre soin des salariés demande que le travail soit bien organisé. Une charge tenable, la possibilité de parler et des horaires prévisibles valent davantage que des avantages de façade."
+    },
+    "economie-p9": {
+      "prompt_signatures": {
+        "economie:p9": "f2540f9f64e308e67296167685fcbe23723dc64a6bec6653395f40f15bf7d5cd",
+        "economie:p13": "f2540f9f64e308e67296167685fcbe23723dc64a6bec6653395f40f15bf7d5cd"
+      },
+      "reformulation": "Discuter la priorité du salaire dans le choix d'un emploi, sans minimiser les besoins matériels.",
+      "position": "Le salaire peut être prioritaire, mais il ne suffit pas à classer tous les emplois.",
+      "position_claire": "Le salaire est un critère essentiel, mais je ne le placerais pas toujours au-dessus de tous les autres. Un emploi doit permettre de vivre ; il occupe aussi une grande partie de notre temps. Pour comparer deux postes, je regarderais les conditions, l'intérêt des missions et les éventuels mois sans salaire.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, les conditions de travail peuvent modifier fortement l'intérêt d'un salaire.",
+          "developpement": "Des horaires très lourds peuvent réduire la récupération et fragiliser la santé. Un montant plus élevé ne rend pas automatiquement ces conditions tenables et ne remplace pas le temps nécessaire à ses proches. Il faut qu'on regarde au-delà du salaire mensuel.",
+          "exemple": "Une personne peut comparer une promotion impliquant de fréquents déplacements avec un poste moins payé mais compatible avec ses engagements familiaux. Si ses besoins restent couverts, elle peut choisir le second poste pour préserver sa vie familiale.",
+          "consequence": "Le bon choix dépend donc aussi de la vie que le poste permet de mener."
+        },
+        {
+          "idea": "Ensuite, l'intérêt du travail compte aussi quand on choisit un poste.",
+          "developpement": "Comprendre l'utilité de son travail et avoir des occasions d'apprendre donne des raisons de s'investir. Cela ne remplace pas une rémunération correcte, mais peut départager deux postes qui permettent déjà de couvrir ses besoins.",
+          "exemple": "Une technicienne peut choisir entre un poste répétitif un peu mieux payé et un autre où elle apprend à diagnostiquer de nouvelles pannes. Si les deux salaires couvrent ses besoins, elle peut préférer l'apprentissage et les missions proposées.",
+          "consequence": "Ce choix exprime un projet professionnel, pas un manque d'ambition."
+        },
+        {
+          "idea": "Enfin, il faut regarder combien on gagnera sur l'année, pas seulement le salaire annoncé.",
+          "developpement": "Une somme élevée pendant une courte mission n'assure pas le même revenu sur l'année qu'un emploi plus régulier. La durée prévue, les périodes sans activité et les protections applicables changent la comparaison.",
+          "exemple": "Une personne compare une mission de deux mois très bien payée et un poste durable moins rémunéré. En comptant aussi les mois sans mission, elle constate que la seconde option couvrirait plus régulièrement ses dépenses.",
+          "consequence": "La stabilité peut donc peser davantage que le montant affiché."
+        }
+      ],
+      "nuance": "Cependant, quelqu'un qui peine à payer ses besoins essentiels peut légitimement mettre le salaire en premier. D'autres peuvent aussi le privilégier pour un projet d'épargne. Tout le monde ne dispose pas de plusieurs offres, et un contrat durable n'est pas une garantie absolue contre la perte d'emploi.",
+      "conclusion": "En conclusion, le salaire compte beaucoup, mais il ne passe pas toujours avant tout. Je chercherais un revenu adapté à mes besoins dans un emploi compatible avec ma vie, intéressant et assez régulier pour prévoir mes dépenses."
+    },
+    "economie-p10": {
+      "prompt_signatures": {
+        "economie:p10": "52807fc88b9aeb0bfb5b04b5d2ba5eff033e7f31a0093a52b24620dc5b82127a"
+      },
+      "reformulation": "Examiner les obstacles possibles en début de carrière sans assimiler tous les jeunes à des débutants.",
+      "position": "Débuter peut rendre la recherche plus difficile, sans classement universel des âges.",
+      "position_claire": "Les jeunes qui débutent peuvent rencontrer des obstacles particuliers : prouver leurs capacités, accéder aux informations et financer leur recherche. Mais l'âge seul n'explique pas tout : certains jeunes ont déjà une expérience, et des candidats plus âgés rencontrent aussi des difficultés.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, il est difficile de prouver une expérience qu'on cherche justement à acquérir.",
+          "developpement": "Un employeur peut vouloir des exemples de tâches déjà réalisées pour limiter le temps de formation. Un débutant a parfois les connaissances nécessaires sans disposer encore de réalisations professionnelles faciles à présenter.",
+          "exemple": "Une offre de poste débutant demande de gérer seul des commandes clients. Une candidate présente un projet scolaire, mais le recruteur lui demande une situation réelle qu'elle n'a pas encore rencontrée. Sa candidature bloque sur l'expérience attendue, pas sur une erreur technique.",
+          "consequence": "Il lui manque donc une expérience à montrer, ce qui ne veut pas dire qu'elle ne peut pas apprendre."
+        },
+        {
+          "idea": "Ensuite, les contacts professionnels peuvent être moins développés.",
+          "developpement": "Connaître des personnes dans un secteur aide à comprendre les attentes et à repérer des possibilités. On peut construire ce réseau, mais cela demande du temps lorsque l'on ne connaît encore ni collègues ni employeurs dans le domaine.",
+          "exemple": "Un ancien collègue informe une candidate qu'un service prépare un recrutement et lui précise les missions. Elle peut préparer des exemples adaptés avant l'annonce. Une personne sans ce contact doit d'abord trouver un interlocuteur pour obtenir ces indications.",
+          "consequence": "L'accès à l'information peut donc être inégal avant même l'envoi du CV."
+        },
+        {
+          "idea": "Enfin, les moyens matériels disponibles peuvent limiter la recherche.",
+          "developpement": "Se déplacer pour un entretien, garder une connexion ou se former prend du temps et parfois de l'argent. Un débutant sans épargne ni soutien peut devoir accepter rapidement un autre travail au lieu de poursuivre sa recherche dans le métier souhaité.",
+          "exemple": "Une personne travaillant à temps partiel pour payer son logement peut peiner à financer un déplacement lointain et à se libérer pour l'entretien. Un échange à distance ou des horaires proposés à l'avance peuvent lui permettre de passer l'entretien.",
+          "consequence": "Ces solutions peuvent donc faciliter la candidature sans diminuer les exigences du poste."
+        }
+      ],
+      "nuance": "Cependant, une formation pratique, des contacts et des offres adaptées peuvent faciliter l'entrée. Il faut aussi qu'on examine les obstacles rencontrés plus tard dans la carrière, sans opposer les générations ni supposer tous les jeunes désavantagés.",
+      "conclusion": "En conclusion, débuter peut compliquer la recherche par le manque de preuves, de contacts et de moyens. Je défends donc des voies d'entrée accessibles plutôt que l'idée que la jeunesse serait en elle-même une faiblesse professionnelle."
+    },
+    "economie-p15": {
+      "prompt_signatures": {
+        "economie:p15": "dbaf926a1efb843e7ed14a334629410385ffbdb8663cd344567f756e300047a0"
+      },
+      "reformulation": "Évaluer les obstacles au travail à l'étranger sans supposer une procédure identique dans tous les pays.",
+      "position": "C'est possible, mais pas automatiquement facile.",
+      "position_claire": "Je ne dirais pas qu'il est facile de partir travailler à l'étranger. Cela peut être une très bonne expérience, mais une offre intéressante ne règle pas toutes les difficultés. Il faut vérifier son droit de travailler, préparer les échanges avec l'équipe et savoir si l'on peut exercer son métier dans le pays choisi.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, le droit de travailler doit être vérifié avant de s'engager.",
+          "developpement": "Les démarches dépendent de la nationalité, du statut et de la destination. On ne peut donc ni supposer qu'un permis est toujours nécessaire ni croire qu'un accord avec un employeur suffit dans toutes les situations.",
+          "exemple": "Une personne reçoit une offre à l'étranger. Si une autorisation est nécessaire dans son cas, elle rassemble les pièces demandées et reporte la date de début tant que sa situation n'est pas réglée. L'accord de l'employeur ne suffit donc pas pour commencer.",
+          "consequence": "La date de début dépend donc aussi des règles, pas seulement de l'envie de partir."
+        },
+        {
+          "idea": "Ensuite, travailler dans un autre environnement demande une communication adaptée.",
+          "developpement": "Connaître son métier ne signifie pas pouvoir expliquer immédiatement une difficulté, comprendre toutes les consignes ou négocier un délai dans une autre langue. Les habitudes d'équipe peuvent aussi nécessiter des explications.",
+          "exemple": "Une technicienne sait résoudre une panne mais ne trouve pas les mots pour demander l'arrêt d'une intervention. Elle prépare cette demande avec un collègue et s'entraîne à décrire ses vérifications. Elle peut alors faire comprendre sa décision à l'équipe.",
+          "consequence": "Il faut donc qu'on apprenne à se faire comprendre, même quand on connaît son métier."
+        },
+        {
+          "idea": "Enfin, l'accès à certaines professions exige une reconnaissance particulière.",
+          "developpement": "Le droit général de travailler et l'autorisation d'exercer un métier réglementé sont deux questions différentes. Selon la destination et la profession, il peut être nécessaire de faire examiner sa formation ou d'accomplir des étapes supplémentaires.",
+          "exemple": "Un professionnel de santé formé ailleurs contacte l'organisme compétent avant de postuler. Si une étape de reconnaissance manque, il l'intègre à son calendrier avant d'exercer. Traduire son diplôme ne règle pas cette étape.",
+          "consequence": "Trouver un employeur ne donne donc pas automatiquement le droit de travailler ni celui d'exercer ce métier."
+        }
+      ],
+      "nuance": "Cependant, certaines mobilités sont simples lorsque les règles le permettent, que la langue est maîtrisée ou que l'employeur accompagne l'installation. Les difficultés ne sont donc ni identiques ni insurmontables. Il faut aussi prévoir le logement et les dépenses de départ, sans annoncer des frais ou des délais universels.",
+      "conclusion": "En conclusion, partir travailler à l'étranger est un projet possible, mais sa facilité dépend de conditions concrètes. Vérifier les règles, préparer les échanges et clarifier l'accès au métier permet de partir avec un projet plus solide."
+    },
+    "economie-p16": {
+      "prompt_signatures": {
+        "economie:p16": "4e1ef5e7e84c904c31522ef181fe481e31923b8fa6d647fe393d83e20ba1de60"
+      },
+      "reformulation": "Présenter des raisons de développer le tourisme sans garantir tous ses effets.",
+      "position": "Un tourisme maîtrisé peut soutenir les revenus, créer du travail dans les régions et transmettre le patrimoine.",
+      "position_claire": "Un pays peut vouloir développer le tourisme pour apporter des revenus, créer du travail dans certaines régions et faire connaître son patrimoine. Ces objectifs me paraissent légitimes si les habitants en bénéficient réellement. Attirer toujours davantage de visiteurs n'est pas une fin en soi : il faut regarder ce que leur présence apporte et ce qu'elle coûte.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, les dépenses des visiteurs peuvent soutenir plusieurs activités locales.",
+          "developpement": "Les visiteurs paient un hébergement, des repas, des transports et des services. Si les prestataires et leurs fournisseurs sont locaux, une partie de cet argent rémunère des travailleurs et des producteurs.",
+          "exemple": "Un petit hébergement peut proposer à ses clients une visite avec un guide local et acheter les ingrédients de ses petits-déjeuners auprès de producteurs proches. Le visiteur ne fait alors pas travailler seulement la personne qui lui loue une chambre.",
+          "consequence": "Les revenus locaux dépendent donc aussi des entreprises choisies par les visiteurs."
+        },
+        {
+          "idea": "Ensuite, le tourisme peut créer du travail loin des grands centres.",
+          "developpement": "Une région disposant de peu d'employeurs peut s'appuyer sur ses paysages ou ses savoir-faire pour développer des activités. Cela peut permettre à des habitants de travailler sur place, plutôt que devoir déménager pour trouver une possibilité.",
+          "exemple": "Dans un village, un artisan peut proposer des visites d'atelier et former une personne de la commune pour les animer. Il conserve ses autres clients, mais crée ainsi une activité complémentaire sur place, sans dépendre uniquement des visiteurs.",
+          "consequence": "Les habitants peuvent donc trouver une activité près de chez eux, loin des grandes villes."
+        },
+        {
+          "idea": "Enfin, il peut contribuer à entretenir et transmettre un patrimoine.",
+          "developpement": "Faire découvrir un lieu ou un savoir-faire donne une occasion de financer un entretien et d'expliquer une histoire. Il faut consacrer une partie des recettes à l'entretien et aux explications, pas seulement vendre une image attractive.",
+          "exemple": "Un site historique peut prévoir qu'une partie des recettes serve à l'entretien et à des visites commentées. Les visiteurs comprennent ce qu'ils voient, tandis que le lieu reste aussi accessible aux habitants.",
+          "consequence": "Le patrimoine devient un contenu à partager, pas uniquement un décor pour des photos."
+        }
+      ],
+      "nuance": "Cependant, les bénéfices ne sont pas automatiques : saisonnalité, pression sur le logement et dégradation des sites peuvent peser sur les habitants. Il faut leur donner une place dans les décisions, suivre les effets et limiter certaines fréquentations si nécessaire, plutôt que promettre qu'un afflux sauvera tous les services locaux.",
+      "conclusion": "En conclusion, développer le tourisme peut répondre à des objectifs économiques et culturels solides. Je privilégierais des revenus réellement partagés, du travail dans les régions et un patrimoine entretenu, plutôt qu'une simple course au nombre de visiteurs."
+    },
+    "economie-p17": {
+      "prompt_signatures": {
+        "economie:p17": "c55a925b40cf47ca217a8de493ec4c9764835ef7e78967bce824fff58c841801"
+      },
+      "reformulation": "Exprimer une préférence de management sans attribuer des qualités à un sexe.",
+      "position": "Je préfère un responsable compétent et respectueux, sans préférence entre homme et femme.",
+      "position_claire": "Je n'ai pas de préférence entre travailler sous la responsabilité d'un homme ou d'une femme. Je préfère une personne qui organise clairement le travail, traite les difficultés avec respect et applique des critères équitables. Son sexe ne me permet pas de prévoir ces comportements ; je regarderais sa manière réelle de diriger.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, une organisation claire facilite mon travail au quotidien.",
+          "developpement": "J'ai besoin de comprendre les priorités, les responsabilités et les moyens disponibles. Ce sont des décisions et des habitudes observables, pas des qualités que l'on peut déduire du fait que le responsable est un homme ou une femme.",
+          "exemple": "Si deux tâches urgentes arrivent en même temps, j'apprécie que mon responsable précise laquelle traiter d'abord et ce qui peut attendre. Une réponse claire évite de décevoir deux interlocuteurs en essayant de tout faire à la fois.",
+          "consequence": "Je regarde comment la personne organise le travail, pas si c'est un homme ou une femme."
+        },
+        {
+          "idea": "Ensuite, je préfère pouvoir signaler un problème sans être rabaissé.",
+          "developpement": "L'écoute permet de comprendre un obstacle et de chercher une réponse, tout en gardant des exigences. L'autorité et le respect peuvent aller ensemble ; je ne réserverais ni la fermeté aux hommes ni l'attention aux femmes.",
+          "exemple": "Si je signale qu'une consigne manque, un responsable respectueux vérifie l'information et me la transmet sans me rabaisser. Je peux alors reprendre le travail au lieu de rester bloqué par une demande incomplète, que cette personne soit un homme ou une femme.",
+          "consequence": "C'est sa réaction concrète qui construit ma confiance."
+        },
+        {
+          "idea": "Enfin, une préférence fondée sur le sexe risquerait d'écarter des personnes capables.",
+          "developpement": "Je souhaite que l'on juge les compétences et les décisions avec les mêmes critères. Un même comportement peut être jugé différemment selon le sexe du responsable. Ce préjugé peut nous empêcher de travailler avec une personne compétente.",
+          "exemple": "Lors du choix d'un responsable de projet, une candidate peut présenter une organisation solide et connaître les contraintes de l'équipe. L'écarter parce qu'on imagine qu'un homme aurait davantage d'autorité ferait ignorer ses compétences à cause d'un préjugé.",
+          "consequence": "Je préfère donner à chaque personne la possibilité de démontrer sa manière de travailler."
+        }
+      ],
+      "nuance": "Cependant, une expérience difficile peut influencer la confiance que l'on accorde à un nouveau responsable. Ce ressenti mérite d'être entendu, sans devenir une conclusion sur tous les hommes ou toutes les femmes. On peut préciser les comportements que l'on veut éviter et observer la nouvelle personne individuellement.",
+      "conclusion": "En conclusion, je choisirais un responsable pour sa clarté, son respect et son équité. Homme ou femme, la personne qui réunit ces qualités correspond davantage à ma préférence qu'un profil défini par son sexe."
+    },
+    "economie-p18": {
+      "prompt_signatures": {
+        "economie:p18": "27e83dacb8e839232cb16fc92f54238929ca596905a626c289634bff13acd246"
+      },
+      "reformulation": "Distinguer les moyens de vivre correctement d'une obligation de richesse pour profiter de la vie.",
+      "position": "Il faut des ressources suffisantes, pas nécessairement beaucoup d'argent.",
+      "position_claire": "Je ne pense pas qu'il faille gagner beaucoup d'argent pour profiter de la vie. Des moyens suffisants sont nécessaires, mais le plaisir ne se résume pas au prix des achats. Les relations, les activités choisies et le temps disponible comptent aussi.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, certains moments partagés demandent surtout de la présence.",
+          "developpement": "Se sentir écouté ou passer du temps avec une personne appréciée peut apporter une satisfaction qui ne dépend pas d'une dépense élevée. Cela suppose tout de même de disposer d'un lieu accessible et d'un peu de disponibilité.",
+          "exemple": "Deux amis peuvent préparer un repas simple puis se promener dans leur quartier. Ce qui rend le moment agréable est la conversation et l'attention qu'ils s'accordent, pas le fait d'avoir choisi un restaurant coûteux ou un voyage lointain.",
+          "consequence": "Un budget limité ne supprime donc pas toute possibilité de plaisir partagé."
+        },
+        {
+          "idea": "Ensuite, une activité intéressante n'a pas besoin d'être prestigieuse ou chère.",
+          "developpement": "Apprendre, créer ou contribuer à un projet peut donner du plaisir parce qu'on s'y engage et qu'on voit une progression. La valeur dépend alors du contenu de l'activité et de ce qu'on aime, pas uniquement du matériel acheté.",
+          "exemple": "Une personne qui aime dessiner peut suivre sa progression dans un carnet avec du matériel simple. Elle choisit un sujet, recommence et apprécie ce qu'elle réussit à représenter. Acheter tout de suite un équipement professionnel n'est pas une condition pour commencer à y prendre plaisir.",
+          "consequence": "Il faut donc choisir une activité qui nous plaît, sans attendre de pouvoir acheter toujours plus."
+        },
+        {
+          "idea": "Enfin, gagner davantage peut parfois coûter du temps pour en profiter.",
+          "developpement": "Un revenu supplémentaire peut être utile, mais les horaires ou les déplacements exigés peuvent entrer en conflit avec les moments que l'on apprécie. Si l'on peut choisir, il faut comparer l'argent gagné au temps que l'on perd.",
+          "exemple": "Une personne dont les besoins sont couverts peut refuser des heures supplémentaires régulières pour garder une soirée consacrée à une activité qu'elle aime. Elle ne refuse pas tout progrès matériel : elle protège une partie de sa vie qu'elle juge importante.",
+          "consequence": "Gagner plus ne veut donc pas toujours dire profiter davantage de la vie."
+        }
+      ],
+      "nuance": "Cependant, il ne faut pas idéaliser les petits budgets. Le manque d'argent limite des possibilités, et chacun ne choisit pas ses horaires. Aucun seuil universel ne sépare nécessaire et superflu : les charges, la santé et les obligations familiales changent les besoins.",
+      "conclusion": "En conclusion, il faut pouvoir payer le nécessaire, sans devoir devenir riche. Je chercherais à garder du temps pour mes proches et les activités que j'aime, sans mettre mon budget en difficulté."
+    },
+    "economie-p20": {
+      "prompt_signatures": {
+        "economie:p20": "43dc7d59dde67bee63c3643eb3292038bf6a7fd21b19dc1e9f3ce1d15b4d1f2e"
+      },
+      "reformulation": "Examiner le lien entre difficulté et rémunération sans opposer métiers manuels et intellectuels.",
+      "position": "La difficulté d'un métier ne suffit pas à déterminer son salaire.",
+      "position_claire": "Non, les métiers difficiles ne sont pas automatiquement les mieux payés. La difficulté peut être physique, technique, émotionnelle ou liée aux responsabilités. Le salaire dépend aussi du recrutement, des moyens de l'employeur et de la négociation. Il ne mesure pas exactement l'effort.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, les contraintes d'un poste ne se traduisent pas toutes dans le salaire.",
+          "developpement": "Un travail peut demander des gestes répétitifs, des horaires pénibles ou une attention constante sans être payé davantage pour ces efforts. Il faut qu'on examine le poste réel plutôt que de supposer qu'il est bien payé parce qu'il est difficile.",
+          "exemple": "Une personne chargée du nettoyage peut devoir travailler tôt, déplacer du matériel et respecter un temps limité pour chaque espace. Ces contraintes sont réelles même si son salaire reste modeste ; elles ne disparaissent pas parce que le poste est peu visible.",
+          "consequence": "Le montant reçu ne permet donc pas de conclure que le travail est facile."
+        },
+        {
+          "idea": "Ensuite, une compétence recherchée peut renforcer la négociation.",
+          "developpement": "Si un employeur a besoin d'une expertise précise et trouve peu de candidats, il peut proposer davantage pour recruter. Cela reflète une situation de recrutement, pas une comparaison complète des efforts avec tous les autres métiers.",
+          "exemple": "Une entreprise qui ne trouve pas de spécialiste pour remettre en service un équipement peut relever sa proposition. Le poste n'est pas devenu soudainement plus difficile : c'est le manque de candidats disponibles qui change la négociation.",
+          "consequence": "Le salaire peut donc augmenter alors que les tâches restent les mêmes."
+        },
+        {
+          "idea": "Enfin, les budgets et les règles collectives influencent aussi la paie.",
+          "developpement": "Deux personnes qui font un travail comparable peuvent avoir des employeurs aux moyens différents. Le budget, les grilles de salaires et la négociation influencent alors ce qu'elles gagnent.",
+          "exemple": "Deux structures confient à leurs salariés une aide quotidienne comparable auprès de personnes dépendantes. L'une obtient un financement qui lui permet d'augmenter les salaires ; l'autre garde son ancien budget. Le même accompagnement peut alors être payé différemment.",
+          "consequence": "La paie dépend donc aussi des moyens de l'employeur et de ses décisions."
+        }
+      ],
+      "nuance": "Cependant, certaines rémunérations reconnaissent effectivement des risques, des horaires ou des responsabilités. Les métiers de bureau peuvent aussi être très exigeants, et les métiers manuels mobilisent des compétences. Dire que la difficulté n'explique pas tout n'empêche pas de défendre une meilleure compensation des contraintes mal reconnues.",
+      "conclusion": "En conclusion, difficulté et salaire peuvent être liés, mais ils ne suivent pas une règle automatique. Pour comprendre les écarts, il faut regarder les conditions réelles, le recrutement et les règles de salaire, sans classer la valeur des personnes d'après leur paie."
+    }
+  }
+}

@@ -13,16 +13,18 @@ from django.test.utils import CaptureQueriesContext
 from django.urls import NoReverseMatch, Resolver404, resolve, reverse
 from django.utils import timezone
 
-from study import content_loader as content, queue, srs
-from study.account_services import provision_user_study_data
+from study.catalogue import loader as content
+from study.review import queue
+from study.review import scheduling as srs
+from study.accounts.services import provision_user_study_data
 from study.management.commands.import_content import Command, PHRASE_ID_MERGES
 from study.models import (
     Annotation, AnnotationKind, Card, CardState, OralStateSnapshot, PersonalResponse,
     Phrase, PhraseTier, Prompt, Rating, Response, ReviewLog, ReviewSession,
 )
-from study.oral_history import annotation_owners, personal_versions, preferred_personal, save_personal
-from study.progress import subject_progress_by_response
-from study.routing import prompt_detail_url, subject_group_url
+from study.expression.eo.history import annotation_owners, personal_versions, preferred_personal, save_personal
+from study.review.progress import subject_progress_by_response
+from study.navigation.routing import prompt_detail_url, subject_group_url
 from . import factories
 
 
@@ -534,9 +536,7 @@ class OralImportPreservationTests(TestCase):
         detail = self.client.get(prompt_detail_url(first_prompt))
         self.assertContains(detail, "The first original model")
         self.assertNotContains(detail, "The second original model")
-        self.assertIn(f"prompt={first_prompt.pk}", detail.context["response_review_url"])
-        self.assertNotIn("model=", detail.context["response_review_url"])
-        self.assertNotIn("personal=", detail.context["response_review_url"])
+        self.assertNotIn("response_review_url", detail.context)
         self.assertNotIn("oral_model_variants", detail.context)
         self.assertNotContains(detail, "Versions du sujet")
         self.assertContains(
@@ -670,8 +670,8 @@ class OralCorpusUpgradeTests(TestCase):
         with (
             patch.object(content, "parse_responses", content.parse_response_storage),
             patch.object(content, "parse_tache_two_responses", content.parse_tache_two_storage_responses),
-            patch("study.tache_three_models.load_tache_three_models", return_value={}),
-            patch("study.tache_three_prompt_notes.load_tache_three_prompt_notes", return_value={}),
+            patch("study.expression.eo.tache_3.responses.load_tache_three_models", return_value={}),
+            patch("study.expression.eo.tache_3.prompt_notes.load_tache_three_prompt_notes", return_value={}),
         ):
             call_command("import_content", stdout=StringIO())
         users = [factories.make_user("upgrade-a"), factories.make_user("upgrade-b")]

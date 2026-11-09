@@ -322,7 +322,8 @@ and **save and highlight** actions. Note-only saving leaves existing highlights
 unchanged. If translation is unavailable, the translation dialog can still save
 the selected French passage as a note without highlighting it; no translation
 is invented or fetched from Google automatically. The **Nouvelle note** dialog
-also saves without creating a highlight.
+uses icon-only cancel, save and paste-and-close controls with accessible labels;
+saving creates a note, not a highlight.
 
 The selection toolbar's **Translate + note** button (`D`), between Translate and
 Add to Notes, translates and saves in one background request without opening a
@@ -405,7 +406,7 @@ suggests **Open DeepL**. The DeepL link reuses one tab across translations (the
 site sends `Cross-Origin-Opener-Policy: same-origin-allow-popups` for this);
 Google Translate opens a new tab each time because Google severs the opener.
 Selected text goes to DeepL only via the configured key or when a link is opened.
-The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
+The shared `study/shared/partials/pagination.html` pager accepts a Django `page_obj`,
 `page_links` (`number` and `url`), previous/next URLs, and an optional accessible label.
 
 Vocabulary theme, category and comprehension-test pages share a compact,
@@ -445,24 +446,49 @@ against the category total. Learned status is the learner's own assessment of be
 able to reproduce and adapt the formulation or expression, not an exam score.
 
 The file-backed curricula live in
-`study/content/ee/tache_1/formulations.json` and
-`study/content/ee/tache_3/formulations.json`. The EE1 vocabulary reference lives in
-`study/content/ee/tache_1/formulation_vocabulary.json`.
-`study/ee_formulations.py` and `study/ee_formulation_vocabulary.py` validate
+`study/content/expression/ee/tache_1/formulations.json` and
+`study/content/expression/ee/tache_3/formulations.json`. The EE1 vocabulary reference lives in
+`study/content/expression/ee/tache_1/formulation_vocabulary.json`.
+`study/expression/ee/formulations/catalogue.py` and `study/expression/ee/formulations/vocabulary.py` validate
 their task-specific categories, complete effective-source coverage and verbatim
 example provenance. Frames and teaching guidance are editorial adaptations, not
 quotations. Examples refer to the bundled reference corpus, not live summaries of
 edited or personal answers. Source revisions must keep the evidence current, and
 workers must restart after catalogue changes.
 
-EO3 subject navigation uses `study/content/tache_3/subject_taxonomy.json`:
+Bundled content is scoped by skill and task:
+
+```text
+study/content/
+  comprehension/
+    ce/                       # Written tests and their vocabulary
+    co/                       # Listening tests
+    tests.json                # Shared test catalogue; source basenames stay stable
+  expression/
+    eo/tache_{1,2,3}/
+    ee/tache_{1,2,3}/
+  learning/                   # Cross-skill lessons and preservation manifests
+  sections.json               # Shared exam/task catalogue
+```
+
+EO3's `themes/<current-theme>/` folders follow the nine current display themes.
+Each owns `responses.json`, `hints.json`, `prompt_notes.json`, and
+`translations.en.json`; a source identity such as `culture-p3` can therefore live
+under `societe/` without changing saved notes or model keys. Strict readers reject
+missing groups, duplicate ownership, or a theme folder inconsistent with taxonomy.
+`sources/` holds the historical source catalogue and phrase/family indexes;
+`sources/archive/` preserves original Notion response batches under their original
+seven theme names, retired vocabulary decks, and layout history. Archives are
+provenance, not competing current models. There is no old-path compatibility tree.
+
+EO3 subject navigation uses `study/content/expression/eo/tache_3/subject_taxonomy.json`:
 9 display themes and 61 specific subthemes cover all 131 semantic groups and
 167 exact formulations. Every equivalent formulation shares its group's display
 category. These labels are presentation-only: the seven source/vocabulary themes,
 prompt numbers, ownership, URLs, answers and saved learner state remain unchanged.
 Source-theme names accompany original prompt numbers; progress counts unique
 responses in both the deduplicated and all-formulations views. The strict,
-immutable taxonomy is process-cached by `study/catalogue.py`; restart workers after
+immutable taxonomy is process-cached by `study/catalogue/registry.py`; restart workers after
 editing it (tests use `clear_catalogue_cache()`).
 
 Lesson completion keys use `formulation:ee1:v1:<slug>` and
@@ -489,14 +515,14 @@ load its themed banks or provision retired vocabulary cards. Other tasks keep th
 existing vocabulary features.
 
 EE1 keeps one authored repository-default response per canonical subject in
-`study/content/ee/tache_1/responses/`. Imports update that reference corpus without
+`study/content/expression/ee/tache_1/responses/`. Imports update that reference corpus without
 deleting learner-authored responses, overrides, highlights or completion history.
 
 ## Subject pistes and oral equivalence
 
 EO task 2 provides reviewed **eight-question conversations** for all 164 semantic
 situations and their 348 published prompts. The file-backed corpus in
-`study/content/tache_2/dialogues/` uses priority-ordered topic headings,
+`study/content/expression/eo/tache_2/dialogues/` uses priority-ordered topic headings,
 response-grounded follow-ups included in the eight,
 and a separate greeting and final thanks. A short English **Comprendre la consigne** note
 identifies the roles, objective, chosen tu/vous register and contextual traps;
@@ -527,7 +553,7 @@ Individual overrides reset on navigation. Greetings, thanks, headings and
 consignes remain French. Audio still reads the canonical French questions.
 
 English is served only from exact-text DeepL records in
-`study/content/tache_2/translations/questions.en.json`. Toggling never calls a
+`study/content/expression/eo/tache_2/translations/questions.en.json`. Toggling never calls a
 translation provider or changes completion/practice status. French annotation
 text and existing highlights remain intact; English glosses are not French
 annotation sources. Modified private questions are never uploaded automatically:
@@ -563,7 +589,7 @@ a returned traveller's experience, a future project or planning together with
 a friend. Timings, activity seasons, costs and relances stay consistent with the
 replies; all earlier published layouts remain available for annotation recovery.
 
-`study/tache_two_dialogues.py` rejects incomplete coverage, malformed dialogues,
+`study/expression/eo/tache_2/dialogues.py` rejects incomplete coverage, malformed dialogues,
 duplicate questions, noncontiguous headings and invalid follow-up references.
 Subject pages, practice and the personal editor use the same current model.
 Personal questions remain private and take precedence; the editor also preserves
@@ -614,7 +640,7 @@ No single task or fixed set of questions guarantees either level.
 
 EO task 2 subject pages show bilingual **Pistes** (hints): short French information targets
 with English meanings, not ready-made questions. The editorial lists in
-`study/content/tache_2/subjects/hints.json` cover every semantic group, including
+`study/content/expression/eo/tache_2/subjects/hints.json` cover every semantic group, including
 singletons; every equivalent publication shares the same immutable list, whether
 the current response is a model or personal. Each group needs 5–10 unique cues,
 with both languages and at most 100 characters per language. The loader rejects
@@ -691,12 +717,12 @@ its saved practice data remain available in their existing dedicated views.
 EO task 3 provides a collapsed English **Comprendre la consigne** explanation on
 the subject and practice front,
 using the same disclosure style as EO2. The 131 source-pinned notes in
-`study/content/tache_3/prompt_notes.json` cover all 167 publications. Each explains
+`study/content/expression/eo/tache_3/themes/<current-theme>/prompt_notes.json` cover all 167 publications. Each explains
 the exact question, useful terms, concrete discussion angles and scope traps
 without imposing a position or inventing a learner's biography. They remain
 editorial guidance, not personal answer content, and are excluded from annotation
 offsets and French read-aloud text. EO2's editable notes and all EE surfaces remain
-unchanged. The bilingual plans in `study/content/tache_3/hints.json` appear as
+unchanged. The bilingual plans in `study/content/expression/eo/tache_3/themes/<current-theme>/hints.json` appear as
 subject-specific **Pistes** on EO3 detail pages and practice backs: introduction
 and position, three arguments with examples, nuance and conclusion. English and
 French cues use the same presentation as EO2. These shared model plans remain
@@ -706,7 +732,7 @@ Its legacy sidebar markup stays hidden to keep historical annotation offsets
 exact; expressions, study lots and saved progress remain available in their
 existing study collections.
 
-Reviewed EO task 3 defaults live in `study/content/tache_3/responses/`, with
+Reviewed EO task 3 defaults live in `study/content/expression/eo/tache_3/themes/<current-theme>/responses.json`, with
 complete theme coverage and every equivalent source question pinned. They use
 the existing introduction, three supported arguments, nuance and conclusion
 fields. Reviewed practice backs include the supports as well as the claims.
@@ -740,7 +766,7 @@ hints, annotations and interface labels are not included.
 EE task 1 also provides **Pistes** for Invitations & fêtes, Sorties & visites,
 Accueillir un invité, Voyages & vacances, Ville & quartier, Logement &
 déménagement, and Transports & orientation. The 44 canonical lists in
-`study/content/ee/tache_1/hints.json` cover all 96 equivalent publications.
+`study/content/expression/ee/tache_1/hints.json` cover all 96 equivalent publications.
 They summarize reviewed current responses, including authorized customizations,
 without publishing account identifiers or private contact details. Each list has
 5–8 bilingual cues, at most 110 characters per language per cue and 75 French
@@ -802,7 +828,7 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
 
 ## Runtime efficiency
 
-- `study/catalogue.py` shares immutable bundled expression content across requests.
+- `study/catalogue/registry.py` shares immutable bundled expression content across requests.
   Restart workers after content changes; learner progress and database querysets
   are never cached there. Custom-path parsers and content imports still validate
   their inputs directly.
@@ -814,7 +840,7 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   publication once, with card and table presentations of the same elements.
   EO Tâche 3 nests subject families within themes; each level counts unique
   responses for progress without duplicating subject rows.
-  Theme-specific labels in `study/content/tache_3/subject_family_labels.json`
+  Theme-specific labels in `study/content/expression/eo/tache_3/sources/subject_family_labels.json`
   clarify the existing families without changing memberships or saved progress.
   EO/EE subject directories and subject-only searches default to **Dédupliquer**,
   keeping the first displayed occurrence of each equivalent group. The toggle or
@@ -856,17 +882,17 @@ remain history-dependent; the exposure optimization does not truncate or cap the
 | ----------------------------------- | ------------------------------------------------------------ |
 | `config/`                           | Django settings, root URLs, and deployment entry points      |
 | `study/models.py`                   | Persistent study, progress, and account data                 |
-| `study/account_services.py`         | Account provisioning, recovery, and login throttling         |
-| `study/content_loader.py`           | Pure parsing and validation of bundled study content         |
-| `study/catalogue.py`                | Shared immutable expression catalogues and lookup indexes    |
-| `study/ee_formulations.py`          | Validated EE1/EE3 writing frames, evidence and categories    |
-| `study/learning_content.py`         | Validation and cached loading for the Learn curriculum        |
-| `study/course_content.py`           | Typed original course and benchmark coverage contracts       |
-| `study/course_practice.py`          | Server-side selection, grading, exposure and delayed review  |
-| `study/card_presentation.py`        | Review scope parsing and card response payloads              |
-| `study/response_personalization.py` | Canonical and personalized response resolution               |
+| `study/accounts/services.py`         | Account provisioning, recovery, and login throttling         |
+| `study/catalogue/loader.py`           | Pure parsing and validation of bundled study content         |
+| `study/catalogue/registry.py`                | Shared immutable expression catalogues and lookup indexes    |
+| `study/expression/ee/formulations/catalogue.py`          | Validated EE1/EE3 writing frames, evidence and categories    |
+| `study/learning/catalogue.py`         | Validation and cached loading for the Learn curriculum        |
+| `study/learning/courses.py`           | Typed original course and benchmark coverage contracts       |
+| `study/learning/practice.py`          | Server-side selection, grading, exposure and delayed review  |
+| `study/review/presentation.py`        | Review scope parsing and card response payloads              |
+| `study/expression/personalization.py` | Canonical and personalized response resolution               |
 | `study/views/`                      | HTTP request handlers and shared view helpers                |
-| `study/templates/study/partials/`   | Reusable app template fragments                              |
+| `study/templates/study/<feature>/` | Domain-owned pages and partials; shared fragments in `shared/partials/` |
 | `study/static/study/`               | Versioned CSS, JavaScript, icons, and images                 |
 | `study/content/`                    | Source-controlled content imported into the database         |
 | `study/content/learning/`           | Source-controlled lessons rendered by the Learn experience   |
@@ -960,7 +986,12 @@ not proof that every item in a source is covered.
   loader, presentation, and helper modules carry those roles in their names.
 - Browser assets use `kebab-case`; names describe behavior rather than an
   implementation detail or one third-party provider.
-- Reusable templates live under `study/partials/` without underscore prefixes.
+- Reusable templates live in their feature's `partials/` directory; genuinely
+  cross-feature fragments live in `study/shared/partials/`, without underscore prefixes.
+- Collection cards and native tables reuse `progress_card.html` and `table.html`
+  in that shared directory. Feature partials extend those shells for their own
+  content, attributes and rows; callers retain URL resolution and collection
+  loops. Keep existing DOM hooks and CSRF context when extracting a component.
 - Numbered task directories use `tache_<number>`. Numbered content packs use
   explicit suffixes such as `_1` or `_01`, according to the source series.
 - Database content keys, source IDs, and URL names are stable identifiers. File

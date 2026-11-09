@@ -7,9 +7,9 @@ from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from study import content_loader as content
-from study.account_services import provision_user_study_data
-from study.ee_formulations import get_ee_formulations
+from study.catalogue import loader as content
+from study.accounts.services import provision_user_study_data
+from study.expression.ee.formulations.catalogue import get_ee_formulations
 from study.management.commands.import_content import Command
 from study.models import (
     Annotation,
@@ -26,7 +26,7 @@ from study.models import (
     WritingResponseOverride,
 )
 from study.templatetags.study_markdown import french_wordcount
-from study.writing_responses import model_version_keys, writing_model_versions
+from study.expression.ee.responses import model_version_keys, writing_model_versions
 
 from . import factories
 from .vocabulary_assertions import assert_vocabulary_lot_tables
@@ -1012,7 +1012,7 @@ class EeWritingPageTests(TestCase):
                 self.assertEqual(response.status_code, 200)
                 self.assertTemplateUsed(
                     response,
-                    "study/ee_writing_overview.html",
+                    "study/expression/ee/ee_writing_overview.html",
                 )
                 self.assertEqual(response.context["category_count"], 11)
                 self.assertEqual(response.context["sujet_count"], 138)
@@ -1052,7 +1052,7 @@ class EeWritingPageTests(TestCase):
                 )
                 self.assertTemplateUsed(
                     subjects,
-                    "study/ee_writing_subjects.html",
+                    "study/expression/ee/ee_writing_subjects.html",
                 )
                 self.assertContains(subjects, "data-t1-table-theme", count=11)
                 self.assertContains(subjects, "data-t1-table-subject", count=138)
@@ -1110,7 +1110,7 @@ class EeWritingPageTests(TestCase):
                 self.assertEqual(page.status_code, 200)
                 self.assertTemplateUsed(
                     page,
-                    "study/formulation_language.html",
+                    "study/expression/ee/formulations/formulation_language.html",
                 )
                 self.assertEqual(
                     page.context["language_progress"].total,
@@ -1578,7 +1578,7 @@ class EeWritingPageTests(TestCase):
                         args=[task.part.slug, task.slug],
                     )
                 )
-                self.assertTemplateUsed(directory, "study/task_vocabulary.html")
+                self.assertTemplateUsed(directory, "study/vocabulary/task_vocabulary.html")
                 self.assertEqual(directory.context["theme_count"], 11)
                 self.assertEqual(directory.context["phrase_count"], 220)
                 self.assertEqual(directory.context["batch_count"], 44)
@@ -1600,7 +1600,7 @@ class EeWritingPageTests(TestCase):
                 detail = self.client.get(first["url"])
                 self.assertTemplateUsed(
                     detail,
-                    "study/theme_vocabulary_detail.html",
+                    "study/vocabulary/theme_vocabulary_detail.html",
                 )
                 self.assertEqual(detail.context["phrase_count"], 20)
                 self.assertEqual(len(detail.context["phrase_sections"]), 4)

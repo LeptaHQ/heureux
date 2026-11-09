@@ -15,7 +15,7 @@ from django.template.loader import render_to_string
 from django.test import SimpleTestCase
 from django.urls import reverse
 
-from study import content_loader as content
+from study.catalogue import loader as content
 
 
 # Keep the corpus check limited to constructions audited as subjunctive.
@@ -58,10 +58,10 @@ class AppCopyTests(SimpleTestCase):
         }
         forbidden = ("T" + "CF", "T" + "EF")
         exam_specific_sources = {
-            project_root / "study/content/tache_2/EDITORIAL_PLAYBOOK.md",
-            project_root / "study/content/ee/tache_1/ai_examiner_prompt.md",
-            project_root / "study/content/ee/tache_2/ai_examiner_prompt.md",
-            project_root / "study/content/ee/tache_3/ai_examiner_prompt.md",
+            project_root / "study/content/expression/eo/tache_2/EDITORIAL_PLAYBOOK.md",
+            project_root / "study/content/expression/ee/tache_1/ai_examiner_prompt.md",
+            project_root / "study/content/expression/ee/tache_2/ai_examiner_prompt.md",
+            project_root / "study/content/expression/ee/tache_3/ai_examiner_prompt.md",
         }
         # Curriculum citations/lessons and internal audit records are not app
         # branding. Keep production templates, static assets and expression banks
@@ -71,10 +71,10 @@ class AppCopyTests(SimpleTestCase):
             project_root / "study/content/learning",
         )
         approved_disclaimers = {
-            project_root / "study/templates/study/course_attempt.html": (
+            project_root / "study/templates/study/learning/course_attempt.html": (
                 "Not CEFR/TCF certification."
             ),
-            project_root / "study/templates/study/course_practice.html": (
+            project_root / "study/templates/study/learning/course_practice.html": (
                 "These bounded exercises are not CEFR/TCF certification "
                 "or a prediction of NCLC scores."
             ),
@@ -129,7 +129,7 @@ class SubjectNavigationTemplateTests(SimpleTestCase):
 
     def test_detail_navigation_stays_in_the_current_tab(self):
         rendered = render_to_string(
-            "study/partials/subject_navigation.html",
+            "study/expression/partials/subject_navigation.html",
             {
                 "position": 2,
                 "total": 3,
@@ -143,25 +143,25 @@ class SubjectNavigationTemplateTests(SimpleTestCase):
         self.assertEqual(len(links), 2)
         self.assertTrue(all('target="_blank"' not in link for link in links))
 
-        partials = (
-            Path(__file__).resolve().parents[2] / "study/templates/study/partials"
+        templates = (
+            Path(__file__).resolve().parents[2] / "study/templates"
         )
         for name in (
-            "tache_two_subject_navigation.html",
-            "prompt_navigation.html",
-            "writing_sujet_navigation.html",
-            "formulation_navigation.html",
+            "study/expression/eo/tache_2/partials/tache_two_subject_navigation.html",
+            "study/expression/partials/prompt_navigation.html",
+            "study/expression/ee/partials/writing_sujet_navigation.html",
+            "study/expression/ee/formulations/partials/formulation_navigation.html",
         ):
             with self.subTest(template=name):
-                source = (partials / name).read_text(encoding="utf-8")
+                source = (templates / name).read_text(encoding="utf-8")
                 self.assertIn(
-                    '{% include "study/partials/subject_navigation.html"', source,
+                    '{% include "study/expression/partials/subject_navigation.html"', source,
                 )
                 self.assertNotIn('target="_blank"', source)
 
     def test_subject_picker_renders_flat_choices_without_empty_groups(self):
         rendered = render_to_string(
-            "study/partials/subject_navigation.html",
+            "study/expression/partials/subject_navigation.html",
             {
                 "position": 2,
                 "total": 2,
@@ -193,7 +193,7 @@ class SubjectNavigationTemplateTests(SimpleTestCase):
 
     def test_subject_navigation_renders_round_arrows_around_position_pill(self):
         rendered = render_to_string(
-            "study/partials/subject_navigation.html",
+            "study/expression/partials/subject_navigation.html",
             {
                 "position": 2,
                 "total": 3,
@@ -229,7 +229,7 @@ class SubjectNavigationTemplateTests(SimpleTestCase):
         self.assertIn('data-icon="arrow-right"', rendered)
 
         first = render_to_string(
-            "study/partials/subject_navigation.html",
+            "study/expression/partials/subject_navigation.html",
             {
                 "bottom": True,
                 "label": "Navigation entre les formulations",
@@ -274,7 +274,7 @@ class SubjectNavigationTemplateTests(SimpleTestCase):
                     }
                     for number in (1, 2)
                 ]
-                rendered = render_to_string("study/ee_writing_subjects.html", {
+                rendered = render_to_string("study/expression/ee/ee_writing_subjects.html", {
                     "part": {"slug": "ee", "short_name": "Expression écrite"},
                     "task": {"slug": f"tache-{tache}", "name": f"Tâche {tache}", "icon": "pen"},
                     "writing_tache": tache,
@@ -307,7 +307,7 @@ class SubjectNavigationTemplateTests(SimpleTestCase):
             ("ee3", "ee", "tache-3"),
         ):
             with self.subTest(kind=kind):
-                rendered = render_to_string("study/partials/subject_collection.html", {
+                rendered = render_to_string("study/expression/partials/subject_collection.html", {
                     "kind": kind,
                     "part": {"slug": part_slug},
                     "task": {"slug": task_slug},

@@ -5,7 +5,7 @@ from django.utils.safestring import mark_safe
 from markdown_it import MarkdownIt
 from markdown_it.common.utils import escapeHtml
 
-from study.content_loader import _ee_word_count
+from study.catalogue.loader import _ee_word_count
 
 register = template.Library()
 

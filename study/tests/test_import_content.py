@@ -12,9 +12,10 @@ from django.core.management import call_command
 from django.test import TestCase
 from django.utils import timezone
 
-from study import content_loader as content
-from study import queue, srs
-from study.account_services import provision_user_study_data
+from study.catalogue import loader as content
+from study.review import queue
+from study.review import scheduling as srs
+from study.accounts.services import provision_user_study_data
 from study.management.commands.import_content import Command
 from study.models import (
     Annotation,
@@ -215,7 +216,7 @@ class PromptReclassificationImportTests(TestCase):
         }
         legacy_mapping = {**mapping, **dict.fromkeys(moved_keys, "vie-quartier")}
         with patch(
-            "study.content_loader.load_tache_two_subject_themes",
+            "study.catalogue.loader.load_tache_two_subject_themes",
             return_value=(themes, legacy_mapping),
         ):
             call_command("import_content", stdout=StringIO())
@@ -980,7 +981,7 @@ class ImportFingerprintTests(TestCase):
     def test_file_backed_hints_do_not_invalidate_database_content(self):
         for path in (
             content.TACHE_TWO_SUBJECT_HINTS_PATH,
-            content.TACHE_THREE_SUBJECT_HINTS_PATH,
+            content.TACHE_THREE_SUBJECT_HINTS_PATH / "culture" / "hints.json",
             content.EE_TACHE_ONE_SUBJECT_HINTS_PATH,
         ):
             with self.subTest(path=path):
@@ -991,9 +992,9 @@ class ImportFingerprintTests(TestCase):
 
     def test_file_backed_dialogues_and_editorial_docs_do_not_invalidate_database_content(self):
         for path in (
-            content.CONTENT_DIR / "tache_2" / "dialogues",
-            content.CONTENT_DIR / "tache_2" / "dialogue_history",
-            content.CONTENT_DIR / "tache_2" / "EDITORIAL_PLAYBOOK.md",
+            content.QUESTION_BANK_DIR / "dialogues",
+            content.QUESTION_BANK_DIR / "dialogue_history",
+            content.QUESTION_BANK_DIR / "EDITORIAL_PLAYBOOK.md",
         ):
             with self.subTest(path=path):
                 self.assertEqual(
@@ -1005,8 +1006,12 @@ class ImportFingerprintTests(TestCase):
         for path in (
             content.CONTENT_DIR / "sections.json",
             content.ORAL_SEMANTIC_GROUP_PATHS["eo/tache-2"],
-            content.CONTENT_DIR / "tache_3" / "prompt_notes.json",
-            content.CONTENT_DIR.parent / "tache_three_prompt_notes.py",
+            content.EO_TACHE_THREE_THEMES_DIR / "culture" / "prompt_notes.json",
+            content.CONTENT_DIR.parent / "expression/eo/tache_3/prompt_notes.py",
+            content.CONTENT_DIR.parent / "expression/eo/tache_3/responses.py",
+            content.CONTENT_DIR.parent / "expression/eo/tache_2/dialogues.py",
+            content.CONTENT_DIR.parent / "expression/eo/history.py",
+            content.CONTENT_DIR.parent / "accounts/services.py",
         ):
             with self.subTest(path=path):
                 self.assertNotEqual(
@@ -1016,7 +1021,7 @@ class ImportFingerprintTests(TestCase):
 
     def test_invalid_eo3_explanations_stop_import_before_content_writes(self):
         with (
-            patch("study.tache_three_prompt_notes.load_tache_three_prompt_notes",
+            patch("study.expression.eo.tache_3.prompt_notes.load_tache_three_prompt_notes",
                   side_effect=ValueError("Invalid EO3 prompt notes")),
             patch.object(Command, "_import_sections") as write_content,
         ):
@@ -1029,7 +1034,7 @@ class ImportFingerprintTests(TestCase):
         self.assertNotEqual(
             Command._source_fingerprint(),
             self._fingerprint_with_changed_bytes(
-                content.CONTENT_DIR.parent / "writing_responses.py"
+                content.CONTENT_DIR.parent / "expression/ee/responses.py"
             ),
         )
 

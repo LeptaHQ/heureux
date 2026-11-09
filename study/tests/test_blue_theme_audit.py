@@ -4,7 +4,8 @@ from pathlib import Path
 
 from django.test import SimpleTestCase
 
-from study import catalogue, content_loader as content
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
 from study.tests.culture_fixtures import LEISURE_SPLIT_GROUPS
 from study.tests.eo2_review_fixtures import (
     ACCOMMODATION_FOLLOWUP_FIELDS, PUBLISHED_ARCHIVE_INDEX, PUBLISHED_LAYOUT_SHA, REVIEWED_GROUPS,

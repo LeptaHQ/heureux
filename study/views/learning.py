@@ -10,10 +10,10 @@ from django.utils import timezone
 from django.utils.http import urlencode
 from django.views.decorators.http import require_POST
 
-from ..learning_content import LearningCatalog, load_learning_catalog
-from ..course_content import CEFR_LEVELS, CourseCatalog, CourseLesson, load_course_catalog
+from study.learning.catalogue import LearningCatalog, load_learning_catalog
+from study.learning.courses import CEFR_LEVELS, CourseCatalog, CourseLesson, load_course_catalog
 from ..models import LearningLessonProgress
-from ..progress import progress_summary
+from study.review.progress import progress_summary
 
 
 LEARNING_STATUS_LABELS = {
@@ -131,7 +131,7 @@ def learn(request):
         )
     return render(
         request,
-        "study/learn.html",
+        "study/learning/learn.html",
         {
             "catalog": catalog,
             "modules": modules,
@@ -178,7 +178,7 @@ def learn_lesson(request, lesson_slug, course=False):
     progress_row = state["rows"].get(lesson.id)
     return render(
         request,
-        "study/learn_lesson.html",
+        "study/learning/learn_lesson.html",
         {
             "catalog": catalog,
             "module": module,

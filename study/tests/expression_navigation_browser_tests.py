@@ -87,10 +87,7 @@ class ExpressionNavigationBrowserTests(StaticLiveServerTestCase):
                         expect(card.locator(".deck__go")).to_be_visible()
                         self.assertGreaterEqual(card.locator(".deck__icon").bounding_box()["width"], 44)
                         if width == 1280:
-                            self.assertGreaterEqual(
-                                card.evaluate("node => node.offsetHeight"), 264,
-                                card.evaluate("node => ({minHeight: getComputedStyle(node).minHeight, root: getComputedStyle(document.documentElement).fontSize})"),
-                            )
+                            self.assertGreaterEqual(card.bounding_box()["height"], 264)
                     self.assertLessEqual(
                         page.evaluate("document.documentElement.scrollWidth"), width,
                     )

@@ -6,19 +6,19 @@ on:
       - ".github/copilot-instructions.md"
       - "README.md"
       - "docs/**"
-      - "study/content/tache_2/EDITORIAL_PLAYBOOK.md"
-      - "study/content/tache_2/dialogues/**"
-      - "study/content/tache_2/dialogue_history/**"
-      - "study/content/tache_2/subjects/hints.json"
+      - "study/content/expression/eo/tache_2/EDITORIAL_PLAYBOOK.md"
+      - "study/content/expression/eo/tache_2/dialogues/**"
+      - "study/content/expression/eo/tache_2/dialogue_history/**"
+      - "study/content/expression/eo/tache_2/subjects/hints.json"
   pull_request:
     paths-ignore:
       - ".github/copilot-instructions.md"
       - "README.md"
       - "docs/**"
-      - "study/content/tache_2/EDITORIAL_PLAYBOOK.md"
-      - "study/content/tache_2/dialogues/**"
-      - "study/content/tache_2/dialogue_history/**"
-      - "study/content/tache_2/subjects/hints.json"
+      - "study/content/expression/eo/tache_2/EDITORIAL_PLAYBOOK.md"
+      - "study/content/expression/eo/tache_2/dialogues/**"
+      - "study/content/expression/eo/tache_2/dialogue_history/**"
+      - "study/content/expression/eo/tache_2/subjects/hints.json"
 
 permissions:
   contents: read

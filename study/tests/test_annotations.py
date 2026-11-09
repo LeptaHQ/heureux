@@ -14,7 +14,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from study.models import Annotation, AnnotationKind, Card, CardType, Prompt, Task
-from study.routing import prompt_detail_url, response_detail_url, theme_detail_url
+from study.navigation.routing import prompt_detail_url, response_detail_url, theme_detail_url
 
 from . import factories
 from .test_views import FLASHCARD_DECK_HOOKS

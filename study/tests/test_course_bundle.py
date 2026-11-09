@@ -13,7 +13,7 @@ from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 from django.utils.html import escape, strip_tags
 
-from study.course_content import load_course_catalog
+from study.learning.courses import load_course_catalog
 from study.models import CourseAttempt, CourseProduction, LearningLessonProgress
 from study.templatetags.study_markdown import render_markdown_inline
 

@@ -1,0 +1,12 @@
+{% if subject_prompt_note %}
+<details class="eo2-prompt-note" data-annotation-exclude>
+  <summary class="eo2-prompt-note__heading">
+    <strong>Comprendre la consigne</strong>
+    {% if subject_prompt_note.register %}<span class="eo2-prompt-note__register">{% if subject_prompt_note.register == "tu" %}Tutoiement · tu{% else %}Vouvoiement · vous{% endif %}</span>{% endif %}
+  </summary>
+  <div class="eo2-prompt-note__body">
+    <p lang="en">{{ subject_prompt_note.note }}</p>
+    {% if prompt_note_edit_url %}<a class="icon-button eo2-prompt-note__edit" href="{{ prompt_note_edit_url }}#id_prompt_note" aria-label="Modifier la note" title="Modifier la note">{% include "study/shared/partials/ui_icon.html" with name="pencil" only %}</a>{% endif %}
+  </div>
+</details>
+{% endif %}

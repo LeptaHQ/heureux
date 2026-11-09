@@ -6,7 +6,7 @@ from django import template
 from django.conf import settings
 from django.utils.html import format_html, strip_tags
 
-from study.french_audio import normalize_text, source_grant
+from study.audio.french import normalize_text, source_grant
 
 
 register = template.Library()

@@ -1,0 +1,11 @@
+{% extends "study/shared/partials/progress_card.html" %}
+{% block progress_card_attributes %}aria-label="Ouvrir {{ memory.title }}"{% endblock %}
+{% block progress_card_body %}
+  <span class="memory-entry__label">{{ memory.label }}</span>
+  <h2>{{ memory.title }}</h2>
+  <p>{{ memory.subtitle }}</p>
+  <div class="memory-entry__facts">
+    <span><b>{{ memory.category_count }}</b> catégories</span>
+    <span><b>{{ memory.question_count }}</b> {% if part.slug == "ee" and task.slug == "tache-3" %}formulations{% else %}questions{% endif %}</span>
+  </div>
+{% endblock %}

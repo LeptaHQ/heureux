@@ -12,14 +12,14 @@ from django.test import SimpleTestCase, TestCase
 from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 
-from study import catalogue
-from study import content_loader as content
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
 from study.management.commands.import_content import Command
 from study.models import (
     Annotation, AnnotationKind, PersonalWritingResponse, WritingResponseOverride,
     WritingSujet, WritingSujetCompletion,
 )
-from study.writing_responses import model_version_keys
+from study.expression.ee.responses import model_version_keys
 
 from . import factories
 

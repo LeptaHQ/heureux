@@ -15,9 +15,9 @@ from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils import timezone
 
-from study import course_practice
-from study.course_content import build_course_catalog
-from study.course_practice import _exposures, start_attempt
+from study.learning import practice as course_practice
+from study.learning.courses import build_course_catalog
+from study.learning.practice import _exposures, start_attempt
 from study.models import CourseAttempt, CourseExposureIndex, CourseItemExposure, ReviewSession
 
 from . import factories

@@ -1,6 +1,6 @@
 from django.template.loader import render_to_string
 
-from study import queue
+from study.review import queue
 
 
 def assert_vocabulary_lot_tables(case, url, scope, group_key):
@@ -34,10 +34,10 @@ def assert_vocabulary_lot_tables(case, url, scope, group_key):
             case.assertEqual(page.context["initial_collection_view"], "table")
             case.assertContains(page, 'data-initial-collection-view="table"')
             navigation = render_to_string(
-                "study/partials/review_batches.html",
+                "study/review/partials/review_batches.html",
                 {"batches": page.context["vocabulary_lots"]},
             )
             case.assertEqual(navigation.count('aria-current="page"'), 1)
-            case.assertTemplateUsed(page, "study/partials/vocabulary_lot_actions.html")
+            case.assertTemplateUsed(page, "study/vocabulary/partials/vocabulary_lot_actions.html")
             case.assertContains(page, "Pratiquer ce lot")
             case.assertContains(page, "Toutes les fiches")

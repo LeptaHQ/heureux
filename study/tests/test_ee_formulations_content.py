@@ -7,23 +7,23 @@ from pathlib import Path
 
 from django.test import SimpleTestCase
 
-from study.content_loader import (
+from study.catalogue.loader import (
     EE_TACHE_THREE_MEMOIRES_DIR,
     load_ee_subject_themes,
     load_ee_tache_three_author_responses,
     parse_ee_tache_three_responses,
 )
-from study.ee_formulations import (
+from study.expression.ee.formulations.catalogue import (
     CONTENT_KEY_PREFIX,
     FUNCTION_CATEGORIES,
     load_ee_formulations,
 )
-from study.ee_formulation_language import (
+from study.expression.ee.formulations.languages import (
     REPORTING_LANGUAGE,
     THEME_LANGUAGE,
     THEME_LANGUAGE_ROLES,
 )
-from study.formulation_progress import (
+from study.expression.ee.formulations.progress import (
     formulation_language_content_key,
     formulation_language_item_id,
 )

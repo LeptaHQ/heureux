@@ -9,7 +9,8 @@ from django.test import TestCase, TransactionTestCase, skipUnlessDBFeature, tag
 from django.urls import reverse
 from django.utils import timezone
 
-from study import queue, srs
+from study.review import queue
+from study.review import scheduling as srs
 from study.models import (
     Card,
     CardState,
@@ -18,7 +19,7 @@ from study.models import (
     ReviewSession,
     WritingResponseOverride,
 )
-from study.progress import writing_sujet_progress_by_id
+from study.review.progress import writing_sujet_progress_by_id
 from study.views.helpers import (
     _ee_writing_task_card,
     expression_task_summaries,
@@ -112,7 +113,7 @@ class SchedulingConcurrencyTests(TransactionTestCase):
             kwargs={"second": True},
             name="second-review",
         )
-        with patch("study.srs.compute", side_effect=observed_compute):
+        with patch("study.review.scheduling.compute", side_effect=observed_compute):
             first.start()
             try:
                 self.assertTrue(first_computing.wait(timeout=10))

@@ -10,16 +10,16 @@ from django.core.management.base import CommandError
 from django.template.loader import render_to_string
 from django.test import SimpleTestCase, TestCase, override_settings
 
-from study.eo3_response_languages import (
+from study.expression.eo.tache_3.languages import (
     DEFAULT_PATH, empty_manifest, fingerprint, language_presentation, manifest, public_fields,
-    scoped_models, validate_manifest,
+    scoped_models, validate_manifest, read_manifest,
 )
-from study import catalogue
-from study.account_services import provision_user_study_data
-from study.card_presentation import card_payload
+from study.catalogue import registry as catalogue
+from study.accounts.services import provision_user_study_data
+from study.review.presentation import card_payload
 from study.models import Card, CardType, PersonalResponse, Prompt
-from study.public_response_annotations import render_current_response
-from study.routing import prompt_detail_url
+from study.expression.eo.annotations import render_current_response
+from study.navigation.routing import prompt_detail_url
 
 from . import factories
 
@@ -66,7 +66,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertNotIn(self.model.response.position, fields.values())
 
     def test_unprepared_data_preserves_french_without_uploading_anything(self):
-        with patch("study.translation.urllib.request.urlopen") as provider:
+        with patch("study.translations.service.urllib.request.urlopen") as provider:
             result = self.presentation()
         provider.assert_not_called()
         self.assertFalse(result["ready"])
@@ -98,7 +98,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         private = replace(
             self.model.response, position_claire="My private French draft.", is_personal=True,
         )
-        with patch("study.translation.urllib.request.urlopen") as provider:
+        with patch("study.translations.service.urllib.request.urlopen") as provider:
             result = self.presentation(private)
         provider.assert_not_called()
         self.assertFalse(result["ready"])
@@ -119,7 +119,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
 
     def test_corrupt_cache_reports_an_error_without_losing_french(self):
         self.path.write_text("{")
-        with self.assertLogs("study.eo3_response_languages", level="ERROR"):
+        with self.assertLogs("study.expression.eo.tache_3.languages", level="ERROR"):
             result = self.presentation()
         self.assertTrue(result["error"])
         self.assertFalse(result["ready"])
@@ -214,7 +214,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("15 missing translations", output.getvalue())
 
     def test_saved_public_english_is_complete_reviewed_and_keeps_post_edit_provenance(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         self.assertTrue(data["generated_at"])
@@ -291,7 +291,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertNotIn("violence is rife", row["english"])
 
     def test_adults_recalling_their_own_behaviour_corrects_the_comparison_in_both_languages(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p2"]
@@ -304,16 +304,16 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertEqual(model.argument_ids, (1, 2, 3))
 
     def test_education_english_keeps_quebec_questions_and_volunteering_hypothetical(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         models = scoped_models()
         quebec = models["eo/tache-3/education-p5"]
         rows = data["groups"][quebec.group]
         questions = (
-            "is my French good enough for everyday life?",
-            "is my career plan feasible in Quebec?",
-            "do I have enough money, and who can I count on to help me settle in?",
+            "is my French good enough to live and work in Quebec?",
+            "is my profession recognised and in demand in Quebec?",
+            "do I have the money and support I need to settle there?",
         )
         for argument, question in zip(quebec.response.arguments, questions):
             self.assertIn(question, rows[fingerprint(argument.idea)]["english"])
@@ -321,8 +321,8 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             fingerprint(quebec.response.position_claire)
         ]["english"])
         qualification = rows[fingerprint(quebec.response.arguments[1].exemple)]["english"]
-        self.assertIn("whether her qualification allows her to practise", qualification)
-        self.assertIn("before counting on an income", qualification)
+        self.assertIn("may need to have her training recognised", qualification)
+        self.assertIn("rather than count on being able to start work immediately", qualification)
         volunteer = models["eo/tache-3/education-p10"]
         self.assertEqual(
             {key for key, _ in volunteer.source_prompts}, {"education:p10", "education:p24"},
@@ -337,7 +337,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("rice they could not prepare", example)
 
     def test_education_english_distinguishes_information_access_and_learning_alone(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         models = scoped_models()
@@ -363,7 +363,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("with the instructor beside them", example)
 
     def test_education_english_keeps_salary_argument_ids_and_shared_arts_polarity(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         models = scoped_models()
@@ -393,7 +393,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("Removing music, drawing or drama from school would be a mistake", introduction)
 
     def test_education_english_keeps_university_access_conditional_not_unconditional_entry(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/education-p20"]
@@ -412,7 +412,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("without removing the course requirements", result)
 
     def test_education_english_keeps_life_success_possible_and_school_priority_nonexclusive(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         models = scoped_models()
@@ -435,7 +435,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("often during the very same lessons", introduction)
 
     def test_education_english_post_edits_preserve_the_preceding_editorial_translation(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         models = scoped_models()
@@ -465,7 +465,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
                 self.assertIn("editorial_history", row["review_note"])
 
     def test_proactive_education_english_keeps_context_and_possible_help_explicit(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         cases = (
@@ -486,7 +486,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
                     self.assertNotIn(phrase, english)
 
     def test_proactive_education_english_post_edits_preserve_complete_preceding_rows(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         for name, field, current, previous in (
@@ -510,7 +510,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("look for no-cook food", volunteer.arguments[2].example.english)
 
     def test_proactive_culture_english_keeps_concrete_help_actors_and_shared_language(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         cases = (
@@ -541,7 +541,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
                     self.assertIn(phrase, english)
 
     def test_culture_english_actor_corrections_preserve_the_preceding_records(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         models = scoped_models()
@@ -569,7 +569,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
                 self.assertIn("editorial_history", row["review_note"])
 
     def test_education_english_matches_speaking_feedback_to_progress_under_fresh_ids(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         models = scoped_models()
@@ -589,7 +589,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertNotIn("understand a voice message", example)
 
     def test_education_english_does_not_narrow_close_contacts_to_relatives(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         models = scoped_models()
@@ -628,7 +628,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("message their family", example)
 
     def test_living_with_parents_english_keeps_adult_freedom_and_reciprocal_consideration(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p16"]
@@ -656,7 +656,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("does not require moving out by a specific date", nuance)
 
     def test_family_language_english_distinguishes_direct_family_contact_and_parent_expression(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p13"]
@@ -684,7 +684,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("can reassure him without having to search for the right words", result)
 
     def test_living_alone_english_connects_actual_help_needs_and_household_workload(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p11"]
@@ -719,7 +719,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertNotIn("social", cue.english)
 
     def test_living_alone_english_keeps_rest_broader_than_going_to_bed(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p11"]
@@ -748,7 +748,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("each takes out the same forty-euro subscription", example)
 
     def test_family_work_english_identifies_sibling_coworkers_before_family_spillover(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p7"]
@@ -791,7 +791,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("without considering a more experienced colleague's application", promotion)
 
     def test_grade_reward_english_keeps_progress_threshold_and_possible_discouragement(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p6"]
@@ -809,7 +809,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertNotIn("will become", consequence)
 
     def test_family_distance_english_keeps_local_contacts_and_unexpected_problems_proportionate(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p5"]
@@ -831,7 +831,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertNotIn("emergency", result)
 
     def test_family_distance_english_keeps_work_time_and_travel_budget_explicit(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p5"]
@@ -845,7 +845,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("decides not to make the trip", example)
 
     def test_personal_advice_english_distinguishes_outdated_methods_and_different_priorities(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p3"]
@@ -871,7 +871,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("the choice they made themselves", priorities["review_note"])
 
     def test_teen_social_media_english_keeps_sleep_help_seeking_and_private_messages_distinct(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p1"]
@@ -906,7 +906,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("more independently", conclusion)
 
     def test_family_friendship_english_keeps_affection_confidences_and_earned_trust_distinct(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p10"]
@@ -948,7 +948,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("even when they love their relatives deeply", nuance)
 
     def test_friendship_help_english_keeps_transport_unspecified_and_other_benefits_distinct(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p9"]
@@ -987,7 +987,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("might have left unexplored", rows[fingerprint(growth.consequence)]["english"])
 
     def test_shared_friendship_english_keeps_support_family_confidant_and_personal_satisfaction_distinct(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p16"]
@@ -1022,7 +1022,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertNotIn("will", nuance)
 
     def test_child_language_english_connects_regular_practice_to_understanding_and_confidence(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p13"]
@@ -1056,7 +1056,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("family language on a walk", cue.english)
 
     def test_rewritten_family_english_keeps_contribution_honesty_rules_and_household_agreements(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         cases = (
@@ -1101,7 +1101,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
                     self.assertNotIn(phrase, english)
 
     def test_country_language_english_keeps_observation_broad_information_and_live_discussions_distinct(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p19"]
@@ -1135,7 +1135,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("some support the project and others oppose it", discussion)
         with (
             override_settings(EO3_RESPONSE_TRANSLATIONS_PATH=DEFAULT_PATH),
-            patch("study.translation.urllib.request.urlopen") as provider,
+            patch("study.translations.service.urllib.request.urlopen") as provider,
         ):
             for response in (model.response, replace(model.response, is_personal=True)):
                 with self.subTest(personal=response.is_personal):
@@ -1147,7 +1147,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         provider.assert_not_called()
 
     def test_cuisine_english_aligns_clear_agreement_shared_meal_and_preservation_history(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p15"]
@@ -1168,7 +1168,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertNotIn("a visitor", history)
         with (
             override_settings(EO3_RESPONSE_TRANSLATIONS_PATH=DEFAULT_PATH),
-            patch("study.translation.urllib.request.urlopen") as provider,
+            patch("study.translations.service.urllib.request.urlopen") as provider,
         ):
             result = language_presentation(model, model.response, model.response.arguments)
         self.assertTrue(result["ready"])
@@ -1177,7 +1177,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         provider.assert_not_called()
 
     def test_cultural_discovery_english_keeps_short_introduction_and_general_firsthand_nuance(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p14"]
@@ -1195,7 +1195,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertNotIn("documentary", nuance)
         with (
             override_settings(EO3_RESPONSE_TRANSLATIONS_PATH=DEFAULT_PATH),
-            patch("study.translation.urllib.request.urlopen") as provider,
+            patch("study.translations.service.urllib.request.urlopen") as provider,
         ):
             result = language_presentation(model, model.response, model.response.arguments)
         self.assertTrue(result["ready"])
@@ -1204,7 +1204,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         provider.assert_not_called()
 
     def test_traditions_english_covers_all_fifteen_selected_version_blocks(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p10"]
@@ -1215,7 +1215,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("remaining free to develop this heritage", rows[fingerprint(model.response.conclusion)]["english"])
         with (
             override_settings(EO3_RESPONSE_TRANSLATIONS_PATH=DEFAULT_PATH),
-            patch("study.translation.urllib.request.urlopen") as provider,
+            patch("study.translations.service.urllib.request.urlopen") as provider,
         ):
             for response in (model.response, replace(model.response, is_personal=True)):
                 with self.subTest(personal=response.is_personal):
@@ -1227,7 +1227,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         provider.assert_not_called()
 
     def test_adaptation_english_clinic_example_connects_neighbour_advice_to_checking_hours(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p9"]
@@ -1241,7 +1241,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             self.assertIn(phrase, example)
 
     def test_new_country_habits_english_restores_the_majority_distinction(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p1"]
@@ -1257,7 +1257,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("whilst respecting others", nuance)
 
     def test_goals_abroad_english_restores_achievable_steps_and_preparation(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p5"]
@@ -1272,8 +1272,26 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("minimises surprises", result)
         self.assertIn("adjust your timetable", result)
 
+    def test_migration_choice_english_keeps_real_constraints_and_a_genuine_option_to_stay(self):
+        data = read_manifest(DEFAULT_PATH)
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/economie-p14"]
+        rows = data["groups"][model.group]
+        livelihood, safety, choice = model.response.arguments
+        self.assertIn("people often leave", rows[fingerprint(model.response.position_claire)]["english"])
+        self.assertIn("His savings are almost gone", rows[fingerprint(livelihood.exemple)]["english"])
+        self.assertIn("staying without an income is not a realistic alternative", rows[fingerprint(livelihood.consequence)]["english"])
+        school = rows[fingerprint(safety.exemple)]["english"]
+        self.assertIn("violence repeatedly forces their children's school to close", school)
+        self.assertIn("could give the children a chance", school)
+        self.assertIn("can keep her job or accept", rows[fingerprint(choice.exemple)]["english"])
+        conclusion = rows[fingerprint(model.response.conclusion)]["english"]
+        self.assertIn("some really do have the option to stay", conclusion)
+        self.assertIn("leaving out of necessity may also want a change", conclusion)
+
     def test_personal_letters_english_keeps_emotional_gesture_and_fuller_expression(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p18"]
@@ -1302,7 +1320,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             self.assertIn(phrase, conclusion)
 
     def test_shared_family_letter_result_states_the_readers_gain(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         expected = "Reading this helps the young woman to gain a better understanding of her grandmother’s early days abroad."
@@ -1314,7 +1332,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             self.assertIn("sa grand-mère à l'étranger", row["french"])
 
     def test_solo_travel_english_keeps_information_seeking_distinct_from_the_travellers_decision(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         solo = scoped_models()["eo/tache-3/culture-p21"]
@@ -1340,7 +1358,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("friends who would rather go shopping", painting)
         with (
             override_settings(EO3_RESPONSE_TRANSLATIONS_PATH=DEFAULT_PATH),
-            patch("study.translation.urllib.request.urlopen") as provider,
+            patch("study.translations.service.urllib.request.urlopen") as provider,
         ):
             for response in (solo.response, replace(solo.response, is_personal=True)):
                 with self.subTest(personal=response.is_personal):
@@ -1352,7 +1370,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         provider.assert_not_called()
 
     def test_reading_alternatives_english_links_documentary_images_to_art_and_history(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p20"]
@@ -1376,7 +1394,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("Documentaries and practice", conclusion)
 
     def test_school_arts_english_keeps_expression_cultural_openness_and_professional_discovery(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p13"]
@@ -1393,7 +1411,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("sometimes find a career path", rows[fingerprint(model.response.conclusion)]["english"])
 
     def test_television_english_keeps_world_cup_togetherness_and_explicit_time_tradeoffs(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p12"]
@@ -1410,7 +1428,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("shared moments", rows[fingerprint(model.response.conclusion)]["english"])
 
     def test_reality_tv_english_links_entertaining_mockery_to_normalising_humiliation(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p31"]
@@ -1429,7 +1447,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("even if it humiliates someone", consequence)
 
     def test_requested_book_english_keeps_learning_practice_and_the_characters_choice(self):
-        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         book = scoped_models()["eo/tache-3/culture-p6"]
@@ -1490,7 +1508,7 @@ class EO3ResponseLanguageViewTests(TestCase):
 
     def test_detail_has_global_argument_and_subsection_controls_without_paid_calls(self):
         prompt = self.prompt()
-        with patch("study.translation.urllib.request.urlopen") as provider:
+        with patch("study.translations.service.urllib.request.urlopen") as provider:
             page = self.client.get(prompt_detail_url(prompt))
         provider.assert_not_called()
         self.assertContains(page, 'data-eo3-language-ready="true"')
@@ -1506,7 +1524,7 @@ class EO3ResponseLanguageViewTests(TestCase):
         prompts = [self.prompt(key) for key in ("culture:p10", "culture:p32")]
         with (
             override_settings(EO3_RESPONSE_TRANSLATIONS_PATH=DEFAULT_PATH),
-            patch("study.translation.urllib.request.urlopen") as provider,
+            patch("study.translations.service.urllib.request.urlopen") as provider,
         ):
             for prompt in prompts:
                 with self.subTest(prompt=prompt.content_key, personal=False):
@@ -1542,7 +1560,7 @@ class EO3ResponseLanguageViewTests(TestCase):
         PersonalResponse.objects.create(
             user=self.user, response=prompt.response, source_prompt=prompt, **fields,
         )
-        with patch("study.translation.urllib.request.urlopen") as provider:
+        with patch("study.translations.service.urllib.request.urlopen") as provider:
             page = self.client.get(prompt_detail_url(prompt))
         provider.assert_not_called()
         presentation = page.context["eo3_language"]
@@ -1559,7 +1577,7 @@ class EO3ResponseLanguageViewTests(TestCase):
             user=self.user, response=prompt.response, card_type=CardType.SPINE,
         )
         payload = card_payload(card, prompt=prompt)
-        rendered = render_to_string("study/partials/card_back.html", payload)
+        rendered = render_to_string("study/review/partials/card_back.html", payload)
         self.assertIn("subject-hints--speaking", rendered)
         self.assertNotIn("data-eo3-language", rendered)
         self.assertNotIn("data-response-field", rendered)
@@ -1572,7 +1590,7 @@ class EO3ResponseLanguageViewTests(TestCase):
         self.assertFalse(page.context["eo3_language"]["ready"])
         self.assertContains(page, 'data-eo3-english=', count=0)
         self.path.write_text("{")
-        with self.assertLogs("study.eo3_response_languages", level="ERROR"):
+        with self.assertLogs("study.expression.eo.tache_3.languages", level="ERROR"):
             page = self.client.get(prompt_detail_url(prompt))
         self.assertTrue(page.context["eo3_language"]["error"])
         self.assertContains(page, 'data-eo3-language-error="true"')

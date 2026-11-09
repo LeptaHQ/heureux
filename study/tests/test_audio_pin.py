@@ -8,13 +8,13 @@ from django.core.management.base import CommandError
 from django.test import SimpleTestCase, TestCase, override_settings
 from django.urls import reverse
 
-from study import catalogue
-from study.audio_pin import (
+from study.catalogue import registry as catalogue
+from study.audio.pins import (
     AudioPinError, PinExceptionReporterFilter, command_generation_pin,
     require_generation_pin,
 )
-from study.eo3_audio import generate_narration, narration_spec
-from study.french_audio import enqueue, generate_prepared, source_grant, speech_spec
+from study.expression.eo.tache_3.audio import generate_narration, narration_spec
+from study.audio.french import enqueue, generate_prepared, source_grant, speech_spec
 from study.models import EO3Narration, FrenchNarration, FrenchNarrationBudget, LoginThrottle
 from . import factories
 from .test_eo3_audio import AUDIO, AUDIO_PIN, AUDIO_SETTINGS, TIMING
@@ -53,15 +53,15 @@ class AudioPinTests(SimpleTestCase):
         self.assertNotEqual(filtered["ELEVENLABS_PIN"], AUDIO_PIN)
         self.assertNotIn(AUDIO_PIN, repr(filtered))
 
-    @patch("study.audio_pin.sys.stdin.isatty", return_value=False)
-    @patch("study.audio_pin.getpass.getpass")
+    @patch("study.audio.pins.sys.stdin.isatty", return_value=False)
+    @patch("study.audio.pins.getpass.getpass")
     def test_operator_commands_cannot_silently_use_the_environment_pin(self, prompt, isatty):
         with self.assertRaises(AudioPinError):
             command_generation_pin()
         prompt.assert_not_called()
 
-    @patch("study.audio_pin.sys.stdin.isatty", return_value=True)
-    @patch("study.audio_pin.getpass.getpass", return_value=AUDIO_PIN)
+    @patch("study.audio.pins.sys.stdin.isatty", return_value=True)
+    @patch("study.audio.pins.getpass.getpass", return_value=AUDIO_PIN)
     def test_operator_prompt_uses_masked_terminal_input(self, prompt, isatty):
         self.assertEqual(command_generation_pin(), AUDIO_PIN)
         prompt.assert_called_once()
@@ -94,7 +94,7 @@ class AudioPinRequestTests(TestCase):
             "sources": [self.source], "prepare": True, "confirm_cost": True, **values,
         }, content_type="application/json")
 
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_missing_or_wrong_pin_cannot_enqueue_reserve_or_call_elevenlabs(self, provider):
         for request in (self.eo3, self.french):
             self.assertEqual(request().json()["error"], "pin_required")
@@ -107,7 +107,7 @@ class AudioPinRequestTests(TestCase):
         provider.assert_not_called()
 
     @override_settings(ELEVENLABS_PIN="")
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_unconfigured_pin_returns_explicit_error_for_both_generation_paths(self, provider):
         for request in (self.eo3, self.french):
             reply = request(pin=AUDIO_PIN)
@@ -116,7 +116,7 @@ class AudioPinRequestTests(TestCase):
         provider.assert_not_called()
         self.assertFalse(FrenchNarration.objects.exists())
 
-    @patch("study.french_audio.synthesize", return_value=AUDIO)
+    @patch("study.audio.french.synthesize", return_value=AUDIO)
     def test_valid_pin_generates_once_and_cached_audio_needs_no_pin(self, provider):
         ready = self.french(pin=AUDIO_PIN)
         self.assertEqual(ready.status_code, 200, ready.content)
@@ -129,7 +129,7 @@ class AudioPinRequestTests(TestCase):
         provider.assert_called_once()
         self.assertNotIn(AUDIO_PIN, repr(provider.call_args))
 
-    @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
+    @patch("study.audio.french.synthesize", return_value=(AUDIO, TIMING))
     def test_eo3_cached_audio_needs_no_pin_even_if_environment_pin_is_removed(self, provider):
         self.assertEqual(self.eo3(pin=AUDIO_PIN).status_code, 200)
         with self.settings(ELEVENLABS_PIN=""):
@@ -138,7 +138,7 @@ class AudioPinRequestTests(TestCase):
             self.assertEqual(self.client.get(url).status_code, 200)
         provider.assert_called_once()
 
-    @patch("study.french_audio.synthesize", return_value=AUDIO)
+    @patch("study.audio.french.synthesize", return_value=AUDIO)
     def test_correct_pin_does_not_unlock_later_recordings(self, provider):
         self.assertEqual(self.french(pin=AUDIO_PIN).status_code, 200)
         self.source = {
@@ -150,7 +150,7 @@ class AudioPinRequestTests(TestCase):
         self.assertEqual(FrenchNarration.objects.count(), 1)
         provider.assert_called_once()
 
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_wrong_pin_attempts_are_limited_without_storing_the_pin(self, provider):
         for _ in range(5):
             self.assertEqual(self.eo3(pin="incorrect").status_code, 403)
@@ -162,8 +162,8 @@ class AudioPinRequestTests(TestCase):
         self.assertFalse(FrenchNarration.objects.exists())
         provider.assert_not_called()
 
-    @patch("study.french_audio.synthesize")
-    @patch("study.eo3_audio.synthesize")
+    @patch("study.audio.french.synthesize")
+    @patch("study.expression.eo.tache_3.audio.synthesize")
     def test_generation_services_also_enforce_pin_before_any_paid_call(self, eo3_provider, french_provider):
         recording = enqueue(speech_spec(self.text), self.user.pk, None)
         with self.assertRaises(AudioPinError):
@@ -178,7 +178,7 @@ class AudioPinRequestTests(TestCase):
         french_provider.assert_not_called()
 
     @override_settings(ELEVENLABS_PIN="")
-    @patch("study.eo3_audio.synthesize")
+    @patch("study.expression.eo.tache_3.audio.synthesize")
     def test_operator_dry_run_does_not_need_a_pin(self, provider):
         output = StringIO()
         call_command("generate_eo3_audio", group="culture-p1", dry_run=True, stdout=output)
@@ -186,8 +186,8 @@ class AudioPinRequestTests(TestCase):
         provider.assert_not_called()
 
     @override_settings(ELEVENLABS_PIN="")
-    @patch("study.french_audio.synthesize")
-    @patch("study.eo3_audio.synthesize")
+    @patch("study.audio.french.synthesize")
+    @patch("study.expression.eo.tache_3.audio.synthesize")
     def test_confirm_cost_cannot_bypass_pin_for_operator_commands(self, eo3_provider, french_provider):
         recording = enqueue(speech_spec(self.text), self.user.pk, None)
         for name, values in (

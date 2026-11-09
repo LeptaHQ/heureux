@@ -1,0 +1,4 @@
+{% load study_links %}
+{% if previous_subject %}{% subject_url 'study:task_subject_detail' part.slug task.slug previous_subject.month_slug previous_subject.batch_number previous_subject.number as subject_nav_previous_url %}{% endif %}
+{% if next_subject %}{% subject_url 'study:task_subject_detail' part.slug task.slug next_subject.month_slug next_subject.batch_number next_subject.number as subject_nav_next_url %}{% endif %}
+{% include "study/expression/partials/subject_navigation.html" with bottom=bottom position=subject_position total=subject_total choices=subject_choices previous_url=subject_nav_previous_url previous_title=previous_subject.title next_url=subject_nav_next_url next_title=next_subject.title only %}

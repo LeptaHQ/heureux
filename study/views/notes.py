@@ -25,14 +25,14 @@ from django.utils import timezone
 from django.utils.http import url_has_allowed_host_and_scheme, urlencode
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 
-from .. import catalogue
-from .. import content_loader as content_module
-from ..translation import DeepLResponseError, deepl_translate, post_json as _post_json
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content_module
+from study.translations.service import DeepLResponseError, deepl_translate, post_json as _post_json
 from ..forms import (
     NewNoteForm,
     NoteForm,
 )
-from ..formulation_progress import formulation_annotation_progress_payload
+from study.expression.ee.formulations.progress import formulation_annotation_progress_payload
 from ..models import (
     Annotation,
     AnnotationKind,
@@ -40,13 +40,13 @@ from ..models import (
     Task,
     WritingSujet,
 )
-from ..progress import (
+from study.review.progress import (
     subject_progress_by_response,
     writing_sujet_id_from_source_key,
     writing_sujet_progress_by_id,
 )
-from ..querysets import lean_prompt_rows
-from ..routing import prompt_detail_url
+from study.db.querysets import lean_prompt_rows
+from study.navigation.routing import prompt_detail_url
 from ..templatetags.study_markdown import render_markdown
 
 from .helpers import _route_task
@@ -878,7 +878,7 @@ def _notes_scope(
     )
     return render(
         request,
-        "study/notes_list.html",
+        "study/notes/notes_list.html",
         {
             "part": task.part if task else None,
             "task": task,
@@ -1035,7 +1035,7 @@ def annotation_search(request):
     )
     return render(
         request,
-        "study/annotation_search.html",
+        "study/notes/annotation_search.html",
         {
             "query": query,
             "selected_kind": kind,
@@ -1147,7 +1147,7 @@ def annotation_study(
     back_url = _annotation_next_url(request) or back_url
     return render(
         request,
-        "study/annotation_study.html",
+        "study/notes/annotation_study.html",
         {
             "part": task.part if task else None,
             "task": task,
@@ -1464,9 +1464,9 @@ def annotations_for_source(request):
     except ValueError:
         return HttpResponseBadRequest("Invalid source path.")
     _, source_filter = _annotation_source_scope(source_path)
-    from ..oral_highlights import recover_published_tache_two_highlights
-    from ..public_response_annotations import preserve_public_response_annotations
-    from ..writing_annotations import preserve_ee1_response_annotations
+    from study.notes.anchors import recover_published_tache_two_highlights
+    from study.expression.eo.annotations import preserve_public_response_annotations
+    from study.expression.ee.annotations import preserve_ee1_response_annotations
 
     recover_published_tache_two_highlights(request.user, source_filter)
     unresolved = preserve_public_response_annotations(request.user, source_filter)
@@ -1507,7 +1507,7 @@ def _save_highlights(
     proposed, source_filter, overlap_ids, overlap_revisions, *,
     ensure=False, covered=False,
 ):
-    from ..public_response_annotations import capture_public_response_anchor
+    from study.expression.eo.annotations import capture_public_response_anchor
 
     with transaction.atomic():
         source_candidates = Annotation.objects.select_for_update().filter(
@@ -1786,7 +1786,7 @@ def annotation_create(request):
         "suffix": (request.POST.get("suffix") or "")[:160],
         "body": body,
     }
-    from ..public_response_annotations import capture_public_response_anchor
+    from study.expression.eo.annotations import capture_public_response_anchor
 
     annotation = Annotation(
         user=request.user,

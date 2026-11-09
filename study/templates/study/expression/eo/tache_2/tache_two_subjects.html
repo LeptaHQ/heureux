@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Sujets · {{ task.short_label }} · Heureux{% endblock %}
+
+{% block content %}
+{% include "study/expression/partials/task_nav.html" %}
+
+<div class="tache-two-subjects sortable-subject-directory" style="--subject-accent: {{ task.color }};">
+  <header class="memory-overview-hero directory-header">
+    <div class="memory-overview-hero__copy">
+      <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
+        <span class="title-with-icon__glyph">{% include "study/shared/partials/ui_icon.html" with name="file-text" only %}</span>
+        <span>Sujets par thème</span>
+      </h1>
+    </div>
+    <dl class="memory-overview-hero__metrics" aria-label="Corpus de sujets">
+      <div><dt>Thèmes</dt><dd>{{ theme_count }}</dd></div>
+      <div><dt>Sujets</dt><dd>{{ subject_count }}</dd></div>
+      <div><dt>Questions</dt><dd>{{ question_count }}</dd></div>
+    </dl>
+  </header>
+
+  {% include "study/shared/partials/collection_toolbar.html" with with_search=True progress_completed=subject_summary.completed progress_total=subject_summary.total progress_unit="sujets terminés" show_views=subject_themes %}
+
+  {% if subject_themes %}
+    {% include "study/expression/partials/subject_collection.html" with groups=subject_themes kind="eo2" secondary_label="Questions" prompt_source="tache-two-theme-prompts" %}
+  {% endif %}
+</div>
+{{ subject_prompt_map|json_script:"tache-two-theme-prompts" }}
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% include "study/expression/partials/subject_progress_script.html" %}
+  <script src="{% static 'study/js/shared/prompt-copy.js' %}?v=3"></script>
+{% endblock %}

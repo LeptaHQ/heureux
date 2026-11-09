@@ -8,9 +8,9 @@ from django.conf import settings
 from django.test import TestCase
 from django.urls import reverse
 
-from study.card_presentation import scope_title_segments
+from study.review.presentation import scope_title_segments
 from study.models import ComprehensionMode
-from study.routing import response_detail_url
+from study.navigation.routing import response_detail_url
 
 from . import factories
 

@@ -5,9 +5,9 @@ import re
 from django import forms
 from django.contrib.auth import get_user_model
 
-from .content_loader import fit_ee_tache_three_answer
+from study.catalogue.loader import fit_ee_tache_three_answer
 from .models import Annotation, Task
-from .response_personalization import effective_response
+from study.expression.personalization import effective_response
 
 USERNAME_RE = re.compile(r"^[a-z0-9][a-z0-9._-]{2,29}$")
 PIN_MIN_LENGTH = 6
@@ -289,7 +289,7 @@ class PersonalResponseForm(forms.Form):
         self.ee_tache_three = ee_tache_three
         super().__init__(*args, **kwargs)
         content = effective_response(response, user, prompt=prompt)
-        from .tache_three_models import annotation_arguments, reviewed_model
+        from study.expression.eo.tache_3.responses import annotation_arguments, reviewed_model
 
         self.structured_eo3 = not ee_tache_three and reviewed_model(response, prompt) is not None
         self.argument_annotation_ids = {}

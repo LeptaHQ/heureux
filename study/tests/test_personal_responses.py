@@ -6,9 +6,9 @@ from django.template.loader import render_to_string
 from django.test import TestCase
 from django.urls import reverse
 
-from study import content_loader as content
+from study.catalogue import loader as content
 from study.models import Argument, Card, CardType, PersonalResponse
-from study.routing import response_detail_url
+from study.navigation.routing import response_detail_url
 
 from . import factories
 
@@ -152,7 +152,7 @@ class PersonalResponseTests(TestCase):
                     self.client.post(self.edit_url, self.payload)
                 page = self.client.get(detail_url)
                 without_pencil = render_to_string(
-                    "study/response_detail.html",
+                    "study/expression/response_detail.html",
                     {**page.context[0].flatten(), "can_edit_response": False},
                     request=page.wsgi_request,
                 )
@@ -396,7 +396,7 @@ class TacheTwoPersonalResponseTests(TestCase):
             texts = [
                 _root_texts(
                     render_to_string(
-                        "study/partials/tache_two_questions.html",
+                        "study/expression/eo/tache_2/partials/tache_two_questions.html",
                         {**context, "questions_edit_url": questions_edit_url},
                         request=page.wsgi_request,
                     ),

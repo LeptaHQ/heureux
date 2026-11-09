@@ -1,6 +1,6 @@
 from contextlib import ExitStack
 
-from study.ee_formulations import FormulationCatalog, FormulationCategory, FormulationEntry
+from study.expression.ee.formulations.catalogue import FormulationCatalog, FormulationCategory, FormulationEntry
 from unittest.mock import patch
 
 
@@ -38,7 +38,7 @@ def formulation_catalog(source_key="test-reference", *, tache=3):
 def mock_catalog(catalog):
     stack = ExitStack()
     for module in (
-        "study.ee_formulations", "study.formulation_progress", "study.views.formulations",
+        "study.expression.ee.formulations.catalogue", "study.expression.ee.formulations.progress", "study.views.formulations",
         "study.views.library", "study.views.helpers",
     ):
         stack.enter_context(patch(f"{module}.get_ee_formulations", return_value=catalog))

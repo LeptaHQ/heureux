@@ -9,8 +9,8 @@ from unittest.mock import patch
 
 from django.test import SimpleTestCase
 
-from study.content_loader import parse_ee_tache_three_responses
-from study.ee_formulations import (
+from study.catalogue.loader import parse_ee_tache_three_responses
+from study.expression.ee.formulations.catalogue import (
     FUNCTION_CATEGORIES_BY_TACHE,
     EXAMPLE_SOURCE_FIELDS,
     FUNCTION_CATEGORIES,
@@ -81,7 +81,7 @@ class EeFormulationsLoaderTests(SimpleTestCase):
                 ([SimpleNamespace(slug="education")], {self.source_key: "education"}),
             ),
         ):
-            mock = patch(f"study.ee_formulations.{target}", return_value=value)
+            mock = patch(f"study.expression.ee.formulations.catalogue.{target}", return_value=value)
             mock.start()
             self.addCleanup(mock.stop)
         get_ee_formulations.cache_clear()
@@ -126,7 +126,7 @@ class EeFormulationsLoaderTests(SimpleTestCase):
         first = self.load()
         self.payload["entries"][0]["label"] = "Changed"
         self.assertNotEqual(first.entries[0].label, self.load().entries[0].label)
-        with patch("study.ee_formulations.load_ee_formulations", return_value=first) as load:
+        with patch("study.expression.ee.formulations.catalogue.load_ee_formulations", return_value=first) as load:
             self.assertIs(get_ee_formulations(), get_ee_formulations())
             load.assert_called_once_with()
             get_ee_formulations.cache_clear()
@@ -156,7 +156,7 @@ class EeFormulationsLoaderTests(SimpleTestCase):
             tache=1,
         )
         with patch(
-            "study.ee_formulations.load_ee_formulations",
+            "study.expression.ee.formulations.catalogue.load_ee_formulations",
             side_effect=lambda *args, **kwargs: (
                 ee1 if kwargs.get("tache") == 1 else ee3
             ),
@@ -198,7 +198,7 @@ class EeFormulationsLoaderTests(SimpleTestCase):
             ),
         ))
         with patch(
-            "study.ee_formulations.load_ee_writing_categories",
+            "study.expression.ee.formulations.catalogue.load_ee_writing_categories",
             return_value=(category,),
         ):
             self.path.write_text(json.dumps(self.payload), encoding="utf-8")
@@ -213,7 +213,7 @@ class EeFormulationsLoaderTests(SimpleTestCase):
             "source_field"
         ] = "position_claire"
         with patch(
-            "study.ee_formulations.load_ee_writing_categories",
+            "study.expression.ee.formulations.catalogue.load_ee_writing_categories",
             return_value=(category,),
         ), self.assertRaises(ValueError):
             self.path.write_text(json.dumps(self.payload), encoding="utf-8")
@@ -446,7 +446,7 @@ class EeFormulationsLoaderTests(SimpleTestCase):
         self.payload["entries"].append(last)
         extra = SimpleNamespace(content_key="ee-tache3:test:combinaison-2")
         self.payload["source_response_count"] = 2
-        with patch("study.ee_formulations.parse_ee_tache_three_responses",
+        with patch("study.expression.ee.formulations.catalogue.parse_ee_tache_three_responses",
                    return_value=[self.response, extra]):
             with self.assertRaisesRegex(ValueError, "Every effective response"):
                 self.load()
@@ -456,7 +456,7 @@ class EeFormulationsLoaderTests(SimpleTestCase):
         with self.assertRaisesRegex(ValueError, "theme category"):
             self.load()
         self.payload["entries"][-1]["themes"] = ["education"]
-        with patch("study.ee_formulations.load_ee_subject_themes",
+        with patch("study.expression.ee.formulations.catalogue.load_ee_subject_themes",
                    return_value=([SimpleNamespace(slug="education")],
                                  {self.source_key: "travail"})):
             with self.assertRaisesRegex(ValueError, "source theme"):

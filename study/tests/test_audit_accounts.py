@@ -9,7 +9,7 @@ from django.test import TestCase, TransactionTestCase, override_settings, skipUn
 from django.urls import reverse
 from django.utils import timezone
 
-from study.account_services import _recovery_code_digest, generate_recovery_codes
+from study.accounts.services import _recovery_code_digest, generate_recovery_codes
 from study.models import AccountRecoveryCode, Annotation, AnnotationKind, WritingResponseOverride
 
 from . import factories
@@ -126,7 +126,7 @@ class AccountReliabilityTests(TestCase):
         generate_recovery_codes(user)
         previous = list(AccountRecoveryCode.objects.filter(user=user).values())
         with patch(
-            "study.account_services.AccountRecoveryCode.objects.bulk_create",
+            "study.accounts.services.AccountRecoveryCode.objects.bulk_create",
             side_effect=IntegrityError("Recovery code collision"),
         ):
             with self.assertRaisesMessage(IntegrityError, "Recovery code collision"):

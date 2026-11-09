@@ -19,7 +19,7 @@ class _GuideMarkup(HTMLParser):
 
 
 class EeTacheThreeMemoryGuideTests(SimpleTestCase):
-    template = "study/partials/ee_tache_three_memory_guide.html"
+    template = "study/expression/ee/tache_3/partials/ee_tache_three_memory_guide.html"
 
     @classmethod
     def setUpClass(cls):
@@ -166,7 +166,7 @@ class EeTacheThreeMemoryGuideTests(SimpleTestCase):
         self.assertNotEqual(self.parsed.attributes_for("dialog")[0]["id"], button["aria-controls"])
 
         dialog = _GuideMarkup(render_to_string(
-            "study/partials/writing_methodology_dialog.html",
+            "study/expression/ee/partials/writing_methodology_dialog.html",
             {"tache": 3},
         )).attributes_for("dialog")
         self.assertEqual(len(dialog), 1)
@@ -175,7 +175,7 @@ class EeTacheThreeMemoryGuideTests(SimpleTestCase):
 
     def test_methodology_dialog_teaches_the_same_timed_skeleton(self):
         text = " ".join(strip_tags(render_to_string(
-            "study/partials/writing_methodology_task_three.html"
+            "study/expression/ee/tache_3/partials/writing_methodology_task_three.html"
         )).split())
         for phrase in (
             "5 minutes pour lire et cartographier",

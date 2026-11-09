@@ -6,7 +6,7 @@ import re
 from django.test import Client, TestCase
 from django.urls import reverse
 
-from study.content_loader import (
+from study.catalogue.loader import (
     WritingCategoryData,
     WritingSujetData,
     WritingVersionData,

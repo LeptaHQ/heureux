@@ -1,0 +1,23 @@
+{% extends "study/shared/partials/progress_card.html" %}
+{% block progress_card_classes %} theme-vocabulary-entry{% endblock %}
+{% block progress_card_attributes %}
+  data-theme-vocabulary-directory-item
+  data-theme-vocabulary-status="{{ progress.status }}"
+  aria-label="Ouvrir le vocabulaire du thème {{ item.data.name }}"
+{% endblock %}
+{% block progress_card_body %}
+  <h2>{{ item.data.name }}</h2>
+  <div class="memory-entry__facts">
+    {% if item.section_counts %}
+      {% for section_count in item.section_counts %}
+        <span><b>{{ section_count.count }}</b> {{ section_count.title }}</span>
+      {% endfor %}
+    {% elif item.phrase_count == 0 %}
+      <span><b>0</b> fiches</span>
+    {% else %}
+      <span><b>{{ item.word_count }}</b> mots</span>
+      <span><b>{{ item.expression_count }}</b> expressions</span>
+      <span><b>{{ item.fragment_count }}</b> fragments</span>
+    {% endif %}
+  </div>
+{% endblock %}

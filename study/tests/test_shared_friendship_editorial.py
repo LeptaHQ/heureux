@@ -1,7 +1,8 @@
 from django.test import SimpleTestCase
 
-from study import catalogue, content_loader as content
-from study.tache_three_models import spoken_text
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
+from study.expression.eo.tache_3.responses import spoken_text
 
 
 class SharedFriendshipEditorialTests(SimpleTestCase):

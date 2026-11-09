@@ -1,0 +1,16 @@
+<dialog class="form-dialog pinned-note-dialog" id="pinned-note-dialog" aria-labelledby="pinned-note-dialog-title">
+  <header class="form-dialog__header">
+    <div class="form-dialog__heading">
+      <span class="form-dialog__icon pinned-note-dialog__icon" aria-hidden="true">
+        {% include "study/notes/partials/annotation_pin_icon.html" %}
+      </span>
+      <h2 id="pinned-note-dialog-title">Note épinglée</h2>
+    </div>
+    <button class="icon-button form-dialog__close" type="button" aria-label="Fermer la note" data-dialog-close autofocus>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+    </button>
+  </header>
+  <div class="form-dialog__body pinned-note-dialog__body" data-pinned-note-content></div>
+  <p class="form-dialog__error pinned-note-dialog__status" role="alert" data-pinned-note-status hidden></p>
+  <footer class="annotation-card__actions pinned-note-dialog__actions" aria-label="Actions de la note" data-pinned-note-actions></footer>
+</dialog>

@@ -1,0 +1,1110 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "culture-p7": {
+      "introduction": {
+        "french": "Les métiers artistiques sont sérieux malgré leur image de plaisir.",
+        "english": "Artistic occupations are serious despite their enjoyable image."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Une prestation exige du travail régulier.",
+            "english": "A performance requires regular work."
+          },
+          "example": {
+            "french": "Avant le concert, un musicien reprend les passages difficiles.",
+            "english": "Before the concert, a musician works on difficult passages."
+          }
+        },
+        {
+          "point": {
+            "french": "Techniques précises et commandes à respecter.",
+            "english": "Precise techniques and commissions to fulfil."
+          },
+          "example": {
+            "french": "Une illustratrice garde le personnage reconnaissable et livre à la date convenue.",
+            "english": "An illustrator keeps the character recognisable and delivers on the agreed date."
+          }
+        },
+        {
+          "point": {
+            "french": "Une équipe dépend de la préparation de chacun.",
+            "english": "A team depends on each person's preparation."
+          },
+          "example": {
+            "french": "Sans connaître son texte, une comédienne empêcherait acteurs et techniciens de régler la scène.",
+            "english": "Without knowing her lines, an actress would prevent actors and technicians from setting the scene."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Une œuvre peut déplaire et les revenus être précaires malgré un travail rigoureux.",
+        "english": "Work can be rigorous even if a piece is disliked and income unstable."
+      },
+      "conclusion": {
+        "french": "Créativité, compétences et engagements professionnels vont ensemble.",
+        "english": "Creativity, skills and professional commitments go together."
+      }
+    },
+    "culture-p34": {
+      "introduction": {
+        "french": "Consommation : des services utiles, mais aussi un risque d'acheter trop.",
+        "english": "Consumption: useful services, but also a risk of buying too much."
+      },
+      "nuance": {
+        "french": "Occasion parfois moins chère, pas forcément raisonnable ; frais et qualité comptent.",
+        "english": "Second-hand can be cheaper, not necessarily sensible; charges and quality matter."
+      },
+      "conclusion": {
+        "french": "Faciliter l'accès et prolonger l'usage pour mieux répondre aux besoins.",
+        "english": "Improve access and extend use to meet needs better."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Les services numériques peuvent rendre certains achats plus accessibles.",
+            "english": "Digital services can make some purchases more accessible."
+          },
+          "example": {
+            "french": "Livraison possible de courses lourdes, en vérifiant les frais et le budget.",
+            "english": "Possible delivery of heavy groceries, checking charges and budget."
+          }
+        },
+        {
+          "point": {
+            "french": "Acheter en quelques clics peut pousser à dépenser sans réfléchir.",
+            "english": "Buying in a few clicks can encourage spending without thinking."
+          },
+          "example": {
+            "french": "Une offre semble urgente : risque d'acheter des chaussures inutiles et de dépasser son budget.",
+            "english": "An offer seems urgent: risk of buying unneeded shoes and going over budget."
+          }
+        },
+        {
+          "point": {
+            "french": "L'occasion et la réparation permettent d'utiliser les objets plus longtemps.",
+            "english": "Buying secondhand and repairing things keep objects in use longer."
+          },
+          "example": {
+            "french": "Un vélo d'enfant d'occasion peut être revendu et servir à plusieurs enfants.",
+            "english": "A second-hand child's bicycle can be resold and serve several children."
+          }
+        }
+      ]
+    },
+    "famille-p7": {
+      "introduction": {
+        "french": "Ne pas exclure la famille, mais vérifier la façon de travailler ensemble.",
+        "english": "Do not rule out family, but check how well you work together."
+      },
+      "nuance": {
+        "french": "Si la relation est tendue ou si l'on n'ose pas parler d'un problème de travail avec son proche, mieux vaut éviter cette collaboration.",
+        "english": "If relations are strained or you do not dare discuss a work problem with your relative, it is better to avoid working together."
+      },
+      "conclusion": {
+        "french": "Choisir selon le travail réel, sans faire subir les conflits aux autres.",
+        "english": "Choose based on actual work, without making others bear your conflicts."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Une expérience de travail commune permet de répartir les rôles.",
+            "english": "Shared work experience helps divide roles."
+          },
+          "example": {
+            "french": "Deux sœurs ont vendu du pain au marché : l'une le faisait, l'autre tenait la caisse ; mêmes rôles dans leur boulangerie.",
+            "english": "Two sisters sold bread at a market: one made it, the other served customers and took payments; same roles in their bakery."
+          }
+        },
+        {
+          "point": {
+            "french": "Un conflit professionnel peut entraîner les autres proches.",
+            "english": "A work conflict can draw in other relatives."
+          },
+          "example": {
+            "french": "Frère et sœur travaillent au même restaurant. Au repas familial, elle critique ses retards ; leur mère le défend, et la dispute s'étend.",
+            "english": "Siblings work at the same restaurant. At a family meal, she criticises his lateness; their mother defends him and the dispute spreads."
+          }
+        },
+        {
+          "point": {
+            "french": "La parenté ne doit pas passer avant les critères professionnels.",
+            "english": "Family ties must not override professional criteria."
+          },
+          "example": {
+            "french": "Le patron nomme son fils par favoritisme, sans examiner la candidature d'un collègue plus expérimenté.",
+            "english": "The boss favours his son and ignores a more experienced colleague's application."
+          }
+        }
+      ]
+    },
+    "education-p12": {
+      "introduction": {
+        "french": "Les études aident une carrière, au-delà du simple diplôme, sans être le seul chemin.",
+        "english": "Study supports a career beyond the certificate itself, without being the only route."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Des bases structurées aident à comprendre et vérifier le travail.",
+            "english": "Structured knowledge helps people understand and check their work."
+          },
+          "example": {
+            "french": "Corriger une facture comptée deux fois apprend à vérifier les pièces devant un total inhabituel.",
+            "english": "Correcting a double-counted invoice teaches which records to check when a total looks unusual."
+          }
+        },
+        {
+          "point": {
+            "french": "Une qualification ouvre l'accès à certaines candidatures.",
+            "english": "A qualification makes certain job applications possible."
+          },
+          "example": {
+            "french": "Formé en maintenance, un salarié postule à un poste de technicien exigeant cette qualification.",
+            "english": "After maintenance training, an employee applies for a technician role requiring that qualification."
+          }
+        },
+        {
+          "point": {
+            "french": "Les études entraînent à organiser le travail collectif.",
+            "english": "Study provides practice organising group work."
+          },
+          "example": {
+            "french": "Répartir recherches et dates pendant les études aide ensuite à organiser un rapport commun au travail.",
+            "english": "Dividing research and setting dates as a student later helps organise a shared report at work."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Expérience et apprentissage comptent aussi ; comparer coût et contenu des études.",
+        "english": "Experience and vocational learning also matter; consider study costs and content."
+      },
+      "conclusion": {
+        "french": "Bases, accès et méthodes : un appui professionnel dont il faut utiliser les acquis.",
+        "english": "Knowledge, access and methods support a career when put to use."
+      }
+    },
+    "education-p16": {
+      "introduction": {
+        "french": "Un salaire identique n'est pas toujours juste ; les écarts doivent être expliqués.",
+        "english": "Identical pay is not always fair; differences must be explained."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Reconnaître les responsabilités particulières.",
+            "english": "Recognize particular responsibilities."
+          },
+          "example": {
+            "french": "Sur un chantier, coordonner deux équipes pour éviter qu'elles se bloquent.",
+            "english": "On a building site, coordinate two teams so they do not block each other."
+          }
+        },
+        {
+          "point": {
+            "french": "Une augmentation possible peut encourager la formation.",
+            "english": "A possible pay rise can encourage further training."
+          },
+          "example": {
+            "french": "Reconnaître le diagnostic d'une technicienne et sa transmission aux collègues peut l'encourager à se former.",
+            "english": "Recognizing a technician's diagnosis and sharing with colleagues can encourage further training."
+          }
+        },
+        {
+          "point": {
+            "french": "Avec un budget limité, ajuster un salaire peut aider à garder une compétence difficile à remplacer.",
+            "english": "With a limited budget, adjusting one salary can help retain a skill that is hard to replace."
+          },
+          "example": {
+            "french": "Une usine peut augmenter la technicienne d'une machine spécialisée pour éviter une interruption pendant son remplacement.",
+            "english": "A factory can raise a specialist technician's pay to avoid disruption while finding and training a replacement."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "À travail égal, même traitement ; combattre les discriminations et les écarts excessifs.",
+        "english": "Equal treatment for equal work; challenge discrimination and excessive gaps."
+      },
+      "conclusion": {
+        "french": "Des différences justifiées, pas des privilèges sans explication.",
+        "english": "Justified differences, not unexplained privileges."
+      }
+    },
+    "sante-p3": {
+      "introduction": {
+        "french": "Travailler et étudier demande plus que de la volonté.",
+        "english": "Combining work and study takes more than willpower."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Des horaires incompatibles.",
+            "english": "Conflicting schedules."
+          },
+          "example": {
+            "french": "Un cours finit à 17 h, mais le travail commence à 17 h ailleurs.",
+            "english": "A class ends at five, but the shift starts at five elsewhere."
+          }
+        },
+        {
+          "point": {
+            "french": "Un repos réduit.",
+            "english": "Reduced recovery time."
+          },
+          "example": {
+            "french": "Terminer un devoir pendant la nuit après une fermeture tardive réduit le temps de sommeil.",
+            "english": "Finishing an assignment during the night after a late closing shift cuts sleep time."
+          }
+        },
+        {
+          "point": {
+            "french": "Le besoin de revenu peut empêcher de réduire ses heures de travail.",
+            "english": "Needing the income can prevent cutting work hours."
+          },
+          "example": {
+            "french": "Supprimer deux services pour réviser laisse un salaire insuffisant pour le loyer.",
+            "english": "Dropping two shifts to revise leaves too little salary to cover rent."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Une charge limitée et des horaires prévisibles peuvent aider.",
+        "english": "Limited hours and predictable schedules can help."
+      },
+      "conclusion": {
+        "french": "Adapter la charge et les horaires plutôt que demander toujours plus d'efforts.",
+        "english": "Adjust the workload and schedules rather than demand ever more effort."
+      }
+    },
+    "sante-p7": {
+      "introduction": {
+        "french": "Le bio n'est pas réservé aux riches, mais tous n'y ont pas le même accès.",
+        "english": "Organic food is not only for the rich, but access is unequal."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Un supplément sur chaque produit peut rendre le panier trop cher.",
+            "english": "An extra cost on each item can make the whole basket unaffordable."
+          },
+          "example": {
+            "french": "Comparer deux paquets de pâtes de même poids.",
+            "english": "Compare two pasta packs of the same weight."
+          }
+        },
+        {
+          "point": {
+            "french": "Le temps et le prix du trajet comptent aussi.",
+            "english": "Travel time and cost matter too."
+          },
+          "example": {
+            "french": "Une promotion éloignée peut exiger un trajet coûteux.",
+            "english": "A special offer at a distant shop may involve an expensive journey."
+          }
+        },
+        {
+          "point": {
+            "french": "Acheter quelques produits bio sans changer tout le panier.",
+            "english": "Buy a few organic products without changing the whole basket."
+          },
+          "example": {
+            "french": "Acheter seulement les lentilles bio adaptées au budget.",
+            "english": "Buy only the organic lentils that fit the budget."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Une promotion ne résout pas un budget insuffisant ; le bio ne garantit pas un repas équilibré.",
+        "english": "A special offer does not solve an insufficient budget; organic food does not guarantee a balanced meal."
+      },
+      "conclusion": {
+        "french": "Comparer les possibilités sans juger les acheteurs.",
+        "english": "Compare options without judging shoppers."
+      }
+    },
+    "sante-p15": {
+      "introduction": {
+        "french": "Refuser l'obligation pour tous jusqu'à 70 ans, sans refuser une poursuite volontaire.",
+        "english": "Reject compulsory work until seventy for everyone, without rejecting a voluntary decision to continue."
+      },
+      "nuance": {
+        "french": "Le financement et les choix volontaires comptent aussi.",
+        "english": "Financing and voluntary choices also matter."
+      },
+      "conclusion": {
+        "french": "Adapter les conditions plutôt qu'imposer le même âge.",
+        "english": "Adapt conditions rather than impose one age."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Les tâches réellement exercées.",
+            "english": "Actual job demands."
+          },
+          "example": {
+            "french": "Du matériel adapté réduit les ports de cartons ; repousser la retraite ne change pas la tâche.",
+            "english": "Suitable equipment reduces box lifting; delaying retirement does not change the task."
+          }
+        },
+        {
+          "point": {
+            "french": "Les besoins de santé individuels.",
+            "english": "Individual health needs."
+          },
+          "example": {
+            "french": "Un horaire aménagé permet d'aller à des rendez-vous médicaux réguliers.",
+            "english": "An adjusted schedule allows regular medical appointments."
+          }
+        },
+        {
+          "point": {
+            "french": "Des durées de carrière différentes.",
+            "english": "Different lengths of working life."
+          },
+          "example": {
+            "french": "Commencer à dix-huit ou à vingt-huit ans impose dix années d'écart si tous travaillent jusqu'à 70 ans.",
+            "english": "Starting at eighteen or twenty-eight means ten extra years of work if both continue until seventy."
+          }
+        }
+      ]
+    },
+    "sante-p20": {
+      "introduction": {
+        "french": "Il faut assez pour ses besoins, pas forcément être riche.",
+        "english": "You need enough to meet your needs, not necessarily wealth."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Certaines dépenses restent à payer, même en faisant attention.",
+            "english": "Some expenses remain, even with careful spending."
+          },
+          "example": {
+            "french": "Même après avoir supprimé des abonnements, le budget peut rester insuffisant pour le loyer et les courses.",
+            "english": "Even after cancelling subscriptions, the budget may still fall short of rent and groceries."
+          }
+        },
+        {
+          "point": {
+            "french": "Des coûts différents.",
+            "english": "Different living costs."
+          },
+          "example": {
+            "french": "Sur un même revenu de 1 800 euros, un loyer de 1 000 au lieu de 500 laisse 500 euros de moins.",
+            "english": "With the same 1,800-euro income, rent of 1,000 rather than 500 leaves 500 euros less."
+          }
+        },
+        {
+          "point": {
+            "french": "Des aides et des services peuvent réduire ce qu'on doit payer.",
+            "english": "Benefits and services can reduce what people have to pay."
+          },
+          "example": {
+            "french": "Un transport public adapté aux trajets peut remplacer la voiture et éviter ses frais d'entretien et d'assurance.",
+            "english": "Usable public transport can replace a car for daily trips, saving maintenance and insurance costs."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Ne pas expliquer la pauvreté par une mauvaise gestion.",
+        "english": "Do not explain poverty as poor budgeting."
+      },
+      "conclusion": {
+        "french": "Évaluer besoins, contexte et soutiens.",
+        "english": "Assess needs, context and support."
+      }
+    },
+    "sante-p22": {
+      "introduction": {
+        "french": "Un bon salaire peut aider, sans être nécessaire au bonheur de tous.",
+        "english": "A good salary can help without being necessary for everyone's happiness."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "La sécurité matérielle.",
+            "english": "Material security."
+          },
+          "example": {
+            "french": "Payer une réparation sans renoncer aux courses.",
+            "english": "Pay for a repair without giving up groceries."
+          }
+        },
+        {
+          "point": {
+            "french": "Des liens de confiance que le salaire n'achète pas.",
+            "english": "Trusting relationships that a salary cannot buy."
+          },
+          "example": {
+            "french": "Un ami écoute pendant une promenade puis reprend des nouvelles après un moment difficile.",
+            "english": "A friend listens during a walk, then checks in after a difficult time."
+          }
+        },
+        {
+          "point": {
+            "french": "Les conditions du travail.",
+            "english": "Working conditions."
+          },
+          "example": {
+            "french": "Refuser une promotion avec déplacements si un poste moins payé couvre les besoins et préserve la vie familiale.",
+            "english": "Decline a promotion with frequent travel if a lower-paid job covers needs and leaves room for family commitments."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Ne pas glorifier les difficultés ni inventer un seuil universel.",
+        "english": "Do not glorify hardship or invent a universal threshold."
+      },
+      "conclusion": {
+        "french": "Payer ses dépenses, compter sur ses proches et garder du temps pour eux.",
+        "english": "Pay expenses, have loved ones to rely on and keep time for them."
+      }
+    },
+    "technologie-p18": {
+      "introduction": {
+        "french": "Certains foyers peuvent tout acheter en ligne, mais pas tous.",
+        "english": "Some households can buy everything online, but not all."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Trouver en ligne les produits dont on a besoin.",
+            "english": "Find the products you need online."
+          },
+          "example": {
+            "french": "Commander courses et fournitures sur des sites adaptés.",
+            "english": "Order groceries and supplies from suitable websites."
+          }
+        },
+        {
+          "point": {
+            "french": "Pouvoir recevoir ou retirer les achats à temps.",
+            "english": "Be able to receive or collect purchases in time."
+          },
+          "example": {
+            "french": "Aucun vendeur ne livre à temps à l'adresse ; un retrait peut résoudre le problème s'il est accessible.",
+            "english": "No seller delivers to the address in time; collection may solve the problem if it is accessible."
+          }
+        },
+        {
+          "point": {
+            "french": "Pouvoir terminer la commande et payer.",
+            "english": "Be able to complete the order and pay."
+          },
+          "example": {
+            "french": "Sans le moyen de paiement exigé, l'acheteur ne peut pas terminer l'achat tant qu'aucune alternative adaptée n'est proposée.",
+            "english": "Without the required payment method, the buyer cannot complete the purchase until a suitable alternative is offered."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Préférer essayer en magasin ne prouve pas l'impossibilité ; payer en ligne puis retirer reste un achat en ligne.",
+        "english": "Preferring to try in store does not prove impossibility; paying online then collecting is still an online purchase."
+      },
+      "conclusion": {
+        "french": "Vérifier les produits, la livraison ou le retrait, et les moyens de commander.",
+        "english": "Check products, delivery or collection, and the means to place an order."
+      }
+    },
+    "technologie-p22": {
+      "introduction": {
+        "french": "Internet change les consignes, le travail partagé et les attentes de réponse.",
+        "english": "Internet changes instructions, shared work and expectations about replies."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Transmettre une consigne commune et vérifier qu'elle est lue.",
+            "english": "Send a shared instruction and check that it has been read."
+          },
+          "example": {
+            "french": "Un responsable annonce un changement de planning dans le canal prévu et demande confirmation de lecture.",
+            "english": "A manager announces a schedule change in the agreed channel and asks for confirmation that it was read."
+          }
+        },
+        {
+          "point": {
+            "french": "Partager un travail avec des rôles.",
+            "english": "Share work with clear roles."
+          },
+          "example": {
+            "french": "Deux collègues à distance préparent un rapport : l'un rassemble les données, l'autre vérifie les références avant l'envoi.",
+            "english": "Two remote colleagues prepare a report: one gathers data, the other checks references before it is sent."
+          }
+        },
+        {
+          "point": {
+            "french": "Fixer les attentes de réponse.",
+            "english": "Set response expectations."
+          },
+          "example": {
+            "french": "L'équipe et le responsable reportent les messages du soir au prochain temps de travail, sauf urgence définie.",
+            "english": "The team and manager defer evening messages to the next working period, except for a defined emergency."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "L'accès, les métiers et l'expertise restent déterminants.",
+        "english": "Access, occupations and expertise still matter."
+      },
+      "conclusion": {
+        "french": "Savoir qui fait quoi et quand répondre, pas seulement envoyer plus de messages.",
+        "english": "Know who does what and when to reply, rather than simply send more messages."
+      }
+    },
+    "economie-p1": {
+      "introduction": {
+        "french": "Préparer sa recherche au Canada sans promettre une embauche facile.",
+        "english": "Prepare a job search in Canada without promising an easy hire."
+      },
+      "nuance": {
+        "french": "Une offre adaptée et les autorisations aident ; prévoir de quoi vivre et du temps, sans délai d'embauche garanti.",
+        "english": "A suitable offer and authorizations help; allow living funds and time, with no guaranteed hiring deadline."
+      },
+      "conclusion": {
+        "french": "Confiance dans le projet, prudence sur sa facilité.",
+        "english": "Confidence in the project, caution about its ease."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Vérifier l'accès au métier.",
+            "english": "Check access to the profession."
+          },
+          "example": {
+            "french": "Si je visais un métier infirmier avec une formation étrangère, je vérifierais avec le régulateur les étapes avant d'exercer.",
+            "english": "If I sought a nursing role with foreign training, I would check the steps with the regulator before practising."
+          }
+        },
+        {
+          "point": {
+            "french": "Préparer les échanges dans la langue du poste.",
+            "english": "Prepare communication in the language required for the role."
+          },
+          "example": {
+            "french": "Un entretien d'entraînement pour un poste d'accueil révèle les expressions à travailler avant de voir un employeur.",
+            "english": "A practice interview for a reception role reveals expressions to work on before meeting an employer."
+          }
+        },
+        {
+          "point": {
+            "french": "Comparer son profil aux offres.",
+            "english": "Match one's profile to vacancies."
+          },
+          "example": {
+            "french": "Si plusieurs annonces récentes exigent un outil non maîtrisé, l'apprendre ou cibler d'autres offres.",
+            "english": "If several recent vacancies require an unfamiliar tool, learn it or target other vacancies."
+          }
+        }
+      ]
+    },
+    "economie-p2": {
+      "introduction": {
+        "french": "Critiquer certains revenus extrêmes, pas tous les sportifs.",
+        "english": "Criticize some extreme earnings, not all athletes."
+      },
+      "nuance": {
+        "french": "Recettes et carrière courte n'excusent pas tout ; réduire ces revenus ne finance pas automatiquement les hôpitaux.",
+        "english": "Revenue and short careers do not justify everything; cutting these earnings does not automatically fund hospitals."
+      },
+      "conclusion": {
+        "french": "Rémunérer le talent sans oublier budgets collectifs et autres réussites.",
+        "english": "Reward talent without overlooking shared budgets and other forms of success."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Attirer de l'argent ne signifie pas être plus utile aux autres.",
+            "english": "Attracting money does not mean being more useful to others."
+          },
+          "example": {
+            "french": "Comparer une audience publicitaire avec le service d'une équipe de soins.",
+            "english": "Compare advertising audiences with a care team's service."
+          }
+        },
+        {
+          "point": {
+            "french": "Répartir les moyens dans le sport.",
+            "english": "Allocate resources within sport."
+          },
+          "example": {
+            "french": "Un contrat très coûteux peut retarder l'achat de matériel pour les jeunes.",
+            "english": "A very expensive contract may delay buying equipment for young players."
+          }
+        },
+        {
+          "point": {
+            "french": "Ne pas réduire la réussite à la richesse.",
+            "english": "Do not reduce success to wealth."
+          },
+          "example": {
+            "french": "Un éducateur présente au jeune des sportifs moins médiatisés qui étudient aussi : réussir ne se limite pas à la fortune.",
+            "english": "An educator shows the young person less-publicized athletes who also study: success is not just wealth."
+          }
+        }
+      ]
+    },
+    "economie-p3": {
+      "introduction": {
+        "french": "Diriger demande des compétences à préparer et à évaluer.",
+        "english": "Leadership requires skills to develop and assess."
+      },
+      "nuance": {
+        "french": "La préparation peut évoluer ; refuser un rôle n'est pas être incapable.",
+        "english": "Readiness can develop; declining a role does not mean being incapable."
+      },
+      "conclusion": {
+        "french": "Distinguer savoir-faire, envie et aptitude au poste.",
+        "english": "Distinguish technical skill, willingness and fitness for the role."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Coordonner plutôt que tout faire seul.",
+            "english": "Coordinate instead of doing everything alone."
+          },
+          "example": {
+            "french": "Un vendeur promu sert tous les clients sans répartir les tâches ; le magasin se désorganise malgré ses ventes.",
+            "english": "A promoted salesperson serves every customer without dividing tasks; the shop becomes disorganized despite their sales."
+          }
+        },
+        {
+          "point": {
+            "french": "Choisir entre plusieurs demandes et expliquer ses décisions.",
+            "english": "Choose between several requests and explain decisions."
+          },
+          "example": {
+            "french": "Deux équipes demandent une salle ; priorité à l'activité déjà annoncée, autre créneau pour la seconde.",
+            "english": "Two teams request a room: priority goes to the announced activity, with another time slot for the second team."
+          }
+        },
+        {
+          "point": {
+            "french": "Vérifier le budget et le planning.",
+            "english": "Check the budget and schedule."
+          },
+          "example": {
+            "french": "Avec une aide expérimentée, comparer dépenses et recettes ; si le budget ne suffit pas, choisir une salle moins chère.",
+            "english": "With experienced help, compare costs and income; if funds are insufficient, choose a cheaper room."
+          }
+        }
+      ]
+    },
+    "economie-p4": {
+      "introduction": {
+        "french": "Autoriser une sieste volontaire, planifiée et compatible avec le service.",
+        "english": "Allow a voluntary, planned nap compatible with service needs."
+      },
+      "nuance": {
+        "french": "Ni reprise dangereuse, ni remplacement du sommeil, ni justification d'horaires intenables.",
+        "english": "No unsafe return, replacement of sleep or justification for unsustainable hours."
+      },
+      "conclusion": {
+        "french": "Associer récupération, dialogue sur la fatigue et accès équitable au repos.",
+        "english": "Combine recovery, discussion of fatigue and fair access to rest."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Récupérer de l'attention.",
+            "english": "Recover attention."
+          },
+          "example": {
+            "french": "Reprendre un document après le repos et un temps de réveil.",
+            "english": "Resume a document after rest and time to wake up."
+          }
+        },
+        {
+          "point": {
+            "french": "Pouvoir signaler sa fatigue.",
+            "english": "Be able to report fatigue."
+          },
+          "example": {
+            "french": "Une somnolence répétée peut amener le responsable à décaler la prise de poste.",
+            "english": "Repeated drowsiness may lead a manager to move the start time."
+          }
+        },
+        {
+          "point": {
+            "french": "Ne pas réserver le repos aux postes les moins visibles.",
+            "english": "Do not reserve rest for the least visible roles."
+          },
+          "example": {
+            "french": "Un relais et un espace calme donnent aussi accès au repos aux collègues d'accueil.",
+            "english": "Cover and a quiet space also give reception colleagues access to rest."
+          }
+        }
+      ]
+    },
+    "economie-p6": {
+      "introduction": {
+        "french": "Le bien-être repose sur l'organisation, pas seulement des avantages agréables.",
+        "english": "Well-being rests on work organization, not just pleasant perks."
+      },
+      "nuance": {
+        "french": "Les objectifs restent nécessaires ; une animation ne remplace pas de bonnes conditions.",
+        "english": "Goals remain necessary; an activity cannot replace good working conditions."
+      },
+      "conclusion": {
+        "french": "Une charge tenable, la possibilité de parler et des horaires prévisibles.",
+        "english": "A manageable workload, the ability to speak up and predictable hours."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Maintenir une charge tenable.",
+            "english": "Keep workloads manageable."
+          },
+          "example": {
+            "french": "Prioriser et répartir trois tâches urgentes.",
+            "english": "Prioritize and share three urgent tasks."
+          }
+        },
+        {
+          "point": {
+            "french": "Pouvoir signaler les problèmes.",
+            "english": "Be able to report problems."
+          },
+          "example": {
+            "french": "Clarifier deux consignes contradictoires avant l'envoi d'une commande.",
+            "english": "Clarify two conflicting instructions before dispatching an order."
+          }
+        },
+        {
+          "point": {
+            "french": "Donner envie aux salariés de rester.",
+            "english": "Give employees reasons to stay."
+          },
+          "example": {
+            "french": "Un planning prévisible peut aider une salariée expérimentée à rester.",
+            "english": "A predictable schedule may help an experienced employee stay."
+          }
+        }
+      ]
+    },
+    "economie-p9": {
+      "introduction": {
+        "french": "Le salaire est essentiel, sans priorité identique pour tous.",
+        "english": "Pay is essential, without the same priority for everyone."
+      },
+      "nuance": {
+        "french": "Besoins essentiels ou projet d'épargne peuvent rendre le salaire prioritaire ; le choix reste inégal.",
+        "english": "Basic needs or savings plans can make pay the priority; choice remains unequal."
+      },
+      "conclusion": {
+        "french": "Un revenu suffisant dans un emploi adapté à sa vie et à son projet.",
+        "english": "Sufficient income in a job suited to one's life and plans."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Comparer santé et vie personnelle au gain salarial.",
+            "english": "Weigh health and personal life against higher pay."
+          },
+          "example": {
+            "french": "Refuser une promotion avec déplacements si un poste moins payé couvre les besoins et préserve la vie familiale.",
+            "english": "Decline a promotion with frequent travel if a lower-paid job covers needs and leaves room for family commitments."
+          }
+        },
+        {
+          "point": {
+            "french": "Évaluer l'intérêt des missions.",
+            "english": "Assess interest in the duties."
+          },
+          "example": {
+            "french": "Une technicienne privilégie l'apprentissage si son budget reste viable.",
+            "english": "A technician favors learning if her budget remains viable."
+          }
+        },
+        {
+          "point": {
+            "french": "Comparer les revenus sur l'année.",
+            "english": "Compare income over the year."
+          },
+          "example": {
+            "french": "Comparer une mission de deux mois au poste durable moins payé : compter les mois sans mission pour évaluer le revenu annuel.",
+            "english": "Compare a two-month assignment with a lower-paid lasting role: count months without assignments to assess yearly income."
+          }
+        }
+      ]
+    },
+    "economie-p10": {
+      "introduction": {
+        "french": "Débuter peut créer des obstacles ; l'âge seul n'explique pas tout.",
+        "english": "Starting out can create obstacles; age alone does not explain everything."
+      },
+      "nuance": {
+        "french": "Expérience et ressources varient ; d'autres âges rencontrent aussi des obstacles.",
+        "english": "Experience and resources vary; other ages also face obstacles."
+      },
+      "conclusion": {
+        "french": "Ouvrir des voies d'entrée sans dévaloriser les débutants.",
+        "english": "Open entry routes without devaluing beginners."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Pouvoir prouver son expérience.",
+            "english": "Be able to demonstrate experience."
+          },
+          "example": {
+            "french": "Un projet scolaire ne fournit pas l'expérience de commandes clients réelles demandée au recrutement.",
+            "english": "A school project does not supply the real customer-order experience requested in recruitment."
+          }
+        },
+        {
+          "point": {
+            "french": "Accéder aux informations et contacts.",
+            "english": "Access information and contacts."
+          },
+          "example": {
+            "french": "Un ancien collègue explique un futur recrutement.",
+            "english": "A former colleague explains an upcoming recruitment."
+          }
+        },
+        {
+          "point": {
+            "french": "Disposer de moyens pour chercher.",
+            "english": "Have resources to search."
+          },
+          "example": {
+            "french": "Un entretien à distance évite un déplacement difficile à financer.",
+            "english": "A remote interview avoids a journey that is hard to afford."
+          }
+        }
+      ]
+    },
+    "economie-p15": {
+      "introduction": {
+        "french": "Un projet possible, mais pas automatiquement facile.",
+        "english": "A possible project, but not automatically an easy one."
+      },
+      "nuance": {
+        "french": "L'accompagnement facilite certains départs ; logement et budget comptent aussi.",
+        "english": "Support eases some moves; housing and budget also matter."
+      },
+      "conclusion": {
+        "french": "Clarifier règles, communication et accès au métier.",
+        "english": "Clarify rules, communication and professional access."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Vérifier le droit de travailler.",
+            "english": "Check the right to work."
+          },
+          "example": {
+            "french": "Si une autorisation est nécessaire, rassembler les pièces et reporter le début tant que le statut n'est pas réglé.",
+            "english": "If authorization is necessary, gather the documents and postpone starting until the status is resolved."
+          }
+        },
+        {
+          "point": {
+            "french": "Préparer les échanges du métier.",
+            "english": "Prepare workplace communication."
+          },
+          "example": {
+            "french": "Une technicienne prépare avec un collègue comment demander l'arrêt d'une intervention et expliquer ses vérifications.",
+            "english": "A technician prepares with a colleague how to request that an intervention stop and explain her checks."
+          }
+        },
+        {
+          "point": {
+            "french": "Distinguer droit de travailler et autorisation d'exercer.",
+            "english": "Distinguish the right to work from authorization to practise."
+          },
+          "example": {
+            "french": "Un soignant formé ailleurs consulte le régulateur et prépare toute étape de reconnaissance manquante avant d'exercer.",
+            "english": "A healthcare worker trained elsewhere consults the regulator and prepares any missing recognition step before practising."
+          }
+        }
+      ]
+    },
+    "economie-p16": {
+      "introduction": {
+        "french": "Faire profiter les habitants du tourisme, pas seulement attirer plus de visiteurs.",
+        "english": "Let residents benefit from tourism, not just attract more visitors."
+      },
+      "nuance": {
+        "french": "Associer les habitants et suivre logement, saisonnalité et pression sur les sites.",
+        "english": "Involve residents and monitor housing, seasonality and pressure on sites."
+      },
+      "conclusion": {
+        "french": "Des revenus partagés, du travail dans les régions et un patrimoine entretenu.",
+        "english": "Shared income, work in the regions and well-maintained heritage."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Faire circuler les dépenses localement.",
+            "english": "Keep spending circulating locally."
+          },
+          "example": {
+            "french": "Un hébergement travaille avec un guide et des producteurs proches.",
+            "english": "Accommodation works with a guide and nearby producers."
+          }
+        },
+        {
+          "point": {
+            "french": "Créer des activités loin des grandes villes.",
+            "english": "Create activities away from major cities."
+          },
+          "example": {
+            "french": "Un artisan forme une personne du village pour animer des visites, tout en gardant ses autres clients.",
+            "english": "An artisan trains a villager to lead visits while retaining other clients."
+          }
+        },
+        {
+          "point": {
+            "french": "Entretenir et transmettre le patrimoine.",
+            "english": "Maintain and share heritage."
+          },
+          "example": {
+            "french": "Consacrer des recettes à l’entretien et aux visites commentées.",
+            "english": "Allocate revenue to upkeep and guided visits."
+          }
+        }
+      ]
+    },
+    "economie-p17": {
+      "introduction": {
+        "french": "Aucune préférence de sexe : privilégier clarté, respect et équité.",
+        "english": "No sex preference: prioritize clarity, respect and fairness."
+      },
+      "nuance": {
+        "french": "Une expérience influence la confiance, sans justifier une généralisation.",
+        "english": "Experience influences trust without justifying generalization."
+      },
+      "conclusion": {
+        "french": "Juger les comportements réels selon les mêmes critères.",
+        "english": "Judge actual behavior under the same criteria."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Des priorités clairement organisées.",
+            "english": "Clearly organized priorities."
+          },
+          "example": {
+            "french": "Préciser laquelle de deux urgences traiter d'abord.",
+            "english": "Clarify which of two urgent tasks comes first."
+          }
+        },
+        {
+          "point": {
+            "french": "Pouvoir signaler un problème.",
+            "english": "Be able to report a problem."
+          },
+          "example": {
+            "french": "Clarifier une consigne manquante sans rabaisser le salarié.",
+            "english": "Clarify a missing instruction without belittling the employee."
+          }
+        },
+        {
+          "point": {
+            "french": "Ne pas écarter un talent par préjugé.",
+            "english": "Do not exclude talent through prejudice."
+          },
+          "example": {
+            "french": "Évaluer le projet d'une candidate, pas une autorité supposée masculine.",
+            "english": "Assess a woman's proposal, not supposedly male authority."
+          }
+        }
+      ]
+    },
+    "economie-p18": {
+      "introduction": {
+        "french": "Des moyens suffisants, pas une obligation de richesse.",
+        "english": "Sufficient means, not an obligation to be wealthy."
+      },
+      "nuance": {
+        "french": "Ne pas idéaliser la précarité ni fixer un seuil universel de besoins.",
+        "english": "Do not romanticize insecurity or set a universal threshold of needs."
+      },
+      "conclusion": {
+        "french": "Payer le nécessaire et garder du temps pour ses proches et ce qu’on aime.",
+        "english": "Pay for essentials and keep time for loved ones and enjoyable activities."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Partager des moments accessibles.",
+            "english": "Share accessible moments."
+          },
+          "example": {
+            "french": "Un repas simple et une promenade entre amis.",
+            "english": "A simple meal and a walk with friends."
+          }
+        },
+        {
+          "point": {
+            "french": "Choisir une activité qui plaît.",
+            "english": "Choose an enjoyable activity."
+          },
+          "example": {
+            "french": "Progresser en dessin avec un carnet et du matériel simple.",
+            "english": "Improve at drawing with a notebook and simple materials."
+          }
+        },
+        {
+          "point": {
+            "french": "Préserver le temps d'en profiter.",
+            "english": "Preserve time to enjoy life."
+          },
+          "example": {
+            "french": "Si les besoins sont couverts, garder une soirée plutôt que travailler plus.",
+            "english": "If needs are covered, keep an evening free rather than work more."
+          }
+        }
+      ]
+    },
+    "economie-p20": {
+      "introduction": {
+        "french": "La difficulté ne détermine pas automatiquement le salaire.",
+        "english": "Difficulty does not automatically determine pay."
+      },
+      "nuance": {
+        "french": "Risques et contraintes peuvent être compensés ; aucun type de métier n'est forcément facile.",
+        "english": "Risks and demands can be compensated; no type of work is necessarily easy."
+      },
+      "conclusion": {
+        "french": "Examiner conditions, recrutement et rémunération, pas la valeur des personnes.",
+        "english": "Examine conditions, recruitment and pay, not people's worth."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Des contraintes restent mal reconnues.",
+            "english": "Some demands remain poorly recognized."
+          },
+          "example": {
+            "french": "Une personne fait le nettoyage tôt, déplace du matériel et a peu de temps par espace, malgré un salaire modeste.",
+            "english": "A person cleans early, moves equipment and has little time per area despite modest pay."
+          }
+        },
+        {
+          "point": {
+            "french": "Le manque de candidats peut faire augmenter une offre salariale.",
+            "english": "A shortage of applicants can raise a salary offer."
+          },
+          "example": {
+            "french": "Relever une offre faute de spécialiste sans changer les tâches.",
+            "english": "Raise an offer for lack of a specialist without changing the duties."
+          }
+        },
+        {
+          "point": {
+            "french": "Le budget de l'employeur et les règles de salaire comptent aussi.",
+            "english": "The employer's budget and pay rules matter too."
+          },
+          "example": {
+            "french": "Une structure d'aide financée augmente les salaires ; une autre garde son budget pour des tâches comparables.",
+            "english": "One care provider receives funding and raises pay; another keeps its budget for comparable work."
+          }
+        }
+      ]
+    }
+  }
+}

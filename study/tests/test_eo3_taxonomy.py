@@ -9,12 +9,13 @@ from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 from django.utils.html import escape
 
-from study import catalogue, content_loader as content
-from study.account_services import provision_user_study_data
-from study.eo3_taxonomy import load_eo_tache_three_taxonomy
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
+from study.accounts.services import provision_user_study_data
+from study.expression.eo.tache_3.taxonomy import load_eo_tache_three_taxonomy
 from study.models import Prompt, Response, Theme
-from study.oral_highlights import AnnotationRootText
-from study.routing import prompt_detail_url
+from study.notes.anchors import AnnotationRootText
+from study.navigation.routing import prompt_detail_url
 from study.templatetags.study_links import subject_display_category
 from study.views.library import _oral_subject_themes
 
@@ -26,7 +27,7 @@ class EO3TaxonomyTests(SimpleTestCase):
         catalogue.clear_catalogue_cache()
         self.addCleanup(catalogue.clear_catalogue_cache)
         self.payload = json.loads(
-            (content.CONTENT_DIR / "tache_3/subject_taxonomy.json").read_text()
+            (content.EO_TACHE_THREE_DIR / "subject_taxonomy.json").read_text()
         )
 
     def test_complete_immutable_partition_and_cache_lifecycle(self):
@@ -56,7 +57,7 @@ class EO3TaxonomyTests(SimpleTestCase):
         )
 
     def test_failed_loads_are_not_cached(self):
-        with patch("study.eo3_taxonomy.load_eo_tache_three_taxonomy",
+        with patch("study.expression.eo.tache_3.taxonomy.load_eo_tache_three_taxonomy",
                    side_effect=ValueError("Invalid manifest")) as load:
             for _ in range(2):
                 with self.assertRaises(ValueError):
@@ -250,7 +251,7 @@ class EO3TaxonomyViewTests(TestCase):
         category = taxonomy.by_source[prompt.content_key]
         self.assertContains(page, f"#theme-education-family-{category.slug}")
         self.assertEqual(page.context["eo3_display_category"], category)
-        with patch("study.catalogue.eo_tache_three_taxonomy",
+        with patch("study.catalogue.registry.eo_tache_three_taxonomy",
                    return_value=replace(taxonomy, by_source={})):
             old_display = self.client.get(prompt_detail_url(prompt))
         self.assertEqual(

@@ -4,7 +4,7 @@ import re
 
 from django.test import SimpleTestCase
 
-from study import content_loader as content
+from study.catalogue import loader as content
 
 
 class EeTacheThreeSkeletonTests(SimpleTestCase):

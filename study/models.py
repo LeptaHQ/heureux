@@ -71,7 +71,7 @@ class Task(models.Model):
     @property
     def supports_memoires(self) -> bool:
         """True when this task exposes a user-facing Mémoires section."""
-        from . import content_loader
+        from study.catalogue import loader as content_loader
 
         task_key = (self.part.slug, self.slug)
         return (
@@ -1238,7 +1238,7 @@ class Rating(models.IntegerChoices):
 
 class CardQuerySet(models.QuerySet):
     def current_content(self):
-        from .retirement import retired_vocabulary
+        from study.catalogue.retirement import retired_vocabulary
 
         return self.filter(
             Q(response__is_active=True) | Q(phrase__is_active=True)

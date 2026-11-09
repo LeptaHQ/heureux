@@ -8,16 +8,17 @@ import json
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 
-from study import catalogue, content_loader as content
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
 from study.models import Annotation, AnnotationKind, PersonalResponse
-from study.oral_highlights import (
+from study.notes.anchors import (
     QuestionText, _project_location_annotation, _render_questions,
 )
-from study.oral_history import variant_annotation_key
-from study.response_personalization import effective_response
-from study.routing import prompt_detail_url
-from study.tache_two_dialogues import dialogue_response
-from study.tache_two_location_history import LOCATION_HISTORY_PATH, load_location_history
+from study.expression.eo.history import variant_annotation_key
+from study.expression.personalization import effective_response
+from study.navigation.routing import prompt_detail_url
+from study.expression.eo.tache_2.dialogues import dialogue_response
+from study.expression.eo.tache_2.history import LOCATION_HISTORY_PATH, load_location_history
 
 from . import factories
 from .test_tache_two_work_school_review import REVIEWED_GROUPS
@@ -865,7 +866,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
 
     def test_saved_key_matches_original_published_layout(self):
         previous = dialogue_response(self.old)
-        with patch("study.tache_two_dialogues.published_dialogue", return_value=self.old):
+        with patch("study.expression.eo.tache_2.dialogues.published_dialogue", return_value=self.old):
             self.assertEqual(
                 variant_annotation_key(self.prompt, previous),
                 variant_annotation_key(self.prompt, previous, tache_two_dialogue=self.old),

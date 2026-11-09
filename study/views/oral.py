@@ -6,14 +6,14 @@ from django.conf import settings
 from django.http import Http404
 from django.urls import reverse
 
-from ..oral_history import preferred_personal, variant_annotation_key
-from ..eo3_audio import narration_presentation
-from ..eo3_response_languages import language_presentation
-from ..response_personalization import effective_response
-from ..routing import TACHE_TWO_PROMPT_KEY, review_url, subject_selection_url
-from ..tache_three_models import annotation_arguments, response_text, reviewed_model
-from ..tache_three_prompt_notes import prompt_note_for_response
-from .. import catalogue
+from study.expression.eo.history import preferred_personal, variant_annotation_key
+from study.expression.eo.tache_3.audio import narration_presentation
+from study.expression.eo.tache_3.languages import language_presentation
+from study.expression.personalization import effective_response
+from study.navigation.routing import TACHE_TWO_PROMPT_KEY, subject_selection_url
+from study.expression.eo.tache_3.responses import annotation_arguments, response_text, reviewed_model
+from study.expression.eo.tache_3.prompt_notes import prompt_note_for_response
+from study.catalogue import registry as catalogue
 
 
 def oral_response_context(request, prompt):
@@ -22,7 +22,7 @@ def oral_response_context(request, prompt):
     response = prompt.response
     if not response.semantic_group:
         return {}
-    from ..public_response_annotations import preserve_prompt_annotations
+    from study.expression.eo.annotations import preserve_prompt_annotations
 
     preserve_prompt_annotations(request.user, prompt)
     selected_personal = preferred_personal(response, request.user)
@@ -69,8 +69,4 @@ def oral_response_context(request, prompt):
         "eo3_prompt_note": prompt_note_for_response(response, prompt),
         "oral_annotation_key": variant_annotation_key(prompt, value),
         "oral_legacy_annotation_keys": json.dumps(legacy_keys),
-        "response_review_url": review_url({
-            "part": prompt.theme.task.part.slug, "task": prompt.theme.task.slug,
-            "kind": "spine", "response": response.pk, "prompt": prompt.pk,
-        }),
     }

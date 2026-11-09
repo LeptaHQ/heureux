@@ -1,4 +1,0 @@
-{% load study_links %}
-{% if previous_prompt %}{% subject_url 'study:response_detail' previous_prompt.theme.task.part.slug previous_prompt.theme.task.slug previous_prompt.pk as prompt_nav_previous_url %}{% endif %}
-{% if next_prompt %}{% subject_url 'study:response_detail' next_prompt.theme.task.part.slug next_prompt.theme.task.slug next_prompt.pk as prompt_nav_next_url %}{% endif %}
-{% include "study/partials/subject_navigation.html" with bottom=bottom position=prompt_position total=prompt_total choices=prompt_choices previous_url=prompt_nav_previous_url previous_title=previous_prompt.text|truncatechars:100 next_url=prompt_nav_next_url next_title=next_prompt.text|truncatechars:100 only %}

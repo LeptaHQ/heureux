@@ -1,0 +1,16 @@
+{% extends "study/shared/partials/progress_card.html" %}
+{% block progress_card_classes %} task-vocabulary-theme-entry{% endblock %}
+{% block progress_card_attributes %}
+  style="--theme-accent: {{ item.theme.color }};"
+  data-theme-vocabulary-directory-item
+  data-theme-vocabulary-status="{{ progress.status }}"
+  aria-label="Ouvrir le vocabulaire du thème {{ item.theme.display_name }}"
+{% endblock %}
+{% block progress_card_body %}
+  <h2>{{ item.theme.display_name }}</h2>
+  <div class="memory-entry__facts task-vocabulary-theme-entry__lexicon">
+    {% for section_count in item.section_counts %}
+      <span><b>{{ section_count.count }}</b> {{ section_count.short_title }}</span>
+    {% endfor %}
+  </div>
+{% endblock %}

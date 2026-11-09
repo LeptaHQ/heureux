@@ -6,10 +6,10 @@ import json
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 
-from study.eo2_question_languages import (
+from study.expression.eo.tache_2.languages import (
     THEMES, empty_manifest, fingerprint, scoped_dialogues, translation_path, validate_manifest,
 )
-from study.translation import deepl_translate, deepl_usage, write_translation_manifest
+from study.translations.service import deepl_translate, deepl_usage, write_translation_manifest
 
 
 class Command(BaseCommand):
@@ -24,7 +24,7 @@ class Command(BaseCommand):
         parser.add_argument("--themes", nargs="+", choices=sorted(THEMES))
 
     def handle(self, *args, **options):
-        from study import catalogue
+        from study.catalogue import registry as catalogue
 
         path = translation_path()
         try:

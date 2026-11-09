@@ -236,7 +236,7 @@ Reuse this compatible premise, not one entire answer to these different question
 
 ## Reviewed defaults and preserved sources
 
-`study/content/tache_3/responses/<theme>.json` holds reviewed models using the
+`study/content/expression/eo/tache_3/themes/<current-theme>/responses.json` holds reviewed models using the
 existing response fields: `position_claire` is the spoken introduction;
 each argument has `idea`, `developpement`, `exemple` and `consequence`;
 `nuance` and `conclusion` finish the intervention. `position` and `reformulation`
@@ -254,7 +254,7 @@ Position selections use the model's stable annotation namespace with a
 complete owned legacy context proves that they belong to Position. Other answer
 and sidebar roots remain separate; notes and private responses are not replaced.
 
-`study/tache_three_models.py` validates complete coverage of each authored theme,
+`study/expression/eo/tache_3/responses.py` validates complete coverage of each authored theme,
 three supported arguments, distinct claims/mechanisms/examples, and the rehearsal
 envelope. Every source consigne is pinned by its exact text's SHA-256 signature,
 including cross-theme equivalents. A changed consigne or membership requires
@@ -387,7 +387,7 @@ local participation and resource allocation; direct help and employment do
 not replace social rights or make associations unnecessary. The broad car-free
 opinion retains its own benefits/trade-offs, separate from the possibility group.
 
-Published Markdown in `study/content/responses/` remains the exact historical
+Published Markdown in `study/content/expression/eo/tache_3/sources/archive/responses/` remains the exact historical
 model corpus. Its 130 exact-body records support 167 publications and 131
 semantic identities. Do not rewrite or deduplicate those records as an incidental
 part of changing a reviewed default. They retain the original model bodies,
@@ -676,7 +676,7 @@ its result is fewer reminders and disputes, not a promise to end every disagreem
 
 EO3 subject pages and practice fronts use a collapsed English **Comprendre la
 consigne** note, styled like the EO2 explanation. The source-pinned
-`tache_3/prompt_notes.json` covers all 131 groups and 167 publications. Explain
+`expression/eo/tache_3/themes/<current-theme>/prompt_notes.json` collectively cover all 131 groups and 167 publications. Explain
 the exact issue, significant qualifiers, useful distinctions and plausible
 discussion angles. Do not translate a ready-made answer or force its position.
 Check every equivalent source, including opposite question polarities and
@@ -691,7 +691,7 @@ after changes. Notes sit outside detail annotation roots and carry annotation
 exclusion on practice fronts. Only the French prompt is a read-aloud target.
 Native disclosure works with keyboard controls and without JavaScript.
 
-The bilingual plans in `tache_3/hints.json` provide subject-specific **Pistes**
+The bilingual plans in `expression/eo/tache_3/themes/<current-theme>/hints.json` provide subject-specific **Pistes**
 alongside the separate prompt explanation. Each model plan cues its introduction
 and position, three arguments and examples, nuance and conclusion. Keep it aligned
 with the reviewed model and every equivalent consigne; never generate it from a

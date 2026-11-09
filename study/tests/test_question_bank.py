@@ -16,9 +16,9 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from study.account_services import provision_user_study_data
-from study import catalogue
-from study.content_loader import (
+from study.accounts.services import provision_user_study_data
+from study.catalogue import registry as catalogue
+from study.catalogue.loader import (
     EO_TACHE_ONE_QUESTION_BANK_DIR,
     EO_TACHE_THREE_THEME_VOCABULARY_CATEGORIES,
     EO_TACHE_THREE_THEME_VOCABULARY_DIR,
@@ -67,7 +67,7 @@ from study.models import (
     Task,
     ThemeVocabularyProgress,
 )
-from study.routing import prompt_detail_url, response_detail_url
+from study.navigation.routing import prompt_detail_url, response_detail_url
 from study.views.helpers import expression_task_summaries
 from study.views.account import ACCOUNT_EXPORT_VERSION
 
@@ -1721,7 +1721,7 @@ class EoTacheOneQuestionBankViewTests(TestCase):
 
         self.assertTrue(self.task.available)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "study/question_bank.html")
+        self.assertTemplateUsed(response, "study/expression/question_bank.html")
         self.assertEqual(response.context["question_bank"].question_count, 70)
         self.assertEqual(len(response.context["memory_sections"]), 9)
         self.assertContains(response, "Questions de l’entretien dirigé")
@@ -2134,7 +2134,7 @@ class EoTacheOneResponseViewTests(TestCase):
         response = self.client.get(self.url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "study/eo_tache_one_response.html")
+        self.assertTemplateUsed(response, "study/expression/eo/tache_1/eo_tache_one_response.html")
         self.assertTrue(response.context["editing"])
         self.assertIsNone(response.context["personal_response"])
         self.assertContains(
@@ -2642,7 +2642,7 @@ class QuestionBankViewTests(TestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "study/tache_two_overview.html")
+        self.assertTemplateUsed(response, "study/expression/eo/tache_2/tache_two_overview.html")
         self.assertTrue(self.task.available)
         for key in ("subject_count", "subject_summary", "subject_theme_count", "theme_vocabulary"):
             self.assertNotIn(key, response.context)
@@ -2704,7 +2704,7 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(
             response,
-            "study/tache_two_theme_vocabulary.html",
+            "study/expression/eo/tache_2/tache_two_theme_vocabulary.html",
         )
         self.assertEqual(response.context["theme_count"], 18)
         self.assertEqual(response.context["phrase_count"], 810)
@@ -3233,7 +3233,7 @@ class QuestionBankViewTests(TestCase):
         index = self.client.get(index_url, {"deduplicate": "0"})
         first_subject_key = tache_two_subject_content_key("janvier", 1, 1)
         self.assertEqual(index.status_code, 200)
-        self.assertTemplateUsed(index, "study/tache_two_subjects.html")
+        self.assertTemplateUsed(index, "study/expression/eo/tache_2/tache_two_subjects.html")
         self.assertEqual(index.context["theme_count"], 18)
         self.assertEqual(index.context["subject_count"], 348)
         self.assertEqual(index.context["question_count"], 2784)
@@ -3365,7 +3365,7 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(batch.status_code, 200)
         self.assertTemplateUsed(
             batch,
-            "study/tache_two_subject_batch.html",
+            "study/expression/eo/tache_2/tache_two_subject_batch.html",
         )
         self.assertContains(batch, "Janvier · Batch 1")
         self.assertContains(batch, "data-tache-two-subject", count=5)
@@ -3387,7 +3387,7 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(subject.status_code, 200)
         self.assertTemplateUsed(
             subject,
-            "study/tache_two_subject_detail.html",
+            "study/expression/eo/tache_2/tache_two_subject_detail.html",
         )
         self.assertContains(
             subject,
@@ -3397,7 +3397,7 @@ class QuestionBankViewTests(TestCase):
         self.assertNotContains(subject, "tache-two-question__memory")
         self.assertNotContains(subject, "Réflexe Mémoire")
         self.assertContains(subject, "Progression du sujet")
-        self.assertContains(subject, "Pratiquer ce sujet")
+        self.assertNotContains(subject, "Pratiquer ce sujet")
         self.assert_subject_hints(subject)
         self.assertNotContains(subject, "Pratique des questions")
         self.assertNotContains(subject, "Pratiquer les vocabs")
@@ -4305,10 +4305,7 @@ class QuestionBankViewTests(TestCase):
         overview = self.client.get(reverse(
             "study:task_detail", args=[self.task.part.slug, self.task.slug],
         ))
-        self.assertEqual(
-            [theme["slug"] for theme in overview.context["subject_summary"]["themes"]],
-            expected_order,
-        )
+        self.assertNotIn("subject_summary", overview.context)
 
         other = factories.make_user("theme-order-other-user")
         self.client.force_login(other)
@@ -4433,32 +4430,14 @@ class QuestionBankViewTests(TestCase):
         ]
         self.assertEqual(len(active_rows), 1)
         self.assertContains(directory, "is-status-active")
-        self.assertEqual(
-            overview.context["subject_summary"]["progress"].status,
-            "active",
-        )
-        overview_themes = {
-            theme["slug"]: theme
-            for theme in overview.context["subject_summary"]["themes"]
-        }
-        self.assertEqual(
-            overview_themes["logement"]["progress"].status,
-            "active",
-        )
+        self.assertNotIn("subject_summary", overview.context)
         task_card = next(
             row
             for row in task_list.context["tasks"]
             if row["task"].pk == self.task.pk
         )
-        self.assertEqual(
-            task_card["question_bank"]["subject_progress"].status,
-            "active",
-        )
-        self.assertEqual(
-            task_card["question_bank"]["progress"].status,
-            "active",
-        )
-        self.assertContains(task_list, "0/164 sujets terminés")
+        self.assertNotIn("question_bank", task_card)
+        self.assertNotContains(task_list, "sujets terminés")
 
     def test_explicit_subject_completion_rolls_up_through_tache_two(self):
         response = Response.objects.get(
@@ -4583,7 +4562,7 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(
             response,
-            "study/theme_vocabulary_detail.html",
+            "study/vocabulary/theme_vocabulary_detail.html",
         )
         self.assertEqual(response.context["theme_data"].slug, "logement")
         self.assertEqual(response.context["phrase_count"], 45)
@@ -4895,7 +4874,7 @@ class QuestionBankViewTests(TestCase):
             )
             self.assertEqual(len(detail.context["review_batches"]), 3)
 
-    def test_task_card_describes_subjects_and_theme_vocabulary(self):
+    def test_task_card_links_to_content_without_summary_statistics(self):
         task_url = reverse(
             "study:task_detail",
             args=[self.task.part.slug, self.task.slug],
@@ -4907,29 +4886,21 @@ class QuestionBankViewTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, task_url)
-        self.assertContains(
+        self.assertNotContains(
             response,
             "164 sujets · 18 thèmes · 810 fiches de vocabulaire",
         )
-        self.assertContains(response, "0/54 lots terminés")
-        self.assertContains(response, "0/164 sujets terminés")
-        self.assertContains(response, "À commencer")
+        self.assertNotContains(response, "lots terminés")
+        self.assertNotContains(response, "sujets terminés")
+        self.assertNotContains(response, "À commencer")
         task_card = next(
             row
             for row in response.context["tasks"]
             if row["task"].pk == self.task.pk
         )
-        self.assertEqual(task_card["question_bank"]["progress"].total, 218)
-        self.assertEqual(
-            task_card["question_bank"]["vocabulary_progress"].total,
-            54,
-        )
-        self.assertEqual(
-            task_card["question_bank"]["subject_progress"].total,
-            164,
-        )
+        self.assertEqual(set(task_card), {"task"})
 
-    def test_theme_vocabulary_progress_rolls_up_to_every_entry_point(self):
+    def test_theme_vocabulary_progress_is_limited_to_study_pages(self):
         theme = self.task.themes.get(slug="tache-2-logement")
         first_lot_phrase_ids = list(
             Phrase.objects.filter(
@@ -4976,15 +4947,9 @@ class QuestionBankViewTests(TestCase):
 
         self.assertEqual(detail.context["summary"]["completed"], 1)
         self.assertEqual(directory_item["summary"]["completed"], 1)
-        self.assertEqual(
-            overview.context["theme_vocabulary"]["summary"]["completed"],
-            1,
-        )
-        self.assertEqual(
-            task_card["question_bank"]["vocabulary_progress"].completed,
-            1,
-        )
-        self.assertContains(task_list, "1/54 lots terminés")
+        self.assertNotIn("theme_vocabulary", overview.context)
+        self.assertEqual(set(task_card), {"task"})
+        self.assertNotContains(task_list, "lots terminés")
 
     def test_legacy_memory_progress_post_does_not_create_progress(self):
         bank = load_question_bank()

@@ -6,7 +6,7 @@ from pathlib import Path
 
 from django.test import SimpleTestCase
 
-from study.tache_three_models import load_tache_three_models, spoken_text
+from study.expression.eo.tache_3.responses import load_tache_three_models, spoken_text
 
 
 REVIEWED_CLAUSES = {
@@ -36,14 +36,14 @@ REVIEWED_CLAUSES = {
     "culture-p34": "bien que l'achat d'occasion soit souvent plus économique",
     "culture-p35": "sans qu'elle ait à prouver son utilité économique",
     "culture-p4": "afin qu'elle puisse demander cette aide elle-même",
-    "culture-p5": "à condition que cette possibilité corresponde vraiment au projet",
+    "culture-p5": "Il faut que le pays choisi offre de réelles possibilités pour son projet",
     "culture-p6": "Je ne pense pas que le livre soit devenu inutile",
     "culture-p7": "Cela ne signifie pas que toute œuvre doive plaire à tout le monde",
     "culture-p8": "pourrait craindre que la violence soit fréquente chez les jeunes",
     "culture-p9": "il arrive qu'on ne sache même pas à qui demander de l'aide",
     "economie-p1": "je ne supposerais pas que tous les postes exigent le même bilinguisme",
     "economie-p10": "Il faut aussi qu'on examine les obstacles",
-    "economie-p14": "je ne dirais pas quelle proportion part sans autre choix, ni que ceux qui restent disposent forcément de meilleures options",
+    "economie-p14": "Il faut donc qu'on regarde les possibilités réelles de chaque personne",
     "economie-p15": "Il faut donc qu'on apprenne à se faire comprendre",
     "economie-p16": "prévoir qu'une partie des recettes serve à l'entretien et à des visites commentées",
     "economie-p17": "que cette personne soit un homme ou une femme",
@@ -74,7 +74,7 @@ REVIEWED_CLAUSES = {
     "education-p23": "à condition qu'on lui laisse le temps de s'exprimer",
     "education-p3": "Pour que cette possibilité soit réelle",
     "education-p4": "accepter que les autres ne procèdent pas comme lui",
-    "education-p5": "Il faut que le logement, les transports et les dépenses avant un revenu confirmé soient prévus dans un budget",
+    "education-p5": "il faut aussi que chacun puisse trouver sa place",
     "education-p6": "évite ainsi que tous les volontaires arrivent au même moment",
     "education-p7": "quel que soit l'âge du départ",
     "environnement-p1": "sans exiger qu'elles racontent toute leur vie",
@@ -154,9 +154,9 @@ class TacheThreeSubjunctiveTests(SimpleTestCase):
                 self.assertIn(clause, spoken_text(models['eo/tache-3/' + group].response))
 
     def test_requested_book_revision_and_plan_remain_verbatim(self):
-        directory = Path(__file__).resolve().parents[1] / 'content' / 'tache_3'
+        directory = Path(__file__).resolve().parents[1] / 'content' / 'expression' / 'eo' / 'tache_3' / 'themes' / 'education'
         for filename, expected in (
-            ('responses/culture.json', '51f549f68b2877be43d002b778966d85a83fcc30690e94b14792e9acebbec8b3'),
+            ('responses.json', '51f549f68b2877be43d002b778966d85a83fcc30690e94b14792e9acebbec8b3'),
             ('hints.json', 'c9abd65a3fe7328c4d69164cbc0d110eda009fac90815af937bc468452ef2935'),
         ):
             with self.subTest(file=filename):

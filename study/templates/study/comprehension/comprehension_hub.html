@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Compréhension · Heureux{% endblock %}
+
+{% block content %}
+<div class="learning-hub">
+  <header class="area-hero comprehension-hero">
+    <div class="area-hero__copy">
+      <h1>Compréhension</h1>
+      <p>Tests écrits et oraux, avec corrections et vocabulaire associé.</p>
+    </div>
+    <dl class="area-hero__metrics" aria-label="Progression en compréhension">
+      <div><dt>Tests terminés</dt><dd>{{ comprehension.completed_test_count }}<span class="hero-metric__total">/ {{ comprehension.test_count }}</span></dd></div>
+      <div><dt>Meilleur score</dt><dd>{% if comprehension.best_percentage is not None %}{{ comprehension.best_percentage }} %{% else %}—{% endif %}</dd></div>
+      <div><dt>Parcours</dt><dd>2</dd></div>
+    </dl>
+  </header>
+
+  <section class="learning-hub__paths" aria-labelledby="comprehension-paths-title">
+    <div class="section-heading">
+      <div>
+        <h2 id="comprehension-paths-title">Choisir une compétence</h2>
+      </div>
+    </div>
+    {% include "study/comprehension/partials/comprehension_paths.html" %}
+  </section>
+</div>
+{% endblock %}

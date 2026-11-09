@@ -3,7 +3,7 @@ from collections import Counter
 
 from django.core.management.base import BaseCommand, CommandError
 
-from study.course_content import (
+from study.learning.courses import (
     CONTENT_ROOT,
     load_course_catalog,
     validate_coverage_ledger,

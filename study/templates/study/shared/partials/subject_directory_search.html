@@ -1,0 +1,21 @@
+<form
+  class="search-form subject-directory-search"
+  method="get"
+  action="{% url 'study:task_search' part.slug task.slug %}"
+  role="search"
+  data-subject-directory-search>
+  <label class="sr-only" for="subject-directory-search">Rechercher dans les sujets</label>
+  <input
+    id="subject-directory-search"
+    class="search-form__input"
+    type="search"
+    name="q"
+    placeholder="Rechercher des mots dans les sujets…"
+    autocomplete="off">
+  <input type="hidden" name="scope" value="subjects">
+  {% if subject_deduplication_available %}<input type="hidden" name="deduplicate" value="{{ deduplicate_subjects|yesno:'1,0' }}">{% endif %}
+  <button class="btn btn--primary" type="submit" aria-label="Rechercher" title="Rechercher">
+    {% include "study/shared/partials/ui_icon.html" with name="search" icon_class="btn__icon" only %}
+    <span>Rechercher</span>
+  </button>
+</form>

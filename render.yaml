@@ -11,7 +11,7 @@ services:
         - "README.md"
         - "docs/**"
         - "requirements-dev.txt"
-        - "study/content/tache_2/EDITORIAL_PLAYBOOK.md"
+        - "study/content/expression/eo/tache_2/EDITORIAL_PLAYBOOK.md"
         - "study/tests/**"
     # Free Render services do not support pre-deploy commands, so run database
     # deployment work once in the build instead of on every cold start.

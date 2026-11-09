@@ -15,11 +15,11 @@ from django.test import override_settings
 from django.urls import reverse
 from playwright.sync_api import expect, sync_playwright
 
-from study.eo3_audio import NarrationError, narration_spec
-from study.french_audio import resolve_sources, speech_spec
+from study.expression.eo.tache_3.audio import NarrationError, narration_spec
+from study.audio.french import resolve_sources, speech_spec
 from study.models import Card, CardType, EO3Narration, FrenchNarration, FrenchNarrationBudget, PersonalResponse, PersonalTaskResponse, Prompt
-from study.routing import prompt_detail_url, review_url
-from study.tache_three_models import reviewed_model
+from study.navigation.routing import prompt_detail_url, review_url
+from study.expression.eo.tache_3.responses import reviewed_model
 
 from . import factories
 from .browser_server import BrowserLiveServerThread
@@ -379,7 +379,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         self.assert_no_general_audio_requests()
 
     @override_settings(ELEVENLABS_VOICE_ID="kENkNtk0xyzG09WW40xE")
-    @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
+    @patch("study.audio.french.synthesize", return_value=(AUDIO, TIMING))
     def test_confirmed_sample_prepares_in_app_and_returns_existing_native_player(self, provider):
         call_command("import_content", stdout=StringIO())
         prompt = Prompt.objects.select_related("theme__task__part").get(content_key="culture:p1")
@@ -416,7 +416,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         provider.assert_called_once()
 
     @override_settings(ELEVENLABS_VOICE_ID="kENkNtk0xyzG09WW40xE")
-    @patch("study.french_audio.synthesize", side_effect=NarrationError("Provider timeout; inspect usage."))
+    @patch("study.audio.french.synthesize", side_effect=NarrationError("Provider timeout; inspect usage."))
     def test_sample_preparation_failure_is_visible_from_the_header(self, provider):
         call_command("import_content", stdout=StringIO())
         prompt = Prompt.objects.select_related("theme__task__part").get(
@@ -435,7 +435,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         provider.assert_called_once()
 
     @override_settings(ELEVENLABS_VOICE_ID="kENkNtk0xyzG09WW40xE")
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_verified_plan_rejection_then_configured_voice_change_prepares_and_plays(self, factory):
         responses = [
             upstream(json.dumps({
@@ -486,7 +486,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         self.assertIn("/DefaultVoice/with-timestamps?", str(requests[-1].url))
 
     @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1_000_000)
-    @patch("study.eo3_audio.httpx.HTTPTransport")
+    @patch("study.expression.eo.tache_3.audio.httpx.HTTPTransport")
     def test_play_generates_missing_response_audio_then_plays_and_reuses_it(self, factory):
         requests = []
 
@@ -538,7 +538,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         self.assertEqual(len(requests), 1)
 
     @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=100000)
-    @patch("study.french_audio.synthesize", return_value=AUDIO)
+    @patch("study.audio.french.synthesize", return_value=AUDIO)
     def test_private_reader_never_offers_paid_preparation_even_when_generation_is_enabled(self, provider):
         self.private_presentation()
         read = self.page.get_by_role("button", name="Lire ma présentation en français")
@@ -607,10 +607,10 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
     def test_unsupported_browser_hides_native_controls_without_using_cloud(self):
         script = (
             'Object.defineProperty(window, "speechSynthesis", {value: undefined, configurable: true});'
-            + (settings.BASE_DIR / "study/static/study/js/speech.js").read_text()
+            + (settings.BASE_DIR / "study/static/study/js/audio/speech.js").read_text()
         )
         self.page.route(
-            re.compile(r".*/study/js/speech\.js(?:\?.*)?$"),
+            re.compile(r".*/study/js/audio/speech\.js(?:\?.*)?$"),
             lambda route: route.fulfill(body=script, content_type="application/javascript"),
         )
         self.writing()
@@ -641,7 +641,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,
         ELEVENLABS_PIN="",
     )
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_cached_series_advances_skips_and_finishes_without_generation(self, provider):
         prompts, specs = self.cached_theme(ready=(0, 2))
         for entry, seconds in ((0, 3), (2, 1)):
@@ -685,7 +685,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,
         ELEVENLABS_PIN="",
     )
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_cached_series_speed_and_twice_mode_repeat_each_track_exactly_twice(self, provider):
         prompts, specs = self.cached_theme(ready=(0, 2))
         self.cached_audio(specs[0], 3)
@@ -783,7 +783,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
     @override_settings(
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,
     )
-    @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
+    @patch("study.audio.french.synthesize", return_value=(AUDIO, TIMING))
     def test_saved_subject_plays_after_edit_and_voice_change_refresh_needs_explicit_pin(self, provider):
         prompts, specs = self.cached_theme(ready=(0,), journal=True)
         self.edit_cached_prompt(prompts[0])
@@ -834,7 +834,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,
         ELEVENLABS_PIN="",
     )
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_cached_series_reuses_previous_text_and_voice_without_preparing(self, provider):
         prompts, specs = self.cached_theme(ready=(0,), journal=True)
         self.edit_cached_prompt(prompts[0])
@@ -857,7 +857,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,
         ELEVENLABS_PIN="",
     )
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_cached_series_with_no_audio_does_not_prepare_or_ask_for_pin(self, provider):
         prompts, _ = self.cached_theme()
         self.page.goto(self.live_server_url + prompt_detail_url(prompts[0]))
@@ -872,7 +872,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         self.assertFalse(FrenchNarrationBudget.objects.exists())
         provider.assert_not_called()
 
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_cached_series_skips_a_recording_that_becomes_unavailable(self, provider):
         prompts, specs = self.cached_theme(ready=(0, 1))
         self.page.route(

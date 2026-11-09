@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block title %}{{ test.title }} · {{ test.mode_title }} · Heureux{% endblock %}
+
+{% block content %}
+<div class="ce-shell ce-study-index">
+  <nav class="ce-breadcrumb" aria-label="Fil d’Ariane">
+    <a href="{% url 'study:dashboard' %}">Accueil</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_hub' %}">Compréhension</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url test.overview_route %}">{{ test.mode_title }}</a>
+    {% if test.group_number %}
+      <span aria-hidden="true">›</span>
+      <a href="{% url test.group_route test.group_number %}">{{ test.group_label }} {{ test.group_number }}</a>
+    {% endif %}
+    <span aria-hidden="true">›</span>
+    <span>{{ test.title }}</span>
+  </nav>
+
+  <header class="ce-study-index__hero">
+    <div class="ce-study-index__copy">
+      <p class="eyebrow">Test {{ test.order|stringformat:"02d" }}</p>
+      <h1>{{ test.title }}</h1>
+      {% if not test.is_active or not test.is_published %}
+        <p class="ce-archive-notice">Ce test est actuellement indisponible. Vos résultats précédents restent consultables, mais il n’est plus possible de l’étudier ou de le recommencer.</p>
+      {% endif %}
+      <div class="ce-study-index__facts" aria-label="Contenu du test">
+        <span><b>{{ test.active_question_count }}</b> questions</span>
+        {% if test.best_attempt %}
+          <span><b>{{ test.best_attempt.percentage }} %</b> meilleur score</span>
+        {% endif %}
+      </div>
+    </div>
+    <aside class="ce-study-index__practice">
+      {% include "study/comprehension/partials/comprehension_progress_control.html" with test=test %}
+      {% if test.is_active and test.is_published %}
+        {% include "study/comprehension/partials/comprehension_practice_action.html" %}
+        {% if test.active_attempt %}
+          <details class="ce-restart">
+            <summary>Recommencer depuis le début</summary>
+            <p>La tentative en cours sera classée comme abandonnée.</p>
+            <form method="post" action="{% url test.start_route test.slug %}">
+              {% csrf_token %}
+              <input type="hidden" name="action" value="restart">
+              <button class="btn btn--block" type="submit">Confirmer le redémarrage</button>
+            </form>
+          </details>
+        {% endif %}
+      {% else %}
+        {% if test.group_number %}
+          <a class="btn btn--block" href="{% url test.group_route test.group_number %}">Retour au {{ test.group_label_lower }}</a>
+        {% else %}
+          <a class="btn btn--block" href="{% url test.overview_route %}">Retour aux tests</a>
+        {% endif %}
+      {% endif %}
+    </aside>
+  </header>
+
+  {% if test.is_active and test.is_published %}
+    <section class="ce-study-questions" aria-labelledby="ce-study-questions-title">
+      <div class="section-heading">
+        <h2 id="ce-study-questions-title">Questions · {{ questions|length }}</h2>
+        <p class="ce-study-questions__marked">
+          <a href="{% url test.study_list_route %}">
+            À étudier ·
+            <span data-question-study-test-count="{{ test.slug }}">{{ test.study_marked_count }}</span>
+          </a>
+        </p>
+      </div>
+
+      <div class="qlist ce-study-question-list">
+        {% for item in questions %}
+          <article class="qrow ce-study-question-row comprehension-progress-row{% if item.is_to_study %} is-to-study{% endif %}" data-question-study-row="{{ item.question.pk }}">
+            <span class="qrow__num">{{ item.question.number }}</span>
+            <span class="qrow__text">
+              <strong>{{ item.question.prompt_fr }}</strong>
+              <small>{{ item.question.passage_fr|truncatechars:115 }}</small>
+            </span>
+            <span class="qrow__meta qrow__meta--state">
+              {% if item.answer %}
+                <span class="ce-study-question-row__state {% if item.answer.is_correct %}is-correct{% else %}is-wrong{% endif %}" title="{% if item.answer.is_correct %}Bonne réponse lors de la dernière pratique{% else %}Réponse à revoir{% endif %}">
+                  {% if item.answer.is_correct %}{% include "study/shared/partials/ui_icon.html" with name="check" only %}{% else %}{% include "study/shared/partials/ui_icon.html" with name="x" only %}{% endif %}
+                </span>
+              {% endif %}
+              {% include "study/comprehension/partials/comprehension_question_study_form.html" with csrf_token=csrf_token marker=item.study_marker next_url=request.get_full_path variant="row" only %}
+              <span class="question-study-badge">À étudier</span>
+              <span class="ce-study-question-row__open" aria-hidden="true">Étudier {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</span>
+            </span>
+            <a class="comprehension-row-hit-area" href="{% url test.study_route test.slug item.question.number %}">
+              <span class="sr-only">Étudier la question {{ item.question.number }} : {{ item.question.prompt_fr }}</span>
+            </a>
+          </article>
+        {% empty %}
+          <p class="empty">Aucune question n’est disponible.</p>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if attempt_history %}
+    <section class="ce-history" aria-labelledby="ce-history-title">
+      <div class="ce-section-heading">
+        <div>
+          <p class="eyebrow">Historique</p>
+          <h2 id="ce-history-title">Tentatives terminées</h2>
+        </div>
+        {% if test.best_attempt %}
+          <p>Meilleur résultat : <b>{{ test.best_attempt.score }}/{{ test.best_attempt.total_questions }}</b> · {{ test.best_attempt.percentage }} %</p>
+        {% endif %}
+      </div>
+      <div class="ce-history__list">
+        {% for attempt in attempt_history %}
+          <a href="{% url test.results_route test.slug attempt.pk %}">
+            <span>
+              <strong>{{ attempt.completed_at|date:"j M Y" }}</strong>
+              <small>{{ attempt.completed_at|date:"H:i" }}</small>
+            </span>
+            <span class="ce-history__score">{{ attempt.score }}/{{ attempt.total_questions }}</span>
+            <span class="ce-history__percentage">{{ attempt.percentage }} %</span>
+            <span aria-hidden="true">{% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% include "study/comprehension/partials/comprehension_progress_script.html" %}
+{% endblock %}

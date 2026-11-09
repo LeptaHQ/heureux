@@ -8,7 +8,7 @@ from django.test import Client, TransactionTestCase, skipUnlessDBFeature, tag
 from django.urls import reverse
 
 from study.models import OralStateSnapshot, PersonalResponse, Response
-from study.oral_history import save_personal
+from study.expression.eo.history import save_personal
 
 from . import factories
 

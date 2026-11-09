@@ -2,7 +2,7 @@ import copy
 import hashlib
 import json
 
-from study import content_loader as content
+from study.catalogue import loader as content
 
 from study.tests.housing_work_fixtures import ORIGINAL_WORK_GROUPS
 from study.tests.transport_travel_review_fixtures import (

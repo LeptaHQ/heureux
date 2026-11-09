@@ -12,7 +12,7 @@ from django.db import IntegrityError, transaction
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 
-from study import content_loader as content
+from study.catalogue import loader as content
 from study.management.commands.import_content import Command
 from study.models import (
     Card,
@@ -126,7 +126,7 @@ class ComprehensionContentTests(SimpleTestCase):
             "Q1 has no passage translation",
         ):
             content._parse_comprehension_source(
-                content.COMPREHENSION_DIR / "test_03.md",
+                content.COMPREHENSION_DIR / "ce" / "test_03.md",
                 slug="test-3",
             )
 
@@ -146,7 +146,7 @@ class ComprehensionContentTests(SimpleTestCase):
         self.assertTrue(final_question.correct_explanation)
 
     def test_parser_rejects_duplicate_choice_letters(self):
-        source = (content.COMPREHENSION_DIR / "test_02.md").read_text(
+        source = (content.COMPREHENSION_DIR / "ce" / "test_02.md").read_text(
             encoding="utf-8"
         )
         malformed = source.replace(

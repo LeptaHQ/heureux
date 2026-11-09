@@ -1,0 +1,28 @@
+{% extends "study/shared/partials/table.html" %}
+{% block native_table_classes %} t1-table--grouped subject-collection__table{% if kind == 'eo3' %} subject-collection__table--response-only{% endif %}{% endblock %}
+{% block native_table_attributes %} data-nested-sort-table role="table"{% endblock %}
+{% block native_table_caption %}{% if family %}Sujets du sous-thème {{ family.name }} · {{ title }}{% else %}Sujets du thème {{ title }}{% endif %}{% endblock %}
+{% block native_table_columns %}
+      <col class="t1-table__subject-column">
+      {% if kind != "eo3" %}<col class="t1-table__questions-column">{% endif %}
+      <col class="t1-table__status-column">
+{% endblock %}
+{% block native_table_head %}
+    {% if kind == "eo3" %}{% include "study/shared/partials/sortable_subject_table_head.html" with hide_secondary=True only %}{% else %}{% include "study/shared/partials/sortable_subject_table_head.html" with secondary_label=secondary_label only %}{% endif %}
+{% endblock %}
+{% block native_table_body %}
+    <tbody role="rowgroup">
+      {% for subject in subjects %}
+        {% if kind == "writing" %}
+          {% url 'study:writing_sujet_detail' part.slug task.slug subject.sujet.pk as subject_url %}
+          {% include "study/expression/partials/subject_collection_row.html" with href=subject_url title=subject.prompt|truncatechars:220 prompt_key=subject.source.source_key progress_sujet=subject.progress_sujet|default:subject.sujet %}
+        {% elif kind == "eo2" %}
+          {% url 'study:task_subject_detail' part.slug task.slug subject.month_slug subject.batch_number subject.number as subject_url %}
+          {% include "study/expression/partials/subject_collection_row.html" with href=subject_url title=subject.title response_id=subject.response_id prompt_key=subject.content_key %}
+        {% else %}
+          {% url 'study:response_detail' part.slug task.slug subject.prompt.pk as subject_url %}
+          {% include "study/expression/partials/subject_collection_row.html" with href=subject_url title=subject.prompt.text response_id=subject.prompt.response_id prompt_key=subject.prompt.pk %}
+        {% endif %}
+      {% endfor %}
+    </tbody>
+{% endblock %}

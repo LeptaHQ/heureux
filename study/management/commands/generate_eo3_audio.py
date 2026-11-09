@@ -1,8 +1,8 @@
 from django.core.management.base import BaseCommand, CommandError
 
-from study import catalogue
-from study.audio_pin import AudioPinError, command_generation_pin
-from study.eo3_audio import (
+from study.catalogue import registry as catalogue
+from study.audio.pins import AudioPinError, command_generation_pin
+from study.expression.eo.tache_3.audio import (
     NarrationError, generate_narration, narration_source, narration_spec, saved_narrations,
 )
 

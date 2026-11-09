@@ -3,8 +3,9 @@ import json
 
 from django.test import SimpleTestCase
 
-from study import catalogue, content_loader as content
-from study.tache_two_dialogues import dialogue_response
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
+from study.expression.eo.tache_2.dialogues import dialogue_response
 from study.tests.eo2_review_fixtures import (
     assert_review_preservation, pre_realness_history,
     FOLLOWUP_GROUPS, remove_followup_archives,

@@ -13,16 +13,16 @@ from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils import timezone
 
-from study.account_services import provision_user_study_data
-from study import catalogue
-from study.expression_overview import writing_occurrence_progress
+from study.accounts.services import provision_user_study_data
+from study.catalogue import registry as catalogue
+from study.expression.overview import writing_occurrence_progress
 from study.models import (
     Annotation, AnnotationKind, Card, CardState, CardType,
     PersonalWritingResponse, PhraseTier, Prompt, Response, Task,
     WritingResponseOverride, WritingSujet, WritingSujetCompletion,
 )
-from study.oral_history import annotation_owners
-from study.progress import progress_summary, subject_progress_by_response, writing_sujet_progress_by_id
+from study.expression.eo.history import annotation_owners
+from study.review.progress import progress_summary, subject_progress_by_response, writing_sujet_progress_by_id
 from study.views.helpers import (
     _review_batches, _theme_vocabulary_batch_summary, summarize_review_batches,
 )
@@ -53,7 +53,7 @@ class ExpressionLandingPerformanceTests(TestCase):
     def test_navigation_reads_only_metadata_without_statistics(self):
         with patch("study.views.helpers.expression_task_summaries", side_effect=AssertionError), \
              patch("study.views.helpers._task_content_counts", side_effect=AssertionError), \
-             patch("study.expression_overview.expression_overview_summaries", side_effect=AssertionError):
+             patch("study.expression.overview.expression_overview_summaries", side_effect=AssertionError):
             for url, budget in zip(self.urls, (3, 4, 4)):
                 with self.subTest(url=url):
                     with CaptureQueriesContext(connection) as queries:
@@ -118,7 +118,7 @@ class ExpressionLandingPerformanceTests(TestCase):
 
     def test_published_writing_overviews_preserve_occurrence_weighting_and_task_isolation(self):
         from study.views.library import _ee_writing_sujet_ids_by_slug, _ee_writing_source_categories
-        from study import content_loader
+        from study.catalogue import loader as content_loader
 
         for tache in (1, 2):
             task = Task.objects.get(part__slug="ee", slug=f"tache-{tache}")
@@ -200,7 +200,7 @@ class ExpressionLandingPerformanceTests(TestCase):
                 progress.assert_not_called()
 
     def test_writing_directory_counts_do_not_fetch_private_override_bodies(self):
-        from study.writing_responses import (
+        from study.expression.ee.responses import (
             active_model_version_count, model_version_keys, overrides_by_sujet, replaced_model_key,
         )
         sujet = WritingSujet.objects.filter(is_active=True).first()

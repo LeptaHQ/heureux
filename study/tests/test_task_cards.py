@@ -9,8 +9,8 @@ from django.db import connection
 from django.urls import reverse
 from django.utils import timezone
 
-from study import content_loader as content_module
-from study.ee_formulations import get_ee_formulations
+from study.catalogue import loader as content_module
+from study.expression.ee.formulations.catalogue import get_ee_formulations
 from study.models import (
     Annotation,
     AnnotationKind,
@@ -645,7 +645,7 @@ class ExpressionPathSummaryTests(TestCase):
         summary = summaries[self.ee_tache_three.pk]
 
         self.assertEqual(summary["prompt_count"], 2)
-        from study.ee_formulations import get_ee_formulations
+        from study.expression.ee.formulations.catalogue import get_ee_formulations
         self.assertEqual(summary["stats"]["total"], 2 + len(get_ee_formulations().entries))
         self.assertEqual(summary["subject_stats"]["total"], 2)
         self.assertEqual(summary["stats"]["completed"], 2)
@@ -672,7 +672,7 @@ class ExpressionPathSummaryTests(TestCase):
             self.user,
         )
 
-        from study.ee_formulations import get_ee_formulations
+        from study.expression.ee.formulations.catalogue import get_ee_formulations
         self.assertEqual(card["stats"]["total"], 2 + len(get_ee_formulations().entries))
         self.assertEqual(card["response_stats"]["total"], 2)
         self.assertEqual(card["stats"]["completed"], 2)

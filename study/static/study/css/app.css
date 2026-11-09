@@ -5013,11 +5013,8 @@ html:has(.methodology-dialog[open]) {
   .form-dialog__actions {
     padding: 0.75rem 0.9rem calc(0.75rem + env(safe-area-inset-bottom));
   }
-  .form-dialog__actions .btn {
+  .form-dialog__actions .btn:not(.btn--icon) {
     flex: 1;
-  }
-  .form-dialog__actions .form-dialog__paste-close {
-    flex: 0 0 42px;
   }
 }
 .annotations-section { margin-top: 1.8rem; }
@@ -14398,30 +14395,6 @@ html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task:hover .
 html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task:focus-visible {
   border-color: var(--task-tone);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--task-tone) 22%, transparent);
-}
-/* Side-by-side cards share row tracks so titles, dividers and bars line up. */
-@media (min-width: 861px) {
-  @supports (grid-template-rows: subgrid) {
-    html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task {
-      display: grid;
-      grid-row: span 6;
-      grid-template-columns: minmax(0, 1fr);
-      grid-template-rows: subgrid;
-      row-gap: 0;
-      min-height: 16.5rem;
-    }
-    html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__body {
-      grid-row: 1 / -1;
-      grid-template-rows: subgrid;
-      row-gap: 0;
-    }
-    html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__progress-copy {
-      align-self: stretch;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-  }
 }
 @media (prefers-reduced-motion: no-preference) {
   html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task:not(.deck--soon):hover {

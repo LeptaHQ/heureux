@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "culture-p10": {
+      "prompt_signatures": {
+        "culture:p10": "5feaa4cacc1a8d01304b61cb8b05f5595887d5a7403c767532e4f1912f05b008",
+        "culture:p32": "f3b5bd6bb32b2b5ae02607e57ed30ccc945303cca1411cbf4b783d15166ea590"
+      },
+      "note": "The question asks whether people should preserve their culture and traditions in a host country. Consider language at home, celebrations, food or ways of passing family history to children. Familiar habits can help people feel at home and share family memories, but distinguish private traditions from practices that affect other people's rights or shared rules. Preservation need not mean refusing contact with the host society. Keeping meaningful traditions and adapting to everyday life in the new country can go together."
+    },
+    "culture-p12": {
+      "prompt_signatures": {
+        "culture:p12": "b3553aa498b45b8eefc650c7121430fa3c63a362bf5d5ebe4ddad027ca496632"
+      },
+      "note": "You are evaluating whether time spent watching television is necessarily wasted. Compare different content and ways of watching: an explanation, a shared film and automatic background viewing do not serve the same purpose. Consider enjoyment, learning, social discussion and activities displaced by excessive viewing. A balanced answer can recognize worthwhile leisure without pretending every program is educational. Explain a choice of use rather than condemn or praise all television."
+    },
+    "culture-p14": {
+      "prompt_signatures": {
+        "culture:p14": "8466a520be79b65619d1141009fe0d7221dee4e5d778a4905d47eabf4b0e84eb"
+      },
+      "note": "This asks whether travel is necessary to learn about other cultures. Books, films, language exchanges, local cultural events and conversations can provide knowledge without travelling abroad. Explain what one source reveals and what remains limited, such as daily experience or the range of perspectives represented. Knowing something about a culture is not the same as knowing everything about everyone in it. Compare complementary ways of learning, not authentic travel versus worthless second-hand knowledge."
+    },
+    "culture-p15": {
+      "prompt_signatures": {
+        "culture:p15": "1e645d1bbb9396381ceed86de8ecbc921eade1b06835cd5c6c6a4c055134e815"
+      },
+      "note": "Food is the entry point to discussing culture. Think beyond naming dishes: ingredients can reveal geography and trade, meals can show social customs, and recipes can carry family histories. Explain how preparing or sharing a meal opens a conversation. Avoid treating one dish as a complete description of a country or assuming every resident eats the same way. Cuisine can introduce a culture without explaining all of it."
+    },
+    "culture-p18": {
+      "prompt_signatures": {
+        "culture:p18": "6e46829977bd6e97661a14a2b695aa5ec6515da6da1f13e625c7520baaf474c6",
+        "culture:p23": "6e46829977bd6e97661a14a2b695aa5ec6515da6da1f13e625c7520baaf474c6"
+      },
+      "note": "The question is whether the decline of personal letters and greeting cards is regrettable. Compare a tangible, deliberately prepared message with faster digital contact. Consider the attention involved, keeping a personal object and maintaining frequent relationships over distance. Do not assume a handwritten message always has more feeling or that digital messages are impersonal. You can regret losing one option while appreciating the convenience of another."
+    },
+    "culture-p19": {
+      "prompt_signatures": {
+        "culture:p19": "01d1fe186e414c85234dfc573bff0f348609bf8c98d64279f9f8a9b6b083e4da"
+      },
+      "note": "The issue is knowing a country without speaking its language, not visiting it without any communication. Translations, guided visits and other languages can provide access to history and daily life. Knowing the local language can deepen conversations and make independent understanding easier. Distinguish initial knowledge from fuller access, and acknowledge multilingual countries. Explain what a particular translation or exchange allows rather than claim language alone reveals a whole national culture."
+    },
+    "culture-p20": {
+      "prompt_signatures": {
+        "culture:p20": "6ae728089c4af6160bd62882a30829cebd40b9784ea6a36ccb777db17becb28b"
+      },
+      "note": "There are two linked questions: why reading is associated with culture, and whether reading is essential to being knowledgeable or culturally aware. Explain what reading contributes, then consider oral traditions, museums, music, discussion or other learning. Distinguish a useful route from the only route. Avoid measuring intelligence or cultural worth by the number of books someone reads; accessibility, interpretation and engagement matter too."
+    },
+    "culture-p27": {
+      "prompt_signatures": {
+        "culture:p27": "ef2b70fb166ec2a258d6926b84ef1def791ec73c95b3cc75c8e36306e5d58d26"
+      },
+      "note": "The wording asks whether long residence abroad can lead to forgetting one's original culture, not whether it inevitably does. Consider reduced use of a language, changing routines and fewer opportunities to transmit traditions. Also discuss active ways to maintain connections without freezing culture in the past. Give a concrete example of a habit or skill becoming less familiar. Cultural change, mixed identities and complete forgetting are different things."
+    },
+    "culture-p31": {
+      "prompt_signatures": {
+        "culture:p31": "7aaa637cd343d5fe2c6095769b87d7a25c0bf0dbffc9b29b3f0a07afc010fecb"
+      },
+      "note": "The question concerns possible negative influence of reality television on young people. Consider editing, competition, advertising and the behaviors presented as desirable. Explain a mechanism, such as comparing ordinary life with a staged image or imitating a rewarded behavior. Viewers can also question what they see; influence is not automatic. Distinguish particular formats and age-appropriate guidance from a claim that every program harms every young viewer."
+    },
+    "education-p14": {
+      "prompt_signatures": {
+        "education:p14": "c036d2f332474d3eb57cee4103dc990103fba62ba81e29fc7af997eb5e86a299"
+      },
+      "note": "Books are proposed as one way to learn about a country, not necessarily the only way. Consider history, personal accounts, fiction and practical information, noting what each can reveal. Explain how comparing perspectives prevents one story from standing for an entire population. Publication date, translation and the author's viewpoint can matter. Distinguish understanding a written account from having direct experience, without dismissing either source of knowledge."
+    },
+    "education-p15": {
+      "prompt_signatures": {
+        "education:p15": "a7591434e6b29abed449f3f552c65fd7aaa83f755ead433e47318ad572a44c84"
+      },
+      "note": "The issue is whether a mobile phone provides reliable information, not simply rapid access. Separate the device from the sources and apps used through it. Discuss checking an author, date, evidence or original notice, and compare what happens when someone forwards an unverified message. Speed and convenience do not establish accuracy. The same phone can support verification or spread error depending on the information chain."
+    },
+    "sante-p16": {
+      "prompt_signatures": {
+        "sante:p16": "d2fabaeba4a8fb44bf975141be90964ef54a26af32d9ba2d3a438332adf655a6"
+      },
+      "note": "This asks for an assessment of food and eating habits in your own country. Choose facts you actually know: typical meal options, access to varied food, preparation habits or pressures such as cost and time. Explain both strengths and difficulties without claiming one dish represents everyone. The bundled model is an illustration to adapt, not your nationality or biography. Do not invent national trends, prices or nutritional statistics to make the answer sound personal."
+    },
+    "technologie-p3": {
+      "prompt_signatures": {
+        "technologie:p3": "7e56be1f2729b4d59f98c0e06bd86749caa252ed2c81c3b5061f177f8a188c39"
+      },
+      "note": "The subject is a choice never to watch television, including entertainment and cultural programs, not only TV news. Discuss control of time, other ways to stay informed and alternative leisure. Explain how a person can meet those needs without watching. Avoid assuming the choice means being uninformed or rejecting every screen. You may recognize valuable programs without claiming everyone has a duty to watch them."
+    },
+    "technologie-p5": {
+      "prompt_signatures": {
+        "technologie:p5": "050e3f02a73f261d5d8cc6401f29229b21985d688e08703357d93177d61256a4"
+      },
+      "note": "The choice concerns refusing televised news, not refusing every source of information or all television. Discuss the pace, repeated images, emotional impact and control over when to follow a story. Explain an alternative way to remain informed, including checking sources. Do not assume a person who avoids broadcasts is indifferent to public life. Acknowledging useful reporting does not require saying this format suits everyone."
+    },
+    "technologie-p6": {
+      "prompt_signatures": {
+        "technologie:p6": "efaafc007c32a87739286b3c3835ceb0ebb645300a89ba1766385ec7449de52f"
+      },
+      "note": "You are evaluating television news bulletins as a format. Consider their overview of events, explained images, interviews, editing and time limits. A concrete story can show what the format clarifies and what needs further investigation. Images are evidence to interpret, not automatic proof of the whole situation. Avoid confusing live reporting with completeness or assuming every channel has the same quality; other sources can provide complementary depth."
+    },
+    "technologie-p12": {
+      "prompt_signatures": {
+        "technologie:p12": "6de63ac219f1dab01464304d5335726d5ec4537a31e4bbad6023c5460bf8621e"
+      },
+      "note": "The question is whether handwritten letters and correspondence have become obsolete: no longer useful or relevant. Discuss deliberate personal attention, time to compose a message and keeping a physical object. Compare these with the speed, cost and accessibility of digital contact. A special handwritten message can retain value without becoming everyone's everyday method. Avoid claiming paper lasts forever, digital messages lack emotion or handwriting is universally required by law."
+    },
+    "technologie-p21": {
+      "prompt_signatures": {
+        "technologie:p21": "aee5ac50076aa05368544e3b5bed413d9a5aa1d0d539e6dcfd7d9a4d5f166c45"
+      },
+      "note": "Choose one of the offered options: newspapers, radio, Internet or social networks. State a preference and explain it through concrete habits such as accessing reports, checking original sources or listening at convenient times. These categories overlap: newspapers and radio can publish online, and social networks can link to reporting. Internet access does not guarantee reliability. Compare the features you value rather than claim all other media lack them."
+    },
+    "technologie-p24": {
+      "prompt_signatures": {
+        "technologie:p24": "c8e44ff5b7a0c7373bca9bfe471b398509f5ff2459d88216e4cf9ba4032a649f"
+      },
+      "note": "The options here are television, Internet and radio. Choose your preference and explain the features that matter to you, such as timing, format, depth or source checking. Do not silently substitute a different list of media. TV and radio can also be accessed online, so make clear what kind of use you prefer. Avoid treating a device or platform as a guarantee that its information is accurate."
+    }
+  }
+}

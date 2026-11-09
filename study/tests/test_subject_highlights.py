@@ -12,7 +12,7 @@ from django.test import SimpleTestCase, TestCase
 from django.test.utils import CaptureQueriesContext
 
 from study.models import Annotation, AnnotationKind, PhraseTier, Prompt, Response
-from study.progress import (
+from study.review.progress import (
     _HIGHLIGHT_PATTERN_LIMIT,
     _batches,
     _numeric_patterns,
@@ -129,7 +129,7 @@ class SubjectHighlightScopeTests(TestCase):
 
     def _assert_legacy_equal(self, expected_highlight):
         ids = {self.response.pk}
-        with patch("study.progress._subject_highlight_rows", self._legacy_rows):
+        with patch("study.review.progress._subject_highlight_rows", self._legacy_rows):
             legacy = subject_progress_by_response(self.user, ids)
         actual = subject_progress_by_response(self.user, ids)
         self.assertEqual(actual, legacy)
@@ -368,7 +368,7 @@ class SubjectHighlightScopeTests(TestCase):
                     path = f"/expression/orale/tache-2/sujets/{prompt.pk}/"
                     self._annotation(key, path)
                     self._annotation(key, path, start_offset=8, end_offset=13)
-                with patch("study.progress._subject_highlight_rows", self._legacy_rows):
+                with patch("study.review.progress._subject_highlight_rows", self._legacy_rows):
                     legacy = subject_progress_by_response(self.user, ids)
                 actual = subject_progress_by_response(self.user, ids)
                 self.assertEqual(actual, legacy)
@@ -418,7 +418,7 @@ class SubjectHighlightScopeTests(TestCase):
                 self.assertTrue(all(
                     len(pattern) <= _HIGHLIGHT_PATTERN_LIMIT for pattern in patterns
                 ))
-                with patch("study.progress._subject_highlight_rows", self._legacy_rows):
+                with patch("study.review.progress._subject_highlight_rows", self._legacy_rows):
                     legacy = subject_progress_by_response(self.user, ids)
                 self.assertEqual(actual, legacy)
                 Annotation.objects.filter(user=self.user).delete()

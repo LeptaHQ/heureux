@@ -5,8 +5,8 @@ from pathlib import Path
 
 from django.test import SimpleTestCase
 
-from study.content_loader import load_ee_subject_themes
-from study.ee_formulation_vocabulary import (
+from study.catalogue.loader import load_ee_subject_themes
+from study.expression.ee.formulations.vocabulary import (
     VOCABULARY_PATH,
     get_ee_formulation_vocabulary,
     load_ee_formulation_vocabulary,

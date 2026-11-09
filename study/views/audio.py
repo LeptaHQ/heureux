@@ -13,20 +13,20 @@ from django.urls import reverse
 from django.views.decorators.http import require_GET, require_POST, require_safe
 from django.views.decorators.debug import sensitive_post_parameters, sensitive_variables
 
-from .. import catalogue
-from ..account_services import authorize_audio_generation
-from ..audio_pin import AudioPinError
-from ..eo3_audio import (
+from study.catalogue import registry as catalogue
+from study.accounts.services import authorize_audio_generation
+from study.audio.pins import AudioPinError
+from study.expression.eo.tache_3.audio import (
     NarrationError, NarrationSource, SAMPLE_GROUP, narration_presentation, narration_source,
     narration_spec, on_demand_enabled, personal_narrations, saved_narration, saved_narrations,
     saved_recordings, source_matches_recording,
 )
 from ..models import EO3Narration, FrenchNarration, Prompt
-from ..oral_history import preferred_personals
-from ..response_personalization import effective_response
-from ..routing import prompt_detail_url, subject_selection_url
-from ..tache_three_models import reviewed_model
-from ..french_audio import (
+from study.expression.eo.history import preferred_personals
+from study.expression.personalization import effective_response
+from study.navigation.routing import prompt_detail_url, subject_selection_url
+from study.expression.eo.tache_3.responses import reviewed_model
+from study.audio.french import (
     SpeechError, accessible_recordings, enqueue, generate_prepared, media_url,
     resolve_sources, saved_speech, speech_spec,
 )
@@ -223,7 +223,7 @@ def eo3_audio_prepare(request, group, fingerprint):
     return _audio_json({
         "state": "ready",
         "html": render_to_string(
-            "study/partials/eo3_audio.html", {
+            "study/expression/eo/tache_3/partials/eo3_audio.html", {
                 "audio": narration_presentation(
                     model, personal, request.user.pk if personal is not None else None,
                 ),

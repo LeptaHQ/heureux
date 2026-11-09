@@ -4,15 +4,15 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from study.account_services import provision_user_study_data
+from study.accounts.services import provision_user_study_data
 from study.models import (
     Annotation, Card, CardState, CardType, Phrase, PhraseTier, Rating,
     ReviewLog, ReviewSession, Settings, ThemeVocabularyProgress,
 )
-from study.progress import subject_progress_by_response
-from study.queue import scoped_cards
-from study.retirement import active_phrases, is_retired_vocabulary_scope
-from study.routing import prompt_detail_url
+from study.review.progress import subject_progress_by_response
+from study.review.queue import scoped_cards
+from study.catalogue.retirement import active_phrases, is_retired_vocabulary_scope
+from study.navigation.routing import prompt_detail_url
 from . import factories
 
 

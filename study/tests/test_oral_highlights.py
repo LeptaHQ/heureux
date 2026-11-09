@@ -4,10 +4,10 @@ from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 
 from study.models import Annotation, AnnotationKind, PersonalResponse, Prompt
-from study.oral_highlights import AnnotationRootText, _render_questions
-from study.oral_history import variant_annotation_key
-from study.response_personalization import effective_response
-from study.routing import prompt_detail_url
+from study.notes.anchors import AnnotationRootText, _render_questions
+from study.expression.eo.history import variant_annotation_key
+from study.expression.personalization import effective_response
+from study.navigation.routing import prompt_detail_url
 
 from . import factories
 
@@ -27,7 +27,7 @@ class AnnotationRootTextTests(SimpleTestCase):
 class OralHighlightPersonalizationTests(TestCase):
     def setUp(self):
         dialogue_patch = patch(
-            "study.tache_two_dialogues.published_dialogue",
+            "study.expression.eo.tache_2.dialogues.published_dialogue",
             return_value=None,
         )
         dialogue_patch.start()

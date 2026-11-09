@@ -14,7 +14,7 @@ from pathlib import Path
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 
-from study import content_loader as content_module
+from study.catalogue import loader as content_module
 
 THEMES = [
     "Culture",

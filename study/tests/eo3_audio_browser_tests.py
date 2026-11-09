@@ -12,12 +12,12 @@ from django.test import override_settings
 from django.urls import reverse
 from playwright.sync_api import expect, sync_playwright
 
-from study import catalogue
-from study.account_services import provision_user_study_data
-from study.eo3_audio import narration_spec, word_timings
+from study.catalogue import registry as catalogue
+from study.accounts.services import provision_user_study_data
+from study.expression.eo.tache_3.audio import narration_spec, word_timings
 from study.models import Annotation, AnnotationKind, EO3Narration, OralStateSnapshot, PersonalResponse, Prompt
-from study.routing import prompt_detail_url, review_url
-from study.tache_three_models import response_text
+from study.navigation.routing import prompt_detail_url, review_url
+from study.expression.eo.tache_3.responses import response_text
 
 from . import factories
 from .browser_server import BrowserLiveServerThread
@@ -296,7 +296,7 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         ELEVENLABS_PIN="test-audio-pin",
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1_000_000,
     )
-    @patch("study.french_audio.synthesize", return_value=(b"ID3-test", []))
+    @patch("study.audio.french.synthesize", return_value=(b"ID3-test", []))
     def test_next_asks_before_generating_missing_audio(self, provider):
         start = self.live_server_url + prompt_detail_url(self.prompt)
         self.page.goto(start)

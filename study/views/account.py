@@ -21,7 +21,7 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.debug import sensitive_post_parameters
 from django.views.decorators.http import require_GET, require_POST
 
-from ..account_services import (
+from study.accounts.services import (
     authenticate_with_throttle,
     generate_recovery_codes,
     login_throttle_key,
@@ -67,7 +67,7 @@ from .review import (
     _locked_review_session,
     _save_review_session,
 )
-from ..course_practice import lock_course_user, public_snapshot
+from study.learning.practice import lock_course_user, public_snapshot
 
 ACCOUNT_EXPORT_VERSION = 12
 
@@ -258,7 +258,7 @@ def _settings_context(request, **overrides):
 def _render_settings(request, *, status=200, **overrides):
     return render(
         request,
-        "study/settings.html",
+        "study/account/settings.html",
         _settings_context(request, **overrides),
         status=status,
     )

@@ -16,7 +16,7 @@ from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils import timezone
 
-from study.learning_content import (
+from study.learning.catalogue import (
     LEARNING_CONTENT_PATH,
     NOUN_ARTICLE_RE,
     NOUN_GENDER_RE,
@@ -490,7 +490,7 @@ class LearningViewTests(TestCase):
         self.assertContains(response, "data-learning-search")
         self.assertContains(response, "data-collection-view-toggle")
         self.assertContains(response, "collection-table--learn")
-        self.assertTemplateUsed(response, "study/partials/theme_group_summary.html")
+        self.assertTemplateUsed(response, "study/shared/partials/theme_group_summary.html")
         self.assertContains(
             response, "data-learning-module-status", count=len(self.catalog.modules)
         )

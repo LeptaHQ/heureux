@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "theme": "technologie",
+  "responses": {
+    "technologie-p2": {
+      "prompt_signatures": {
+        "technologie:p2": "9ef3387b961ad8f586b90a67e10e86534ae528323b27948228c2a947d4eef78d",
+        "technologie:p8": "9ef3387b961ad8f586b90a67e10e86534ae528323b27948228c2a947d4eef78d"
+      },
+      "reformulation": "Est-il facile de se passer de son téléphone portable ?",
+      "position": "Pas toujours : fonctions pratiques, accès aux services et liens avec les proches demandent d'autres moyens.",
+      "position_claire": "Non, je ne trouve pas toujours facile de se passer du téléphone portable. Il rassemble des outils pratiques, certains services supposent sa présence et il permet de garder un lien avec ses proches pendant les déplacements. On peut chercher des solutions, mais elles ne répondent pas toutes aux mêmes besoins.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, plusieurs fonctions doivent être remplacées en même temps.",
+          "developpement": "Le téléphone sert à communiquer, consulter un trajet ou garder une information utile pendant un déplacement. Retirer l'appareil ne retire pas ces besoins ; il faut prévoir d'autres moyens avant de partir.",
+          "exemple": "Pour un voyage, une personne sans portable peut imprimer son billet, noter les correspondances et prévoir un lieu de rendez-vous précis. C'est possible si ces options existent, mais cela demande davantage d'anticipation qu'une simple décision de laisser l'appareil chez soi.",
+          "consequence": "Se passer du portable demande donc de remplacer plusieurs outils, pas seulement les appels."
+        },
+        {
+          "idea": "Ensuite, certains services sont organisés autour d'une validation sur mobile.",
+          "developpement": "Un accès par ordinateur peut lui aussi demander un code envoyé sur un téléphone. On ne peut donc pas supposer que posséder un autre écran résout automatiquement chaque démarche ; il faut vérifier les alternatives proposées.",
+          "exemple": "Avant de renoncer à son portable, une personne peut demander à sa banque quelle procédure d'identification existe sans application ni message sur mobile. Si elle doit aller au guichet, il faut prévoir le temps du déplacement.",
+          "consequence": "Si le service ne prévoit rien d'autre, la volonté de se passer du portable ne suffit pas."
+        },
+        {
+          "idea": "Enfin, le portable répond aussi à un besoin de lien humain.",
+          "developpement": "Il permet de partager une difficulté ou un encouragement sans attendre de rentrer chez soi. Ce soutien ne sert pas seulement à organiser un rendez-vous : il aide à se sentir accompagné entre les rencontres.",
+          "exemple": "Avant un examen dans une autre ville, une personne peut écouter un message d'encouragement de sa sœur pendant le trajet. Elle se sent soutenue malgré la distance et lui raconte ensuite l'épreuve ; sans portable, elles doivent prévoir un autre moyen de garder ce lien.",
+          "consequence": "Renoncer à l'appareil peut donc modifier une relation quotidienne, pas seulement des habitudes pratiques."
+        }
+      ],
+      "nuance": "Cependant, difficile ne signifie pas impossible. Un ordinateur, des documents papier ou des échanges en personne peuvent remplacer certaines fonctions. Réduire les notifications est encore une autre démarche : elle ne prouve pas que l'on peut supprimer le portable sans réorganiser le quotidien.",
+      "conclusion": "En conclusion, sans portable, il faut qu'on ait d'autres outils, des services accessibles et un moyen de garder le lien avec ses proches. Ce choix reste possible pour certains, mais il demande plus qu'un simple changement d'habitude."
+    },
+    "technologie-p10": {
+      "prompt_signatures": {
+        "technologie:p10": "41e758d223ded04fd56917fc2da79727fdc36d63778d31654760640a3c08de7c"
+      },
+      "reformulation": "À quoi les réseaux sociaux peuvent-ils servir aujourd'hui ?",
+      "position": "Ils peuvent soutenir les liens, l'information pratique et les projets collectifs.",
+      "position_claire": "Je trouve les réseaux sociaux utiles lorsqu'ils répondent à un besoin identifiable. Ils peuvent maintenir des liens, rendre une information pratique visible et aider à organiser un projet. Leur utilité ne se mesure pas au temps passé ni au nombre d'abonnés : il faut regarder ce que les personnes peuvent réellement faire grâce à eux.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, ils peuvent faciliter des échanges réguliers entre proches.",
+          "developpement": "Partager des nouvelles permet aux proches de suivre ce qui compte dans la vie de chacun. Ils peuvent poser des questions et offrir du soutien, plutôt que découvrir une difficulté seulement lors de la prochaine visite.",
+          "exemple": "Dans un groupe privé, une personne qui suit une formation loin de sa famille peut raconter un exercice difficile. Un proche lui demande comment elle avance et l'encourage avant l'évaluation. Elle voit que sa famille suit ses efforts, même de loin.",
+          "consequence": "Ce qui compte, c'est donc de pouvoir se soutenir, pas seulement d'envoyer des messages vite."
+        },
+        {
+          "idea": "Ensuite, ils rendent certaines informations locales plus faciles à découvrir.",
+          "developpement": "On ne pense pas toujours à consulter chaque association ou chaque commerce. Une publication peut signaler une activité ou un changement, à condition que l'auteur soit identifiable et que la date reste claire.",
+          "exemple": "Une bibliothèque peut annoncer un atelier sur son compte. Une habitante découvre l'annonce grâce à un partage, vérifie la date sur le site de la bibliothèque et s'inscrit à cette activité dont elle ignorait l'existence.",
+          "consequence": "Le réseau peut donc faire découvrir une activité, dont il faut ensuite vérifier les détails."
+        },
+        {
+          "idea": "Enfin, un groupe peut coordonner une action commune.",
+          "developpement": "Réunir des volontaires ne suffit pas : il faut répartir les tâches, confirmer les disponibilités et savoir qui contacter. Un espace partagé peut rendre ces informations accessibles aux participants concernés.",
+          "exemple": "Pour un nettoyage de quartier, une association peut demander dans son groupe qui apporte des gants et des sacs. Les volontaires précisent leurs apports ; l'association répartit alors le matériel entre les points de rendez-vous pour que chaque équipe puisse commencer.",
+          "consequence": "Les messages permettent donc de préparer le matériel avant de se retrouver sur place."
+        }
+      ],
+      "nuance": "Cependant, la confidentialité, les fausses annonces et les sollicitations commerciales demandent de la vigilance. Un réseau ne remplace pas les services d'urgence ni les canaux officiels. Son utilité ne justifie pas d'obliger tout le monde à créer un compte.",
+      "conclusion": "En conclusion, les réseaux sociaux peuvent aider à garder le lien, découvrir une activité et organiser un projet. Il faut pouvoir vérifier les annonces et participer sans partager trop de données ni être disponible à toute heure."
+    },
+    "technologie-p11": {
+      "prompt_signatures": {
+        "technologie:p11": "dd1be22e28c8420ad8d063e566afb339fcfdaf2f2ec6d58c0a1647b064daeb75"
+      },
+      "reformulation": "Peut-on organiser sa vie sans aucun téléphone ?",
+      "position": "C'est possible dans certaines conditions, avec des limites importantes pour le contact immédiat.",
+      "position_claire": "Vivre sans téléphone peut être possible, mais il faut prévoir comment communiquer et faire ses démarches. Les retards ou les urgences posent davantage de problèmes. Je parle bien de ne pas utiliser de téléphone, pas seulement de remplacer un portable par un autre appareil téléphonique.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, certains échanges peuvent passer par d'autres moyens.",
+          "developpement": "Un ordinateur, le courrier ou un rendez-vous en personne permettent de communiquer sans téléphone. Cela suppose que les interlocuteurs acceptent le délai et qu'aucune étape indispensable ne réclame une validation téléphonique.",
+          "exemple": "Deux proches peuvent convenir par courriel d'un repas le samedi et noter l'adresse avant de partir. Le rendez-vous reste fixe : ils se retrouvent sans avoir besoin d'échanger pendant le trajet.",
+          "consequence": "On peut donc continuer à voir ses proches si l'on fixe les rendez-vous à l'avance."
+        },
+        {
+          "idea": "Ensuite, les démarches dépendent des alternatives réellement proposées.",
+          "developpement": "Un service accessible en ligne n'est pas forcément utilisable sans téléphone : l'identification ou le suivi peut en demander un. Il faut vérifier la possibilité d'un guichet, d'un courrier ou d'une autre procédure.",
+          "exemple": "Dans un service proposant un accueil et un suivi postal, une personne sans numéro peut remettre son dossier au guichet. Elle reçoit ensuite la réponse par courrier, sans devoir demander à un proche de recevoir un appel pour elle.",
+          "consequence": "Sans téléphone, on dépend donc aussi des autres moyens que le service accepte."
+        },
+        {
+          "idea": "Enfin, l'absence de contact immédiat reste une contrainte importante.",
+          "developpement": "On ne peut pas toujours prévoir un retard ou un problème de santé. Sans téléphone, demander de l'aide rapidement peut être difficile. Il faut prendre cette limite au sérieux, sans compter sur un proche qui répondrait toujours à notre place.",
+          "exemple": "Avant une randonnée isolée, une personne sans téléphone peut constater que le parcours ne permet pas de rejoindre rapidement un lieu d'aide. Elle renonce à cette sortie, faute de moyen prévu pour alerter en cas de problème.",
+          "consequence": "Être possible dans certains contextes ne signifie pas être adapté à tous."
+        }
+      ],
+      "nuance": "Cependant, ne pas vouloir de téléphone ne devrait pas fermer l'accès aux services essentiels. Les alternatives doivent être examinées sans stéréotype d'âge ou de lieu de vie. Emprunter systématiquement celui d'autrui ne prouve pas non plus qu'on vit réellement sans cet outil.",
+      "conclusion": "En conclusion, on peut envisager une vie sans téléphone si les échanges et les services le permettent. Il faut en reconnaître les limites pour les imprévus, plutôt que confondre possibilité, facilité et réduction d'usage."
+    },
+    "technologie-p13": {
+      "prompt_signatures": {
+        "technologie:p13": "98f246c0448f40f6f9948c6ed701737bbc2a716bc2446e9c471567c2f5da51c6",
+        "technologie:p25": "d8acc59055ae3b5bee45df008b7ec64ec9468b0fd12a16635994974db694f97e"
+      },
+      "reformulation": "Comment le téléphone portable facilite-t-il la communication ?",
+      "position": "Il facilite les échanges rapides, distants et adaptés, sans garantir leur qualité.",
+      "position_claire": "Oui, les téléphones portables facilitent la communication. Ils permettent de transmettre un changement pendant un déplacement, de maintenir un lien à distance et de choisir plusieurs formes de message. Mais joindre facilement quelqu'un n'autorise pas à exiger une réponse permanente ni à confondre fréquence des messages et qualité de l'écoute.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, ils permettent de prévenir d'un imprévu sans attendre le retour chez soi.",
+          "developpement": "Une information utile perd parfois sa valeur si elle arrive trop tard. Prévenir d'un changement permet à l'autre personne de modifier ses plans, à condition qu'elle reçoive le message à temps.",
+          "exemple": "Une personne retardée dans les transports peut prévenir celle qui l'attend et proposer un nouvel horaire. Le destinataire sait alors s'il doit rester sur place ou modifier son programme, plutôt que deviner la raison de l'absence.",
+          "consequence": "Prévenir rapidement évite ainsi à l'autre d'attendre sans savoir quoi faire."
+        },
+        {
+          "idea": "Ensuite, ils peuvent maintenir des échanges réguliers malgré la distance.",
+          "developpement": "La distance limite les rencontres, sans faire disparaître le besoin d'échanger. Des conversations régulières permettent de partager des nouvelles et de s'écouter, même lorsque le déplacement n'est pas possible.",
+          "exemple": "Des proches vivant dans deux pays peuvent convenir d'un appel vidéo hebdomadaire. Ils prennent le temps de parler d'une difficulté ou d'un projet, plutôt que se contenter de regarder les photos publiées.",
+          "consequence": "Les proches continuent ainsi à se parler de ce qu'ils vivent, même entre les visites."
+        },
+        {
+          "idea": "Enfin, plusieurs formats permettent d'adapter le message au besoin.",
+          "developpement": "Un texte, une image et un appel ne servent pas exactement la même chose. Choisir le format peut rendre une indication plus claire et respecter le moment où l'autre pourra en prendre connaissance.",
+          "exemple": "Pour un rendez-vous dans un bâtiment à plusieurs accès, une personne peut envoyer une photo de la bonne entrée et le nom de la rue. Son invité reconnaît la porte en arrivant, sans devoir interpréter une longue description.",
+          "consequence": "Choisir une photo plutôt qu'une longue explication peut donc éviter un malentendu."
+        }
+      ],
+      "nuance": "Cependant, les coûts, la couverture et l'accessibilité peuvent limiter ces usages. Un message écrit peut être mal interprété, et personne n'est disponible à tout moment. Il faut écouter, vérifier ce qui a été compris et prévoir d'autres moyens lorsque c'est nécessaire.",
+      "conclusion": "En conclusion, le portable aide à prévenir d'un changement, garder le lien et se faire comprendre. Mais pour bien communiquer, il faut aussi écouter et respecter les moments où l'autre ne peut pas répondre."
+    },
+    "technologie-p15": {
+      "prompt_signatures": {
+        "technologie:p15": "161d7954b19a5fadaa1d34d7743d6be5cc6b0e8e6d11e069c6376901d87df781"
+      },
+      "reformulation": "Comment juger le choix de vivre sans les outils numériques cités ?",
+      "position": "Respecter ce choix, qui peut protéger l'attention et la vie privée, sans nier ses contraintes.",
+      "position_claire": "Je comprends le choix de vivre sans Internet, ordinateur ou téléphone. Certaines personnes veulent être moins interrompues, préfèrent les activités hors ligne ou souhaitent garder leurs informations privées. Il faut toutefois vérifier comment elles feront leurs démarches. Ce choix n'est ni un retard ni une solution idéale pour tous.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, l'absence de sollicitations peut protéger certains moments choisis.",
+          "developpement": "Des notifications peuvent interrompre une activité et conduire à consulter des contenus non prévus. Ne pas utiliser ces outils peut être une manière de fixer une limite simple, si elle correspond aux obligations réelles de la personne.",
+          "exemple": "Une personne peut réserver ses soirées à la lecture, sans messagerie à consulter. Elle suit plusieurs chapitres sans interrompre le fil du récit pour répondre à des alertes.",
+          "consequence": "Elle peut ainsi rester concentrée sur ce qu'elle a choisi de faire."
+        },
+        {
+          "idea": "Ensuite, les activités et les relations peuvent prendre d'autres formes.",
+          "developpement": "Une information ou une rencontre peut passer par un lieu, un document papier ou un échange direct. Ces moyens demandent parfois plus d'anticipation, mais ils peuvent convenir à ceux qui les préfèrent et peuvent y accéder.",
+          "exemple": "Pour participer à un atelier, une personne peut s'inscrire sur place et noter le calendrier remis par l'association. Elle échange avec les responsables et revient aux dates prévues, sans utiliser un groupe en ligne.",
+          "consequence": "On peut donc participer sans Internet si l'association accepte aussi les inscriptions sur place."
+        },
+        {
+          "idea": "Enfin, refuser certains outils peut limiter les traces personnelles laissées en ligne.",
+          "developpement": "Créer des comptes peut associer des achats ou des activités à un profil. Quand une alternative existe, ne pas utiliser ces services permet de choisir quelles informations on souhaite leur confier.",
+          "exemple": "Une personne peut acheter un livre et le payer sur place sans ouvrir de compte client. Elle obtient ce qu'elle cherche sans enregistrer cet achat dans un profil personnel sur une plateforme.",
+          "consequence": "Le refus peut donc exprimer une préférence concernant la vie privée, pas une peur du progrès."
+        }
+      ],
+      "nuance": "Cependant, il faut que la société conserve des accès adaptés aux personnes non connectées. Si une démarche exige une aide numérique, il faut en convenir avec le proche sollicité. Un usage partiel reste aussi légitime. Il faut distinguer le choix volontaire d'une exclusion faute de moyens.",
+      "conclusion": "En conclusion, je respecte ce choix : il peut permettre de se concentrer, de participer autrement et de protéger sa vie privée. Mais il faut des solutions pour les démarches, sans imposer ces outils ni prétendre qu'on s'en passe toujours facilement."
+    },
+    "technologie-p17": {
+      "prompt_signatures": {
+        "technologie:p17": "c4686c7f740a4a5064980d9108dea342b2f3e0d7515cc48b309cf8133f421d38",
+        "economie:p11": "c4686c7f740a4a5064980d9108dea342b2f3e0d7515cc48b309cf8133f421d38"
+      },
+      "reformulation": "Tous les voyages spatiaux sont-ils trop coûteux et inutiles ?",
+      "position": "Non : distinguer intérêt scientifique, priorités budgétaires et moyens proportionnés.",
+      "position_claire": "Je ne dirais pas que tous les voyages dans l'espace sont inutiles. Certaines missions permettent des recherches particulières, mais il faut comparer leur coût aux autres besoins. Une mission scientifique et un voyage de loisir ne rendent pas les mêmes services à la population.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, certaines recherches bénéficient de conditions difficiles à maintenir sur Terre.",
+          "developpement": "La microgravité prolongée permet d'étudier des phénomènes autrement, notamment le comportement des fluides ou des organismes. Cela donne un objectif scientifique possible, sans garantir que toute expérience produira rapidement une application quotidienne.",
+          "exemple": "Une équipe peut filmer le mélange de deux liquides pendant plusieurs heures dans une station orbitale. Elle obtient une suite d'observations en microgravité qu'un bref essai terrestre ne permettrait pas de suivre aussi longtemps.",
+          "consequence": "On ne peut donc pas qualifier toute mission d'inutile par principe."
+        },
+        {
+          "idea": "Ensuite, un financement public doit être confronté aux autres besoins.",
+          "developpement": "L'argent consacré à une mission n'est plus disponible pour un autre projet. Il faut donc expliquer ce que l'on cherche, combien cela coûte et ce que l'on espère apprendre. Le prestige ne suffit pas à justifier la dépense.",
+          "exemple": "Une autorité peut devoir choisir entre une contribution à une mission et le renouvellement d'un laboratoire universitaire. Reporter le laboratoire retarderait les recherches qui en dépendent ; cette conséquence doit compter dans la comparaison des projets.",
+          "consequence": "Une mission peut avoir une utilité sans être pour autant la priorité du budget disponible."
+        },
+        {
+          "idea": "Enfin, transporter des passagers impose des moyens supplémentaires qui ne sont pas toujours justifiés.",
+          "developpement": "Un équipage a besoin d'air, d'eau et de dispositifs assurant sa sécurité et son retour. Ces équipements mobilisent des ressources en plus de celles de l'expérience. Un financement privé ne supprime pas ces besoins ni les impacts du lancement.",
+          "exemple": "Pour observer un phénomène avec une caméra et des capteurs, une mission peut utiliser un dispositif automatique. Ajouter des passagers sans tâche scientifique particulière impose alors des équipements de survie sans améliorer l'observation prévue.",
+          "consequence": "Il faut donc qu'une présence humaine apporte quelque chose à l'objectif, plutôt que de servir seulement le prestige."
+        }
+      ],
+      "nuance": "Cependant, l'utilité des satellites ou de la recherche ne justifie pas chaque voyage touristique. Une entreprise et un État ne choisissent pas leurs dépenses de la même façon, mais un financement privé ne dispense pas d'examiner la sécurité et les effets sur la collectivité.",
+      "conclusion": "En conclusion, certains voyages sont utiles, mais cela ne justifie pas tous les coûts. Je soutiendrais une mission si son but est clair, si son financement se justifie et si les moyens employés sont nécessaires à la recherche prévue."
+    }
+  }
+}

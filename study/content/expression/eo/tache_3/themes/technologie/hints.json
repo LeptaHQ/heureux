@@ -1,0 +1,282 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "technologie-p2": {
+      "introduction": {
+        "french": "Se passer du portable n'est pas toujours facile : il faut remplacer des outils et garder le lien avec ses proches.",
+        "english": "Doing without a mobile is not always easy: tools must be replaced and contact with loved ones maintained."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Remplacer plusieurs fonctions.",
+            "english": "Replace several functions."
+          },
+          "example": {
+            "french": "Imprimer le billet, noter les correspondances et le lieu du rendez-vous avant de partir sans portable.",
+            "english": "Print the ticket, note connections and the meeting place before leaving without a mobile."
+          }
+        },
+        {
+          "point": {
+            "french": "Vérifier les validations mobiles.",
+            "english": "Check mobile verification requirements."
+          },
+          "example": {
+            "french": "Demander à sa banque une identification sans portable ; si seul le guichet convient, prévoir le déplacement.",
+            "english": "Ask the bank about identification without a mobile; if only a branch visit works, allow time to travel."
+          }
+        },
+        {
+          "point": {
+            "french": "Préserver le soutien des proches.",
+            "english": "Preserve support from loved ones."
+          },
+          "example": {
+            "french": "Écouter un encouragement de sa sœur avant un examen loin de chez soi.",
+            "english": "Hear a sister's encouragement before an exam away from home."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Difficile ne veut pas dire impossible si des alternatives existent ; réduire l'usage n'est pas supprimer le portable.",
+        "english": "Difficult does not mean impossible if alternatives exist; reducing use is not removing the mobile."
+      },
+      "conclusion": {
+        "french": "Remplacer les fonctions et les services sans perdre le lien avec ses proches.",
+        "english": "Replace functions and service access while preserving relationships."
+      }
+    },
+    "technologie-p10": {
+      "introduction": {
+        "french": "Les réseaux peuvent être utiles ; regarder le besoin satisfait, pas le nombre d'abonnés.",
+        "english": "Networks can be useful; look at the need met, not the number of followers."
+      },
+      "nuance": {
+        "french": "Protéger les données, conserver d'autres canaux et ne pas imposer un compte à tous.",
+        "english": "Protect data, retain other channels and do not require everyone to have an account."
+      },
+      "conclusion": {
+        "french": "Des liens et des actions, pas une présence permanente.",
+        "english": "Relationships and action, not constant presence."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Garder le lien.",
+            "english": "Maintain relationships."
+          },
+          "example": {
+            "french": "Raconter une difficulté de formation et recevoir un encouragement familial.",
+            "english": "Share a training difficulty and receive encouragement from family."
+          }
+        },
+        {
+          "point": {
+            "french": "Découvrir une information pratique.",
+            "english": "Discover practical information."
+          },
+          "example": {
+            "french": "Découvrir une annonce d'atelier partagée, vérifier la date sur le site de la bibliothèque, puis s'inscrire.",
+            "english": "Discover a shared workshop announcement, check the date on the library website, then register."
+          }
+        },
+        {
+          "point": {
+            "french": "Coordonner un projet.",
+            "english": "Coordinate a project."
+          },
+          "example": {
+            "french": "Pour un nettoyage, l'association recueille les apports des bénévoles puis répartit le matériel pour lancer les équipes.",
+            "english": "For a clean-up, the association collects volunteers' equipment offers, then distributes supplies so teams can start."
+          }
+        }
+      ]
+    },
+    "technologie-p11": {
+      "introduction": {
+        "french": "Distinguer aucun téléphone et moins de portable.",
+        "english": "Distinguish no telephone from less mobile use."
+      },
+      "nuance": {
+        "french": "Ne pas reporter tous les appels sur les proches.",
+        "english": "Do not transfer every call to relatives."
+      },
+      "conclusion": {
+        "french": "Possible sous conditions, pas adapté à tous les besoins.",
+        "english": "Possible under conditions, not suited to every need."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Prévoir d'autres communications.",
+            "english": "Plan other communication methods."
+          },
+          "example": {
+            "french": "Fixer un repas par courriel et noter l'adresse avant de partir.",
+            "english": "Arrange a meal by email and note the address before leaving."
+          }
+        },
+        {
+          "point": {
+            "french": "Vérifier les alternatives des services.",
+            "english": "Check service alternatives."
+          },
+          "example": {
+            "french": "Déposer un dossier au guichet et recevoir le suivi par courrier.",
+            "english": "Submit a file at the counter and receive follow-up by post."
+          }
+        },
+        {
+          "point": {
+            "french": "Reconnaître les limites en cas d'imprévu.",
+            "english": "Recognize limits during unexpected events."
+          },
+          "example": {
+            "french": "Renoncer à une randonnée isolée sans moyen prévu pour demander de l'aide.",
+            "english": "Forgo an isolated hike without a planned way to request help."
+          }
+        }
+      ]
+    },
+    "technologie-p13": {
+      "introduction": {
+        "french": "Des échanges facilités, pas une disponibilité obligatoire.",
+        "english": "Easier exchanges, not compulsory availability."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Prévenir d'un imprévu.",
+            "english": "Give notice of an unexpected change."
+          },
+          "example": {
+            "french": "Annoncer un retard et proposer un horaire.",
+            "english": "Let someone know about a delay and suggest a time."
+          }
+        },
+        {
+          "point": {
+            "french": "Maintenir le lien à distance.",
+            "english": "Maintain distant relationships."
+          },
+          "example": {
+            "french": "Des proches de deux pays échangent chaque semaine en vidéo pour parler de leurs difficultés ou projets.",
+            "english": "Loved ones in two countries talk by video each week about their difficulties or plans."
+          }
+        },
+        {
+          "point": {
+            "french": "Adapter la forme du message.",
+            "english": "Adapt the message format."
+          },
+          "example": {
+            "french": "Envoyer la photo de la bonne entrée et le nom de la rue pour que l'invité reconnaisse la porte.",
+            "english": "Send a photo of the correct entrance and the street name so the guest recognizes the door."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Vérifier l'accès et respecter la disponibilité.",
+        "english": "Check access and respect availability."
+      },
+      "conclusion": {
+        "french": "Prévenir d'un changement, garder le lien et se faire comprendre.",
+        "english": "Give notice of a change, stay in touch and make yourself understood."
+      }
+    },
+    "technologie-p15": {
+      "introduction": {
+        "french": "Respecter ce choix et vérifier comment faire les démarches sans ces outils.",
+        "english": "Respect this choice and check how to handle tasks without these tools."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Protéger l'attention.",
+            "english": "Protect attention."
+          },
+          "example": {
+            "french": "Lire plusieurs chapitres le soir sans messagerie pour garder le fil du récit.",
+            "english": "Read several chapters in the evening without messaging to keep the thread of the story."
+          }
+        },
+        {
+          "point": {
+            "french": "Participer autrement.",
+            "english": "Participate in other ways."
+          },
+          "example": {
+            "french": "Si l'association le permet, s'inscrire sur place et noter les dates pour revenir à l'atelier sans groupe en ligne.",
+            "english": "If the association allows it, register in person and note the dates to return to the workshop without an online group."
+          }
+        },
+        {
+          "point": {
+            "french": "Choisir les traces personnelles laissées en ligne.",
+            "english": "Choose which personal traces to leave online."
+          },
+          "example": {
+            "french": "Acheter un livre sur place sans ouvrir de compte client.",
+            "english": "Buy a book in person without opening a customer account."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Distinguer choix volontaire et exclusion numérique.",
+        "english": "Distinguish voluntary choice from digital exclusion."
+      },
+      "conclusion": {
+        "french": "Se concentrer, participer sur place et protéger ses données, sans cacher les difficultés.",
+        "english": "Concentrate, participate in person and protect personal data without hiding the difficulties."
+      }
+    },
+    "technologie-p17": {
+      "introduction": {
+        "french": "Distinguer recherche, coût et voyage de loisir.",
+        "english": "Distinguish research, cost and leisure travel."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Un objectif scientifique possible.",
+            "english": "A possible scientific purpose."
+          },
+          "example": {
+            "french": "Une équipe filme des liquides pendant des heures dans une station orbitale pour suivre le mélange en microgravité.",
+            "english": "A team films liquids for hours in an orbital station to observe mixing in microgravity."
+          }
+        },
+        {
+          "point": {
+            "french": "L'argent d'une mission n'est plus disponible pour un autre projet.",
+            "english": "Money spent on a mission is no longer available for another project."
+          },
+          "example": {
+            "french": "Comparer une contribution spatiale au report des recherches d'un laboratoire.",
+            "english": "Compare a space contribution with delaying a laboratory's research."
+          }
+        },
+        {
+          "point": {
+            "french": "Transporter des passagers exige aussi de l'air, de l'eau et des moyens de secours.",
+            "english": "Passengers also need air, water and emergency equipment."
+          },
+          "example": {
+            "french": "Si caméra et capteurs suffisent, ajouter des passagers exige des équipements de survie sans améliorer l'observation.",
+            "english": "If a camera and sensors suffice, adding passengers requires life-support equipment without improving the observation."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Les satellites ne justifient pas tout tourisme spatial.",
+        "english": "Satellites do not justify all space tourism."
+      },
+      "conclusion": {
+        "french": "Soutenir des missions justifiées, pas tous les voyages.",
+        "english": "Support justified missions, not every journey."
+      }
+    }
+  }
+}

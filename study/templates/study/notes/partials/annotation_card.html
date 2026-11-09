@@ -1,0 +1,148 @@
+{% comment %}
+Shared annotation card — the only representation an annotation ever gets.
+
+The same node is the card in card mode and the row in table mode, so every
+column's metadata is written here once: the head carries kind, origin, status
+and date, and the context block carries scope and source.
+
+Parameters:
+  annotation — Annotation instance. Highlights may carry ``origin_label``
+               (Réponse / Expression); search results carry ``notes_url``.
+  variant    — "notes" | "highlights" | "search". Drives the anchor id and
+               which footer actions render.
+  anchor_prefix — "note" | "highlight" | "annotation".
+{% endcomment %}
+{% load study_markdown study_speech %}
+<article
+  class="card annotation-card annotation-card--{{ annotation.kind }} annotation-card--{{ variant }}{% if annotation.is_pinned and variant == 'notes' %} annotation-card--pinned{% endif %}"
+  data-collection-item
+  data-annotation-item="{{ annotation.id }}"
+  data-annotation-kind="{{ annotation.kind }}"
+  data-read-aloud-scope
+  id="{{ anchor_prefix }}-{{ annotation.id }}"
+  {% if variant == "notes" %}data-annotation-edit-source="{{ annotation.id }}" data-annotation-edit-title="{{ annotation.title }}" data-annotation-edit-body="{{ annotation.body }}" data-annotation-edit-has-quote="{% if annotation.quote %}1{% else %}0{% endif %}"{% endif %}
+>
+  <header class="annotation-card__head">
+    {% if variant == "notes" %}
+      <form class="annotation-card__pin" method="post" action="{% url 'study:annotation_pin_toggle' annotation.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <input type="hidden" name="is_pinned" value="{% if annotation.is_pinned %}0{% else %}1{% endif %}">
+        <button class="linkbtn annotation-action" type="submit"
+                aria-label="{% if annotation.is_pinned %}Désépingler la note{% else %}Épingler la note{% endif %}"
+                aria-pressed="{{ annotation.is_pinned|yesno:'true,false' }}"
+                title="{% if annotation.is_pinned %}Désépingler{% else %}Épingler{% endif %}">
+          <span class="annotation-action__icon annotation-action__icon--pin" aria-hidden="true">
+            {% include "study/notes/partials/annotation_pin_icon.html" %}
+            {% if annotation.is_pinned %}<span class="annotation-card__pin-dot"></span>{% endif %}
+          </span>
+          <span class="sr-only">{% if annotation.is_pinned %}Désépingler la note{% else %}Épingler la note{% endif %}</span>
+        </button>
+      </form>
+    {% endif %}
+    <span class="annotation-card__kind">{% if annotation.kind == "highlight" %}Surlignage{% else %}Note{% endif %}</span>
+    {% if annotation.origin_label %}<span class="annotation-card__origin">{{ annotation.origin_label }}</span>{% endif %}
+    {% if annotation.study_later %}<span class="annotation-card__study">À étudier</span>{% endif %}
+    {% if annotation.completed %}<span class="annotation-card__done">{% if annotation.kind == "highlight" %}Terminé{% else %}Terminée{% endif %}</span>{% endif %}
+    <time datetime="{{ annotation.created_at|date:'c' }}">{{ annotation.created_at|date:"j M Y · H:i" }}</time>
+    {% if annotation.is_pinned and variant == "notes" %}
+      <button class="icon-button annotation-card__open" type="button" data-pinned-note-open
+              aria-haspopup="dialog" aria-controls="pinned-note-dialog"
+              aria-label="Ouvrir la note épinglée" title="Ouvrir la note" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"></path></svg>
+      </button>
+    {% endif %}
+  </header>
+  <div class="annotation-card__content">
+    {% if annotation.kind == "note" and annotation.quote %}
+      <h3
+        class="annotation-card__title annotation-card__title--selection"
+        {% if variant != "search" %}
+          data-recall-cell="french"
+          data-recall-entry="annotation-french-{{ annotation.id }}"
+        {% endif %}
+      ><span
+        data-read-aloud-text
+        {% speech_attrs annotation.quote user_id=annotation.user_id %}
+        lang="fr"
+        {% if variant != "search" %}
+          class="recall-content"
+          data-recall-content
+        {% endif %}
+      >{{ annotation.quote }}</span></h3>
+      {% if annotation.title %}
+        <p
+          class="annotation-card__subtitle"
+          data-read-aloud-text
+          {% speech_attrs annotation.title user_id=annotation.user_id %}
+          lang="fr"
+          {% if variant != "search" %}
+            data-recall-cell="french"
+            data-recall-entry="annotation-french-{{ annotation.id }}"
+          {% endif %}
+        ><span
+          {% if variant != "search" %}
+            class="recall-content"
+            data-recall-content
+          {% endif %}
+        >{{ annotation.title }}</span></p>
+      {% endif %}
+    {% elif annotation.title %}
+      <h3
+        class="annotation-card__title annotation-card__title--personal"
+        {% if variant != "search" %}
+          data-recall-cell="french"
+          data-recall-entry="annotation-french-{{ annotation.id }}"
+        {% endif %}
+      ><span
+        data-read-aloud-text
+        {% speech_attrs annotation.title user_id=annotation.user_id %}
+        lang="fr"
+        {% if variant != "search" %}
+          class="recall-content"
+          data-recall-content
+        {% endif %}
+      >{{ annotation.title }}</span></h3>
+    {% endif %}
+    {% if annotation.kind == "highlight" and annotation.quote %}
+      <blockquote
+        data-read-aloud-text
+        {% speech_attrs annotation.quote user_id=annotation.user_id %}
+        lang="fr"
+        {% if variant != "search" %}
+          data-recall-cell="french"
+          data-recall-entry="annotation-french-{{ annotation.id }}"
+        {% endif %}
+      ><span
+        {% if variant != "search" %}
+          class="recall-content"
+          data-recall-content
+        {% endif %}
+      ><mark>{{ annotation.quote }}</mark></span></blockquote>
+    {% endif %}
+    {% if annotation.body %}
+      {% if variant != "search" %}
+        <div
+          class="annotation-card__body"
+          data-recall-cell="english"
+          data-recall-entry="annotation-english-{{ annotation.id }}"
+        ><div class="annotation-markdown recall-content" data-recall-content>{{ annotation.body|markdown }}</div></div>
+      {% else %}
+        <div class="annotation-card__body annotation-markdown">{{ annotation.body|markdown }}</div>
+      {% endif %}
+    {% endif %}
+  </div>
+  {% if variant == "search" %}
+    <p class="annotation-card__scope">{{ annotation.scope_label }}</p>
+  {% else %}
+    <div class="annotation-card__context">
+      <span class="annotation-card__scope">{{ annotation.scope_label }}</span>
+      {% if annotation.source_path %}
+        <a class="annotation-card__source" href="{{ annotation.source_path }}">{% include "study/shared/partials/ui_icon.html" with name="external-link" only %} {{ annotation.source_title|default:"Voir la source" }}</a>
+      {% endif %}
+    </div>
+  {% endif %}
+  <footer class="annotation-card__actions">
+    {% include "study/notes/partials/annotation_actions.html" with annotation=annotation variant=variant %}
+  </footer>
+</article>

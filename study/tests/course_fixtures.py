@@ -2,7 +2,7 @@
 
 from copy import deepcopy
 
-from study.course_content import build_course_catalog, parse_course_lesson
+from study.learning.courses import build_course_catalog, parse_course_lesson
 
 
 def inline_teaching_fields(payload):

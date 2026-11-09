@@ -11,15 +11,15 @@ from django.core.management import call_command
 from django.core.management.base import CommandError
 from django.test import SimpleTestCase, override_settings
 
-from study import catalogue
-from study.eo2_question_languages import (
+from study.catalogue import registry as catalogue
+from study.expression.eo.tache_2.languages import (
     DEFAULT_PATH, empty_manifest, fingerprint, language_presentation, manifest,
     scoped_dialogues, validate_manifest,
 )
 from study.models import ExamPart, Prompt, Response, Task, Theme
-from study.oral_highlights import _render_questions
-from study.tache_two_dialogues import dialogue_response, question_presentation
-from study.translation import DeepLResponseError
+from study.notes.anchors import _render_questions
+from study.expression.eo.tache_2.dialogues import dialogue_response, question_presentation
+from study.translations.service import DeepLResponseError
 
 
 def fixture_manifest(groups=None):
@@ -69,7 +69,7 @@ class EO2QuestionLanguageTests(SimpleTestCase):
     def test_empty_catalogue_explicitly_reports_unprepared_without_a_provider_call(self):
         dialogue = next(iter(scoped_dialogues().values()))
         questions = [{"text": question.question} for question in dialogue.questions]
-        with patch("study.translation.urllib.request.urlopen") as provider:
+        with patch("study.translations.service.urllib.request.urlopen") as provider:
             result = language_presentation(dialogue, questions)
         provider.assert_not_called()
         self.assertFalse(result["ready"])
@@ -111,7 +111,7 @@ class EO2QuestionLanguageTests(SimpleTestCase):
             arguments=(replace(value.arguments[0], idea="Ma question privée non publiée ?"),)
             + value.arguments[1:],
         )
-        with patch("study.translation.urllib.request.urlopen") as provider:
+        with patch("study.translations.service.urllib.request.urlopen") as provider:
             result = question_presentation(unsaved_prompt(key), value)
         provider.assert_not_called()
         self.assertFalse(result["question_language"]["ready"])
@@ -150,7 +150,7 @@ class EO2QuestionLanguageTests(SimpleTestCase):
     def test_corrupt_translation_catalogue_logs_an_error_but_preserves_french(self):
         self.path.write_text("{invalid")
         dialogue = next(iter(scoped_dialogues().values()))
-        with self.assertLogs("study.eo2_question_languages", level="ERROR"):
+        with self.assertLogs("study.expression.eo.tache_2.languages", level="ERROR"):
             result = language_presentation(dialogue, [{"text": dialogue.questions[0].question}])
         self.assertTrue(result["error"])
         self.assertFalse(result["ready"])
@@ -167,7 +167,7 @@ class EO2QuestionLanguageTests(SimpleTestCase):
 
     def test_dry_run_counts_600_questions_and_never_uses_deepl(self):
         output = StringIO()
-        with patch("study.translation.urllib.request.urlopen") as provider:
+        with patch("study.translations.service.urllib.request.urlopen") as provider:
             call_command("prepare_eo2_translations", "--dry-run", stdout=output)
         provider.assert_not_called()
         self.assertIn("75 models; 600 questions; 600 missing", output.getvalue())
@@ -175,7 +175,7 @@ class EO2QuestionLanguageTests(SimpleTestCase):
 
     def test_generation_requires_exact_cost_confirmation_and_configured_key(self):
         characters = sum(len(q.question) for row in scoped_dialogues().values() for q in row.questions)
-        with patch("study.translation.urllib.request.urlopen") as provider:
+        with patch("study.translations.service.urllib.request.urlopen") as provider:
             with self.assertRaisesRegex(CommandError, "exact current character"):
                 call_command("prepare_eo2_translations", "--prepare", stdout=StringIO())
             with self.assertRaisesRegex(CommandError, "DEEPL_API_KEY"):
@@ -188,7 +188,7 @@ class EO2QuestionLanguageTests(SimpleTestCase):
     @override_settings(DEEPL_TARGET_LANG="EN-US")
     def test_empty_manifest_accepts_the_configured_english_variant_without_writing_on_dry_run(self):
         before = self.path.read_bytes()
-        with patch("study.translation.urllib.request.urlopen") as provider:
+        with patch("study.translations.service.urllib.request.urlopen") as provider:
             call_command("prepare_eo2_translations", "--dry-run", stdout=StringIO())
         provider.assert_not_called()
         self.assertEqual(self.path.read_bytes(), before)

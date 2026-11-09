@@ -16,10 +16,10 @@ from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils import timezone
 
-from study import content_loader as content_module
-from study import queue as queue_module
-from study.account_services import provision_user_study_data
-from study.ee_formulations import get_ee_formulations
+from study.catalogue import loader as content_module
+from study.review import queue as queue_module
+from study.accounts.services import provision_user_study_data
+from study.expression.ee.formulations.catalogue import get_ee_formulations
 from study.management.commands.import_content import Command
 from study.models import (
     Annotation,
@@ -43,7 +43,7 @@ from study.models import (
     Task,
     Theme,
 )
-from study.progress import (
+from study.review.progress import (
     card_unit_progress_from_rows,
     subject_progress_by_response,
 )

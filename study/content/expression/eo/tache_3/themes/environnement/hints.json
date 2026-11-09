@@ -1,0 +1,374 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "environnement-p2": {
+      "introduction": {
+        "french": "Une utilité à démontrer.",
+        "english": "Usefulness must be demonstrated."
+      },
+      "nuance": {
+        "french": "Ni tous les parcs ni toutes les espèces.",
+        "english": "Not every park or every species."
+      },
+      "conclusion": {
+        "french": "Vérifier l'utilité du zoo et respecter les besoins des animaux.",
+        "english": "Verify the zoo's usefulness and respect the animals' needs."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Expliquer les besoins des animaux aux visiteurs.",
+            "english": "Explain animals' needs to visitors."
+          },
+          "example": {
+            "french": "Un éducateur explique aux enfants le besoin d'un espace de retrait et de ne pas déranger l'animal.",
+            "english": "An educator explains to children the need for a retreat space and for leaving the animal undisturbed."
+          }
+        },
+        {
+          "point": {
+            "french": "Une conservation documentée.",
+            "english": "Documented conservation."
+          },
+          "example": {
+            "french": "Le bison d'Europe a survécu en captivité puis a été réintroduit ; cela ne prouve pas l'utilité de chaque zoo.",
+            "english": "European bison survived in captivity and were reintroduced; this does not prove every zoo is useful."
+          }
+        },
+        {
+          "point": {
+            "french": "Une recherche pour comprendre les besoins des animaux.",
+            "english": "Research to understand animals' needs."
+          },
+          "example": {
+            "french": "Des chercheurs comparent l'accès avant et après l'ajout de points de nourrissage pour repérer un animal écarté.",
+            "english": "Researchers compare access before and after adding feeding points to identify an excluded animal."
+          }
+        }
+      ]
+    },
+    "environnement-p3": {
+      "introduction": {
+        "french": "Des possibilités réelles, mais inégales.",
+        "english": "Real but unequal opportunities."
+      },
+      "nuance": {
+        "french": "Respecter les besoins médicaux et les contraintes matérielles ; trier n'est pas réduire.",
+        "english": "Respect medical needs and practical constraints; sorting is not reducing."
+      },
+      "conclusion": {
+        "french": "Faciliter les réductions plutôt qu'imposer la même obligation.",
+        "english": "Enable reductions rather than impose the same obligation."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Repérer une perte évitable.",
+            "english": "Identify avoidable waste."
+          },
+          "example": {
+            "french": "Finir un petit sachet de salade au lieu de jeter la moitié d'un grand.",
+            "english": "Finish a small salad pack instead of discarding half a large one."
+          }
+        },
+        {
+          "point": {
+            "french": "Prolonger l'usage.",
+            "english": "Extend useful life."
+          },
+          "example": {
+            "french": "Faire réparer la fermeture d'un sac : l'atelier est payé et le sac reste utilisable.",
+            "english": "Repair a bag's zip: the workshop is paid and the bag stays usable."
+          }
+        },
+        {
+          "point": {
+            "french": "Changer aussi les systèmes.",
+            "english": "Change systems too."
+          },
+          "example": {
+            "french": "Un commerce propose un retour accessible ; le contenant lavé sert à plusieurs achats plutôt qu'être jeté.",
+            "english": "A shop offers accessible returns; the washed container serves several purchases instead of being discarded."
+          }
+        }
+      ]
+    },
+    "environnement-p4": {
+      "introduction": {
+        "french": "Examiner chaque zoo avant de décider de le garder ouvert.",
+        "english": "Examine each zoo before deciding to keep it open."
+      },
+      "nuance": {
+        "french": "Ne pas retarder indéfiniment une fermeture nécessaire.",
+        "english": "Do not indefinitely delay a necessary closure."
+      },
+      "conclusion": {
+        "french": "Décider selon les besoins et les preuves.",
+        "english": "Decide based on needs and evidence."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Prévoir le devenir des animaux.",
+            "english": "Plan the animals' future care."
+          },
+          "example": {
+            "french": "Organiser un accueil et un transfert adaptés.",
+            "english": "Arrange suitable accommodation and transfer."
+          }
+        },
+        {
+          "point": {
+            "french": "Préserver une conservation réellement utile.",
+            "english": "Preserve genuinely useful conservation work."
+          },
+          "example": {
+            "french": "Le bison d'Europe a survécu en captivité puis a été réintroduit ; cela ne prouve pas l'utilité de chaque zoo.",
+            "english": "European bison survived in captivity and were reintroduced; this does not prove every zoo is useful."
+          }
+        },
+        {
+          "point": {
+            "french": "Améliorer les conditions sur place, sous contrôle.",
+            "english": "Improve conditions on site with oversight."
+          },
+          "example": {
+            "french": "Aménager des retraits, vérifier leur utilisation et fermer si nécessaire.",
+            "english": "Provide retreats, check their use and close if necessary."
+          }
+        }
+      ]
+    },
+    "environnement-p7": {
+      "introduction": {
+        "french": "Faciliter les achats et soutenir les producteurs bio, sous conditions.",
+        "english": "Make shopping easier and support organic producers, under conditions."
+      },
+      "nuance": {
+        "french": "Bio n'est pas automatiquement local, sans emballage ni adapté à chaque besoin ; vérifier le label et le prix.",
+        "english": "Organic is not automatically local, unpackaged or suited to every need; check the label and price."
+      },
+      "conclusion": {
+        "french": "Vérifier les prix, les méthodes et les contrats, pas seulement les rayons.",
+        "english": "Check prices, methods and contracts, not just shelf space."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Élargir l'accès dans le commerce habituel.",
+            "english": "Broaden access in the usual shop."
+          },
+          "example": {
+            "french": "Une famille ajoute des lentilles bio aux courses habituelles si le prix et la quantité conviennent à son budget.",
+            "english": "A family adds organic lentils to regular shopping if price and quantity suit its budget."
+          }
+        },
+        {
+          "point": {
+            "french": "Soutenir des méthodes qui limitent certains produits de synthèse.",
+            "english": "Support methods that limit certain synthetic products."
+          },
+          "example": {
+            "french": "Dans le cadre européen, une enseigne achète les légumes d'une ferme bio qui désherbe mécaniquement sans herbicide de synthèse.",
+            "english": "In the European framework, a retailer buys vegetables from an organic farm using mechanical weeding without synthetic herbicide."
+          }
+        },
+        {
+          "point": {
+            "french": "Aider les producteurs à prévoir leurs ventes.",
+            "english": "Help producers plan their sales."
+          },
+          "example": {
+            "french": "Des volumes convenus permettent de planifier semis et récolte, avec un prix viable.",
+            "english": "Agreed volumes allow sowing and harvest planning, with a viable price."
+          }
+        }
+      ]
+    },
+    "environnement-p9": {
+      "introduction": {
+        "french": "Trop de visiteurs ou une mauvaise organisation peuvent dégrader une région.",
+        "english": "Too many visitors or poor organization can damage a region."
+      },
+      "nuance": {
+        "french": "Faire participer les habitants et soutenir l'entretien.",
+        "english": "Include residents and support upkeep."
+      },
+      "conclusion": {
+        "french": "Accueillir sans dégrader les conditions de vie.",
+        "english": "Welcome visitors without degrading living conditions."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Éviter de surcharger les sites et les équipements.",
+            "english": "Avoid overloading sites and facilities."
+          },
+          "example": {
+            "french": "Des visiteurs quittent le sentier pour éviter une file et abîment la végétation ; limiter les entrées peut aider.",
+            "english": "Visitors leave the trail to avoid a queue and damage vegetation; limiting entry may help."
+          }
+        },
+        {
+          "point": {
+            "french": "Le logement des habitants.",
+            "english": "Residents' housing."
+          },
+          "example": {
+            "french": "Des appartements passent en location touristique ; une famille cherchant un bail annuel peut trouver moins d'offres.",
+            "english": "Apartments become holiday rentals; a family seeking a yearly lease may find fewer offers."
+          }
+        },
+        {
+          "point": {
+            "french": "Les services du quotidien.",
+            "english": "Everyday services."
+          },
+          "example": {
+            "french": "Un commerce courant devient une boutique de souvenirs ; si les achats essentiels s'éloignent, les habitants se déplacent plus.",
+            "english": "An everyday shop becomes a souvenir store; if essential purchases move farther away, residents travel more."
+          }
+        }
+      ]
+    },
+    "environnement-p11": {
+      "introduction": {
+        "french": "Partir de faits locaux vérifiés ; exemple français à adapter.",
+        "english": "Use verified local facts; adapt this French example."
+      },
+      "nuance": {
+        "french": "Le tri ne prouve pas un résultat national et ne remplace pas la réduction.",
+        "english": "Sorting does not establish nationwide results or replace waste prevention."
+      },
+      "conclusion": {
+        "french": "Comprendre les consignes, accéder au service et vérifier les résultats.",
+        "english": "Understand instructions, access the service and check results."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Une consigne compréhensible.",
+            "english": "An understandable instruction."
+          },
+          "example": {
+            "french": "Vérifier l'indication réelle puis remettre l'appareil au point de collecte adapté.",
+            "english": "Check the actual instruction, then take the appliance to the appropriate collection point."
+          }
+        },
+        {
+          "point": {
+            "french": "Récupérer une matière utile grâce au tri.",
+            "english": "Recover useful material through sorting."
+          },
+          "example": {
+            "french": "Dans une commune équipée, un foyer apporte les épluchures acceptées ; avec un suivi adapté, elles donnent du compost.",
+            "english": "In a municipality with the service, a household brings accepted peelings; with proper monitoring, they become compost."
+          }
+        },
+        {
+          "point": {
+            "french": "Suivre les résultats pour corriger le service.",
+            "english": "Monitor results to improve the service."
+          },
+          "example": {
+            "french": "Une collectivité repère un dépôt inaccessible sans voiture et en crée un près des logements pour élargir l'accès.",
+            "english": "A local authority identifies a car-dependent collection point and adds one near homes to widen access."
+          }
+        }
+      ]
+    },
+    "environnement-p13": {
+      "introduction": {
+        "french": "Soutenir le bio pour ses méthodes, sans en faire une solution parfaite.",
+        "english": "Support organic farming for its methods without claiming it is a perfect solution."
+      },
+      "nuance": {
+        "french": "Vérifier les effets, permettre aux agriculteurs de couvrir leurs coûts et garder des aliments accessibles.",
+        "english": "Check impacts, let farmers cover their costs and keep food accessible."
+      },
+      "conclusion": {
+        "french": "Méthodes alternatives, fertilité des sols et transparence.",
+        "english": "Alternative methods, soil fertility and transparency."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Dans le cadre européen, limiter certains produits et les occasions de contact.",
+            "english": "In the European framework, limit certain products and opportunities for contact."
+          },
+          "example": {
+            "french": "Désherber les carottes mécaniquement sans préparer ni pulvériser un herbicide de synthèse.",
+            "english": "Weed carrots mechanically without preparing or spraying a synthetic herbicide."
+          }
+        },
+        {
+          "point": {
+            "french": "Entretenir la fertilité grâce aux rotations.",
+            "english": "Maintain fertility through crop rotation."
+          },
+          "example": {
+            "french": "Cultiver des pois avant du blé et restituer les résidus au sol.",
+            "english": "Grow peas before wheat and return the residues to the soil."
+          }
+        },
+        {
+          "point": {
+            "french": "Vérifier le contenu du label.",
+            "english": "Verify what the label means."
+          },
+          "example": {
+            "french": "Vérifier le label et l'organisme de contrôle d'une farine, puis lire séparément l'origine.",
+            "english": "Check a flour label and its control body, then read the origin separately."
+          }
+        }
+      ]
+    },
+    "environnement-p14": {
+      "introduction": {
+        "french": "Certaines activités peuvent se développer en limitant les dommages, avec des procédés vérifiés et des limites.",
+        "english": "Some activities can develop while limiting harm, with checked processes and limits."
+      },
+      "nuance": {
+        "french": "Aucun impact nul ni croissance matérielle illimitée.",
+        "english": "No zero impact or unlimited material growth."
+      },
+      "conclusion": {
+        "french": "Réparer, mesurer et respecter des limites.",
+        "english": "Repair, measure and respect limits."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Gagner de l'argent en réparant plutôt qu'en remplaçant.",
+            "english": "Earn money by repairing rather than replacing."
+          },
+          "example": {
+            "french": "Faire réparer la fermeture d'un sac : l'atelier est payé et le sac reste utilisable.",
+            "english": "Repair a bag's zip: the workshop is paid and the bag stays usable."
+          }
+        },
+        {
+          "point": {
+            "french": "Mesurer l'amélioration d'un procédé.",
+            "english": "Measure a process improvement."
+          },
+          "example": {
+            "french": "Réduire l'eau de lavage et contrôler les rejets.",
+            "english": "Reduce washing water and check discharge."
+          }
+        },
+        {
+          "point": {
+            "french": "Vérifier les ressources utilisées et la pollution au total.",
+            "english": "Check total resource use and pollution."
+          },
+          "example": {
+            "french": "Une collectivité achète des produits réparables et prévoit l'entretien ; elle suit la durée d'usage et les quantités remplacées.",
+            "english": "A local authority buys repairable products and plans maintenance; it tracks useful life and quantities replaced."
+          }
+        }
+      ]
+    }
+  }
+}

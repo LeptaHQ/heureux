@@ -6,15 +6,15 @@ from django.core.management import call_command
 from django.test import TestCase, override_settings
 from django.urls import reverse
 
-from study import catalogue
-from study.eo3_audio import (
+from study.catalogue import registry as catalogue
+from study.expression.eo.tache_3.audio import (
     generate_narration, narration_presentation, narration_source, narration_spec,
     text_narration_spec,
 )
-from study.french_audio import enqueue, generate_prepared, source_grant, speech_spec
+from study.audio.french import enqueue, generate_prepared, source_grant, speech_spec
 from study.models import EO3Narration, FrenchNarration, FrenchNarrationBudget, PersonalResponse, Prompt
-from study.response_personalization import effective_response
-from study.routing import prompt_detail_url
+from study.expression.personalization import effective_response
+from study.navigation.routing import prompt_detail_url
 
 from . import factories
 from .test_eo3_audio import AUDIO, AUDIO_PIN, ON_DEMAND_SETTINGS, TIMING
@@ -70,7 +70,7 @@ class SavedSubjectAudioTests(TestCase):
         )
         return effective_response(self.prompt.response, self.user, personal=personal)
 
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_voice_change_keeps_saved_audio_with_no_key_pin_or_generation_budget(self, provider):
         old = self.take()
         with self.settings(
@@ -88,7 +88,7 @@ class SavedSubjectAudioTests(TestCase):
         self.assertFalse(FrenchNarrationBudget.objects.exists())
         provider.assert_not_called()
 
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_earlier_text_is_playable_but_not_highlighted_or_silently_regenerated(self, provider):
         old = self.take(self.source.text + "\n\nUne ancienne conclusion.")
         presentation = narration_presentation(self.model)
@@ -108,7 +108,7 @@ class SavedSubjectAudioTests(TestCase):
         self.assertFalse(FrenchNarrationBudget.objects.exists())
         provider.assert_not_called()
 
-    @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
+    @patch("study.audio.french.synthesize", return_value=(AUDIO, TIMING))
     def test_only_explicit_refresh_with_pin_creates_current_text_and_voice(self, provider):
         old = self.take(self.source.text + "\n\nUne ancienne conclusion.")
         with self.settings(ELEVENLABS_VOICE_ID="NewVoice"):
@@ -130,7 +130,7 @@ class SavedSubjectAudioTests(TestCase):
             ])).content, AUDIO)
         provider.assert_called_once()
 
-    @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
+    @patch("study.audio.french.synthesize", return_value=(AUDIO, TIMING))
     def test_a_genuinely_missing_recording_uses_new_voice_and_requires_pin(self, provider):
         with self.settings(ELEVENLABS_VOICE_ID="NewVoice"):
             self.assertEqual(self.prepare().json()["error"], "pin_required")
@@ -188,7 +188,7 @@ class SavedSubjectAudioTests(TestCase):
         self.assertIn(exact.fingerprint, presentation["url"])
         self.assertFalse(presentation["stale"])
 
-    @patch("study.eo3_audio.synthesize")
+    @patch("study.expression.eo.tache_3.audio.synthesize")
     @patch("study.management.commands.generate_eo3_audio.command_generation_pin")
     def test_operator_reuses_saved_subject_and_refresh_estimate_is_explicit(self, pin, provider):
         self.take(self.source.text + "\n\nUne ancienne conclusion.")
@@ -221,7 +221,7 @@ class SavedFrenchAudioTests(TestCase):
             model_id=self.spec.model_id, status="ready", audio=AUDIO,
         )
 
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_voice_change_reuses_owned_scope_without_pin_queue_or_spend(self, provider):
         source = {"grant": source_grant(self.text, self.user.pk, private=False)}
         with self.settings(ELEVENLABS_VOICE_ID="NewVoice", ELEVENLABS_PIN=""):
@@ -236,7 +236,7 @@ class SavedFrenchAudioTests(TestCase):
         self.assertFalse(FrenchNarrationBudget.objects.exists())
         provider.assert_not_called()
 
-    @patch("study.french_audio.synthesize")
+    @patch("study.audio.french.synthesize")
     def test_pending_duplicate_does_not_spend_after_another_voice_is_already_saved(self, provider):
         with self.settings(ELEVENLABS_VOICE_ID="NewVoice"):
             current = speech_spec(self.text)

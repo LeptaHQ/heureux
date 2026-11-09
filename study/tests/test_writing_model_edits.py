@@ -8,7 +8,7 @@ from study.models import (
     Annotation, AnnotationKind, PersonalWritingResponse, WritingResponseOverride,
     WritingSujetCompletion,
 )
-from study.oral_highlights import AnnotationRootText
+from study.notes.anchors import AnnotationRootText
 from study.templatetags.study_markdown import render_markdown_prose
 
 from . import factories

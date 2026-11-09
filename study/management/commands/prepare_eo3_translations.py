@@ -1,17 +1,16 @@
 import copy
 from datetime import datetime, timezone
 from http.client import HTTPException
-import json
 
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 
-from study.eo3_response_languages import (
+from study.expression.eo.tache_3.languages import (
     empty_manifest, fingerprint, model_theme, public_fields, scoped_models,
-    translation_path, validate_manifest,
+    translation_path, validate_manifest, read_manifest, write_manifest,
 )
-from study.tache_three_models import spoken_text
-from study.translation import deepl_translate, deepl_usage, write_translation_manifest
+from study.expression.eo.tache_3.responses import spoken_text
+from study.translations.service import deepl_translate, deepl_usage
 
 
 class Command(BaseCommand):
@@ -30,7 +29,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         path = translation_path()
         try:
-            data = validate_manifest(json.loads(path.read_text(encoding="utf-8"))) if path.exists() else empty_manifest()
+            data = read_manifest(path) if path.exists() else empty_manifest()
         except (OSError, ValueError) as exc:
             raise CommandError(f"Cannot read the EO3 translation manifest: {exc}") from None
         data = copy.deepcopy(data)
@@ -107,7 +106,7 @@ class Command(BaseCommand):
                     "No automatic retry was made. Inspect --dry-run before resuming."
                 ) from None
             try:
-                write_translation_manifest(path, data)
+                write_manifest(path, data)
             except OSError:
                 raise CommandError(
                     f"Cannot save EO3 translations for {group}; earlier completed models remain saved. "

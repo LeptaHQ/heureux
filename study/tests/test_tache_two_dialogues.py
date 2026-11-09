@@ -16,15 +16,15 @@ from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 from django.utils.html import escape, strip_tags
 
-from study import catalogue
-from study import content_loader as content
+from study.catalogue import registry as catalogue
+from study.catalogue import loader as content
 from study.forms import TacheTwoConversationForm
 from study.models import Annotation, AnnotationKind, Card, CardType, PersonalResponse, Prompt
-from study.oral_highlights import AnnotationRootText, QuestionText, _render_questions
-from study.oral_history import variant_annotation_key
-from study.response_personalization import effective_response
-from study.routing import prompt_detail_url
-from study.tache_two_dialogues import (
+from study.notes.anchors import AnnotationRootText, QuestionText, _render_questions
+from study.expression.eo.history import variant_annotation_key
+from study.expression.personalization import effective_response
+from study.navigation.routing import prompt_detail_url
+from study.expression.eo.tache_2.dialogues import (
     DIALOGUES_DIR,
     DialogueQuestion,
     TacheTwoDialogue,
@@ -243,7 +243,7 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
         dialogue = next(iter(self.load().values()))
         prompt = SimpleNamespace(content_key=self.manifest["groups"][0]["canonical"])
         value = dialogue_response(dialogue)
-        with patch("study.tache_two_dialogues.published_dialogue", return_value=dialogue):
+        with patch("study.expression.eo.tache_2.dialogues.published_dialogue", return_value=dialogue):
             context = {
                 **question_presentation(prompt, value),
                 "response_content": value,
@@ -253,9 +253,9 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
                 "tache_two_subject": True,
                 "arguments": value.arguments,
             }
-            subject_html = render_to_string("study/partials/tache_two_questions.html", context)
-            back_html = render_to_string("study/partials/card_back.html", context)
-            body_html = render_to_string("study/partials/tache_two_dialogue_body.html", context)
+            subject_html = render_to_string("study/expression/eo/tache_2/partials/tache_two_questions.html", context)
+            back_html = render_to_string("study/review/partials/card_back.html", context)
+            body_html = render_to_string("study/expression/eo/tache_2/partials/tache_two_dialogue_body.html", context)
         for html in (subject_html, back_html):
             self.assertIn(body_html, html)
             self.assertEqual(html.count("data-tache-two-question"), 8)
@@ -308,7 +308,7 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
             json.dumps(asdict(value), sort_keys=True).encode("utf-8")
         ).hexdigest()[:16]
         prompt = SimpleNamespace(content_key="tache2:janvier:batch-01:subject-01")
-        with patch("study.tache_two_dialogues.published_dialogue", return_value=dialogue):
+        with patch("study.expression.eo.tache_2.dialogues.published_dialogue", return_value=dialogue):
             key = variant_annotation_key(prompt, value)
         self.assertNotEqual(key, f"response:{prompt.content_key}:variant-{old_digest}")
         other_prompt = SimpleNamespace(content_key="tache3:fixture")
@@ -325,7 +325,7 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
             model, is_personal=True,
             nuance="Your friend is selling belongings before moving.",
         )
-        with patch("study.tache_two_dialogues.published_dialogue", return_value=dialogue):
+        with patch("study.expression.eo.tache_2.dialogues.published_dialogue", return_value=dialogue):
             self.assertEqual(prompt_note_presentation(prompt, personal)["note"], personal.nuance)
             self.assertEqual(question_presentation(prompt, personal)["tache_two_dialogue"], dialogue)
             self.assertEqual(
@@ -379,11 +379,11 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
     def test_personal_note_is_escaped_excluded_from_annotations_and_not_spoken(self):
         dialogue = next(iter(self.load().values()))
         value = replace(dialogue_response(dialogue), is_personal=True, nuance="<b>My note</b>")
-        with patch("study.tache_two_dialogues.published_dialogue", return_value=None):
+        with patch("study.expression.eo.tache_2.dialogues.published_dialogue", return_value=None):
             note = prompt_note_presentation(None, value)
         self.assertEqual(note["register"], "")
         html = render_to_string(
-            "study/partials/tache_two_prompt_note.html",
+            "study/expression/eo/tache_2/partials/tache_two_prompt_note.html",
             {"subject_prompt_note": note, "prompt_note_edit_url": "/edit/"},
         )
         self.assertIn("&lt;b&gt;My note&lt;/b&gt;", html)
@@ -497,7 +497,7 @@ class TacheTwoDialogueViewTests(TestCase):
             for batch in month.batches for subject in batch.subjects
         ]
         dialogues_patch = patch(
-            "study.catalogue.tache_two_dialogues",
+            "study.catalogue.registry.tache_two_dialogues",
             return_value=dict.fromkeys(publication_keys, self.dialogue),
         )
         dialogues_patch.start()
@@ -619,7 +619,7 @@ class TacheTwoDialogueViewTests(TestCase):
             key: row for key, row in dialogues.items() if row.group in ALL_NEIGHBOURHOOD_GROUPS
         }
         self.assertEqual(len(publications), 36)
-        with patch("study.catalogue.tache_two_dialogues", return_value=dialogues):
+        with patch("study.catalogue.registry.tache_two_dialogues", return_value=dialogues):
             for key, row in publications.items():
                 with self.subTest(content_key=key):
                     self.prompt.content_key = key

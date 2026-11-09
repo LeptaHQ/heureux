@@ -1,0 +1,696 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "culture-p1": {
+      "introduction": {
+        "french": "Changer certaines habitudes, pas toutes.",
+        "english": "Change some habits, not all."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "S'adapter au climat et aux horaires.",
+            "english": "Adapt to climate and schedules."
+          },
+          "example": {
+            "french": "Hiver enneigé : vêtements adaptés et départ plus tôt si les trajets ralentissent.",
+            "english": "Snowy winter: suitable clothing and an earlier departure if travel is slower."
+          }
+        },
+        {
+          "point": {
+            "french": "Garder les habitudes privées qui ne gênent personne.",
+            "english": "Keep private habits that bother no one."
+          },
+          "example": {
+            "french": "Plats et langue à la maison ; apprentissage de la langue locale.",
+            "english": "Familiar dishes and language at home; learning the local language."
+          }
+        },
+        {
+          "point": {
+            "french": "Essayer les habitudes locales à son rythme.",
+            "english": "Try local habits at your own pace."
+          },
+          "example": {
+            "french": "Déjeuner à midi avec les collègues, puis garder cet horaire s'il convient.",
+            "english": "Lunch at noon with colleagues, then keep that time if it suits."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Sécurité et règles communes peuvent exiger une adaptation immédiate.",
+        "english": "Safety and shared rules may require immediate adaptation."
+      },
+      "conclusion": {
+        "french": "Adapter le nécessaire sans effacer sa vie d'avant.",
+        "english": "Adapt what is necessary without erasing your previous life."
+      }
+    },
+    "culture-p5": {
+      "introduction": {
+        "french": "Atteindre ses objectifs à l'étranger est possible, pas automatique.",
+        "english": "Achieving goals abroad is possible, not automatic."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Une possibilité doit correspondre au projet.",
+            "english": "An opportunity must fit the goal."
+          },
+          "example": {
+            "french": "Une spécialité absente près de chez lui : école à l'étranger et stage en restaurant.",
+            "english": "A specialism unavailable nearby: a school abroad and a restaurant placement."
+          }
+        },
+        {
+          "point": {
+            "french": "La préparation transforme une ambition générale en étapes réalisables.",
+            "english": "Preparation turns an ambition into achievable steps."
+          },
+          "example": {
+            "french": "Formation complémentaire éventuelle : prévoir du temps et un budget.",
+            "english": "Possible additional training: allow time and a budget."
+          }
+        },
+        {
+          "point": {
+            "french": "Des contacts locaux peuvent orienter les candidatures.",
+            "english": "Local contacts can guide job applications."
+          },
+          "example": {
+            "french": "Une ancienne camarade peut relire le CV et signaler un poste, sans garantie.",
+            "english": "A former classmate may review the CV and mention a vacancy, without a guarantee."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Préparation ou non, des refus restent possibles ; revoir son projet n'annule pas les efforts.",
+        "english": "Even with preparation, rejection remains possible; revising a goal does not erase the effort."
+      },
+      "conclusion": {
+        "french": "Possibilité adaptée, étapes réalistes et appuis : pas le départ seul.",
+        "english": "A suitable opportunity, realistic steps and support: not departure alone."
+      }
+    },
+    "culture-p9": {
+      "introduction": {
+        "french": "L'adaptation peut être difficile, surtout au début.",
+        "english": "Adaptation can be difficult, especially at first."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "La langue complique les tâches ordinaires.",
+            "english": "Language complicates ordinary tasks."
+          },
+          "example": {
+            "french": "Un appel pour un rendez-vous demande de faire répéter et de vérifier les consignes.",
+            "english": "A call to arrange an appointment requires repetition and checking instructions."
+          }
+        },
+        {
+          "point": {
+            "french": "Les proches peuvent manquer malgré les appels.",
+            "english": "Loved ones may be missed despite calls."
+          },
+          "example": {
+            "french": "Après l'appel familial du dimanche, une personne peut dîner seule.",
+            "english": "After a Sunday family call, someone may eat dinner alone."
+          }
+        },
+        {
+          "point": {
+            "french": "Les contacts pratiques sont à reconstruire.",
+            "english": "Practical contacts need rebuilding."
+          },
+          "example": {
+            "french": "Enfant fiévreux un dimanche : une voisine donne le numéro d'une clinique sans rendez-vous pour vérifier les horaires.",
+            "english": "Child with a fever on Sunday: a neighbour gives a walk-in clinic's number to check opening hours."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Langue, ressources et contacts font varier l'effort ; le temps aide.",
+        "english": "Language, resources and contacts affect the effort; time helps."
+      },
+      "conclusion": {
+        "french": "Avec du temps et des appuis, l'adaptation peut devenir plus facile.",
+        "english": "With time and support, adaptation can become easier."
+      }
+    },
+    "culture-p11": {
+      "introduction": {
+        "french": "Les compatriotes peuvent aider, sans être nécessaires.",
+        "english": "Compatriots can help without being necessary."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Parler sa langue facilite le soutien au début.",
+            "english": "Speaking your language makes support easier at first."
+          },
+          "example": {
+            "french": "Une amie qui parle sa langue écoute l'arrivante et lui propose de passer le dimanche ensemble.",
+            "english": "A friend who speaks her language listens to the newcomer and suggests spending Sunday together."
+          }
+        },
+        {
+          "point": {
+            "french": "Une expérience proche peut orienter les démarches.",
+            "english": "Similar experience can guide procedures."
+          },
+          "example": {
+            "french": "Une infirmière apprend d'une compatriote où demander la reconnaissance du diplôme.",
+            "english": "A nurse learns from a compatriot where to seek recognition of her qualification."
+          }
+        },
+        {
+          "point": {
+            "french": "D'autres personnes peuvent apporter ce soutien.",
+            "english": "Other people can provide that support."
+          },
+          "example": {
+            "french": "Sans compatriotes connus : aide d'une collègue pour un formulaire, amis dans un groupe linguistique.",
+            "english": "No known compatriots: a colleague helps with a form; friends in a language exchange group."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Ne pas rester entre compatriotes ; choisir selon confiance et affinités.",
+        "english": "Do not stay only among compatriots; choose by trust and affinity."
+      },
+      "conclusion": {
+        "french": "Des liens fiables comptent davantage qu'une origine commune.",
+        "english": "Reliable relationships matter more than shared origins."
+      }
+    },
+    "culture-p17": {
+      "introduction": {
+        "french": "Positive parfois, mais pas toujours.",
+        "english": "Sometimes positive, but not always."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Des formations et stages développent les compétences.",
+            "english": "Training and placements develop skills."
+          },
+          "example": {
+            "french": "Une spécialité absente près de chez lui : école à l'étranger et stage en restaurant.",
+            "english": "A specialism unavailable nearby: a school abroad and a restaurant placement."
+          }
+        },
+        {
+          "point": {
+            "french": "La précarité financière peut gâcher le séjour.",
+            "english": "Financial insecurity can spoil the stay."
+          },
+          "example": {
+            "french": "Recherche d'emploi prolongée, économies en baisse : le loyer devient prioritaire.",
+            "english": "Prolonged job search, dwindling savings: rent becomes the priority."
+          }
+        },
+        {
+          "point": {
+            "french": "La réussite n'efface pas la peine de l'absence.",
+            "english": "Success does not erase the pain of absence."
+          },
+          "example": {
+            "french": "Une étudiante réussit, mais n'a pas l'argent pour voir son père malade.",
+            "english": "A student succeeds but cannot afford to visit her sick father."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Une difficulté ne gâche pas tout ; apprendre ne compense pas toujours la souffrance.",
+        "english": "One difficulty does not spoil everything; learning does not always compensate for suffering."
+      },
+      "conclusion": {
+        "french": "Une formation réussie n'efface ni les soucis d'argent ni l'éloignement.",
+        "english": "Successful training erases neither money worries nor distance."
+      }
+    },
+    "culture-p21": {
+      "introduction": {
+        "french": "Comprendre la préférence pour le voyage seul, sans en faire un choix universel.",
+        "english": "Understand the preference for solo travel, without making it a universal choice."
+      },
+      "nuance": {
+        "french": "Besoin possible de partager ses émotions ; liberté limitée aussi par réservations et budget.",
+        "english": "Some may need to share emotions; reservations and budget also limit freedom."
+      },
+      "conclusion": {
+        "french": "Un choix adapté à la personne, ni épreuve ni formule supérieure.",
+        "english": "A choice suited to the person, neither a test nor a superior formula."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Voyager seul peut développer l'autonomie et la confiance en soi.",
+            "english": "Travelling alone can develop independence and self-confidence."
+          },
+          "example": {
+            "french": "Train annulé, suivant le lendemain : l'étudiante se renseigne et prend un bus le jour même.",
+            "english": "Cancelled train, next one tomorrow: the student asks for information and takes a bus that day."
+          }
+        },
+        {
+          "point": {
+            "french": "Voyager seul permet d'adapter plus directement le programme à ses envies.",
+            "english": "Solo travel lets the programme follow personal preferences more directly."
+          },
+          "example": {
+            "french": "Visiter une exposition à son rythme sans imposer ce choix à un groupe.",
+            "english": "Visit an exhibition at one's own pace without imposing the choice on a group."
+          }
+        },
+        {
+          "point": {
+            "french": "Voyager seul peut encourager à aller vers les autres.",
+            "english": "Solo travel can encourage you to reach out to other people."
+          },
+          "example": {
+            "french": "Une visite guidée offre une occasion de discuter avec d'autres participants.",
+            "english": "A guided visit offers a chance to talk to other participants."
+          }
+        }
+      ]
+    },
+    "culture-p24": {
+      "introduction": {
+        "french": "Les liens locaux aident beaucoup, sans être indispensables au bien-être de tous.",
+        "english": "Local ties help greatly, without being essential to everyone's well-being."
+      },
+      "nuance": {
+        "french": "Solitude choisie ou isolement subi ; temps et accueil réciproque pour des relations de confiance.",
+        "english": "Chosen solitude or painful isolation; time and a reciprocal welcome for trusting relationships."
+      },
+      "conclusion": {
+        "french": "Très utiles, pas indispensables : une vie partagée et un équilibre selon ses besoins.",
+        "english": "Very useful, not essential: shared local life and a balance based on one's needs."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Des relations sur place peuvent réduire l'isolement et apporter du soutien.",
+            "english": "Local relationships can reduce isolation and provide support."
+          },
+          "example": {
+            "french": "Déjeuner possible chaque samedi avec une voisine ; quelques courses si l'une tombe malade.",
+            "english": "Possible lunches every Saturday with a neighbour; some groceries if one falls ill."
+          }
+        },
+        {
+          "point": {
+            "french": "Les échanges avec les habitants aident à comprendre les codes sociaux et à pratiquer la langue du pays.",
+            "english": "Talking with residents helps you understand social conventions and practise the local language."
+          },
+          "example": {
+            "french": "Repas d'association : chacun apporte un plat. Une habituée aide l'arrivante à annoncer le sien ; l'arrivante réutilise ces expressions.",
+            "english": "Association meal: everyone brings a dish. A regular helps a newcomer say what she will bring; the newcomer then reuses these expressions."
+          }
+        },
+        {
+          "point": {
+            "french": "Il est possible de bien vivre sans avoir encore créé de liens personnels sur place.",
+            "english": "It is possible to live well before forming personal relationships locally."
+          },
+          "example": {
+            "french": "Appels aux proches et randonnée seule peuvent plaire avant d'avoir des liens locaux.",
+            "english": "Calls to people close to her and hiking alone can be enjoyable before she has local ties."
+          }
+        }
+      ]
+    },
+    "culture-p25": {
+      "introduction": {
+        "french": "Partir pour travailler, apprendre ou réaliser un projet familial.",
+        "english": "Leave to work, learn or carry out a family project."
+      },
+      "nuance": {
+        "french": "Motivations mêlées ; degré de liberté variable entre choix et nécessité.",
+        "english": "Mixed motivations; varying freedom between choice and necessity."
+      },
+      "conclusion": {
+        "french": "Regarder ce que la personne cherche à construire, pas seulement l'aventure.",
+        "english": "Look at what the person is trying to build, not just adventure."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Un départ peut répondre à des motivations professionnelles.",
+            "english": "Leaving can respond to professional motivations."
+          },
+          "example": {
+            "french": "Une technicienne peut rejoindre une entreprise étrangère pour apprendre à entretenir un type de machine.",
+            "english": "A technician may join a foreign company to learn to maintain a type of machine."
+          }
+        },
+        {
+          "point": {
+            "french": "Certaines personnes partent pour apprendre et devenir plus autonomes.",
+            "english": "Some people move abroad to learn and become more independent."
+          },
+          "example": {
+            "french": "Choisir un semestre ailleurs pour suivre des cours dans une autre langue et apprendre à gérer son quotidien.",
+            "english": "Choose a semester abroad to take courses in another language and learn to manage daily life."
+          }
+        },
+        {
+          "point": {
+            "french": "Les relations et le projet familial peuvent être au centre de la décision.",
+            "english": "Relationships and family projects may drive the decision."
+          },
+          "example": {
+            "french": "Une famille cherche un pays plus sûr pour que les enfants puissent aller régulièrement à l'école.",
+            "english": "A family seeks a safer country so the children can attend school regularly."
+          }
+        }
+      ]
+    },
+    "culture-p26": {
+      "introduction": {
+        "french": "Si j'immigrais, je voudrais connaître le pays pour préparer un projet réaliste.",
+        "english": "If I immigrated, I would want to know the country to prepare a realistic project."
+      },
+      "nuance": {
+        "french": "Habitudes et règles variables ; une partie s'apprend seulement au contact des habitants.",
+        "english": "Habits and rules vary; some knowledge comes only through contact with residents."
+      },
+      "conclusion": {
+        "french": "Préparer mon installation et mieux réagir ; apprentissage, pas garantie sans difficulté.",
+        "english": "Prepare my move and respond better: learning, not a guarantee against difficulty."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Connaître le coût de la vie m'aiderait à savoir si mon projet est financièrement réaliste.",
+            "english": "Knowing living costs would help me judge whether my plan is financially realistic."
+          },
+          "example": {
+            "french": "Offre à New York : 2 500 dollars nets par mois, 2 000 de loyer ; 500 pour le reste, donc reporter le départ.",
+            "english": "A New York offer: $2,500 monthly take-home pay, $2,000 rent, just $500 for other costs; postpone the move."
+          }
+        },
+        {
+          "point": {
+            "french": "Connaître mes droits m'aiderait à me protéger contre certains abus.",
+            "english": "Knowing my rights would help protect me against certain abuses."
+          },
+          "example": {
+            "french": "Vérifier les règles locales si un propriétaire veut entrer dans le logement sans accord.",
+            "english": "Check local rules if a landlord wants to enter the home without consent."
+          }
+        },
+        {
+          "point": {
+            "french": "Comprendre quelques habitudes locales m'aiderait à éviter des malentendus.",
+            "english": "Understanding local customs would help me avoid misunderstandings."
+          },
+          "example": {
+            "french": "Si mes voisins préféraient prévoir les visites, je proposerais une date sans y voir un rejet.",
+            "english": "If my neighbours preferred planned visits, I would suggest a date without seeing rejection."
+          }
+        }
+      ]
+    },
+    "culture-p29": {
+      "introduction": {
+        "french": "Vie à l'étranger parfois difficile, même après les premiers mois ; conditions décisives.",
+        "english": "Life abroad can be difficult even after the first months; conditions matter."
+      },
+      "nuance": {
+        "french": "Langue, emploi, proches ou statut peuvent aider ; comparer les conditions réelles.",
+        "english": "Language, work, close connections or status can help; compare actual conditions."
+      },
+      "conclusion": {
+        "french": "Une vie satisfaisante reste possible, sans sous-estimer la distance ni l'incertitude.",
+        "english": "A satisfying life remains possible, without underestimating distance or uncertainty."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Les contraintes matérielles peuvent compliquer la vie quotidienne.",
+            "english": "Practical constraints can make everyday life more difficult."
+          },
+          "example": {
+            "french": "Un loyer moins cher, mais deux heures de transport par jour et plus de fatigue.",
+            "english": "Cheaper rent, but two hours of travel each day and more fatigue."
+          }
+        },
+        {
+          "point": {
+            "french": "Quand on vit loin de ses proches, il est plus difficile d'être à leurs côtés lorsqu'ils en ont besoin.",
+            "english": "Living far away makes it harder to be there in person when loved ones need help."
+          },
+          "example": {
+            "french": "Une salariée sans congé immédiat voudrait aider son père opéré ; elle peut chercher une aide sur place.",
+            "english": "An employee cannot get immediate leave to help her father after surgery; she can seek help there for him."
+          }
+        },
+        {
+          "point": {
+            "french": "Certaines situations administratives rendent les projets moins prévisibles.",
+            "english": "Some administrative situations make plans less predictable."
+          },
+          "example": {
+            "french": "Attendre une nouvelle autorisation peut retarder le salaire prévu et un déménagement.",
+            "english": "Waiting for a new work authorisation can delay expected pay and a move."
+          }
+        }
+      ]
+    },
+    "culture-p30": {
+      "introduction": {
+        "french": "S'intégrer, c'est participer et trouver sa place ; le temps et l'accueil comptent.",
+        "english": "Integrating means participating and belonging; time and the welcome matter."
+      },
+      "nuance": {
+        "french": "Proches et moyens peuvent aider, discrimination freiner ; rester attaché à ses origines.",
+        "english": "Close connections and resources can help; discrimination can hinder. Retain one's origins."
+      },
+      "conclusion": {
+        "french": "Intégration possible : efforts, accueil et travail ; trouver sa place sans effacer son parcours.",
+        "english": "Integration is possible: effort, welcome and work; belong without erasing one's past."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "On ne connaît pas toujours les sujets dont les autres parlent.",
+            "english": "We do not always know the topics other people are discussing."
+          },
+          "example": {
+            "french": "Si un collègue explique une scène d'émission inconnue, on peut comprendre la blague et participer.",
+            "english": "If a colleague explains an unfamiliar TV scene, we can understand the joke and join in."
+          }
+        },
+        {
+          "point": {
+            "french": "On ne peut pas créer des liens tout seul.",
+            "english": "Building relationships needs interest and effort from both sides."
+          },
+          "example": {
+            "french": "Dans un club, préparer une fête ensemble permet de se revoir pendant plusieurs semaines.",
+            "english": "Club members invite us to prepare a celebration together, creating repeated contact over several weeks."
+          }
+        },
+        {
+          "point": {
+            "french": "Même si on commence à connaître du monde, on peut encore avoir du mal à reprendre son métier.",
+            "english": "Even with local contacts, it can still be difficult to return to our profession."
+          },
+          "example": {
+            "french": "Diplôme en attente de reconnaissance ; le bénévolat ne remplace ni le métier ni le revenu.",
+            "english": "While awaiting qualification recognition, volunteering does not replace our job or expected income."
+          }
+        }
+      ]
+    },
+    "culture-p35": {
+      "introduction": {
+        "french": "Richesse par leur travail, leurs compétences, la culture et l'entraide, selon les possibilités de participer.",
+        "english": "Possible contributions through work and skills, culture and mutual help, depending on opportunities to participate."
+      },
+      "nuance": {
+        "french": "Apports non automatiques ; efforts collectifs et dignité sans preuve d'utilité.",
+        "english": "Contributions are not automatic; collective efforts and dignity without proving usefulness."
+      },
+      "conclusion": {
+        "french": "Travail et compétences, culture et entraide, avec un accueil équitable.",
+        "english": "Work and skills, culture and mutual help, with a fair welcome."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Les personnes immigrées peuvent contribuer à l'économie par leur travail et leurs compétences.",
+            "english": "Immigrants can contribute to the economy through their work and skills."
+          },
+          "example": {
+            "french": "Une technicienne montre comment réparer une panne déjà rencontrée dans son pays d'origine.",
+            "english": "A technician shows how to repair a fault she has encountered in her country of origin."
+          }
+        },
+        {
+          "point": {
+            "french": "Les immigrés peuvent enrichir la vie culturelle du pays d'accueil.",
+            "english": "Immigrants can enrich the cultural life of the host country."
+          },
+          "example": {
+            "french": "Une séance de contes en bibliothèque transmet et explique un récit d'enfance.",
+            "english": "A library storytelling session shares and explains a childhood story."
+          }
+        },
+        {
+          "point": {
+            "french": "Les immigrés peuvent contribuer à la vie associative et à l'entraide locale.",
+            "english": "Immigrants can contribute to local community life and mutual aid."
+          },
+          "example": {
+            "french": "Expliquer les consignes dans une langue commune aide une famille à retirer son colis alimentaire.",
+            "english": "Explaining instructions in a shared language helps a family collect its food parcel."
+          }
+        }
+      ]
+    },
+    "education-p1": {
+      "introduction": {
+        "french": "Beaucoup peuvent apprendre à s'adapter, sans résultat assuré ni rythme identique.",
+        "english": "Many can learn to adapt, but success is not assured and people progress at different speeds."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "S'adapter s'apprend par l'aide et les essais.",
+            "english": "Help and repeated attempts develop the ability to adapt."
+          },
+          "example": {
+            "french": "Elle parle peu français : une voisine l'aide à préparer l'appel au médecin ; plus tard, elle téléphone sans aide.",
+            "english": "She speaks little French: a neighbour helps her prepare a call to the doctor; later, she phones without help."
+          }
+        },
+        {
+          "point": {
+            "french": "Les conditions matérielles facilitent ou bloquent les efforts.",
+            "english": "Material conditions can enable or obstruct effort."
+          },
+          "example": {
+            "french": "Un logement plus stable peut permettre de reprendre les cours, sans changement soudain des capacités.",
+            "english": "More stable housing can make it possible to resume classes without a sudden change in ability."
+          }
+        },
+        {
+          "point": {
+            "french": "Un accueil chaleureux aide à créer des liens.",
+            "english": "A friendly welcome helps newcomers form relationships."
+          },
+          "example": {
+            "french": "Invité à déjeuner régulièrement avec ses collègues, un nouvel arrivant apprend à les connaître.",
+            "english": "A newcomer gets to know his colleagues through regular invitations to have lunch together."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Repartir peut être un choix, pas une incapacité.",
+        "english": "Leaving can be a choice rather than proof of inability."
+      },
+      "conclusion": {
+        "french": "La progression demande du temps et dépend des moyens et de l'accueil.",
+        "english": "Progress takes time and depends on resources and the welcome received."
+      }
+    },
+    "education-p5": {
+      "introduction": {
+        "french": "Trois priorités : français, métier et moyens d'installation.",
+        "english": "Three priorities: French, profession and resources for settling in."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Un français suffisant pour vivre et travailler de façon autonome.",
+            "english": "Enough French to live and work independently."
+          },
+          "example": {
+            "french": "Une candidate expérimentée peine à présenter son travail lors d'un entretien en français.",
+            "english": "An experienced candidate struggles to describe her work in an interview in French."
+          }
+        },
+        {
+          "point": {
+            "french": "Reconnaissance du métier et possibilités d'emploi dans la région visée.",
+            "english": "Professional recognition and job opportunities in the intended region."
+          },
+          "example": {
+            "french": "Une infirmière formée à l'étranger vérifie la reconnaissance de sa formation avant de compter sur un emploi.",
+            "english": "A nurse trained abroad checks how to have her training recognised before counting on work."
+          }
+        },
+        {
+          "point": {
+            "french": "Argent et soutien pour les premiers mois, surtout en famille.",
+            "english": "Money and support for the first few months, especially with a family."
+          },
+          "example": {
+            "french": "Une famille prévoit six mois de loyer, courses et transports pour chercher du travail avec moins de pression.",
+            "english": "A family budgets six months of rent, groceries and transport to look for work with less pressure."
+          }
+        }
+      ],
+      "nuance": {
+        "french": "Climat et éloignement comptent aussi ; les besoins dépendent de chacun.",
+        "english": "Climate and distance matter too; needs vary from person to person."
+      },
+      "conclusion": {
+        "french": "Ces trois points aident à préparer la vie réelle au Québec.",
+        "english": "These three points help you prepare for real life in Quebec."
+      }
+    },
+    "economie-p14": {
+      "introduction": {
+        "french": "Souvent une nécessité, mais certains ont vraiment le choix de rester.",
+        "english": "Often a necessity, but some really have the option to stay."
+      },
+      "nuance": {
+        "french": "Difficultés et envie d'une nouvelle vie peuvent se mêler ; regarder les possibilités réelles.",
+        "english": "Difficulties and a wish for a new life can overlap; look at the real options."
+      },
+      "conclusion": {
+        "french": "Travail et sécurité poussent souvent à partir, sans exclure les choix ni les envies.",
+        "english": "Work and safety often push people to leave, without ruling out choice or personal wishes."
+      },
+      "arguments": [
+        {
+          "point": {
+            "french": "Partir pour faire vivre sa famille quand rester ne suffit plus.",
+            "english": "Leave to support the family when staying no longer meets their needs."
+          },
+          "example": {
+            "french": "Un père sans emploi depuis des mois accepte un poste à l'étranger pour payer les dépenses familiales.",
+            "english": "A father unemployed for months accepts a job abroad to cover the family's expenses."
+          }
+        },
+        {
+          "point": {
+            "french": "Partir pour protéger ses enfants quand la violence empêche une vie normale.",
+            "english": "Leave to protect the children when violence prevents a normal life."
+          },
+          "example": {
+            "french": "École souvent fermée à cause de la violence : chercher un pays plus sûr pour retrouver une scolarité régulière.",
+            "english": "School often closed because of violence: seek a safer country so the children can attend regularly again."
+          }
+        },
+        {
+          "point": {
+            "french": "Certains partent avec une vraie possibilité de rester.",
+            "english": "Some leave with a real option to stay."
+          },
+          "example": {
+            "french": "Une salariée peut garder son poste, mais choisit une mission de deux ans à l'étranger.",
+            "english": "An employee can keep her job but chooses a two-year assignment abroad."
+          }
+        }
+      ]
+    }
+  }
+}

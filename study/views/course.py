@@ -10,8 +10,8 @@ from django.utils import timezone
 from django.views.decorators.cache import never_cache
 from django.views.decorators.http import require_http_methods, require_POST
 
-from ..course_content import load_course_catalog
-from ..course_practice import (
+from study.learning.courses import load_course_catalog
+from study.learning.practice import (
     PracticeError, abandon_attempt, evidence_state, practice_event, practice_guidance, public_snapshot,
     start_attempt, submit_check,
 )
@@ -56,7 +56,7 @@ def course_practice(request, lesson_slug):
             error = str(exc)
         else:
             return redirect("study:course_attempt", attempt_id=attempt.pk)
-    return render(request, "study/course_practice.html", {
+    return render(request, "study/learning/course_practice.html", {
         **_practice_context(request.user, lesson),
         "error": error,
     }, status=400 if error else 200)
@@ -131,7 +131,7 @@ def course_attempt(request, attempt_id):
                     url += "#item-" + request.POST["item_id"]
                 return redirect(url)
     return render(
-        request, "study/course_attempt.html",
+        request, "study/learning/course_attempt.html",
         {**_attempt_context(attempt, responses), "error": error}, status=400 if error else 200,
     )
 
@@ -147,7 +147,7 @@ def course_production_create(request, lesson_slug):
         if not body or len(body) > 20000:
             raise PracticeError("Write a response of 1 to 20,000 characters.")
     except PracticeError as exc:
-        return render(request, "study/course_practice.html", {
+        return render(request, "study/learning/course_practice.html", {
             **_practice_context(request.user, lesson),
             "production_error": str(exc), "production_body": draft,
         }, status=400)
@@ -179,4 +179,4 @@ def course_production(request, production_id):
                 production.self_reviewed_at = timezone.now()
                 production.save(update_fields=["self_reviewed_at"])
         return redirect("study:course_production", production_id=production.pk)
-    return render(request, "study/course_production.html", {"production": production})
+    return render(request, "study/learning/course_production.html", {"production": production})

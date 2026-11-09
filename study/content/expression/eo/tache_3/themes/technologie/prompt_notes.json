@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "technologie-p2": {
+      "prompt_signatures": {
+        "technologie:p2": "9ef3387b961ad8f586b90a67e10e86534ae528323b27948228c2a947d4eef78d",
+        "technologie:p8": "9ef3387b961ad8f586b90a67e10e86534ae528323b27948228c2a947d4eef78d"
+      },
+      "note": "The question is whether doing without a mobile phone is easy, not whether it is logically possible. Discuss the functions a person relies on: communication, navigation, appointments or access codes. Explain what would replace one function and what extra effort that would take. A computer or fixed telephone may be relevant alternatives here, unlike the separate prompt about no telephone at all. Needs, access and service design change the answer."
+    },
+    "technologie-p10": {
+      "prompt_signatures": {
+        "technologie:p10": "41e758d223ded04fd56917fc2da79727fdc36d63778d31654760640a3c08de7c"
+      },
+      "note": "The question asks about the present usefulness of social networks broadly, not just friendship or their dangers. You can discuss keeping in touch, finding practical local information and coordinating a shared activity. Give a concrete purpose and explain how the platform helps people achieve it. Reliability, privacy and access remain relevant. Distinguish a useful tool in a situation from an obligation for everyone to join a platform."
+    },
+    "technologie-p11": {
+      "prompt_signatures": {
+        "technologie:p11": "dd1be22e28c8420ad8d063e566afb339fcfdaf2f2ec6d58c0a1647b064daeb75"
+      },
+      "note": "Here the wording is 'without a telephone', not merely without a smartphone. A fixed telephone is therefore not a solution to the stated problem. Consider computer-based communication, in-person arrangements and planned access to services, then explain the limits for urgent or unpredictable contact. Possibility depends on actual resources and needs. Do not present losing immediate emergency contact as a trivial inconvenience or assume all non-phone alternatives are available."
+    },
+    "technologie-p13": {
+      "prompt_signatures": {
+        "technologie:p13": "98f246c0448f40f6f9948c6ed701737bbc2a716bc2446e9c471567c2f5da51c6",
+        "technologie:p25": "d8acc59055ae3b5bee45df008b7ec64ec9468b0fd12a16635994974db694f97e"
+      },
+      "note": "Focus on how mobile phones facilitate communication. Useful dimensions include quick updates, maintaining contact at a distance and choosing a suitable format such as a message or call. Explain a practical change in an exchange, not simply that phones are convenient. Communication can still be unclear or intrusive. The ability to contact someone does not create an obligation to be permanently available, and a phone is not the only way to maintain relationships."
+    },
+    "technologie-p15": {
+      "prompt_signatures": {
+        "technologie:p15": "161d7954b19a5fadaa1d34d7743d6be5cc6b0e8e6d11e069c6376901d87df781"
+      },
+      "note": "The prompt describes people choosing to live without the listed digital tools: Internet, computers and phones. It is not necessarily about abandoning every technology, including electricity or medical equipment. Discuss attention, preferred activities, privacy and the practical cost of reduced digital access. Explain what would replace an ordinary service. Respect a personal choice without assuming everyone can make it freely or that partial reduction and complete avoidance are the same."
+    },
+    "technologie-p17": {
+      "prompt_signatures": {
+        "technologie:p17": "c4686c7f740a4a5064980d9108dea342b2f3e0d7515cc48b309cf8133f421d38",
+        "economie:p11": "c4686c7f740a4a5064980d9108dea342b2f3e0d7515cc48b309cf8133f421d38"
+      },
+      "note": "There are two claims to address: space travel costs too much and is useless. Separate scientific missions, their funding priorities and whether a particular goal requires people in space. Satellite benefits do not automatically justify crewed travel or tourism. Explain one concrete research purpose and compare it with alternatives and other needs. You do not need invented mission prices or a promise of economic returns to discuss proportional value."
+    }
+  }
+}

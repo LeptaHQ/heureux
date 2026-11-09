@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}{% if part.slug == "ee" and task.slug == "tache-3" %}Collections de formulations{% else %}Mémoires{% endif %} · {{ task.short_label }} · Heureux{% endblock %}
+
+{% block content %}
+{% include "study/expression/partials/task_nav.html" %}
+
+<div class="memory-overview" style="--memory-accent: {{ task.color }};">
+  <header class="memory-overview-hero directory-header">
+    <div class="memory-overview-hero__copy">
+      <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
+        <span class="title-with-icon__glyph">{% include "study/shared/partials/ui_icon.html" with name="book-open" only %}</span>
+        <span>{% if part.slug == "ee" and task.slug == "tache-3" %}Collections de formulations{% else %}Mémoires{% endif %}</span>
+      </h1>
+      {% if part.slug == "ee" and task.slug == "tache-3" %}
+        <p>Quatre collections classées par objectif pour mémoriser, adapter et réutiliser les structures de la Tâche 3.</p>
+      {% else %}
+        <p>Formulations à mémoriser et à adapter.</p>
+      {% endif %}
+    </div>
+    <dl class="memory-overview-hero__metrics" aria-label="{% if part.slug == "ee" and task.slug == "tache-3" %}Contenu des collections{% else %}Contenu des mémoires{% endif %}">
+      <div><dt>{% if part.slug == "ee" and task.slug == "tache-3" %}Collections{% else %}Mémoires{% endif %}</dt><dd>{{ memory_count }}</dd></div>
+      <div><dt>Catégories</dt><dd>{{ category_count }}</dd></div>
+      <div><dt>{% if part.slug == "ee" and task.slug == "tache-3" %}Formulations{% else %}Questions{% endif %}</dt><dd>{{ question_count }}</dd></div>
+    </dl>
+  </header>
+
+  {% if part.slug == "ee" and task.slug == "tache-3" %}
+    {% include "study/shared/partials/collection_toolbar.html" with progress_completed=memory_summary.completed progress_total=memory_summary.total progress_unit="formulations apprises" show_views=memories %}
+    {% include "study/expression/ee/tache_3/partials/ee_tache_three_memory_guide.html" only %}
+  {% else %}
+    {% include "study/shared/partials/collection_toolbar.html" with progress_completed=memory_summary.completed progress_total=memory_summary.total progress_unit="questions apprises" show_views=memories %}
+  {% endif %}
+
+  <section class="memory-library memory-library--standalone" aria-label="{% if part.slug == "ee" and task.slug == "tache-3" %}Collections de formulations{% else %}Liste des mémoires{% endif %}">
+    {% include "study/expression/eo/tache_2/partials/tache_two_memory_list.html" with memories=memories part=part task=task only %}
+  </section>
+</div>
+{% if part.slug == "ee" and task.slug == "tache-3" %}
+  {% include "study/expression/ee/partials/writing_methodology_dialog.html" with tache=3 only %}
+{% endif %}
+{% endblock %}

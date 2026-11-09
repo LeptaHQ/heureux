@@ -1,0 +1,414 @@
+{
+  "generated_at": "2026-11-05T03:26:14.080137+00:00",
+  "provider": "deepl",
+  "reviewed_at": "2026-11-05T07:53:15.655781+00:00",
+  "source_language": "FR",
+  "target_language": "EN-GB",
+  "version": 1,
+  "groups": {
+    "eo/tache-3/technologie-p10": {
+      "178a0a18c7ef912afc80459549586d27607a65601b85f7e75617ba3a7da881b0": {
+        "english": "What matters, therefore, is being able to support one another, not just sending messages quickly.",
+        "french": "Ce qui compte, c'est donc de pouvoir se soutenir, pas seulement d'envoyer des messages vite."
+      },
+      "22ab487d13f2b0db216011c1209bc29b869696636120020cd8d6595308bc44e8": {
+        "english": "Messages therefore allow you to prepare your equipment before meeting up on site.",
+        "french": "Les messages permettent donc de préparer le matériel avant de se retrouver sur place."
+      },
+      "26c90e36d465bd16268074e84f651fd9c4143ce7b1005744bf755803a28e8b6e": {
+        "english": "Furthermore, they make certain local information easier to find.",
+        "french": "Ensuite, ils rendent certaines informations locales plus faciles à découvrir."
+      },
+      "32849e75141e482562ca42f9b2e944e09a73e8cfab764cb88771df774c6f68b8": {
+        "english": "For a neighbourhood clean-up, a charity can ask in its group who is bringing gloves and bin bags. Volunteers specify what they are bringing; the charity then distributes the equipment amongst the meeting points so that each team can get started.",
+        "french": "Pour un nettoyage de quartier, une association peut demander dans son groupe qui apporte des gants et des sacs. Les volontaires précisent leurs apports ; l'association répartit alors le matériel entre les points de rendez-vous pour que chaque équipe puisse commencer."
+      },
+      "41bdd3b5335e2b4267934bfefded1556ecbdcb3789fcbcce9ec41114a9d322c1": {
+        "english": "Sharing updates allows loved ones to keep track of what matters in each other’s lives. They can ask questions and offer support, rather than only finding out about a problem during their next visit.",
+        "french": "Partager des nouvelles permet aux proches de suivre ce qui compte dans la vie de chacun. Ils peuvent poser des questions et offrir du soutien, plutôt que découvrir une difficulté seulement lors de la prochaine visite."
+      },
+      "42032d9d782883597da7f70f13bc8f263dea87bcf68e4345c5d0e087546670e5": {
+        "deepl_english": "However, privacy concerns, false advertisements and commercial solicitations require vigilance. A social media platform is no substitute for emergency services or official channels. Its usefulness does not justify forcing everyone to create an account.",
+        "english": "However, privacy concerns, false announcements and commercial solicitations require vigilance. A social media platform is no substitute for emergency services or official channels. Its usefulness does not justify forcing everyone to create an account.",
+        "french": "Cependant, la confidentialité, les fausses annonces et les sollicitations commerciales demandent de la vigilance. Un réseau ne remplace pas les services d'urgence ni les canaux officiels. Son utilité ne justifie pas d'obliger tout le monde à créer un compte.",
+        "review_note": "Fausses annonces includes false event or service announcements, not just advertisements."
+      },
+      "4f56b7a61f785b5c24f99edd2d578e23416caba88273c133abbae74119f1fa77": {
+        "english": "Finally, a group can coordinate a joint initiative.",
+        "french": "Enfin, un groupe peut coordonner une action commune."
+      },
+      "67ea64c4bd6304c5ca9be979a8e398e61e8478e50cff20b587cfcda7cb964e2a": {
+        "english": "In a private group, someone undertaking training far from their family might describe a challenging exercise. A loved one asks how they’re getting on and offers encouragement ahead of the assessment. They realise that their family is following their progress, even from afar.",
+        "french": "Dans un groupe privé, une personne qui suit une formation loin de sa famille peut raconter un exercice difficile. Un proche lui demande comment elle avance et l'encourage avant l'évaluation. Elle voit que sa famille suit ses efforts, même de loin."
+      },
+      "6dfbdd939f48c3b033d1f9b4124caff71ea3674fe04d2d5842ad63bce1af9632": {
+        "english": "The platform can therefore help you discover an activity, the details of which you must then verify.",
+        "french": "Le réseau peut donc faire découvrir une activité, dont il faut ensuite vérifier les détails."
+      },
+      "75503e217826b7a02f2d64357dfa71fa77484198e12a60bf524515a23e874731": {
+        "deepl_english": "A library might advertise a workshop on its account. A local resident discovers the post via a share, checks the date on the library’s website and signs up for this activity, the existence of which she was previously unaware of.",
+        "english": "A library might advertise a workshop on its account. A local resident discovers the post via a share, checks the date on the library's website and signs up for an activity she had not known about.",
+        "french": "Une bibliothèque peut annoncer un atelier sur son compte. Une habitante découvre l'annonce grâce à un partage, vérifie la date sur le site de la bibliothèque et s'inscrit à cette activité dont elle ignorait l'existence.",
+        "review_note": "Removes the ungrammatical double of in the existence of which ... unaware of."
+      },
+      "8810ee73ae2e8eb205c7ade07fc0f01c56c4d82e99e8cb42b0e85bb3ffd271e7": {
+        "english": "First and foremost, they can facilitate regular communication between loved ones.",
+        "french": "Tout d'abord, ils peuvent faciliter des échanges réguliers entre proches."
+      },
+      "9ab1fa43f399dc6cb69fca328540a06f12fae7ad0e33fb124aaccbe0759f3a63": {
+        "english": "I find social media useful when it meets a specific need. It can help maintain connections, make practical information visible and assist in organising a project. Its usefulness is not measured by the time spent on it or the number of followers: we need to look at what people can actually achieve through it.",
+        "french": "Je trouve les réseaux sociaux utiles lorsqu'ils répondent à un besoin identifiable. Ils peuvent maintenir des liens, rendre une information pratique visible et aider à organiser un projet. Leur utilité ne se mesure pas au temps passé ni au nombre d'abonnés : il faut regarder ce que les personnes peuvent réellement faire grâce à eux."
+      },
+      "a82eadbd084b8fc13021a9de72aed3308dd1683958e709a6b6e586c89364be5c": {
+        "english": "We do not always think to check with every organisation or business. A post can highlight an event or a change, provided the author is identifiable and the date is clear.",
+        "french": "On ne pense pas toujours à consulter chaque association ou chaque commerce. Une publication peut signaler une activité ou un changement, à condition que l'auteur soit identifiable et que la date reste claire."
+      },
+      "dfcae9b81bb5786aaeb46d4fc11f9f29b395b8b2354953571684121206360496": {
+        "english": "In conclusion, social media can help people stay in touch, discover new activities and organise projects. It is important to be able to verify posts and participate without sharing too much personal information or having to be available at all hours.",
+        "french": "En conclusion, les réseaux sociaux peuvent aider à garder le lien, découvrir une activité et organiser un projet. Il faut pouvoir vérifier les annonces et participer sans partager trop de données ni être disponible à toute heure."
+      },
+      "e9cfdf73962a01631b4329ed952adcfa0475e88f651ffd8c3b1ce81766192cb3": {
+        "english": "Simply bringing volunteers together is not enough: tasks must be allocated, availability confirmed and it must be clear who to contact. A shared space can make this information accessible to the relevant participants.",
+        "french": "Réunir des volontaires ne suffit pas : il faut répartir les tâches, confirmer les disponibilités et savoir qui contacter. Un espace partagé peut rendre ces informations accessibles aux participants concernés."
+      }
+    },
+    "eo/tache-3/technologie-p11": {
+      "18dc4dc0ae204e4917ee851b8e302ad8e4fbe5a5e4237bce7aaec9ecd755f5e6": {
+        "deepl_english": "In conclusion, it is possible to envisage a life without a mobile phone if communication and services allow it. We must recognise its limitations in the face of unforeseen circumstances, rather than confusing possibility, convenience and reduced usage.",
+        "english": "In conclusion, it is possible to envisage a life without a telephone if communication and services allow it. We must recognise its limitations in the face of unforeseen circumstances, rather than confusing possibility, convenience and reduced usage.",
+        "french": "En conclusion, on peut envisager une vie sans téléphone si les échanges et les services le permettent. Il faut en reconnaître les limites pour les imprévus, plutôt que confondre possibilité, facilité et réduction d'usage.",
+        "review_note": "The source means a life without any telephone, not simply without a mobile."
+      },
+      "270e1b6ac4d7a4ec13b2ea911e6edb9a222667163950d9f6fea3560d06708228": {
+        "english": "Finally, the lack of immediate contact remains a significant constraint.",
+        "french": "Enfin, l'absence de contact immédiat reste une contrainte importante."
+      },
+      "28deca9e35d5fbad27af6c5fda7f96038a58a1eb1cc6149f25ccfc168f78026a": {
+        "deepl_english": "Before setting off on a hike in a remote area, someone without a mobile phone may realise that the route does not allow them to reach help quickly. They may decide against the trip, as they have no means of raising the alarm should a problem arise.",
+        "english": "Before setting off on a hike in a remote area, someone without a telephone may realise that the route does not allow them to reach help quickly. They decide against the trip, as they have no planned means of raising the alarm should a problem arise.",
+        "french": "Avant une randonnée isolée, une personne sans téléphone peut constater que le parcours ne permet pas de rejoindre rapidement un lieu d'aide. Elle renonce à cette sortie, faute de moyen prévu pour alerter en cas de problème.",
+        "review_note": "The model explicitly concerns no telephone at all, not merely no mobile; preserves the decision in the hypothetical example."
+      },
+      "3c355b1b659f5e782c640168ddc12fc3abbaa5f0f483b5b2980149c6f836b539": {
+        "english": "A service accessible online is not necessarily usable without a phone: identification or tracking may require one. It is important to check whether an in-person counter, post or other procedure is available.",
+        "french": "Un service accessible en ligne n'est pas forcément utilisable sans téléphone : l'identification ou le suivi peut en demander un. Il faut vérifier la possibilité d'un guichet, d'un courrier ou d'une autre procédure."
+      },
+      "4e80089decbb37d87c5ab487a5b13c1d17b198c2cdb4ce19b6eccf09c39213d9": {
+        "english": "Without a phone, one is therefore also dependent on other means accepted by the service provider.",
+        "french": "Sans téléphone, on dépend donc aussi des autres moyens que le service accepte."
+      },
+      "5a26f1fe9b5ac09e3d2dbf5abde1df78f05d51b8040812e81de20cbe06b1d389": {
+        "deepl_english": "Living without a telephone may be possible, but one must plan how to communicate and carry out one’s business. Delays or emergencies pose greater problems. I am specifically referring to not using a telephone at all, not merely replacing one mobile phone with another telephone.",
+        "english": "Living without a telephone may be possible, but one must plan how to communicate and carry out one's everyday administrative tasks. Delays or emergencies pose greater problems. I am specifically referring to not using a telephone at all, not merely replacing a mobile phone with another type of telephone.",
+        "french": "Vivre sans téléphone peut être possible, mais il faut prévoir comment communiquer et faire ses démarches. Les retards ou les urgences posent davantage de problèmes. Je parle bien de ne pas utiliser de téléphone, pas seulement de remplacer un portable par un autre appareil téléphonique.",
+        "review_note": "Makes clear the distinction between having no telephone and switching from a mobile to another telephone device; démarches is everyday administrative tasks."
+      },
+      "5d55ef65f82d8bad9051d835fe1f3f6774fbbbd590193ab46b481abd4adb7867": {
+        "english": "At a service offering in-person assistance and postal follow-up, someone without a phone number can hand in their application at the counter. They then receive a reply by post, without having to ask a relative to take a call on their behalf.",
+        "french": "Dans un service proposant un accueil et un suivi postal, une personne sans numéro peut remettre son dossier au guichet. Elle reçoit ensuite la réponse par courrier, sans devoir demander à un proche de recevoir un appel pour elle."
+      },
+      "67da718993f70b791a2f24f30b6009a7e1199d61c3dcd7d1aed9a84085d4419c": {
+        "deepl_english": "However, choosing not to have a mobile phone should not prevent access to essential services. Alternatives must be considered without resorting to stereotypes based on age or place of residence. Systematically borrowing someone else’s phone does not, either, prove that one is truly living without this device.",
+        "english": "However, choosing not to have a telephone should not prevent access to essential services. Alternatives must be considered without resorting to stereotypes based on age or place of residence. Systematically borrowing someone else's phone does not, either, prove that one is truly living without this device.",
+        "french": "Cependant, ne pas vouloir de téléphone ne devrait pas fermer l'accès aux services essentiels. Les alternatives doivent être examinées sans stéréotype d'âge ou de lieu de vie. Emprunter systématiquement celui d'autrui ne prouve pas non plus qu'on vit réellement sans cet outil.",
+        "review_note": "Restores telephone in general, as explicitly defined in the model's introduction."
+      },
+      "73cdd47ca7e75ffd64cf7871216d886d24ff772c5ccf06e8960afd08d959e680": {
+        "deepl_english": "Two friends can arrange a meal on a Saturday via email and note down the address before setting off. The meeting remains fixed: they meet up without needing to communicate whilst travelling.",
+        "english": "Two people who are close to each other can arrange a meal on a Saturday via email and note down the address before setting off. The meeting remains fixed: they meet up without needing to communicate whilst travelling.",
+        "french": "Deux proches peuvent convenir par courriel d'un repas le samedi et noter l'adresse avant de partir. Le rendez-vous reste fixe : ils se retrouvent sans avoir besoin d'échanger pendant le trajet.",
+        "review_note": "Proches need not be friends; they may also be relatives."
+      },
+      "a9c7eb45389f331579fcb2991f3dc1f22bf76f1caaeb9dd93bd228bcb8d19d5a": {
+        "english": "Furthermore, the steps to be taken depend on the alternatives actually available.",
+        "french": "Ensuite, les démarches dépendent des alternatives réellement proposées."
+      },
+      "ae82b1a7d73c2937f3d040514bc959f314229ec9c71cafb3c577f2d452c7fede": {
+        "english": "We cannot always foresee a delay or a health problem. Without a phone, it can be difficult to call for help quickly. We must take this limitation seriously, without relying on a loved one who would always respond on our behalf.",
+        "french": "On ne peut pas toujours prévoir un retard ou un problème de santé. Sans téléphone, demander de l'aide rapidement peut être difficile. Il faut prendre cette limite au sérieux, sans compter sur un proche qui répondrait toujours à notre place."
+      },
+      "bd8e7699fbb7986fdb1d8785435b80e1f870b560753eee39c431d2a34edb3304": {
+        "english": "A computer, post or a face-to-face meeting allow us to communicate without a telephone. This assumes that the people involved accept the delay and that no essential step requires confirmation by telephone.",
+        "french": "Un ordinateur, le courrier ou un rendez-vous en personne permettent de communiquer sans téléphone. Cela suppose que les interlocuteurs acceptent le délai et qu'aucune étape indispensable ne réclame une validation téléphonique."
+      },
+      "cc537d2bda01355e137275d9b94638723e06c4f8bcc0b19338979f7698dbe00c": {
+        "english": "Firstly, some communication can take place via other means.",
+        "french": "Tout d'abord, certains échanges peuvent passer par d'autres moyens."
+      },
+      "e1b2dff1e385743c87aaa6f8c90bc90cc0ab079f574627151b5ba2b195825bb6": {
+        "deepl_english": "Being possible in certain contexts does not mean being suitable for all.",
+        "english": "Being possible in certain contexts does not mean being suitable in all contexts.",
+        "french": "Être possible dans certains contextes ne signifie pas être adapté à tous.",
+        "review_note": "Tous refers to all contexts, not all people."
+      },
+      "fe470886397525864f0c94029163bdba1d2bd7e6c03ffc94da4c2650dea99918": {
+        "english": "We can therefore continue to see our loved ones if we arrange meetings in advance.",
+        "french": "On peut donc continuer à voir ses proches si l'on fixe les rendez-vous à l'avance."
+      }
+    },
+    "eo/tache-3/technologie-p13": {
+      "200d2f18e5af0710cd7f79bf7abb99ea7c2d9fecefee7d413d337b3a0e4beef6": {
+        "english": "Choosing a photo rather than a long explanation can therefore help avoid misunderstandings.",
+        "french": "Choisir une photo plutôt qu'une longue explication peut donc éviter un malentendu."
+      },
+      "3906ca13f9c5a36678957d945e9629c1598318a9587c5fae6c3d30adddef59d2": {
+        "deepl_english": "They can then maintain regular contact despite the distance.",
+        "english": "Furthermore, they can maintain regular contact despite the distance.",
+        "french": "Ensuite, ils peuvent maintenir des échanges réguliers malgré la distance.",
+        "review_note": "Ensuite introduces a separate argument rather than a subsequent stage."
+      },
+      "410e12bdc66d3ef54960d1a38582abaa292e6248bd9371485ba9e0b74f86f5f6": {
+        "english": "In conclusion, mobile phones help to give advance notice of changes, maintain contact and ensure you are understood. But to communicate effectively, you must also listen and respect the times when the other person is unable to reply.",
+        "french": "En conclusion, le portable aide à prévenir d'un changement, garder le lien et se faire comprendre. Mais pour bien communiquer, il faut aussi écouter et respecter les moments où l'autre ne peut pas répondre."
+      },
+      "43a614e3b58278952e6b13dfcd2550bae8fc86c65beb66b4c80b04e1bdabe2bf": {
+        "english": "First and foremost, they allow you to give notice of an unexpected event without having to wait until you get home.",
+        "french": "Tout d'abord, ils permettent de prévenir d'un imprévu sans attendre le retour chez soi."
+      },
+      "50551f3e58f5ebe420245aa0e9a4103b18a8481d9a93dad797027a87c1567bfb": {
+        "english": "Giving prompt notice thus prevents the other person from waiting without knowing what to do.",
+        "french": "Prévenir rapidement évite ainsi à l'autre d'attendre sans savoir quoi faire."
+      },
+      "791c2b1b6a6f3c7057157d6bc2c22977e03d42e4a299e046707772e49c737b0f": {
+        "english": "Useful information can sometimes lose its value if it arrives too late. Giving advance notice of a change allows the other person to adjust their plans, provided they receive the message in good time.",
+        "french": "Une information utile perd parfois sa valeur si elle arrive trop tard. Prévenir d'un changement permet à l'autre personne de modifier ses plans, à condition qu'elle reçoive le message à temps."
+      },
+      "7b6093ff71e71020da4a215395b4eb399e3a4b2bb392f2ef3bf0b90f24e6a6cf": {
+        "english": "Finally, there are several formats available to tailor the message to the situation.",
+        "french": "Enfin, plusieurs formats permettent d'adapter le message au besoin."
+      },
+      "88560871a346860ff8f07a06b91dad438e35bb5f9da47afe1b480c910537fd5b": {
+        "english": "Yes, mobile phones make communication easier. They allow you to pass on a change whilst on the move, maintain a connection from a distance and choose from various forms of message. But being able to reach someone easily does not give you the right to demand a constant response, nor should you confuse the frequency of messages with the quality of listening.",
+        "french": "Oui, les téléphones portables facilitent la communication. Ils permettent de transmettre un changement pendant un déplacement, de maintenir un lien à distance et de choisir plusieurs formes de message. Mais joindre facilement quelqu'un n'autorise pas à exiger une réponse permanente ni à confondre fréquence des messages et qualité de l'écoute."
+      },
+      "9516fa40b9a2f44d30530ce592846e7a1ca0a9871627d08da80857442fc4c8e0": {
+        "english": "However, costs, coverage and accessibility can limit these uses. A written message can be misinterpreted, and people are not always available. It is important to listen, check what has been understood and make alternative arrangements where necessary.",
+        "french": "Cependant, les coûts, la couverture et l'accessibilité peuvent limiter ces usages. Un message écrit peut être mal interprété, et personne n'est disponible à tout moment. Il faut écouter, vérifier ce qui a été compris et prévoir d'autres moyens lorsque c'est nécessaire."
+      },
+      "9bd8fd5bf7fb2d544fcde6a329055c68cf951ccf4a3b3ac594442027c6b7a9b5": {
+        "deepl_english": "A text message, an image and a phone call do not serve exactly the same purpose. Choosing the right format can make a message clearer and allow for the other person’s availability when they are ready to read it.",
+        "english": "A text message, an image and a phone call do not serve exactly the same purpose. Choosing the right format can make a message clearer and respect when the other person will be able to receive it.",
+        "french": "Un texte, une image et un appel ne servent pas exactement la même chose. Choisir le format peut rendre une indication plus claire et respecter le moment où l'autre pourra en prendre connaissance.",
+        "review_note": "Removes the circular availability when ready to read phrasing and does not imply every format must be read."
+      },
+      "a5b2028a0b2615be741ea6b5901c787e2fdf5337a27614e3a915e7a1c05f189f": {
+        "english": "In this way, loved ones can continue to talk to one another about what they are going through, even between visits.",
+        "french": "Les proches continuent ainsi à se parler de ce qu'ils vivent, même entre les visites."
+      },
+      "aec51554d110a4f4c08ac24082fb1b2f50a2d8591a51e912a164bfd4081abcf2": {
+        "english": "For an appointment in a building with several entrances, a person can send a photo of the correct entrance and the street name. Their guest will recognise the door on arrival, without having to interpret a lengthy description.",
+        "french": "Pour un rendez-vous dans un bâtiment à plusieurs accès, une personne peut envoyer une photo de la bonne entrée et le nom de la rue. Son invité reconnaît la porte en arrivant, sans devoir interpréter une longue description."
+      },
+      "affbb0fcebdf77c5d6b6716abd8c5b91d8298d6dd090ff4b92fdb43793fbec18": {
+        "english": "Someone held up on public transport can let the person waiting for them know and suggest a new time. The recipient then knows whether to stay put or adjust their plans, rather than having to guess the reason for the delay.",
+        "french": "Une personne retardée dans les transports peut prévenir celle qui l'attend et proposer un nouvel horaire. Le destinataire sait alors s'il doit rester sur place ou modifier son programme, plutôt que deviner la raison de l'absence."
+      },
+      "b3c1099d836c344b8464573f8c12b72c792fbc90057c49d4c1cf6a5fb36e0bad": {
+        "deepl_english": "Relatives living in different countries can agree to a weekly video call. They take the time to discuss a problem or a plan, rather than simply looking at the photos posted online.",
+        "english": "Loved ones living in different countries can agree to a weekly video call. They take the time to discuss a problem or a plan, rather than simply looking at the photos posted online.",
+        "french": "Des proches vivant dans deux pays peuvent convenir d'un appel vidéo hebdomadaire. Ils prennent le temps de parler d'une difficulté ou d'un projet, plutôt que se contenter de regarder les photos publiées.",
+        "review_note": "Proches need not be relatives; retains the broader meaning."
+      },
+      "e6bbd2f0777fd05bb731e4db87b5388e9c20b63b37501343a25a0e1bf00e14d6": {
+        "english": "Distance limits face-to-face meetings, but it does not eliminate the need to connect. Regular conversations allow us to share news and listen to one another, even when travelling is not possible.",
+        "french": "La distance limite les rencontres, sans faire disparaître le besoin d'échanger. Des conversations régulières permettent de partager des nouvelles et de s'écouter, même lorsque le déplacement n'est pas possible."
+      }
+    },
+    "eo/tache-3/technologie-p15": {
+      "0a63c8a605eaa0be4d48818fa5860682a347e2d4ecdb559919dd4d700382038e": {
+        "english": "To take part in a workshop, a person can register on the spot and make a note of the timetable provided by the organisation. They can speak to the organisers and return on the scheduled dates, without using an online group.",
+        "french": "Pour participer à un atelier, une personne peut s'inscrire sur place et noter le calendrier remis par l'association. Elle échange avec les responsables et revient aux dates prévues, sans utiliser un groupe en ligne."
+      },
+      "215be1e1ae4c4bb49addd058901715b695aa298df8e6fa30c63e8d2e5d0ea803": {
+        "english": "Refusal can therefore reflect a preference for privacy, not a fear of progress.",
+        "french": "Le refus peut donc exprimer une préférence concernant la vie privée, pas une peur du progrès."
+      },
+      "29ad4231e32e5bd04a9e3d913a7a692a0f42c2f1e64074531c3d77c9181585e6": {
+        "deepl_english": "In this way, she can remain focused on what she has chosen to do.",
+        "english": "In this way, the person can remain focused on what they have chosen to do.",
+        "french": "Elle peut ainsi rester concentrée sur ce qu'elle a choisi de faire.",
+        "review_note": "Keeps the gender-unspecified person from the example rather than switching to she."
+      },
+      "35e91b2203d72402563e35dc827a6a95bc848b4d8915256eb2c759107f209b6a": {
+        "english": "A person can buy a book and pay for it on the spot without opening a customer account. They get what they are looking for without having to record this purchase in a personal profile on a platform.",
+        "french": "Une personne peut acheter un livre et le payer sur place sans ouvrir de compte client. Elle obtient ce qu'elle cherche sans enregistrer cet achat dans un profil personnel sur une plateforme."
+      },
+      "3d1e4b46cf8ec8b153fcfd525622a1afdadf964c97a9217b36497b175fe47aeb": {
+        "english": "However, society must ensure that appropriate access remains available to those without internet access. If a procedure requires digital assistance, this must be agreed with the relative being asked for help. Partial use remains equally legitimate. A distinction must be made between a voluntary choice and exclusion due to a lack of resources.",
+        "french": "Cependant, il faut que la société conserve des accès adaptés aux personnes non connectées. Si une démarche exige une aide numérique, il faut en convenir avec le proche sollicité. Un usage partiel reste aussi légitime. Il faut distinguer le choix volontaire d'une exclusion faute de moyens."
+      },
+      "5ddebdef4e22b794318e2ff24463e9270e9ed54d980260d72293a771015b0aeb": {
+        "english": "In conclusion, I respect this choice: it can enable people to concentrate, to participate in other ways and to protect their privacy. However, solutions are needed for administrative procedures, without imposing these tools or claiming that it is always easy to do without them.",
+        "french": "En conclusion, je respecte ce choix : il peut permettre de se concentrer, de participer autrement et de protéger sa vie privée. Mais il faut des solutions pour les démarches, sans imposer ces outils ni prétendre qu'on s'en passe toujours facilement."
+      },
+      "7ef688b38590929a4a469e978fe98433b9a71b312326418b063b31e8757b8576": {
+        "english": "Finally, refusing to use certain tools can limit the personal traces left online.",
+        "french": "Enfin, refuser certains outils peut limiter les traces personnelles laissées en ligne."
+      },
+      "bc85cc493d579daa008316c7561d21c41886700a5ca89e4aba4d9767050a77af": {
+        "english": "I understand the choice to live without the internet, a computer or a telephone. Some people want fewer interruptions, prefer offline activities or wish to keep their information private. However, we need to consider how they will carry out their administrative tasks. This choice is neither a sign of being behind the times nor an ideal solution for everyone.",
+        "french": "Je comprends le choix de vivre sans Internet, ordinateur ou téléphone. Certaines personnes veulent être moins interrompues, préfèrent les activités hors ligne ou souhaitent garder leurs informations privées. Il faut toutefois vérifier comment elles feront leurs démarches. Ce choix n'est ni un retard ni une solution idéale pour tous."
+      },
+      "c10682ca0ffc0a2501b3d985a73c3627e30aa3532229eeb6ac6cd744fa708a8f": {
+        "deepl_english": "First and foremost, the absence of requests can protect certain chosen moments.",
+        "english": "First and foremost, the absence of demands on one's attention can protect time set aside for chosen activities.",
+        "french": "Tout d'abord, l'absence de sollicitations peut protéger certains moments choisis.",
+        "review_note": "Sollicitations includes notifications and other interruptions, not just requests; chosen moments is an unnatural literal rendering."
+      },
+      "d7d57c0dea5f4f1a2ef85021095a6e02a0d7c242ee4afd1b7ad519f309dce766": {
+        "english": "Furthermore, activities and relationships can take other forms.",
+        "french": "Ensuite, les activités et les relations peuvent prendre d'autres formes."
+      },
+      "e69afc699fd681f4ab75f42e67f49ebb52200ed47ed94194bbbe5be8bf7e46a7": {
+        "english": "Notifications can interrupt an activity and lead to viewing content that was not intended. Not using these tools can be a way of setting a simple boundary, provided it aligns with the person’s actual obligations.",
+        "french": "Des notifications peuvent interrompre une activité et conduire à consulter des contenus non prévus. Ne pas utiliser ces outils peut être une manière de fixer une limite simple, si elle correspond aux obligations réelles de la personne."
+      },
+      "e99d62bb2342611a7abe7cacddea45af7750c6af05f7ffeba6892c73aba25423": {
+        "english": "A person can set aside their evenings for reading, without having to check their messages. They can read several chapters without interrupting the flow of the story to respond to notifications.",
+        "french": "Une personne peut réserver ses soirées à la lecture, sans messagerie à consulter. Elle suit plusieurs chapitres sans interrompre le fil du récit pour répondre à des alertes."
+      },
+      "ed1edac2e73ebfed1b149b82a618652cc1e97f38a51190f3807a0a92f5006b33": {
+        "english": "Creating accounts can link purchases or activities to a profile. Where an alternative exists, choosing not to use these services allows you to decide what information you wish to entrust to them.",
+        "french": "Créer des comptes peut associer des achats ou des activités à un profil. Quand une alternative existe, ne pas utiliser ces services permet de choisir quelles informations on souhaite leur confier."
+      },
+      "f8ae10bc7ecbff6009f14ef7f96fbf85e87283bcea1d2898d9e0c6dd1035a6c1": {
+        "deepl_english": "Information or a meeting can take place in a physical location, via a paper document or through a face-to-face conversation. These methods sometimes require more planning, but they may suit those who prefer them and are able to access them.",
+        "english": "A physical venue, a paper document or a direct conversation can provide information or lead to a meeting. These methods sometimes require more planning, but they may suit those who prefer them and are able to access them.",
+        "french": "Une information ou une rencontre peut passer par un lieu, un document papier ou un échange direct. Ces moyens demandent parfois plus d'anticipation, mais ils peuvent convenir à ceux qui les préfèrent et peuvent y accéder.",
+        "review_note": "Information does not take place, and a meeting cannot take place via a paper document; renders the means of information or contact naturally."
+      },
+      "fed44c799569be1723a2316e0141bbf260885147437bc3155b3d57607ebec097": {
+        "english": "It is therefore possible to take part without the internet if the organisation also accepts on-the-spot registrations.",
+        "french": "On peut donc participer sans Internet si l'association accepte aussi les inscriptions sur place."
+      }
+    },
+    "eo/tache-3/technologie-p17": {
+      "08294cf00d506662206a5a145a83581fd721aec25f92c36c2ab698fc646f7221": {
+        "english": "The money allocated to a mission is no longer available for another project. It is therefore necessary to explain what one is seeking, how much it costs and what one hopes to learn. Prestige alone is not sufficient to justify the expenditure.",
+        "french": "L'argent consacré à une mission n'est plus disponible pour un autre projet. Il faut donc expliquer ce que l'on cherche, combien cela coûte et ce que l'on espère apprendre. Le prestige ne suffit pas à justifier la dépense."
+      },
+      "1bd0c91145699a41701fe1ca19ebacfa1a29c4d34cc249f1a3b4e0cafb63f673": {
+        "english": "In conclusion, some trips are useful, but that does not justify all the costs. I would support a mission if its purpose is clear, if its funding is justified and if the resources employed are necessary for the planned research.",
+        "french": "En conclusion, certains voyages sont utiles, mais cela ne justifie pas tous les coûts. Je soutiendrais une mission si son but est clair, si son financement se justifie et si les moyens employés sont nécessaires à la recherche prévue."
+      },
+      "1f8d385dcf7ec52a91c56d517ef2cdeb72845f290ad0624ff9585198689225e9": {
+        "english": "A mission may be useful without necessarily being the top priority for the available budget.",
+        "french": "Une mission peut avoir une utilité sans être pour autant la priorité du budget disponible."
+      },
+      "246d62b83a4535f8130b0317d9e15bc4a84777c41fa11036c3d0ceee895f71ac": {
+        "english": "To observe a phenomenon using a camera and sensors, a mission may employ an automated device. Adding passengers with no specific scientific role therefore necessitates survival equipment without enhancing the planned observation.",
+        "french": "Pour observer un phénomène avec une caméra et des capteurs, une mission peut utiliser un dispositif automatique. Ajouter des passagers sans tâche scientifique particulière impose alors des équipements de survie sans améliorer l'observation prévue."
+      },
+      "264a41b6f992288af55c30c5ee5a090b3b6f4b927133ac7ab1647c6129ff46a1": {
+        "english": "A human presence must therefore contribute to the objective, rather than merely serving the purpose of prestige.",
+        "french": "Il faut donc qu'une présence humaine apporte quelque chose à l'objectif, plutôt que de servir seulement le prestige."
+      },
+      "2b2b2b1f4efaebec2347c7f560cb8c3502a045e4780521fee7c0bf3edd92b0c5": {
+        "english": "However, the usefulness of satellites or research does not justify every tourist trip. A company and a state do not choose their expenditure in the same way, but private funding does not exempt one from examining safety and the impact on the community.",
+        "french": "Cependant, l'utilité des satellites ou de la recherche ne justifie pas chaque voyage touristique. Une entreprise et un État ne choisissent pas leurs dépenses de la même façon, mais un financement privé ne dispense pas d'examiner la sécurité et les effets sur la collectivité."
+      },
+      "46f1f4150e162e8549f571e1848e066f9121408e63d1033c52b1d2287e267585": {
+        "deepl_english": "An authority may have to choose between contributing to a mission and renewing a university laboratory. Postponing the laboratory would delay the research that depends on it; this consequence must be taken into account when comparing projects.",
+        "english": "An authority may have to choose between contributing to a mission and upgrading a university laboratory. Postponing the laboratory upgrade would delay the research that depends on it; this consequence must be taken into account when comparing projects.",
+        "french": "Une autorité peut devoir choisir entre une contribution à une mission et le renouvellement d'un laboratoire universitaire. Reporter le laboratoire retarderait les recherches qui en dépendent ; cette conséquence doit compter dans la comparaison des projets.",
+        "review_note": "Renewing a laboratory and postponing the laboratory are unnatural; the postponed project is its renewal or upgrade."
+      },
+      "62e38939c47d6cdba72eee28d3ebca376af4958e4dc3f25cbc1c40d7b7f2bb77": {
+        "english": "Prolonged microgravity allows phenomena to be studied in new ways, particularly the behaviour of fluids or organisms. This provides a potential scientific objective, though it does not guarantee that every experiment will quickly lead to a practical application.",
+        "french": "La microgravité prolongée permet d'étudier des phénomènes autrement, notamment le comportement des fluides ou des organismes. Cela donne un objectif scientifique possible, sans garantir que toute expérience produira rapidement une application quotidienne."
+      },
+      "66dc2db3543d73c96747c5bbeaec20f14efb38c24131743c95147fb2fa1b20c5": {
+        "english": "A team can film the mixing of two liquids for several hours on an orbital station. They obtain a series of observations in microgravity that a brief experiment on Earth would not allow them to monitor for such a long period.",
+        "french": "Une équipe peut filmer le mélange de deux liquides pendant plusieurs heures dans une station orbitale. Elle obtient une suite d'observations en microgravité qu'un bref essai terrestre ne permettrait pas de suivre aussi longtemps."
+      },
+      "735a8c82469c7ebe5a96c7aec7a2c93e9d01fce42532cd24d254cacc7329fb2c": {
+        "english": "Firstly, some research benefits from conditions that are difficult to replicate on Earth.",
+        "french": "Tout d'abord, certaines recherches bénéficient de conditions difficiles à maintenir sur Terre."
+      },
+      "7dfc7174f2224fca6c4fe2d836c046b55a20e020fbc9940cb828457744af438c": {
+        "english": "Finally, transporting passengers requires additional resources that are not always justified.",
+        "french": "Enfin, transporter des passagers impose des moyens supplémentaires qui ne sont pas toujours justifiés."
+      },
+      "8639f9e0728cca79d63fae7da2205d2fe45cbe0dea05be1fe46717b0b88c92e4": {
+        "english": "I would not say that all space travel is pointless. Some missions enable specific research, but their cost must be weighed against other needs. A scientific mission and a leisure trip do not serve the public in the same way.",
+        "french": "Je ne dirais pas que tous les voyages dans l'espace sont inutiles. Certaines missions permettent des recherches particulières, mais il faut comparer leur coût aux autres besoins. Une mission scientifique et un voyage de loisir ne rendent pas les mêmes services à la population."
+      },
+      "bb3c776f476a332f9915a2888f67cb71acd062cfaa54192e8bd82069f72f0db6": {
+        "deepl_english": "A crew needs air, water and equipment to ensure their safety and return. This equipment requires resources in addition to those needed for the mission itself. Private funding does not eliminate these needs or the impacts of the launch.",
+        "english": "A crew needs air, water and equipment to ensure their safety and return. This equipment requires resources in addition to those needed for the experiment. Private funding does not eliminate these needs or the impacts of the launch.",
+        "french": "Un équipage a besoin d'air, d'eau et de dispositifs assurant sa sécurité et son retour. Ces équipements mobilisent des ressources en plus de celles de l'expérience. Un financement privé ne supprime pas ces besoins ni les impacts du lancement.",
+        "review_note": "Expérience means the scientific experiment, not the mission as a whole."
+      },
+      "c33a42bacae5c6a30ea7134b44a0174dc62d2c851df9a481bfc3a1746e47f8a0": {
+        "english": "Furthermore, public funding must be weighed against other needs.",
+        "french": "Ensuite, un financement public doit être confronté aux autres besoins."
+      },
+      "cd6480d8ede0f2e25a82414ddb14f98c735717c2b9ec6f53fc8910c954c08a29": {
+        "english": "We cannot, therefore, label every mission as unnecessary on principle.",
+        "french": "On ne peut donc pas qualifier toute mission d'inutile par principe."
+      }
+    },
+    "eo/tache-3/technologie-p2": {
+      "428498c5513e97cfbd588dce046db313e63e34346192edde940548ff2110ac37": {
+        "english": "In conclusion, without a mobile phone, we need to have other tools, accessible services and a way of staying in touch with our loved ones. This choice remains possible for some, but it requires more than just a simple change of habit.",
+        "french": "En conclusion, sans portable, il faut qu'on ait d'autres outils, des services accessibles et un moyen de garder le lien avec ses proches. Ce choix reste possible pour certains, mais il demande plus qu'un simple changement d'habitude."
+      },
+      "5dfd7ea8eefcd78aa882c244a1f51afcaad9bf5fe77d39ef6bfb30aa710c46cb": {
+        "english": "No, I don’t always find it easy to do without a mobile phone. It brings together a range of practical tools, certain services rely on it, and it allows us to stay in touch with loved ones whilst on the move. We can look for alternatives, but they do not all meet the same needs.",
+        "french": "Non, je ne trouve pas toujours facile de se passer du téléphone portable. Il rassemble des outils pratiques, certains services supposent sa présence et il permet de garder un lien avec ses proches pendant les déplacements. On peut chercher des solutions, mais elles ne répondent pas toutes aux mêmes besoins."
+      },
+      "61d8a4d0edfa3c17b2ee39d26b941b8c513c949191c349dc671edf7acea3aa65": {
+        "english": "It allows us to share a difficulty or offer encouragement without having to wait until we get home. This support isn’t just for arranging a meeting: it helps us feel supported between meetings.",
+        "french": "Il permet de partager une difficulté ou un encouragement sans attendre de rentrer chez soi. Ce soutien ne sert pas seulement à organiser un rendez-vous : il aide à se sentir accompagné entre les rencontres."
+      },
+      "7433c2b30027b058d74483aef6729dac073611b07c8c72d88caeb65b25ac90fb": {
+        "english": "Giving up the device can therefore alter our day-to-day relationships, not just our practical habits.",
+        "french": "Renoncer à l'appareil peut donc modifier une relation quotidienne, pas seulement des habitudes pratiques."
+      },
+      "7583b031cb1aa196e064062167c2a98ebf483a6e56689d7490eed74713df658b": {
+        "english": "A mobile phone is used to communicate, check a route or access useful information whilst travelling. Getting rid of the device does not eliminate these needs; you need to make alternative arrangements before setting off.",
+        "french": "Le téléphone sert à communiquer, consulter un trajet ou garder une information utile pendant un déplacement. Retirer l'appareil ne retire pas ces besoins ; il faut prévoir d'autres moyens avant de partir."
+      },
+      "8ac3060cf37478e38ac713e3291b04ba9d4e7e7e0b5a9d1ae319205c4121433b": {
+        "english": "If the service doesn’t provide any alternatives, the mere desire to do without a mobile phone isn’t enough.",
+        "french": "Si le service ne prévoit rien d'autre, la volonté de se passer du portable ne suffit pas."
+      },
+      "91257ce3e46419da2194baf3ba30179df0c8670758d8932c942981d9afd636bc": {
+        "english": "Access via a computer may also require a code sent to a mobile phone. We cannot therefore assume that having another screen automatically solves every problem; we need to check the alternatives on offer.",
+        "french": "Un accès par ordinateur peut lui aussi demander un code envoyé sur un téléphone. On ne peut donc pas supposer que posséder un autre écran résout automatiquement chaque démarche ; il faut vérifier les alternatives proposées."
+      },
+      "9d47d2b084f1e6b0c3146c8e7e788c711b8a7a3908467a1e6842f63638563fe0": {
+        "english": "When travelling, someone without a mobile phone can print out their ticket, make a note of connections and arrange a specific meeting point. This is possible if these options are available, but it requires more forward planning than simply deciding to leave the device at home.",
+        "french": "Pour un voyage, une personne sans portable peut imprimer son billet, noter les correspondances et prévoir un lieu de rendez-vous précis. C'est possible si ces options existent, mais cela demande davantage d'anticipation qu'une simple décision de laisser l'appareil chez soi."
+      },
+      "a44a42530d7000bc26bcfb17c071c73f981808972e69d57c6e7c6babd9c4f043": {
+        "english": "Doing without a mobile phone therefore requires replacing several tools, not just the ability to make calls.",
+        "french": "Se passer du portable demande donc de remplacer plusieurs outils, pas seulement les appels."
+      },
+      "b2bce218578d5dac873bbdd533b7ab054e99f8f6ab87c6e2727c231dc1b89b9f": {
+        "english": "However, difficult does not mean impossible. A computer, paper documents or face-to-face conversations can take the place of certain functions. Reducing notifications is yet another approach: it does not prove that one can do without a mobile phone without reorganising one’s daily routine.",
+        "french": "Cependant, difficile ne signifie pas impossible. Un ordinateur, des documents papier ou des échanges en personne peuvent remplacer certaines fonctions. Réduire les notifications est encore une autre démarche : elle ne prouve pas que l'on peut supprimer le portable sans réorganiser le quotidien."
+      },
+      "c8630e3182f3444150db79bdcd6fbb0758584731da87755c396fd8f62f5a0b38": {
+        "english": "Firstly, several functions need to be replaced at the same time.",
+        "french": "Tout d'abord, plusieurs fonctions doivent être remplacées en même temps."
+      },
+      "d1468bdd3cee83d3a9890c12a1e1f7f7c8b3a436777cdf37b2bc329eddf73e74": {
+        "english": "Before giving up their mobile phone, a person might ask their bank what identification procedures are available without a mobile app or text messages. If they have to go to the counter, they’ll need to allow time for the journey.",
+        "french": "Avant de renoncer à son portable, une personne peut demander à sa banque quelle procédure d'identification existe sans application ni message sur mobile. Si elle doit aller au guichet, il faut prévoir le temps du déplacement."
+      },
+      "e4904a3e7e9ce2553d071e565880f6e47d8be7f9de94fbd6cd13da83bf596e73": {
+        "english": "Finally, the mobile phone also fulfils a need for human connection.",
+        "french": "Enfin, le portable répond aussi à un besoin de lien humain."
+      },
+      "f8548b8af119da8f6216fe6b83700773228fea67f8ce8ef3ef50ae722fb09531": {
+        "english": "Before an exam in another town, someone might listen to an encouraging message from their sister whilst travelling. They feel supported despite the distance and later tell her about the exam; without a mobile phone, they would have to find another way to maintain that connection.",
+        "french": "Avant un examen dans une autre ville, une personne peut écouter un message d'encouragement de sa sœur pendant le trajet. Elle se sent soutenue malgré la distance et lui raconte ensuite l'épreuve ; sans portable, elles doivent prévoir un autre moyen de garder ce lien."
+      },
+      "fdcc250c96e11526175108440cf21ec76e0eeb8708cf565508e5dcd8fe43198d": {
+        "english": "Furthermore, some services are organised around mobile verification.",
+        "french": "Ensuite, certains services sont organisés autour d'une validation sur mobile."
+      }
+    }
+  }
+}

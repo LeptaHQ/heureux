@@ -1,7 +1,8 @@
 from django import template
 from django.urls import reverse
 
-from study import catalogue, routing
+from study.catalogue import registry as catalogue
+from study.navigation import routing
 
 register = template.Library()
 

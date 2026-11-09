@@ -19,12 +19,12 @@ from playwright.sync_api import expect, sync_playwright
 
 from django.utils import timezone
 
-from study import content_loader as content
-from study.account_services import provision_user_study_data
-from study.content_loader import load_sections
-from study.course_content import build_course_catalog, load_course_catalog
-from study.course_practice import practice_event, start_attempt
-from study.learning_content import load_learning_catalog
+from study.catalogue import loader as content
+from study.accounts.services import provision_user_study_data
+from study.catalogue.loader import load_sections
+from study.learning.courses import build_course_catalog, load_course_catalog
+from study.learning.practice import practice_event, start_attempt
+from study.learning.catalogue import load_learning_catalog
 from study.management.commands.import_content import Command
 from study.models import (
     Annotation,
@@ -49,7 +49,7 @@ from study.models import (
     Task,
     WritingSujet,
 )
-from study.routing import prompt_detail_url, response_detail_url, review_url, theme_detail_url
+from study.navigation.routing import prompt_detail_url, response_detail_url, review_url, theme_detail_url
 
 from . import factories
 from .browser_server import BrowserLiveServerThread
@@ -1689,6 +1689,37 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(row.locator(".progress-status")).to_have_text("Terminé")
         self.assert_no_horizontal_overflow()
 
+    def test_shared_subject_table_keeps_sorting_and_completion(self):
+        first = self.first.response.prompts.get(is_canonical=True)
+        second = self.second.response.prompts.get(is_canonical=True)
+        first.text = "Zulu : premier sujet"
+        first.save(update_fields=["text"])
+        second.text = "Alpha : deuxième sujet"
+        second.family = first.family
+        second.save(update_fields=["text", "family"])
+        self.page.goto(self.live_server_url + reverse(
+            "study:task_browse", args=["eo", "tache-3"],
+        ) + "?deduplicate=0")
+        self.page.get_by_role("button", name="Tableau", exact=True).click()
+        theme = self.page.locator(f"#theme-{self.theme.slug}")
+        family = theme.locator(
+            f'[data-subject-family-group="{first.family.slug}"]',
+        )
+        theme.locator(":scope > summary").click()
+        family.locator(":scope > summary").click()
+        links = family.locator(".subject-table-row-link")
+        expect(links).to_have_count(2)
+        family.locator('[data-nested-table-sort="subject"]').click()
+        expect(links).to_have_text([second.text, first.text])
+        row = family.locator(f'[data-subject-progress-row="{first.response_id}"]')
+        with self.page.expect_navigation(wait_until="domcontentloaded"):
+            row.get_by_role("checkbox").click()
+        theme.locator(":scope > summary").click()
+        family.locator(":scope > summary").click()
+        expect(row.get_by_role("checkbox")).to_be_checked()
+        expect(row.locator(".progress-status")).to_have_text("Terminé")
+        self.assert_no_horizontal_overflow()
+
     def assert_scrollable_dialog_layout(self, dialog, close):
         body = dialog.locator(".methodology-dialog__body")
         box = dialog.bounding_box()
@@ -2845,8 +2876,8 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.get_by_role("button", name="Copier la consigne")).to_be_visible()
 
     def test_eo3_adjacent_rewrites_preserve_browser_saved_sections_and_note_anchors(self):
-        from study import catalogue
-        from study.public_response_annotations import render_current_response
+        from study.catalogue import registry as catalogue
+        from study.expression.eo.annotations import render_current_response
 
         self._import_eo_tache_three_content()
         prompt = Prompt.objects.select_related("response", "theme__task__part").get(
@@ -3022,8 +3053,8 @@ class BrowserTests(StaticLiveServerTestCase):
         )
 
     def test_eo3_adjacent_rewrites_preserve_browser_saved_sections_and_note_anchors(self):
-        from study import catalogue
-        from study.public_response_annotations import render_current_response
+        from study.catalogue import registry as catalogue
+        from study.expression.eo.annotations import render_current_response
 
         self._import_eo_tache_three_content()
         prompt = Prompt.objects.select_related("response", "theme__task__part").get(
@@ -3156,7 +3187,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 )
 
     def _assert_theme_models_preserve_public_example_edits(self, themes, expected_count, *, groups=()):
-        from study import catalogue
+        from study.catalogue import registry as catalogue
 
         self._import_eo_tache_three_content()
         models = catalogue.tache_three_models()
@@ -3230,7 +3261,7 @@ class BrowserTests(StaticLiveServerTestCase):
                     ),
                 )
                 with mock.patch(
-                    "study.catalogue.tache_three_models",
+                    "study.catalogue.registry.tache_three_models",
                     return_value={**models, model.group: replace(model, response=edited)},
                 ):
                     self.page.reload()
@@ -3261,7 +3292,7 @@ class BrowserTests(StaticLiveServerTestCase):
         url = prompt_detail_url(prompt)
         with (
             mock.patch("study.views.oral.prompt_note_for_response", return_value=None),
-            mock.patch("study.catalogue.tache_three_subject_plan", return_value=None),
+            mock.patch("study.catalogue.registry.tache_three_subject_plan", return_value=None),
         ):
             self.page.goto(self.live_server_url + url)
             expect(self.page.locator(".subject-hints")).to_have_count(0)
@@ -3289,7 +3320,7 @@ class BrowserTests(StaticLiveServerTestCase):
             )
         with (
             mock.patch("study.views.oral.prompt_note_for_response", return_value=None),
-            mock.patch("study.catalogue.tache_three_subject_plan", return_value=None),
+            mock.patch("study.catalogue.registry.tache_three_subject_plan", return_value=None),
         ):
             self.page.reload()
             expect(self.page.locator("mark.user-highlight")).to_have_count(2)
@@ -3322,7 +3353,7 @@ class BrowserTests(StaticLiveServerTestCase):
         review_path = self.page.get_by_role(
             "link", name="Pratiquer cette réponse", exact=True,
         ).get_attribute("href")
-        with mock.patch("study.tache_three_prompt_notes.prompt_note_for_response", return_value=None):
+        with mock.patch("study.expression.eo.tache_3.prompt_notes.prompt_note_for_response", return_value=None):
             with self.page.expect_response(
                 lambda response: urlsplit(response.url).path == reverse("study:review_next")
             ) as initial_card_response:
@@ -3377,10 +3408,10 @@ class BrowserTests(StaticLiveServerTestCase):
         ))
 
     def test_public_eo2_and_eo3_edits_keep_mobile_annotations_on_unchanged_text(self):
-        from study import catalogue
-        from study.oral_history import variant_annotation_key
-        from study.public_response_annotations import render_current_response
-        from study.tache_two_dialogues import dialogue_response
+        from study.catalogue import registry as catalogue
+        from study.expression.eo.history import variant_annotation_key
+        from study.expression.eo.annotations import render_current_response
+        from study.expression.eo.tache_2.dialogues import dialogue_response
 
         for key in (
             "culture:p1", "famille:p2", "education:p1", "sante:p1",
@@ -3504,7 +3535,7 @@ class BrowserTests(StaticLiveServerTestCase):
                     self.assertEqual(mark.body, "Keep this personal note." if mark in marks else "Keep my practice note.")
 
     def test_eo3_position_stays_in_pistes_before_and_after_editing(self):
-        from study import catalogue
+        from study.catalogue import registry as catalogue
 
         self._import_eo_tache_three_content()
         prompt = Prompt.objects.select_related(
@@ -3569,7 +3600,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
 
     def test_reviewed_eo3_learning_aids_match_on_detail_and_practice(self):
-        from study import catalogue
+        from study.catalogue import registry as catalogue
 
         self._import_eo_tache_three_content()
         culture_keys = tuple(
@@ -3617,7 +3648,7 @@ class BrowserTests(StaticLiveServerTestCase):
         ))
 
     def _assert_eo3_learning_aids_match_on_detail_and_practice(self, keys):
-        from study import catalogue
+        from study.catalogue import registry as catalogue
 
         self._import_eo_tache_three_content()
         for key in keys:
@@ -3716,7 +3747,7 @@ class BrowserTests(StaticLiveServerTestCase):
         phrase.source_prompts.add(prompt)
         card = factories.make_phrase_card(user=self.user, phrase=phrase, reps=4)
         url = prompt_detail_url(prompt)
-        with mock.patch("study.catalogue.tache_three_subject_plan", return_value=None):
+        with mock.patch("study.catalogue.registry.tache_three_subject_plan", return_value=None):
             self.page.goto(self.live_server_url + url)
             legacy = self.page.locator(".response-sidebar-card--phrases [data-annotation-root]")
             expect(legacy).to_be_visible()
@@ -4700,7 +4731,7 @@ class BrowserTests(StaticLiveServerTestCase):
         from pathlib import Path
         import tempfile
         from study.tests.test_eo2_question_languages import fixture_manifest
-        from study.eo2_question_languages import empty_manifest
+        from study.expression.eo.tache_2.languages import empty_manifest
 
         self._import_eo_tache_two_content()
         directory = self.enterContext(tempfile.TemporaryDirectory())
@@ -4882,8 +4913,8 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(root.evaluate(canonical_text), before)
 
     def test_eo2_prepared_catalogue_displays_real_saved_translations(self):
-        from study import catalogue
-        from study.eo2_question_languages import fingerprint, manifest
+        from study.catalogue import registry as catalogue
+        from study.expression.eo.tache_2.languages import fingerprint, manifest
 
         data = manifest()
         if not data["groups"]:
@@ -4937,14 +4968,14 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(read).to_have_attribute("aria-pressed", "true")
 
     def test_eo2_english_display_keeps_french_audio_and_does_not_send_translation_requests(self):
-        from study import catalogue
+        from study.catalogue import registry as catalogue
         from study.tests.french_audio_browser_tests import LOCAL_SPEECH
 
         self.context.add_init_script(LOCAL_SPEECH)
         prompt = self.open_eo2_language_fixture()
         root = self.page.locator("[data-eo2-language]")
         root.get_by_role("button", name="Anglais", exact=True).click()
-        with mock.patch("study.translation.urllib.request.urlopen") as provider:
+        with mock.patch("study.translations.service.urllib.request.urlopen") as provider:
             self.page.get_by_role("button", name="Lire les questions en français", exact=True).click()
             self.page.evaluate("""() => {
               for (let i = 0; i < 100; i++) {
@@ -4974,8 +5005,8 @@ class BrowserTests(StaticLiveServerTestCase):
 
     def test_eo2_private_edits_and_outside_themes_never_get_unmatched_english(self):
         from dataclasses import asdict
-        from study import catalogue
-        from study.tache_two_dialogues import dialogue_response
+        from study.catalogue import registry as catalogue
+        from study.expression.eo.tache_2.dialogues import dialogue_response
 
         prompt = self.open_eo2_language_fixture()
         values = asdict(dialogue_response(catalogue.tache_two_dialogues()[prompt.content_key]))
@@ -5496,7 +5527,7 @@ class BrowserTests(StaticLiveServerTestCase):
         provider.assert_called_once_with(quote, "test:fx")
 
     def test_eo3_english_highlight_does_not_move_to_a_revised_translation(self):
-        from study.eo3_response_languages import fingerprint, manifest, public_fields, scoped_models
+        from study.expression.eo.tache_3.languages import fingerprint, manifest, public_fields, scoped_models
 
         prompt = self.open_eo3_language_response()
         root = self.page.locator("[data-eo3-language]")
@@ -5514,7 +5545,7 @@ class BrowserTests(StaticLiveServerTestCase):
         digest = fingerprint(public_fields(model)["introduction"])
         rows[digest] = {**rows[digest], "english": "Updated English version: " + rows[digest]["english"]}
         updated = {**data, "groups": {**data["groups"], model.group: rows}}
-        with mock.patch("study.eo3_response_languages.manifest", return_value=updated):
+        with mock.patch("study.expression.eo.tache_3.languages.manifest", return_value=updated):
             self.page.reload()
             expect(english).to_contain_text("Updated English version:")
             self.assertNotEqual(root.get_attribute("data-annotation-english-source-key"), original_key)
@@ -5651,7 +5682,7 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator("[data-eo3-english]:visible")).to_have_count(15)
 
     def test_eo3_private_text_is_not_given_unmatched_english(self):
-        from study import catalogue
+        from study.catalogue import registry as catalogue
 
         prompt = self.open_eo3_language_response()
         response = catalogue.tache_three_models()[prompt.response.semantic_group].response
@@ -5915,7 +5946,7 @@ class BrowserTests(StaticLiveServerTestCase):
     def test_eo3_empty_and_invalid_translation_caches_show_french_and_a_clear_notice(self):
         import tempfile
         from pathlib import Path
-        from study.eo3_response_languages import empty_manifest
+        from study.expression.eo.tache_3.languages import empty_manifest
 
         prompt = self.open_eo3_language_response()
         self.page.evaluate("localStorage.setItem('heureux.eo3.responseLanguage', 'en')")
@@ -5935,7 +5966,7 @@ class BrowserTests(StaticLiveServerTestCase):
                     expect(root.locator("[data-eo3-english]:visible")).to_have_count(0)
 
     def test_eo3_language_controls_work_on_the_full_response_when_practice_has_no_pistes(self):
-        from study import catalogue
+        from study.catalogue import registry as catalogue
 
         prompt = self.open_eo3_language_response()
         with mock.patch.object(catalogue, "tache_three_subject_plan", return_value=None):
@@ -6006,7 +6037,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertTrue(all(row["lang"].startswith("fr") for row in spoken))
 
     def assert_reviewed_eo2_models_render(self, groups, publication_count):
-        from study import catalogue
+        from study.catalogue import registry as catalogue
 
         self._import_eo_tache_two_content()
         dialogues = catalogue.tache_two_dialogues()
@@ -6070,8 +6101,8 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(practiced, groups)
 
     def assert_reviewed_eo2_models_render_in_french_and_english(self, groups, publication_count):
-        from study import catalogue
-        from study.eo2_question_languages import fingerprint, manifest
+        from study.catalogue import registry as catalogue
+        from study.expression.eo.tache_2.languages import fingerprint, manifest
 
         self.assert_reviewed_eo2_models_render(groups, publication_count)
         translations = manifest()["groups"]
@@ -6232,10 +6263,10 @@ class BrowserTests(StaticLiveServerTestCase):
             self.assert_no_horizontal_overflow()
 
     def assert_reviewed_eo2_reorder_highlights(self, cases):
-        from study import catalogue
-        from study.oral_highlights import _render_questions
-        from study.oral_history import variant_annotation_key
-        from study.tache_two_dialogues import dialogue_response
+        from study.catalogue import registry as catalogue
+        from study.notes.anchors import _render_questions
+        from study.expression.eo.history import variant_annotation_key
+        from study.expression.eo.tache_2.dialogues import dialogue_response
 
         self._import_eo_tache_two_content()
         dialogues = catalogue.tache_two_dialogues()
@@ -9768,10 +9799,10 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(saved.quote, quote)
 
     def test_eo2_delivery_reorder_keeps_unchanged_questions_highlighted(self):
-        from study import catalogue
-        from study.oral_highlights import _render_questions
-        from study.oral_history import variant_annotation_key
-        from study.tache_two_dialogues import dialogue_response
+        from study.catalogue import registry as catalogue
+        from study.notes.anchors import _render_questions
+        from study.expression.eo.history import variant_annotation_key
+        from study.expression.eo.tache_2.dialogues import dialogue_response
 
         self._import_eo_tache_two_content()
         prompt = Prompt.objects.select_related("response", "theme__task__part").get(
@@ -9815,10 +9846,10 @@ class BrowserTests(StaticLiveServerTestCase):
         )).to_have_text(old.questions[2].question)
 
     def test_eo2_location_edits_preserve_visible_highlights_on_detail_and_review(self):
-        from study import catalogue
-        from study.oral_highlights import _render_questions
-        from study.oral_history import variant_annotation_key
-        from study.tache_two_dialogues import dialogue_response
+        from study.catalogue import registry as catalogue
+        from study.notes.anchors import _render_questions
+        from study.expression.eo.history import variant_annotation_key
+        from study.expression.eo.tache_2.dialogues import dialogue_response
 
         self._import_eo_tache_two_content()
         key, current = next(
@@ -10717,6 +10748,30 @@ class BrowserTests(StaticLiveServerTestCase):
             24,
         )
 
+        for width in (390, 1183):
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 844})
+                actions = create_dialog.locator(".form-dialog__actions")
+                expect(actions.locator("button")).to_have_count(3)
+                expect(actions.locator("span:not(.sr-only)")).to_have_count(0)
+                expect(actions).not_to_contain_text("surligner")
+                sizes = []
+                for label in ("Annuler", "Enregistrer", "Coller et fermer"):
+                    button = actions.get_by_role("button", name=label, exact=True)
+                    expect(button).to_have_attribute("title", label)
+                    expect(button.locator("svg")).to_have_count(1)
+                    size = button.bounding_box()
+                    self.assertIsNotNone(size)
+                    self.assertAlmostEqual(size["width"], size["height"], delta=1)
+                    sizes.append(size["width"])
+                self.assertLessEqual(max(sizes) - min(sizes), 1)
+                self.assert_no_horizontal_overflow()
+        create_dialog.get_by_role("button", name="Annuler", exact=True).click()
+        expect(create_dialog).to_be_hidden()
+        self.assertFalse(Annotation.objects.filter(user=self.user).exists())
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        self.page.get_by_role("button", name="Nouvelle note", exact=True).click()
+
         create_dialog.get_by_label("Titre (facultatif)").fill(
             "Note créée dans la fenêtre"
         )
@@ -10724,7 +10779,7 @@ class BrowserTests(StaticLiveServerTestCase):
             "Première version avec **un point important**."
         )
         create_dialog.get_by_role(
-            "button", name="Enregistrer sans surligner", exact=True,
+            "button", name="Enregistrer", exact=True,
         ).click()
         self.assertFalse(Annotation.objects.filter(
             user=self.user, kind=AnnotationKind.HIGHLIGHT,
@@ -10779,7 +10834,7 @@ class BrowserTests(StaticLiveServerTestCase):
         note_row.wait_for()
         # The edit updated the one node the table mode reuses.
         self.assertEqual(note_row.count(), 1)
-        action_buttons = note_row.locator(".annotation-action")
+        action_buttons = note_row.locator(".annotation-card__actions .annotation-action")
         # A free-standing note reads its optional French title.
         self.assertEqual(action_buttons.count(), 5)
         self.assertTrue(
@@ -10811,7 +10866,7 @@ class BrowserTests(StaticLiveServerTestCase):
             dialog.get_by_label("Votre note").fill("Prends ! Prenons ! Prenez !")
             self.assert_no_horizontal_overflow()
             dialog.get_by_role(
-                "button", name="Enregistrer sans surligner", exact=True,
+                "button", name="Enregistrer", exact=True,
             ).click()
             self.page.wait_for_url(self.live_server_url + personal_url + "**")
             note = Annotation.objects.get(user=self.user, title=title)
@@ -10828,14 +10883,14 @@ class BrowserTests(StaticLiveServerTestCase):
         dialog.get_by_label("Groupe", exact=True).select_option(str(ee.pk))
         dialog.get_by_label("Titre (facultatif)").fill("Mon carnet EE1")
         dialog.get_by_role(
-            "button", name="Enregistrer sans surligner", exact=True,
+            "button", name="Enregistrer", exact=True,
         ).click()
         expect(dialog).to_be_visible()
         expect(dialog.get_by_label("Groupe", exact=True)).to_have_value(str(ee.pk))
         self.assertFalse(Annotation.objects.filter(user=self.user, title="Mon carnet EE1").exists())
         dialog.get_by_label("Votre note").fill("Note volontairement classée dans EE1.")
         dialog.get_by_role(
-            "button", name="Enregistrer sans surligner", exact=True,
+            "button", name="Enregistrer", exact=True,
         ).click()
         destination = reverse("study:task_notes", args=["ee", "tache-1"])
         self.page.wait_for_url(self.live_server_url + destination + "**")
@@ -12186,12 +12241,12 @@ class BrowserTests(StaticLiveServerTestCase):
         dialog.get_by_label("Titre (facultatif)").fill("Matching new note")
         dialog.get_by_label("Votre note").fill("Matching freshly written body")
         dialog.get_by_role(
-            "button", name="Enregistrer sans surligner", exact=True,
+            "button", name="Enregistrer", exact=True,
         ).click()
         new = self.page.locator(".annotation-card", has_text="Matching new note")
         expect(new).to_have_count(1)
         expect(self.page.locator("[data-annotation-item]")).to_have_count(50)
-        self.assertNotIn("page", parse_qs(urlsplit(self.page.url).query))
+        self.assertEqual(parse_qs(urlsplit(self.page.url).query).get("page", ["1"]), ["1"])
         self.assertEqual(urlsplit(self.page.url).fragment, new.get_attribute("id"))
         expect(self.page.locator(".collection-pagination__summary")).to_have_text(
             "Page 1 sur 2"
@@ -13516,7 +13571,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.evaluate(
             "() => localStorage.setItem('collectionViewMode', 'table')"
         )
-        self.page.route("**/study/js/learning.js*", lambda route: route.abort())
+        self.page.route("**/study/js/learning/learning.js*", lambda route: route.abort())
         self.page.goto(self.live_server_url + reverse("study:learn") + "?scope=reference")
 
         module = self.page.locator("[data-learning-module-details]").first

@@ -147,6 +147,11 @@
         "english": "First and foremost, traditions help you feel at home in a new country.",
         "french": "Tout d'abord, les traditions aident à se sentir chez soi dans un nouveau pays."
       },
+      "81378db62e141f6aa9f028206179bfb5f4f7ae909bd62aba55a746156d8a2e74": {
+        "french": "L'héritage devient une histoire accessible, pas une consigne à suivre sans explication.",
+        "english": "Their heritage becomes a story they can understand, not an instruction to follow without explanation.",
+        "review_note": "Editorial English aligned with the independently reviewed, user-selected traditions response promoted to the public default. Existing translations retained; no provider call or DeepL original was fabricated."
+      },
       "8ac22d7640e0ab5967e6c77d1a93e87b0046a9ee76b156a2d2644fbf28734606": {
         "english": "Finally, shared traditions can forge links between cultures.",
         "french": "Enfin, des traditions partagées peuvent tisser des liens entre les cultures."
@@ -154,6 +159,11 @@
       "95ea4d46bb6206e833b46bcff96303fbd336a3b72e7b31e2924dccab3bb31e4e": {
         "english": "In this way, the child understands where the tradition comes from, rather than simply following it without explanation.",
         "french": "L'enfant sait ainsi d'où vient cette tradition, au lieu de la suivre sans explication."
+      },
+      "9fb7fb58d7c82fe0e1395b69151eda61624b7ae3184d31c2f2f0686cd77b91bf": {
+        "french": "Quand on s'installe à l'étranger, beaucoup de choses changent à la fois. Garder une habitude familière permet de retrouver une partie de sa vie d'avant dans son nouveau quotidien.",
+        "english": "When we settle abroad, many things change at once. Keeping a familiar habit lets us bring a part of our former life into our new daily routine.",
+        "review_note": "Editorial English aligned with the independently reviewed, user-selected traditions response promoted to the public default. Existing translations retained; no provider call or DeepL original was fabricated."
       },
       "a054db0547bbcac53c260788f563718f730434a3bb0e83b68561fd1c07c3aeff": {
         "english": "In short, keeping traditions helps you feel at home, pass on your history and create exchanges. Everyone must remain free to let them evolve and discover other ways of living.",
@@ -193,6 +203,11 @@
       "de04b64e5eebec4d1a873c5dbcfa64e311bbaa34f8b8042f5a76d868cf1024d5": {
         "english": "In my view, preserving one’s culture and traditions in a host country is desirable, but it must not become an obligation to keep everything intact. These practices can provide a sense of belonging, pass on a history and foster connections with other residents.",
         "french": "À mon avis, préserver sa culture et ses traditions dans un pays d'accueil est souhaitable, mais ne doit pas devenir une obligation de tout garder intact. Ces pratiques peuvent apporter des repères, transmettre une histoire et créer des échanges avec d'autres habitants."
+      },
+      "efd9aaf53b14932111f3e1fe2f3555e5824431abd8a50fb1c2a6f6a44b4c943b": {
+        "french": "En conclusion, je suis favorable à la préservation des traditions lorsqu'elle apporte des repères, une transmission et des échanges. Le bon équilibre consiste à connaître son histoire tout en restant libre de la faire évoluer et de s'ouvrir aux autres.",
+        "english": "In conclusion, I support preserving traditions when they provide familiar reference points, pass on history and encourage exchanges. The right balance is knowing our history while remaining free to develop this heritage and stay open to others.",
+        "review_note": "Editorial English aligned with the independently reviewed, user-selected traditions response promoted to the public default. Existing translations retained; no provider call or DeepL original was fabricated."
       },
       "f611d9c4ba0f689ac0e646ee4a6610c5942827a14f2f4d103636993d0d625e96": {
         "english": "A custom becomes a meeting point when it is shared with others in an open-minded way. Neighbours can ask questions and, in turn, share their own customs.",
@@ -320,6 +335,11 @@
         "english": "What we learn on screen can therefore be useful in everyday life.",
         "french": "Ce qu'on apprend à l'écran peut donc être utile dans la vie quotidienne."
       },
+      "059ed99ff45359817383a7a0f924318abe0c1bd726b60c05f65a54b2087d061c": {
+        "english": "A live broadcast of a match or a major performance can bring together family, friends or neighbours. We react to the same moments, share emotions and have something to discuss. What matters then is also being together.",
+        "french": "Un match ou un grand spectacle diffusé en direct peut réunir une famille, des amis ou des voisins. On réagit aux mêmes moments, on partage des émotions et on a un sujet pour discuter. Ce qui compte alors, c'est aussi le fait d'être ensemble.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "1edccf1463a2f24dcc3c153b92962cd1d3f2354731f5b5089e66e7ecfb6d64c9": {
         "english": "Finally, relaxing is not necessarily a waste of time.",
         "french": "Enfin, se détendre n'est pas forcément perdre son temps."
@@ -355,6 +375,11 @@
         "english": "Someone watches an episode of a comedy after work. They laugh, take their mind off things, then switch off the television at the end of the episode.",
         "french": "Une personne regarde un épisode de comédie après le travail. Elle rit, se change les idées, puis éteint la télévision à la fin de l'épisode."
       },
+      "72fc3a6ef92f13cce6ee2de260191b067c03bccab133fd2ea6b068782cf98842": {
+        "english": "On the other hand, watching television for hours can mean going to bed too late or spending less time with loved ones. Even an interesting programme does not justify regularly neglecting sleep or family.",
+        "french": "En revanche, quand on regarde la télévision pendant des heures, on peut se coucher trop tard ou passer moins de temps avec ses proches. Même un programme intéressant ne justifie pas de négliger régulièrement son sommeil ou sa famille.",
+        "review_note": "Editorial English aligned with the independently reviewed TV nuance clarification; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "7450733f9dc0f380716153db43db64121a413c7b88139dcd3415d277250424d3": {
         "english": "Rest and enjoyment are also part of a balanced day.",
         "french": "Le repos et le plaisir font eux aussi partie d'une journée équilibrée."
@@ -380,14 +405,29 @@
         "english": "For example, someone might watch a documentary showing staff removing incorrectly sorted items before recycling. They realise that not all their waste is automatically recycled and check their local council’s sorting guidelines.",
         "french": "Par exemple, une personne voit dans un documentaire des employés retirer des objets mal triés avant le recyclage. Elle réalise que ses déchets ne sont pas tous recyclés automatiquement et vérifie les consignes de tri de sa commune."
       },
+      "d13ade2487f267e99efe295408141d8489dc7e54aaad68b6339aaf649d8ff157": {
+        "english": "Television can also bring people together around an event they watch together.",
+        "french": "Ensuite, la télévision peut rassembler les gens autour d'un événement qu'ils suivent ensemble.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "d293daaef58e1914859a735d258d239b7ccaf8bb3f068e2498cb53ff66c7b594": {
         "english": "In conclusion, watching television is not a waste of time in itself. Information, culture and relaxation can justify this choice, provided that the programme and its duration genuinely match what you are looking for.",
         "french": "En conclusion, regarder la télévision n'est pas une perte de temps en soi. Information, culture et détente peuvent justifier ce choix, à condition que le programme et la durée correspondent réellement à ce que l'on cherche."
+      },
+      "dd42e1fcb5291fe86ea0ba9b0330efa96a059e7dd075508c8beb34a5a7628228": {
+        "english": "During the World Cup, a few neighbours watch a match at one neighbour's home. They did not know each other well, but cheer the team on together and talk at half-time. This shared moment gives them a way to start a conversation.",
+        "french": "Pendant la Coupe du monde, quelques voisins regardent un match chez l'un d'eux. Ils se connaissaient peu, mais encouragent l'équipe ensemble et discutent à la mi-temps. Ce moment partagé leur permet d'engager la conversation.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "e48769b225e98a2afc02a5e84bc5cd0d010de87af3283e182e4a220d849e62b8": {
         "english": "Image and sound make certain realities more concrete. We see how an activity takes place, and the commentary explains why it is done that way. This gives access to the work of people we would not have the opportunity to meet.",
         "french": "L'image et le son rendent certaines réalités plus concrètes. On voit comment une activité se déroule, et le commentaire explique pourquoi on procède ainsi. Cela donne accès au travail de personnes qu'on n'aurait pas l'occasion de rencontrer.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "ec12700fa965d5d1f9712ffda503bc15f9b4270a9bd3516364a427bea1130068": {
+        "english": "In conclusion, watching television is not a waste of time in itself. Information, shared moments and relaxation can justify this choice, provided that the programme and its duration genuinely match what you are looking for.",
+        "french": "En conclusion, regarder la télévision n'est pas une perte de temps en soi. Information, moments partagés et détente peuvent justifier ce choix, à condition que le programme et la durée correspondent réellement à ce que l'on cherche.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "f2d4d2b555b5e09e2df6acc34f1887ea61f230163b0b58cce18bb06e0733eb7c": {
         "english": "Two sisters who live far apart are watching the same film. They then ring each other to discuss the character who goes to work abroad, leaving his parents behind. Each explains what she would have done in his place.",
@@ -399,14 +439,44 @@
         "english": "People may have different impressions when looking at the same painting. The teacher then asks each pupil to point out the details that explain their view. Pupils learn to defend an idea without dismissing those of others.",
         "french": "On peut avoir des impressions différentes devant la même peinture. Le professeur demande alors à chacun de montrer les détails qui expliquent son avis. On apprend à défendre une idée sans écarter celle des autres."
       },
+      "086317c52930c6e1ef183b04a9cc7dc8df26c79090b6c19561ce12b0c0a8d2f1": {
+        "english": "These subjects also open pupils' minds to the world's cultural diversity.",
+        "french": "Ensuite, les matières culturelles ouvrent les élèves à la diversité du monde.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "17cb3b89f17cc9818b9b7640ecaf595ffd27ad9231ca3e0d0527e96458896c08": {
         "english": "Not all families can afford music lessons or buy an instrument. Schools can offer these activities without parents having to pay for private lessons.",
         "french": "Toutes les familles ne peuvent pas payer des cours de musique ou acheter un instrument. L'école peut proposer ces activités sans que les parents aient à payer des cours privés."
+      },
+      "26c13489ded19336eef0efdc01fa94e2d9836a4066140d799fcb0f50c66570c7": {
+        "english": "Finally, cultural subjects can reveal talents and prepare pupils for a career.",
+        "french": "Enfin, les matières culturelles peuvent révéler des talents et préparer à de vrais métiers.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "270fb7e108dc04836d08be75c90032799024e08ed3bc0a7a1fdca477c6e53bc0": {
+        "english": "A pupil prepares a poster in art class. She enlarges the headings and simplifies the images to convey her message more clearly. This work makes her want to find out about graphic design as a career.",
+        "french": "Une élève prépare une affiche en cours de dessin. Elle agrandit les titres et simplifie les images pour mieux transmettre son message. Ce travail lui donne envie de découvrir le métier de graphiste.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "39178f4146d36ce871dd4385d2f2216e365bb0f41794f88e6ae767d43c67e7d4": {
         "english": "These lessons also teach pupils to explain an opinion based on what they observe.",
         "french": "Ces cours apprennent aussi à expliquer un avis en s'appuyant sur ce qu'on observe.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "39ab26f1a199b6023c181002e20bca89759f45a9fe97c8cc0d6afe67b9fb961e": {
+        "english": "He therefore learns to express his thoughts and understand other people's emotions.",
+        "french": "Il apprend donc à exprimer ce qu'il pense et à comprendre les émotions des autres.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "3a3e9d3f3449b80e0460875a2f2216e89f0b23e192ffb85925069cc9943b0836": {
+        "english": "A class looks at a Mexican painting about the Day of the Dead. The teacher explains that the flowers and photographs honour relatives who have died. The pupils discover the meaning of this tradition.",
+        "french": "Une classe observe une peinture mexicaine sur la fête des Morts. Le professeur explique que les fleurs et les photos des proches décédés servent à leur rendre hommage. Les élèves découvrent le sens de cette tradition.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "3bb55abe61ff8e14b5d3c6f6b97bd7540a706626323ca1956dd9f7e06cc22764": {
+        "english": "This encourages their curiosity and helps them understand practices different from their own.",
+        "french": "Cela nourrit leur curiosité et les aide à comprendre des pratiques différentes des leurs.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "404d8f1214dfecd989e969287e56608d0cd98d69624b23fa491a52484c677750": {
         "english": "Access to these activities is therefore less dependent on a family’s budget.",
@@ -416,6 +486,11 @@
         "english": "A shy pupil mumbles his lines during a rehearsal. The teacher gets him to lift his head, slow down and pause. When he performs the scene again, his classmates can follow the dialogue and he dares to speak louder.",
         "french": "Un élève timide murmure son texte pendant une répétition. Le professeur lui fait relever la tête, ralentir et marquer des pauses. Quand il reprend la scène, ses camarades suivent le dialogue et il ose parler plus fort.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "455373588e31656c3f9c9b3baaee67356981886bfbd924928fd4acdcaf5a0261": {
+        "english": "School lets pupils try these activities without their parents having to pay for private lessons. A pupil may discover an interest and consider further training, because artistic careers require technique and work.",
+        "french": "L'école permet d'essayer ces activités sans que les parents aient à payer des cours privés. Un élève peut découvrir un intérêt et envisager une formation, car les métiers artistiques demandent de la technique et du travail.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "49950b70223f172a9c83d9c605d3cebbc14050350f19a2906687d05776f82d0f": {
         "english": "In theatre, it is not enough simply to know your lines: you must also make yourself understood. Rehearsals allow you to try things out, receive feedback and start again.",
@@ -453,6 +528,11 @@
         "english": "Of course, schools must also devote sufficient time to reading and arithmetic. The arts require equipment and trained teachers. Lessons must therefore be organised in line with the resources available, not scrapped.",
         "french": "Bien sûr, l'école doit aussi donner assez de temps à la lecture et au calcul. Les arts demandent du matériel et des enseignants formés. Il faut donc organiser les cours selon les moyens disponibles, pas les supprimer."
       },
+      "8c94ad850496e712c055444edd9eec9c47134cb9ff6a9eb612f1d523ea4b16ca": {
+        "english": "So I would keep these subjects at school. They help pupils express themselves, discover other cultures and sometimes find a career path. They therefore complement basic learning.",
+        "french": "Je garderais donc ces matières à l'école. Elles aident les élèves à s'exprimer, à découvrir d'autres cultures et parfois à trouver une voie professionnelle. Elles complètent ainsi les apprentissages fondamentaux.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "90c8ee019eebcdb2f4457a45e0f887fb9b97ba49a2ab28786bdc702276e10957": {
         "english": "In my view, removing cultural subjects from schools would be a mistake. They help pupils to express themselves, to reflect on what they observe and to discover activities that their families cannot always offer them.",
         "french": "À mon avis, supprimer les matières culturelles de l'école serait une erreur. Elles aident les élèves à s'exprimer, à réfléchir à ce qu'ils observent et à découvrir des activités que leur famille ne peut pas toujours leur proposer."
@@ -473,6 +553,11 @@
         "french": "Bien sûr, la lecture et le calcul restent prioritaires, et les arts demandent du matériel et des enseignants formés. Il faut donc leur donner une place raisonnable avec les moyens disponibles, sans les opposer aux apprentissages fondamentaux.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "ae62e3d698a3516d93789a9195bdf825408bf4b9d7e7e477540a0714a8988e2d": {
+        "english": "In a scene, a pupil plays a child arriving at a new school. He chooses a hesitant voice and pauses to convey the child's fear. His classmates discuss what this way of performing helps them understand.",
+        "french": "Dans une scène, un élève joue un enfant qui arrive dans une nouvelle école. Il choisit une voix hésitante et des pauses pour montrer sa peur. Ses camarades discutent de ce que cette manière de jouer leur fait comprendre.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "b52883677107949ff257c63c086c48d1805f3b404fc1d7deede8780caafc937d": {
         "english": "Finally, school makes the arts accessible to children from different backgrounds.",
         "french": "Enfin, l'école rend les arts accessibles aux enfants de différents milieux.",
@@ -481,6 +566,16 @@
       "b5c5466f7a5a6dbd829a379448a8e39c02377b14853a95b8496746e3adea685f": {
         "english": "During a rehearsal, a pupil speaks too quickly and his classmates cannot understand what he is saying. The teacher asks him to slow down and pause. When he rehearses the scene again, they are able to follow the dialogue.",
         "french": "Lors d'une répétition, un élève parle trop vite et ses camarades ne comprennent pas son texte. Le professeur lui fait ralentir et marquer des pauses. Quand il reprend la scène, ils arrivent à suivre le dialogue."
+      },
+      "b8779376906edeec443b4b332eeddb2aa15925ddd9845d6bea540526ef42462b": {
+        "english": "Creating something or playing a role means making choices and explaining them. Pupils work out how to express an emotion, then listen to other people's reactions and reflect on how they have represented it.",
+        "french": "Créer ou jouer un rôle demande de faire des choix et de les expliquer. L'élève cherche comment exprimer une émotion, puis écoute les réactions des autres et réfléchit à sa manière de la représenter.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "c1d8fb321fd66468e6a82fa9d3d94016b8cb119fe3f0e3afb4ac0674ec58190f": {
+        "english": "Discovering a song or a painting also means discovering the country and period in which it was created. This context helps pupils understand traditions different from their own.",
+        "french": "Découvrir une chanson ou une peinture, c'est aussi découvrir le pays et l'époque où elle a été créée. Ce contexte aide à comprendre des traditions différentes des siennes.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "c548ed6098d85085512d30c34267d69a09a243f02fed023326a0ae6a5342fdd4": {
         "english": "In conclusion, I would keep these subjects in schools to foster self-expression, critical thinking and access to the arts. The aim is not simply to train artists, but to provide everyone with a more well-rounded education.",
@@ -493,6 +588,11 @@
       "ccd5cc209bbab550af3887c1b007fbfdf3126e733fa4c9a1c9e2bb16bb73d607": {
         "english": "Finally, schools can make cultural activities accessible to children from all backgrounds.",
         "french": "Enfin, l'école peut rendre les activités culturelles accessibles aux enfants de tous les milieux."
+      },
+      "cd3c242fc6aaf4ef3ccfba154fa110bf1a4aeb601cce0cabec162880ecdf9751": {
+        "english": "First of all, cultural subjects develop personal expression, sensitivity and critical thinking.",
+        "french": "Tout d'abord, les matières culturelles développent l'expression personnelle, la sensibilité et l'esprit critique.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "d097f9f294a97849c995a8010615f1630783e75e020f129a10f2b0d40f96a863": {
         "english": "A child whose parents cannot afford private lessons tries out a keyboard provided by the school. Over the term, they learn a short melody and play it at the class concert.",
@@ -511,6 +611,11 @@
         "english": "The child discovers an interest that the family budget might not otherwise have allowed them to explore.",
         "french": "Il découvre ainsi un intérêt que le budget familial ne lui aurait peut-être pas permis d'explorer.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "fb1ebce108cce2ea248bb28098f451a175bc9e8e7927e1fe1c84ebea0336dc88": {
+        "english": "School can therefore introduce pupils to a career path they might not have considered.",
+        "french": "L'école peut ainsi faire découvrir une voie professionnelle à laquelle l'élève n'aurait pas pensé.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
       }
     },
     "eo/tache-3/culture-p14": {
@@ -593,9 +698,19 @@
         "french": "On ne découvre pas seulement une recette, mais aussi ce qu'elle raconte d'une région.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "c5936eb4dc4bf90ea8a0a9427cae57903bb0a64e585490d74ba4263a7c8ebdf6": {
+        "english": "Yes, we can genuinely learn about other cultures without travelling. The aim isn't to know everything about a country. It's to understand some of its customs and what they mean. Resources and conversations available from home already make this kind of learning possible.",
+        "french": "Oui, on peut réellement connaître d'autres cultures sans voyager. Le but, ce n'est pas de tout connaître du pays. C'est de comprendre quelques habitudes et ce qu'elles veulent dire. Les ressources et les échanges accessibles depuis chez soi permettent déjà cet apprentissage.",
+        "review_note": "Editorial English aligned with the independently reviewed, conversational cultural-discovery introduction and general nuance. Previous exact-text translations retained."
+      },
       "cbdc912e9a981f064e091327e2cfec871f84ac7a6f71a3d6614e220b5e494a7a": {
         "english": "In this way, we discover local produce and the history behind a dish, not just the steps in a recipe.",
         "french": "On découvre ainsi des produits de la région et l'histoire d'un plat, pas seulement les étapes d'une recette."
+      },
+      "dbc9ca91552b8bc6e6a6208436808cd94fa1e058e384ea87ab7fc2642e2428ea": {
+        "english": "Although these ways of learning are useful, they do not fully replace first-hand experience. When we travel, we also discover the smells and the pace of everyday life. But not everyone can travel. These other ways of learning therefore remain valuable.",
+        "french": "Bien que ces moyens soient utiles, ils ne remplacent pas complètement l'expérience sur place. En voyage, on découvre aussi les odeurs et le rythme de la vie quotidienne. Mais tout le monde ne peut pas voyager. Ces autres moyens gardent donc toute leur valeur.",
+        "review_note": "Editorial English aligned with the independently reviewed, conversational cultural-discovery introduction and general nuance. Previous exact-text translations retained."
       },
       "dca5213441aa03da1ebf6847702df8adf8c7f7636f404db78fc04f3204240544": {
         "english": "During a video call, I could ask a Japanese friend why she takes her shoes off when she gets home. She would explain that her family sometimes sits on the floor and therefore prefers to keep it clean. I would understand this custom better.",
@@ -651,6 +766,11 @@
         "french": "Les repas ne servent pas seulement à se nourrir : ils peuvent aussi être un moment passé ensemble. En partageant un repas avec des habitants, on découvre à quelle heure ils mangent, avec qui et comment ils partagent les plats.",
         "review_note": "Render un moment passé ensemble naturally and make the eating companions and shared dishes explicit."
       },
+      "40f02b98c629e39e611f7374b62b38ea1e1cb8cd9268bb24e1da8d9735046077": {
+        "english": "In Senegal, a visitor shares a meal with a family. Everyone eats from the same large dish of rice and fish. The hosts explain that this evening meal gives them a chance to get together and talk after work.",
+        "french": "Au Sénégal, un visiteur partage un repas avec une famille. Tout le monde mange dans le même grand plat de riz et de poisson. Ses hôtes lui expliquent que ce repas du soir leur permet de se retrouver et de discuter après le travail.",
+        "review_note": "Editorial English aligned with the independently reviewed cuisine opening and clearer shared-meal and preservation examples. Existing translation history retained."
+      },
       "42699d2ce13fc1511a2a957ecaf7cf68f59340e2008432e138fd6987ee5167bb": {
         "english": "Meals do not merely show what people eat. They also reveal ways of serving and eating that are passed down from one generation to the next.",
         "french": "Les repas ne montrent pas seulement ce qu'on mange. Ils font aussi découvrir des façons de servir et de manger qu'on se transmet entre générations."
@@ -671,6 +791,11 @@
         "english": "Meal times give an idea of the rhythm of life. Within a family, the choice to eat together – even late in the evening – also shows the importance placed on these shared moments.",
         "french": "Les heures des repas donnent une idée du rythme de vie. Dans une famille, le choix de manger ensemble, même tard, montre aussi la place qu'on accorde à ces moments partagés."
       },
+      "5278f7d06c13c355de42880adc937671510f4a8bc4e79d1cbf5b8968ef0b9786": {
+        "english": "In Portugal, salted and dried fish is easy to find. In the past, this method helped preserve fish during long sea voyages. Fish prepared this way is still used in many recipes today.",
+        "french": "Au Portugal, on trouve facilement du poisson salé et séché. Autrefois, cette méthode permettait de conserver le poisson pendant les longs voyages en mer. On l'utilise encore aujourd'hui dans de nombreuses recettes.",
+        "review_note": "Editorial English aligned with the independently reviewed cuisine opening and clearer shared-meal and preservation examples. Existing translation history retained."
+      },
       "54a384a5cff2a7880383f9a0d10ee8cbbc6e7b9022fd724be44b32352e76ab0c": {
         "english": "However, a single dish or restaurant does not represent an entire country. Customs vary depending on the region, the family and their means. To gain a deeper understanding, one must also explore the language, history and other aspects of daily life.",
         "french": "Cependant, un plat ou un restaurant ne représente pas tout un pays. Les habitudes varient selon les régions, les familles et leurs moyens. Pour aller plus loin, il faut aussi découvrir la langue, l'histoire et d'autres aspects de la vie quotidienne."
@@ -684,6 +809,11 @@
         "english": "In Senegal, a visitor tastes a traditional rice-and-fish dish. The host shows them how to eat it by hand, without dropping any rice.",
         "french": "Au Sénégal, un visiteur goûte un plat traditionnel de riz et de poisson. Son hôte lui montre comment le manger à la main, sans laisser tomber de riz.",
         "review_note": "Keep the hypothetical visitor gender-neutral and preserve by hand without implying both hands."
+      },
+      "5d00cf62b8a967f9f760169ed5fc241c9365850acf51f61b75efc2cb45fd7a10": {
+        "english": "Yes, I think food helps us understand a culture better. Meals show us how people live together. Some recipes also tell part of the country's history. So we discover much more than dishes, even though this is not enough to understand everything.",
+        "french": "Oui, je pense que la cuisine permet de mieux connaître une culture. Les repas nous montrent comment les gens vivent ensemble. Certaines recettes racontent aussi une partie de l'histoire du pays. On découvre donc bien plus que des plats, même si cela ne suffit pas pour tout comprendre.",
+        "review_note": "Editorial English aligned with the independently reviewed cuisine opening and clearer shared-meal and preservation examples. Existing translation history retained."
       },
       "6906f088a8edbbeeb7dd1f4b9b4680763a307c03b1460dc50bb9a2fdd0878e5b": {
         "english": "In Portugal, a visitor is tasting a dish made with salted and dried cod. The person preparing it explains that this method was used to preserve the fish during long sea voyages.",
@@ -1161,6 +1291,11 @@
         "english": "This allows the recipient to feel recognised and appreciated, beyond simply receiving news.",
         "french": "Le destinataire peut ainsi se sentir reconnu et apprécié, au-delà des simples nouvelles."
       },
+      "11c89193095633ac259dca5ffd11d83a36b0f06e27644858e8a0482d39292452": {
+        "english": "Next, writing a letter invites us to choose our words and express our feelings more fully.",
+        "french": "Ensuite, écrire une lettre invite à choisir ses mots et à exprimer ses sentiments plus en profondeur.",
+        "review_note": "Editorial English aligned with the independently reviewed restoration of the Notion personal-letter arguments. Existing translation history is retained; no provider call or DeepL original was fabricated."
+      },
       "18f2c6c55645a6ad17a4d6ead8a2b684a89065050acebfe0bd44a405d14dbec5": {
         "english": "In conclusion, I regret the decline in letters, without rejecting digital communication. Keeping this gesture for certain occasions seems more realistic to me than wanting to return entirely to post.",
         "french": "En conclusion, je regrette le recul des lettres, sans rejeter le numérique. Garder ce geste pour certaines occasions me semble plus réaliste que de vouloir revenir entièrement au courrier.",
@@ -1170,9 +1305,19 @@
         "english": "However, a digital message can also be thoughtful, considerate, saved and accessible. Post is sometimes expensive, takes a long time to arrive and can get lost. I wouldn’t want to make it compulsory: reserving it for certain occasions would usefully complement our quick exchanges.",
         "french": "Cependant, un message numérique peut aussi être réfléchi, attentionné, sauvegardé et accessible. Le courrier coûte parfois cher, arrive lentement et peut se perdre. Je ne voudrais pas l'imposer : le garder pour certaines occasions compléterait utilement les échanges rapides."
       },
+      "292aabe3749314a84a7353b5dca9086e8f7fa67e929073a5fc4ac8844d15b12e": {
+        "english": "For her birthday, a student receives a card from her father. In it, he recalls their Sunday walks. She recognises his handwriting and feels as though she can hear him speaking to her.",
+        "french": "Pour son anniversaire, une étudiante reçoit une carte de son père. Il y rappelle leurs promenades du dimanche. Elle reconnaît son écriture et a l'impression de l'entendre lui parler.",
+        "review_note": "Editorial English aligned with the independently reviewed restoration of the Notion personal-letter arguments. Existing translation history is retained; no provider call or DeepL original was fabricated."
+      },
       "2d966a4add459e89f6d6d200f03c8e1a8d49c624ebdedb276fc5fb1bae42422c": {
         "english": "Digital messages are useful, but I think it’s a shame that we send fewer personal letters and cards. They can show that we’ve been thinking of someone, help us reflect on what we want to say, and leave a keepsake to pass on.",
         "french": "Les messages numériques sont utiles, mais je trouve dommage qu'on s'envoie moins de lettres et de cartes personnelles. Elles peuvent montrer qu'on a pensé à quelqu'un, aider à réfléchir à ce qu'on veut dire et laisser un souvenir à transmettre."
+      },
+      "4e8647e5a01136c1d6b1d0c062ef37e8f54f6804d61d42b99ecf1e9aca137271": {
+        "english": "In conclusion, I regret the decline in letters because of the attention they express, the reflection they encourage and the memories they pass on. Without giving up digital communication, we can keep this gesture for meaningful occasions.",
+        "french": "En conclusion, je regrette le recul des lettres pour l'attention qu'elles expriment, la réflexion qu'elles encouragent et les souvenirs qu'elles transmettent. Sans renoncer au numérique, on peut garder ce geste pour les occasions qui comptent.",
+        "review_note": "Editorial English aligned with the independently reviewed restoration of the Notion personal-letter arguments. Existing translation history is retained; no provider call or DeepL original was fabricated."
       },
       "5a1a2bf3721548db136347784a871f9097a5e6cf99b86a7fd910074718ccfaf3": {
         "english": "After moving house, a woman writes to the friend who put her up. She tells her how this hospitality enabled her to save her money for a flat’s deposit. Her friend realises just how much her help meant.",
@@ -1181,6 +1326,21 @@
       "6dad0496da887ea8937ffbb92577deef608cc04d2f4dc34f5ec327efbb3074cc": {
         "english": "When you recognise a loved one’s handwriting and read specific memories, you feel that they’ve been thinking of you. The words evoke a story we share, not a message that could be sent to anyone.",
         "french": "Quand on reconnaît l'écriture d'un proche et qu'on lit des souvenirs précis, on sent qu'il a pensé à nous. Les mots rappellent une histoire qu'on partage, pas un message qu'on pourrait envoyer à tout le monde."
+      },
+      "6f55dd0140349c4ec5ff05e8927826b25b13d76620cac8902ce40ec1e5b01b14": {
+        "english": "We can explain what we feel and why, rather than stopping at a quick phrase. By choosing precise words and linking our ideas, we help the recipient understand feelings that can be difficult to express aloud.",
+        "french": "On peut expliquer ce qu'on ressent et pourquoi, au lieu de s'arrêter à une formule rapide. En cherchant des mots précis et en reliant ses idées, on donne au destinataire les éléments pour comprendre des sentiments parfois difficiles à dire à voix haute.",
+        "review_note": "Editorial English aligned with the independently reviewed restoration of the Notion personal-letter arguments. Existing translation history is retained; no provider call or DeepL original was fabricated."
+      },
+      "71c2c1159f44b13c56c8e8cddb88f5b79bfba7c86c0f3abe0eefc71373c49d49": {
+        "english": "The other person then understands not only that we care about them, but also why they matter in our lives.",
+        "french": "L'autre comprend alors non seulement qu'on tient à lui, mais aussi pourquoi il compte dans notre vie.",
+        "review_note": "Editorial English aligned with the independently reviewed restoration of the Notion personal-letter arguments. Existing translation history is retained; no provider call or DeepL original was fabricated."
+      },
+      "7c22a8b617fc28fa2693c45f665a3197fa3b7d372051e22166d42839b7483661": {
+        "english": "When a loved one chooses a card, writes a few lines by hand and sends it to us, they set aside time for us. Their handwriting also makes us feel a little of their presence.",
+        "french": "Quand un proche choisit une carte, y écrit quelques lignes à la main et nous l'envoie, il nous consacre du temps. Son écriture nous donne aussi l'impression de retrouver un peu sa présence.",
+        "review_note": "Editorial English aligned with the independently reviewed restoration of the Notion personal-letter arguments. Existing translation history is retained; no provider call or DeepL original was fabricated."
       },
       "8fb8c1e120d1a602fc6d83381fcdb059ab6ca243f1278fda3514800b1c051614": {
         "english": "Before sending a letter, one can take the time to read it through again. This allows one to explain one’s reasons and tone down any harsh language, rather than replying in the heat of the moment.",
@@ -1192,6 +1352,11 @@
         "french": "Dans une boîte de famille, une jeune femme retrouve une lettre que sa grand-mère avait envoyée après son arrivée à l'étranger. Elle y lit le récit de son travail dans un café et de la petite chambre qu'elle louait.",
         "review_note": "Family box is unnatural, and her work/she was renting can incorrectly refer to the young reader rather than her grandmother."
       },
+      "a1e2d8bf21d027d699b4c7c2740604f113063639dde29c76815c7e96e1f5e288": {
+        "english": "First, a handwritten letter or card can have a special emotional value.",
+        "french": "Tout d'abord, une lettre ou une carte écrite à la main peut avoir une valeur affective particulière.",
+        "review_note": "Editorial English aligned with the independently reviewed restoration of the Notion personal-letter arguments. Existing translation history is retained; no provider call or DeepL original was fabricated."
+      },
       "a4843b22263c964913486cc0deb84de62412f906fe2215116a3f62a1cb558b48": {
         "english": "Yes, I find it a shame that people send fewer letters and personal cards, even though digital messages are very practical. Post still has a particular value in certain relationships and at certain moments.",
         "french": "Oui, je trouve dommage qu'on s'envoie moins de lettres et de cartes personnelles, même si les messages numériques sont très pratiques. Le courrier garde une valeur particulière dans certaines relations et à certains moments.",
@@ -1201,6 +1366,11 @@
         "english": "In this way, we preserve a personal record that future generations will be able to read.",
         "french": "On garde donc un témoignage personnel que d'autres générations pourront relire."
       },
+      "be5070ad9c56bec054f8b0a1f50f7d053cb94b585691cbb220c36b8c24f73703": {
+        "english": "In a love letter, a man reminds his partner how she encouraged him while he was looking for work. Instead of simply saying 'I love you', he explains how her support helped him regain confidence.",
+        "french": "Dans une lettre d'amour, un homme rappelle à sa compagne comment elle l'encourageait quand il cherchait du travail. Il explique que son soutien l'a aidé à reprendre confiance, au lieu de se limiter à un simple « je t'aime ».",
+        "review_note": "Editorial English aligned with the independently reviewed restoration of the Notion personal-letter arguments. Existing translation history is retained; no provider call or DeepL original was fabricated."
+      },
       "bea093e1613235641d861149a2a4fd17dee780a096320fd79f6e919400d4094d": {
         "english": "However, a digital message can also be thoughtful, caring, saved and accessible. It allows people to maintain daily contact with those close to them who live far away. Post can be expensive, arrive slowly and get lost, so it does not replace quick exchanges.",
         "french": "Cependant, un message numérique peut aussi être réfléchi, attentionné, sauvegardé et accessible. Il permet de garder un contact quotidien avec des proches éloignés. Le courrier coûte parfois cher, arrive lentement et peut se perdre : il ne remplace donc pas les échanges rapides.",
@@ -1209,6 +1379,11 @@
       "c269d31cd82171b165c6a94d1ca3aacd808a370da1e670373478aad7b5f60198": {
         "english": "In conclusion, I think it’s a shame that we write fewer letters and cards. Without giving up quick messages, we can reserve this gesture for thanking someone, explaining how we feel or leaving a memento.",
         "french": "En conclusion, je trouve dommage qu'on écrive moins de lettres et de cartes. Sans renoncer aux messages rapides, on peut garder ce geste pour remercier quelqu'un, expliquer ce qu'on ressent ou laisser un souvenir."
+      },
+      "ccffd947f2fda308541fda2688b425db109c87236747ffce954e3488c35de404": {
+        "english": "This gesture can therefore strengthen the emotional bond, even when we cannot see each other.",
+        "french": "Ce geste peut donc renforcer le lien affectif, même quand on ne peut pas se voir.",
+        "review_note": "Editorial English aligned with the independently reviewed restoration of the Notion personal-letter arguments. Existing translation history is retained; no provider call or DeepL original was fabricated."
       },
       "cdb94105041c8b3a49a3cc0e37f5031213c1f30c82dc2fa500f2d0fd7c886ac9": {
         "english": "In this way, the recipient receives a clearer explanation, rather than a reaction which they might misinterpret.",
@@ -1236,6 +1411,11 @@
       }
     },
     "eo/tache-3/culture-p19": {
+      "010ebc41756916598feee7f564d825fcc02781bfdc5ae626d7c3f68d7cf7ce71": {
+        "french": "Une personne regarde un documentaire sous-titré en français sur les Pays-Bas. Elle apprend qu'une partie du pays a été gagnée sur la mer grâce à des digues et à des pompes.",
+        "english": "A person watches a documentary about the Netherlands with French subtitles. They learn that part of the country was reclaimed from the sea using dikes and pumps.",
+        "review_note": "Editorial English aligned with the approved Netherlands documentary example; prior translations retained without a fabricated provider call."
+      },
       "08934ae7ea5f4d0268d800461e262e976bda58bfe25b6a1901e01ca02bab970d": {
         "english": "In everyday places, we see how residents meet up and spend time together. Repeated gestures and habits give us clues, even without understanding what is being said.",
         "french": "Dans les lieux du quotidien, on voit comment les habitants se retrouvent et passent du temps ensemble. Les gestes et les habitudes répétées nous donnent des indications, même sans comprendre ce qui se dit.",
@@ -1246,9 +1426,19 @@
         "french": "Un voyageur qui ne parle pas la langue revient souvent au même marché. Bien qu'il ne comprenne pas les conversations, il voit des habitants saluer les vendeurs, discuter puis repartir sans rien acheter.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "107767ec3dff8b350f15ac92c1e1cee2502b69da10d7c3166dfbeab19d64b13b": {
+        "french": "Dans un documentaire sous-titré en français, on voit des élèves japonais nettoyer leur classe. Leur enseignant explique que cette tâche leur apprend aussi à prendre soin des lieux qu'ils partagent.",
+        "english": "In a documentary with French subtitles, we see Japanese pupils cleaning their classroom. Their teacher explains that this task also teaches them to care for the places they share.",
+        "review_note": "Editorial English aligned with the independently reviewed country-language revision: clearer opening, concrete Tokyo observation, broader translated information and conversational school and housing examples. Existing translation history retained; no provider call fabricated."
+      },
       "1187c2d76abc7682b50232d1ee4ee3eaa13b1f9c9eeaaec6d14b600959daf4e0": {
         "english": "In a video, you might see a custom without understanding the reason behind it. With subtitles, you can also understand the locals’ explanations, even without speaking their language.",
         "french": "Dans une vidéo, on peut voir une habitude sans en comprendre la raison. Avec des sous-titres, on peut aussi comprendre les explications des habitants, même sans parler leur langue."
+      },
+      "144a160c7decc58879d88dac44b6d517c812114d7e3f215af81f13b2d961bf14": {
+        "french": "Il apprend ainsi à rester discret dans les transports, sans avoir eu besoin d'une explication en japonais.",
+        "english": "They learn to keep the noise down on public transport without needing an explanation in Japanese.",
+        "review_note": "Editorial English aligned with the independently reviewed country-language revision: clearer opening, concrete Tokyo observation, broader translated information and conversational school and housing examples. Existing translation history retained; no provider call fabricated."
       },
       "17514ce00f6647c3c04a181c2139200910bcccaf9e34ce0c7945ef0e77daf824": {
         "deepl_english": "Speaking the language would therefore help them to understand the reasons behind people’s views during the discussion.",
@@ -1271,6 +1461,11 @@
         "english": "Thanks to the subtitles, the viewer understands the purpose of this practice, without needing to speak Japanese.",
         "french": "Grâce aux sous-titres, elle comprend le but de cette pratique, sans avoir besoin de parler japonais.",
         "review_note": "She ambiguously follows the teacher and pupils; the source refers to the documentary viewer."
+      },
+      "2476e4d59f7ec35cb6e4caba4f79e12f3d07f1be4418ac88ec31b2fa5c58bba5": {
+        "french": "Cependant, parler la langue ne suffit pas toujours. Le ton, les gestes et les références culturelles comptent aussi pour comprendre ce qu'une personne veut dire. On peut donc connaître tous les mots d'une phrase sans vraiment comprendre son message.",
+        "english": "However, speaking the language is not always enough. To understand what someone means, their tone of voice, gestures and cultural references matter too. We can know every word in a sentence without really understanding the message.",
+        "review_note": "Editorial English aligned with the reviewed general country-language nuance on tone, gestures and cultural references. Prior translations retained; no provider call fabricated."
       },
       "272ee0f509499b3c62adc2462f394ba463d0947b857e42cad138f779412f3730": {
         "deepl_english": "He discovers that this market is also a meeting place, not just somewhere to shop.",
@@ -1309,6 +1504,11 @@
         "french": "En conclusion, la langue n'est pas un mur infranchissable : on peut déjà apprendre en observant et grâce aux traductions. L'apprendre aide ensuite à suivre davantage d'échanges et à mieux comprendre les habitants.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "611cb39b6be4378ce99c6c88e4f24951b9b1b7dd26dd42c4cd32ee480cde9ad5": {
+        "french": "Les articles traduits et les documentaires sous-titrés permettent de s'informer dans une langue qu'on comprend. On peut ainsi découvrir l'histoire d'un pays, suivre son actualité ou comprendre comment fonctionnent ses écoles.",
+        "english": "Translated articles and subtitled documentaries let us learn about a country in a language we understand. We can discover its history, follow current events or understand how its schools work.",
+        "review_note": "Editorial English aligned with the independently reviewed country-language revision: clearer opening, concrete Tokyo observation, broader translated information and conversational school and housing examples. Existing translation history retained; no provider call fabricated."
+      },
       "6241d8c3e6c0d31861296ea1d5eaebf51e54d62d5fa35f7a46a09e4c9ad6d6e3": {
         "deepl_english": "When watching a video, you can see what the locals are doing, but not necessarily why they’re doing it. With subtitles in a language you know, you can understand their explanations.",
         "english": "When we watch a video, we see what local people do, but not necessarily why they do it. With subtitles in a language we know, we can understand their explanations.",
@@ -1318,6 +1518,11 @@
       "66127f86474ef0e4fdfbc35a3bc11e95d1406c35255046d6614fd286fe25211c": {
         "english": "For example, someone who speaks French but not Japanese watches a documentary about schools in Japan. They see pupils cleaning their classroom. The French subtitles translate a teacher’s explanation: the pupils do this to learn how to look after the spaces they share.",
         "french": "Par exemple, une personne qui parle français mais pas japonais regarde un documentaire sur les écoles au Japon. Elle voit des élèves nettoyer leur classe. Les sous-titres en français traduisent l'explication d'un enseignant : les élèves font cela pour apprendre à prendre soin des lieux qu'ils utilisent ensemble."
+      },
+      "6c1b16141e433c91a18833f070f66f5a9003390f418eec0ed43da7415a5ed883": {
+        "french": "Un nouvel arrivant a lu un document traduit sur un projet de logements dans son quartier. Il sait ce qu'on veut construire. Mais à la réunion, il n'arrive pas à suivre la discussion entre les voisins : il ne comprend pas pourquoi certains sont pour et d'autres contre.",
+        "english": "A newcomer has read a translated document about a housing proposal in their neighbourhood. They know what is being proposed. But at the meeting, they cannot follow the discussion between neighbours: they do not understand why some support the project and others oppose it.",
+        "review_note": "Editorial English aligned with the independently reviewed country-language revision: clearer opening, concrete Tokyo observation, broader translated information and conversational school and housing examples. Existing translation history retained; no provider call fabricated."
       },
       "7565d65edd6646dfa5e3a0d24c2e1de1b35920f216dbe3f52534b953bcb41727": {
         "english": "Someone who doesn’t speak Japanese is watching a subtitled documentary about schools in Japan. They see pupils cleaning their classroom. A teacher explains that the aim is to teach them to look after the spaces they share.",
@@ -1336,6 +1541,11 @@
         "english": "A newcomer reads a translated presentation on a housing project. At the neighbourhood meeting, however, he does not understand the discussions between the residents. He knows what is being proposed, but not why some neighbours are in favour and others against it.",
         "french": "Un nouvel arrivant lit une présentation traduite d'un projet de logements. À la réunion du quartier, il ne comprend pourtant pas les échanges entre les habitants. Il sait ce qui est proposé, mais pas pourquoi certains voisins sont pour et d'autres contre."
       },
+      "8ab480dfe6ec4ad26594b9c79d9dc737d3f85d5d37f42abc86a32d56b37b275f": {
+        "french": "Dans les lieux du quotidien, on voit comment les habitants se comportent. Les gestes et les habitudes répétées nous donnent des indications, même sans comprendre ce qui se dit.",
+        "english": "In everyday places, we can see how local people behave. Repeated actions and habits give us clues, even without understanding what is being said.",
+        "review_note": "Editorial English aligned with the independently reviewed country-language revision: clearer opening, concrete Tokyo observation, broader translated information and conversational school and housing examples. Existing translation history retained; no provider call fabricated."
+      },
       "8dc01835341057a12fcf7368a9c7d4c3578f740af98ffd5919b268c405b7c76c": {
         "deepl_english": "By observing a market, you discover the products on sale and what the locals are buying. You learn this first-hand, without an interpreter having to explain everything to you.",
         "english": "By observing a market, we discover the products on sale and what local people buy. We learn this first-hand, without an interpreter having to explain everything to us.",
@@ -1350,6 +1560,11 @@
         "english": "Someone who speaks French but not Japanese watches a documentary about schools in Japan: pupils clean their classroom. The French subtitles translate a teacher's explanation: the pupils do this to learn to care for the places they use together.",
         "french": "Une personne qui parle français mais pas japonais regarde un documentaire sur les écoles au Japon : des élèves nettoient leur classe. Les sous-titres en français traduisent l'explication d'un enseignant : ils le font pour apprendre à prendre soin des lieux qu'ils utilisent ensemble.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "9c20b0d250f2e3a1ec05fac1ea491d6bc7665396a194ea5214235f676ed305fa": {
+        "french": "Oui, on peut déjà apprendre beaucoup sur un pays sans parler sa langue. On peut observer la vie quotidienne et utiliser des traductions pour comprendre certaines habitudes. Mais sans la langue, les discussions spontanées restent difficiles à suivre.",
+        "english": "Yes, we can already learn a lot about a country without speaking its language. We can observe everyday life and use translations to understand some of its customs. But without the language, spontaneous discussions remain difficult to follow.",
+        "review_note": "Editorial English aligned with the independently reviewed country-language revision: clearer opening, concrete Tokyo observation, broader translated information and conversational school and housing examples. Existing translation history retained; no provider call fabricated."
       },
       "a05543e07da6123613a880679effa2d0c748908d0f69a98bbe8cd8fca1c08eb6": {
         "english": "However, speaking the language is not always enough to understand what is going on. In this meeting, someone might refer to a previous project that was abandoned. If you are not familiar with that background, you will understand the words, but not necessarily the reaction.",
@@ -1382,11 +1597,31 @@
         "french": "Cependant, parler la langue ne suffit pas toujours. À la réunion de quartier, un voisin peut dire : « Ça va encore finir comme la dernière fois. » Il pense à un ancien projet abandonné. Sans connaître cette histoire, on comprend ses mots, mais pas forcément pourquoi il se méfie du nouveau projet.",
         "review_note": "Keep the complete concrete meeting/previous-project reference, make the neighbour the clear antecedent and preserve collective on/we."
       },
+      "ce05f555e6261c2c88a82d0efbd10e837fed86f238735fe673b806f8d2547141": {
+        "french": "Ensuite, grâce aux traductions, on peut s'informer sur le pays sans parler sa langue.",
+        "english": "Next, translations let us learn about the country without speaking its language.",
+        "review_note": "Editorial English aligned with the independently reviewed country-language revision: clearer opening, concrete Tokyo observation, broader translated information and conversational school and housing examples. Existing translation history retained; no provider call fabricated."
+      },
+      "e1749d578abea45e6007563c04774f799f208ce1d902373a8b4af7c3ad3e3d9d": {
+        "french": "Elle comprend alors pourquoi la protection contre les inondations occupe une place aussi importante dans ce pays.",
+        "english": "They then understand why protection against flooding plays such an important role in the country.",
+        "review_note": "Editorial English aligned with the approved Netherlands example's country-knowledge consequence; prior translations retained without a fabricated provider call."
+      },
+      "e75c3205fee8c87eb99ecffe30050955aa1385cd24d88e000f9a1234584f284a": {
+        "french": "On comprend alors que, dans cette école, apprendre à vivre ensemble fait aussi partie de l'éducation.",
+        "english": "We learn that, at this school, education also includes learning to live as part of a community.",
+        "review_note": "Editorial English aligned with the independently reviewed country-language revision: clearer opening, concrete Tokyo observation, broader translated information and conversational school and housing examples. Existing translation history retained; no provider call fabricated."
+      },
       "f6f544f04b041f0334aed263c7baae655c068383ff315a66f4d4fba2cd2c5b8f": {
         "deepl_english": "Thanks to the subtitles, she understands why these pupils are cleaning their classroom, even without speaking Japanese.",
         "english": "Thanks to the subtitles, the viewer understands why these pupils clean their classroom, without speaking Japanese.",
         "french": "Grâce aux sous-titres, elle comprend pourquoi ces élèves nettoient leur classe, sans parler japonais.",
         "review_note": "The source refers to the gender-unspecified viewer, not an unexplained she; retain the classroom-cleaning explanation."
+      },
+      "f84b4975bf2f35df809b3cce6450994b33e187c36dd6d0081c1a5d3c0a70eb5c": {
+        "french": "À Tokyo, un voyageur prend le métro chaque matin. Bien qu'il ne comprenne pas les conversations, il remarque que les passagers parlent à voix basse et évitent les appels téléphoniques.",
+        "english": "In Tokyo, a traveller takes the metro every morning. Although they do not understand the conversations, they notice that passengers speak quietly and avoid making phone calls.",
+        "review_note": "Editorial English aligned with the independently reviewed country-language revision: clearer opening, concrete Tokyo observation, broader translated information and conversational school and housing examples. Existing translation history retained; no provider call fabricated."
       },
       "fdd5ffe90e484ceaa66f4d38fedc636c36b699a6efae521f7e7d2046250740eb": {
         "deepl_english": "He therefore has a better understanding of the workings of this market, without having needed to speak the language.",
@@ -1482,6 +1717,21 @@
       }
     },
     "eo/tache-3/culture-p20": {
+      "0197e7307dec78ee509f53f73da8ee25744cae1aae09876e5013b41ed237a3b8": {
+        "english": "This enriches our knowledge of art and history without necessarily having read a book on the subject.",
+        "french": "On enrichit ainsi sa culture artistique et historique sans avoir forcément lu de livre sur le sujet.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "13a65463899727b44f56b937e9875f416b401d01cb97ff8d25a3da92ae253964": {
+        "english": "That said, documentaries and cultural programmes also allow us to deepen our knowledge.",
+        "french": "Cela dit, les documentaires et les émissions culturelles permettent aussi d'approfondir ses connaissances.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "14d9ee4e26b5b4d869de7f288aa878e2827ca598051167299229a0df6405d966": {
+        "english": "Of course, a book can complement a documentary or a workshop. To study a writer's style, reading their text remains particularly useful. But reading a lot is not enough: we still need to reflect on, understand and discuss what we read.",
+        "french": "Bien sûr, un livre peut compléter un documentaire ou un atelier. Pour étudier le style d'un écrivain, lire son texte reste particulièrement utile. Mais lire beaucoup ne suffit pas : encore faut-il réfléchir, comprendre et discuter ce que l'on lit.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
       "24926512576229c10423eb804a6f66e39d0e1b5b6a0e0b70f1aee46eca7d274f": {
         "english": "That said, listening also allows us to deepen our knowledge.",
         "french": "Cela dit, l'écoute permet aussi d'approfondir ses connaissances.",
@@ -1499,6 +1749,11 @@
       "441528ff24c157d3f916d4b668e5675f9f752a273bf981d85008e8886d14c9e3": {
         "english": "A lecture can explain a subject step by step, just like a book. In the case of music, audio clips also allow us to hear directly what is being explained to us.",
         "french": "Une conférence peut expliquer un sujet étape par étape, comme un livre. Pour la musique, les extraits sonores permettent aussi d'entendre directement ce qu'on nous explique."
+      },
+      "4c69ac7499247056a494463a8fa938f13d771d3641f1cd9127f9dbf509b904cc": {
+        "english": "In conclusion, reading is not essential to being cultured, even though it remains very useful. Documentaries and practice also provide knowledge: these paths can complement rather than oppose one another.",
+        "french": "En conclusion, la lecture n'est pas indispensable pour être cultivé, même si elle reste très utile. Les documentaires et la pratique apportent aussi des connaissances : ces chemins peuvent se compléter plutôt que s'opposer.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "559545b6e0f1d45bf55f9a372c3cfa8f60015853b091c36d365250e325b49c0b": {
         "english": "During a lecture on jazz, a musician plays a melody, then improvises a variation on the spot. He explains what he has changed. By listening to the excerpts again, a listener understands how improvisation works, without needing to refer to a text.",
@@ -1520,6 +1775,11 @@
       "8797972b9ac0cc2215d5efc7c7520a56e2a5014e9da96ed23cf15a1ac9314df4": {
         "english": "Culture therefore also encompasses skills that are learnt through practice.",
         "french": "La culture comprend donc aussi des savoir-faire qu'on apprend en faisant."
+      },
+      "8bf7daf5b6f68990b375766f42d882db157c7fb3652a96bc7b3c4b256e33cf6e": {
+        "english": "The images let us examine a work of art in detail, while the commentary explains the context in which it was created. We can then connect what we see with history and understand its message, rather than simply recognising a famous painting.",
+        "french": "Les images permettent d'observer une œuvre en détail, tandis que les commentaires expliquent le contexte dans lequel elle a été créée. On peut ainsi relier ce qu'on voit à l'histoire et comprendre son message, plutôt que de reconnaître seulement un tableau célèbre.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "9300623cc1f8fc1a80d2305a6975f603b3ea7b38146c9d67e84fa5a9fc90741d": {
         "english": "For example, an essay on car use in towns highlights the problems of pollution, but also explains that some residents have no bus service to take them to work. The reader understands why a total ban might cause them difficulties.",
@@ -1569,6 +1829,11 @@
       "c7e89ed9638e09cceec60fe312ed8859b51c9d034e770cb50838041ed1584996": {
         "english": "Workshops enable you to learn a craft and discover its history. By taking part, you learn the techniques by doing them yourself, with someone to guide you.",
         "french": "Les ateliers permettent d'apprendre un savoir-faire et de découvrir son histoire. En y participant, on apprend les gestes en les faisant soi-même, avec quelqu'un pour nous guider."
+      },
+      "cdb445ca0906a23372b548716c147684e98a61f61af29a09884db8415884b62c": {
+        "english": "Someone watches a documentary about Picasso's Guernica. Close-ups show the figures crying out, then the commentary explains the bombing that inspired the painting. They then understand why this work condemns the violence of war.",
+        "french": "Une personne regarde un documentaire sur Guernica de Picasso. Des gros plans montrent les personnages qui crient, puis le commentaire explique le bombardement qui a inspiré le tableau. Elle comprend ainsi pourquoi cette œuvre dénonce la violence de la guerre.",
+        "review_note": "Editorial English aligned with the independently reviewed Culture revision; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "cfe4e0f9ce5edd0e13518a3fe5f8df4477600357f97e011404c9486555c6e973": {
         "deepl_english": "In conclusion, reading is not essential to being cultured. It remains very useful, but listening, discussion and practice also enable us to understand and learn. These ways of cultivating oneself can complement one another.",
@@ -1644,6 +1909,11 @@
         "french": "Il arrive ainsi à son hôtel et peut se sentir plus capable de faire face à un autre problème.",
         "review_note": "Keep the particular traveller as the clear subject and another problem rather than broadening to any future problems."
       },
+      "78628b29e02c329cd2a1201e0c87ff7198f3d9dd1ebbcda73e423651e4a226c8": {
+        "french": "Une étudiante voyage seule pour la première fois. Son train est annulé et le suivant ne part que le lendemain. Elle se renseigne à la gare, puis achète un billet de bus pour poursuivre son voyage le jour même.",
+        "english": "A student is travelling alone for the first time. Her train is cancelled, and the next one does not leave until the following day. She asks for information at the station, then buys a bus ticket to continue her journey that same day.",
+        "review_note": "Editorial English aligned with the approved first-solo-trip example; prior translations retained without a fabricated provider call."
+      },
       "83635fa474a1254584f5560db45157380dd555ec81e358f92e57e9263562acac": {
         "english": "There’s no need to negotiate every stop or break with a group. This flexibility can make the trip more relaxing for someone whose interests differ from those of their loved ones.",
         "french": "Il n'est pas nécessaire de négocier chaque visite ou chaque pause avec un groupe. Cette souplesse peut rendre le séjour plus reposant pour une personne dont les centres d'intérêt diffèrent de ceux de ses proches."
@@ -1669,6 +1939,11 @@
         "english": "I understand why some people prefer to travel alone: you can decide on your own itinerary and meet new people. It can also help build self-confidence. But I wouldn’t say that this way of travelling suits everyone.",
         "french": "Je comprends qu'on préfère voyager seul : on peut décider de son programme et faire de nouvelles rencontres. Cela peut aussi aider à prendre confiance en soi. Mais je ne dirais pas que cette façon de voyager convient à tout le monde."
       },
+      "afcb5322dfd4870b5551fb2e649740f26212cdfbf5c855f4a630f82a0e39c0fb": {
+        "french": "Une personne passionnée de peinture peut consacrer l'après-midi à une exposition. Elle n'a pas à écourter sa visite pour accompagner des amis qui préféreraient faire les magasins, ni à leur demander de l'attendre.",
+        "english": "Someone who is passionate about painting can spend the afternoon at an exhibition. They don’t have to cut their visit short to accompany friends who would rather go shopping, nor do they have to ask those friends to wait.",
+        "review_note": "Removed only the unnecessary early-return clause from the painting example and its English; original translation and provider history retained."
+      },
       "ba00734123103ef6bc1d693c570086a686a82bcedffb7a8223dbc7805625cb8b": {
         "deepl_english": "When a problem arises, you should look for a solution without waiting for a loved one to decide for you. You can ask for information, then weigh up the options and make a choice. Successfully managing this situation can boost your self-confidence.",
         "english": "When a problem arises, we have to look for a solution without waiting for someone close to us to decide for us. We can ask for information, then compare the options and choose. Successfully handling this situation can build self-confidence.",
@@ -1686,6 +1961,11 @@
       "eb247907128a025c7e3cf3d012c073c01adfbd0756c9ee226b3a8ed6c0549fb8": {
         "english": "For example, a solo traveller learns that their train has been cancelled. A member of staff offers them a bus or a later train. They compare the timetables and choose the bus so they can arrive before their hotel’s reception closes. They then let the hotel know they’ll be late.",
         "french": "Par exemple, un voyageur seul apprend que son train est annulé. Un agent lui propose un bus ou un train plus tard. Il compare les horaires et choisit le bus pour arriver avant la fermeture de la réception de son hôtel. Puis il prévient l'hôtel de son retard."
+      },
+      "ed7a6881c0b68b6ca43383bb2f4872904787d76028b70a6addec94d9dd13cd7e": {
+        "french": "Elle se rend compte qu'elle peut gérer un imprévu sans attendre qu'un proche s'en charge.",
+        "english": "She realises that she can handle an unexpected problem without waiting for someone close to her to take care of it.",
+        "review_note": "Editorial English aligned with the approved solo-travel autonomy consequence; prior translations retained without a fabricated provider call."
       },
       "fbf9cdb87e9373cefc2cb49615f8466c93a5f25007de9c8acdfd5efca8df8a2b": {
         "english": "However, some people may need to share their emotions as they experience them. Without company, an enjoyable visit may seem less pleasant to them. Reservations and budget also limit freedom: the choice depends on personality and the conditions of the stay.",
@@ -2383,6 +2663,11 @@
         "french": "En conclusion, je ne condamne pas toute la télé-réalité, mais ses effets méritent de l'attention. En discuter aide les jeunes à distinguer ce qui est mis en spectacle de leur propre vie, sans prendre les candidats pour des modèles en tout.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "7d166b3a0d54746e63293bc88e1a53c7bfdaf023250fb3311145c9eb74934783": {
+        "english": "When contestants gain attention by insulting or mocking others, disrespect can look like a way to be funny or stand out. Over time, young viewers may pay more attention to the joke than to the person being hurt.",
+        "french": "Quand des candidats attirent l'attention en insultant ou en se moquant des autres, le manque de respect peut sembler être une façon de faire rire ou de se faire remarquer. À force, un jeune peut prêter plus d'attention à la plaisanterie qu'à la personne blessée.",
+        "review_note": "Editorial English aligned with the independently reviewed and approved reality-TV normalisation argument. Existing translation history is retained; no provider call or DeepL original was fabricated."
+      },
       "847e44baeddf1cb540a6049183583b73a4f8a396d578fde874510cfd72e52f2f": {
         "english": "This can lead them to underestimate the value of their studies and their work.",
         "french": "Cela peut lui faire sous-estimer la valeur de ses études et de son travail."
@@ -2390,6 +2675,11 @@
       "8880abb74fff1ede459b71ecb8fb9ab1eb757a2f0abd0a7748adfdd0475ac106": {
         "english": "In conclusion, I would not condemn all these programmes. But we need to discuss them so that young people can distinguish between the show and their own lives, in their plans, relationships and purchases.",
         "french": "En conclusion, je ne condamnerais pas toutes ces émissions. Mais il faut en discuter pour que les jeunes puissent distinguer le spectacle de leur propre vie, dans leurs projets, leurs relations et leurs achats."
+      },
+      "8a0c90a40218610b08fa05c47997d830eda1d3b900e3f7cfb0be13d1805bedb7": {
+        "english": "For example, a programme might replay a contestant's remark about another participant's appearance among its funniest moments. The laughter is highlighted, but the targeted person's discomfort is barely acknowledged.",
+        "french": "Par exemple, une émission peut reprendre une remarque sur le physique d'un candidat parmi ses moments les plus drôles. On met en avant les rires, mais on montre à peine le malaise de la personne visée.",
+        "review_note": "Editorial English aligned with the independently reviewed and approved reality-TV normalisation argument. Existing translation history is retained; no provider call or DeepL original was fabricated."
       },
       "8b00cc634da523f8adf37c58ae7a0588f7f38574e140b460cf4b8be965be9514": {
         "deepl_english": "A teenager orders the shoes recommended by a contestant they like. The contestant presents them as their favourites. After the purchase, they notice the words ‘paid partnership’: the brand had paid the contestant to talk about them.",
@@ -2453,6 +2743,11 @@
         "english": "The teenager therefore made a purchase believing they were following a personal recommendation, without realising it was advertising.",
         "french": "Il a donc fait un achat en croyant suivre un avis personnel, sans reconnaître la publicité.",
         "review_note": "The complete-model final review identified an ambiguous return to masculine pronouns after the example consistently distinguishes the teenager from the contestant using singular they. Explicitly name the purchaser and retain singular they. The complete preceding row is retained in editorial_history; no provider call or DeepL original was fabricated."
+      },
+      "f73ab32ad4e1833e706b3b1a49549ff62e726ac51258533fdf5cd65c0288bb9c": {
+        "english": "A young viewer may then find a remark acceptable because it gets a laugh, even if it humiliates someone.",
+        "french": "Un jeune risque alors de trouver une remarque acceptable parce qu'elle fait rire, même si elle humilie quelqu'un.",
+        "review_note": "Editorial English aligned with the independently reviewed and approved reality-TV normalisation argument. Existing translation history is retained; no provider call or DeepL original was fabricated."
       }
     },
     "eo/tache-3/culture-p33": {
@@ -3271,6 +3566,11 @@
       "a66633836b0b3c632172fe2becc2cdd186846b26693149e8c6845b64f7bbf4e8": {
         "english": "Finally, you need to reorganise the routines you used to have under control.",
         "french": "Enfin, il faut réorganiser des routines que l'on maîtrisait auparavant."
+      },
+      "b374297b1a95d9e38d37f4fc3f077b07040669ffbe234280d5539acacb91f88f": {
+        "french": "Un dimanche, un parent récemment installé dans le pays cherche un médecin pour son enfant qui a de la fièvre. Comme il ne connaît pas encore les services de santé du quartier, il demande conseil à une voisine. Elle lui donne le numéro d'une clinique sans rendez-vous pour qu'il puisse vérifier les horaires avant de s'y rendre.",
+        "english": "One Sunday, a parent who has recently moved to the country needs a doctor for their child, who has a fever. Unfamiliar with local healthcare services, they ask a neighbour for advice. She gives them a walk-in clinic's phone number so they can check its opening hours before going.",
+        "review_note": "Editorial English aligned with the independently reviewed clinic-example refinement. Historical rows retained; no provider call or DeepL original was fabricated."
       },
       "bb0e33d41d8bfc8eda8ce866df991e644bd15fbccb871b0102e3bf51589db17a": {
         "english": "One Sunday, a newly arrived parent finds that their child has a fever. They do not know which clinic is open. A neighbour points them to a walk-in clinic in the neighbourhood: they now know where to ask for information.",

@@ -15,7 +15,7 @@ REVIEWED_CLAUSES = {
     "culture-p11": "il vaut mieux que l'information soit vérifiée auprès de l'organisme compétent",
     "culture-p12": "à condition que le programme et la durée correspondent réellement à ce que l'on cherche",
     "culture-p13": "sans que les parents aient à payer des cours privés",
-    "culture-p14": "Bien qu'un documentaire ne fasse pas vivre l'ambiance d'une fête",
+    "culture-p14": "Bien que ces moyens soient utiles",
     "culture-p15": "Bien que la cuisine ouvre une porte sur un pays",
     "culture-p16": "sans qu'on ait d'amis",
     "culture-p17": "il arrive qu'on ne puisse pas rentrer",

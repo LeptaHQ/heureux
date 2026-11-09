@@ -122,6 +122,7 @@ class WritingSujetProgress:
     explicitly_completed: bool
     is_personalized: bool
     has_highlight: bool
+    started_at: datetime | None = None
 
     @property
     def started(self) -> int:
@@ -142,8 +143,9 @@ def writing_sujet_progress_by_id(
     sujet_ids,
     *,
     task_id=None,
+    with_started_at=False,
 ) -> dict[int, WritingSujetProgress]:
-    """Calculate EE Tâche 1/2 progress from direct response activity."""
+    """Calculate EE1/2 progress, optionally reusing activity reads for dates."""
     ids = {
         int(sujet_id)
         for sujet_id in sujet_ids
@@ -152,20 +154,28 @@ def writing_sujet_progress_by_id(
     if not ids:
         return {}
 
+    personal = PersonalWritingResponse.objects.filter(
+        user=user, sujet_id__in=ids,
+    ).order_by().annotate(is_main=Value(True))
+    edits = WritingResponseOverride.objects.filter(
+        user=user, sujet_id__in=ids,
+    ).exclude(body="").order_by().annotate(is_main=Value(False))
+    activity_fields = ["sujet_id", "is_main"]
+    if with_started_at:
+        personal = personal.annotate(activity_at=F("created_at"))
+        edits = edits.annotate(activity_at=F("updated_at"))
+        activity_fields.append("activity_at")
     activity = list(
-        PersonalWritingResponse.objects.filter(
-            user=user,
-            sujet_id__in=ids,
-        ).order_by().annotate(is_main=Value(True)).values_list("sujet_id", "is_main").union(
-            WritingResponseOverride.objects.filter(
-                user=user, sujet_id__in=ids,
-            ).exclude(body="").order_by().annotate(
-                is_main=Value(False),
-            ).values_list("sujet_id", "is_main"),
-        )
+        personal.values_list(*activity_fields).union(
+            edits.values_list(*activity_fields),
+        ),
     )
-    personalized_ids = {sujet_id for sujet_id, is_main in activity if is_main}
-    edited_ids = {sujet_id for sujet_id, is_main in activity if not is_main}
+    personalized_ids = {row[0] for row in activity if row[1]}
+    edited_ids = {row[0] for row in activity if not row[1]}
+    started_at = {}
+    if with_started_at:
+        for sujet_id, _is_main, at in activity:
+            started_at[sujet_id] = min(started_at.get(sujet_id, at), at)
     completed_ids = set(
         WritingSujetCompletion.objects.filter(
             user=user,
@@ -182,11 +192,15 @@ def writing_sujet_progress_by_id(
         highlights = highlights.filter(
             Q(task_id=task_id) | Q(task_id__isnull=True)
         )
-    source_keys = highlights.values_list("source_key", flat=True)
-    for source_key in source_keys:
+    highlight_fields = ["source_key", "created_at"] if with_started_at else ["source_key"]
+    for row in highlights.values_list(*highlight_fields):
+        source_key = row[0]
         sujet_id = writing_sujet_id_from_source_key(source_key)
         if sujet_id in ids:
             highlighted_ids.add(sujet_id)
+            if with_started_at:
+                at = row[1]
+                started_at[sujet_id] = min(started_at.get(sujet_id, at), at)
 
     results = {}
     for sujet_id in ids:
@@ -208,6 +222,7 @@ def writing_sujet_progress_by_id(
             explicitly_completed=explicitly_completed,
             is_personalized=is_personalized,
             has_highlight=has_highlight,
+            started_at=started_at.get(sujet_id),
         )
     return results
 

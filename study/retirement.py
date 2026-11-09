@@ -37,7 +37,9 @@ def _direct_retired_task_query():
 
 
 def retired_vocabulary():
-    sources = Prompt.objects.filter(phrases=OuterRef("pk"))
+    # Uncorrelated membership sets let PostgreSQL hash the source relationships
+    # once, rather than revisiting them for every card/prompt occurrence.
+    sources = Prompt.objects.filter(phrases__isnull=False)
     prompts = sources.filter(
         is_active=True, theme__is_active=True,
         theme__task__is_active=True, theme__task__part__is_active=True,
@@ -45,16 +47,14 @@ def retired_vocabulary():
     retired = _retired_task_query()
     direct_retired = _direct_retired_task_query()
     questions = ComprehensionQuestion.objects.filter(
-        vocabulary=OuterRef("pk"), test__is_active=True,
+        vocabulary__isnull=False, test__is_active=True,
     )
-    return Phrase.objects.alias(
-        _retired=Exists(sources.filter(retired)),
-        _other=Exists(prompts.exclude(retired)),
-        _comprehension=Exists(questions),
-    ).filter(
-        Q(_retired=True) | direct_retired,
+    return Phrase.objects.filter(
+        Q(pk__in=sources.filter(retired).order_by().values("phrases"))
+        | direct_retired,
     ).exclude(
-        Q(_other=True) | Q(_comprehension=True)
+        Q(pk__in=prompts.exclude(retired).order_by().values("phrases"))
+        | Q(pk__in=questions.order_by().values("vocabulary"))
         | (
             Q(vocabulary_theme__is_active=True, vocabulary_theme__task__is_active=True)
             & ~direct_retired
@@ -64,7 +64,10 @@ def retired_vocabulary():
 
 def active_phrases(queryset=None):
     queryset = Phrase.objects.all() if queryset is None else queryset
-    return queryset.exclude(pk__in=retired_vocabulary())
+    # Test retirement only for candidate rows, not the entire phrase catalogue.
+    return queryset.filter(~Exists(
+        retired_vocabulary().filter(pk=OuterRef("pk")),
+    ))
 
 
 def _retired_scope_sources(scope):

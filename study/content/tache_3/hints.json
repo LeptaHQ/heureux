@@ -204,8 +204,8 @@
         },
         {
           "point": {
-            "french": "Un métier réglementé peut exiger des étapes supplémentaires.",
-            "english": "A regulated occupation may require extra steps."
+            "french": "La préparation transforme une ambition générale en étapes réalisables.",
+            "english": "Preparation turns an ambition into achievable steps."
           },
           "example": {
             "french": "Formation complémentaire éventuelle : prévoir du temps et un budget.",
@@ -402,8 +402,8 @@
             "english": "Practical contacts need rebuilding."
           },
           "example": {
-            "french": "Enfant fiévreux un dimanche : une voisine indique une clinique où se renseigner.",
-            "english": "Child with a fever on Sunday: a neighbour identifies a clinic to ask for information."
+            "french": "Enfant fiévreux un dimanche : une voisine donne le numéro d'une clinique sans rendez-vous pour vérifier les horaires.",
+            "english": "Child with a fever on Sunday: a neighbour gives a walk-in clinic's number to check opening hours."
           }
         }
       ],
@@ -424,8 +424,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Les traditions prolongent une histoire personnelle.",
-            "english": "Traditions maintain continuity with a personal history."
+            "french": "Des habitudes familières aident à se sentir chez soi.",
+            "english": "Familiar habits help us feel at home."
           },
           "example": {
             "french": "Un plat familier peut réconforter sans empêcher les découvertes locales.",
@@ -434,8 +434,8 @@
         },
         {
           "point": {
-            "french": "La famille transmet une autre culture aux enfants.",
-            "english": "The family passes another culture on to children."
+            "french": "Transmettre les souvenirs familiaux pour que les enfants comprennent leurs origines.",
+            "english": "Pass on family memories so children can understand their origins."
           },
           "example": {
             "french": "Fête : explication du repas et souvenirs des grands-parents au téléphone.",
@@ -454,8 +454,8 @@
         }
       ],
       "nuance": {
-        "french": "Traditions évolutives, sans contrainte sur l'enfant ni refus des lois.",
-        "english": "Traditions can evolve, without forcing a child or rejecting the law."
+        "french": "Traditions libres d'évoluer, sans forcer un enfant ni porter atteinte aux droits des autres.",
+        "english": "Traditions can evolve, without forcing a child or infringing on other people's rights."
       },
       "conclusion": {
         "french": "Garder, transmettre et partager en restant libre d'évoluer.",
@@ -526,12 +526,12 @@
         },
         {
           "point": {
-            "french": "Un programme peut nourrir les échanges.",
-            "english": "A programme may give people something to discuss."
+            "french": "La télévision peut réunir les gens autour d'un événement partagé.",
+            "english": "Television can bring people together around a shared event."
           },
           "example": {
-            "french": "Deux sœurs éloignées discutent du même film et de leurs choix à la place du personnage.",
-            "english": "Two sisters living far apart discuss the same film and their choices in the character's place."
+            "french": "Coupe du monde chez un voisin : encourager l'équipe, discuter à la mi-temps et engager la conversation.",
+            "english": "World Cup at a neighbour's home: cheer the team on, talk at half-time and start a conversation."
           }
         },
         {
@@ -546,8 +546,8 @@
         }
       ],
       "nuance": {
-        "french": "L'enchaînement non choisi peut prendre le temps du sommeil ou des proches.",
-        "english": "Unchosen consecutive programmes may take time away from sleep or loved ones."
+        "french": "Trop de télévision : se coucher trop tard ou passer moins de temps avec des proches.",
+        "english": "Too much television: going to bed too late or spending less time with loved ones."
       },
       "conclusion": {
         "french": "Intérêt selon le programme, la durée et le besoin.",
@@ -562,32 +562,32 @@
       "arguments": [
         {
           "point": {
-            "french": "Le théâtre entraîne à parler devant les autres.",
-            "english": "Theatre gives pupils practice speaking in front of others."
+            "french": "Expression, sensibilité et esprit critique : créer, expliquer ses choix et écouter les autres.",
+            "english": "Expression, sensitivity and critical thinking: create, explain choices and listen to others."
           },
           "example": {
-            "french": "Un élève timide relève la tête et ralentit ; ses camarades suivent, il ose parler plus fort.",
-            "english": "A shy pupil looks up and slows down; classmates follow the scene and he dares to speak louder."
+            "french": "Théâtre : voix hésitante et pauses pour jouer un enfant inquiet dans sa nouvelle école ; discuter de l'effet produit.",
+            "english": "Drama: a hesitant voice and pauses show a child's fear at a new school; discuss the effect."
           }
         },
         {
           "point": {
-            "french": "Justifier une interprétation par des détails observés.",
-            "english": "Support an interpretation with observed details."
+            "french": "Découvrir des œuvres pour comprendre d'autres cultures et d'autres époques.",
+            "english": "Discover works of art to understand other cultures and historical periods."
           },
           "example": {
-            "french": "Dans un tableau, sourires ou personnage à l'écart expliquent deux impressions différentes.",
-            "english": "Smiles or a figure sitting apart in a painting explain two different impressions."
+            "french": "Peinture mexicaine sur la fête des Morts : fleurs et photos pour honorer les proches décédés.",
+            "english": "Mexican Day of the Dead painting: flowers and photos honour relatives who have died."
           }
         },
         {
           "point": {
-            "french": "L'école ouvre l'accès aux arts malgré le budget familial.",
-            "english": "School offers access to arts despite limits on family budgets."
+            "french": "Découvrir un talent ou un intérêt et envisager un métier artistique.",
+            "english": "Discover a talent or interest and consider an artistic career."
           },
           "example": {
-            "french": "Sans cours privés, un enfant apprend une mélodie sur un clavier de l'école et la joue en concert.",
-            "english": "Without private lessons, a child learns a melody on a school keyboard and plays it at the class concert."
+            "french": "Affiche en dessin : agrandir les titres, simplifier les images ; découvrir le métier de graphiste.",
+            "english": "A class poster: enlarge headings, simplify images; discover graphic design as a career."
           }
         }
       ],
@@ -596,8 +596,8 @@
         "english": "Reading and maths remain priorities; plan arts around available equipment and trained teachers."
       },
       "conclusion": {
-        "french": "Une autre façon d'apprendre, surtout sans accès aux arts ailleurs.",
-        "english": "Another way to learn, especially for children without access to arts elsewhere."
+        "french": "Expression, ouverture culturelle et découverte de talents : les arts complètent une éducation équilibrée.",
+        "english": "Expression, cultural openness and discovering talents: the arts contribute to a well-rounded education."
       }
     },
     "culture-p14": {
@@ -638,8 +638,8 @@
         }
       ],
       "nuance": {
-        "french": "Un documentaire explique sans faire vivre l'ambiance ; voyager n'est pas accessible à tous.",
-        "english": "A documentary explains without conveying the lived atmosphere; not everyone can travel."
+        "french": "Ces moyens ne remplacent pas complètement l'expérience sur place ; tout le monde ne peut pas voyager.",
+        "english": "These ways cannot fully replace first-hand experience, but not everyone can travel."
       },
       "conclusion": {
         "french": "Le voyage complète ces découvertes, sans être indispensable.",
@@ -794,28 +794,28 @@
         "english": "Thoughtful, saved digital messages; daily remote contact. Post is slow, sometimes expensive or lost."
       },
       "conclusion": {
-        "french": "Garder ce geste pour certaines occasions, sans retour au tout-courrier.",
-        "english": "Keep this gesture for certain occasions, without returning entirely to post."
+        "french": "Attention personnelle, expression approfondie et souvenirs : garder les lettres pour les occasions qui comptent.",
+        "english": "Personal attention, fuller expression and memories: keep letters for meaningful occasions."
       },
       "arguments": [
         {
           "point": {
-            "french": "Une lettre personnelle peut montrer qu'on a pensé à quelqu'un.",
-            "english": "A personal letter can show someone that you thought of them."
+            "french": "Choisir, écrire à la main et envoyer : un geste personnel qui peut toucher le destinataire.",
+            "english": "Choose, write by hand and post: a personal gesture that can move the recipient."
           },
           "example": {
-            "french": "Remercier l'amie qui l'a hébergée : cet accueil lui a permis de garder de l'argent pour la caution.",
-            "english": "Thank the friend who provided a place to stay, leaving money for the apartment deposit."
+            "french": "Carte d'anniversaire du père : promenades du dimanche, écriture reconnue et impression de l'entendre.",
+            "english": "Father's birthday card: Sunday walks, familiar handwriting and the feeling of hearing his voice."
           }
         },
         {
           "point": {
-            "french": "Préparer une lettre aide à clarifier ce qu'on veut dire.",
-            "english": "Preparing a letter helps clarify what you want to say."
+            "french": "Prendre le temps de choisir ses mots pour exprimer pleinement ses sentiments.",
+            "english": "Take time to choose words carefully and express feelings fully."
           },
           "example": {
-            "french": "Relire une lettre à sa sœur : retirer une phrase trop brusque et expliquer le départ pour un emploi.",
-            "english": "Reread a letter to a sister: remove a blunt sentence and explain the move for a job."
+            "french": "Lettre d'amour : les encouragements pendant la recherche d'emploi ont aidé à reprendre confiance.",
+            "english": "Love letter: encouragement during a job search helped rebuild confidence."
           }
         },
         {
@@ -832,12 +832,12 @@
     },
     "culture-p19": {
       "introduction": {
-        "french": "Oui, en partie : être attentif permet déjà d'apprendre, sans accéder à toutes les conversations.",
-        "english": "Yes, partly: paying attention already allows learning, without access to every conversation."
+        "french": "On apprend en observant et grâce aux traductions ; sans la langue, les discussions spontanées restent difficiles.",
+        "english": "Observation and translations help us learn, but spontaneous discussions are harder without the language."
       },
       "nuance": {
-        "french": "Même en parlant la langue, on peut ignorer l'ancien projet qui explique la méfiance d'un voisin.",
-        "english": "Even speaking the language, we may not know the earlier project that explains a neighbour's mistrust."
+        "french": "Même en parlant la langue, le ton, les gestes et les références culturelles comptent aussi.",
+        "english": "Even when we speak the language, tone, gestures and cultural references still matter."
       },
       "conclusion": {
         "french": "Apprendre en observant et grâce aux traductions ; parler la langue aide à suivre plus d'échanges.",
@@ -850,18 +850,18 @@
             "english": "Observing what happens can help us understand part of daily life."
           },
           "example": {
-            "french": "Au marché : des habitants discutent sans acheter. C'est aussi un lieu de rencontre.",
-            "english": "At a market, people chat without buying anything: the market is also a meeting place."
+            "french": "Tokyo : parler bas et éviter les appels, comme les autres passagers du métro.",
+            "english": "Tokyo: keep the noise down and avoid phone calls, like the other metro passengers."
           }
         },
         {
           "point": {
-            "french": "Les traductions nous aident à comprendre les raisons de certaines habitudes du pays.",
-            "english": "Translations help us understand the reasons behind some local customs."
+            "french": "Les traductions permettent de s'informer sur le pays sans parler sa langue.",
+            "english": "Translations let us learn about the country without speaking its language."
           },
           "example": {
-            "french": "Sous-titres : au Japon, les élèves nettoient pour apprendre à prendre soin des lieux qu'ils partagent.",
-            "english": "French subtitles: pupils in Japan clean to learn to care for the places they use together."
+            "french": "Documentaire sous-titré : Pays-Bas, terres gagnées sur la mer ; digues, pompes et protection contre les inondations.",
+            "english": "Subtitled documentary: Dutch land reclaimed from the sea; dikes, pumps and flood protection."
           }
         },
         {
@@ -886,8 +886,8 @@
         "english": "Books help with style; reading a lot is not enough without understanding and reflection."
       },
       "conclusion": {
-        "french": "La lecture n'est pas indispensable ; écoute et pratique peuvent la compléter.",
-        "english": "Reading is not essential; listening and practice can complement it."
+        "french": "Lire, regarder des documentaires et pratiquer : des voies complémentaires pour se cultiver.",
+        "english": "Reading, watching documentaries and practising: complementary ways to build cultural knowledge."
       },
       "arguments": [
         {
@@ -902,12 +902,12 @@
         },
         {
           "point": {
-            "french": "L'écoute permet aussi d'approfondir ses connaissances.",
-            "english": "Listening can also deepen your understanding."
+            "french": "Les documentaires et les émissions culturelles permettent aussi d'approfondir ses connaissances.",
+            "english": "Documentaries and cultural programmes can also deepen our knowledge."
           },
           "example": {
-            "french": "Podcast : des familles s'installent près de l'usine pour aller travailler à pied. Comprendre l'origine du quartier.",
-            "english": "Podcast: families settled near the factory so they could walk to work. Understand how the neighbourhood developed."
+            "french": "Guernica : gros plans sur les personnages, explication du bombardement ; comprendre pourquoi Picasso dénonce la guerre.",
+            "english": "Guernica: close-ups of the figures, an explanation of the bombing; understand why Picasso condemns war."
           }
         },
         {
@@ -942,8 +942,8 @@
             "english": "Travelling alone can develop independence and self-confidence."
           },
           "example": {
-            "french": "Train annulé : comparer les horaires, choisir le bus pour arriver avant la fermeture de la réception, puis prévenir l'hôtel.",
-            "english": "Cancelled train: compare times, take a bus to arrive before the hotel reception closes, and let the hotel know."
+            "french": "Train annulé, suivant le lendemain : l'étudiante se renseigne et prend un bus le jour même.",
+            "english": "Cancelled train, next one tomorrow: the student asks for information and takes a bus that day."
           }
         },
         {
@@ -1274,8 +1274,8 @@
             "english": "Some programmes can make aggressive behaviour seem normal."
           },
           "example": {
-            "french": "Un adolescent reprend une moquerie pour faire rire ; le camarade humilié s'éloigne du groupe.",
-            "english": "A teenager repeats a taunt to make others laugh; the humiliated classmate moves away from the group."
+            "french": "Une remarque sur le physique reprise parmi les moments drôles ; les rires passent avant le malaise du candidat visé.",
+            "english": "A remark about a contestant's appearance replayed as a funny moment; laughter overshadows the person's discomfort."
           }
         },
         {

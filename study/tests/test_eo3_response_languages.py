@@ -244,18 +244,19 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertNotIn("sixth-former", student["english"])
         country = scoped_models()["eo/tache-3/culture-p19"]
         row = data["groups"][country.group][fingerprint(country.response.nuance)]
-        self.assertIn("neighbourhood meeting", row["english"])
-        self.assertIn("last time", row["english"])
-        self.assertIn("abandoned project", row["english"])
+        self.assertIn("tone of voice, gestures and cultural references", row["english"])
+        self.assertIn("every word in a sentence", row["english"])
+        self.assertIn("without really understanding the message", row["english"])
         row = data["groups"][country.group][fingerprint(country.response.arguments[1].exemple)]
-        self.assertIn("French but not Japanese", row["english"])
         self.assertIn("French subtitles", row["english"])
-        self.assertIn("translate a teacher", row["english"])
-        self.assertIn("the pupils do this to learn", row["english"])
+        self.assertIn("Netherlands", row["english"])
+        self.assertIn("part of the country was reclaimed from the sea", row["english"])
+        self.assertIn("dikes and pumps", row["english"])
         row = data["groups"][country.group][fingerprint(country.response.arguments[0].exemple)]
-        self.assertIn("leave without buying anything", row["english"])
+        self.assertIn("In Tokyo", row["english"])
+        self.assertIn("passengers speak quietly and avoid making phone calls", row["english"])
         row = data["groups"][country.group][fingerprint(country.response.arguments[0].consequence)]
-        self.assertIn("this market is also a meeting place", row["english"])
+        self.assertIn("keep the noise down on public transport", row["english"])
         cuisine = scoped_models()["eo/tache-3/culture-p15"]
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[0].exemple)]
         self.assertIn("the same large dish", row["english"])
@@ -278,8 +279,8 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("Ingredients and ways of preserving food", row["english"])
         self.assertIn("retain traces of life in the past", row["english"])
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[1].exemple)]
-        self.assertIn("people salted and dried fish", row["english"])
-        self.assertIn("to keep it during long sea voyages", row["english"])
+        self.assertIn("this method helped preserve fish during long sea voyages", row["english"])
+        self.assertIn("still used in many recipes today", row["english"])
         older = scoped_models()["eo/tache-3/culture-p8"]
         row = data["groups"][older.group][fingerprint(older.response.arguments[0].exemple)]
         self.assertIn("arguing with their parents", row["english"])
@@ -1099,6 +1100,207 @@ class EO3ResponseLanguageTests(SimpleTestCase):
                 for phrase in forbidden:
                     self.assertNotIn(phrase, english)
 
+    def test_country_language_english_keeps_observation_broad_information_and_live_discussions_distinct(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p19"]
+        rows = data["groups"][model.group]
+        introduction = rows[fingerprint(model.response.position_claire)]["english"]
+        self.assertIn("learn a lot about a country without speaking its language", introduction)
+        self.assertIn("spontaneous discussions remain difficult to follow", introduction)
+        observation = rows[fingerprint(model.response.arguments[0].exemple)]["english"]
+        self.assertIn("a traveller takes the metro every morning", observation)
+        self.assertIn("speak quietly and avoid making phone calls", observation)
+        information = rows[fingerprint(model.response.arguments[1].idea)]["english"]
+        self.assertIn("learn about the country without speaking its language", information)
+        self.assertNotIn("reasons behind", information)
+        development = rows[fingerprint(model.response.arguments[1].developpement)]["english"]
+        for phrase in ("history", "current events", "schools"):
+            self.assertIn(phrase, development)
+        documentary = rows[fingerprint(model.response.arguments[1].exemple)]["english"]
+        self.assertIn("Netherlands with French subtitles", documentary)
+        self.assertIn("reclaimed from the sea using dikes and pumps", documentary)
+        consequence = rows[fingerprint(model.response.arguments[1].consequence)]["english"]
+        self.assertIn("protection against flooding", consequence)
+        self.assertIn("in the country", consequence)
+        nuance = rows[fingerprint(model.response.nuance)]["english"]
+        self.assertIn("tone of voice, gestures and cultural references", nuance)
+        self.assertIn("every word in a sentence", nuance)
+        self.assertIn("without really understanding the message", nuance)
+        self.assertNotIn("meeting", nuance)
+        discussion = rows[fingerprint(model.response.arguments[2].exemple)]["english"]
+        self.assertIn("a translated document about a housing proposal", discussion)
+        self.assertIn("cannot follow the discussion", discussion)
+        self.assertIn("some support the project and others oppose it", discussion)
+        with (
+            override_settings(EO3_RESPONSE_TRANSLATIONS_PATH=DEFAULT_PATH),
+            patch("study.translation.urllib.request.urlopen") as provider,
+        ):
+            for response in (model.response, replace(model.response, is_personal=True)):
+                with self.subTest(personal=response.is_personal):
+                    result = language_presentation(model, response, response.arguments)
+                    self.assertTrue(result["ready"])
+                    self.assertEqual(result["available"], 15)
+                    self.assertEqual(result["total"], 15)
+                    self.assertTrue(all(result["fields"].values()))
+        provider.assert_not_called()
+
+    def test_cuisine_english_aligns_clear_agreement_shared_meal_and_preservation_history(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p15"]
+        rows = data["groups"][model.group]
+        introduction = rows[fingerprint(model.response.position_claire)]["english"]
+        self.assertTrue(introduction.startswith("Yes, I think food helps us understand a culture better."))
+        self.assertIn("Meals show us how people live together.", introduction)
+        self.assertIn("Some recipes also tell part of the country's history.", introduction)
+        self.assertIn("not enough to understand everything", introduction)
+        shared_meal = rows[fingerprint(model.response.arguments[0].exemple)]["english"]
+        self.assertIn("a visitor shares a meal with a family", shared_meal)
+        self.assertIn("Everyone eats from the same large dish of rice and fish.", shared_meal)
+        self.assertIn("get together and talk after work", shared_meal)
+        history = rows[fingerprint(model.response.arguments[1].exemple)]["english"]
+        self.assertTrue(history.startswith("In Portugal, salted and dried fish is easy to find."))
+        self.assertIn("this method helped preserve fish during long sea voyages", history)
+        self.assertIn("Fish prepared this way is still used in many recipes today.", history)
+        self.assertNotIn("a visitor", history)
+        with (
+            override_settings(EO3_RESPONSE_TRANSLATIONS_PATH=DEFAULT_PATH),
+            patch("study.translation.urllib.request.urlopen") as provider,
+        ):
+            result = language_presentation(model, model.response, model.response.arguments)
+        self.assertTrue(result["ready"])
+        self.assertEqual(result["available"], 15)
+        self.assertEqual(result["total"], 15)
+        provider.assert_not_called()
+
+    def test_cultural_discovery_english_keeps_short_introduction_and_general_firsthand_nuance(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p14"]
+        rows = data["groups"][model.group]
+        introduction = rows[fingerprint(model.response.position_claire)]["english"]
+        self.assertIn("The aim isn't to know everything about a country.", introduction)
+        self.assertIn("It's to understand some of its customs and what they mean.", introduction)
+        nuance = rows[fingerprint(model.response.nuance)]["english"]
+        self.assertTrue(nuance.startswith(
+            "Although these ways of learning are useful, they do not fully replace first-hand experience."
+        ))
+        self.assertIn("the smells and the pace of everyday life", nuance)
+        self.assertIn("But not everyone can travel.", nuance)
+        self.assertIn("These other ways of learning therefore remain valuable.", nuance)
+        self.assertNotIn("documentary", nuance)
+        with (
+            override_settings(EO3_RESPONSE_TRANSLATIONS_PATH=DEFAULT_PATH),
+            patch("study.translation.urllib.request.urlopen") as provider,
+        ):
+            result = language_presentation(model, model.response, model.response.arguments)
+        self.assertTrue(result["ready"])
+        self.assertEqual(result["available"], 15)
+        self.assertEqual(result["total"], 15)
+        provider.assert_not_called()
+
+    def test_traditions_english_covers_all_fifteen_selected_version_blocks(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p10"]
+        rows = data["groups"][model.group]
+        self.assertEqual({key for key, _ in model.source_prompts}, {"culture:p10", "culture:p32"})
+        self.assertIn("many things change at once", rows[fingerprint(model.response.arguments[0].developpement)]["english"])
+        self.assertIn("not an instruction to follow without explanation", rows[fingerprint(model.response.arguments[1].consequence)]["english"])
+        self.assertIn("remaining free to develop this heritage", rows[fingerprint(model.response.conclusion)]["english"])
+        with (
+            override_settings(EO3_RESPONSE_TRANSLATIONS_PATH=DEFAULT_PATH),
+            patch("study.translation.urllib.request.urlopen") as provider,
+        ):
+            for response in (model.response, replace(model.response, is_personal=True)):
+                with self.subTest(personal=response.is_personal):
+                    result = language_presentation(model, response, response.arguments)
+                    self.assertTrue(result["ready"])
+                    self.assertEqual(result["available"], 15)
+                    self.assertEqual(result["total"], 15)
+                    self.assertTrue(all(result["fields"].values()))
+        provider.assert_not_called()
+
+    def test_adaptation_english_clinic_example_connects_neighbour_advice_to_checking_hours(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p9"]
+        rows = data["groups"][model.group]
+        example = rows[fingerprint(model.response.arguments[2].exemple)]["english"]
+        for phrase in (
+            "One Sunday", "their child, who has a fever", "Unfamiliar with local healthcare services",
+            "ask a neighbour for advice", "walk-in clinic's phone number",
+            "check its opening hours before going",
+        ):
+            self.assertIn(phrase, example)
+
+    def test_new_country_habits_english_restores_the_majority_distinction(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p1"]
+        rows = data["groups"][model.group]
+        development = rows[fingerprint(model.response.arguments[1].developpement)]["english"]
+        self.assertIn("familiar routines helps us feel at home", development)
+        self.assertIn(
+            "A habit does not have to disappear simply because the majority of people do things differently.",
+            development,
+        )
+        nuance = rows[fingerprint(model.response.nuance)]["english"]
+        self.assertIn("safety and shared rules", nuance)
+        self.assertIn("whilst respecting others", nuance)
+
+    def test_goals_abroad_english_restores_achievable_steps_and_preparation(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p5"]
+        rows = data["groups"][model.group]
+        preparation = model.response.arguments[1]
+        self.assertIn("transforms a broad ambition into achievable steps", rows[fingerprint(preparation.idea)]["english"])
+        development = rows[fingerprint(preparation.developpement)]["english"]
+        for phrase in ("entry requirements", "costs involved", "skills you are lacking", "before incurring significant expenses"):
+            self.assertIn(phrase, development)
+        self.assertIn("If further training is required", rows[fingerprint(preparation.exemple)]["english"])
+        result = rows[fingerprint(preparation.consequence)]["english"]
+        self.assertIn("minimises surprises", result)
+        self.assertIn("adjust your timetable", result)
+
+    def test_personal_letters_english_keeps_emotional_gesture_and_fuller_expression(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p18"]
+        self.assertEqual({key for key, _ in model.source_prompts}, {"culture:p18", "culture:p23"})
+        rows = data["groups"][model.group]
+        attention, reflection, _ = model.response.arguments
+        self.assertIn("special emotional value", rows[fingerprint(attention.idea)]["english"])
+        development = rows[fingerprint(attention.developpement)]["english"]
+        self.assertIn("writes a few lines by hand and sends it to us", development)
+        self.assertIn("set aside time for us", development)
+        example = rows[fingerprint(attention.exemple)]["english"]
+        self.assertIn("Sunday walks", example)
+        self.assertIn("recognises his handwriting", example)
+        self.assertIn("hear him speaking to her", example)
+        self.assertIn("express our feelings more fully", rows[fingerprint(reflection.idea)]["english"])
+        development = rows[fingerprint(reflection.developpement)]["english"]
+        self.assertIn("what we feel and why", development)
+        self.assertIn("choosing precise words and linking our ideas", development)
+        example = rows[fingerprint(reflection.exemple)]["english"]
+        self.assertIn("In a love letter", example)
+        self.assertIn("looking for work", example)
+        self.assertIn("her support helped him regain confidence", example)
+        self.assertIn("why they matter in our lives", rows[fingerprint(reflection.consequence)]["english"])
+        conclusion = rows[fingerprint(model.response.conclusion)]["english"]
+        for phrase in ("attention they express", "reflection they encourage", "memories they pass on"):
+            self.assertIn(phrase, conclusion)
+
     def test_shared_family_letter_result_states_the_readers_gain(self):
         data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
         if not data["groups"]:
@@ -1123,16 +1325,33 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("compare the options and choose", development)
         self.assertNotIn("you should", development)
         example = rows[fingerprint(argument.exemple)]["english"]
-        self.assertIn("train has been cancelled", example)
-        self.assertLess(example.index("member of staff"), example.index("choose the bus"))
-        self.assertIn("before their hotel", example)
-        self.assertIn("reception closes", example)
-        self.assertIn("let the hotel know", example)
+        self.assertIn("travelling alone for the first time", example)
+        self.assertIn("Her train is cancelled", example)
+        self.assertIn("the following day", example)
+        self.assertLess(example.index("asks for information"), example.index("buys a bus ticket"))
+        self.assertIn("that same day", example)
+        self.assertNotIn("hotel", example)
         result = rows[fingerprint(argument.consequence)]["english"]
-        self.assertIn("arrives at the hotel", result)
-        self.assertIn("may feel more capable", result)
+        self.assertIn("can handle an unexpected problem", result)
+        self.assertIn("without waiting for someone close to her", result)
+        painting = rows[fingerprint(solo.response.arguments[1].exemple)]["english"]
+        self.assertIn("spend the afternoon at an exhibition.", painting)
+        self.assertNotIn("head home early", painting)
+        self.assertIn("friends who would rather go shopping", painting)
+        with (
+            override_settings(EO3_RESPONSE_TRANSLATIONS_PATH=DEFAULT_PATH),
+            patch("study.translation.urllib.request.urlopen") as provider,
+        ):
+            for response in (solo.response, replace(solo.response, is_personal=True)):
+                with self.subTest(personal=response.is_personal):
+                    presentation = language_presentation(solo, response, response.arguments)
+                    self.assertTrue(presentation["ready"])
+                    self.assertEqual(presentation["available"], 15)
+                    self.assertEqual(presentation["total"], 15)
+                    self.assertTrue(all(presentation["fields"].values()))
+        provider.assert_not_called()
 
-    def test_reading_alternatives_english_links_listening_to_local_historical_knowledge(self):
+    def test_reading_alternatives_english_links_documentary_images_to_art_and_history(self):
         data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
@@ -1140,17 +1359,74 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         rows = data["groups"][model.group]
         argument = model.response.arguments[1]
         development = rows[fingerprint(argument.developpement)]["english"]
-        self.assertIn("residents share their stories", development)
-        self.assertIn("how they lived", development)
+        self.assertIn("examine a work of art in detail", development)
+        self.assertIn("context in which it was created", development)
+        self.assertIn("connect what we see with history", development)
         example = rows[fingerprint(argument.exemple)]["english"]
-        self.assertIn("former factory worker", example)
-        self.assertIn("so they could walk to work", example)
-        self.assertIn("why the neighbourhood developed around that factory", example)
+        self.assertIn("Picasso's Guernica", example)
+        self.assertIn("Close-ups show the figures crying out", example)
+        self.assertIn("bombing that inspired the painting", example)
+        self.assertIn("condemns the violence of war", example)
         consequence = rows[fingerprint(argument.consequence)]["english"]
-        self.assertIn("broadens your cultural knowledge", consequence)
-        self.assertIn("even if you have not read a book", consequence)
+        self.assertIn("knowledge of art and history", consequence)
+        self.assertIn("without necessarily having read a book", consequence)
         nuance = rows[fingerprint(model.response.nuance)]["english"]
-        self.assertIn("complement a podcast or a workshop", nuance)
+        self.assertIn("complement a documentary or a workshop", nuance)
+        conclusion = rows[fingerprint(model.response.conclusion)]["english"]
+        self.assertIn("Documentaries and practice", conclusion)
+
+    def test_school_arts_english_keeps_expression_cultural_openness_and_professional_discovery(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p13"]
+        rows = data["groups"][model.group]
+        expression, cultures, careers = model.response.arguments
+        self.assertIn("personal expression, sensitivity and critical thinking", rows[fingerprint(expression.idea)]["english"])
+        self.assertIn("hesitant voice and pauses", rows[fingerprint(expression.exemple)]["english"])
+        self.assertIn("world's cultural diversity", rows[fingerprint(cultures.idea)]["english"])
+        culture_example = rows[fingerprint(cultures.exemple)]["english"]
+        self.assertIn("Day of the Dead", culture_example)
+        self.assertIn("photographs honour relatives who have died", culture_example)
+        self.assertIn("consider further training", rows[fingerprint(careers.developpement)]["english"])
+        self.assertIn("graphic design as a career", rows[fingerprint(careers.exemple)]["english"])
+        self.assertIn("sometimes find a career path", rows[fingerprint(model.response.conclusion)]["english"])
+
+    def test_television_english_keeps_world_cup_togetherness_and_explicit_time_tradeoffs(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p12"]
+        rows = data["groups"][model.group]
+        social = model.response.arguments[1]
+        self.assertIn("live broadcast", rows[fingerprint(social.developpement)]["english"])
+        example = rows[fingerprint(social.exemple)]["english"]
+        for phrase in ("World Cup", "at one neighbour's home", "cheer the team on together", "talk at half-time"):
+            self.assertIn(phrase, example)
+        self.assertIn("bring us closer to others", rows[fingerprint(social.consequence)]["english"])
+        nuance = rows[fingerprint(model.response.nuance)]["english"]
+        self.assertIn("going to bed too late", nuance)
+        self.assertIn("spending less time with loved ones", nuance)
+        self.assertIn("shared moments", rows[fingerprint(model.response.conclusion)]["english"])
+
+    def test_reality_tv_english_links_entertaining_mockery_to_normalising_humiliation(self):
+        data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p31"]
+        rows = data["groups"][model.group]
+        argument = model.response.arguments[1]
+        self.assertIn("trivialise aggressive behaviour", rows[fingerprint(argument.idea)]["english"])
+        development = rows[fingerprint(argument.developpement)]["english"]
+        self.assertIn("gain attention by insulting or mocking others", development)
+        self.assertIn("more attention to the joke than to the person being hurt", development)
+        example = rows[fingerprint(argument.exemple)]["english"]
+        self.assertIn("might replay", example)
+        self.assertIn("another participant's appearance", example)
+        self.assertIn("discomfort is barely acknowledged", example)
+        consequence = rows[fingerprint(argument.consequence)]["english"]
+        self.assertIn("may then find a remark acceptable", consequence)
+        self.assertIn("even if it humiliates someone", consequence)
 
     def test_requested_book_english_keeps_learning_practice_and_the_characters_choice(self):
         data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
@@ -1224,6 +1500,37 @@ class EO3ResponseLanguageViewTests(TestCase):
         self.assertContains(page, 'data-eo3-french=', count=15)
         self.assertContains(page, 'data-eo3-english=', count=15)
         self.assertEqual(page.context["response_content"], scoped_models()[prompt.response.semantic_group].response)
+
+    def test_selected_traditions_version_has_complete_english_for_default_and_matching_personal_text(self):
+        model = scoped_models()["eo/tache-3/culture-p10"]
+        prompts = [self.prompt(key) for key in ("culture:p10", "culture:p32")]
+        with (
+            override_settings(EO3_RESPONSE_TRANSLATIONS_PATH=DEFAULT_PATH),
+            patch("study.translation.urllib.request.urlopen") as provider,
+        ):
+            for prompt in prompts:
+                with self.subTest(prompt=prompt.content_key, personal=False):
+                    page = self.client.get(prompt_detail_url(prompt))
+                    self.assertFalse(page.context["response_content"].is_personal)
+                    self.assertTrue(page.context["eo3_language"]["ready"])
+                    self.assertEqual(page.context["eo3_language"]["available"], 15)
+                    self.assertContains(page, 'data-eo3-language-ready="true"')
+                    self.assertContains(page, 'data-eo3-english=', count=15)
+            fields = asdict(model.response)
+            fields.pop("is_personal")
+            fields["arguments"] = list(fields["arguments"])
+            PersonalResponse.objects.create(
+                user=self.user, response=prompts[0].response, source_prompt=prompts[0], **fields,
+            )
+            for prompt in prompts:
+                with self.subTest(prompt=prompt.content_key, personal=True):
+                    page = self.client.get(prompt_detail_url(prompt))
+                    self.assertTrue(page.context["response_content"].is_personal)
+                    self.assertTrue(page.context["eo3_language"]["ready"])
+                    self.assertEqual(page.context["eo3_language"]["available"], 15)
+                    self.assertContains(page, 'data-eo3-language-ready="true"')
+                    self.assertContains(page, 'data-eo3-english=', count=15)
+        provider.assert_not_called()
 
     def test_private_field_gets_no_unmatched_english_and_other_exact_public_fields_remain_available(self):
         prompt = self.prompt()

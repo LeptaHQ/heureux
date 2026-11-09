@@ -87,7 +87,6 @@ from ..progress import (
     subject_progress_by_response,
     summarize_subject_progress,
     writing_sujet_progress_by_id,
-    writing_sujet_started_at,
 )
 from ..querysets import (
     lean_phrase_rows,
@@ -1967,16 +1966,12 @@ def theme_detail(request, part_slug, task_slug, slug):
     )
 
 
-def _memory_task(part_slug, task_slug):
-    task = get_object_or_404(
-        Task.objects.select_related("part"),
-        slug=task_slug,
-        part__slug=part_slug,
-        is_active=True,
-        part__is_active=True,
-        available=True,
-    )
-    if (task.part.slug, task.slug) != content_module.QUESTION_BANK_TASK:
+def _memory_task(part_slug, task_slug, *, request=None):
+    task = _route_task(part_slug, task_slug, request=request)
+    if (
+        not task.available
+        or (task.part.slug, task.slug) != content_module.QUESTION_BANK_TASK
+    ):
         raise Http404
     return task
 
@@ -2946,7 +2941,7 @@ def task_subject_detail(
     batch_number,
     subject_number,
 ):
-    task = _memory_task(part_slug, task_slug)
+    task = _memory_task(part_slug, task_slug, request=request)
     month = _tache_two_subject_month(month_slug)
     batch = _tache_two_subject_batch(month, batch_number)
     subject = next(
@@ -2960,34 +2955,23 @@ def task_subject_detail(
     if subject is None:
         raise Http404
 
-    response = get_object_or_404(
-        Response.objects.select_related(
-            "theme__task__part",
-            "family",
-        ),
-        prompts__content_key=content_module.tache_two_subject_content_key(
-            month.slug,
-            batch.number,
-            subject.number,
-        ),
-        prompts__is_active=True,
-        prompts__theme__task=task,
-        is_active=True,
-    )
     selected_prompt = get_object_or_404(
         Prompt.objects.select_related(
             "theme__task__part",
             "family",
-            "response",
+            "response__theme__task__part",
+            "response__family",
         ),
-        response=response,
         content_key=content_module.tache_two_subject_content_key(
             month.slug,
             batch.number,
             subject.number,
         ),
         is_active=True,
+        theme__task=task,
+        response__is_active=True,
     )
+    response = selected_prompt.response
     equivalent_subjects = _tache_two_equivalent_subjects(
         response,
         selected_prompt,
@@ -4268,13 +4252,10 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
         request.user,
         [canonical.pk],
         task_id=task.pk,
+        with_started_at=True,
     )[canonical.pk]
     explicitly_completed = writing_progress.explicitly_completed
-    writing_started_at = (
-        writing_sujet_started_at(request.user, canonical.pk, task_id=task.pk)
-        if writing_progress.status != "new"
-        else None
-    )
+    writing_started_at = writing_progress.started_at
     overrides = overrides_by_sujet(request.user, [canonical.pk]).get(canonical.pk, {})
     version_cards = writing_model_versions(canonical, overrides)
     if tache == 1:
@@ -4296,7 +4277,7 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
             task=task,
             is_active=True,
             category=sujet.category,
-        ).order_by("order", "id")
+        ).defer("versions").order_by("order", "id")
     )
     sources_by_slug = _ee_writing_sources_by_slug(tache)
     source = sources_by_slug.get(sujet.slug)
@@ -4345,7 +4326,7 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
                 for slug, canonical_slug in canonical_slug_by_slug.items()
                 if canonical_slug == canonical.slug
             ],
-        ).order_by("order", "pk")
+        ).defer("versions").order_by("order", "pk")
         if candidate.pk != sujet.pk
     ]
     minimum, maximum = content_module.EE_WRITING_WORD_LIMITS[tache]

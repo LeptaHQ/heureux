@@ -1241,7 +1241,9 @@ class CardQuerySet(models.QuerySet):
 
         return self.filter(
             Q(response__is_active=True) | Q(phrase__is_active=True)
-        ).exclude(phrase_id__in=retired_vocabulary())
+        ).filter(~models.Exists(
+            retired_vocabulary().filter(pk=models.OuterRef("phrase_id")),
+        ))
 
     def active(self):
         return self.current_content().filter(suspended=False)

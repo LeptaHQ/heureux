@@ -784,10 +784,10 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("pas d'accord avec le mot", response(17).position_claire)
         self.assertIn("sauvegardé", response(18).nuance)
         self.assertIn("traductions", response(19).arguments[1].idea)
-        self.assertIn("parle français mais pas japonais", response(19).arguments[1].exemple)
-        self.assertIn("écoles au Japon", response(19).arguments[1].exemple)
-        self.assertIn("prendre soin des lieux qu'ils utilisent ensemble", response(19).arguments[1].exemple)
-        self.assertIn("l'écoute", response(20).arguments[1].idea)
+        self.assertIn("documentaire sous-titré en français", response(19).arguments[1].exemple)
+        self.assertIn("sur les Pays-Bas", response(19).arguments[1].exemple)
+        self.assertIn("gagnée sur la mer grâce à des digues et à des pompes", response(19).arguments[1].exemple)
+        self.assertIn("les documentaires et les émissions culturelles", response(20).arguments[1].idea)
         self.assertIn("en pratiquant une activité", response(20).arguments[2].idea)
         self.assertIn("réservations", response(21).nuance.casefold())
         self.assertIn("relations de confiance", response(24).nuance)
@@ -962,8 +962,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p11", 0, "passer le dimanche ensemble", "dimanche ensemble", "Sunday together"),
             ("culture-p11", 2, "aucun compatriote", "Sans compatriotes connus", "No known compatriots"),
             ("culture-p12", 0, "objets mal triés", "vérifie ensuite les règles locales", "checks local rules"),
-            ("culture-p13", 1, "tableau", "tableau", "painting"),
-            ("culture-p13", 1, "sourient", "sourires", "Smiles"),
+            ("culture-p13", 1, "peinture mexicaine", "Peinture mexicaine", "Mexican"),
+            ("culture-p13", 1, "fleurs et les photos", "fleurs et photos", "flowers and photos"),
             ("culture-p14", 0, "cuisine ouest-africaine", "Cuisine ouest-africaine", "West African cooking"),
             ("culture-p14", 0, "riz avec une sauce aux arachides", "riz, sauce aux arachides", "rice, peanut sauce"),
             ("culture-p14", 0, "produits locaux", "Cuisine ouest-africaine", "West African cooking"),
@@ -979,7 +979,9 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p16", 0, "prochain entretien", "prochain entretien", "next interview"),
             ("culture-p16", 1, "sa sœur", "sa sœur", "sister"),
             ("culture-p16", 2, "piano", "piano", "piano"),
-            ("culture-p18", 1, "phrase trop brusque", "phrase trop brusque", "blunt sentence"),
+            ("culture-p18", 0, "promenades du dimanche", "promenades du dimanche", "Sunday walks"),
+            ("culture-p18", 1, "lettre d'amour", "Lettre d'amour", "Love letter"),
+            ("culture-p18", 1, "reprendre confiance", "reprendre confiance", "rebuild confidence"),
             ("culture-p19", 2, "projet de logements", "projet de logements", "housing proposal"),
             ("culture-p20", 2, "motif de feuilles", "motif de feuilles", "leaf pattern"),
             ("culture-p24", 0, "chaque samedi", "samedi", "Saturday"),

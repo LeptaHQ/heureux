@@ -11,7 +11,7 @@ from urllib.parse import urlsplit
 
 from django.core.serializers.json import DjangoJSONEncoder
 from django.db import transaction
-from django.db.models import Q
+from django.db.models import Case, Q, Value, When
 
 from .course_practice import lock_course_user as lock_study_user
 from .models import OralStateSnapshot, PersonalResponse, Phrase, PhraseTier, Prompt, Response
@@ -95,11 +95,13 @@ def personal_versions(response, user):
 
 
 def preferred_personal(response, user):
-    versions = personal_versions(response, user)
-    own = versions.filter(response=response).first()
-    if own is not None:
-        return own if own.is_active else None
-    return versions.filter(is_active=True).first()
+    # An own inactive version is an explicit reset, ahead of any active alias.
+    selected = personal_versions(response, user).filter(
+        Q(response=response) | Q(is_active=True),
+    ).alias(
+        _own_priority=Case(When(response=response, then=Value(0)), default=Value(1)),
+    ).order_by("_own_priority", "-updated_at", "-id").first()
+    return selected if selected is not None and selected.is_active else None
 
 
 def preferred_personals(responses, user):

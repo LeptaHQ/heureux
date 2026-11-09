@@ -25,6 +25,27 @@ python -m playwright install chromium
 python manage.py test study.tests.browser_tests study.tests.eo3_audio_browser_tests
 ```
 
+For request/query regressions, use a **disposable PostgreSQL instance only**,
+with a test role allowed to create databases. CI uses PostgreSQL 16. Replace the
+local URL below with your owned test instance, never a production database.
+Disabling server-side cursors matches the production Neon/PgBouncer configuration:
+
+```bash
+DATABASE_URL=postgresql://test_user@127.0.0.1:55439/heureux_test \
+DB_DISABLE_SERVER_SIDE_CURSORS=True python manage.py test \
+  study.tests.test_query_budgets \
+  study.tests.test_retirement_query_performance \
+  study.tests.test_writing_request_performance
+```
+
+These cover the bundled corpus, private-response freshness, batched writing
+activity dates, lean subject navigation, and retirement checks
+against the original query semantics. A SQLite-only execution-step guard also
+covers unrelated vocabulary growth, but cannot establish PostgreSQL performance.
+Use `EXPLAIN (ANALYZE, BUFFERS)` on representative reads in an isolated seeded
+PostgreSQL database to evaluate planner changes; production network round trips,
+cold starts, concurrency and browser rendering require separate measurement.
+
 CI runs `database-locking` tests, including public oral annotation preservation,
 against PostgreSQL. Use a disposable PostgreSQL `DATABASE_URL` with
 `python manage.py test --tag=database-locking --parallel=1` to exercise the same

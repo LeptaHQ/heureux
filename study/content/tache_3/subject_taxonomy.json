@@ -5,7 +5,7 @@
     {
       "slug": "culture",
       "label": "Culture et médias",
-      "order": 1,
+      "order": 2,
       "subthemes": [
         {
           "slug": "decouverte-des-cultures",
@@ -72,7 +72,7 @@
     {
       "slug": "famille",
       "label": "Famille",
-      "order": 2,
+      "order": 3,
       "subthemes": [
         {
           "slug": "education-parentale",
@@ -120,7 +120,7 @@
     {
       "slug": "education",
       "label": "Éducation",
-      "order": 3,
+      "order": 5,
       "subthemes": [
         {
           "slug": "apprendre-a-tout-age",
@@ -186,7 +186,7 @@
     {
       "slug": "sante",
       "label": "Santé et sport",
-      "order": 4,
+      "order": 6,
       "subthemes": [
         {
           "slug": "pratique-sportive",
@@ -238,7 +238,7 @@
     {
       "slug": "technologie",
       "label": "Technologie",
-      "order": 5,
+      "order": 7,
       "subthemes": [
         {
           "slug": "telephone-et-communication",
@@ -269,7 +269,7 @@
     {
       "slug": "environnement",
       "label": "Environnement",
-      "order": 6,
+      "order": 8,
       "subthemes": [
         {
           "slug": "zoos-et-conservation",
@@ -320,7 +320,7 @@
     {
       "slug": "economie",
       "label": "Économie et travail",
-      "order": 7,
+      "order": 9,
       "subthemes": [
         {
           "slug": "emploi-et-mobilite-professionnelle",
@@ -411,7 +411,7 @@
     {
       "slug": "societe",
       "label": "Société",
-      "order": 8,
+      "order": 4,
       "subthemes": [
         {
           "slug": "etat-et-libertes",
@@ -501,7 +501,7 @@
     {
       "slug": "immigration",
       "label": "Immigration et voyages",
-      "order": 9,
+      "order": 1,
       "subthemes": [
         {
           "slug": "projets-de-vie-etranger",

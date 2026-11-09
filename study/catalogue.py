@@ -9,6 +9,7 @@ Use content_loader directly for custom paths, validation and content imports.
 from __future__ import annotations
 
 from collections.abc import Mapping
+from dataclasses import dataclass
 from functools import lru_cache
 from types import MappingProxyType
 from typing import TYPE_CHECKING
@@ -21,6 +22,31 @@ if TYPE_CHECKING:
     from .eo3_taxonomy import SubjectTaxonomy
     from .tache_three_models import TacheThreeModel
     from .tache_three_prompt_notes import TacheThreePromptNote
+
+
+@dataclass(frozen=True)
+class _PromptSignature:
+    content_key: str
+    text: str
+
+
+@dataclass(frozen=True)
+class _Eo3Source:
+    semantic_group: str
+    theme: str
+    prompts: tuple[_PromptSignature, ...]
+
+
+@lru_cache(maxsize=1)
+def _eo3_sources() -> tuple[_Eo3Source, ...]:
+    """Share only immutable public validation identities, not imported bodies."""
+    return tuple(
+        _Eo3Source(
+            source.semantic_group, source.theme,
+            tuple(_PromptSignature(prompt.content_key, prompt.text) for prompt in source.prompts),
+        )
+        for source in content.parse_responses()
+    )
 
 
 @lru_cache(maxsize=1)
@@ -61,7 +87,7 @@ def tache_two_location_history() -> Mapping[str, LocationHistory]:
 
 @lru_cache(maxsize=1)
 def tache_three_subject_hints() -> Mapping[str, content.SpeakingHintsData]:
-    return MappingProxyType(content.load_tache_three_subject_hints())
+    return MappingProxyType(content.load_tache_three_subject_hints(responses=_eo3_sources()))
 
 
 def tache_three_subject_plan(semantic_group: str) -> content.SpeakingHintsData | None:
@@ -74,14 +100,14 @@ def tache_three_subject_plan(semantic_group: str) -> content.SpeakingHintsData |
 def tache_three_models() -> Mapping[str, TacheThreeModel]:
     from .tache_three_models import load_tache_three_models
 
-    return MappingProxyType(load_tache_three_models())
+    return MappingProxyType(load_tache_three_models(responses=_eo3_sources()))
 
 
 @lru_cache(maxsize=1)
 def tache_three_prompt_notes() -> Mapping[str, TacheThreePromptNote]:
     from .tache_three_prompt_notes import load_tache_three_prompt_notes
 
-    return MappingProxyType(load_tache_three_prompt_notes())
+    return MappingProxyType(load_tache_three_prompt_notes(responses=_eo3_sources()))
 
 
 @lru_cache(maxsize=1)
@@ -103,7 +129,7 @@ def task_memoires(
 def eo_tache_three_taxonomy() -> SubjectTaxonomy:
     from .eo3_taxonomy import load_eo_tache_three_taxonomy
 
-    return load_eo_tache_three_taxonomy()
+    return load_eo_tache_three_taxonomy(responses=_eo3_sources())
 
 
 @lru_cache(maxsize=1)
@@ -162,6 +188,7 @@ def ee_writing_sources_by_slug(
 
 def clear_catalogue_cache() -> None:
     """Discard all shared catalogue entries, including their derived indexes."""
+    _eo3_sources.cache_clear()
     tache_two_subject_months.cache_clear()
     tache_two_subject_themes.cache_clear()
     tache_two_subject_hints.cache_clear()

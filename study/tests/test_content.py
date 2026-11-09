@@ -58,7 +58,6 @@ class AppCopyTests(SimpleTestCase):
         }
         forbidden = ("T" + "CF", "T" + "EF")
         exam_specific_sources = {
-            project_root / "study/content/tache_2/ai_examiner_prompt.md",
             project_root / "study/content/tache_2/EDITORIAL_PLAYBOOK.md",
             project_root / "study/content/ee/tache_1/ai_examiner_prompt.md",
             project_root / "study/content/ee/tache_2/ai_examiner_prompt.md",

@@ -19,7 +19,6 @@ from django.utils import timezone
 from study.account_services import provision_user_study_data
 from study import catalogue
 from study.content_loader import (
-    AI_EXAMINER_PROMPT_PATH,
     EO_TACHE_ONE_QUESTION_BANK_DIR,
     EO_TACHE_THREE_THEME_VOCABULARY_CATEGORIES,
     EO_TACHE_THREE_THEME_VOCABULARY_DIR,
@@ -31,7 +30,6 @@ from study.content_loader import (
     TACHE_TWO_THEME_VOCABULARY_PER_KIND,
     TACHE_TWO_THEME_VOCABULARY_PER_THEME,
     TACHE_TWO_VOCABULARY_DIR,
-    load_ai_examiner_prompt,
     load_question_bank,
     load_question_banks,
     load_comprehension_tests,
@@ -184,81 +182,6 @@ class QuestionBankContentTests(TestCase):
         (17, "Cinéma, spectacles & festivals", "theater"),
         (18, "Loisirs, clubs & jeux", "users"),
     ]
-
-    def test_ai_examiner_prompt_loader_extracts_only_the_master_prompt(self):
-        prompt = load_ai_examiner_prompt()
-
-        self.assertTrue(AI_EXAMINER_PROMPT_PATH.exists())
-        self.assertTrue(prompt.startswith("You are a strict but fair simulator"))
-        self.assertIn("scenario: WAIT_FOR_MY_SUBJECT (default)", prompt)
-        self.assertIn(
-            "CANDIDATE = QUESTIONER AND CONVERSATION LEADER.",
-            prompt,
-        )
-        self.assertIn(
-            "A normal AI role-play turn contains ZERO interrogative sentences",
-            prompt,
-        )
-        self.assertIn("[STOP ASKING]", prompt)
-        self.assertIn("[ANSWER ONLY]", prompt)
-        self.assertIn(
-            "Every sentence in your reply must directly answer my current",
-            prompt,
-        )
-        self.assertIn("PERMANENT RELEVANCE-AND-BREVITY LOCK", prompt)
-        self.assertIn("Default to ONE short natural sentence.", prompt)
-        self.assertIn("Never exceed", prompt)
-        self.assertIn("two sentences. Then STOP and wait.", prompt)
-        self.assertIn("If a shorter answer", prompt)
-        self.assertIn("use the shorter answer.", prompt)
-        self.assertIn(
-            "unless I explicitly request",
-            prompt,
-        )
-        self.assertIn(
-            'Correct AI/agent: "Bonjour, je vous écoute."',
-            prompt,
-        )
-        self.assertNotIn('Correct AI/agent: "Bonjour. Je vous écoute."', prompt)
-        self.assertIn(
-            "must NOT shorten or omit",
-            prompt,
-        )
-        self.assertIn(
-            "Throughout the entire session, never ask me a question.",
-            prompt,
-        )
-        self.assertIn("WRITTEN DELIVERY IS MANDATORY:", prompt)
-        self.assertIn("6. COMPLETE STRENGTHS INVENTORY", prompt)
-        self.assertIn("7. COMPLETE ERROR INVENTORY", prompt)
-        self.assertIn(
-            "Include EVERY identifiable error or meaningful weakness",
-            prompt,
-        )
-        self.assertIn(
-            "continue automatically in",
-            prompt,
-        )
-        self.assertNotIn("Identify at least three specific strengths", prompt)
-        self.assertNotIn("Prioritise errors that recur or affect clarity", prompt)
-        self.assertNotIn(
-            "ask a brief, role-natural return question",
-            prompt,
-        )
-        self.assertNotIn(
-            "occasionally mention a detail that invites a genuine follow-up",
-            prompt,
-        )
-        self.assertNotIn("## Register guide", prompt)
-        self.assertNotIn("```text", prompt)
-
-    def test_ai_examiner_prompt_loader_rejects_a_missing_master_block(self):
-        with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory) / "prompt.md"
-            path.write_text("# Incomplete guide", encoding="utf-8")
-
-            with self.assertRaisesMessage(ValueError, "Master prompt section"):
-                load_ai_examiner_prompt(path)
 
     def test_every_subject_theme_has_its_own_memoire(self):
         banks = load_question_banks()
@@ -2706,7 +2629,7 @@ class QuestionBankViewTests(TestCase):
         self.assertNotIn("vocabulary_batches", page.context)
         self.assertNotIn("card", page.context)
         self.assertContains(page, "Personnaliser les questions")
-        self.assertContains(page, "Pratiquer ce sujet")
+        self.assertNotContains(page, "Pratiquer ce sujet")
         self.assertContains(page, "data-subject-completion-form")
         self.assertContains(page, "Sujets équivalents")
 
@@ -2723,16 +2646,11 @@ class QuestionBankViewTests(TestCase):
         self.assertTrue(self.task.available)
         for key in ("subject_count", "subject_summary", "subject_theme_count", "theme_vocabulary"):
             self.assertNotIn(key, response.context)
-        self.assertEqual(
-            response.context["ai_practice_prompt"],
-            load_ai_examiner_prompt(),
-        )
-        self.assertContains(response, "AI Practice Prompt")
-        self.assertContains(
-            response,
-            'data-prompt-copy-source="ai-practice-prompt-content"',
-        )
-        self.assertContains(response, 'id="ai-practice-prompt-content"')
+        self.assertNotIn("ai_practice_prompt", response.context)
+        self.assertNotContains(response, "AI Practice Prompt")
+        self.assertNotContains(response, "Practice guide")
+        self.assertNotContains(response, "ai-practice-prompt-content")
+        self.assertNotContains(response, "prompt-copy.js")
         self.assertContains(
             response,
             "data-tache-two-overview-panel",

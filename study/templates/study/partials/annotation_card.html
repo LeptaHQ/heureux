@@ -23,12 +23,22 @@ Parameters:
   {% if variant == "notes" %}data-annotation-edit-source="{{ annotation.id }}" data-annotation-edit-title="{{ annotation.title }}" data-annotation-edit-body="{{ annotation.body }}" data-annotation-edit-has-quote="{% if annotation.quote %}1{% else %}0{% endif %}"{% endif %}
 >
   <header class="annotation-card__head">
-    {% if annotation.is_pinned and variant == "notes" %}
-      <span class="annotation-card__pin" title="Note épinglée">
-        <span class="annotation-card__pin-dot" aria-hidden="true"></span>
-        {% include "study/partials/annotation_pin_icon.html" %}
-        <span class="sr-only">Épinglée</span>
-      </span>
+    {% if variant == "notes" %}
+      <form class="annotation-card__pin" method="post" action="{% url 'study:annotation_pin_toggle' annotation.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <input type="hidden" name="is_pinned" value="{% if annotation.is_pinned %}0{% else %}1{% endif %}">
+        <button class="linkbtn annotation-action" type="submit"
+                aria-label="{% if annotation.is_pinned %}Désépingler la note{% else %}Épingler la note{% endif %}"
+                aria-pressed="{{ annotation.is_pinned|yesno:'true,false' }}"
+                title="{% if annotation.is_pinned %}Désépingler{% else %}Épingler{% endif %}">
+          <span class="annotation-action__icon annotation-action__icon--pin" aria-hidden="true">
+            {% include "study/partials/annotation_pin_icon.html" %}
+            {% if annotation.is_pinned %}<span class="annotation-card__pin-dot"></span>{% endif %}
+          </span>
+          <span class="sr-only">{% if annotation.is_pinned %}Désépingler la note{% else %}Épingler la note{% endif %}</span>
+        </button>
+      </form>
     {% endif %}
     <span class="annotation-card__kind">{% if annotation.kind == "highlight" %}Surlignage{% else %}Note{% endif %}</span>
     {% if annotation.origin_label %}<span class="annotation-card__origin">{{ annotation.origin_label }}</span>{% endif %}

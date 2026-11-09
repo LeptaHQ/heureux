@@ -36,6 +36,7 @@ DB_DISABLE_SERVER_SIDE_CURSORS=True python manage.py test \
   study.tests.test_query_budgets \
   study.tests.test_retirement_query_performance \
   study.tests.test_expression_landing_performance \
+  study.tests.test_eo3_detail_performance \
   study.tests.test_writing_request_performance
 ```
 
@@ -85,8 +86,13 @@ response-ordering checks still run with their controlled delays.
 
 On EO Tâches 2/3 and EE Tâches 1/2/3 subject pages, the **Sujet N sur M**
 counter opens a subject picker for the current theme or category. EO3 choices
-are grouped by subtheme. Each picker keeps the same ordering, previous/next
-links, and publication-deduplication setting.
+are grouped by the display subthemes, in the same order as the subject directory.
+Each picker keeps matching numbering, previous/next links, and the
+publication-deduplication setting.
+
+EO2 and EO3 retain their subject content, responses and study controls, not oral
+practice launchers. The retired EO2 AI examiner prompt and practice guide are not
+loaded or shipped to the browser. Written-expression practice is unchanged.
 
 ## French narration across the app
 
@@ -383,7 +389,9 @@ Notes can be pinned with the pin action. Within the current folder and filters,
 pinned notes appear first in an « Épinglées » section, still within the same
 50-record pagination. With JavaScript, they use compact cards with a green dot
 and pin icon; clicking a card or its open button shows the complete note in an
-accessible dialog. Pinning persists per learner, and unpinning restores the
+accessible dialog with the same note actions, including unpinning. The pin control
+sits beside the note label, leaving the other actions in their existing column.
+Pinning persists per learner, and unpinning restores the
 note's original date position. Without JavaScript, full notes and pin forms
 remain available. Apply migration 0067 before deploying this feature.
 Note and translation pop-ups use rounded action controls, including DeepL and
@@ -474,8 +482,8 @@ Phrases still owned by another active task remain available there.
 EO Tâche 3 vocabulary is also retired: its navigation, themed collections,
 subject-side vocabulary and vocabulary practice are no longer available.
 Historical phrases, cards, schedules, reviews, notes and highlights are retained;
-shared expressions remain available in other active tasks. EO3 response practice,
-Pistes, audio, editing and subject completion remain unchanged.
+shared expressions remain available in other active tasks. Pistes, audio, editing
+and subject completion remain available on the response pages.
 The original EO3 vocabulary sources remain archival evidence, but imports no longer
 load its themed banks or provision retired vocabulary cards. Other tasks keep their
 existing vocabulary features.
@@ -798,6 +806,10 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   Restart workers after content changes; learner progress and database querysets
   are never cached there. Custom-path parsers and content imports still validate
   their inputs directly.
+  EO3 models, prompt notes, speaking plans and taxonomy share one source parse,
+  retaining only immutable prompt/group identities rather than source bodies.
+  Detail progress groups repeated oral highlight identities in SQL while retaining
+  their earliest/latest activity and resolving ownership with the same priority.
 - Subject directories reuse one collection/group/row component and render each
   publication once, with card and table presentations of the same elements.
   EO Tâche 3 nests subject families within themes; each level counts unique

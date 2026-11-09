@@ -61,7 +61,6 @@ _SUBJUNCTIVE_TRIGGER_RE = re.compile(
 
 class EeWritingContentTests(SimpleTestCase):
     def test_default_examiner_prompts_are_loaded_once_per_process(self):
-        content._load_default_ai_examiner_prompt.cache_clear()
         content._load_default_ee_ai_examiner_prompt.cache_clear()
 
         with patch.object(
@@ -69,13 +68,11 @@ class EeWritingContentTests(SimpleTestCase):
             "_load_master_prompt",
             wraps=content._load_master_prompt,
         ) as load_prompt:
-            content.load_ai_examiner_prompt()
-            content.load_ai_examiner_prompt()
             for tache in (1, 2, 3):
                 content.load_ee_ai_examiner_prompt(tache)
                 content.load_ee_ai_examiner_prompt(tache)
 
-        self.assertEqual(load_prompt.call_count, 4)
+        self.assertEqual(load_prompt.call_count, 3)
 
     def test_written_examiner_prompts_include_scoring_guidance(self):
         for tache in (1, 2, 3):
@@ -206,8 +203,7 @@ class EeWritingContentTests(SimpleTestCase):
         self.assertEqual(mapping["ee-tache2:mai:combinaison-7"], article.source_key)
 
     def test_published_answers_and_copy_prompts_do_not_promote_study_sites(self):
-        texts = [content.load_ai_examiner_prompt()]
-        texts.extend(content.load_ee_ai_examiner_prompt(tache) for tache in (1, 2, 3))
+        texts = [content.load_ee_ai_examiner_prompt(tache) for tache in (1, 2, 3)]
         texts.extend(
             version.body for tache in (1, 2)
             for category in content.load_ee_writing_categories(tache)

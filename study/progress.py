@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from itertools import islice
 import re
+from types import SimpleNamespace
 from typing import Iterable
 from urllib.parse import urlsplit
 
@@ -546,10 +547,18 @@ def _subject_highlight_rows(user, response_ids, *, _shapes=None, _grouped=False)
         oral_by_id = dict(Response.objects.filter(
             pk__in=response_ids, semantic_group__gt="",
         ).values_list("pk", "content_key"))
-        annotations = list(highlights.filter(
+        # Ownership uses these identities, not individual quotes or offsets.
+        grouped_annotations = highlights.filter(
             Q(task__part__slug="eo", task__slug__in=["tache-2", "tache-3"])
             | Q(task__isnull=True)
-        ).only("pk", "task_id", "source_prompt_id", "source_key", "source_path", "created_at"))
+        ).order_by().values(
+            "task_id", "source_prompt_id", "source_key", "source_path",
+        ).annotate(
+            pk=Min("pk"),
+            created_at_earliest=Min("created_at"),
+            created_at=Max("created_at"),
+        )
+        annotations = [SimpleNamespace(**row) for row in grouped_annotations]
         owners = annotation_owners(annotations)
         latest_by_owner = {}
         earliest_by_owner = {}
@@ -561,8 +570,8 @@ def _subject_highlight_rows(user, response_ids, *, _shapes=None, _grouped=False)
                     annotation.created_at,
                 )
                 earliest_by_owner[owner] = min(
-                    earliest_by_owner.get(owner, annotation.created_at),
-                    annotation.created_at,
+                    earliest_by_owner.get(owner, annotation.created_at_earliest),
+                    annotation.created_at_earliest,
                 )
         matched = set(latest_by_owner)
         rows = [

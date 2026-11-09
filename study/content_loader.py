@@ -35,7 +35,6 @@ EO_TACHE_ONE_TASK = ("eo", "tache-1")
 EO_TACHE_ONE_QUESTION_BANK_DIR = CONTENT_DIR / "tache_1"
 QUESTION_BANK_PATH = CONTENT_DIR / "tache_2" / "master_question_bank_1.json"
 QUESTION_BANK_DIR = QUESTION_BANK_PATH.parent
-AI_EXAMINER_PROMPT_PATH = QUESTION_BANK_DIR / "ai_examiner_prompt.md"
 TACHE_TWO_SUBJECTS_DIR = QUESTION_BANK_DIR / "subjects"
 TACHE_TWO_VOCABULARY_DIR = QUESTION_BANK_DIR / "vocabulary"
 TACHE_TWO_THEME_VOCABULARY_DIR = QUESTION_BANK_DIR / "theme_vocabulary"
@@ -1068,18 +1067,6 @@ def _load_master_prompt(path: Path) -> str:
     if not found_closing_fence or not prompt:
         raise ValueError(f"{path.name} has an incomplete Master prompt")
     return prompt
-
-
-@lru_cache(maxsize=1)
-def _load_default_ai_examiner_prompt() -> str:
-    return _load_master_prompt(AI_EXAMINER_PROMPT_PATH)
-
-
-def load_ai_examiner_prompt(path: Path = AI_EXAMINER_PROMPT_PATH) -> str:
-    """Extract the copy-ready oral master prompt from its Markdown guide."""
-    if path == AI_EXAMINER_PROMPT_PATH:
-        return _load_default_ai_examiner_prompt()
-    return _load_master_prompt(path)
 
 
 @lru_cache(maxsize=3)

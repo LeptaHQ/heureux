@@ -4189,42 +4189,14 @@ class BrowserTests(StaticLiveServerTestCase):
             f'.deck[href="{overview_path}"]'
         ).first
         task_card.wait_for()
-        self.assertEqual(
-            task_card.locator(".deck__progress-copy").inner_text(),
-            "0/54 lots terminés · 0/164 sujets terminés",
-        )
-
-        self.context.add_init_script(
-            """
-            Object.defineProperty(navigator, "clipboard", {
-              configurable: true,
-              value: {
-                writeText: text => {
-                  window.__aiPracticePromptCopied = text;
-                  return Promise.resolve();
-                },
-              },
-            });
-            """
-        )
+        self.assertEqual(task_card.locator(".deck__progress-copy").count(), 0)
         self.page.goto(self.live_server_url + overview_path)
         self.page.get_by_role(
             "heading",
             name="Tâche 2",
             exact=True,
         ).wait_for()
-        prompt_button = self.page.get_by_role(
-            "button",
-            name="Copy AI Practice Prompt",
-            exact=True,
-        )
-        self.assertEqual(prompt_button.inner_text(), "AI Practice Prompt")
-        prompt_button.click()
-        self.page.get_by_text("Copied!", exact=True).wait_for()
-        self.assertEqual(
-            self.page.evaluate("window.__aiPracticePromptCopied"),
-            content.load_ai_examiner_prompt(),
-        )
+        self.assertEqual(self.page.locator("[data-prompt-copy], .eo2-guidelines").count(), 0)
         overview_panels = self.page.locator(
             "[data-tache-two-overview-panel]"
         )
@@ -6348,7 +6320,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.wait_for_url(self.live_server_url + edit_path)
         expect(self.page.locator("#id_prompt_note")).to_be_visible()
 
-    def test_tache_two_practice_tools_are_compact_and_guide_expands(self):
+    def test_tache_two_overview_omits_retired_practice_tools(self):
         task = factories.make_task(self.part, "tache-2")
         for width in (390, 1280):
             with self.subTest(width=width):
@@ -6356,24 +6328,10 @@ class BrowserTests(StaticLiveServerTestCase):
                 self.page.goto(self.live_server_url + reverse(
                     "study:task_detail", args=[self.part.slug, task.slug]
                 ))
-                guide = self.page.locator(".eo2-guidelines")
-                summary = guide.locator("summary")
-                copy = self.page.get_by_role("button", name="Copy AI Practice Prompt")
-                expect(summary).to_be_visible()
-                expect(copy).to_be_visible()
-                self.assertLessEqual(guide.bounding_box()["height"], 48)
-                self.assertAlmostEqual(
-                    summary.bounding_box()["height"], copy.bounding_box()["height"], delta=2
-                )
+                expect(self.page.locator(".eo2-guidelines, [data-prompt-copy]")).to_have_count(0)
                 self.assertEqual(self.page.evaluate(
                     "() => document.documentElement.scrollWidth <= innerWidth"
                 ), True)
-                summary.click()
-                expect(guide).to_have_attribute("open", "")
-                expect(guide.locator(".eo2-guidelines__body")).to_be_visible()
-                expect(guide).to_contain_text("2 minutes of preparation")
-                summary.click()
-                expect(guide.locator(".eo2-guidelines__body")).not_to_be_visible()
 
     def test_tache_two_subjects_have_hints_and_preserve_practice_flow(self):
         command = Command()

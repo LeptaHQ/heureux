@@ -1731,23 +1731,6 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   gap: 0.65rem;
   margin-top: 0.75rem;
 }
-.memory-overview-hero__actions--practice { flex-wrap: wrap; }
-.eo2-guidelines { min-width: 0; }
-.eo2-guidelines summary { list-style: none; }
-.eo2-guidelines summary::-webkit-details-marker { display: none; }
-.eo2-guidelines[open] { flex-basis: 100%; }
-.eo2-guidelines[open] summary svg { transform: rotate(180deg); }
-.eo2-guidelines__body {
-  max-width: 72ch;
-  margin-top: 0.75rem;
-  padding-left: 1rem;
-  border-left: 2px solid var(--border);
-  color: var(--text-soft);
-  font-size: 0.9rem;
-  line-height: 1.65;
-}
-.eo2-guidelines__body p:first-child { margin-top: 0; }
-.eo2-guidelines__body li + li { margin-top: 0.45rem; }
 .tache-two-ai-prompt-button {
   --icon-color: currentColor;
   min-width: 12.5rem;
@@ -1843,6 +1826,14 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   box-shadow: none;
   text-decoration: none;
   transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+.tache-two-overview-panel {
+  grid-template-rows: auto 1fr;
+  min-height: 12.5rem;
+}
+.tache-two-overview-panel__footer .tache-two-overview-panel__action {
+  grid-column: -2 / -1;
+  justify-self: end;
 }
 .tache-two-overview-panel:hover,
 .task-choice-card:hover {
@@ -2592,30 +2583,6 @@ button.eo2-dialogue__number[aria-pressed="true"] { background: var(--surface-2);
 button.eo2-dialogue__number:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 button.eo2-dialogue__number:disabled { color: var(--text-soft); cursor: default; }
 .eo2-dialogue__english { font-weight: 500; }
-.eo2-guidelines {
-  margin-top: 1rem;
-  color: var(--text-soft);
-  font-size: 0.88rem;
-  line-height: 1.6;
-}
-.eo2-guidelines summary {
-  min-height: 2.75rem;
-  padding: 0.35rem 0;
-  color: var(--text);
-  font-weight: 700;
-  cursor: pointer;
-}
-.eo2-guidelines summary:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 4px;
-}
-.eo2-guidelines li + li {
-  margin-top: 0.5rem;
-}
-.eo2-guidelines__sources {
-  font-size: 0.8rem;
-  overflow-wrap: anywhere;
-}
 @media (max-width: 480px) {
   .eo2-dialogue__turn {
     grid-template-columns: 1.5rem minmax(0, 1fr);
@@ -5154,6 +5121,13 @@ html:has(.methodology-dialog[open]) {
   gap: 0.4rem;
   color: var(--success);
   flex-shrink: 0;
+  margin: 0;
+}
+.annotation-card__pin .annotation-action__icon { position: relative; }
+.annotation-card__pin .annotation-card__pin-dot {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .annotation-card__pin svg {
   width: 16px;
@@ -5225,6 +5199,14 @@ html:not([data-collection-view-mode="table"])
   margin-top: 1.25rem;
   padding-top: 0.75rem;
 }
+.pinned-note-dialog__actions {
+  flex-shrink: 0;
+  justify-content: flex-start;
+  margin-top: 0;
+  padding: 0.65rem 1rem;
+}
+.pinned-note-dialog__actions [hidden] { display: none; }
+.pinned-note-dialog__status { margin: 0.5rem 1rem; }
 .annotation-card__head {
   display: flex;
   align-items: center;
@@ -14426,7 +14408,7 @@ html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task:focus-v
       grid-template-columns: minmax(0, 1fr);
       grid-template-rows: subgrid;
       row-gap: 0;
-      min-height: 0;
+      min-height: 16.5rem;
     }
     html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__body {
       grid-row: 1 / -1;

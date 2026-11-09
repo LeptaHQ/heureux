@@ -9,7 +9,7 @@
       {% if t.task.available %}
         <span class="deck__go" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       {% else %}
-        <span class="badge-soon">À venir</span>
+        <div class="deck__status-cell"><span class="badge-soon">À venir</span></div>
       {% endif %}
     </div>
   </a>

@@ -518,6 +518,7 @@ def part_detail(request, part_slug):
     context = {
         "part": part,
         "tasks": [{"task": task} for task in part_tasks],
+        "initial_collection_view": "cards",
     }
     return render(
         request,
@@ -1034,7 +1035,6 @@ def task_detail(request, part_slug, task_slug):
             {
                 "part": task.part,
                 "task": task,
-                "ai_practice_prompt": content_module.load_ai_examiner_prompt(),
             },
         )
     writing_tache = _ee_writing_tache(task)
@@ -3681,6 +3681,9 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     subject_progress = subject_progress_by_response(
         request.user,
         {response.pk},
+        summary_only=is_retired_vocabulary_task(
+            response.theme.task.part.slug, response.theme.task.slug,
+        ),
     )[response.pk]
     prompts = list(
         _lean_prompt_rows(
@@ -3694,18 +3697,29 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         )
     )
 
+    is_eo3 = (part_slug, task_slug) == content_module.EO_TACHE_THREE_TASK
+    taxonomy = catalogue.eo_tache_three_taxonomy() if is_eo3 else None
+    display_category = taxonomy.by_source.get(selected_prompt.content_key) if taxonomy else None
+    navigation_scope = {"theme_id": selected_prompt.theme_id}
+    if display_category:
+        navigation_scope = {
+            "content_key__in": [
+                key for key, category in taxonomy.by_source.items()
+                if category.theme.slug == display_category.theme.slug
+            ],
+        }
     navigation_prompts = _lean_prompt_rows(
         Prompt.objects.filter(
             is_active=True,
             theme__is_active=True,
             response__is_active=True,
-            theme_id=selected_prompt.theme_id,
+            theme__task=task,
+            **navigation_scope,
         ).select_related("theme__task__part", "family")
     )
-    is_eo3 = (part_slug, task_slug) == content_module.EO_TACHE_THREE_TASK
     order = (
         ("family__order", "family__name", "number", "pk")
-        if is_eo3
+        if is_eo3 and not display_category
         else ("number", "pk")
     )
     deduplicate = request.GET.get("deduplicate", "1") == "1"
@@ -3718,6 +3732,8 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         key=navigation_key,
         deduplicate=deduplicate,
     )
+    if display_category:
+        navigation_items.sort(key=lambda prompt: taxonomy.by_source[prompt.content_key].order)
     prompt_position, prompt_total, previous_prompt, next_prompt = _subject_neighbors(
         navigation_items,
         selected_prompt,
@@ -3728,7 +3744,10 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         {
             "prompt": prompt,
             "label": prompt.text,
-            "group": prompt.family if is_eo3 else None,
+            "group": (
+                {"name": taxonomy.by_source[prompt.content_key].label}
+                if display_category else prompt.family if is_eo3 else None
+            ),
             "position": index,
             "selected": navigation_key(prompt) == navigation_key(selected_prompt),
             "url": routing.subject_selection_url(prompt_detail_url(prompt), request),

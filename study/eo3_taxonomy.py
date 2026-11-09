@@ -33,7 +33,7 @@ class SubjectTaxonomy:
     by_source: Mapping[str, DisplayCategory]
 
 
-def load_eo_tache_three_taxonomy(path: Path | None = None) -> SubjectTaxonomy:
+def load_eo_tache_three_taxonomy(path: Path | None = None, *, responses=None) -> SubjectTaxonomy:
     data = json.loads(
         (path or content.CONTENT_DIR / "tache_3" / "subject_taxonomy.json").read_text(
             encoding="utf-8"
@@ -48,7 +48,7 @@ def load_eo_tache_three_taxonomy(path: Path | None = None) -> SubjectTaxonomy:
         or not isinstance(data["themes"], list) or not data["themes"]
     ):
         raise ValueError("EO3 taxonomy requires version 1 and exact task eo/tache-3")
-    responses = content.parse_responses()
+    responses = content.parse_responses() if responses is None else responses
     members = {
         response.semantic_group: tuple(p.content_key for p in response.prompts)
         for response in responses

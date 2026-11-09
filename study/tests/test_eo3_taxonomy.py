@@ -48,6 +48,13 @@ class EO3TaxonomyTests(SimpleTestCase):
         catalogue.clear_catalogue_cache()
         self.assertIsNot(catalogue.eo_tache_three_taxonomy(), taxonomy)
 
+    def test_preferred_themes_come_first_without_reordering_other_themes(self):
+        self.assertEqual(
+            [theme.slug for theme in catalogue.eo_tache_three_taxonomy().themes],
+            ["immigration", "culture", "famille", "societe", "education",
+             "sante", "technologie", "environnement", "economie"],
+        )
+
     def test_failed_loads_are_not_cached(self):
         with patch("study.eo3_taxonomy.load_eo_tache_three_taxonomy",
                    side_effect=ValueError("Invalid manifest")) as load:
@@ -147,6 +154,10 @@ class EO3TaxonomyViewTests(TestCase):
             self.assertEqual(page.context["subject_summary"]["total"], 131)
             self.assertEqual(page.context["subject_summary"]["completed"], 1)
             groups = page.context["subject_themes"]
+            self.assertEqual(
+                [group["slug"] for group in groups[:4]],
+                ["immigration", "culture", "famille", "societe"],
+            )
             self.assertEqual(sum(len(g["families"]) for g in groups), 61)
             self.assertEqual(sum(g["subject_count"] for g in groups), count)
             rows = [row for group in groups for row in group["subjects"]]
@@ -193,6 +204,33 @@ class EO3TaxonomyViewTests(TestCase):
         self.assertContains(page, escape(source.family.name))
         self.assertEqual(page.context["response_count"], 131)
         self.assertEqual(page.context["subject_summary"]["total"], 131)
+
+    def test_subject_picker_matches_directory_themes_subthemes_and_order(self):
+        for deduplicate in ("1", "0"):
+            directory = self.client.get(self.directory, {"deduplicate": deduplicate})
+            for theme in directory.context["subject_themes"]:
+                with self.subTest(deduplicate=deduplicate, theme=theme["slug"]):
+                    rows = [
+                        row for family in theme["families"] for row in family["subjects"]
+                    ]
+                    detail = self.client.get(
+                        prompt_detail_url(rows[0]["prompt"]),
+                        {"deduplicate": deduplicate},
+                    )
+                    self.assertEqual(detail.status_code, 200)
+                    choices = detail.context["prompt_choices"]
+                    self.assertEqual(
+                        [choice["prompt"].pk for choice in choices],
+                        [row["prompt"].pk for row in rows],
+                    )
+                    self.assertEqual(
+                        [choice["group"]["name"] for choice in choices],
+                        [row["display_category"].label for row in rows],
+                    )
+                    self.assertEqual(detail.context["prompt_total"], len(rows))
+                    self.assertEqual(detail.context["prompt_position"], 1)
+                    self.assertIsNone(detail.context["previous_prompt"])
+                    self.assertEqual(detail.context["next_prompt"].pk, rows[1]["prompt"].pk)
 
     def test_breadcrumbs_search_and_annotation_root_preserve_source_content(self):
         taxonomy = catalogue.eo_tache_three_taxonomy()

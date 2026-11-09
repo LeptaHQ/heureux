@@ -69,6 +69,7 @@ from .notes import (
     annotation_complete_toggle,
     annotation_create,
     annotation_delete,
+    annotation_pin_toggle,
     annotation_search,
     annotation_study,
     annotation_study_toggle,

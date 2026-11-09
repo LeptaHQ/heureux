@@ -18,6 +18,7 @@ from .tache_two_dialogues import TacheTwoDialogue, load_tache_two_dialogues
 from .tache_two_location_history import LocationHistory, load_location_history
 
 if TYPE_CHECKING:
+    from .eo3_taxonomy import SubjectTaxonomy
     from .tache_three_models import TacheThreeModel
     from .tache_three_prompt_notes import TacheThreePromptNote
 
@@ -99,6 +100,13 @@ def task_memoires(
 
 
 @lru_cache(maxsize=1)
+def eo_tache_three_taxonomy() -> SubjectTaxonomy:
+    from .eo3_taxonomy import load_eo_tache_three_taxonomy
+
+    return load_eo_tache_three_taxonomy()
+
+
+@lru_cache(maxsize=1)
 def eo_tache_three_family_labels() -> Mapping[tuple[str, str], str]:
     return MappingProxyType(content.load_eo_tache_three_family_labels())
 
@@ -165,6 +173,7 @@ def clear_catalogue_cache() -> None:
     ee_tache_one_subject_hints.cache_clear()
     task_memoires.cache_clear()
     eo_tache_three_family_labels.cache_clear()
+    eo_tache_three_taxonomy.cache_clear()
     ee_tache_three_months.cache_clear()
     ee_subject_keys.cache_clear()
     ee_subject_themes.cache_clear()

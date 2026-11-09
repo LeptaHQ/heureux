@@ -30,14 +30,15 @@ FORMULATION_ENTRY_PATHS = {
 }
 
 
-def formulation_progress_states(user, catalogs):
+def formulation_progress_states(user, catalogs, *, learned_keys=None):
+    """Reuse only this user's memory-number-1 completions when supplied."""
     catalogs = tuple(catalogs)
     keys_by_tache = {
         catalog.tache: {entry.content_key for entry in catalog.entries}
         for catalog in catalogs
     }
     all_keys = set().union(*keys_by_tache.values()) if catalogs else set()
-    learned_all = set(
+    learned_all = set(learned_keys) if learned_keys is not None else set(
         MemoryQuestionProgress.objects.filter(
             user=user, memory_number=1, question_key__in=all_keys,
         ).values_list("question_key", flat=True)

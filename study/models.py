@@ -1148,6 +1148,7 @@ class Annotation(models.Model):
     response_anchor = models.JSONField(default=dict, db_default={}, blank=True, editable=False)
     hidden_on_source = models.BooleanField(default=False, db_default=False, editable=False)
     study_later = models.BooleanField(default=False, db_index=True)
+    is_pinned = models.BooleanField(default=False, db_default=False)
     completed_at = models.DateTimeField(null=True, blank=True, db_index=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)

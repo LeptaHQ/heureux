@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 from django.db.models import Prefetch
+from django.http import JsonResponse
 from django.shortcuts import render
+from django.template.loader import render_to_string
 from django.utils import timezone
 
 from ..models import (
@@ -15,7 +17,7 @@ from ..progress import combine_progress
 from .helpers import expression_task_summaries
 
 
-def _parts_with_task_summaries(now, user):
+def _parts_with_task_summaries(now, user, *, with_stats=True):
     """Every expression part with the light per-task rows the hub renders.
 
     The expression hub only shows aggregate progress, so the tasks carry the
@@ -32,12 +34,12 @@ def _parts_with_task_summaries(now, user):
         now,
         user,
         [task for _, tasks in tasks_by_part for task in tasks],
-    )
+    ) if with_stats else {}
     return [
         {
             "part": part,
             "tasks": [
-                {"task": task, **summaries[task.pk]}
+                {"task": task, **summaries.get(task.pk, {})}
                 for task in tasks
             ],
         }
@@ -45,7 +47,7 @@ def _parts_with_task_summaries(now, user):
     ]
 
 
-def _home_expression_paths(parts):
+def _home_expression_paths(parts, *, with_stats=True):
     paths = []
     for item in parts:
         all_tasks = item["tasks"]
@@ -56,7 +58,7 @@ def _home_expression_paths(parts):
         ]
         path_progress = combine_progress(
             task["stats"]["progress"] for task in available_tasks
-        )
+        ) if with_stats else None
         paths.append(
             {
                 **item,
@@ -65,16 +67,16 @@ def _home_expression_paths(parts):
                 "has_content": bool(available_tasks),
                 "prompt_count": sum(
                     task["prompt_count"] for task in available_tasks
-                ),
+                ) if with_stats else None,
                 "seen": sum(
                     task["stats"]["seen"] for task in available_tasks
-                ),
+                ) if with_stats else None,
                 "total": sum(
                     task["stats"]["total"] for task in available_tasks
-                ),
+                ) if with_stats else None,
                 "due": sum(
                     task["stats"]["due"] for task in available_tasks
-                ),
+                ) if with_stats else None,
                 "progress": path_progress,
                 "content_unit": (
                     "contenus" if item["part"].slug == "eo" else "sujets"
@@ -104,19 +106,29 @@ def dashboard(request):
 
 def expression_hub(request):
     now = timezone.now()
-    parts = _parts_with_task_summaries(now, request.user)
-    paths = _home_expression_paths(parts)
+    with_stats = request.GET.get("stats") == "1"
+    parts = _parts_with_task_summaries(now, request.user, with_stats=with_stats)
+    paths = _home_expression_paths(parts, with_stats=with_stats)
     available_paths = [path for path in paths if path["available"]]
+    context = {
+        "paths": paths,
+        "deferred_stats": not with_stats,
+        "stats_url": f"{request.path}?stats=1",
+    }
+    if with_stats:
+        context.update(
+            prompt_count=sum(path["prompt_count"] for path in available_paths),
+            card_total=sum(path["total"] for path in available_paths),
+            card_seen=sum(path["seen"] for path in available_paths),
+            response_due=sum(path["due"] for path in available_paths),
+        )
+        if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+            return JsonResponse({
+                "html": render_to_string("study/partials/expression_paths.html", context, request=request),
+                "metrics": render_to_string("study/partials/expression_metrics.html", context, request=request),
+            })
     return render(
         request,
         "study/expression_hub.html",
-        {
-            "paths": paths,
-            "prompt_count": sum(
-                path["prompt_count"] for path in available_paths
-            ),
-            "card_total": sum(path["total"] for path in available_paths),
-            "card_seen": sum(path["seen"] for path in available_paths),
-            "response_due": sum(path["due"] for path in available_paths),
-        },
+        context,
     )

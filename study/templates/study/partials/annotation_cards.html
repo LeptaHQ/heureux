@@ -16,6 +16,7 @@ Parameters:
         <h2 id="{{ variant }}-{{ section.key }}-heading">{{ section.title }}</h2>
         <span class="notes-date-section__count">{{ section.items|length }}</span>
         <span class="notes-date-section__rule" aria-hidden="true"></span>
+        {% if section.key != "pinned" %}
         <form class="notes-date-sort" method="get" action="{{ request.path }}#{{ variant }}-{{ section.key }}-heading">
           {% for name, value in section.sort_params.items %}
             <input type="hidden" name="{{ name }}" value="{{ value }}">
@@ -42,6 +43,7 @@ Parameters:
             <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"></path></svg>
           </button>
         </form>
+        {% endif %}
       </div>
       <div class="annotations-grid collection-table collection-table--annotations" data-collection-view="adaptive">
         {% if variant == "notes" %}

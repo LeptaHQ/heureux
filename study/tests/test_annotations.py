@@ -490,7 +490,8 @@ class AnnotationTests(TestCase):
         task_note = Annotation.objects.get(title="Connecteurs")
         self.assertRedirects(
             response,
-            task_url + f"?tab=notes#note-{task_note.id}",
+            task_url + f"?tab=notes&locate={task_note.id}#note-{task_note.id}",
+            fetch_redirect_response=False,
         )
         self.assertEqual(task_note.user, self.user)
         self.assertEqual(task_note.task, self.task)
@@ -504,7 +505,8 @@ class AnnotationTests(TestCase):
         general_note = Annotation.objects.get(body="Objectif de la semaine.")
         self.assertRedirects(
             response,
-            self.custom_notes_url + f"?tab=notes#note-{general_note.id}",
+            self.custom_notes_url + f"?tab=notes&locate={general_note.id}#note-{general_note.id}",
+            fetch_redirect_response=False,
         )
         self.assertIsNone(general_note.task)
 
@@ -522,7 +524,8 @@ class AnnotationTests(TestCase):
         note = Annotation.objects.get(title="Transition")
         self.assertRedirects(
             response,
-            return_url + f"#note-{note.id}",
+            return_url + f"&locate={note.id}#note-{note.id}",
+            fetch_redirect_response=False,
         )
 
     def test_selected_note_is_private_and_source_linked(self):
@@ -2017,7 +2020,7 @@ class AnnotationTests(TestCase):
         note = Annotation.objects.get(title="Objectif")
         self.assertRedirects(
             response,
-            return_url + f"#note-{note.pk}",
+            return_url + f"&locate={note.pk}#note-{note.pk}",
             fetch_redirect_response=False,
         )
 

@@ -1,0 +1,7 @@
+{% if deferred_stats %}
+  <div class="area-section" data-expression-stats-status>
+    <p role="status" aria-live="polite" data-expression-stats-message>Chargement du contenu et de la progression… Les parcours restent accessibles.</p>
+    <button class="button button--secondary" type="button" data-expression-stats-retry hidden>Réessayer</button>
+    <noscript><a href="{{ stats_url }}">Afficher le contenu et la progression sans JavaScript</a></noscript>
+  </div>
+{% endif %}

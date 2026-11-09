@@ -494,7 +494,7 @@ class WritingSujetViewTests(TestCase):
         self.assertEqual(progress_by_sujet[self.single.pk].status, "new")
         self.assertEqual(browse.context["subject_progress"].started, 1)
 
-        part_page = self.client.get(reverse("study:part_detail", args=["ee"]))
+        part_page = self.client.get(reverse("study:part_detail", args=["ee"]), {"stats": "1"})
         task_card = next(
             item
             for item in part_page.context["tasks"]

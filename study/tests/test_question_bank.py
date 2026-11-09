@@ -1816,7 +1816,7 @@ class EoTacheOneQuestionBankViewTests(TestCase):
 
     def test_oral_part_card_reports_question_content_and_progress(self):
         response = self.client.get(
-            reverse("study:part_detail", args=[self.task.part.slug])
+            reverse("study:part_detail", args=[self.task.part.slug]), {"stats": "1"},
         )
 
         self.assertEqual(response.status_code, 200)
@@ -4491,7 +4491,7 @@ class QuestionBankViewTests(TestCase):
             )
         )
         task_list = self.client.get(
-            reverse("study:part_detail", args=[self.task.part.slug])
+            reverse("study:part_detail", args=[self.task.part.slug]), {"stats": "1"},
         )
 
         self.assertEqual(subject.status_code, 200)
@@ -4986,7 +4986,7 @@ class QuestionBankViewTests(TestCase):
         )
 
         response = self.client.get(
-            reverse("study:part_detail", args=[self.task.part.slug])
+            reverse("study:part_detail", args=[self.task.part.slug]), {"stats": "1"},
         )
 
         self.assertEqual(response.status_code, 200)
@@ -5045,7 +5045,7 @@ class QuestionBankViewTests(TestCase):
             )
         )
         task_list = self.client.get(
-            reverse("study:part_detail", args=[self.task.part.slug])
+            reverse("study:part_detail", args=[self.task.part.slug]), {"stats": "1"},
         )
         directory_item = next(
             item

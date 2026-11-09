@@ -214,7 +214,7 @@ class CatalogueRequestTests(TestCase):
     def _pages(self):
         return {
             "dashboard": reverse("study:dashboard"),
-            "expression": reverse("study:expression"),
+            "expression": reverse("study:expression") + "?stats=1",
             "eo2-overview": reverse("study:task_detail", args=["eo", "tache-2"]),
             "eo2-directory": reverse("study:task_browse", args=["eo", "tache-2"]),
             "eo2-detail": reverse(

@@ -1,0 +1,3 @@
+<div><dt>Contenus</dt><dd>{% if deferred_stats %}—{% else %}{{ prompt_count }}{% endif %}</dd></div>
+<div><dt>Contenus commencés</dt><dd>{% if deferred_stats %}—{% else %}{{ card_seen }}<span class="hero-metric__total">/ {{ card_total }}</span>{% endif %}</dd></div>
+<div><dt>Réponses à revoir</dt><dd>{% if deferred_stats %}—{% else %}{{ response_due }}{% endif %}</dd></div>

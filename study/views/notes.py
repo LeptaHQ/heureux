@@ -513,14 +513,14 @@ def _annotation_context_rank(annotations):
 
 def _order_annotation_periods(annotations, ascending, period_filters, context_rank=None):
     if not ascending and context_rank is None:
-        return annotations.order_by("-created_at", "-id")
+        return annotations.order_by("-is_pinned", "-created_at", "-id")
     ranks = {key: rank for rank, (key, _title) in enumerate(_ANNOTATION_DATE_BUCKETS)}
     annotations = annotations.alias(
         _period_rank=Case(
             *(When(period_filters[key], then=Value(rank)) for key, rank in ranks.items()),
         ),
     )
-    ordering = ["_period_rank"]
+    ordering = ["-is_pinned", "_period_rank"]
     if context_rank is not None:
         # Context groups sit inside each date section; each group keeps the
         # section's own date direction.
@@ -545,8 +545,12 @@ def _annotation_date_sections(annotations, *, today=None):
     today = today or timezone.localdate()
     yesterday = today - timedelta(days=1)
     week_start = today - timedelta(days=6)
-    items = {key: [] for key, _title in _ANNOTATION_DATE_BUCKETS}
+    buckets = (("pinned", "Épinglées"), *_ANNOTATION_DATE_BUCKETS)
+    items = {key: [] for key, _title in buckets}
     for annotation in annotations:
+        if annotation.is_pinned:
+            items["pinned"].append(annotation)
+            continue
         local_date = timezone.localtime(annotation.created_at).date()
         bucket = _annotation_date_bucket(
             local_date, today, yesterday, week_start
@@ -554,7 +558,7 @@ def _annotation_date_sections(annotations, *, today=None):
         items[bucket].append(annotation)
     return [
         {"key": key, "title": title, "items": items[key]}
-        for key, title in _ANNOTATION_DATE_BUCKETS
+        for key, title in buckets
         if items[key]
     ]
 
@@ -606,10 +610,7 @@ def _new_note_redirect(request, note):
             params.pop("status", None)
     if "tab" in params:
         params["tab"] = ["notes"]
-    if params.get("order") == ["context"] or any(
-        params.get(f"sort_{key}") == ["asc"] for key, _title in _ANNOTATION_DATE_BUCKETS
-    ):
-        params["locate"] = [str(note.pk)]
+    params["locate"] = [str(note.pk)]
     return target._replace(
         query=urlencode(params, doseq=True), fragment=f"note-{note.pk}"
     ).geturl()
@@ -684,8 +685,11 @@ def _notes_scope(
             "id", filter=Q(kind=AnnotationKind.HIGHLIGHT) & status_filter
         ),
         study_count=Count("id", filter=Q(study_later=True)),
+        pinned_count=Count("id", filter=active_filter & Q(is_pinned=True)),
         **{
-            f"period_{key}": Count("id", filter=active_filter & period_filter)
+            f"period_{key}": Count(
+                "id", filter=active_filter & period_filter & Q(is_pinned=False)
+            )
             for key, period_filter in period_filters.items()
         },
     )
@@ -721,18 +725,18 @@ def _notes_scope(
         item = get_object_or_404(
             active_rows.annotate(
                 _item_context=F("_context_rank") if by_context else Value(0),
-            ).values("pk", "created_at", "_item_context"),
+            ).values("pk", "created_at", "_item_context", "is_pinned"),
             pk=int(item_id),
         )
         period = _annotation_date_bucket(
             timezone.localtime(item["created_at"]).date(),
             today, today - timedelta(days=1), today - timedelta(days=6),
         )
-        preceding_periods = 0
+        earlier_periods = Q(pk__in=[])
         for key, _title in _ANNOTATION_DATE_BUCKETS:
             if key == period:
                 break
-            preceding_periods += period_counts[key]
+            earlier_periods |= period_filters[key]
         comparison = "lt" if period in ascending_periods else "gt"
         same_place = Q(**{f"created_at__{comparison}": item["created_at"]}) | Q(
             created_at=item["created_at"], **{f"pk__{comparison}": item["pk"]}
@@ -741,8 +745,10 @@ def _notes_scope(
             same_place = Q(_context_rank__lt=item["_item_context"]) | (
                 Q(_context_rank=item["_item_context"]) & same_place
             )
-        preceding = preceding_periods + active_rows.filter(period_filters[period]).filter(
-            same_place
+        same_place = earlier_periods | (period_filters[period] & same_place)
+        preceding = active_rows.filter(
+            Q(is_pinned__gt=item["is_pinned"])
+            | (Q(is_pinned=item["is_pinned"]) & same_place)
         ).count()
         prefix = "highlight" if active_tab == "highlights" else "note"
         return redirect(
@@ -777,11 +783,13 @@ def _notes_scope(
         ]
     sections = _annotation_date_sections(rows, today=today)
     period_pages = {}
-    preceding = 0
+    preceding = counts["pinned_count"]
     for key, _title in _ANNOTATION_DATE_BUCKETS:
         period_pages[key] = preceding // NOTES_PAGE_SIZE + 1
         preceding += period_counts[key]
     for section in sections:
+        if section["key"] == "pinned":
+            continue
         sort_key = f"sort_{section['key']}"
         section.update(
             sort_key=sort_key,
@@ -2001,6 +2009,31 @@ def annotation_update(request, pk):
                 "body": annotation.body,
                 "body_html": render_markdown(annotation.body),
             }
+        )
+    return redirect(redirect_url)
+
+
+@require_POST
+def annotation_pin_toggle(request, pk):
+    annotation = get_object_or_404(
+        _annotation_action_queryset(request), pk=pk, kind=AnnotationKind.NOTE
+    )
+    value = request.POST.get("is_pinned")
+    if value not in {"0", "1"}:
+        return HttpResponseBadRequest("Invalid pin status.")
+    annotation.is_pinned = value == "1"
+    annotation.save(update_fields=["is_pinned"])
+    target = urlsplit(_annotation_redirect(request, annotation))
+    params = parse_qs(target.query)
+    params.pop("page", None)
+    params["locate"] = [str(pk)]
+    redirect_url = target._replace(
+        query=urlencode(params, doseq=True), fragment=f"note-{pk}"
+    ).geturl()
+    if _is_fetch(request):
+        return JsonResponse(
+            {"id": annotation.pk, "is_pinned": annotation.is_pinned,
+             "redirect_url": redirect_url}
         )
     return redirect(redirect_url)
 

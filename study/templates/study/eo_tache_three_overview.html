@@ -14,7 +14,7 @@
       {% if task.subtitle %}<p>{{ task.subtitle }}</p>{% endif %}
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Contenu de la Tâche 3">
-      <div><dt>Thèmes</dt><dd>{{ themes|length }}</dd></div>
+      <div><dt>Thèmes</dt><dd>{{ theme_count }}</dd></div>
       <div><dt>Sujets</dt><dd>{{ prompt_count }}</dd></div>
       <div><dt>Réponses uniques</dt><dd>{{ response_stats.total }}</dd></div>
     </dl>
@@ -36,7 +36,7 @@
         </div>
       </header>
       <div class="task-choice-card__facts">
-        <span><b>{{ themes|length }}</b> thèmes</span>
+        <span><b>{{ theme_count }}</b> thèmes</span>
         <span><b>{{ prompt_count }}</b> sujets</span>
         <span><b>{{ response_stats.total }}</b> réponses</span>
       </div>

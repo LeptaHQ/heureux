@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}{% if task %}Notes · {{ task.short_label }}{% else %}{{ scope_title }} · Notes{% endif %} · Heureux{% endblock %}
 
 {% block content %}
@@ -171,4 +172,10 @@
   {% include "study/partials/pagination.html" with pagination_label="Pagination des notes et surlignages" %}
 </div>
 </div>
+{% if active_tab == "notes" %}{% include "study/partials/pinned_note_dialog.html" %}{% endif %}
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% if active_tab == "notes" %}<script src="{% static 'study/js/notes-pins.js' %}?v=1"></script>{% endif %}
 {% endblock %}

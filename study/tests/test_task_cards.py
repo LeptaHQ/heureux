@@ -362,14 +362,14 @@ class WritingSujetCardCountsTests(TestCase):
         self.assertEqual(card["stats"]["completed"], 1)
         self.assertEqual(card["stats"]["seen"], 1)
 
-    def test_writing_sujets_add_two_queries_to_a_batch(self):
+    def test_writing_sujets_add_one_projected_query_to_a_batch(self):
         other = factories.make_task(factories.make_part("eo"), "tache-3")
         factories.make_theme("culture-batch", task=other)
 
         with self.assertNumQueries(4):
             _task_content_counts([other])
 
-        with self.assertNumQueries(6):
+        with self.assertNumQueries(5):
             _task_content_counts([other, self.task])
 
 
@@ -418,7 +418,7 @@ class TaskCardQueryBudgetTests(TestCase):
             "study.views.dashboard.expression_task_summaries",
             wraps=expression_task_summaries,
         ) as batched:
-            self.client.get(reverse("study:expression"))
+            self.client.get(reverse("study:expression"), {"stats": "1"})
 
         self.assertEqual(batched.call_count, 1)
         for call in batched.call_args_list:
@@ -439,14 +439,14 @@ class TaskCardQueryBudgetTests(TestCase):
             wraps=_task_content_counts,
         ) as batched:
             self.client.get(
-                reverse("study:part_detail", args=[self.part.slug])
+                reverse("study:part_detail", args=[self.part.slug]), {"stats": "1"},
             )
 
         self.assertEqual(batched.call_count, 1)
 
     def test_extra_tasks_do_not_add_content_count_queries(self):
         """Extra tasks may add user progress queries, never content counts."""
-        url = reverse("study:part_detail", args=[self.part.slug])
+        url = reverse("study:part_detail", args=[self.part.slug]) + "?stats=1"
         before = self._query_count(url)
 
         added_tasks = 2
@@ -865,7 +865,7 @@ class ExpressionPathSummaryTests(TestCase):
             if path["available"]
         ]
 
-        response = self.client.get(reverse("study:expression"))
+        response = self.client.get(reverse("study:expression"), {"stats": "1"})
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(

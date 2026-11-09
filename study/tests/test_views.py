@@ -771,9 +771,9 @@ class SmokeTests(TestCase):
 
         task_map = Command()._import_sections(load_sections())
 
-        hub = self.client.get(reverse("study:expression"))
+        hub = self.client.get(reverse("study:expression"), {"stats": "1"})
         written = self.client.get(
-            reverse("study:part_detail", args=["ee"])
+            reverse("study:part_detail", args=["ee"]), {"stats": "1"},
         )
 
         self.assertEqual(task_map["eo/tache-3"].part.slug, "eo")
@@ -2438,7 +2438,7 @@ class TaskOrganizationTests(TestCase):
         original = self.client.get(url, {"deduplicate": "0"})
         self.assertFalse(original.context["deduplicate_subjects"])
         self.assertEqual(original.context["prompt_count"], 4)
-        self.assertContains(original, "data-collection-progress-value>3/4</span>")
+        self.assertContains(original, "data-collection-progress-value>1/2</span>")
         self.assertContains(original, "data-subject-deduplication-toggle", count=1)
         deduplicated = self.client.get(url)
         self.assertTrue(deduplicated.context["deduplicate_subjects"])
@@ -2770,7 +2770,7 @@ class TaskOrganizationTests(TestCase):
             1,
         )
         self.assertContains(direct_practice, "En cours")
-        expression_hub = self.client.get(reverse("study:expression"))
+        expression_hub = self.client.get(reverse("study:expression"), {"stats": "1"})
         self.assertEqual(expression_hub.context["response_due"], 1)
         self.assertContains(expression_hub, "Réponses à revoir")
 

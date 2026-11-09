@@ -56,7 +56,7 @@ class StandaloneNoteGroupTests(TestCase):
         self.assertEqual(note.task_id, self.eo.pk)
         self.assertEqual((note.quote, note.source_path, note.source_key), ("", "", ""))
         self.assertRedirects(
-            saved, self.folder(self.eo) + f"?tab=notes#note-{note.pk}",
+            saved, self.folder(self.eo) + f"?tab=notes&locate={note.pk}#note-{note.pk}",
             fetch_redirect_response=False,
         )
         self.assertIsNone(self.client.get(self.folder(self.eo)).context["form"]["task"].value())

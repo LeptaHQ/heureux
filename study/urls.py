@@ -332,6 +332,11 @@ urlpatterns = [
         name="annotation_update",
     ),
     path(
+        "notes/<int:pk>/epingler/",
+        views.annotation_pin_toggle,
+        name="annotation_pin_toggle",
+    ),
+    path(
         "notes/<int:pk>/etudier/",
         views.annotation_study_toggle,
         name="annotation_study_toggle",

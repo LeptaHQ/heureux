@@ -515,7 +515,7 @@ def hide_subject_highlights(user, response_id):
     return ids
 
 
-def _subject_highlight_rows(user, response_ids):
+def _subject_highlight_rows(user, response_ids, *, _shapes=None):
     """Fetch target-related candidates and their resolved response-key IDs."""
     highlights = Annotation.objects.filter(
         Q(source_key__startswith=RESPONSE_SOURCE_PREFIX)
@@ -526,7 +526,7 @@ def _subject_highlight_rows(user, response_ids):
         kind=AnnotationKind.HIGHLIGHT,
         hidden_on_source=False,
     )
-    shapes = highlights.aggregate(
+    shapes = dict(_shapes) if _shapes is not None else highlights.aggregate(
         response=Count("pk", filter=Q(source_key__startswith=RESPONSE_SOURCE_PREFIX)),
         phrase=Count("pk", filter=Q(source_key__startswith=PHRASE_SOURCE_PREFIX)),
         alias=Count("pk", filter=Q(source_key__startswith="tache-two:")),
@@ -538,7 +538,7 @@ def _subject_highlight_rows(user, response_ids):
             default=Value(0),
         )),
     )
-    has_oral = shapes.pop("oral")
+    has_oral = shapes.pop("oral", False)
     if not any(shapes.values()):
         return [], {}, []
     if has_oral:
@@ -549,7 +549,7 @@ def _subject_highlight_rows(user, response_ids):
         annotations = list(highlights.filter(
             Q(task__part__slug="eo", task__slug__in=["tache-2", "tache-3"])
             | Q(task__isnull=True)
-        ))
+        ).only("pk", "task_id", "source_prompt_id", "source_key", "source_path", "created_at"))
         owners = annotation_owners(annotations)
         latest_by_owner = {}
         earliest_by_owner = {}
@@ -576,7 +576,9 @@ def _subject_highlight_rows(user, response_ids):
         keys = {oral_by_id[pk]: pk for pk in matched}
         other_ids = set(response_ids) - set(oral_by_id)
         if other_ids:
-            other_rows, other_keys, other_prompts = _subject_highlight_rows(user, other_ids)
+            other_rows, other_keys, other_prompts = _subject_highlight_rows(
+                user, other_ids, _shapes=shapes,
+            )
             return rows + other_rows, keys | other_keys, other_prompts
         return rows, keys, []
 

@@ -21,7 +21,7 @@
       {% elif kind == "writing" %}
         {{ subject.source.month_name }} {{ subject.source.year }}
       {% elif kind == "eo3" %}
-        P{{ subject.prompt.number }} · {{ subject.prompt.family.name }}
+        {% if subject.display_category %}{{ subject.display_category.label }} · Source : {{ subject.source_theme.display_name }} P{{ subject.prompt.number }}{% else %}P{{ subject.prompt.number }} · {{ subject.prompt.family.name }}{% endif %}
       {% else %}
         {{ subject.month_name }} {{ subject.year }}
       {% endif %}

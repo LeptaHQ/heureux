@@ -13,6 +13,7 @@ from ..response_personalization import effective_response
 from ..routing import TACHE_TWO_PROMPT_KEY, review_url, subject_selection_url
 from ..tache_three_models import annotation_arguments, response_text, reviewed_model
 from ..tache_three_prompt_notes import prompt_note_for_response
+from .. import catalogue
 
 
 def oral_response_context(request, prompt):
@@ -44,6 +45,10 @@ def oral_response_context(request, prompt):
         # Changed public layouts must not replay offsets from published models.
         legacy_keys = []
     return {
+        "eo3_display_category": (
+            catalogue.eo_tache_three_taxonomy().by_source.get(prompt.content_key)
+            if prompt.theme.task.slug == "tache-3" else None
+        ),
         "response_content": value,
         "arguments": arguments,
         "eo3_language": language_presentation(model, value, arguments),

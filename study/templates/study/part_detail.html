@@ -1,7 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}{{ part.name }} · Heureux{% endblock %}
 
 {% block content %}
+<div{% if deferred_stats %} data-expression-stats="{{ stats_url }}"{% endif %}>
 <header class="area-hero area-hero--identity" style="--page-accent: {{ part.color }};">
   <div class="area-hero__copy">
     <p class="eyebrow"><a href="{% url 'study:expression' %}">Expression</a> · {{ part.short_name }}</p>
@@ -17,24 +19,17 @@
     <div><dt>Mode</dt><dd>{% if available_task_count %}Actif{% else %}Préparation{% endif %}</dd></div>
   </dl>
 </header>
+{% include "study/partials/expression_stats_status.html" %}
 
 {% if tasks %}
   {% include "study/partials/collection_view_toggle.html" %}
 {% endif %}
 
-<div class="grid grid--decks grid--tasks area-section collection-table collection-table--decks" data-collection-view="adaptive">
-  {% include "study/partials/collection_table_header.html" with variant="decks" column_1="Tâche" column_2="Contenu" column_3="Progression" column_4="État" only %}
-  {% for t in tasks %}
-    {% url 'study:task_detail' part.slug t.task.slug as task_url %}
-    {% if t.task.available %}
-      {% if t.question_bank %}
-        {% include "study/partials/deck_card.html" with url=task_url variant="task" available=True color=t.task.color icon=t.task.icon name=t.task.name subtitle=t.task.subtitle guide=t.question_bank guide_title=t.question_bank.title theme_vocabulary=t.question_bank.theme_vocabulary count_subjects=t.question_bank.subject_count count_themes=t.question_bank.theme_count count_entries=t.question_bank.vocabulary_count count_categories=t.question_bank.category_count count_questions=t.question_bank.question_count only %}
-      {% else %}
-        {% include "study/partials/deck_card.html" with url=task_url variant="task" available=True color=t.task.color icon=t.task.icon name=t.task.name subtitle=t.task.subtitle due=t.stats.due stats=t.stats count_prompts=t.prompt_count count_responses=t.response_stats.total show_phrases=t.show_phrases count_phrases=t.phrase_count only %}
-      {% endif %}
-    {% else %}
-      {% include "study/partials/deck_card.html" with url=task_url variant="task" available=False icon=t.task.icon name=t.task.name subtitle=t.task.subtitle soon_meta="Contenu en préparation" only %}
-    {% endif %}
-  {% endfor %}
+<div class="grid grid--decks grid--tasks area-section collection-table collection-table--decks" data-collection-view="adaptive" data-expression-stats-content>
+  {% include "study/partials/expression_task_cards.html" %}
 </div>
+</div>
+{% endblock %}
+{% block scripts %}
+  {% if deferred_stats %}<script src="{% static 'study/js/expression-stats.js' %}?v=1"></script>{% endif %}
 {% endblock %}

@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from django.db.models import Count, Q
+from django.db import connection
+from django.db.models import Case, Count, Max, Q, Value, When
 from django.db.models.functions import Coalesce
 from django.http import Http404
 from django.shortcuts import get_object_or_404
@@ -57,7 +58,7 @@ FUNCTIONAL_PHRASE_CATEGORY_NAMES = frozenset(
 )
 
 
-def _memory_progress(user, memories):
+def _memory_progress(user, memories, *, learned_keys=None):
     memories = tuple(memories)
     completed_by_memory = {
         memory.number: set()
@@ -68,13 +69,14 @@ def _memory_progress(user, memories):
         for memory in memories
         for question_key in memory.question_keys
     }
-    for question_key in (
+    for question_key in (learned_keys if learned_keys is not None else (
         MemoryQuestionProgress.objects.filter(
             user=user,
             question_key__in=memory_by_key,
         ).values_list("question_key", flat=True)
-    ):
-        completed_by_memory[memory_by_key[question_key]].add(question_key)
+    )):
+        if question_key in memory_by_key:
+            completed_by_memory[memory_by_key[question_key]].add(question_key)
 
     states = {}
     for memory in memories:
@@ -666,6 +668,57 @@ def summarize_review_batches(batches) -> ProgressSummary:
     )
 
 
+def _theme_vocabulary_batch_summary(scope, user):
+    """Only lot counts, without transferring cards or building review links."""
+    scope = {key: value for key, value in scope.items() if key != "batch"}
+    units = queue_module.narrow(queue_module.scoped_cards(
+        scope, user=user, include_suspended=True,
+    )).values("phrase_id", "phrase__lot_order").annotate(
+        active=Max(Case(
+            When(suspended=False, then=Value(1)), default=Value(0),
+        )),
+        started=Max(Case(
+            When(
+                Q(suspended=False)
+                & (Q(started_at__isnull=False) | ~Q(state=CardState.NEW)),
+                then=Value(1),
+            ),
+            default=Value(0),
+        )),
+        incomplete=Max(Case(
+            When(suspended=False, state=CardState.NEW, then=Value(1)),
+            default=Value(0),
+        )),
+    )
+    sql, params = units.query.sql_with_params()
+    # Number all phrase units before excluding suspended ones: they keep their
+    # place in stable lots, exactly as review_batches_from_rows does.
+    with connection.cursor() as cursor:
+        cursor.execute(f"""
+            WITH units AS ({sql}), numbered AS (
+                SELECT
+                    (ROW_NUMBER() OVER (
+                        ORDER BY "phrase__lot_order", "phrase_id"
+                    ) - 1) / %s AS batch,
+                    active, started, incomplete
+                FROM units
+            ), batches AS (
+                SELECT batch, SUM(active) AS active, SUM(started) AS started,
+                       SUM(incomplete) AS incomplete
+                FROM numbered GROUP BY batch
+            )
+            SELECT COUNT(*),
+                   COUNT(CASE WHEN active > 0 THEN 1 END),
+                   COUNT(CASE WHEN started > 0 THEN 1 END),
+                   COUNT(CASE WHEN active > 0 AND incomplete = 0 THEN 1 END)
+            FROM batches
+        """, (*params, queue_module.batch_size(scope)))
+        batch_count, total, started, completed = cursor.fetchone()
+    return batch_count, progress_summary(
+        total=total, started=started, completed=completed,
+    )
+
+
 def _recent_review_logs(logs):
     """Page history even when pooled connections disable server-side cursors."""
     ordered = logs.select_related(
@@ -825,7 +878,7 @@ _EMPTY_TASK_CONTENT_COUNTS = {
 }
 
 
-def _task_content_counts(tasks):
+def _task_content_counts(tasks, *, landing=False):
     """Static, user-independent content counts for several tasks at once.
 
     Every card on a part page shows the same handful of catalogue counts.
@@ -835,6 +888,9 @@ def _task_content_counts(tasks):
 
     Returns ``{task_id: counts}`` with an entry for every task passed in, so a
     task without content still reads as zeroes.
+
+    ``landing=True`` omits unused theme/subject/functional-vocabulary counts.
+    Its caller reuses prompt totals from the batched progress summary.
     """
     tasks = list(tasks)
     counts = {
@@ -846,28 +902,49 @@ def _task_content_counts(tasks):
     if not task_ids:
         return counts
 
-    for row in (
+    for row in (() if landing else (
         Theme.objects.filter(task_id__in=task_ids, is_active=True)
         .order_by()
         .values("task_id")
         .annotate(total=Count("id"))
-    ):
+    )):
         counts[row["task_id"]]["theme_count"] = row["total"]
 
-    for row in (
+    for row in (() if landing else (
         Prompt.objects.filter(theme__task_id__in=task_ids, is_active=True)
         .order_by()
         .values("theme__task_id")
         .annotate(total=Count("id"))
-    ):
+    )):
         counts[row["theme__task_id"]]["prompt_count"] = row["total"]
 
+    phrase_task_ids = [
+        task.pk for task in available
+        if not landing or (task.part.slug, task.slug) not in {
+            content_module.EO_TACHE_ONE_TASK,
+            content_module.EE_TACHE_ONE_TASK,
+            content_module.EE_TACHE_TWO_TASK,
+            content_module.EE_TACHE_THREE_TASK,
+        }
+    ]
+    phrase_counts = {
+        "shared": Count("id", distinct=True, filter=Q(tier=PhraseTier.SHARED)),
+        "theme": Count("id", distinct=True, filter=Q(tier=PhraseTier.THEME)),
+    }
+    if not landing:
+        phrase_counts.update(
+            functional=Count(
+                "id", distinct=True,
+                filter=Q(tier=PhraseTier.SHARED, category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES),
+            ),
+            subject=Count("id", distinct=True, filter=Q(tier=PhraseTier.SUBJECT)),
+        )
     for row in (
         Phrase.objects.filter(
             is_active=True,
             tier__in=(
                 PhraseTier.SHARED,
-                PhraseTier.SUBJECT,
+                *(() if landing else (PhraseTier.SUBJECT,)),
                 PhraseTier.THEME,
             ),
         )
@@ -875,11 +952,11 @@ def _task_content_counts(tasks):
             Q(
                 source_prompts__is_active=True,
                 source_prompts__theme__is_active=True,
-                source_prompts__theme__task_id__in=task_ids,
+                source_prompts__theme__task_id__in=phrase_task_ids,
             )
             | Q(
                 vocabulary_theme__is_active=True,
-                vocabulary_theme__task_id__in=task_ids,
+                vocabulary_theme__task_id__in=phrase_task_ids,
             )
         )
         .annotate(
@@ -890,31 +967,15 @@ def _task_content_counts(tasks):
         )
         .order_by()
         .values("content_task_id")
-        .annotate(
-            shared=Count("id", distinct=True, filter=Q(tier=PhraseTier.SHARED)),
-            functional=Count(
-                "id",
-                distinct=True,
-                filter=Q(
-                    tier=PhraseTier.SHARED,
-                    category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES,
-                ),
-            ),
-            subject=Count(
-                "id",
-                distinct=True,
-                filter=Q(tier=PhraseTier.SUBJECT),
-            ),
-            theme=Count("id", distinct=True, filter=Q(tier=PhraseTier.THEME)),
-        )
+        .annotate(**phrase_counts)
     ):
         entry = counts[row["content_task_id"]]
         entry["phrase_count"] = row["shared"]
-        entry["functional_phrase_count"] = row["functional"]
-        entry["subject_vocabulary_count"] = row["subject"]
+        entry["functional_phrase_count"] = row.get("functional", 0)
+        entry["subject_vocabulary_count"] = row.get("subject", 0)
         entry["theme_vocabulary_count"] = row["theme"]
 
-    for row in (
+    for row in (() if landing else (
         Prompt.objects.filter(
             is_active=True,
             response__is_active=True,
@@ -926,7 +987,7 @@ def _task_content_counts(tasks):
         .order_by()
         .values("theme__task_id")
         .annotate(total=Count("id", distinct=True))
-    ):
+    )):
         counts[row["theme__task_id"]]["subject_vocabulary_prompt_count"] = row[
             "total"
         ]
@@ -978,35 +1039,31 @@ def _canonical_writing_sujet_ids_by_task(rows, task_ids):
 def _add_writing_sujet_counts(counts, task_ids):
     """EE writing occurrence ids, category count, and model-response count."""
     categories_by_task = {task_id: set() for task_id in task_ids}
-    rows = list(
+    for task_id in task_ids:
+        counts[task_id]["writing_sujet_response_count"] = 0
+    projected_rows = list(
         WritingSujet.objects.filter(
             task_id__in=task_ids,
             is_active=True,
-        ).values_list(
+        ).annotate(has_response=~Q(versions=[])).values_list(
             "task_id",
             "pk",
             "category",
             "slug",
             "task__part__slug",
             "task__slug",
+            "has_response",
         )
     )
+    rows = [row[:-1] for row in projected_rows]
     sujet_ids_by_task = _canonical_writing_sujet_ids_by_task(rows, task_ids)
-    for task_id, _sujet_id, category, _slug, _part, _task in rows:
+    for task_id, _sujet_id, category, _slug, _part, _task, has_response in projected_rows:
         categories_by_task[task_id].add(category)
+        counts[task_id]["writing_sujet_response_count"] += int(has_response)
     for task_id in task_ids:
         entry = counts[task_id]
         entry["writing_sujet_ids"] = sujet_ids_by_task[task_id]
         entry["writing_sujet_category_count"] = len(categories_by_task[task_id])
-
-    for row in (
-        WritingSujet.objects.filter(task_id__in=task_ids, is_active=True)
-        .exclude(versions=[])
-        .order_by()
-        .values("task_id")
-        .annotate(total=Count("id"))
-    ):
-        counts[row["task_id"]]["writing_sujet_response_count"] = row["total"]
 
 
 def _counts_for_task(task, content_counts=None):
@@ -1204,14 +1261,15 @@ def _task_card(
             subject_summary = subject_state["summary"]
         else:
             subject_summary = batched_stats
-        vocabulary_batches = _review_batches(
-            {
-                **_task_scope(task),
-                "kind": "theme_vocab",
-            },
-            user,
-        )
-        vocabulary_progress = summarize_review_batches(vocabulary_batches)
+        vocabulary_scope = {**_task_scope(task), "kind": "theme_vocab"}
+        if with_deck_stats:
+            vocabulary_batches = _review_batches(vocabulary_scope, user)
+            batch_count = len(vocabulary_batches)
+            vocabulary_progress = summarize_review_batches(vocabulary_batches)
+        else:
+            batch_count, vocabulary_progress = _theme_vocabulary_batch_summary(
+                vocabulary_scope, user,
+            )
         task_progress = combine_progress(
             [vocabulary_progress, subject_summary["progress"]]
         )
@@ -1224,7 +1282,7 @@ def _task_card(
             "theme_vocabulary": True,
             "theme_count": vocabulary_theme_count,
             "vocabulary_count": vocabulary_count,
-            "batch_count": len(vocabulary_batches),
+            "batch_count": batch_count,
             "subject_count": subject_summary["total"],
             "progress": task_progress,
             "vocabulary_progress": vocabulary_progress,
@@ -1659,8 +1717,27 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
         formulation_catalogs[3] = get_ee_formulations()
     if ee_tache_one_task_id is not None:
         formulation_catalogs[1] = get_ee_formulations(1)
+    memories_by_task = {
+        task.pk: catalogue.task_memoires(task.part.slug, task.slug)
+        for task in direct_question_bank_tasks
+    }
+    memory_keys = {
+        key for memories in memories_by_task.values()
+        for memory in memories for key in memory.question_keys
+    }
+    formulation_keys = {
+        entry.content_key for catalog in formulation_catalogs.values()
+        for entry in catalog.entries
+    }
+    learned_rows = list(MemoryQuestionProgress.objects.filter(
+        Q(question_key__in=memory_keys)
+        | Q(memory_number=1, question_key__in=formulation_keys),
+        user=user,
+    ).values_list("question_key", "memory_number"))
+    learned_keys = {key for key, _memory_number in learned_rows}
     formulation_states = formulation_progress_states(
         user, formulation_catalogs.values(),
+        learned_keys={key for key, memory_number in learned_rows if memory_number == 1},
     )
 
     if ee_tache_three_task_id is not None:
@@ -1708,9 +1785,8 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
             "seen": combined.started,
         }
     for task in direct_question_bank_tasks:
-        task_key = (task.part.slug, task.slug)
-        memories = catalogue.task_memoires(*task_key)
-        memory_states = _memory_progress(user, memories)
+        memories = memories_by_task[task.pk]
+        memory_states = _memory_progress(user, memories, learned_keys=learned_keys)
         progress = combine_progress(
             memory_states[memory.number]["progress"]
             for memory in memories

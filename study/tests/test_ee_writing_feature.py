@@ -2176,7 +2176,7 @@ class EeWritingPageTests(TestCase):
             sujet=canonical,
         )
 
-        response = self.client.get(reverse("study:expression"))
+        response = self.client.get(reverse("study:expression"), {"stats": "1"})
         written = next(
             path
             for path in response.context["paths"]

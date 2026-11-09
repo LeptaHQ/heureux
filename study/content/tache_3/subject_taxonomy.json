@@ -1,0 +1,566 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "themes": [
+    {
+      "slug": "culture",
+      "label": "Culture et médias",
+      "order": 1,
+      "subthemes": [
+        {
+          "slug": "decouverte-des-cultures",
+          "label": "Découverte des pays et des cultures",
+          "groups": [
+            "eo/tache-3/culture-p14",
+            "eo/tache-3/culture-p19",
+            "eo/tache-3/education-p14"
+          ]
+        },
+        {
+          "slug": "cuisine-et-cultures",
+          "label": "Cuisine et cultures",
+          "groups": [
+            "eo/tache-3/culture-p15",
+            "eo/tache-3/sante-p16"
+          ]
+        },
+        {
+          "slug": "identite-et-traditions",
+          "label": "Identité et traditions culturelles",
+          "groups": [
+            "eo/tache-3/culture-p10",
+            "eo/tache-3/culture-p27"
+          ]
+        },
+        {
+          "slug": "lecture-et-culture",
+          "label": "Lecture et culture générale",
+          "groups": [
+            "eo/tache-3/culture-p20"
+          ]
+        },
+        {
+          "slug": "correspondance-ecrite",
+          "label": "Correspondance écrite",
+          "groups": [
+            "eo/tache-3/culture-p18",
+            "eo/tache-3/technologie-p12"
+          ]
+        },
+        {
+          "slug": "television-et-divertissement",
+          "label": "Télévision et divertissement",
+          "groups": [
+            "eo/tache-3/culture-p12",
+            "eo/tache-3/culture-p31",
+            "eo/tache-3/technologie-p3"
+          ]
+        },
+        {
+          "slug": "information-et-medias",
+          "label": "Information et choix des médias",
+          "groups": [
+            "eo/tache-3/education-p15",
+            "eo/tache-3/technologie-p5",
+            "eo/tache-3/technologie-p6",
+            "eo/tache-3/technologie-p21",
+            "eo/tache-3/technologie-p24"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "famille",
+      "label": "Famille",
+      "order": 2,
+      "subthemes": [
+        {
+          "slug": "education-parentale",
+          "label": "Éducation parentale",
+          "groups": [
+            "eo/tache-3/famille-p1",
+            "eo/tache-3/famille-p4",
+            "eo/tache-3/famille-p6",
+            "eo/tache-3/famille-p12"
+          ]
+        },
+        {
+          "slug": "cohabitation-et-autonomie",
+          "label": "Cohabitation et autonomie",
+          "groups": [
+            "eo/tache-3/famille-p2",
+            "eo/tache-3/famille-p11",
+            "eo/tache-3/famille-p16"
+          ]
+        },
+        {
+          "slug": "liens-familiaux",
+          "label": "Liens familiaux et éloignement",
+          "groups": [
+            "eo/tache-3/famille-p5",
+            "eo/tache-3/famille-p10"
+          ]
+        },
+        {
+          "slug": "langues-familiales",
+          "label": "Langues au sein de la famille",
+          "groups": [
+            "eo/tache-3/famille-p13"
+          ]
+        },
+        {
+          "slug": "taches-menageres",
+          "label": "Partage des tâches ménagères",
+          "groups": [
+            "eo/tache-3/famille-p14"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "education",
+      "label": "Éducation",
+      "order": 3,
+      "subthemes": [
+        {
+          "slug": "apprendre-a-tout-age",
+          "label": "Apprendre et étudier à tout âge",
+          "groups": [
+            "eo/tache-3/education-p2",
+            "eo/tache-3/education-p7"
+          ]
+        },
+        {
+          "slug": "organisation-de-la-scolarite",
+          "label": "Scolarité et règles de l'école",
+          "groups": [
+            "eo/tache-3/education-p3",
+            "eo/tache-3/education-p4"
+          ]
+        },
+        {
+          "slug": "missions-et-programmes",
+          "label": "Missions et programmes de l'école",
+          "groups": [
+            "eo/tache-3/culture-p13",
+            "eo/tache-3/education-p18"
+          ]
+        },
+        {
+          "slug": "acces-et-reussite",
+          "label": "Accès aux études et réussite scolaire",
+          "groups": [
+            "eo/tache-3/education-p20",
+            "eo/tache-3/education-p21"
+          ]
+        },
+        {
+          "slug": "apprentissage-des-langues",
+          "label": "Apprentissage des langues",
+          "groups": [
+            "eo/tache-3/education-p13"
+          ]
+        },
+        {
+          "slug": "supports-et-methodes",
+          "label": "Supports et méthodes d'apprentissage",
+          "groups": [
+            "eo/tache-3/culture-p6",
+            "eo/tache-3/education-p22",
+            "eo/tache-3/education-p23"
+          ]
+        },
+        {
+          "slug": "ecrans-et-developpement",
+          "label": "Écrans et développement de l'enfant",
+          "groups": [
+            "eo/tache-3/education-p19",
+            "eo/tache-3/technologie-p16",
+            "eo/tache-3/technologie-p19",
+            "eo/tache-3/sante-p2",
+            "eo/tache-3/sante-p19"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sante",
+      "label": "Santé et sport",
+      "order": 4,
+      "subthemes": [
+        {
+          "slug": "pratique-sportive",
+          "label": "Pratique sportive des enfants",
+          "groups": [
+            "eo/tache-3/sante-p1",
+            "eo/tache-3/sante-p8"
+          ]
+        },
+        {
+          "slug": "alimentation-et-equilibre",
+          "label": "Choix alimentaires et équilibre",
+          "groups": [
+            "eo/tache-3/sante-p6",
+            "eo/tache-3/sante-p13"
+          ]
+        },
+        {
+          "slug": "chirurgie-esthetique",
+          "label": "Chirurgie esthétique et vieillissement",
+          "groups": [
+            "eo/tache-3/sante-p9"
+          ]
+        },
+        {
+          "slug": "alcool-et-tabac",
+          "label": "Alcool, tabac et prévention",
+          "groups": [
+            "eo/tache-3/sante-p10",
+            "eo/tache-3/sante-p11"
+          ]
+        },
+        {
+          "slug": "stress",
+          "label": "Stress et récupération",
+          "groups": [
+            "eo/tache-3/sante-p17"
+          ]
+        },
+        {
+          "slug": "medicaments",
+          "label": "Médicaments et soins",
+          "groups": [
+            "eo/tache-3/sante-p23"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "technologie",
+      "label": "Technologie",
+      "order": 5,
+      "subthemes": [
+        {
+          "slug": "telephone-et-communication",
+          "label": "Téléphone et communication",
+          "groups": [
+            "eo/tache-3/technologie-p2",
+            "eo/tache-3/technologie-p11",
+            "eo/tache-3/technologie-p13"
+          ]
+        },
+        {
+          "slug": "usages-numeriques",
+          "label": "Usages numériques et déconnexion",
+          "groups": [
+            "eo/tache-3/technologie-p10",
+            "eo/tache-3/technologie-p15"
+          ]
+        },
+        {
+          "slug": "exploration-spatiale",
+          "label": "Exploration spatiale",
+          "groups": [
+            "eo/tache-3/technologie-p17"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "environnement",
+      "label": "Environnement",
+      "order": 6,
+      "subthemes": [
+        {
+          "slug": "zoos-et-conservation",
+          "label": "Zoos et protection des animaux",
+          "groups": [
+            "eo/tache-3/environnement-p2",
+            "eo/tache-3/environnement-p4"
+          ]
+        },
+        {
+          "slug": "reduction-des-dechets",
+          "label": "Réduction des déchets",
+          "groups": [
+            "eo/tache-3/environnement-p3"
+          ]
+        },
+        {
+          "slug": "lutte-contre-la-pollution",
+          "label": "Lutte contre la pollution",
+          "groups": [
+            "eo/tache-3/environnement-p11"
+          ]
+        },
+        {
+          "slug": "agriculture-biologique",
+          "label": "Agriculture et produits biologiques",
+          "groups": [
+            "eo/tache-3/environnement-p7",
+            "eo/tache-3/environnement-p13"
+          ]
+        },
+        {
+          "slug": "impacts-du-tourisme",
+          "label": "Impacts du tourisme sur les territoires",
+          "groups": [
+            "eo/tache-3/environnement-p9"
+          ]
+        },
+        {
+          "slug": "developpement-durable",
+          "label": "Économie et préservation de l'environnement",
+          "groups": [
+            "eo/tache-3/environnement-p14"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "economie",
+      "label": "Économie et travail",
+      "order": 7,
+      "subthemes": [
+        {
+          "slug": "emploi-et-mobilite-professionnelle",
+          "label": "Emploi et mobilité professionnelle",
+          "groups": [
+            "eo/tache-3/economie-p1",
+            "eo/tache-3/economie-p10",
+            "eo/tache-3/economie-p15"
+          ]
+        },
+        {
+          "slug": "formation-et-parcours",
+          "label": "Formation et parcours professionnels",
+          "groups": [
+            "eo/tache-3/education-p12",
+            "eo/tache-3/sante-p3"
+          ]
+        },
+        {
+          "slug": "reconnaissance-des-metiers",
+          "label": "Reconnaissance des métiers",
+          "groups": [
+            "eo/tache-3/culture-p7"
+          ]
+        },
+        {
+          "slug": "salaires-et-equite",
+          "label": "Salaires et équité",
+          "groups": [
+            "eo/tache-3/economie-p2",
+            "eo/tache-3/economie-p9",
+            "eo/tache-3/economie-p20",
+            "eo/tache-3/education-p16"
+          ]
+        },
+        {
+          "slug": "management-et-relations",
+          "label": "Management et relations au travail",
+          "groups": [
+            "eo/tache-3/economie-p3",
+            "eo/tache-3/economie-p17",
+            "eo/tache-3/famille-p7"
+          ]
+        },
+        {
+          "slug": "conditions-de-travail",
+          "label": "Conditions de travail et numérique",
+          "groups": [
+            "eo/tache-3/economie-p4",
+            "eo/tache-3/economie-p6",
+            "eo/tache-3/technologie-p22"
+          ]
+        },
+        {
+          "slug": "retraite",
+          "label": "Âge de la retraite",
+          "groups": [
+            "eo/tache-3/sante-p15"
+          ]
+        },
+        {
+          "slug": "revenus-et-niveau-de-vie",
+          "label": "Revenus, niveau de vie et bonheur",
+          "groups": [
+            "eo/tache-3/economie-p18",
+            "eo/tache-3/sante-p20",
+            "eo/tache-3/sante-p22"
+          ]
+        },
+        {
+          "slug": "consommation-et-achats",
+          "label": "Consommation et accès aux produits",
+          "groups": [
+            "eo/tache-3/culture-p34",
+            "eo/tache-3/sante-p7",
+            "eo/tache-3/technologie-p18"
+          ]
+        },
+        {
+          "slug": "economie-du-tourisme",
+          "label": "Développement touristique",
+          "groups": [
+            "eo/tache-3/economie-p16"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "societe",
+      "label": "Société",
+      "order": 8,
+      "subthemes": [
+        {
+          "slug": "etat-et-libertes",
+          "label": "Pouvoir de l'État et libertés",
+          "groups": [
+            "eo/tache-3/culture-p3",
+            "eo/tache-3/education-p17"
+          ]
+        },
+        {
+          "slug": "participation-politique",
+          "label": "Participation politique",
+          "groups": [
+            "eo/tache-3/culture-p33"
+          ]
+        },
+        {
+          "slug": "engagement-et-solidarite",
+          "label": "Engagement citoyen et solidarité",
+          "groups": [
+            "eo/tache-3/culture-p4",
+            "eo/tache-3/education-p6",
+            "eo/tache-3/education-p10",
+            "eo/tache-3/environnement-p1"
+          ]
+        },
+        {
+          "slug": "aide-et-pauvrete",
+          "label": "Aide sociale et lutte contre la pauvreté",
+          "groups": [
+            "eo/tache-3/economie-p23",
+            "eo/tache-3/sante-p4"
+          ]
+        },
+        {
+          "slug": "relations-entre-generations",
+          "label": "Relations entre générations",
+          "groups": [
+            "eo/tache-3/culture-p2",
+            "eo/tache-3/culture-p8",
+            "eo/tache-3/famille-p3"
+          ]
+        },
+        {
+          "slug": "amitie-et-liens-sociaux",
+          "label": "Amitié et liens sociaux",
+          "groups": [
+            "eo/tache-3/culture-p16",
+            "eo/tache-3/famille-p9"
+          ]
+        },
+        {
+          "slug": "sociabilite-numerique",
+          "label": "Liens sociaux à l'ère numérique",
+          "groups": [
+            "eo/tache-3/technologie-p1",
+            "eo/tache-3/technologie-p4",
+            "eo/tache-3/technologie-p7"
+          ]
+        },
+        {
+          "slug": "mobilite-quotidienne",
+          "label": "Mobilité quotidienne et place de la voiture",
+          "groups": [
+            "eo/tache-3/economie-p24",
+            "eo/tache-3/technologie-p20",
+            "eo/tache-3/environnement-p6",
+            "eo/tache-3/environnement-p8"
+          ]
+        },
+        {
+          "slug": "acces-aux-transports",
+          "label": "Accès aux transports publics",
+          "groups": [
+            "eo/tache-3/economie-p22"
+          ]
+        },
+        {
+          "slug": "cadre-de-vie-et-autonomie",
+          "label": "Cadre de vie et autonomie des aînés",
+          "groups": [
+            "eo/tache-3/sante-p14"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "immigration",
+      "label": "Immigration et voyages",
+      "order": 9,
+      "subthemes": [
+        {
+          "slug": "projets-de-vie-etranger",
+          "label": "Projets de vie à l'étranger",
+          "groups": [
+            "eo/tache-3/culture-p5",
+            "eo/tache-3/culture-p25",
+            "eo/tache-3/economie-p14"
+          ]
+        },
+        {
+          "slug": "preparation-a-immigration",
+          "label": "Préparation à l'immigration",
+          "groups": [
+            "eo/tache-3/culture-p26",
+            "eo/tache-3/education-p5"
+          ]
+        },
+        {
+          "slug": "adaptation-et-integration",
+          "label": "Adaptation et intégration à l'étranger",
+          "groups": [
+            "eo/tache-3/culture-p1",
+            "eo/tache-3/culture-p9",
+            "eo/tache-3/culture-p30",
+            "eo/tache-3/education-p1"
+          ]
+        },
+        {
+          "slug": "liens-dans-le-pays-accueil",
+          "label": "Liens dans le pays d'accueil",
+          "groups": [
+            "eo/tache-3/culture-p11",
+            "eo/tache-3/culture-p24"
+          ]
+        },
+        {
+          "slug": "experience-de-vie-etranger",
+          "label": "Expérience de vie à l'étranger",
+          "groups": [
+            "eo/tache-3/culture-p17",
+            "eo/tache-3/culture-p29"
+          ]
+        },
+        {
+          "slug": "apports-de-immigration",
+          "label": "Apports de l'immigration",
+          "groups": [
+            "eo/tache-3/culture-p35"
+          ]
+        },
+        {
+          "slug": "voyager-seul",
+          "label": "Voyager seul",
+          "groups": [
+            "eo/tache-3/culture-p21"
+          ]
+        }
+      ]
+    }
+  ]
+}

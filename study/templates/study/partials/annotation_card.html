@@ -14,7 +14,7 @@ Parameters:
 {% endcomment %}
 {% load study_markdown study_speech %}
 <article
-  class="card annotation-card annotation-card--{{ annotation.kind }} annotation-card--{{ variant }}"
+  class="card annotation-card annotation-card--{{ annotation.kind }} annotation-card--{{ variant }}{% if annotation.is_pinned and variant == 'notes' %} annotation-card--pinned{% endif %}"
   data-collection-item
   data-annotation-item="{{ annotation.id }}"
   data-annotation-kind="{{ annotation.kind }}"
@@ -23,11 +23,25 @@ Parameters:
   {% if variant == "notes" %}data-annotation-edit-source="{{ annotation.id }}" data-annotation-edit-title="{{ annotation.title }}" data-annotation-edit-body="{{ annotation.body }}" data-annotation-edit-has-quote="{% if annotation.quote %}1{% else %}0{% endif %}"{% endif %}
 >
   <header class="annotation-card__head">
+    {% if annotation.is_pinned and variant == "notes" %}
+      <span class="annotation-card__pin" title="Note épinglée">
+        <span class="annotation-card__pin-dot" aria-hidden="true"></span>
+        {% include "study/partials/annotation_pin_icon.html" %}
+        <span class="sr-only">Épinglée</span>
+      </span>
+    {% endif %}
     <span class="annotation-card__kind">{% if annotation.kind == "highlight" %}Surlignage{% else %}Note{% endif %}</span>
     {% if annotation.origin_label %}<span class="annotation-card__origin">{{ annotation.origin_label }}</span>{% endif %}
     {% if annotation.study_later %}<span class="annotation-card__study">À étudier</span>{% endif %}
     {% if annotation.completed %}<span class="annotation-card__done">{% if annotation.kind == "highlight" %}Terminé{% else %}Terminée{% endif %}</span>{% endif %}
     <time datetime="{{ annotation.created_at|date:'c' }}">{{ annotation.created_at|date:"j M Y · H:i" }}</time>
+    {% if annotation.is_pinned and variant == "notes" %}
+      <button class="icon-button annotation-card__open" type="button" data-pinned-note-open
+              aria-haspopup="dialog" aria-controls="pinned-note-dialog"
+              aria-label="Ouvrir la note épinglée" title="Ouvrir la note" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"></path></svg>
+      </button>
+    {% endif %}
   </header>
   <div class="annotation-card__content">
     {% if annotation.kind == "note" and annotation.quote %}

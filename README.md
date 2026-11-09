@@ -35,6 +35,7 @@ DATABASE_URL=postgresql://test_user@127.0.0.1:55439/heureux_test \
 DB_DISABLE_SERVER_SIDE_CURSORS=True python manage.py test \
   study.tests.test_query_budgets \
   study.tests.test_retirement_query_performance \
+  study.tests.test_expression_landing_performance \
   study.tests.test_writing_request_performance
 ```
 
@@ -45,6 +46,28 @@ covers unrelated vocabulary growth, but cannot establish PostgreSQL performance.
 Use `EXPLAIN (ANALYZE, BUFFERS)` on representative reads in an isolated seeded
 PostgreSQL database to evaluate planner changes; production network round trips,
 cold starts, concurrency and browser rendering require separate measurement.
+
+The Expression hub and oral/written landing pages render navigation immediately.
+Content totals and personal progress load in **one private, uncached batch per
+page**, with a visible loading state and retry on failure; unavailable statistics
+are never displayed as zero progress. The `?stats=1` link provides the complete
+server-rendered page without JavaScript. Landing cards reuse prompt totals and
+omit vocabulary/count aggregates they do not display. This shortens the
+navigation critical path, not the database/network cost of all statistics.
+The batch resolves oral annotation owners from referenced IDs/keys only, reuses
+annotation-shape counts and memory completions within the request, and projects
+writing-model availability without loading model JSON. Oral landing lot summaries
+aggregate stable phrase units in SQL rather than transferring every card; suspended
+units keep their original lot positions. No private progress is globally cached.
+
+Exercise the browser loading, retry, focus and no-JavaScript behavior against a
+disposable PostgreSQL instance:
+
+```bash
+DATABASE_URL=postgresql://test_user@127.0.0.1:55439/heureux_test \
+DB_DISABLE_SERVER_SIDE_CURSORS=True python manage.py test \
+  study.tests.expression_stats_browser_tests
+```
 
 CI runs `database-locking` tests, including public oral annotation preservation,
 against PostgreSQL. Use a disposable PostgreSQL `DATABASE_URL` with
@@ -357,6 +380,13 @@ keeps all marked records in the folder. Page navigation works without JavaScript
 With JavaScript, status changes and deletion update in place, including refilling
 filtered pages and moving off an emptied final page. French/English blur,
 individual reveals and the chosen card/table view stay active.
+Notes can be pinned with the pin action. Within the current folder and filters,
+pinned notes appear first in an « Épinglées » section, still within the same
+50-record pagination. With JavaScript, they use compact cards with a green dot
+and pin icon; clicking a card or its open button shows the complete note in an
+accessible dialog. Pinning persists per learner, and unpinning restores the
+note's original date position. Without JavaScript, full notes and pin forms
+remain available. Apply migration 0067 before deploying this feature.
 Note and translation pop-ups use rounded action controls, including DeepL and
 Google **G** links. Translate works with touch taps as well as mouse and keyboard
 activation. When `DEEPL_API_KEY` is set, the panel translates through DeepL on the
@@ -417,6 +447,16 @@ example provenance. Frames and teaching guidance are editorial adaptations, not
 quotations. Examples refer to the bundled reference corpus, not live summaries of
 edited or personal answers. Source revisions must keep the evidence current, and
 workers must restart after catalogue changes.
+
+EO3 subject navigation uses `study/content/tache_3/subject_taxonomy.json`:
+9 display themes and 61 specific subthemes cover all 131 semantic groups and
+167 exact formulations. Every equivalent formulation shares its group's display
+category. These labels are presentation-only: the seven source/vocabulary themes,
+prompt numbers, ownership, URLs, answers and saved learner state remain unchanged.
+Source-theme names accompany original prompt numbers; progress counts unique
+responses in both the deduplicated and all-formulations views. The strict,
+immutable taxonomy is process-cached by `study/catalogue.py`; restart workers after
+editing it (tests use `clear_catalogue_cache()`).
 
 Lesson completion keys use `formulation:ee1:v1:<slug>` and
 `formulation:ee3:v1:<slug>`. Vocabulary-reference completion keys use

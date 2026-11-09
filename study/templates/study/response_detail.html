@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static study_markdown study_links study_response_languages %}
-{% block title %}Sujet{% if prompt_position %} {{ prompt_position }}{% endif %} · {{ selected_prompt.theme.display_name }} · {{ task.short_label }} · Heureux{% endblock %}
+{% block title %}Sujet{% if prompt_position and not eo3_display_category %} {{ prompt_position }}{% endif %} · {% if eo3_display_category %}{{ eo3_display_category.theme.label }}{% else %}{{ selected_prompt.theme.display_name }}{% endif %} · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}
@@ -11,11 +11,16 @@
   {% if single_response_eo3 %}<div class="section-card__head">{% endif %}
   <p class="eyebrow">
     <a href="{% subject_url 'study:task_browse' part.slug task.slug %}">{% if ee_response %}Sujets par thème{% else %}Sujets &amp; réponses{% endif %}</a> ·
+    {% if eo3_display_category %}
+    <a class="link-with-icon" href="{% subject_group_url part.slug task.slug eo3_display_category.theme.slug %}"><span>{{ eo3_display_category.theme.label }}</span></a>
+      · <a href="{% subject_group_url part.slug task.slug eo3_display_category.theme.slug eo3_display_category.slug %}">{{ eo3_display_category.label }}</a>
+    {% else %}
     <a class="link-with-icon" style="--icon-accent: {{ selected_prompt.theme.color }};" href="{% subject_group_url part.slug task.slug selected_prompt.theme.slug %}">{% include "study/partials/ui_icon.html" with name=selected_prompt.theme.icon only %}<span>{{ selected_prompt.theme.display_name }}</span></a>
     {% if ee_response %}
       · {{ ee_source_month.name }} 2025
     {% else %}
       · <a href="{% subject_group_url part.slug task.slug selected_prompt.theme.slug selected_prompt.family.slug %}">{{ selected_prompt.family.name }}</a>
+    {% endif %}
     {% endif %}
     {% if response_content.is_personal and not ee_response and not single_response_eo3 %} · <span class="chip">Version personnelle</span>{% endif %}
   </p>
@@ -139,7 +144,7 @@
           {% for p in prompts %}
             <li>
               <a href="{% url 'study:response_detail' p.theme.task.part.slug p.theme.task.slug p.pk %}">
-                <span class="chip chip--theme" style="--chip: {{ p.theme.color }};">{% include "study/partials/ui_icon.html" with name=p.theme.icon only %} P{{ p.number }}</span>
+                <span class="chip chip--theme" style="--chip: {{ p.theme.color }};"{% if eo3_display_category %} title="Source : {{ p.theme.display_name }} P{{ p.number }}"{% endif %}>{% include "study/partials/ui_icon.html" with name=p.theme.icon only %} P{{ p.number }}</span>
                 {{ p.text }}
               </a>
             </li>

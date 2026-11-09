@@ -187,30 +187,68 @@ def save_personal(response, user, defaults, *, source_prompt=None, snapshot_prev
     )[0]
 
 
-def prompt_from_path(path, prompts_by_id, prompts_by_key):
+def _prompt_path_reference(path):
     path = urlsplit(path).path
     match = re.fullmatch(r"/expression/orale/tache-([23])/sujets/(\d+)/", path)
     if match:
-        prompt = prompts_by_id.get(int(match[2]))
-        if prompt and prompt.task_slug == f"tache-{match[1]}":
-            return prompt
+        return int(match[2]), None, f"tache-{match[1]}"
     match = re.fullmatch(
         r"/expression/orale/tache-2/sujets/([a-z0-9-]+)/batch-(\d+)/(\d+)/", path,
     )
     if match:
-        return prompts_by_key.get(
-            f"tache2:{match[1]}:batch-{int(match[2]):02d}:subject-{int(match[3]):02d}"
+        return (
+            None,
+            f"tache2:{match[1]}:batch-{int(match[2]):02d}:subject-{int(match[3]):02d}",
+            None,
         )
+    return None, None, None
+
+
+def prompt_from_path(path, prompts_by_id, prompts_by_key):
+    prompt_id, content_key, task_slug = _prompt_path_reference(path)
+    if prompt_id is not None:
+        prompt = prompts_by_id.get(prompt_id)
+        return prompt if prompt and prompt.task_slug == task_slug else None
+    return prompts_by_key.get(content_key) if content_key is not None else None
+
+
+def _annotation_prompt_key(key):
+    if key.startswith(("response:", "subject-sidebar:")):
+        key = key.split(":", 1)[1].removesuffix(":front").removesuffix(":back")
+        match = re.fullmatch(r"(.+):(?:model|variant-[0-9a-f]{16})", key)
+        return match[1] if match else None
+    match = re.fullmatch(r"tache-two:([^:]+):batch-(\d+):subject-(\d+)", key)
+    if match:
+        return f"tache2:{match[1]}:batch-{int(match[2]):02d}:subject-{int(match[3]):02d}"
     return None
 
 
 def annotation_owners(annotations):
     """An explicit occurrence path outranks a historically shared source root."""
+    annotations = tuple(annotations)
+    prompt_ids = set()
+    prompt_keys = set()
+    for annotation in annotations:
+        if annotation.source_prompt_id is not None:
+            prompt_ids.add(annotation.source_prompt_id)
+        try:
+            prompt_id, path_key, _task_slug = _prompt_path_reference(annotation.source_path)
+        except ValueError:
+            # A valid explicit prompt historically bypasses even a malformed URL.
+            prompt_id, path_key = None, None
+        if prompt_id is not None:
+            prompt_ids.add(prompt_id)
+        prompt_keys.update(
+            key for key in (path_key, _annotation_prompt_key(annotation.source_key))
+            if key is not None
+        )
     prompts = [
         AnnotationPromptOwner(*row)
         for row in Prompt.objects.filter(
             is_active=True,
             response__semantic_group__gt="",
+        ).filter(
+            Q(pk__in=prompt_ids) | Q(content_key__in=prompt_keys),
         ).order_by().values_list(
             "pk",
             "content_key",
@@ -221,15 +259,29 @@ def annotation_owners(annotations):
     ]
     by_id = {prompt.pk: prompt for prompt in prompts}
     by_key = {prompt.content_key: prompt for prompt in prompts}
+    unresolved = [
+        annotation for annotation in annotations
+        if not (
+            by_id.get(annotation.source_prompt_id)
+            or prompt_from_path(annotation.source_path, by_id, by_key)
+        )
+    ]
+    response_keys = {
+        annotation.source_key.split(":", 1)[1].removesuffix(":front").removesuffix(":back")
+        for annotation in unresolved
+        if annotation.source_key.startswith(("response:", "subject-sidebar:"))
+        and _annotation_prompt_key(annotation.source_key) is None
+    }
     response_by_key = {
         content_key: semantic_owner_id or response_id
         for content_key, semantic_owner_id, response_id
         in Response.objects.filter(
-            Q(semantic_group__gt="") | Q(semantic_owner__isnull=False)
+            Q(semantic_group__gt="") | Q(semantic_owner__isnull=False),
+            content_key__in=response_keys,
         ).values_list("content_key", "semantic_owner_id", "pk")
     }
     phrase_keys = {
-        match[1] for annotation in annotations
+        match[1] for annotation in unresolved
         if (match := re.match(r"phrase:([^:]+):", annotation.source_key))
     }
     phrase_owners = dict(Phrase.objects.filter(
@@ -250,29 +302,13 @@ def annotation_owners(annotations):
             match = re.match(r"phrase:([^:]+):", key)
             if match and match[1] in phrase_owners:
                 result[annotation.pk] = phrase_owners[match[1]]
+        elif (prompt_key := _annotation_prompt_key(key)) is not None:
+            prompt = by_key.get(prompt_key)
+            if prompt:
+                result[annotation.pk] = prompt.response_id
         elif key.startswith(("response:", "subject-sidebar:")):
             key = key.split(":", 1)[1]
             key = key.removesuffix(":front").removesuffix(":back")
-            public = re.fullmatch(r"(.+):model", key)
-            if public:
-                prompt = by_key.get(public[1])
-                if prompt:
-                    result[annotation.pk] = prompt.response_id
-                continue
-            variant = re.fullmatch(r"(.+):variant-[0-9a-f]{16}", key)
-            if variant:
-                prompt = by_key.get(variant[1])
-                if prompt:
-                    result[annotation.pk] = prompt.response_id
-                continue
             if key in response_by_key:
                 result[annotation.pk] = response_by_key[key]
-        elif key.startswith("tache-two:"):
-            match = re.fullmatch(r"tache-two:([^:]+):batch-(\d+):subject-(\d+)", key)
-            if match:
-                prompt = by_key.get(
-                    f"tache2:{match[1]}:batch-{int(match[2]):02d}:subject-{int(match[3]):02d}"
-                )
-                if prompt:
-                    result[annotation.pk] = prompt.response_id
     return result

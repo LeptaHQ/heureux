@@ -9,6 +9,7 @@ from django.db.models import Count, F, Prefetch, Q, Value, Window
 from django.db.models.functions import RowNumber, TruncDate
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils import timezone
 from django.views.decorators.http import require_http_methods, require_POST
@@ -149,16 +150,27 @@ def _source_writing_models(source):
     ]
 
 
-def _prompt_response_ids_by_theme(themes):
+def _prompt_response_ids_by_theme(themes, *, display_theme_slugs=None):
     response_ids_by_theme = {theme.pk: set() for theme in themes}
     prompt_counts = {theme.pk: 0 for theme in themes}
-    for theme_id, response_id in Prompt.objects.filter(
+    prompts = Prompt.objects.filter(
         theme_id__in=response_ids_by_theme,
         is_active=True,
         response__is_active=True,
-    ).values_list("theme_id", "response_id"):
+    )
+    fields = ["theme_id", "response_id"]
+    if display_theme_slugs is not None:
+        fields.append("content_key")
+        taxonomy = catalogue.eo_tache_three_taxonomy()
+        source_slugs = {theme.pk: theme.slug for theme in themes}
+    for theme_id, response_id, *source_key in prompts.values_list(*fields):
         response_ids_by_theme[theme_id].add(response_id)
         prompt_counts[theme_id] += 1
+        if display_theme_slugs is not None:
+            category = taxonomy.by_source.get(source_key[0])
+            display_theme_slugs.add(
+                category.theme.slug if category else source_slugs[theme_id]
+            )
     return response_ids_by_theme, prompt_counts
 
 
@@ -526,7 +538,21 @@ def part_detail(request, part_slug):
     )
     now = timezone.now()
     part_tasks = list(part.tasks.all())
-    content_counts = _task_content_counts(part_tasks)
+    if not part.available or not part_tasks:
+        return render(
+            request, "study/coming_soon.html", {"part": part, "task": None},
+        )
+    with_stats = request.GET.get("stats") == "1"
+    context = {
+        "part": part,
+        "available_task_count": sum(task.available for task in part_tasks),
+        "deferred_stats": not with_stats,
+        "stats_url": f"{request.path}?stats=1",
+    }
+    if not with_stats:
+        context["tasks"] = [{"task": task} for task in part_tasks]
+        return render(request, "study/part_detail.html", context)
+    content_counts = _task_content_counts(part_tasks, landing=True)
     # The part page renders subject progress, the catalogue counts and the due
     # response badge — never the vocabulary decks, queue badges or revisit
     # count, each of which costs its own scan of the learner's whole deck. The
@@ -539,6 +565,9 @@ def part_detail(request, part_slug):
         part_tasks,
         content_counts,
     )
+    for task in part_tasks:
+        if task.pk in content_counts:
+            content_counts[task.pk]["prompt_count"] = summaries[task.pk]["prompt_count"]
     tasks = [
         _task_card(
             task,
@@ -550,22 +579,15 @@ def part_detail(request, part_slug):
         )
         for task in part_tasks
     ]
-    if not part.available or not tasks:
-        return render(
-            request,
-            "study/coming_soon.html",
-            {"part": part, "task": None},
-        )
+    context["tasks"] = tasks
+    if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+        return JsonResponse({
+            "html": render_to_string("study/partials/expression_task_cards.html", context, request=request),
+        })
     return render(
         request,
         "study/part_detail.html",
-        {
-            "part": part,
-            "tasks": tasks,
-            "available_task_count": sum(
-                task["task"].available for task in tasks
-            ),
-        },
+        context,
     )
 
 
@@ -1219,9 +1241,13 @@ def task_detail(request, part_slug, task_slug):
             },
         )
 
+    is_eo_tache_three = (
+        task.part.slug, task.slug,
+    ) == content_module.EO_TACHE_THREE_TASK
+    display_theme_slugs = set() if is_eo_tache_three else None
     active_themes = list(Theme.objects.filter(task=task, is_active=True))
     response_ids_by_theme, prompt_counts = _prompt_response_ids_by_theme(
-        active_themes
+        active_themes, display_theme_slugs=display_theme_slugs,
     )
     theme_stats, response_progress, due_response_ids = _subject_stats_for_themes(
         active_themes,
@@ -1239,10 +1265,6 @@ def task_detail(request, part_slug, task_slug):
     ]
     response_stats = summarize_subject_progress(response_progress.values())
     response_stats["due"] = len(due_response_ids)
-    is_eo_tache_three = (
-        task.part.slug,
-        task.slug,
-    ) == content_module.EO_TACHE_THREE_TASK
     context = {
         "part": task.part,
         "task": task,
@@ -1252,6 +1274,7 @@ def task_detail(request, part_slug, task_slug):
         "prompt_count": sum(prompt_counts.values()),
     }
     if is_eo_tache_three:
+        context["theme_count"] = len(display_theme_slugs)
         context["subject_summary"] = response_stats
         return render(
             request,
@@ -1429,7 +1452,6 @@ def _oral_subject_themes(
     deduplicate=False,
     prompts=None,
 ):
-    family_labels = catalogue.eo_tache_three_family_labels()
     subjects_by_theme = {item["theme"].pk: [] for item in themes}
     if prompts is None:
         prompts = (
@@ -1441,6 +1463,13 @@ def _oral_subject_themes(
                 ).select_related("family")
             ).order_by("number", "pk")
         )
+    prompts = list(prompts)
+    taxonomy = catalogue.eo_tache_three_taxonomy()
+    if any(prompt.content_key in taxonomy.by_source for prompt in prompts):
+        return _classified_oral_subject_themes(
+            themes, response_progress, prompts, deduplicate=deduplicate,
+        )
+    family_labels = catalogue.eo_tache_three_family_labels()
     for prompt in prompts:
         subjects_by_theme[prompt.theme_id].append(
             {
@@ -1512,6 +1541,54 @@ def _oral_subject_themes(
             }
         )
     return groups
+
+
+def _classified_oral_subject_themes(themes, response_progress, prompts, *, deduplicate):
+    taxonomy = catalogue.eo_tache_three_taxonomy()
+    source_themes = {item["theme"].pk: item["theme"] for item in themes}
+    icons = {theme.slug: theme.icon for theme in source_themes.values()}
+    family_labels = catalogue.eo_tache_three_family_labels()
+    groups = {}
+    seen = set()
+    for prompt in prompts:
+        if deduplicate and prompt.response_id in seen:
+            continue
+        seen.add(prompt.response_id)
+        source = source_themes[prompt.theme_id]
+        category = taxonomy.by_source.get(prompt.content_key)
+        theme_slug = category.theme.slug if category else source.slug
+        theme_name = category.theme.label if category else source.display_name
+        family = prompt.family
+        family_slug = category.slug if category else family.slug
+        family_name = (
+            category.label if category else
+            family_labels.get((source.slug, family.content_key), family.name)
+        )
+        group = groups.setdefault(theme_slug, {
+            "slug": theme_slug, "name": theme_name,
+            "icon": icons.get(theme_slug, "users"), "subjects": [], "_families": {},
+            "_order": category.theme.order if category else source.order,
+        })
+        subgroup = group["_families"].setdefault(family_slug, {
+            "slug": family_slug, "name": family_name, "subjects": [],
+            "_order": category.order if category else family.order,
+        })
+        row = {"prompt": prompt, "progress": response_progress[prompt.response_id],
+               "display_category": category, "source_theme": source}
+        group["subjects"].append(row)
+        subgroup["subjects"].append(row)
+    result = sorted(groups.values(), key=lambda group: (group["_order"], group["slug"]))
+    for group in result:
+        group["families"] = sorted(
+            group.pop("_families").values(),
+            key=lambda family: (family["_order"], family["slug"]),
+        )
+        for collection in [group, *group["families"]]:
+            ids = {row["prompt"].response_id for row in collection["subjects"]}
+            collection["subject_count"] = len(collection["subjects"])
+            collection.update(summarize_subject_progress(response_progress[pk] for pk in ids))
+            collection.pop("_order")
+    return result
 
 
 def browse(request, part_slug=None, task_slug=None):
@@ -1771,14 +1848,12 @@ def browse(request, part_slug=None, task_slug=None):
         "publication_count": publication_count,
         "oral_directory": oral_directory,
         "subject_summary": (
-            summarize_subject_progress(
-                row["progress"] for group in subject_themes for row in group["subjects"]
-            )
+            summarize_subject_progress(response_progress.values())
             if oral_directory else None
         ),
         "families": families,
         "theme_count": (
-            len(subject_themes) if deduplicated_count is not None else len(themes)
+            len(subject_themes) if oral_directory else len(themes)
         ),
         "prompt_count": (
             deduplicated_count if deduplicated_count is not None else publication_count

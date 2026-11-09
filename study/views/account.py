@@ -474,6 +474,7 @@ def export_account(request):
             "suffix",
             "hidden_on_source",
             "study_later",
+            "is_pinned",
             "completed_at",
             "created_at",
             "updated_at",

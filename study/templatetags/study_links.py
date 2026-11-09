@@ -1,9 +1,16 @@
 from django import template
 from django.urls import reverse
 
-from study import routing
+from study import catalogue, routing
 
 register = template.Library()
+
+
+@register.simple_tag
+def subject_display_category(prompt):
+    if ":p" not in prompt.content_key:
+        return None
+    return catalogue.eo_tache_three_taxonomy().by_source.get(prompt.content_key)
 
 
 @register.simple_tag(takes_context=True)

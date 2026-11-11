@@ -317,13 +317,13 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("garder une preuve", response(1).arguments[2].exemple)
         self.assertIn("d'être puni", response(1).arguments[2].idea)
         self.assertIn("ce n'est pas lire tous ses messages", response(1).nuance)
-        self.assertIn("se sentir bien chez ses parents", response(2).position)
+        self.assertIn("le confort familial n'empêche pas de vivre en adulte", response(2).position)
         self.assertIn("n'est pas un défaut", response(2).position_claire)
         self.assertIn("peut refléter une bonne entente", response(2).arguments[0].developpement)
         self.assertIn("un véritable échange", response(2).arguments[2].developpement)
         self.assertIn("Ses parents peuvent compter sur lui", response(2).arguments[2].consequence)
-        self.assertIn("le coût du logement peut aussi compter", response(2).nuance)
-        self.assertIn("Aucun âge de départ", response(2).nuance)
+        self.assertIn("le coût du logement compte aussi", response(2).arguments[1].developpement)
+        self.assertIn("le plus important n'est pas leur adresse", response(2).conclusion)
         self.assertIn("toujours", response(3).position_claire)
         self.assertIn("candidature en ligne", response(3).arguments[1].exemple)
         self.assertIn("priorités", response(3).arguments[2].idea)
@@ -395,18 +395,18 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("vivre seule peut au contraire alléger son quotidien", response(11).nuance)
         self.assertNotIn("vie sociale", response(11).nuance)
         self.assertIn("responsabilités seraient réellement partagées", response(11).conclusion)
-        self.assertIn("Je suis pour des règles claires", response(12).position_claire)
-        self.assertIn("écouter l'enfant sans renoncer à poser des limites", response(12).position_claire)
+        self.assertIn("les enfants ont besoin d'autorité", response(12).position_claire)
+        self.assertIn("sans chercher à obtenir l'obéissance par la peur", response(12).position_claire)
         self.assertNotIn("Je distingue", response(12).position_claire)
-        self.assertIn("fait sonner la sirène de son camion jouet", response(12).arguments[0].exemple)
-        self.assertIn("continuer à jouer, mais sans la sirène", response(12).arguments[0].exemple)
-        self.assertIn("tenant compte du repos de quelqu'un d'autre", response(12).arguments[0].consequence)
+        self.assertIn("continuer à jouer", response(12).arguments[0].exemple)
+        self.assertIn("veillent à ce qu'il dorme suffisamment", response(12).arguments[0].exemple)
+        self.assertIn("prendre soin de lui", response(12).arguments[0].consequence)
         self.assertNotIn("dessiner", response(12).arguments[0].exemple)
-        self.assertIn("l'écoute sans crier", response(12).arguments[1].exemple)
-        self.assertIn("contacter la bibliothèque ensemble", response(12).arguments[1].exemple)
-        self.assertIn("laisser l'enfant proposer comment s'organiser", response(12).arguments[2].developpement)
-        self.assertIn("respecter les engagements qu'il a lui-même pris", response(12).arguments[2].developpement)
-        self.assertIn("qu'il le respecte sans rappel", response(12).arguments[2].exemple)
+        self.assertIn("cacher dans son cartable", response(12).arguments[1].exemple)
+        self.assertIn("sans être humilié", response(12).arguments[1].exemple)
+        self.assertIn("Il faut que l'enfant comprenne pourquoi une limite existe", response(12).arguments[2].developpement)
+        self.assertIn("tout en restant fermes sur l'essentiel", response(12).arguments[2].developpement)
+        self.assertIn("S'ils rangent aussi les leurs", response(12).arguments[2].exemple)
         self.assertIn("intervenir immédiatement", response(12).nuance)
         self.assertIn("pas nécessaire de séparer strictement les deux langues", response(13).nuance)
         self.assertIn("lire une histoire dans la langue du pays", response(13).nuance)
@@ -427,10 +427,11 @@ class TacheThreeModelContentTests(SimpleTestCase):
         models = catalogue.tache_three_models()
         for key, identities in {
             "famille-p1": (5, 2, 3),
-            # Restore household contribution (3), dropping finance (2), after consent (4).
-            "famille-p2": (1, 4, 3),
+            # Financial preparation uses a fresh ID rather than recycling finance (2) or consent (4).
+            "famille-p2": (1, 5, 3),
             "famille-p9": (1, 3, 4),
             "famille-p11": (1, 2, 4),
+            "famille-p12": (4, 2, 5),
             # Dialogue and intergenerational contact retain their IDs when reordered.
             "famille-p13": (1, 2, 3),
             "famille-p14": (1, 2, 4),

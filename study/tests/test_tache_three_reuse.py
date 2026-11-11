@@ -39,9 +39,9 @@ class TacheThreeReuseTests(SimpleTestCase):
     def test_cohabitation_answers_distinguish_parental_consent_from_reciprocal_help(self):
         comfort = self.response("famille-p2")
         practical = self.response("famille-p16")
-        self.assertIn("apprécier la vie familiale", comfort.arguments[0].idea)
-        self.assertIn("convienne aussi aux parents", comfort.arguments[1].idea)
-        self.assertIn("sa mère se lève tôt", comfort.arguments[1].exemple)
+        self.assertIn("se sentir bien chez ses parents", comfort.arguments[0].idea)
+        self.assertIn("convienne aussi aux parents", comfort.nuance)
+        self.assertIn("repos et d'intimité", comfort.nuance)
         self.assertIn("ne doit pas aller dans un seul sens", practical.arguments[1].idea)
         self.assertIn("prépare le dîner", practical.arguments[1].exemple)
         self.assertIn("sans demander l'autorisation de sortir", practical.arguments[2].exemple)
@@ -148,7 +148,7 @@ class TacheThreeReuseTests(SimpleTestCase):
         solitude = "Cependant, il faut distinguer une solitude choisie d'un isolement qui fait souffrir."
         self.assertIn(solitude, self.response("culture-p24").nuance)
         self.assertIn("souffrir de solitude", self.response("culture-p16").nuance)
-        self.assertIn("l'accord de toute la famille", self.response("famille-p2").conclusion)
+        self.assertIn("convienne aussi aux parents", self.response("famille-p2").nuance)
         self.assertIn("si chacun y trouve son compte", self.response("famille-p16").conclusion)
 
     def test_remote_contact_limit_keeps_the_same_words_for_three_relevant_questions(self):

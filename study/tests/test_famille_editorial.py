@@ -93,10 +93,11 @@ class FamilleEditorialTests(SimpleTestCase):
                     {
                         "eo/tache-3/culture-p16": (1, 4, 5),
                         "eo/tache-3/famille-p1": (5, 2, 3),
-                        "eo/tache-3/famille-p2": (1, 4, 3),
+                        "eo/tache-3/famille-p2": (1, 5, 3),
                         "eo/tache-3/famille-p6": (1, 2, 4),
                         "eo/tache-3/famille-p9": (1, 3, 4),
                         "eo/tache-3/famille-p11": (1, 2, 4),
+                        "eo/tache-3/famille-p12": (4, 2, 5),
                         "eo/tache-3/famille-p14": (1, 2, 4),
                         "eo/tache-3/famille-p16": (1, 2, 4),
                     }.get(model.group, (1, 2, 3)),
@@ -112,7 +113,7 @@ class FamilleEditorialTests(SimpleTestCase):
             (7, 1, "relations familiales"),
             (10, 2, "sans que cela soit une règle"),
             (11, 1, "Sur un petit budget"),
-            (12, 2, "La confiance grandit"),
+            (12, 2, "voit ses parents donner l'exemple"),
             (13, 2, "pratique la langue"),
             (14, 0, "profiter d'un moment de repos"),
         ):
@@ -208,9 +209,9 @@ class FamilleEditorialTests(SimpleTestCase):
             (10, 2, ("deux cousines", "la même école", "difficultés en se soutenant", "meilleures amies")),
             (11, 1, ("deux sœurs", "quarante euros par mois", "chacune paie vingt euros", "deux logements", "quarante euros chacune")),
             (11, 2, ("avant de rentrer chez elle", "opération du genou", "les courses avec sa sœur", "livraisons de repas")),
-            (12, 0, ("sept ans", "sieste du bébé", "sirène de son camion jouet", "pour laisser dormir le bébé")),
-            (12, 1, ("livre de bibliothèque", "avoue", "sans crier", "remplacer")),
-            (12, 2, ("propose", "dix-sept heures", "avant le dîner", "sans rappel", "davantage de liberté")),
+            (12, 0, ("continuer à jouer", "école le lendemain", "heure raisonnable pour le coucher", "dorme suffisamment")),
+            (12, 1, ("livre de bibliothèque", "cacher dans son cartable", "sans être humilié", "réparer ou remplacer")),
+            (12, 2, ("téléphones", "pendant le repas", "raconter sa journée", "rangent aussi les leurs", "moment en famille")),
             (13, 0, ("refusé de jouer avec lui", "sa mère", "leur langue commune", "le rassurer", "manque de vocabulaire")),
             (13, 1, ("grand-mère", "ancienne photo", "Son petit-fils", "où elle a été prise", "traduise chaque phrase")),
             (13, 2, ("des parents inscrivent", "au football", "Au fil des entraînements", "comprend mieux les consignes", "discuter avec ses coéquipiers")),
@@ -284,11 +285,58 @@ class FamilleEditorialTests(SimpleTestCase):
         self.assertIn("premier concert", progress.exemple)
         self.assertIn("réaliser un projet", progress.consequence)
 
+    def test_family_home_response_distinguishes_attachment_preparation_and_reciprocity(self):
+        response = self.response(2)
+        attachment, preparation, reciprocity = response.arguments
+        self.assertIn("parce qu'ils s'y sentent bien", response.position_claire)
+        self.assertIn("pas seulement dans le fait d'avoir une autre adresse", attachment.developpement)
+        self.assertIn("leur raconter sa journée", attachment.exemple)
+        self.assertIn("le bien-être est la première raison de rester", preparation.developpement)
+        self.assertIn("premier salaire", preparation.developpement)
+        self.assertIn("participer aux dépenses", preparation.exemple)
+        self.assertIn("épargnant pour son futur logement", preparation.exemple)
+        self.assertIn("plutôt qu'à la repousser", preparation.consequence)
+        self.assertIn("un véritable échange", reciprocity.developpement)
+        self.assertIn("ses parents rentrent tard", reciprocity.exemple)
+        self.assertIn("évite de devoir tout gérer après le travail", reciprocity.exemple)
+        self.assertIn("tout comme il peut compter sur eux", reciprocity.consequence)
+        for phrase in ("convienne aussi aux parents", "repos et d'intimité", "repousser ses responsabilités"):
+            self.assertIn(phrase, response.nuance)
+        plan = self.plans["eo/tache-3/famille-p2"]
+        self.assertIn("préparer son départ", plan.arguments[1].point.french)
+        self.assertIn("prepare for leaving home", plan.arguments[1].point.english)
+        self.assertIn("repos et l'intimité", plan.nuance.french)
+        self.assertIn("rest and privacy", plan.nuance.english)
+
+    def test_parental_authority_distinguishes_boundaries_fear_and_explained_rules(self):
+        response = self.response(12)
+        boundaries, fear, explained = response.arguments
+        self.assertIn("pas d'un autoritarisme rigide", response.position_claire)
+        self.assertIn("Ce cadre le protège", boundaries.developpement)
+        self.assertIn("école le lendemain", boundaries.exemple)
+        self.assertIn("prendre soin de lui", boundaries.consequence)
+        self.assertIn("ne pas se faire prendre", fear.developpement)
+        self.assertIn("cacher dans son cartable", fear.exemple)
+        self.assertIn("S'il pouvait en parler sans être humilié", fear.exemple)
+        self.assertTrue(fear.consequence.startswith("La peur produit du silence"))
+        self.assertIn("Il faut que l'enfant comprenne pourquoi une limite existe", explained.developpement)
+        self.assertIn("tout en restant fermes sur l'essentiel", explained.developpement)
+        self.assertIn("pour que chacun puisse raconter sa journée", explained.exemple)
+        self.assertIn("S'ils rangent aussi les leurs", explained.exemple)
+        self.assertIn("voit ses parents donner l'exemple", explained.consequence)
+        self.assertIn("ne veut pas dire tout permettre", response.nuance)
+        self.assertIn("intervenir immédiatement et expliquer ensuite", response.nuance)
+        plan = self.plans["eo/tache-3/famille-p12"]
+        self.assertIn("sans humiliation", plan.arguments[1].example.french)
+        self.assertIn("without humiliation", plan.arguments[1].example.english)
+        self.assertIn("rangent aussi les leurs", plan.arguments[2].example.french)
+        self.assertIn("they put theirs away too", plan.arguments[2].example.english)
+
     def test_comfort_is_not_conditional_on_a_financing_project_or_moving_out(self):
         comfort = self.response(2)
-        self.assertIn("Aimer la vie familiale n'est pas un défaut", comfort.position_claire)
+        self.assertIn("aimer la vie familiale n'est pas un défaut", comfort.position_claire)
         self.assertNotIn("simple confort sans réflexion", comfort.arguments[1].consequence)
-        self.assertIn("Aucun âge de départ ne convient à toutes les familles", comfort.nuance)
+        self.assertIn("le plus important n'est pas leur adresse", comfort.conclusion)
         self.assertIn("l'accord des parents", self.response(16).nuance)
         self.assertIn("vivre seul donne plus de liberté", self.response(11).position)
 

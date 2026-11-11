@@ -50,46 +50,46 @@
     },
     "famille-p2": {
       "introduction": {
-        "french": "Se sentir bien chez ses parents est une raison respectable d'y rester.",
-        "english": "Feeling happy at your parents' home is a respectable reason to stay."
+        "french": "Un regard compréhensif : aimer la vie familiale tout en avançant dans sa vie d'adulte.",
+        "english": "A sympathetic view: enjoy family life while moving forward as an adult."
       },
       "nuance": {
-        "french": "Le coût du logement peut compter ; sans place ou bonne entente, vivre séparément peut être préférable. Aucun âge ne convient à tous.",
-        "english": "Housing costs can matter; without space or good relations, living apart may be better. No age suits everyone."
+        "french": "L'accord, le repos et l'intimité des parents comptent ; le confort ne doit pas servir à éviter ses responsabilités.",
+        "english": "Parents' agreement, rest and privacy matter; comfort must not become a way to avoid responsibilities."
       },
       "conclusion": {
-        "french": "Juger les responsabilités et l'accord familial, pas l'adresse.",
-        "english": "Judge responsibilities and family agreement, not the address."
+        "french": "Juger les responsabilités et le respect, pas l'adresse.",
+        "english": "Judge responsibilities and respect, not the address."
       },
       "arguments": [
         {
           "point": {
-            "french": "Aimer la vie familiale ne signifie pas refuser de grandir.",
-            "english": "Enjoying family life does not mean refusing to grow up."
+            "french": "L'attachement familial n'est pas un manque de maturité.",
+            "english": "Attachment to family is not a lack of maturity."
           },
           "example": {
-            "french": "Une salariée de vingt-six ans aime dîner avec ses parents et organise seule ses projets.",
-            "english": "A 26-year-old worker enjoys dinner with her parents and organises her own plans."
+            "french": "À vingt-six ans, une salariée paie ses dépenses et organise sa vie tout en aimant dîner avec ses parents.",
+            "english": "A 26-year-old worker pays her expenses and organises her life while enjoying dinner with her parents."
           }
         },
         {
           "point": {
-            "french": "Le bien-être doit aussi être celui des parents.",
-            "english": "The arrangement must suit the parents too."
+            "french": "Rester peut permettre de préparer son départ.",
+            "english": "Staying can help prepare for leaving home."
           },
           "example": {
-            "french": "Pour respecter le sommeil de sa mère, un fils invite ses amis le samedi plutôt qu'en semaine.",
-            "english": "To respect his mother's sleep, a son invites friends on Saturday rather than during the week."
+            "french": "Un jeune diplômé participe aux dépenses et épargne pour son logement, plutôt que de prendre un appartement trop cher.",
+            "english": "A recent graduate contributes to expenses and saves for a home rather than taking on an unaffordable flat."
           }
         },
         {
           "point": {
-            "french": "Un échange où les deux générations apportent quelque chose.",
-            "english": "Both generations can contribute and benefit."
+            "french": "Les deux générations peuvent bénéficier de l'entraide.",
+            "english": "Both generations can benefit from mutual help."
           },
           "example": {
-            "french": "Un jeune salarié contribue aux charges et fait les courses sans rappel parental.",
-            "english": "A young worker contributes to bills and does the shopping without parental reminders."
+            "french": "Un jeune salarié fait les courses et prépare le dîner quand ses parents rentrent tard ; ils ont moins à gérer après le travail.",
+            "english": "A young worker shops and cooks when their parents get home late, leaving them less to manage after work."
           }
         }
       ]
@@ -206,8 +206,8 @@
             "english": "Payment risks making motivation conditional."
           },
           "example": {
-            "french": "Payé pour ses notes, un enfant demande si son exposé non noté rapporte aussi de l'argent.",
-            "english": "Paid for grades, a child asks whether an ungraded presentation also earns money."
+            "french": "Payé pour ses bonnes notes, un enfant bâcle un exposé non noté, sans voir ce qu'il pourrait y apprendre.",
+            "english": "Paid for good marks, a child rushes an unmarked presentation, overlooking what they could learn."
           }
         },
         {
@@ -216,14 +216,14 @@
             "english": "Recognise regular effort and progress, not just a high mark."
           },
           "example": {
-            "french": "Après des semaines de travail, un enfant réussit son contrôle de maths ; ses parents saluent ses progrès malgré une note moyenne.",
-            "english": "After weeks of work, a child passes the maths test; the parents praise the progress despite an average mark."
+            "french": "En difficulté en maths, une élève réussit son contrôle après un travail soutenu ; ses parents saluent ses progrès malgré une note moyenne.",
+            "english": "After sustained study, a pupil struggling with maths passes her test; her parents praise her progress despite an average mark."
           }
         },
         {
           "point": {
-            "french": "Un retour précis donne une méthode à réutiliser.",
-            "english": "Specific feedback provides a method to reuse."
+            "french": "L'argent ne remplace pas l'aide pour progresser.",
+            "english": "Money is no substitute for help with improving."
           },
           "example": {
             "french": "En relevant la relecture des consignes, le parent donne à l'enfant une méthode pour le prochain contrôle.",
@@ -326,46 +326,46 @@
     },
     "famille-p12": {
       "introduction": {
-        "french": "Fixer des limites, expliquer les règles et écouter l'enfant sans le faire obéir par la peur.",
-        "english": "Set limits, explain the rules and listen to the child without using fear to make them obey."
+        "french": "Une autorité ferme et à l'écoute, sans obtenir l'obéissance par la peur.",
+        "english": "Firm authority that listens, without obtaining obedience through fear."
       },
       "nuance": {
-        "french": "En cas de danger immédiat, intervenir d'abord et expliquer ensuite.",
-        "english": "In immediate danger, intervene first and explain afterwards."
+        "french": "Écouter n'est pas tout permettre : près d'une route, intervenir immédiatement et expliquer ensuite.",
+        "english": "Listening does not mean allowing everything: near a road, intervene immediately and explain afterwards."
       },
       "conclusion": {
-        "french": "Fixer un cadre qui apprend à comprendre et à agir de façon autonome.",
-        "english": "Set boundaries that teach understanding and independent action."
+        "french": "Des règles, de la fermeté et du dialogue pour guider, pas pour faire peur.",
+        "english": "Rules, firmness and dialogue to guide, not frighten."
       },
       "arguments": [
         {
           "point": {
-            "french": "Une règle expliquée aide à respecter les besoins des autres.",
-            "english": "An explained rule helps respect others' needs."
+            "french": "Les règles donnent des repères et protègent l'enfant.",
+            "english": "Rules provide guidance and protect the child."
           },
           "example": {
-            "french": "Le bébé dort : le père explique que son fils peut continuer à jouer avec son camion, mais sans faire sonner la sirène.",
-            "english": "The baby is asleep: a father explains that his son can keep playing with his toy truck, but without sounding its siren."
+            "french": "Un enfant veut encore jouer ; ses parents maintiennent l'heure du coucher pour qu'il dorme assez avant l'école.",
+            "english": "A child wants to keep playing; the parents maintain bedtime so the child gets enough sleep before school."
           }
         },
         {
           "point": {
-            "french": "La peur peut pousser à cacher les erreurs.",
-            "english": "Fear can lead children to hide mistakes."
+            "french": "La peur peut fermer le dialogue, sans créer de véritable respect.",
+            "english": "Fear can close down dialogue without creating genuine respect."
           },
           "example": {
-            "french": "Un enfant avoue avoir abîmé un livre ; son parent l'écoute et ils contactent la bibliothèque pour le remplacer.",
-            "english": "A child admits damaging a book; the parent listens and they contact the library to replace it."
+            "french": "Un enfant cache un livre abîmé par peur de ses parents ; sans humiliation, ils pourraient chercher comment le réparer ou le remplacer.",
+            "english": "A child hides a damaged book for fear of the parents; without humiliation, they could work out how to repair or replace it."
           }
         },
         {
           "point": {
-            "french": "Des choix adaptés à l'âge préparent l'autonomie.",
-            "english": "Age-appropriate choices prepare children for independence."
+            "french": "Une bonne autorité est ferme, juste et expliquée.",
+            "english": "Good authority is firm, fair and explained."
           },
           "example": {
-            "french": "Devoirs à dix-sept heures : si l'adolescent finit avant dîner sans rappel, sa mère lui laisse davantage de liberté.",
-            "english": "Homework at five: if the teenager finishes before dinner without reminders, his mother gives him more freedom."
+            "french": "Les parents demandent de ranger les téléphones au repas pour se parler et rangent aussi les leurs : ils donnent l'exemple.",
+            "english": "Parents ask for phones to be put away during meals so everyone can talk; they put theirs away too and set an example."
           }
         }
       ]

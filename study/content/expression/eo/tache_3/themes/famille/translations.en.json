@@ -882,6 +882,16 @@
         "french": "Mais si on fait respecter toutes les règles par la peur, l'enfant risque surtout de se taire.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
+      "1640f24429c489f8767138f76e7c5a4013c4706773e23e7ecf5b649d0ceb6ef1": {
+        "french": "Il faut que l'enfant comprenne pourquoi une limite existe, au lieu d'entendre seulement « parce que je l'ai décidé ». Les parents peuvent écouter ses objections tout en restant fermes sur l'essentiel. Expliquer une décision, ce n'est pas renoncer à la prendre.",
+        "english": "Children need to understand why a limit exists, rather than only hearing \"because I said so\". Parents can listen to their objections while remaining firm on what matters. Explaining a decision does not mean giving up the right to make it.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
+      },
+      "16ff57797d0df9cb8722ea0cf784043364569a28cc28606b76ec168472be4394": {
+        "french": "Prenons l'exemple d'un enfant qui voudrait continuer à jouer alors qu'il a école le lendemain. En maintenant une heure raisonnable pour le coucher, ses parents veillent à ce qu'il dorme suffisamment, même s'il préférerait rester debout.",
+        "english": "Take a child who wants to keep playing even though they have school the next day. By maintaining a reasonable bedtime, the parents make sure the child gets enough sleep, even if they would rather stay up.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
+      },
       "1a55bc7b5dcd8045b322944bdbed6b11a655286ed1bcc9c29663703e78e74468": {
         "english": "The child continues his activity and the baby can sleep. The rule meets a need he can understand.",
         "french": "L'enfant continue son activité et le bébé peut dormir. La règle répond à un besoin qu'il peut comprendre.",
@@ -891,6 +901,11 @@
         "english": "I therefore support firm rules without using fear to impose them. The parent remains responsible for the framework, but gradually helps the child understand and act without waiting for an order.",
         "french": "Je suis donc pour des règles fermes, sans faire de la peur le moyen de les imposer. Le parent reste responsable du cadre, mais aide peu à peu l'enfant à comprendre et à agir sans attendre un ordre.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "1d024ed3aa4c03aab126015730238c7312a489ff77f1c795dce99c1f95bd25ff": {
+        "french": "En conclusion, je suis pour une autorité qui guide plutôt qu'une autorité qui fait peur. Des règles claires, de la fermeté et du dialogue permettent d'accompagner l'enfant sans confondre éducation et obéissance aveugle.",
+        "english": "In conclusion, I favour authority that guides rather than frightens. Clear rules, firmness and dialogue allow parents to support their child without confusing education with blind obedience.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
       },
       "1dcca186d7cf170aa65ab420ddbc89ae9da2947d4160d29d709bce3edaf2b7e2": {
         "french": "Par exemple, pendant la sieste du bébé, un garçon de sept ans fait sonner la sirène de son camion jouet. Son père peut lui dire : « Tu peux continuer à jouer, mais sans la sirène, pour laisser dormir le bébé. »",
@@ -910,10 +925,25 @@
         "english": "After damaging a library book, a child hesitates to show it, then tells their parent about it. The parent listens without shouting and helps them contact the library to find out how to replace it. The child can thus make amends for their mistake rather than hiding it.",
         "french": "Après avoir abîmé un livre de bibliothèque, un enfant hésite à le montrer, puis en parle à son parent. Celui-ci l'écoute sans crier et l'aide à contacter la bibliothèque pour savoir comment le remplacer. L'enfant peut ainsi réparer son erreur au lieu de la cacher."
       },
+      "23c81faaf4a55fbcf05042d098a308b76b6905974537f9bd38ccea49c7013ea3": {
+        "french": "La peur produit du silence, pas forcément de la confiance ni une meilleure compréhension de ses actes.",
+        "english": "Fear produces silence, not necessarily trust or a better understanding of their actions.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
+      },
       "2823f085d70644353b7a9726ac6cb99150859c3b90348cfe3daa4899d4b44467": {
         "french": "La confiance grandit ainsi avec les responsabilités, au lieu de dépendre d'une surveillance permanente.",
         "english": "Trust thus grows with responsibility, instead of depending on constant supervision.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
+      },
+      "2d5bb817f77e3003e0cbc8f64910ba8b7d78c2fb53712ffaa1e588cae30c7b53": {
+        "french": "Enfin, je pense qu'une bonne autorité doit être ferme, juste et expliquée.",
+        "english": "Finally, I think good parental authority must be firm, fair and explained.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
+      },
+      "3869a1efe576d75aa779871e8adc43f4f9877405f9611e4e90703d4d322b2c6f": {
+        "french": "Tout d'abord, les enfants ont besoin de règles et de repères clairs pour grandir.",
+        "english": "First, children need clear rules and guidance as they grow up.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
       },
       "3bea1de26feb0dccef9b95870e7df9b5a067d948bc0ed5d4bccf7c6ff6d81fe0": {
         "english": "A young child thinks about what they want to do without always seeing the needs of those around them. The parent needs to set a limit, but also explain the reason and suggest a way to carry on differently.",
@@ -935,9 +965,24 @@
         "french": "La discussion traite la difficulté réelle, alors que la peur risque de la rendre invisible.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "4310cd4893f6d9c3a4d1163d76ebe3fc2df82a487e8f6f61f355a971c28314c9": {
+        "french": "À mon avis, les enfants ont besoin d'autorité, mais pas d'un autoritarisme rigide. Les parents doivent poser des limites et les faire respecter, sans chercher à obtenir l'obéissance par la peur. Pour moi, être ferme et être à l'écoute ne sont pas deux choses incompatibles.",
+        "english": "In my view, children need parental authority, but not rigid authoritarianism. Parents must set limits and enforce them without trying to obtain obedience through fear. To me, being firm and being willing to listen are not incompatible.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
+      },
+      "44be6a2fe5b2dd7b09fd882d20cd852f7610b0bc33a13021074f3fcdecc379a0": {
+        "french": "Ensuite, une autorité trop dure peut créer plus de peur que de véritable respect.",
+        "english": "Next, excessively harsh authority can create more fear than genuine respect.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
+      },
       "49ea83faf13132068d3013b6d3e6b85d4949c0aa212c6df884c8faab838b9943": {
         "english": "Furthermore, a child who fears being humiliated may hesitate to ask for help.",
         "french": "Ensuite, un enfant qui craint d'être humilié peut hésiter à demander de l'aide."
+      },
+      "4b7a97514a7bd21ad005d3b4e6793ee1dc9ffc9b8ee23b15503b2a3725494aab": {
+        "french": "Dire non, dans ce cas, c'est prendre soin de lui, pas simplement lui imposer sa volonté.",
+        "english": "In this case, saying no means caring for the child, not simply imposing your will.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
       },
       "56e2a11dc067aa45649e8422faf398c0d88be0899f91e55ab73d374c629e644c": {
         "french": "Un jeune enfant pense naturellement à ce qu'il a envie de faire, sans toujours mesurer les conséquences pour son entourage. Le parent peut lui montrer pourquoi une limite existe et comment continuer autrement. La règle prend alors un sens, au lieu de sembler dépendre seulement de l'humeur de l'adulte.",
@@ -954,10 +999,20 @@
         "english": "In conclusion, I prefer firm, caring authority to authority that creates fear. Rules remain necessary, but should help children understand, put mistakes right and gradually become more independent.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
+      "607ee4463981d7ca2d6ae3237e00a319948009484ef6cc4d46d8e3a4182993aa": {
+        "french": "Quand un parent crie à chaque erreur ou refuse toute explication, l'enfant risque surtout d'apprendre à ne pas se faire prendre. Il obéit peut-être sur le moment, mais il n'ose plus raconter ses difficultés, alors que ses parents pourraient l'aider.",
+        "english": "When a parent shouts at every mistake or refuses to hear any explanation, the child may mainly learn to avoid getting caught. They may obey in the moment, but no longer dare talk about their difficulties, even though their parents could help.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
+      },
       "6407ab4ca29ad9f9d8932e688398051c2557df0905c7ac8e913262287c089b96": {
         "english": "A child has damaged a library book and dares to tell their parent. The parent listens without shouting; together, they contact the library to find out how to replace the book.",
         "french": "Un enfant a abîmé un livre de bibliothèque et ose le dire à son parent. Celui-ci l'écoute sans crier ; ensemble, ils contactent la bibliothèque pour savoir comment remplacer le livre.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "67dc4b33d121fdeaf67e3539340c18c6423cd2d9a7fe1fc4a7241e730a068c6c": {
+        "french": "La règle devient alors plus cohérente : l'enfant en comprend la raison et voit ses parents donner l'exemple.",
+        "english": "The rule then becomes more consistent: the child understands its purpose and sees the parents setting an example.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
       },
       "686a5f2db8a98336ed8de76a0a8b947a4a2d03c1f35b93a3abe9cd2d3b35baba": {
         "english": "A child wants to keep playing before a school day. Their parent understands their disappointment, but maintains bedtime. The parent gives them five minutes' warning before playtime ends.",
@@ -1007,6 +1062,11 @@
         "french": "Un adolescent doit rentrer avant vingt-deux heures parce que les transports deviennent rares ensuite. Il choisit sa sortie, vérifie son trajet et prévient en cas de retard.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
+      "88aece58b77ec26868dcfff99313861bc41055bb394034a44f137a29fb22fb7f": {
+        "french": "Par exemple, des parents peuvent demander que les téléphones restent de côté pendant le repas pour que chacun puisse raconter sa journée. S'ils rangent aussi les leurs, ils montrent qu'il s'agit de préserver un moment en famille, et non de priver seulement l'enfant.",
+        "english": "For example, parents can ask for phones to be put aside during meals so everyone can talk about their day. If they put their own phones away too, they show that the aim is to preserve time together as a family, not just to deprive the child.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
+      },
       "88dd3b1e91b32011310a4c25c0df4c36c75e8d5d342d210bee742bbe2a155624": {
         "english": "The rule therefore helps the child to respect their little brother’s sleep.",
         "french": "La règle aide donc l'enfant à respecter le sommeil de son petit frère."
@@ -1023,6 +1083,11 @@
       "977b240d64701fc0a1f9b4c56ba5b6976cc00f7211406c499881f14014781f8c": {
         "english": "A teenager wants to unwind after coming home from school and suggests starting his homework at 5.00 pm. His mother agrees, on condition that it is finished before dinner. A week later, he is sticking to this timetable without her having to remind him every evening.",
         "french": "Un adolescent veut souffler en rentrant du collège et propose de commencer ses devoirs à dix-sept heures. Sa mère accepte, à condition qu'ils soient terminés avant le dîner. Une semaine plus tard, il respecte cet horaire sans qu'elle ait à le lui rappeler chaque soir."
+      },
+      "9c4d78f53c32a64a621eb6bfe9c360dc84685fac0025f3697e84d8af1d2d9aeb": {
+        "french": "Bien sûr, refuser l'autoritarisme ne veut pas dire tout permettre. Face à un danger, par exemple près d'une route, le parent doit intervenir immédiatement et expliquer ensuite. L'écoute n'empêche pas de poser des limites non négociables.",
+        "english": "Of course, rejecting authoritarianism does not mean allowing everything. Faced with danger, for example near a road, parents must intervene immediately and explain afterwards. Listening does not prevent them from setting non-negotiable limits.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
       },
       "9fb7e45f40c6854f64e80f4dafd05fd0704a3b3154545b8f3e3b653b68e7d452": {
         "french": "Enfin, le but n'est pas que l'enfant obéisse toujours, mais qu'il devienne capable de se conduire seul.",
@@ -1056,6 +1121,11 @@
         "english": "Finally, the aim is not for children always to obey, but for them to learn to choose.",
         "french": "Enfin, le but n'est pas que l'enfant obéisse toujours, mais qu'il apprenne à choisir.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "b8c0d1982810a3c0e8ec2dcadfd00a905494fde9776af6c9a4688818266e8aaa": {
+        "french": "Un enfant ne peut pas encore décider seul de tout ce qui est bon pour lui. Des horaires réguliers, du temps pour les devoirs et des règles de respect l'aident à comprendre ce qu'on attend de lui. Ce cadre le protège et lui donne des habitudes utiles.",
+        "english": "A child cannot yet decide alone everything that is good for them. Regular schedules, time for homework and rules about respect help them understand what is expected of them. These boundaries protect them and help them develop useful habits.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
       },
       "c1828e9de21d225c2fd3761476d7c8231b8548ff41ce0e6bff6ca8c5613a5b47": {
         "deepl_english": "In this way, teenagers learn to organise their own work, rather than waiting for their parents to decide every step for them.",
@@ -1102,6 +1172,11 @@
         "english": "The limit therefore does not simply depend on the parent's mood.",
         "french": "La limite ne dépend donc pas simplement de l'humeur du parent.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "d8ea14a314fcffb24e06d5ecc93c5f279da8cb00568ba300a187961eb5075b30": {
+        "french": "Par exemple, un enfant qui a abîmé un livre de bibliothèque peut le cacher dans son cartable, de peur de la réaction de ses parents. S'il pouvait en parler sans être humilié, ils pourraient chercher ensemble comment réparer ou remplacer le livre.",
+        "english": "For example, a child who has damaged a library book may hide it in their schoolbag for fear of their parents' reaction. If they could talk about it without being humiliated, they could work together to find out how to repair or replace it.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
       },
       "dcd70602425b5a3c7a4924deceec5fa002b35e28095bd300f3afac2175260c2f": {
         "french": "Tout d'abord, des règles expliquées aident l'enfant à respecter les besoins des autres.",
@@ -2060,6 +2135,11 @@
         "english": "Everyone contributes something to life together.",
         "french": "Chacun apporte quelque chose à la vie commune."
       },
+      "01f1dfb959d7ff056454498f8a6f7ab888d847c456517b78e974a55315277685": {
+        "french": "Ce confort peut donc servir à construire son indépendance, plutôt qu'à la repousser.",
+        "english": "This comfort can therefore help build independence rather than put it off.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
+      },
       "03442ea9bddfb58c729fe126da445653574256a83bd29623473b9583b865dbc6": {
         "english": "An adult can cook dinner on days when they finish work early, whilst their parents do the shopping on another day. They define their roles in advance, without the parents having to organise everything and keep reminding them.",
         "french": "Un adulte peut préparer le dîner les jours où il termine tôt, tandis que ses parents font les courses un autre jour. Ils définissent les rôles à l'avance, sans que les parents aient à tout organiser et rappeler."
@@ -2083,6 +2163,11 @@
         "english": "Feeling comfortable at your parents' home can reflect a good relationship and easy communication. You can enjoy family meals and conversations while working, managing your money and making your own decisions.",
         "french": "Se sentir bien chez ses parents peut refléter une bonne entente et une communication facile. On peut aimer les repas et les discussions en famille tout en travaillant, en gérant son argent et en prenant ses décisions.",
         "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "0f0779efe150e8060b6de60febc8de1df8e8d2746390e05d827f326db54c8185": {
+        "french": "Même si le bien-être est la première raison de rester, le coût du logement compte aussi. Quand un loyer absorbe une grande partie d'un premier salaire, rester quelque temps chez ses parents peut permettre d'économiser et de préparer la suite plus sereinement.",
+        "english": "Even if feeling happy there is the main reason for staying, housing costs matter too. When rent takes up a large part of a first salary, staying with your parents for a while can allow you to save and prepare for the next stage with greater peace of mind.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
       },
       "12cf02e29473c1c9311a19c761732c3172e5f9497a748d803c0fa292c4fe69fc": {
         "english": "She can therefore enjoy this family setting without giving up her adult life.",
@@ -2133,6 +2218,11 @@
         "french": "Une femme de vingt-six ans travaille et paie ses dépenses. Elle aime dîner avec ses parents et leur raconter sa journée, mais organise elle-même ses sorties et ses projets.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
+      "35a11770460a8dcf26d68bb395831d8ecaa338ae981a728ff8dbb397aa3c34a6": {
+        "french": "Prenons l'exemple d'une jeune femme de vingt-six ans qui travaille et paie ses dépenses. Elle peut aimer dîner avec ses parents et leur raconter sa journée, tout en organisant librement ses sorties et ses projets.",
+        "english": "Take a twenty-six-year-old woman who works and pays her own expenses. She can enjoy having dinner with her parents and telling them about her day while freely organising her own outings and plans.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
+      },
       "37584e10c9fe2d5b6a62b83e151d67109cc9ac169a835f64b02a7e490bde6b8a": {
         "english": "Preparing a meal or doing the shopping for several people can sometimes prevent everyone from having to do it separately. This works if the adults genuinely contribute, rather than leaving the parents to do everything.",
         "french": "Préparer un repas ou faire les courses pour plusieurs personnes évite parfois que chacun s'en occupe séparément. Cela fonctionne si les adultes participent vraiment, au lieu de laisser les parents tout faire."
@@ -2150,6 +2240,21 @@
         "english": "In short, I do not judge these young people for enjoying living with their parents. I look instead at whether they live as adults, with responsibilities and the whole family's agreement.",
         "french": "Bref, je ne juge pas ces jeunes parce qu'ils aiment vivre chez leurs parents. Je regarde plutôt s'ils vivent en adultes, avec des responsabilités et l'accord de toute la famille.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "579298c700ce63b38b739cbdb72691b299aab9504d961f62a785875ac20e8465": {
+        "french": "Ensuite, rester dans ce cadre familial peut aussi permettre de mieux préparer son départ.",
+        "english": "Next, staying in this family setting can also help you prepare to leave home.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
+      },
+      "60bc049939228dd0c498e4119aadd74f928c3f9d44e557e5e1e84869bf8ba0a2": {
+        "french": "Je porte un regard plutôt compréhensif sur ces jeunes adultes canadiens qui restent chez leurs parents parce qu'ils s'y sentent bien. Pour moi, aimer la vie familiale n'est pas un défaut. L'essentiel, c'est de continuer à avancer dans sa vie d'adulte.",
+        "english": "I take a fairly sympathetic view of these young Canadian adults who stay with their parents because they feel happy there. To me, enjoying family life is not a flaw. What matters is continuing to move forward in your adult life.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
+      },
+      "6946bd51a3e6194df0d15945e89223fbcc50fa49b518ed9fc4143590eeb8ac21": {
+        "french": "Par exemple, un jeune diplômé qui commence à travailler peut participer aux dépenses de la maison tout en épargnant pour son futur logement. Il prépare son départ au lieu de prendre un appartement qu'il aurait du mal à payer.",
+        "english": "For example, a recent graduate starting work can contribute to household expenses while saving for a future home. They prepare to leave rather than taking on a flat they would struggle to afford.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
       },
       "6bce674d8f4eae9c17117480b037e61ac6192a9bcfcd308887bafb518a7dd2e4": {
         "english": "That said, I understand criticism of someone who refuses to contribute when they have the means to do so. But this behaviour does not represent all young people living with their family. No single age for leaving home suits every situation.",
@@ -2240,6 +2345,11 @@
         "french": "Le plaisir de vivre ensemble s'accompagne ainsi de responsabilités concrètes, et pas seulement de bonnes intentions.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
+      "9db79b32367ea9d0dc6001bc60eafc4f5cc1223e21370f68f297b492f13d3c31": {
+        "french": "Bien sûr, il faut que cette cohabitation convienne aussi aux parents, qui ont eux-mêmes besoin de repos et d'intimité. Si le jeune ne participe à rien et laisse ses parents tout faire, le confort peut devenir une façon de repousser ses responsabilités.",
+        "english": "Of course, living together must suit the parents too: they also need rest and privacy. If the young adult contributes nothing and leaves their parents to do everything, comfort can become a way of putting off responsibilities.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
+      },
       "9e1398090f769e87eceafb0ad147fa290b7eb9923b2c5461675c84d6a510709e": {
         "english": "First and foremost, a happy family life can be a choice, not a refusal to grow up.",
         "french": "Tout d'abord, une vie familiale agréable peut être un choix, pas un refus de grandir."
@@ -2315,6 +2425,11 @@
         "french": "Il serait donc dommage de confondre cet attachement familial avec un manque de maturité.",
         "english": "It would therefore be a shame to confuse this attachment to family with a lack of maturity.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
+      },
+      "dd12a1d9706155bdf4d07410e856716b0223146723bbe04c7c6bbaae44c682c2": {
+        "french": "Par exemple, un jeune salarié qui fait les courses de la semaine et prépare le dîner quand ses parents rentrent tard leur fait gagner du temps et leur évite de devoir tout gérer après le travail.",
+        "english": "For example, a young worker who does the week's shopping and prepares dinner when their parents get home late saves them time and spares them having to manage everything after work.",
+        "review_note": "Editorial English aligned with the independently reviewed Famille response and user-provided reference; existing translation history is retained. No provider call was made."
       },
       "df9b94600e714e79b7dd2885ac62f794ec2162e1e8781cede25796332ce5aa95": {
         "english": "A young employee agrees with his parents to stay for a year, contribute to household expenses and save every month for his future home.",
@@ -2444,6 +2559,11 @@
       "3bba67ca5e53dbb1818bf34eebfc0ec47a516ec9a8436b02775ba98ff8baba9b": {
         "english": "A child notices absences or new habits without necessarily knowing the reason behind them. Without an explanation, they may imagine something far more serious than the reality.",
         "french": "Un enfant remarque les absences ou les nouvelles habitudes sans forcément en connaître la cause. Sans explication, il peut imaginer quelque chose de plus grave que la réalité."
+      },
+      "40f3aee670d88439a37b99005daed4b4d59f5fb9ba2e5f16203b2879ba613c3e": {
+        "french": "Par exemple, avant un vaccin, on peut lui dire : « Tu vas sentir une petite piqûre, mais ça dure peu de temps et je reste avec toi. » On le rassure ainsi sans lui faire une fausse promesse.",
+        "english": "For example, before a vaccination, we can say: \"You will feel a little prick, but it does not last long and I will stay with you.\" This reassures the child without making a false promise.",
+        "review_note": "Editorial English aligned with the user-approved simpler French example; existing translation history is retained."
       },
       "441aae6a160300a1de33a37a9b6e2d05cccfcb3600e49d18fd74b45b7966c5ce": {
         "english": "So yes to honesty, with carefully chosen words and a reassuring presence. The aim is to give an explanation that is true, useful and within the child's understanding.",
@@ -2976,6 +3096,11 @@
         "english": "First and foremost, the child may end up working mainly for the reward.",
         "french": "Tout d'abord, l'enfant peut finir par travailler surtout pour la récompense."
       },
+      "2f0a9064327d12fd45cfbf2ae1b25cb225e3f97ef347c1cee5a93332aa4bf58b": {
+        "french": "Prenons l'exemple d'une élève qui a des difficultés en maths, mais qui finit par réussir son contrôle après plusieurs semaines de travail régulier et soutenu. Même si sa note reste moyenne, ses parents la félicitent pour ses efforts et ses progrès, plutôt que de regarder seulement le résultat.",
+        "english": "Take a pupil who struggles with maths but eventually passes her test after several weeks of regular, sustained study. Even though her mark is still average, her parents praise her efforts and progress rather than looking only at the result.",
+        "review_note": "Editorial English aligned with the user-requested example of a struggling pupil passing after sustained study; existing translation history is retained."
+      },
       "33f8a08768870ffc4bba795ce1e906534f9bd8d9092eae219e35c93619469b31": {
         "english": "The child may think mainly about what they will earn rather than what they have understood. Their motivation may then depend on payment. Activities without a reward may seem less important to them, even when they offer a chance to learn.",
         "french": "L'enfant peut surtout penser à ce qu'il gagnera, plutôt qu'à ce qu'il a compris. La motivation risque alors de dépendre du paiement. Les activités sans récompense peuvent lui sembler moins importantes, même lorsqu'elles permettent d'apprendre.",
@@ -3000,6 +3125,11 @@
         "english": "Some pupils understand quickly; others work hard to reach a reasonable level. If only a high mark counts, the latter's efforts remain invisible. It is better to look at their starting point and the progress they have made.",
         "french": "Certains élèves comprennent vite ; d'autres travaillent beaucoup pour atteindre un niveau correct. Si seule une note élevée compte, les efforts du second restent invisibles. Il vaut mieux regarder le point de départ et les progrès réalisés.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "51390dcd87d57d45da07c1e21fceb8a18b8fd5c32f3eb018223540f5266b0261": {
+        "french": "Par exemple, un enfant habitué à recevoir de l'argent pour ses bonnes notes peut bâcler un exposé qui ne sera pas noté, puisqu'il sait que ce travail ne lui rapportera pas d'argent. Pourtant, cet exercice lui permettrait d'apprendre à organiser ses idées et à parler devant la classe.",
+        "english": "For example, a child who is used to being paid for good marks may rush through a presentation that will not be marked, knowing that this work will not earn them any money. Yet this exercise could teach them to organise their ideas and speak in front of the class.",
+        "review_note": "Editorial English aligned with the user-requested unmarked-presentation example; existing translation history is retained."
       },
       "51835f4e185936f205e9edd6088ccfaf302cf286af115554f0eb6ff0116224a1": {
         "english": "They see that their efforts count. This can give them confidence and encourage them to keep going.",
@@ -3120,6 +3250,11 @@
         "english": "The child can therefore see that their efforts count, which can give them confidence to keep improving.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
+      "a9b308d3a734f2d72bbb1e615da51192a7410e067f65b50e6495bcabf81139c4": {
+        "french": "Tout d'abord, payer les bonnes notes risque de transformer l'apprentissage en une simple transaction financière.",
+        "english": "First, paying for good marks risks turning learning into a purely financial transaction.",
+        "review_note": "Editorial English aligned with the user-requested financial-transaction framing; existing translation history is retained."
+      },
       "aa74d9994f30c00f1261419aedb6c90cf46119e96211cba0491380e803bf8e00": {
         "english": "A child receives ten euros for a good maths mark. But they refuse to redo the questions they got wrong in the test, because the corrections aren’t marked and won’t earn them any money.",
         "french": "Un enfant reçoit dix euros pour sa bonne note de maths. Mais il refuse de refaire les exercices ratés pendant le contrôle, parce que la correction n'est pas notée et ne lui rapportera pas d'argent."
@@ -3196,6 +3331,16 @@
         "english": "The child understands what helped them improve and can feel proud of it, regardless of any sum of money.",
         "french": "L'enfant comprend ce qui l'a fait progresser et peut en être fier, indépendamment d'une somme d'argent.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "f54443d1f53526839bb7e69d3c06d55f7b841245534ee9d85825c451b121c126": {
+        "french": "Enfin, donner de l'argent ne remplace pas l'aide dont un enfant a besoin pour progresser.",
+        "english": "Finally, giving a child money is no substitute for the help they need to improve.",
+        "review_note": "Editorial English aligned with the user-approved argument that money does not replace practical help; existing translation history is retained."
+      },
+      "f54cc055ad24758f18b99797c525bebaedeb49878073bc1467bca819ec80e28c": {
+        "french": "Un enfant n'a pas toujours les mêmes facilités dans toutes les matières. S'il travaille régulièrement, s'il apprend de ses erreurs et s'il fait des progrès, cela mérite d'être reconnu, même si la note n'est pas parfaite. Les parents peuvent encourager par des félicitations, du temps partagé ou une petite récompense symbolique, sans transformer l'école en marché.",
+        "english": "A child does not always find every school subject equally easy. If they work regularly, learn from their mistakes and make progress, that deserves recognition, even if the mark is not perfect. Parents can encourage them through praise, time together or a small symbolic reward, without turning school into a marketplace.",
+        "review_note": "Editorial English aligned with the user-approved order of regular work, learning from mistakes and progress; existing translation history is retained."
       }
     }
   }

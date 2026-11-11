@@ -43,33 +43,33 @@
         "famille:p2": "360c7c78e7b2f2309a7cf1fb303e3473c24d00db8e11baffe8003e2ebbbeda50"
       },
       "reformulation": "Est-ce qu'un jeune adulte manque forcément d'indépendance parce qu'il préfère rester chez ses parents ?",
-      "position": "Pour moi, se sentir bien chez ses parents n'a rien de honteux, tant qu'on y vit en adulte et qu'on respecte leurs besoins.",
-      "position_claire": "À mon avis, on ne peut pas juger trop vite ces jeunes adultes canadiens qui restent chez leurs parents parce qu'ils s'y sentent bien. Aimer la vie familiale n'est pas un défaut. Ce qui compte, c'est de savoir si chacun y trouve sa place et si le jeune assume de vraies responsabilités.",
+      "position": "Je porte un regard compréhensif sur ce choix, tant que le confort familial n'empêche pas de vivre en adulte.",
+      "position_claire": "Je porte un regard plutôt compréhensif sur ces jeunes adultes canadiens qui restent chez leurs parents parce qu'ils s'y sentent bien. Pour moi, aimer la vie familiale n'est pas un défaut. L'essentiel, c'est de continuer à avancer dans sa vie d'adulte.",
       "arguments": [
         {
           "idea": "Tout d'abord, se sentir bien chez ses parents ne signifie pas refuser de grandir.",
           "developpement": "En effet, cela peut refléter une bonne entente, une communication facile et le plaisir de partager le quotidien. On peut apprécier ce cadre tout en travaillant, en gérant son argent et en prenant ses propres décisions. L'autonomie se voit aussi dans la manière de vivre, pas seulement dans le fait d'avoir une autre adresse.",
-          "exemple": "Par exemple, une jeune femme de vingt-six ans peut payer ses dépenses et organiser ses projets tout en aimant dîner avec ses parents. Retrouver sa famille le soir ne l'empêche pas de mener sa vie d'adulte.",
+          "exemple": "Prenons l'exemple d'une jeune femme de vingt-six ans qui travaille et paie ses dépenses. Elle peut aimer dîner avec ses parents et leur raconter sa journée, tout en organisant librement ses sorties et ses projets.",
           "consequence": "Il serait donc dommage de confondre cet attachement familial avec un manque de maturité."
         },
         {
-          "idea": "Ensuite, il faut que cette cohabitation convienne aussi aux parents.",
-          "developpement": "Le jeune peut se sentir très bien à la maison sans remarquer que ses habitudes dérangent les autres. Les parents ont eux aussi besoin de repos, d'intimité et de temps pour eux. En discutant des horaires et des visites, on peut préserver le plaisir de vivre ensemble plutôt que laisser les petites gênes devenir des conflits.",
-          "exemple": "Prenons l'exemple d'un fils qui reçoit ses amis tard alors que sa mère se lève tôt en semaine. Ils peuvent convenir de les inviter le samedi : il garde sa vie sociale, sans faire reposer son confort sur la fatigue de sa mère.",
-          "consequence": "Le bien-être devient ainsi partagé, au lieu de profiter seulement à celui qui reste chez ses parents."
+          "idea": "Ensuite, rester dans ce cadre familial peut aussi permettre de mieux préparer son départ.",
+          "developpement": "Même si le bien-être est la première raison de rester, le coût du logement compte aussi. Quand un loyer absorbe une grande partie d'un premier salaire, rester quelque temps chez ses parents peut permettre d'économiser et de préparer la suite plus sereinement.",
+          "exemple": "Par exemple, un jeune diplômé qui commence à travailler peut participer aux dépenses de la maison tout en épargnant pour son futur logement. Il prépare son départ au lieu de prendre un appartement qu'il aurait du mal à payer.",
+          "consequence": "Ce confort peut donc servir à construire son indépendance, plutôt qu'à la repousser."
         },
         {
           "idea": "Enfin, cette vie commune peut apporter quelque chose aux deux générations.",
           "developpement": "Les parents offrent un logement et une présence rassurante, mais le jeune adulte peut aussi les soulager au quotidien. Participer aux dépenses, faire les courses ou préparer des repas montre qu'on ne se considère plus comme un enfant dont il faut tout organiser. La cohabitation devient alors un véritable échange.",
-          "exemple": "Par exemple, un jeune salarié qui verse une contribution aux charges et prend en charge les courses de la semaine aide concrètement ses parents, sans attendre qu'ils lui rappellent ce qu'il a accepté de faire.",
+          "exemple": "Par exemple, un jeune salarié qui fait les courses de la semaine et prépare le dîner quand ses parents rentrent tard leur fait gagner du temps et leur évite de devoir tout gérer après le travail.",
           "consequence": "Ses parents peuvent compter sur lui, tout comme il peut compter sur eux."
         }
       ],
-      "nuance": "Bien sûr, le coût du logement peut aussi compter dans ce choix. Et si l'entente est difficile ou que l'on manque de place, vivre séparément peut être préférable. Aucun âge de départ ne convient à toutes les familles.",
+      "nuance": "Bien sûr, il faut que cette cohabitation convienne aussi aux parents, qui ont eux-mêmes besoin de repos et d'intimité. Si le jeune ne participe à rien et laisse ses parents tout faire, le confort peut devenir une façon de repousser ses responsabilités.",
       "conclusion": "En conclusion, je comprends ces jeunes qui aiment vivre chez leurs parents. Pour moi, le plus important n'est pas leur adresse, mais les responsabilités qu'ils prennent et le respect qu'ils montrent à ceux qui vivent avec eux.",
       "argument_ids": [
         1,
-        4,
+        5,
         3
       ]
     },
@@ -85,7 +85,7 @@
         {
           "idea": "Tout d'abord, la confiance entre un enfant et ses parents repose sur l'honnêteté.",
           "developpement": "Une fausse promesse peut rassurer sur le moment, mais elle devient un problème si l'enfant découvre ensuite qu'on lui a menti. Il risque de moins croire les explications suivantes, même lorsqu'elles sont vraies. À l'inverse, une parole honnête lui permet de savoir à quoi s'attendre et de compter sur ses parents.",
-          "exemple": "Par exemple, avant un vaccin, on peut lui dire : « Tu vas sentir une petite piqûre, mais ça dure peu de temps et je reste avec toi. » C'est plus rassurant à long terme que de promettre qu'il ne sentira rien.",
+          "exemple": "Par exemple, avant un vaccin, on peut lui dire : « Tu vas sentir une petite piqûre, mais ça dure peu de temps et je reste avec toi. » On le rassure ainsi sans lui faire une fausse promesse.",
           "consequence": "L'enfant peut avoir peur de la piqûre tout en gardant confiance dans la personne qui l'accompagne."
         },
         {
@@ -154,19 +154,19 @@
       "position_claire": "Je comprends qu'un parent veuille encourager son enfant, mais payer chaque bonne note ne me semble pas être la meilleure solution. Pour moi, il vaut mieux donner envie d'apprendre et reconnaître les efforts.",
       "arguments": [
         {
-          "idea": "Tout d'abord, l'argent risque de devenir plus important que l'apprentissage.",
+          "idea": "Tout d'abord, payer les bonnes notes risque de transformer l'apprentissage en une simple transaction financière.",
           "developpement": "En effet, si chaque bonne note rapporte quelque chose, l'enfant peut finir par travailler surtout pour la récompense. Il risque alors de se demander ce qu'un exercice va lui rapporter, plutôt que ce qu'il va lui apprendre.",
-          "exemple": "Prenons l'exemple d'un enfant à qui l'on promet dix euros par bonne note : avant de préparer un exposé non noté, il demande si ce travail rapporte aussi de l'argent.",
+          "exemple": "Par exemple, un enfant habitué à recevoir de l'argent pour ses bonnes notes peut bâcler un exposé qui ne sera pas noté, puisqu'il sait que ce travail ne lui rapportera pas d'argent. Pourtant, cet exercice lui permettrait d'apprendre à organiser ses idées et à parler devant la classe.",
           "consequence": "Cela montre que le paiement peut détourner son attention de l'intérêt même du travail."
         },
         {
           "idea": "Ensuite, il vaut mieux valoriser les efforts et les progrès, pas seulement la note.",
-          "developpement": "Un enfant n'a pas toujours les mêmes facilités dans toutes les matières. S'il fait des progrès, s'il travaille régulièrement et s'il apprend de ses erreurs, cela mérite d'être reconnu, même si la note n'est pas parfaite. Les parents peuvent encourager par des félicitations, du temps partagé ou une petite récompense symbolique, sans transformer l'école en marché.",
-          "exemple": "Par exemple, des parents peuvent féliciter leur enfant qui, après plusieurs semaines de travail, réussit enfin son contrôle de maths. Même si sa note reste moyenne, ils reconnaissent le chemin parcouru plutôt que de regarder seulement le résultat.",
+          "developpement": "Un enfant n'a pas toujours les mêmes facilités dans toutes les matières. S'il travaille régulièrement, s'il apprend de ses erreurs et s'il fait des progrès, cela mérite d'être reconnu, même si la note n'est pas parfaite. Les parents peuvent encourager par des félicitations, du temps partagé ou une petite récompense symbolique, sans transformer l'école en marché.",
+          "exemple": "Prenons l'exemple d'une élève qui a des difficultés en maths, mais qui finit par réussir son contrôle après plusieurs semaines de travail régulier et soutenu. Même si sa note reste moyenne, ses parents la félicitent pour ses efforts et ses progrès, plutôt que de regarder seulement le résultat.",
           "consequence": "L'enfant comprend ainsi que ses efforts comptent, ce qui peut lui donner confiance pour continuer à progresser."
         },
         {
-          "idea": "Enfin, les encouragements doivent aussi aider l'enfant à comprendre comment s'améliorer.",
+          "idea": "Enfin, donner de l'argent ne remplace pas l'aide dont un enfant a besoin pour progresser.",
           "developpement": "Une somme d'argent ne lui explique pas ce qui a fonctionné. En prenant le temps d'en parler avec lui, les parents peuvent lui montrer ce qui l'a aidé à réussir. Un retour précis lui permet alors de repérer une bonne habitude qu'il pourra réutiliser, même dans une autre matière.",
           "exemple": "On peut, par exemple, lui dire : « Cette fois, tu as relu les consignes et évité tes erreurs habituelles. Continue comme ça. » Il sait alors sur quoi s'appuyer au prochain contrôle.",
           "consequence": "Les parents ne font donc pas que récompenser un résultat : ils aident leur enfant à apprendre."
@@ -254,35 +254,35 @@
       "prompt_signatures": {
         "famille:p12": "5325b18f4bbff7073357832fb64e70d08af9fc0f6ec9ce474bdaa877c9e4e1a5"
       },
-      "reformulation": "Faut-il être très strict avec ses enfants pour bien les éduquer ?",
-      "position": "Je suis pour une autorité ferme et expliquée, mais pas pour une éducation fondée sur la peur.",
-      "position_claire": "Je suis pour des règles claires, mais pas pour une éducation fondée sur la peur. Pour moi, les parents doivent pouvoir expliquer leurs décisions et écouter l'enfant sans renoncer à poser des limites. L'important, c'est de lui apprendre à comprendre ses actes, pas seulement à obéir.",
+      "reformulation": "Faut-il être autoritaire avec ses enfants pour bien les éduquer ?",
+      "position": "Je suis pour une autorité ferme, juste et expliquée, mais pas pour une éducation fondée sur la peur.",
+      "position_claire": "À mon avis, les enfants ont besoin d'autorité, mais pas d'un autoritarisme rigide. Les parents doivent poser des limites et les faire respecter, sans chercher à obtenir l'obéissance par la peur. Pour moi, être ferme et être à l'écoute ne sont pas deux choses incompatibles.",
       "arguments": [
         {
-          "idea": "Tout d'abord, des règles expliquées aident l'enfant à respecter les besoins des autres.",
-          "developpement": "Un jeune enfant pense naturellement à ce qu'il a envie de faire, sans toujours mesurer les conséquences pour son entourage. Le parent peut lui montrer pourquoi une limite existe et comment continuer autrement. La règle prend alors un sens, au lieu de sembler dépendre seulement de l'humeur de l'adulte.",
-          "exemple": "Par exemple, pendant la sieste du bébé, un garçon de sept ans fait sonner la sirène de son camion jouet. Son père peut lui dire : « Tu peux continuer à jouer, mais sans la sirène, pour laisser dormir le bébé. »",
-          "consequence": "L'enfant apprend ainsi à profiter de son jeu tout en tenant compte du repos de quelqu'un d'autre."
+          "idea": "Tout d'abord, les enfants ont besoin de règles et de repères clairs pour grandir.",
+          "developpement": "Un enfant ne peut pas encore décider seul de tout ce qui est bon pour lui. Des horaires réguliers, du temps pour les devoirs et des règles de respect l'aident à comprendre ce qu'on attend de lui. Ce cadre le protège et lui donne des habitudes utiles.",
+          "exemple": "Prenons l'exemple d'un enfant qui voudrait continuer à jouer alors qu'il a école le lendemain. En maintenant une heure raisonnable pour le coucher, ses parents veillent à ce qu'il dorme suffisamment, même s'il préférerait rester debout.",
+          "consequence": "Dire non, dans ce cas, c'est prendre soin de lui, pas simplement lui imposer sa volonté."
         },
         {
-          "idea": "Ensuite, une autorité fondée sur la peur risque de pousser l'enfant à cacher ses erreurs.",
-          "developpement": "Si chaque maladresse provoque des cris ou une punition disproportionnée, l'enfant peut chercher surtout à ne pas se faire prendre. Les parents perdent alors des occasions de comprendre ce qui se passe et de l'aider à réparer ses erreurs. Écouter ne signifie pourtant pas tout excuser.",
-          "exemple": "Prenons l'exemple d'un enfant qui avoue avoir abîmé un livre de bibliothèque. Si son parent l'écoute sans crier, ils peuvent ensuite contacter la bibliothèque ensemble pour savoir comment remplacer le livre, plutôt que le laisser cacher ce qui s'est passé.",
-          "consequence": "L'enfant peut prendre sa part de responsabilité sans apprendre que le silence est sa meilleure protection."
+          "idea": "Ensuite, une autorité trop dure peut créer plus de peur que de véritable respect.",
+          "developpement": "Quand un parent crie à chaque erreur ou refuse toute explication, l'enfant risque surtout d'apprendre à ne pas se faire prendre. Il obéit peut-être sur le moment, mais il n'ose plus raconter ses difficultés, alors que ses parents pourraient l'aider.",
+          "exemple": "Par exemple, un enfant qui a abîmé un livre de bibliothèque peut le cacher dans son cartable, de peur de la réaction de ses parents. S'il pouvait en parler sans être humilié, ils pourraient chercher ensemble comment réparer ou remplacer le livre.",
+          "consequence": "La peur produit du silence, pas forcément de la confiance ni une meilleure compréhension de ses actes."
         },
         {
-          "idea": "Enfin, le but n'est pas que l'enfant obéisse toujours, mais qu'il devienne capable de se conduire seul.",
-          "developpement": "Les parents peuvent fixer ce qui doit être fait, puis laisser l'enfant proposer comment s'organiser. Des choix adaptés à son âge lui permettent d'apprendre à décider et à respecter les engagements qu'il a lui-même pris.",
-          "exemple": "Par exemple, un adolescent propose de commencer ses devoirs à dix-sept heures, à condition de les terminer avant le dîner. Si cet horaire fonctionne et qu'il le respecte sans rappel, sa mère peut lui laisser davantage de liberté pour organiser son travail.",
-          "consequence": "La confiance grandit ainsi avec les responsabilités, au lieu de dépendre d'une surveillance permanente."
+          "idea": "Enfin, je pense qu'une bonne autorité doit être ferme, juste et expliquée.",
+          "developpement": "Il faut que l'enfant comprenne pourquoi une limite existe, au lieu d'entendre seulement « parce que je l'ai décidé ». Les parents peuvent écouter ses objections tout en restant fermes sur l'essentiel. Expliquer une décision, ce n'est pas renoncer à la prendre.",
+          "exemple": "Par exemple, des parents peuvent demander que les téléphones restent de côté pendant le repas pour que chacun puisse raconter sa journée. S'ils rangent aussi les leurs, ils montrent qu'il s'agit de préserver un moment en famille, et non de priver seulement l'enfant.",
+          "consequence": "La règle devient alors plus cohérente : l'enfant en comprend la raison et voit ses parents donner l'exemple."
         }
       ],
-      "nuance": "Bien sûr, tout ne se discute pas sur le moment. Près d'une route, le parent doit intervenir immédiatement si l'enfant se met en danger, quitte à expliquer ensuite. Écouter ne l'empêche pas d'assurer la sécurité de son enfant.",
-      "conclusion": "En conclusion, je préfère une autorité ferme et bienveillante à une autorité qui fait peur. Les règles restent nécessaires, mais elles doivent aider l'enfant à comprendre, à réparer ses erreurs et à gagner progressivement en autonomie.",
+      "nuance": "Bien sûr, refuser l'autoritarisme ne veut pas dire tout permettre. Face à un danger, par exemple près d'une route, le parent doit intervenir immédiatement et expliquer ensuite. L'écoute n'empêche pas de poser des limites non négociables.",
+      "conclusion": "En conclusion, je suis pour une autorité qui guide plutôt qu'une autorité qui fait peur. Des règles claires, de la fermeté et du dialogue permettent d'accompagner l'enfant sans confondre éducation et obéissance aveugle.",
       "argument_ids": [
-        1,
+        4,
         2,
-        3
+        5
       ]
     },
     "famille-p13": {

@@ -801,10 +801,11 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         example = data["groups"][model.group][
             fingerprint(model.response.arguments[1].exemple)
         ]["english"]
-        self.assertIn("after several weeks of work", example)
-        self.assertIn("parents can praise their child", example)
-        self.assertIn("Even if the mark is still average", example)
-        self.assertIn("recognise how far their child has come", example)
+        self.assertIn("a pupil who struggles with maths", example)
+        self.assertIn("after several weeks of regular, sustained study", example)
+        self.assertIn("her parents praise her efforts and progress", example)
+        self.assertIn("Even though her mark is still average", example)
+        self.assertIn("rather than looking only at the result", example)
         consequence = data["groups"][model.group][
             fingerprint(model.response.arguments[1].consequence)
         ]["english"]
@@ -1056,35 +1057,82 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("local language at home", cue.english)
         self.assertIn("family language on a walk", cue.english)
 
+    def test_family_reassurance_and_learning_transaction_wording_has_matching_english(self):
+        data = read_manifest(DEFAULT_PATH)
+        cases = (
+            ("famille-p4", "argument-1-exemple",
+             "On le rassure ainsi sans lui faire une fausse promesse.",
+             "This reassures the child without making a false promise."),
+            ("famille-p6", "argument-1-idea",
+             "transformer l'apprentissage en une simple transaction financière",
+             "turning learning into a purely financial transaction"),
+            ("famille-p6", "argument-1-exemple",
+             "peut bâcler un exposé qui ne sera pas noté",
+             "may rush through a presentation that will not be marked"),
+            ("famille-p6", "argument-2-developpement",
+             "S'il travaille régulièrement, s'il apprend de ses erreurs et s'il fait des progrès",
+             "If they work regularly, learn from their mistakes and make progress"),
+            ("famille-p6", "argument-4-idea",
+             "donner de l'argent ne remplace pas l'aide dont un enfant a besoin pour progresser",
+             "giving a child money is no substitute for the help they need to improve"),
+        )
+        for name, field, french_clause, english_clause in cases:
+            with self.subTest(model=name, field=field):
+                group = f"eo/tache-3/{name}"
+                french = public_fields(scoped_models()[group])[field]
+                row = data["groups"][group][fingerprint(french)]
+                self.assertIn(french_clause, french)
+                self.assertEqual(row["french"], french)
+                self.assertIn(english_clause, row["english"])
+
+    def test_family_cohabitation_and_authority_have_complete_saved_english(self):
+        with patch("study.translations.service.urllib.request.urlopen") as provider:
+            data = read_manifest(DEFAULT_PATH)
+            for group, identities in (
+                ("eo/tache-3/famille-p2", (1, 5, 3)),
+                ("eo/tache-3/famille-p12", (4, 2, 5)),
+            ):
+                with self.subTest(group=group):
+                    model = scoped_models()[group]
+                    self.assertEqual(model.argument_ids, identities)
+                    fields = public_fields(model)
+                    self.assertEqual(len(fields), 15)
+                    for field, french in fields.items():
+                        with self.subTest(field=field):
+                            row = data["groups"][group][fingerprint(french)]
+                            self.assertEqual(row["french"], french)
+                            self.assertTrue(row["english"].strip())
+        provider.assert_not_called()
+
     def test_rewritten_family_english_keeps_contribution_honesty_rules_and_household_agreements(self):
         data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         cases = (
-            ("famille-p2", "argument-1-exemple", ("twenty-six-year-old woman", "enjoying dinner with her parents", "pay her own expenses and organise her plans"), ("asks permission",)),
+            ("famille-p2", "argument-1-exemple", ("twenty-six-year-old woman", "pays her own expenses", "telling them about her day", "freely organising her own outings and plans"), ("asks permission",)),
             ("famille-p2", "argument-1-developpement", ("can reflect good relationships", "making your own decisions"), ("always",)),
             ("famille-p2", "argument-1-consequence", ("confuse this attachment to family with a lack of maturity",), ()),
             ("famille-p2", "argument-3-developpement", ("make their everyday lives easier", "becomes a genuine exchange"), ()),
-            ("famille-p2", "nuance", ("housing costs can also influence this choice", "living separately may be preferable", "No single age for leaving home"), ()),
-            ("famille-p2", "argument-4-developpement", ("need rest, privacy", "comfortable at home without noticing", "small irritations to become conflicts"), ()),
-            ("famille-p2", "argument-3-exemple", ("contributes to bills", "responsibility for the week's shopping", "without waiting to be reminded"), ()),
+            ("famille-p2", "nuance", ("must suit the parents too", "need rest and privacy", "putting off responsibilities"), ()),
+            ("famille-p2", "argument-5-developpement", ("feeling happy there is the main reason for staying", "rent takes up a large part", "save and prepare"), ()),
+            ("famille-p2", "argument-3-exemple", ("does the week's shopping", "prepares dinner", "parents get home late", "manage everything after work"), ()),
             ("famille-p3", "argument-1-exemple", ("grandfather had left his job", "check whether her savings would cover the course fees before resigning"), ()),
             ("famille-p4", "argument-1-developpement", ("false promise", "less willing to believe later explanations", "know what to expect"), ("next explanation",)),
-            ("famille-p4", "argument-1-exemple", ("before a vaccination", "a little prick", "than promising that they will not feel anything"), ()),
+            ("famille-p4", "argument-1-exemple", ("before a vaccination", "a little prick", "without making a false promise"), ("in the long term",)),
             ("famille-p4", "argument-2-exemple", ("grandmother on Wednesdays", "in hospital after a fall", "without promising that she will recover straight away"), ()),
             ("famille-p4", "argument-3-developpement", ("recognise a child's efforts", "exactly what they can improve", "how to go about it", "rather than a compliment that gives them no guidance"), ("A child can hear", "judgement of their worth")),
             ("famille-p4", "argument-3-consequence", ("helping them move forward", "not of discouraging them"), ()),
             ("famille-p4", "nuance", ("a matter for adults", "acknowledge that we do not know yet", "does not require lying"), ("guarantee",)),
             ("famille-p6", "nuance", ("a family outing or a book we choose together", "without promising a reward for every mark", "automatic payment"), ()),
             ("famille-p7", "nuance", ("discuss a work problem with your relative", "better to avoid working together"), ("no one dares say no",)),
-            ("famille-p12", "introduction", ("clear rules", "not an upbringing based on fear", "while still setting limits"), ("distinguish between", "being authoritarian")),
-            ("famille-p12", "argument-1-exemple", ("baby is having a nap", "seven-year-old boy", "siren on his toy truck", "His father can say", "without the siren"), ("drawing in another room",)),
-            ("famille-p12", "argument-1-consequence", ("enjoy his game", "someone else's rest"), ("continues his activity",)),
-            ("famille-p12", "argument-2-exemple", ("admits damaging a library book", "listens without shouting", "how to replace the book"), ()),
-            ("famille-p12", "argument-2-consequence", ("take their share of responsibility", "without learning that silence is their best protection"), ()),
-            ("famille-p12", "argument-3-developpement", ("what needs to be done", "suggest how to organise it", "follow through on commitments they have made themselves"), ("exercises their judgement", "Firmness therefore")),
-            ("famille-p12", "argument-3-exemple", ("homework at five o'clock", "on condition that it is finished before dinner", "follows it without reminders"), ()),
-            ("famille-p12", "nuance", ("intervene immediately", "even if it means explaining afterwards", "does not stop parents ensuring their child's safety"), ()),
+            ("famille-p12", "introduction", ("children need parental authority", "not rigid authoritarianism", "without trying to obtain obedience through fear", "being willing to listen"), ()),
+            ("famille-p12", "argument-4-exemple", ("keep playing", "school the next day", "maintaining a reasonable bedtime", "gets enough sleep"), ()),
+            ("famille-p12", "argument-4-consequence", ("caring for the child", "not simply imposing your will"), ()),
+            ("famille-p12", "argument-2-exemple", ("damaged a library book", "hide it in their schoolbag", "without being humiliated", "repair or replace it"), ()),
+            ("famille-p12", "argument-2-consequence", ("Fear produces silence", "not necessarily trust", "understanding of their actions"), ()),
+            ("famille-p12", "argument-5-developpement", ("understand why a limit exists", "listen to their objections", "remaining firm", "does not mean giving up the right to make it"), ()),
+            ("famille-p12", "argument-5-exemple", ("phones to be put aside during meals", "everyone can talk about their day", "put their own phones away too"), ()),
+            ("famille-p12", "nuance", ("intervene immediately", "explain afterwards", "non-negotiable limits"), ()),
             ("famille-p14", "argument-2-exemple", ("sort the clothes", "choose the wash programme", "guides him through several attempts", "wash his clothes without help"), ("without waiting for someone",)),
             ("famille-p14", "argument-1-exemple", ("one can prepare dinner while the other lays the table", "washing-up after the meal", "share the evening's work"), ()),
             ("famille-p14", "argument-4-exemple", ("father and his teenage son often argue", "They agree", "except on sports practice evenings", "his father will take over"), ()),

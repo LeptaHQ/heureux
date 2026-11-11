@@ -91,7 +91,7 @@ REVIEWED_CLAUSES = {
     "famille-p1": "il faut que l'enfant puisse",
     "famille-p10": "L'amitié suppose qu'on puisse s'écouter",
     "famille-p11": "il faut qu'on puisse obtenir de l'aide",
-    "famille-p12": "le but n'est pas que l'enfant obéisse toujours",
+    "famille-p12": "Il faut que l'enfant comprenne pourquoi une limite existe",
     "famille-p13": "il faut que l'enfant puisse aussi pratiquer",
     "famille-p14": "Il faut donc que chacun sache",
     "famille-p16": "Il n'est pas nécessaire que tout soit parfaitement égal",

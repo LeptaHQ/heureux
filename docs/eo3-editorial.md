@@ -686,6 +686,19 @@ as Culture 16; the truth-with-children and money-for-grades pairs remain shared.
 Preserve argument annotation identities for retained mechanisms and allocate
 new identities when a mechanism is genuinely replaced.
 
+Famille 2 distinguishes enjoying family life, preparing an affordable departure
+and reciprocal help. Keep feeling happy at home as the stated motive; financial
+preparation is another possible benefit, not a condition of deserving respect.
+Parental agreement, rest and privacy belong in the nuance. Retain identities 1
+and 3; the financial-preparation reason uses fresh identity 5 rather than
+recycling retired identity 2 or the replaced parental-wellbeing identity 4.
+Famille 12 distinguishes necessary boundaries, fear's effect on dialogue and
+firm, fair, explained authority. Retain the fear-and-trust reason's identity 2;
+the new framework and explained-authority reasons use identities 4 and 5,
+leaving the former respect-for-others and independent-choices reasons retired.
+Connect the damaged-book example explicitly to fear, and the shared phone rule
+to both its purpose and the parents' own example.
+
 Famille 14 separates protecting time for rest, learning practical household skills
 and reducing recurring disputes through clear, workable agreements. The third
 reason uses fresh identity 4; the former planning-ownership reason keeps retired

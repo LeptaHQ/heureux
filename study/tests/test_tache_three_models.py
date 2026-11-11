@@ -626,15 +626,15 @@ class TacheThreeModelContentTests(SimpleTestCase):
         response = lambda key: models[f"eo/tache-3/technologie-p{key}"].response
         self.assertIn("fausse relation", response(1).position_claire)
         self.assertIn("identification", response(2).arguments[1].exemple)
-        self.assertIn("découvertes culturelles", response(3).arguments[2].idea)
+        self.assertIn("la vie culturelle ne se limite pas", response(3).arguments[2].idea)
         self.assertIn("transport adapté", response(4).arguments[2].exemple)
-        self.assertIn("autre support n'est pas automatiquement", response(5).nuance)
+        self.assertIn("un article n'est pas fiable simplement parce qu'il est écrit", response(5).nuance)
         self.assertIn("il faut que l'image soit datée", response(6).arguments[1].developpement)
         self.assertIn("plateformes", response(7).nuance)
         self.assertIn("créer un compte", response(10).nuance)
         self.assertIn("sans aucun téléphone", response(11).reformulation)
         self.assertNotIn("téléphone fixe", spoken_text(response(11)))
-        self.assertIn("boîte de famille", response(12).arguments[2].exemple)
+        self.assertIn("boîte de souvenirs de famille", response(12).arguments[2].exemple)
         self.assertIn("se perdre ou s'abîmer", response(12).nuance)
         self.assertIn("réponse permanente", response(13).position_claire)
         self.assertIn("exclusion faute de moyens", response(15).nuance)
@@ -666,6 +666,35 @@ class TacheThreeModelContentTests(SimpleTestCase):
         plan = catalogue.tache_three_subject_hints()["eo/tache-3/technologie-p19"]
         self.assertIn("exprimer une histoire", plan.arguments[1].point.french)
         self.assertIn("express a story", plan.arguments[1].point.english)
+
+    def test_culture_media_examples_explain_the_discovery_not_only_the_research_steps(self):
+        models = catalogue.tache_three_models()
+        plans = catalogue.tache_three_subject_hints()
+        for short, index, findings, french_cue, english_cue in (
+            (
+                "technologie-p5", 2,
+                ("bourses étudiantes", "les futurs inscrits", "non les étudiants qui reçoivent déjà une bourse"),
+                "pas les bénéficiaires actuels", "not current recipients",
+            ),
+            (
+                "technologie-p21", 0,
+                ("supprimer certains arrêts", "le gain de temps", "marcher plus loin"),
+                "gain de temps", "longer walk",
+            ),
+            (
+                "technologie-p24", 2,
+                ("de nouveaux horaires pour la bibliothèque", "d'une proposition, pas d'une décision adoptée", "les horaires actuels restent en place"),
+                "une proposition, pas une décision adoptée", "a proposal, not an adopted decision",
+            ),
+        ):
+            group = f"eo/tache-3/{short}"
+            with self.subTest(group=group):
+                example = models[group].response.arguments[index].exemple
+                for finding in findings:
+                    self.assertIn(finding, example)
+                cue = plans[group].arguments[index].example
+                self.assertIn(french_cue, cue.french)
+                self.assertIn(english_cue, cue.english)
 
     def test_sante_preserves_coverage_and_distinguishes_state_sales_from_a_ban(self):
         models = catalogue.tache_three_models()
@@ -817,18 +846,18 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("expérience pratique utile", response(11).arguments[1].idea)
         self.assertIn("ne pas se limiter à ses compatriotes", response(11).nuance)
         self.assertIn("Rencontrer aussi d'autres habitants", response(11).nuance)
-        self.assertIn("ne comprend pas tout ce qu'il dit", response(15).arguments[2].developpement)
+        self.assertIn("Les explications passent aussi par les gestes", response(15).arguments[2].developpement)
         self.assertIn("même sans bien parler sa langue", response(15).arguments[2].exemple)
-        self.assertIn("En essayant à mon tour", response(15).arguments[2].exemple)
+        self.assertIn("lorsque j'essaierais à mon tour", response(15).arguments[2].exemple)
         self.assertIn("un ami n'est pas le seul", response(16).arguments[1].idea)
         self.assertIn("pas d'accord avec le mot", response(17).position_claire)
-        self.assertIn("sauvegardé", response(18).nuance)
+        self.assertIn("conservé", response(18).nuance)
         self.assertIn("traductions", response(19).arguments[1].idea)
-        self.assertIn("documentaire sous-titré en français", response(19).arguments[1].exemple)
-        self.assertIn("sur les Pays-Bas", response(19).arguments[1].exemple)
-        self.assertIn("gagnée sur la mer grâce à des digues et à des pompes", response(19).arguments[1].exemple)
-        self.assertIn("les documentaires et les émissions culturelles", response(20).arguments[1].idea)
-        self.assertIn("en pratiquant une activité", response(20).arguments[2].idea)
+        self.assertIn("documentaire sur les Pays-Bas, sous-titré en français", response(19).arguments[1].exemple)
+        self.assertIn("des digues et des pompes", response(19).arguments[1].exemple)
+        self.assertIn("gagner des terres sur la mer", response(19).arguments[1].exemple)
+        self.assertIn("les documentaires permettent aussi de comprendre", response(20).arguments[1].idea)
+        self.assertIn("en pratiquant avec d'autres personnes", response(20).arguments[2].idea)
         self.assertIn("réservations", response(21).nuance.casefold())
         self.assertIn("relations de confiance", response(24).nuance)
         self.assertIn("conjoint", response(25).arguments[2].developpement)
@@ -837,7 +866,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("Selon le pays et le statut", response(29).arguments[2].developpement)
         self.assertIn("on ne peut pas créer des liens tout seul", response(30).arguments[1].idea)
         self.assertIn("publicité", response(31).arguments[2].idea)
-        self.assertIn("recommandées par un candidat", response(31).arguments[2].exemple)
+        self.assertIn("chaussures qu'un candidat présente comme ses préférées", response(31).arguments[2].exemple)
         self.assertIn("financer", response(33).arguments[2].exemple)
         self.assertIn("l'occasion et la réparation", response(34).arguments[2].idea)
         self.assertIn("vie associative", response(35).arguments[2].idea)
@@ -953,17 +982,16 @@ class TacheThreeModelContentTests(SimpleTestCase):
 
     def test_culture_local_cultural_experience_is_not_a_second_question_session(self):
         response = catalogue.tache_three_models()["eo/tache-3/culture-p14"].response
-        self.assertIn("en participant à des activités près de chez soi", response.arguments[1].idea)
-        self.assertIn("En y participant", response.arguments[1].developpement)
-        self.assertIn("en les faisant soi-même", response.arguments[1].developpement)
+        self.assertIn("en participant à des activités tout près de chez soi", response.arguments[1].idea)
+        self.assertIn("on peut essayer, se tromper et recevoir des conseils", response.arguments[1].developpement)
         self.assertNotIn("autrement", response.arguments[1].developpement)
         self.assertIn("atelier de danse irlandaise dans mon quartier", response.arguments[1].exemple)
         self.assertIn("avec le groupe", response.arguments[1].exemple)
-        self.assertIn("Je pourrais ensuite danser avec les autres au bal", response.arguments[1].exemple)
-        self.assertIn("en la partageant avec d'autres personnes", response.arguments[1].consequence)
-        self.assertIn("approfondir sa connaissance d'une culture", response.arguments[2].idea)
-        self.assertIn("poser ses propres questions", response.arguments[2].developpement)
-        self.assertIn("demander des précisions", response.arguments[2].developpement)
+        self.assertIn("participer ensuite au bal", response.arguments[1].exemple)
+        self.assertIn("une activité partagée", response.arguments[1].consequence)
+        self.assertIn("poser ses propres questions", response.arguments[2].idea)
+        self.assertIn("demander une explication", response.arguments[2].developpement)
+        self.assertIn("comment cette personne vit une habitude au quotidien", response.arguments[2].developpement)
 
     def test_culture_country_knowledge_has_distinct_material_legal_and_relational_reasons(self):
         model = catalogue.tache_three_models()["eo/tache-3/culture-p26"]
@@ -1004,13 +1032,12 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p12", 0, "objets mal triés", "vérifie ensuite les règles locales", "checks local rules"),
             ("culture-p13", 1, "peinture mexicaine", "Peinture mexicaine", "Mexican"),
             ("culture-p13", 1, "fleurs et les photos", "fleurs et photos", "flowers and photos"),
-            ("culture-p14", 0, "cuisine ouest-africaine", "Cuisine ouest-africaine", "West African cooking"),
-            ("culture-p14", 0, "riz avec une sauce aux arachides", "riz, sauce aux arachides", "rice, peanut sauce"),
-            ("culture-p14", 0, "produits locaux", "Cuisine ouest-africaine", "West African cooking"),
-            ("culture-p14", 0, "l'histoire de ce plat", "histoire du plat", "history"),
+            ("culture-p14", 0, "cuisine portugaise", "cuisine portugaise", "Portuguese cooking"),
+            ("culture-p14", 0, "sale et sèche le poisson", "poisson salé et séché", "fish salted and dried"),
+            ("culture-p14", 0, "longs voyages en mer", "longs voyages en mer", "long sea voyages"),
             ("culture-p14", 1, "danse irlandaise", "Atelier irlandais", "Irish workshop"),
             ("culture-p14", 2, "chaussures", "sol propre", "keep the floor clean"),
-            ("culture-p15", 1, "Portugal", "Portugal", "Portugal"),
+            ("culture-p15", 1, "cuisine portugaise", "Portugal", "Portugal"),
             ("culture-p15", 1, "poisson", "poisson", "fish"),
             ("culture-p15", 2, "séjour au Ghana", "Au Ghana", "In Ghana"),
             ("culture-p15", 2, "fufu", "piler le manioc", "pound cassava"),

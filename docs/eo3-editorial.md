@@ -476,8 +476,12 @@ with response snapshots or an extension of the frozen digest bridge.
 
 ## Culture learning consistency
 
-The Culture audit covers 35 Culture consignes through 31 models, with four
-additional equivalent publications in other themes. Retain the distinctions
+The historical Culture-source audit covers 35 consignes through 31 models, with four
+additional equivalent publications in other themes. The current classified Culture
+theme contains 18 models, including books, media and food questions whose stable
+IDs still begin with Education, Technologie or Sante. Use the current theme
+membership when scoping an editorial pass, not the historical ID prefix.
+Retain the distinctions
 between adapting habits, achieving a goal, integration, the overall experience
 of living abroad and the motivations for leaving. Likewise, book usefulness is
 not reading necessity, and cultural transmission to children is not the same
@@ -491,7 +495,7 @@ durable learning and imaginative engagement with characters' situations and
 choices. Keep its bilingual Pistes aligned; do not force literal equality with
 P20. Explaining historical connections a week later demonstrates retention,
 rather than merely testing whether anything remains. In the necessity answer,
-a jazz demonstration and guided pottery practice show actual learning without
+a Guernica documentary and guided pottery practice show actual learning without
 reading; do not substitute people who merely read little. These compatible
 passages do not make the two questions equivalent.
 
@@ -505,8 +509,10 @@ and paid recommendations. Explain the link between the show and following its
 candidates online rather than treating unrelated advertising as a television
 effect.
 
-The personal-letter models retain their three shared reasons and bilingual cues:
-attention to the recipient, reflection before sending and family memories. Show
+The personal-letter models retain attention to the recipient, reflection before
+sending and family memories. Their reflection arguments differ: clarifying an
+explanation is not the same as expressing feelings more fully. Reuse the complete
+family-memory argument and its bilingual cues where the mechanism is identical. Show
 what the letter actually says and what rereading changes, rather than merely
 asserting that paper creates thoughtful writing. Family memory concerns a
 person's experiences in their own words, not chiefly an account-login convenience.
@@ -527,6 +533,11 @@ advance is clearer than an unnamed procedure or an unexplained difference in org
 Keep possible outcomes conditional, distinguish a whole life from selected
 television images, and answer words such as "necessary" and "always" directly.
 Align both languages of the corresponding Piste after revising a support.
+For media questions, show what the fuller information reveals: a faster bus
+route can also mean a longer walk to the stop, and proposed library hours are
+not yet adopted hours. Listing research steps alone does not demonstrate
+understanding. Likewise, a cultural example should explain a historical link,
+not merely promise that a book contains one.
 
 When assessing whether friends are necessary for happiness, do not support a
 negative answer only with three benefits of friendship. Develop other affectionate

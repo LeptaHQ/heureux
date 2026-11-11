@@ -18,7 +18,7 @@ class TacheThreeReuseTests(SimpleTestCase):
 
     def test_compatible_complete_arguments_and_bilingual_cues_are_identical(self):
         for first, second, indices in (
-            ("culture-p18", "technologie-p12", (0, 1, 2)),
+            ("culture-p18", "technologie-p12", (2,)),
         ):
             for index in indices:
                 with self.subTest(first=first, second=second, argument=index + 1):
@@ -27,6 +27,14 @@ class TacheThreeReuseTests(SimpleTestCase):
                         self.response(second).arguments[index],
                     )
                     self.assertEqual(self.cue(first, index), self.cue(second, index))
+        for index in (0, 1):
+            with self.subTest(argument=index + 1):
+                self.assertNotEqual(
+                    self.response("culture-p18").arguments[index],
+                    self.response("technologie-p12").arguments[index],
+                )
+        self.assertIn("exprimer ses sentiments", self.response("culture-p18").arguments[1].idea)
+        self.assertIn("clarifier ce que l'on veut vraiment dire", self.response("technologie-p12").arguments[1].idea)
 
     def test_cohabitation_answers_distinguish_parental_consent_from_reciprocal_help(self):
         comfort = self.response("famille-p2")
@@ -42,12 +50,12 @@ class TacheThreeReuseTests(SimpleTestCase):
     def test_live_questions_and_translated_explanations_keep_distinct_mechanisms(self):
         conversation = self.response("culture-p14").arguments[2]
         translation = self.response("culture-p19").arguments[1]
-        self.assertIn("poser ses propres questions", conversation.developpement)
-        self.assertIn("demander des précisions", conversation.developpement)
-        self.assertIn("pas forcément pourquoi ils le font", translation.developpement)
-        self.assertIn("sous-titres dans une langue qu'on connaît", translation.developpement)
-        self.assertIn("comprendre leurs explications", translation.developpement)
-        self.assertIn("parle français mais pas japonais", translation.exemple)
+        self.assertIn("poser ses propres questions", conversation.idea)
+        self.assertIn("demander une explication", conversation.developpement)
+        self.assertIn("Un article traduit ou un documentaire sous-titré", translation.developpement)
+        self.assertIn("la qualité des explications", translation.developpement)
+        self.assertIn("sous-titré en français", translation.exemple)
+        self.assertIn("les Pays-Bas", translation.exemple)
         self.assertNotEqual(
             self.models["eo/tache-3/culture-p14"].source_prompts,
             self.models["eo/tache-3/culture-p19"].source_prompts,
@@ -131,11 +139,12 @@ class TacheThreeReuseTests(SimpleTestCase):
             self.response("environnement-p6").arguments[0].developpement,
             self.response("environnement-p8").arguments[2].developpement,
         )
-        common_letter_limit = (
-            "Un message numérique peut aussi être réfléchi, attentionné, sauvegardé et accessible."
-        )
-        self.assertIn(common_letter_limit.casefold(), self.response("culture-p18").nuance.casefold())
-        self.assertIn(common_letter_limit, self.response("technologie-p12").nuance)
+        for group in ("culture-p18", "technologie-p12"):
+            with self.subTest(group=group):
+                nuance = self.response(group).nuance
+                self.assertIn("un message numérique peut aussi être", nuance)
+                self.assertIn("réfléchi", nuance)
+                self.assertIn("conservé", nuance)
         solitude = "Cependant, il faut distinguer une solitude choisie d'un isolement qui fait souffrir."
         self.assertIn(solitude, self.response("culture-p24").nuance)
         self.assertIn("souffrir de solitude", self.response("culture-p16").nuance)
@@ -169,8 +178,9 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("les débuts", self.response("culture-p9").arguments[1].idea)
 
     def test_familiar_routines_do_not_replace_adult_privacy_in_the_practical_answer(self):
-        shared = self.response("culture-p1").arguments[1].developpement.split(". ")[0] + "."
-        self.assertTrue(self.response("culture-p10").arguments[0].developpement.startswith(shared))
+        tradition = self.response("culture-p10").arguments[0]
+        self.assertIn("un geste familier peut apporter du réconfort", tradition.developpement)
+        self.assertIn("rendre le changement plus facile à vivre", tradition.consequence)
         self.assertIn("parler sa langue", self.response("culture-p1").arguments[1].exemple)
         self.assertIn("parents ne décident plus de tous ses choix", self.response("famille-p16").arguments[2].developpement)
         self.assertIn("respecte les espaces communs", self.response("famille-p16").arguments[2].exemple)
@@ -198,11 +208,9 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("selon la confiance et les affinités, pas seulement selon l'origine", self.response("culture-p11").nuance)
 
     def test_child_language_keeps_direct_family_contact_distinct_from_parent_child_dialogue(self):
-        question = (
-            "On peut poser ses propres questions et demander des précisions "
-            "sur ce qu'on n'a pas compris."
-        )
-        self.assertIn(question, self.response("culture-p14").arguments[2].developpement)
+        conversation = self.response("culture-p14").arguments[2]
+        self.assertIn("poser ses propres questions", conversation.idea)
+        self.assertIn("demander une explication", conversation.developpement)
         child = self.response("famille-p13")
         self.assertIn("sa relation avec elle", child.arguments[1].consequence)
         self.assertIn("pose ses propres questions sans attendre sa mère", child.arguments[1].exemple)
@@ -214,13 +222,11 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("lire une histoire dans la langue du pays", child.nuance)
         self.assertIn("parler la langue familiale pendant une promenade", child.nuance)
 
-    def test_cuisine_and_local_workshops_share_guided_practice_not_their_positions(self):
-        practice = (
-            "En y participant, on apprend les gestes en les faisant soi-même, "
-            "avec quelqu'un pour nous guider."
-        )
-        self.assertIn(practice, self.response("culture-p14").arguments[1].developpement)
-        self.assertIn(practice, self.response("culture-p15").arguments[2].developpement)
+    def test_cuisine_and_local_workshops_demonstrate_guided_practice_without_merging_positions(self):
+        dance = self.response("culture-p14").arguments[1]
+        cooking = self.response("culture-p15").arguments[2]
+        self.assertIn("on peut essayer, se tromper et recevoir des conseils", dance.developpement)
+        self.assertIn("on observe, on essaie et l'autre personne nous guide", cooking.developpement)
         self.assertIn("danse irlandaise", self.response("culture-p14").arguments[1].exemple)
         self.assertIn("préparer du fufu", self.response("culture-p15").arguments[2].exemple)
         self.assertIn("sans bien parler sa langue", self.response("culture-p15").arguments[2].exemple)

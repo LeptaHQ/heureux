@@ -9,29 +9,29 @@
       },
       "reformulation": "En quoi les livres permettent-ils de connaître un pays ?",
       "position": "Les livres donnent une connaissance réelle mais partielle d'un pays.",
-      "position_claire": "Oui, je suis d'accord : lire des livres est un bon moyen de connaître un pays. On peut y découvrir bien plus que ses monuments. Cela ne remplace pas complètement l'expérience sur place, mais ce serait dommage de considérer la lecture comme une simple préparation au voyage.",
+      "position_claire": "Oui, je pense que les livres sont un très bon moyen de connaître un pays. Ils permettent de découvrir son histoire, mais aussi la manière dont ses habitants vivent et voient le monde. Même sans y avoir voyagé, on peut donc commencer à le comprendre autrement qu'à travers quelques images touristiques.",
       "arguments": [
         {
           "idea": "Tout d'abord, les livres d'histoire aident à comprendre le présent d'un pays.",
-          "developpement": "Ils relient les événements au lieu de présenter des faits isolés. On comprend mieux comment certaines institutions ou habitudes se sont installées, et pourquoi une question reste importante aujourd'hui.",
-          "exemple": "Par exemple, une personne qui lit un ouvrage sur l'histoire du Québec peut découvrir comment le français s'est implanté en Amérique du Nord et s'y est maintenu. Cela l'aide à comprendre la place de cette langue dans les débats actuels.",
-          "consequence": "Les livres permettent ainsi d'aller au-delà de l'image touristique d'un pays."
+          "developpement": "En effet, une situation devient plus claire lorsqu'on sait comment elle s'est construite. Un livre peut relier des événements, expliquer l'origine d'une institution ou montrer pourquoi une question reste sensible aujourd'hui. On ne retient plus seulement des dates : on découvre ce qui donne du sens aux débats actuels.",
+          "exemple": "Par exemple, une personne qui lit l'histoire du Québec peut découvrir comment le français s'est implanté en Amérique du Nord et s'y est maintenu. Elle comprend alors mieux pourquoi sa place dans l'école ou le travail suscite encore des discussions.",
+          "consequence": "La lecture permet ainsi de dépasser les monuments et les paysages pour mieux comprendre la société."
         },
         {
-          "idea": "Les romans et les récits montrent aussi la vie de l'intérieur.",
-          "developpement": "En suivant le point de vue d'un personnage, on découvre ses pensées, pas seulement ses gestes. Ses hésitations rendent plus compréhensibles des choix qui peuvent sembler étranges de l'extérieur.",
-          "exemple": "Dans un roman québécois, un jeune hésite à quitter son village pour étudier à Montréal. Le lecteur suit ses discussions avec ses parents : il veut poursuivre ses études, mais s'inquiète de les laisser seuls. On comprend alors pourquoi ce départ est difficile pour lui.",
-          "consequence": "On comprend mieux la vie de cette famille, sans supposer que tous les habitants vivent de la même façon."
+          "idea": "Ensuite, les romans et les récits font découvrir la vie de l'intérieur.",
+          "developpement": "On ne regarde pas seulement ce que font les personnages : on suit leurs pensées, leurs hésitations et leurs relations avec les autres. Cette proximité aide à comprendre des choix qui peuvent sembler étranges lorsqu'on les observe de loin. Un pays apparaît alors à travers des expériences humaines, et pas seulement des informations générales.",
+          "exemple": "Prenons l'exemple d'un roman québécois où un jeune hésite à quitter son village pour étudier à Montréal. À travers ses conversations avec ses parents, le lecteur comprend qu'il souhaite poursuivre ses études, mais qu'il s'inquiète aussi de les laisser seuls.",
+          "consequence": "On comprend mieux cette famille, sans en faire le portrait de tous les habitants du pays."
         },
         {
-          "idea": "Enfin, les livres rendent cette découverte possible sans déplacement.",
-          "developpement": "Un voyage demande du temps et de l'argent. À la bibliothèque, on peut emprunter des livres écrits dans d'autres pays, parfois traduits dans une langue qu'on comprend. On n'a donc pas besoin d'attendre de pouvoir partir pour commencer à les découvrir.",
-          "exemple": "Une personne qui ne peut pas voyager au Japon emprunte un roman traduit en français. Elle suit le quotidien d'une famille à Tokyo, puis cherche un livre sur l'histoire de la ville pour mieux comprendre les lieux évoqués.",
-          "consequence": "Elle construit une connaissance réelle, même sans avoir visité les lieux."
+          "idea": "Enfin, les livres rendent cette découverte possible sans avoir les moyens de voyager.",
+          "developpement": "Un séjour demande du temps et un budget que tout le monde n'a pas. Emprunter un livre à la bibliothèque permet pourtant de commencer cette découverte, notamment lorsque des traductions sont disponibles. La curiosité n'a donc pas besoin d'attendre un départ.",
+          "exemple": "Par exemple, quelqu'un qui ne peut pas aller au Japon peut emprunter un roman traduit en français. En suivant la vie d'une famille à Tokyo, il découvre des lieux qui lui donnent envie de lire ensuite un ouvrage sur l'histoire de la ville.",
+          "consequence": "Il construit peu à peu une connaissance réelle du pays, même sans l'avoir visité."
         }
       ],
-      "nuance": "Bien sûr, il faut regarder qui écrit et à quelle époque. La fiction peut éclairer une expérience sans fournir des faits vérifiables. Ce serait trop attendre d'un seul livre qu'il explique tout : plusieurs auteurs et des rencontres permettent de compléter cette première compréhension.",
-      "conclusion": "Pour moi, les livres sont donc une vraie porte d'entrée vers un pays. Ils relient son histoire aux vies de ses habitants, à condition de croiser les points de vue."
+      "nuance": "Bien sûr, il faut tenir compte de l'auteur et de l'époque. Un roman éclaire une expérience, mais ne prouve pas que tout le monde vit ainsi. Ce serait trop attendre d'un seul livre qu'il explique tout : plusieurs lectures et des rencontres permettent d'élargir ce regard.",
+      "conclusion": "En conclusion, les livres sont une vraie porte d'entrée vers un pays. Ils permettent d'en comprendre l'histoire et d'approcher la vie de ses habitants, à condition de rester curieux et de croiser les points de vue."
     },
     "education-p15": {
       "prompt_signatures": {
@@ -39,29 +39,29 @@
       },
       "reformulation": "Le téléphone donne-t-il accès à une information fiable ?",
       "position": "Il facilite l'accès, sans garantir la bonne information.",
-      "position_claire": "Je suis en partie d'accord. Les téléphones portables donnent accès très facilement à l'information, mais pas toujours à la bonne information. Le même appareil permet de consulter une source sérieuse ou de recevoir une rumeur. Ce qui compte, c'est donc aussi la manière de l'utiliser.",
+      "position_claire": "À mon avis, les téléphones portables peuvent nous aider à trouver la bonne information, mais ils ne la garantissent pas. Ils donnent accès aussi bien à des sources sérieuses qu'à des rumeurs. Ce qui compte, ce n'est donc pas seulement d'avoir une réponse rapidement, mais de savoir d'où elle vient.",
       "arguments": [
         {
-          "idea": "D'abord, le téléphone permet de consulter directement une source adaptée au besoin.",
-          "developpement": "On peut chercher une réponse auprès de l'organisme qui gère un service, au lieu de dépendre d'un message transmis par une connaissance. C'est particulièrement utile quand la situation change rapidement.",
-          "exemple": "Une personne reçoit une capture d'écran annonçant la suspension de sa ligne de bus. Sur le site de l'opérateur, elle trouve une mise à jour indiquant la reprise du service. Elle peut alors prévoir son trajet à partir d'une information datée, plutôt que du message ancien.",
-          "consequence": "L'appareil facilite donc l'accès à une information utile au bon moment."
+          "idea": "Tout d'abord, le téléphone permet de consulter directement une source adaptée à sa question.",
+          "developpement": "Au lieu de dépendre de ce qu'une connaissance nous a raconté, on peut chercher une réponse auprès de l'organisme concerné. C'est particulièrement utile lorsqu'un service change ou qu'une situation évolue : une information exacte hier ne l'est pas forcément aujourd'hui.",
+          "exemple": "Par exemple, une personne reçoit une ancienne capture d'écran annonçant que sa ligne de bus est suspendue. En consultant le site de l'opérateur sur son téléphone, elle trouve une mise à jour indiquant la reprise du service et peut préparer son trajet.",
+          "consequence": "Le téléphone lui donne ainsi accès à une information plus récente et réellement utile pour sa décision."
         },
         {
-          "idea": "Mais ce qui apparaît souvent sur l'écran n'est pas forcément vrai.",
-          "developpement": "Les applications peuvent recommander des contenus qui font réagir ou ressemblent à ceux déjà consultés. À force de revoir la même affirmation, on peut croire qu'elle a été confirmée plusieurs fois.",
-          "exemple": "Après une vidéo annonçant la fermeture d'une école, un parent en reçoit trois autres sur le même sujet. En les ouvrant, il constate qu'elles citent toutes le même message sans source. Il avait pourtant eu l'impression de plusieurs confirmations.",
-          "consequence": "La répétition peut ainsi donner du poids à une rumeur sans apporter de preuve."
+          "idea": "Ensuite, il faut distinguer une information souvent répétée d'une information réellement confirmée.",
+          "developpement": "Les applications peuvent nous proposer des contenus qui ressemblent à ceux que nous avons déjà regardés. À force de retrouver la même affirmation, on a parfois l'impression que plusieurs personnes l'ont vérifiée. Pourtant, elles peuvent toutes reprendre le même message, sans apporter de preuve supplémentaire.",
+          "exemple": "Prenons l'exemple d'un parent qui voit plusieurs vidéos annonçant la fermeture d'une école. Il pense d'abord avoir plusieurs confirmations, puis remarque que toutes citent le même message sans source. Le nombre de vidéos ne lui apprend donc pas si l'école sera vraiment fermée.",
+          "consequence": "La répétition peut rendre une rumeur convaincante sans la rendre plus vraie."
         },
         {
-          "idea": "C'est pourquoi quelques vérifications font une vraie différence.",
-          "developpement": "Chercher l'auteur, la date et le contexte aide à comprendre ce qu'une publication montre réellement. Comparer des sources indépendantes apporte autre chose que compter les reprises du même message.",
-          "exemple": "Une personne reçoit une photo censée montrer une inondation récente dans sa ville. Elle fait une recherche à partir de cette image et retrouve le même cliché dans un article publié cinq ans plus tôt, dans un autre pays. Elle sait alors que la photo ne montre pas l'événement annoncé.",
-          "consequence": "Le téléphone peut donc servir à contrôler l'information, pas seulement à la diffuser."
+          "idea": "Enfin, le téléphone peut aussi servir à vérifier ce que l'on reçoit.",
+          "developpement": "Chercher l'auteur, la date et le contexte permet de comprendre ce qu'une publication montre réellement. On peut également comparer des sources indépendantes, plutôt que compter les reprises du même contenu. Ces quelques réflexes changent la manière d'utiliser l'appareil.",
+          "exemple": "Par exemple, quelqu'un reçoit une photo censée montrer une inondation récente dans sa ville. Une recherche à partir de l'image lui permet de retrouver le même cliché dans un article publié cinq ans plus tôt, dans un autre pays.",
+          "consequence": "Il peut alors écarter cette photo comme preuve de l'événement annoncé, au lieu de la transmettre à son tour."
         }
       ],
-      "nuance": "Cependant, on ne peut pas demander que chacun vérifie tout en permanence. Les plateformes et les médias ont aussi une responsabilité : ils doivent expliquer d'où viennent leurs informations et corriger leurs erreurs. Pour une décision importante, prendre le temps de vérifier reste particulièrement utile.",
-      "conclusion": "En conclusion, le téléphone est un bon moyen d'accès, mais pas un certificat de vérité. Les sources choisies et les vérifications comptent davantage que l'appareil lui-même."
+      "nuance": "Bien sûr, on ne peut pas demander que chacun vérifie tout en permanence. Les plateformes et les médias doivent aussi expliquer leurs sources et corriger leurs erreurs. Pour une décision importante, il reste toutefois utile de prendre quelques minutes avant de croire ou de partager.",
+      "conclusion": "En conclusion, le téléphone facilite l'accès à la bonne information, mais ne remplace pas le jugement. Les sources que l'on choisit et les vérifications que l'on fait comptent davantage que la rapidité avec laquelle le message arrive."
     },
     "technologie-p3": {
       "prompt_signatures": {
@@ -69,29 +69,29 @@
       },
       "reformulation": "Comment juger le choix de ne jamais regarder la télévision ?",
       "position": "Un choix respectable qui n'interdit ni l'information, ni la culture, ni le loisir.",
-      "position_claire": "Je respecte le choix de ne jamais regarder la télévision. Ce média n'est pas une obligation : on peut organiser autrement son temps, s'informer et découvrir des œuvres. Cela ne rend pas ce choix supérieur à celui des téléspectateurs ; l'important est qu'il corresponde aux envies et aux possibilités de la personne.",
+      "position_claire": "Je respecte tout à fait le choix de ne jamais regarder la télévision. Pour moi, ce n'est ni une obligation ni une preuve d'ouverture d'esprit. On peut rester curieux, suivre l'actualité et profiter de son temps libre autrement, sans pour autant considérer les téléspectateurs comme moins intéressants.",
       "arguments": [
         {
-          "idea": "Tout d'abord, chacun peut choisir la place de ses loisirs dans sa journée.",
-          "developpement": "Allumer un écran par habitude peut occuper un moment que l'on préférerait consacrer à autre chose. Renoncer à la télévision peut être une décision positive, et pas seulement un refus de ses programmes.",
-          "exemple": "Une personne peut réserver une soirée par semaine pour cuisiner avec son enfant. Ils préparent un repas et discutent de leur journée, au lieu de laisser un programme occuper le temps qu'ils souhaitaient partager.",
-          "consequence": "On garde ainsi du temps pour une activité que l'on a vraiment choisie."
+          "idea": "Tout d'abord, chacun devrait pouvoir choisir la place de ses loisirs dans sa vie.",
+          "developpement": "En effet, on allume parfois la télévision par habitude, alors qu'on aurait préféré faire autre chose de ce moment. Décider de s'en passer peut permettre de retrouver du temps pour une activité ou une relation qui compte. Ce n'est pas forcément un rejet de tous les programmes, mais une façon de choisir ses priorités.",
+          "exemple": "Par exemple, une personne peut réserver une soirée pour cuisiner avec son enfant. Pendant qu'ils préparent le repas, ils parlent de leur journée et passent un vrai moment ensemble, au lieu de laisser un programme occuper toute leur attention.",
+          "consequence": "Renoncer à la télévision peut donc correspondre à un choix positif, et pas seulement à une privation."
         },
         {
-          "idea": "Ensuite, la télévision n'est pas le seul moyen d'accéder à l'information.",
-          "developpement": "La radio, la presse et d'autres sources permettent de suivre l'actualité. Leur qualité dépend des contenus et des vérifications, pas du fait qu'ils apparaissent ou non sur un téléviseur.",
-          "exemple": "Pour comprendre un projet de fermeture de bibliothèque, une personne peut écouter un reportage radio puis lire les propositions de la mairie. Elle découvre les économies annoncées et les conséquences pour les lecteurs, ce qui lui permet de participer au débat.",
-          "consequence": "Ne pas regarder la télévision n'empêche donc pas de comprendre un enjeu public."
+          "idea": "Ensuite, on peut très bien s'informer sans regarder de journal télévisé.",
+          "developpement": "La radio et la presse permettent aussi de suivre ce qui se passe autour de nous. L'essentiel est de choisir des sources qui expliquent les faits et de prendre le temps de les comprendre. L'intérêt pour l'actualité ne se mesure donc pas au temps passé devant un téléviseur.",
+          "exemple": "Prenons l'exemple d'une personne qui veut comprendre un projet de fermeture de bibliothèque. En écoutant un reportage radio puis en lisant les propositions de la mairie, elle peut connaître les économies annoncées et les conséquences pour les lecteurs.",
+          "consequence": "Elle dispose ainsi d'éléments pour participer au débat, même sans avoir regardé la télévision."
         },
         {
-          "idea": "Enfin, les découvertes culturelles peuvent passer par d'autres expériences.",
-          "developpement": "Les films et les émissions ne sont pas les seules portes d'entrée vers des histoires ou des idées. Les livres, les spectacles et les activités locales offrent d'autres rencontres avec des œuvres et des personnes.",
-          "exemple": "Une personne qui aime les récits peut participer à une lecture publique puis emprunter un ouvrage de l'auteur. Elle découvre une création et en discute avec d'autres, sans devoir remplacer chaque programme par une vidéo sur un autre écran.",
-          "consequence": "Une vie culturelle ne se mesure pas au nombre d'émissions vues."
+          "idea": "Enfin, la vie culturelle ne se limite pas aux émissions et aux films diffusés à la télévision.",
+          "developpement": "Les livres, les spectacles et les activités locales offrent d'autres façons de rencontrer des histoires, des idées et des personnes. Ces expériences peuvent convenir davantage à quelqu'un qui préfère lire ou échanger directement avec les autres.",
+          "exemple": "Par exemple, une personne qui aime les récits peut assister à une lecture publique, discuter du texte avec les participants et emprunter un livre de l'auteur. Elle découvre une œuvre sans devoir remplacer le téléviseur par un autre écran.",
+          "consequence": "Vivre sans télévision ne signifie donc pas vivre sans découvertes ni échanges."
         }
       ],
-      "nuance": "Cependant, la télévision peut aussi offrir des programmes intéressants ou un moment partagé. Les autres activités ne sont pas accessibles de la même façon à tous. Respecter le refus ne signifie ni dévaloriser les téléspectateurs ni leur imposer un autre loisir.",
-      "conclusion": "En conclusion, vivre sans télévision est un choix respectable. On peut s'informer, découvrir des œuvres et profiter de son temps libre autrement. Ne pas regarder ce média ne signifie donc pas se fermer au monde."
+      "nuance": "Bien sûr, certains programmes sont passionnants et peuvent réunir les proches. D'autres loisirs ne sont pas non plus accessibles à tous de la même façon. Quel que soit le choix, l'important est qu'il corresponde aux envies et aux possibilités de la personne.",
+      "conclusion": "En conclusion, je ne vois aucun problème à vivre sans télévision. Ce qui compte, c'est de garder une vie qui nous intéresse et de rester ouvert au monde, pas de suivre les mêmes habitudes que tout le monde."
     },
     "technologie-p5": {
       "prompt_signatures": {
@@ -99,29 +99,29 @@
       },
       "reformulation": "Peut-on refuser les actualités télévisées sans renoncer à s'informer ?",
       "position": "Oui : le choix du format et du rythme peut être réfléchi.",
-      "position_claire": "Je comprends qu'une personne refuse de regarder les actualités à la télévision. Elle peut vouloir éviter certaines images, suivre les nouvelles à son rythme ou mieux comprendre un sujet. Ce choix ne signifie pas qu'elle refuse de s'informer ou qu'elle ne s'intéresse pas au monde.",
+      "position_claire": "Je comprends qu'on puisse refuser de regarder les actualités à la télévision. On peut vouloir rester informé sans recevoir certaines images, ou préférer un autre rythme pour comprendre les événements. Pour moi, refuser ce format ne signifie donc pas se désintéresser du monde.",
       "arguments": [
         {
-          "idea": "Tout d'abord, on peut souhaiter éviter des images difficiles ou répétitives.",
-          "developpement": "Une image peut arriver avant que le téléspectateur sache ce qu'elle va montrer. Un autre format donne parfois davantage de choix sur le moment et la manière d'aborder un événement sensible.",
-          "exemple": "Une personne peut préférer lire un compte rendu d'un conflit plutôt que regarder des scènes qui la bouleversent. Elle cherche les faits utiles sans devoir s'exposer à chaque séquence diffusée.",
-          "consequence": "Suivre l'actualité ne l'oblige donc pas à accepter toutes les images diffusées."
+          "idea": "Tout d'abord, on peut avoir envie de s'informer sans s'exposer à des images trop difficiles.",
+          "developpement": "Dans un journal télévisé, une scène peut apparaître avant que le téléspectateur sache ce qu'elle va montrer. Certaines personnes préfèrent choisir comment aborder un événement qui les touche, plutôt que revoir des images qui les bouleversent. Elles ne cherchent pas forcément à ignorer les faits.",
+          "exemple": "Par exemple, quelqu'un peut lire un compte rendu sur un conflit pour comprendre ce qui se passe, sans regarder les scènes de violence diffusées à la télévision. Cette personne s'informe, mais d'une manière qu'elle supporte mieux.",
+          "consequence": "On peut donc prendre les événements au sérieux sans accepter toutes les images qui les accompagnent."
         },
         {
-          "idea": "Ensuite, un rythme choisi peut aider à mieux comprendre.",
-          "developpement": "Un sujet télévisé suit le temps prévu par la rédaction. On peut avoir besoin de s'arrêter sur un mot, de reprendre un passage ou de chercher une explication, ce qui n'est pas toujours simple pendant une diffusion.",
-          "exemple": "Sur un article consacré à une décision économique, un lecteur peut s'arrêter pour comprendre un terme puis reprendre le raisonnement. Il ne perd pas la suite parce qu'il avait besoin d'un moment supplémentaire.",
-          "consequence": "Le choix du support peut répondre à un besoin de compréhension."
+          "idea": "Ensuite, chacun n'a pas besoin du même temps pour comprendre une information.",
+          "developpement": "Un sujet télévisé avance au rythme choisi par la rédaction. Si l'on s'arrête pour réfléchir à un mot ou à une explication, la suite continue pourtant. Un article permet de reprendre le passage qui pose problème, ce qui peut rendre l'information plus accessible.",
+          "exemple": "Prenons l'exemple d'un lecteur qui découvre une décision économique. Dans un article, il peut s'arrêter pour chercher le sens d'un terme, puis reprendre le raisonnement sans avoir manqué l'explication suivante.",
+          "consequence": "Le choix d'un autre support peut ainsi aider à comprendre, et pas seulement à recevoir les nouvelles."
         },
         {
-          "idea": "Enfin, d'autres formats peuvent expliquer ce qu'un sujet rapide laisse de côté.",
-          "developpement": "Un aperçu rapide ne répond pas à toutes les questions. Un entretien, un dossier ou une source originale peut apporter les éléments manquants, à condition d'en vérifier l'auteur et la date.",
-          "exemple": "Après avoir entendu parler d'une réforme, une personne peut lire une présentation détaillée et consulter le texte concerné. Elle distingue ce qui est annoncé, ce qui est discuté et ce qui s'applique réellement.",
-          "consequence": "La démarche peut approfondir l'information au lieu de l'éviter."
+          "idea": "Enfin, certaines personnes veulent aller plus loin qu'un sujet de quelques minutes.",
+          "developpement": "Un journal doit présenter plusieurs événements en peu de temps. Il ne peut pas toujours expliquer toute l'histoire d'un problème ou toutes les conséquences d'une décision. Un dossier ou un entretien plus long permet alors de compléter ce premier aperçu.",
+          "exemple": "Par exemple, un titre peut annoncer une réforme des bourses étudiantes sans préciser à qui elle s'appliquerait. Un dossier détaillé permet de comprendre qu'elle concerne les futurs inscrits, et non les étudiants qui reçoivent déjà une bourse.",
+          "consequence": "Cette démarche approfondit l'information au lieu de tourner le dos à l'actualité."
         }
       ],
-      "nuance": "Cependant, un autre support n'est pas automatiquement fiable ni plus complet. La télévision propose aussi des analyses approfondies. Il faut choisir les sources selon leur travail, et préserver un accès aux informations importantes sans s'imposer une exposition permanente à l'actualité.",
-      "conclusion": "En conclusion, ce refus peut être un choix de format, de rythme et de profondeur. L'essentiel est une information comprise et vérifiée, pas l'obligation de regarder un journal télévisé."
+      "nuance": "Bien sûr, la télévision propose aussi des analyses approfondies, et un article n'est pas fiable simplement parce qu'il est écrit. Il faut regarder qui l'a publié, à quelle date et sur quelles sources il s'appuie. L'important est de rester informé sans s'imposer un format qui ne nous convient pas.",
+      "conclusion": "En conclusion, je respecte ce refus lorsqu'il correspond à une autre manière de s'informer. On peut choisir les images, le rythme et la profondeur dont on a besoin, sans être obligé de regarder un journal télévisé."
     },
     "technologie-p6": {
       "prompt_signatures": {
@@ -129,29 +129,29 @@
       },
       "reformulation": "Quelle valeur donner aux journaux télévisés ?",
       "position": "Un point de départ utile, à condition de comprendre leurs choix et leurs limites.",
-      "position_claire": "Je trouve les journaux télévisés utiles pour un premier aperçu de l'actualité. Ils sélectionnent des sujets, montrent des situations et présentent des explications. Mais cette sélection ne représente pas tout ce qui se passe : il faut regarder comment les faits sont établis et ce que le format laisse de côté.",
+      "position_claire": "À mon avis, les journaux télévisés restent utiles pour suivre l'actualité, surtout lorsqu'on n'a pas le temps de chercher chaque sujet séparément. Ils donnent un premier aperçu de ce qui se passe. Mais je les vois comme un point de départ pour comprendre, pas comme un résumé complet du monde.",
       "arguments": [
         {
-          "idea": "Tout d'abord, une présentation organisée permet de repérer plusieurs sujets sans les chercher séparément.",
-          "developpement": "Le téléspectateur peut découvrir un événement dont il n'avait pas entendu parler. Une rédaction propose un ordre et des liens entre les informations, plutôt qu'une suite de publications choisies uniquement selon ses habitudes.",
-          "exemple": "Une personne venue regarder un sujet sur les transports peut aussi découvrir un reportage sur le manque de consultations médicales dans certains quartiers. Elle s'intéresse alors à un problème d'accès aux soins qu'elle ne connaissait pas.",
-          "consequence": "Le journal peut donc faire découvrir des problèmes qu'on n'aurait pas pensé à chercher."
+          "idea": "Tout d'abord, un journal télévisé peut nous faire découvrir des sujets auxquels on ne pensait pas.",
+          "developpement": "Quand on cherche soi-même des nouvelles, on revient facilement vers ce qui nous intéresse déjà. Une rédaction rassemble au contraire plusieurs sujets dans un même rendez-vous. Cela peut attirer notre attention sur un problème qui nous concerne sans que nous ayons pensé à le rechercher.",
+          "exemple": "Par exemple, une personne qui allume la télévision pour les nouvelles des transports peut découvrir un reportage sur le manque de consultations médicales dans certains quartiers. Elle s'intéresse alors à une difficulté d'accès aux soins qu'elle connaissait mal.",
+          "consequence": "Le journal peut donc élargir notre regard au-delà de nos préoccupations habituelles."
         },
         {
-          "idea": "Ensuite, des images expliquées peuvent rendre une situation plus concrète.",
-          "developpement": "Voir les lieux aide parfois à comprendre ce qui pose problème. Mais il faut que l'image soit datée, et il faut préciser le lieu et expliquer ce qu'elle montre. Elle ne prouve pas à elle seule les causes d'un événement.",
-          "exemple": "Un reportage peut montrer une route coupée après une inondation et expliquer quels quartiers ne sont plus reliés. Une carte et des témoignages situés aident à comprendre les déplacements concernés, sans prétendre montrer toute la région.",
-          "consequence": "Les explications et les vérifications comptent donc autant que les images."
+          "idea": "Ensuite, les images peuvent rendre une situation plus facile à comprendre.",
+          "developpement": "Voir les lieux aide à se représenter une difficulté dont les mots seuls donnent parfois une idée abstraite. Mais pour qu'elle éclaire vraiment la situation, il faut que l'image soit datée et que l'on sache où elle a été prise. Les explications donnent leur sens aux images.",
+          "exemple": "Prenons l'exemple d'un reportage sur une route coupée après une inondation. En montrant la route et une carte des quartiers concernés, le journaliste permet de comprendre pourquoi certains habitants ne peuvent plus suivre leur trajet habituel.",
+          "consequence": "On comprend mieux les effets concrets de l'événement, au lieu de retenir seulement une scène impressionnante."
         },
         {
-          "idea": "Enfin, un reportage peut expliquer un débat en confrontant des points de vue.",
-          "developpement": "Entendre les personnes concernées et les responsables aide à comprendre pourquoi une décision fait débat. Le journaliste peut comparer leurs arguments aux faits, plutôt que présenter une succession d'opinions sans explication.",
-          "exemple": "Sur une fermeture de bibliothèque, un reportage peut interroger des lecteurs et un élu, puis préciser les économies annoncées et les services supprimés. Le téléspectateur comprend alors les conséquences du choix, au-delà d'un simple titre sur le budget.",
-          "consequence": "Le téléspectateur peut ainsi se faire une opinion en comprenant ce que chaque choix changerait."
+          "idea": "Enfin, un reportage peut aider à comprendre pourquoi une décision fait débat.",
+          "developpement": "Entendre les personnes concernées et les responsables permet de voir ce qui est en jeu pour chacun. Le rôle du journaliste est aussi de préciser les faits, pour que le débat ne se limite pas à une suite d'opinions opposées.",
+          "exemple": "Par exemple, un reportage sur la fermeture d'une bibliothèque peut donner la parole aux lecteurs et à un élu. En expliquant à la fois les économies annoncées et les services qui disparaîtraient, il rend le désaccord plus compréhensible.",
+          "consequence": "Le téléspectateur dispose alors de raisons pour se faire une opinion, et pas seulement d'un titre à retenir."
         }
       ],
-      "nuance": "Cependant, le format court, les choix éditoriaux et la recherche d'images fortes peuvent donner une impression partielle. Il faut souvent approfondir avec d'autres sources, qui ont aussi leurs limites, sans supposer que l'image est toujours plus vraie que le texte.",
-      "conclusion": "En conclusion, le journal télévisé aide à découvrir l'actualité, mais ne peut pas tout expliquer. Il est utile si les sujets sont clairs, les images vérifiées et les raisons des désaccords expliquées."
+      "nuance": "Bien sûr, le temps est limité et le choix des sujets donne forcément une vision partielle. Des images fortes peuvent aussi prendre beaucoup de place. Pour un sujet important, je préfère donc compléter le journal avec d'autres sources plutôt que m'arrêter à ce premier aperçu.",
+      "conclusion": "En conclusion, les journaux télévisés peuvent informer et expliquer, à condition de garder un regard critique. Leur intérêt tient autant aux faits vérifiés et aux explications qu'aux images que l'on voit."
     },
     "technologie-p12": {
       "prompt_signatures": {
@@ -159,29 +159,29 @@
       },
       "reformulation": "Les lettres manuscrites ont-elles perdu toute utilité ?",
       "position": "Les lettres restent utiles pour l'attention personnelle, la réflexion avant l'envoi et les souvenirs de famille.",
-      "position_claire": "Je ne pense pas que les lettres manuscrites soient devenues inutiles. Le numérique est plus pratique pour les échanges rapides, mais une lettre garde sa place pour adresser un message personnel, choisir ses mots et transmettre des souvenirs.",
+      "position_claire": "Je ne pense pas que les lettres manuscrites soient devenues inutiles. Pour transmettre une information urgente, le numérique est évidemment plus pratique. Mais une lettre peut apporter autre chose : une attention personnelle, une explication réfléchie ou un souvenir que l'on aura plaisir à relire.",
       "arguments": [
         {
-          "idea": "Tout d'abord, une lettre personnelle peut montrer qu'on a pensé à quelqu'un.",
-          "developpement": "Quand on reconnaît l'écriture d'un proche et qu'on lit des souvenirs précis, on sent qu'il a pensé à nous. Les mots rappellent une histoire qu'on partage, pas un message qu'on pourrait envoyer à tout le monde.",
-          "exemple": "Après un déménagement, une femme écrit à l'amie qui l'a hébergée. Elle lui raconte comment cet accueil lui a permis de garder son argent pour la caution d'un appartement. Son amie voit combien son aide a compté.",
-          "consequence": "Le destinataire peut ainsi se sentir reconnu et apprécié, au-delà des simples nouvelles."
+          "idea": "Tout d'abord, une lettre personnelle peut montrer à quelqu'un combien il compte pour nous.",
+          "developpement": "En effet, retrouver l'écriture d'un proche et lire des souvenirs que l'on partage donne une présence particulière au message. Ce ne sont plus quelques mots que l'on pourrait adresser à tout le monde : on reconnaît une histoire commune et l'attention consacrée à la raconter.",
+          "exemple": "Par exemple, après un déménagement, une femme écrit à l'amie qui l'a hébergée. En lui expliquant que cet accueil lui a permis de garder son argent pour la caution d'un appartement, elle montre concrètement ce que son aide a changé.",
+          "consequence": "Son amie peut se sentir reconnue et appréciée, au-delà d'un simple remerciement."
         },
         {
-          "idea": "Ensuite, préparer une lettre aide à clarifier ce qu'on veut dire.",
-          "developpement": "Avant d'envoyer une lettre, on peut prendre le temps de la relire. Cela permet d'expliquer ses raisons et de corriger un ton trop dur, plutôt que de répondre sous le coup de l'émotion.",
-          "exemple": "Pour annoncer à sa sœur qu'il va vivre dans une autre ville, un homme écrit d'abord qu'il en a assez de sa ville. En se relisant le lendemain, il retire cette phrase trop brusque et explique qu'il part pour un emploi qui l'intéresse.",
-          "consequence": "La personne reçoit ainsi une explication plus claire, au lieu d'une réaction qu'elle pourrait mal comprendre."
+          "idea": "Ensuite, préparer une lettre peut aider à clarifier ce que l'on veut vraiment dire.",
+          "developpement": "On peut laisser passer l'émotion du moment, relire ses phrases et chercher une manière plus juste d'expliquer ses raisons. Ce temps de réflexion est précieux quand un sujet risque d'être mal compris. Il permet de ne pas confondre ce que l'on ressent sur le moment avec le message que l'on souhaite transmettre.",
+          "exemple": "Prenons l'exemple d'un homme qui écrit à sa sœur pour annoncer son départ dans une autre ville. Il commence par dire qu'il en a assez de sa ville, puis se relit le lendemain et explique plutôt qu'il part pour un emploi qui l'intéresse.",
+          "consequence": "Sa sœur reçoit une explication plus claire, et pas seulement une réaction qu'elle pourrait mal interpréter."
         },
         {
-          "idea": "Enfin, les lettres peuvent garder une trace de l'histoire familiale.",
-          "developpement": "Une lettre raconte un moment de vie avec les mots de la personne qui l'a vécu. En la conservant, on peut transmettre ce témoignage à ses enfants ou à ses petits-enfants, avec son écriture d'origine.",
-          "exemple": "Dans une boîte de famille, une jeune femme retrouve une lettre que sa grand-mère avait envoyée après son arrivée à l'étranger. Elle y lit le récit de son travail dans un café et de la petite chambre qu'elle louait.",
-          "consequence": "Cette lecture permet à la jeune femme de mieux connaître les débuts de sa grand-mère à l'étranger."
+          "idea": "Enfin, les lettres peuvent garder une trace de l'histoire familiale pour les générations suivantes.",
+          "developpement": "Une lettre raconte un moment de vie avec les mots de la personne qui l'a vécu. En la conservant, on peut transmettre ses impressions et ses préoccupations, pas seulement les grandes dates de son parcours. Un proche disparu ou connu bien plus tard devient alors plus facile à imaginer.",
+          "exemple": "Par exemple, dans une boîte de souvenirs de famille, une jeune femme retrouve une lettre envoyée par sa grand-mère à son arrivée à l'étranger. Le récit de son travail dans un café et de la petite chambre qu'elle louait l'aide à se représenter ses débuts.",
+          "consequence": "Elle découvre une période de la vie de sa grand-mère qu'elle n'a pas connue elle-même."
         }
       ],
-      "nuance": "Cependant, l'écriture manuscrite peut être difficile à produire ou à lire, et l'envoi prend du temps. Une lettre peut aussi se perdre ou s'abîmer. Un message numérique peut aussi être réfléchi, attentionné, sauvegardé et accessible. Pour une information urgente, il faut choisir un moyen compatible avec le délai réel.",
-      "conclusion": "En conclusion, la lettre manuscrite a changé de place sans perdre toute utilité. Elle permet de remercier personnellement, de prendre le temps d'écrire et de transmettre des souvenirs, sans remplacer les échanges rapides."
+      "nuance": "Bien sûr, un message numérique peut aussi être personnel, réfléchi et conservé. Le papier peut se perdre ou s'abîmer. L'écriture manuscrite peut être difficile à lire ou à produire, et le courrier arrive parfois trop tard. Pour une urgence, il vaut mieux choisir un moyen adapté au délai.",
+      "conclusion": "En conclusion, la lettre manuscrite n'a plus la même place qu'autrefois, mais elle garde une utilité. Elle peut compléter les échanges rapides lorsqu'on veut remercier, expliquer quelque chose avec soin ou laisser une trace à ses proches."
     },
     "technologie-p21": {
       "prompt_signatures": {
@@ -189,29 +189,29 @@
       },
       "reformulation": "Quel média préférer parmi journaux, radios, Internet et réseaux sociaux ?",
       "position": "Préférer Internet comme accès à des sources choisies, sans le confondre avec une garantie de vérité.",
-      "position_claire": "Parmi ces possibilités, je préfère Internet comme moyen d'accès à l'information. J'y consulte des médias identifiés plutôt qu'un fil de publications pris au hasard. Ce choix me convient pour la variété, la vérification et le rythme, sans signifier qu'un journal ou une radio serait moins sérieux.",
+      "position_claire": "Parmi ces médias, je préfère Internet, surtout pour consulter des journaux et écouter des émissions que je choisis moi-même. Ce qui me plaît, ce n'est pas de recevoir toujours plus de nouvelles, mais de pouvoir comparer les points de vue, vérifier une affirmation et prendre le temps de comprendre.",
       "arguments": [
         {
-          "idea": "Tout d'abord, je peux comparer des points de vue qui élargissent ma compréhension d'un sujet.",
-          "developpement": "Un média local peut expliquer ce que vivent les habitants, tandis qu'un dossier spécialisé présente le but d'un projet. Lire les deux m'aide à comprendre pourquoi les avis diffèrent, plutôt que retenir un seul point de vue.",
-          "exemple": "Pour comprendre un projet de transport, je peux lire un article donnant la parole aux riverains puis un dossier expliquant les objectifs du réseau. Je distingue les bénéfices attendus des difficultés d'accès signalées par les habitants.",
-          "consequence": "Je peux ainsi construire une opinion qui tient compte de plusieurs arguments."
+          "idea": "Tout d'abord, Internet permet de comparer plus facilement plusieurs regards sur un même sujet.",
+          "developpement": "Un seul article ne répond pas toujours à toutes les questions. Un média local peut montrer ce que vivent les habitants, tandis qu'un dossier spécialisé explique les objectifs d'un projet. En rapprochant ces points de vue, je comprends mieux les raisons d'un désaccord au lieu de choisir trop vite un camp.",
+          "exemple": "Par exemple, un projet de ligne de bus plus rapide peut prévoir de supprimer certains arrêts. Le dossier du réseau explique le gain de temps, tandis qu'un article local montre que des habitants devront marcher plus loin pour prendre le bus.",
+          "consequence": "Je peux me faire une opinion qui tient compte de plusieurs arguments, plutôt que retenir seulement le premier."
         },
         {
-          "idea": "Ensuite, il facilite la recherche de l'origine d'une affirmation.",
-          "developpement": "Un lien vers un document, une date et un auteur permettent de vérifier le contexte. Encore faut-il qu'on fasse cette recherche : une publication reprise sur plusieurs sites peut toujours provenir d'une seule source.",
-          "exemple": "Une photo présentée comme celle d'une catastrophe récente peut provenir d'un événement ancien. Retrouver sa publication d'origine et sa date permet d'éviter de la partager comme une preuve de la situation du jour.",
-          "consequence": "Une publication très reprise mérite donc la même vérification qu'une publication isolée."
+          "idea": "Ensuite, l'accès en ligne me permet de rechercher l'origine d'une affirmation.",
+          "developpement": "Je peux retrouver un document cité, regarder sa date et voir dans quel contexte il a été publié. Encore faut-il qu'on fasse cette recherche : voir le même contenu sur plusieurs sites ne signifie pas que plusieurs personnes l'ont vérifié.",
+          "exemple": "Par exemple, quelqu'un reçoit une photo censée montrer une inondation récente dans sa ville. Une recherche à partir de l'image lui permet de retrouver le même cliché dans un article publié cinq ans plus tôt, dans un autre pays.",
+          "consequence": "Internet peut donc m'aider à contrôler une information, et pas seulement à la recevoir ou à la partager."
         },
         {
-          "idea": "Enfin, je peux adapter le moment et la durée de la consultation.",
-          "developpement": "Une lecture peut être interrompue et reprise. Je peux réserver un moment pour un dossier sans rester devant un flux continu, à condition de limiter les recommandations et les notifications qui me détournent du sujet.",
-          "exemple": "Je peux garder un article pour une pause disponible, puis revenir au passage difficile plus tard. Le besoin d'information ne m'oblige pas à ouvrir chaque alerte au moment où elle arrive.",
-          "consequence": "Je peux ainsi prendre le temps de comprendre au lieu de répondre à chaque alerte."
+          "idea": "Enfin, je peux choisir le moment où je suis vraiment disponible pour m'informer.",
+          "developpement": "Je ne suis pas obligé de consulter chaque nouvelle dès qu'elle arrive. Garder un article et le reprendre plus tard permet de lui consacrer de l'attention, notamment lorsque le sujet demande un peu de réflexion. Cette liberté est utile si je limite aussi les notifications qui interrompent ma lecture.",
+          "exemple": "Par exemple, je peux enregistrer un article pendant une journée chargée, puis le lire lors d'une pause plus calme. Si un passage est difficile, je peux y revenir sans perdre la suite d'une émission diffusée en direct.",
+          "consequence": "Je prends ainsi le temps de comprendre au lieu de réagir à chaque alerte."
         }
       ],
-      "nuance": "Cependant, Internet est un mode d'accès qui comprend aussi des journaux, des radios et des réseaux sociaux. Ces catégories se recoupent. Le papier et la radio offrent également des analyses variées ; ma préférence dépend de mes besoins, pas d'une hiérarchie absolue.",
-      "conclusion": "En conclusion, je préfère l'accès en ligne pour comparer, vérifier et choisir mon rythme. Sa valeur dépend des sources et de ma démarche, pas simplement de la connexion."
+      "nuance": "Bien sûr, ces catégories se recoupent : les journaux et les radios sont aussi présents sur Internet. Le papier et la radio peuvent proposer d'excellentes analyses. Ma préférence concerne donc surtout la manière d'accéder aux contenus, pas une supériorité automatique de tout ce qui est en ligne.",
+      "conclusion": "En conclusion, je préfère Internet pour comparer les points de vue, vérifier ce que je lis et choisir mon rythme. Mais la qualité dépend toujours des sources et de l'attention que je leur accorde."
     },
     "technologie-p24": {
       "prompt_signatures": {
@@ -219,29 +219,29 @@
       },
       "reformulation": "Quel média préférer entre télévision, Internet et radio ?",
       "position": "Préférer Internet pour choisir le moment, comparer les points de vue et approfondir.",
-      "position_claire": "Entre la télévision, Internet et la radio, je préfère Internet comme moyen de consulter des informations et des programmes choisis. Ce qui m'intéresse est de choisir le moment, de comparer les points de vue et d'approfondir un sujet. Cela inclut des contenus produits par des radios ou des télévisions, pas seulement par des sites indépendants.",
+      "position_claire": "Entre la télévision, Internet et la radio, je préfère Internet, parce que je peux y choisir mes programmes et la manière de les suivre. J'y retrouve aussi des contenus de télévision et de radio. Pour moi, l'intérêt est surtout de pouvoir choisir mon moment, comparer les points de vue et approfondir un sujet.",
       "arguments": [
         {
-          "idea": "Tout d'abord, l'accès à la demande permet de choisir un moment disponible.",
-          "developpement": "Je peux consulter un contenu sans organiser toute ma journée autour d'un horaire de diffusion. L'intérêt n'est pas d'être connecté en permanence, mais de retrouver un programme lorsque je peux lui consacrer de l'attention.",
-          "exemple": "Si un entretien m'intéresse pendant une journée chargée, je peux le garder pour une période plus calme. Je l'écoute alors depuis le début plutôt que d'en saisir seulement quelques passages entre deux obligations.",
-          "consequence": "Je peux ainsi suivre l'entretien jusqu'au bout au lieu de l'écouter à moitié."
+          "idea": "Tout d'abord, je peux suivre un programme lorsque j'ai réellement le temps de l'écouter.",
+          "developpement": "Une diffusion en direct ne tombe pas toujours au bon moment. L'accès à la demande permet de retrouver un entretien ou un reportage plus tard, sans devoir l'écouter entre deux obligations. Je peux alors lui consacrer une attention que je n'avais pas au moment de sa diffusion.",
+          "exemple": "Par exemple, si un entretien m'intéresse pendant une journée chargée, je peux le garder pour une soirée plus calme. Je l'écoute depuis le début et suis le raisonnement de l'invité, plutôt que saisir quelques phrases en faisant autre chose.",
+          "consequence": "Ce choix du moment m'aide à profiter réellement du programme, et pas seulement à l'avoir entendu."
         },
         {
-          "idea": "Ensuite, je peux comparer des points de vue qui élargissent ma compréhension d'un sujet.",
-          "developpement": "Un média local peut expliquer ce que vivent les habitants, tandis qu'un dossier spécialisé présente le but d'un projet. Lire les deux m'aide à comprendre pourquoi les avis diffèrent, plutôt que retenir un seul point de vue.",
-          "exemple": "Pour comprendre un projet de transport, je peux lire un article donnant la parole aux riverains puis un dossier expliquant les objectifs du réseau. Je distingue les bénéfices attendus des difficultés d'accès signalées par les habitants.",
-          "consequence": "Je peux ainsi construire une opinion qui tient compte de plusieurs arguments."
+          "idea": "Ensuite, Internet permet de comparer plus facilement plusieurs regards sur un même sujet.",
+          "developpement": "Un seul article ne répond pas toujours à toutes les questions. Un média local peut montrer ce que vivent les habitants, tandis qu'un dossier spécialisé explique les objectifs d'un projet. En rapprochant ces points de vue, je comprends mieux les raisons d'un désaccord au lieu de choisir trop vite un camp.",
+          "exemple": "Par exemple, un projet de ligne de bus plus rapide peut prévoir de supprimer certains arrêts. Le dossier du réseau explique le gain de temps, tandis qu'un article local montre que des habitants devront marcher plus loin pour prendre le bus.",
+          "consequence": "Je peux me faire une opinion qui tient compte de plusieurs arguments, plutôt que retenir seulement le premier."
         },
         {
-          "idea": "Enfin, il est possible de passer d'un aperçu à une explication plus détaillée.",
-          "developpement": "Un résumé peut suffire pour repérer un sujet. Pour le comprendre, je peux ensuite ouvrir un dossier qui en explique les causes et les conséquences. Il faut toujours qu'on vérifie l'auteur, la date et les sources utilisées.",
-          "exemple": "Après un résumé sur une décision municipale, je peux consulter un dossier et le document original. Je distingue ainsi les faits annoncés des commentaires, au lieu de croire qu'un titre répond déjà à toutes les questions.",
-          "consequence": "La profondeur dépend de la recherche et de la qualité des sources."
+          "idea": "Enfin, je peux approfondir un sujet qui m'intéresse au lieu de m'arrêter à un résumé.",
+          "developpement": "Un aperçu permet de repérer une nouvelle, mais ne suffit pas toujours pour comprendre ses causes et ses conséquences. En ligne, je peux poursuivre avec un dossier ou retrouver le document cité. Il faut toujours qu'on vérifie l'auteur, la date et les sources utilisées.",
+          "exemple": "Prenons l'exemple d'un article annonçant de nouveaux horaires pour la bibliothèque. En lisant le compte rendu du conseil municipal, je découvre qu'il s'agit encore d'une proposition, pas d'une décision adoptée. Je sais alors que les horaires actuels restent en place.",
+          "consequence": "J'ai ainsi davantage d'éléments pour comprendre la décision qu'avec le seul titre."
         }
       ],
-      "nuance": "Cependant, la télévision et la radio proposent aussi des programmes approfondis et des rediffusions, souvent accessibles en ligne. Internet n'est pas automatiquement plus fiable ni accessible à tous. Cette préférence ne constitue donc pas un jugement contre les autres publics.",
-      "conclusion": "En conclusion, je préfère choisir le moment, comparer les points de vue et approfondir grâce à l'accès en ligne. Les programmes et les sources restent l'essentiel : le support facilite un choix sans garantir la qualité à lui seul."
+      "nuance": "Bien sûr, la télévision et la radio proposent aussi des analyses et des rediffusions, souvent disponibles en ligne. Internet n'est pas automatiquement plus fiable ni accessible à tous. Je préfère cette souplesse, mais je choisis d'abord des contenus qui valent le temps que je leur consacre.",
+      "conclusion": "En conclusion, Internet me convient pour choisir quand écouter, comparer les arguments et aller plus loin. Le support facilite ces choix, mais ce sont les programmes et les sources qui leur donnent de la valeur."
     },
     "sante-p16": {
       "prompt_signatures": {
@@ -249,29 +249,29 @@
       },
       "reformulation": "Avis illustratif à personnaliser avec les plats et la situation de son pays.",
       "position": "Valoriser les possibilités culinaires sans idéaliser les habitudes ni ignorer l'accès.",
-      "position_claire": "Je porte un regard nuancé sur l'alimentation dans mon pays. J'apprécie la variété des recettes et la place des repas partagés, mais la qualité dépend aussi du temps pour préparer et des moyens pour acheter. Je ne décrirais donc pas toutes les familles comme si elles mangeaient de la même manière.",
+      "position_claire": "Globalement, j'apprécie l'alimentation dans mon pays, surtout la variété des recettes et la place des repas partagés. Mais il y a une différence entre ce que l'on aime manger et ce que le quotidien permet de préparer. Pour en parler justement, il faut aussi tenir compte du temps et du budget.",
       "arguments": [
         {
-          "idea": "Tout d'abord, la diversité des recettes offre plusieurs façons de composer un repas.",
-          "developpement": "Les recettes familiales ou régionales donnent des idées pour utiliser différents ingrédients. On peut les reprendre et les adapter pour varier les repas, sans supposer qu'un plat est équilibré simplement parce qu'il est traditionnel.",
-          "exemple": "Une famille peut reprendre une recette de riz aux haricots, puis y ajouter les légumes disponibles. Elle obtient plusieurs variantes d'un plat connu, au lieu de refaire toujours le même repas.",
-          "consequence": "Connaître plusieurs recettes aide donc à ne pas toujours cuisiner la même chose."
+          "idea": "Tout d'abord, les recettes familiales et régionales offrent une vraie richesse pour varier les repas.",
+          "developpement": "Connaître plusieurs façons de préparer les ingrédients permet de ne pas refaire toujours le même plat. On peut garder une recette que l'on aime tout en l'adaptant aux produits disponibles. Ce que j'apprécie, c'est cette possibilité de varier sans devoir repartir de zéro à chaque repas.",
+          "exemple": "Par exemple, une famille qui prépare souvent du riz aux haricots peut y ajouter différents légumes selon ce qu'elle trouve au marché. Elle garde un plat familier, mais en change les saveurs et la composition au fil des repas.",
+          "consequence": "La connaissance des recettes peut ainsi enrichir le quotidien, plutôt que l'enfermer dans une seule habitude."
         },
         {
-          "idea": "Ensuite, cuisiner demande du temps et du matériel.",
-          "developpement": "Savoir cuisiner ne suffit pas lorsqu'on rentre tard ou qu'on dispose de peu d'équipement. On peut finir par reprendre toujours le même plat, parfois très salé ou peu varié. Des solutions rapides bien choisies peuvent aider, sans condamner tous les produits prêts à utiliser.",
-          "exemple": "Une personne qui reprend le même plat préparé plusieurs soirs peut prévoir une base de légumes et des haricots en conserve pour un autre dîner. Elle retrouve de la variété avec une préparation qu'elle peut réellement faire pendant la semaine.",
-          "consequence": "Améliorer l'alimentation demande des solutions compatibles avec la vie réelle."
+          "idea": "En revanche, le rythme de vie ne permet pas toujours de manger comme on le souhaiterait.",
+          "developpement": "Quand on rentre tard ou que l'on a peu de matériel, savoir cuisiner ne suffit pas. On peut reprendre le même plat préparé par facilité, même en ayant envie de varier. Améliorer les repas demande donc des solutions réalisables, et pas seulement de bons conseils.",
+          "exemple": "Prenons l'exemple d'une personne qui mange souvent le même plat préparé après le travail. En prévoyant des légumes et des haricots en conserve pour un autre dîner, elle peut retrouver de la variété sans devoir consacrer toute sa soirée à cuisiner.",
+          "consequence": "Il est plus utile de l'aider à trouver une préparation adaptée à sa vie que de lui reprocher ses habitudes."
         },
         {
-          "idea": "Enfin, les repas partagés peuvent faire vivre et transmettre une culture culinaire.",
-          "developpement": "Une recette n'est pas seulement une liste d'ingrédients. La préparer ensemble permet de transmettre un savoir-faire et d'échanger des souvenirs ; ceux qui la reçoivent peuvent ensuite l'adapter au lieu de simplement la voir disparaître.",
-          "exemple": "Lors d'un repas familial, une personne peut montrer à un plus jeune comment préparer un plat de haricots. Ils cuisinent ensemble et notent les étapes ; celui-ci peut ensuite refaire le plat et le partager à son tour.",
-          "consequence": "La cuisine entretient ainsi des liens et des connaissances, au-delà du contenu de l'assiette."
+          "idea": "Enfin, les repas partagés permettent de transmettre une culture culinaire tout en entretenant les liens.",
+          "developpement": "Préparer un plat ensemble, c'est aussi parler de ceux qui nous l'ont appris et des occasions où on le mangeait. Les gestes et les souvenirs se transmettent ainsi dans un moment vécu, pas seulement dans une liste d'ingrédients.",
+          "exemple": "Par exemple, pendant un repas familial, un adulte peut montrer à un plus jeune comment préparer un plat de haricots. En cuisinant avec lui et en notant les étapes, le plus jeune garde de quoi essayer ensuite de le refaire et de le partager à son tour.",
+          "consequence": "La recette peut continuer à vivre dans la famille, avec de nouvelles personnes pour la préparer."
         }
       ],
-      "nuance": "Cependant, les habitudes diffèrent selon les régions et les familles. Le budget, les commerces et la conservation limitent aussi les choix. Une cuisine familiale n'est pas automatiquement équilibrée, et il ne faut pas que les repas partagés deviennent une obligation pour ceux qui vivent seuls.",
-      "conclusion": "En conclusion, j'apprécie la variété des recettes et les repas partagés, tout en tenant compte du temps et du budget disponibles. L'important est de pouvoir préparer et transmettre ces plats, pas de dire que tout était meilleur avant."
+      "nuance": "Bien sûr, les habitudes varient selon les régions et les familles. Une recette traditionnelle n'est pas automatiquement équilibrée, et les moyens disponibles limitent parfois les choix. Ces moments peuvent être précieux, mais il ne faut pas que les repas partagés deviennent une obligation pour ceux qui vivent seuls.",
+      "conclusion": "En conclusion, j'apprécie cette variété et ces moments de transmission, sans idéaliser toutes les habitudes. Pour moi, bien manger suppose de pouvoir adapter les recettes que l'on aime aux possibilités de la vie quotidienne."
     },
     "culture-p10": {
       "prompt_signatures": {
@@ -280,29 +280,29 @@
       },
       "reformulation": "Quelle place garder aux traditions et à la culture d'origine dans un pays d'accueil ?",
       "position": "Il est souhaitable de préserver ce qui compte, sans fermer la porte à d'autres pratiques.",
-      "position_claire": "À mon avis, préserver sa culture et ses traditions dans un pays d'accueil est souhaitable, mais ne doit pas devenir une obligation de tout garder intact. Ces pratiques peuvent apporter des repères, transmettre une histoire et créer des échanges avec d'autres habitants.",
+      "position_claire": "Oui, je pense qu'on peut préserver sa culture et ses traditions dans un pays d'accueil sans se fermer à sa nouvelle vie. S'intégrer ne signifie pas effacer tout ce qui nous a construits. L'important est de garder cet héritage vivant, en restant libre de l'adapter et de le partager.",
       "arguments": [
         {
-          "idea": "Tout d'abord, les traditions aident à se sentir chez soi dans un nouveau pays.",
-          "developpement": "Quand on s'installe à l'étranger, beaucoup de choses changent à la fois. Garder une habitude familière permet de retrouver une partie de sa vie d'avant dans son nouveau quotidien.",
-          "exemple": "Après une journée fatigante, une personne peut préparer un plat de son pays qu'elle mangeait souvent en famille. Retrouver ces saveurs lui apporte du réconfort et l'aide à se sentir chez elle, sans l'empêcher de découvrir la cuisine locale.",
-          "consequence": "Ces repères aident à se sentir bien, tout en continuant à apprendre la langue et les habitudes locales."
+          "idea": "Tout d'abord, les traditions donnent des repères lorsque beaucoup de choses changent autour de nous.",
+          "developpement": "En arrivant dans un autre pays, on découvre une langue, des habitudes et un rythme parfois très différents. Retrouver un geste familier peut apporter du réconfort et rappeler qu'on n'a pas tout perdu en partant. Ce lien avec sa vie d'avant peut aider à trouver sa place dans la nouvelle.",
+          "exemple": "Par exemple, après une journée fatigante, une personne peut préparer un plat qu'elle mangeait souvent en famille dans son pays. Retrouver ces saveurs l'aide à se sentir chez elle, tout en lui laissant l'envie de découvrir d'autres cuisines.",
+          "consequence": "Garder certains repères peut donc rendre le changement plus facile à vivre, plutôt que l'empêcher."
         },
         {
-          "idea": "Ensuite, la transmission culturelle donne aux enfants accès à leur histoire familiale.",
-          "developpement": "Les enfants ne peuvent pas deviner les souvenirs et les pratiques que leurs parents n'expliquent jamais. Les transmettre leur permet de comprendre leurs origines et peut leur donner un sentiment de double appartenance : à leur culture familiale et à celle du pays où ils grandissent.",
-          "exemple": "Pendant une fête, des parents peuvent raconter pourquoi la famille prépare un repas particulier et appeler les grands-parents pour écouter leurs souvenirs. L'enfant découvre cette tradition familiale tout en participant aux fêtes.",
-          "consequence": "L'héritage devient une histoire accessible, pas une consigne à suivre sans explication."
+          "idea": "Ensuite, transmettre sa culture permet aux enfants de mieux comprendre leur histoire familiale.",
+          "developpement": "Les enfants qui grandissent ailleurs ne peuvent pas deviner ce que certaines fêtes ou habitudes représentent pour leurs parents. Leur en parler leur donne accès à des souvenirs et à des liens qui les concernent aussi. Ils peuvent alors connaître leurs origines tout en appartenant pleinement au pays où ils vivent.",
+          "exemple": "Prenons l'exemple d'une famille qui prépare un repas particulier pour une fête. Les parents peuvent expliquer pourquoi ce plat compte pour eux et appeler les grands-parents pour écouter leurs souvenirs, plutôt que demander simplement à l'enfant de suivre la tradition.",
+          "consequence": "L'enfant reçoit ainsi une histoire qu'il peut comprendre et s'approprier, pas seulement une règle à respecter."
         },
         {
-          "idea": "Enfin, des traditions partagées peuvent tisser des liens entre les cultures.",
-          "developpement": "Une pratique devient un point de rencontre lorsqu'on la présente aux autres avec ouverture. Les voisins peuvent poser des questions et partager à leur tour leurs propres habitudes.",
-          "exemple": "Dans un repas de quartier, une famille peut apporter un plat de son pays et expliquer comment elle le prépare. Un autre participant propose ensuite sa recette. La différence donne alors un sujet de conversation et une occasion de se connaître.",
-          "consequence": "Préserver sa culture peut donc aussi aider à participer à la vie locale."
+          "idea": "Enfin, partager ses traditions peut aussi créer des liens avec les habitants du pays d'accueil.",
+          "developpement": "Une différence devient plus facile à découvrir quand elle est présentée avec ouverture. Un plat ou une fête peut donner envie de poser des questions et d'échanger ses propres souvenirs. La culture d'origine n'est alors pas seulement quelque chose que l'on garde entre soi.",
+          "exemple": "Par exemple, lors d'un repas de quartier, une famille peut apporter un plat de son pays et raconter comment elle le prépare. Un voisin propose ensuite sa propre recette : chacun a quelque chose à faire découvrir et une raison d'engager la conversation.",
+          "consequence": "Préserver sa culture peut donc aller de pair avec une participation à la vie locale."
         }
       ],
-      "nuance": "Cependant, une tradition ne justifie ni de forcer un enfant à la suivre ni de porter atteinte aux droits des autres. Elle peut évoluer avec le contexte et les choix de chacun. Garder un héritage vivant n'exige pas que chaque pratique soit reproduite exactement.",
-      "conclusion": "En conclusion, je suis favorable à la préservation des traditions lorsqu'elle apporte des repères, une transmission et des échanges. Le bon équilibre consiste à connaître son histoire tout en restant libre de la faire évoluer et de s'ouvrir aux autres.",
+      "nuance": "Bien sûr, une tradition ne justifie ni de forcer un enfant à la suivre ni de porter atteinte aux droits des autres. Garder un héritage vivant n'exige pas que chaque pratique soit reproduite exactement. Les traditions peuvent évoluer avec les personnes et leur nouvelle vie.",
+      "conclusion": "En conclusion, je suis favorable à cette transmission, à condition qu'elle reste ouverte et libre. On peut connaître son histoire, la partager avec ses enfants et ses voisins, tout en faisant une place à de nouvelles habitudes.",
       "argument_ids": [
         1,
         2,
@@ -315,29 +315,29 @@
       },
       "reformulation": "Regarder la télévision est-il nécessairement une perte de temps ?",
       "position": "Non : l'intérêt dépend du programme, du besoin et du temps consacré.",
-      "position_claire": "Non, je ne pense pas que regarder la télévision soit forcément une perte de temps. Tout dépend de ce qu'on regarde et de la place que cela prend dans la journée. Un moment devant l'écran peut avoir un intérêt sans devoir être productif.",
+      "position_claire": "Non, je ne pense pas que le temps passé devant la télévision soit forcément perdu. Tout dépend de ce qu'on regarde et de la place que cela prend dans notre vie. On peut apprendre, partager un événement ou simplement se détendre, sans devoir rendre chaque moment de la journée productif.",
       "arguments": [
         {
-          "idea": "Tout d'abord, certains programmes permettent de s'informer et d'apprendre.",
-          "developpement": "L'image et le son rendent certaines réalités plus concrètes. On voit comment une activité se déroule, et le commentaire explique pourquoi on procède ainsi. Cela donne accès au travail de personnes qu'on n'aurait pas l'occasion de rencontrer.",
-          "exemple": "Par exemple, une personne voit dans un documentaire des employés retirer des objets mal triés avant le recyclage. Elle réalise que ses déchets ne sont pas tous recyclés automatiquement et vérifie les consignes de tri de sa commune.",
-          "consequence": "Ce qu'on apprend à l'écran peut donc être utile dans la vie quotidienne."
+          "idea": "Tout d'abord, certains programmes permettent de s'informer et d'apprendre de manière très concrète.",
+          "developpement": "L'image et le son peuvent nous faire entrer dans un lieu ou une activité que nous connaissons mal. En voyant les gestes et en écoutant les explications, on comprend non seulement ce qui se passe, mais aussi pourquoi on procède ainsi. Un programme bien choisi peut donc laisser autre chose qu'une impression passagère.",
+          "exemple": "Par exemple, dans un documentaire sur le recyclage, une personne voit des employés retirer des objets mal triés. Elle comprend que tous ses déchets ne sont pas recyclés automatiquement et vérifie ensuite les consignes de sa commune.",
+          "consequence": "Ce qu'elle découvre à l'écran lui permet de mieux comprendre une pratique de son quotidien."
         },
         {
-          "idea": "Ensuite, la télévision peut rassembler les gens autour d'un événement qu'ils suivent ensemble.",
-          "developpement": "Un match ou un grand spectacle diffusé en direct peut réunir une famille, des amis ou des voisins. On réagit aux mêmes moments, on partage des émotions et on a un sujet pour discuter. Ce qui compte alors, c'est aussi le fait d'être ensemble.",
-          "exemple": "Pendant la Coupe du monde, quelques voisins regardent un match chez l'un d'eux. Ils se connaissaient peu, mais encouragent l'équipe ensemble et discutent à la mi-temps. Ce moment partagé leur permet d'engager la conversation.",
-          "consequence": "Ce qu'on regarde peut donc nous rapprocher des autres, pas seulement nous apprendre quelque chose."
+          "idea": "Ensuite, la télévision peut rassembler des personnes autour d'un événement qu'elles vivent ensemble.",
+          "developpement": "Un match ou un spectacle en direct n'est pas seulement un contenu que l'on reçoit. Quand on le regarde à plusieurs, on réagit aux mêmes moments, on partage des émotions et l'on trouve des sujets pour discuter. La valeur de cette soirée tient aussi aux personnes avec qui on la passe.",
+          "exemple": "Prenons l'exemple de voisins qui se connaissent peu et regardent un match de la Coupe du monde chez l'un d'eux. En encourageant l'équipe et en discutant à la mi-temps, ils trouvent une manière naturelle d'engager la conversation.",
+          "consequence": "L'écran peut ainsi être l'occasion d'un moment partagé, plutôt qu'une raison de s'isoler."
         },
         {
-          "idea": "Enfin, se détendre n'est pas forcément perdre son temps.",
-          "developpement": "Après une journée chargée, on peut avoir besoin de rire ou de penser à autre chose. Ce moment de détente compte aussi, même si l'on n'apprend rien de nouveau.",
-          "exemple": "Une personne regarde un épisode de comédie après le travail. Elle rit, se change les idées, puis éteint la télévision à la fin de l'épisode.",
-          "consequence": "Le repos et le plaisir font eux aussi partie d'une journée équilibrée."
+          "idea": "Enfin, se détendre a une valeur, même lorsqu'on n'apprend rien de nouveau.",
+          "developpement": "Après une journée chargée, on peut avoir besoin de rire, de se changer les idées ou de ne plus penser à ses obligations pendant un moment. Ce plaisir ne devient pas inutile simplement parce qu'il ne produit ni connaissance ni résultat mesurable.",
+          "exemple": "Par exemple, une personne regarde un épisode de comédie après le travail, rit et pense à autre chose, puis éteint à la fin de l'épisode. Ce moment lui a permis de souffler, sans prendre toute sa soirée.",
+          "consequence": "Le repos et le plaisir ont donc leur place dans une journée équilibrée."
         }
       ],
-      "nuance": "En revanche, quand on regarde la télévision pendant des heures, on peut se coucher trop tard ou passer moins de temps avec ses proches. Même un programme intéressant ne justifie pas de négliger régulièrement son sommeil ou sa famille.",
-      "conclusion": "En conclusion, regarder la télévision n'est pas une perte de temps en soi. Information, moments partagés et détente peuvent justifier ce choix, à condition que le programme et la durée correspondent réellement à ce que l'on cherche.",
+      "nuance": "Bien sûr, regarder pendant des heures peut faire négliger le sommeil ou le temps avec les proches. Même un programme intéressant ne justifie pas de le faire régulièrement. Ce n'est pas le loisir en lui-même qui pose problème, mais la place qu'il finit par prendre.",
+      "conclusion": "En conclusion, la télévision n'est pas une perte de temps en soi. Elle peut informer, réunir et détendre, à condition que le programme et la durée correspondent réellement à ce que l'on cherche.",
       "argument_ids": [
         1,
         2,
@@ -350,29 +350,29 @@
       },
       "reformulation": "Peut-on découvrir d'autres cultures sans se déplacer dans leur pays ?",
       "position": "Oui, une connaissance réelle est possible grâce à des ressources et à des rencontres variées.",
-      "position_claire": "Oui, on peut réellement connaître d'autres cultures sans voyager. Le but, ce n'est pas de tout connaître du pays. C'est de comprendre quelques habitudes et ce qu'elles veulent dire. Les ressources et les échanges accessibles depuis chez soi permettent déjà cet apprentissage.",
+      "position_claire": "Oui, je pense qu'on peut réellement découvrir d'autres cultures sans voyager. Le voyage apporte une expérience particulière, mais il n'est pas la seule façon d'apprendre comment les autres vivent. Les livres, les activités près de chez soi et les échanges à distance permettent déjà de comprendre des pratiques et leur sens.",
       "arguments": [
         {
-          "idea": "Tout d'abord, les livres et les documentaires permettent de découvrir d'autres cultures sans voyager.",
-          "developpement": "Un livre ou un documentaire peut raconter l'histoire d'une tradition et présenter les produits d'une région. Ces explications donnent des connaissances solides sur des lieux qu'on n'aura peut-être jamais l'occasion de visiter.",
-          "exemple": "Par exemple, un livre de cuisine ouest-africaine peut montrer comment préparer du riz avec une sauce aux arachides et présenter les produits locaux utilisés dans la recette. Il peut aussi raconter l'histoire de ce plat.",
-          "consequence": "On ne découvre pas seulement une recette, mais aussi ce qu'elle raconte d'une région."
+          "idea": "Tout d'abord, les livres et les documentaires donnent accès à des connaissances que l'on ne trouverait pas forcément seul.",
+          "developpement": "Ils ne montrent pas seulement une image ou un geste : ils peuvent expliquer l'histoire d'une tradition et ce qu'elle représente. On découvre ainsi les raisons derrière une pratique, au lieu de la trouver simplement étrange ou jolie. Ce travail d'explication peut commencer bien avant un éventuel voyage.",
+          "exemple": "Par exemple, un livre sur la cuisine portugaise peut expliquer pourquoi on sale et sèche le poisson. Cette méthode permettait de le conserver pendant de longs voyages en mer. On comprend alors comment certaines recettes sont liées aux contraintes de la navigation.",
+          "consequence": "Une pratique devient plus compréhensible parce qu'on peut la relier à une histoire et à un contexte."
         },
         {
-          "idea": "Ensuite, on peut découvrir d'autres cultures en participant à des activités près de chez soi.",
-          "developpement": "Les ateliers et les fêtes de quartier permettent de découvrir des pratiques venues d'ailleurs. En y participant, on apprend les gestes en les faisant soi-même, avec quelqu'un pour nous guider.",
-          "exemple": "Par exemple, je pourrais m'inscrire à un atelier de danse irlandaise dans mon quartier. L'animateur me montrerait quelques pas, puis je les essaierais avec le groupe. Je pourrais ensuite danser avec les autres au bal.",
-          "consequence": "On découvre ainsi cette tradition en la partageant avec d'autres personnes, pas seulement en la regardant."
+          "idea": "Ensuite, on peut rencontrer d'autres cultures en participant à des activités tout près de chez soi.",
+          "developpement": "Un atelier ou une fête permet de découvrir une tradition avec les personnes qui la pratiquent. On n'est plus seulement spectateur : on peut essayer, se tromper et recevoir des conseils. Cette expérience donne une connaissance concrète, même sans se rendre dans le pays d'origine.",
+          "exemple": "Par exemple, je pourrais m'inscrire à un atelier de danse irlandaise dans mon quartier. En essayant les pas avec le groupe et les conseils de l'animateur, j'apprendrais assez de pas pour participer ensuite au bal, plutôt que regarder les autres danser.",
+          "consequence": "La découverte passe ainsi par une activité partagée, et pas uniquement par des informations reçues."
         },
         {
-          "idea": "Enfin, les échanges à distance permettent d'approfondir sa connaissance d'une culture.",
-          "developpement": "Les échanges à distance donnent accès au point de vue de personnes d'une autre culture. On peut poser ses propres questions et demander des précisions sur ce qu'on n'a pas compris.",
-          "exemple": "Pendant un appel vidéo, je pourrais demander à une amie japonaise pourquoi elle enlève ses chaussures en rentrant chez elle. Elle m'expliquerait que sa famille s'assoit parfois au sol et préfère donc le garder propre. Je comprendrais mieux cette habitude.",
-          "consequence": "On peut donc mieux comprendre certaines habitudes, même sans se rencontrer en personne."
+          "idea": "Enfin, les échanges à distance permettent de poser ses propres questions et d'approfondir ce que l'on découvre.",
+          "developpement": "Un livre ne répond pas toujours à la question précise qui nous vient à l'esprit. Parler avec quelqu'un permet de demander une explication et de comprendre comment cette personne vit une habitude au quotidien. La distance n'empêche donc pas tout dialogue.",
+          "exemple": "Prenons l'exemple d'un appel vidéo avec une amie japonaise. Je pourrais lui demander pourquoi elle enlève ses chaussures chez elle ; elle m'expliquerait que sa famille s'assoit parfois au sol et préfère le garder propre.",
+          "consequence": "Je comprendrais mieux cette habitude familiale, sans supposer que toutes les familles japonaises vivent exactement ainsi."
         }
       ],
-      "nuance": "Bien que ces moyens soient utiles, ils ne remplacent pas complètement l'expérience sur place. En voyage, on découvre aussi les odeurs et le rythme de la vie quotidienne. Mais tout le monde ne peut pas voyager. Ces autres moyens gardent donc toute leur valeur.",
-      "conclusion": "Bref, une connaissance réelle est possible sans voyager, même si elle reste différente de l'expérience sur place. Le voyage peut la compléter, mais il n'est pas indispensable.",
+      "nuance": "Bien que ces moyens soient utiles, ils ne remplacent pas complètement l'expérience sur place, avec ses odeurs et son rythme quotidien. Mais tout le monde ne peut pas voyager, et cette différence ne retire pas leur valeur aux connaissances acquises autrement.",
+      "conclusion": "En conclusion, on peut connaître d'autres cultures sans prendre l'avion. Le voyage peut enrichir les découvertes, mais les lectures, la pratique et les échanges sont déjà de vraies manières d'apprendre.",
       "argument_ids": [
         1,
         2,
@@ -385,7 +385,7 @@
       },
       "reformulation": "Que peut-on apprendre d'une culture à travers sa cuisine ?",
       "position": "La cuisine est une porte d'entrée concrète, mais ne résume pas une culture.",
-      "position_claire": "Oui, je pense que la cuisine permet de mieux connaître une culture. Les repas nous montrent comment les gens vivent ensemble. Certaines recettes racontent aussi une partie de l'histoire du pays. On découvre donc bien plus que des plats, même si cela ne suffit pas pour tout comprendre.",
+      "position_claire": "Oui, je pense que la cuisine est une bonne manière de découvrir la culture d'un pays. Un repas ne nous renseigne pas seulement sur les goûts des habitants : il peut montrer comment ils vivent ensemble, raconter une partie de leur histoire et nous faire découvrir des gestes transmis dans les familles.",
       "argument_ids": [
         1,
         2,
@@ -394,25 +394,25 @@
       "arguments": [
         {
           "idea": "Tout d'abord, les repas permettent de comprendre certaines habitudes de vie.",
-          "developpement": "Les horaires des repas peuvent refléter le rythme du travail. Le temps passé à manger ensemble montre aussi la place donnée aux échanges en famille. L'organisation du repas renseigne donc autant que les aliments.",
-          "exemple": "Au Sénégal, un visiteur partage un repas avec une famille. Tout le monde mange dans le même grand plat de riz et de poisson. Ses hôtes lui expliquent que ce repas du soir leur permet de se retrouver et de discuter après le travail.",
-          "consequence": "Il comprend ainsi comment cette famille organise sa journée pour garder un moment en commun."
+          "developpement": "L'heure à laquelle on mange, la place de chacun et le temps passé à table disent quelque chose de l'organisation du quotidien. Partager un repas permet aussi de demander ce que ces habitudes représentent pour ses hôtes, plutôt que leur donner un sens à partir de ses propres habitudes.",
+          "exemple": "Par exemple, au Sénégal, un visiteur pourrait partager du riz et du poisson avec une famille autour d'un même grand plat. Ses hôtes lui expliqueraient que ce repas du soir leur permet de se retrouver et de discuter après le travail.",
+          "consequence": "Il comprendrait ainsi comment cette famille garde un moment en commun, sans supposer que toutes les familles s'organisent de la même façon."
         },
         {
-          "idea": "Ensuite, les recettes nous aident à comprendre l'histoire d'un pays.",
-          "developpement": "Les ingrédients et les façons de conserver les aliments gardent des traces de la vie d'autrefois. Certaines recettes continuent ainsi à raconter une histoire, même quand les raisons pratiques de leur création ont changé.",
-          "exemple": "Au Portugal, on trouve facilement du poisson salé et séché. Autrefois, cette méthode permettait de conserver le poisson pendant les longs voyages en mer. On l'utilise encore aujourd'hui dans de nombreuses recettes.",
-          "consequence": "On comprend ainsi le lien entre la cuisine du pays et les voyages en mer."
+          "idea": "Ensuite, certaines recettes gardent des traces de l'histoire du pays.",
+          "developpement": "Les ingrédients et les méthodes de préparation n'ont pas toujours été choisis uniquement pour leur goût. Ils pouvaient répondre à une nécessité, comme conserver les aliments en l'absence de réfrigérateur. Retrouver cette origine permet de comprendre pourquoi une pratique s'est installée et continue à faire partie de la cuisine.",
+          "exemple": "Prenons l'exemple du poisson salé et séché, présent dans la cuisine portugaise. Cette méthode permettait de conserver le poisson, notamment pendant de longs voyages en mer. En la découvrant, on comprend le lien entre certaines recettes et les contraintes de la navigation.",
+          "consequence": "Le plat devient alors une façon concrète d'aborder une histoire qui pourrait sembler lointaine dans un manuel."
         },
         {
-          "idea": "Enfin, la cuisine permet de découvrir une culture par la pratique, même avec peu de mots.",
-          "developpement": "On peut regarder quelqu'un préparer un plat traditionnel, même si on ne comprend pas tout ce qu'il dit. En y participant, on apprend les gestes en les faisant soi-même, avec quelqu'un pour nous guider.",
-          "exemple": "Pendant un séjour au Ghana, je pourrais apprendre à préparer du fufu avec mon hôte, même sans bien parler sa langue. Il me montrerait comment piler le manioc. En essayant à mon tour, je découvrirais cette façon de cuisiner.",
-          "consequence": "On découvre ainsi une façon de faire en la pratiquant avec quelqu'un, et pas seulement en goûtant le résultat."
+          "idea": "Enfin, on peut découvrir une culture en cuisinant avec quelqu'un, même avec peu de mots.",
+          "developpement": "Les explications passent aussi par les gestes : on observe, on essaie et l'autre personne nous guide. Cette participation donne accès à un savoir-faire que la dégustation seule ne montrerait pas. On apprend comment le plat se prépare, et pas seulement à quoi il ressemble.",
+          "exemple": "Par exemple, pendant un séjour au Ghana, je pourrais apprendre à préparer du fufu avec mon hôte, même sans bien parler sa langue. Il me montrerait comment piler le manioc et me guiderait lorsque j'essaierais à mon tour.",
+          "consequence": "Je découvrirais ainsi une façon de cuisiner en la pratiquant avec lui, plutôt qu'en regardant simplement le plat terminé."
         }
       ],
-      "nuance": "Bien que la cuisine ouvre une porte sur un pays, elle ne montre pas tout. Un plat renseigne peu sur son système politique, ses débats ou sa langue. Les habitudes varient aussi selon les régions, les familles et le budget.",
-      "conclusion": "En conclusion, la cuisine nous fait découvrir des habitudes, une partie de l'histoire et des façons de cuisiner du pays. C'est un bon début, mais ça ne nous apprend pas tout sur sa culture."
+      "nuance": "Bien que la cuisine ouvre une porte sur un pays, elle ne montre pas tout de sa culture. Les habitudes varient selon les régions, les familles et le budget. Un repas ne suffit pas non plus pour comprendre les débats politiques ou la langue.",
+      "conclusion": "En conclusion, la cuisine permet de découvrir des habitudes, une histoire et des savoir-faire. C'est une porte d'entrée accessible et vivante, à compléter par d'autres rencontres pour ne pas réduire un pays à ses plats."
     },
     "culture-p18": {
       "prompt_signatures": {
@@ -421,13 +421,13 @@
       },
       "reformulation": "La diminution des lettres et des cartes personnelles est-elle regrettable ?",
       "position": "Je regrette qu'on écrive moins de lettres et de cartes, sans rejeter les échanges numériques.",
-      "position_claire": "Oui, je trouve dommage qu'on s'envoie moins de lettres et de cartes personnelles, même si les messages numériques sont très pratiques. Le courrier garde une valeur particulière dans certaines relations et à certains moments.",
+      "position_claire": "Oui, je trouve dommage qu'on s'envoie moins de lettres et de cartes personnelles. Les messages numériques facilitent beaucoup la vie, mais recevoir une lettre garde quelque chose de particulier. Je regrette surtout qu'on perde parfois cette manière de consacrer du temps à quelqu'un, de lui parler et de garder une trace.",
       "arguments": [
         {
-          "idea": "Tout d'abord, une lettre ou une carte écrite à la main peut avoir une valeur affective particulière.",
-          "developpement": "Quand un proche choisit une carte, y écrit quelques lignes à la main et nous l'envoie, il nous consacre du temps. Son écriture nous donne aussi l'impression de retrouver un peu sa présence.",
-          "exemple": "Pour son anniversaire, une étudiante reçoit une carte de son père. Il y rappelle leurs promenades du dimanche. Elle reconnaît son écriture et a l'impression de l'entendre lui parler.",
-          "consequence": "Ce geste peut donc renforcer le lien affectif, même quand on ne peut pas se voir."
+          "idea": "Tout d'abord, une lettre ou une carte peut faire sentir à un proche qu'on lui a consacré une attention particulière.",
+          "developpement": "Choisir une carte, chercher quelques mots et l'envoyer sont autant de gestes faits en pensant à cette personne. En reconnaissant l'écriture d'un proche, on retrouve aussi quelque chose de sa présence. Ce n'est pas le prix du papier qui compte, mais ce qu'il nous rappelle de la relation.",
+          "exemple": "Par exemple, une étudiante reçoit pour son anniversaire une carte de son père, qui y rappelle leurs promenades du dimanche. En reconnaissant son écriture et ce souvenir partagé, elle a l'impression de l'entendre lui parler malgré la distance.",
+          "consequence": "La carte devient ainsi un signe de proximité, même lorsqu'on ne peut pas se retrouver."
         },
         {
           "idea": "Ensuite, écrire une lettre invite à choisir ses mots et à exprimer ses sentiments plus en profondeur.",
@@ -436,14 +436,14 @@
           "consequence": "L'autre comprend alors non seulement qu'on tient à lui, mais aussi pourquoi il compte dans notre vie."
         },
         {
-          "idea": "Enfin, les lettres peuvent garder une trace de l'histoire familiale.",
-          "developpement": "Une lettre raconte un moment de vie avec les mots de la personne qui l'a vécu. En la conservant, on peut transmettre ce témoignage à ses enfants ou à ses petits-enfants, avec son écriture d'origine.",
-          "exemple": "Dans une boîte de famille, une jeune femme retrouve une lettre que sa grand-mère avait envoyée après son arrivée à l'étranger. Elle y lit le récit de son travail dans un café et de la petite chambre qu'elle louait.",
-          "consequence": "Cette lecture permet à la jeune femme de mieux connaître les débuts de sa grand-mère à l'étranger."
+          "idea": "Enfin, les lettres peuvent garder une trace de l'histoire familiale pour les générations suivantes.",
+          "developpement": "Une lettre raconte un moment de vie avec les mots de la personne qui l'a vécu. En la conservant, on peut transmettre ses impressions et ses préoccupations, pas seulement les grandes dates de son parcours. Un proche disparu ou connu bien plus tard devient alors plus facile à imaginer.",
+          "exemple": "Par exemple, dans une boîte de souvenirs de famille, une jeune femme retrouve une lettre envoyée par sa grand-mère à son arrivée à l'étranger. Le récit de son travail dans un café et de la petite chambre qu'elle louait l'aide à se représenter ses débuts.",
+          "consequence": "Elle découvre une période de la vie de sa grand-mère qu'elle n'a pas connue elle-même."
         }
       ],
-      "nuance": "Cependant, un message numérique peut aussi être réfléchi, attentionné, sauvegardé et accessible. Il permet de garder un contact quotidien avec des proches éloignés. Le courrier coûte parfois cher, arrive lentement et peut se perdre : il ne remplace donc pas les échanges rapides.",
-      "conclusion": "En conclusion, je regrette le recul des lettres pour l'attention qu'elles expriment, la réflexion qu'elles encouragent et les souvenirs qu'elles transmettent. Sans renoncer au numérique, on peut garder ce geste pour les occasions qui comptent.",
+      "nuance": "Cependant, un message numérique peut aussi être réfléchi, attentionné et conservé. Il permet de rester en contact au quotidien, sans les délais et les frais du courrier, qui peut aussi se perdre. Je ne regrette donc pas la facilité des échanges actuels.",
+      "conclusion": "En conclusion, sans abandonner le numérique, j'aimerais qu'on garde les lettres pour certaines occasions. L'attention, les mots et les souvenirs qu'elles portent méritent encore une place dans nos relations.",
       "argument_ids": [
         1,
         2,
@@ -456,7 +456,7 @@
       },
       "reformulation": "Peut-on connaître un pays sans parler sa langue ?",
       "position": "On peut apprendre beaucoup sur un pays sans parler sa langue, même si les discussions spontanées restent difficiles à suivre.",
-      "position_claire": "Oui, on peut déjà apprendre beaucoup sur un pays sans parler sa langue. On peut observer la vie quotidienne et utiliser des traductions pour comprendre certaines habitudes. Mais sans la langue, les discussions spontanées restent difficiles à suivre.",
+      "position_claire": "Oui, je pense qu'on peut déjà apprendre beaucoup sur un pays sans parler sa langue. Observer la vie quotidienne et utiliser des traductions permet d'en découvrir des aspects importants. En revanche, pour suivre les échanges spontanés et comprendre ce que les habitants se disent entre eux, la langue apporte quelque chose de plus.",
       "argument_ids": [
         1,
         2,
@@ -464,26 +464,26 @@
       ],
       "arguments": [
         {
-          "idea": "Tout d'abord, on peut comprendre une partie de la vie quotidienne en observant ce qui se passe.",
-          "developpement": "Dans les lieux du quotidien, on voit comment les habitants se comportent. Les gestes et les habitudes répétées nous donnent des indications, même sans comprendre ce qui se dit.",
-          "exemple": "À Tokyo, un voyageur prend le métro chaque matin. Bien qu'il ne comprenne pas les conversations, il remarque que les passagers parlent à voix basse et évitent les appels téléphoniques.",
-          "consequence": "Il apprend ainsi à rester discret dans les transports, sans avoir eu besoin d'une explication en japonais."
+          "idea": "Tout d'abord, l'observation permet de comprendre certaines habitudes sans avoir besoin d'une explication.",
+          "developpement": "Dans les transports, les commerces ou les lieux de rencontre, on voit comment les personnes se comportent. À force de retrouver les mêmes gestes, on commence à comprendre ce qui se fait habituellement. Cela ne révèle pas toutes leurs raisons, mais donne déjà des repères pour participer à la vie quotidienne.",
+          "exemple": "Par exemple, à Tokyo, un voyageur prend le métro chaque matin. Bien qu'il ne comprenne pas les conversations, il remarque que les passagers parlent à voix basse et évitent les appels téléphoniques. Il adapte peu à peu son comportement à ce qu'il observe.",
+          "consequence": "Il apprend ainsi à rester discret dans les transports, sans avoir d'abord appris le japonais."
         },
         {
-          "idea": "Ensuite, grâce aux traductions, on peut s'informer sur le pays sans parler sa langue.",
-          "developpement": "Les articles traduits et les documentaires sous-titrés permettent de s'informer dans une langue qu'on comprend. On peut ainsi découvrir l'histoire d'un pays, suivre son actualité ou comprendre comment fonctionnent ses écoles.",
-          "exemple": "Une personne regarde un documentaire sous-titré en français sur les Pays-Bas. Elle apprend qu'une partie du pays a été gagnée sur la mer grâce à des digues et à des pompes.",
-          "consequence": "Elle comprend alors pourquoi la protection contre les inondations occupe une place aussi importante dans ce pays."
+          "idea": "Ensuite, les traductions donnent accès à des connaissances sur le pays dans une langue que l'on comprend.",
+          "developpement": "Un article traduit ou un documentaire sous-titré peut expliquer l'histoire d'un pays, son actualité ou le fonctionnement de ses institutions. Ces connaissances ne deviennent pas superficielles simplement parce qu'elles sont transmises dans une autre langue. Ce qui compte aussi, c'est la qualité des explications.",
+          "exemple": "Prenons l'exemple d'un documentaire sur les Pays-Bas, sous-titré en français. En découvrant comment des digues et des pompes ont permis de gagner des terres sur la mer, une personne comprend pourquoi la protection contre les inondations occupe une telle place dans le pays.",
+          "consequence": "Elle peut donc comprendre un enjeu important sans maîtriser la langue locale."
         },
         {
-          "idea": "Mais sans la langue locale, certaines discussions restent difficiles à comprendre.",
-          "developpement": "Les traductions donnent accès à des informations, mais tout n'est pas traduit sur le moment. Dans une discussion spontanée, on peut manquer les réactions et les désaccords des personnes présentes.",
-          "exemple": "Un nouvel arrivant a lu un document traduit sur un projet de logements dans son quartier. Il sait ce qu'on veut construire. Mais à la réunion, il n'arrive pas à suivre la discussion entre les voisins : il ne comprend pas pourquoi certains sont pour et d'autres contre.",
-          "consequence": "Parler la langue l'aiderait donc à comprendre leurs raisons au moment de la discussion."
+          "idea": "Mais sans cette langue, certaines discussions restent difficiles à suivre au moment où elles ont lieu.",
+          "developpement": "Tout n'est pas traduit, surtout lorsque plusieurs personnes réagissent et se répondent spontanément. On peut connaître le sujet tout en manquant les raisons des désaccords. C'est une limite différente d'un simple manque d'informations sur le pays.",
+          "exemple": "Par exemple, un nouvel arrivant a lu un document traduit sur un projet de logements dans son quartier. Il sait ce qu'on veut construire, mais pendant la réunion des voisins, il ne comprend pas pourquoi certains défendent le projet et d'autres s'y opposent.",
+          "consequence": "Parler la langue l'aiderait à suivre leurs arguments et à participer davantage à la discussion."
         }
       ],
-      "nuance": "Cependant, parler la langue ne suffit pas toujours. Le ton, les gestes et les références culturelles comptent aussi pour comprendre ce qu'une personne veut dire. On peut donc connaître tous les mots d'une phrase sans vraiment comprendre son message.",
-      "conclusion": "En conclusion, la langue n'est pas un mur infranchissable : on peut déjà apprendre en observant et grâce aux traductions. L'apprendre aide ensuite à suivre davantage d'échanges et à mieux comprendre les habitants."
+      "nuance": "Bien sûr, la langue ne suffit pas à tout expliquer : le ton, les gestes et les références culturelles comptent aussi. On peut comprendre tous les mots sans saisir une plaisanterie. Connaître un pays demande donc aussi du temps, des rencontres et de l'attention.",
+      "conclusion": "En conclusion, on peut connaître bien des aspects d'un pays sans parler sa langue. L'apprendre permet ensuite d'entrer dans davantage d'échanges, sans effacer la valeur de ce qu'on a déjà découvert."
     },
     "culture-p20": {
       "prompt_signatures": {
@@ -491,29 +491,29 @@
       },
       "reformulation": "Pourquoi associe-t-on lecture et culture, et la lecture est-elle indispensable pour être cultivé ?",
       "position": "L'association est justifiée par la réflexion que la lecture développe, mais lire n'est pas indispensable pour être cultivé.",
-      "position_claire": "Je comprends qu'on associe la lecture à la culture : elle aide à réfléchir et à approfondir un sujet. Mais je ne pense pas qu'elle soit indispensable pour être cultivé. D'autres façons d'apprendre méritent aussi d'être reconnues.",
+      "position_claire": "Je comprends qu'on associe la lecture à la culture, parce qu'elle aide à réfléchir et à approfondir ce qu'on découvre. Mais je ne pense pas qu'elle soit indispensable pour être cultivé. On peut aussi apprendre grâce aux documentaires et aux activités culturelles, avec des connaissances qui ne sont pas moins réelles.",
       "arguments": [
         {
-          "idea": "Tout d'abord, la lecture permet de développer la réflexion et la concentration.",
-          "developpement": "Lire un essai demande de garder le fil sur plusieurs pages. Comprendre le point de vue de l'auteur suppose de suivre ses arguments, mais aussi les objections qu'il examine.",
-          "exemple": "Par exemple, un essai sur la voiture en ville présente les problèmes de pollution, mais explique aussi que certains habitants n'ont pas de bus pour aller travailler. Le lecteur comprend pourquoi une interdiction totale pourrait les mettre en difficulté.",
-          "consequence": "Cette lecture aide à construire un jugement plus réfléchi, au lieu de s'arrêter à une idée isolée."
+          "idea": "Tout d'abord, la lecture développe la concentration et permet de suivre une réflexion dans sa durée.",
+          "developpement": "Dans un essai, l'auteur ne présente pas seulement une opinion : il construit un raisonnement, apporte des exemples et examine des objections. Le lecteur doit garder le fil et relier les idées entre elles. Cet effort l'aide à dépasser une première réaction pour comprendre un problème dans sa complexité.",
+          "exemple": "Par exemple, un essai sur la voiture en ville peut présenter les problèmes de pollution, puis expliquer que certains habitants n'ont pas de bus pour aller travailler. En suivant ces arguments, le lecteur comprend pourquoi une interdiction totale pourrait les mettre en difficulté.",
+          "consequence": "La lecture contribue ainsi à un jugement plus réfléchi, plutôt qu'à l'accumulation de quelques idées isolées."
         },
         {
-          "idea": "Cela dit, les documentaires et les émissions culturelles permettent aussi d'approfondir ses connaissances.",
-          "developpement": "Les images permettent d'observer une œuvre en détail, tandis que les commentaires expliquent le contexte dans lequel elle a été créée. On peut ainsi relier ce qu'on voit à l'histoire et comprendre son message, plutôt que de reconnaître seulement un tableau célèbre.",
-          "exemple": "Une personne regarde un documentaire sur Guernica de Picasso. Des gros plans montrent les personnages qui crient, puis le commentaire explique le bombardement qui a inspiré le tableau. Elle comprend ainsi pourquoi cette œuvre dénonce la violence de la guerre.",
-          "consequence": "On enrichit ainsi sa culture artistique et historique sans avoir forcément lu de livre sur le sujet."
+          "idea": "Cela dit, les documentaires permettent aussi de comprendre des œuvres et l'histoire dont elles parlent.",
+          "developpement": "L'image peut attirer notre attention sur un détail, tandis que le commentaire explique le contexte et les choix de l'artiste. On ne se contente alors pas de reconnaître une œuvre célèbre : on apprend à la regarder et à comprendre ce qu'elle exprime.",
+          "exemple": "Prenons l'exemple d'un documentaire sur Guernica de Picasso. Des gros plans montrent les personnages qui crient, puis le commentaire explique le bombardement qui a inspiré le tableau. La personne comprend ainsi pourquoi cette œuvre dénonce la violence de la guerre.",
+          "consequence": "Elle enrichit sa culture artistique et historique sans avoir nécessairement lu de livre sur le sujet."
         },
         {
-          "idea": "Enfin, on apprend aussi en pratiquant une activité culturelle.",
-          "developpement": "Les ateliers permettent d'apprendre un savoir-faire et de découvrir son histoire. En y participant, on apprend les gestes en les faisant soi-même, avec quelqu'un pour nous guider.",
-          "exemple": "Dans un atelier de poterie, un artisan montre comment tracer un motif de feuilles sur un bol. Il raconte que sa grand-mère décorait ainsi les plats des repas de fête. Les participants reproduisent le motif et découvrent cette tradition familiale, sans passer par un livre.",
-          "consequence": "La culture comprend donc aussi des savoir-faire qu'on apprend en faisant."
+          "idea": "Enfin, une partie de la culture s'apprend en pratiquant avec d'autres personnes.",
+          "developpement": "Un savoir-faire ne se résume pas à des informations que l'on pourrait réciter. En essayant les gestes avec quelqu'un qui les connaît, on apprend à les réaliser et l'on peut découvrir leur histoire. La pratique et l'explication se complètent alors dans une même expérience.",
+          "exemple": "Par exemple, dans un atelier de poterie, un artisan montre comment tracer un motif de feuilles sur un bol. Il raconte que sa grand-mère décorait ainsi les plats des repas de fête, puis accompagne les participants lorsqu'ils reproduisent le motif.",
+          "consequence": "Ils acquièrent un geste et découvrent une tradition familiale, sans passer obligatoirement par un livre."
         }
       ],
-      "nuance": "Bien sûr, un livre peut compléter un documentaire ou un atelier. Pour étudier le style d'un écrivain, lire son texte reste particulièrement utile. Mais lire beaucoup ne suffit pas : encore faut-il réfléchir, comprendre et discuter ce que l'on lit.",
-      "conclusion": "En conclusion, la lecture n'est pas indispensable pour être cultivé, même si elle reste très utile. Les documentaires et la pratique apportent aussi des connaissances : ces chemins peuvent se compléter plutôt que s'opposer.",
+      "nuance": "Bien sûr, ces façons d'apprendre peuvent se compléter. Pour étudier le style d'un écrivain, lire son texte reste particulièrement utile. Mais le nombre de livres lus ne dit pas tout : encore faut-il comprendre, réfléchir et discuter ce que l'on découvre.",
+      "conclusion": "En conclusion, la lecture reste une grande richesse, pas une condition unique pour être cultivé. Les documentaires, les rencontres et la pratique peuvent aussi nourrir une culture solide et vivante.",
       "argument_ids": [
         1,
         2,
@@ -526,7 +526,7 @@
       },
       "reformulation": "Vivre longtemps à l'étranger peut-il faire oublier des éléments de sa culture d'origine ?",
       "position": "Vivre longtemps à l'étranger peut faire oublier des mots ou des savoir-faire de sa culture, sans que ce soit automatique.",
-      "position_claire": "Oui, vivre longtemps à l'étranger peut entraîner l'oubli de certains éléments de sa culture d'origine. Mais cet oubli n'est pas automatique. En continuant à parler sa langue et à pratiquer certaines traditions avec ses proches, on risque moins de les oublier.",
+      "position_claire": "Oui, vivre longtemps à l'étranger peut conduire à oublier certains éléments de sa culture d'origine. Quand les occasions de parler sa langue ou de pratiquer une tradition deviennent plus rares, les souvenirs ne restent pas toujours aussi précis. Mais cet oubli n'est pas automatique : les liens que l'on garde comptent aussi.",
       "argument_ids": [
         1,
         4,
@@ -534,26 +534,26 @@
       ],
       "arguments": [
         {
-          "idea": "Tout d'abord, quand on utilise moins sa langue d'origine, on peut finir par oublier certains mots et certaines expressions.",
-          "developpement": "Certaines expressions étaient familières pendant l'enfance. Si une autre langue occupe presque toute la vie quotidienne, on les emploie moins et leur sens peut devenir moins clair, jusqu'à s'oublier.",
-          "exemple": "Par exemple, un père répète à son enfant un proverbe que sa grand-mère lui disait souvent. Quand l'enfant lui demande ce qu'il signifie, le père hésite : après des années sans l'utiliser, il en a oublié le sens.",
-          "consequence": "Ces oublis peuvent donc compliquer la transmission d'une partie de la culture familiale."
+          "idea": "Tout d'abord, on peut oublier certains mots et certaines expressions lorsqu'on utilise moins sa langue d'origine.",
+          "developpement": "Une expression familière pendant l'enfance ne reste pas forcément facile à expliquer si l'on ne l'entend plus. Quand une autre langue occupe presque tout le quotidien, certains mots reviennent moins spontanément et leur sens peut devenir flou. On garde alors un souvenir sans toujours retrouver ce qu'il voulait dire.",
+          "exemple": "Par exemple, un père répète à son enfant un proverbe que sa grand-mère lui disait souvent. Mais lorsque l'enfant lui demande son sens, il hésite : après des années sans l'utiliser, il reconnaît encore les mots sans savoir expliquer le message.",
+          "consequence": "Il peut ainsi avoir besoin de retrouver une explication avant de transmettre cette expression à son enfant."
         },
         {
-          "idea": "Ensuite, on peut aussi perdre certains savoir-faire liés aux traditions familiales.",
-          "developpement": "On retient mieux certains gestes quand on les refait régulièrement avec ses proches. Loin d'eux, on peut avoir moins d'occasions de pratiquer et oublier peu à peu comment faire, même si l'on continue à parler sa langue d'origine.",
-          "exemple": "Par exemple, une mère essaie de montrer à ses enfants une danse traditionnelle qu'elle connaissait bien. Après des années sans la pratiquer, elle reconnaît la musique, mais ne retrouve plus certains pas. Sa sœur les lui montre à nouveau.",
-          "consequence": "Elle a donc besoin de réapprendre ces pas pour pouvoir transmettre cette danse à ses enfants."
+          "idea": "Ensuite, certains savoir-faire peuvent se perdre même lorsque l'on continue à parler sa langue.",
+          "developpement": "Une danse ou une recette demande des gestes que l'on retient mieux en les refaisant. Loin des occasions familiales où on les pratiquait, on peut en garder un souvenir affectueux sans savoir les reproduire. Ce n'est donc pas exactement le même oubli que celui d'un mot.",
+          "exemple": "Prenons l'exemple d'une mère qui veut montrer une danse traditionnelle à ses enfants. Elle reconnaît la musique, mais après des années sans danser, elle ne retrouve plus certains pas. Sa sœur les lui montre à nouveau pour l'aider à reprendre.",
+          "consequence": "Elle doit réapprendre une partie de la danse avant de pouvoir la transmettre à son tour."
         },
         {
-          "idea": "Mais des contacts réguliers peuvent préserver ces repères malgré les années.",
-          "developpement": "Les appels, les visites et les fêtes partagées offrent des occasions de pratiquer sa langue et ses traditions. On peut aussi demander une précision et retrouver un mot ou un geste oublié.",
-          "exemple": "Par exemple, une personne installée depuis vingt ans à l'étranger téléphone chaque semaine à sa sœur dans leur langue familiale. Ces échanges lui permettent de continuer à utiliser des expressions qu'elle entend rarement au travail.",
-          "consequence": "La durée du séjour ne suffit donc pas à prévoir ce qui sera gardé ou oublié."
+          "idea": "Mais des contacts réguliers peuvent préserver ces repères, même après de nombreuses années à l'étranger.",
+          "developpement": "Les appels, les visites et les activités partagées donnent des occasions de continuer à parler et à pratiquer. On peut aussi poser une question et retrouver quelque chose qu'on avait oublié. La culture reste alors présente dans les échanges, pas seulement dans les souvenirs.",
+          "exemple": "Par exemple, une personne installée depuis vingt ans à l'étranger téléphone chaque semaine à sa sœur dans leur langue familiale. Ces conversations lui permettent de continuer à employer des expressions qu'elle entend rarement au travail ou avec ses voisins.",
+          "consequence": "Un long séjour à l'étranger n'empêche donc pas, à lui seul, de conserver ces connaissances."
         }
       ],
-      "nuance": "Cependant, entretenir ce lien dépend aussi du temps, des ressources et de l'histoire familiale. Adopter d'autres habitudes n'est pas nécessairement oublier ses origines. Il arrive qu'on change de vie tout en restant attaché à ce qu'on veut conserver et transmettre.",
-      "conclusion": "En conclusion, mots et savoir-faire peuvent s'oublier faute de pratique. Mais les liens et les activités maintenus comptent davantage que les années : vivre loin ne veut pas forcément dire tout perdre."
+      "nuance": "Bien sûr, garder ces liens dépend aussi du temps, des ressources et de l'histoire familiale. Il arrive qu'on change de vie tout en restant attaché à ses origines. Une nouvelle habitude ne signifie donc pas forcément qu'une ancienne culture a été oubliée.",
+      "conclusion": "En conclusion, l'éloignement peut favoriser certains oublis, surtout faute de pratique. Mais ce que l'on garde, partage et retrouve avec les autres compte aussi : vivre ailleurs ne signifie pas nécessairement perdre sa culture."
     },
     "culture-p31": {
       "prompt_signatures": {
@@ -561,29 +561,29 @@
       },
       "reformulation": "La télé-réalité a-t-elle une mauvaise influence sur les jeunes ?",
       "position": "La télé-réalité peut avoir une influence négative sur les jeunes, sans effet automatique ni identique pour tous.",
-      "position_claire": "Je pense que certaines émissions de télé-réalité peuvent avoir une mauvaise influence sur les jeunes. Le problème n'est pas simplement qu'elles divertissent : elles peuvent présenter des moments choisis comme un modèle de vie, jusque dans les relations et les achats.",
+      "position_claire": "Je pense que certaines émissions de télé-réalité peuvent avoir une mauvaise influence sur les jeunes, sans que cela soit automatique. Le problème n'est pas qu'elles divertissent, mais qu'elles peuvent présenter des moments choisis comme un modèle de vie. Cela peut jouer sur l'idée de la réussite, les relations et les achats.",
       "arguments": [
         {
           "idea": "Tout d'abord, ces émissions peuvent donner une image trompeuse de la réussite.",
-          "developpement": "On voit des voyages, de beaux vêtements et des moments de fête, mais beaucoup moins le travail ou les difficultés. Un jeune peut finir par croire qu'être connu et vivre dans le luxe, c'est cela, réussir.",
-          "exemple": "Un lycéen regarde un candidat en vacances dans une villa avec piscine. En comparant ces images à ses cours et à son petit boulot du week-end, il trouve sa propre vie décevante, alors qu'il voit seulement des moments choisis.",
-          "consequence": "Cela peut lui faire sous-estimer la valeur de ses études et de son travail."
+          "developpement": "On voit des voyages, de beaux vêtements et des moments de fête, mais beaucoup moins le travail ou les difficultés qui existent en dehors des images. Un jeune peut alors comparer tout son quotidien à quelques moments privilégiés et trouver sa propre vie moins intéressante.",
+          "exemple": "Par exemple, un lycéen regarde un candidat en vacances dans une villa avec piscine. À côté de ces images, ses cours et son petit boulot du week-end lui paraissent décevants. Pourtant, il compare ses journées ordinaires à une partie choisie de la vie du candidat.",
+          "consequence": "Cette comparaison peut lui faire sous-estimer ses études et ses efforts, alors qu'ils construisent aussi son avenir."
         },
         {
-          "idea": "Ensuite, certaines émissions peuvent banaliser les comportements agressifs.",
-          "developpement": "Quand des candidats attirent l'attention en insultant ou en se moquant des autres, le manque de respect peut sembler être une façon de faire rire ou de se faire remarquer. À force, un jeune peut prêter plus d'attention à la plaisanterie qu'à la personne blessée.",
-          "exemple": "Par exemple, une émission peut reprendre une remarque sur le physique d'un candidat parmi ses moments les plus drôles. On met en avant les rires, mais on montre à peine le malaise de la personne visée.",
-          "consequence": "Un jeune risque alors de trouver une remarque acceptable parce qu'elle fait rire, même si elle humilie quelqu'un."
+          "idea": "Ensuite, certaines émissions risquent de rendre l'humiliation plus acceptable en la présentant comme un divertissement.",
+          "developpement": "Quand une insulte attire l'attention et fait rire, le spectateur peut retenir la plaisanterie plutôt que la peine de la personne visée. Si ce comportement est régulièrement mis en valeur, le manque de respect peut sembler être une manière normale de se faire remarquer.",
+          "exemple": "Par exemple, une émission reprend une remarque sur le physique d'un candidat parmi ses moments les plus drôles. Le montage insiste sur les rires, mais montre à peine le malaise de la personne concernée.",
+          "consequence": "Un jeune peut alors trouver la remarque acceptable parce qu'elle amuse les autres, sans voir ce qu'elle fait vivre à celui qui la reçoit."
         },
         {
-          "idea": "Enfin, un jeune peut confondre les publicités des candidats avec des conseils personnels.",
-          "developpement": "Un jeune peut continuer à suivre un candidat sur les réseaux sociaux après l'émission. Comme il s'est attaché à lui, il peut faire confiance à ses recommandations sans voir qu'une marque le paie.",
-          "exemple": "Un adolescent commande les chaussures recommandées par un candidat qu'il aime bien. Celui-ci les présente comme ses préférées. Après l'achat, l'adolescent remarque la mention « partenariat rémunéré » : la marque avait payé le candidat pour en parler.",
-          "consequence": "Il a donc fait un achat en croyant suivre un avis personnel, sans reconnaître la publicité."
+          "idea": "Enfin, l'attachement aux candidats peut rendre leurs publicités difficiles à distinguer de conseils personnels.",
+          "developpement": "Après l'émission, un jeune peut continuer à suivre un candidat sur les réseaux sociaux. Comme il a l'impression de le connaître, il peut faire confiance à ses recommandations sans se demander si une marque le rémunère. La relation créée par le programme peut ainsi influencer ses achats.",
+          "exemple": "Prenons l'exemple d'un adolescent qui commande les chaussures qu'un candidat présente comme ses préférées. Après l'achat, il remarque la mention « partenariat rémunéré » : il découvre que la marque avait payé cette recommandation.",
+          "consequence": "Il a donc acheté en croyant suivre un conseil personnel, sans avoir identifié la publicité."
         }
       ],
-      "nuance": "Cependant, des jeunes regardent ces émissions pour se distraire sans vouloir imiter les candidats. Bien qu'ils sachent parfois prendre du recul, la répétition peut rendre ces modèles plus familiers. Le risque dépend aussi du regard critique et des discussions.",
-      "conclusion": "En conclusion, je ne condamne pas toute la télé-réalité, mais ses effets méritent de l'attention. En discuter aide les jeunes à distinguer ce qui est mis en spectacle de leur propre vie, sans prendre les candidats pour des modèles en tout.",
+      "nuance": "Bien sûr, les programmes et les réactions diffèrent. Certains jeunes regardent pour se divertir sans vouloir imiter les candidats. Bien qu'ils sachent parfois prendre du recul, discuter des images et des publicités peut les aider à reconnaître ce qui est mis en scène.",
+      "conclusion": "En conclusion, je ne condamne pas toute la télé-réalité. Mais il est utile d'en parler pour distinguer le spectacle de sa propre vie, et un candidat apprécié d'un modèle à suivre dans tous les domaines.",
       "argument_ids": [
         1,
         2,

@@ -106,8 +106,8 @@
             "english": "Books and documentaries explain practices."
           },
           "example": {
-            "french": "Cuisine ouest-africaine : riz, sauce aux arachides et histoire du plat.",
-            "english": "West African cooking: rice, peanut sauce and the dish's history."
+            "french": "Un livre sur la cuisine portugaise explique le poisson salé et séché pour les longs voyages en mer.",
+            "english": "A book on Portuguese cooking explains fish salted and dried for long sea voyages."
           }
         },
         {
@@ -376,8 +376,8 @@
         "english": "Possible negative influence: selected moments on screen can become a model for life."
       },
       "nuance": {
-        "french": "On peut regarder sans vouloir imiter ; répétition, regard critique et discussions comptent.",
-        "english": "People can watch without wanting to imitate; repetition, critical judgement and discussion matter."
+        "french": "Regarder sans imiter est possible ; discuter des images et publicités aide à reconnaître la mise en scène.",
+        "english": "Watching without imitating is possible; discussing images and advertisements helps identify staging."
       },
       "conclusion": {
         "french": "En discuter pour distinguer ce qui est mis en spectacle de sa propre vie.",
@@ -640,8 +640,8 @@
             "english": "Seek context."
           },
           "example": {
-            "french": "Lire une présentation et le texte d'une réforme pour distinguer annonces, débats et mesures appliquées.",
-            "english": "Read an explanation and the reform text to distinguish announcements, debates and measures actually applied."
+            "french": "Réforme des bourses : le dossier précise qu'elle concerne les futurs inscrits, pas les bénéficiaires actuels.",
+            "english": "Grant reform: detailed coverage shows it applies to future students, not current recipients."
           }
         }
       ]
@@ -668,8 +668,8 @@
             "english": "Understand an image by knowing where and when it was taken."
           },
           "example": {
-            "french": "Un reportage montre une route coupée après une inondation ; la carte indique quels quartiers ne sont plus reliés.",
-            "english": "A report shows a road cut off after flooding; the map shows which neighbourhoods are no longer connected."
+            "french": "Route coupée après une inondation : les images et la carte expliquent pourquoi certains trajets habituels sont impossibles.",
+            "english": "Road cut off after flooding: images and a map explain why some usual journeys are impossible."
           }
         },
         {
@@ -730,8 +730,8 @@
         }
       ],
       "nuance": {
-        "french": "Le papier peut se perdre ou s'abîmer ; le numérique peut aussi garder des souvenirs.",
-        "english": "Paper letters can be lost or damaged; digital messages can also preserve memories."
+        "french": "Le numérique peut aussi être personnel et conservé ; courrier lent, parfois perdu ou abîmé, écriture parfois difficile.",
+        "english": "Digital messages can also be personal and kept; post can be slow, lost or damaged, and handwriting difficult."
       },
       "conclusion": {
         "french": "Choisir le support selon la relation et le besoin.",
@@ -758,8 +758,8 @@
             "english": "Compare the reasons behind a disagreement."
           },
           "example": {
-            "french": "Comparer les objectifs d'un réseau de transport et les difficultés d'accès des riverains.",
-            "english": "Compare a transport network's aims with residents' access difficulties."
+            "french": "Bus plus rapide, mais arrêts supprimés : comparer le gain de temps et la marche supplémentaire pour des habitants.",
+            "english": "Faster bus, but fewer stops: compare time saved with some residents' longer walk."
           }
         },
         {
@@ -768,8 +768,8 @@
             "english": "Check the original claim."
           },
           "example": {
-            "french": "Retrouver la date d'une photo ancienne présentée comme récente.",
-            "english": "Find the date of an old photo presented as recent."
+            "french": "Une recherche à partir de la photo retrouve le même cliché, cinq ans plus tôt dans un autre pays.",
+            "english": "An image search finds the same photo from five years earlier in another country."
           }
         },
         {
@@ -814,8 +814,8 @@
             "english": "Compare the reasons behind a disagreement."
           },
           "example": {
-            "french": "Comparer les objectifs d'un réseau de transport et les difficultés d'accès des riverains.",
-            "english": "Compare a transport network's aims with residents' access difficulties."
+            "french": "Bus plus rapide, mais arrêts supprimés : comparer le gain de temps et la marche supplémentaire pour des habitants.",
+            "english": "Faster bus, but fewer stops: compare time saved with some residents' longer walk."
           }
         },
         {
@@ -824,8 +824,8 @@
             "english": "The level of detail."
           },
           "example": {
-            "french": "Après un résumé de décision municipale, lire un dossier et le texte original pour séparer faits et commentaires.",
-            "english": "After a summary of a municipal decision, read detailed coverage and the original text to separate facts from comments."
+            "french": "Horaires de bibliothèque : le compte rendu du conseil révèle une proposition, pas une décision adoptée.",
+            "english": "Library hours: council minutes reveal a proposal, not an adopted decision."
           }
         }
       ]

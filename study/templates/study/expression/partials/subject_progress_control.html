@@ -1,11 +1,11 @@
-<div
+{% load study_bookmarks %}<div
   class="subject-progress-control{% if subject_progress.explicitly_completed %} is-complete{% endif %}{% if compact_audio_control %} subject-progress-control--audio{% endif %}{% if cached_playlist_url %} subject-progress-control--cached{% endif %}"
   data-subject-progress-control="{{ response.pk }}">
   <span
     class="progress-status progress-status--{{ subject_progress.status }}"
     data-subject-progress-status="{{ response.pk }}">{{ subject_progress.label }}</span>
   <div class="subject-progress-control__action">
-    {# Visually hidden, but kept in the DOM for saved sidebar annotation offsets. #}<span class="sr-only">J’ai terminé ce sujet</span>
+    {% spaceless %}{% subject_bookmark response_id=response.pk label=subject_label %}{% endspaceless %}{# Visually hidden, but kept in the DOM for saved sidebar annotation offsets. #}<span class="sr-only">J’ai terminé ce sujet</span>
     {% if allow_status_reset %}{% spaceless %}{% include "study/expression/partials/subject_status_reset_form.html" %}{% endspaceless %}{% endif %}{% include "study/expression/partials/subject_completion_form.html" with response_id=response.pk progress=subject_progress subject_label=subject_label part=part task=task %}{% if practice_url %}{% spaceless %}<a class="subject-practice-link" href="{{ practice_url }}" aria-label="{{ practice_label }}" title="{{ practice_label }}" data-annotation-exclude>{% include "study/shared/partials/ui_icon.html" with name="target" only %}</a>{% endspaceless %}{% endif %}{% if cached_playlist_url %}{% spaceless %}{% include "study/expression/eo/tache_3/partials/eo3_cached_reader_button.html" %}{% endspaceless %}{% endif %}
   </div>
 </div>{% if cached_playlist_url %}{% spaceless %}{% include "study/expression/eo/tache_3/partials/eo3_cached_reader.html" %}{% endspaceless %}{% endif %}

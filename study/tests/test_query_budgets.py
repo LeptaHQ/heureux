@@ -321,12 +321,12 @@ class EePageBudgetTests(QueryBudgetTestCase):
     def test_full_corpus_pages_stay_within_query_budgets(self):
         budgets = {
             "t1-overview": 9,
-            "t1-subjects": 8,
+            "t1-subjects": 9,  # Includes one request-batched bookmark lookup.
             "t1-formulations": 6,
             "t1-formulations-practice": 6,
             "t1-formulations-theme": 6,
             "t2-overview": 9,
-            "t2-subjects": 8,
+            "t2-subjects": 9,
             "t2-vocabulary": 8,
             "t2-vocabulary-theme": 8,
             "t3-overview": 11,

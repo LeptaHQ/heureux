@@ -419,6 +419,42 @@ class WritingSujetCompletion(models.Model):
         return f"{self.user} · {self.sujet} · completed"
 
 
+class SubjectBookmark(models.Model):
+    """A learner's saved subject, independent of study progress."""
+
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="subject_bookmarks",
+    )
+    response = models.ForeignKey(
+        Response, on_delete=models.CASCADE, null=True, blank=True,
+        related_name="bookmarks",
+    )
+    sujet = models.ForeignKey(
+        WritingSujet, on_delete=models.CASCADE, null=True, blank=True,
+        related_name="bookmarks",
+    )
+    created_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        constraints = [
+            models.CheckConstraint(
+                name="subject_bookmark_has_one_target",
+                check=(
+                    Q(response__isnull=False, sujet__isnull=True)
+                    | Q(response__isnull=True, sujet__isnull=False)
+                ),
+            ),
+            models.UniqueConstraint(
+                fields=["user", "response"], name="unique_user_response_bookmark",
+            ),
+            models.UniqueConstraint(
+                fields=["user", "sujet"], name="unique_user_writing_bookmark",
+            ),
+        ]
+
+
 class Prompt(models.Model):
     """A prompt as numbered inside a theme; maps onto exactly one Response."""
 

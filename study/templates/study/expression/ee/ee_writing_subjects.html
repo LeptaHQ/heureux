@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load static %}
 {% block title %}Sujets · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
@@ -24,14 +23,12 @@
 
   {% include "study/shared/partials/collection_toolbar.html" with with_search=True progress_completed=subject_progress.completed progress_total=subject_progress.total progress_unit="sujets terminés" show_views=categories %}
 
-  {% include "study/expression/partials/subject_collection.html" with groups=categories kind="writing" secondary_label="Versions" prompt_source="ee-writing-prompts" %}
+  {% include "study/expression/partials/subject_collection.html" with groups=categories kind="writing" secondary_label="Versions" %}
 </div>
 {% include "study/expression/ee/partials/writing_methodology_dialog.html" with tache=writing_tache only %}
-{{ subject_prompt_map|json_script:"ee-writing-prompts" }}
 {% endblock %}
 
 {% block scripts %}
   {{ block.super }}
   {% include "study/expression/partials/subject_progress_script.html" %}
-  <script src="{% static 'study/js/shared/prompt-copy.js' %}?v=3"></script>
 {% endblock %}

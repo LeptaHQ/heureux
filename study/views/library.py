@@ -56,6 +56,7 @@ from ..models import (
     Rating,
     Response,
     ReviewLog,
+    SubjectBookmark,
     Task,
     Theme,
     ThemeVocabularyProgress,
@@ -981,10 +982,6 @@ def _ee_writing_subject_context(
         "writing_tache": tache,
         "word_limit_min": minimum,
         "word_limit_max": maximum,
-        "subject_prompt_map": {
-            source.source_key: source.prompt
-            for source in source_by_slug.values()
-        },
     }
 
 
@@ -1518,11 +1515,6 @@ def browse(request, part_slug=None, task_slug=None):
             request.user, deduplicate=deduplicate, summary_only=True,
         )
         themes = subject_state["themes"]
-        subject_prompt_map = {
-            subject["content_key"]: subject["prompt"]
-            for theme in themes
-            for subject in theme["subjects"]
-        }
         return render(
             request,
             "study/expression/eo/tache_2/tache_two_subjects.html",
@@ -1531,7 +1523,6 @@ def browse(request, part_slug=None, task_slug=None):
                 "task": forced_task,
                 **deduplication_context,
                 "subject_themes": themes,
-                "subject_prompt_map": subject_prompt_map,
                 "subject_summary": subject_state,
                 "theme_count": subject_state["theme_count"],
                 "subject_count": sum(theme["subject_count"] for theme in themes),
@@ -1748,10 +1739,6 @@ def browse(request, part_slug=None, task_slug=None):
     context = {
         "themes": themes,
         "subject_themes": subject_themes,
-        "subject_prompt_map": {
-            str(row["prompt"].pk): row["prompt"].text
-            for group in subject_themes for row in group["subjects"]
-        },
         "display_count": sum(group["subject_count"] for group in subject_themes),
         "publication_count": publication_count,
         "oral_directory": oral_directory,
@@ -2835,10 +2822,6 @@ def task_subject_batch(request, part_slug, task_slug, month_slug, batch_number):
         for batch in month["batches"]
         if batch["number"] == batch_number
     )
-    subject_prompt_map = {
-        subject["content_key"]: subject["prompt"]
-        for subject in batch["subjects"]
-    }
     return render(
         request,
         "study/expression/eo/tache_2/tache_two_subject_batch.html",
@@ -2847,7 +2830,6 @@ def task_subject_batch(request, part_slug, task_slug, month_slug, batch_number):
             "task": task,
             "subject_month": month,
             "subject_batch": batch,
-            "subject_prompt_map": subject_prompt_map,
         },
     )
 
@@ -3418,10 +3400,7 @@ def task_memory_progress(request, part_slug, task_slug, memory_number):
     )
 
 
-@require_POST
-@transaction.atomic
-def subject_completion(request, part_slug, task_slug, response_id):
-    task = _route_task(part_slug, task_slug, request=request)
+def _subject_route_prompt(task, response_id):
     route_prompt = (
         _lean_prompt_rows(
             Prompt.objects.select_related("theme__task__part")
@@ -3438,6 +3417,55 @@ def subject_completion(request, part_slug, task_slug, response_id):
     )
     if route_prompt is None:
         raise Http404
+    return route_prompt
+
+
+@require_POST
+@transaction.atomic
+def subject_bookmark(request, part_slug, task_slug, target_type, target_id):
+    if target_type == "response":
+        task = _route_task(part_slug, task_slug, request=request)
+        prompt = _subject_route_prompt(task, target_id)
+        target = {"response_id": prompt.response_id}
+        canonical_id = prompt.response_id
+        detail_url = prompt_detail_url(prompt)
+    elif target_type == "writing-sujet":
+        task, sujet, tache = _route_writing_sujet(
+            request, part_slug, task_slug, target_id,
+        )
+        canonical = _canonical_writing_sujet(task, sujet, tache)
+        target = {"sujet_id": canonical.pk}
+        canonical_id = canonical.pk
+        detail_url = reverse(
+            "study:writing_sujet_detail", args=[part_slug, task_slug, sujet.pk],
+        )
+    else:
+        raise Http404
+
+    bookmarked = request.POST.get("bookmarked")
+    if bookmarked not in {"0", "1"}:
+        message = "État du favori invalide."
+        if request.headers.get("X-Requested-With") == "fetch":
+            return JsonResponse({"error": message}, status=400)
+        return HttpResponseBadRequest(message)
+
+    if bookmarked == "1":
+        SubjectBookmark.objects.get_or_create(user=request.user, **target)
+    else:
+        SubjectBookmark.objects.filter(user=request.user, **target).delete()
+    if request.headers.get("X-Requested-With") == "fetch":
+        return JsonResponse({
+            "key": f"{target_type}:{canonical_id}",
+            "bookmarked": bookmarked == "1",
+        })
+    return redirect(detail_url)
+
+
+@require_POST
+@transaction.atomic
+def subject_completion(request, part_slug, task_slug, response_id):
+    task = _route_task(part_slug, task_slug, request=request)
+    route_prompt = _subject_route_prompt(task, response_id)
     completed = request.POST.get("completed")
     action = request.POST.get("action", "")
     reset_status = action == "reset"

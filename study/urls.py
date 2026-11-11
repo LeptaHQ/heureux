@@ -576,6 +576,12 @@ urlpatterns = [
     ),
     path(
         "expression/<expression_part:part_slug>/<slug:task_slug>/"
+        "sujets/favoris/<slug:target_type>/<int:target_id>/",
+        views.subject_bookmark,
+        name="subject_bookmark",
+    ),
+    path(
+        "expression/<expression_part:part_slug>/<slug:task_slug>/"
         "sujets/progression/<int:response_id>/",
         views.subject_completion,
         name="subject_completion",

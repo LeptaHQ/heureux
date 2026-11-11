@@ -1,4 +1,4 @@
-{% load study_links %}
+{% load study_links study_bookmarks %}
 {% subject_url 'study:response_detail' part.slug task.slug prompt.pk as detail_url %}
 {% subject_display_category prompt as display_category %}
 <article
@@ -17,6 +17,7 @@
     {% if is_alias %}<span class="alias-tag" title="{{ alias_title }}">= {{ prompt.response.theme.display_name }} P{{ canonical_number }}</span>{% endif %}
   </span>
   <div class="qrow__meta{% if state_only %} qrow__meta--state{% endif %}">
+    {% subject_bookmark response_id=prompt.response_id label=prompt.text %}
     {% if display_category %}<span class="muted">{{ display_category.theme.label }} · {{ display_category.label }} · Source : {{ prompt.theme.display_name }} P{{ prompt.number }}</span>{% elif context_label %}<span class="muted">{{ context_label }}</span>{% endif %}
     <span
       class="progress-status progress-status--{{ progress.status }}"

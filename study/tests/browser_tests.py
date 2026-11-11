@@ -46,6 +46,7 @@ from study.models import (
     Rating,
     ReviewLog,
     ReviewSession,
+    SubjectBookmark,
     Task,
     WritingSujet,
 )
@@ -1884,6 +1885,120 @@ class BrowserTests(StaticLiveServerTestCase):
                 1,
             )
             self.assert_no_horizontal_overflow()
+
+    def test_subject_bookmarks_are_red_persistent_and_shared_by_directory_and_detail(self):
+        self.theme.delete()
+        call_command("import_content", stdout=StringIO())
+        provision_user_study_data(self.user)
+        self.page.evaluate("localStorage.setItem('collectionViewMode', 'table')")
+        for part, tache in (("eo", 3), ("ee", 3), ("eo", 2), ("ee", 1), ("ee", 2)):
+            with self.subTest(part=part, tache=tache):
+                directory_url = self.live_server_url + reverse(
+                    "study:task_browse", args=[part, f"tache-{tache}"],
+                )
+                self.page.goto(directory_url)
+                form = self.page.locator("[data-subject-bookmark-form]").first
+                key = form.get_attribute("data-subject-bookmark-key")
+                forms = self.page.locator(f'[data-subject-bookmark-key="{key}"]')
+                form.evaluate("""form => {
+                    for (let parent = form.parentElement; parent; parent = parent.parentElement) {
+                        if (parent.tagName === "DETAILS") parent.open = true;
+                    }
+                }""")
+                row = form.locator("xpath=ancestor::tr")
+                detail_path = row.locator("a.subject-table-row-link").get_attribute("href")
+                expect(row.locator(".prompt-copy-button")).to_have_count(0)
+                status = row.locator(".progress-status").text_content()
+                form.locator("svg").click()
+                expect(form.locator("button")).to_have_attribute("aria-pressed", "true")
+                self.assertEqual(forms.locator('[aria-pressed="true"]').count(), forms.count())
+                self.assertEqual(row.locator(".progress-status").text_content(), status)
+                self.assertEqual(self.page.url, directory_url)
+                self.assertEqual(len(self.context.pages), 1)
+                expect(form.locator("button")).to_have_css("color", "rgb(213, 31, 53)")
+                self.assertEqual(
+                    form.locator("button").evaluate(
+                        "button => getComputedStyle(button).getPropertyValue('--bookmark-fill').trim()"
+                    ),
+                    "currentColor",
+                )
+                self.page.reload()
+                expect(self.page.locator(
+                    f'[data-subject-bookmark-key="{key}"] button'
+                ).first).to_have_attribute("aria-pressed", "true")
+                self.page.goto(self.live_server_url + detail_path)
+                button = self.page.locator(f'[data-subject-bookmark-key="{key}"] button')
+                expect(button).to_have_count(1)
+                expect(button).to_have_attribute("aria-pressed", "true")
+                for width in (320, 390, 1183):
+                    self.page.set_viewport_size({"width": width, "height": 844})
+                    self.assert_no_horizontal_overflow()
+                self.page.set_viewport_size({"width": 390, "height": 844})
+                button.focus()
+                button.press("Space")
+                expect(button).to_have_attribute("aria-pressed", "false")
+                expect(button).to_be_focused()
+                target_type, target_id = key.split(":")
+                self.assertFalse(SubjectBookmark.objects.filter(
+                    user=self.user, **{
+                        "response_id" if target_type == "response" else "sujet_id": target_id,
+                    },
+                ).exists())
+                self.page.goto(directory_url)
+                expect(self.page.locator(
+                    f'[data-subject-bookmark-key="{key}"] button'
+                ).first).to_have_attribute("aria-pressed", "false")
+
+    def test_subject_bookmarks_share_pending_and_recover_from_server_errors(self):
+        prompt = self.first.response.prompts.get(is_canonical=True)
+        Prompt.objects.create(
+            content_key="test:duplicate-bookmark", response=prompt.response,
+            theme=self.theme, family=prompt.family, number=999,
+            text="Autre formulation pour le même favori.",
+        )
+        self.page.evaluate("localStorage.setItem('collectionViewMode', 'table')")
+        url = self.live_server_url + reverse(
+            "study:task_browse", args=["eo", "tache-3"],
+        ) + "?deduplicate=0"
+        self.page.goto(url)
+        forms = self.page.locator(
+            f'[data-subject-bookmark-key="response:{prompt.response_id}"]'
+        )
+        expect(forms).to_have_count(2)
+        forms.first.evaluate("""form => {
+            for (let parent = form.parentElement; parent; parent = parent.parentElement) {
+                if (parent.tagName === "DETAILS") parent.open = true;
+            }
+        }""")
+        requests = []
+        pattern = "**" + forms.first.get_attribute("action")
+        self.page.route(pattern, lambda route: requests.append(route))
+        button = forms.first.locator("button")
+        button.click()
+        expect(forms.locator("button:disabled")).to_have_count(2)
+        forms.last.evaluate("form => form.requestSubmit()")
+        self.assertEqual(len(requests), 1)
+        requests.pop().fulfill(status=403, json={"error": "Favori refusé."})
+        toast = self.page.locator("[data-subject-progress-toast]")
+        expect(toast).to_have_text("Favori refusé.")
+        expect(forms.locator("button:disabled")).to_have_count(0)
+        expect(button).to_be_focused()
+        for payload in ("not-json", "{}"):
+            button.click()
+            requests.pop().fulfill(status=200, body=payload, content_type="application/json")
+            expect(toast).to_have_text("La réponse du serveur est inattendue.")
+            expect(forms.locator('[aria-pressed="true"]')).to_have_count(0)
+            expect(forms.locator("[aria-busy]")).to_have_count(0)
+        button.click()
+        requests.pop().fulfill(status=200, json={
+            "key": f"response:{prompt.response_id}", "bookmarked": True,
+        })
+        expect(forms.locator('[aria-pressed="true"]')).to_have_count(2)
+        expect(forms.locator('input[name="bookmarked"][value="0"]')).to_have_count(2)
+        expect(toast).to_be_hidden()
+        self.assertEqual(self.page.url, url)
+        self.assertEqual(len(self.context.pages), 1)
+        self.page.unroute(pattern)
 
     def test_subject_completion_shares_pending_errors_and_writing_events(self):
         self.theme.delete()

@@ -1,0 +1,18 @@
+{% if key %}<form
+  class="subject-bookmark{% if bookmarked %} is-bookmarked{% endif %}"
+  method="post"
+  action="{% url 'study:subject_bookmark' part.slug task.slug target_type target_id %}"
+  data-subject-bookmark-form
+  data-subject-bookmark-key="{{ key }}"
+  data-annotation-exclude>
+  {% csrf_token %}
+  <input type="hidden" name="bookmarked" value="{% if bookmarked %}0{% else %}1{% endif %}">
+  <button
+    class="icon-button"
+    type="submit"
+    aria-pressed="{{ bookmarked|yesno:'true,false' }}"
+    aria-label="Favori : {{ subject_label }}"
+    title="{% if bookmarked %}Retirer des favoris{% else %}Ajouter aux favoris{% endif %}">
+    {% include "study/shared/partials/ui_icon.html" with name="bookmark" only %}
+  </button>
+</form>{% endif %}

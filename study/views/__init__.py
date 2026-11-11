@@ -47,6 +47,7 @@ from .library import (
     response_detail,
     search,
     stats,
+    subject_bookmark,
     subject_completion,
     tache_two_theme_vocabulary,
     tache_two_theme_vocabulary_detail,

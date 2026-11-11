@@ -721,6 +721,19 @@ def export_account(request):
             .select_related("sujet__task__part")
             .order_by("completed_at", "pk")
         ],
+        "subject_bookmarks": [
+            {
+                "response_key": row["response__content_key"],
+                "sujet": row["sujet__slug"],
+                "part": row["sujet__task__part__slug"],
+                "task": row["sujet__task__slug"],
+                "created_at": row["created_at"],
+            }
+            for row in request.user.subject_bookmarks.order_by("created_at", "pk").values(
+                "response__content_key", "sujet__slug",
+                "sujet__task__part__slug", "sujet__task__slug", "created_at",
+            )
+        ],
         "learning_lesson_progress": [
             {
                 "lesson_id": item.lesson_id,

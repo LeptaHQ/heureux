@@ -15988,6 +15988,8 @@ html[data-collection-view-mode="table"]
 }
 .subject-progress-row .subject-completion-check,
 .subject-progress-row .subject-completion-check *,
+.subject-progress-row .subject-bookmark,
+.subject-progress-row .subject-bookmark *,
 .subject-progress-row .prompt-copy-button,
 .subject-progress-row .prompt-copy-button * {
   pointer-events: auto;
@@ -16012,6 +16014,8 @@ html[data-collection-view-mode="table"]
 .subject-table-row .subject-table-row-link,
 .subject-table-row .subject-completion-check,
 .subject-table-row .subject-completion-check *,
+.subject-table-row .subject-bookmark,
+.subject-table-row .subject-bookmark *,
 .subject-table-row .prompt-copy-button,
 .subject-table-row .prompt-copy-button * {
   pointer-events: auto;
@@ -16027,12 +16031,39 @@ html[data-collection-view-mode="table"]
   inset: 0;
 }
 .subject-table-row .subject-completion-check,
+.subject-table-row .subject-bookmark,
 .subject-table-row .prompt-copy-button {
   position: relative;
   z-index: 2;
 }
 .subject-table-row-link:hover {
   text-decoration: none;
+}
+.subject-bookmark {
+  flex: 0 0 auto;
+  margin: 0;
+}
+.subject-bookmark .icon-button {
+  --icon-color: currentColor;
+  color: var(--text-faint);
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  padding: 0;
+}
+.subject-bookmark .ui-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+.subject-bookmark.is-bookmarked .icon-button {
+  --bookmark-fill: currentColor;
+  color: var(--again);
+  border-color: color-mix(in srgb, var(--again) 45%, var(--border));
+  background: color-mix(in srgb, var(--again) 8%, var(--surface));
+}
+.subject-bookmark button:disabled {
+  cursor: wait;
+  opacity: 0.62;
 }
 .subject-table-row:has(.subject-table-row-link:focus-visible) {
   outline: 0;

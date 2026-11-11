@@ -3237,17 +3237,15 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(index.context["theme_count"], 18)
         self.assertEqual(index.context["subject_count"], 348)
         self.assertEqual(index.context["question_count"], 2784)
-        self.assertEqual(len(index.context["subject_prompt_map"]), 348)
         self.assertContains(index, "data-subject-directory-search")
         self.assertContains(
             index,
-            'data-prompt-copy-source="tache-two-theme-prompts"',
+            "data-subject-bookmark-form",
             count=348,
         )
         self.assertContains(
             index,
-            f'data-prompt-copy-key="{first_subject_key}"',
-            count=1,
+            f'data-subject-bookmark-key="response:{Prompt.objects.get(content_key=first_subject_key).response_id}"',
         )
         self.assertNotContains(index, "Réflexe Mémoire")
         self.assertContains(index, "Sujets par thème")
@@ -3372,14 +3370,10 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(batch, "tache-two-subject-card--new", count=5)
         self.assertContains(
             batch,
-            'data-prompt-copy-source="tache-two-batch-prompts"',
+            "data-subject-bookmark-form",
             count=5,
         )
-        self.assertEqual(len(batch.context["subject_prompt_map"]), 5)
-        self.assertEqual(
-            batch.context["subject_prompt_map"][first_subject_key],
-            batch.context["subject_batch"]["subjects"][0]["prompt"],
-        )
+        self.assertNotContains(batch, "data-prompt-copy-source")
         self.assertEqual(batch.context["subject_batch"]["progress"].status, "new")
         self.assertContains(batch, subject_url)
 

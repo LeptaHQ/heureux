@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="icon-bookmark" viewBox="0 0 24 24" fill="var(--bookmark-fill, none)" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 3h12v18l-6-4-6 4z"/>
+  </symbol>
   <symbol id="icon-book-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <path d="M3.5 5.5c3.1-.8 5.9-.2 8.5 1.8v13c-2.6-2-5.4-2.6-8.5-1.8z"/>
     <path d="M20.5 5.5c-3.1-.8-5.9-.2-8.5 1.8v13c2.6-2 5.4-2.6 8.5-1.8z"/>

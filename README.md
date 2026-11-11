@@ -100,6 +100,11 @@ are grouped by the display subthemes, in the same order as the subject directory
 Each picker keeps matching numbering, previous/next links, and the
 publication-deduplication setting.
 
+Subject bookmarks are private to each learner and independent of progress.
+Use the bookmark beside the subject's progress controls or in its directory row;
+saved bookmarks are filled red and persist across visits. Directory bookmarks
+replace the row's copy button; copying the consigne on the subject page is unchanged.
+
 EO2 and EO3 retain their subject content, responses and study controls, not oral
 practice launchers. The retired EO2 AI examiner prompt and practice guide are not
 loaded or shipped to the browser. Written-expression practice is unchanged.

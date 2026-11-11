@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static study_links %}
+{% load study_links %}
 {% block title %}Sujets · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
@@ -27,8 +27,7 @@
 {% endif %}
 {% if oral_directory %}
   {% if subject_themes %}
-    {% include "study/expression/partials/subject_collection.html" with groups=subject_themes kind="eo3" secondary_label="Vocabulaire" prompt_source="oral-subject-prompts" %}
-    {{ subject_prompt_map|json_script:"oral-subject-prompts" }}
+    {% include "study/expression/partials/subject_collection.html" with groups=subject_themes kind="eo3" secondary_label="Vocabulaire" %}
   {% else %}
     <p class="muted">Aucun contenu pour cette sélection pour l'instant.</p>
   {% endif %}
@@ -65,5 +64,4 @@
 {% block scripts %}
   {{ block.super }}
   {% include "study/expression/partials/subject_progress_script.html" %}
-  {% if subject_deduplication_available %}<script src="{% static 'study/js/shared/prompt-copy.js' %}?v=3"></script>{% endif %}
 {% endblock %}

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static study_markdown study_links study_speech %}
+{% load static study_markdown study_links study_speech study_bookmarks %}
 {% block title %}Sujet {{ position }} · {{ category_label }} · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
@@ -126,7 +126,7 @@
             class="progress-status progress-status--{{ writing_progress.status }}"
             data-writing-sujet-progress-status="{{ progress_sujet.pk }}">{{ writing_progress.label }}</span>
           <div class="subject-progress-control__action">
-            <span class="sr-only">J’ai terminé ce sujet</span>
+            {% spaceless %}{% subject_bookmark sujet_id=progress_sujet.pk label=prompt %}{% endspaceless %}<span class="sr-only">J’ai terminé ce sujet</span>
             {% include "study/expression/ee/partials/writing_sujet_completion_form.html" with sujet=progress_sujet completed=explicitly_completed subject_label=prompt part=part task=task %}
           </div>
         </div>

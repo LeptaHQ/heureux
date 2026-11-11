@@ -1,4 +1,4 @@
-{% load study_links %}
+{% load study_links study_bookmarks %}
 <div class="ee-t3-subject-list collection-table collection-table--ee-subjects" data-collection-view="adaptive">
   <div class="ee-t3-subject-list__columns collection-table-header collection-table-header--ee-subjects" data-collection-table-header aria-hidden="true">
     <span>Publication</span>
@@ -24,6 +24,7 @@
         </p>
       </div>
       <div class="ee-t3-subject-row__progress">
+        {% subject_bookmark response_id=subject.prompt.response_id label=subject.prompt.text %}
         <span
           class="progress-status progress-status--{{ subject.progress.status }}"
           data-subject-progress-status="{{ subject.prompt.response_id }}">{{ subject.progress.label }}</span>

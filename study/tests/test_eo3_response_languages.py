@@ -633,27 +633,27 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p16"]
         row = data["groups"][model.group][fingerprint(model.response.arguments[2].exemple)]
-        self.assertIn("woman tells her parents she'll be home late", row["english"])
-        self.assertIn("doesn't need their permission to go out", row["english"])
-        self.assertIn("comes in quietly so she doesn't wake them", row["english"])
+        self.assertIn("woman can tell her parents that she will be home late", row["english"])
+        self.assertIn("without asking permission to go out", row["english"])
+        self.assertIn("takes care not to wake them on returning", row["english"])
         self.assertNotIn("nights out", row["english"])
         development = data["groups"][model.group][
             fingerprint(model.response.arguments[2].developpement)
         ]["english"]
-        self.assertIn("Schedules, visitors and private spaces need to be discussed", development)
-        self.assertIn("Without this balance", development)
-        self.assertIn("can come with constant tension", development)
+        self.assertIn("Discussing schedules, visitors and private spaces", development)
+        self.assertIn("must respect household habits", development)
+        self.assertIn("keep the ability to organise their life", development)
         example = data["groups"][model.group][
             fingerprint(model.response.arguments[0].exemple)
         ]["english"]
         self.assertIn("With his parents' agreement", example)
         self.assertIn("three hundred euros a month", example)
-        self.assertIn("nine hundred euros a month, before bills", example)
+        self.assertIn("nine hundred euros before bills", example)
         nuance = data["groups"][model.group][fingerprint(model.response.nuance)]["english"]
         self.assertIn("requires the parents' agreement and enough space", nuance)
-        self.assertIn("If these conditions are not met", nuance)
-        self.assertIn("do not necessarily make up for the tensions", nuance)
-        self.assertIn("does not require moving out by a specific date", nuance)
+        self.assertIn("If tensions become constant", nuance)
+        self.assertIn("savings are no longer enough to justify it", nuance)
+        self.assertIn("does not require moving out by a particular date", nuance)
 
     def test_family_language_english_distinguishes_direct_family_contact_and_parent_expression(self):
         data = read_manifest(DEFAULT_PATH)
@@ -665,23 +665,23 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         expression, contact, _ = model.response.arguments
         development = rows[fingerprint(contact.developpement)]["english"]
         self.assertIn("do not necessarily speak the host country's language", development)
-        self.assertIn("If every conversation requires translation", development)
+        self.assertIn("If every conversation depends on translation", development)
         example = rows[fingerprint(contact.exemple)]["english"]
-        self.assertIn("Her grandson understands her language", example)
-        self.assertIn("asks his own questions without waiting for his mother", example)
+        self.assertIn("Her grandson can ask where it was taken", example)
+        self.assertIn("instead of waiting for his mother to translate every sentence", example)
         development = rows[fingerprint(expression.developpement)]["english"]
-        self.assertIn("a language they are still learning", development)
-        self.assertIn("may lack the words to explain an emotion", development)
-        self.assertIn("ask questions and offer reassurance", development)
-        self.assertIn("beyond simply giving instructions", development)
+        self.assertIn("parents are still learning the country's language", development)
+        self.assertIn("do not always find the words to explain an emotion", development)
+        self.assertIn("the language they know best", development)
+        self.assertIn("beyond everyday instructions and really listen", development)
         example = rows[fingerprint(expression.exemple)]["english"]
         self.assertIn("classmates refused to play with him", example)
-        self.assertIn("His mother speaks to him in their language", example)
-        self.assertIn("listens to the details", example)
+        self.assertIn("In their shared language, his mother can ask what happened", example)
+        self.assertIn("listen to the details and reassure him", example)
         self.assertNotIn("fluent", example)
         result = rows[fingerprint(expression.consequence)]["english"]
-        self.assertIn("understands better why he is hurt", result)
-        self.assertIn("can reassure him without having to search for the right words", result)
+        self.assertIn("preserve a relationship", result)
+        self.assertIn("discuss what matters", result)
 
     def test_living_alone_english_connects_actual_help_needs_and_household_workload(self):
         data = read_manifest(DEFAULT_PATH)
@@ -692,17 +692,17 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         for field, required, forbidden in (
             (
                 "argument-4-developpement",
-                ("If a health problem prevents you", "asking someone close to you when they can come", "scheduling deliveries"),
+                ("If a health problem stops us shopping or preparing meals", "arranged with available relatives or suitable services"),
                 ("without relying on someone already being at home",),
             ),
             (
                 "nuance",
-                ("shopping, cooking and cleaning for everyone", "For that person", "less work day to day"),
+                ("shopping, cooking and cleaning for everyone", "living alone can instead make their everyday life easier"),
                 ("rich social life",),
             ),
             (
                 "conclusion",
-                ("can cost more and require more planning", "costs and chores are genuinely shared"),
+                ("budget", "help available", "responsibilities would really be shared"),
                 (),
             ),
         ):
@@ -724,20 +724,20 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/famille-p11"]
         row = data["groups"][model.group][fingerprint(model.response.arguments[0].exemple)]
-        self.assertIn("nurse comes home after a night shift", row["english"])
-        self.assertIn("sleeps in her quiet flat", row["english"])
-        self.assertIn("does not have to adapt her rest", row["english"])
-        self.assertIn("other people's morning preparations for school or work", row["english"])
+        self.assertIn("nurse returning from a night shift", row["english"])
+        self.assertIn("can sleep in her quiet flat", row["english"])
+        self.assertIn("without fitting her rest around", row["english"])
+        self.assertIn("an entire family's morning preparations", row["english"])
         self.assertNotIn("go to bed", row["english"])
         result = data["groups"][model.group][
             fingerprint(model.response.arguments[0].consequence)
         ]["english"]
-        self.assertIn("makes it easier for her to rest", result)
+        self.assertIn("makes resting simpler", result)
         self.assertNotIn("bedtime", result)
         costs = data["groups"][model.group][
             fingerprint(model.response.arguments[1].developpement)
         ]["english"]
-        self.assertIn("Some costs do not go down when you live alone", costs)
+        self.assertIn("Not every cost falls because only one person uses the home", costs)
         self.assertIn("can cost the same for one person as for two", costs)
         self.assertNotIn("divide every bill", costs)
         example = data["groups"][model.group][
@@ -745,7 +745,8 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         ]["english"]
         self.assertIn("forty euros a month: each pays twenty euros", example)
         self.assertIn("separate homes", example)
-        self.assertIn("each takes out the same forty-euro subscription", example)
+        self.assertIn("each keep that subscription", example)
+        self.assertIn("each pay forty euros for the same service", example)
 
     def test_family_work_english_identifies_sibling_coworkers_before_family_spillover(self):
         data = read_manifest(DEFAULT_PATH)
@@ -790,7 +791,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("father appoints him because he is his son", promotion)
         self.assertIn("without considering a more experienced colleague's application", promotion)
 
-    def test_grade_reward_english_keeps_progress_threshold_and_possible_discouragement(self):
+    def test_grade_reward_english_recognises_effort_without_requiring_the_top_mark(self):
         data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
@@ -798,15 +799,16 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         example = data["groups"][model.group][
             fingerprint(model.response.arguments[1].exemple)
         ]["english"]
-        self.assertIn("girl gets sixteen out of twenty without much revision", example)
-        self.assertIn("brother improves from eight to twelve", example)
-        self.assertIn("If payment starts at fifteen, only she is rewarded", example)
+        self.assertIn("after several weeks of work", example)
+        self.assertIn("parents can praise their child", example)
+        self.assertIn("Even if the mark is still average", example)
+        self.assertIn("recognise how far their child has come", example)
         consequence = data["groups"][model.group][
             fingerprint(model.response.arguments[1].consequence)
         ]["english"]
-        self.assertIn("brother may become discouraged", consequence)
-        self.assertIn("at precisely the moment when he needs recognition", consequence)
-        self.assertNotIn("will become", consequence)
+        self.assertIn("their efforts count", consequence)
+        self.assertIn("can give them confidence to keep improving", consequence)
+        self.assertNotIn("will give", consequence)
 
     def test_family_distance_english_keeps_local_contacts_and_unexpected_problems_proportionate(self):
         data = read_manifest(DEFAULT_PATH)
@@ -819,14 +821,12 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("know who to call when something unexpected happens", development)
         self.assertNotIn("emergency", development)
         example = rows[fingerprint(model.response.arguments[1].exemple)]["english"]
-        self.assertIn("parent finishes work too late to collect his child", example)
-        self.assertIn("Before moving, he relied on the grandparents", example)
-        self.assertIn("may then need to call", example)
-        self.assertIn("trusted neighbour", example)
-        self.assertIn("already authorised with the school to collect the child", example)
+        self.assertIn("parent who relied on the grandparents", example)
+        self.assertIn("collect their child from school when they finished work late", example)
+        self.assertIn("Once they have moved far away", example)
+        self.assertIn("find another trusted person or ask to leave work earlier", example)
         result = rows[fingerprint(model.response.arguments[1].consequence)]["english"]
-        self.assertIn("If she is unavailable", result)
-        self.assertIn("asking to leave work early", result)
+        self.assertIn("require much more planning", result)
         self.assertNotIn("She collects the child", result)
         self.assertNotIn("emergency", result)
 
@@ -838,11 +838,11 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         example = data["groups"][model.group][
             fingerprint(model.response.arguments[2].exemple)
         ]["english"]
-        self.assertIn("lives and works", example)
+        self.assertIn("woman who works", example)
         self.assertIn("eight-hour train journey", example)
-        self.assertIn("two days off work", example)
-        self.assertIn("cannot afford the train ticket", example)
-        self.assertIn("decides not to make the trip", example)
+        self.assertIn("two days off", example)
+        self.assertIn("a ticket she cannot afford", example)
+        self.assertIn("has to give up the visit", example)
 
     def test_personal_advice_english_distinguishes_outdated_methods_and_different_priorities(self):
         data = read_manifest(DEFAULT_PATH)
@@ -912,40 +912,40 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         model = scoped_models()["eo/tache-3/famille-p10"]
         rows = data["groups"][model.group]
         idea = rows[fingerprint(model.response.arguments[0].idea)]["english"]
-        self.assertIn("family affection does not guarantee", idea)
-        self.assertIn("things in common", idea)
+        self.assertIn("family affection is not always enough", idea)
+        self.assertIn("a real rapport", idea)
         development = rows[fingerprint(model.response.arguments[0].developpement)]["english"]
-        self.assertIn("companionship you naturally seek", development)
-        self.assertIn("sense of humour or interests", development)
-        self.assertIn("make conversation more natural", development)
-        self.assertIn("does not depend on being related", development)
+        self.assertIn("friendship often develops", development)
+        self.assertIn("sense of humour, interests", development)
+        self.assertIn("Loving your brother", development)
+        self.assertIn("Both relationships can matter without offering exactly the same thing", development)
         self.assertNotIn("must", development)
         self.assertNotIn("confide", development)
         example = rows[fingerprint(model.response.arguments[0].exemple)]["english"]
-        self.assertIn("enjoys meals with their brother", example)
-        self.assertIn("every week with a friend", example)
-        self.assertIn("laugh and talk with for hours", example)
-        self.assertIn("seek out this friend's company because they enjoy it", example)
+        self.assertIn("enjoy meals with their brother", example)
+        self.assertIn("prefer meeting a friend", example)
+        self.assertIn("discuss music or laugh for hours", example)
+        self.assertIn("takes nothing away from their affection for their brother", example)
         result = rows[fingerprint(model.response.arguments[0].consequence)]["english"]
-        self.assertIn("love their brother, but feel more in tune with this friend", result)
-        self.assertIn("Both relationships matter without offering exactly the same thing", result)
+        self.assertIn("Family closeness and the rapport between friends", result)
+        self.assertIn("do not necessarily amount to the same thing", result)
         self.assertNotIn("confidant", result)
         next_idea = rows[fingerprint(model.response.arguments[1].idea)]["english"]
-        self.assertIn("Family roles can also limit what we dare to share", next_idea)
+        self.assertIn("do not always confide in family and friends in the same way", next_idea)
         self.assertNotIn("This reserve", next_idea)
         development = rows[fingerprint(model.response.arguments[2].developpement)]["english"]
         self.assertTrue(development.startswith("Friendship requires being able to listen"))
         self.assertNotIn("We must", development)
         example = rows[fingerprint(model.response.arguments[2].exemple)]["english"]
-        self.assertIn("Two cousins grew up together", example)
-        self.assertIn("went to the same school", example)
-        self.assertIn("listened to and supported each other", example)
+        self.assertIn("two cousins who grew up together", example)
+        self.assertIn("attended the same school", example)
+        self.assertIn("supported one another through difficulties", example)
         result = rows[fingerprint(model.response.arguments[2].consequence)]["english"]
-        self.assertIn("not just from being related", result)
+        self.assertIn("without this being a rule for everyone", result)
         nuance = rows[fingerprint(model.response.nuance)]["english"]
-        self.assertIn("if everyone feels free within it", nuance)
-        self.assertIn("no one should feel guilty", nuance)
-        self.assertIn("even when they love their relatives deeply", nuance)
+        self.assertIn("great freedom to speak and a strong rapport", nuance)
+        self.assertIn("we should not feel guilty", nuance)
+        self.assertIn("even when we love our relatives deeply", nuance)
 
     def test_friendship_help_english_keeps_transport_unspecified_and_other_benefits_distinct(self):
         data = read_manifest(DEFAULT_PATH)
@@ -1028,27 +1028,26 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         model = scoped_models()["eo/tache-3/famille-p13"]
         rows = data["groups"][model.group]
         row = rows[fingerprint(model.response.arguments[2].exemple)]
-        self.assertIn("do not yet speak the local language well", row["english"])
-        self.assertIn("enrol their child in a football club", row["english"])
-        self.assertIn("As the training sessions go on", row["english"])
-        self.assertIn("understands the coach's instructions better", row["english"])
-        self.assertIn("feels more confident talking to their teammates", row["english"])
+        self.assertIn("parents enrol their child in football", row["english"])
+        self.assertIn("As training sessions go by", row["english"])
+        self.assertIn("understands instructions better", row["english"])
+        self.assertIn("dares to talk with his teammates", row["english"])
+        self.assertIn("sees the same people and often hears the same expressions", row["english"])
         self.assertNotIn("in class", row["english"])
         self.assertNotIn("fluently", row["english"])
         development = rows[fingerprint(model.response.arguments[2].developpement)]["english"]
         self.assertIn("Outside lessons", development)
-        self.assertIn("opportunities to listen and respond", development)
-        self.assertIn("Parents can arrange these even if they still speak little", development)
-        self.assertIn("same words and people again", development)
+        self.assertIn("regular conversations help them gain confidence", development)
+        self.assertIn("Parents can provide these opportunities even if they still speak little", development)
+        self.assertIn("join an activity where they meet other children", development)
         result = rows[fingerprint(model.response.arguments[2].consequence)]["english"]
-        self.assertIn("takes part in the game more easily", result)
-        self.assertIn("gains confidence in speaking", result)
-        self.assertIn("without their parents having to teach them everything", result)
+        self.assertIn("practises the language in a situation he enjoys", result)
+        self.assertIn("without his parents having to teach him everything", result)
         nuance = rows[fingerprint(model.response.nuance)]["english"]
-        self.assertIn("no obligation to reserve one language for home and the other for school", nuance)
+        self.assertIn("no need to separate the two languages strictly", nuance)
         self.assertIn("read a story in the country's language at home", nuance)
-        self.assertIn("speak the family language during a walk", nuance)
-        self.assertIn("not keeping them separate at all costs", nuance)
+        self.assertIn("speak the family language on a walk", nuance)
+        self.assertIn("creating opportunities to use both", nuance)
         cue = catalogue.tache_three_subject_hints()[model.group].nuance
         self.assertIn("Pas de séparation stricte", cue.french)
         self.assertIn("No strict separation", cue.english)
@@ -1060,34 +1059,34 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         cases = (
-            ("famille-p2", "argument-1-exemple", ("twenty-six-year-old woman", "having dinner with her parents", "organises her own outings"), ("asks permission",)),
-            ("famille-p2", "argument-1-developpement", ("can reflect a good relationship", "making your own decisions"), ("always",)),
-            ("famille-p2", "argument-1-consequence", ("without giving up her adult life",), ()),
-            ("famille-p2", "argument-3-developpement", ("each side brings something to the other", "take some chores off their parents' hands"), ()),
-            ("famille-p2", "nuance", ("Housing costs can also play a part", "living separately may be preferable", "No single age for leaving home"), ()),
-            ("famille-p2", "argument-4-developpement", ("need for privacy", "may feel very comfortable without noticing", "before small irritations become arguments"), ()),
-            ("famille-p2", "argument-3-exemple", ("contributes to household expenses every month", "does the week's shopping", "do not have to remind him"), ()),
+            ("famille-p2", "argument-1-exemple", ("twenty-six-year-old woman", "enjoying dinner with her parents", "pay her own expenses and organise her plans"), ("asks permission",)),
+            ("famille-p2", "argument-1-developpement", ("can reflect good relationships", "making your own decisions"), ("always",)),
+            ("famille-p2", "argument-1-consequence", ("confuse this attachment to family with a lack of maturity",), ()),
+            ("famille-p2", "argument-3-developpement", ("make their everyday lives easier", "becomes a genuine exchange"), ()),
+            ("famille-p2", "nuance", ("housing costs can also influence this choice", "living separately may be preferable", "No single age for leaving home"), ()),
+            ("famille-p2", "argument-4-developpement", ("need rest, privacy", "comfortable at home without noticing", "small irritations to become conflicts"), ()),
+            ("famille-p2", "argument-3-exemple", ("contributes to bills", "responsibility for the week's shopping", "without waiting to be reminded"), ()),
             ("famille-p3", "argument-1-exemple", ("grandfather had left his job", "check whether her savings would cover the course fees before resigning"), ()),
-            ("famille-p4", "argument-1-developpement", ("false promise", "may trust their parents less", "know what to expect"), ("next explanation",)),
-            ("famille-p4", "argument-1-exemple", ("Before a vaccination", "a little prick", "better than promising they will not feel anything"), ()),
+            ("famille-p4", "argument-1-developpement", ("false promise", "less willing to believe later explanations", "know what to expect"), ("next explanation",)),
+            ("famille-p4", "argument-1-exemple", ("before a vaccination", "a little prick", "than promising that they will not feel anything"), ()),
             ("famille-p4", "argument-2-exemple", ("grandmother on Wednesdays", "in hospital after a fall", "without promising that she will recover straight away"), ()),
-            ("famille-p4", "argument-3-developpement", ("recognise their effort", "exactly what they can improve", "how to go about it"), ("A child can hear", "judgement of their worth")),
-            ("famille-p4", "argument-3-consequence", ("more confidently at the audition", "something to improve", "rather than a compliment with no guidance"), ()),
-            ("famille-p4", "nuance", ("adult matter", "acknowledge that you do not know something yet", "does not require lying"), ("guarantee",)),
-            ("famille-p6", "nuance", ("a family outing or a book we choose together", "without promising a reward for every grade", "automatic payment"), ()),
+            ("famille-p4", "argument-3-developpement", ("recognise a child's efforts", "exactly what they can improve", "how to go about it", "rather than a compliment that gives them no guidance"), ("A child can hear", "judgement of their worth")),
+            ("famille-p4", "argument-3-consequence", ("helping them move forward", "not of discouraging them"), ()),
+            ("famille-p4", "nuance", ("a matter for adults", "acknowledge that we do not know yet", "does not require lying"), ("guarantee",)),
+            ("famille-p6", "nuance", ("a family outing or a book we choose together", "without promising a reward for every mark", "automatic payment"), ()),
             ("famille-p7", "nuance", ("discuss a work problem with your relative", "better to avoid working together"), ("no one dares say no",)),
-            ("famille-p12", "introduction", ("set clear rules", "not make children obey out of fear", "while still setting limits"), ("distinguish between", "being authoritarian")),
-            ("famille-p12", "argument-1-exemple", ("baby is having a nap", "seven-year-old boy", "siren on his toy truck", "His father tells him", "without the siren"), ("drawing in another room",)),
-            ("famille-p12", "argument-1-consequence", ("without using the siren", "letting the baby sleep"), ("continues his activity",)),
-            ("famille-p12", "argument-2-exemple", ("damaged a library book", "listens without shouting", "how to replace the book"), ()),
-            ("famille-p12", "argument-2-consequence", ("putting their mistake right instead of hiding it", "has not removed their responsibility"), ()),
-            ("famille-p12", "argument-3-developpement", ("what needs to be done", "suggest how to do it", "follow through on what they have agreed to do"), ("exercises their judgement", "Firmness therefore")),
-            ("famille-p12", "argument-3-exemple", ("homework at 5 pm", "on condition that it is finished before dinner", "without her having to remind him"), ()),
-            ("famille-p12", "nuance", ("intervene immediately", "even if it means explaining afterwards", "must not prevent the parent ensuring the child's safety"), ()),
-            ("famille-p14", "argument-2-exemple", ("sort laundry", "choose the wash programme", "several loads under the parent's supervision", "washes his clothes without needing help"), ("without waiting for someone",)),
-            ("famille-p14", "argument-1-exemple", ("One prepares dinner and the other lays the table", "After the meal, the second parent does the washing-up", "Once the kitchen is tidy, both can rest"), ()),
-            ("famille-p14", "argument-4-exemple", ("A father often has to remind his teenage son", "They then agree", "except on evenings when he has sports practice", "his father takes over"), ()),
-            ("famille-p14", "argument-4-consequence", ("father has less need to remind his son", "fewer arguments between them"), ("other person", "check every step")),
+            ("famille-p12", "introduction", ("clear rules", "not an upbringing based on fear", "while still setting limits"), ("distinguish between", "being authoritarian")),
+            ("famille-p12", "argument-1-exemple", ("baby is having a nap", "seven-year-old boy", "siren on his toy truck", "His father can say", "without the siren"), ("drawing in another room",)),
+            ("famille-p12", "argument-1-consequence", ("enjoy his game", "someone else's rest"), ("continues his activity",)),
+            ("famille-p12", "argument-2-exemple", ("admits damaging a library book", "listens without shouting", "how to replace the book"), ()),
+            ("famille-p12", "argument-2-consequence", ("take their share of responsibility", "without learning that silence is their best protection"), ()),
+            ("famille-p12", "argument-3-developpement", ("what needs to be done", "suggest how to organise it", "follow through on commitments they have made themselves"), ("exercises their judgement", "Firmness therefore")),
+            ("famille-p12", "argument-3-exemple", ("homework at five o'clock", "on condition that it is finished before dinner", "follows it without reminders"), ()),
+            ("famille-p12", "nuance", ("intervene immediately", "even if it means explaining afterwards", "does not stop parents ensuring their child's safety"), ()),
+            ("famille-p14", "argument-2-exemple", ("sort the clothes", "choose the wash programme", "guides him through several attempts", "wash his clothes without help"), ("without waiting for someone",)),
+            ("famille-p14", "argument-1-exemple", ("one can prepare dinner while the other lays the table", "washing-up after the meal", "share the evening's work"), ()),
+            ("famille-p14", "argument-4-exemple", ("father and his teenage son often argue", "They agree", "except on sports practice evenings", "his father will take over"), ()),
+            ("famille-p14", "argument-4-consequence", ("can reduce reminders and arguments", "everyone knows their responsibility"), ("other person", "check every step")),
             ("famille-p14", "nuance", ("someone who is ill can be excused", "what everyone can actually do"), ("equally",)),
         )
         for name, field, required, forbidden in cases:

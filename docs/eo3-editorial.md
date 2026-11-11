@@ -17,12 +17,14 @@ structure/coherence, thematic development and appropriateness to the situation:
 The six-part teaching structure is an introduction, three developed arguments,
 a meaningful nuance and a conclusion. Three arguments and an example for each
 are editorial choices, **not official quotas**. There is no official oral word
-count. The reviewed models use a 300–430 whitespace-word rehearsal envelope:
-at 100–110 words per minute this is approximately 2:45–4:18 before individual
-variation. Rehearse with pauses; do not rush to reproduce a text or assume a
-particular speaking rate. Adapt to the actual question and examiner's timing.
+count. The reviewed models use a 300–500 whitespace-word rehearsal envelope,
+not a target length or a guarantee that every text fits 4 minutes 30. A longer
+model may need adapting to the learner's pace. Rehearse with pauses; do not rush
+to reproduce a text or assume a particular speaking rate. Adapt to the actual
+question and examiner's timing. Trim repetition before cutting explanations or
+the connections that make an answer understandable.
 The language target is NCLC 7 preparation, not a promised score. Prefer familiar
-words and short, connected sentences that are easy to learn and remember.
+words and connected, expressive phrasing that is easy to say, learn and reuse.
 
 The introduction answers the exact issue and orients the listener without
 announcing the whole answer twice. Match the requested perspective: a general
@@ -34,9 +36,12 @@ explanation of how or why it works, a plausible situated illustration and a
 proportionate consequence. Examples must do more than repeat the claim.
 The nuance addresses a real condition, limitation or trade-off; the conclusion
 synthesizes without a new argument.
-Read the response as a conversation between two friends: each idea should give
-the listener a reason to follow the next one. Use a transition that expresses the
-actual connection, rather than relying on numbered points to create coherence.
+Read the response as a complete conversational intervention: each idea should
+give the listener a reason to follow the next one. Develop the thought rather
+than compressing it into a sequence of short observations. Natural parallel
+phrasing and familiar expressions can make the explanation easier to follow and
+remember. Use a transition that expresses the actual connection, rather than
+relying on numbered points to create coherence.
 Name the subject when explaining a condition: "L'amitié suppose qu'on puisse
 s'écouter" states what friendship requires, rather than sounding like an
 instruction to the listener. Keep direct advice where the question calls for it;
@@ -55,6 +60,12 @@ Prefer a direct verb to an abstract label, and a clear answer to stacked negativ
 Simplify the phrasing, not the argument: keep its explanation, concrete example
 and necessary limits. A shorter text is not automatically easier to learn, and a
 familiar, accurate expression need not be replaced merely for variety.
+Introduce examples as part of the spoken explanation, using natural openings
+such as "Par exemple" or "Prenons l'exemple" where they help. Connect the
+situation to its significance instead of listing successive actions. Keep
+details that make the mechanism clear, not extra logistics that turn an ordinary
+example into a procedural case study. Do not impose identical openings or a
+connector quota on every paragraph.
 Make necessary premises explicit before using them: someone needs a job to take
 leave from work, and a disagreement between relatives needs a clear distinction
 between their workplace and a family gathering. Name what a condition concerns,
@@ -657,8 +668,8 @@ Connect the concession to the alternatives explicitly; do not merge the two
 alternatives and replace them with further benefits of friendship.
 
 Publish these revisions as reviewed JSON models, with aligned bilingual Pistes
-and full English response blocks, within the existing 300–430-word spoken
-envelope. Preserve historical Markdown, vocabulary and phrase sources, source
+and full English response blocks, within the 300–500-word spoken rehearsal
+envelope described above. Preserve historical Markdown, vocabulary and phrase sources, source
 signatures and semantic memberships. Famille 8 remains the same reviewed model
 as Culture 16; the truth-with-children and money-for-grades pairs remain shared.
 Preserve argument annotation identities for retained mechanisms and allocate

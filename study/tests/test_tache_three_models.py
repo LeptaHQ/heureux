@@ -213,7 +213,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             with self.subTest(group=identity):
                 self.assertEqual([argument.order for argument in response.arguments], [1, 2, 3])
                 self.assertGreaterEqual(len(spoken_text(response).split()), 300)
-                self.assertLessEqual(len(spoken_text(response).split()), 430)
+                self.assertLessEqual(len(spoken_text(response).split()), 500)
                 for name in ("idea", "developpement", "exemple"):
                     values = [getattr(argument, name) for argument in response.arguments]
                     self.assertEqual(len(set(values)), 3)
@@ -226,13 +226,49 @@ class TacheThreeModelContentTests(SimpleTestCase):
     def test_spoken_budget_excludes_preparation_even_when_the_full_model_is_longer(self):
         response = catalogue.tache_three_models()["eo/tache-3/famille-p2"].response
         spoken = spoken_text(response)
-        self.assertLessEqual(len(spoken.split()), 430)
+        self.assertLessEqual(len(spoken.split()), 500)
         expanded_preparation = replace(
             response,
             reformulation="Préparation de la question. " * 150,
             position="Opinion à préparer. " * 150,
         )
         self.assertEqual(spoken_text(expanded_preparation), spoken)
+
+    def test_spoken_rehearsal_envelope_allows_development_above_430_but_stops_at_500(self):
+        response = catalogue.tache_three_models()["eo/tache-3/culture-p1"].response
+        other_words = len(spoken_text(response).split()) - len(response.conclusion.split())
+        for budget in (430, 431, 500, 501):
+            payload = deepcopy(self.payload)
+            payload["responses"]["culture-p1"]["conclusion"] = " ".join(
+                ["mot"] * (budget - other_words)
+            )
+            with self.subTest(words=budget):
+                if budget > 500:
+                    with self.assertRaisesMessage(ValueError, "rehearsal"):
+                        self.load(payload)
+                else:
+                    models = self.load(payload)
+                    self.assertEqual(
+                        len(spoken_text(models["eo/tache-3/culture-p1"].response).split()),
+                        budget,
+                    )
+
+    def test_famille_keeps_the_approved_honesty_conclusion_and_complete_effort_development(self):
+        models = catalogue.tache_three_models()
+        self.assertEqual(
+            models["eo/tache-3/famille-p4"].response.conclusion,
+            "Donc oui, il faut être honnête avec l'enfant, mais aussi le rassurer. "
+            "L'important, c'est de lui expliquer ce qui se passe avec des mots simples, "
+            "adaptés à son âge.",
+        )
+        self.assertEqual(
+            models["eo/tache-3/famille-p6"].response.arguments[1].developpement,
+            "Un enfant n'a pas toujours les mêmes facilités dans toutes les matières. "
+            "S'il fait des progrès, s'il travaille régulièrement et s'il apprend de ses "
+            "erreurs, cela mérite d'être reconnu, même si la note n'est pas parfaite. "
+            "Les parents peuvent encourager par des félicitations, du temps partagé "
+            "ou une petite récompense symbolique, sans transformer l'école en marché.",
+        )
 
     def test_famille_covers_all_its_sources_without_merging_related_questions(self):
         models = catalogue.tache_three_models()
@@ -284,34 +320,37 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("se sentir bien chez ses parents", response(2).position)
         self.assertIn("n'est pas un défaut", response(2).position_claire)
         self.assertIn("peut refléter une bonne entente", response(2).arguments[0].developpement)
-        self.assertIn("chacun apporte quelque chose à l'autre", response(2).arguments[2].developpement)
-        self.assertIn("ses parents peuvent aussi compter sur lui", response(2).arguments[2].consequence)
-        self.assertIn("Le coût du logement peut aussi compter", response(2).nuance)
+        self.assertIn("un véritable échange", response(2).arguments[2].developpement)
+        self.assertIn("Ses parents peuvent compter sur lui", response(2).arguments[2].consequence)
+        self.assertIn("le coût du logement peut aussi compter", response(2).nuance)
         self.assertIn("Aucun âge de départ", response(2).nuance)
         self.assertIn("toujours", response(3).position_claire)
         self.assertIn("candidature en ligne", response(3).arguments[1].exemple)
         self.assertIn("priorités", response(3).arguments[2].idea)
-        self.assertIn("risque de moins faire confiance à ses parents", response(4).arguments[0].developpement)
+        self.assertIn("risque de moins croire les explications suivantes", response(4).arguments[0].developpement)
         self.assertNotIn("prochaine explication", response(4).arguments[0].developpement)
         self.assertIn("à l'hôpital après une chute", response(4).arguments[1].exemple)
         self.assertIn("sans promettre", response(4).arguments[1].exemple)
-        self.assertIn("reconnaître ses efforts", response(4).arguments[2].developpement)
+        self.assertIn("reconnaître les efforts", response(4).arguments[2].developpement)
         self.assertIn("précisément ce qu'il peut améliorer et comment s'y prendre", response(4).arguments[2].developpement)
         self.assertNotIn("jugement sur sa valeur", response(4).arguments[2].developpement)
         self.assertIn("tu hésites à la fin", response(4).arguments[2].exemple)
         self.assertIn("Reprenons-la lentement chaque jour", response(4).arguments[2].exemple)
         self.assertIn("n'a pas à porter les conflits", response(4).nuance)
         self.assertIn("relations familiales sont difficiles", response(5).nuance)
-        self.assertIn("peut alors avoir besoin d'appeler", response(5).arguments[1].exemple)
-        self.assertIn("Si elle n'est pas disponible", response(5).arguments[1].consequence)
-        self.assertIn("demander à quitter le travail plus tôt", response(5).arguments[1].consequence)
-        self.assertIn("vit et travaille", response(5).arguments[2].exemple)
-        self.assertIn("devrait prendre deux jours de congé", response(5).arguments[2].exemple)
-        self.assertIn("Le billet dépasse aussi son budget", response(5).arguments[2].exemple)
+        self.assertIn("il doit trouver une autre personne de confiance", response(5).arguments[1].exemple)
+        self.assertIn("demander à quitter le travail plus tôt", response(5).arguments[1].exemple)
+        self.assertIn("demander beaucoup plus d'organisation", response(5).arguments[1].consequence)
+        self.assertIn("travaille à huit heures de train", response(5).arguments[2].exemple)
+        self.assertIn("demanderait deux jours de congé", response(5).arguments[2].exemple)
+        self.assertIn("un billet qu'elle n'a pas les moyens de payer", response(5).arguments[2].exemple)
         self.assertIn("exposé non noté", response(6).arguments[0].exemple)
         self.assertIn("risque", response(6).arguments[0].developpement)
-        self.assertIn("Si le paiement commence à quinze", response(6).arguments[1].exemple)
-        self.assertIn("huit à douze", response(6).arguments[1].exemple)
+        self.assertIn("valoriser les efforts et les progrès", response(6).arguments[1].idea)
+        self.assertIn("même si la note n'est pas parfaite", response(6).arguments[1].developpement)
+        self.assertIn("après plusieurs semaines de travail", response(6).arguments[1].exemple)
+        self.assertIn("reconnaissent le chemin parcouru", response(6).arguments[1].exemple)
+        self.assertIn("confiance pour continuer à progresser", response(6).arguments[1].consequence)
         self.assertIn("relu les consignes", response(6).arguments[2].exemple)
         self.assertIn("une sortie en famille ou un livre choisi ensemble", response(6).nuance)
         self.assertIn("sans promettre une récompense pour chaque note", response(6).nuance)
@@ -338,38 +377,38 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("sans avoir noué d'amitié", response(9).arguments[2].consequence)
         self.assertIn("ne remplace pas toujours un confident", response(9).nuance)
         self.assertNotEqual(response(9).arguments[2].exemple, models["eo/tache-3/culture-p16"].response.arguments[2].exemple)
-        self.assertIn("pas automatiquement", response(10).position_claire)
-        self.assertIn("les mêmes affinités", response(10).arguments[0].idea)
-        self.assertIn("rit et discute pendant des heures", response(10).arguments[0].exemple)
-        self.assertIn("recherche sa compagnie par plaisir", response(10).arguments[0].exemple)
+        self.assertIn("ce n'est pas automatique", response(10).position_claire)
+        self.assertIn("une vraie complicité", response(10).arguments[0].idea)
+        self.assertIn("discuter de musique ou rire pendant des heures", response(10).arguments[0].exemple)
+        self.assertIn("ne retire rien à l'affection", response(10).arguments[0].exemple)
         self.assertIn("ont grandi ensemble", response(10).arguments[2].exemple)
         self.assertIn("la même école", response(10).arguments[2].exemple)
-        self.assertIn("se soutiennent quand l'une traverse une difficulté", response(10).arguments[2].exemple)
+        self.assertIn("traversé des difficultés en se soutenant", response(10).arguments[2].exemple)
         self.assertIn("chacune paie vingt euros", response(11).arguments[1].exemple)
-        self.assertIn("chacune le même abonnement à quarante euros", response(11).arguments[1].exemple)
-        self.assertIn("Certaines dépenses ne baissent pas quand on vit seul", response(11).arguments[1].developpement)
+        self.assertIn("paient désormais quarante euros chacune pour le même service", response(11).arguments[1].exemple)
+        self.assertIn("tous les frais ne diminuent pas", response(11).arguments[1].developpement)
         self.assertIn("le même prix pour une personne que pour deux", response(11).arguments[1].developpement)
-        self.assertIn("Après une opération", response(11).arguments[2].exemple)
+        self.assertIn("après une opération", response(11).arguments[2].exemple)
         self.assertIn("Si un problème de santé nous empêche", response(11).arguments[2].developpement)
-        self.assertIn("demander à un proche quand il peut venir", response(11).arguments[2].developpement)
+        self.assertIn("organisé avec des proches disponibles", response(11).arguments[2].developpement)
         self.assertIn("fait les courses, les repas et le ménage pour tout le monde", response(11).nuance)
-        self.assertIn("Pour cette personne, vivre seule peut donc alléger le quotidien", response(11).nuance)
+        self.assertIn("vivre seule peut au contraire alléger son quotidien", response(11).nuance)
         self.assertNotIn("vie sociale", response(11).nuance)
-        self.assertIn("les frais et les tâches sont réellement partagés", response(11).conclusion)
+        self.assertIn("responsabilités seraient réellement partagées", response(11).conclusion)
         self.assertIn("Je suis pour des règles claires", response(12).position_claire)
         self.assertIn("écouter l'enfant sans renoncer à poser des limites", response(12).position_claire)
         self.assertNotIn("Je distingue", response(12).position_claire)
         self.assertIn("fait sonner la sirène de son camion jouet", response(12).arguments[0].exemple)
         self.assertIn("continuer à jouer, mais sans la sirène", response(12).arguments[0].exemple)
-        self.assertIn("continue à jouer sans faire sonner la sirène", response(12).arguments[0].consequence)
+        self.assertIn("tenant compte du repos de quelqu'un d'autre", response(12).arguments[0].consequence)
         self.assertNotIn("dessiner", response(12).arguments[0].exemple)
         self.assertIn("l'écoute sans crier", response(12).arguments[1].exemple)
-        self.assertIn("contactent la bibliothèque", response(12).arguments[1].exemple)
+        self.assertIn("contacter la bibliothèque ensemble", response(12).arguments[1].exemple)
         self.assertIn("laisser l'enfant proposer comment s'organiser", response(12).arguments[2].developpement)
         self.assertIn("respecter les engagements qu'il a lui-même pris", response(12).arguments[2].developpement)
-        self.assertIn("sans qu'elle ait à le lui rappeler", response(12).arguments[2].exemple)
+        self.assertIn("qu'il le respecte sans rappel", response(12).arguments[2].exemple)
         self.assertIn("intervenir immédiatement", response(12).nuance)
-        self.assertIn("pas obligé de réserver une langue à la maison et l'autre à l'école", response(13).nuance)
+        self.assertIn("pas nécessaire de séparer strictement les deux langues", response(13).nuance)
         self.assertIn("lire une histoire dans la langue du pays", response(13).nuance)
         self.assertIn("parler la langue familiale pendant une promenade", response(13).nuance)
         self.assertIn("même s'ils parlent encore peu cette langue", response(13).arguments[2].developpement)
@@ -377,11 +416,11 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("inscrivent leur enfant au football", response(13).arguments[2].exemple)
         self.assertIn("comprend mieux les consignes", response(13).arguments[2].exemple)
         self.assertIn("ose discuter avec ses coéquipiers", response(13).arguments[2].exemple)
-        self.assertIn("prend confiance pour parler", response(13).arguments[2].consequence)
-        self.assertIn("selon ses possibilités", response(14).position_claire)
+        self.assertIn("pratique la langue dans une situation qui lui plaît", response(13).arguments[2].consequence)
+        self.assertIn("selon leurs possibilités", response(14).position_claire)
         self.assertIn("sauf les soirs d'entraînement", response(14).arguments[2].exemple)
         self.assertIn("après vingt-cinq ans", response(16).position_claire)
-        self.assertIn("pas à leur demander la permission de sortir", response(16).arguments[2].exemple)
+        self.assertIn("sans leur demander la permission de sortir", response(16).arguments[2].exemple)
         self.assertIn("n'impose pas de déménager à une date précise", response(16).nuance)
 
     def test_famille_retained_and_replaced_mechanisms_keep_distinct_annotation_ids(self):

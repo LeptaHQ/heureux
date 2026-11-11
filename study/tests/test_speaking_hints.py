@@ -138,14 +138,14 @@ class SpeakingHintsContentTests(SimpleTestCase):
             self.assertIn("sans être indispensable", reading.french)
             self.assertIn("not essential", reading.english)
             distance = plans["eo/tache-3/famille-p5"].introduction
-            self.assertIn("Quand les relations sont bonnes", distance.french)
-            self.assertIn("When family relationships are good", distance.english)
+            self.assertIn("même quand le départ est choisi", distance.french)
+            self.assertIn("even when leaving was a choice", distance.english)
             celebration = plans["eo/tache-3/famille-p6"].nuance
-            self.assertIn("ne doit pas", celebration.french)
-            self.assertIn("should not", celebration.english)
+            self.assertIn("sans promettre une récompense pour chaque note", celebration.french)
+            self.assertIn("without promising a reward for every grade", celebration.english)
             privacy = plans["eo/tache-3/famille-p1"].nuance
-            self.assertIn("sans lire systématiquement", privacy.french)
-            self.assertIn("without routinely reading", privacy.english)
+            self.assertIn("ne signifie pas lire tous les messages", privacy.french)
+            self.assertIn("does not mean reading every message", privacy.english)
 
     def test_examples_keep_the_causal_steps_and_decisive_conditions(self):
             plans = catalogue.tache_three_subject_hints()

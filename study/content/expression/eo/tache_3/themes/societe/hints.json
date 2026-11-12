@@ -434,32 +434,32 @@
         },
         {
           "point": {
-            "french": "Être fiable pour faciliter l'organisation.",
-            "english": "Be reliable so the team can organise its work."
+            "french": "Prendre le temps d'un échange humain.",
+            "english": "Make time for a personal conversation."
           },
           "example": {
-            "french": "Prévenir d'une absence pour que l'équipe puisse chercher un remplaçant.",
-            "english": "Give notice of an absence so the team can look for a replacement."
+            "french": "Une personne âgée raconte une recette faite avec le dernier panier ; je pourrais prendre le temps d'en parler.",
+            "english": "An older person mentions a recipe made with their last basket; I could take time to discuss it."
           }
         },
         {
           "point": {
-            "french": "Écouter sans décider à la place des personnes.",
-            "english": "Listen without making decisions on people's behalf."
+            "french": "Une aide adaptée à mes moyens et à mon temps.",
+            "english": "Help that fits my abilities and available time."
           },
           "example": {
-            "french": "Avec le référent, chercher des aliments sans cuisson pour une personne sans équipement.",
-            "english": "With the coordinator, look for no-cook food for someone without cooking facilities."
+            "french": "Un samedi sur deux, apprendre à préparer les paniers et à accueillir les personnes avec un bénévole expérimenté.",
+            "english": "Every other Saturday, learn to prepare baskets and welcome people alongside an experienced volunteer."
           }
         }
       ],
       "nuance": {
-        "french": "Les dons achètent ce qui manque ; je préférerais le temps et le contact.",
-        "english": "Donations buy missing supplies; I would prefer giving time and having direct contact."
+        "french": "Dons utiles aussi ; prévenir assez tôt en cas d'absence.",
+        "english": "Donations also help; give early notice if unable to attend."
       },
       "conclusion": {
-        "french": "Une aide régulière et respectueuse, adaptée à ce que je pourrais tenir.",
-        "english": "Regular, respectful help suited to a commitment I could keep."
+        "french": "Une aide concrète, humaine et réaliste à tenir.",
+        "english": "Practical, personal help I can realistically sustain."
       }
     },
     "education-p17": {
@@ -574,8 +574,8 @@
             "english": "Nearby services."
           },
           "example": {
-            "french": "Rejoindre une pharmacie par un trajet adapté.",
-            "english": "Reach a pharmacy along a suitable route."
+            "french": "Une retraitée qui marche facilement va à la pharmacie au bout de sa rue, sans demander d'accompagnement.",
+            "english": "A retired woman who walks comfortably reaches the pharmacy in her street without needing company."
           }
         },
         {
@@ -584,8 +584,8 @@
             "english": "Mobility without a car."
           },
           "example": {
-            "french": "Prendre un bus accessible vers l'hôpital sans demander à un proche de conduire.",
-            "english": "Take an accessible bus to the hospital without asking a relative to drive."
+            "french": "Un retraité qui ne conduit plus rejoint l'hôpital avec un bus accessible, sans attendre un proche.",
+            "english": "A retired man who no longer drives reaches the hospital by accessible bus without waiting for a relative."
           }
         },
         {
@@ -594,8 +594,8 @@
             "english": "Regular opportunities for contact."
           },
           "example": {
-            "french": "Revenir chaque semaine à un atelier de lecture.",
-            "english": "Return weekly to a reading workshop."
+            "french": "Une personne âgée retrouve chaque semaine le même atelier de lecture et commence à connaître ses participants.",
+            "english": "An older person returns to the same weekly reading group and gets to know its members."
           }
         }
       ]
@@ -622,8 +622,8 @@
             "english": "Prepare the first exchange."
           },
           "example": {
-            "french": "Dans un groupe photo, commenter une technique puis poursuivre la discussion après une réponse.",
-            "english": "In a photography group, comment on a technique, then continue the discussion after a reply."
+            "french": "Une personne timide lit un groupe photo, prépare sa question puis ose la publier.",
+            "english": "A shy person reads a photography group's posts, prepares a question and dares to post it."
           }
         },
         {
@@ -632,8 +632,8 @@
             "english": "Listen to each other and keep commitments to build trust."
           },
           "example": {
-            "french": "Lire les textes de l'autre et lui envoyer ses remarques au moment convenu.",
-            "english": "Read each other's texts and send feedback at the agreed time."
+            "french": "Rencontrées sur un réseau social, deux personnes échangent et commentent leurs textes chaque semaine.",
+            "english": "Two people who met on social media exchange and comment on their writing every week."
           }
         }
       ],
@@ -758,8 +758,8 @@
             "english": "Suitable complete journeys."
           },
           "example": {
-            "french": "Si le travail finit après le dernier bus, le trajet retour n'est plus assuré.",
-            "english": "If work finishes after the last bus, the return journey is no longer covered."
+            "french": "Une salariée prend le bus à l'aller et au retour ; finir après le dernier départ changerait la situation.",
+            "english": "An employee takes the bus both ways; finishing after the last departure would change the situation."
           }
         },
         {
@@ -768,8 +768,8 @@
             "english": "Nearby services."
           },
           "example": {
-            "french": "Organiser courses et activités à distance accessible.",
-            "english": "Arrange shopping and activities within reach."
+            "french": "Un père va à l'école à pied avec sa fille, puis fait les courses sur le chemin du retour.",
+            "english": "A father walks his daughter to school, then shops on the way home."
           }
         },
         {
@@ -778,8 +778,8 @@
             "english": "An affordable transport budget."
           },
           "example": {
-            "french": "Comparer les frais de voiture aux abonnements de bus et aux billets de train.",
-            "english": "Compare car costs with bus passes and train tickets."
+            "french": "Pour un couple, bus et train coûtent moins que l'ancienne voiture et couvrent travail et visites familiales.",
+            "english": "For a couple, bus and train cost less than their former car and cover work and family visits."
           }
         }
       ]
@@ -832,8 +832,8 @@
     },
     "environnement-p6": {
       "introduction": {
-        "french": "Limiter dans les secteurs saturés, avec des alternatives.",
-        "english": "Limit traffic in congested areas with alternatives."
+        "french": "Limiter la circulation qui gêne la vie quotidienne, avec des alternatives.",
+        "english": "Restrict traffic that disrupts everyday life, with alternatives."
       },
       "nuance": {
         "french": "Prévoir les accès nécessaires et le trafic déplacé.",
@@ -850,8 +850,8 @@
             "english": "Reduce local nuisance."
           },
           "example": {
-            "french": "Une rue résidentielle n'est plus un raccourci ; comparer le bruit et les effets dans les rues voisines.",
-            "english": "A residential street stops being a shortcut; compare noise and effects on neighbouring streets."
+            "french": "Une rue servant de raccourci devient piétonne : les riverains ne subissent plus ce trafic sous leurs fenêtres.",
+            "english": "A shortcut becomes pedestrian-only: residents no longer have that traffic beneath their windows."
           }
         },
         {
@@ -860,18 +860,18 @@
             "english": "Give buses priority to make journeys more reliable."
           },
           "example": {
-            "french": "Un couloir réservé peut rendre l'arrivée du bus plus prévisible, si les correspondances suivent.",
-            "english": "A dedicated lane can make the bus arrival more predictable if connections work too."
+            "french": "Le bus avance dans son couloir réservé ; le retour est plus prévisible si les correspondances suivent.",
+            "english": "The bus uses its own lane; the journey home is more predictable if connections work too."
           }
         },
         {
           "point": {
-            "french": "Libérer de la place pour marcher et attendre.",
-            "english": "Free space for walking and waiting."
+            "french": "Récupérer de la place pour les habitants.",
+            "english": "Free up space for residents."
           },
           "example": {
-            "french": "Transformer des places de stationnement près d'une école en zone où les familles attendent sans se tenir entre les voitures.",
-            "english": "Turn parking spaces near a school into an area where families wait without standing between cars."
+            "french": "Près d'une école, des places de stationnement deviennent un trottoir plus large avec des bancs.",
+            "english": "Near a school, parking spaces become a wider pavement with benches."
           }
         }
       ]
@@ -882,12 +882,12 @@
         "english": "Justified zones, not a uniform ban."
       },
       "nuance": {
-        "french": "Vérifier accès, rues voisines et effets commerciaux.",
-        "english": "Check access, neighbouring streets and business effects."
+        "french": "Prévoir livraisons, secours et accès adaptés ; ne pas déplacer le trafic dans la rue voisine.",
+        "english": "Plan deliveries, emergency and accessible routes; do not simply move traffic next door."
       },
       "conclusion": {
-        "french": "Des zones piétonnes préparées et évaluées.",
-        "english": "Prepared and evaluated pedestrian zones."
+        "french": "Des zones piétonnes bien choisies, avec des accès adaptés.",
+        "english": "Carefully chosen pedestrian zones with suitable access."
       },
       "arguments": [
         {
@@ -896,14 +896,14 @@
             "english": "Let pedestrians move without avoiding cars."
           },
           "example": {
-            "french": "Une poussette avance sans éviter les voitures ; les livraisons ont d’autres horaires.",
-            "english": "A pushchair moves without avoiding cars; deliveries have separate times."
+            "french": "Une mère circule avec sa poussette sans se serrer contre les vitrines pour laisser passer les voitures.",
+            "english": "A mother walks with her pushchair without squeezing against shop windows to let cars pass."
           }
         },
         {
           "point": {
-            "french": "Garder un espace public partagé.",
-            "english": "Keep public space shared."
+            "french": "Pouvoir rester et se retrouver au centre.",
+            "english": "Spend time and meet people in the centre."
           },
           "example": {
             "french": "Installer des bancs sans réserver tout aux terrasses.",
@@ -916,8 +916,8 @@
             "english": "Reduce noise and emissions from ordinary traffic."
           },
           "example": {
-            "french": "Une rue résidentielle n'est plus un raccourci ; comparer le bruit et les effets dans les rues voisines.",
-            "english": "A residential street stops being a shortcut; compare noise and effects on neighbouring streets."
+            "french": "Une rue servant de raccourci devient piétonne : les riverains ne subissent plus ce trafic sous leurs fenêtres.",
+            "english": "A shortcut becomes pedestrian-only: residents no longer have that traffic beneath their windows."
           }
         }
       ]
@@ -942,8 +942,8 @@
             "english": "Reduce expenses for those who pay for their journeys."
           },
           "example": {
-            "french": "Un abonnement jusque-là payé devient une économie réelle.",
-            "english": "A previously paid pass becomes an actual saving."
+            "french": "Une salariée qui paie soixante euros d'abonnement peut garder cette somme pour d'autres besoins.",
+            "english": "An employee paying sixty euros for a travel pass can keep that money for other needs."
           }
         },
         {
@@ -952,8 +952,8 @@
             "english": "Encourage actual replacement of car journeys."
           },
           "example": {
-            "french": "Un bus direct devenu gratuit peut conduire un automobiliste à laisser sa voiture chez lui.",
-            "english": "A direct bus becoming free may lead a driver to leave the car at home."
+            "french": "Un salarié essaie le bus gratuit, adapté à ses horaires, et remplace plusieurs trajets en voiture.",
+            "english": "An employee tries a free bus that fits his hours and replaces several car journeys."
           }
         },
         {
@@ -962,8 +962,8 @@
             "english": "Facilitate participation in city life."
           },
           "example": {
-            "french": "Si une ligne accessible et gratuite dessert la bibliothèque, le prix du trajet ne bloque plus la rencontre.",
-            "english": "If an accessible free route serves the library, the fare no longer blocks attending the meeting."
+            "french": "Une retraitée peut rejoindre son club de lecture avec une ligne accessible et gratuite.",
+            "english": "A retired woman can attend her book club using an accessible free route."
           }
         }
       ]
@@ -1030,12 +1030,12 @@
       "arguments": [
         {
           "point": {
-            "french": "Comparer tous les coûts.",
-            "english": "Compare all costs."
+            "french": "Réduire les dépenses en tenant compte des transports de remplacement.",
+            "english": "Reduce expenses while accounting for alternative transport costs."
           },
           "example": {
-            "french": "Mettre abonnement et alternatives face à assurance, entretien et stationnement.",
-            "english": "Compare passes and alternatives with insurance, maintenance and parking."
+            "french": "Une salariée compare bus et autres trajets aux frais de sa voiture ; si elle économise, elle peut la vendre.",
+            "english": "An employee compares bus and other journeys with car costs; if she saves money, she can sell the car."
           }
         },
         {
@@ -1054,8 +1054,8 @@
             "english": "Free up space in the streets."
           },
           "example": {
-            "french": "Un chemin sûr vers l'école remplace certains dépôts en voiture et désencombre l'entrée.",
-            "english": "A safe school route replaces some car drop-offs and reduces entrance congestion."
+            "french": "Des familles viennent à pied par un chemin sûr : moins de voitures encombrent l'entrée de l'école.",
+            "english": "Families walk along a safe route, so fewer cars crowd the school entrance."
           }
         }
       ]

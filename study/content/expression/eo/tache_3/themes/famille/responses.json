@@ -132,7 +132,7 @@
         {
           "idea": "Enfin, retrouver ses proches demande parfois un vrai budget et du temps disponible.",
           "developpement": "Une visite ne consiste plus simplement à passer chez quelqu'un : il faut prévoir le trajet, payer le billet et parfois prendre congé. Même lorsqu'on tient beaucoup à un événement familial, ces contraintes peuvent empêcher d'y participer.",
-          "exemple": "Par exemple, une femme qui travaille à huit heures de train de chez son père voudrait être présente pour son anniversaire. Le voyage lui demanderait deux jours de congé et un billet qu'elle n'a pas les moyens de payer : elle doit donc renoncer à la visite.",
+          "exemple": "Par exemple, une femme qui travaille à huit heures de train de chez son père voudrait être présente pour son anniversaire. Le voyage lui demanderait deux jours de congé et un billet qu'elle n'a peut-être pas les moyens de payer : elle pourrait donc devoir renoncer à la visite.",
           "consequence": "Un appel lui permet de partager un moment avec lui, mais ne remplace pas complètement le plaisir d'être réunis."
         }
       ],
@@ -231,15 +231,15 @@
         },
         {
           "idea": "En revanche, certaines dépenses deviennent plus lourdes quand on ne peut plus les partager.",
-          "developpement": "En effet, tous les frais ne diminuent pas parce qu'une seule personne utilise le logement. Un abonnement internet peut coûter le même prix pour une personne que pour deux. Vivre en famille permet de répartir ce type de dépenses et de garder davantage d'argent pour d'autres besoins.",
+          "developpement": "En effet, tous les frais ne diminuent pas parce qu'une seule personne utilise le logement. Même en consommant moins, on doit payer seul certaines charges fixes. Vivre en famille permet de répartir ce type de dépenses et de garder davantage d'argent pour d'autres besoins.",
           "exemple": "Prenons l'exemple de deux sœurs qui partagent un abonnement internet à quarante euros par mois : chacune paie vingt euros. Si elles prennent deux logements et conservent chacune cet abonnement, elles paient désormais quarante euros chacune pour le même service.",
           "consequence": "Sur un petit budget, cette différence peut rendre la vie seule moins facile qu'elle ne le semblait."
         },
         {
           "idea": "Enfin, vivre seul demande aussi de prévoir de l'aide en cas de difficulté.",
-          "developpement": "Si un problème de santé nous empêche de faire les courses ou de préparer les repas, il faut qu'on puisse obtenir de l'aide. Quand personne ne vit avec nous, ce soutien doit être organisé avec des proches disponibles ou des services adaptés.",
-          "exemple": "Par exemple, avant de rentrer chez elle après une opération du genou, une personne organise les courses avec sa sœur et prévoit des livraisons de repas pour la semaine. Elle peut ainsi rester chez elle sans devoir tout faire malgré ses difficultés à marcher.",
-          "consequence": "Elle garde son indépendance, mais au prix de préparatifs qu'une famille présente et disponible aurait pu lui épargner en partie."
+          "developpement": "Si un problème de santé nous empêche de nous débrouiller seuls au quotidien, il faut qu'on puisse obtenir de l'aide. Quand personne ne vit avec nous, ce soutien doit être organisé avec des proches disponibles ou des services adaptés.",
+          "exemple": "Par exemple, une femme qui vit seule et qui va se faire opérer du genou peut avoir besoin de demander à quelqu'un de lui apporter les courses et de se faire livrer des repas, car elle risque d'avoir du mal à marcher après l'opération.",
+          "consequence": "Elle peut garder son indépendance, mais au prix de préparatifs qu'une famille présente et disponible pourrait lui épargner en partie."
         }
       ],
       "nuance": "Bien sûr, la vie familiale n'est pas forcément synonyme d'entraide. Quand une personne fait les courses, les repas et le ménage pour tout le monde, vivre seule peut au contraire alléger son quotidien.",
@@ -365,7 +365,7 @@
       "arguments": [
         {
           "idea": "Tout d'abord, rester chez ses parents peut éviter de se mettre en difficulté financière.",
-          "developpement": "Avec un revenu modeste, le loyer et les charges absorbent parfois une grande partie du budget. Même en contribuant aux frais du foyer, on peut dépenser moins pour se loger et garder de quoi faire face aux autres besoins. Ce choix peut donc être réfléchi, plutôt qu'un simple refus de devenir indépendant.",
+          "developpement": "Avec un revenu modeste, le loyer et les charges absorbent parfois une grande partie du budget. Vivre chez ses parents peut coûter moins cher que d'avoir son propre logement, même si l'on participe aux dépenses du foyer. Cela peut laisser davantage d'argent pour les autres besoins : rester peut donc être un choix financier raisonnable, plutôt qu'un refus de devenir indépendant.",
           "exemple": "Par exemple, un homme de vingt-sept ans gagne mille quatre cents euros par mois, alors qu'un studio lui coûterait neuf cents euros sans les charges. Avec l'accord de ses parents, il reste chez eux et contribue à hauteur de trois cents euros par mois.",
           "consequence": "Il participe aux dépenses tout en gardant une marge financière, au lieu de consacrer une grande partie de son salaire au logement."
         },

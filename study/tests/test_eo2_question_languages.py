@@ -61,10 +61,10 @@ class EO2QuestionLanguageTests(SimpleTestCase):
     def write(self, data):
         self.path.write_text(json.dumps(data, ensure_ascii=False))
 
-    def test_scope_is_exactly_the_nine_requested_themes_75_models_and_600_questions(self):
+    def test_scope_covers_the_seventeen_requested_themes_153_models_and_1224_questions(self):
         rows = scoped_dialogues()
-        self.assertEqual(len(rows), 75)
-        self.assertEqual(sum(len(row.questions) for row in rows.values()), 600)
+        self.assertEqual(len(rows), 153)
+        self.assertEqual(sum(len(row.questions) for row in rows.values()), 1224)
 
     def test_empty_catalogue_explicitly_reports_unprepared_without_a_provider_call(self):
         dialogue = next(iter(scoped_dialogues().values()))
@@ -165,12 +165,12 @@ class EO2QuestionLanguageTests(SimpleTestCase):
             with self.assertRaises(ValueError):
                 validate_manifest(bad)
 
-    def test_dry_run_counts_600_questions_and_never_uses_deepl(self):
+    def test_dry_run_counts_1224_questions_and_never_uses_deepl(self):
         output = StringIO()
         with patch("study.translations.service.urllib.request.urlopen") as provider:
             call_command("prepare_eo2_translations", "--dry-run", stdout=output)
         provider.assert_not_called()
-        self.assertIn("75 models; 600 questions; 600 missing", output.getvalue())
+        self.assertIn("153 models; 1224 questions; 1224 missing", output.getvalue())
         self.assertEqual(manifest()["groups"], {})
 
     def test_generation_requires_exact_cost_confirmation_and_configured_key(self):
@@ -257,6 +257,28 @@ class EO2QuestionLanguageTests(SimpleTestCase):
 
 
 class EO2RecordedTranslationTests(SimpleTestCase):
+    def test_requested_leisure_themes_have_complete_english_without_provider_calls(self):
+        requested = {
+            "voyages", "sport", "arts-loisirs", "fetes", "escapades-tourisme",
+            "culture-medias", "spectacles-festivals", "loisirs-clubs-jeux",
+        }
+        _, themes = catalogue.tache_two_subject_themes()
+        seen = set()
+        with patch("study.translations.service.urllib.request.urlopen") as provider:
+            for key, dialogue in catalogue.tache_two_dialogues().items():
+                if themes[key] not in requested or dialogue.group in seen:
+                    continue
+                seen.add(dialogue.group)
+                questions = [{"text": question.question} for question in dialogue.questions]
+                with self.subTest(group=dialogue.group):
+                    result = language_presentation(dialogue, questions)
+                    self.assertIsNotNone(result)
+                    self.assertTrue(result["ready"])
+                    self.assertEqual(result["available"], 8)
+                    self.assertTrue(all(row["english"].endswith("?") for row in questions))
+        provider.assert_not_called()
+        self.assertEqual(len(seen), 78)
+
     def test_production_manifest_is_honestly_empty_or_covers_every_current_scoped_question(self):
         data = validate_manifest(json.loads(DEFAULT_PATH.read_text()))
         if not data["groups"]:

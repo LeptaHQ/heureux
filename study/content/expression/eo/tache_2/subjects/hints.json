@@ -2728,24 +2728,24 @@
         "english": "Typical Saturday among your friend's acquaintances"
       },
       {
-        "french": "Repos et activités du dimanche",
-        "english": "Rest and Sunday activities"
+        "french": "Habitudes du dimanche par rapport au samedi",
+        "english": "Sunday habits compared with Saturday"
       },
       {
         "french": "Brunch au restaurant ou chez soi",
         "english": "Brunch at a restaurant or at home"
       },
       {
-        "french": "Sports pratiqués selon les saisons",
-        "english": "Sports played in different seasons"
+        "french": "Sports pratiqués dans l'entourage selon les saisons",
+        "english": "Seasonal sports among your friend's acquaintances"
       },
       {
-        "french": "Hockey pratiqué ou regardé à la télévision",
-        "english": "Playing hockey or watching it on television"
+        "french": "Hockey pratiqué ou matchs regardés entre amis",
+        "english": "Playing hockey or watching matches with friends"
       },
       {
-        "french": "Sorties les plus fréquentes",
-        "english": "Most frequent outings"
+        "french": "Sorties les plus appréciées dans l'entourage",
+        "english": "Favourite outings among your friend's acquaintances"
       },
       {
         "french": "Accès au chalet sans en posséder un",
@@ -5030,8 +5030,8 @@
         "english": "Most convenient transport for visitors"
       },
       {
-        "french": "Moments où le monorail est moins fréquenté",
-        "english": "Quieter times to use the monorail"
+        "french": "Difficulté de déplacement à signaler aux visiteurs",
+        "english": "Getting-around difficulty to mention to visitors"
       }
     ],
     "friend-music-festival-organizer": [

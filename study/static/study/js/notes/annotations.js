@@ -436,20 +436,22 @@
     return values;
   }
 
-  function createAnnotation(kind, details, body, translateWithDeepL) {
+  function createAnnotation(kind, details, body, translateWithDeepL, alsoHighlight) {
     var values = annotationBody(kind, details, body);
     if (translateWithDeepL) {
       values.set("translate_with", "deepl");
-      values.set("highlight_selection", JSON.stringify({
-        quote: details.highlight.quote,
-        start: details.highlight.start,
-        end: details.highlight.end,
-        prefix: details.highlight.prefix,
-        suffix: details.highlight.suffix,
-        fully_highlighted: details.fullyHighlighted
-      }));
-      values.set("overlap_ids", details.highlightIds.join(","));
-      values.set("overlap_revisions", JSON.stringify(details.highlightRevisions));
+      if (alsoHighlight !== false) {
+        values.set("highlight_selection", JSON.stringify({
+          quote: details.highlight.quote,
+          start: details.highlight.start,
+          end: details.highlight.end,
+          prefix: details.highlight.prefix,
+          suffix: details.highlight.suffix,
+          fully_highlighted: details.fullyHighlighted
+        }));
+        values.set("overlap_ids", details.highlightIds.join(","));
+        values.set("overlap_revisions", JSON.stringify(details.highlightRevisions));
+      }
     }
     return fetch(createUrl, {
       method: "POST",
@@ -466,8 +468,9 @@
     });
   }
 
-  function saveTranslatedSelectionNote() {
-    if (translatedNotePending || translateNoteButton.disabled) return;
+  function saveTranslatedSelectionNote(alsoHighlight) {
+    alsoHighlight = alsoHighlight !== false;
+    if (translatedNotePending || (alsoHighlight && translateNoteButton.disabled)) return;
     rememberSelection();
     var details = currentSelection;
     if (!details) {
@@ -480,7 +483,7 @@
     }
     translatedNotePending = true;
     updateTranslateNoteButton(details);
-    createAnnotation("note", details, "", true)
+    createAnnotation("note", details, "", true, alsoHighlight)
       .then(function (data) {
         if (
           data.provider !== "deepl" ||
@@ -488,6 +491,10 @@
           typeof data.created !== "boolean"
         ) {
           throw new Error("Impossible de confirmer l’enregistrement. Consultez vos notes.");
+        }
+        if (!alsoHighlight) {
+          showToast(data.created ? "Note enregistrée." : "Note déjà enregistrée.");
+          return;
         }
         var result = data.highlight;
         if (result && result.error) {
@@ -1809,7 +1816,9 @@
   document.addEventListener("pointerup", rememberSelection);
   noteButton.addEventListener("click", openNotePanel);
   if (translateNoteButton) {
-    translateNoteButton.addEventListener("click", saveTranslatedSelectionNote);
+    translateNoteButton.addEventListener("click", function () {
+      saveTranslatedSelectionNote(true);
+    });
   }
   var translateButton = action.querySelector("[data-translate-selection]");
   if (translateButton) {
@@ -1868,6 +1877,7 @@
   // Lets the translation panel turn a translated passage into a note without
   // duplicating the selection capture logic that lives in this module.
   window.HeureuxNotes = {
+    saveTranslatedSelectionNote: saveTranslatedSelectionNote,
     captureSelection: function () {
       rememberSelection();
       return currentSelection && currentSelection.language !== "en" ? currentSelection : null;

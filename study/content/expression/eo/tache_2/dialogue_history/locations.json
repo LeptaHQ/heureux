@@ -1104,6 +1104,21 @@
             {"topic": "Transports", "question": "Comment les visiteurs peuvent-ils s'y déplacer le plus facilement ?", "follow_up_to": null},
             {"topic": "Transports", "question": "Il n'est pas pris d'assaut par les touristes, ce monorail ?", "follow_up_to": 7, "condition": "If a famous tourist transport is mentioned; adapt to the line named."}
           ]
+        },
+        {
+          "group": "friend-city-for-cultural-magazine-article",
+          "opening": "Salut ! Je dois écrire un article sur une ville pour un magazine culturel, et j'aimerais profiter de tes idées.",
+          "closing": "Merci, c'est exactement ce qu'il me fallait ! Je tiens mon sujet, et je vais pouvoir commencer mon article.",
+          "questions": [
+            {"topic": "La ville choisie", "question": "Parmi les villes que tu as visitées, laquelle préfères-tu ?", "follow_up_to": null},
+            {"topic": "La ville choisie", "question": "Qu'est-ce qui la distingue des autres villes que tu connais, selon toi ?", "follow_up_to": 1, "condition": "If a city is named without explaining what makes it distinctive."},
+            {"topic": "La ville choisie", "question": "Quel quartier représenterait le mieux l'identité de la ville pour servir de fil conducteur à l'article ?", "follow_up_to": null},
+            {"topic": "Architecture", "question": "Côté architecture, tu conseillerais de voir quoi en priorité ?", "follow_up_to": null},
+            {"topic": "Architecture", "question": "Et ces bâtiments en brique rouge, on en voit un peu partout ?", "follow_up_to": 4, "condition": "If red-brick buildings are highlighted without explaining their distribution; adapt the feature."},
+            {"topic": "Activités", "question": "Quelle expérience culturelle recommandes-tu le soir pour découvrir l'ambiance locale ?", "follow_up_to": null},
+            {"topic": "Transports", "question": "Comment les visiteurs peuvent-ils s'y déplacer le plus facilement ?", "follow_up_to": null},
+            {"topic": "Transports", "question": "À quels moments ce monorail est-il le moins fréquenté ?", "follow_up_to": 7, "condition": "If a monorail is recommended without advice about quieter travel times."}
+          ]
         }
       ]
     },
@@ -3205,6 +3220,21 @@
             {"topic": "Date et lieu", "question": "En cas de pluie, la réception sera-t-elle déplacée dans un espace couvert suffisamment grand ?", "follow_up_to": 3, "condition": "If an outdoor venue is mentioned, unless a backup is given."},
             {"topic": "Invités", "question": "Quels groupes d'invités seront présents parmi l'équipe, les anciens collègues et la direction ?", "follow_up_to": null},
             {"topic": "Invités", "question": "Votre nouveau directeur prendra-t-il la parole, et à quel moment présentera-t-il vos nouvelles fonctions ?", "follow_up_to": 5, "condition": "If their new manager is invited; adapt to the person named."},
+            {"topic": "Organisation", "question": "Puis-je apporter quelque chose, ou vous occupez-vous déjà des boissons et des bouchées ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Quelle tenue conviendrait à cette soirée : vêtements de bureau ou tenue plus habillée ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "colleague-management-promotion-party",
+          "opening": "Bonjour ! Félicitations pour votre nomination, c'est vraiment mérité ! J'aimerais en savoir un peu plus sur la fête.",
+          "closing": "Merci pour l'invitation ! J'y serai avec grand plaisir.",
+          "questions": [
+            {"topic": "Date et lieu", "question": "Quel jour avez-vous choisi pour célébrer votre promotion ?", "follow_up_to": null},
+            {"topic": "Date et lieu", "question": "À quelle heure la fête commencera-t-elle, et vers quelle heure devrait-elle se terminer ?", "follow_up_to": null},
+            {"topic": "Date et lieu", "question": "Dans quel lieu la fête se déroulera-t-elle, et est-ce près du bureau ?", "follow_up_to": null},
+            {"topic": "Date et lieu", "question": "En cas de pluie, la réception sera-t-elle déplacée dans un espace couvert suffisamment grand ?", "follow_up_to": 3, "condition": "If an outdoor venue is mentioned, unless a backup is given."},
+            {"topic": "Invités", "question": "Qui avez-vous invité : l'équipe, d'anciens collègues ou aussi des proches ?", "follow_up_to": null},
+            {"topic": "Invités", "question": "Est-ce que je peux venir accompagné, ou la fête est-elle réservée aux collègues ?", "follow_up_to": 5, "condition": "If guests are described but bringing a companion has not been discussed."},
             {"topic": "Organisation", "question": "Puis-je apporter quelque chose, ou vous occupez-vous déjà des boissons et des bouchées ?", "follow_up_to": null},
             {"topic": "Organisation", "question": "Quelle tenue conviendrait à cette soirée : vêtements de bureau ou tenue plus habillée ?", "follow_up_to": null}
           ]
@@ -7127,6 +7157,26 @@
             {"topic": "Arrivée et séjour", "question": "Si mon arrivée est retardée, jusqu'à quelle heure puis-je récupérer la clé et comment vous prévenir ?", "follow_up_to": null},
             {"topic": "Réservation et conditions", "question": "Comment confirmer la réservation, et quel montant faut-il payer à l'avance ?", "follow_up_to": null},
             {"topic": "Réservation et conditions", "question": "Si je dois modifier mes dates ou annuler, quels délais faut-il respecter pour éviter des frais ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-canadian-weekend-customs": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-canadian-weekend-customs",
+          "opening": "Salut ! J'aimerais savoir comment les Canadiens passent leurs week-ends, et tu es la personne idéale pour me l'expliquer.",
+          "closing": "Merci beaucoup, c'est passionnant ! J'ai maintenant une idée bien plus précise des week-ends à la canadienne.",
+          "questions": [
+            {"topic": "Temps libre", "question": "Tu pourrais me décrire un samedi typique chez les Canadiens que tu connais ?", "follow_up_to": null},
+            {"topic": "Temps libre", "question": "Et le dimanche, les gens restent plutôt à la maison ?", "follow_up_to": null},
+            {"topic": "Temps libre", "question": "Ce brunch, on le prend plutôt au restaurant ou chez soi ?", "follow_up_to": 2, "condition": "If they mention a Sunday brunch; adapt to the habit described."},
+            {"topic": "Sport", "question": "Qu'est-ce que les gens pratiquent comme sports, selon les saisons ?", "follow_up_to": null},
+            {"topic": "Sport", "question": "Le hockey, les gens y jouent vraiment ou ils le regardent surtout à la télévision ?", "follow_up_to": 4, "condition": "If hockey is mentioned; adapt to the sport they actually name."},
+            {"topic": "Sorties", "question": "Quand ils sortent, où vont-ils le plus souvent ?", "follow_up_to": null},
+            {"topic": "Sorties", "question": "Le chalet, c'est réservé à ceux qui en possèdent un ?", "follow_up_to": 6, "condition": "If cottage weekends are mentioned; adapt to the outing described."},
+            {"topic": "Sorties", "question": "Les sorties du week-end sont-elles plutôt organisées longtemps à l'avance ou décidées au dernier moment ?", "follow_up_to": null}
           ]
         }
       ]

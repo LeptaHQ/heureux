@@ -74,7 +74,7 @@ class Command(BaseCommand):
         if options["check"]:
             if pending:
                 raise CommandError("Translations are missing or French questions have changed; nothing was sent.")
-            self.stdout.write("All current questions have matching saved DeepL translations.")
+            self.stdout.write("All current questions have matching saved English translations.")
             return
         if not options["prepare"]:
             self.stdout.write(

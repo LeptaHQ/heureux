@@ -4859,6 +4859,48 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.goto(self.live_server_url + prompt_detail_url(prompt))
         return prompt
 
+    def test_eo2_leisure_themes_show_saved_english_on_detail_and_practice(self):
+        from unittest.mock import patch
+        from study.catalogue import registry as catalogue
+        from study.expression.eo.tache_2.languages import fingerprint, manifest
+
+        self._import_eo_tache_two_content()
+        requested = {
+            "voyages", "sport", "arts-loisirs", "fetes", "escapades-tourisme",
+            "culture-medias", "spectacles-festivals", "loisirs-clubs-jeux",
+        }
+        _, themes = catalogue.tache_two_subject_themes()
+        saved = manifest()["groups"]
+        seen = set()
+        with patch("study.translations.service.urllib.request.urlopen") as provider:
+            for key, dialogue in catalogue.tache_two_dialogues().items():
+                if themes[key] not in requested or themes[key] in seen:
+                    continue
+                seen.add(themes[key])
+                with self.subTest(theme=themes[key]):
+                    prompt = Prompt.objects.select_related("theme__task__part").get(content_key=key)
+                    expected = [
+                        saved[dialogue.group][fingerprint(question.question)]["english"]
+                        for question in dialogue.questions
+                    ]
+                    self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+                    root = self.page.locator("[data-eo2-language]")
+                    expect(root).to_have_attribute("data-eo2-language-ready", "true")
+                    root.get_by_role("button", name="Français", exact=True).click()
+                    expect(root.locator("[data-eo2-french]:visible")).to_have_count(8)
+                    root.get_by_role("button", name="Anglais", exact=True).click()
+                    expect(root.locator("[data-eo2-english]:visible")).to_have_text(expected)
+                    self.page.goto(self.live_server_url + review_url({
+                        "part": "eo", "task": "tache-2", "kind": "spine",
+                        "response": prompt.response_id, "prompt": prompt.pk,
+                    }))
+                    self.page.wait_for_load_state("networkidle")
+                    self.page.locator("#reveal").click()
+                    back = self.page.locator("#card-back")
+                    expect(back.locator("[data-eo2-english]:visible")).to_have_text(expected)
+        provider.assert_not_called()
+        self.assertEqual(seen, requested)
+
     def test_eo2_global_and_number_language_toggles_remember_only_the_global_choice(self):
         prompt = self.open_eo2_language_fixture()
         root = self.page.locator("[data-eo2-language]")
@@ -8058,7 +8100,8 @@ class BrowserTests(StaticLiveServerTestCase):
             "=== document.activeElement"
         )
         self.page.keyboard.press("h")
-        self.assertEqual(note_body.input_value(), "h")
+        self.page.keyboard.press("s")
+        self.assertEqual(note_body.input_value(), "hs")
         self.assertEqual(
             Annotation.objects.filter(
                 user=self.user,
@@ -8612,6 +8655,68 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertFalse(Annotation.objects.exists())
         deepl.assert_not_called()
         libre.assert_not_called()
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="Saved without highlighting.")
+    def test_direct_deepl_note_shortcut_s_saves_without_highlighting(self, provider):
+        self.open_direct_deepl_note_review()
+        self.page.keyboard.press("s")
+        provider.assert_not_called()
+        self.select_prompt(start=0, end=12)
+        quote = self.page.evaluate("window.getSelection().toString().trim()")
+        self.page.keyboard.press("s")
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note enregistrée.",
+        )
+        note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE)
+        self.assertEqual(note.quote, quote)
+        self.assertEqual(note.body, "Saved without highlighting.")
+        self.assertEqual(note.task, self.task)
+        self.assertFalse(Annotation.objects.filter(kind=AnnotationKind.HIGHLIGHT).exists())
+        expect(self.page.locator("mark.user-highlight")).to_have_count(0)
+        expect(self.page.locator("[data-translation-panel]")).to_be_hidden()
+        expect(self.page.locator("[data-note-panel]")).to_be_hidden()
+        provider.assert_called_once()
+
+    @override_settings(DEEPL_API_KEY="test:fx")
+    @mock.patch("study.views.notes._deepl_translation", return_value="Saved with cached assets.")
+    def test_direct_deepl_note_shortcut_s_bypasses_previous_cached_scripts(self, provider):
+        cookies = self.context.cookies()
+        self.context.close()
+        self.context = self.browser.new_context(service_workers="allow")
+        self.context.add_cookies(cookies)
+        self.page = self.context.new_page()
+        self.open_direct_deepl_note_review()
+        self.page.evaluate("""async () => {
+          await navigator.serviceWorker.ready;
+          if (!navigator.serviceWorker.controller) {
+            await new Promise(resolve => {
+              navigator.serviceWorker.addEventListener("controllerchange", resolve, {once: true});
+            });
+          }
+          const names = await caches.keys();
+          const cache = await caches.open(names.find(name => name.startsWith("heureux-")));
+          for (const asset of [
+            "/static/study/js/notes/selection-toolbar.js?v=20",
+            "/static/study/js/notes/annotations.js?v=43",
+          ]) {
+            await cache.put(asset, new Response("window.__staleNoteScriptLoaded = true;", {
+              headers: {"Content-Type": "application/javascript"},
+            }));
+          }
+        }""")
+        self.page.reload()
+        self.page.wait_for_load_state("networkidle")
+        self.assertFalse(self.page.evaluate("Boolean(window.__staleNoteScriptLoaded)"))
+        self.select_prompt(start=0, end=12)
+        quote = self.page.evaluate("window.getSelection().toString().trim()")
+        self.page.keyboard.press("s")
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text("Note enregistrée.")
+        note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE)
+        self.assertEqual((note.quote, note.body), (quote, "Saved with cached assets."))
+        self.assertFalse(Annotation.objects.filter(kind=AnnotationKind.HIGHLIGHT).exists())
+        expect(self.page.locator("mark.user-highlight")).to_have_count(0)
+        provider.assert_called_once()
 
     def test_direct_deepl_note_toolbar_fits_small_screens(self):
         self.open_direct_deepl_note_review()

@@ -367,7 +367,7 @@
     if (key === "c") return selectionCopyButton;
     if (key === "r") return readButton;
     if (key === "t") return translateButton;
-    if (key === "d") return translateNoteButton;
+    if (key === "d" || key === "s") return translateNoteButton;
     if (key === "n") return noteButton;
     if (key === "h") return highlightButton;
     return null;
@@ -385,7 +385,8 @@
     ) {
       return;
     }
-    var button = selectionShortcutButton(event.key.toLowerCase());
+    var key = event.key.toLowerCase();
+    var button = selectionShortcutButton(key);
     if (!button) return;
     if (
       event.target &&
@@ -408,7 +409,12 @@
     event.preventDefault();
     event.stopImmediatePropagation();
     applySelectionDetails(details);
-    if (!button.hidden && !button.disabled) button.click();
+    if (button.hidden) return;
+    if (key === "s") {
+      if (window.HeureuxNotes) window.HeureuxNotes.saveTranslatedSelectionNote(false);
+    } else if (!button.disabled) {
+      button.click();
+    }
   }
 
   function scheduleSelectionAction(delay) {

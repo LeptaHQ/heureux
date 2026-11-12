@@ -637,6 +637,7 @@ class SmokeTests(TestCase):
         self.assertContains(response, 'aria-keyshortcuts="R"')
         self.assertContains(response, 'aria-keyshortcuts="T"')
         self.assertContains(response, 'aria-keyshortcuts="D"')
+        self.assertContains(response, "S: translate and add to Notes without highlighting.")
         self.assertContains(response, 'aria-keyshortcuts="N"')
         self.assertContains(response, 'aria-keyshortcuts="H"')
         self.assertContains(

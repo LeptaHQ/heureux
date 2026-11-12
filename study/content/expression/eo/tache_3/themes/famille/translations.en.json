@@ -539,6 +539,11 @@
       }
     },
     "eo/tache-3/famille-p11": {
+      "04a0058a6ebc06ce1046ff5b01f1d84e17ce4ddcfc5281f1d20121d6545e5aa3": {
+        "french": "Par exemple, une femme qui vit seule et qui va se faire opérer du genou peut avoir besoin de demander à quelqu'un de lui apporter les courses et de se faire livrer des repas, car elle risque d'avoir du mal à marcher après l'opération.",
+        "english": "For example, a woman who lives alone and is about to have knee surgery may need to arrange for someone to bring her groceries and for meals to be delivered, as she may have difficulty walking afterward.",
+        "review_note": "Editorial English preserves the user-approved conditional example: a possible need for help, without assuming that a specific relative agrees or that arrangements succeed. Previous translation records are retained. No provider call was made."
+      },
       "076cc97bd2fd9c9c543c66b3925f380f41e964779898d814296233f233d99b7e": {
         "english": "Some costs do not go down when you live alone. An internet subscription, for example, can cost the same for one person as for two. Sharing these costs as a family can leave each person with more money.",
         "french": "Certaines dépenses ne baissent pas quand on vit seul. Un abonnement internet, par exemple, peut coûter le même prix pour une personne que pour deux. En famille, partager ces frais peut laisser davantage de moyens à chacun.",
@@ -571,6 +576,11 @@
       "26bd18924e430f17439f220806a64e89ec9251c5346c4b016d3f632cf263044b": {
         "english": "Sharing responsibilities can make some days easier, without the work itself disappearing.",
         "french": "Le partage peut alléger certaines journées, sans que le travail à accomplir disparaisse."
+      },
+      "2998088cbae791345fe512bf77f6aa16df9698b678c17d589a779943ecd68230": {
+        "french": "En effet, tous les frais ne diminuent pas parce qu'une seule personne utilise le logement. Même en consommant moins, on doit payer seul certaines charges fixes. Vivre en famille permet de répartir ce type de dépenses et de garder davantage d'argent pour d'autres besoins.",
+        "english": "Not every cost falls because only one person uses the home. Even when consuming less, you still have to cover certain fixed costs on your own. Living with family lets you divide this kind of expense and keep more money for other needs.",
+        "review_note": "Editorial English aligned with the revised development explaining fixed costs without repeating the internet example. Previous translation records are retained. No provider call was made."
       },
       "2d3c5a67bd034d00760d2c5f466631dc515421619f79b52a4dc79fc98fe115e2": {
         "english": "A nurse comes home after a night shift and sleeps in a quiet flat. In a family home, others might be getting ready for school or work, which would mean finding a compromise.",
@@ -610,6 +620,11 @@
         "french": "En bref, vivre seul facilite certains choix, mais peut coûter plus cher et demander plus d'organisation. La vie en famille peut être plus facile si les frais et les tâches sont réellement partagés.",
         "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "47bd913e3388bec9c3d48ded1fb9da4f4dbdb2f078e6de83ee3cd18068187c66": {
+        "french": "Elle peut garder son indépendance, mais au prix de préparatifs qu'une famille présente et disponible pourrait lui épargner en partie.",
+        "english": "She can keep her independence, but at the cost of preparations that a family living with her and available to help could partly spare her.",
+        "review_note": "Editorial English aligned with the conditional example and consequence, without presenting support as already arranged. Previous translation records are retained. No provider call was made."
+      },
       "4a35d71380fcf0411f0c5740366efd32477044014ffc6943d0a61ede3351e387": {
         "english": "Next, living alone means paying certain household expenses from a single income.",
         "french": "Ensuite, vivre seul signifie payer certaines charges avec un seul revenu.",
@@ -624,6 +639,11 @@
         "english": "Living together obviously only helps if relationships are respectful and chores are shared. If one person does everything for the others, living alone can be a relief. Living alone does not, after all, prevent a rich social life.",
         "french": "La cohabitation n'aide évidemment que si les relations sont respectueuses et les tâches partagées. Si une personne fait tout pour les autres, vivre seule peut être un soulagement. Habiter seul n'empêche d'ailleurs pas d'avoir une vie sociale riche.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "53cda2a72f7f06b7535b6fa57becb1f50a4703ee6a5b14cdde8967532e592c37": {
+        "french": "Par exemple, une femme qui vit seule sait qu'elle marchera difficilement après une opération du genou. Avant d'aller à l'hôpital, elle commande des repas pour la semaine de son retour et sa sœur accepte de lui apporter les courses. Grâce à ces préparatifs, elle pourra se reposer chez elle sans devoir sortir faire les courses ni cuisiner.",
+        "english": "For example, a woman who lives alone knows she will have difficulty walking after knee surgery. Before going to hospital, she orders meals for the week of her return, and her sister agrees to bring her groceries. Because she has planned this in advance, she will be able to rest at home without having to go out for groceries or cook.",
+        "review_note": "Editorial English aligned with the clarified example: living alone and limited mobility are explicit, meals are ordered before hospital admission, and the sister agrees to bring groceries. Previous translation records are retained. No provider call was made."
       },
       "54b9152562c7d5d868233f1be263f971643b06045e6a6b37246e11033b91b3b7": {
         "french": "En effet, tous les frais ne diminuent pas parce qu'une seule personne utilise le logement. Un abonnement internet peut coûter le même prix pour une personne que pour deux. Vivre en famille permet de répartir ce type de dépenses et de garder davantage d'argent pour d'autres besoins.",
@@ -687,6 +707,11 @@
         "english": "Of course, family life does not necessarily mean mutual support. When one person does the shopping, cooking and cleaning for everyone, living alone can instead make their everyday life easier.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
+      "74aeb403e8a3cdfe6acc957f764606d59ddb5fad055d5308dbd2c2f4e0cba16c": {
+        "french": "Par exemple, une femme qui vit seule va se faire opérer du genou. Comme elle aura du mal à marcher, elle commande des repas pour son retour et sa sœur accepte de lui apporter les courses. Elle pourra ainsi se reposer sans devoir tout faire elle-même.",
+        "english": "For example, a woman who lives alone is going to have knee surgery. Since she will have difficulty walking, she orders meals for when she gets home, and her sister agrees to bring her groceries. That way, she can rest without having to do everything herself.",
+        "review_note": "Editorial English aligned with the shorter example, retaining the need for help, the sister's agreement and the practical result without narrating every planning step. Previous translation records are retained. No provider call was made."
+      },
       "74fd5115acc2c7eb887a501de0b8665806cdc69c1f820e85b40028b996a745d8": {
         "english": "Living alone does not mean having no family or friends. But no one is already there to notice a problem or do you a favour. You need to plan who to call and be willing to ask for support.",
         "french": "Vivre seul ne signifie pas n'avoir ni famille ni amis. Mais personne n'est déjà sur place pour remarquer un problème ou rendre un service. Il faut prévoir qui appeler et oser demander un soutien.",
@@ -720,6 +745,11 @@
       "7d236784b8d1af547692dffbf1e048833302de344323c83876ccc0909df066cb": {
         "english": "In conclusion, living alone makes certain choices easier, but can put a strain on your budget and make practical arrangements more difficult. You need to weigh up your actual circumstances against your priorities, rather than claiming that one way of life is easier for everyone.",
         "french": "En conclusion, vivre seul facilite certains choix, mais peut alourdir le budget et l'organisation pratique. Il faut comparer les conditions réelles et ses priorités, plutôt que déclarer une forme de vie plus facile pour tout le monde."
+      },
+      "80cfe1cbf6e6a3768eb03ad23baaea84ae74daf2ab80be45c50538de572f2217": {
+        "french": "En effet, tous les frais ne diminuent pas parce qu'une seule personne utilise le logement. Vivre en famille permet de répartir ce type de dépenses et de garder davantage d'argent pour d'autres besoins.",
+        "english": "Not every cost falls because only one person uses the home. Living with family lets you divide this kind of expense and keep more money for other needs.",
+        "review_note": "Editorial English aligned with the shortened development; the internet subscription remains in the example rather than being repeated here. Previous translation records are retained. No provider call was made."
       },
       "8692ede940ca302215652ee175ee56495860ef7e885823c2b2d2be361739ce3a": {
         "english": "Living alone does not mean having no family or friends. But you must be able to get help without relying on someone already being at home. You need to ask for this support and arrange visits around everyone's availability.",
@@ -755,6 +785,11 @@
         "english": "However, this sharing of responsibilities does not automatically happen within a family. If one person takes on all the tasks or if relationships are strained, living alone can become much simpler. Conversely, living alone does not prevent mutual support or a rich social life outside the home.",
         "french": "Cependant, ce partage n'existe pas automatiquement en famille. Si une seule personne assume toutes les tâches ou si les relations sont tendues, vivre seul peut devenir beaucoup plus simple. Inversement, habiter seul n'empêche ni l'entraide ni une vie sociale riche hors du logement."
       },
+      "a889bf8538bc3c5b7cc10642bcde41a6f5e6fad9bc788e020bceec60c8e21048": {
+        "french": "Si un problème de santé nous empêche de nous débrouiller seuls au quotidien, il faut qu'on puisse obtenir de l'aide. Quand personne ne vit avec nous, ce soutien doit être organisé avec des proches disponibles ou des services adaptés.",
+        "english": "If a health problem prevents us from managing on our own day to day, we need to be able to get help. When nobody lives with us, this support has to be arranged with available relatives or suitable services.",
+        "review_note": "Editorial English aligned with the general explanation of needing help in daily life; shopping and meals are reserved for the example. Previous translation records are retained. No provider call was made."
+      },
       "a8fe2590534fa4e1d6410b646c55cb68519eeed589ab31674e2ecf2d09b82915": {
         "french": "Elle garde son indépendance, mais au prix de préparatifs qu'une famille présente et disponible aurait pu lui épargner en partie.",
         "english": "She keeps her independence, but at the cost of preparations that a family living with her and available to help could have partly spared her.",
@@ -774,6 +809,11 @@
         "english": "After a knee operation, someone living alone asks their sister to do the shopping on Saturday and arranges meal deliveries for the week. They organise this help before returning home.",
         "french": "Après une opération du genou, une personne seule demande à sa sœur de faire les courses le samedi et prévoit des livraisons de repas pour la semaine. Elle organise ces aides avant de rentrer chez elle.",
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
+      },
+      "c04c0fef10ffea5cce1e06b15b46899b59216ffd2591bced17d501787d7d3993": {
+        "french": "Par exemple, une femme qui vit seule doit se faire opérer du genou. Elle sait qu'à son retour, elle aura du mal à marcher et ne pourra pas facilement faire les courses ni cuisiner. Elle en parle donc à sa sœur, qui accepte de lui apporter les courses. Pour les repas, elle se fera livrer les premiers jours. Elle pourra ainsi se reposer sans devoir tout faire elle-même.",
+        "english": "For example, a woman who lives alone needs knee surgery. She knows that when she gets home, she will have trouble walking and will not find it easy to shop for groceries or cook. So she talks to her sister, who agrees to bring her groceries. As for meals, she will have them delivered for the first few days. That way, she can rest without having to do everything herself.",
+        "review_note": "Editorial English aligned with the conversational example: the expected difficulty leads to discussing help with her sister, arranging meals and being able to rest. Previous translation records are retained. No provider call was made."
       },
       "c18714b0977cf9075e4de7e30e7ac49d0bd9cdd412666111e2f29d938624adaa": {
         "english": "Living alone seems easier to me for following your own rhythm, but not for managing everything. The same situation can simplify our days and complicate our budget. Before saying it is better than living with family, we therefore need to specify what we mean.",
@@ -1923,6 +1963,11 @@
         "french": "D'abord, rester chez ses parents peut éviter de se mettre en difficulté financière.",
         "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "4654cb61bcfa30b2082ab495404acad3ed676d416a85a107db7d02731fd4d9f4": {
+        "french": "Avec un revenu modeste, le loyer et les charges absorbent parfois une grande partie du budget. Vivre chez ses parents peut coûter moins cher que d'avoir son propre logement, même si l'on participe aux dépenses du foyer. Cela peut laisser davantage d'argent pour les autres besoins : rester peut donc être un choix financier raisonnable, plutôt qu'un refus de devenir indépendant.",
+        "english": "On a modest income, rent and bills sometimes absorb a large part of the budget. Living with your parents can cost less than having your own place, even if you contribute to household expenses. That can leave more money for other needs, so staying can be a sensible financial choice rather than a sign that you don't want to be independent.",
+        "review_note": "Editorial English aligned with the revised French development, which now carries the approved causal flow from lower housing costs despite contributing to money available for other needs and a reasonable financial decision. Previous French-keyed records and editorial history are retained. No provider call was made."
+      },
       "46e77544408f08d15d52e15e98be03a5ae50544cccc485323471ec40feb6c61c": {
         "english": "Next, living together can be an exchange rather than simply somewhere to stay.",
         "french": "Ensuite, la cohabitation peut être un échange plutôt qu'un simple hébergement.",
@@ -2116,8 +2161,15 @@
       },
       "f49fa4312b0ea2a2bfd9b4748b6167889dc0859c561b426571310b3cec6e0fa6": {
         "french": "Avec un revenu modeste, le loyer et les charges absorbent parfois une grande partie du budget. Même en contribuant aux frais du foyer, on peut dépenser moins pour se loger et garder de quoi faire face aux autres besoins. Ce choix peut donc être réfléchi, plutôt qu'un simple refus de devenir indépendant.",
-        "english": "On a modest income, rent and bills sometimes absorb a large part of the budget. Even while contributing to household costs, you can spend less on housing and keep enough to meet other needs. This can therefore be a considered choice, rather than simply a refusal to become independent.",
-        "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
+        "english": "On a modest income, rent and bills sometimes absorb a large part of the budget. Living with your parents can cost less than having your own place, even if you contribute to household expenses. That can leave more money for other needs, so staying can be a sensible financial choice rather than a sign that you don't want to be independent.",
+        "review_note": "Smoothed the English causal sequence: contributing at home can still cost less than a separate home, leaving money for other needs and making staying a reasonable financial decision. The French is unchanged, and the complete preceding editorial row is retained in editorial_history. No provider call was made.",
+        "editorial_history": [
+          {
+            "french": "Avec un revenu modeste, le loyer et les charges absorbent parfois une grande partie du budget. Même en contribuant aux frais du foyer, on peut dépenser moins pour se loger et garder de quoi faire face aux autres besoins. Ce choix peut donc être réfléchi, plutôt qu'un simple refus de devenir indépendant.",
+            "english": "On a modest income, rent and bills sometimes absorb a large part of the budget. Even while contributing to household costs, you can spend less on housing and keep enough to meet other needs. This can therefore be a considered choice, rather than simply a refusal to become independent.",
+            "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
+          }
+        ]
       },
       "f7050d23a33b37112c7e182e53da05a28b099d3d52fe946820d6060aca236585": {
         "french": "Prenons l'exemple d'un père qui héberge son fils adulte. Les jours où il travaille tard, son fils fait les courses et prépare le dîner, si bien qu'il peut rentrer sans avoir encore à s'occuper du repas.",
@@ -2947,6 +2999,11 @@
         "english": "Someone who is ill needs to collect some medicine, while their parents are several hours away by plane. If they know a neighbour who is available, they may be able to ask them for this favour.",
         "french": "Une personne malade doit récupérer un médicament, alors que ses parents sont à plusieurs heures d'avion. Si elle connaît un voisin disponible, elle pourra peut-être lui demander ce service.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "b80a7c7a0989e478d12a712ce2dae123348ef1aab906c30dd56876bd9c5ecec9": {
+        "french": "Par exemple, une femme qui travaille à huit heures de train de chez son père voudrait être présente pour son anniversaire. Le voyage lui demanderait deux jours de congé et un billet qu'elle n'a peut-être pas les moyens de payer : elle pourrait donc devoir renoncer à la visite.",
+        "english": "For example, a woman who works an eight-hour train journey from her father's home wants to be there for his birthday. The trip would require two days off and a ticket she may not be able to afford, so she might have to give up the visit.",
+        "review_note": "Editorial English aligned with the user's conditional example: the ticket may be unaffordable and the visit might have to be cancelled, rather than treating either as certain. Work and time-off requirements remain explicit. Previous translation records are retained. No provider call was made."
       },
       "b8ebbfde4496c708f3e68e55e78c9c1c7d1780df89d2fef85107d5af2f788f81": {
         "english": "A daughter who lives an eight-hour train journey from her parents would like to come home for her father’s birthday. She would have to take two days off work and pay for a ticket that is beyond her budget. So she decides not to come, even though she really wants to be there.",

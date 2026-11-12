@@ -645,6 +645,13 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("Discussing schedules, visitors and private spaces", development)
         self.assertIn("must respect household habits", development)
         self.assertIn("keep the ability to organise their life", development)
+        costs = data["groups"][model.group][
+            fingerprint(model.response.arguments[0].developpement)
+        ]["english"]
+        self.assertIn("can cost less than having your own place", costs)
+        self.assertIn("even if you contribute to household expenses", costs)
+        self.assertIn("more money for other needs", costs)
+        self.assertIn("sensible financial choice", costs)
         example = data["groups"][model.group][
             fingerprint(model.response.arguments[0].exemple)
         ]["english"]
@@ -694,8 +701,8 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         for field, required, forbidden in (
             (
                 "argument-4-developpement",
-                ("If a health problem stops us shopping or preparing meals", "arranged with available relatives or suitable services"),
-                ("without relying on someone already being at home",),
+                ("If a health problem prevents us from managing on our own day to day", "arranged with available relatives or suitable services"),
+                ("without relying on someone already being at home", "shopping", "meals"),
             ),
             (
                 "nuance",
@@ -740,7 +747,9 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             fingerprint(model.response.arguments[1].developpement)
         ]["english"]
         self.assertIn("Not every cost falls because only one person uses the home", costs)
-        self.assertIn("can cost the same for one person as for two", costs)
+        self.assertIn("Even when consuming less", costs)
+        self.assertIn("cover certain fixed costs on your own", costs)
+        self.assertNotIn("internet subscription", costs)
         self.assertNotIn("divide every bill", costs)
         example = data["groups"][model.group][
             fingerprint(model.response.arguments[1].exemple)
@@ -749,6 +758,14 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("separate homes", example)
         self.assertIn("each keep that subscription", example)
         self.assertIn("each pay forty euros for the same service", example)
+        help_example = data["groups"][model.group][
+            fingerprint(model.response.arguments[2].exemple)
+        ]["english"]
+        self.assertIn("woman who lives alone", help_example)
+        self.assertIn("may need to arrange for someone to bring her groceries", help_example)
+        self.assertIn("for meals to be delivered", help_example)
+        self.assertIn("may have difficulty walking afterward", help_example)
+        self.assertNotIn("sister agrees", help_example)
 
     def test_family_work_english_identifies_sibling_coworkers_before_family_spillover(self):
         data = read_manifest(DEFAULT_PATH)
@@ -844,8 +861,9 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("woman who works", example)
         self.assertIn("eight-hour train journey", example)
         self.assertIn("two days off", example)
-        self.assertIn("a ticket she cannot afford", example)
-        self.assertIn("has to give up the visit", example)
+        self.assertIn("a ticket she may not be able to afford", example)
+        self.assertIn("might have to give up the visit", example)
+        self.assertNotIn("a ticket she cannot afford", example)
 
     def test_personal_advice_english_distinguishes_outdated_methods_and_different_priorities(self):
         data = read_manifest(DEFAULT_PATH)

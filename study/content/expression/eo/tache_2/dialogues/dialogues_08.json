@@ -123,7 +123,7 @@
     {
       "group": "friend-city-for-cultural-magazine-article",
       "register": "tu",
-      "note": "For a cultural magazine article, ask a French-speaking friend about a city they love. Their language does not determine the city's country. Let them choose, then explore architecture, activities and transport for your readers. Seattle is an example, not a required destination. Adapt the architectural feature and transport follow-ups to the actual replies. Use tu.",
+      "note": "For a cultural magazine article, ask a French-speaking friend about a city they love. Their language does not determine the city's country. Let them choose, then explore architecture, activities and transport for your readers, including a practical difficulty worth mentioning. Seattle is an example, not a required destination. Adapt the architectural follow-up to the actual reply. Use tu.",
       "opening": "Salut ! Je dois écrire un article sur une ville pour un magazine culturel, et j'aimerais profiter de tes idées.",
       "closing": "Merci, c'est exactement ce qu'il me fallait ! Je tiens mon sujet, et je vais pouvoir commencer mon article.",
       "questions": [
@@ -134,7 +134,7 @@
         {"topic": "Architecture", "question": "Et ces bâtiments en brique rouge, on en voit un peu partout ?", "answer": "Surtout dans le quartier historique ; ailleurs, on voit davantage de bâtiments modernes et de maisons en bois.", "follow_up_to": 4, "condition": "If red-brick buildings are highlighted without explaining their distribution; adapt the feature."},
         {"topic": "Activités", "question": "Quelle expérience culturelle recommandes-tu le soir pour découvrir l'ambiance locale ?", "answer": "Écouter du jazz dans une petite salle de Pioneer Square, ou découvrir les concerts de Capitol Hill.", "follow_up_to": null},
         {"topic": "Transports", "question": "Comment les visiteurs peuvent-ils s'y déplacer le plus facilement ?", "answer": "En métro léger Link et en bus, ou avec le monorail qui relie le centre au Seattle Center.", "follow_up_to": null},
-        {"topic": "Transports", "question": "À quels moments ce monorail est-il le moins fréquenté ?", "answer": "Lors de ma visite, il y avait moins de monde en début de matinée ; les jours de grands événements peuvent être différents.", "follow_up_to": 7, "condition": "If a monorail is recommended without advice about quieter travel times."}
+        {"topic": "Transports", "question": "Pour mon article, quelle difficulté de déplacement faudrait-il signaler aux visiteurs ?", "answer": "Les rues sont parfois très pentues. Pour éviter une longue montée à pied, je vérifie le parcours et je prends le bus quand c'est nécessaire.", "follow_up_to": null}
       ]
     },
     {
@@ -361,9 +361,9 @@
     {
       "group": "colleague-management-promotion-party",
       "register": "vous",
-      "note": "Your colleague is throwing a party to celebrate their promotion to a management position: congratulate them, but do not ask why the party is being held, since that is given. Ask about the date, place, guests and organization. Vous is chosen as a cautious default; close colleagues may use tu.",
+      "note": "Your colleague is throwing a party to celebrate their promotion to a management position: congratulate them, but do not ask why the party is being held, since that is given. Ask about the date, place, guests and organization. The prompt does not explicitly state an invitation or your acceptance. Vous is chosen as a cautious default; close colleagues may use tu.",
       "opening": "Bonjour ! Félicitations pour votre nomination, c'est vraiment mérité ! J'aimerais en savoir un peu plus sur la fête.",
-      "closing": "Merci pour l'invitation ! J'y serai avec grand plaisir.",
+      "closing": "Merci pour ces précisions ! Je vais vérifier si je suis libre vendredi soir.",
       "questions": [
         {"topic": "Date et lieu", "question": "Quel jour avez-vous choisi pour célébrer votre promotion ?", "answer": "Vendredi prochain.", "follow_up_to": null},
         {"topic": "Date et lieu", "question": "À quelle heure la fête commencera-t-elle, et vers quelle heure devrait-elle se terminer ?", "answer": "Elle commencera à 18 h 30 et se terminera vers minuit.", "follow_up_to": null},

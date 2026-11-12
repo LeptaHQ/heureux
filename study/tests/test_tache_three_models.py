@@ -483,6 +483,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
     def test_education_retained_and_replaced_reasons_keep_distinct_annotation_ids(self):
         models = catalogue.tache_three_models()
         replacements = {
+            "eo/tache-3/education-p10": (1, 4, 5),
             "eo/tache-3/education-p13": (1, 2, 4),
             "eo/tache-3/education-p16": (1, 3, 4),
             "eo/tache-3/education-p23": (1, 2, 4),
@@ -565,12 +566,13 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("besoin médical", response(3).nuance)
         self.assertIn("Trier et réduire", response(3).nuance)
         self.assertIn("retardée indéfiniment", response(4).nuance)
-        self.assertIn("rues voisines", response(6).arguments[0].exemple)
+        self.assertIn("ouvrir leurs fenêtres", response(6).arguments[0].exemple)
+        self.assertIn("déplacer simplement le trafic", response(6).nuance)
         self.assertIn("rémunération viable", response(7).arguments[2].exemple)
         self.assertIn("mobilité réduite", response(8).nuance)
-        self.assertIn("raccourci automobile", response(8).arguments[2].exemple)
-        self.assertIn("mesurer le bruit", response(8).arguments[2].exemple)
-        self.assertIn("rues voisines", response(8).arguments[2].exemple)
+        self.assertIn("raccourci", response(8).arguments[2].exemple)
+        self.assertIn("sans entendre constamment les moteurs", response(8).arguments[2].exemple)
+        self.assertIn("rue d'à côté", response(8).nuance)
         self.assertIn("autres causes de tension", response(9).arguments[1].exemple)
         self.assertIn("Exemple français documenté", response(11).reformulation)
         self.assertIn("à adapter", response(11).reformulation)
@@ -626,6 +628,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
         models = catalogue.tache_three_models()
         response = lambda key: models[f"eo/tache-3/technologie-p{key}"].response
         self.assertIn("fausse relation", response(1).position_claire)
+        self.assertIn("prend le temps de formuler une question", response(1).arguments[1].exemple)
+        self.assertIn("sur un réseau social", response(1).arguments[2].exemple)
         self.assertIn("identification", response(2).arguments[1].exemple)
         self.assertIn("la vie culturelle ne se limite pas", response(3).arguments[2].idea)
         self.assertIn("transport adapté", response(4).arguments[2].exemple)
@@ -753,18 +757,27 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("une ligne fiable convient au trajet", free_transport.arguments[1].developpement)
         self.assertIn("Si ces personnes laissent leur voiture chez elles", free_transport.arguments[1].developpement)
         self.assertEqual(models["eo/tache-3/economie-p22"].argument_ids, (1, 4, 2))
-        self.assertIn("laisser sa voiture chez elle", free_transport.arguments[1].exemple)
+        self.assertIn("Il décide alors de le prendre plusieurs jours par semaine", free_transport.arguments[1].exemple)
         self.assertIn("bibliothèque", free_transport.arguments[2].exemple)
         self.assertIn("ne prouve pas", free_transport.nuance)
         car_free = models["eo/tache-3/economie-p24"].response
         self.assertIn("bouger régulièrement", car_free.arguments[1].idea)
         self.assertIn("marche alors matin et soir", car_free.arguments[1].exemple)
-        self.assertIn("L'entrée est moins encombrée", car_free.arguments[2].exemple)
+        self.assertIn("moins de voitures arrêtées devant l'entrée", car_free.arguments[2].exemple)
         personal_help = models["eo/tache-3/economie-p23"].response.arguments[2]
         self.assertIn("distribution alimentaire", personal_help.exemple)
         self.assertIn("n'organise pas lui-même la distribution", personal_help.consequence)
         plan = catalogue.tache_three_subject_hints()["eo/tache-3/economie-p23"]
         self.assertIn("people around them", plan.nuance.english)
+
+    def test_education_solidarity_action_has_personal_motivations_and_matching_cues(self):
+        response = catalogue.tache_three_models()["eo/tache-3/education-p10"].response
+        plan = catalogue.tache_three_subject_hints()["eo/tache-3/education-p10"]
+        self.assertIn("distribution alimentaire", response.position_claire)
+        self.assertIn("contact avec les personnes", response.arguments[1].idea)
+        self.assertIn("prendre le temps de l'écouter", response.arguments[1].developpement)
+        self.assertIn("bénévole expérimenté", plan.arguments[2].example.french)
+        self.assertIn("dons financiers", response.nuance)
 
     def test_education_addresses_qualifiers_priorities_and_realistic_conditions(self):
         models = catalogue.tache_three_models()
@@ -792,12 +805,6 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("prérequis", response(7).nuance)
         self.assertIn("compétences concrètes à présenter dans sa candidature", response(7).arguments[0].consequence)
         self.assertNotIn("change pas de métier", response(7).arguments[0].consequence)
-        self.assertIn("distribution alimentaire", response(10).position_claire)
-        self.assertIn(
-            "sans cuisson",
-            catalogue.tache_three_subject_hints()["eo/tache-3/education-p10"].arguments[2].example.french,
-        )
-        self.assertIn("dons financiers", response(10).nuance)
         self.assertIn("sans décider de l'embauche", response(12).arguments[1].consequence)
         self.assertIn("objectifs progressifs", response(13).nuance)
         language_example = response(13).arguments[0].exemple

@@ -1,4 +1,4 @@
-"""Exact-text, public-only English question translations prepared with DeepL."""
+"""Exact-text, public-only saved English question translations."""
 
 from functools import lru_cache
 import hashlib
@@ -15,6 +15,8 @@ THEMES = frozenset({
     "arrivee", "logement", "vie-quartier", "travail", "ecole-etudes",
     "sorties-spectacles", "garde-enfants-animaux", "benevolat-associations",
     "hebergements-touristiques",
+    "voyages", "sport", "arts-loisirs", "fetes", "escapades-tourisme",
+    "culture-medias", "spectacles-festivals", "loisirs-clubs-jeux",
 })
 DEFAULT_PATH = content_loader.QUESTION_BANK_DIR / "translations" / "questions.en.json"
 logger = logging.getLogger(__name__)

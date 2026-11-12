@@ -442,6 +442,30 @@ class TacheTwoDialogueCorpusTests(SimpleTestCase):
         self.assertEqual(first, catalogue.tache_two_dialogues())
         self.assertIsNot(first, catalogue.tache_two_dialogues())
 
+    def test_weekend_customs_keep_personal_scope_and_answer_driven_followups(self):
+        rows = {row.group: row for row in load_tache_two_dialogues().values()}
+        dialogue = rows["friend-canadian-weekend-customs"]
+        self.assertIn("ton entourage", dialogue.questions[3].question)
+        self.assertIn("tes amis", dialogue.questions[4].question)
+        self.assertIn("hockey", dialogue.questions[3].answer)
+        self.assertEqual(dialogue.questions[4].follow_up_to, 4)
+        self.assertIn("chalet", dialogue.questions[5].answer)
+        self.assertEqual(dialogue.questions[6].follow_up_to, 6)
+        self.assertNotIn("à la canadienne", dialogue.closing)
+
+    def test_city_article_question_and_cue_focus_on_a_useful_reader_difficulty(self):
+        dialogue = next(
+            row for row in load_tache_two_dialogues().values()
+            if row.group == "friend-city-for-cultural-magazine-article"
+        )
+        self.assertIn("mon article", dialogue.questions[7].question)
+        self.assertIn("visiteurs", dialogue.questions[7].question)
+        self.assertIn("pentues", dialogue.questions[7].answer)
+        self.assertIsNone(dialogue.questions[7].follow_up_to)
+        hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"]
+        self.assertIn("visiteurs", hints[dialogue.group][7]["french"])
+        self.assertIn("visitors", hints[dialogue.group][7]["english"])
+
     def test_question_forms_are_varied_without_mandating_inversion(self):
         questions = [
             question.question

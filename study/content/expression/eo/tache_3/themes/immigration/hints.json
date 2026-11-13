@@ -60,8 +60,8 @@
             "english": "An opportunity must fit the goal."
           },
           "example": {
-            "french": "Une spécialité absente près de chez lui : école à l'étranger et stage en restaurant.",
-            "english": "A specialism unavailable nearby: a school abroad and a restaurant placement."
+            "french": "Spécialité de pâtisserie absente près de chez lui : école à l'étranger, desserts préparés en stage avec un chef.",
+            "english": "Pastry specialism unavailable nearby: a school abroad, desserts prepared on a placement with a chef."
           }
         },
         {
@@ -198,8 +198,8 @@
             "english": "Training and placements develop skills."
           },
           "example": {
-            "french": "Une spécialité absente près de chez lui : école à l'étranger et stage en restaurant.",
-            "english": "A specialism unavailable nearby: a school abroad and a restaurant placement."
+            "french": "Spécialité de pâtisserie absente près de chez lui : école à l'étranger, desserts préparés en stage avec un chef.",
+            "english": "Pastry specialism unavailable nearby: a school abroad, desserts prepared on a placement with a chef."
           }
         },
         {
@@ -238,8 +238,8 @@
         "english": "Understand the preference for solo travel, without making it a universal choice."
       },
       "nuance": {
-        "french": "Besoin possible de partager ses émotions ; liberté limitée aussi par réservations et budget.",
-        "english": "Some may need to share emotions; reservations and budget also limit freedom."
+        "french": "Partager ses émotions peut compter ; voyager seul peut aussi coûter plus cher sans chambre partagée.",
+        "english": "Sharing emotions may matter; solo travel can cost more without a shared room."
       },
       "conclusion": {
         "french": "Un choix adapté à la personne, ni épreuve ni formule supérieure.",
@@ -252,8 +252,8 @@
             "english": "Travelling alone can develop independence and self-confidence."
           },
           "example": {
-            "french": "Train annulé, suivant le lendemain : l'étudiante se renseigne et prend un bus le jour même.",
-            "english": "Cancelled train, next one tomorrow: the student asks for information and takes a bus that day."
+            "french": "Train annulé : comparer les options, choisir un bus et arriver avant la fermeture de la réception.",
+            "english": "Train cancelled: compare options, choose a bus and arrive before reception closes."
           }
         },
         {
@@ -334,8 +334,8 @@
         "english": "Mixed motivations; varying freedom between choice and necessity."
       },
       "conclusion": {
-        "french": "Regarder ce que la personne cherche à construire, pas seulement l'aventure.",
-        "english": "Look at what the person is trying to build, not just adventure."
+        "french": "Travail, autonomie ou famille : comprendre la vie que la personne cherche à construire.",
+        "english": "Work, independence or family: understand the life the person is trying to build."
       },
       "arguments": [
         {
@@ -354,8 +354,8 @@
             "english": "Some people move abroad to learn and become more independent."
           },
           "example": {
-            "french": "Choisir un semestre ailleurs pour suivre des cours dans une autre langue et apprendre à gérer son quotidien.",
-            "english": "Choose a semester abroad to take courses in another language and learn to manage daily life."
+            "french": "Semestre dans une autre langue ; apprendre à gérer son logement et ses dépenses, loin des parents.",
+            "english": "A semester in another language; learn to manage accommodation and expenses away from parents."
           }
         },
         {
@@ -632,8 +632,8 @@
             "english": "Money and support for the first few months, especially with a family."
           },
           "example": {
-            "french": "Une famille prévoit six mois de loyer, courses et transports pour chercher du travail avec moins de pression.",
-            "english": "A family budgets six months of rent, groceries and transport to look for work with less pressure."
+            "french": "Famille sans emploi trouvé : budget de six mois et soutien réellement possible d'un proche, sans présumer l'hébergement.",
+            "english": "Family without a job secured: six-month budget and actual possible help from a close contact, without assuming accommodation."
           }
         }
       ],

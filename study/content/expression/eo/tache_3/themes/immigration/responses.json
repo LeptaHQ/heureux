@@ -39,29 +39,29 @@
       },
       "reformulation": "Choisir trois questions prioritaires avant une immigration au Québec et expliquer leur importance.",
       "position": "Vérifier son français, les possibilités d'exercer son métier et les moyens de s'installer.",
-      "position_claire": "Avant de commencer des démarches d'immigration au Québec, je me poserais trois questions sur mon français, mes possibilités de travail et les moyens nécessaires pour m'installer.",
+      "position_claire": "Avant de commencer des démarches d'immigration au Québec, je voudrais surtout savoir si je peux y construire une vie qui me convienne. Pour cela, trois questions me paraissent prioritaires.",
       "arguments": [
         {
           "idea": "D'abord, ai-je un niveau de français suffisant pour vivre et travailler au Québec ?",
-          "developpement": "Le français sert dans beaucoup de situations : chercher un emploi, comprendre une démarche ou échanger avec ses collègues. Plus on est à l'aise, plus on peut agir seul et créer des relations avec les autres.",
-          "exemple": "Une candidate expérimentée peut comprendre une offre d'emploi, mais avoir du mal à présenter son travail pendant un entretien en français. Elle risque alors de ne pas réussir à montrer ses compétences au recruteur.",
+          "developpement": "Le français sert dans beaucoup de situations : chercher un emploi, comprendre une démarche ou échanger avec ses collègues. Si l'on doit demander de l'aide à chaque fois, le quotidien devient plus compliqué. Être à l'aise dans cette langue permet donc de mieux se débrouiller et de montrer ce que l'on sait faire.",
+          "exemple": "Par exemple, une candidate expérimentée peut comprendre une offre d'emploi, mais avoir du mal à présenter son travail pendant un entretien en français. Elle risque alors de ne pas réussir à montrer ses compétences au recruteur.",
           "consequence": "Se poser cette question permet donc de savoir si l'on doit renforcer son français avant de partir."
         },
         {
           "idea": "Ensuite, mon métier est-il reconnu et recherché au Québec ?",
-          "developpement": "Il faut savoir si l'on pourra exercer avec sa formation actuelle ou si des démarches supplémentaires seront nécessaires. Il est aussi utile de regarder les offres d'emploi pour connaître les possibilités dans la région où l'on souhaite vivre.",
-          "exemple": "Une infirmière formée à l'étranger peut devoir faire reconnaître sa formation avant de pouvoir exercer au Québec. En se renseignant avant le départ, elle peut prévoir ces démarches au lieu de compter sur un emploi immédiat.",
+          "developpement": "Avoir de l'expérience dans son pays ne signifie pas qu'on pourra commencer tout de suite au Québec. Il faut savoir si l'on pourra exercer avec sa formation actuelle ou si des démarches supplémentaires seront nécessaires. Regarder les offres dans la région visée permet aussi de vérifier si son projet correspond aux emplois proposés.",
+          "exemple": "Par exemple, une infirmière formée à l'étranger peut vérifier auprès de l'organisme québécois compétent comment faire reconnaître sa formation et si une formation complémentaire est nécessaire. Elle peut alors prévoir ces démarches, au lieu de compter sur un emploi immédiat.",
           "consequence": "Cela aide à construire un projet professionnel réaliste et à estimer le temps nécessaire pour retrouver un revenu."
         },
         {
           "idea": "Enfin, ai-je les moyens financiers et le soutien nécessaires pour m'installer ?",
           "developpement": "Il faut payer le voyage, le logement et les dépenses courantes, parfois avant de recevoir un premier salaire. Si l'on part en famille, il faut aussi que chacun puisse trouver sa place, avec une organisation pour le travail et l'école des enfants.",
-          "exemple": "Une famille prévoit de quoi payer son loyer, ses courses et ses transports pendant six mois. Cette réserve lui laisse du temps pour chercher du travail sans dépendre d'un salaire dès l'arrivée.",
+          "exemple": "Prenons l'exemple d'une famille qui n'a pas encore trouvé d'emploi au Québec. Elle estime ses dépenses de loyer, de courses et de transports pour six mois. Elle demande aussi à un proche déjà installé quel soutien il pourrait réellement lui apporter, au lieu de supposer qu'il pourra l'héberger.",
           "consequence": "On peut ainsi vérifier si l'on est prêt à partir ou s'il vaut mieux économiser et préparer davantage le projet."
         }
       ],
       "nuance": "Bien sûr, d'autres éléments comptent, comme le climat ou l'éloignement des proches. Leur importance dépend de chacun, mais il faut déjà savoir comment on pourra communiquer, travailler et financer son installation.",
-      "conclusion": "Pour moi, la langue, le métier et les moyens d'installation sont prioritaires parce qu'ils touchent directement la vie au Québec. Y réfléchir avant les démarches permet de préparer un projet adapté à sa situation."
+      "conclusion": "Je commencerais donc par ces trois questions, parce que leurs réponses me diraient comment je pourrais communiquer, travailler et vivre pendant les premiers mois. Cela ne règle pas tout, mais permet de préparer le départ à partir de sa situation réelle, plutôt que d'un espoir."
     },
     "culture-p1": {
       "prompt_signatures": {
@@ -75,7 +75,7 @@
           "idea": "Tout d'abord, il faut s'adapter aux conditions de vie du pays.",
           "developpement": "Le climat et les horaires ne dépendent pas de nos préférences. En tenir compte permet de travailler, de se déplacer et d'organiser ses journées sans se mettre inutilement en difficulté.",
           "exemple": "Par exemple, une personne habituée à un climat chaud qui découvre un hiver enneigé doit prévoir un manteau et des chaussures adaptés. Elle peut aussi partir plus tôt quand les déplacements sont ralentis, au lieu de conserver exactement sa routine.",
-          "consequence": "Ce changement pratique facilite son autonomie, sans remettre en cause ses origines."
+          "consequence": "Elle peut ainsi continuer à se déplacer et à arriver à l'heure, sans que changer de vêtements signifie renoncer à ses origines."
         },
         {
           "idea": "Ensuite, conserver certaines habitudes aide à garder un équilibre personnel.",
@@ -85,13 +85,13 @@
         },
         {
           "idea": "Enfin, essayer de nouvelles habitudes progressivement permet de choisir celles qui nous conviennent.",
-          "developpement": "On ne comprend pas toujours immédiatement l'intérêt d'une pratique locale. L'observation et les échanges permettent de l'essayer sans qu'on se sente obligé de tout changer d'un coup.",
+          "developpement": "On ne comprend pas toujours immédiatement l'intérêt d'une pratique locale. En discutant avec les personnes qui la suivent, on peut voir ce qu'elle leur apporte, puis l'essayer sans qu'on se sente obligé de tout changer d'un coup. L'essai permet ensuite de décider si elle nous convient.",
           "exemple": "Par exemple, une personne habituée à déjeuner à 14 heures peut essayer de manger à midi avec ses collègues, une fois par semaine. Si ce nouvel horaire lui convient, elle peut l’adopter les jours de travail et garder ses habitudes le week-end.",
           "consequence": "On peut ainsi garder ce qui nous convient : le changement devient un choix plutôt qu'une obligation."
         }
       ],
       "nuance": "Cependant, avancer à son rythme ne signifie pas que tout peut attendre : la sécurité et les règles communes demandent parfois une adaptation immédiate. Pour les goûts, les repas ou les fêtes, en revanche, plusieurs habitudes peuvent coexister, dans le respect des autres.",
-      "conclusion": "Bref, il n'est pas nécessaire de tout abandonner. S'adapter aux contraintes, garder les habitudes qui ne gênent personne et essayer le reste à son rythme permet de construire une nouvelle vie sans effacer la précédente.",
+      "conclusion": "Pour moi, s'installer ailleurs ne demande donc pas de tout abandonner. Je changerais ce qui est nécessaire pour vivre sur place, tout en gardant les habitudes qui ne gênent personne. On peut faire une place à la nouvelle vie sans effacer celle qu'on avait avant.",
       "argument_ids": [
         1,
         2,
@@ -108,25 +108,25 @@
       "arguments": [
         {
           "idea": "Tout d'abord, un autre pays peut offrir une possibilité directement liée à son objectif.",
-          "developpement": "On peut savoir ce qu'on veut faire, mais ne pas trouver la formation ou le poste nécessaire là où l'on vit. Un autre pays peut alors offrir les moyens de réaliser ce projet.",
-          "exemple": "Un étudiant qui veut devenir cuisinier peut chercher une formation dans une spécialité qui n'est pas enseignée près de chez lui. Une école à l'étranger proposant cette formation et un stage en restaurant lui donne alors un moyen concret d'apprendre le métier.",
-          "consequence": "Le départ peut ainsi donner accès aux moyens nécessaires pour réaliser son projet."
+          "developpement": "On peut savoir ce qu'on veut faire, mais ne pas trouver la formation ou le poste nécessaire là où l'on vit. Si cette possibilité existe ailleurs, le départ peut avoir un vrai intérêt. On ne change pas seulement de pays : on se rapproche de ce dont on a besoin pour avancer.",
+          "exemple": "Par exemple, un étudiant qui veut devenir cuisinier cherche une spécialité de pâtisserie absente près de chez lui. Il trouve à l'étranger une école qui la propose, avec un stage en restaurant. Pendant ce stage, il prépare des desserts sous la direction d'un chef.",
+          "consequence": "Le départ lui donne donc accès à une formation qu'il ne trouvait pas chez lui, plutôt qu'un simple changement de lieu."
         },
         {
           "idea": "Ensuite, la préparation transforme une ambition générale en étapes réalisables.",
           "developpement": "Un objectif devient plus solide lorsqu'on connaît les conditions d'accès, les dépenses et les compétences manquantes. On peut ainsi vérifier si le projet est réalisable avant d'engager des frais importants.",
-          "exemple": "Une personne qui veut exercer un métier réglementé peut vérifier les exigences auprès de l'organisme compétent. Si une formation complémentaire est demandée, elle peut prévoir du temps et un budget, au lieu de compter sur un emploi immédiat dans ce métier.",
+          "exemple": "Par exemple, un électricien qui souhaite travailler à l'étranger peut vérifier les exigences auprès de l'organisme compétent. Si une formation complémentaire est demandée, il peut prévoir du temps et un budget, au lieu de compter sur un emploi immédiat dans ce métier.",
           "consequence": "Cette démarche réduit les surprises et permet d'ajuster le calendrier."
         },
         {
           "idea": "Enfin, les contacts sur place peuvent aider à faire avancer son projet.",
           "developpement": "Même avec un bon projet, on ne connaît pas tous les usages locaux. Des conseils précis peuvent aider à comprendre un refus, à améliorer une candidature ou à trouver une ressource adaptée.",
-          "exemple": "Si ses candidatures restent sans réponse, un nouvel arrivant peut demander à une ancienne camarade déjà installée de relire son CV. Elle lui explique comment présenter ses réalisations et lui signale qu'un restaurant cherche du personnel, sans lui garantir une embauche.",
+          "exemple": "Par exemple, un cuisinier nouvellement arrivé reçoit peu de réponses à ses candidatures. Il demande à une ancienne camarade déjà installée de relire son CV. Elle lui montre comment présenter ses expériences et lui signale un restaurant qui recrute, sans lui garantir une embauche.",
           "consequence": "Il peut ainsi améliorer ses candidatures au lieu de répéter une méthode qui ne donne pas de résultat."
         }
       ],
       "nuance": "Cependant, la préparation ne supprime ni les difficultés économiques ni les refus possibles. Certains objectifs devront être retardés ou modifiés. Revoir son projet, ou même rentrer, ne signifie pas que tous les efforts ont été inutiles : les circonstances comptent aussi.",
-      "conclusion": "Bref, des objectifs peuvent se réaliser à l'étranger quand l'occasion correspond au projet, que les étapes sont réalistes et que des contacts aident à avancer.",
+      "conclusion": "Je suis donc d'accord : on peut atteindre ses objectifs à l'étranger. Mais le départ ne fait pas tout. Il faut trouver une possibilité qui corresponde à son projet, préparer les étapes et savoir demander conseil quand on ne parvient pas à avancer.",
       "argument_ids": [
         1,
         2,
@@ -143,21 +143,21 @@
       "arguments": [
         {
           "idea": "Tout d'abord, la langue peut rendre fatigantes des tâches habituellement simples.",
-          "developpement": "Même avec des bases, comprendre un échange rapide ou un vocabulaire administratif demande un effort. Il faut qu'on réfléchisse à la fois au problème à résoudre et à la manière de se faire comprendre.",
+          "developpement": "Même avec des bases, comprendre un échange rapide ou un vocabulaire administratif demande un effort. Il faut qu'on réfléchisse à la fois au problème à résoudre et à la manière de se faire comprendre. Une petite démarche peut alors prendre davantage de temps et d'énergie.",
           "exemple": "Pour demander un rendez-vous, un nouvel arrivant peut préparer ses phrases, puis être déstabilisé par une question imprévue au téléphone. Il devra peut-être faire répéter l'horaire et vérifier ce qu'il doit apporter avant de pouvoir confirmer.",
           "consequence": "L'accumulation de ces petits efforts peut rendre une journée ordinaire épuisante."
         },
         {
           "idea": "Ensuite, l'éloignement des proches peut rendre les débuts difficiles.",
-          "developpement": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Il faut du temps pour rencontrer des personnes avec lesquelles on se sent suffisamment à l'aise.",
+          "developpement": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. On peut recevoir des nouvelles et manquer malgré tout les moments qu'on partageait sans les prévoir. Il faut du temps pour rencontrer des personnes avec lesquelles on se sent suffisamment à l'aise.",
           "exemple": "Une personne installée seule peut appeler sa famille le dimanche, puis dîner sans compagnie une fois la conversation terminée. L'appel lui permet de prendre des nouvelles, mais ne remplace pas le repas qu'elle partageait avec ses proches.",
-          "consequence": "Le manque ne disparaît pas immédiatement, même lorsque le projet d'installation reste souhaité."
+          "consequence": "On peut donc être content d'avoir fait ce choix et ressentir malgré tout le manque de cette vie familiale."
         },
         {
           "idea": "Enfin, on doit reconstruire les repères pratiques sur lesquels on comptait.",
           "developpement": "Dans son pays, on sait souvent quel médecin consulter ou à qui poser une question. On s'appuie sur ces contacts sans y penser. À l'étranger, il arrive qu'on ne sache même pas à qui demander de l'aide.",
           "exemple": "Un dimanche, un parent récemment installé dans le pays cherche un médecin pour son enfant qui a de la fièvre. Comme il ne connaît pas encore les services de santé du quartier, il demande conseil à une voisine. Elle lui donne le numéro d'une clinique sans rendez-vous pour qu'il puisse vérifier les horaires avant de s'y rendre.",
-          "consequence": "Ces repères se reconstruisent grâce aux informations et aux rencontres, mais pas tous dès les premiers jours."
+          "consequence": "Il sait ainsi où se renseigner, mais ces contacts ne se retrouvent pas tous dès les premiers jours."
         }
       ],
       "nuance": "Cependant, les difficultés varient selon la langue, les ressources et les contacts déjà sur place. Des informations claires peuvent réduire les efforts. Avec le temps, les démarches deviennent plus familières ; une difficulté au début ne signifie pas un refus de s'adapter.",
@@ -184,19 +184,19 @@
         },
         {
           "idea": "Ensuite, un compatriote déjà installé peut partager une expérience pratique utile.",
-          "developpement": "Certaines démarches soulèvent des questions particulières lorsqu'on arrive avec des documents d'un autre pays. Une personne passée par une situation proche peut indiquer où chercher les renseignements adaptés.",
+          "developpement": "Certaines démarches soulèvent des questions particulières lorsqu'on arrive avec des documents d'un autre pays. Une personne passée par une situation proche peut indiquer où chercher les renseignements adaptés. On commence alors avec des pistes précises, plutôt que de chercher partout sans savoir quoi demander.",
           "exemple": "Une infirmière nouvellement arrivée peut échanger avec une compatriote qui exerce déjà ce métier sur place. Celle-ci lui explique comment elle a fait reconnaître son diplôme et quels documents elle a dû préparer. La nouvelle arrivante sait alors à quel organisme s'adresser pour commencer ses démarches.",
-          "consequence": "Ce conseil reste un point de départ : il vaut mieux que l'information soit vérifiée auprès de l'organisme compétent."
+          "consequence": "Elle sait ainsi par où commencer, même s'il vaut mieux que l'information soit vérifiée auprès de l'organisme compétent."
         },
         {
           "idea": "Mais ce soutien peut aussi venir de personnes d'une autre origine.",
-          "developpement": "Une relation aide grâce à la confiance et à l'expérience partagée, pas seulement grâce au pays de naissance. L'absence de compatriotes n'empêche donc pas de créer un entourage sur lequel compter.",
+          "developpement": "Ce qui compte, c'est de pouvoir demander conseil à quelqu'un qui prend le temps de répondre. Cette personne n'a pas besoin d'être née dans le même pays que nous. On peut donc construire un entourage de confiance, même sans compatriotes à proximité.",
           "exemple": "Une nouvelle arrivante ne connaît aucun compatriote dans sa petite ville. Une collègue d'un autre pays l'aide à comprendre un formulaire de demande d'aide au logement. La nouvelle arrivante rejoint aussi un groupe d'échange linguistique et s'y fait des amis d'autres pays.",
           "consequence": "Elle peut ainsi trouver des conseils et de la compagnie sans fréquenter de gens de son pays."
         }
       ],
       "nuance": "Cependant, il vaut mieux ne pas se limiter à ses compatriotes. Rencontrer aussi d'autres habitants permet de pratiquer la langue du pays et de mieux comprendre la vie locale. L'essentiel est de choisir ses relations selon la confiance et les affinités, pas seulement selon l'origine.",
-      "conclusion": "Bref, les compatriotes peuvent apporter du réconfort et une expérience utile, mais ne sont pas un passage obligé. Des liens fiables comptent davantage qu'une origine commune.",
+      "conclusion": "Pour moi, fréquenter des compatriotes peut donc aider, surtout quand on arrive. Mais on peut aussi trouver du soutien auprès d'autres personnes. L'essentiel est de pouvoir compter sur son entourage, pas que tout le monde vienne du même pays.",
       "argument_ids": [
         1,
         2,
@@ -210,29 +210,29 @@
       },
       "reformulation": "Une expérience de vie à l'étranger peut-elle être positive dans tous les cas ?",
       "position": "La vie à l'étranger peut être enrichissante, mais le mot « toujours » est trop absolu.",
-      "position_claire": "Je ne suis pas d'accord avec le mot « toujours ». Vivre à l'étranger peut être une chance pour certains et une épreuve pour d'autres. Une bonne formation ne suffit pas à rendre toute l'expérience positive quand le quotidien devient difficile.",
+      "position_claire": "Je ne suis pas d'accord avec le mot « toujours ». Vivre à l'étranger peut nous apporter beaucoup, mais on peut aussi y traverser des moments très difficiles. Ce qu'on gagne dans ses études ou son travail ne fait pas disparaître tous les problèmes du quotidien.",
       "arguments": [
         {
           "idea": "Tout d'abord, vivre à l'étranger peut permettre de se former et de développer ses compétences professionnelles.",
           "developpement": "Dans un autre pays, on peut trouver une formation spécialisée ou apprendre des méthodes que l'on connaît peu. Les cours, les stages et les conseils de professionnels aident à mettre ces connaissances en pratique.",
-          "exemple": "Un étudiant qui veut devenir cuisinier peut chercher une formation dans une spécialité qui n'est pas enseignée près de chez lui. Une école à l'étranger proposant cette formation et un stage en restaurant lui donne alors un moyen concret d'apprendre le métier.",
-          "consequence": "Ces acquis peuvent ensuite servir dans la vie professionnelle, même après le retour."
+          "exemple": "Par exemple, un étudiant qui veut devenir cuisinier cherche une spécialité de pâtisserie absente près de chez lui. Il trouve à l'étranger une école qui la propose, avec un stage en restaurant. Pendant ce stage, il prépare des desserts sous la direction d'un chef.",
+          "consequence": "Ce qu'on apprend peut ensuite servir dans la vie professionnelle, même après le retour."
         },
         {
           "idea": "Mais les difficultés financières peuvent rendre la vie à l'étranger éprouvante.",
           "developpement": "Une recherche d'emploi peut se prolonger alors que les économies diminuent. Avec des revenus insuffisants ou irréguliers, payer le logement devient inquiétant. Cette pression peut empêcher de profiter des possibilités qui avaient motivé le départ.",
-          "exemple": "Une personne peut partir en comptant sur un emploi qu'elle n'a pas encore obtenu. Si sa recherche dure plus longtemps que prévu et que ses économies diminuent, payer le loyer devient sa priorité.",
+          "exemple": "Par exemple, un nouvel arrivant n'a pas encore trouvé le poste sur lequel il comptait. Ses économies diminuent et il doit payer le loyer à la fin du mois. Il consacre alors ses journées à chercher un emploi, alors qu'il espérait aussi découvrir le pays.",
           "consequence": "On peut donc passer son temps à chercher de quoi payer le loyer, au lieu de vivre l'expérience qu'on espérait."
         },
         {
           "idea": "Enfin, réussir à l'étranger n'efface pas la peine d'être loin des proches.",
-          "developpement": "On peut apprécier son travail et regretter de manquer la vie de ses proches. Ces deux sentiments ne s'annulent pas : il arrive qu'on ne puisse pas rentrer quand un proche a besoin d'aide.",
+          "developpement": "On peut être heureux d'avancer dans ses études ou son travail et regretter de manquer la vie de ses proches. Ces deux sentiments ne s'annulent pas : il arrive qu'on ne puisse pas rentrer quand un proche a besoin d'aide.",
           "exemple": "Une étudiante réussit ses examens à l'étranger, mais son père tombe malade dans son pays d'origine. Elle n'a pas l'argent pour aller le voir. Malgré ses bons résultats, elle souffre de ne pas pouvoir être auprès de lui.",
           "consequence": "Une expérience peut donc être avantageuse sur un plan et douloureuse sur un autre."
         }
       ],
       "nuance": "Bien sûr, une difficulté ponctuelle ne rend pas tout le séjour négatif. Un soutien ou un changement de projet peut améliorer la situation. Mais ce que l'on apprend d'une épreuve ne compense pas toujours la souffrance qu'elle a causée.",
-      "conclusion": "Bref, vivre à l'étranger peut être enrichissant, mais pas toujours positif. Une formation réussie n'efface ni les problèmes d'argent ni la peine d'être loin des siens.",
+      "conclusion": "Je dirais donc que la vie à l'étranger peut être enrichissante, mais pas toujours positive. Ce qu'on y apprend compte, sans faire disparaître les soucis d'argent ni la peine d'être loin des siens.",
       "argument_ids": [
         1,
         2,
@@ -250,14 +250,14 @@
         {
           "idea": "Tout d'abord, voyager seul peut développer l'autonomie et la confiance en soi.",
           "developpement": "Quand un problème survient, on cherche une solution sans attendre qu'un proche décide à notre place. On peut demander des renseignements, puis comparer les possibilités et choisir. Gérer cette situation peut renforcer la confiance en soi.",
-          "exemple": "Une étudiante voyage seule pour la première fois. Son train est annulé et le suivant ne part que le lendemain. Elle se renseigne à la gare, puis achète un billet de bus pour poursuivre son voyage le jour même.",
-          "consequence": "Elle se rend compte qu'elle peut gérer un imprévu sans attendre qu'un proche s'en charge."
+          "exemple": "Par exemple, une étudiante voyage seule pour la première fois. Son train est annulé et le suivant ne part que le lendemain. Elle demande à un agent quelles solutions existent, compare les horaires et choisit un bus pour arriver avant la fermeture de la réception de l'hôtel où elle a réservé une chambre. Elle arrive le soir même et peut s'installer.",
+          "consequence": "Après avoir surmonté cet imprévu, elle se sent plus capable d'organiser la suite de son voyage."
         },
         {
           "idea": "Ensuite, voyager seul permet d'adapter plus directement le programme à ses envies.",
           "developpement": "Il n'est pas nécessaire de négocier chaque visite ou chaque pause avec un groupe. Cette souplesse peut rendre le séjour plus reposant pour une personne dont les centres d'intérêt diffèrent de ceux de ses proches.",
           "exemple": "Une personne passionnée de peinture peut consacrer l'après-midi à une exposition. Elle n'a pas à écourter sa visite pour accompagner des amis qui préféreraient faire les magasins, ni à leur demander de l'attendre.",
-          "consequence": "Le voyage peut ainsi suivre ses priorités personnelles."
+          "consequence": "Elle peut donc profiter de sa visite à son rythme, sans s'inquiéter de retenir les autres."
         },
         {
           "idea": "Et voyager seul peut aussi encourager à aller vers les autres.",
@@ -266,7 +266,7 @@
           "consequence": "Voyager seul ne signifie donc pas nécessairement passer tout son temps isolé."
         }
       ],
-      "nuance": "Cependant, il se peut que certaines personnes aient besoin de partager leurs émotions sur le moment. Sans compagnie, une belle visite peut leur sembler moins agréable. Réservations et budget limitent aussi la liberté : le choix dépend de la personnalité et des conditions du séjour.",
+      "nuance": "Cependant, il se peut que certaines personnes aient besoin de partager leurs émotions sur le moment. Pour elles, raconter la visite plus tard ne remplace pas le plaisir de la vivre avec un proche. Voyager seul peut aussi coûter plus cher quand on ne partage pas la chambre : il faut que ce choix convienne à la personne et à son budget.",
       "conclusion": "En conclusion, je respecte cette préférence quand elle correspond à la personne. Voyager seul n'est ni une épreuve à réussir ni une formule supérieure au voyage accompagné.",
       "argument_ids": [
         1,
@@ -290,25 +290,25 @@
       "arguments": [
         {
           "idea": "Tout d'abord, des relations sur place peuvent réduire l'isolement et apporter du soutien.",
-          "developpement": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Sans liens sur place, on peut habiter dans le pays sans participer à sa vie sociale. Se retrouver régulièrement permet de partager son quotidien et de s'entraider.",
+          "developpement": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. On peut recevoir des nouvelles de ses proches et ne connaître personne avec qui déjeuner ou se promener. Se retrouver régulièrement permet de partager son quotidien et de s'entraider.",
           "exemple": "Une nouvelle arrivante peut déjeuner chaque samedi avec une voisine. Elles échangent sur leur semaine et, si l'une tombe malade, l'autre peut lui déposer quelques courses.",
           "consequence": "La relation apporte alors de la compagnie et une aide concrète."
         },
         {
           "idea": "Ensuite, les échanges avec les habitants aident à comprendre les codes sociaux et à pratiquer la langue du pays.",
-          "developpement": "Les conversations régulières permettent de demander des explications sur les habitudes d'un groupe, comme la façon d'accepter une invitation. Elles donnent aussi l'occasion de pratiquer la langue dans des situations réelles, avec des personnes qu'on connaît.",
+          "developpement": "Avec des personnes qu'on retrouve souvent, on peut poser une question sur une invitation ou demander le sens d'une expression. Les réponses aident à comprendre ce qui se passe et à prendre part aux échanges, au lieu de rester à l'écart.",
           "exemple": "Dans une association, une habituée explique à une nouvelle arrivante que chacun apporte un plat au repas partagé. Elle l'aide à dire, dans la langue du pays, ce qu'elle apportera. La nouvelle arrivante réutilise ensuite ces expressions lors d'autres rencontres.",
-          "consequence": "Elle participe plus facilement, sans confondre les habitudes du groupe avec celles de tout le pays."
+          "consequence": "Elle peut ainsi prendre part au repas et discuter de ce qu'elle prépare, plutôt que rester en retrait faute de savoir quoi dire."
         },
         {
           "idea": "Mais il est possible de bien vivre sans avoir encore créé de liens personnels sur place.",
-          "developpement": "Les besoins de vie sociale varient. Des échanges à distance et des activités personnelles peuvent aussi contribuer au bien-être, sans que l'absence de relations locales soit forcément vécue comme un manque.",
+          "developpement": "Tout le monde ne ressent pas le même besoin de sortir ou de rencontrer du monde. Certaines personnes trouvent un équilibre entre leurs activités et les échanges avec leurs proches à distance. Ne pas avoir de relations locales ne signifie donc pas forcément se sentir seul.",
           "exemple": "Une personne qui travaille à distance peut appeler régulièrement ses proches et prendre plaisir à faire de la randonnée seule. Elle peut apprécier sa nouvelle vie, même avant d'avoir rencontré des personnes avec qui se lier.",
           "consequence": "L'absence de liens locaux ne suffit donc pas à conclure qu'elle vit mal."
         }
       ],
       "nuance": "Cependant, il faut distinguer une solitude choisie d'un isolement qui fait souffrir. Le temps et un accueil réciproque sont nécessaires pour qu'une relation se construise. Quelques relations de confiance peuvent compter davantage que de nombreux contacts superficiels.",
-      "conclusion": "En conclusion, ces relations sont très utiles, mais pas indispensables au bien-être de tous. Elles donnent accès à une vie partagée sur place, tandis que chacun trouve son équilibre selon ses besoins."
+      "conclusion": "Je trouve donc ces relations très utiles, pour partager son quotidien et se sentir plus à l'aise sur place. Mais je ne les rendrais pas indispensables au bien-être de chacun : ce qui compte, c'est de ne pas vivre un isolement dont on souffre."
     },
     "culture-p25": {
       "prompt_signatures": {
@@ -316,29 +316,29 @@
       },
       "reformulation": "Qu'est-ce qui peut motiver le choix de vivre à l'étranger ?",
       "position": "Le travail, l'apprentissage et les priorités familiales expliquent différents projets de départ.",
-      "position_claire": "À mon avis, les personnes qui choisissent de vivre à l'étranger ne cherchent pas toutes la même chose. Certaines ont un projet professionnel, d'autres veulent apprendre ou répondent à des priorités familiales.",
+      "position_claire": "À mon avis, on ne part pas tous vivre à l'étranger pour les mêmes raisons. Pour comprendre ce choix, il faut regarder ce que la personne espère y trouver et ce qui compte pour elle à ce moment de sa vie.",
       "arguments": [
         {
-          "idea": "Tout d'abord, un départ peut répondre à des motivations professionnelles.",
-          "developpement": "On peut chercher un marché du travail plus large, de meilleures conditions ou un poste qui fait avancer une carrière. Ce n'est pas nécessairement le pays entier qui attire, mais une possibilité précise.",
+          "idea": "Tout d'abord, on peut partir pour trouver un travail qui nous permette d'avancer.",
+          "developpement": "Un poste peut être intéressant parce qu'on y apprend une technique, qu'on y a davantage de responsabilités ou qu'il offre de meilleures conditions. Si cette possibilité n'existe pas près de chez soi, elle peut donner envie de partir. Le choix du pays vient alors après le projet de travail.",
           "exemple": "Une technicienne peut rejoindre une entreprise étrangère pour apprendre à entretenir un type de machine qu'elle ne connaît pas encore. La formation proposée par l'entreprise donne alors une raison concrète de partir, au-delà de l'envie de changer de pays.",
-          "consequence": "Le départ est donc une étape dans un projet professionnel."
+          "consequence": "Ce qu'elle cherche à l'étranger, c'est donc surtout une occasion d'apprendre et de progresser dans son métier."
         },
         {
           "idea": "Ensuite, certaines personnes partent pour apprendre et devenir plus autonomes.",
           "developpement": "Vivre ailleurs donne des occasions de pratiquer une autre langue, de sortir de ses habitudes et de se débrouiller dans de nouvelles situations. Cela peut suffire à motiver un départ, sans qu'un gain financier soit nécessaire.",
-          "exemple": "Un étudiant peut choisir un semestre dans une université étrangère pour suivre des cours dans une autre langue et apprendre à organiser sa vie quotidienne. Il accepte de sortir de ses habitudes, sans forcément chercher à s'installer définitivement.",
-          "consequence": "Le but est donc aussi d'apprendre à se débrouiller, pas seulement de suivre des cours."
+          "exemple": "Par exemple, un étudiant choisit de passer un semestre dans une université étrangère pour suivre des cours dans une autre langue. Il veut aussi apprendre à gérer seul son logement et ses dépenses, alors qu'il vit encore chez ses parents. Son objectif n'est pas forcément de rester, mais de gagner en autonomie.",
+          "consequence": "Il part donc pour apprendre autrement et se préparer à gérer sa vie, pas seulement pour obtenir un diplôme."
         },
         {
           "idea": "Enfin, les relations et le projet familial peuvent être au centre de la décision.",
-          "developpement": "On ne choisit pas toujours un lieu uniquement pour ses possibilités individuelles. Rejoindre un conjoint, vivre près de proches ou chercher un cadre adapté à ses enfants peut peser davantage qu'une carrière.",
-          "exemple": "Une famille vivant dans une région où les violences entraînent des fermetures d'écoles peut envisager de s'installer dans un pays plus sûr. Les parents cherchent alors un cadre où leurs enfants pourront aller régulièrement en classe et poursuivre leurs apprentissages sans ces interruptions.",
+          "developpement": "On peut avoir un emploi qui nous convient et vouloir malgré tout rejoindre son conjoint ou offrir un cadre plus sûr à ses enfants. Dans ce cas, la vie familiale compte davantage que la carrière. Le départ sert à construire un quotidien qui convienne mieux à ceux avec qui l'on vit.",
+          "exemple": "Par exemple, une famille vivant dans une région où les violences entraînent des fermetures d'écoles peut envisager de s'installer dans un pays plus sûr. Les parents cherchent alors un cadre où leurs enfants pourront aller régulièrement en classe et poursuivre leurs apprentissages sans ces interruptions.",
           "consequence": "La sécurité et la scolarité des enfants guident alors le choix de la destination."
         }
       ],
       "nuance": "Bien sûr, ces motivations se mélangent souvent chez une même personne. On peut partir pour travailler, mais aussi pour apprendre une langue et préparer un avenir pour ses enfants. Le degré de liberté varie aussi : certains départs relèvent davantage d'un choix, d'autres d'une nécessité.",
-      "conclusion": "En conclusion, vivre à l'étranger peut permettre d'avancer professionnellement, d'apprendre ou de réaliser un projet familial. Comprendre le départ d'une personne, c'est donc regarder ce qu'elle cherche à construire, pas lui attribuer une seule envie d'aventure.",
+      "conclusion": "Pour moi, vivre à l'étranger peut donc être une façon d'avancer professionnellement, d'apprendre ou de réaliser un projet familial. Le départ a surtout du sens par rapport à la vie que la personne cherche à construire.",
       "argument_ids": [
         1,
         2,
@@ -360,7 +360,7 @@
       "arguments": [
         {
           "idea": "Tout d'abord, connaître le coût de la vie m'aiderait à savoir si mon projet est financièrement réaliste.",
-          "developpement": "Un salaire proposé ne suffit pas pour savoir si je pourrais vivre sur place. Ce sont le loyer, les transports et les autres dépenses qui détermineraient ce qu'il me resterait. Une marge pour les imprévus compterait aussi.",
+          "developpement": "Un salaire proposé ne suffit pas pour savoir si je pourrais vivre sur place. Ce sont le loyer, les transports et les autres dépenses qui détermineraient ce qu'il me resterait. Une marge pour les imprévus compterait aussi. Sans ce calcul, je pourrais croire que je vais vivre plus confortablement alors que presque tout mon revenu partirait dans le logement.",
           "exemple": "Par exemple, si on me proposait un emploi à New York payé 2 500 dollars nets par mois, je vérifierais les loyers avant de partir. Avec un loyer à 2 000 dollars, il ne me resterait que 500 dollars pour les autres dépenses. Je reporterais le départ.",
           "consequence": "Je réduirais ainsi le risque de manquer d'argent dès mon arrivée."
         },
@@ -368,7 +368,7 @@
           "idea": "Ensuite, connaître mes droits m'aiderait à me protéger contre certains abus.",
           "developpement": "Sans connaître les règles, je risquerais d'accepter une demande injustifiée. Savoir où vérifier mes droits me permettrait de demander conseil et de réagir, plutôt que de croire tout ce qu'on m'affirme.",
           "exemple": "Si un propriétaire voulait entrer dans mon logement sans mon accord, je vérifierais les règles locales auprès d'une association de locataires. Je pourrais alors lui répondre à partir d'informations précises sur ce qui est autorisé.",
-          "consequence": "Je serais ainsi moins dépendant de sa seule version des règles."
+          "consequence": "Je saurais alors si sa demande est justifiée et comment y répondre, au lieu de dépendre seulement de ce qu'il me dit."
         },
         {
           "idea": "Enfin, comprendre quelques habitudes locales m'aiderait à éviter des malentendus.",
@@ -378,7 +378,7 @@
         }
       ],
       "nuance": "Cependant, je ne pourrais pas tout apprendre avant de partir. Les habitudes varient selon les villes et les personnes, et les règles peuvent changer. Une partie de cette connaissance ne s'acquiert qu'au contact direct, en observant et en discutant avec les habitants.",
-      "conclusion": "En conclusion, connaître le pays m'aiderait à préparer mon installation et à mieux réagir sur place. Ce serait le début d'un apprentissage, pas une garantie de vivre sans difficulté : je garderais donc une place pour ce que j'y découvrirais."
+      "conclusion": "Pour moi, connaître le pays ferait donc partie de la préparation du départ. Cela m'aiderait à choisir plus lucidement et à mieux réagir sur place, tout en restant prêt à apprendre des personnes que je rencontrerais."
     },
     "culture-p29": {
       "prompt_signatures": {
@@ -386,29 +386,29 @@
       },
       "reformulation": "La vie à l'étranger est-elle difficile ?",
       "position": "La vie à l'étranger peut être exigeante sur les plans matériel, affectif et administratif.",
-      "position_claire": "Oui, vivre à l'étranger peut être difficile, même après les premiers mois. Certaines contraintes continuent à peser sur le quotidien, selon les conditions dans lesquelles on s'installe.",
+      "position_claire": "Oui, vivre à l'étranger peut être difficile, même quand on a déjà pris ses habitudes. On peut aimer la vie qu'on y mène tout en ayant du mal à se loger, à faire des projets ou à être présent pour ses proches.",
       "arguments": [
         {
           "idea": "Tout d'abord, les contraintes matérielles peuvent compliquer la vie quotidienne.",
-          "developpement": "Le coût du logement et les possibilités d'emploi peuvent limiter les choix. Pour respecter son budget, on doit parfois accepter des conditions de vie moins confortables ou qui laissent moins de temps pour soi.",
+          "developpement": "Le coût du logement et les possibilités d'emploi peuvent limiter les choix. Pour respecter son budget, on doit parfois accepter des conditions de vie moins confortables ou qui laissent moins de temps pour soi. Ce que l'on économise en argent peut alors se payer en temps et en fatigue.",
           "exemple": "Une personne choisit un logement loin de son travail parce que le loyer est moins cher. Elle passe deux heures par jour dans les transports et rentre fatiguée, mais un logement plus proche dépasse son budget.",
           "consequence": "Respecter son budget peut donc obliger à accepter un quotidien plus fatigant."
         },
         {
           "idea": "Ensuite, quand on vit loin de ses proches, il est plus difficile d'être à leurs côtés lorsqu'ils en ont besoin.",
-          "developpement": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Pour qu'une visite soit possible, il faut avoir assez de temps et d'argent pour faire le voyage.",
+          "developpement": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Pour qu'une visite soit possible, il faut avoir assez de temps et d'argent pour faire le voyage. On peut écouter au téléphone et se sentir pourtant impuissant quand on voudrait apporter une aide concrète.",
           "exemple": "Une salariée à l'étranger apprend que son père, resté dans son pays d'origine, a besoin d'aide après une opération. Elle voudrait le rejoindre, mais ne peut pas obtenir de congé immédiatement. Elle peut chercher quelqu'un pour aider son père sur place, tout en regrettant de ne pas être là.",
-          "consequence": "Même une installation réussie peut donc comporter un coût affectif."
+          "consequence": "Elle peut donc apprécier la vie qu'elle a construite à l'étranger et souffrir malgré tout de ne pas pouvoir aider son père elle-même."
         },
         {
           "idea": "Enfin, certaines situations administratives rendent les projets moins prévisibles.",
           "developpement": "Selon le pays et le statut, un changement d'emploi peut demander des démarches supplémentaires. Si on ne sait pas quand on pourra commencer, on peut difficilement prévoir ses revenus et faire des projets à long terme.",
           "exemple": "Par exemple, une personne reçoit une offre d'emploi, mais son autorisation de travail est liée à son employeur actuel. Si elle doit attendre une nouvelle autorisation pour commencer, elle ne peut pas encore compter sur ce salaire. Elle devra peut-être reporter son déménagement.",
-          "consequence": "L'incertitude administrative peut donc limiter des choix concrets, même quand une possibilité professionnelle se présente."
+          "consequence": "Elle a une possibilité de travail, mais elle ne sait pas encore quand elle pourra en vivre. Cette attente peut donc retarder d'autres projets pourtant raisonnables."
         }
       ],
       "nuance": "Cependant, ces difficultés varient selon les situations. Un bon niveau de langue, un emploi stable, des proches sur place ou un statut sécurisé peuvent les réduire. La vie dans le pays d'origine peut elle aussi être difficile : la comparaison dépend des conditions réelles.",
-      "conclusion": "En conclusion, vivre à l'étranger peut être exigeant sans empêcher d'y construire une vie satisfaisante. La distance et l'incertitude peuvent encore peser quand on a déjà trouvé ses habitudes : mieux vaut ne pas les sous-estimer.",
+      "conclusion": "Pour moi, vivre à l'étranger peut donc être difficile sans être un mauvais choix. On peut être attaché à sa nouvelle vie et reconnaître ce qu'elle demande en temps, en argent et en efforts. Ce n'est pas contradictoire.",
       "argument_ids": [
         1,
         2,
@@ -466,19 +466,19 @@
         },
         {
           "idea": "Ensuite, les immigrés peuvent enrichir la vie culturelle du pays d'accueil.",
-          "developpement": "Les langues, les œuvres et les savoir-faire circulent avec les personnes. Quand on les partage, les autres habitants peuvent découvrir de nouveaux récits et de nouvelles façons de faire, sans abandonner leurs propres références.",
-          "exemple": "Dans une bibliothèque, une personne peut participer à une séance de contes en présentant une histoire de son enfance et en l'expliquant dans une langue commune. Les enfants découvrent un autre récit et peuvent le comparer à ceux qu'ils connaissent.",
-          "consequence": "La culture se partage ainsi avec les autres habitants, au-delà de la famille."
+          "developpement": "En arrivant, une personne apporte aussi des histoires, des chansons ou des façons de faire qu'on ne connaît pas encore. Lorsqu'elle les partage et les explique, les autres habitants peuvent découvrir autre chose que leurs propres habitudes.",
+          "exemple": "Par exemple, une nouvelle habitante participe à une séance de contes dans une bibliothèque. Elle raconte, dans une langue comprise par le groupe, une histoire que sa grand-mère lui racontait quand elle était petite. Les enfants découvrent ce récit et peuvent le comparer à ceux qu'ils connaissent.",
+          "consequence": "Les enfants ont ainsi accès à une histoire qu'ils n'auraient peut-être pas découverte autrement."
         },
         {
           "idea": "Enfin, les immigrés peuvent contribuer à la vie associative et à l'entraide locale.",
-          "developpement": "Participer à un projet commun crée des liens entre habitants et permet d'agir sur des besoins concrets. Cette dimension ne dépend pas uniquement d'un emploi ou d'un niveau de revenu.",
+          "developpement": "Les associations ont aussi besoin de personnes qui donnent du temps, aident à organiser une activité ou rendent une information compréhensible. Un nouvel habitant peut y prendre sa place et aider d'autres personnes, même s'il n'a pas encore d'emploi sur place.",
           "exemple": "Lors d'une distribution alimentaire, un nouvel habitant peut expliquer les consignes à une famille dans une langue qu'ils ont en commun. La famille comprend comment retirer son colis et peut poser ses questions : comme les autres bénévoles, il contribue à rendre l'aide plus accessible.",
-          "consequence": "La richesse d'une société se mesure aussi à cette capacité de coopération."
+          "consequence": "Ce temps donné et cette aide concrète sont aussi une façon de contribuer à la société."
         }
       ],
       "nuance": "Cependant, ces apports ne se réalisent pas automatiquement. L'apprentissage de la langue, la reconnaissance des qualifications et la lutte contre les discriminations demandent des efforts collectifs. Et la dignité d'une personne devrait être reconnue sans qu'elle ait à prouver son utilité économique.",
-      "conclusion": "En conclusion, les immigrés peuvent enrichir le pays par leur travail et leurs compétences, les échanges culturels et l'entraide. Un accueil équitable ouvre ces possibilités : la vie commune se construit ensemble.",
+      "conclusion": "Je suis donc d'accord : les immigrés peuvent enrichir le pays par leur travail et leurs compétences, mais aussi par la culture et l'entraide. Pour que ces apports trouvent leur place, il faut leur donner de réelles possibilités de participer.",
       "argument_ids": [
         1,
         2,

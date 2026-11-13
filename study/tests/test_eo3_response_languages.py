@@ -316,12 +316,13 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         )
         for argument, question in zip(quebec.response.arguments, questions):
             self.assertIn(question, rows[fingerprint(argument.idea)]["english"])
-        self.assertIn("I would ask myself three questions", rows[
+        self.assertIn("three questions seem particularly important", rows[
             fingerprint(quebec.response.position_claire)
         ]["english"])
         qualification = rows[fingerprint(quebec.response.arguments[1].exemple)]["english"]
-        self.assertIn("may need to have her training recognised", qualification)
-        self.assertIn("rather than count on being able to start work immediately", qualification)
+        self.assertIn("check with the relevant Quebec body", qualification)
+        self.assertIn("whether additional training is necessary", qualification)
+        self.assertIn("rather than counting on immediate employment", qualification)
         volunteer = models["eo/tache-3/education-p10"]
         self.assertEqual(
             {key for key, _ in volunteer.source_prompts}, {"education:p10", "education:p24"},
@@ -468,7 +469,12 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             self.skipTest("DeepL response translations have not been prepared.")
         cases = (
             ("education-p1", "argument-1-exemple", ("doctor's office", "without help"), ()),
-            ("education-p5", "argument-3-exemple", ("found a job in Quebec", "what help they could actually provide"), ()),
+            (
+                "education-p5", "argument-3-exemple",
+                ("have not yet found work in Quebec", "what support that person could actually provide",
+                 "rather than assuming they could stay with them"),
+                (),
+            ),
             ("education-p7", "argument-1-consequence", ("concrete skills", "in her application"), ("change careers",)),
             ("education-p16", "argument-4-exemple", ("specialised machine", "while it finds and trains someone"), ()),
         )
@@ -671,13 +677,16 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         model = scoped_models()["eo/tache-3/famille-p13"]
         rows = data["groups"][model.group]
         self.assertEqual(model.argument_ids, (1, 2, 3))
-        expression, contact, _ = model.response.arguments
+        expression, contact, local = model.response.arguments
         development = rows[fingerprint(contact.developpement)]["english"]
         self.assertIn("do not necessarily speak the host country's language", development)
         self.assertIn("If every conversation depends on translation", development)
         example = rows[fingerprint(contact.exemple)]["english"]
         self.assertIn("Her grandson can ask where it was taken", example)
         self.assertIn("instead of waiting for his mother to translate every sentence", example)
+        result = rows[fingerprint(contact.consequence)]["english"]
+        self.assertIn("get to know their grandparents better", result)
+        self.assertIn("feel closer to them", result)
         development = rows[fingerprint(expression.developpement)]["english"]
         self.assertIn("parents are still learning the country's language", development)
         self.assertIn("do not always find the words to explain an emotion", development)
@@ -691,6 +700,10 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         result = rows[fingerprint(expression.consequence)]["english"]
         self.assertIn("preserve a relationship", result)
         self.assertIn("discuss what matters", result)
+        example = rows[fingerprint(local.exemple)]["english"]
+        self.assertIn("parents who still speak little of the country's language", example)
+        self.assertIn("talks with his teammates in that language", example)
+        self.assertIn("feels confident enough to join in the conversations", example)
 
     def test_living_alone_english_connects_actual_help_needs_and_household_workload(self):
         data = read_manifest(DEFAULT_PATH)
@@ -1049,11 +1062,12 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         model = scoped_models()["eo/tache-3/famille-p13"]
         rows = data["groups"][model.group]
         row = rows[fingerprint(model.response.arguments[2].exemple)]
-        self.assertIn("parents enrol their child in football", row["english"])
-        self.assertIn("As training sessions go by", row["english"])
-        self.assertIn("understands instructions better", row["english"])
-        self.assertIn("dares to talk with his teammates", row["english"])
-        self.assertIn("sees the same people and often hears the same expressions", row["english"])
+        self.assertIn("parents who still speak little of the country's language", row["english"])
+        self.assertIn("enrol their child in football", row["english"])
+        self.assertIn("listens to the coach's instructions", row["english"])
+        self.assertIn("talks with his teammates in that language", row["english"])
+        self.assertIn("understands better what he is being asked to do", row["english"])
+        self.assertIn("feels confident enough to join in the conversations", row["english"])
         self.assertNotIn("in class", row["english"])
         self.assertNotIn("fluently", row["english"])
         development = rows[fingerprint(model.response.arguments[2].developpement)]["english"]
@@ -1331,7 +1345,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         development = rows[fingerprint(preparation.developpement)]["english"]
         for phrase in ("entry requirements", "costs involved", "skills you are lacking", "before incurring significant expenses"):
             self.assertIn(phrase, development)
-        self.assertIn("If further training is required", rows[fingerprint(preparation.exemple)]["english"])
+        self.assertIn("If additional training is required", rows[fingerprint(preparation.exemple)]["english"])
         result = rows[fingerprint(preparation.consequence)]["english"]
         self.assertIn("minimises surprises", result)
         self.assertIn("adjust your timetable", result)
@@ -1410,12 +1424,16 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("travelling alone for the first time", example)
         self.assertIn("Her train is cancelled", example)
         self.assertIn("the following day", example)
-        self.assertLess(example.index("asks for information"), example.index("buys a bus ticket"))
-        self.assertIn("that same day", example)
-        self.assertNotIn("hotel", example)
+        steps = tuple(example.index(phrase) for phrase in (
+            "asks a member of staff", "compares the timetables", "chooses a bus", "She arrives that evening",
+        ))
+        self.assertEqual(steps, tuple(sorted(steps)))
+        self.assertIn("before reception closes", example)
+        self.assertIn("where she has booked a room", example)
+        self.assertIn("can settle in", example)
         result = rows[fingerprint(argument.consequence)]["english"]
-        self.assertIn("can handle an unexpected problem", result)
-        self.assertIn("without waiting for someone close to her", result)
+        self.assertIn("After overcoming that unexpected problem", result)
+        self.assertIn("more capable of organising the rest of her trip", result)
         painting = rows[fingerprint(solo.response.arguments[1].exemple)]["english"]
         self.assertIn("spend the afternoon at an exhibition.", painting)
         self.assertNotIn("head home early", painting)

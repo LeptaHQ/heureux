@@ -1379,6 +1379,11 @@
         "english": "Next, this language lets children build their own relationships with other generations.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
+      "6582b6e8b411a11a79ace012e9dde48c60976c00e22fcd5b118ec7642ea02b1d": {
+        "french": "Par exemple, des parents qui parlent encore peu la langue du pays inscrivent leur enfant au football. Pendant les entraînements, il écoute les consignes du coach et échange avec ses coéquipiers dans cette langue. Petit à petit, il comprend mieux ce qu'on lui demande et ose participer aux conversations.",
+        "english": "For example, parents who still speak little of the country's language enrol their child in football. During training, he listens to the coach's instructions and talks with his teammates in that language. Gradually, he understands better what he is being asked to do and feels confident enough to join in the conversations.",
+        "review_note": "Editorial translation of the revised football example, making the parents' limited command of the local language and the child's practice in that language explicit. Previous translation records are retained; no provider call was made."
+      },
       "668dd6d4baae739ee3e7e78c7c7230c40c5028028ac95dc57c88ce5da925cba3": {
         "english": "But if the child struggles to follow lessons in the local language, I wouldn't just wait for things to sort themselves out. I'd speak with their teacher to understand what's causing the difficulty and how to help. We can help the child without giving up the family language at home.",
         "french": "Mais si l'enfant a du mal à suivre les cours dans la langue du pays, je n'attendrais pas que cela s'arrange tout seul. J'en parlerais avec son enseignant pour comprendre ce qui bloque et voir comment l'aider. On peut l'aider sans abandonner la langue familiale à la maison.",
@@ -1570,6 +1575,11 @@
         "french": "Enfin, il faut que l'enfant puisse aussi pratiquer la langue du pays pour participer à la vie locale.",
         "english": "Finally, children must also be able to practise the country's language to take part in local life.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
+      },
+      "fff83a32d32c078a409bc3c4e7348cabdd0f29ae5055cba0bc9fd92a75692d82": {
+        "french": "Ces conversations permettent donc à l'enfant de mieux connaître ses grands-parents et de se sentir plus proche d'eux.",
+        "english": "These conversations therefore help the child get to know their grandparents better and feel closer to them.",
+        "review_note": "Editorial translation of the revised argument consequence: conversations help the child know their grandparents better and feel closer to them. Previous translation records are retained; no provider call was made."
       }
     },
     "eo/tache-3/famille-p14": {

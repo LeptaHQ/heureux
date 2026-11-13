@@ -452,22 +452,27 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("demander des renseignements", argument.developpement)
         self.assertIn("comparer les possibilités et choisir", argument.developpement)
         for phrase in (
-            "Une étudiante voyage seule pour la première fois",
+            "une étudiante voyage seule pour la première fois",
             "Son train est annulé",
             "le suivant ne part que le lendemain",
-            "Elle se renseigne à la gare",
-            "achète un billet de bus",
-            "le jour même",
+            "Elle demande à un agent quelles solutions existent",
+            "compare les horaires",
+            "choisit un bus",
+            "où elle a réservé une chambre",
+            "Elle arrive le soir même et peut s'installer",
         ):
             self.assertIn(phrase, argument.exemple)
-        self.assertIn("peut gérer un imprévu", argument.consequence)
-        self.assertIn("sans attendre qu'un proche s'en charge", argument.consequence)
-        self.assertNotIn("hôtel", argument.exemple)
+        steps = tuple(argument.exemple.index(phrase) for phrase in (
+            "demande à un agent", "compare les horaires", "choisit un bus", "Elle arrive le soir même",
+        ))
+        self.assertEqual(steps, tuple(sorted(steps)))
+        self.assertIn("Après avoir surmonté cet imprévu", argument.consequence)
+        self.assertIn("plus capable d'organiser la suite", argument.consequence)
         self.assertNotIn("sans aide", argument.developpement)
         cue = self.plans["eo/tache-3/culture-p21"].arguments[0].example
         for language, problem, choice, arrival in (
-            ("french", "Train annulé", "prend un bus", "le jour même"),
-            ("english", "Cancelled train", "takes a bus", "that day"),
+            ("french", "Train annulé", "choisir un bus", "avant la fermeture de la réception"),
+            ("english", "Train cancelled", "choose a bus", "before reception closes"),
         ):
             text = getattr(cue, language)
             self.assertIn(problem, text)
@@ -574,8 +579,9 @@ class CultureEditorialTests(SimpleTestCase):
             self.assertIn(phrase, example)
         self.assertNotIn("irrigation", example)
         cue = self.plans["eo/tache-3/culture-p5"].arguments[0].example
-        self.assertIn("apprend la pâtisserie", cue.french)
-        self.assertIn("practises desserts on placement", cue.english)
+        self.assertIn("pâtisserie", cue.french)
+        self.assertIn("desserts préparés en stage avec un chef", cue.french)
+        self.assertIn("desserts prepared on a placement with a chef", cue.english)
 
     def test_living_abroad_skills_argument_focuses_on_training_and_professional_practice(self):
         argument = self.response(17).arguments[0]
@@ -637,7 +643,7 @@ class CultureEditorialTests(SimpleTestCase):
             "Une famille", "les violences entraînent des fermetures d'écoles",
             "peut envisager", "Les parents cherchent alors", "aller régulièrement en classe",
         ):
-            self.assertIn(phrase, family.exemple)
+            self.assertIn(phrase.casefold(), family.exemple.casefold())
         self.assertNotIn("ne plus vivre séparés", family.exemple)
         self.assertEqual(
             family.consequence,

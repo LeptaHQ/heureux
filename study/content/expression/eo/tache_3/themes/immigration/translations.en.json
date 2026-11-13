@@ -1,10 +1,5 @@
 {
   "generated_at": "2026-11-05T03:26:14.080137+00:00",
-  "provider": "deepl",
-  "reviewed_at": "2026-11-05T07:53:15.655781+00:00",
-  "source_language": "FR",
-  "target_language": "EN-GB",
-  "version": 1,
   "groups": {
     "eo/tache-3/culture-p1": {
       "022ba7408875e257c3e9a06a9eea99bdc30d10b35bdb3b2a5e56152e3f79c74d": {
@@ -32,6 +27,11 @@
         "english": "In my opinion, settling in a new country means having to change some habits, but not all of them. The question is to distinguish what life there requires from what comes down to our personal preferences.",
         "french": "À mon avis, s'installer dans un nouveau pays oblige à changer certaines habitudes, mais pas toutes. La question est de distinguer ce que la vie sur place impose de ce qui relève de nos préférences personnelles.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "3c1f1d384db61a2addc1e64fe8ada954ecd19b92b2ad48e6cd0ff5574b3ad772": {
+        "english": "This lets them keep getting around and arriving on time; changing clothes does not mean giving up their roots.",
+        "french": "Elle peut ainsi continuer à se déplacer et à arriver à l'heure, sans que changer de vêtements signifie renoncer à ses origines.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "4c50c3723cba559a506242a6f427988e0ead94a78f964d0c70198c714c757ef3": {
         "english": "These familiar reference points provide comfort without preventing participation in the country's life.",
@@ -76,6 +76,11 @@
         "french": "Quand on s'installe dans un nouveau pays, certaines habitudes doivent évoluer, mais pas toutes. Pour moi, il faut changer ce qui est nécessaire, garder ses repères et découvrir peu à peu les habitudes locales.",
         "review_note": "« Holding on to your bearings » is an unnatural rendering of garder ses repères."
       },
+      "b90c486427fd183bd3f8b501a4359a5b5cf729b18d87e4ae609d5a0d0cd78a78": {
+        "english": "For me, settling somewhere else therefore does not mean giving up everything. I would change what is necessary to live there, while keeping the habits that bother no one. You can make room for your new life without erasing the one you had before.",
+        "french": "Pour moi, s'installer ailleurs ne demande donc pas de tout abandonner. Je changerais ce qui est nécessaire pour vivre sur place, tout en gardant les habitudes qui ne gênent personne. On peut faire une place à la nouvelle vie sans effacer celle qu'on avait avant.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "c4a86c2f2b686c0cfe2b5b173bdedcf1a698e0663ef282989fb21016c92cf035": {
         "english": "Finally, trying out new habits gradually allows us to choose the ones that suit us best.",
         "french": "Enfin, essayer de nouvelles habitudes progressivement permet de choisir celles qui nous conviennent."
@@ -100,6 +105,11 @@
       "f25a25e4a9412fd1132df58d6096a42e055e9302ed25f340bc98a51920ecf401": {
         "english": "Change becomes a chosen experience, rather than an imposed break.",
         "french": "Le changement devient une expérience choisie, sans que ce soit une rupture imposée."
+      },
+      "fc05baca4682f280de63cc850ffea09289ab80d24d490126562780c08a72c156": {
+        "english": "We do not always immediately understand the benefit of a local practice. By talking with the people who follow it, we can see what it does for them, then try it without feeling obliged to change everything at once. Trying it then lets us decide whether it suits us.",
+        "french": "On ne comprend pas toujours immédiatement l'intérêt d'une pratique locale. En discutant avec les personnes qui la suivent, on peut voir ce qu'elle leur apporte, puis l'essayer sans qu'on se sente obligé de tout changer d'un coup. L'essai permet ensuite de décider si elle nous convient.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       }
     },
     "eo/tache-3/culture-p11": {
@@ -122,6 +132,11 @@
         "french": "Bref, les compatriotes peuvent apporter du réconfort et une expérience utile, mais ne sont pas un passage obligé. Des liens fiables comptent davantage qu'une origine commune.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "2e330e5bafe2a7ebf44d7e0af4a71c5d932528ef9b3c53970a5c50c6924f35c5": {
+        "english": "Some administrative procedures raise particular questions when you arrive with documents from another country. Someone who has been through a similar situation can tell you where to find the right information. You then start with specific leads, rather than looking everywhere without knowing what to ask.",
+        "french": "Certaines démarches soulèvent des questions particulières lorsqu'on arrive avec des documents d'un autre pays. Une personne passée par une situation proche peut indiquer où chercher les renseignements adaptés. On commence alors avec des pistes précises, plutôt que de chercher partout sans savoir quoi demander.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "3abdb1bffeed071958fe6ab2c530804bd202f77389c9583f0b28b5b730081a7a": {
         "english": "Spending time with fellow countrymen abroad seems useful to me, though it is not essential. These relationships can provide moral support, practical advice and a link to one’s culture of origin. But they should not constitute one’s sole social circle: meeting other local residents also helps one find one’s place in the host country.",
         "french": "Fréquenter des compatriotes à l'étranger me paraît utile, sans être obligatoire. Ces relations peuvent apporter un soutien moral, des conseils pratiques et un lien avec sa culture d'origine. Mais elles ne devraient pas constituer le seul cercle social : rencontrer d'autres habitants aide aussi à trouver sa place dans le pays d'accueil."
@@ -138,6 +153,11 @@
         "english": "A newcomer knows no compatriots in her small town. A colleague from another country helps her understand a housing-aid application form. The newcomer also joins a language exchange group and makes friends from other countries there.",
         "french": "Une nouvelle arrivante ne connaît aucun compatriote dans sa petite ville. Une collègue d'un autre pays l'aide à comprendre un formulaire de demande d'aide au logement. La nouvelle arrivante rejoint aussi un groupe d'échange linguistique et s'y fait des amis d'autres pays.",
         "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "4db9e48700adc72848e16f1eb783c6d561ce383be0dab3729e4e06c779ea55fd": {
+        "english": "What matters is being able to ask someone for advice and having them take the time to answer. That person does not need to have been born in the same country as us. We can therefore build a circle of people we trust, even without compatriots nearby.",
+        "french": "Ce qui compte, c'est de pouvoir demander conseil à quelqu'un qui prend le temps de répondre. Cette personne n'a pas besoin d'être née dans le même pays que nous. On peut donc construire un entourage de confiance, même sans compatriotes à proximité.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "6e33f5de46c34f619f463ab59bc92b358a814a5edc555f2fcfe7cc3474da8d12": {
         "english": "When you arrive in a foreign country, you may find yourself far from your usual circle of friends and family. Spending time with fellow countrymen who speak your language allows you to forge connections without having to wait until you’ve mastered the local language.",
@@ -179,6 +199,11 @@
         "english": "In this way, she finds support and company, rather than remaining alone.",
         "french": "Elle trouve ainsi du soutien et de la compagnie, au lieu de rester seule."
       },
+      "be7dc72006ff58784ca6bac968d1feddcf97c9273bc9338e4ed0d9a6b331307d": {
+        "english": "She therefore knows where to start, although it is better to check the information with the relevant body.",
+        "french": "Elle sait ainsi par où commencer, même s'il vaut mieux que l'information soit vérifiée auprès de l'organisme compétent.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "be89c45482024da4eff1770b1b0cdf7132642a2d3e32e9ee48d4c225922a6656": {
         "english": "A newcomer may find it difficult to explain her loneliness in French. With a friend from her own country who speaks her language, she says she misses her family. Her friend listens to her and suggests they spend Sunday together.",
         "french": "Une nouvelle arrivante peut avoir du mal à expliquer sa solitude en français. Avec une amie de son pays qui parle sa langue, elle raconte que sa famille lui manque. Son amie l'écoute et lui propose de passer le dimanche ensemble."
@@ -198,6 +223,11 @@
         "french": "Une infirmière nouvellement arrivée peut échanger avec une compatriote qui exerce déjà ce métier sur place. Celle-ci lui explique comment elle a fait reconnaître son diplôme et quels documents elle a dû préparer. La nouvelle arrivante sait alors à quel organisme s'adresser pour commencer ses démarches.",
         "review_note": "Celle-ci identifies the nurse already working there; an unqualified She leaves the speaker unclear."
       },
+      "e2e894dbccd3596fa0021066353cc68de04735c08b33db10d502487809796b7a": {
+        "english": "For me, spending time with compatriots can therefore help, especially when you first arrive. But you can also find support from other people. The important thing is being able to rely on those around you, not that everyone comes from the same country.",
+        "french": "Pour moi, fréquenter des compatriotes peut donc aider, surtout quand on arrive. Mais on peut aussi trouver du soutien auprès d'autres personnes. L'essentiel est de pouvoir compter sur son entourage, pas que tout le monde vienne du même pays.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "f59fa53aa5e04ea9789c6f829b34da1274a6ba90ca4e699b33cd898882488e37": {
         "english": "Spending time with compatriots abroad can be very useful, especially at first, but I do not think it is necessary. What matters is finding people you can trust, whatever their origin.",
         "french": "Fréquenter des compatriotes à l'étranger peut être très utile, surtout au début, mais je ne pense pas que ce soit nécessaire. Ce qui compte, c'est de trouver des personnes de confiance, quelle que soit leur origine.",
@@ -214,14 +244,34 @@
       }
     },
     "eo/tache-3/culture-p17": {
+      "12e8e12d32dbf752069561c60cc87c57b35b0d4f8ac63954e061797333458a43": {
+        "english": "I disagree with the word 'always'. Living abroad can give us a lot, but we can also go through very difficult times there. What we gain in our studies or work does not make all the problems of daily life disappear.",
+        "french": "Je ne suis pas d'accord avec le mot « toujours ». Vivre à l'étranger peut nous apporter beaucoup, mais on peut aussi y traverser des moments très difficiles. Ce qu'on gagne dans ses études ou son travail ne fait pas disparaître tous les problèmes du quotidien.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "17b23e183f2f4e1625879bd93a6333081af411e11d42d7452a9d6fbbd61bc887": {
         "english": "Of course, a one-off difficulty does not make the whole stay a negative experience. Support or a change of plans can improve the situation. But what one learns from a difficult experience does not always make up for the suffering it has caused.",
         "french": "Bien sûr, une difficulté ponctuelle ne rend pas tout le séjour négatif. Un soutien ou un changement de projet peut améliorer la situation. Mais ce que l'on apprend d'une épreuve ne compense pas toujours la souffrance qu'elle a causée."
+      },
+      "1d0d955f1cab347c6eea2532394d7192aca7aae417abece8735877f777d12697": {
+        "english": "What you learn can later be useful in your professional life, even after returning home.",
+        "french": "Ce qu'on apprend peut ensuite servir dans la vie professionnelle, même après le retour.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "25ed5f13ee8b426660f0bbe8d3e98c4d7147a335899250d68c938e6e933e8ad6": {
         "english": "A student who wants to become a cook finds a school abroad offering a pastry specialism unavailable near home, with a restaurant placement. During that placement, the student prepares desserts every day under a chef's supervision.",
         "french": "Un étudiant qui veut devenir cuisinier trouve à l'étranger une école proposant une spécialité de pâtisserie absente près de chez lui, avec un stage en restaurant. Pendant ce stage, il prépare chaque jour des desserts sous la direction d'un chef.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "26b6a4a62ab59c0f42f6c000e264989ae35cb7905b6d9c1cec3269c6f6d1b36c": {
+        "english": "For example, a newcomer has not yet found the job he was counting on. His savings are shrinking and he has to pay the rent at the end of the month. He then spends his days looking for work, although he had also hoped to explore the country.",
+        "french": "Par exemple, un nouvel arrivant n'a pas encore trouvé le poste sur lequel il comptait. Ses économies diminuent et il doit payer le loyer à la fin du mois. Il consacre alors ses journées à chercher un emploi, alors qu'il espérait aussi découvrir le pays.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "3f0d746c14ca1d6136539d959b10b740ca27e42480c89d30535236fc50db7d80": {
+        "english": "I would therefore say that life abroad can be enriching, but not always positive. What we learn there matters, without making money worries or the pain of being far from loved ones disappear.",
+        "french": "Je dirais donc que la vie à l'étranger peut être enrichissante, mais pas toujours positive. Ce qu'on y apprend compte, sans faire disparaître les soucis d'argent ni la peine d'être loin des siens.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "53126767f46a7d9e058e4cb722222c578e8283642e1287d3907b1906cbd8628c": {
         "english": "You may therefore find yourself spending your time trying to scrape together enough to pay the rent, rather than enjoying the experience you had hoped for.",
@@ -245,6 +295,11 @@
         "english": "A job search may drag on while savings dwindle. With insufficient or irregular income, paying for housing becomes worrying. This pressure may prevent us from taking advantage of the opportunities that motivated the move.",
         "french": "Une recherche d'emploi peut se prolonger alors que les économies diminuent. Avec des revenus insuffisants ou irréguliers, payer le logement devient inquiétant. Cette pression peut empêcher de profiter des possibilités qui avaient motivé le départ.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "7ec580ea733d8c1dcab1520ef78fc239c8ba6515f8f3d19c683f7fe0c2936314": {
+        "english": "You can be happy to make progress in your studies or work and regret missing out on your loved ones' lives. Those two feelings do not cancel each other out: sometimes you cannot go home when someone close to you needs help.",
+        "french": "On peut être heureux d'avancer dans ses études ou son travail et regretter de manquer la vie de ses proches. Ces deux sentiments ne s'annulent pas : il arrive qu'on ne puisse pas rentrer quand un proche a besoin d'aide.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "81d8c81d4c02a7b1c40befb5d17711bcc7c2d8bcb58bc1b5b0b981019bf99328": {
         "deepl_english": "These experiences can then be put to good use in one’s professional life, even after returning home.",
@@ -286,6 +341,11 @@
       "bb37763d6a0116f657fad9f18c813b0882fa818fe2bb9e2bd00477b73f41e3b6": {
         "english": "Furthermore, financial difficulties can make life abroad a trying experience.",
         "french": "Ensuite, les difficultés financières peuvent rendre la vie à l'étranger éprouvante."
+      },
+      "da43c07e806b67bb9e005e07ca6fb35bfb206e859ea279438ff0091cf4acf1e0": {
+        "english": "For example, a student who wants to become a chef is looking for a pastry specialism that is unavailable near his home. He finds a school abroad that offers it, with a restaurant placement. During this placement, he prepares desserts under a chef's supervision.",
+        "french": "Par exemple, un étudiant qui veut devenir cuisinier cherche une spécialité de pâtisserie absente près de chez lui. Il trouve à l'étranger une école qui la propose, avec un stage en restaurant. Pendant ce stage, il prépare des desserts sous la direction d'un chef.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "df2bf5e0f16a5fcaf8f7ca565716a0b1b1e44b9b0c113f7312ee6d6c76eb58fd": {
         "english": "Finally, succeeding abroad does not erase the pain of being far from loved ones.",
@@ -352,6 +412,11 @@
         "english": "First and foremost, organising your own trip can boost your confidence in your decision-making.",
         "french": "Tout d'abord, organiser seul son voyage peut renforcer la confiance dans ses décisions."
       },
+      "6253bfd20249068bbd4bec0f1f178987352ad912643a3b581cadd98f67412866": {
+        "english": "For example, a student is travelling alone for the first time. Her train is cancelled and the next one does not leave until the following day. She asks a member of staff what alternatives are available, compares the timetables and chooses a bus to arrive before reception closes at the hotel where she has booked a room. She arrives that evening and can settle in.",
+        "french": "Par exemple, une étudiante voyage seule pour la première fois. Son train est annulé et le suivant ne part que le lendemain. Elle demande à un agent quelles solutions existent, compare les horaires et choisit un bus pour arriver avant la fermeture de la réception de l'hôtel où elle a réservé une chambre. Elle arrive le soir même et peut s'installer.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "72ac9acbb924caefcd2e32ed99bf1ca1c028849d43d48e55207dcd34a339fcb8": {
         "deepl_english": "They thus arrive at their hotel and may feel better equipped to deal with any further problems.",
         "english": "The traveller thus arrives at the hotel and may feel more capable of dealing with another problem.",
@@ -359,9 +424,14 @@
         "review_note": "Keep the particular traveller as the clear subject and another problem rather than broadening to any future problems."
       },
       "78628b29e02c329cd2a1201e0c87ff7198f3d9dd1ebbcda73e423651e4a226c8": {
-        "french": "Une étudiante voyage seule pour la première fois. Son train est annulé et le suivant ne part que le lendemain. Elle se renseigne à la gare, puis achète un billet de bus pour poursuivre son voyage le jour même.",
         "english": "A student is travelling alone for the first time. Her train is cancelled, and the next one does not leave until the following day. She asks for information at the station, then buys a bus ticket to continue her journey that same day.",
+        "french": "Une étudiante voyage seule pour la première fois. Son train est annulé et le suivant ne part que le lendemain. Elle se renseigne à la gare, puis achète un billet de bus pour poursuivre son voyage le jour même.",
         "review_note": "Editorial English aligned with the approved first-solo-trip example; prior translations retained without a fabricated provider call."
+      },
+      "7c1479bba557d4829c0b60f6e96cd788a506beddae17305fd566de5d9086a243": {
+        "english": "She can therefore enjoy her visit at her own pace, without worrying about holding the others up.",
+        "french": "Elle peut donc profiter de sa visite à son rythme, sans s'inquiéter de retenir les autres.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "83635fa474a1254584f5560db45157380dd555ec81e358f92e57e9263562acac": {
         "english": "There’s no need to negotiate every stop or break with a group. This flexibility can make the trip more relaxing for someone whose interests differ from those of their loved ones.",
@@ -389,8 +459,8 @@
         "french": "Je comprends qu'on préfère voyager seul : on peut décider de son programme et faire de nouvelles rencontres. Cela peut aussi aider à prendre confiance en soi. Mais je ne dirais pas que cette façon de voyager convient à tout le monde."
       },
       "afcb5322dfd4870b5551fb2e649740f26212cdfbf5c855f4a630f82a0e39c0fb": {
-        "french": "Une personne passionnée de peinture peut consacrer l'après-midi à une exposition. Elle n'a pas à écourter sa visite pour accompagner des amis qui préféreraient faire les magasins, ni à leur demander de l'attendre.",
         "english": "Someone who is passionate about painting can spend the afternoon at an exhibition. They don’t have to cut their visit short to accompany friends who would rather go shopping, nor do they have to ask those friends to wait.",
+        "french": "Une personne passionnée de peinture peut consacrer l'après-midi à une exposition. Elle n'a pas à écourter sa visite pour accompagner des amis qui préféreraient faire les magasins, ni à leur demander de l'attendre.",
         "review_note": "Removed only the unnecessary early-return clause from the painting example and its English; original translation and provider history retained."
       },
       "ba00734123103ef6bc1d693c570086a686a82bcedffb7a8223dbc7805625cb8b": {
@@ -403,6 +473,11 @@
         "english": "In conclusion, travelling alone can build confidence, offer greater freedom and encourage new encounters. I see it as a personal choice that requires preparation, not as a challenge to be overcome nor as a superior alternative to travelling with others.",
         "french": "En conclusion, le voyage en solitaire peut développer la confiance, laisser plus de liberté et favoriser des rencontres. Je le vois comme un choix personnel à préparer, pas comme une épreuve à réussir ni une formule supérieure au voyage accompagné."
       },
+      "dc685d8315f0eba372f15ccb2d8517c421109acd1ddcf1d72e2dc8dc087d410a": {
+        "english": "However, some people may need to share their emotions in the moment. For them, describing the visit later does not replace the pleasure of experiencing it with someone close to them. Travelling alone can also cost more when you do not share a room: this choice needs to suit the person and their budget.",
+        "french": "Cependant, il se peut que certaines personnes aient besoin de partager leurs émotions sur le moment. Pour elles, raconter la visite plus tard ne remplace pas le plaisir de la vivre avec un proche. Voyager seul peut aussi coûter plus cher quand on ne partage pas la chambre : il faut que ce choix convienne à la personne et à son budget.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "e75375813ac85602cb3d038e9f5a9be1d647086741deaaa87b8869367848907b": {
         "english": "Travelling alone does not, therefore, necessarily mean spending all your time on your own.",
         "french": "Voyager seul ne signifie donc pas nécessairement passer tout son temps isolé."
@@ -412,9 +487,14 @@
         "french": "Par exemple, un voyageur seul apprend que son train est annulé. Un agent lui propose un bus ou un train plus tard. Il compare les horaires et choisit le bus pour arriver avant la fermeture de la réception de son hôtel. Puis il prévient l'hôtel de son retard."
       },
       "ed7a6881c0b68b6ca43383bb2f4872904787d76028b70a6addec94d9dd13cd7e": {
-        "french": "Elle se rend compte qu'elle peut gérer un imprévu sans attendre qu'un proche s'en charge.",
         "english": "She realises that she can handle an unexpected problem without waiting for someone close to her to take care of it.",
+        "french": "Elle se rend compte qu'elle peut gérer un imprévu sans attendre qu'un proche s'en charge.",
         "review_note": "Editorial English aligned with the approved solo-travel autonomy consequence; prior translations retained without a fabricated provider call."
+      },
+      "f5506c97d21a96fa38953c22eb59708d4a0411823a2d71ac7543732511d68c30": {
+        "english": "After overcoming that unexpected problem, she feels more capable of organising the rest of her trip.",
+        "french": "Après avoir surmonté cet imprévu, elle se sent plus capable d'organiser la suite de son voyage.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "fbf9cdb87e9373cefc2cb49615f8466c93a5f25007de9c8acdfd5efca8df8a2b": {
         "english": "However, some people may need to share their emotions as they experience them. Without company, an enjoyable visit may seem less pleasant to them. Reservations and budget also limit freedom: the choice depends on personality and the conditions of the stay.",
@@ -429,6 +509,11 @@
       }
     },
     "eo/tache-3/culture-p24": {
+      "17dab862d8beed4545233b2af0edcf6f54ed08391d8e4c941d384b58f6747529": {
+        "english": "With people you see often, you can ask a question about an invitation or the meaning of an expression. The answers help you understand what is happening and join in conversations, rather than remain on the sidelines.",
+        "french": "Avec des personnes qu'on retrouve souvent, on peut poser une question sur une invitation ou demander le sens d'une expression. Les réponses aident à comprendre ce qui se passe et à prendre part aux échanges, au lieu de rester à l'écart.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "1c7b9af99c0091c4a6e3da8b98f98211ba1b1d0ea5d169ab7815623d9d664b6e": {
         "editorial_history": [
           {
@@ -439,6 +524,11 @@
         "english": "The absence of local connections is therefore not sufficient grounds to conclude that they are struggling.",
         "french": "L'absence de liens locaux ne suffit donc pas à conclure qu'elle vit mal.",
         "review_note": "The English example introduces the remote worker as 'Someone' and consistently uses 'they'. The consequence's unexplained 'she' breaks that reference chain. Correct only the English pronoun, retaining the French text, bilingual cues and preceding translation history. The complete preceding row is retained in editorial_history; no provider call or DeepL original was fabricated."
+      },
+      "2c4dbf9954d5e13f729da0662552190f8b497b2e0a9c37cbbadbe9e8a96a4ca3": {
+        "english": "I therefore find these relationships very useful for sharing daily life and feeling more comfortable locally. But I would not make them essential to everyone's well-being: what matters is not experiencing an isolation that causes suffering.",
+        "french": "Je trouve donc ces relations très utiles, pour partager son quotidien et se sentir plus à l'aise sur place. Mais je ne les rendrais pas indispensables au bien-être de chacun : ce qui compte, c'est de ne pas vivre un isolement dont on souffre.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "30ae795038ff91e5e5a35bad11d5a0bf4a52a7bd3df324e967b173d384a9d125": {
         "english": "She participates more easily, without confusing the group's habits with those of the whole country.",
@@ -481,6 +571,11 @@
         "english": "In my opinion, building relationships with residents helps with living well in a foreign country. But I would not say these relationships are essential for everyone. Their importance depends on what we expect from our new life.",
         "french": "À mon avis, créer des relations avec les habitants aide à bien vivre dans un pays étranger. Mais je ne dirais pas que ces relations sont indispensables pour tout le monde. Leur importance dépend de ce qu'on attend de sa nouvelle vie.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "76f4cec65bac5e4e83ec7d492f801d978f485c6f013768b962e6581e0fdcf72d": {
+        "english": "Calls maintain the connection, but do not always replace being there in person. You may hear from loved ones yet know no one you can have lunch or go for a walk with. Meeting regularly lets people share their daily lives and help each other.",
+        "french": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. On peut recevoir des nouvelles de ses proches et ne connaître personne avec qui déjeuner ou se promener. Se retrouver régulièrement permet de partager son quotidien et de s'entraider.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "7e51bec4faea803ae818efccd3e3aae350c34c77b613e5aace5520556db43626": {
         "english": "But it is possible to live well without having yet built personal ties locally.",
@@ -536,9 +631,19 @@
         "french": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Sans liens sur place, on peut habiter dans le pays sans participer à sa vie sociale. Se retrouver régulièrement permet de partager son quotidien et de s'entraider.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "f951ea5acde0f6f879cdde2794f802264a41b8dd0e514d2cacc744222c428a05": {
+        "english": "Not everyone feels the same need to go out or meet people. Some people find a balance between their activities and contact with loved ones at a distance. Not having local relationships therefore does not necessarily mean feeling lonely.",
+        "french": "Tout le monde ne ressent pas le même besoin de sortir ou de rencontrer du monde. Certaines personnes trouvent un équilibre entre leurs activités et les échanges avec leurs proches à distance. Ne pas avoir de relations locales ne signifie donc pas forcément se sentir seul.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "fd984c296f724981b7a8efd18f6cf3d30ed1d4af7e43f5b21ea532fa93380a07": {
         "english": "First and foremost, local relationships can reduce isolation and provide support.",
         "french": "Tout d'abord, des relations sur place peuvent réduire l'isolement et apporter du soutien."
+      },
+      "ff3f51863952286acc71031dfe5777314eccf6f7c7cd6e75824c1d9094c02ef9": {
+        "english": "She can therefore take part in the meal and talk about what she is preparing, rather than hold back because she does not know what to say.",
+        "french": "Elle peut ainsi prendre part au repas et discuter de ce qu'elle prépare, plutôt que rester en retrait faute de savoir quoi dire.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       }
     },
     "eo/tache-3/culture-p25": {
@@ -551,6 +656,31 @@
         "english": "Living abroad provides opportunities to practise another language and to cope with new situations. For some people, this is reason enough to move abroad, without the need for financial gain.",
         "french": "Vivre ailleurs donne des occasions de pratiquer une autre langue et de se débrouiller dans de nouvelles situations. Pour certaines personnes, c'est une raison suffisante de partir, sans qu'un gain financier soit nécessaire."
       },
+      "1cbba4b5353e5e420ee7b1a0ad15887083c93107cd6c652ed99f973f1b9a2a1d": {
+        "english": "A job may be appealing because you learn a technique, have more responsibility or enjoy better conditions. If that opportunity does not exist close to home, it may make you want to move away. The choice of country then follows the work project.",
+        "french": "Un poste peut être intéressant parce qu'on y apprend une technique, qu'on y a davantage de responsabilités ou qu'il offre de meilleures conditions. Si cette possibilité n'existe pas près de chez soi, elle peut donner envie de partir. Le choix du pays vient alors après le projet de travail.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "24edcd44e194927ab537ff440dc9d01e51735dc850fa3e2d57271012242e271a": {
+        "english": "In my view, living abroad can therefore be a way to move forward professionally, learn or carry out a family project. The move makes sense above all in relation to the life the person is trying to build.",
+        "french": "Pour moi, vivre à l'étranger peut donc être une façon d'avancer professionnellement, d'apprendre ou de réaliser un projet familial. Le départ a surtout du sens par rapport à la vie que la personne cherche à construire.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "33a6113dedd1a0824aca0ffa6d382362989f63ca53b41b8a8ec3b5af7fb2b884": {
+        "english": "What she is looking for abroad is therefore mainly a chance to learn and progress in her profession.",
+        "french": "Ce qu'elle cherche à l'étranger, c'est donc surtout une occasion d'apprendre et de progresser dans son métier.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "3acd8f3d1e240043852f12dd416873a548b4821cf9c59e9de039710c725b5756": {
+        "english": "For example, a family living in a region where violence causes schools to close may consider moving to a safer country. The parents are then looking for an environment where their children can attend school regularly and continue learning without those interruptions.",
+        "french": "Par exemple, une famille vivant dans une région où les violences entraînent des fermetures d'écoles peut envisager de s'installer dans un pays plus sûr. Les parents cherchent alors un cadre où leurs enfants pourront aller régulièrement en classe et poursuivre leurs apprentissages sans ces interruptions.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "41a8a2a5b652c001d55a584f847e3413dee7e43e254d320d5040a256ad6bfc52": {
+        "english": "You may have a job that suits you and still want to join your partner or provide a safer environment for your children. In that case, family life matters more than your career. The move is a way to build a daily life that better suits the people you live with.",
+        "french": "On peut avoir un emploi qui nous convient et vouloir malgré tout rejoindre son conjoint ou offrir un cadre plus sûr à ses enfants. Dans ce cas, la vie familiale compte davantage que la carrière. Le départ sert à construire un quotidien qui convienne mieux à ceux avec qui l'on vit.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "49545c27e2ba0f9d292c75a5e9b91c0155a6112195355f87cefb9dd9dcaef868": {
         "english": "Of course, these motivations often combine in the same person. People can leave to work, but also to learn a language and prepare a future for their children. The degree of freedom also varies: some departures are more a matter of choice, others of necessity.",
         "french": "Bien sûr, ces motivations se mélangent souvent chez une même personne. On peut partir pour travailler, mais aussi pour apprendre une langue et préparer un avenir pour ses enfants. Le degré de liberté varie aussi : certains départs relèvent davantage d'un choix, d'autres d'une nécessité.",
@@ -559,6 +689,11 @@
       "49f486a60730964ea2e2aafef227564e5f01a1f7f31db259157c719fd9ffe2e9": {
         "english": "The safety and education of children then guide the choice of destination.",
         "french": "La sécurité et la scolarité des enfants guident alors le choix de la destination."
+      },
+      "4b1f5abf57429e9fa0effe33c57e1058618990301d1f3824600206a42b7bd55f": {
+        "english": "First of all, we may leave to find work that allows us to move forward.",
+        "french": "Tout d'abord, on peut partir pour trouver un travail qui nous permette d'avancer.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "4d05843a477af59d732365237299812ae741b0b7ed929fac14730bba7abe884f": {
         "english": "Of course, motivations vary from person to person and can overlap. People may move abroad both to study and to join their partner, and then prioritise their career more. Priorities can therefore change as their journey unfolds.",
@@ -586,6 +721,16 @@
         "english": "Moving abroad is therefore a step in a career plan.",
         "french": "Le départ est donc une étape dans un projet professionnel."
       },
+      "7bc907572be7d82d0ec8fe1452bba15f63b5e1770bf3cbd52afd6edd27eba227": {
+        "english": "He is therefore leaving to learn in a different way and prepare to manage his life, not just to obtain a qualification.",
+        "french": "Il part donc pour apprendre autrement et se préparer à gérer sa vie, pas seulement pour obtenir un diplôme.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "7be55a6b51b7c4a30342c2517b19f7c1bc6948cd10100ceb2310bba833512247": {
+        "english": "For example, a student chooses to spend a semester at a foreign university to take courses in another language. He also wants to learn to manage his accommodation and expenses on his own, as he still lives with his parents. His aim is not necessarily to stay, but to become more independent.",
+        "french": "Par exemple, un étudiant choisit de passer un semestre dans une université étrangère pour suivre des cours dans une autre langue. Il veut aussi apprendre à gérer seul son logement et ses dépenses, alors qu'il vit encore chez ses parents. Son objectif n'est pas forcément de rester, mais de gagner en autonomie.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "9c275de47f65da6222bc6c0d2601bdc01e8f39ed6e44b556a2f0f948c7b69152": {
         "english": "Finally, relationships and family plans may be central to the decision.",
         "french": "Enfin, les relations et le projet familial peuvent être au centre de la décision."
@@ -607,6 +752,11 @@
       "b0c1cabb4edd578bc0169c7a8922b32e27f0ead314a6db98a8159366567d6f6d": {
         "english": "Furthermore, some people go abroad to learn and become more independent.",
         "french": "Ensuite, certaines personnes partent pour apprendre et devenir plus autonomes."
+      },
+      "c3db20d4eba2b779b5afda3bf6eb28218d9edbe7bf423646ef643b7979f3af21": {
+        "english": "In my view, we do not all move abroad for the same reasons. To understand that choice, you need to look at what the person hopes to find there and what matters to them at that point in their life.",
+        "french": "À mon avis, on ne part pas tous vivre à l'étranger pour les mêmes raisons. Pour comprendre ce choix, il faut regarder ce que la personne espère y trouver et ce qui compte pour elle à ce moment de sa vie.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "dc0a8f2d837e6d9e00cb7a3de9943f333c23d362865c3749854c795a62a8c99e": {
         "deepl_english": "In conclusion, people may move abroad to work, study or carry out a family project. A single move may fulfil several of these needs, and priorities may change over time.",
@@ -652,6 +802,16 @@
       "0a8f4f54211b4bcd166c7cb9561c1d2f3e75dd33a96c8fc144243d37cac3a066": {
         "english": "Finally, understanding a few local customs would help me avoid misunderstandings.",
         "french": "Enfin, comprendre quelques habitudes locales m'aiderait à éviter des malentendus."
+      },
+      "157b3dbafd770733e03cc637d5d204d6e836980fc6a1dd9c6261006df5b2c777": {
+        "english": "I would then know whether his request was justified and how to respond, instead of depending only on what he tells me.",
+        "french": "Je saurais alors si sa demande est justifiée et comment y répondre, au lieu de dépendre seulement de ce qu'il me dit.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "15d27c1721254b9915a23901784b353c96f47c3cf8b0896693ebd69c65ae825d": {
+        "english": "A proposed salary is not enough to tell me whether I could live there. Rent, transport and other expenses would determine what I had left. A margin for unexpected costs would also matter. Without that calculation, I might think I would live more comfortably when almost all my income would go towards housing.",
+        "french": "Un salaire proposé ne suffit pas pour savoir si je pourrais vivre sur place. Ce sont le loyer, les transports et les autres dépenses qui détermineraient ce qu'il me resterait. Une marge pour les imprévus compterait aussi. Sans ce calcul, je pourrais croire que je vais vivre plus confortablement alors que presque tout mon revenu partirait dans le logement.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "240b0825f089e8fa3c23b807845271f126e1f09758a2c5102ac7a67d0c313e7d": {
         "english": "For example, if I were offered a job in New York paying $2,500 net per month, I would check the rent prices before setting off. With a rent of $2,000, I would only have $500 left for other expenses. I would postpone my departure.",
@@ -718,6 +878,11 @@
         "english": "However, customs vary from city to city and from person to person, and the rules can change. So I wouldn’t be able to learn everything from a guidebook. I would carry on finding out more once I’m there and asking questions.",
         "french": "Cependant, les habitudes varient selon les villes et les personnes, et les règles peuvent changer. Je ne pourrais donc pas tout apprendre dans un guide. Je continuerais à me renseigner sur place et à poser des questions."
       },
+      "b222d71633d24c4018c7816fbc53e4c021d3295ed2ef6b0c462e34032fd3b620": {
+        "english": "For me, getting to know the country would therefore be part of preparing to leave. It would help me make a better-informed choice and respond better once there, while remaining ready to learn from the people I would meet.",
+        "french": "Pour moi, connaître le pays ferait donc partie de la préparation du départ. Cela m'aiderait à choisir plus lucidement et à mieux réagir sur place, tout en restant prêt à apprendre des personnes que je rencontrerais.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "c1169b6167d49fba606ec2d66afcc3074c72cd54e3c9e586b9aa9b1c157d0b7f": {
         "english": "Without knowing the rules, I would risk accepting an unreasonable request. Knowing where to check my rights would enable me to seek advice and take action, rather than simply believing everything I’m told.",
         "french": "Sans connaître les règles, je risquerais d'accepter une demande injustifiée. Savoir où vérifier mes droits me permettrait de demander conseil et de réagir, plutôt que de croire tout ce qu'on m'affirme."
@@ -733,10 +898,25 @@
       }
     },
     "eo/tache-3/culture-p29": {
+      "0b94f606aaae31e246622929b9d3b2bffdeedecddccef9782a56cecb207152f1": {
+        "english": "Calls maintain the connection, but do not always replace being there in person. For a visit to be possible, you need enough time and money to make the trip. You can listen on the phone yet feel helpless when you would like to provide practical help.",
+        "french": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Pour qu'une visite soit possible, il faut avoir assez de temps et d'argent pour faire le voyage. On peut écouter au téléphone et se sentir pourtant impuissant quand on voudrait apporter une aide concrète.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "12e04a3aceca14dfb4ceea55b81f36a4ebf0c1be19320959242886b606255d93": {
+        "english": "She has a job opportunity, but does not yet know when she will be able to earn a living from it. That wait can therefore delay other perfectly reasonable plans.",
+        "french": "Elle a une possibilité de travail, mais elle ne sait pas encore quand elle pourra en vivre. Cette attente peut donc retarder d'autres projets pourtant raisonnables.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "1fa7c88489a7a9fd5d1d9221ea056d057f4b41c9463325a9c3f7d8809ae1cd99": {
         "english": "An employee abroad learns that her father, who still lives in her home country, needs help after an operation. She would like to go to him, but cannot get leave immediately. She can look for someone to help her father there, while regretting that she cannot be there herself.",
         "french": "Une salariée à l'étranger apprend que son père, resté dans son pays d'origine, a besoin d'aide après une opération. Elle voudrait le rejoindre, mais ne peut pas obtenir de congé immédiatement. Elle peut chercher quelqu'un pour aider son père sur place, tout en regrettant de ne pas être là.",
         "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "22b91f4f5b7bffd799727f6a374f34a9961e47f5b1438ff396882c47ea0fddbe": {
+        "english": "Yes, living abroad can be difficult even when you have already settled into your routine. You can enjoy the life you lead there while still struggling to find housing, make plans or be there for loved ones.",
+        "french": "Oui, vivre à l'étranger peut être difficile, même quand on a déjà pris ses habitudes. On peut aimer la vie qu'on y mène tout en ayant du mal à se loger, à faire des projets ou à être présent pour ses proches.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "3bd0442ead7e8ef69474081ebff0b32e5e3ea3b2dad4f1c9efd06ff757ec77f9": {
         "english": "For example, someone may receive a job offer, but their work permit is linked to their current employer. If they have to wait for a new permit before starting work, they cannot yet rely on that salary. They may have to postpone their move.",
@@ -801,6 +981,16 @@
         "english": "In conclusion, living abroad can be demanding in terms of finances, relationships and planning for the future. This does not prevent one from building a fulfilling life there, but it does justify looking at the practical constraints rather than idealising the move.",
         "french": "En conclusion, vivre à l'étranger peut être exigeant pour le budget, les relations et la préparation de l'avenir. Cela n'empêche pas d'y construire une vie satisfaisante, mais justifie de regarder les contraintes concrètes plutôt que d'idéaliser le départ."
       },
+      "aee8156f9b718a6cac25ad0074bc3083ce17f2bce40b719139279c36519ee44c": {
+        "english": "Housing costs and job opportunities can limit your choices. To stay within your budget, you sometimes have to accept less comfortable living conditions or ones that leave you less time for yourself. What you save in money may then cost you in time and fatigue.",
+        "french": "Le coût du logement et les possibilités d'emploi peuvent limiter les choix. Pour respecter son budget, on doit parfois accepter des conditions de vie moins confortables ou qui laissent moins de temps pour soi. Ce que l'on économise en argent peut alors se payer en temps et en fatigue.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "b9864d7d2f3317d6f78093bbbc94edddb95d123df403c6f2cc4eead00eb56f46": {
+        "english": "She can therefore appreciate the life she has built abroad and still suffer from being unable to help her father herself.",
+        "french": "Elle peut donc apprécier la vie qu'elle a construite à l'étranger et souffrir malgré tout de ne pas pouvoir aider son père elle-même.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "c6235173bafc5132e10ca7dc6136a219c6e8a3776e351011def72381e28610c3": {
         "english": "However, these difficulties vary according to the situation. A good command of the language, a stable job, people close to us locally or secure status can reduce them. Life in the country of origin can also be difficult: the comparison depends on actual conditions.",
         "french": "Cependant, ces difficultés varient selon les situations. Un bon niveau de langue, un emploi stable, des proches sur place ou un statut sécurisé peuvent les réduire. La vie dans le pays d'origine peut elle aussi être difficile : la comparaison dépend des conditions réelles.",
@@ -814,6 +1004,11 @@
         "english": "Yes, living abroad can be difficult, even after the first few months. Some constraints continue to weigh on daily life, depending on the conditions in which people settle.",
         "french": "Oui, vivre à l'étranger peut être difficile, même après les premiers mois. Certaines contraintes continuent à peser sur le quotidien, selon les conditions dans lesquelles on s'installe.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "cc9bea4b99a44611d628b8c9ef4c3839b3188abc186037e0b9dc32d4eb598b23": {
+        "english": "For me, living abroad can therefore be difficult without being a bad choice. You can feel attached to your new life and recognise what it takes in time, money and effort. There is no contradiction.",
+        "french": "Pour moi, vivre à l'étranger peut donc être difficile sans être un mauvais choix. On peut être attaché à sa nouvelle vie et reconnaître ce qu'elle demande en temps, en argent et en efforts. Ce n'est pas contradictoire.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       }
     },
     "eo/tache-3/culture-p30": {
@@ -905,6 +1100,11 @@
       }
     },
     "eo/tache-3/culture-p35": {
+      "04deb8b19692eb19d038e6a9187baf1525b56e348f9e77039a99a51eb6209e48": {
+        "english": "So I agree: immigrants can enrich the country through their work and skills, but also through culture and mutual help. For those contributions to find their place, people need real opportunities to participate.",
+        "french": "Je suis donc d'accord : les immigrés peuvent enrichir le pays par leur travail et leurs compétences, mais aussi par la culture et l'entraide. Pour que ces apports trouvent leur place, il faut leur donner de réelles possibilités de participer.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "17cd08d647861b0571e21df832c6ab43204b4928f9d831e96eab4f20d8999585": {
         "english": "In conclusion, immigrants can enrich the country through their work and skills, cultural exchanges and mutual help. A fair welcome opens up these possibilities: shared life is built together.",
         "french": "En conclusion, les immigrés peuvent enrichir le pays par leur travail et leurs compétences, les échanges culturels et l'entraide. Un accueil équitable ouvre ces possibilités : la vie commune se construit ensemble.",
@@ -920,9 +1120,24 @@
         "english": "However, these contributions do not happen automatically. Language, the recognition of qualifications, access to housing and the fight against discrimination all require collective efforts. And a person’s dignity should be recognised without them having to prove their economic value.",
         "french": "Cependant, ces apports ne se réalisent pas automatiquement. La langue, la reconnaissance des qualifications, l'accès au logement et la lutte contre les discriminations demandent des efforts collectifs. Et la dignité d'une personne devrait être reconnue sans qu'elle ait à prouver son utilité économique."
       },
+      "34480fdbd96bdc23d1905c45963f120927b65b0e9ac7f120f00d18a94658853b": {
+        "english": "For example, a new resident takes part in a storytelling session at a library. In a language the group understands, she tells a story her grandmother used to tell her when she was little. The children discover this story and can compare it with those they already know.",
+        "french": "Par exemple, une nouvelle habitante participe à une séance de contes dans une bibliothèque. Elle raconte, dans une langue comprise par le groupe, une histoire que sa grand-mère lui racontait quand elle était petite. Les enfants découvrent ce récit et peuvent le comparer à ceux qu'ils connaissent.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "38f8e09caf7a228c9ca28a8b6659dd48b43eb0f9b3ec9b82b3eba8f68335f9c5": {
+        "english": "Giving that time and practical help is also a way of contributing to society.",
+        "french": "Ce temps donné et cette aide concrète sont aussi une façon de contribuer à la société.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "448d26649dc28bf4a4ffcc747eac665ee416efc05648910ecf2b90b9b4a92f16": {
         "english": "Languages, creative works and skills circulate alongside people. When these are shared, other residents can discover new stories and new ways of doing things, without abandoning their own cultural references.",
         "french": "Les langues, les œuvres et les savoir-faire circulent avec les personnes. Quand on les partage, les autres habitants peuvent découvrir de nouveaux récits et de nouvelles façons de faire, sans abandonner leurs propres références."
+      },
+      "46c5cec6d129e0f12887f750d19bc2d4f3fdbccd151c08c543d313c1704e8b69": {
+        "english": "The children therefore gain access to a story they might not otherwise have discovered.",
+        "french": "Les enfants ont ainsi accès à une histoire qu'ils n'auraient peut-être pas découverte autrement.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "4c7f0ce9e3314b524b78799a7690463b831f4813c1b55a62a98c4b73ec767afe": {
         "english": "In conclusion, immigrants can enrich the country through their work and skills, the sharing of their culture and their commitment. A fair welcome enables them to participate fully in community life, alongside other residents.",
@@ -965,6 +1180,11 @@
         "english": "The richness of a society is also measured by this capacity for cooperation.",
         "french": "La richesse d'une société se mesure aussi à cette capacité de coopération."
       },
+      "b87d123bcf1e96060a234d6ab302c2b8c0e2ca77c7d88c1240633c7a9375783b": {
+        "english": "Associations also need people who give their time, help organise an activity or make information understandable. A new resident can find a place there and help other people, even if they do not yet have a local job.",
+        "french": "Les associations ont aussi besoin de personnes qui donnent du temps, aident à organiser une activité ou rendent une information compréhensible. Un nouvel habitant peut y prendre sa place et aider d'autres personnes, même s'il n'a pas encore d'emploi sur place.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "e138d2f397254f2464ca928b14c30fa6f88d76dedacaef8a3f642d3251477db3": {
         "english": "During a food distribution, a new resident might explain the instructions to a family in a language they share. The family understands how to collect their parcel and can ask questions: like the other volunteers, the resident helps to make the support more accessible.",
         "french": "Lors d'une distribution alimentaire, un nouvel habitant peut expliquer les consignes à une famille dans une langue qu'ils ont en commun. La famille comprend comment retirer son colis et peut poser ses questions : comme les autres bénévoles, il contribue à rendre l'aide plus accessible.",
@@ -978,6 +1198,11 @@
       "e2c7baf64341245a0bbfb84c307a91fd803554e662773e8c8f859dc0e0b34322": {
         "english": "Taking part in a shared project forges bonds between residents and enables us to address practical needs. This aspect does not depend solely on employment or income level.",
         "french": "Participer à un projet commun crée des liens entre habitants et permet d'agir sur des besoins concrets. Cette dimension ne dépend pas uniquement d'un emploi ou d'un niveau de revenu."
+      },
+      "eac895976c42210177237c71f54da108a19c0c843363d80530b7f9b504be8406": {
+        "english": "When someone arrives, they also bring stories, songs or ways of doing things that we do not yet know. By sharing and explaining them, they let other residents discover something beyond their own habits.",
+        "french": "En arrivant, une personne apporte aussi des histoires, des chansons ou des façons de faire qu'on ne connaît pas encore. Lorsqu'elle les partage et les explique, les autres habitants peuvent découvrir autre chose que leurs propres habitudes.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "f4dae260753f5c8db3b3858ec2de965de91fcb27228484e666ec906a1dd6e669": {
         "english": "First and foremost, immigrants can contribute to the economy through their work and skills.",
@@ -998,6 +1223,11 @@
         "french": "Bref, des objectifs peuvent se réaliser à l'étranger quand l'occasion correspond au projet, que les étapes sont réalistes et que des contacts aident à avancer.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "17bb9f57b1433e9a52089278e12a0fb2bb7ab2e603a49ef81a4da959a8f368dc": {
+        "english": "For example, a newly arrived chef receives few replies to his applications. He asks a former classmate who is already settled there to review his CV. She shows him how to present his experience and tells him about a restaurant that is recruiting, without guaranteeing him a job.",
+        "french": "Par exemple, un cuisinier nouvellement arrivé reçoit peu de réponses à ses candidatures. Il demande à une ancienne camarade déjà installée de relire son CV. Elle lui montre comment présenter ses expériences et lui signale un restaurant qui recrute, sans lui garantir une embauche.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "222be0a7e4817f02c3facd6e42dca49b04b09ebd55b264d662d546a161e6b17c": {
         "english": "A goal becomes more solid when you understand the entry requirements, the costs involved and any skills you are lacking. This allows you to check whether the plan is feasible before incurring significant expenses.",
         "french": "Un objectif devient plus solide lorsqu'on connaît les conditions d'accès, les dépenses et les compétences manquantes. On peut ainsi vérifier si le projet est réalisable avant d'engager des frais importants."
@@ -1006,6 +1236,11 @@
         "english": "A student who wants to become a cook finds a school abroad offering a pastry specialism unavailable near home, with a restaurant placement. During that placement, the student prepares desserts every day under a chef's supervision.",
         "french": "Un étudiant qui veut devenir cuisinier trouve à l'étranger une école proposant une spécialité de pâtisserie absente près de chez lui, avec un stage en restaurant. Pendant ce stage, il prépare chaque jour des desserts sous la direction d'un chef.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "2c64334c192a4a111364ad7ce8965648a46bccb5b3398cd5b75e571e8351a98b": {
+        "english": "So I agree: you can achieve your goals abroad. But moving away does not do everything. You need to find an opportunity that fits your plans, prepare the steps and know when to ask for advice if you are struggling to make progress.",
+        "french": "Je suis donc d'accord : on peut atteindre ses objectifs à l'étranger. Mais le départ ne fait pas tout. Il faut trouver une possibilité qui corresponde à son projet, préparer les étapes et savoir demander conseil quand on ne parvient pas à avancer.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "37cd09b8676582c6faeeac49ec7080751cb64c253d680d38056961094a8ccdaa": {
         "deepl_english": "In this way, you can improve your applications rather than repeating an approach that yields no results.",
@@ -1017,10 +1252,20 @@
         "english": "Furthermore, thorough preparation transforms a broad ambition into achievable steps.",
         "french": "Ensuite, la préparation transforme une ambition générale en étapes réalisables."
       },
+      "3f74d7b2a9049e7ff21199952e95ee360f12f2dfdc4efb5dcbdcb2ea6cd25a99": {
+        "english": "For example, an electrician who wants to work abroad can check the requirements with the relevant body. If additional training is required, he can allow time and a budget for it, rather than counting on immediate employment in that trade.",
+        "french": "Par exemple, un électricien qui souhaite travailler à l'étranger peut vérifier les exigences auprès de l'organisme compétent. Si une formation complémentaire est demandée, il peut prévoir du temps et un budget, au lieu de compter sur un emploi immédiat dans ce métier.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "52ad5700dac8b75c22b3bc29d1c9a80adaeb20c5bffd97079e39eb19175c21af": {
         "english": "For a regulated occupation, a qualification obtained elsewhere is not always enough. Its recognition may require documents, exams or training. These steps do not necessarily prevent success, but delay entry into the occupation.",
         "french": "Pour un métier réglementé, un diplôme obtenu ailleurs ne suffit pas toujours. Sa reconnaissance peut demander des documents, des examens ou une formation. Ces étapes n'empêchent pas forcément la réussite, mais retardent l'accès au métier.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "54ba9ad2d44b41a1b37969b5114d742bc13a2ee4bc535f77d4c714a0ba9f9df1": {
+        "english": "Moving abroad therefore gives him access to training he could not find at home, rather than simply a change of location.",
+        "french": "Le départ lui donne donc accès à une formation qu'il ne trouvait pas chez lui, plutôt qu'un simple changement de lieu.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "598c4c626b756f6e4c95946f7a9f87d6f913d94fae5b706986deb1bcc8359ccb": {
         "english": "But some occupations require procedures before you can practise them.",
@@ -1090,6 +1335,11 @@
         "english": "However, preparation does not eliminate financial difficulties or the possibility of rejection. Some goals will have to be postponed or adjusted. Revising your plans, or even returning home, does not mean that all your efforts have been in vain: circumstances also play a part.",
         "french": "Cependant, la préparation ne supprime ni les difficultés économiques ni les refus possibles. Certains objectifs devront être retardés ou modifiés. Revoir son projet, ou même rentrer, ne signifie pas que tous les efforts ont été inutiles : les circonstances comptent aussi."
       },
+      "da43c07e806b67bb9e005e07ca6fb35bfb206e859ea279438ff0091cf4acf1e0": {
+        "english": "For example, a student who wants to become a chef is looking for a pastry specialism that is unavailable near his home. He finds a school abroad that offers it, with a restaurant placement. During this placement, he prepares desserts under a chef's supervision.",
+        "french": "Par exemple, un étudiant qui veut devenir cuisinier cherche une spécialité de pâtisserie absente près de chez lui. Il trouve à l'étranger une école qui la propose, avec un stage en restaurant. Pendant ce stage, il prépare des desserts sous la direction d'un chef.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "e1b25a44054704319576e2427f0954eca88ccbf3d84a340d2df6ec85c1974613": {
         "english": "Yes, it is possible to achieve your goals abroad. But simply leaving is not enough to succeed. You need to find an opportunity that matches your goal, prepare your plan and seek support once you’re there.",
         "french": "Oui, il est possible d'atteindre ses objectifs à l'étranger. Mais partir ne suffit pas pour réussir. Il faut trouver une possibilité qui correspond à son objectif, préparer son projet et demander de l'aide sur place."
@@ -1098,6 +1348,11 @@
         "english": "First and foremost, another country may offer an opportunity directly linked to your objective.",
         "french": "Tout d'abord, un autre pays peut offrir une possibilité directement liée à son objectif."
       },
+      "ea5368c3b7479e1aec9ebf5a36f37d64b1ce2097f49235a1ae04ff4348e23eea": {
+        "english": "You may know what you want to do but be unable to find the training or job you need where you live. If that opportunity exists elsewhere, moving abroad can be worthwhile. You are not just changing countries: you are getting closer to what you need to move forward.",
+        "french": "On peut savoir ce qu'on veut faire, mais ne pas trouver la formation ou le poste nécessaire là où l'on vit. Si cette possibilité existe ailleurs, le départ peut avoir un vrai intérêt. On ne change pas seulement de pays : on se rapproche de ce dont on a besoin pour avancer.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "f1d394630703f170dc11ecd58df8ab6490c52dd4c7e6214d04db8438203405c4": {
         "english": "A training course or position may exist in one country and not in another. Moving becomes useful provided that this opportunity really matches the project, not because everything would supposedly be better elsewhere.",
         "french": "Une formation ou un poste peut exister dans un pays et pas dans un autre. Le départ devient utile à condition que cette possibilité corresponde vraiment au projet, et non parce que tout serait meilleur ailleurs.",
@@ -1105,6 +1360,11 @@
       }
     },
     "eo/tache-3/culture-p9": {
+      "0eb4027f578395d7124ee645e6b960bf5b350f6e1a88fafabae16d9606619764": {
+        "english": "Even with some knowledge of the language, understanding a fast conversation or administrative vocabulary takes effort. You have to think both about the problem you need to solve and how to make yourself understood. A small administrative task may then take more time and energy.",
+        "french": "Même avec des bases, comprendre un échange rapide ou un vocabulaire administratif demande un effort. Il faut qu'on réfléchisse à la fois au problème à résoudre et à la manière de se faire comprendre. Une petite démarche peut alors prendre davantage de temps et d'énergie.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "13009f665d39480da0169fac06a7122afb1d8accf5133c6409320c4445e472dd": {
         "english": "Someone living alone might ring their family on a Sunday, only to find themselves dining alone once the call has ended. The call allows them to catch up with their loved ones, but it is no substitute for the meal they used to share with them.",
         "french": "Une personne installée seule peut appeler sa famille le dimanche, puis dîner sans compagnie une fois la conversation terminée. L'appel lui permet de prendre des nouvelles, mais ne remplace pas le repas qu'elle partageait avec ses proches."
@@ -1155,9 +1415,14 @@
         "english": "Finally, you need to reorganise the routines you used to have under control.",
         "french": "Enfin, il faut réorganiser des routines que l'on maîtrisait auparavant."
       },
+      "b176d7da192fd387e3b2e1cfda4c3098ea0c5d00caf042ff220ab35ff4b510d8": {
+        "english": "We can therefore be happy to have made that choice and still miss that family life.",
+        "french": "On peut donc être content d'avoir fait ce choix et ressentir malgré tout le manque de cette vie familiale.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "b374297b1a95d9e38d37f4fc3f077b07040669ffbe234280d5539acacb91f88f": {
-        "french": "Un dimanche, un parent récemment installé dans le pays cherche un médecin pour son enfant qui a de la fièvre. Comme il ne connaît pas encore les services de santé du quartier, il demande conseil à une voisine. Elle lui donne le numéro d'une clinique sans rendez-vous pour qu'il puisse vérifier les horaires avant de s'y rendre.",
         "english": "One Sunday, a parent who has recently moved to the country needs a doctor for their child, who has a fever. Unfamiliar with local healthcare services, they ask a neighbour for advice. She gives them a walk-in clinic's phone number so they can check its opening hours before going.",
+        "french": "Un dimanche, un parent récemment installé dans le pays cherche un médecin pour son enfant qui a de la fièvre. Comme il ne connaît pas encore les services de santé du quartier, il demande conseil à une voisine. Elle lui donne le numéro d'une clinique sans rendez-vous pour qu'il puisse vérifier les horaires avant de s'y rendre.",
         "review_note": "Editorial English aligned with the independently reviewed clinic-example refinement. Historical rows retained; no provider call or DeepL original was fabricated."
       },
       "bb0e33d41d8bfc8eda8ce866df991e644bd15fbccb871b0102e3bf51589db17a": {
@@ -1169,9 +1434,19 @@
         "english": "Yes, adapting to life abroad can be difficult, especially at first. Living abroad is not just about residing there: you have to communicate in a new environment, re-establish emotional connections and rebuild your daily routines, sometimes all at the same time.",
         "french": "Oui, s'adapter à l'étranger peut être difficile, surtout au début. Vivre à l'étranger ne consiste pas seulement à y habiter : il faut communiquer dans un nouvel environnement, retrouver des repères affectifs et reconstruire ses habitudes quotidiennes, parfois en même temps."
       },
+      "cbc363e28d2e03c0f323da210bc2bd3ad915941d26b777d79f8f602e943774bc": {
+        "english": "He therefore knows where to ask for information, but you do not find all those contacts again in the first few days.",
+        "french": "Il sait ainsi où se renseigner, mais ces contacts ne se retrouvent pas tous dès les premiers jours.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
       "d8053abe5834b179d98aff427a9d723dc05b7f2d3768cf1242b418792e6efd6f": {
         "english": "Adapting therefore also involves making very practical adjustments.",
         "french": "L'adaptation passe donc aussi par des ajustements très pratiques."
+      },
+      "e60cbc91b03cc3a1b5b5a279ef2d3355f2fe4cc6d2c6b1021949aab9c57d623a": {
+        "english": "Calls maintain the connection, but do not always replace being there in person. We can get news and still miss the moments we used to share without planning them. It takes time to meet people we feel comfortable enough with.",
+        "french": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. On peut recevoir des nouvelles et manquer malgré tout les moments qu'on partageait sans les prévoir. Il faut du temps pour rencontrer des personnes avec lesquelles on se sent suffisamment à l'aise.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "ee0fd5cc33a40cd5c87bea67ef1126de5c8fc0bd1b096645ff7276dd1e150192": {
         "english": "In our own country, we often know which doctor to consult or whom to ask a question. We rely on these contacts without thinking about it. Abroad, sometimes we do not even know whom to ask for help.",
@@ -1199,6 +1474,14 @@
       }
     },
     "eo/tache-3/economie-p14": {
+      "017b41b533ff7ba6f4171a5bdd150f8db5595b35fdd276fa14508657c6ef14b1": {
+        "english": "Firstly, a threat may make leaving necessary in order to protect oneself.",
+        "french": "Tout d'abord, une menace peut rendre le départ nécessaire pour se protéger."
+      },
+      "0bc2a10f58d05ee02249d53cfdfb37694ee5c38667d5f2ff3f5bed78742fa462": {
+        "english": "Finally, a decision to leave may involve a combination of constraints and personal desires.",
+        "french": "Enfin, un départ peut mêler des contraintes et des envies personnelles."
+      },
       "15c285b4a88b63a211c3222f0a69f9c00c22ae4e91c7965b409ef1134eb783e0": {
         "english": "When you cannot find a job and your savings are running out, you risk no longer being able to pay for housing or food. Accepting a job abroad may then seem like the only way to cover these expenses.",
         "french": "Quand on ne trouve pas d'emploi et que ses économies diminuent, on risque de ne plus pouvoir payer le logement ou la nourriture. Accepter un poste à l'étranger peut alors sembler la seule solution pour couvrir ces dépenses.",
@@ -1213,6 +1496,16 @@
         "english": "On the other hand, some people leave even though they could stay.",
         "french": "En revanche, certaines personnes partent alors qu'elles pourraient rester.",
         "review_note": "Editorial rewrite compared with the preserved Notion response; independently reviewed against the complete French intervention."
+      },
+      "23112342979ac39378f030631d2f52b161f283569230071abc07fd33a9d77f61": {
+        "deepl_english": "When a person can no longer remain in safety, the decision is not the same as the calm choice of a new place to live. A distinction must be made between the desired destination and the immediate need to seek a safe place.",
+        "english": "When staying puts someone in danger, leaving isn't simply a matter of choosing where they'd like to live. They may have a destination in mind, but getting somewhere safe comes first.",
+        "french": "Lorsqu'une personne ne peut plus rester en sécurité, la décision ne ressemble pas au choix tranquille d'un nouveau cadre de vie. Il faut distinguer la destination souhaitée de la nécessité immédiate de chercher un lieu sûr.",
+        "review_note": "Conversational English distinguishes the preferred destination from the immediate need for safety; the French meaning and original provider translation are retained."
+      },
+      "2e16f6cd44772ea7efb72046f4c4037982e283e42c5ec4af2aa78887744b67ff": {
+        "english": "A family under threat that cannot find a safe place within its own country may seek refuge abroad without having planned this departure. They are then leaving behind their familiar surroundings to protect themselves, rather than leaving simply because they prefer another country.",
+        "french": "Une famille menacée qui ne trouve pas de lieu sûr dans son pays peut chercher refuge à l'étranger sans avoir préparé ce départ. Elle abandonne alors ses repères pour se protéger, plutôt que partir simplement parce qu'un autre pays lui plaît davantage."
       },
       "313ca0cf13f05abfabd53cca33e623a23f2a79489b9fa96035d42b06f5a7b019": {
         "english": "He is choosing that job, but staying without an income is not a realistic alternative.",
@@ -1229,6 +1522,16 @@
         "french": "En conclusion, les difficultés économiques et l'insécurité poussent souvent à partir. Mais certains peuvent vraiment choisir de rester, et on peut aussi avoir envie de changer de vie tout en partant par nécessité.",
         "review_note": "Editorial rewrite compared with the preserved Notion response; independently reviewed against the complete French intervention."
       },
+      "72e77c86641c560d7dbf8a2988b029861aad1722888d94eedcd42a7de383e1bb": {
+        "deepl_english": "Having a plan therefore does not mean that one leaves without financial pressure.",
+        "english": "So even a planned move can be driven by financial pressure.",
+        "french": "Avoir un projet ne veut donc pas dire qu'on part sans pression financière.",
+        "review_note": "Conversational English preserves the contrast between a planned move and financial pressure; the original provider translation is retained."
+      },
+      "76be8a76115a6e75a1972cf8d19e9d178c40fa9fb29c4b99cdbd8f691025f6da": {
+        "english": "You have to listen to the person to understand why they are leaving.",
+        "french": "Il faut écouter la personne pour comprendre pourquoi elle part."
+      },
       "796411136b8bff4248f92e5d614eb1a39729f7ce4dfb71183f05afeaad51d4e5": {
         "english": "Her move is therefore driven by a wish, not by a lack of options at home.",
         "french": "Son départ répond donc à une envie, pas à l'absence de solution chez elle.",
@@ -1244,15 +1547,55 @@
         "french": "Bien sûr, les raisons peuvent se mélanger : on peut fuir des difficultés tout en ayant envie d'une nouvelle vie. Il faut donc qu'on regarde les possibilités réelles de chaque personne.",
         "review_note": "Editorial rewrite compared with the preserved Notion response; independently reviewed against the complete French intervention."
       },
+      "90730a0b2a7c067f72c976395f1ae340125e0392d1b13ad44998af432e749acf": {
+        "english": "One might wish to explore a country, join a loved one or set up a business, whilst still having the option to stay. Having better opportunities elsewhere does not necessarily mean one is obliged to leave.",
+        "french": "On peut vouloir découvrir un pays, rejoindre un proche ou développer une activité, tout en ayant une possibilité de rester. Avoir de meilleures possibilités ailleurs ne signifie pas forcément qu'on est obligé de partir."
+      },
+      "9e27f8b25cf4cfbf60a63c5a099814e30465b39e066761b4ca686544b3116587": {
+        "english": "In conclusion, constraints can be decisive. However, I would distinguish between protection, economic necessity and a chosen course of action, without making the lack of choice a general explanation for departures.",
+        "french": "En conclusion, les contraintes peuvent être décisives. Mais je distinguerais protection, nécessité économique et projet choisi, sans faire de l'absence de choix une explication générale des départs."
+      },
+      "a1ae875a91dcef63c80bef0b0e8215a9d476817375876fd1bc2826e62531da28": {
+        "deepl_english": "If disposable income no longer covers one’s needs and local opportunities are lacking, working elsewhere may seem the only viable solution. This does not negate any personal decision, but the choice is between very unequal options.",
+        "english": "If the available income no longer covers one’s needs and local opportunities are lacking, working elsewhere may seem the only viable solution. This does not remove all personal choice, but the choice is between very unequal options.",
+        "french": "Si les revenus disponibles ne couvrent plus les besoins et que les possibilités locales manquent, travailler ailleurs peut sembler la seule issue praticable. Cela n'efface pas toute décision personnelle, mais le choix se fait entre des options très inégales.",
+        "review_note": "Revenus disponibles is available income; n'efface pas toute décision denies removing all personal choice, not negating any decision."
+      },
       "a7545d2c97d619fa1e29751f123b11eaf8c745a84fccc6f1832e2f113c2c8543": {
         "english": "Next, insecurity can make leaving necessary in order to protect your children.",
         "french": "Ensuite, l'insécurité peut rendre le départ nécessaire pour protéger ses enfants.",
         "review_note": "Editorial rewrite compared with the preserved Notion response; independently reviewed against the complete French intervention."
       },
+      "ad59b82cd5ca506eebda618bc5c763e49f532ea55bf7043db9141929cc682a8d": {
+        "english": "In this case, speaking of complete freedom of choice obscures the constraint.",
+        "french": "Dans ce cas, parler d'une liberté de choix complète masque la contrainte."
+      },
+      "b0fa25c89c48c942106b48034d635917712d772008b76428cc9f7b0b99625d86": {
+        "english": "Someone in employment may choose to join their partner abroad after comparing their plans. They accept the difficulties and give up certain habits, but this does not mean they were forced to leave their country.",
+        "french": "Une personne ayant un emploi peut choisir de rejoindre son partenaire à l'étranger après avoir comparé leurs projets. Elle accepte des difficultés et renonce à certaines habitudes, mais cela ne permet pas de dire qu'elle était forcée de quitter son pays."
+      },
       "c5ee3381801f3f5723aebf32bde0e0b698094923ec175ff1d451650dd270a8f2": {
         "english": "A father has been looking unsuccessfully for work for several months. His savings are almost gone. He accepts a job abroad to cover his family's expenses, even though he would have preferred to stay close to them.",
         "french": "Un père cherche du travail depuis plusieurs mois, sans succès. Ses économies sont presque épuisées. Il accepte un emploi à l'étranger pour payer les dépenses de sa famille, même s'il aurait préféré rester près d'elle.",
         "review_note": "Editorial rewrite compared with the preserved Notion response; independently reviewed against the complete French intervention."
+      },
+      "c996fcc6b389cf41b77061ad97f6707c75fbef7c7e14914426ebe5fe8826412e": {
+        "english": "However, a person may present a decision taken under pressure as a positive choice, or subsequently discover new possibilities. The categories are not fixed. Without suitable data, I would not say what proportion leaves with no other choice, nor that those who remain necessarily have better options.",
+        "french": "Cependant, une personne peut présenter comme un projet positif une décision prise sous pression, ou découvrir ensuite des possibilités nouvelles. Les catégories ne sont pas figées. Sans données adaptées, je ne dirais pas quelle proportion part sans autre choix, ni que ceux qui restent disposent forcément de meilleures options."
+      },
+      "ddc78f462bd2cc4ff1d2e2a1e6ea76f14f0b5226dcf7ca6690641e51d984fcbd": {
+        "english": "Furthermore, economic difficulties can severely limit the options available.",
+        "french": "Ensuite, les difficultés économiques peuvent réduire fortement les options."
+      },
+      "e173a7cfa419df068cd1c689fc693ded6296df6209c875aa8e01a458976dbf09": {
+        "english": "Some departures are driven by very strong constraints. But I would be cautious about using the phrase ‘no other choice’: fleeing danger, seeking to earn a living through one’s work, and pursuing a personal project are different situations. I would not attribute a single cause to all instances of migration.",
+        "french": "Certains départs répondent à des contraintes très fortes. Mais je serais prudent avec « pas d'autre choix » : fuir un danger, chercher à vivre de son travail et réaliser un projet personnel sont des situations différentes. Je n'attribuerais pas une seule cause à toutes les migrations."
+      },
+      "e2a9f97c92f691f6a073bad710fb73caf01dc8e9c6a1a0741d990d4df3c90ff5": {
+        "deepl_english": "Someone who cannot find work despite their best efforts may accept an offer abroad to support their household. They may prefer to stay close to their loved ones whilst still considering this offer to be, for the time being, their best option.",
+        "english": "After an unsuccessful job search, someone may accept a job abroad to support their household. They may prefer to stay close to their loved ones but still see this job abroad as their best option for now.",
+        "french": "Une personne qui ne trouve pas de travail malgré des démarches peut accepter une offre à l'étranger pour soutenir son foyer. Elle peut préférer rester près de ses proches tout en jugeant que cette offre est, pour le moment, sa meilleure possibilité.",
+        "review_note": "Conversational English keeps the family preference and the person's assessment of the offer; the original provider translation is retained."
       },
       "e8901ab5f3973cced3f2a0aaa3ccc09b140a3caada992dfda0dfdfffc2c32a94": {
         "english": "When you already have a job and a stable life in your country, you may choose to leave to discover something different. A better opportunity elsewhere does not necessarily mean you have to leave your country.",
@@ -1273,74 +1616,6 @@
         "english": "Their priority is therefore to protect their children, not to change their lifestyle.",
         "french": "Leur priorité est donc de protéger leurs enfants, pas de changer de mode de vie.",
         "review_note": "Editorial rewrite compared with the preserved Notion response; independently reviewed against the complete French intervention."
-      },
-      "017b41b533ff7ba6f4171a5bdd150f8db5595b35fdd276fa14508657c6ef14b1": {
-        "english": "Firstly, a threat may make leaving necessary in order to protect oneself.",
-        "french": "Tout d'abord, une menace peut rendre le départ nécessaire pour se protéger."
-      },
-      "0bc2a10f58d05ee02249d53cfdfb37694ee5c38667d5f2ff3f5bed78742fa462": {
-        "english": "Finally, a decision to leave may involve a combination of constraints and personal desires.",
-        "french": "Enfin, un départ peut mêler des contraintes et des envies personnelles."
-      },
-      "23112342979ac39378f030631d2f52b161f283569230071abc07fd33a9d77f61": {
-        "deepl_english": "When a person can no longer remain in safety, the decision is not the same as the calm choice of a new place to live. A distinction must be made between the desired destination and the immediate need to seek a safe place.",
-        "english": "When staying puts someone in danger, leaving isn't simply a matter of choosing where they'd like to live. They may have a destination in mind, but getting somewhere safe comes first.",
-        "french": "Lorsqu'une personne ne peut plus rester en sécurité, la décision ne ressemble pas au choix tranquille d'un nouveau cadre de vie. Il faut distinguer la destination souhaitée de la nécessité immédiate de chercher un lieu sûr.",
-        "review_note": "Conversational English distinguishes the preferred destination from the immediate need for safety; the French meaning and original provider translation are retained."
-      },
-      "2e16f6cd44772ea7efb72046f4c4037982e283e42c5ec4af2aa78887744b67ff": {
-        "english": "A family under threat that cannot find a safe place within its own country may seek refuge abroad without having planned this departure. They are then leaving behind their familiar surroundings to protect themselves, rather than leaving simply because they prefer another country.",
-        "french": "Une famille menacée qui ne trouve pas de lieu sûr dans son pays peut chercher refuge à l'étranger sans avoir préparé ce départ. Elle abandonne alors ses repères pour se protéger, plutôt que partir simplement parce qu'un autre pays lui plaît davantage."
-      },
-      "72e77c86641c560d7dbf8a2988b029861aad1722888d94eedcd42a7de383e1bb": {
-        "deepl_english": "Having a plan therefore does not mean that one leaves without financial pressure.",
-        "english": "So even a planned move can be driven by financial pressure.",
-        "french": "Avoir un projet ne veut donc pas dire qu'on part sans pression financière.",
-        "review_note": "Conversational English preserves the contrast between a planned move and financial pressure; the original provider translation is retained."
-      },
-      "76be8a76115a6e75a1972cf8d19e9d178c40fa9fb29c4b99cdbd8f691025f6da": {
-        "english": "You have to listen to the person to understand why they are leaving.",
-        "french": "Il faut écouter la personne pour comprendre pourquoi elle part."
-      },
-      "90730a0b2a7c067f72c976395f1ae340125e0392d1b13ad44998af432e749acf": {
-        "english": "One might wish to explore a country, join a loved one or set up a business, whilst still having the option to stay. Having better opportunities elsewhere does not necessarily mean one is obliged to leave.",
-        "french": "On peut vouloir découvrir un pays, rejoindre un proche ou développer une activité, tout en ayant une possibilité de rester. Avoir de meilleures possibilités ailleurs ne signifie pas forcément qu'on est obligé de partir."
-      },
-      "9e27f8b25cf4cfbf60a63c5a099814e30465b39e066761b4ca686544b3116587": {
-        "english": "In conclusion, constraints can be decisive. However, I would distinguish between protection, economic necessity and a chosen course of action, without making the lack of choice a general explanation for departures.",
-        "french": "En conclusion, les contraintes peuvent être décisives. Mais je distinguerais protection, nécessité économique et projet choisi, sans faire de l'absence de choix une explication générale des départs."
-      },
-      "a1ae875a91dcef63c80bef0b0e8215a9d476817375876fd1bc2826e62531da28": {
-        "deepl_english": "If disposable income no longer covers one’s needs and local opportunities are lacking, working elsewhere may seem the only viable solution. This does not negate any personal decision, but the choice is between very unequal options.",
-        "english": "If the available income no longer covers one’s needs and local opportunities are lacking, working elsewhere may seem the only viable solution. This does not remove all personal choice, but the choice is between very unequal options.",
-        "french": "Si les revenus disponibles ne couvrent plus les besoins et que les possibilités locales manquent, travailler ailleurs peut sembler la seule issue praticable. Cela n'efface pas toute décision personnelle, mais le choix se fait entre des options très inégales.",
-        "review_note": "Revenus disponibles is available income; n'efface pas toute décision denies removing all personal choice, not negating any decision."
-      },
-      "ad59b82cd5ca506eebda618bc5c763e49f532ea55bf7043db9141929cc682a8d": {
-        "english": "In this case, speaking of complete freedom of choice obscures the constraint.",
-        "french": "Dans ce cas, parler d'une liberté de choix complète masque la contrainte."
-      },
-      "b0fa25c89c48c942106b48034d635917712d772008b76428cc9f7b0b99625d86": {
-        "english": "Someone in employment may choose to join their partner abroad after comparing their plans. They accept the difficulties and give up certain habits, but this does not mean they were forced to leave their country.",
-        "french": "Une personne ayant un emploi peut choisir de rejoindre son partenaire à l'étranger après avoir comparé leurs projets. Elle accepte des difficultés et renonce à certaines habitudes, mais cela ne permet pas de dire qu'elle était forcée de quitter son pays."
-      },
-      "c996fcc6b389cf41b77061ad97f6707c75fbef7c7e14914426ebe5fe8826412e": {
-        "english": "However, a person may present a decision taken under pressure as a positive choice, or subsequently discover new possibilities. The categories are not fixed. Without suitable data, I would not say what proportion leaves with no other choice, nor that those who remain necessarily have better options.",
-        "french": "Cependant, une personne peut présenter comme un projet positif une décision prise sous pression, ou découvrir ensuite des possibilités nouvelles. Les catégories ne sont pas figées. Sans données adaptées, je ne dirais pas quelle proportion part sans autre choix, ni que ceux qui restent disposent forcément de meilleures options."
-      },
-      "ddc78f462bd2cc4ff1d2e2a1e6ea76f14f0b5226dcf7ca6690641e51d984fcbd": {
-        "english": "Furthermore, economic difficulties can severely limit the options available.",
-        "french": "Ensuite, les difficultés économiques peuvent réduire fortement les options."
-      },
-      "e173a7cfa419df068cd1c689fc693ded6296df6209c875aa8e01a458976dbf09": {
-        "english": "Some departures are driven by very strong constraints. But I would be cautious about using the phrase ‘no other choice’: fleeing danger, seeking to earn a living through one’s work, and pursuing a personal project are different situations. I would not attribute a single cause to all instances of migration.",
-        "french": "Certains départs répondent à des contraintes très fortes. Mais je serais prudent avec « pas d'autre choix » : fuir un danger, chercher à vivre de son travail et réaliser un projet personnel sont des situations différentes. Je n'attribuerais pas une seule cause à toutes les migrations."
-      },
-      "e2a9f97c92f691f6a073bad710fb73caf01dc8e9c6a1a0741d990d4df3c90ff5": {
-        "deepl_english": "Someone who cannot find work despite their best efforts may accept an offer abroad to support their household. They may prefer to stay close to their loved ones whilst still considering this offer to be, for the time being, their best option.",
-        "english": "After an unsuccessful job search, someone may accept a job abroad to support their household. They may prefer to stay close to their loved ones but still see this job abroad as their best option for now.",
-        "french": "Une personne qui ne trouve pas de travail malgré des démarches peut accepter une offre à l'étranger pour soutenir son foyer. Elle peut préférer rester près de ses proches tout en jugeant que cette offre est, pour le moment, sa meilleure possibilité.",
-        "review_note": "Conversational English keeps the family preference and the person's assessment of the offer; the original provider translation is retained."
       }
     },
     "eo/tache-3/education-p1": {
@@ -1540,10 +1815,25 @@
         "french": "Un couple prévoit de partir ensemble. L'un a un emploi, l'autre devra chercher du travail et pratiquer le français. Ils vérifient si un seul salaire et leurs économies couvrent le début, puis demandent à un proche quelle aide il pourrait réellement apporter.",
         "review_note": "Human-authored English for the Education editorial pass; revised after independent review to retain someone close to the couple without inventing a family relationship. No DeepL original or provider call was made for this row."
       },
+      "1751dfc532414c1704fb7e4856b0d93eb13c4f59ae8046953f6fd1759ac0e529": {
+        "english": "A nurse trained abroad may need to have her training recognised before she can practise in Quebec. By finding out before leaving, she can plan for these steps rather than count on being able to start work immediately.",
+        "french": "Une infirmière formée à l'étranger peut devoir faire reconnaître sa formation avant de pouvoir exercer au Québec. En se renseignant avant le départ, elle peut prévoir ces démarches au lieu de compter sur un emploi immédiat.",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
+      },
+      "2576a765c76c6bd2f88bbe30ec95edf46b85ba7f5a479d5e775c0bd91acbeae3": {
+        "english": "Of course, other things matter too, such as the climate or being far from loved ones. Their importance varies from person to person, but you first need to know how you will communicate, work and pay for settling in.",
+        "french": "Bien sûr, d'autres éléments comptent, comme le climat ou l'éloignement des proches. Leur importance dépend de chacun, mais il faut déjà savoir comment on pourra communiquer, travailler et financer son installation.",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
+      },
       "2cd2d100db0914a10e472b6934834d14843e9fe6174051771cf1c94cce37bb22": {
         "english": "Someone in a regulated profession consults the relevant Quebec body to find out which procedures apply to their background. If additional training is needed, they include it in their schedule rather than plan to start work immediately.",
         "french": "Une personne qui exerce un métier réglementé consulte l'organisme québécois concerné pour connaître les démarches applicables à son parcours. Si une formation complémentaire est nécessaire, elle l'intègre à son calendrier au lieu de prévoir une prise de poste immédiate.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "319df7eeaa9f59fe5caaad5c069da53f633dac8cff38e8c6f2d10a5c4cc3e458": {
+        "english": "For example, a nurse trained abroad can check with the relevant Quebec body how to have her training recognised and whether additional training is necessary. She can then plan for these steps, rather than counting on immediate employment.",
+        "french": "Par exemple, une infirmière formée à l'étranger peut vérifier auprès de l'organisme québécois compétent comment faire reconnaître sa formation et si une formation complémentaire est nécessaire. Elle peut alors prévoir ces démarches, au lieu de compter sur un emploi immédiat.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "324046c751d479a107ac89c0ad32148619157d0878546123b8dcf1ee0fa1e6d9": {
         "english": "In conclusion, I would start with French language skills, employment and the settlement budget. The answers to these three questions help to draw up a realistic plan, which must then be verified against official sources.",
@@ -1552,6 +1842,11 @@
       "35477ea209fa230bcabdd1d6a84edf7a1eae1544e1360d05b5b3a6246159aea0": {
         "english": "The language issue leads to practical preparations.",
         "french": "La question linguistique débouche sur une préparation concrète."
+      },
+      "3d60cfcea81a949e9fb0dc5a64ce5f42054a86ece949db018c778e4623d48506": {
+        "english": "Next, is my profession recognised and in demand in Quebec?",
+        "french": "Ensuite, mon métier est-il reconnu et recherché au Québec ?",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
       },
       "3e37692792d78c2bba4ec21631c711be38b4722f8d351b8c1393b92c0e763c82": {
         "english": "So this question helps assess what still needs practising to manage everyday situations.",
@@ -1562,6 +1857,11 @@
         "english": "They thus prepare a more realistic work plan, without confusing being qualified with being hired.",
         "french": "Elle prépare ainsi un projet de travail plus réaliste, sans confondre qualification et embauche.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "41633ead3d0b9f28931e57f7a436438f486b33f295a36c32a6f4cc0484d85e9c": {
+        "english": "First, is my French good enough to live and work in Quebec?",
+        "french": "D'abord, ai-je un niveau de français suffisant pour vivre et travailler au Québec ?",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
       },
       "44dbd524f3608b54ada59d3485ca316327aecb32f1a780190ff268f7eb432f7a": {
         "english": "The budget is for making decisions, not simply for hoping that everything will work out.",
@@ -1587,6 +1887,11 @@
         "french": "Un couple prévoit de partir ensemble. L'un a déjà trouvé un emploi au Québec ; l'autre devra chercher du travail et pratiquer le français. Ils vérifient si un seul salaire et leurs économies couvrent le début, puis demandent à un proche quelle aide il pourrait réellement apporter.",
         "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "5649b8285745069d631f7e161aab6118fa2151e62e7773dc8c2b93a4030e53aa": {
+        "english": "An experienced candidate may understand a job advertisement but struggle to describe her work during an interview in French. She may then be unable to demonstrate her skills to the recruiter.",
+        "french": "Une candidate expérimentée peut comprendre une offre d'emploi, mais avoir du mal à présenter son travail pendant un entretien en français. Elle risque alors de ne pas réussir à montrer ses compétences au recruteur.",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
+      },
       "5c2fa9b6a8d8eab7b72d36263706703edac44d5ab00619621a4b55992f8d5ad7": {
         "english": "It is not enough simply to want to practise a profession. You must check the required qualifications, employers’ expectations and, for certain professions, the necessary authorisations with the relevant authorities.",
         "french": "Il ne suffit pas de vouloir exercer un métier. Il faut vérifier les qualifications demandées, les attentes des employeurs et, pour certaines professions, les autorisations nécessaires auprès des organismes compétents."
@@ -1607,20 +1912,70 @@
         "french": "Il faut examiner les offres d'emploi et les qualifications demandées. Pour certaines professions, exercer suppose aussi une autorisation : posséder un diplôme ne signifie pas automatiquement pouvoir l'utiliser sur place.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "66f9ebbdd7ce512850dc01b6668eb5e94144963102ef4073ad976e2b89c35378": {
+        "english": "A family budgets enough to pay for rent, groceries and transport for six months. This reserve gives them time to look for work without depending on a salary as soon as they arrive.",
+        "french": "Une famille prévoit de quoi payer son loyer, ses courses et ses transports pendant six mois. Cette réserve lui laisse du temps pour chercher du travail sans dépendre d'un salaire dès l'arrivée.",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
+      },
       "6c08a0497fc904ade4040e1a42617080852450f27c4490fa2bd92b138c6e139e": {
         "english": "Before starting the immigration process for Quebec, I would ask myself three questions about language, work and the resources needed to settle in. I choose these three subjects because they directly affect life in the first few months, not just the desire to leave.",
         "french": "Avant de commencer des démarches d'immigration au Québec, je me poserais trois questions sur la langue, le travail et les moyens d'installation. Je choisis ces trois sujets parce qu'ils touchent directement la vie des premiers mois, pas seulement l'envie de partir.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "6e6ea1e423975ade05c1068f256440a0053c4d9366099c6c679e8fcc969cc9f9": {
+        "english": "For example, an experienced candidate may understand a job advertisement but struggle to describe her work during an interview in French. She may then be unable to show the recruiter her skills.",
+        "french": "Par exemple, une candidate expérimentée peut comprendre une offre d'emploi, mais avoir du mal à présenter son travail pendant un entretien en français. Elle risque alors de ne pas réussir à montrer ses compétences au recruteur.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "833c59e26104317d2b911e34353ddc3a9e36f546230d6098f466eb422be45d0e": {
+        "english": "Take the example of a family who have not yet found work in Quebec. They estimate their rent, grocery and transport expenses for six months. They also ask someone close to them who is already settled there what support that person could actually provide, rather than assuming they could stay with them.",
+        "french": "Prenons l'exemple d'une famille qui n'a pas encore trouvé d'emploi au Québec. Elle estime ses dépenses de loyer, de courses et de transports pour six mois. Elle demande aussi à un proche déjà installé quel soutien il pourrait réellement lui apporter, au lieu de supposer qu'il pourra l'héberger.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "84ca0a4cd0bae1e566e9b306092039600bc19b1f91919360aed718a897ec3619": {
+        "english": "For me, language, your profession and the resources to settle in come first because they directly affect life in Quebec. Thinking about them before starting the process helps you prepare a plan that suits your circumstances.",
+        "french": "Pour moi, la langue, le métier et les moyens d'installation sont prioritaires parce qu'ils touchent directement la vie au Québec. Y réfléchir avant les démarches permet de préparer un projet adapté à sa situation.",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
+      },
+      "8b66a54d1ee4538bb01169f2a59abce2ac72ad47a6590f55c08e7ee249c7ba25": {
+        "english": "Before starting the immigration process for Quebec, I would mainly want to know whether I could build a life there that suits me. To do that, three questions seem particularly important.",
+        "french": "Avant de commencer des démarches d'immigration au Québec, je voudrais surtout savoir si je peux y construire une vie qui me convienne. Pour cela, trois questions me paraissent prioritaires.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "9039c296e041719c7414c7163084018014f68a4117dcf64b79bc4f7b020a2809": {
+        "english": "Having experience in your own country does not mean you can start straight away in Quebec. You need to find out whether you can practise with your current training or whether additional steps will be necessary. Looking at vacancies in your chosen region also helps you check whether your plans match the jobs on offer.",
+        "french": "Avoir de l'expérience dans son pays ne signifie pas qu'on pourra commencer tout de suite au Québec. Il faut savoir si l'on pourra exercer avec sa formation actuelle ou si des démarches supplémentaires seront nécessaires. Regarder les offres dans la région visée permet aussi de vérifier si son projet correspond aux emplois proposés.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "910aaad69a26657e60f7f36690b7757978518cf511dd9fef868adad7de36126d": {
         "english": "The second would be: is my career plan feasible in Quebec?",
         "french": "La deuxième serait : mon projet professionnel est-il réalisable au Québec ?",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "92d62fbc23c57219d432dc6c466792bb067c700a1c97aa9021bed77e58f5df07": {
+        "english": "French is useful in many situations: looking for a job, understanding an administrative procedure or talking with colleagues. The more comfortable you are with it, the more independently you can act and build relationships with other people.",
+        "french": "Le français sert dans beaucoup de situations : chercher un emploi, comprendre une démarche ou échanger avec ses collègues. Plus on est à l'aise, plus on peut agir seul et créer des relations avec les autres.",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
+      },
       "97913378c372a4d1b262418fe684d5611fd988381b2120586cf5e6cb83877704": {
         "english": "This helps her avoid planning to start work immediately without checking her authorisation to practise.",
         "french": "Elle évite ainsi de prévoir un début de travail immédiat sans avoir vérifié son droit d'exercer.",
         "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
+      "9ac7d58d3371c2eb57a958ffcc9cbf9c4da581b6687786c8329406126f120704": {
+        "english": "You can then check whether you are ready to leave or whether it would be better to save money and prepare the move more thoroughly.",
+        "french": "On peut ainsi vérifier si l'on est prêt à partir ou s'il vaut mieux économiser et préparer davantage le projet.",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
+      },
+      "9c18443a3c076986476289921af6808eab8ec8155204ee30e45969b0a5995f2e": {
+        "english": "Before starting the process of immigrating to Quebec, I would ask myself three questions about my French, my job prospects and the resources I would need to settle there.",
+        "french": "Avant de commencer des démarches d'immigration au Québec, je me poserais trois questions sur mon français, mes possibilités de travail et les moyens nécessaires pour m'installer.",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
+      },
+      "9c5aed2260dac29a1ed716f04142f70ea2467f20d317a52eedbd817f3be04538": {
+        "english": "French is used in many situations: looking for a job, understanding an administrative procedure or talking with colleagues. If you have to ask for help every time, daily life becomes more complicated. Being comfortable in the language therefore helps you manage better and show what you can do.",
+        "french": "Le français sert dans beaucoup de situations : chercher un emploi, comprendre une démarche ou échanger avec ses collègues. Si l'on doit demander de l'aide à chaque fois, le quotidien devient plus compliqué. Être à l'aise dans cette langue permet donc de mieux se débrouiller et de montrer ce que l'on sait faire.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "9fcfaa20fe7c2b8449231d6e5c680a6543b7c21986f53c8b0b1feeb645000ad6": {
         "english": "For me, honest answers about language, work and resources help avoid some unpleasant surprises. They allow you to prepare or adjust your departure plans, without guaranteeing success.",
@@ -1630,6 +1985,16 @@
       "a351ce5d9a0e96dd9345565c08c275e2988994765ba12d6f9ea3817a6266e21f": {
         "english": "However, these three questions are no substitute for checking eligibility and current regulations with official sources. They do not guarantee either authorisation or a job. Other personal factors also come into play, and your answers must be kept up to date before you commit to anything.",
         "french": "Cependant, ces trois questions ne remplacent pas la vérification de l'admissibilité et des règles actuelles auprès des sources officielles. Elles ne garantissent ni une autorisation ni un emploi. D'autres éléments personnels comptent aussi, et les réponses doivent être actualisées avant de s'engager."
+      },
+      "acbdaeb91d19262c62a286bac45ed6ae6850c0605c66de88f5746ddc65aac545": {
+        "english": "You need to know whether you will be able to practise with your current training or whether additional steps will be necessary. It is also useful to look at job advertisements to understand the opportunities in the region where you want to live.",
+        "french": "Il faut savoir si l'on pourra exercer avec sa formation actuelle ou si des démarches supplémentaires seront nécessaires. Il est aussi utile de regarder les offres d'emploi pour connaître les possibilités dans la région où l'on souhaite vivre.",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
+      },
+      "ad754452ca107bdf89f51ebab5912c16f8004f1f9a0833d043cde2ffedb0d895": {
+        "english": "This helps you build a realistic career plan and estimate how long it may take to earn an income again.",
+        "french": "Cela aide à construire un projet professionnel réaliste et à estimer le temps nécessaire pour retrouver un revenu.",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
       },
       "b2968d2bec8455b5eeecf6254bce5f77270541fb32b2bba534fb829c7c979b18": {
         "english": "Of course, you need to check your eligibility using official sources, and the climate and distance from family also matter. These three questions do not replace those checks, but they make everyday difficulties more visible.",
@@ -1665,11 +2030,31 @@
         "french": "Si une personne exerce un métier réglementé, elle peut consulter l'organisme québécois concerné pour connaître les démarches applicables à son parcours. Si une formation complémentaire est nécessaire, elle l'intègre à son calendrier au lieu de prévoir une prise de poste immédiate.",
         "review_note": "Elle l'intègre narrates the example person's action; should adds advice absent from the source."
       },
+      "d6ad4239b46bd93f9fe43279b72708b82bec9c884e733f288196a482228c1c1d": {
+        "english": "You have to pay for travel, housing and everyday expenses, sometimes before receiving your first salary. If you move with your family, everyone also needs to be able to find their place, with a plan for work and the children's schooling.",
+        "french": "Il faut payer le voyage, le logement et les dépenses courantes, parfois avant de recevoir un premier salaire. Si l'on part en famille, il faut aussi que chacun puisse trouver sa place, avec une organisation pour le travail et l'école des enfants.",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
+      },
       "d7e3344870368a23a95b9edb16f51f7d88e8f41813560f3779fc7747e8e592a1": {
         "deepl_english": "Before taking any steps towards immigration to Quebec, I would ask myself three questions: how can I improve my French, is my career plan feasible, and what resources do I have to organise my move? These questions link the plan to everyday situations, rather than to an idealised vision of leaving.",
         "english": "Before taking any steps towards immigration to Quebec, I would ask myself three questions: how can I prepare to use French, is my career plan feasible, and what resources do I have to organise my move? These questions link the plan to everyday situations, rather than to an idealised vision of leaving.",
         "french": "Avant des démarches d'immigration au Québec, je me poserais trois questions : comment préparer mon usage du français, mon projet professionnel est-il réalisable, et avec quels moyens organiser mon installation ? Elles relient le projet aux situations quotidiennes, plutôt qu'à une image idéale du départ.",
         "review_note": "Préparer mon usage du français means preparing to use French in practical situations, not only improving one's language level."
+      },
+      "d87916f8e1558f80cd86d1e8244d37f63dd5df830f07802f152d76a185515845": {
+        "english": "Finally, do I have the money and support I need to settle there?",
+        "french": "Enfin, ai-je les moyens financiers et le soutien nécessaires pour m'installer ?",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
+      },
+      "dce7ee99ad95959d6b2922265a00879ac754139d4d877f1b2795753fc81d45b4": {
+        "english": "Asking this question therefore helps you decide whether you need to improve your French before leaving.",
+        "french": "Se poser cette question permet donc de savoir si l'on doit renforcer son français avant de partir.",
+        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
+      },
+      "df69e7d3551a340d79356b1208936e54611d2f6be422d2747c5c8606962fc3fd": {
+        "english": "I would therefore start with these three questions, because their answers would tell me how I could communicate, work and live during the first few months. That does not solve everything, but it lets you prepare the move based on your actual situation rather than on a hope.",
+        "french": "Je commencerais donc par ces trois questions, parce que leurs réponses me diraient comment je pourrais communiquer, travailler et vivre pendant les premiers mois. Cela ne règle pas tout, mais permet de préparer le départ à partir de sa situation réelle, plutôt que d'un espoir.",
+        "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
       "edaf1b53e21a4df2300ad660c8ede89d9c7f21f5debb5209ccda68b517529dc2": {
         "english": "Finally, do I have the financial resources and support from others to settle in?",
@@ -1694,82 +2079,12 @@
         "english": "Finally, do I have enough money, and who can I count on to help me settle in?",
         "french": "Enfin, ai-je assez d'argent et sur qui puis-je compter pour m'installer ?",
         "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
-      },
-      "9c18443a3c076986476289921af6808eab8ec8155204ee30e45969b0a5995f2e": {
-        "french": "Avant de commencer des démarches d'immigration au Québec, je me poserais trois questions sur mon français, mes possibilités de travail et les moyens nécessaires pour m'installer.",
-        "english": "Before starting the process of immigrating to Quebec, I would ask myself three questions about my French, my job prospects and the resources I would need to settle there.",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "41633ead3d0b9f28931e57f7a436438f486b33f295a36c32a6f4cc0484d85e9c": {
-        "french": "D'abord, ai-je un niveau de français suffisant pour vivre et travailler au Québec ?",
-        "english": "First, is my French good enough to live and work in Quebec?",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "92d62fbc23c57219d432dc6c466792bb067c700a1c97aa9021bed77e58f5df07": {
-        "french": "Le français sert dans beaucoup de situations : chercher un emploi, comprendre une démarche ou échanger avec ses collègues. Plus on est à l'aise, plus on peut agir seul et créer des relations avec les autres.",
-        "english": "French is useful in many situations: looking for a job, understanding an administrative procedure or talking with colleagues. The more comfortable you are with it, the more independently you can act and build relationships with other people.",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "5649b8285745069d631f7e161aab6118fa2151e62e7773dc8c2b93a4030e53aa": {
-        "french": "Une candidate expérimentée peut comprendre une offre d'emploi, mais avoir du mal à présenter son travail pendant un entretien en français. Elle risque alors de ne pas réussir à montrer ses compétences au recruteur.",
-        "english": "An experienced candidate may understand a job advertisement but struggle to describe her work during an interview in French. She may then be unable to demonstrate her skills to the recruiter.",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "dce7ee99ad95959d6b2922265a00879ac754139d4d877f1b2795753fc81d45b4": {
-        "french": "Se poser cette question permet donc de savoir si l'on doit renforcer son français avant de partir.",
-        "english": "Asking this question therefore helps you decide whether you need to improve your French before leaving.",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "3d60cfcea81a949e9fb0dc5a64ce5f42054a86ece949db018c778e4623d48506": {
-        "french": "Ensuite, mon métier est-il reconnu et recherché au Québec ?",
-        "english": "Next, is my profession recognised and in demand in Quebec?",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "acbdaeb91d19262c62a286bac45ed6ae6850c0605c66de88f5746ddc65aac545": {
-        "french": "Il faut savoir si l'on pourra exercer avec sa formation actuelle ou si des démarches supplémentaires seront nécessaires. Il est aussi utile de regarder les offres d'emploi pour connaître les possibilités dans la région où l'on souhaite vivre.",
-        "english": "You need to know whether you will be able to practise with your current training or whether additional steps will be necessary. It is also useful to look at job advertisements to understand the opportunities in the region where you want to live.",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "1751dfc532414c1704fb7e4856b0d93eb13c4f59ae8046953f6fd1759ac0e529": {
-        "french": "Une infirmière formée à l'étranger peut devoir faire reconnaître sa formation avant de pouvoir exercer au Québec. En se renseignant avant le départ, elle peut prévoir ces démarches au lieu de compter sur un emploi immédiat.",
-        "english": "A nurse trained abroad may need to have her training recognised before she can practise in Quebec. By finding out before leaving, she can plan for these steps rather than count on being able to start work immediately.",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "ad754452ca107bdf89f51ebab5912c16f8004f1f9a0833d043cde2ffedb0d895": {
-        "french": "Cela aide à construire un projet professionnel réaliste et à estimer le temps nécessaire pour retrouver un revenu.",
-        "english": "This helps you build a realistic career plan and estimate how long it may take to earn an income again.",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "d87916f8e1558f80cd86d1e8244d37f63dd5df830f07802f152d76a185515845": {
-        "french": "Enfin, ai-je les moyens financiers et le soutien nécessaires pour m'installer ?",
-        "english": "Finally, do I have the money and support I need to settle there?",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "d6ad4239b46bd93f9fe43279b72708b82bec9c884e733f288196a482228c1c1d": {
-        "french": "Il faut payer le voyage, le logement et les dépenses courantes, parfois avant de recevoir un premier salaire. Si l'on part en famille, il faut aussi que chacun puisse trouver sa place, avec une organisation pour le travail et l'école des enfants.",
-        "english": "You have to pay for travel, housing and everyday expenses, sometimes before receiving your first salary. If you move with your family, everyone also needs to be able to find their place, with a plan for work and the children's schooling.",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "66f9ebbdd7ce512850dc01b6668eb5e94144963102ef4073ad976e2b89c35378": {
-        "french": "Une famille prévoit de quoi payer son loyer, ses courses et ses transports pendant six mois. Cette réserve lui laisse du temps pour chercher du travail sans dépendre d'un salaire dès l'arrivée.",
-        "english": "A family budgets enough to pay for rent, groceries and transport for six months. This reserve gives them time to look for work without depending on a salary as soon as they arrive.",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "9ac7d58d3371c2eb57a958ffcc9cbf9c4da581b6687786c8329406126f120704": {
-        "french": "On peut ainsi vérifier si l'on est prêt à partir ou s'il vaut mieux économiser et préparer davantage le projet.",
-        "english": "You can then check whether you are ready to leave or whether it would be better to save money and prepare the move more thoroughly.",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "2576a765c76c6bd2f88bbe30ec95edf46b85ba7f5a479d5e775c0bd91acbeae3": {
-        "french": "Bien sûr, d'autres éléments comptent, comme le climat ou l'éloignement des proches. Leur importance dépend de chacun, mais il faut déjà savoir comment on pourra communiquer, travailler et financer son installation.",
-        "english": "Of course, other things matter too, such as the climate or being far from loved ones. Their importance varies from person to person, but you first need to know how you will communicate, work and pay for settling in.",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
-      },
-      "84ca0a4cd0bae1e566e9b306092039600bc19b1f91919360aed718a897ec3619": {
-        "french": "Pour moi, la langue, le métier et les moyens d'installation sont prioritaires parce qu'ils touchent directement la vie au Québec. Y réfléchir avant les démarches permet de préparer un projet adapté à sa situation.",
-        "english": "For me, language, your profession and the resources to settle in come first because they directly affect life in Quebec. Thinking about them before starting the process helps you prepare a plan that suits your circumstances.",
-        "review_note": "Restores the original three immigration questions; independently reviewed with the complete French, English and bilingual cues."
       }
     }
-  }
+  },
+  "provider": "deepl",
+  "reviewed_at": "2026-11-05T07:53:15.655781+00:00",
+  "source_language": "FR",
+  "target_language": "EN-GB",
+  "version": 1
 }

@@ -468,7 +468,21 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         cases = (
-            ("education-p1", "argument-1-exemple", ("doctor's office", "without help"), ()),
+            ("education-p1", "argument-5-exemple", ("doctor's office", "without help"), ()),
+            (
+                "education-p5", "argument-1-exemple",
+                ("experienced mechanic", "how he identifies a fault", "underestimate his skills"),
+                ("describe her work",),
+            ),
+            (
+                "education-p5", "argument-2-developpement",
+                ("far below your qualifications", "earn a living"), (),
+            ),
+            (
+                "education-p5", "argument-3-developpement",
+                ("A partner may need to learn French", "children need to get used to a new school",
+                 "allow for this adjustment period"), (),
+            ),
             (
                 "education-p5", "argument-3-exemple",
                 ("have not yet found work in Quebec", "what support that person could actually provide",
@@ -520,7 +534,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         cases = (
             (
                 "culture-p11", "argument-4-exemple",
-                ("A colleague from another country", "housing-aid application form", "The newcomer also joins"),
+                ("knows no compatriots", "every week", "makes friends from other countries"),
             ),
             (
                 "culture-p29", "argument-2-exemple",
@@ -529,6 +543,12 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             (
                 "culture-p31", "argument-3-exemple",
                 ("After buying them, the teenager notices",),
+            ),
+            (
+                "culture-p35", "argument-2-exemple",
+                ("Her grandmother used to tell it to her when she was little",
+                 "hero chooses to help his friends rather than win alone",
+                 "children compare this choice"),
             ),
             (
                 "culture-p35", "argument-3-exemple",
@@ -548,25 +568,21 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
-        models = scoped_models()
-        for name, field, current, previous in (
+        for name, digest, current, previous in (
             (
-                "culture-p24", "argument-4-consequence",
+                "culture-p24",
+                fingerprint("L'absence de liens locaux ne suffit donc pas à conclure qu'elle vit mal."),
                 "conclude that they are struggling", "conclude that she is struggling",
             ),
             (
-                "culture-p31", "argument-3-consequence",
+                "culture-p31",
+                "f5fe4cdbc4a8ea73f66e372862de1a2e5dd148964c80d6efe97ad58b22650b1d",
                 "The teenager therefore made a purchase believing they were following",
                 "He therefore made",
             ),
         ):
-            with self.subTest(model=name, field=field):
+            with self.subTest(model=name, digest=digest):
                 group = f"eo/tache-3/{name}"
-                french = public_fields(models[group])[field]
-                digest = (
-                    "f5fe4cdbc4a8ea73f66e372862de1a2e5dd148964c80d6efe97ad58b22650b1d"
-                    if name == "culture-p31" else fingerprint(french)
-                )
                 row = data["groups"][group][digest]
                 self.assertIn(current, row["english"])
                 self.assertNotIn(previous, row["english"])
@@ -1169,6 +1185,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             ("famille-p14", "argument-2-exemple", ("sort the clothes", "use the washing machine", "guides him through several attempts", "wash his clothes without help"), ("without waiting for someone", "wash programme")),
             ("famille-p14", "argument-1-exemple", ("one can prepare dinner while the other lays the table", "washing-up after the meal", "share the evening's work"), ()),
             ("famille-p14", "argument-4-exemple", ("brother and sister often argue", "They agree", "the brother will take it out after dinner", "his sister will do it on evenings when he has sports practice", "planned rather than renegotiated"), ("father",)),
+            ("famille-p14", "argument-4-developpement", ("each person may think the other will take care", "same discussion comes up every evening", "clear agreement helps break that cycle", "who will take over if someone gets home late"), ()),
             ("famille-p14", "argument-4-consequence", ("can reduce reminders and arguments", "everyone knows their responsibility"), ("other person", "check every step")),
             ("famille-p14", "nuance", ("someone who is ill can be excused", "what everyone can actually do"), ("equally",)),
         )
@@ -1305,19 +1322,50 @@ class EO3ResponseLanguageTests(SimpleTestCase):
                     self.assertTrue(all(result["fields"].values()))
         provider.assert_not_called()
 
-    def test_adaptation_english_clinic_example_connects_neighbour_advice_to_checking_hours(self):
+    def test_adaptation_english_keeps_daily_barriers_emotional_strain_and_departure_conditions(self):
         data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p9"]
         rows = data["groups"][model.group]
-        example = rows[fingerprint(model.response.arguments[2].exemple)]["english"]
-        for phrase in (
-            "One Sunday", "their child, who has a fever", "Unfamiliar with local healthcare services",
-            "ask a neighbour for advice", "walk-in clinic's phone number",
-            "check its opening hours before going",
+        fields = public_fields(model)
+        for field, phrases in (
+            ("argument-1-developpement", ("administrative procedures", "healthcare system", "whom to ask for help")),
+            ("argument-2-developpement", ("network of loved ones", "physical presence", "deepen the loneliness")),
+            ("argument-4-developpement", ("clear goal", "savings", "fewer problems to solve at once", "break the isolation")),
+            ("argument-4-exemple", ("employment contract", "housing arranged for the first two months", "language course", "work and a home")),
         ):
-            self.assertIn(phrase, example)
+            with self.subTest(field=field):
+                english = rows[fingerprint(fields[field])]["english"]
+                for phrase in phrases:
+                    self.assertIn(phrase, english)
+
+    def test_bank_led_english_keeps_personal_readiness_realistic_planning_and_inner_belonging(self):
+        data = read_manifest(DEFAULT_PATH)
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        models = scoped_models()
+        for name, field, phrases in (
+            ("education-p1", "introduction", ("under the circumstances in which they arrive", "Personal abilities can develop", "external obstacles matter")),
+            ("education-p1", "argument-4-developpement", ("every change feels like a loss", "reactions are not permanent")),
+            ("education-p1", "argument-4-exemple", ("group hike", "encourages them to try something else")),
+            ("education-p1", "argument-5-developpement", ("understanding the words is not always enough", "effort to participate")),
+            ("education-p1", "nuance", ("inherently incapable", "Choosing to leave again is not proof of inability")),
+            ("culture-p26", "argument-5-developpement", ("which documents to prepare", "where to check my rights")),
+            ("culture-p26", "argument-2-developpement", ("available jobs", "recognition of my qualifications", "additional training")),
+            ("culture-p26", "argument-3-developpement", ("different pace of life", "know what to expect", "personal rejection")),
+            ("culture-p30", "argument-1-developpement", ("implied meanings", "knowing when to speak up", "good command of the language")),
+            ("culture-p30", "argument-2-developpement", ("without really being included", "discrimination", "others to make room for us")),
+            ("culture-p30", "argument-4-developpement", ("Even when others welcome us", "feeling that we belong", "emotional reference points")),
+            ("culture-p30", "argument-4-exemple", ("home, friends", "permanent position", "only passing through")),
+            ("culture-p30", "nuance", ("feel at home in the new country", "remaining attached to our roots")),
+        ):
+            with self.subTest(model=name, field=field):
+                model = models[f"eo/tache-3/{name}"]
+                french = public_fields(model)[field]
+                english = data["groups"][model.group][fingerprint(french)]["english"]
+                for phrase in phrases:
+                    self.assertIn(phrase, english)
 
     def test_new_country_habits_english_restores_the_majority_distinction(self):
         data = read_manifest(DEFAULT_PATH)
@@ -1344,12 +1392,39 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         preparation = model.response.arguments[1]
         self.assertIn("transforms a broad ambition into achievable steps", rows[fingerprint(preparation.idea)]["english"])
         development = rows[fingerprint(preparation.developpement)]["english"]
-        for phrase in ("entry requirements", "costs involved", "skills you are lacking", "before incurring significant expenses"):
+        for phrase in ("financial resources", "enough knowledge of the language", "accept any job to cover your expenses", "rather than moving towards your goal"):
             self.assertIn(phrase, development)
         self.assertIn("If additional training is required", rows[fingerprint(preparation.exemple)]["english"])
         result = rows[fingerprint(preparation.consequence)]["english"]
-        self.assertIn("minimises surprises", result)
-        self.assertIn("adjust your timetable", result)
+        self.assertIn("prepare what is missing before leaving", result)
+        self.assertIn("lack the means to pursue your goal", result)
+        support = rows[fingerprint(model.response.arguments[2].developpement)]["english"]
+        self.assertIn("without questioning your entire plan", support)
+        self.assertIn("resume your efforts instead of becoming discouraged", support)
+        self.assertIn("can therefore help us succeed", rows[fingerprint(model.response.conclusion)]["english"])
+
+    def test_bank_led_immigration_developments_have_matching_substantive_english(self):
+        data = read_manifest(DEFAULT_PATH)
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        cases = (
+            ("culture-p11", "argument-1-developpement", ("cannot rebuild in a few days", "a feeling of being understood")),
+            ("culture-p17", "argument-1-developpement", ("become more independent", "question our own assumptions", "starting a business")),
+            ("culture-p29", "argument-4-developpement", ("solve our problem and understand an unfamiliar system at the same time",)),
+            ("culture-p29", "argument-2-consequence", ("both the support we receive and the support we would like to give",)),
+            ("culture-p29", "argument-3-developpement", ("look to the future with peace of mind",)),
+            ("culture-p1", "argument-3-developpement", ("change everything under pressure", "a personal choice rather than an imposed obligation")),
+            ("culture-p35", "argument-1-developpement", ("activities that residents need", "strengthens the skills of the whole team")),
+            ("culture-p35", "argument-2-developpement", ("other ways of seeing the world", "enrich a shared culture")),
+        )
+        models = scoped_models()
+        for name, field, required in cases:
+            with self.subTest(model=name, field=field):
+                group = f"eo/tache-3/{name}"
+                french = public_fields(models[group])[field]
+                english = data["groups"][group][fingerprint(french)]["english"]
+                for phrase in required:
+                    self.assertIn(phrase, english)
 
     def test_shared_cooking_example_english_connects_training_to_experience_and_skills(self):
         data = read_manifest(DEFAULT_PATH)
@@ -1375,17 +1450,63 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/economie-p14"]
         rows = data["groups"][model.group]
-        livelihood, safety, choice = model.response.arguments
+        livelihood, safety, profession = model.response.arguments
+        fields = public_fields(model)
+        self.assertNotIn("argument-3-idea", fields)
+        self.assertEqual(fields["argument-4-idea"], profession.idea)
         self.assertIn("people often leave", rows[fingerprint(model.response.position_claire)]["english"])
+        economic_pressure = rows[fingerprint(livelihood.developpement)]["english"]
+        self.assertIn("not only concern people without a job", economic_pressure)
+        self.assertIn("work and still earn too little", economic_pressure)
         self.assertIn("His savings are almost gone", rows[fingerprint(livelihood.exemple)]["english"])
         self.assertIn("staying without an income is not a realistic alternative", rows[fingerprint(livelihood.consequence)]["english"])
+        protection = rows[fingerprint(safety.developpement)]["english"]
+        self.assertIn("political instability", protection)
+        self.assertIn("receive medical care", protection)
+        self.assertIn("no longer find protection in your own country", protection)
         school = rows[fingerprint(safety.exemple)]["english"]
         self.assertIn("violence repeatedly forces their children's school to close", school)
         self.assertIn("could give the children a chance", school)
-        self.assertIn("can keep her job or accept", rows[fingerprint(choice.exemple)]["english"])
+        self.assertIn("earn a living doing something else", rows[fingerprint(profession.developpement)]["english"])
+        researcher = rows[fingerprint(profession.exemple)]["english"]
+        self.assertIn("researcher who teaches in her own country", researcher)
+        self.assertIn("cannot find an equipped laboratory there for her research", researcher)
+        self.assertIn("not leaving to survive", rows[fingerprint(profession.consequence)]["english"])
+        nuance = rows[fingerprint(model.response.nuance)]["english"]
+        self.assertIn("some moves really are a choice", nuance)
+        self.assertIn("may be able to keep their job", nuance)
+        self.assertIn("Reasons can also overlap", nuance)
         conclusion = rows[fingerprint(model.response.conclusion)]["english"]
-        self.assertIn("some really do have the option to stay", conclusion)
-        self.assertIn("leaving out of necessity may also want a change", conclusion)
+        self.assertIn("make a decent living, protect themselves or be able to practise their profession", conclusion)
+        self.assertIn("some also leave because they want to", conclusion)
+
+    def test_migration_career_english_keeps_jobs_pay_conditions_and_projects(self):
+        data = read_manifest(DEFAULT_PATH)
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        model = scoped_models()["eo/tache-3/culture-p25"]
+        rows = data["groups"][model.group]
+        development = rows[fingerprint(model.response.arguments[0].developpement)]["english"]
+        for phrase in (
+            "broader job market", "higher pay", "better working conditions",
+            "international experience can accelerate a career",
+            "more ambitious projects", "a career decision",
+        ):
+            self.assertIn(phrase, development)
+        career_example = rows[fingerprint(model.response.arguments[0].exemple)]["english"]
+        for phrase in ("compares two job offers", "better pay", "team building a hospital"):
+            self.assertIn(phrase, career_example)
+        personal = model.response.arguments[1]
+        development = rows[fingerprint(personal.developpement)]["english"]
+        for phrase in (
+            "can open your mind", "question your own assumptions",
+            "freedom to build their lives", "without any financial gain being necessary",
+        ):
+            self.assertIn(phrase, development)
+        example = rows[fingerprint(personal.exemple)]["english"]
+        self.assertIn("spend a year at a university abroad", example)
+        self.assertIn("decide for herself", example)
+        self.assertIn("who to spend her time with", example)
 
     def test_personal_letters_english_keeps_emotional_gesture_and_fuller_expression(self):
         data = read_manifest(DEFAULT_PATH)

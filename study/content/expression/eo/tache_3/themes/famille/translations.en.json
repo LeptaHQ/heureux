@@ -1593,8 +1593,8 @@
         "french": "Ensuite, participer permet d'apprendre des gestes utiles pour vivre de manière autonome."
       },
       "07340f7dc908d9a7d9e7d0ea5619215ab0c7c77d13342c22feb6f22a33b92e66": {
-        "french": "Prenons l'exemple d'un adolescent qui apprend à faire une lessive. Son parent lui montre comment trier le linge et choisir le programme de lavage, puis l'accompagne pendant plusieurs essais, jusqu'à ce qu'il puisse laver ses vêtements sans aide.",
         "english": "Take a teenager learning to do laundry. The parent shows him how to sort the clothes and choose the wash programme, then guides him through several attempts until he can wash his clothes without help.",
+        "french": "Prenons l'exemple d'un adolescent qui apprend à faire une lessive. Son parent lui montre comment trier le linge et choisir le programme de lavage, puis l'accompagne pendant plusieurs essais, jusqu'à ce qu'il puisse laver ses vêtements sans aide.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "0734632de0a0033c7b52d0b4336f2558557271b6b1794dd9bb8823e1a158628b": {
@@ -1606,8 +1606,8 @@
         "french": "Quand personne ne sait qui s'occupe d'une tâche, chacun peut croire que l'autre va la faire. Répartir les responsabilités, y compris vérifier ce qui manque, permet d'agir sans attendre les rappels d'une seule personne."
       },
       "0b7bfe5a2ddcb10182e2f9b192763d814c187c1290c31f608c77c1a703d73876": {
-        "french": "Bien sûr, participer ne veut pas dire faire tous la même chose. Un petit enfant peut ranger ses jouets, tandis qu'une personne malade peut être dispensée de tâches. Il faut regarder ce que chacun peut réellement faire.",
         "english": "Of course, taking part does not mean everyone doing the same thing. A small child can put away their toys, while someone who is ill can be excused from chores. We need to consider what everyone can actually do.",
+        "french": "Bien sûr, participer ne veut pas dire faire tous la même chose. Un petit enfant peut ranger ses jouets, tandis qu'une personne malade peut être dispensée de tâches. Il faut regarder ce que chacun peut réellement faire.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "10a0c56e81a3754dd00d1f531ea6174e7717a837b2bc09dc0767e85a6c698873": {
@@ -1630,8 +1630,8 @@
         "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "229c1962fd3443c8f8b653b0e0862c04889f6773ee2b19abed6b57274aa91e18": {
-        "french": "Enfin, se mettre d'accord sur les tâches peut éviter bien des tensions à la maison.",
         "english": "Finally, agreeing on chores can prevent a lot of tension at home.",
+        "french": "Enfin, se mettre d'accord sur les tâches peut éviter bien des tensions à la maison.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "2af9ae67af72cb528bc46d5cc09e0edff54e439b038ce68cbb13aec034f36846": {
@@ -1640,8 +1640,8 @@
         "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "2cd57de220d119fd19637adc2717c483e0efcec5a537dafb4f8df0d74f1c60d1": {
-        "french": "Cet accord peut réduire les rappels et les disputes, parce que chacun connaît sa responsabilité.",
         "english": "This agreement can reduce reminders and arguments because everyone knows their responsibility.",
+        "french": "Cet accord peut réduire les rappels et les disputes, parce que chacun connaît sa responsabilité.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "37f32d03db210a4241a24c0e7bc52a8d6bac298dcdb44c5f01e425a7199c6b99": {
@@ -1665,20 +1665,20 @@
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
       "482bb7eeef7af728c0170eab0d6e676053323dc00320ccf4d532a495b2ada3e3": {
-        "french": "Après une journée de travail ou d'études, tout le monde a besoin de souffler. Pourtant, si une seule personne doit encore cuisiner, nettoyer et s'occuper du linge, elle continue à travailler pendant que les autres se reposent. Répartir les tâches, c'est reconnaître que son temps compte autant que celui des autres.",
-        "english": "After a day of work or study, everyone needs a breather. Yet if one person still has to cook, clean and deal with laundry, that person is still doing housework while the rest of the family relaxes. Dividing chores means recognising that their time matters just as much as anyone else's.",
-        "review_note": "Clarified the singular referent and made housework explicit without changing the French or narration text. Complete preceding editorial row preserved; no provider call.",
         "editorial_history": [
           {
-            "french": "Après une journée de travail ou d'études, tout le monde a besoin de souffler. Pourtant, si une seule personne doit encore cuisiner, nettoyer et s'occuper du linge, elle continue à travailler pendant que les autres se reposent. Répartir les tâches, c'est reconnaître que son temps compte autant que celui des autres.",
             "english": "After a day of work or study, everyone needs a breather. Yet if one person still has to cook, clean and deal with laundry, they keep working while the others rest. Dividing chores means recognising that their time matters just as much as anyone else's.",
+            "french": "Après une journée de travail ou d'études, tout le monde a besoin de souffler. Pourtant, si une seule personne doit encore cuisiner, nettoyer et s'occuper du linge, elle continue à travailler pendant que les autres se reposent. Répartir les tâches, c'est reconnaître que son temps compte autant que celui des autres.",
             "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
           }
-        ]
+        ],
+        "english": "After a day of work or study, everyone needs a breather. Yet if one person still has to cook, clean and deal with laundry, that person is still doing housework while the rest of the family relaxes. Dividing chores means recognising that their time matters just as much as anyone else's.",
+        "french": "Après une journée de travail ou d'études, tout le monde a besoin de souffler. Pourtant, si une seule personne doit encore cuisiner, nettoyer et s'occuper du linge, elle continue à travailler pendant que les autres se reposent. Répartir les tâches, c'est reconnaître que son temps compte autant que celui des autres.",
+        "review_note": "Clarified the singular referent and made housework explicit without changing the French or narration text. Complete preceding editorial row preserved; no provider call."
       },
       "49711c288903e79f80550a1e5556cefa9f9391d5677cfddeb26a76dd006d845d": {
-        "french": "Savoir laver ses vêtements ou préparer un repas ne vient pas automatiquement avec l'âge. Ce sont des gestes que l'on apprend en regardant, en essayant et en recommençant. En accompagnant l'enfant au début, les parents lui donnent peu à peu les moyens de faire seul.",
         "english": "Knowing how to wash your clothes or prepare a meal does not come automatically with age. These are skills we learn by watching, trying and doing them again. By guiding children at first, parents gradually give them the means to manage alone.",
+        "french": "Savoir laver ses vêtements ou préparer un repas ne vient pas automatiquement avec l'âge. Ce sont des gestes que l'on apprend en regardant, en essayant et en recommençant. En accompagnant l'enfant au début, les parents lui donnent peu à peu les moyens de faire seul.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "49bb22939b748ddf20b59144179a7b58d6a045d319278a8732ed252e6e3b4f4e": {
@@ -1686,8 +1686,8 @@
         "french": "Le partage peut ainsi laisser à chacun du temps pour se reposer."
       },
       "4fce9d4fc4e66b1b9195ea3102e5e9d08ad5d583fc4ba18bab09e0b8be01a449": {
-        "french": "Oui, je pense que tous les membres du foyer devraient participer aux tâches ménagères, selon leurs possibilités. Puisque chacun profite d'une maison propre et de repas préparés, il me semble normal que ce travail ne repose pas toujours sur la même personne.",
         "english": "Yes, I think all household members should take part in chores according to their abilities. Since everyone benefits from a clean home and prepared meals, it seems normal to me that this work should not always fall to the same person.",
+        "french": "Oui, je pense que tous les membres du foyer devraient participer aux tâches ménagères, selon leurs possibilités. Puisque chacun profite d'une maison propre et de repas préparés, il me semble normal que ce travail ne repose pas toujours sur la même personne.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "52a8363c9a76b362a4ff6ea7a487bb18e07bb84a31c9749d0f31a5701b63708e": {
@@ -1719,18 +1719,18 @@
         "review_note": "Human-authored English translation of the final developed Famille rewrite; no new provider translation was requested."
       },
       "5e98e958c3e590acbab6c0b915c604f935bcca00cc0ff2a1707c68d6275bab19": {
-        "french": "Quand personne ne sait qui doit faire quoi, les rappels risquent de devenir des reproches. Il faut donc que chacun sache ce qu'il s'engage à faire, avec une répartition adaptée aux horaires réels de la famille.",
         "english": "When nobody knows who should do what, reminders risk turning into reproaches. Everyone therefore needs to know what they have agreed to do, with a division that fits the family's actual schedules.",
+        "french": "Quand personne ne sait qui doit faire quoi, les rappels risquent de devenir des reproches. Il faut donc que chacun sache ce qu'il s'engage à faire, avec une répartition adaptée aux horaires réels de la famille.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "66b9f1fde83a8195221e06ab3d333d68d6f7016921a56de8406b90d2f2b070eb": {
-        "french": "Ensuite, participer apprend aux enfants à se débrouiller dans la vie quotidienne.",
         "english": "Next, taking part teaches children to manage everyday life.",
+        "french": "Ensuite, participer apprend aux enfants à se débrouiller dans la vie quotidienne.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "78d0ad5e7845452c5051e6296657be452c5f2d4fed38dfecce11287ecdb186ed": {
-        "french": "Prenons l'exemple d'un adolescent qui apprend à faire une lessive. Son parent lui montre comment trier le linge et utiliser la machine à laver, puis l'accompagne pendant plusieurs essais, jusqu'à ce qu'il puisse laver ses vêtements sans aide.",
         "english": "Take a teenager learning to do laundry. The parent shows him how to sort the clothes and use the washing machine, then guides him through several attempts until he can wash his clothes without help.",
+        "french": "Prenons l'exemple d'un adolescent qui apprend à faire une lessive. Son parent lui montre comment trier le linge et utiliser la machine à laver, puis l'accompagne pendant plusieurs essais, jusqu'à ce qu'il puisse laver ses vêtements sans aide.",
         "review_note": "Editorial English aligned with the approved simpler laundry example; preceding translations retained. No translation-provider call."
       },
       "7e33a609b5127cd25e81a7f09492fa316829e3c1c6a232b2df60982f349ac9e9": {
@@ -1739,8 +1739,8 @@
         "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "7fbf4204d3e08ff49dbfbcd8278cd9ecc22e50497c7b48e2e0b82bde8b3264e3": {
-        "french": "Par exemple, un frère et une sœur se disputent souvent à propos des poubelles. Ils conviennent que le frère les sortira après le dîner et que sa sœur s'en chargera les soirs où il a entraînement. La tâche est ainsi prévue au lieu d'être renégociée chaque soir.",
         "english": "For example, a brother and sister often argue about the rubbish. They agree that the brother will take it out after dinner and that his sister will do it on evenings when he has sports practice. The chore is therefore planned rather than renegotiated every evening.",
+        "french": "Par exemple, un frère et une sœur se disputent souvent à propos des poubelles. Ils conviennent que le frère les sortira après le dîner et que sa sœur s'en chargera les soirs où il a entraînement. La tâche est ainsi prévue au lieu d'être renégociée chaque soir.",
         "review_note": "Editorial English aligned with the sibling example; preceding translations retained. No translation-provider call."
       },
       "83df63b6b63a4d937d85d7b450ca53181182a7e3d942be4eafb1e0a6f5567be9": {
@@ -1768,8 +1768,8 @@
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
       "997b7754c0e62ce32f7d700574f9c47a70d7d91b2401914edf921ac440a6dc42": {
-        "french": "Il ne fait donc pas qu'aider sa famille : il acquiert une compétence utile pour sa future vie d'adulte.",
         "english": "He is therefore doing more than helping his family: he is gaining a useful skill for his future adult life.",
+        "french": "Il ne fait donc pas qu'aider sa famille : il acquiert une compétence utile pour sa future vie d'adulte.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "9a0c091e38b3206571d77a157395916abf105fc8ad9b7ddeaf6dd149b422fe91": {
@@ -1791,13 +1791,13 @@
         "french": "En conclusion, chacun devrait contribuer selon ses possibilités, sans devoir faire exactement la même chose. Partager le travail, apprendre les gestes utiles et prévoir les tâches ensemble évite qu'une seule personne s'occupe de tout."
       },
       "a6ce16e9969abd77975a730d1a81c017070b4b4906dc9cffb91b114f3244cfa7": {
-        "french": "En conclusion, je suis pour une participation de tous, mais adaptée à chacun. Elle rend la vie commune plus juste, prépare les enfants à l'autonomie et évite qu'une seule personne porte le poids du quotidien.",
         "english": "In conclusion, I favour everyone taking part, but in ways suited to each person. It makes life together fairer, prepares children for independence and prevents one person carrying the burden of everyday life alone.",
+        "french": "En conclusion, je suis pour une participation de tous, mais adaptée à chacun. Elle rend la vie commune plus juste, prépare les enfants à l'autonomie et évite qu'une seule personne porte le poids du quotidien.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "ac2adbc677c29e71b489d94c638474224113c87abccb9a5e56e0b75ca23a5106": {
-        "french": "Après une journée de travail ou d'études, tout le monde a besoin de souffler. Pourtant, quand les repas, le ménage et le linge reposent toujours sur la même personne, le confort de toute la famille se fait au détriment de son repos. Répartir les tâches, c'est reconnaître que son temps compte autant que celui des autres.",
         "english": "After a day of work or study, everyone needs a breather. Yet when the cooking, cleaning and laundry always fall to the same person, the whole family's comfort comes at the expense of that person's rest. Dividing chores means recognising that their time matters just as much as anyone else's.",
+        "french": "Après une journée de travail ou d'études, tout le monde a besoin de souffler. Pourtant, quand les repas, le ménage et le linge reposent toujours sur la même personne, le confort de toute la famille se fait au détriment de son repos. Répartir les tâches, c'est reconnaître que son temps compte autant que celui des autres.",
         "review_note": "Editorial English aligned with the revised explanation of unequal rest; preceding translations retained. No translation-provider call."
       },
       "b33edcb68d2d60d37422cc1c6680b1bac654b14d3b93704227e5759b7b0cabcd": {
@@ -1805,8 +1805,8 @@
         "french": "On ne maîtrise pas automatiquement l'entretien d'un logement en devenant adulte. Des tâches adaptées et expliquées donnent l'occasion de s'entraîner, puis de prendre progressivement une responsabilité."
       },
       "b81bba6890dea835c6fdd94ef67799c4880564c3348d3c848830ac4d3664b967": {
-        "french": "Par exemple, un père et son adolescent se disputent souvent à propos des poubelles. Ils conviennent que le fils les sortira après le dîner, sauf les soirs d'entraînement où le père prendra le relais : la tâche est prévue au lieu d'être renégociée chaque soir.",
         "english": "For example, a father and his teenage son often argue about the rubbish. They agree that the son will take it out after dinner, except on sports practice evenings when his father will take over: the chore is planned rather than renegotiated every evening.",
+        "french": "Par exemple, un père et son adolescent se disputent souvent à propos des poubelles. Ils conviennent que le fils les sortira après le dîner, sauf les soirs d'entraînement où le père prendra le relais : la tâche est prévue au lieu d'être renégociée chaque soir.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "bd2d4b455849afeeb6ac65898d2e7265f305ed85f8dd4e0834ef4da6aba17b56": {
@@ -1840,8 +1840,8 @@
         "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "d4ed0f6e82ef2331ea9eea0f42ed9be035f52377983db2b02a90aaf4c16a9b3b": {
-        "french": "Chacun peut alors profiter d'un moment de repos sans que l'autre porte seul toute la charge.",
         "english": "Each can then enjoy some rest without the other carrying the entire burden alone.",
+        "french": "Chacun peut alors profiter d'un moment de repos sans que l'autre porte seul toute la charge.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "dd4e473abc2e1f6eab3347cde57ad5c75db1d16e4af07d871db35faf25d3342a": {
@@ -1850,8 +1850,8 @@
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
       },
       "e0b87a252defc2db3aa9817e71bf164c5abf85dbc69be4bc6e803345a1aff964": {
-        "french": "Par exemple, lorsque deux parents rentrent du travail, l'un peut préparer le dîner pendant que l'autre met la table, puis se charge de la vaisselle après le repas. Ils partagent ainsi le travail de la soirée au lieu de tout laisser au même parent.",
         "english": "For example, when two parents come home from work, one can prepare dinner while the other lays the table and then takes care of the washing-up after the meal. They thus share the evening's work instead of leaving everything to the same parent.",
+        "french": "Par exemple, lorsque deux parents rentrent du travail, l'un peut préparer le dîner pendant que l'autre met la table, puis se charge de la vaisselle après le repas. Ils partagent ainsi le travail de la soirée au lieu de tout laisser au même parent.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "e12d90ec32aa01855445951ce1101bcc3328fa2a0f1511c59a5e146d0f81aa66": {
@@ -1860,8 +1860,8 @@
         "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
       "e287bed3b7d7c9117c08810367ee0706ecf1ccb3b46f016e7844a2d261c04620": {
-        "french": "Tout d'abord, partager les tâches permet de respecter le temps et le repos de chacun.",
         "english": "First, sharing chores respects everyone's time and rest.",
+        "french": "Tout d'abord, partager les tâches permet de respecter le temps et le repos de chacun.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
       "e66adbea9902df82a562cb0908fa9dbe1554280863127f5913bffa434400357c": {
@@ -1909,6 +1909,11 @@
         "english": "The person responsible for shopping checks the cupboards, prepares the list and buys the items. If they wait to be told every item, someone else is still doing a large part of the work.",
         "french": "La personne responsable des courses vérifie les placards, prépare la liste et achète les produits. Si elle attend qu'on lui dicte chaque article, quelqu'un d'autre fait encore une grande partie du travail.",
         "review_note": "Human-authored English translation of the approved Famille rewrite; no new provider translation was requested."
+      },
+      "b413711db5ba4c8dcb1bc74d4bd805b77d277792066001d43feb739b3388e3af": {
+        "english": "Without a division of chores, each person may think the other will take care of them. The same discussion comes up every evening, and a small chore becomes a cause of arguments. A clear agreement helps break that cycle: everyone knows what they have to do, and they can plan who will take over if someone gets home late.",
+        "french": "Sans répartition des tâches, chacun peut penser que l'autre va s'en charger. La même discussion revient chaque soir, et une petite corvée devient un motif de dispute. Un accord clair permet de sortir de ce cercle : on sait ce qu'on a à faire et on peut prévoir qui prendra le relais si l'un rentre tard.",
+        "review_note": "Editorial English aligned with the bank-led substantive development repair. All preceding translations retained; no translation-provider call."
       }
     },
     "eo/tache-3/famille-p16": {

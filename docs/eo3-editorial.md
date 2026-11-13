@@ -552,16 +552,21 @@ country. In the necessity question, distinguish the benefits of local support
 and understanding from a universal obligation to form those ties. Someone with
 few local friends is not a counterexample; someone who has not formed personal
 local ties but enjoys a satisfying routine and close contact at a distance can
-illustrate the limit. Retain the two revised benefits' identities and give the
-new counterargument a fresh ID.
+illustrate the limit. Keep access to practical opportunities distinct from
+companionship and learning the language and social codes. Retain the revised
+benefits' identities; a new opportunity reason uses a fresh ID. Keep the
+satisfying-life counterexample in the nuance without moving retired argument
+annotations into that field.
 
-In the country-knowledge question, arrival logistics and budgeting both belong
-to material preparation; different examples alone do not make them independent
-reasons. Distinguish financial feasibility, legal agency and understanding other
-people's expectations. The tenant example checks the applicable local rules
-instead of asserting a universal entry rule or promising that a dispute will be
-resolved. Keep the retained budget and interpersonal reasons' identities through
-reordering, and give the new rights argument a fresh ID.
+In the country-knowledge question, distinguish knowing how to function on arrival
+from checking whether the overall project is viable. Practical autonomy concerns
+procedures, services and where to verify one's rights; project feasibility
+concerns employment, qualification recognition and living costs, not just another
+arrival task. Cultural knowledge also prepares the person emotionally for
+unfamiliar habits, rather than merely arranging a visit. Keep the concrete budget
+and neighbour illustrations, the first-person conditional and the limits of
+preparation. The retained feasibility and cultural reasons keep their identities;
+the new practical reason uses a fresh ID, not a retired logistics or rights ID.
 
 The cultural-forgetting question concerns knowledge that the person previously
 possessed. Children never learning a tradition does not demonstrate forgetting.

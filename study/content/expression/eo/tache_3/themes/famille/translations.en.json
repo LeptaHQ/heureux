@@ -1666,8 +1666,15 @@
       },
       "482bb7eeef7af728c0170eab0d6e676053323dc00320ccf4d532a495b2ada3e3": {
         "french": "Après une journée de travail ou d'études, tout le monde a besoin de souffler. Pourtant, si une seule personne doit encore cuisiner, nettoyer et s'occuper du linge, elle continue à travailler pendant que les autres se reposent. Répartir les tâches, c'est reconnaître que son temps compte autant que celui des autres.",
-        "english": "After a day of work or study, everyone needs a breather. Yet if one person still has to cook, clean and deal with laundry, they keep working while the others rest. Dividing chores means recognising that their time matters just as much as anyone else's.",
-        "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
+        "english": "After a day of work or study, everyone needs a breather. Yet if one person still has to cook, clean and deal with laundry, that person is still doing housework while the rest of the family relaxes. Dividing chores means recognising that their time matters just as much as anyone else's.",
+        "review_note": "Clarified the singular referent and made housework explicit without changing the French or narration text. Complete preceding editorial row preserved; no provider call.",
+        "editorial_history": [
+          {
+            "french": "Après une journée de travail ou d'études, tout le monde a besoin de souffler. Pourtant, si une seule personne doit encore cuisiner, nettoyer et s'occuper du linge, elle continue à travailler pendant que les autres se reposent. Répartir les tâches, c'est reconnaître que son temps compte autant que celui des autres.",
+            "english": "After a day of work or study, everyone needs a breather. Yet if one person still has to cook, clean and deal with laundry, they keep working while the others rest. Dividing chores means recognising that their time matters just as much as anyone else's.",
+            "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
+          }
+        ]
       },
       "49711c288903e79f80550a1e5556cefa9f9391d5677cfddeb26a76dd006d845d": {
         "french": "Savoir laver ses vêtements ou préparer un repas ne vient pas automatiquement avec l'âge. Ce sont des gestes que l'on apprend en regardant, en essayant et en recommençant. En accompagnant l'enfant au début, les parents lui donnent peu à peu les moyens de faire seul.",
@@ -1721,10 +1728,20 @@
         "english": "Next, taking part teaches children to manage everyday life.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
       },
+      "78d0ad5e7845452c5051e6296657be452c5f2d4fed38dfecce11287ecdb186ed": {
+        "french": "Prenons l'exemple d'un adolescent qui apprend à faire une lessive. Son parent lui montre comment trier le linge et utiliser la machine à laver, puis l'accompagne pendant plusieurs essais, jusqu'à ce qu'il puisse laver ses vêtements sans aide.",
+        "english": "Take a teenager learning to do laundry. The parent shows him how to sort the clothes and use the washing machine, then guides him through several attempts until he can wash his clothes without help.",
+        "review_note": "Editorial English aligned with the approved simpler laundry example; preceding translations retained. No translation-provider call."
+      },
       "7e33a609b5127cd25e81a7f09492fa316829e3c1c6a232b2df60982f349ac9e9": {
         "english": "The father has less need to remind his son, and this chore causes fewer arguments between them.",
         "french": "Le père a moins besoin de relancer son fils, et cette tâche provoque moins de disputes entre eux.",
         "review_note": "Editorial English aligned with the reviewed French response; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "7fbf4204d3e08ff49dbfbcd8278cd9ecc22e50497c7b48e2e0b82bde8b3264e3": {
+        "french": "Par exemple, un frère et une sœur se disputent souvent à propos des poubelles. Ils conviennent que le frère les sortira après le dîner et que sa sœur s'en chargera les soirs où il a entraînement. La tâche est ainsi prévue au lieu d'être renégociée chaque soir.",
+        "english": "For example, a brother and sister often argue about the rubbish. They agree that the brother will take it out after dinner and that his sister will do it on evenings when he has sports practice. The chore is therefore planned rather than renegotiated every evening.",
+        "review_note": "Editorial English aligned with the sibling example; preceding translations retained. No translation-provider call."
       },
       "83df63b6b63a4d937d85d7b450ca53181182a7e3d942be4eafb1e0a6f5567be9": {
         "english": "The other person no longer has to remind them or check every step. The organisational work is shared too.",
@@ -1777,6 +1794,11 @@
         "french": "En conclusion, je suis pour une participation de tous, mais adaptée à chacun. Elle rend la vie commune plus juste, prépare les enfants à l'autonomie et évite qu'une seule personne porte le poids du quotidien.",
         "english": "In conclusion, I favour everyone taking part, but in ways suited to each person. It makes life together fairer, prepares children for independence and prevents one person carrying the burden of everyday life alone.",
         "review_note": "Editorial English translation aligned with the complete conversational Famille response. No new DeepL translation or provider call was made."
+      },
+      "ac2adbc677c29e71b489d94c638474224113c87abccb9a5e56e0b75ca23a5106": {
+        "french": "Après une journée de travail ou d'études, tout le monde a besoin de souffler. Pourtant, quand les repas, le ménage et le linge reposent toujours sur la même personne, le confort de toute la famille se fait au détriment de son repos. Répartir les tâches, c'est reconnaître que son temps compte autant que celui des autres.",
+        "english": "After a day of work or study, everyone needs a breather. Yet when the cooking, cleaning and laundry always fall to the same person, the whole family's comfort comes at the expense of that person's rest. Dividing chores means recognising that their time matters just as much as anyone else's.",
+        "review_note": "Editorial English aligned with the revised explanation of unequal rest; preceding translations retained. No translation-provider call."
       },
       "b33edcb68d2d60d37422cc1c6680b1bac654b14d3b93704227e5759b7b0cabcd": {
         "english": "You do not automatically know how to look after a home just because you have become an adult. Tasks that are suitable and clearly explained provide an opportunity to practise, and then gradually take on more responsibility.",

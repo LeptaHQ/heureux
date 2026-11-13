@@ -244,6 +244,11 @@
       }
     },
     "eo/tache-3/culture-p17": {
+      "066723513104f4889fd1f1597e5ee8ab40b4d8abc47e373f52c23c64e2fd3ca8": {
+        "english": "Take the example of a student who wants to become a chef. He would like to specialise in pastry, but cannot find the training he wants near home. So he chooses a school abroad where he can take that course and do a restaurant placement.",
+        "french": "Prenons l'exemple d'un étudiant qui veut devenir cuisinier. Il aimerait se spécialiser en pâtisserie, mais il ne trouve pas la formation qu'il cherche près de chez lui. Il choisit donc une école à l'étranger où il peut suivre cette formation et faire un stage en restaurant.",
+        "review_note": "Editorial English aligned with the approved conversational cooking example; all preceding translations retained. No translation-provider call."
+      },
       "12e8e12d32dbf752069561c60cc87c57b35b0d4f8ac63954e061797333458a43": {
         "english": "I disagree with the word 'always'. Living abroad can give us a lot, but we can also go through very difficult times there. What we gain in our studies or work does not make all the problems of daily life disappear.",
         "french": "Je ne suis pas d'accord avec le mot « toujours ». Vivre à l'étranger peut nous apporter beaucoup, mais on peut aussi y traverser des moments très difficiles. Ce qu'on gagne dans ses études ou son travail ne fait pas disparaître tous les problèmes du quotidien.",
@@ -341,6 +346,11 @@
       "bb37763d6a0116f657fad9f18c813b0882fa818fe2bb9e2bd00477b73f41e3b6": {
         "english": "Furthermore, financial difficulties can make life abroad a trying experience.",
         "french": "Ensuite, les difficultés financières peuvent rendre la vie à l'étranger éprouvante."
+      },
+      "c0f84ddfc38672577eb64c0d649a71b7d32be4877c82a8847f5128d3ec545289": {
+        "english": "Through this training and placement, he gains experience and develops the skills he needs to become a chef.",
+        "french": "Grâce à cette formation et à ce stage, il acquiert de l'expérience et développe les compétences dont il a besoin pour devenir cuisinier.",
+        "review_note": "Editorial English aligned with the approved consequence connecting training and placement to experience and skills; all preceding translations retained. No translation-provider call."
       },
       "da43c07e806b67bb9e005e07ca6fb35bfb206e859ea279438ff0091cf4acf1e0": {
         "english": "For example, a student who wants to become a chef is looking for a pastry specialism that is unavailable near his home. He finds a school abroad that offers it, with a restaurant placement. During this placement, he prepares desserts under a chef's supervision.",
@@ -1214,6 +1224,11 @@
       }
     },
     "eo/tache-3/culture-p5": {
+      "066723513104f4889fd1f1597e5ee8ab40b4d8abc47e373f52c23c64e2fd3ca8": {
+        "english": "Take the example of a student who wants to become a chef. He would like to specialise in pastry, but cannot find the training he wants near home. So he chooses a school abroad where he can take that course and do a restaurant placement.",
+        "french": "Prenons l'exemple d'un étudiant qui veut devenir cuisinier. Il aimerait se spécialiser en pâtisserie, mais il ne trouve pas la formation qu'il cherche près de chez lui. Il choisit donc une école à l'étranger où il peut suivre cette formation et faire un stage en restaurant.",
+        "review_note": "Editorial English aligned with the approved conversational cooking example; all preceding translations retained. No translation-provider call."
+      },
       "10c9def9a129c0cfbe0d6301b22adbcf4629485cefbdad537765b1100918d724": {
         "english": "Finally, local contacts can help to move your project forward.",
         "french": "Enfin, les contacts sur place peuvent aider à faire avancer son projet."
@@ -1330,6 +1345,11 @@
       "b3809b002795976b4f8ace4174ddaea0f13579804f519a954db1e81a42f6dee1": {
         "english": "If their applications go unanswered, a newcomer can ask an employment support service to review their CV. An adviser can show them how to present their achievements and prepare for an interview, though this does not guarantee a job offer.",
         "french": "Si ses candidatures restent sans réponse, un nouvel arrivant peut demander à un service d'aide à l'emploi de relire son CV. Un conseiller peut lui montrer comment présenter ses réalisations et préparer un entretien, sans lui garantir une embauche."
+      },
+      "c0f84ddfc38672577eb64c0d649a71b7d32be4877c82a8847f5128d3ec545289": {
+        "english": "Through this training and placement, he gains experience and develops the skills he needs to become a chef.",
+        "french": "Grâce à cette formation et à ce stage, il acquiert de l'expérience et développe les compétences dont il a besoin pour devenir cuisinier.",
+        "review_note": "Editorial English aligned with the approved consequence connecting training and placement to experience and skills; all preceding translations retained. No translation-provider call."
       },
       "cc15c12e5dafaac3e8acfa1b58e05c6006013ed0955b45929dbea41c00a24b41": {
         "english": "However, preparation does not eliminate financial difficulties or the possibility of rejection. Some goals will have to be postponed or adjusted. Revising your plans, or even returning home, does not mean that all your efforts have been in vain: circumstances also play a part.",

@@ -132,7 +132,7 @@
         {
           "idea": "Enfin, retrouver ses proches demande parfois un vrai budget et du temps disponible.",
           "developpement": "Une visite ne consiste plus simplement à passer chez quelqu'un : il faut prévoir le trajet, payer le billet et parfois prendre congé. Même lorsqu'on tient beaucoup à un événement familial, ces contraintes peuvent empêcher d'y participer.",
-          "exemple": "Par exemple, une femme qui travaille à huit heures de train de chez son père voudrait être présente pour son anniversaire. Le voyage lui demanderait deux jours de congé et un billet qu'elle n'a peut-être pas les moyens de payer : elle pourrait donc devoir renoncer à la visite.",
+          "exemple": "Par exemple, une femme qui travaille à huit heures de train de chez son père voudrait être présente pour son anniversaire. Le voyage lui demanderait deux jours de congé et un billet qu'elle n'a pas les moyens de payer : elle doit donc renoncer à la visite.",
           "consequence": "Un appel lui permet de partager un moment avec lui, mais ne remplace pas complètement le plaisir d'être réunis."
         }
       ],
@@ -330,20 +330,20 @@
       "arguments": [
         {
           "idea": "Tout d'abord, partager les tâches permet de respecter le temps et le repos de chacun.",
-          "developpement": "Après une journée de travail ou d'études, tout le monde a besoin de souffler. Pourtant, si une seule personne doit encore cuisiner, nettoyer et s'occuper du linge, elle continue à travailler pendant que les autres se reposent. Répartir les tâches, c'est reconnaître que son temps compte autant que celui des autres.",
+          "developpement": "Après une journée de travail ou d'études, tout le monde a besoin de souffler. Pourtant, quand les repas, le ménage et le linge reposent toujours sur la même personne, le confort de toute la famille se fait au détriment de son repos. Répartir les tâches, c'est reconnaître que son temps compte autant que celui des autres.",
           "exemple": "Par exemple, lorsque deux parents rentrent du travail, l'un peut préparer le dîner pendant que l'autre met la table, puis se charge de la vaisselle après le repas. Ils partagent ainsi le travail de la soirée au lieu de tout laisser au même parent.",
           "consequence": "Chacun peut alors profiter d'un moment de repos sans que l'autre porte seul toute la charge."
         },
         {
           "idea": "Ensuite, participer apprend aux enfants à se débrouiller dans la vie quotidienne.",
           "developpement": "Savoir laver ses vêtements ou préparer un repas ne vient pas automatiquement avec l'âge. Ce sont des gestes que l'on apprend en regardant, en essayant et en recommençant. En accompagnant l'enfant au début, les parents lui donnent peu à peu les moyens de faire seul.",
-          "exemple": "Prenons l'exemple d'un adolescent qui apprend à faire une lessive. Son parent lui montre comment trier le linge et choisir le programme de lavage, puis l'accompagne pendant plusieurs essais, jusqu'à ce qu'il puisse laver ses vêtements sans aide.",
+          "exemple": "Prenons l'exemple d'un adolescent qui apprend à faire une lessive. Son parent lui montre comment trier le linge et utiliser la machine à laver, puis l'accompagne pendant plusieurs essais, jusqu'à ce qu'il puisse laver ses vêtements sans aide.",
           "consequence": "Il ne fait donc pas qu'aider sa famille : il acquiert une compétence utile pour sa future vie d'adulte."
         },
         {
           "idea": "Enfin, se mettre d'accord sur les tâches peut éviter bien des tensions à la maison.",
           "developpement": "Quand personne ne sait qui doit faire quoi, les rappels risquent de devenir des reproches. Il faut donc que chacun sache ce qu'il s'engage à faire, avec une répartition adaptée aux horaires réels de la famille.",
-          "exemple": "Par exemple, un père et son adolescent se disputent souvent à propos des poubelles. Ils conviennent que le fils les sortira après le dîner, sauf les soirs d'entraînement où le père prendra le relais : la tâche est prévue au lieu d'être renégociée chaque soir.",
+          "exemple": "Par exemple, un frère et une sœur se disputent souvent à propos des poubelles. Ils conviennent que le frère les sortira après le dîner et que sa sœur s'en chargera les soirs où il a entraînement. La tâche est ainsi prévue au lieu d'être renégociée chaque soir.",
           "consequence": "Cet accord peut réduire les rappels et les disputes, parce que chacun connaît sa responsabilité."
         }
       ],

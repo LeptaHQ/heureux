@@ -874,9 +874,9 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("woman who works", example)
         self.assertIn("eight-hour train journey", example)
         self.assertIn("two days off", example)
-        self.assertIn("a ticket she may not be able to afford", example)
-        self.assertIn("might have to give up the visit", example)
-        self.assertNotIn("a ticket she cannot afford", example)
+        self.assertIn("a ticket she cannot afford", example)
+        self.assertIn("she has to give up the visit", example)
+        self.assertNotIn("might have to give up", example)
 
     def test_personal_advice_english_distinguishes_outdated_methods_and_different_priorities(self):
         data = read_manifest(DEFAULT_PATH)
@@ -1165,9 +1165,10 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             ("famille-p12", "argument-5-developpement", ("understand why a limit exists", "listen to their objections", "remaining firm", "does not mean giving up the right to make it"), ()),
             ("famille-p12", "argument-5-exemple", ("phones to be put aside during meals", "everyone can talk about their day", "put their own phones away too"), ()),
             ("famille-p12", "nuance", ("intervene immediately", "explain afterwards", "non-negotiable limits"), ()),
-            ("famille-p14", "argument-2-exemple", ("sort the clothes", "choose the wash programme", "guides him through several attempts", "wash his clothes without help"), ("without waiting for someone",)),
+            ("famille-p14", "argument-1-developpement", ("the whole family's comfort", "at the expense of that person's rest", "their time matters just as much"), ("they keep working",)),
+            ("famille-p14", "argument-2-exemple", ("sort the clothes", "use the washing machine", "guides him through several attempts", "wash his clothes without help"), ("without waiting for someone", "wash programme")),
             ("famille-p14", "argument-1-exemple", ("one can prepare dinner while the other lays the table", "washing-up after the meal", "share the evening's work"), ()),
-            ("famille-p14", "argument-4-exemple", ("father and his teenage son often argue", "They agree", "except on sports practice evenings", "his father will take over"), ()),
+            ("famille-p14", "argument-4-exemple", ("brother and sister often argue", "They agree", "the brother will take it out after dinner", "his sister will do it on evenings when he has sports practice", "planned rather than renegotiated"), ("father",)),
             ("famille-p14", "argument-4-consequence", ("can reduce reminders and arguments", "everyone knows their responsibility"), ("other person", "check every step")),
             ("famille-p14", "nuance", ("someone who is ill can be excused", "what everyone can actually do"), ("equally",)),
         )
@@ -1349,6 +1350,24 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         result = rows[fingerprint(preparation.consequence)]["english"]
         self.assertIn("minimises surprises", result)
         self.assertIn("adjust your timetable", result)
+
+    def test_shared_cooking_example_english_connects_training_to_experience_and_skills(self):
+        data = read_manifest(DEFAULT_PATH)
+        if not data["groups"]:
+            self.skipTest("DeepL response translations have not been prepared.")
+        for group in ("culture-p5", "culture-p17"):
+            with self.subTest(group=group):
+                model = scoped_models()[f"eo/tache-3/{group}"]
+                rows = data["groups"][model.group]
+                argument = model.response.arguments[0]
+                example = rows[fingerprint(argument.exemple)]["english"]
+                self.assertIn("cannot find the training he wants near home", example)
+                self.assertIn("a school abroad", example)
+                self.assertIn("take that course and do a restaurant placement", example)
+                self.assertNotIn("under a chef's supervision", example)
+                consequence = rows[fingerprint(argument.consequence)]["english"]
+                self.assertIn("Through this training and placement", consequence)
+                self.assertIn("gains experience and develops the skills he needs to become a chef", consequence)
 
     def test_migration_choice_english_keeps_real_constraints_and_a_genuine_option_to_stay(self):
         data = read_manifest(DEFAULT_PATH)

@@ -510,49 +510,49 @@
     },
     "culture-p35": {
       "introduction": {
-        "french": "Richesse par leur travail, leurs compétences, la culture et l'entraide, selon les possibilités de participer.",
-        "english": "Possible contributions through work and skills, culture and mutual help, depending on opportunities to participate."
-      },
-      "nuance": {
-        "french": "Apports non automatiques ; efforts collectifs et dignité sans preuve d'utilité.",
-        "english": "Contributions are not automatic; collective efforts and dignity without proving usefulness."
-      },
-      "conclusion": {
-        "french": "Travail et compétences, culture et entraide, avec un accueil équitable.",
-        "english": "Work and skills, culture and mutual help, with a fair welcome."
+        "french": "Richesse économique, culturelle et démographique.",
+        "english": "Economic, cultural and demographic contributions."
       },
       "arguments": [
         {
           "point": {
-            "french": "Les personnes immigrées peuvent contribuer à l'économie par leur travail et leurs compétences.",
-            "english": "Immigrants can contribute to the economy through their work and skills."
+            "french": "Maintenir des secteurs essentiels et apporter des compétences recherchées.",
+            "english": "Keep essential sectors running and bring sought-after skills."
           },
           "example": {
-            "french": "Une technicienne montre comment réparer une panne déjà rencontrée dans son pays d'origine.",
-            "english": "A technician shows how to repair a fault she has encountered in her country of origin."
+            "french": "Hôpital en manque d'infirmiers : recruter des soignants immigrés formés à l'étranger permet de rouvrir des lits.",
+            "english": "Hospital short of nurses: recruiting immigrant staff trained abroad helps reopen beds."
           }
         },
         {
           "point": {
-            "french": "Les immigrés peuvent enrichir la vie culturelle du pays d'accueil.",
-            "english": "Immigrants can enrich the cultural life of the host country."
+            "french": "Des apports culturels deviennent des habitudes communes.",
+            "english": "Cultural contributions become shared habits."
           },
           "example": {
-            "french": "Conte en bibliothèque : le héros aide ses amis plutôt que gagner seul ; les enfants comparent son choix à celui d'un personnage connu.",
-            "english": "Library story: hero helps friends rather than winning alone; children compare his choice with a familiar character's."
+            "french": "Restaurant d'une famille immigrée : plats du pays d'origine, commandés régulièrement par des habitants de toutes origines.",
+            "english": "An immigrant family's restaurant serves food from their home country, regularly ordered by residents of different backgrounds."
           }
         },
         {
           "point": {
-            "french": "Les immigrés peuvent contribuer à la vie associative et à l'entraide locale.",
-            "english": "Immigrants can contribute to local community life and mutual aid."
+            "french": "Des actifs supplémentaires contribuent aux retraites et aux services publics.",
+            "english": "Additional workers contribute to pensions and public services."
           },
           "example": {
-            "french": "Expliquer les consignes dans une langue commune aide une famille à retirer son colis alimentaire.",
-            "english": "Explaining instructions in a shared language helps a family collect its food parcel."
+            "french": "Départs à la retraite dans une région : nouveaux travailleurs immigrés, emplois déclarés et cotisations aux pensions.",
+            "english": "Retirements in a region: new immigrant workers, formally declared jobs and pension contributions."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Langue, travail, diplômes : politique d'accueil ; dignité sans preuve d'utilité.",
+        "english": "Language, work and qualifications: welcome policies; dignity without proving usefulness."
+      },
+      "conclusion": {
+        "french": "Trois apports, à condition de permettre à chacun de participer.",
+        "english": "Three contributions, provided everyone can participate."
+      }
     },
     "education-p1": {
       "introduction": {

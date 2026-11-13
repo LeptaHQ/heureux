@@ -1545,16 +1545,31 @@
         "french": "Je suis donc d'accord : les immigrés peuvent enrichir le pays par leur travail et leurs compétences, mais aussi par la culture et l'entraide. Pour que ces apports trouvent leur place, il faut leur donner de réelles possibilités de participer.",
         "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
       },
+      "0e77d5b43bffa97e43e419f510e3c09503e3a085ceba75907f8f06456b436afe": {
+        "english": "The population therefore benefits directly from their contribution, not just employers.",
+        "french": "La population bénéficie donc directement de leur contribution, pas seulement les employeurs.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
+      },
       "17cd08d647861b0571e21df832c6ab43204b4928f9d831e96eab4f20d8999585": {
         "english": "In conclusion, immigrants can enrich the country through their work and skills, cultural exchanges and mutual help. A fair welcome opens up these possibilities: shared life is built together.",
         "french": "En conclusion, les immigrés peuvent enrichir le pays par leur travail et leurs compétences, les échanges culturels et l'entraide. Un accueil équitable ouvre ces possibilités : la vie commune se construit ensemble.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "204baac9ff13688630f9474185bcf7e3adc07673a0770bd87edcdf3d9d3b6cbe": {
+        "english": "For example, an immigrant family opens a restaurant in a neighbourhood and serves dishes from their home country. Residents discover dishes they end up ordering regularly, whatever their background. This food then becomes a local habit.",
+        "french": "Par exemple, une famille immigrée ouvre un restaurant dans un quartier et y propose des plats de son pays d'origine. Les habitants y découvrent des plats qu'ils finissent par commander régulièrement, quelle que soit leur origine. Cette cuisine devient alors une habitude locale.",
+        "review_note": "Editorial English aligned with the restored bank argument and explicit example premise. All preceding translations retained; no translation-provider call."
       },
       "2220ee8a552ff05c8f700189c0b7b2305a1561dc9a156a2fdb02c6dcfd3dd9a6": {
         "deepl_english": "During a food distribution, a new resident might explain the instructions to a family in a language they know. The family understands how to collect their parcel and can ask questions: like the other volunteers, they help to make the support more accessible.",
         "english": "During a food distribution, a new resident might explain the instructions to a family in a language the resident knows. The family understands how to collect their parcel and can ask questions: like the other volunteers, the resident helps to make the support more accessible.",
         "french": "Lors d'une distribution alimentaire, un nouvel habitant peut expliquer les consignes à une famille dans une langue qu'il connaît. La famille comprend comment retirer son colis et peut poser ses questions : comme les autres bénévoles, il contribue à rendre l'aide plus accessible.",
         "review_note": "Il identifies the new resident as the volunteer providing help; they after The family can incorrectly refer to that family."
+      },
+      "22b5b771767100b327deecc0160698dfc6f1e9c2dbb4dd5a37612e4883cf707d": {
+        "english": "These contributions therefore enrich local culture and help it evolve beyond immigrant communities alone.",
+        "french": "Ces apports enrichissent donc la culture locale et la font évoluer, au-delà des seules communautés immigrées.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
       },
       "22c5ba6b2f3f713585d3a018732d00a60d8e72ddbf22984fbaa9ccec142fc899": {
         "english": "For example, a new resident tells a story at the library in a language everyone understands. Her grandmother used to tell it to her when she was little. The hero chooses to help his friends rather than win alone. The children compare this choice with that of a character they know.",
@@ -1565,6 +1580,11 @@
         "english": "However, these contributions do not happen automatically. Language, the recognition of qualifications, access to housing and the fight against discrimination all require collective efforts. And a person’s dignity should be recognised without them having to prove their economic value.",
         "french": "Cependant, ces apports ne se réalisent pas automatiquement. La langue, la reconnaissance des qualifications, l'accès au logement et la lutte contre les discriminations demandent des efforts collectifs. Et la dignité d'une personne devrait être reconnue sans qu'elle ait à prouver son utilité économique."
       },
+      "2f34c0516f86a7245f76f3fe5ddf0e9252333a96808b8c5addc2a1da775fd59d": {
+        "english": "In construction, agriculture, hospitality and personal care, their work meets everyday needs. When these sectors lack staff, their presence helps keep activities running. In addition, in research, engineering, healthcare and digital technology, professionals trained abroad bring skills that employers sometimes struggle to find locally. Their contribution therefore helps maintain services, but also develop activities that require specific skills.",
+        "french": "Dans la construction, l'agriculture, la restauration ou les soins aux personnes, leur travail répond à des besoins quotidiens. Quand ces secteurs manquent de personnel, leur présence aide à maintenir les activités. De plus, dans la recherche, l'ingénierie, la santé ou le numérique, des professionnels formés à l'étranger apportent des compétences que les employeurs ont parfois du mal à trouver sur place. Leur contribution permet donc de maintenir les services, mais aussi de développer des activités qui demandent des compétences précises.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
+      },
       "332ada231d912a386a47d5e9176fb99358c44c40e55b1b1128263f18844a7006": {
         "english": "Through their work, immigrants contribute to activities that residents need: producing goods, building, providing care or running transport services. They also bring experience gained elsewhere. When they share a method with colleagues, this knowledge benefits more than one person: it strengthens the skills of the whole team. Access to work and, where necessary, recognition of qualifications allow these skills to be put to use.",
         "french": "Par leur travail, les personnes immigrées participent à des activités dont les habitants ont besoin : produire, construire, soigner ou assurer les transports. Elles apportent aussi des expériences acquises ailleurs. Quand elles partagent une méthode avec leurs collègues, ce savoir ne profite pas seulement à une personne : il renforce les capacités de toute l'équipe. L'accès au travail et, si nécessaire, la reconnaissance des qualifications permettent de mettre ces compétences à contribution.",
@@ -1574,6 +1594,11 @@
         "english": "For example, a new resident takes part in a storytelling session at a library. In a language the group understands, she tells a story her grandmother used to tell her when she was little. The children discover this story and can compare it with those they already know.",
         "french": "Par exemple, une nouvelle habitante participe à une séance de contes dans une bibliothèque. Elle raconte, dans une langue comprise par le groupe, une histoire que sa grand-mère lui racontait quand elle était petite. Les enfants découvrent ce récit et peuvent le comparer à ceux qu'ils connaissent.",
         "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "34dfe79ed380f958d50dba869b2c1cc90eaa55d889648fbb1dc8ece378094f2f": {
+        "english": "For example, a hospital lacks nurses and has to reduce the number of patients it can admit. Recruiting immigrant healthcare staff trained abroad helps strengthen the team and reopen beds.",
+        "french": "Par exemple, un hôpital manque d'infirmiers et doit réduire le nombre de patients qu'il peut accueillir. Recruter des soignants immigrés formés à l'étranger permet de renforcer l'équipe et de rouvrir des lits.",
+        "review_note": "Editorial English aligned with the restored bank argument and explicit example premise. All preceding translations retained; no translation-provider call."
       },
       "38f8e09caf7a228c9ca28a8b6659dd48b43eb0f9b3ec9b82b3eba8f68335f9c5": {
         "english": "Giving that time and practical help is also a way of contributing to society.",
@@ -1601,14 +1626,39 @@
         "english": "In a library, a person might take part in a storytelling session by sharing a story from their childhood and explaining it in a common language. The children discover a different story and can compare it with those they already know.",
         "french": "Dans une bibliothèque, une personne peut participer à une séance de contes en présentant une histoire de son enfance et en l'expliquant dans une langue commune. Les enfants découvrent un autre récit et peuvent le comparer à ceux qu'ils connaissent."
       },
+      "540fd2b82f2e6e05f15812b891cd5364fdcb85afe4221f2dacdc53ae47d9d0d6": {
+        "english": "For example, an immigrant family opens a restaurant in a neighbourhood. Residents discover dishes they end up ordering regularly, whatever their background. This food then becomes a local habit.",
+        "french": "Par exemple, une famille immigrée ouvre un restaurant dans un quartier. Les habitants y découvrent des plats qu'ils finissent par commander régulièrement, quelle que soit leur origine. Cette cuisine devient alors une habitude locale.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
+      },
       "541914cc89c6218fc2ede917f626856717581af27ccad5636407d75d7e6aef9c": {
         "english": "Yes, I think immigrants represent an asset to the host country economically, culturally and in human terms. But these contributions also depend on opportunities to participate, not just on people's skills.",
         "french": "Oui, je pense que les immigrés représentent une richesse pour le pays d'accueil, sur le plan économique, culturel et humain. Mais ces apports dépendent aussi des possibilités de participer, pas seulement des compétences des personnes.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "54e1c4a63d7d45a0e03e093cebb3e33678f18df36d3651c6734d8c1b4ab38e3c": {
+        "english": "However, to benefit fully from these contributions, the country needs to facilitate language learning, access to work and recognition of qualifications. Otherwise, skills remain unused. And a person's dignity should be recognised without them having to prove their economic usefulness.",
+        "french": "Cependant, pour profiter pleinement de ces apports, le pays doit faciliter l'apprentissage de la langue, l'accès au travail et la reconnaissance des diplômes. Sans cela, des compétences restent inutilisées. Et la dignité d'une personne devrait être reconnue sans qu'elle ait à prouver son utilité économique.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
+      },
       "560fae09d9129f253f04bec0a6800cd90dafe385a3537b6a6f3faf4cb12b01c0": {
         "english": "Culture is thus shared with other residents, extending beyond the family.",
         "french": "La culture se partage ainsi avec les autres habitants, au-delà de la famille."
+      },
+      "6173542823437d255b2cd099a6a3e93d7614e4466fc4b357549349fbf25b9f65": {
+        "english": "First, they help essential sectors function and bring valuable skills.",
+        "french": "Tout d'abord, ils participent au fonctionnement de secteurs essentiels et apportent des compétences.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
+      },
+      "62507565c48483ffc5c90eba6446ac4a142f662999330e1a26e939402002a776": {
+        "english": "The country therefore benefits from these economic, cultural and demographic contributions, provided everyone is given the opportunity to participate.",
+        "french": "Le pays bénéficie donc de ces apports économiques, culturels et démographiques, à condition de permettre à chacun de participer.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
+      },
+      "640822aa2dec9791ca484306fab19613fc28aa2185462e68b2d35ea644517710": {
+        "english": "This contribution can therefore support the balance between workers and retirees.",
+        "french": "Cet apport peut donc soutenir l'équilibre entre actifs et retraités.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
       },
       "73c62532db6426be4b2ca7b69a893529eb8291b60b05f5249f26b68e67bdb0ce": {
         "english": "Their work helps to produce goods and provide services. Their experience can also benefit their colleagues. This contribution becomes possible when they are able to work under good conditions and, where necessary, have their qualifications recognised.",
@@ -1617,6 +1667,11 @@
       "7574429e35d54379fa378db0b82dfc4aa24752f626d397e55c35ec9f71fc55bb": {
         "english": "The team can then reuse this solution if the same fault occurs again.",
         "french": "L'équipe peut ensuite réutiliser cette solution si la même panne se reproduit."
+      },
+      "7915f3f3d12f2ff1d94efdc9006c90f190076d6c7f7eae1f79c7b57d8d7c4ca6": {
+        "english": "For example, in a region where many employees are retiring, a company recruits immigrant workers. They hold formally declared jobs and contribute to the system that pays retirees' pensions.",
+        "french": "Par exemple, dans une région où de nombreux salariés prennent leur retraite, une entreprise recrute des travailleurs immigrés. Ceux-ci occupent des emplois déclarés et cotisent au système qui verse les pensions des retraités.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
       },
       "7e7f5e7419335f6fb70fbd0db33421dfcfbb4f40a8e187e15ab5feebc51ca206": {
         "english": "Yes, I believe that immigrants can be an asset to the host country. Their work and skills can support the economy. Their cultural practices and participation in community life can also enrich society, provided they are genuinely given the opportunity to participate.",
@@ -1642,9 +1697,19 @@
         "french": "Oui, les immigrés représentent une richesse économique, culturelle et humaine pour le pays qui les accueille.",
         "review_note": "Editorial English aligned with the bank-led substantive development repair. All preceding translations retained; no translation-provider call."
       },
+      "ab4c3756576c7e95fc222d16040052647ff935d36a14e176fd582d83db2f5716": {
+        "english": "Finally, immigration can help address an ageing population.",
+        "french": "Enfin, l'immigration peut aider à faire face au vieillissement de la population.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
+      },
       "ae79383f4486a30deb113c4ba0496bdf96c24de7c358c63dd2d4168bfbe5d49c": {
         "english": "Finally, immigrants can contribute to community life and local mutual support.",
         "french": "Enfin, les immigrés peuvent contribuer à la vie associative et à l'entraide locale."
+      },
+      "b2bf0187c049a2ab4ff8571b0956bf58d793f59f1c7fa0df7c1158839b1a740d": {
+        "english": "In my view, immigrants are a real economic, cultural and demographic asset to the country that welcomes them.",
+        "french": "À mon avis, les immigrés sont une vraie richesse économique, culturelle et démographique pour le pays qui les accueille.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
       },
       "b3a1895b811c580890f486e1634f64e3e944083458bb55fef302977dbcecbf92": {
         "english": "The richness of a society is also measured by this capacity for cooperation.",
@@ -1654,6 +1719,16 @@
         "english": "Associations also need people who give their time, help organise an activity or make information understandable. A new resident can find a place there and help other people, even if they do not yet have a local job.",
         "french": "Les associations ont aussi besoin de personnes qui donnent du temps, aident à organiser une activité ou rendent une information compréhensible. Un nouvel habitant peut y prendre sa place et aider d'autres personnes, même s'il n'a pas encore d'emploi sur place.",
         "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "c734fc13f5b4dc606f0dea23a33241eb0687290419ac79405803e2b17ea1ee66": {
+        "english": "Next, cultural diversity can enrich society and help it evolve.",
+        "french": "Ensuite, la diversité culturelle peut enrichir et faire évoluer la société.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
+      },
+      "d154d87bf72dd547e071e887c72464b32c953b49239d8893a3cab53519520ad6": {
+        "english": "A country's culture is not fixed. The food, music, celebrations and languages of new residents introduce other ways of living and thinking. This mixture can encourage residents to open up, discover new things and move beyond an overly closed view of their own culture. Over time, some of these contributions spread beyond their communities of origin. They become shared habits and an integral part of the country's identity.",
+        "french": "La culture d'un pays n'est pas figée. La cuisine, la musique, les fêtes et les langues des nouveaux habitants font découvrir d'autres façons de vivre et de penser. Ce mélange peut pousser les habitants à s'ouvrir, à découvrir et à sortir d'une vision trop fermée de leur propre culture. Avec le temps, certains de ces apports se diffusent au-delà des communautés d'origine. Ils deviennent des habitudes partagées et font partie intégrante de l'identité du pays.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
       },
       "e138d2f397254f2464ca928b14c30fa6f88d76dedacaef8a3f642d3251477db3": {
         "english": "During a food distribution, a new resident might explain the instructions to a family in a language they share. The family understands how to collect their parcel and can ask questions: like the other volunteers, the resident helps to make the support more accessible.",
@@ -1673,6 +1748,16 @@
         "english": "When someone arrives, they also bring stories, songs or ways of doing things that we do not yet know. By sharing and explaining them, they let other residents discover something beyond their own habits.",
         "french": "En arrivant, une personne apporte aussi des histoires, des chansons ou des façons de faire qu'on ne connaît pas encore. Lorsqu'elle les partage et les explique, les autres habitants peuvent découvrir autre chose que leurs propres habitudes.",
         "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "f13809fc97f3244717b7c20f7fa9c8be04e7bc0bb1a39bb0e6e2b01b47583f69": {
+        "english": "For example, a hospital lacks nurses and has to reduce the number of patients it can admit. Recruiting healthcare staff trained abroad helps strengthen the team and reopen beds.",
+        "french": "Par exemple, un hôpital manque d'infirmiers et doit réduire le nombre de patients qu'il peut accueillir. Recruter des soignants formés à l'étranger permet de renforcer l'équipe et de rouvrir des lits.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
+      },
+      "f355dc8d1f2ab2cc5bb7f18445afa79043fcc83e175219742801284cc17be7d7": {
+        "english": "When retirements exceed new entries into working life, there are fewer workers alongside more retirees. Funding social systems then rests on a smaller number of workers. The arrival of working-age people can reduce this imbalance. Through their work, they pay taxes and make contributions that help fund pensions and public services.",
+        "french": "Quand les départs à la retraite dépassent les entrées dans la vie active, il reste moins de travailleurs face à davantage de retraités. Le financement des systèmes sociaux repose alors sur un nombre plus réduit d'actifs. L'arrivée de personnes en âge de travailler peut atténuer ce déséquilibre. En exerçant un métier, elles paient des impôts et versent des cotisations qui contribuent aux retraites et aux services publics.",
+        "review_note": "Editorial English aligned with the restored economic, cultural and demographic bank arguments. All historical translations retained; no translation-provider call."
       },
       "f4dae260753f5c8db3b3858ec2de965de91fcb27228484e666ec906a1dd6e669": {
         "english": "First and foremost, immigrants can contribute to the economy through their work and skills.",

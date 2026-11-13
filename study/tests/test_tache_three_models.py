@@ -418,7 +418,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("ose discuter avec ses coéquipiers", response(13).arguments[2].exemple)
         self.assertIn("pratique la langue dans une situation qui lui plaît", response(13).arguments[2].consequence)
         self.assertIn("selon leurs possibilités", response(14).position_claire)
-        self.assertIn("sauf les soirs d'entraînement", response(14).arguments[2].exemple)
+        self.assertIn("à tour de rôle après le dîner", response(14).arguments[2].exemple)
         self.assertIn("après vingt-cinq ans", response(16).position_claire)
         self.assertIn("sans leur demander la permission de sortir", response(16).arguments[2].exemple)
         self.assertIn("n'impose pas de déménager à une date précise", response(16).nuance)
@@ -916,6 +916,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             "culture-p27": (1, 4, 3),
             "culture-p29": (4, 2, 3),
             "culture-p30": (1, 2, 4),
+            "culture-p35": (1, 2, 4),
         }
         models = [
             model for model in catalogue.tache_three_models().values()
@@ -1017,6 +1018,26 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("Si elle doit attendre une nouvelle autorisation", insecurity.exemple)
         self.assertIn("pas seulement sur une demande administrative", insecurity.consequence)
 
+    def test_culture_immigration_wealth_restores_economic_cultural_and_demographic_reasons(self):
+        model = catalogue.tache_three_models()["eo/tache-3/culture-p35"]
+        economy, culture, demography = model.response.arguments
+        self.assertEqual(model.argument_ids, (1, 2, 4))
+        self.assertIn("ces secteurs manquent de personnel", economy.developpement)
+        self.assertIn("la recherche, l'ingénierie, la santé ou le numérique", economy.developpement)
+        self.assertIn("rouvrir des lits", economy.exemple)
+        self.assertIn("soignants immigrés", economy.exemple)
+        self.assertIn("au-delà des communautés d'origine", culture.developpement)
+        self.assertIn("partie intégrante de l'identité du pays", culture.developpement)
+        self.assertIn("quelle que soit leur origine", culture.exemple)
+        self.assertIn("plats de son pays d'origine", culture.exemple)
+        self.assertIn("les départs à la retraite dépassent les entrées dans la vie active", demography.developpement)
+        self.assertIn("un nombre plus réduit d'actifs", demography.developpement)
+        self.assertIn("aux retraites et aux services publics", demography.developpement)
+        self.assertIn("emplois déclarés", demography.exemple)
+        self.assertIn("verse les pensions des retraités", demography.exemple)
+        self.assertIn("l'équilibre entre actifs et retraités", demography.consequence)
+        self.assertIn("reconnaissance des diplômes", model.response.nuance)
+
     def test_famille_household_agreements_break_recurring_assumptions_and_allow_a_relay(self):
         response = catalogue.tache_three_models()["eo/tache-3/famille-p14"].response
         agreement = response.arguments[2]
@@ -1024,8 +1045,11 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("La même discussion revient chaque soir", agreement.developpement)
         self.assertIn("sortir de ce cercle", agreement.developpement)
         self.assertIn("qui prendra le relais si l'un rentre tard", agreement.developpement)
-        self.assertIn("les soirs où il a entraînement", agreement.exemple)
+        self.assertIn("Ils décident de sortir les poubelles à tour de rôle après le dîner", agreement.exemple)
         self.assertIn("au lieu d'être renégociée chaque soir", agreement.exemple)
+        plan = catalogue.tache_three_subject_hints()["eo/tache-3/famille-p14"]
+        self.assertIn("à tour de rôle", plan.arguments[2].example.french)
+        self.assertIn("take turns", plan.arguments[2].example.english)
 
     def test_culture_migration_motivations_can_combine_with_different_degrees_of_choice(self):
         group = "eo/tache-3/culture-p25"

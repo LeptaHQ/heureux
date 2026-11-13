@@ -546,13 +546,13 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             ),
             (
                 "culture-p35", "argument-2-exemple",
-                ("Her grandmother used to tell it to her when she was little",
-                 "hero chooses to help his friends rather than win alone",
-                 "children compare this choice"),
+                ("immigrant family opens a restaurant", "ordering regularly",
+                 "from their home country", "whatever their background", "a local habit"),
             ),
             (
-                "culture-p35", "argument-3-exemple",
-                ("a language they share", "The family understands"),
+                "culture-p35", "argument-4-exemple",
+                ("many employees are retiring", "formally declared jobs",
+                 "system that pays retirees' pensions"),
             ),
         )
         models = scoped_models()
@@ -1184,7 +1184,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             ("famille-p14", "argument-1-developpement", ("the whole family's comfort", "at the expense of that person's rest", "their time matters just as much"), ("they keep working",)),
             ("famille-p14", "argument-2-exemple", ("sort the clothes", "use the washing machine", "guides him through several attempts", "wash his clothes without help"), ("without waiting for someone", "wash programme")),
             ("famille-p14", "argument-1-exemple", ("one can prepare dinner while the other lays the table", "washing-up after the meal", "share the evening's work"), ()),
-            ("famille-p14", "argument-4-exemple", ("brother and sister often argue", "They agree", "the brother will take it out after dinner", "his sister will do it on evenings when he has sports practice", "planned rather than renegotiated"), ("father",)),
+            ("famille-p14", "argument-4-exemple", ("brother and sister often argue", "They decide to take turns", "taking out the rubbish after dinner", "planned rather than renegotiated"), ("father", "sports practice")),
             ("famille-p14", "argument-4-developpement", ("each person may think the other will take care", "same discussion comes up every evening", "clear agreement helps break that cycle", "who will take over if someone gets home late"), ()),
             ("famille-p14", "argument-4-consequence", ("can reduce reminders and arguments", "everyone knows their responsibility"), ("other person", "check every step")),
             ("famille-p14", "nuance", ("someone who is ill can be excused", "what everyone can actually do"), ("equally",)),
@@ -1414,8 +1414,9 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             ("culture-p29", "argument-2-consequence", ("both the support we receive and the support we would like to give",)),
             ("culture-p29", "argument-3-developpement", ("look to the future with peace of mind",)),
             ("culture-p1", "argument-3-developpement", ("change everything under pressure", "a personal choice rather than an imposed obligation")),
-            ("culture-p35", "argument-1-developpement", ("activities that residents need", "strengthens the skills of the whole team")),
-            ("culture-p35", "argument-2-developpement", ("other ways of seeing the world", "enrich a shared culture")),
+            ("culture-p35", "argument-1-developpement", ("everyday needs", "employers sometimes struggle to find locally", "activities that require specific skills")),
+            ("culture-p35", "argument-2-developpement", ("A country's culture is not fixed", "beyond their communities of origin", "an integral part of the country's identity")),
+            ("culture-p35", "argument-4-developpement", ("retirements exceed new entries into working life", "a smaller number of workers", "fund pensions and public services")),
         )
         models = scoped_models()
         for name, field, required in cases:

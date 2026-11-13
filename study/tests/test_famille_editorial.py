@@ -217,7 +217,7 @@ class FamilleEditorialTests(SimpleTestCase):
             (13, 2, ("des parents inscrivent", "au football", "Au fil des entraînements", "comprend mieux les consignes", "discuter avec ses coéquipiers")),
             (14, 0, ("deux parents rentrent du travail", "l'un peut préparer le dîner", "l'autre met la table", "vaisselle après le repas")),
             (14, 1, ("trier le linge", "utiliser la machine à laver", "plusieurs essais", "sans aide")),
-            (14, 2, ("un frère et une sœur", "se disputent", "après le dîner", "sa sœur s'en chargera", "où il a entraînement", "La tâche est ainsi prévue")),
+            (14, 2, ("un frère et une sœur", "se disputent", "à tour de rôle", "après le dîner", "La tâche est ainsi prévue")),
             (16, 0, ("vingt-sept ans", "neuf cents euros sans les charges", "Avec l'accord de ses parents", "trois cents euros par mois")),
             (16, 2, ("rentrera tard", "sans leur demander la permission", "ne pas les réveiller", "respectant leur repos")),
         ):
@@ -349,5 +349,5 @@ class FamilleEditorialTests(SimpleTestCase):
         self.assertIn("économies, entraide et liberté", cohabitation.conclusion)
         planning = self.response(14).arguments[2]
         self.assertIn("les rappels risquent de devenir des reproches", planning.developpement)
-        self.assertIn("sauf les soirs d'entraînement", planning.exemple)
+        self.assertIn("à tour de rôle après le dîner", planning.exemple)
         self.assertIn("peut réduire les rappels et les disputes", planning.consequence)

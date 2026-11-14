@@ -30,8 +30,8 @@
         },
         {
           "point": {
-            "french": "Une adaptation progressive et choisie est plus durable.",
-            "english": "Gradual adaptation by choice is more lasting."
+            "french": "Essayer les habitudes locales à son rythme.",
+            "english": "Try local habits at your own pace."
           },
           "example": {
             "french": "Déjeuner à midi avec les collègues, puis garder cet horaire s'il convient.",
@@ -102,8 +102,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Langue et démarches inconnues rendent les tâches ordinaires fatigantes.",
-            "english": "Unfamiliar language and procedures make ordinary tasks tiring."
+            "french": "La langue complique les tâches ordinaires.",
+            "english": "Language complicates ordinary tasks."
           },
           "example": {
             "french": "Un appel pour un rendez-vous demande de faire répéter et de vérifier les consignes.",
@@ -112,8 +112,8 @@
         },
         {
           "point": {
-            "french": "Le manque des proches peut peser sur le moral.",
-            "english": "Missing loved ones can affect morale."
+            "french": "Les proches peuvent manquer malgré les appels.",
+            "english": "Loved ones may be missed despite calls."
           },
           "example": {
             "french": "Après l'appel familial du dimanche, une personne peut dîner seule.",
@@ -122,18 +122,18 @@
         },
         {
           "point": {
-            "french": "Préparation, moyens et appuis rendent l'adaptation moins difficile.",
-            "english": "Preparation, resources and support can make adaptation less difficult."
+            "french": "Les contacts pratiques sont à reconstruire.",
+            "english": "Practical contacts need rebuilding."
           },
           "example": {
-            "french": "Contrat et logement prévu pour deux mois : suivre des cours de langue au lieu de chercher emploi et toit.",
-            "english": "A contract and housing arranged for two months: take language classes instead of searching for work and a home."
+            "french": "Enfant fiévreux un dimanche : une voisine donne le numéro d'une clinique sans rendez-vous pour vérifier les horaires.",
+            "english": "Child with a fever on Sunday: a neighbour gives a walk-in clinic's number to check opening hours."
           }
         }
       ],
       "nuance": {
-        "french": "Les démarches peuvent devenir plus simples sans que les proches cessent de manquer.",
-        "english": "Procedures can become easier while loved ones are still missed."
+        "french": "Langue, ressources et contacts font varier l'effort ; le temps aide.",
+        "english": "Language, resources and contacts affect the effort; time helps."
       },
       "conclusion": {
         "french": "Avec du temps et des appuis, l'adaptation peut devenir plus facile.",
@@ -390,8 +390,8 @@
             "english": "Knowing the procedures would make me more independent on arrival."
           },
           "example": {
-            "french": "Avant de partir, repérer où consulter un médecin pour ne pas tout chercher en cas de maladie.",
-            "english": "Before leaving, find out where to see a doctor instead of searching for everything when ill."
+            "french": "Compte bancaire : si une preuve d'adresse est exigée, le passeport seul ne suffit pas ; prévoir les pièces et éviter les allers-retours.",
+            "english": "Bank account: if proof of address is required, a passport alone is not enough; plan for the documents and avoid repeated trips."
           }
         },
         {
@@ -556,48 +556,48 @@
     },
     "education-p1": {
       "introduction": {
-        "french": "Tous ne peuvent pas forcément s'adapter dans leurs conditions d'arrivée ; les capacités peuvent se développer.",
-        "english": "Not everyone can necessarily adapt in the circumstances they arrive in; personal abilities can develop."
+        "french": "Des capacités et des conditions différentes ; l'adaptation peut se travailler.",
+        "english": "Different abilities and circumstances; adaptation can be developed."
       },
       "arguments": [
         {
           "point": {
-            "french": "Patience, curiosité et ouverture aident face au changement.",
-            "english": "Patience, curiosity and openness help when facing change."
+            "french": "Patience, curiosité et ouverture : réactions différentes à l'inconnu.",
+            "english": "Patience, curiosity and openness: different reactions to the unfamiliar."
           },
           "example": {
-            "french": "Seule le week-end, elle essaie une randonnée en groupe ; cette expérience lui donne envie d'essayer d'autres activités.",
-            "english": "Alone at weekends, she tries a group hike; the experience encourages her to try other activities."
+            "french": "Deux arrivants : oser participer malgré le malaise crée des liens ; éviter les rencontres laisse isolé.",
+            "english": "Two newcomers: participating despite discomfort builds connections; avoiding others leaves one isolated."
           }
         },
         {
           "point": {
-            "french": "La langue et les habitudes locales permettent de participer.",
-            "english": "Language and local customs enable participation."
+            "french": "Langue et codes culturels pour travailler, faire des démarches et créer des liens.",
+            "english": "Language and cultural codes for work, administrative tasks and relationships."
           },
           "example": {
-            "french": "Elle parle peu français : une voisine l'aide à préparer l'appel au médecin ; plus tard, elle téléphone sans aide.",
-            "english": "She speaks little French: a neighbour helps her prepare a call to the doctor; later, she phones without help."
+            "french": "Apprendre la langue et demander des explications aux collègues pour comprendre leurs habitudes de travail.",
+            "english": "Learn the language and ask colleagues for explanations to understand their working habits."
           }
         },
         {
           "point": {
-            "french": "Logement, moyens et soutien facilitent les efforts.",
-            "english": "Housing, resources and support make efforts easier."
+            "french": "Emploi, logement, proches et préparation du projet facilitent l'installation.",
+            "english": "A job, housing, close contacts and preparation make settling in easier."
           },
           "example": {
-            "french": "Un logement plus stable peut permettre de reprendre les cours, sans changement soudain des capacités.",
-            "english": "More stable housing can make it possible to resume classes without a sudden change in ability."
+            "french": "Promesse d'embauche et épargne : payer les premières dépenses en attendant le salaire, avec moins d'inquiétude.",
+            "english": "A job offer and savings: pay initial expenses while waiting for salary, with less worry."
           }
         }
       ],
       "nuance": {
-        "french": "Difficultés ou choix de repartir ne prouvent pas une incapacité définitive.",
-        "english": "Difficulties or a decision to leave do not prove a permanent inability."
+        "french": "Pas d'incapacité par nature : temps, aide et préparation permettent de progresser.",
+        "english": "Not inherent inability: time, help and preparation allow progress."
       },
       "conclusion": {
-        "french": "L'adaptation se construit avec des efforts et des conditions de vie qui les rendent possibles.",
-        "english": "Adaptation develops through effort and living conditions that make that effort possible."
+        "french": "Qualités, langue, culture et conditions du départ ; une capacité qui peut se développer.",
+        "english": "Qualities, language, culture and circumstances of leaving; an ability that can develop."
       }
     },
     "education-p5": {
@@ -612,8 +612,8 @@
             "english": "Enough French to live and work independently."
           },
           "example": {
-            "french": "Un mécanicien sait repérer une panne, mais peine à expliquer sa méthode en français pendant un entretien.",
-            "english": "A mechanic can identify a fault but struggles to explain his method in French during an interview."
+            "french": "Voiture qui ne démarre plus : échanger avec le garagiste et prendre rendez-vous sans attendre qu'un proche puisse appeler.",
+            "english": "Car will not start: talk to the mechanic and book an appointment without waiting for a loved one to call."
           }
         },
         {
@@ -632,8 +632,8 @@
             "english": "Money and support for the first few months, especially with a family."
           },
           "example": {
-            "french": "Famille sans emploi trouvé : budget de six mois et soutien réellement possible d'un proche, sans présumer l'hébergement.",
-            "english": "Family without a job secured: six-month budget and actual possible help from a close contact, without assuming accommodation."
+            "french": "Famille sans emploi : soutien aux démarches, pas d'hébergement ; comparer les économies à six mois de dépenses.",
+            "english": "Family without a job: help with paperwork, not housing; compare savings with six months' living costs."
           }
         }
       ],

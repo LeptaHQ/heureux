@@ -501,9 +501,10 @@ class TacheThreeModelContentTests(SimpleTestCase):
     def test_education_cues_keep_uncertainty_and_language_progress_matches_the_practice(self):
         models = catalogue.tache_three_models()
         plans = catalogue.tache_three_subject_hints()
-        housing = plans["eo/tache-3/education-p1"].arguments[2].example
-        self.assertIn("peut permettre", housing.french)
-        self.assertIn("can make it possible", housing.english)
+        savings = plans["eo/tache-3/education-p1"].arguments[2].example
+        self.assertIn("Promesse d'embauche et épargne", savings.french)
+        self.assertIn("moins d'inquiétude", savings.french)
+        self.assertIn("A job offer and savings", savings.english)
         support = plans["eo/tache-3/education-p4"].arguments[2].example
         self.assertIn("cherche une aide en sciences", support.french)
         self.assertIn("seeks help with science", support.english)
@@ -905,7 +906,6 @@ class TacheThreeModelContentTests(SimpleTestCase):
 
     def test_culture_retained_reasons_and_replaced_transmission_keep_distinct_argument_ids(self):
         replacements = {
-            "culture-p9": (1, 2, 4),
             "culture-p11": (1, 2, 4),
             "culture-p15": (1, 2, 4),
             "culture-p16": (1, 4, 5),
@@ -1018,6 +1018,45 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("Si elle doit attendre une nouvelle autorisation", insecurity.exemple)
         self.assertIn("pas seulement sur une demande administrative", insecurity.consequence)
 
+    def test_adaptation_restores_supplied_traits_language_and_preparation_developments(self):
+        response = catalogue.tache_three_models()["eo/tache-3/education-p1"].response
+        traits, language, conditions = response.arguments
+        self.assertIn("de la patience, de la curiosité, une certaine ouverture d'esprit", traits.developpement)
+        self.assertIn("la capacité à supporter l'inconnu", traits.developpement)
+        self.assertIn("certaines personnes y trouvent une vraie motivation", traits.developpement)
+        self.assertIn("travailler, de faire des démarches ou simplement de créer des liens", language.developpement)
+        self.assertIn("des codes culturels, des habitudes et des manières d'échanger", language.developpement)
+        self.assertIn("même après plusieurs années sur place", language.developpement)
+        self.assertIn("un emploi, un logement et des proches déjà installés", conditions.developpement)
+        self.assertIn("sans contrat de travail, sans famille et sans réseau", conditions.developpement)
+        self.assertIn("une bonne préparation administrative, financière et professionnelle", conditions.developpement)
+        self.assertIn("La capacité d'adaptation se travaille, elle n'est pas figée à l'avance", response.nuance)
+
+    def test_quebec_french_example_demonstrates_everyday_independence(self):
+        model = catalogue.tache_three_models()["eo/tache-3/education-p5"]
+        example = model.response.arguments[0].exemple
+        self.assertIn("Prenons l'exemple d'une personne dont la voiture ne démarre plus", example)
+        self.assertIn("Au téléphone, elle explique le problème au garagiste et comprend ses réponses", example)
+        self.assertIn("prend donc rendez-vous", example)
+        self.assertIn("sans attendre qu'un proche soit disponible pour téléphoner à sa place", example)
+        self.assertNotIn("sous-estimer", example)
+        cue = catalogue.tache_three_subject_hints()[model.group].arguments[0].example
+        self.assertIn("sans attendre qu'un proche puisse appeler", cue.french)
+        self.assertIn("without waiting for a loved one to call", cue.english)
+
+    def test_quebec_family_example_links_confirmed_support_to_affordability(self):
+        model = catalogue.tache_three_models()["eo/tache-3/education-p5"]
+        example = model.response.arguments[2].exemple
+        self.assertIn("prépare son départ sans emploi au Québec", example)
+        self.assertIn("confirme qu'il peut l'aider dans ses démarches, mais pas l'héberger", example)
+        self.assertIn("compare donc ses économies à six mois de loyer, de courses et de transports", example)
+        self.assertIn("pour vérifier si elle peut partir", example)
+        cue = catalogue.tache_three_subject_hints()[model.group].arguments[2].example
+        self.assertIn("soutien aux démarches, pas d'hébergement", cue.french)
+        self.assertIn("comparer les économies à six mois de dépenses", cue.french)
+        self.assertIn("help with paperwork, not housing", cue.english)
+        self.assertIn("compare savings with six months' living costs", cue.english)
+
     def test_migration_choice_keeps_the_bank_developments_and_their_contrasts(self):
         model = catalogue.tache_three_models()["eo/tache-3/economie-p14"]
         livelihood, safety, profession = model.response.arguments
@@ -1032,6 +1071,23 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("exercer pleinement leur métier", profession.idea)
         self.assertIn("même s'ils peuvent déjà gagner leur vie", profession.idea)
         self.assertIn("même si on peut gagner sa vie autrement", profession.developpement)
+
+    def test_habits_and_adaptation_restore_pre_bank_arguments(self):
+        models = catalogue.tache_three_models()
+        habits = models["eo/tache-3/culture-p1"].response.arguments[2]
+        self.assertIn("choisir celles qui nous conviennent", habits.idea)
+        self.assertIn("En discutant avec les personnes qui la suivent", habits.developpement)
+        self.assertIn("L'essai permet ensuite de décider si elle nous convient.", habits.developpement)
+        self.assertIn("le changement devient un choix plutôt qu'une obligation", habits.consequence)
+        adaptation = models["eo/tache-3/culture-p9"]
+        self.assertEqual(adaptation.argument_ids, (1, 2, 3))
+        language, distance, contacts = adaptation.response.arguments
+        self.assertIn("la langue peut rendre fatigantes", language.idea)
+        self.assertIn("au problème à résoudre et à la manière de se faire comprendre", language.developpement)
+        self.assertIn("Les appels entretiennent le lien", distance.developpement)
+        self.assertIn("reconstruire les repères pratiques", contacts.idea)
+        self.assertIn("il demande conseil à une voisine", contacts.exemple)
+        self.assertIn("vérifier les horaires avant de s'y rendre", contacts.exemple)
 
     def test_goals_abroad_keeps_the_full_bank_preparation_development(self):
         preparation = catalogue.tache_three_models()["eo/tache-3/culture-p5"].response.arguments[1]
@@ -1124,7 +1180,13 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("démarches et mon installation", practical.idea)
         self.assertIn("quels documents préparer", practical.developpement)
         self.assertIn("où vérifier mes droits", practical.developpement)
-        self.assertIn("quel service contacter", practical.exemple)
+        self.assertIn("l'ouverture d'un compte bancaire", practical.exemple)
+        self.assertIn("mon passeport suffit", practical.exemple)
+        self.assertIn("Si la banque exigeait aussi une preuve d'adresse", practical.exemple)
+        self.assertIn("je devrais revenir avec ce document", practical.exemple)
+        self.assertIn("avant le départ", practical.exemple)
+        self.assertIn("éviter de perdre une matinée", practical.exemple)
+        self.assertNotIn("cabinet médical", practical.exemple)
         self.assertIn("autonomie", practical.consequence)
         self.assertIn("mon projet est vraiment réalisable", project.idea)
         self.assertIn("les emplois proposés, la reconnaissance de ma formation et le coût de la vie", project.developpement)
@@ -1185,7 +1247,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p24", 1, "chacun apporte un plat", "chacun apporte un plat", "everyone brings a dish"),
             ("culture-p24", 1, "réutilise ensuite ces expressions", "réutilise ces expressions", "reuses these expressions"),
             ("culture-p24", 2, "magasin qui recrute", "magasin qui recrute", "shop that is recruiting"),
-            ("culture-p26", 0, "consulter un médecin", "médecin", "doctor"),
+            ("culture-p26", 0, "compte bancaire", "Compte bancaire", "Bank account"),
+            ("culture-p26", 0, "une preuve d'adresse", "preuve d'adresse", "proof of address"),
             ("culture-p26", 1, "New York", "New York", "New York"),
             ("culture-p26", 1, "2 500 dollars nets par mois", "2 500 dollars nets par mois", "$2,500 monthly take-home pay"),
             ("culture-p26", 1, "un loyer à 2 000 dollars", "2 000 de loyer", "$2,000 rent"),

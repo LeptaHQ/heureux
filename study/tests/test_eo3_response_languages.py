@@ -468,11 +468,16 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         cases = (
-            ("education-p1", "argument-5-exemple", ("doctor's office", "without help"), ()),
+            (
+                "education-p1", "argument-5-exemple",
+                ("ask their colleagues for explanations", "their working habits"),
+                ("doctor's office",),
+            ),
             (
                 "education-p5", "argument-1-exemple",
-                ("experienced mechanic", "how he identifies a fault", "underestimate his skills"),
-                ("describe her work",),
+                ("Over the phone", "car will not start", "explain the problem to the mechanic",
+                 "understand the answers", "make an appointment without waiting for a loved one"),
+                ("underestimate",),
             ),
             (
                 "education-p5", "argument-2-developpement",
@@ -480,13 +485,15 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             ),
             (
                 "education-p5", "argument-3-developpement",
-                ("A partner may need to learn French", "children need to get used to a new school",
+                ("everyone also needs to be able to adapt to their new life",
+                 "A partner may need to learn French", "children need to get used to a new school",
                  "allow for this adjustment period"), (),
             ),
             (
                 "education-p5", "argument-3-exemple",
-                ("have not yet found work in Quebec", "what support that person could actually provide",
-                 "rather than assuming they could stay with them"),
+                ("without having found work in Quebec", "confirms they can help with the paperwork",
+                 "cannot put them up", "compares its savings with six months",
+                 "whether it can afford to move"),
                 (),
             ),
             ("education-p7", "argument-1-consequence", ("concrete skills", "in her application"), ("change careers",)),
@@ -619,7 +626,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         models = scoped_models()
         for group, index, field, wording in (
             ("education-p2", 0, "exemple", "someone close to her"),
-            ("education-p5", 2, "exemple", "someone close to them"),
+            ("education-p5", 2, "exemple", "Someone close to them"),
         ):
             with self.subTest(group=group, field=field):
                 model = models[f"eo/tache-3/{group}"]
@@ -1322,7 +1329,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
                     self.assertTrue(all(result["fields"].values()))
         provider.assert_not_called()
 
-    def test_adaptation_english_keeps_daily_barriers_emotional_strain_and_departure_conditions(self):
+    def test_restored_adaptation_english_keeps_language_distance_and_practical_contacts(self):
         data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
@@ -1330,10 +1337,10 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         rows = data["groups"][model.group]
         fields = public_fields(model)
         for field, phrases in (
-            ("argument-1-developpement", ("administrative procedures", "healthcare system", "whom to ask for help")),
-            ("argument-2-developpement", ("network of loved ones", "physical presence", "deepen the loneliness")),
-            ("argument-4-developpement", ("clear goal", "savings", "fewer problems to solve at once", "break the isolation")),
-            ("argument-4-exemple", ("employment contract", "housing arranged for the first two months", "language course", "work and a home")),
+            ("argument-1-developpement", ("understanding a fast conversation", "problem you need to solve", "how to make yourself understood")),
+            ("argument-2-developpement", ("Calls maintain the connection", "being there in person", "moments we used to share")),
+            ("argument-3-developpement", ("which doctor to consult", "these contacts", "whom to ask for help")),
+            ("argument-3-exemple", ("child, who has a fever", "a neighbour", "walk-in clinic's phone number", "check its opening hours")),
         ):
             with self.subTest(field=field):
                 english = rows[fingerprint(fields[field])]["english"]
@@ -1346,12 +1353,32 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             self.skipTest("DeepL response translations have not been prepared.")
         models = scoped_models()
         for name, field, phrases in (
-            ("education-p1", "introduction", ("under the circumstances in which they arrive", "Personal abilities can develop", "external obstacles matter")),
-            ("education-p1", "argument-4-developpement", ("every change feels like a loss", "reactions are not permanent")),
-            ("education-p1", "argument-4-exemple", ("group hike", "encourages them to try something else")),
-            ("education-p1", "argument-5-developpement", ("understanding the words is not always enough", "effort to participate")),
-            ("education-p1", "nuance", ("inherently incapable", "Choosing to leave again is not proof of inability")),
+            ("education-p1", "introduction", ("not everyone is able to adapt", "circumstances in which they arrive")),
+            (
+                "education-p1", "argument-4-developpement",
+                ("patience, curiosity", "open-mindedness", "cope with the unfamiliar",
+                 "genuinely motivating", "others soon feel lost"),
+            ),
+            ("education-p1", "argument-4-exemple", ("ventures into activities despite feeling uncomfortable", "remains isolated")),
+            (
+                "education-p1", "argument-5-developpement",
+                ("working, dealing with administrative tasks", "relationships with residents",
+                 "cultural codes, customs", "even after several years"),
+            ),
+            (
+                "education-p1", "argument-2-developpement",
+                ("a job, housing", "employment contract, family or a network",
+                 "administrative, financial and professional preparation"),
+            ),
+            ("education-p1", "argument-2-exemple", ("a job offer and some savings", "initial expenses", "employer to pay their first salary")),
+            ("education-p1", "nuance", ("inherently unable to adapt", "time, help and good preparation", "not fixed in advance")),
             ("culture-p26", "argument-5-developpement", ("which documents to prepare", "where to check my rights")),
+            (
+                "culture-p26", "argument-5-exemple",
+                ("opening a bank account", "my passport is enough",
+                 "If the bank also required proof of address",
+                 "I would have to return with that document", "avoid wasting a morning"),
+            ),
             ("culture-p26", "argument-2-developpement", ("available jobs", "recognition of my qualifications", "additional training")),
             ("culture-p26", "argument-3-developpement", ("different pace of life", "know what to expect", "personal rejection")),
             ("culture-p30", "argument-1-developpement", ("implied meanings", "knowing when to speak up", "good command of the language")),
@@ -1413,7 +1440,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             ("culture-p29", "argument-4-developpement", ("solve our problem and understand an unfamiliar system at the same time",)),
             ("culture-p29", "argument-2-consequence", ("both the support we receive and the support we would like to give",)),
             ("culture-p29", "argument-3-developpement", ("look to the future with peace of mind",)),
-            ("culture-p1", "argument-3-developpement", ("change everything under pressure", "a personal choice rather than an imposed obligation")),
+            ("culture-p1", "argument-3-developpement", ("benefit of a local practice", "talking with the people who follow it", "decide whether it suits us")),
             ("culture-p35", "argument-1-developpement", ("everyday needs", "employers sometimes struggle to find locally", "activities that require specific skills")),
             ("culture-p35", "argument-2-developpement", ("A country's culture is not fixed", "beyond their communities of origin", "an integral part of the country's identity")),
             ("culture-p35", "argument-4-developpement", ("retirements exceed new entries into working life", "a smaller number of workers", "fund pensions and public services")),

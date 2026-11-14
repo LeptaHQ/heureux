@@ -119,7 +119,7 @@
         },
         {
           "idea": "Ensuite, la préparation transforme une ambition générale en étapes réalisables.",
-          "developpement": "Une bonne préparation suppose un objectif défini, des moyens financiers et une connaissance suffisante de la langue pour étudier ou travailler. Il faut aussi vérifier si ses compétences et sa formation permettent d'exercer sur place. Sans ces conditions, on risque de devoir accepter n'importe quel emploi pour payer ses dépenses, au lieu d'avancer vers son objectif. Prévoir ces besoins donne donc les moyens de poursuivre réellement son projet.",
+          "developpement": "En effet, partir sans projet clair, sans connaître la langue et sans ressources suffisantes risque de mener à la déception. Une bonne préparation suppose plusieurs éléments précis : un objectif défini, un minimum de moyens financiers, une connaissance de base de la langue et une vraie capacité d'adaptation. Sans ces conditions, le départ peut fragiliser la situation au lieu de la faire avancer.",
           "exemple": "Par exemple, un électricien qui souhaite travailler à l'étranger peut vérifier les exigences auprès de l'organisme compétent. Si une formation complémentaire est demandée, il peut prévoir du temps et un budget, au lieu de compter sur un emploi immédiat dans ce métier.",
           "consequence": "On peut ainsi préparer ce qui manque avant de partir, plutôt que découvrir sur place qu'on n'a pas les moyens de poursuivre son objectif."
         },
@@ -326,24 +326,24 @@
         {
           "idea": "Je pense d'abord qu'on peut partir vivre à l'étranger pour des raisons professionnelles.",
           "developpement": "En effet, certains pays offrent un marché du travail plus large, des salaires plus élevés ou de meilleures conditions de travail que le pays d'origine. De plus, dans certains domaines comme la recherche, l'ingénierie, la santé ou le numérique, une expérience internationale peut accélérer une carrière et donner accès à des projets plus ambitieux. Partir à l'étranger peut donc être une décision de carrière, prise pour avancer plus vite ou trouver un emploi qu'on n'aurait pas chez soi.",
-          "exemple": "Par exemple, une jeune ingénieure compare deux offres d'emploi. Elle choisit celle d'une entreprise à l'étranger, qui lui propose un meilleur salaire et une place dans l'équipe chargée de construire un hôpital.",
+          "exemple": "Par exemple, une jeune ingénieure en informatique compare deux offres d'emploi. Elle choisit le poste à l'étranger, mieux payé, où elle pourra développer des logiciels avec des collègues expérimentés. Elle veut ainsi progresser dans son métier.",
           "consequence": "Le départ peut donc s'expliquer par un projet de carrière, et pas seulement par l'envie de changer de pays."
         },
         {
           "idea": "Ensuite, on peut aussi partir pour des raisons personnelles, liées au développement de soi.",
           "developpement": "En effet, vivre dans un autre pays permet d'apprendre une nouvelle langue et de sortir de ses habitudes ; le contact avec une autre culture peut ouvrir l'esprit, faire relativiser ses propres certitudes et apprendre à voir les choses autrement. De plus, certaines personnes recherchent surtout l'autonomie et la liberté de construire leur vie loin du regard de leur entourage habituel. Cette envie d'expérience, de liberté et d'ouverture peut suffire à motiver un départ, sans qu'un gain financier soit nécessaire.",
-          "exemple": "Par exemple, une étudiante qui vit chez ses parents choisit de passer un an dans une université étrangère. Elle veut parler une autre langue au quotidien et apprendre à décider seule où vivre, comment gérer son argent et avec qui passer son temps.",
+          "exemple": "Par exemple, une étudiante vivant chez ses parents choisit une année d'études à l'étranger. Elle compare les loyers pour choisir une colocation adaptée à son budget et pratique la langue avec ses colocataires. Elle apprend ainsi à faire ses propres choix et gagne confiance en elle.",
           "consequence": "Le départ devient alors une façon de mieux se connaître et de construire sa propre vie."
         },
         {
-          "idea": "Enfin, les relations et le projet familial peuvent être au centre de la décision.",
-          "developpement": "On peut avoir un emploi qui nous convient et vouloir malgré tout rejoindre son conjoint ou offrir un cadre plus sûr à ses enfants. Dans ce cas, la vie familiale compte davantage que la carrière. Le départ sert à construire un quotidien qui convienne mieux à ceux avec qui l'on vit.",
+          "idea": "Enfin, on peut partir pour offrir un avenir plus sûr à ses enfants.",
+          "developpement": "En effet, les parents peuvent rechercher un pays où leurs enfants pourront grandir en sécurité et poursuivre leurs études. Quand la violence provoque des fermetures d'écoles, les interruptions risquent de freiner les apprentissages et de limiter les perspectives des enfants. Une scolarité stable peut leur donner davantage de possibilités pour choisir leur futur métier. Les besoins des enfants passent alors avant la carrière des parents.",
           "exemple": "Par exemple, une famille vivant dans une région où les violences entraînent des fermetures d'écoles peut envisager de s'installer dans un pays plus sûr. Les parents cherchent alors un cadre où leurs enfants pourront aller régulièrement en classe et poursuivre leurs apprentissages sans ces interruptions.",
           "consequence": "La sécurité et la scolarité des enfants guident alors le choix de la destination."
         }
       ],
-      "nuance": "Bien sûr, ces motivations se mélangent souvent chez une même personne. On peut partir pour travailler, mais aussi pour apprendre une langue et préparer un avenir pour ses enfants. Le degré de liberté varie aussi : certains départs relèvent davantage d'un choix, d'autres d'une nécessité.",
-      "conclusion": "Le départ prend donc son sens dans le projet de vie de chacun.",
+      "nuance": "Bien sûr, ces motivations se mélangent souvent chez une même personne. Le degré de liberté varie aussi : certains départs relèvent davantage d'un choix, d'autres d'une nécessité.",
+      "conclusion": "On peut donc partir pour progresser professionnellement, gagner en autonomie ou offrir un avenir plus sûr à ses enfants.",
       "argument_ids": [
         1,
         2,
@@ -500,18 +500,18 @@
       "arguments": [
         {
           "idea": "Tout d'abord, on peut partir parce qu'on n'arrive plus à vivre correctement dans son pays.",
-          "developpement": "Cela ne concerne pas seulement les personnes sans emploi. On peut travailler et gagner trop peu pour payer le logement et nourrir sa famille. Si la situation dure sans perspective d'amélioration, chercher du travail ailleurs devient une façon de s'en sortir, plutôt qu'une simple envie de changement.",
+          "developpement": "En effet, dans certains pays, le manque d'emplois, les salaires trop faibles ou l'absence de perspectives d'avenir poussent les gens à chercher une vie meilleure ailleurs. Ce n'est pas un choix librement consenti : c'est plutôt une réponse à une situation économique qui ne laisse pas beaucoup d'options. À l'inverse, dans un pays où l'économie offre du travail correct, peu de personnes quitteraient durablement leur famille, leurs amis et tous leurs repères.",
           "exemple": "Par exemple, un père cherche du travail depuis plusieurs mois, sans succès. Ses économies sont presque épuisées. Il accepte un emploi à l'étranger pour payer les dépenses de sa famille, même s'il aurait préféré rester près d'elle.",
           "consequence": "Il choisit cet emploi, mais rester sans revenu n'est pas une véritable solution."
         },
         {
           "idea": "Ensuite, partir peut devenir nécessaire pour retrouver une vie en sécurité.",
-          "developpement": "Quand la violence ou l'instabilité politique empêchent de vivre normalement, on cherche d'abord à se protéger. Pouvoir sortir sans peur, se faire soigner et envoyer ses enfants à l'école devient essentiel. Si on ne trouve plus de protection dans son pays, partir peut devenir une nécessité.",
+          "developpement": "En effet, certaines personnes vivent dans des pays marqués par la violence, l'instabilité politique ou un système de santé et d'éducation très faible. Dans ce cas, partir n'est pas une envie mais une question de protection pour soi et pour sa famille. Au contraire, dans un pays sûr et stable, l'idée même de tout quitter ne se poserait pas avec la même urgence.",
           "exemple": "Une famille peut décider de partir parce que l'école des enfants doit souvent fermer à cause de la violence. S'installer dans un pays plus sûr pourrait permettre aux enfants de suivre à nouveau les cours régulièrement.",
           "consequence": "Leur priorité est donc de protéger leurs enfants, pas de changer de mode de vie."
         },
         {
-          "idea": "Enfin, même un départ qui semble volontaire peut être lié au manque de possibilités sur place.",
+          "idea": "Enfin, certains partent pour pouvoir exercer pleinement leur métier, même s'ils peuvent déjà gagner leur vie dans leur pays.",
           "developpement": "Certaines professions demandent du matériel ou des structures qu'on ne trouve pas partout. Sans ces moyens, on peut être obligé de laisser de côté une partie essentielle de son travail, même si on peut gagner sa vie autrement.",
           "exemple": "Prenons l'exemple d'une chercheuse qui enseigne dans son pays, mais n'y trouve pas de laboratoire équipé pour ses recherches. Elle accepte un poste à l'étranger pour les poursuivre, même si elle aurait préféré rester près de ses proches.",
           "consequence": "Elle ne part pas pour survivre, mais rester l'obligerait à abandonner ses recherches."

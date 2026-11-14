@@ -1018,6 +1018,29 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("Si elle doit attendre une nouvelle autorisation", insecurity.exemple)
         self.assertIn("pas seulement sur une demande administrative", insecurity.consequence)
 
+    def test_migration_choice_keeps_the_bank_developments_and_their_contrasts(self):
+        model = catalogue.tache_three_models()["eo/tache-3/economie-p14"]
+        livelihood, safety, profession = model.response.arguments
+        self.assertIn("le manque d'emplois, les salaires trop faibles ou l'absence de perspectives d'avenir", livelihood.developpement)
+        self.assertIn("une situation économique qui ne laisse pas beaucoup d'options", livelihood.developpement)
+        self.assertIn("À l'inverse, dans un pays où l'économie offre du travail correct", livelihood.developpement)
+        self.assertIn("leur famille, leurs amis et tous leurs repères", livelihood.developpement)
+        self.assertIn("un système de santé et d'éducation très faible", safety.developpement)
+        self.assertIn("une question de protection pour soi et pour sa famille", safety.developpement)
+        self.assertIn("dans un pays sûr et stable", safety.developpement)
+        self.assertIn("ne se poserait pas avec la même urgence", safety.developpement)
+        self.assertIn("exercer pleinement leur métier", profession.idea)
+        self.assertIn("même s'ils peuvent déjà gagner leur vie", profession.idea)
+        self.assertIn("même si on peut gagner sa vie autrement", profession.developpement)
+
+    def test_goals_abroad_keeps_the_full_bank_preparation_development(self):
+        preparation = catalogue.tache_three_models()["eo/tache-3/culture-p5"].response.arguments[1]
+        self.assertIn("sans projet clair, sans connaître la langue et sans ressources suffisantes", preparation.developpement)
+        self.assertIn("risque de mener à la déception", preparation.developpement)
+        self.assertIn("un objectif défini, un minimum de moyens financiers", preparation.developpement)
+        self.assertIn("une connaissance de base de la langue et une vraie capacité d'adaptation", preparation.developpement)
+        self.assertIn("le départ peut fragiliser la situation au lieu de la faire avancer", preparation.developpement)
+
     def test_culture_immigration_wealth_restores_economic_cultural_and_demographic_reasons(self):
         model = catalogue.tache_three_models()["eo/tache-3/culture-p35"]
         economy, culture, demography = model.response.arguments
@@ -1055,9 +1078,25 @@ class TacheThreeModelContentTests(SimpleTestCase):
         group = "eo/tache-3/culture-p25"
         response = catalogue.tache_three_models()[group].response
         cue = catalogue.tache_three_subject_hints()[group].nuance
+        example = response.arguments[0].exemple
+        self.assertIn("ingénieure en informatique", example)
+        self.assertIn("compare deux offres d'emploi", example)
+        self.assertIn("développer des logiciels avec des collègues expérimentés", example)
+        self.assertIn("Elle veut ainsi progresser", example)
+        student = response.arguments[1].exemple
+        self.assertIn("compare les loyers", student)
+        self.assertIn("colocation adaptée à son budget", student)
+        self.assertIn("pratique la langue avec ses colocataires", student)
+        self.assertIn("faire ses propres choix et gagne confiance", student)
+        family = response.arguments[2]
+        self.assertIn("offrir un avenir plus sûr à ses enfants", family.idea)
+        self.assertIn("freiner les apprentissages et de limiter les perspectives", family.developpement)
+        self.assertIn("possibilités pour choisir leur futur métier", family.developpement)
+        self.assertIn("avant la carrière des parents", family.developpement)
+        self.assertNotIn("ceux avec qui l'on vit", family.developpement)
+        self.assertIn("progresser professionnellement, gagner en autonomie", response.conclusion)
+        self.assertIn("offrir un avenir plus sûr à ses enfants", response.conclusion)
         self.assertIn("ces motivations se mélangent", response.nuance)
-        self.assertIn("pour travailler, mais aussi pour apprendre une langue", response.nuance)
-        self.assertIn("préparer un avenir pour ses enfants", response.nuance)
         self.assertIn("certains départs relèvent davantage d'un choix, d'autres d'une nécessité", response.nuance)
         self.assertNotIn("fuite", response.nuance)
         self.assertNotIn("insécurité", response.nuance)

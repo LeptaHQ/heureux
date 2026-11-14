@@ -933,6 +933,11 @@
         "english": "People do not always choose a place solely for the opportunities it offers them personally. Joining a partner, living near loved ones or seeking an environment suited to one’s children may carry more weight than a career.",
         "french": "On ne choisit pas toujours un lieu uniquement pour ses possibilités individuelles. Rejoindre un conjoint, vivre près de proches ou chercher un cadre adapté à ses enfants peut peser davantage qu'une carrière."
       },
+      "518ad1c0f2b9974f3c0c415a1c5df4f408305c75c8010ea9823dec7411173e63": {
+        "english": "For example, a young software engineer compares two job offers. She chooses the better-paid position abroad, where she will be able to develop software with experienced colleagues. She wants to use this opportunity to progress in her profession.",
+        "french": "Par exemple, une jeune ingénieure en informatique compare deux offres d'emploi. Elle choisit le poste à l'étranger, mieux payé, où elle pourra développer des logiciels avec des collègues expérimentés. Elle veut ainsi progresser dans son métier.",
+        "review_note": "Editorial English aligned with the realistic software-engineering role, better pay and learning from experienced colleagues. The career progression is her aim, not a guaranteed promotion. All preceding translations retained; no translation-provider call."
+      },
       "535183f07618579f27c877ee69bf722865538a3e02dc8e9208a654f20505d88a": {
         "deepl_english": "In my view, people may choose to live abroad for work, to learn or for a family project. These reasons can overlap, and their importance may change over time.",
         "english": "In my view, people may choose to live abroad for work, to learn or because of their family plans. These reasons can overlap, and their importance may change over time.",
@@ -947,6 +952,11 @@
         "english": "Next, people may also leave for personal reasons linked to their own development.",
         "french": "Ensuite, on peut aussi partir pour des raisons personnelles, liées au développement de soi.",
         "review_note": "Editorial English aligned with the bank-led professional and personal motivations revision and compared situated examples. Argument 3 and all preceding translations retained; no translation-provider call."
+      },
+      "58ecb513ce4b0102ef77c259646c4f1fd0e2dafcb6b01aa9fd67b1cd1f7c2a88": {
+        "english": "Of course, these motivations often combine in the same person. The degree of freedom also varies: some departures are more a matter of choice, others of necessity.",
+        "french": "Bien sûr, ces motivations se mélangent souvent chez une même personne. Le degré de liberté varie aussi : certains départs relèvent davantage d'un choix, d'autres d'une nécessité.",
+        "review_note": "Editorial English preserves both unique qualifications: mixed motivations and varying freedom. Only the repeated list of the three motivations was removed. All preceding translations retained; no translation-provider call."
       },
       "5bedfb092950ce6a3936ee2e99a523b7fd56356b366d142d6702d540dc2942eb": {
         "english": "A technician might join a foreign company to learn how to maintain a type of machine with which she is not yet familiar. The training offered by the company then provides a concrete reason for moving abroad, beyond simply the desire to live in a different country.",
@@ -970,6 +980,16 @@
         "english": "For example, a young engineer compares two job offers. She chooses the one from a company abroad, which offers her better pay and a place on the team building a hospital.",
         "french": "Par exemple, une jeune ingénieure compare deux offres d'emploi. Elle choisit celle d'une entreprise à l'étranger, qui lui propose un meilleur salaire et une place dans l'équipe chargée de construire un hôpital.",
         "review_note": "Editorial English aligned with the bank-led professional and personal motivations revision and compared situated examples. Argument 3 and all preceding translations retained; no translation-provider call."
+      },
+      "87d6d42c1a5285f53154250ccd0b3ce574c77f493d387675393101cd2733c125": {
+        "english": "For example, a student living with her parents chooses to spend a year studying abroad. She compares rents to choose shared housing that suits her budget and practises the language with her housemates. In this way, she learns to make her own choices and gains confidence.",
+        "french": "Par exemple, une étudiante vivant chez ses parents choisit une année d'études à l'étranger. Elle compare les loyers pour choisir une colocation adaptée à son budget et pratique la langue avec ses colocataires. Elle apprend ainsi à faire ses propres choix et gagne confiance en elle.",
+        "review_note": "Editorial English aligned with the developed student case: comparing rents, choosing within her budget, practising with housemates and gaining confidence through her own choices. All preceding translations retained; no translation-provider call."
+      },
+      "8f7d65e9d740e39c6e2c9fb18b677eb031671b2b422b678bd43327263319595a": {
+        "english": "Finally, people may leave to give their children a safer future.",
+        "french": "Enfin, on peut partir pour offrir un avenir plus sûr à ses enfants.",
+        "review_note": "Editorial English aligned with the clarified family-future claim and the retained school-closure example. Argument identity retained; all preceding translations retained. No translation-provider call."
       },
       "9c275de47f65da6222bc6c0d2601bdc01e8f39ed6e44b556a2f0f948c7b69152": {
         "english": "Finally, relationships and family plans may be central to the decision.",
@@ -1022,6 +1042,16 @@
       "e18cb0d9c602327e46720ca9826a82b56a4226e6119a5de629c8be30a39e765e": {
         "english": "The aim is therefore also to learn to fend for oneself, not just to attend classes.",
         "french": "Le but est donc aussi d'apprendre à se débrouiller, pas seulement de suivre des cours."
+      },
+      "e4322b378004b495c10793589391b9fea4723f641b45e7ed02c55f3ccad480b1": {
+        "english": "Indeed, parents may look for a country where their children can grow up safely and continue their education. When violence causes schools to close, the interruptions may slow their learning and limit their future opportunities. Stable schooling can give them more options when choosing their future profession. The children's needs then take priority over the parents' careers.",
+        "french": "En effet, les parents peuvent rechercher un pays où leurs enfants pourront grandir en sécurité et poursuivre leurs études. Quand la violence provoque des fermetures d'écoles, les interruptions risquent de freiner les apprentissages et de limiter les perspectives des enfants. Une scolarité stable peut leur donner davantage de possibilités pour choisir leur futur métier. Les besoins des enfants passent alors avant la carrière des parents.",
+        "review_note": "Editorial English aligned with the full developed family-future reasoning: safety, interrupted learning, future possibilities and parents' priorities. The French explicitly identifies whose career is meant. All preceding translations retained; no translation-provider call."
+      },
+      "e99ad074c0ca843a96b039532023f83b5417b124d4dc02e9e9be8c0e747d7540": {
+        "english": "People may therefore leave to progress professionally, gain independence or give their children a safer future.",
+        "french": "On peut donc partir pour progresser professionnellement, gagner en autonomie ou offrir un avenir plus sûr à ses enfants.",
+        "review_note": "Editorial English aligned with the substantive synthesis of the three distinct motivations, replacing the generic project-of-life conclusion. All preceding translations retained; no translation-provider call."
       },
       "ea613cf5f475940343289d292b042aaf5402612c145ac86c90fddd25351af5fc": {
         "english": "A family living in a region where violence is causing schools to close may consider moving to a safer country. The parents are then looking for an environment where their children can attend school regularly and continue their education without these interruptions.",
@@ -1917,6 +1947,11 @@
         "french": "L'objectif reste possible, mais il peut demander plus de temps et d'argent que prévu.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "af8f889fc58d07f9d5e3a059fc03b32b3ca25b493eb89016a06ad0b2bad4bdcb": {
+        "english": "Indeed, leaving without a clear plan, without knowing the language and without sufficient resources risks leading to disappointment. Good preparation involves several specific elements: a defined goal, a minimum of financial resources, a basic knowledge of the language and a real ability to adapt. Without these conditions, moving abroad can weaken your situation rather than help you move forward.",
+        "french": "En effet, partir sans projet clair, sans connaître la langue et sans ressources suffisantes risque de mener à la déception. Une bonne préparation suppose plusieurs éléments précis : un objectif défini, un minimum de moyens financiers, une connaissance de base de la langue et une vraie capacité d'adaptation. Sans ces conditions, le départ peut fragiliser la situation au lieu de la faire avancer.",
+        "review_note": "Editorial English aligned with the full restored bank preparation development. Only the unsupported predominant-outcome claim was qualified as a risk; no reasoning was compressed. All preceding translations retained; no translation-provider call."
+      },
       "b3809b002795976b4f8ace4174ddaea0f13579804f519a954db1e81a42f6dee1": {
         "english": "If their applications go unanswered, a newcomer can ask an employment support service to review their CV. An adviser can show them how to present their achievements and prepare for an interview, though this does not guarantee a job offer.",
         "french": "Si ses candidatures restent sans réponse, un nouvel arrivant peut demander à un service d'aide à l'emploi de relire son CV. Un conseiller peut lui montrer comment présenter ses réalisations et préparer un entretien, sans lui garantir une embauche."
@@ -2143,6 +2178,11 @@
         "english": "Firstly, a threat may make leaving necessary in order to protect oneself.",
         "french": "Tout d'abord, une menace peut rendre le départ nécessaire pour se protéger."
       },
+      "018056b5753fff6d4c0a50a4d456bfa7efbebfe38449de90ea3906d5a28ddbdc": {
+        "english": "Finally, some people leave to be able to practise their profession fully, even though they can already earn a living in their own country.",
+        "french": "Enfin, certains partent pour pouvoir exercer pleinement leur métier, même s'ils peuvent déjà gagner leur vie dans leur pays.",
+        "review_note": "Editorial English aligned with the clarified distinction between earning a living and having the resources to practise one's profession fully. The development is unchanged; all preceding translations retained. No translation-provider call."
+      },
       "0bc2a10f58d05ee02249d53cfdfb37694ee5c38667d5f2ff3f5bed78742fa462": {
         "english": "Finally, a decision to leave may involve a combination of constraints and personal desires.",
         "french": "Enfin, un départ peut mêler des contraintes et des envies personnelles."
@@ -2201,6 +2241,11 @@
         "english": "Some professions require equipment or facilities that are not available everywhere. Without them, you may have to set aside an essential part of your work, even if you can earn a living doing something else.",
         "french": "Certaines professions demandent du matériel ou des structures qu'on ne trouve pas partout. Sans ces moyens, on peut être obligé de laisser de côté une partie essentielle de son travail, même si on peut gagner sa vie autrement.",
         "review_note": "Editorial English aligned with the strengthened economic, protection and professional constraints response; all preceding translations retained. No translation-provider call."
+      },
+      "6d875c60b0cb9a1a3745d6736911a6c5eca5e0fa78de772002e563dfe543ca41": {
+        "english": "Indeed, in some countries, a lack of jobs, wages that are too low or a lack of future prospects push people to seek a better life elsewhere. This is not a freely made choice: rather, it is a response to an economic situation that leaves few options. By contrast, in a country where the economy offers decent work, few people would leave their family, friends and all their familiar surroundings for the long term.",
+        "french": "En effet, dans certains pays, le manque d'emplois, les salaires trop faibles ou l'absence de perspectives d'avenir poussent les gens à chercher une vie meilleure ailleurs. Ce n'est pas un choix librement consenti : c'est plutôt une réponse à une situation économique qui ne laisse pas beaucoup d'options. À l'inverse, dans un pays où l'économie offre du travail correct, peu de personnes quitteraient durablement leur famille, leurs amis et tous leurs repères.",
+        "review_note": "Editorial English aligned with the user's complete restored bank economic development, including its hypothetical contrast. All preceding translations retained; no translation-provider call."
       },
       "7053c9c605be048c06f575b2f780c9258621279ab120e01598c4464471aa36ff": {
         "english": "When violence or political instability prevent normal life, the first concern is to protect yourself. Being able to go out without fear, receive medical care and send your children to school becomes essential. If you can no longer find protection in your own country, leaving may become a necessity.",
@@ -2331,6 +2376,11 @@
         "english": "When violence prevents a normal life and the authorities cannot protect the population, staying no longer offers an acceptable future. Parents then look for somewhere their children can grow up safely.",
         "french": "Quand la violence empêche de vivre normalement et que les autorités ne parviennent pas à protéger la population, rester n'offre plus un avenir acceptable. Les parents cherchent alors un endroit où leurs enfants pourront grandir en sécurité.",
         "review_note": "Editorial rewrite compared with the preserved Notion response; independently reviewed against the complete French intervention."
+      },
+      "f01f5dbbf042c2135075d73fa2ff8cd723bfebca178ddf8eb9aefb35f7b44410": {
+        "english": "Indeed, some people live in countries marked by violence, political instability or very weak healthcare and education systems. In these circumstances, leaving is not a wish but a matter of protecting yourself and your family. By contrast, in a safe, stable country, the very idea of leaving everything behind would not arise with the same urgency.",
+        "french": "En effet, certaines personnes vivent dans des pays marqués par la violence, l'instabilité politique ou un système de santé et d'éducation très faible. Dans ce cas, partir n'est pas une envie mais une question de protection pour soi et pour sa famille. Au contraire, dans un pays sûr et stable, l'idée même de tout quitter ne se poserait pas avec la même urgence.",
+        "review_note": "Editorial English aligned with the complete restored bank safety development and its contrast with a safe, stable country. All preceding translations retained; no translation-provider call."
       },
       "f9bf94bfed1ce4d1792f55eeadc2a22f3be972218121d1bc25a0758796980772": {
         "english": "Their priority is therefore to protect their children, not to change their lifestyle.",

@@ -1392,7 +1392,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         preparation = model.response.arguments[1]
         self.assertIn("transforms a broad ambition into achievable steps", rows[fingerprint(preparation.idea)]["english"])
         development = rows[fingerprint(preparation.developpement)]["english"]
-        for phrase in ("financial resources", "enough knowledge of the language", "accept any job to cover your expenses", "rather than moving towards your goal"):
+        for phrase in ("without a clear plan", "a minimum of financial resources", "a basic knowledge of the language", "a real ability to adapt", "weaken your situation rather than help you move forward"):
             self.assertIn(phrase, development)
         self.assertIn("If additional training is required", rows[fingerprint(preparation.exemple)]["english"])
         result = rows[fingerprint(preparation.consequence)]["english"]
@@ -1455,16 +1455,23 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         fields = public_fields(model)
         self.assertNotIn("argument-3-idea", fields)
         self.assertEqual(fields["argument-4-idea"], profession.idea)
+        professional_constraint = rows[fingerprint(profession.idea)]["english"]
+        self.assertIn("practise their profession fully", professional_constraint)
+        self.assertIn("even though they can already earn a living", professional_constraint)
         self.assertIn("people often leave", rows[fingerprint(model.response.position_claire)]["english"])
         economic_pressure = rows[fingerprint(livelihood.developpement)]["english"]
-        self.assertIn("not only concern people without a job", economic_pressure)
-        self.assertIn("work and still earn too little", economic_pressure)
+        self.assertIn("a lack of jobs, wages that are too low or a lack of future prospects", economic_pressure)
+        self.assertIn("an economic situation that leaves few options", economic_pressure)
+        self.assertIn("By contrast, in a country where the economy offers decent work", economic_pressure)
+        self.assertIn("their family, friends and all their familiar surroundings", economic_pressure)
         self.assertIn("His savings are almost gone", rows[fingerprint(livelihood.exemple)]["english"])
         self.assertIn("staying without an income is not a realistic alternative", rows[fingerprint(livelihood.consequence)]["english"])
         protection = rows[fingerprint(safety.developpement)]["english"]
         self.assertIn("political instability", protection)
-        self.assertIn("receive medical care", protection)
-        self.assertIn("no longer find protection in your own country", protection)
+        self.assertIn("very weak healthcare and education systems", protection)
+        self.assertIn("a matter of protecting yourself and your family", protection)
+        self.assertIn("in a safe, stable country", protection)
+        self.assertIn("would not arise with the same urgency", protection)
         school = rows[fingerprint(safety.exemple)]["english"]
         self.assertIn("violence repeatedly forces their children's school to close", school)
         self.assertIn("could give the children a chance", school)
@@ -1495,7 +1502,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         ):
             self.assertIn(phrase, development)
         career_example = rows[fingerprint(model.response.arguments[0].exemple)]["english"]
-        for phrase in ("compares two job offers", "better pay", "team building a hospital"):
+        for phrase in ("software engineer", "compares two job offers", "better-paid position abroad", "develop software with experienced colleagues", "wants to use this opportunity to progress"):
             self.assertIn(phrase, career_example)
         personal = model.response.arguments[1]
         development = rows[fingerprint(personal.developpement)]["english"]
@@ -1505,9 +1512,17 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         ):
             self.assertIn(phrase, development)
         example = rows[fingerprint(personal.exemple)]["english"]
-        self.assertIn("spend a year at a university abroad", example)
-        self.assertIn("decide for herself", example)
-        self.assertIn("who to spend her time with", example)
+        self.assertIn("spend a year studying abroad", example)
+        self.assertIn("compares rents", example)
+        self.assertIn("shared housing that suits her budget", example)
+        self.assertIn("practises the language with her housemates", example)
+        self.assertIn("make her own choices and gains confidence", example)
+        family = rows[fingerprint(model.response.arguments[2].developpement)]["english"]
+        for phrase in ("interruptions may slow their learning", "limit their future opportunities", "more options when choosing their future profession", "over the parents' careers"):
+            self.assertIn(phrase, family)
+        conclusion = rows[fingerprint(model.response.conclusion)]["english"]
+        for phrase in ("progress professionally", "gain independence", "give their children a safer future"):
+            self.assertIn(phrase, conclusion)
 
     def test_personal_letters_english_keeps_emotional_gesture_and_fuller_expression(self):
         data = read_manifest(DEFAULT_PATH)

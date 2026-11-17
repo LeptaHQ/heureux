@@ -310,18 +310,18 @@
     {
       "group": "help-transport-heavy-objects-no-vehicle",
       "register": "vous",
-      "note": "The interlocutor has no vehicle and requests transport help, not necessarily a house move. Use vous. This model assumes you can legally drive the rented van; otherwise arrange an authorized driver. Check timing, load, route, access, equipment and upfront funding before booking. The requester separately arranges and pays professionals for the washing machine on stairs. Do not attempt loads beyond the helpers' abilities; adapt the sofa follow-up to the actual reply.",
-      "opening": "Bonjour ! Je veux bien vous aider à organiser ce transport, mais j'ai besoin de quelques précisions.",
-      "closing": "Merci ! Je vais comparer les camionnettes disponibles pour samedi matin et vous confirmer la réservation.",
+      "note": "The requester has no vehicle and asks for help, not necessarily a house move. This example assumes you own a truck and can legally drive it. Check timing, load, route, access and equipment before committing; verify that the load fits the truck's dimensions and capacity. The requester arranges and pays professionals for the washing machine on stairs. Do not lift loads beyond the helpers' abilities. Use vous.",
+      "opening": "Bonjour ! J'ai un camion et je pourrais vous aider pour le transport. J'aurais besoin de quelques précisions avant de m'engager.",
+      "closing": "Merci ! Je vais vérifier que tout peut rentrer dans mon camion et vous confirmer si je suis disponible samedi matin.",
       "questions": [
-        {"topic": "Date", "question": "Quel jour souhaitez-vous effectuer le transport, et de quelle heure à quelle heure aurez-vous besoin de moi ?", "answer": "Samedi prochain, de neuf heures à treize heures environ, retour du véhicule compris.", "follow_up_to": null},
+        {"topic": "Date", "question": "Quel jour souhaitez-vous effectuer le transport, et de quelle heure à quelle heure aurez-vous besoin de moi ?", "answer": "Samedi prochain, de neuf heures à treize heures environ, trajet retour compris.", "follow_up_to": null},
         {"topic": "Objets", "question": "Quels objets faut-il transporter, et lesquels sont les plus encombrants ou les plus lourds ?", "answer": "Un canapé, une commode et une machine à laver déjà débranchée et vidangée ; le canapé est le plus encombrant, et la machine de 70 kg la plus lourde.", "follow_up_to": null},
         {"topic": "Objets", "question": "Quelles sont les dimensions du canapé, et peut-on retirer les pieds pour le transporter plus facilement ?", "answer": "Il mesure 2 m sur 90 cm, pour 85 cm de hauteur ; les pieds se retirent et ramènent la hauteur à 75 cm.", "follow_up_to": 2, "condition": "If a sofa is named without its dimensions or removable parts; adapt accordingly."},
         {"topic": "Trajet et accès", "question": "D'où faut-il partir, où doit-on déposer les objets, et quelle distance faut-il parcourir ?", "answer": "De chez moi à Ballard jusqu'à un appartement à Shoreline, à une vingtaine de kilomètres.", "follow_up_to": null},
         {"topic": "Trajet et accès", "question": "Y a-t-il des escaliers ou un ascenseur aux deux adresses, et peut-on stationner près des entrées ?", "answer": "Deux étages sans ascenseur au départ, un rez-de-chaussée à l'arrivée ; on peut stationner devant les deux entrées.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Quel budget avez-vous prévu pour louer une camionnette et le matériel nécessaire au transport ?", "answer": "Environ 150 $ pour la journée, avec un chariot adapté ; j'ai déjà des sangles et des couvertures.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Qui pourra nous aider à porter les objets lourds dans les escaliers en toute sécurité ?", "answer": "Mon frère et un voisin aideront pour les meubles ; pour la machine, je réserverai des professionnels à mes frais, séparément de la location.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Je m'occupe de réserver la camionnette. Comment s'organise-t-on pour le paiement de la location et du carburant ?", "answer": "Je vous avancerai les frais de location avant la réservation et je paierai le carburant au retour.", "follow_up_to": null}
+        {"topic": "Organisation", "question": "Avez-vous un chariot, des sangles et des couvertures pour transporter et protéger les objets ?", "answer": "J'ai des sangles et des couvertures ; pour le reste, je peux louer un chariot adapté.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Qui pourra nous aider à porter les objets lourds dans les escaliers en toute sécurité ?", "answer": "Mon frère et un voisin aideront pour les meubles ; pour la machine, je réserverai des professionnels à mes frais.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Est-ce que vous pouvez prendre en charge le carburant et, si nécessaire, la location du matériel ?", "answer": "Oui, je paierai le carburant et j'avancerai les frais si nous devons louer un chariot.", "follow_up_to": null}
       ]
     },
     {

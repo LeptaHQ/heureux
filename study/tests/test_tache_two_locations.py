@@ -183,19 +183,24 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         self.assertEqual(transport.questions[2].follow_up_to, 2)
         self.assertIn("où doit-on déposer les objets", transport.questions[3].question)
         self.assertIn("stationner près des entrées", transport.questions[4].question)
-        self.assertIn("budget", transport.questions[5].question)
+        self.assertIn("J'ai un camion", transport.opening)
+        self.assertIn("mon camion", transport.closing)
+        self.assertIn("chariot, des sangles et des couvertures", transport.questions[5].question)
         self.assertIn("chariot adapté", transport.questions[5].answer)
         self.assertIn("professionnels à mes frais", transport.questions[6].answer)
         self.assertNotIn("se démonte-t-il", transport.questions[2].question)
         self.assertIn("not necessarily a house move", transport.note)
-        self.assertIn("legally drive the rented van", transport.note)
-        self.assertIn("upfront funding before booking", transport.note)
+        self.assertIn("own a truck and can legally drive it", transport.note)
+        self.assertIn("dimensions and capacity", transport.note)
         self.assertEqual(
             transport.questions[7].question,
-            "Je m'occupe de réserver la camionnette. Comment s'organise-t-on pour le paiement de la location et du carburant ?",
+            "Est-ce que vous pouvez prendre en charge le carburant et, si nécessaire, la location du matériel ?",
         )
-        self.assertIn("avant la réservation", transport.questions[7].answer)
-        self.assertIn("carburant au retour", transport.questions[7].answer)
+        self.assertIn("j'avancerai les frais si nous devons louer un chariot", transport.questions[7].answer)
+        self.assertIn("je paierai le carburant", transport.questions[7].answer)
+        self.assertNotIn("louer une camionnette", " ".join(
+            question.question for question in transport.questions
+        ))
         apartment = by_group["estate-agent-advertised-apartment-unspecified"]
         self.assertEqual(
             apartment.questions[0].question,
@@ -224,8 +229,8 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         self.assertEqual(
             hints[transport.group][7],
             {
-                "french": "Paiement de la location et du carburant",
-                "english": "Payment for the rental and fuel",
+                "french": "Prise en charge du carburant et de l'éventuelle location de matériel",
+                "english": "Covering fuel costs and any equipment hire",
             },
         )
         self.assertEqual(
@@ -240,7 +245,7 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
             hints[summer.group][7]["english"],
             "Viewing and written cancellation and key-handover terms",
         )
-        for row in (transport, apartment, summer):
+        for row in (apartment, summer):
             old = catalogue.tache_two_location_history()[row.group].revisions[-1]
             self.assertEqual(row.opening, old.opening)
             self.assertEqual(row.closing, old.closing)
@@ -391,7 +396,8 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         self.assertIn("enfants et des adultes", nephews.questions[7].question)
         self.assertIn("parties courtes", nephews.questions[3].question)
         visit = by_group["visit-colleague-minor-accident"]
-        self.assertIn("les courses, les repas ou vos déplacements", visit.questions[1].question)
+        self.assertIn("vous aider à la maison", visit.questions[6].question)
+        self.assertIn("passer au supermarché pour vous", visit.questions[7].question)
         self.assertIn("je me repose à la maison", visit.questions[0].answer)
 
     def test_neighbourhood_pistes_follow_reordered_and_extended_questions(self):
@@ -1150,6 +1156,13 @@ class PublishedTacheTwoHighlightTests(TestCase):
             revision=1,
         )
 
+    def test_owned_truck_keeps_other_questions_and_archives_the_rental_version(self):
+        self.assert_revision_highlights_preserved(
+            "help-transport-heavy-objects-no-vehicle",
+            {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 7: 7},
+            revision=3,
+        )
+
     def test_blue_audit_keeps_every_learned_question_or_its_exact_archived_revision(self):
         manifest = json.loads(Path(__file__).with_name("blue_audit_fixtures.json").read_text())
         dialogues = {row.group: row for row in catalogue.tache_two_dialogues().values()}
@@ -1652,21 +1665,27 @@ class PublishedTacheTwoHighlightTests(TestCase):
         )
 
     def test_colleague_work_merger_preserves_moved_questions_and_archives_separate_questions(self):
-        self.assert_revision_highlights_preserved(
-            "visit-colleague-minor-accident", {1: 1, 2: 2, 4: 4},
+        self.assert_revision_matches_current(
+            "visit-colleague-minor-accident",
             revision=3,
         )
 
     def test_colleague_scene_help_rewrite_preserves_other_questions_and_archives_old_wording(self):
-        self.assert_revision_highlights_preserved(
-            "visit-colleague-minor-accident", {1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7},
+        self.assert_revision_matches_current(
+            "visit-colleague-minor-accident",
             revision=4,
         )
 
     def test_colleague_visit_offer_preserves_the_other_published_questions(self):
-        self.assert_revision_highlights_preserved(
-            "visit-colleague-minor-accident", {number: number for number in range(1, 8)},
+        self.assert_revision_matches_current(
+            "visit-colleague-minor-accident",
             revision=5,
+        )
+
+    def test_empathetic_colleague_visit_preserves_moved_questions_and_archives_rewrites(self):
+        self.assert_revision_highlights_preserved(
+            "visit-colleague-minor-accident", {1: 1, 3: 2, 5: 4},
+            revision=6,
         )
 
     def test_parcel_arrival_rewording_preserves_other_questions_and_archives_old_wording(self):

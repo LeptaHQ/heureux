@@ -4092,6 +4092,12 @@
         "english": "What budget have you set aside for hiring a van and the equipment needed for the transport?",
         "french": "Quel budget avez-vous prévu pour louer une camionnette et le matériel nécessaire au transport ?"
       },
+      "14490cc8a377db58826af4941e3a47b1f1d44aafb5c18e190466a60ca2d4bcfb": {
+        "english": "Do you have a trolley, straps and blankets to move and protect the items?",
+        "french": "Avez-vous un chariot, des sangles et des couvertures pour transporter et protéger les objets ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete owned-truck dialogue and its exact source prompt."
+      },
       "1b61589b20dc9756c171be582e88791e9c20f77bfddc05c6259c63e5f87fc302": {
         "english": "Which day would you like to transport the items, and from what time until what time will you need me?",
         "french": "Quel jour souhaitez-vous effectuer le transport, et de quelle heure à quelle heure aurez-vous besoin de moi ?",
@@ -4109,6 +4115,12 @@
       "4d659fbe9f45ffd52877e01335c62e77d4226a66882a0a043a600d43e9a14bf2": {
         "english": "On which day and at what time would you like the transport to take place?",
         "french": "Quel jour et à quelle heure souhaitez-vous effectuer le transport ?"
+      },
+      "6e225f731fdb99651833fb00fa632950534d9a39506b0459a8869134526248c0": {
+        "english": "Could you cover the fuel costs and, if necessary, the equipment hire?",
+        "french": "Est-ce que vous pouvez prendre en charge le carburant et, si nécessaire, la location du matériel ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete owned-truck dialogue and its exact source prompt."
       },
       "8354cf41d237f250ab54740542c6e50ca09340223da89effabd9cbed134973a0": {
         "english": "What are the dimensions of the sofa, and can the legs be removed to make it easier to transport?",
@@ -6899,6 +6911,12 @@
         "english": "When did it happen, and where exactly?",
         "french": "C'est arrivé quand, et à quel endroit exactement ?"
       },
+      "289b0f9d919870cf228534ba74f2d86dc29eb6574184d7de733b3376a519f342": {
+        "english": "I can pick up some groceries for you. What would you need?",
+        "french": "Je peux passer au supermarché pour vous. De quoi auriez-vous besoin ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and its exact source prompt."
+      },
       "28c3e6b26917bfbc60eeb7561b09d6d472ab1987b5e7bd5ed1ce9187aeb5cf48": {
         "english": "Would you like me to visit you again in a few days?",
         "french": "Souhaitez-vous que je repasse vous voir dans quelques jours ?",
@@ -6909,9 +6927,21 @@
         "english": "Is there anything I could bring you from the office in the meantime, and when could I drop it off?",
         "french": "Que pourrais-je vous apporter du bureau d'ici là, et quand pourrais-je vous le déposer ?"
       },
+      "7ec4f7b9c5f096b494bd753eee722d4b1839fe2729a62184892b2865749e2e0b": {
+        "english": "Do you have someone to help you at home while you rest?",
+        "french": "Vous avez quelqu'un pour vous aider à la maison pendant que vous vous reposez ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and its exact source prompt."
+      },
       "8b8408e757665506f8e9ecac8a55380c5a0d91a053eaf1bb842cd2ced53d0d03": {
         "english": "How are you feeling today?",
         "french": "Comment vous sentez-vous aujourd'hui ?"
+      },
+      "914154b7dff58df1b3d22aa2373b6399745d58f8723bce13958f5a123127a1a3": {
+        "english": "If you feel like talking about it, what exactly happened?",
+        "french": "Si vous avez envie d'en parler, qu'est-ce qui s'est passé exactement ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and its exact source prompt."
       },
       "96cd608b756d2d11f8c30bad212fedf6989df3d5f499135360f958182132f953": {
         "english": "Do you need any help with shopping, meals or getting about whilst you’re resting?",
@@ -6920,6 +6950,12 @@
       "cb67d3a2ec9382610c76ac81651afc8de3a59f5ff1f053f7b47520ab17b8c428": {
         "english": "What exactly happened?",
         "french": "Qu'est-ce qui s'est passé exactement ?"
+      },
+      "d15b2d82f751d50e3e55ad779a5908d84be240e19441797bff4484bdfea37fe5": {
+        "english": "What advice did the doctor give you for the next few days?",
+        "french": "Qu'est-ce que le médecin vous a conseillé pour les prochains jours ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and its exact source prompt."
       },
       "d36756c3b531d141410e893ead85175b5e200afbc9ecc5acbbe43441eb746fc2": {
         "english": "Did you see a doctor after the accident and, if so, what advice did they give you?",
@@ -6932,6 +6968,12 @@
       "f5f0b6543b14d3e3c77006a0e8cfd7c505f5d91431b93ce8a9c6954658172f45": {
         "english": "Do you have any idea when you’ll be back at work, and would you like me to pass on a message to the team?",
         "french": "Avez-vous une idée de la date de votre retour au travail, et souhaitez-vous que je transmette un message à l'équipe ?"
+      },
+      "f77492aec991076474a83413c1e6b68869dbef772381c9e90414d032e8453a67": {
+        "english": "How did you get to the emergency department?",
+        "french": "Comment avez-vous fait pour vous rendre aux urgences ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and its exact source prompt."
       }
     },
     "visit-friend-canada-december-preparation": {

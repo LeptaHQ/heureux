@@ -850,11 +850,11 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         visit = self.by_group["visit-colleague-minor-accident"]
         self.assertEqual(
             visit.questions[7].question,
-            "Souhaitez-vous que je repasse vous voir dans quelques jours ?",
+            "Je peux passer au supermarché pour vous. De quoi auriez-vous besoin ?",
         )
-        self.assertIn("samedi après-midi", visit.questions[7].answer)
+        self.assertIn("du pain, du lait", visit.questions[7].answer)
         self.assertEqual(
-            self.hints[visit.group][7]["english"], "Offer of another visit in a few days",
+            self.hints[visit.group][7]["english"], "Offer to get groceries and which items to buy",
         )
 
     def test_pet_urgency_replies_do_not_require_waiting_for_the_owners_response(self):
@@ -892,34 +892,39 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
 
     def test_minor_accident_inquiry_uses_empathy_and_a_coherent_narrative(self):
         row = self.by_group["visit-colleague-minor-accident"]
-        self.assertIn("pendant que vous vous reposez", row.questions[1].question)
-        self.assertEqual(row.questions[2].question, "C'est arrivé quand, et à quel endroit exactement ?")
-        self.assertEqual(row.questions[3].question, "Qu'est-ce qui s'est passé exactement ?")
+        self.assertEqual(row.questions[1].question, "C'est arrivé quand, et à quel endroit exactement ?")
+        self.assertIn("Si vous avez envie d'en parler", row.questions[2].question)
+        self.assertIn("qu'est-ce qui s'est passé exactement", row.questions[2].question)
         self.assertEqual(
-            row.questions[4].question, "Est-ce que quelqu'un est venu vous aider sur place ?",
+            row.questions[3].question, "Est-ce que quelqu'un est venu vous aider sur place ?",
         )
+        self.assertEqual(row.questions[3].follow_up_to, 3)
+        self.assertIn("aux urgences, par précaution", row.questions[3].answer)
+        self.assertIn("vous rendre aux urgences", row.questions[4].question)
         self.assertEqual(row.questions[4].follow_up_to, 4)
-        self.assertIn("Un passant", row.questions[4].answer)
+        self.assertIn("If they mention visiting the emergency department", row.questions[4].condition)
+        self.assertIn("pris un taxi", row.questions[4].answer)
+        self.assertIn("le médecin me reçoive", row.questions[4].answer)
         self.assertEqual(
             row.questions[5].question,
-            "Avez-vous consulté un médecin après l'accident et, si oui, que vous a-t-il conseillé ?",
+            "Qu'est-ce que le médecin vous a conseillé pour les prochains jours ?",
         )
-        self.assertIsNone(row.questions[5].follow_up_to)
+        self.assertEqual(row.questions[5].follow_up_to, 5)
         self.assertIn("quelques jours de repos", row.questions[5].answer)
         self.assertEqual(
             self.hints[row.group][5]["english"],
-            "Whether a doctor was consulted and what advice they gave",
+            "The doctor's advice for the next few days",
         )
-        self.assertEqual(
-            row.questions[6].question,
-            "Avez-vous une idée de la date de votre retour au travail, et souhaitez-vous que je transmette un message à l'équipe ?",
-        )
-        self.assertIn("lundi prochain", row.questions[6].answer)
-        self.assertIn("dire à l'équipe", row.questions[6].answer)
+        self.assertIn("vous aider à la maison", row.questions[6].question)
+        self.assertIn("Ma sœur passe le soir", row.questions[6].answer)
+        self.assertIn("pas encore pu faire les courses", row.questions[6].answer)
         self.assertEqual(row.questions[7].follow_up_to, 7)
+        self.assertIn("De quoi auriez-vous besoin", row.questions[7].question)
+        self.assertIn("vos courses", row.closing)
         self.assertEqual(
             self.hints[row.group][6]["english"],
-            "Possible return date and message to pass on to the team",
+            "Someone to help at home while they rest",
         )
         self.assertIn("explicitly minor", row.note)
+        self.assertIn("illustrative details, not prompt facts", row.note)
         self.assertIn("without assuming an injury, diagnosis or treatment", row.note)

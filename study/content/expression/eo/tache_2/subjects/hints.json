@@ -4054,32 +4054,32 @@
         "english": "Current state of health"
       },
       {
-        "french": "Aide pour les courses, repas ou déplacements pendant le repos",
-        "english": "Help with shopping, meals or travel while resting"
-      },
-      {
         "french": "Moment et lieu de l'accident",
         "english": "When and where the accident happened"
       },
       {
-        "french": "Déroulement précis de l'accident",
-        "english": "What exactly happened during the accident"
+        "french": "Récit de l'accident, si la personne souhaite en parler",
+        "english": "What happened, if the person wants to talk about it"
       },
       {
         "french": "Aide reçue sur place après l'accident",
         "english": "Help received at the scene after the accident"
       },
       {
-        "french": "Consultation éventuelle et conseils donnés par le médecin",
-        "english": "Whether a doctor was consulted and what advice they gave"
+        "french": "Moyen de transport utilisé pour aller aux urgences",
+        "english": "How they got to the emergency department"
       },
       {
-        "french": "Date possible de retour et message à transmettre à l'équipe",
-        "english": "Possible return date and message to pass on to the team"
+        "french": "Conseils du médecin pour les prochains jours",
+        "english": "The doctor's advice for the next few days"
       },
       {
-        "french": "Proposition d'une autre visite dans quelques jours",
-        "english": "Offer of another visit in a few days"
+        "french": "Personne disponible pour aider à la maison pendant le repos",
+        "english": "Someone to help at home while they rest"
+      },
+      {
+        "french": "Proposition de courses et produits à acheter",
+        "english": "Offer to get groceries and which items to buy"
       }
     ],
     "canada-newcomer-apartment-procedure-unspecified-adviser": [
@@ -4716,16 +4716,16 @@
         "english": "Stairs, lifts and parking at both locations"
       },
       {
-        "french": "Budget pour la camionnette et le matériel de transport",
-        "english": "Budget for the van and transport equipment"
+        "french": "Chariot, sangles et couvertures pour le transport",
+        "english": "Trolley, straps and blankets for the transport"
       },
       {
         "french": "Aide pour porter les objets lourds dans les escaliers sans risque",
         "english": "Help carrying heavy objects safely on stairs"
       },
       {
-        "french": "Paiement de la location et du carburant",
-        "english": "Payment for the rental and fuel"
+        "french": "Prise en charge du carburant et de l'éventuelle location de matériel",
+        "english": "Covering fuel costs and any equipment hire"
       }
     ],
     "neighbor-home-childcare-provider-referral": [

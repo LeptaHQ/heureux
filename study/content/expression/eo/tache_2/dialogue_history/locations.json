@@ -2029,6 +2029,21 @@
             {"topic": "Travail et soutien", "question": "Avez-vous une idée de la date de votre retour au travail, et souhaitez-vous que je transmette un message à l'équipe ?", "follow_up_to": null},
             {"topic": "Travail et soutien", "question": "Que pourrais-je vous apporter du bureau d'ici là, et quand pourrais-je vous le déposer ?", "follow_up_to": 7, "condition": "If the colleague expects to remain away from work for a few days."}
           ]
+        },
+        {
+          "group": "visit-colleague-minor-accident",
+          "opening": "Bonjour ! J'ai appris pour votre accident, et je tenais à prendre de vos nouvelles.",
+          "closing": "Merci de m'avoir donné de vos nouvelles. Reposez-vous bien, et dites-moi si je peux vous rendre service.",
+          "questions": [
+            {"topic": "Nouvelles et aide", "question": "Comment vous sentez-vous aujourd'hui ?", "follow_up_to": null},
+            {"topic": "Nouvelles et aide", "question": "Avez-vous besoin d'aide pour les courses, les repas ou vos déplacements pendant que vous vous reposez ?", "follow_up_to": 1, "condition": "If they mention resting at home without saying whether help is needed."},
+            {"topic": "L'accident", "question": "C'est arrivé quand, et à quel endroit exactement ?", "follow_up_to": null},
+            {"topic": "L'accident", "question": "Qu'est-ce qui s'est passé exactement ?", "follow_up_to": null},
+            {"topic": "L'accident", "question": "Est-ce que quelqu'un est venu vous aider sur place ?", "follow_up_to": 4, "condition": "If a fall is described without explaining whether someone helped."},
+            {"topic": "L'accident", "question": "Avez-vous consulté un médecin après l'accident et, si oui, que vous a-t-il conseillé ?", "follow_up_to": null},
+            {"topic": "Travail et soutien", "question": "Avez-vous une idée de la date de votre retour au travail, et souhaitez-vous que je transmette un message à l'équipe ?", "follow_up_to": null},
+            {"topic": "Travail et soutien", "question": "Souhaitez-vous que je repasse vous voir dans quelques jours ?", "follow_up_to": 7, "condition": "If they expect to stay home and have not discussed another visit."}
+          ]
         }
       ]
     },
@@ -2402,6 +2417,21 @@
             {"topic": "Trajet et accès", "question": "Y a-t-il des escaliers ou un ascenseur aux deux adresses, et peut-on stationner près des entrées ?", "follow_up_to": null},
             {"topic": "Organisation", "question": "Quel budget avez-vous prévu pour louer une camionnette et le matériel nécessaire au transport ?", "follow_up_to": null},
             {"topic": "Organisation", "question": "Qui d'autre pourra nous aider à porter les objets ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Je m'occupe de réserver la camionnette. Comment s'organise-t-on pour le paiement de la location et du carburant ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "help-transport-heavy-objects-no-vehicle",
+          "opening": "Bonjour ! Je veux bien vous aider à organiser ce transport, mais j'ai besoin de quelques précisions.",
+          "closing": "Merci ! Je vais comparer les camionnettes disponibles pour samedi matin et vous confirmer la réservation.",
+          "questions": [
+            {"topic": "Date", "question": "Quel jour souhaitez-vous effectuer le transport, et de quelle heure à quelle heure aurez-vous besoin de moi ?", "follow_up_to": null},
+            {"topic": "Objets", "question": "Quels objets faut-il transporter, et lesquels sont les plus encombrants ou les plus lourds ?", "follow_up_to": null},
+            {"topic": "Objets", "question": "Quelles sont les dimensions du canapé, et peut-on retirer les pieds pour le transporter plus facilement ?", "follow_up_to": 2, "condition": "If a sofa is named without its dimensions or removable parts; adapt accordingly."},
+            {"topic": "Trajet et accès", "question": "D'où faut-il partir, où doit-on déposer les objets, et quelle distance faut-il parcourir ?", "follow_up_to": null},
+            {"topic": "Trajet et accès", "question": "Y a-t-il des escaliers ou un ascenseur aux deux adresses, et peut-on stationner près des entrées ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Quel budget avez-vous prévu pour louer une camionnette et le matériel nécessaire au transport ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Qui pourra nous aider à porter les objets lourds dans les escaliers en toute sécurité ?", "follow_up_to": null},
             {"topic": "Organisation", "question": "Je m'occupe de réserver la camionnette. Comment s'organise-t-on pour le paiement de la location et du carburant ?", "follow_up_to": null}
           ]
         }

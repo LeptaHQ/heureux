@@ -231,16 +231,16 @@
     {
       "group": "grocery-store-home-delivery",
       "register": "vous",
-      "note": "You are in a grocery store asking about home delivery, not how to order online. Check address coverage, payment place and methods, delivery fees and any free-delivery threshold, timing and windows, cold transport, missed deliveries and refunds. The employee explains this store's service; prices and policies are fictional examples. Use vous.",
-      "opening": "Bonjour ! J'aimerais me faire livrer mes courses à domicile, et je voudrais savoir comment fonctionne votre service.",
-      "closing": "Merci pour ces renseignements. Je vais vérifier les créneaux avant de passer ma première commande.",
+      "note": "You are a grocery-store customer asking an employee about home delivery, not how to order online. Start with your address and basket, then check fees, the free-delivery threshold, payment, timing, cold transport and problems on arrival. The address and basket value are fictional practice details to adapt. The employee explains this store's service; prices and policies are illustrative. Use vous.",
+      "opening": "Bonjour ! J'aimerais faire livrer mes courses chez moi, au 18, rue des Lilas.",
+      "closing": "Merci pour ces précisions ! Je vais choisir un créneau avant de régler mes courses.",
       "questions": [
-        {"topic": "Commande", "question": "Quelle est votre zone de livraison, et comment vérifier si mon adresse est desservie ?", "answer": "Nous livrons dans un rayon de quinze kilomètres ; votre code postal sur notre site permet de vérifier votre adresse.", "follow_up_to": null},
-        {"topic": "Commande", "question": "Comment règle-t-on les courses et les frais de livraison : en caisse ou auprès du livreur, par carte ou en espèces ?", "answer": "Les courses et les frais de livraison se règlent en caisse, par carte ou en espèces ; nous ne proposons pas de paiement au livreur.", "follow_up_to": null},
-        {"topic": "Frais", "question": "Combien coûte la livraison selon le montant des achats, et existe-t-il un montant minimum pour bénéficier de la livraison gratuite ?", "answer": "La livraison coûte 7,99 $ pour moins de 100 $ d'achats et devient gratuite à partir de 100 $.", "follow_up_to": null},
-        {"topic": "Délais", "question": "Quel délai faut-il prévoir entre la commande et la livraison ?", "answer": "Une commande passée avant midi peut être livrée le jour même ; après midi, la livraison a généralement lieu le lendemain.", "follow_up_to": null},
+        {"topic": "Commande et frais", "question": "Est-ce que cette adresse fait bien partie de votre zone de livraison ?", "answer": "Oui, cette adresse est dans notre zone de livraison.", "follow_up_to": null},
+        {"topic": "Commande et frais", "question": "Pour environ 80 $ d'achats, combien coûte la livraison, et est-elle gratuite au-delà d'un certain montant ?", "answer": "La livraison coûte 7,99 $ pour ce montant et devient gratuite à partir de 100 $ d'achats.", "follow_up_to": null},
+        {"topic": "Commande et frais", "question": "Comment règle-t-on les courses et les frais de livraison : en caisse ou auprès du livreur, par carte ou en espèces ?", "answer": "Les courses et les frais de livraison se règlent en caisse, par carte ou en espèces ; nous ne proposons pas de paiement au livreur.", "follow_up_to": null},
+        {"topic": "Délais", "question": "Si je règle mes courses maintenant, est-ce que vous pouvez me les livrer aujourd'hui ou seulement demain ?", "answer": "Si vous réglez avant midi et qu'un créneau est disponible, nous pouvons livrer aujourd'hui. Sinon, nous proposons le lendemain, selon les places restantes.", "follow_up_to": null},
         {"topic": "Délais", "question": "Puis-je choisir un créneau de livraison, par exemple entre 14 h et 16 h ?", "answer": "Oui, vous pouvez choisir parmi les créneaux disponibles, par exemple de 14 h à 16 h.", "follow_up_to": 4, "condition": "If delivery timing is given without explaining whether a window can be chosen."},
-        {"topic": "Livraison", "question": "Comment les produits frais et surgelés sont-ils transportés ?", "answer": "Dans des sacs isothermes et des bacs réfrigérés.", "follow_up_to": null},
+        {"topic": "Livraison", "question": "J'ai des produits frais et des surgelés. Sont-ils gardés au froid pendant tout le trajet ?", "answer": "Oui, nous utilisons des contenants isothermes adaptés aux produits frais et aux surgelés, pour respecter la chaîne du froid.", "follow_up_to": null},
         {"topic": "Livraison", "question": "Que se passe-t-il si je suis absent au moment prévu, et une nouvelle livraison est-elle payante ?", "answer": "Le livreur vous appelle ; si vous restez injoignable, les courses reviennent au magasin et une nouvelle livraison coûte 7,99 $.", "follow_up_to": null},
         {"topic": "Livraison", "question": "Si un produit manque ou arrive abîmé, comment le signaler et obtenir un remboursement ?", "answer": "Vous pouvez appeler le service client avec le numéro de commande et, si possible, une photo ; nous vérifions le problème puis remboursons les articles concernés sur le moyen de paiement utilisé.", "follow_up_to": null}
       ]
@@ -333,7 +333,7 @@
     {
       "group": "visit-colleague-minor-accident",
       "register": "vous",
-      "note": "You visit a colleague after an explicitly minor accident. Ask how they are, when, where and how it happened, whether anyone helped, and whether they consulted a doctor. Ask about any advice without assuming an injury, diagnosis or treatment. Offer practical help, and combine a possible return date with a message for the team. Use vous consistently as a cautious workplace default.",
+      "note": "You visit a colleague after an explicitly minor accident. Ask how they are, when, where and how it happened, whether anyone helped, and whether they consulted a doctor. Ask about any advice without assuming an injury, diagnosis or treatment. Offer practical help and company, and combine a possible return date with a message for the team. Use vous consistently as a cautious workplace default.",
       "opening": "Bonjour ! J'ai appris pour votre accident, et je tenais à prendre de vos nouvelles.",
       "closing": "Merci de m'avoir donné de vos nouvelles. Reposez-vous bien, et dites-moi si je peux vous rendre service.",
       "questions": [
@@ -344,7 +344,7 @@
         {"topic": "L'accident", "question": "Est-ce que quelqu'un est venu vous aider sur place ?", "answer": "Un passant m'a aidé à me relever, puis un collègue m'a raccompagné à la maison.", "follow_up_to": 4, "condition": "If a fall is described without explaining whether someone helped."},
         {"topic": "L'accident", "question": "Avez-vous consulté un médecin après l'accident et, si oui, que vous a-t-il conseillé ?", "answer": "Oui, par précaution. Le médecin m'a conseillé quelques jours de repos.", "follow_up_to": null},
         {"topic": "Travail et soutien", "question": "Avez-vous une idée de la date de votre retour au travail, et souhaitez-vous que je transmette un message à l'équipe ?", "answer": "J'espère revenir lundi prochain, si je récupère bien ; vous pouvez dire à l'équipe que je vais mieux et que je les remercie.", "follow_up_to": null},
-        {"topic": "Travail et soutien", "question": "Que pourrais-je vous apporter du bureau d'ici là, et quand pourrais-je vous le déposer ?", "answer": "Mon chargeur et le dossier bleu sur mon bureau ; vous pouvez les déposer demain après 17 h, mais ce n'est pas nécessaire si vous êtes occupé.", "follow_up_to": 7, "condition": "If the colleague expects to remain away from work for a few days."}
+        {"topic": "Travail et soutien", "question": "Souhaitez-vous que je repasse vous voir dans quelques jours ?", "answer": "Oui, une courte visite samedi après-midi me ferait plaisir.", "follow_up_to": 7, "condition": "If they expect to stay home and have not discussed another visit."}
       ]
     }
   ]

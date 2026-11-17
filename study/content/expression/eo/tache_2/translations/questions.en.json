@@ -3761,9 +3761,27 @@
         "english": "Once the delivery has been booked, how long will it take for the sofa to be delivered?",
         "french": "Une fois la livraison réservée, sous quel délai le canapé pourra-t-il être livré ?"
       },
+      "349800b9f12b9ca62f001ddfc3c52fe2570417c5507dae363130aa7d4785f060": {
+        "english": "My flat is on the second floor, with no lift. Can your delivery team carry the sofa upstairs?",
+        "french": "Mon appartement est au deuxième étage, sans ascenseur. Vos livreurs peuvent-ils y monter le canapé ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete sofa-delivery dialogue and all four source prompts."
+      },
       "3d17472bc6da97aa833ff53d12d6708088e1875fcf70052c03599c13b24f8120": {
         "english": "To get an accurate quote, do you need to know the delivery address, the sofa’s dimensions and the access conditions to the property?",
         "french": "Pour obtenir un devis précis, devez-vous connaître l'adresse de livraison, les dimensions du canapé et les conditions d'accès au logement ?"
+      },
+      "61ef679582bf2c4835d801699358a27664ee752e5c084bcc62456c4f168772bd": {
+        "english": "The staircase is quite narrow. Could I send you measurements and photos to check whether the sofa will fit?",
+        "french": "L'escalier est assez étroit. Puis-je vous envoyer les mesures et des photos pour vérifier que le canapé passe ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete sofa-delivery dialogue and all four source prompts."
+      },
+      "79f90d0d1c21bbf55f657e0657fb7fad0da55d91753ce1edd19f33ed3d78009d": {
+        "english": "If I book today, could you deliver it next week?",
+        "french": "Si je réserve aujourd'hui, pourriez-vous me livrer la semaine prochaine ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete sofa-delivery dialogue and all four source prompts."
       },
       "952d38d4c1f517e1ab514355fc14e1b5a38230d92b911c48a59b4d44cbda2d12": {
         "deepl_english": "Does this price include placing the sofa in the room of your choice and clearing away the packaging?",
@@ -3778,6 +3796,12 @@
         "provider": "editorial",
         "review_note": "Editorial correction: The candidate addresses an employee; 'the room of your choice' assigns the room choice to that employee. French 'la pièce choisie' is neutral. Replace only this phrase, not the question structure. Previous complete row retained in editorial_history."
       },
+      "ab2636003931a67b00af01e4429948ca827546a791d794d6531ac1f73a00d1c8": {
+        "english": "Will the sofa be transported in an enclosed truck, with protection against knocks?",
+        "french": "Est-ce que le canapé voyagera dans un camion fermé, avec des protections contre les chocs ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete sofa-delivery dialogue and all four source prompts."
+      },
       "c02e43ea85e687a3f453793f3b261d7dd12229192d837e18f718d1a42adac192": {
         "english": "What sort of vehicle will the sofa be transported in, and how will it be protected during the journey?",
         "french": "Dans quel type de véhicule le canapé sera-t-il transporté, et comment sera-t-il protégé pendant le trajet ?"
@@ -3789,6 +3813,12 @@
       "d3c0d2d2ac11ea07d97d10431e4fd66111f62a58f5a7c4bae8e676d596f9b22c": {
         "english": "If the sofa won’t fit through the staircase, what solutions do you offer?",
         "french": "Si le canapé ne passe pas par l'escalier, quelles solutions proposez-vous ?"
+      },
+      "e57e1c48cfe198462274b6488a5f414a5af0f6f68bcb04fce0170f88b5fc64c7": {
+        "english": "For this address, with two floors to carry it up, how much would I have to pay in total?",
+        "french": "Pour cette adresse, avec deux étages à monter, combien devrais-je payer au total ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete sofa-delivery dialogue and all four source prompts."
       },
       "f8a5495b47aca9ada662b82177eb2e7b431553cac1e632660de54769765bae6f": {
         "english": "What is your standard rate, and what additional charges should I expect depending on distance, the number of floors or access?",
@@ -3804,6 +3834,18 @@
         "english": "How long does it usually take from placing the order to delivery?",
         "french": "Quel délai faut-il prévoir entre la commande et la livraison ?"
       },
+      "09a1a650089fd3f6e6fdf72f32a023a862d4e2850d2db2054f0841a0836dcd49": {
+        "english": "For around $80 of groceries, how much does delivery cost, and is it free above a certain amount?",
+        "french": "Pour environ 80 $ d'achats, combien coûte la livraison, et est-elle gratuite au-delà d'un certain montant ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete grocery-delivery dialogue and both source prompts."
+      },
+      "09bd5214b285a9e5883f20c4d548ee0301eaf9354be8fee1d639db7b056fa0e2": {
+        "english": "Is this address within your delivery area?",
+        "french": "Est-ce que cette adresse fait bien partie de votre zone de livraison ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete grocery-delivery dialogue and both source prompts."
+      },
       "1303123238eb8d337fca1c1c614ed35fabb21a883d621ec7bb638f5b8e07353a": {
         "english": "How are fresh and frozen products transported?",
         "french": "Comment les produits frais et surgelés sont-ils transportés ?"
@@ -3812,6 +3854,18 @@
         "english": "Can I choose a delivery slot, for example between 2 pm and 4 pm?",
         "french": "Puis-je choisir un créneau de livraison, par exemple entre 14 h et 16 h ?"
       },
+      "531eab8d122767ba27be711b018d7ed18ebd59725dca0af063c64d71aa0238b2": {
+        "english": "I have fresh and frozen products. Are they kept cold throughout the journey?",
+        "french": "J'ai des produits frais et des surgelés. Sont-ils gardés au froid pendant tout le trajet ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete grocery-delivery dialogue and both source prompts."
+      },
+      "93cc552683fc0ecd7104a53c07cef38d275fbc97c77d2e3d8a99c583395c3835": {
+        "english": "If I pay for my groceries now, can you deliver them today, or would I have to wait until tomorrow?",
+        "french": "Si je règle mes courses maintenant, est-ce que vous pouvez me les livrer aujourd'hui ou seulement demain ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and every source prompt."
+      },
       "967116cb7064cbc8de86d31a1d1efda65fb175a8d8884ac8577c78fba5c11bc9": {
         "english": "What is your delivery area, and how can I check if my address is covered?",
         "french": "Quelle est votre zone de livraison, et comment vérifier si mon adresse est desservie ?"
@@ -3819,6 +3873,12 @@
       "aa4721b4fafd394c9ae59c3dc4cb726c57e9b52edfb931e71ec1c3a75453c505": {
         "english": "If an item is missing or arrives damaged, how do I report it and get a refund?",
         "french": "Si un produit manque ou arrive abîmé, comment le signaler et obtenir un remboursement ?"
+      },
+      "b6e68dc9bf8e533185aef20f827531764a88849f85f917e77a50d9a116ce6089": {
+        "english": "If I pay for my groceries this morning, could you deliver them this afternoon?",
+        "french": "Si je règle mes courses ce matin, pourriez-vous me les livrer cet après-midi ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete grocery-delivery dialogue and both source prompts."
       },
       "c4cb83afd8a000ebb6bff7f916be89dfd35ed5b80eaea322ee29675d1ba9aa04": {
         "english": "How do you pay for the shopping and the delivery charges: at the till or to the delivery driver, by card or in cash?",
@@ -6838,6 +6898,12 @@
       "10e05229ed7a4d85846d4ab684a6b29337d7d96fff99c702c5a17771f53f8175": {
         "english": "When did it happen, and where exactly?",
         "french": "C'est arrivé quand, et à quel endroit exactement ?"
+      },
+      "28c3e6b26917bfbc60eeb7561b09d6d472ab1987b5e7bd5ed1ce9187aeb5cf48": {
+        "english": "Would you like me to visit you again in a few days?",
+        "french": "Souhaitez-vous que je repasse vous voir dans quelques jours ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and every source prompt."
       },
       "382dd4b711c91621c16887b02428eb1fb9b826ac3abf1126bf4b34c76e2ffba6": {
         "english": "Is there anything I could bring you from the office in the meantime, and when could I drop it off?",

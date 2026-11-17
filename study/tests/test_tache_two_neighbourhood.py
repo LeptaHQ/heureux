@@ -698,13 +698,13 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
 
     def test_delivery_questions_cover_payment_and_a_concrete_delivery_window(self):
         row = self.by_group["grocery-store-home-delivery"]
-        self.assertIn("les courses et les frais de livraison", row.questions[1].question)
-        self.assertIn("en caisse ou auprès du livreur", row.questions[1].question)
-        self.assertIn("par carte ou en espèces", row.questions[1].question)
-        self.assertNotIn("passe-t-on commande", row.questions[1].question)
-        self.assertNotIn("en ligne", row.questions[1].question)
-        self.assertIn("en caisse, par carte ou en espèces", row.questions[1].answer)
-        self.assertIn("ne proposons pas de paiement au livreur", row.questions[1].answer)
+        self.assertIn("les courses et les frais de livraison", row.questions[2].question)
+        self.assertIn("en caisse ou auprès du livreur", row.questions[2].question)
+        self.assertIn("par carte ou en espèces", row.questions[2].question)
+        self.assertNotIn("passe-t-on commande", row.questions[2].question)
+        self.assertNotIn("en ligne", row.questions[2].question)
+        self.assertIn("en caisse, par carte ou en espèces", row.questions[2].answer)
+        self.assertIn("ne proposons pas de paiement au livreur", row.questions[2].answer)
         self.assertEqual(
             row.questions[4].question,
             "Puis-je choisir un créneau de livraison, par exemple entre 14 h et 16 h ?",
@@ -718,9 +718,9 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
 
     def test_grocery_cost_question_checks_the_free_delivery_threshold_not_order_eligibility(self):
         row = self.by_group["grocery-store-home-delivery"]
-        question = row.questions[2]
-        self.assertIn("selon le montant des achats", question.question)
-        self.assertIn("montant minimum pour bénéficier de la livraison gratuite", question.question)
+        question = row.questions[1]
+        self.assertIn("80 $ d'achats", question.question)
+        self.assertIn("gratuite au-delà d'un certain montant", question.question)
         self.assertNotIn("minimum de commande", question.question)
         self.assertIn("7,99 $", question.answer)
         self.assertIn("gratuite à partir de 100 $", question.answer)
@@ -728,8 +728,8 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("not how to order online", row.note)
         self.assertIn("free-delivery threshold", row.note)
         self.assertEqual(
-            self.hints[row.group][2]["english"],
-            "Delivery fees by basket value and minimum spend for free delivery",
+            self.hints[row.group][1]["english"],
+            "Delivery fee for $80 of groceries and minimum spend for free delivery",
         )
 
     def test_remuneration_development_distinguishes_employer_from_referrer_and_favours(self):
@@ -848,8 +848,14 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("documents faut-il apporter", doctor.questions[6].question)
         self.assertIn("pièce d'identité", doctor.questions[6].answer)
         visit = self.by_group["visit-colleague-minor-accident"]
-        self.assertIn("quand pourrais-je vous le déposer", visit.questions[7].question)
-        self.assertIn("demain après 17 h", visit.questions[7].answer)
+        self.assertEqual(
+            visit.questions[7].question,
+            "Souhaitez-vous que je repasse vous voir dans quelques jours ?",
+        )
+        self.assertIn("samedi après-midi", visit.questions[7].answer)
+        self.assertEqual(
+            self.hints[visit.group][7]["english"], "Offer of another visit in a few days",
+        )
 
     def test_pet_urgency_replies_do_not_require_waiting_for_the_owners_response(self):
         paid = self.by_group["neighbor-dog-care-week-paid"]

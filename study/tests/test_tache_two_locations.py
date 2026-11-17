@@ -360,12 +360,21 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
     def test_neighbourhood_delivery_questions_cover_actual_service_constraints(self):
         by_group = {row.group: row for row in catalogue.tache_two_dialogues().values()}
         grocery = by_group["grocery-store-home-delivery"]
-        self.assertIn("mon adresse est desservie", grocery.questions[0].question)
-        self.assertIn("selon le montant des achats", grocery.questions[2].question)
-        self.assertIn("gratuite à partir de 100 $", grocery.questions[2].answer)
-        self.assertIn("commande passée avant midi", grocery.questions[3].answer)
-        self.assertIn("après midi", grocery.questions[3].answer)
+        self.assertIn("faire livrer mes courses chez moi, au 18, rue des Lilas", grocery.opening)
+        self.assertIn("cette adresse", grocery.questions[0].question)
+        self.assertIn("80 $ d'achats", grocery.questions[1].question)
+        self.assertIn("gratuite à partir de 100 $", grocery.questions[1].answer)
+        self.assertIn("maintenant", grocery.questions[3].question)
+        self.assertIn("aujourd'hui ou seulement demain", grocery.questions[3].question)
+        self.assertIn("réglez avant midi", grocery.questions[3].answer)
+        self.assertIn("qu'un créneau est disponible", grocery.questions[3].answer)
         self.assertEqual(grocery.questions[4].follow_up_to, 4)
+        self.assertIn("J'ai des produits frais et des surgelés", grocery.questions[5].question)
+        self.assertIn("chaîne du froid", grocery.questions[5].answer)
+        self.assertEqual(
+            [question.topic for question in grocery.questions],
+            ["Commande et frais"] * 3 + ["Délais"] * 2 + ["Livraison"] * 3,
+        )
         parcel = by_group["help-friend-post-parcel"]
         self.assertIn("jusqu'à quel montant", parcel.questions[3].question)
         self.assertIn("40 $", parcel.questions[3].answer)
@@ -399,12 +408,12 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
                 "Initial meeting with the children before confirming childcare",
             ),
             "grocery-store-home-delivery": (
-                "Delivery area and checking coverage for your address",
+                "Delivery to the address given",
+                "Delivery fee for $80 of groceries and minimum spend for free delivery",
                 "Paying for groceries and delivery: checkout or driver, card or cash",
-                "Delivery fees by basket value and minimum spend for free delivery",
-                "Time from order to delivery",
+                "Delivery today or tomorrow after paying for the groceries",
                 "Choosing a delivery window, e.g. 2 p.m. to 4 p.m.",
-                "Transport of fresh and frozen groceries",
+                "Keeping fresh and frozen groceries cold during the journey",
                 "Missed delivery and any redelivery fee",
                 "Reporting and getting a refund for a missing or damaged item",
             ),
@@ -457,21 +466,35 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"][current.group]
         self.assertEqual(hints[5]["english"], "Monthly condominium fees and included services")
 
-    def test_delivery_price_precedes_access_solutions_and_pistes_follow_question_order(self):
+    def test_delivery_uses_the_candidates_address_and_access_before_the_quote(self):
         current = next(
             row for row in catalogue.tache_two_dialogues().values()
             if row.group == "furniture-delivery-service"
         )
-        self.assertTrue(current.questions[1].question.startswith("Quel est votre tarif de base"))
-        self.assertEqual(
-            current.questions[2].question,
-            "Si le canapé ne passe pas par l'escalier, quelles solutions proposez-vous ?",
-        )
-        self.assertEqual(current.questions[3].follow_up_to, 2)
+        self.assertIn("faire livrer un canapé chez moi, au 18, rue des Lilas", current.opening)
+        self.assertIn("fictional practice details to adapt", current.note)
+        self.assertIn("deuxième étage, sans ascenseur", current.questions[0].question)
+        self.assertIn("s'il passe par l'escalier", current.questions[0].answer)
+        self.assertIn("L'escalier est assez étroit", current.questions[1].question)
+        self.assertIn("les mesures et des photos", current.questions[1].question)
+        self.assertEqual(current.questions[1].follow_up_to, 1)
+        self.assertIn("Pour cette adresse, avec deux étages à monter", current.questions[2].question)
+        self.assertIn("prix reste à confirmer", current.questions[2].answer)
+        self.assertEqual(current.questions[3].follow_up_to, 3)
+        self.assertIn("la semaine prochaine", current.questions[4].question)
+        self.assertEqual(current.questions[5].follow_up_to, 5)
+        self.assertIn("camion fermé", current.questions[6].question)
+        previous = catalogue.tache_two_location_history()[current.group].revisions[-1]
+        for index in (3, 5, 7):
+            self.assertEqual(current.questions[index].question, previous.questions[index].question)
         hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"][current.group]
-        self.assertEqual(hints[1]["english"], "Base rate and distance, floor or access surcharges")
-        self.assertEqual(hints[2]["french"], "Solutions si le canapé ne passe pas par l'escalier")
-        self.assertNotIn("photos", current.closing)
+        self.assertEqual(
+            hints[0]["english"], "Delivery to a second-floor flat with no lift",
+        )
+        self.assertIn("Measurements and photos", hints[1]["english"])
+        self.assertIn("Prix total pour cette adresse", hints[2]["french"])
+        self.assertIn("delivery next week", hints[4]["english"])
+        self.assertIn("mesures et les photos", current.closing)
 
     def test_quebec_agency_starts_with_offers_then_dates_and_explains_fees_with_costs(self):
         current = next(
@@ -911,34 +934,39 @@ class PublishedTacheTwoHighlightTests(TestCase):
             front.source_key, variant_annotation_key(self.prompt, dialogue_response(self.current)) + ":front",
         )
 
-    def test_delivery_reorder_recovers_unchanged_questions_but_not_rewritten_wording(self):
+    def test_delivery_rewrite_preserves_unchanged_questions_from_both_published_versions(self):
         self.configure_group("furniture-delivery-service")
-        marks = [
-            self.highlight(1),
-            self.highlight(3, body="My price vocabulary."),
-            self.highlight(4),
-            self.highlight(7),
-        ]
-        changed = self.highlight(2)
-        old_key = changed.source_key
-        review_path = reverse("study:task_review", args=["eo", "tache-2"]) + "?kind=spine"
-        back = self.highlight(3, surface="back", source_path=review_path)
-        self.fetch()
-        self.fetch(review_path)
-        for mark in marks:
-            self.assert_current(mark)
-        self.assert_current(back, "back")
-        rendered = _render_questions(
-            self.prompt, dialogue_response(self.current), "detail", [self.prompt],
-        )
-        self.assertEqual(
-            (marks[1].start_offset, marks[1].end_offset), rendered.fields[(2, "question")],
-        )
-        self.assertEqual(marks[1].body, "My price vocabulary.")
-        changed.refresh_from_db()
-        self.assertEqual(changed.source_key, old_key)
-        self.assertIn("mesures et de photos", changed.quote)
-        self.assertEqual(Annotation.objects.count(), 6)
+        revisions = catalogue.tache_two_location_history()[self.current.group].revisions
+        self.assertEqual(len(revisions), 2)
+        for previous in revisions:
+            with self.subTest(closing=previous.closing):
+                self.old = previous
+                marks = [
+                    self.highlight(4, body="My price vocabulary."),
+                    self.highlight(6),
+                    self.highlight(8),
+                ]
+                changed = self.highlight(2)
+                old_key = changed.source_key
+                review_path = reverse("study:task_review", args=["eo", "tache-2"]) + "?kind=spine"
+                back = self.highlight(4, surface="back", source_path=review_path)
+                self.fetch()
+                self.fetch(review_path)
+                for mark in marks:
+                    self.assert_current(mark)
+                self.assert_current(back, "back")
+                rendered = _render_questions(
+                    self.prompt, dialogue_response(self.current), "detail", [self.prompt],
+                )
+                self.assertEqual(
+                    (marks[0].start_offset, marks[0].end_offset), rendered.fields[(4, "question")],
+                )
+                self.assertEqual(marks[0].body, "My price vocabulary.")
+                changed.refresh_from_db()
+                self.assertEqual(changed.source_key, old_key)
+                self.assertEqual(changed.quote, previous.questions[1].question)
+                self.assertEqual(Annotation.objects.count(), 5)
+            Annotation.objects.filter(user=self.user).delete()
 
     def test_apartment_rewrite_preserves_other_highlights_from_both_published_revisions(self):
         self.configure_group("estate-agent-advertised-apartment-purchase")
@@ -1601,32 +1629,44 @@ class PublishedTacheTwoHighlightTests(TestCase):
 
     def test_grocery_fee_before_timing_reorder_preserves_unchanged_question_highlights(self):
         self.assert_revision_highlights_preserved(
-            "grocery-store-home-delivery", {4: 4, 7: 6},
+            "grocery-store-home-delivery", {},
             revision=0,
         )
 
     def test_grocery_payment_and_free_delivery_refinements_preserve_other_learned_questions(self):
         self.assert_revision_highlights_preserved(
-            "grocery-store-home-delivery", {1: 1, 4: 4, 6: 6, 7: 7, 8: 8},
+            "grocery-store-home-delivery", {7: 7, 8: 8},
             revision=4,
         )
 
     def test_grocery_window_example_preserves_other_learned_questions_and_archives_old_wording(self):
         self.assert_revision_highlights_preserved(
-            "grocery-store-home-delivery", {1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8},
+            "grocery-store-home-delivery", {2: 3, 7: 7, 8: 8},
             revision=5,
+        )
+
+    def test_specific_grocery_delivery_preserves_moved_payment_and_unchanged_questions(self):
+        self.assert_revision_highlights_preserved(
+            "grocery-store-home-delivery", {2: 3, 5: 5, 7: 7, 8: 8},
+            revision=6,
         )
 
     def test_colleague_work_merger_preserves_moved_questions_and_archives_separate_questions(self):
         self.assert_revision_highlights_preserved(
-            "visit-colleague-minor-accident", {1: 1, 2: 2, 4: 4, 8: 8},
+            "visit-colleague-minor-accident", {1: 1, 2: 2, 4: 4},
             revision=3,
         )
 
     def test_colleague_scene_help_rewrite_preserves_other_questions_and_archives_old_wording(self):
         self.assert_revision_highlights_preserved(
-            "visit-colleague-minor-accident", {1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8},
+            "visit-colleague-minor-accident", {1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7},
             revision=4,
+        )
+
+    def test_colleague_visit_offer_preserves_the_other_published_questions(self):
+        self.assert_revision_highlights_preserved(
+            "visit-colleague-minor-accident", {number: number for number in range(1, 8)},
+            revision=5,
         )
 
     def test_parcel_arrival_rewording_preserves_other_questions_and_archives_old_wording(self):
@@ -1672,7 +1712,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_prior_theme_second_pass_preserves_all_learned_questions_and_archived_notes(self):
         mappings = {
             "friend-three-year-old-weekend-care": {3: 3},
-            "grocery-store-home-delivery": {1: 1, 5: 4, 7: 6},
+            "grocery-store-home-delivery": {},
             "help-friend-post-parcel": {1: 1, 4: 4, 8: 8},
             "medical-secretary-temporary-replacement-doctor": {
                 1: 1, 4: 5, 8: 8,
@@ -1758,7 +1798,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "friend-holiday-apartment-watch": (1, {1: 1, 2: 2, 4: 5}),
             "friend-homeless-meal-volunteering": (1, {2: 4, 5: 5, 7: 7}),
             "friend-three-year-old-weekend-care": (2, {3: 3}),
-            "grocery-store-home-delivery": (2, {1: 1, 5: 4, 7: 6, 8: 7}),
+            "grocery-store-home-delivery": (2, {8: 7}),
             "help-friend-post-parcel": (2, {1: 1, 4: 4, 5: 5, 8: 8}),
             "host-foreign-friends-city-advice": (1, {3: 1}),
             "medical-secretary-temporary-replacement-doctor": (1, {1: 1, 2: 3, 4: 5, 8: 8}),
@@ -1817,7 +1857,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "friend-holiday-apartment-watch": (2, {1: 1, 2: 2, 5: 5}),
             "friend-homeless-meal-volunteering": (2, {2: 4, 3: 1, 5: 5, 7: 7}),
             "friend-three-year-old-weekend-care": (3, {3: 3, 4: 4}),
-            "grocery-store-home-delivery": (3, {1: 1, 5: 4, 7: 6, 8: 7}),
+            "grocery-store-home-delivery": (3, {8: 7}),
             "help-friend-post-parcel": (3, {1: 1, 2: 2, 4: 4, 5: 5, 6: 6, 8: 8}),
             "medical-secretary-temporary-replacement-doctor": (2, {1: 1, 2: 2, 3: 3, 5: 5, 6: 6, 8: 8}),
             "neighbor-child-one-day-care": (2, {1: 1, 6: 6, 7: 7}),

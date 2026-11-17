@@ -1244,6 +1244,21 @@
             {"topic": "Délais et transport", "question": "Dans quel type de véhicule le canapé sera-t-il transporté, et comment sera-t-il protégé pendant le trajet ?", "follow_up_to": null},
             {"topic": "Réception et réclamation", "question": "Si le canapé arrive rayé ou déchiré, dois-je le signaler sur le bon de livraison, et comment faire une réclamation ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "furniture-delivery-service",
+          "opening": "Bonjour ! Avant de faire livrer ce canapé, j'aimerais comprendre précisément comment votre service fonctionne.",
+          "closing": "Merci pour ces précisions ! Je vais vérifier les conditions d'accès à mon logement avant de confirmer la livraison.",
+          "questions": [
+            {"topic": "Devis et accès", "question": "Pour obtenir un devis précis, devez-vous connaître l'adresse de livraison, les dimensions du canapé et les conditions d'accès au logement ?", "follow_up_to": null},
+            {"topic": "Devis et accès", "question": "Quel est votre tarif de base, et quels suppléments faut-il prévoir selon la distance, les étages ou l'accès ?", "follow_up_to": null},
+            {"topic": "Devis et accès", "question": "Si le canapé ne passe pas par l'escalier, quelles solutions proposez-vous ?", "follow_up_to": null},
+            {"topic": "Devis et accès", "question": "Ce tarif comprend-il la mise en place dans la pièce choisie et l'enlèvement des emballages ?", "follow_up_to": 2, "condition": "After the price is given, unless the delivery scope is already explained."},
+            {"topic": "Délais et transport", "question": "Une fois la livraison réservée, sous quel délai le canapé pourra-t-il être livré ?", "follow_up_to": null},
+            {"topic": "Délais et transport", "question": "Puis-je choisir un créneau de livraison, et combien de temps avant votre arrivée serai-je prévenu ?", "follow_up_to": null},
+            {"topic": "Délais et transport", "question": "Dans quel type de véhicule le canapé sera-t-il transporté, et comment sera-t-il protégé pendant le trajet ?", "follow_up_to": null},
+            {"topic": "Réception et réclamation", "question": "Si le canapé arrive rayé ou déchiré, dois-je le signaler sur le bon de livraison, et comment faire une réclamation ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -1904,6 +1919,21 @@
             {"topic": "Livraison", "question": "Que se passe-t-il si je suis absent au moment prévu, et une nouvelle livraison est-elle payante ?", "follow_up_to": null},
             {"topic": "Livraison", "question": "Si un produit manque ou arrive abîmé, comment le signaler et obtenir un remboursement ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "grocery-store-home-delivery",
+          "opening": "Bonjour ! J'aimerais me faire livrer mes courses à domicile, et je voudrais savoir comment fonctionne votre service.",
+          "closing": "Merci pour ces renseignements. Je vais vérifier les créneaux avant de passer ma première commande.",
+          "questions": [
+            {"topic": "Commande", "question": "Quelle est votre zone de livraison, et comment vérifier si mon adresse est desservie ?", "follow_up_to": null},
+            {"topic": "Commande", "question": "Comment règle-t-on les courses et les frais de livraison : en caisse ou auprès du livreur, par carte ou en espèces ?", "follow_up_to": null},
+            {"topic": "Frais", "question": "Combien coûte la livraison selon le montant des achats, et existe-t-il un montant minimum pour bénéficier de la livraison gratuite ?", "follow_up_to": null},
+            {"topic": "Délais", "question": "Quel délai faut-il prévoir entre la commande et la livraison ?", "follow_up_to": null},
+            {"topic": "Délais", "question": "Puis-je choisir un créneau de livraison, par exemple entre 14 h et 16 h ?", "follow_up_to": 4, "condition": "If delivery timing is given without explaining whether a window can be chosen."},
+            {"topic": "Livraison", "question": "Comment les produits frais et surgelés sont-ils transportés ?", "follow_up_to": null},
+            {"topic": "Livraison", "question": "Que se passe-t-il si je suis absent au moment prévu, et une nouvelle livraison est-elle payante ?", "follow_up_to": null},
+            {"topic": "Livraison", "question": "Si un produit manque ou arrive abîmé, comment le signaler et obtenir un remboursement ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -1980,6 +2010,21 @@
             {"topic": "L'accident", "question": "C'est arrivé quand, et à quel endroit exactement ?", "follow_up_to": null},
             {"topic": "L'accident", "question": "Qu'est-ce qui s'est passé exactement ?", "follow_up_to": null},
             {"topic": "L'accident", "question": "Quelqu'un a-t-il pu vous aider sur place après l'accident ?", "follow_up_to": 4, "condition": "If a fall is described without explaining whether someone helped."},
+            {"topic": "L'accident", "question": "Avez-vous consulté un médecin après l'accident et, si oui, que vous a-t-il conseillé ?", "follow_up_to": null},
+            {"topic": "Travail et soutien", "question": "Avez-vous une idée de la date de votre retour au travail, et souhaitez-vous que je transmette un message à l'équipe ?", "follow_up_to": null},
+            {"topic": "Travail et soutien", "question": "Que pourrais-je vous apporter du bureau d'ici là, et quand pourrais-je vous le déposer ?", "follow_up_to": 7, "condition": "If the colleague expects to remain away from work for a few days."}
+          ]
+        },
+        {
+          "group": "visit-colleague-minor-accident",
+          "opening": "Bonjour ! J'ai appris pour votre accident, et je tenais à prendre de vos nouvelles.",
+          "closing": "Merci de m'avoir donné de vos nouvelles. Reposez-vous bien, et dites-moi si je peux vous rendre service.",
+          "questions": [
+            {"topic": "Nouvelles et aide", "question": "Comment vous sentez-vous aujourd'hui ?", "follow_up_to": null},
+            {"topic": "Nouvelles et aide", "question": "Avez-vous besoin d'aide pour les courses, les repas ou vos déplacements pendant que vous vous reposez ?", "follow_up_to": 1, "condition": "If they mention resting at home without saying whether help is needed."},
+            {"topic": "L'accident", "question": "C'est arrivé quand, et à quel endroit exactement ?", "follow_up_to": null},
+            {"topic": "L'accident", "question": "Qu'est-ce qui s'est passé exactement ?", "follow_up_to": null},
+            {"topic": "L'accident", "question": "Est-ce que quelqu'un est venu vous aider sur place ?", "follow_up_to": 4, "condition": "If a fall is described without explaining whether someone helped."},
             {"topic": "L'accident", "question": "Avez-vous consulté un médecin après l'accident et, si oui, que vous a-t-il conseillé ?", "follow_up_to": null},
             {"topic": "Travail et soutien", "question": "Avez-vous une idée de la date de votre retour au travail, et souhaitez-vous que je transmette un message à l'équipe ?", "follow_up_to": null},
             {"topic": "Travail et soutien", "question": "Que pourrais-je vous apporter du bureau d'ici là, et quand pourrais-je vous le déposer ?", "follow_up_to": 7, "condition": "If the colleague expects to remain away from work for a few days."}

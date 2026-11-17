@@ -2078,32 +2078,32 @@
     ],
     "furniture-delivery-service": [
       {
-        "french": "Adresse, dimensions et conditions d'accès pour le devis",
-        "english": "Address, dimensions and access details for the quote"
+        "french": "Livraison au deuxième étage sans ascenseur",
+        "english": "Delivery to a second-floor flat with no lift"
       },
       {
-        "french": "Tarif de base et suppléments de distance, d'étage ou d'accès",
-        "english": "Base rate and distance, floor or access surcharges"
+        "french": "Mesures et photos pour vérifier le passage dans l'escalier étroit",
+        "english": "Measurements and photos to check the sofa fits up the narrow staircase"
       },
       {
-        "french": "Solutions si le canapé ne passe pas par l'escalier",
-        "english": "Solutions if the sofa cannot fit through the staircase"
+        "french": "Prix total pour cette adresse et deux étages à monter",
+        "english": "Total price for this address and carrying the sofa up two floors"
       },
       {
         "french": "Mise en place et enlèvement des emballages",
         "english": "Placement and packaging removal"
       },
       {
-        "french": "Délai de livraison après la réservation",
-        "english": "Delivery lead time after booking"
+        "french": "Disponibilité pour une livraison la semaine prochaine",
+        "english": "Availability for delivery next week"
       },
       {
         "french": "Créneau de passage et préavis d'arrivée",
         "english": "Delivery window and arrival notice"
       },
       {
-        "french": "Véhicule et protection du canapé",
-        "english": "Vehicle and protection for the sofa"
+        "french": "Camion fermé et protection contre les chocs",
+        "english": "Enclosed truck and protection against knocks"
       },
       {
         "french": "Rayure ou déchirure : bon de livraison et réclamation",
@@ -3846,28 +3846,28 @@
     ],
     "grocery-store-home-delivery": [
       {
-        "french": "Zone de livraison et vérification de votre adresse",
-        "english": "Delivery area and checking coverage for your address"
+        "french": "Livraison à l'adresse indiquée",
+        "english": "Delivery to the address given"
+      },
+      {
+        "french": "Frais pour 80 $ d'achats et seuil de livraison gratuite",
+        "english": "Delivery fee for $80 of groceries and minimum spend for free delivery"
       },
       {
         "french": "Paiement des courses et de la livraison : en caisse ou au livreur, carte ou espèces",
         "english": "Paying for groceries and delivery: checkout or driver, card or cash"
       },
       {
-        "french": "Frais selon le montant des achats et seuil de livraison gratuite",
-        "english": "Delivery fees by basket value and minimum spend for free delivery"
-      },
-      {
-        "french": "Délai entre commande et livraison",
-        "english": "Time from order to delivery"
+        "french": "Livraison aujourd'hui ou demain après règlement des courses",
+        "english": "Delivery today or tomorrow after paying for the groceries"
       },
       {
         "french": "Choix d'un créneau de livraison, par exemple de 14 h à 16 h",
         "english": "Choosing a delivery window, e.g. 2 p.m. to 4 p.m."
       },
       {
-        "french": "Transport des produits frais et surgelés",
-        "english": "Transport of fresh and frozen groceries"
+        "french": "Maintien au froid des produits frais et surgelés pendant le trajet",
+        "english": "Keeping fresh and frozen groceries cold during the journey"
       },
       {
         "french": "Absence à la livraison et frais d'un second passage",
@@ -4078,8 +4078,8 @@
         "english": "Possible return date and message to pass on to the team"
       },
       {
-        "french": "Affaires à apporter du bureau et moment pour les déposer",
-        "english": "Items to bring from the office and when to drop them off"
+        "french": "Proposition d'une autre visite dans quelques jours",
+        "english": "Offer of another visit in a few days"
       }
     ],
     "canada-newcomer-apartment-procedure-unspecified-adviser": [

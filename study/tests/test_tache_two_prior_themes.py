@@ -203,10 +203,10 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
         self.assertIn("8 h et à 18 h", pet.questions[3].answer)
         self.assertIn("portions mesurées", pet.questions[3].answer)
         training = self.by_group["director-canada-fortnight-training"]
-        self.assertIn("paie le vol et l'hébergement", training.questions[3].answer)
-        self.assertIn("déplacements professionnels sur justificatifs", training.questions[3].answer)
-        self.assertIn("60 $ par jour", training.questions[3].answer)
-        self.assertIn("week-ends compris", training.questions[3].answer)
+        self.assertIn("paie le vol et l'hébergement", training.questions[4].answer)
+        self.assertIn("déplacements professionnels sur justificatifs", training.questions[4].answer)
+        self.assertIn("60 $ par jour", training.questions[4].answer)
+        self.assertIn("week-ends compris", training.questions[4].answer)
         orientation = self.by_group["new-employee-company-orientation"]
         self.assertIn("Mme Martin", orientation.questions[0].answer)
         self.assertIn("Mme Martin", orientation.questions[3].answer)

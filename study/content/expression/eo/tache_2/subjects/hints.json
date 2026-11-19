@@ -360,16 +360,16 @@
         "english": "How tasks and priorities are communicated"
       },
       {
+        "french": "Collègues à l'étranger (ex. Ghana, Norvège) et coordination entre fuseaux horaires",
+        "english": "Colleagues abroad (e.g. Ghana, Norway) and coordinating across time zones"
+      },
+      {
         "french": "Échanges formels ou plus libres entre collègues",
         "english": "Formal or more relaxed communication between coworkers"
       },
       {
         "french": "Cantine ou salle pour apporter son repas",
         "english": "Canteen or room for eating your own lunch"
-      },
-      {
-        "french": "Mode de paiement et budget d'un repas à la cantine",
-        "english": "Canteen payment method and meal budget"
       },
       {
         "french": "Pauses ou rencontres d'équipe pour faire connaissance",
@@ -688,12 +688,16 @@
         "english": "Training city and dates"
       },
       {
-        "french": "Sujets de la formation et présence d'une partie pratique",
-        "english": "Training topics and whether there is a practical component"
+        "french": "Sujets de la formation et éventuels exercices pratiques ou études de cas",
+        "english": "Training topics and whether there are practical exercises or case studies"
       },
       {
         "french": "Horaires de formation et éventuelles séances le week-end",
         "english": "Training hours and whether there are weekend sessions"
+      },
+      {
+        "french": "Attestation de participation ou certificat à la fin de la formation",
+        "english": "Proof of attendance or a certificate at the end of training"
       },
       {
         "french": "Prise en charge du vol, du logement, des repas et des déplacements",
@@ -704,16 +708,12 @@
         "english": "Accommodation type and distance from the centre"
       },
       {
-        "french": "Transfert de l'aéroport et trajets quotidiens logement-formation",
-        "english": "Airport transfer and daily accommodation-to-training journeys"
+        "french": "Accueil éventuel à l'aéroport et allers-retours quotidiens logement-formation",
+        "english": "Whether airport pickup is arranged and daily accommodation-to-training return journeys"
       },
       {
         "french": "Activités prévues hors formation",
         "english": "Activities outside training hours"
-      },
-      {
-        "french": "Activités prises en charge ou budget personnel à prévoir",
-        "english": "Included activities or a personal leisure budget to allow for"
       }
     ],
     "new-neighbor-evening-entertainment": [
@@ -900,16 +900,16 @@
         "english": "Atmosphere within the team"
       },
       {
-        "french": "Premières tâches confiées à Ève",
-        "english": "First tasks assigned to Ève"
+        "french": "Tâches effectuées pendant la première journée",
+        "english": "Tasks carried out on the first day"
       },
       {
         "french": "Accompagnement ou autonomie pour les premières tâches",
         "english": "Guidance or independence with the first tasks"
       },
       {
-        "french": "Une demande difficile pendant la première journée",
-        "english": "A difficult request during the first day"
+        "french": "Un moment où Ève ne savait pas quoi faire",
+        "english": "A moment when Ève was unsure what to do"
       },
       {
         "french": "Réaction face à cette difficulté",
@@ -994,12 +994,12 @@
         "english": "Checking work eligibility and finding a reliable source"
       },
       {
-        "french": "Demande de numéro d'assurance sociale : organisme et documents",
-        "english": "Social insurance number application: agency and documents"
+        "french": "Offres front-end, back-end ou full stack à Calgary",
+        "english": "Front-end, back-end or full-stack openings in Calgary"
       },
       {
-        "french": "Profils de développeurs recherchés dans les offres à Calgary",
-        "english": "Developer profiles seen in Calgary job advertisements"
+        "french": "Priorités des employeurs : diplôme en informatique, expérience ou projets réalisés",
+        "english": "Employer priorities: computing degree, professional experience or completed projects"
       },
       {
         "french": "LinkedIn, sites d'entreprises ou recruteurs spécialisés en informatique",
@@ -1010,16 +1010,16 @@
         "english": "Projects, technical skills and a GitHub link on the CV"
       },
       {
-        "french": "Étapes du recrutement, entretiens et tests techniques",
-        "english": "Recruitment stages, interviews and technical assessments"
+        "french": "Recrutement après le CV : entretiens et éventuel test de programmation",
+        "english": "Recruitment after sending a CV: interviews and a possible programming test"
       },
       {
-        "french": "Fourchettes de salaire annuel brut en développement logiciel",
-        "english": "Advertised gross annual salary ranges in software development"
+        "french": "Fourchette de salaire annuel brut attendue pour ces postes",
+        "english": "Expected gross annual salary range for these roles"
       },
       {
-        "french": "Travail sur place, hybride ou entièrement en télétravail",
-        "english": "On-site, hybrid or fully remote work"
+        "french": "Bureau tous les jours ou travail à distance certains jours, voire toute la semaine",
+        "english": "Daily office attendance, hybrid working or fully remote work"
       }
     ],
     "volunteer-local-association-information-office": [
@@ -2486,16 +2486,16 @@
     ],
     "new-colleague-quebec-career-migration": [
       {
-        "french": "Études suivies et raisons du choix de ce domaine",
-        "english": "Studies and reasons for choosing the field"
+        "french": "Domaine d'études et raisons de son choix",
+        "english": "Field of study and reasons for choosing it"
       },
       {
-        "french": "Premier emploi et façon de l'obtenir",
-        "english": "First job and how it was obtained"
+        "french": "Premier emploi et manière de le trouver",
+        "english": "First job and how it was found"
       },
       {
-        "french": "Expériences professionnelles à l'étranger",
-        "english": "Previous work experience abroad"
+        "french": "Travail dans d'autres pays que le Canada avant l'installation",
+        "english": "Work in countries other than Canada before moving here"
       },
       {
         "french": "Motivation pour venir travailler ici",

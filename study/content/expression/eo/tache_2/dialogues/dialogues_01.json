@@ -174,7 +174,7 @@
     {
       "group": "new-employee-company-orientation",
       "register": "vous",
-      "note": "You already work at this company and are getting oriented through a colleague. This is not recruitment or a question about Canadian employment law. Find out who can help, how work is organized, what colleagues are like and where to eat. Vous is chosen for this new professional relationship.",
+      "note": "You already work at this company and are getting oriented through a colleague. This is not recruitment or a question about Canadian employment law. Find out who can help, how work is organized locally and across time zones, what colleagues are like and where to eat. Overseas colleagues are a possibility to check, not a prompt fact; Ghana and Norway are examples. Vous is chosen for this new professional relationship.",
       "opening": "Bonjour ! Je prends mes repères dans l'entreprise et j'aurais besoin de quelques renseignements.",
       "closing": "Merci pour votre aide. Ces informations vont me permettre de mieux m'intégrer à l'équipe.",
       "questions": [
@@ -182,9 +182,9 @@
         {"topic": "Équipe et interlocuteurs", "question": "Si je bloque sur une tâche, à qui est-ce que je peux demander de l'aide ?", "answer": "Vous pouvez demander à Nora, qui vous montrera nos outils ; Mme Martin peut ensuite trancher si une décision est nécessaire.", "follow_up_to": 1, "condition": "If the team is introduced without explaining support for new employees."},
         {"topic": "Organisation du travail", "question": "Quels sont les horaires habituels de l'équipe ?", "answer": "Nous travaillons généralement de neuf heures à dix-sept heures, avec une pause à midi.", "follow_up_to": null},
         {"topic": "Organisation du travail", "question": "Comment reçoit-on les tâches et les priorités : lors d'une réunion ou par message ?", "answer": "Mme Martin fait un point chaque matin ; elle précise les urgences, puis nous nous répartissons les dossiers.", "follow_up_to": null},
+        {"topic": "Organisation du travail", "question": "Avons-nous des collègues à l'étranger, par exemple au Ghana ou en Norvège, et si oui, comment s'organise-t-on pour travailler ensemble malgré le décalage horaire ?", "answer": "Oui, au Ghana et en Norvège. On privilégie les messages et les documents partagés ; pour les réunions, on cherche un créneau compatible avec les horaires de chacun.", "follow_up_to": null},
         {"topic": "Vie dans l'entreprise", "question": "Les échanges entre collègues sont-ils plutôt formels, ou peut-on se parler assez librement ?", "answer": "On se parle assez librement dans l'équipe ; pour les décisions importantes, on prend quand même le temps de faire un point avec la responsable.", "follow_up_to": null},
         {"topic": "Vie dans l'entreprise", "question": "Pour le déjeuner, y a-t-il une cantine ou une salle où manger son propre repas ?", "answer": "Il y a une cantine au premier étage et une salle pour apporter son repas.", "follow_up_to": null},
-        {"topic": "Vie dans l'entreprise", "question": "Comment paie-t-on à la cantine, et quel budget faut-il prévoir pour un repas ?", "answer": "On paie avec son badge, qu'on recharge à l'accueil ; un repas complet coûte environ 9 $.", "follow_up_to": 6, "condition": "If a canteen is mentioned without explaining payment or prices."},
         {"topic": "Vie dans l'entreprise", "question": "Y a-t-il des pauses ou des rencontres d'équipe auxquelles je pourrais participer pour faire connaissance ?", "answer": "Nous prenons souvent un café ensemble vers 10 h 30, et un déjeuner d'équipe est prévu le premier vendredi de chaque mois.", "follow_up_to": null}
       ]
     },

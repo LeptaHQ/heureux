@@ -1531,6 +1531,12 @@
         "english": "What will the training timetable be, and will there be sessions at the weekend?",
         "french": "Quels seront les horaires de formation, et y aura-t-il des séances le week-end ?"
       },
+      "193be413239ef9e02def8eebd10c9eb85a2bd70fc4022db7d14bc0ed407186b3": {
+        "english": "At the end of the training, will I receive proof of attendance or a certificate?",
+        "french": "À la fin de la formation, recevrai-je une attestation de participation ou un certificat ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and every source prompt."
+      },
       "23431a67836028dbd59deed5489d63b0dc5e4ca82f6d277b6b612208c6875468": {
         "english": "What activities are planned outside of the training?",
         "french": "Quelles activités sont prévues en dehors de la formation ?"
@@ -1550,6 +1556,18 @@
       "7eeb3ff10d53f722976eb69cf99ffd159bacce76074d2cc2a58ccfe3033d4feb": {
         "english": "What topics will be covered during the training, and will there be a practical component?",
         "french": "Quels sujets seront abordés pendant la formation, et y aura-t-il une partie pratique ?"
+      },
+      "b5ac4a94243f99d7c27f08acf200c80e2b5a3b576676a144a1ce23dfa9b71905": {
+        "english": "Will someone pick me up at the airport, and how will I then make the daily round trips between my accommodation and the training centre?",
+        "french": "Est-ce que quelqu'un viendra me chercher à l'aéroport, et comment ferai-je ensuite les allers-retours quotidiens entre mon logement et le centre de formation ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and every source prompt."
+      },
+      "c024c1442db8d9bdb700e41ba1761bf62fb241e307db307c8a909a9a418b2fd1": {
+        "english": "What topics will be covered during the training, and will there be practical exercises or case studies?",
+        "french": "Quels sujets seront abordés pendant la formation, et y aura-t-il des exercices pratiques ou des études de cas ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and its exact source prompt."
       }
     },
     "edmonton-newcomer-neighbor-schools": {
@@ -2803,6 +2821,12 @@
         "french": "Après ce premier contact, tu as senti une ambiance plutôt détendue ou formelle ?",
         "review_note": "Premier contact does not imply a formal meeting."
       },
+      "a448449d4a8596c4d4ed118fe708b27221b8ed47b2616d0457293b8ff3dbc990": {
+        "english": "And specifically, what tasks did you carry out during the day?",
+        "french": "Et concrètement, quelles tâches as-tu effectuées pendant la journée ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and every source prompt."
+      },
       "af158e173939c5eee3ddb729a183243818ca15a0578b5df64bf1367e91902117": {
         "english": "And specifically, what were the first tasks you were given?",
         "french": "Et concrètement, quelles premières tâches t'a-t-on confiées ?"
@@ -2810,6 +2834,12 @@
       "c997319ab22ed9925470f29c557c90a4c3ba0006384ec6412551c31a1fa01784": {
         "english": "So, how did that first day go for you?",
         "french": "Alors, cette première journée, comment ça s'est passé pour toi ?"
+      },
+      "d9d86f4da18145f7eb049e6b27509af42c1ac7ad7443a29296f39b27084cce78": {
+        "english": "Was there a moment when you were not quite sure what to do?",
+        "french": "Il y a eu un moment où tu ne savais pas trop quoi faire ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and every source prompt."
       },
       "e22909d6ea64adb8f49792c66ab424c755974b7d81ce5090d48eb95b517d2c36": {
         "english": "All in all, did that first day live up to your expectations of the job?",
@@ -5531,6 +5561,12 @@
         "english": "How did you go about meeting people outside of work?",
         "french": "Vous avez fait comment pour rencontrer des gens en dehors du travail ?"
       },
+      "2c6785550905b23dbf550e965fdfd4fd8c992568ade6dc4a5479a7cc12fe6104": {
+        "english": "What field did you study, and why did you choose it?",
+        "french": "Vous avez étudié dans quel domaine, et pourquoi l'avez-vous choisi ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and all three source prompts."
+      },
       "63c0a1bca6be00a18e750b4a48d776b981aa7421b6c47831c3c88fb5da99cb23": {
         "english": "Compared to your previous jobs, what has surprised you most about the way we work here?",
         "french": "Par rapport à vos précédents emplois, qu'est-ce qui vous a le plus surpris dans notre façon de travailler ?"
@@ -5550,6 +5586,18 @@
       "d0eb5600133190fe21f204e7740633c23c89c1ab113970c63e7a4d1002ac2c0b": {
         "english": "What did you study, and what led you to choose this field?",
         "french": "Quelles études avez-vous faites, et qu'est-ce qui vous a orienté vers ce domaine ?"
+      },
+      "d85561ed758a992f0223069c52c509a7e997441852983d765ecab400b16d80cb": {
+        "english": "What was your first job, and how did you find it?",
+        "french": "Quel a été votre premier emploi, et comment l'avez-vous trouvé ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and all three source prompts."
+      },
+      "dfd515f0249f65762b91454411a33de91a465aa2edf9e3bd8ab71cc56cdb381c": {
+        "english": "Before settling here, did you work in any countries other than Canada, and if so, which ones?",
+        "french": "Avant de vous installer ici, avez-vous travaillé dans d'autres pays que le Canada, et si oui, lesquels ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and all three source prompts."
       },
       "e81a0c3992dc49f5a2a6db1ef1402a2de565096d9fdbdbb9b84bd366b8bc4628": {
         "english": "Now, within our team, what aspect of your experience abroad is most useful to you?",
@@ -5580,6 +5628,12 @@
       "2b4764e16f5510b1458fa5e32b41670be9de478859a315767c81230c13623fdb": {
         "english": "If I get stuck on a task, who can I ask for help?",
         "french": "Si je bloque sur une tâche, à qui est-ce que je peux demander de l'aide ?"
+      },
+      "4fa0061c33da9fcbdd750298877f469f5eef998c953494da67615cfa26b75cf4": {
+        "english": "Do we have colleagues abroad, for example in Ghana or Norway, and if so, how do we coordinate our work across time zones?",
+        "french": "Avons-nous des collègues à l'étranger, par exemple au Ghana ou en Norvège, et si oui, comment s'organise-t-on pour travailler ensemble malgré le décalage horaire ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and all five source prompts."
       },
       "654ddab0f626901c61589dc1648e621aaf4bee0eca09d049a0e8ef719c84d7c2": {
         "english": "How are tasks and priorities communicated: in a meeting or via message?",
@@ -5719,6 +5773,12 @@
       }
     },
     "newcomer-canada-friend-job-market": {
+      "06c7464342b999b46decd83ac1562f50ab2145c005594c0dc8a3e96c26e7defd": {
+        "english": "Do we have to go to the office every day, or can we work remotely on some days, or even all week?",
+        "french": "Est-ce qu'on doit aller au bureau tous les jours, ou peut-on travailler à distance certains jours, voire toute la semaine ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and its exact source prompt."
+      },
       "2d4e930f07d5e52501f02339d5d3bcafad4ddeda739fdfbfd062cac7af69bb02": {
         "english": "On my CV, how should I present my projects and technical skills, and is it worth adding a link to GitHub?",
         "french": "Sur le CV, comment présenter mes projets et mes compétences techniques, et est-ce utile d'ajouter un lien vers GitHub ?"
@@ -5726,6 +5786,12 @@
       "66d76a5a2d1a180fce27c48a27392364c2802ab380062fa8956ad6d30d22e34b": {
         "english": "Where would you recommend I look for these roles: LinkedIn, company websites or recruitment agencies specialising in IT?",
         "french": "Où me conseilles-tu de chercher ces postes : LinkedIn, les sites des entreprises ou des recruteurs spécialisés en informatique ?"
+      },
+      "bae2bd3ff24601b3dfc29a2a1c2f374335a3d4417ace73052d7489cf3853bf82": {
+        "english": "What gross annual salary range can we expect for these roles?",
+        "french": "Pour ces postes, à quelle fourchette de salaire annuel brut peut-on s'attendre ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and its exact source prompt."
       },
       "c783c3477c751055e644d9a3cd1afc05ea6a9fd12c93843821ceea95da5ae194": {
         "english": "In software development, what ranges of gross annual salary do you see in job adverts?",
@@ -5735,13 +5801,31 @@
         "english": "Are these roles based on-site, hybrid or fully remote?",
         "french": "Ces postes sont-ils proposés sur place, en mode hybride ou entièrement en télétravail ?"
       },
+      "d5ff65509e4ed9d96c19a6faf92a107ea1714b671345835ac56bebb6a5b85dec": {
+        "english": "After sending a CV, how does the recruitment process work: are there multiple interviews and a programming test?",
+        "french": "Après l'envoi du CV, comment se passe le recrutement : y a-t-il plusieurs entretiens et un test de programmation ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and its exact source prompt."
+      },
       "daf6ea9747c8825c0aa9188e3a1fa211e3cac16fc6aeac62628598ed4b64e5eb": {
         "english": "To get a Social Insurance Number, where do I need to apply and what documents do I need to prepare?",
         "french": "Pour obtenir un numéro d'assurance sociale, où dois-je faire la demande et quels documents préparer ?"
       },
+      "dda97d99b56f24de5494bf431caff76318b6689ae872ac890b6183a28a2f54a0": {
+        "english": "Based on the job adverts you see, what matters most to employers: a computing degree, professional experience or completed projects?",
+        "french": "D'après les offres que tu vois, qu'est-ce qui compte le plus pour les employeurs : un diplôme en informatique, l'expérience professionnelle ou les projets réalisés ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and its exact source prompt."
+      },
       "e98888abf897a1341ebd674180ec816b48341337b4963bc7b10eb9b88377782e": {
         "english": "In Calgary, what sort of developer roles do you see most often in job adverts?",
         "french": "À Calgary, quels profils de développeurs vois-tu le plus souvent dans les offres d'emploi ?"
+      },
+      "ec9c4366f988478c57a64ab8b736e3040171b6bba5d37351b087481cf77a51eb": {
+        "english": "Do you mainly see adverts in Calgary for front-end, back-end or full-stack developers?",
+        "french": "À Calgary, vois-tu surtout des offres pour des développeurs front-end, back-end ou full stack ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation reviewed against the complete revised dialogue and its exact source prompt."
       },
       "fca6e6a1235ee726d14ec3356ad87ba1026cb6b73e968d1f4396292462f23890": {
         "english": "Before applying, how can I check that my immigration status allows me to work, and where can I find reliable information?",

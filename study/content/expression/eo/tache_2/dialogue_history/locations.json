@@ -2648,6 +2648,21 @@
             {"topic": "Vie dans l'entreprise", "question": "Comment paie-t-on à la cantine, et quel budget faut-il prévoir pour un repas ?", "follow_up_to": 6, "condition": "If a canteen is mentioned without explaining payment or prices."},
             {"topic": "Vie dans l'entreprise", "question": "Y a-t-il des pauses ou des rencontres d'équipe auxquelles je pourrais participer pour faire connaissance ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "new-employee-company-orientation",
+          "opening": "Bonjour ! Je prends mes repères dans l'entreprise et j'aurais besoin de quelques renseignements.",
+          "closing": "Merci pour votre aide. Ces informations vont me permettre de mieux m'intégrer à l'équipe.",
+          "questions": [
+            {"topic": "Équipe et interlocuteurs", "question": "Pour commencer, avec qui vais-je travailler au quotidien, et qui dirige l'équipe ?", "follow_up_to": null},
+            {"topic": "Équipe et interlocuteurs", "question": "Si je bloque sur une tâche, à qui est-ce que je peux demander de l'aide ?", "follow_up_to": 1, "condition": "If the team is introduced without explaining support for new employees."},
+            {"topic": "Organisation du travail", "question": "Quels sont les horaires habituels de l'équipe ?", "follow_up_to": null},
+            {"topic": "Organisation du travail", "question": "Comment reçoit-on les tâches et les priorités : lors d'une réunion ou par message ?", "follow_up_to": null},
+            {"topic": "Vie dans l'entreprise", "question": "Les échanges entre collègues sont-ils plutôt formels, ou peut-on se parler assez librement ?", "follow_up_to": null},
+            {"topic": "Vie dans l'entreprise", "question": "Pour le déjeuner, y a-t-il une cantine ou une salle où manger son propre repas ?", "follow_up_to": null},
+            {"topic": "Vie dans l'entreprise", "question": "Comment paie-t-on à la cantine, et quel budget faut-il prévoir pour un repas ?", "follow_up_to": 6, "condition": "If a canteen is mentioned without explaining payment or prices."},
+            {"topic": "Vie dans l'entreprise", "question": "Y a-t-il des pauses ou des rencontres d'équipe auxquelles je pourrais participer pour faire connaissance ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -2698,6 +2713,21 @@
             {"topic": "Temps libre", "question": "Quelles activités sont prévues en dehors de la formation ?", "follow_up_to": null},
             {"topic": "Temps libre", "question": "En dehors des activités organisées, quels moments resteront libres pour visiter la ville ?", "follow_up_to": 7, "condition": "If organized activities are mentioned but remaining free-time slots are unclear."}
           ]
+        },
+        {
+          "group": "director-canada-fortnight-training",
+          "opening": "Bonjour ! J'aimerais préparer au mieux les quinze jours de formation au Canada.",
+          "closing": "Merci pour ces précisions. Je vais préparer mon déplacement en suivant ces indications.",
+          "questions": [
+            {"topic": "Formation", "question": "Dans quelle ville se déroulera la formation, et quelles sont les dates prévues ?", "follow_up_to": null},
+            {"topic": "Formation", "question": "Quels sujets seront abordés pendant la formation, et y aura-t-il une partie pratique ?", "follow_up_to": null},
+            {"topic": "Formation", "question": "Quels seront les horaires de formation, et y aura-t-il des séances le week-end ?", "follow_up_to": 2, "condition": "After the programme is outlined, unless session times have already been given."},
+            {"topic": "Frais, hébergement et transport", "question": "Quels frais l'entreprise prendra-t-elle en charge : vol, hébergement, repas et déplacements sur place ?", "follow_up_to": null},
+            {"topic": "Frais, hébergement et transport", "question": "Quel hébergement est prévu : une chambre d'hôtel ou un appartement, et à quelle distance du centre de formation ?", "follow_up_to": null},
+            {"topic": "Frais, hébergement et transport", "question": "Comment seront organisés le transfert depuis l'aéroport et les trajets quotidiens entre le logement et le centre de formation ?", "follow_up_to": null},
+            {"topic": "Temps libre", "question": "Quelles activités sont prévues en dehors de la formation ?", "follow_up_to": null},
+            {"topic": "Temps libre", "question": "Ces activités sont-elles prises en charge, ou dois-je prévoir un budget personnel ?", "follow_up_to": 7, "condition": "If an organized activity is mentioned without explaining who pays."}
+          ]
         }
       ]
     },
@@ -2744,6 +2774,21 @@
             {"topic": "Collègues et ambiance", "question": "Après ce premier contact, tu as senti une ambiance plutôt détendue ou formelle ?", "follow_up_to": 2, "condition": "If Ève describes the welcome without already explaining the team atmosphere."},
             {"topic": "Tâches et accompagnement", "question": "Et concrètement, quelles premières tâches t'a-t-on confiées ?", "follow_up_to": null},
             {"topic": "Tâches et accompagnement", "question": "Pour ce logiciel, tu as pu t'entraîner avec quelqu'un avant de l'utiliser avec les clients ?", "follow_up_to": 4, "condition": "If unfamiliar software is mentioned without explaining the initial training."},
+            {"topic": "Bilan", "question": "Il y a eu un moment où tu ne savais pas comment répondre à une demande ?", "follow_up_to": null},
+            {"topic": "Bilan", "question": "Et dans ce cas-là, qu'est-ce que tu as fait ?", "follow_up_to": 6, "condition": "After a specific difficulty, unless its resolution has already been explained."},
+            {"topic": "Bilan", "question": "Au final, cette première journée correspondait-elle à l'idée que tu te faisais du poste ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "friend-first-workday-report",
+          "opening": "Salut Ève ! Maintenant que ta première journée est terminée, j'ai vraiment envie de savoir comment tu l'as vécue.",
+          "closing": "Merci de m'avoir raconté ta journée, Ève ! Tu me diras comment se passe la suite.",
+          "questions": [
+            {"topic": "Premières impressions", "question": "Alors, cette première journée, comment ça s'est passé pour toi ?", "follow_up_to": null},
+            {"topic": "Collègues et ambiance", "question": "À ton arrivée, qu'est-ce que tes collègues ont fait pour t'accueillir ?", "follow_up_to": null},
+            {"topic": "Collègues et ambiance", "question": "Après ce premier contact, tu as senti une ambiance plutôt détendue ou formelle ?", "follow_up_to": 2, "condition": "If Ève describes the welcome without already explaining the team atmosphere."},
+            {"topic": "Tâches et accompagnement", "question": "Et concrètement, quelles premières tâches t'a-t-on confiées ?", "follow_up_to": null},
+            {"topic": "Tâches et accompagnement", "question": "Pour tes premières tâches, quelqu'un t'a montré comment faire ou tu as dû te débrouiller seule ?", "follow_up_to": 4, "condition": "After the first tasks are described, unless guidance has already been explained."},
             {"topic": "Bilan", "question": "Il y a eu un moment où tu ne savais pas comment répondre à une demande ?", "follow_up_to": null},
             {"topic": "Bilan", "question": "Et dans ce cas-là, qu'est-ce que tu as fait ?", "follow_up_to": 6, "condition": "After a specific difficulty, unless its resolution has already been explained."},
             {"topic": "Bilan", "question": "Au final, cette première journée correspondait-elle à l'idée que tu te faisais du poste ?", "follow_up_to": null}
@@ -2810,6 +2855,21 @@
             {"topic": "Offres et candidatures", "question": "Quelles sont les étapes habituelles du recrutement pour ces postes, notamment les entretiens et les tests techniques ?", "follow_up_to": 1, "condition": "After developer roles are mentioned, unless recruitment stages have already been explained."},
             {"topic": "Démarches", "question": "Avant de postuler, comment vérifier que mon statut me permet de travailler, et où obtenir des renseignements fiables ?", "follow_up_to": null},
             {"topic": "Démarches", "question": "Pour obtenir un numéro d'assurance sociale, où dois-je faire la demande et quels documents préparer ?", "follow_up_to": 5, "condition": "If status checks are mentioned without explaining social insurance procedures."},
+            {"topic": "Conditions des emplois", "question": "En développement logiciel, quelles fourchettes de salaire annuel brut vois-tu dans les offres ?", "follow_up_to": null},
+            {"topic": "Conditions des emplois", "question": "Ces postes sont-ils proposés sur place, en mode hybride ou entièrement en télétravail ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "newcomer-canada-friend-job-market",
+          "opening": "Salut Pierre ! Maintenant que je suis installé à Calgary, je cherche un poste en développement logiciel et j'aimerais avoir tes conseils pour mes candidatures.",
+          "closing": "Merci, Pierre ! Je vais vérifier les démarches, adapter mon CV et regarder les offres dont tu m'as parlé.",
+          "questions": [
+            {"topic": "Démarches", "question": "Avant de postuler, comment vérifier que mon statut me permet de travailler, et où obtenir des renseignements fiables ?", "follow_up_to": null},
+            {"topic": "Démarches", "question": "Pour obtenir un numéro d'assurance sociale, où dois-je faire la demande et quels documents préparer ?", "follow_up_to": null},
+            {"topic": "Offres et candidatures", "question": "À Calgary, quels profils de développeurs vois-tu le plus souvent dans les offres d'emploi ?", "follow_up_to": null},
+            {"topic": "Offres et candidatures", "question": "Où me conseilles-tu de chercher ces postes : LinkedIn, les sites des entreprises ou des recruteurs spécialisés en informatique ?", "follow_up_to": 3, "condition": "If Pierre names vacancies without explaining where to find them."},
+            {"topic": "Offres et candidatures", "question": "Sur le CV, comment présenter mes projets et mes compétences techniques, et est-ce utile d'ajouter un lien vers GitHub ?", "follow_up_to": null},
+            {"topic": "Offres et candidatures", "question": "Quelles sont les étapes habituelles du recrutement pour ces postes, notamment les entretiens et les tests techniques ?", "follow_up_to": 3, "condition": "After developer roles are mentioned, unless recruitment stages have already been explained."},
             {"topic": "Conditions des emplois", "question": "En développement logiciel, quelles fourchettes de salaire annuel brut vois-tu dans les offres ?", "follow_up_to": null},
             {"topic": "Conditions des emplois", "question": "Ces postes sont-ils proposés sur place, en mode hybride ou entièrement en télétravail ?", "follow_up_to": null}
           ]
@@ -2962,6 +3022,21 @@
             {"topic": "Installation et adaptation", "question": "Qu'est-ce qui vous a aidé à surmonter ces difficultés ?", "follow_up_to": 5, "condition": "If difficulties are described, unless they already explain how they overcame them."},
             {"topic": "Bilan", "question": "Quelles compétences avez-vous développées en travaillant dans plusieurs pays ?", "follow_up_to": null},
             {"topic": "Bilan", "question": "Entre le Québec et ici, quelles différences vous ont le plus marqué dans les réunions ou la façon de prendre les décisions ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "new-colleague-quebec-career-migration",
+          "opening": "Bonjour ! Votre parcours avant de rejoindre notre équipe m'intéresse, notamment votre expérience au Québec.",
+          "closing": "Merci d'avoir partagé votre parcours. Cela m'aide à mieux comprendre votre expérience et votre arrivée dans l'équipe.",
+          "questions": [
+            {"topic": "Études et parcours professionnel", "question": "Quelles études avez-vous faites, et qu'est-ce qui vous a orienté vers ce domaine ?", "follow_up_to": null},
+            {"topic": "Études et parcours professionnel", "question": "Quel a été votre premier emploi, et comment l'avez-vous obtenu ?", "follow_up_to": null},
+            {"topic": "Études et parcours professionnel", "question": "Avez-vous eu d'autres expériences professionnelles à l'étranger avant de vous installer ici ?", "follow_up_to": null},
+            {"topic": "Installation et adaptation", "question": "Qu'est-ce qui vous a donné envie de venir travailler ici ?", "follow_up_to": null},
+            {"topic": "Installation et adaptation", "question": "À votre arrivée, qu'est-ce qui a été le plus difficile : trouver un logement, faire les démarches ou créer un réseau ?", "follow_up_to": null},
+            {"topic": "Installation et adaptation", "question": "Vous avez fait comment pour rencontrer des gens en dehors du travail ?", "follow_up_to": 5, "condition": "If building a local network was difficult; adapt to another difficulty."},
+            {"topic": "Bilan", "question": "Aujourd'hui, dans notre équipe, qu'est-ce qui vous sert le plus de votre expérience à l'étranger ?", "follow_up_to": null},
+            {"topic": "Bilan", "question": "Par rapport à vos précédents emplois, qu'est-ce qui vous a le plus surpris dans notre façon de travailler ?", "follow_up_to": null}
           ]
         }
       ]

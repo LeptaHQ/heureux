@@ -58,7 +58,7 @@ class FirstWorkdayFollowupTests(SimpleTestCase):
 
     def test_exact_published_first_day_layout_is_archived_once(self):
         revisions = self.history["groups"][GROUP]["revisions"]
-        self.assertEqual(len(revisions), 3)
+        self.assertEqual(len(revisions), 4)
         self.assertEqual(
             fingerprint(revisions[2]),
             "349c2575d10ca5208d12b3b1054b05dcd76e62ca06952f6865a89464baa87d9e",
@@ -84,10 +84,10 @@ class FirstWorkdayFollowupTests(SimpleTestCase):
         self.assertIn("Une collègue m'a montré", question.answer)
         self.assertIn("restée à côté", question.answer)
 
-    def test_all_seven_other_questions_stay_as_published(self):
-        old = self.history["groups"][GROUP]["revisions"][2]
+    def test_six_other_questions_stay_as_published(self):
+        old = self.history["groups"][GROUP]["revisions"][3]
         for index, question in enumerate(self.dialogue.questions):
-            if index == 4:
+            if index in (3, 5):
                 continue
             archived = old["questions"][index]
             self.assertEqual(question.question, archived["question"])
@@ -97,6 +97,15 @@ class FirstWorkdayFollowupTests(SimpleTestCase):
         self.assertEqual(len(self.dialogue.questions), 8)
         self.assertEqual(self.dialogue.opening, old["opening"])
         self.assertEqual(self.dialogue.closing, old["closing"])
+
+    def test_actual_tasks_and_uncertainty_do_not_assume_request_handling(self):
+        self.assertIn("quelles tâches as-tu effectuées", self.dialogue.questions[3].question)
+        self.assertIn("ne savais pas trop quoi faire", self.dialogue.questions[5].question)
+        self.assertNotIn("demande", self.dialogue.questions[5].question)
+        self.assertEqual(self.dialogue.questions[6].follow_up_to, 6)
+        self.assertIn("unless its resolution has already been explained", self.dialogue.questions[6].condition)
+        self.assertIn("Tasks carried out", self.hints[GROUP][3]["english"])
+        self.assertIn("unsure what to do", self.hints[GROUP][5]["english"])
 
     def test_q5_cues_name_guidance_and_independence_instead_of_software_practice(self):
         cue = self.hints[GROUP][4]

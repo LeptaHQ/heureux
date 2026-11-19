@@ -621,13 +621,13 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
 
     def test_newcomer_conditions_are_advertised_examples_not_countrywide_promises(self):
         row = self.by_group["newcomer-canada-friend-job-market"]
-        self.assertIn("profils de développeurs", row.questions[2].question)
-        self.assertIn("tests techniques", row.questions[5].question)
+        self.assertIn("front-end, back-end ou full stack", row.questions[1].question)
+        self.assertIn("test de programmation", row.questions[5].question)
         self.assertIn("IRCC", row.questions[0].answer)
-        self.assertIn("Service Canada", row.questions[1].answer)
+        self.assertIn("offres que j'ai vues", row.questions[2].answer)
         self.assertIn("brut", row.questions[6].question)
         self.assertIn("annuel", row.questions[6].question)
-        for detail in ("sur place", "hybride", "télétravail"):
+        for detail in ("bureau tous les jours", "à distance certains jours", "toute la semaine"):
             self.assertIn(detail, row.questions[7].question)
         self.assertIn("salary figures are illustrative", row.note)
 

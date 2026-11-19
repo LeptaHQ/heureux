@@ -55,13 +55,17 @@ class DirectorTrainingReviewTests(SimpleTestCase):
 
     def test_exact_published_layout_is_added_once_and_all_earlier_history_stays_exact(self):
         revisions = self.history["groups"][GROUP]["revisions"]
-        self.assertEqual(len(revisions), 3)
+        self.assertEqual(len(revisions), 4)
         self.assertEqual(
             fingerprint(revisions[2]),
             "8917bc14509ae9ed4b94c52dff816463e2101a95157a6fe723a34c875ba0b366",
         )
         self.assertEqual(set(revisions[2]), {"group", "opening", "closing", "questions"})
         self.assertTrue(all("answer" not in q for q in revisions[2]["questions"]))
+        self.assertEqual(
+            revisions[3]["questions"][1]["question"],
+            "Quels sujets seront abordés pendant la formation, et y aura-t-il une partie pratique ?",
+        )
         previous = pre_realness_history(self.history)
         remove_followup_archives(previous)
         self.assertEqual(
@@ -75,18 +79,20 @@ class DirectorTrainingReviewTests(SimpleTestCase):
         self.assertEqual(len(self.hints[GROUP]), 8)
         self.assertEqual(
             [q.topic for q in row.questions],
-            ["Formation"] * 3 + ["Frais, hébergement et transport"] * 3 + ["Temps libre"] * 2,
+            ["Formation"] * 4 + ["Frais, hébergement et transport"] * 3 + ["Temps libre"],
         )
         old = self.history["groups"][GROUP]["revisions"][2]
-        for before, after in ((1, 1), (6, 4), (4, 5), (7, 7)):
+        for before, after in ((1, 1), (6, 5), (4, 6), (7, 8)):
             self.assertEqual(old["questions"][before - 1]["question"],
                              row.questions[after - 1].question)
         self.assertIn("merci", row.closing.casefold())
+        self.assertIn("professionnels", row.questions[4].answer)
 
     def test_programme_and_timetable_do_not_assume_software_or_group_exercises(self):
         row = self.dialogue
         self.assertIn("sujets", row.questions[1].question)
-        self.assertIn("partie pratique", row.questions[1].question)
+        self.assertIn("exercices pratiques ou des études de cas", row.questions[1].question)
+        self.assertIn("cas concrets", row.questions[1].answer)
         self.assertIn("horaires", row.questions[2].question)
         self.assertIn("week-end", row.questions[2].question)
         self.assertEqual(row.questions[2].follow_up_to, 2)
@@ -96,32 +102,31 @@ class DirectorTrainingReviewTests(SimpleTestCase):
         self.assertIn("No software topic is given", row.note)
 
     def test_transport_distinguishes_arrival_transfer_from_daily_return_journeys(self):
-        question = self.dialogue.questions[5]
-        for text in ("transfert", "aéroport", "trajets quotidiens", "logement", "centre"):
+        question = self.dialogue.questions[6]
+        for text in ("viendra me chercher", "aéroport", "allers-retours quotidiens", "mon logement", "centre"):
             self.assertIn(text, question.question)
         self.assertIn("taxi", question.answer)
         self.assertIn("allers-retours quotidiens", question.answer)
 
-    def test_last_followup_adds_activity_costs_without_repeating_the_free_time_question(self):
+    def test_completion_document_does_not_promise_a_professional_certification(self):
         row = self.dialogue
-        self.assertEqual(row.questions[7].follow_up_to, 7)
-        self.assertIn("who pays", row.questions[7].condition)
-        self.assertIn("budget personnel", row.questions[7].question)
-        self.assertNotIn("moments resteront libres", row.questions[7].question)
-        self.assertNotIn("comprise", row.questions[6].answer)
-        self.assertIn("comprise dans le stage", row.questions[7].answer)
-        self.assertIn("à votre charge", row.questions[7].answer)
-        self.assertIn("professionnels", row.questions[3].answer)
+        question = row.questions[3]
+        self.assertIn("recevrai-je une attestation de participation ou un certificat", question.question)
+        self.assertIsNone(question.follow_up_to)
+        self.assertIn("pas une certification professionnelle", question.answer)
+        self.assertIn("Quelles activités", row.questions[7].question)
+        self.assertIsNone(row.questions[7].follow_up_to)
 
     def test_cues_match_the_new_order_and_distinct_question_goals(self):
         cues = self.hints[GROUP]
         for index, french, english in (
             (1, "Sujets", "Training topics"),
             (2, "Horaires", "Training hours"),
-            (3, "Prise en charge", "Coverage of flights"),
-            (4, "hébergement", "Accommodation type"),
-            (5, "trajets quotidiens", "daily accommodation-to-training"),
-            (7, "budget personnel", "personal leisure budget"),
+            (3, "Attestation de participation", "Proof of attendance"),
+            (4, "Prise en charge", "Coverage of flights"),
+            (5, "hébergement", "Accommodation type"),
+            (6, "allers-retours quotidiens", "daily accommodation-to-training"),
+            (7, "Activités", "Activities outside training hours"),
         ):
             self.assertIn(french, cues[index]["french"])
             self.assertIn(english, cues[index]["english"])

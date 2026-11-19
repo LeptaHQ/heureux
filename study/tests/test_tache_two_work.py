@@ -61,29 +61,31 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
                 1: ("avec qui", "qui dirige"),
                 2: ("bloque sur une tâche", "demander de l'aide"),
                 4: ("priorités", "réunion", "message"),
-                7: ("paie-t-on", "budget"),
+                5: ("collègues à l'étranger", "Ghana", "Norvège", "si oui", "décalage horaire"),
                 8: ("faire connaissance",),
             },
             "director-canada-fortnight-training": {
                 1: ("ville", "dates"), 3: ("horaires", "week-end"),
-                4: ("vol", "hébergement", "repas", "déplacements"),
-                6: ("aéroport", "trajets quotidiens", "centre de formation"),
+                4: ("attestation de participation", "certificat"),
+                5: ("vol", "hébergement", "repas", "déplacements"),
+                7: ("aéroport", "allers-retours quotidiens", "centre de formation"),
             },
             "friend-first-workday-report": {
                 1: ("première journée", "comment ça s'est passé"),
+                4: ("tâches", "effectuées"),
                 5: ("premières tâches", "quelqu'un t'a montré", "seule"),
-                6: ("répondre à une demande",),
+                6: ("ne savais pas trop quoi faire",),
                 7: ("dans ce cas-là",),
             },
             "newcomer-canada-friend-job-market": {
                 1: ("statut", "renseignements fiables"),
-                2: ("numéro d'assurance sociale", "demande", "documents"),
-                3: ("profils de développeurs", "Calgary"),
+                2: ("front-end", "back-end", "full stack", "Calgary"),
+                3: ("diplôme en informatique", "expérience professionnelle", "projets réalisés"),
                 4: ("LinkedIn", "recruteurs spécialisés"),
                 5: ("projets", "compétences techniques", "GitHub"),
-                6: ("étapes", "recrutement", "tests techniques"),
+                6: ("recrutement", "plusieurs entretiens", "test de programmation"),
                 7: ("salaire annuel brut",),
-                8: ("sur place", "hybride", "télétravail"),
+                8: ("bureau tous les jours", "à distance certains jours", "toute la semaine"),
             },
             "canadian-work-hours-home-country-comparison": {
                 1: ("jours", "de quelle heure"), 3: ("pause déjeuner", "comptée"),
@@ -93,6 +95,9 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
                 1: ("secteur", "poste"), 7: ("recrute", "consulter les offres"),
             },
             "new-colleague-quebec-career-migration": {
+                1: ("étudié dans quel domaine", "pourquoi"),
+                2: ("premier emploi", "trouvé"),
+                3: ("Avant de vous installer ici", "d'autres pays que le Canada", "si oui"),
                 5: ("logement", "démarches", "réseau"),
                 6: ("rencontrer des gens", "en dehors du travail"),
                 8: ("précédents emplois", "façon de travailler"),
@@ -153,7 +158,7 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
             [self.hints[day.group][index]["english"] for index in (1, 2, 3, 4)],
             [
                 "How colleagues welcomed her", "Atmosphere within the team",
-                "First tasks assigned to Ève", "Guidance or independence with the first tasks",
+                "Tasks carried out on the first day", "Guidance or independence with the first tasks",
             ],
         )
         association = self.by_group["friend-association-work-experience"]
@@ -179,11 +184,9 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
         newcomer = self.by_group["newcomer-canada-friend-job-market"]
         self.assertIn("not hiring or legal guarantees", newcomer.note)
         self.assertIn("IRCC", newcomer.questions[0].answer)
-        self.assertIn("Service Canada", newcomer.questions[1].answer)
-        self.assertIn("selon ton statut", newcomer.questions[1].answer)
-        self.assertIn("liste complète", newcomer.questions[1].answer)
+        self.assertIn("offres que j'ai vues", newcomer.questions[2].answer)
         self.assertIsNone(newcomer.questions[1].follow_up_to)
-        self.assertIn("once eligible", newcomer.note)
+        self.assertIn("Verify unresolved eligibility before proceeding", newcomer.note)
         self.assertNotIn("soir", newcomer.questions[6].answer)
         comparison = self.by_group["canadian-work-hours-home-country-comparison"]
         self.assertIn("not nationwide Canadian rules", comparison.note)
@@ -192,14 +195,24 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
         ].note)
         self.assertIn("within the same company", self.by_group["colleague-internal-job-change"].note)
 
-    def test_training_replies_distinguish_timetable_transport_and_leisure_coverage(self):
+    def test_overseas_collaboration_is_conditional_and_keeps_canteen_coverage(self):
+        row = self.by_group["new-employee-company-orientation"]
+        question = row.questions[4]
+        self.assertEqual(question.topic, "Organisation du travail")
+        self.assertIsNone(question.follow_up_to)
+        self.assertIn("messages et les documents partagés", question.answer)
+        self.assertIn("horaires de chacun", question.answer)
+        self.assertIn("a possibility to check, not a prompt fact", row.note)
+        self.assertIn("cantine ou une salle", row.questions[6].question)
+        self.assertIn("Ghana, Norway", self.hints[row.group][4]["english"])
+        self.assertIn("time zones", self.hints[row.group][4]["english"])
+
+    def test_training_replies_distinguish_timetable_transport_and_participation_documents(self):
         row = self.by_group["director-canada-fortnight-training"]
         self.assertIn("voyages compris", row.questions[0].answer)
         self.assertIn("16 h 30", row.questions[2].answer)
-        self.assertNotIn("navette", row.questions[4].answer)
-        self.assertIn("taxi", row.questions[5].answer)
-        self.assertIn("navette", row.questions[5].answer)
-        self.assertNotIn("comprise", row.questions[6].answer)
-        self.assertEqual(row.questions[7].follow_up_to, 7)
-        self.assertIn("budget personnel", row.questions[7].question)
-        self.assertIn("comprise dans le stage", row.questions[7].answer)
+        self.assertIn("pas une certification professionnelle", row.questions[3].answer)
+        self.assertNotIn("navette", row.questions[5].answer)
+        self.assertIn("taxi", row.questions[6].answer)
+        self.assertIn("navette", row.questions[6].answer)
+        self.assertIn("Une visite de Calgary", row.questions[7].answer)

@@ -6347,9 +6347,9 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assert_reviewed_eo2_reorder_highlights((
             ("recruiter-scheduled-interview-preparation", {1: 1, 3: 3, 6: 5, 8: 8}),
             ("french-teacher-language-school-student-game", {1: 6, 2: 1, 4: 3}),
-            ("director-canada-fortnight-training", {1: 1, 6: 4, 4: 5, 7: 7}),
-            ("friend-first-workday-report", {1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8}),
-            ("newcomer-canada-friend-job-market", {5: 5, 6: 6}),
+            ("director-canada-fortnight-training", {1: 1, 3: 3, 4: 5, 5: 6, 7: 8}),
+            ("friend-first-workday-report", {1: 1, 2: 2, 3: 3, 5: 5, 7: 7, 8: 8}),
+            ("newcomer-canada-friend-job-market", {1: 1, 4: 4, 5: 5}),
             ("language-school-new-language", {1: 1, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}),
             ("parent-after-school-activity-advice", {1: 1, 2: 2, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}),
             ("friend-child-language-stay-abroad", {4: 4, 7: 7, 8: 8}),

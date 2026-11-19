@@ -73,13 +73,24 @@ class SoftwareJobSearchReviewTests(SimpleTestCase):
         self.assertIn("field and Calgary are example choices, not prompt requirements", row.note)
         self.assertNotIn("service à la clientèle", json.dumps(self.raw[GROUP], ensure_ascii=False))
 
-    def test_developer_roles_and_search_channels_follow_authorization_and_sin_checks(self):
+    def test_developer_roles_and_search_channels_follow_authorization_check(self):
         row = self.dialogue
-        self.assertIn("profils de développeurs", row.questions[2].question)
-        self.assertIn("offres d'emploi", row.questions[2].question)
+        for specialism in ("front-end", "back-end", "full stack"):
+            self.assertIn(specialism, row.questions[1].question)
+            self.assertIn(specialism, row.questions[1].answer)
         for channel in ("LinkedIn", "sites des entreprises", "recruteurs spécialisés"):
             self.assertIn(channel, row.questions[3].question)
-        self.assertEqual(row.questions[3].follow_up_to, 3)
+        self.assertEqual(row.questions[3].follow_up_to, 2)
+
+    def test_employer_priorities_are_observed_requirements_not_cv_presentation_advice(self):
+        question = self.dialogue.questions[2]
+        for detail in ("D'après les offres que tu vois", "diplôme en informatique",
+                       "expérience professionnelle", "projets réalisés"):
+            self.assertIn(detail, question.question)
+        self.assertIn("offres que j'ai vues", question.answer)
+        self.assertIsNone(question.follow_up_to)
+        self.assertIn("Sur le CV", self.dialogue.questions[4].question)
+        self.assertIn("Employer priorities", self.hints[GROUP][2]["english"])
 
     def test_cv_question_asks_for_project_evidence_without_requiring_confidential_code(self):
         row = self.dialogue
@@ -90,21 +101,18 @@ class SoftwareJobSearchReviewTests(SimpleTestCase):
 
     def test_recruitment_question_covers_technical_assessment_without_guaranteeing_one_process(self):
         row = self.dialogue
-        self.assertIn("étapes habituelles du recrutement", row.questions[5].question)
-        self.assertIn("tests techniques", row.questions[5].question)
-        self.assertEqual(row.questions[5].follow_up_to, 3)
+        self.assertIn("Après l'envoi du CV", row.questions[5].question)
+        self.assertIn("plusieurs entretiens et un test de programmation", row.questions[5].question)
+        self.assertEqual(row.questions[5].follow_up_to, 2)
         self.assertIn("recruitment stages", row.questions[5].condition)
         self.assertIn("varie selon l'entreprise", row.questions[5].answer)
 
-    def test_authorization_and_social_insurance_questions_lead_the_route(self):
+    def test_authorization_check_still_leads_the_route(self):
         row = self.dialogue
         old = self.history["groups"][GROUP]["revisions"][2]
-        for before, after in ((4, 0), (5, 1)):
-            self.assertEqual(row.questions[after].question, old["questions"][before]["question"])
-            self.assertIsNone(row.questions[after].follow_up_to)
+        self.assertEqual(row.questions[0].question, old["questions"][4]["question"])
+        self.assertIsNone(row.questions[0].follow_up_to)
         self.assertIn("IRCC", row.questions[0].answer)
-        self.assertIn("Service Canada", row.questions[1].answer)
-        self.assertIn("once eligible", row.note)
         self.assertIn("Verify unresolved eligibility before proceeding", row.note)
         self.assertIn("not hiring or legal guarantees", row.note)
 
@@ -112,12 +120,13 @@ class SoftwareJobSearchReviewTests(SimpleTestCase):
         row = self.dialogue
         self.assertIn("salaire annuel brut", row.questions[6].question)
         self.assertNotIn("horaire", row.questions[6].question)
+        self.assertNotIn("vois", row.questions[6].question)
         self.assertIn("dollars canadiens bruts par an", row.questions[6].answer)
         self.assertIn("Offers and salary figures are illustrative", row.note)
 
     def test_last_question_focuses_on_onsite_hybrid_and_fully_remote_work(self):
         row = self.dialogue
-        for arrangement in ("sur place", "hybride", "entièrement en télétravail"):
+        for arrangement in ("bureau tous les jours", "à distance certains jours", "toute la semaine"):
             self.assertIn(arrangement, row.questions[7].question)
         self.assertNotIn("temps partiel", row.questions[7].question)
         self.assertIn("exigences de présence et de résidence", row.questions[7].answer)
@@ -133,6 +142,7 @@ class SoftwareJobSearchReviewTests(SimpleTestCase):
         self.assertTrue(all(
             not any((a.developpement, a.exemple, a.consequence)) for a in response.arguments
         ))
-        for index, phrase in ((2, "Developer profiles"), (4, "GitHub"), (5, "technical assessments"),
+        for index, phrase in ((1, "Front-end"), (2, "Employer priorities"),
+                              (4, "GitHub"), (5, "programming test"),
                               (6, "annual salary"), (7, "remote work")):
             self.assertIn(phrase, self.hints[GROUP][index]["english"])

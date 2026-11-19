@@ -1221,15 +1221,22 @@ class PublishedTacheTwoHighlightTests(TestCase):
             PersonalResponse.objects.filter(user=self.user).delete()
             Annotation.objects.filter(user=self.user).delete()
 
+    def test_overseas_colleagues_question_preserves_moved_questions_and_archives_canteen_payment(self):
+        self.assert_revision_highlights_preserved(
+            "new-employee-company-orientation",
+            {1: 1, 2: 2, 3: 3, 4: 4, 5: 6, 6: 7, 8: 8},
+            revision=3,
+        )
+
     def test_work_rewrites_preserve_unchanged_questions_and_archive_learned_wording(self):
         mappings = {
             "new-employee-company-orientation": {3: 3},
-            "director-canada-fortnight-training": {7: 7},
-            "friend-first-workday-report": {2: 4, 4: 2, 5: 3, 8: 8},
+            "director-canada-fortnight-training": {7: 8},
+            "friend-first-workday-report": {4: 2, 5: 3, 8: 8},
             "newcomer-canada-friend-job-market": {},
             "canadian-work-hours-home-country-comparison": {5: 5},
             "former-colleague-new-job-to-change-employment": {},
-            "new-colleague-quebec-career-migration": {3: 3, 4: 4},
+            "new-colleague-quebec-career-migration": {4: 4},
             "recruiter-scheduled-interview-preparation": {2: 1, 3: 3},
             "colleague-internal-job-change": {7: 7, 8: 8},
             "friend-upcoming-job-interview-advice": {4: 4, 7: 7},
@@ -1302,6 +1309,15 @@ class PublishedTacheTwoHighlightTests(TestCase):
 
     def test_director_training_followup_preserves_every_archived_generation(self):
         self.assert_all_archived_generations_preserved("director-canada-fortnight-training")
+
+    def test_first_day_audit_preserves_every_archived_generation(self):
+        self.assert_all_archived_generations_preserved("friend-first-workday-report")
+
+    def test_employer_priorities_preserve_every_archived_generation(self):
+        self.assert_all_archived_generations_preserved("newcomer-canada-friend-job-market")
+
+    def test_colleague_background_preserves_every_archived_generation(self):
+        self.assert_all_archived_generations_preserved("new-colleague-quebec-career-migration")
 
     def test_named_child_stay_preserves_every_archived_generation(self):
         self.assert_all_archived_generations_preserved("friend-child-language-stay-abroad")

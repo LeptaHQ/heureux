@@ -470,7 +470,7 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         cases = (
             (
                 "education-p1", "argument-5-exemple",
-                ("ask their colleagues for explanations", "their working habits"),
+                ("already spoke French well", "everyone gives their opinion spontaneously"),
                 ("doctor's office",),
             ),
             (
@@ -1353,31 +1353,37 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             self.skipTest("DeepL response translations have not been prepared.")
         models = scoped_models()
         for name, field, phrases in (
-            ("education-p1", "introduction", ("not everyone is able to adapt", "circumstances in which they arrive")),
+            (
+                "education-p1", "introduction",
+                ("not everyone is able to adapt to life abroad", "personal qualities, language, culture",
+                 "circumstances of leaving"),
+            ),
             (
                 "education-p1", "argument-4-developpement",
                 ("patience, curiosity", "open-mindedness", "cope with the unfamiliar",
-                 "genuinely motivating", "others soon feel lost"),
+                 "enjoy discovering new habits", "quickly lose their bearings"),
             ),
-            ("education-p1", "argument-4-exemple", ("ventures into activities despite feeling uncomfortable", "remains isolated")),
+            ("education-p1", "argument-4-exemple", ("two friends move to Canada", "takes months to feel at home")),
             (
                 "education-p1", "argument-5-developpement",
                 ("working, dealing with administrative tasks", "relationships with residents",
-                 "cultural codes, customs", "even after several years"),
+                 "cultural codes, customs", "Even with goodwill"),
             ),
             (
                 "education-p1", "argument-2-developpement",
                 ("a job, housing", "employment contract, family or a network",
                  "administrative, financial and professional preparation"),
             ),
-            ("education-p1", "argument-2-exemple", ("a job offer and some savings", "initial expenses", "employer to pay their first salary")),
+            ("education-p1", "argument-5-exemple", ("arrived in Quebec", "waited to be asked", "stayed silent")),
+            ("education-p1", "argument-2-exemple", ("a cousin who puts them up", "housing and work at the same time", "employer to give them a chance")),
             ("education-p1", "nuance", ("inherently unable to adapt", "time, help and good preparation", "not fixed in advance")),
             ("culture-p26", "argument-5-developpement", ("which documents to prepare", "where to check my rights")),
             (
                 "culture-p26", "argument-5-exemple",
-                ("opening a bank account", "my passport is enough",
-                 "If the bank also required proof of address",
-                 "I would have to return with that document", "avoid wasting a morning"),
+                ("opening a bank account", "Depending on the country and the bank",
+                 "just an identity document", "proof of address as well",
+                 "rather than assuming that my passport is enough everywhere",
+                 "avoid an unnecessary trip"),
             ),
             ("culture-p26", "argument-2-developpement", ("available jobs", "recognition of my qualifications", "additional training")),
             ("culture-p26", "argument-3-developpement", ("different pace of life", "know what to expect", "personal rejection")),

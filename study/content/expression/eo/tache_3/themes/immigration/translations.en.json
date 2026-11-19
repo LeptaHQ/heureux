@@ -1250,6 +1250,16 @@
         "english": "For me, knowing the country would therefore help me prepare a realistic plan, be more independent there and cope better with change, without believing that everything can be anticipated.",
         "french": "Pour moi, connaître le pays servirait donc à préparer un projet réaliste, à être plus autonome sur place et à mieux vivre le changement, sans croire que tout peut se prévoir.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
+      },
+      "fb14fc3e23a369ab8eebf64531fb3172f79fcd223d60e64488cb8cdffa136ccc": {
+        "english": "Take the example of opening a bank account. Depending on the country and the bank, I might be asked for just an identity document or for proof of address as well. I would therefore check the required documents before leaving, rather than assuming that my passport is enough everywhere. This would help me prepare a complete application and avoid an unnecessary trip.",
+        "french": "Prenons l'exemple de l'ouverture d'un compte bancaire. Selon le pays et la banque, on pourrait me demander seulement une pièce d'identité ou aussi une preuve d'adresse. Je vérifierais donc les documents exigés avant de partir, au lieu de supposer que mon passeport suffit partout. Cela m'aiderait à préparer un dossier complet et à éviter un déplacement inutile.",
+        "review_note": "Editorial translation of the revised banking comparison. Document requirements remain hypothetical and depend on the country and bank; account opening is not guaranteed. All preceding translations retained; no translation-provider call."
+      },
+      "fc3ba40610687ba3250a65c2b21e39aad380abfb0e23d6206fe0c7f0249fa0b2": {
+        "english": "Finding housing or seeing a doctor does not necessarily work the same way everywhere. I would want to know whom to contact and which documents to prepare. I would also know where to check my rights before agreeing to a landlord's request. Without those reference points, I would have to discover everything at once, which could make the first few weeks exhausting.",
+        "french": "Se loger ou consulter un médecin ne se fait pas forcément de la même façon partout. Je voudrais savoir à qui m'adresser et quels documents préparer. Je saurais aussi où vérifier mes droits avant d'accepter la demande d'un propriétaire. Sans ces repères, je devrais tout découvrir en même temps, ce qui pourrait rendre les premières semaines épuisantes.",
+        "review_note": "Editorial translation of the development with the banking reference removed to reserve it for the concrete example. All remaining reasoning and preceding translations retained; no translation-provider call."
       }
     },
     "eo/tache-3/culture-p29": {
@@ -2417,6 +2427,11 @@
         "french": "Par exemple, à son arrivée, une personne passe ses week-ends seule, car elle hésite à faire des choses nouvelles. Elle s'inscrit finalement à une randonnée en groupe et découvre une activité qu'elle a envie de reprendre. Cette première expérience l'encourage à essayer autre chose.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
       },
+      "0ef6fb075f3b76934facede338607d7b0d72edc5e1c2812d8086ecd382fe989d": {
+        "english": "Take two colleagues who arrived in Quebec at the same time. One already spoke French well and quickly understood that, in the team, everyone gives their opinion spontaneously. The other, less at ease, waited to be asked, as in his previous job, and stayed silent.",
+        "french": "Prenons deux collègues arrivés au Québec en même temps. L'un parlait bien français et a vite compris que, dans l'équipe, chacun donne son avis spontanément. L'autre, moins à l'aise, attendait qu'on l'interroge, comme dans son ancien travail, et restait silencieux.",
+        "review_note": "Editorial translation of the comparative workplace example combining language level and learned conversational habits within one team. All preceding translations retained; no translation-provider call."
+      },
       "10c5b8bbe6725fb10275af88c1705ef9fe694d7f6b1a80edc34494dd237c5a05": {
         "english": "In my view, not everyone is able to adapt under the circumstances in which they arrive.",
         "french": "À mon avis, tout le monde n'est pas en mesure de s'adapter dans ses conditions d'arrivée.",
@@ -2459,6 +2474,11 @@
         "english": "Next, language and an understanding of local customs play an essential role.",
         "french": "Ensuite, la langue et la compréhension des habitudes locales jouent un rôle essentiel.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
+      },
+      "32c076cf44fb3d2d6c1afa3e36233d5dd20e0545e68677c190572388db153096": {
+        "english": "Imagine two people arriving in the same city abroad. One has a job waiting and a cousin who puts them up. The other has to look for housing and work at the same time, while waiting for an employer to give them a chance: they are mostly dealing with emergencies.",
+        "french": "Imaginons deux personnes qui arrivent dans la même ville à l'étranger. L'une a un emploi qui l'attend et un cousin qui l'héberge. L'autre doit chercher un logement et un travail en même temps, en attendant qu'un employeur lui donne sa chance : elle gère surtout l'urgence.",
+        "review_note": "Editorial translation of the comparative departure-conditions example. All preceding translations retained; no translation-provider call."
       },
       "33ce7534c030910b4aa4b7ef9ea322aab14b470fa643dd5c83b457a7861d8fd8": {
         "english": "Leaving with a job, housing and people close to you already settled there makes settling in easier. In contrast, arriving without an employment contract, family or a network can make settling in much more difficult. More broadly, good administrative, financial and professional preparation can reduce the risk of failure.",
@@ -2546,6 +2566,11 @@
         "french": "Par exemple, deux personnes installées dans le même pays réagissent différemment : l'une ose participer à des activités malgré son malaise et noue des liens ; l'autre évite les rencontres par peur de l'inconnu et reste isolée.",
         "review_note": "Editorial English aligned with the user's supplied adaptation response. Full source developments and contrasts retained with bounded qualifications; source-based examples clarify cause and effect. All preceding translations retained; no translation-provider call."
       },
+      "68eb6a748069797b7a788e179beb6f1c9b78ca12768228c1434d5a2246c327e2": {
+        "english": "Living in another country calls for patience, curiosity, a degree of open-mindedness and the ability to cope with the unfamiliar. People do not react to change in the same way: some people enjoy discovering new habits, while others quickly lose their bearings.",
+        "french": "En effet, vivre dans un autre pays demande de la patience, de la curiosité, une certaine ouverture d'esprit et la capacité à supporter l'inconnu. Tout le monde ne réagit pas de la même manière au changement : certaines personnes aiment découvrir de nouvelles habitudes, alors que d'autres perdent vite leurs repères.",
+        "review_note": "Editorial translation of the revised personal-qualities development; the final sentence was removed because the new comparative example demonstrates it. All preceding translations retained; no translation-provider call."
+      },
       "6ed6f36442ffc35548cc5ee0d90af0767f1f71609e69a181e2a3a78f5a524490": {
         "english": "So her ability to adapt is not fixed on day one: it grows with experience.",
         "french": "Sa capacité d'adaptation n'est donc pas figée au premier jour : elle grandit avec l'expérience.",
@@ -2593,6 +2618,11 @@
       "9c37b962ca7d26088af7b6978e3daf38b7e983ee16452d39ddf09d46607644fb": {
         "english": "Furthermore, practical circumstances can either facilitate or hinder these efforts.",
         "french": "Ensuite, les conditions matérielles peuvent faciliter ou bloquer les efforts."
+      },
+      "9c5049f96521b2d7bae8fb3b5b5ebcb879a3525a288ee641d9693bfaacd3057e": {
+        "english": "For example, two friends move to Canada the same year. One joins a sports club without knowing anyone and quickly makes friends. The other, more reserved, takes months to feel at home.",
+        "french": "Par exemple, deux amis partent au Canada la même année. L'un s'inscrit dans un club de sport sans connaître personne et se fait vite des amis. L'autre, plus réservé, met des mois à se sentir chez lui.",
+        "review_note": "Editorial translation of the comparative newcomer example showing different personal reactions to the unfamiliar. All preceding translations retained; no translation-provider call."
       },
       "9c659277062bb12f6bf0a6cc1fcbc45506712b5d39d75b839169803f9722e3f7": {
         "english": "Finally, the circumstances in which we leave can make adaptation easier or more difficult.",
@@ -2646,6 +2676,11 @@
         "french": "Une nouvelle arrivante n'ose pas téléphoner pour prendre rendez-vous. Une voisine l'aide la première fois. Au rendez-vous suivant, elle prépare quelques phrases, puis passe l'appel seule et obtient un horaire.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "d00343b2edeec75e14d15a4099409dae9afd8db998e62d56572cdda237da3114": {
+        "english": "Without a good command of the local language, working, dealing with administrative tasks or simply forming relationships with residents can be very difficult. Knowing cultural codes, customs and ways of interacting matters almost as much. Even with goodwill, you may need time and help to understand local conversations and habits.",
+        "french": "En effet, sans une bonne maîtrise de la langue locale, il peut être très difficile de travailler, de faire des démarches ou simplement de créer des liens avec les habitants. La connaissance des codes culturels, des habitudes et des manières d'échanger compte presque autant. Même avec de la bonne volonté, on peut avoir besoin de temps et d'aide pour comprendre les échanges et les habitudes locales.",
+        "review_note": "Editorial translation of the language and culture development; the final sentence no longer blames a lack of effort. All preceding translations retained; no translation-provider call."
+      },
       "d0a092710e6e919c594529d86b05921a8dc0dceca1728894749a3d2c46c42be3": {
         "english": "Living in another country calls for patience, curiosity, a degree of open-mindedness and the ability to cope with the unfamiliar. People do not react to change in the same way: some find it genuinely motivating, while others soon feel lost. Without these qualities, even a small everyday difficulty can become a huge obstacle.",
         "french": "En effet, vivre dans un autre pays demande de la patience, de la curiosité, une certaine ouverture d'esprit et la capacité à supporter l'inconnu. Tout le monde ne réagit pas de la même manière au changement : certaines personnes y trouvent une vraie motivation, alors que d'autres s'y sentent vite perdues. En revanche, sans ces qualités, la moindre difficulté du quotidien peut devenir un obstacle énorme.",
@@ -2662,6 +2697,11 @@
         "english": "In a new employee's first job, his manager explains the safety instructions to him, then shows him how to report a problem. The next day, the employee knows who to turn to when an instruction seems unclear.",
         "french": "Dans un premier emploi, une responsable explique les consignes de sécurité au nouveau salarié, puis lui montre comment signaler un problème. Le lendemain, il sait à qui s'adresser quand une consigne lui paraît peu claire.",
         "review_note": "Editorial English post-edit after independent review: identify the employee, rather than the manager, as the newcomer receiving help. The preceding editorial translation and its review note are retained in editorial_history; no provider original or call was fabricated."
+      },
+      "d4a32b1dd26921f96513ab9e7a0cbf42bf74e8128ee7f5ff52b8e4e49a47a657": {
+        "english": "In my view, not everyone is able to adapt to life abroad: personal qualities, language, culture and the circumstances of leaving all matter.",
+        "french": "À mon avis, tout le monde n'est pas en mesure de s'adapter à l'étranger : qualités personnelles, langue, culture et conditions du départ comptent.",
+        "review_note": "Editorial translation of the introduction retaining en mesure de and previewing the three developed reasons. The response concerns the ability to adapt, not merely ease of adaptation. All preceding translations retained; no translation-provider call."
       },
       "d51c56b0c8b3fdd263b38f7aa30a61c3af5707ded1fdf720a61dd10c0e5180b2": {
         "english": "Moving with a job and some savings gives you more time to discover your new surroundings. When your main concern is finding somewhere to sleep, all your energy goes into urgent needs.",

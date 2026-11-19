@@ -57,7 +57,7 @@ REVIEWED_CLAUSES = {
     "economie-p4": "à condition qu'on ait aussi le temps de se réveiller correctement",
     "economie-p6": "demande que le travail soit bien organisé",
     "economie-p9": "Il faut qu'on regarde au-delà du salaire mensuel",
-    "education-p1": "en attendant que son employeur lui verse son premier salaire",
+    "education-p1": "en attendant qu'un employeur lui donne sa chance",
     "education-p10": "pour que l'équipe puisse chercher une solution",
     "education-p12": "exigent qu'on ait une formation précise",
     "education-p13": "sans que les progrès soient immédiatement visibles",

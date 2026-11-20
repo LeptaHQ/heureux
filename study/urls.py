@@ -500,9 +500,19 @@ urlpatterns = [
         name="task_detail",
     ),
     path(
+        "expression/orale/tache-1/entretien/",
+        views.eo_tache_one_interview,
+        name="eo_tache_one_interview",
+    ),
+    path(
         "expression/orale/tache-1/reponse/",
         views.eo_tache_one_response,
         name="eo_tache_one_response",
+    ),
+    path(
+        "expression/orale/tache-2/interaction/",
+        views.eo_tache_two_interaction,
+        name="eo_tache_two_interaction",
     ),
     path(
         "expression/orale/tache-2/vocabulaire-par-theme/",

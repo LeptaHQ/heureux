@@ -2103,6 +2103,22 @@ class EoTacheOneResponseViewTests(TestCase):
     def test_route_is_the_tache_one_response_tab(self):
         self.assertEqual(self.url, "/expression/orale/tache-1/reponse/")
 
+    def test_entretien_has_its_own_tab_and_scoped_microphone_permission(self):
+        interview = reverse("study:eo_tache_one_interview")
+        for url in (self.url, self.questions_url):
+            page = self.client.get(url)
+            self.assertContains(page, f'href="{interview}">Entretien</a>')
+            self.assertIn("microphone=()", page["Permissions-Policy"])
+        page = self.client.get(interview)
+        self.assertContains(page, 'aria-current="page">Entretien</a>')
+        self.assertContains(page, 'id="eo-clock">02:00')
+        self.assertIn("microphone=(self)", page["Permissions-Policy"])
+        self.assertIn("no-store", page["Cache-Control"])
+        self.client.logout()
+        redirect = self.client.get(interview)
+        self.assertEqual(redirect.status_code, 302)
+        self.assertIn("microphone=()", redirect["Permissions-Policy"])
+
     def test_questions_page_links_to_the_response_tab(self):
         response = self.client.get(self.questions_url)
 

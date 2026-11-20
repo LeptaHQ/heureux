@@ -95,9 +95,14 @@ class SecurityHeadersMiddleware:
             "Content-Security-Policy",
             settings.CONTENT_SECURITY_POLICY,
         )
+        interview = (
+            request.resolver_match
+            and request.resolver_match.url_name in {"eo_tache_one_interview", "eo_tache_two_interaction"}
+            and response.status_code == 200
+        )
         response.setdefault(
             "Permissions-Policy",
-            "camera=(), geolocation=(), microphone=(), payment=(), "
+            f"camera=(), geolocation=(), microphone={'(self)' if interview else '()'}, payment=(), "
             "usb=(), clipboard-read=(self), clipboard-write=(self)",
         )
         return response

@@ -44,6 +44,8 @@ EXPRESSION_ROUTES = {
     "part_detail",
     "task_detail",
     "eo_tache_one_response",
+    "eo_tache_one_interview",
+    "eo_tache_two_interaction",
     "task_browse",
     "task_memories",
     "task_memory_detail",

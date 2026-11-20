@@ -105,9 +105,54 @@ Use the bookmark beside the subject's progress controls or in its directory row;
 saved bookmarks are filled red and persist across visits. Directory bookmarks
 replace the row's copy button; copying the consigne on the subject page is unchanged.
 
-EO2 and EO3 retain their subject content, responses and study controls, not oral
-practice launchers. The retired EO2 AI examiner prompt and practice guide are not
+EO2 and EO3 retain their subject content, responses and study controls. The
+separate EO2 interaction studio does not revive the old practice launcher.
+The retired EO2 AI examiner prompt and practice guide are not
 loaded or shipped to the browser. Written-expression practice is unchanged.
+
+### Tâche 1 · Entretien dirigé
+
+Open **Expression → EO → Tâche 1 → Entretien** for a two-minute interview
+without preparation ([official format](https://www.france-education-international.fr/test/tcf-canada?langue=fr#quevaluent-les-differentes-epreuves)).
+Microphone setup is outside the clock; examiner speech, repeats and responses
+are inside it. The microphone option uses the browser's French speech recognition
+on HTTPS or localhost. The browser may use an online dictation service; learners
+can instead speak without a microphone or type. Permission to use the microphone
+is scoped to the studio page.
+
+The studio selects original guided follow-ups from the conversation. Browsers
+with a ready, French-capable on-device Prompt API can additionally offer
+generated follow-ups; there is no model download, paid API, or server inference.
+After the session, learners can check the original dictation, fix misheard
+words, and analyze the verified transcript in the tab. The review quotes
+specific phrases, suggests French corrections for recognized patterns, and
+explains a tentative CEFR descriptor match when there is enough evidence.
+Keyboard answers are labeled as written evidence. This is not a calibrated
+speaking score: the [official TCF speaking scale](https://www.france-education-international.fr/document/grilleniveauxtcf)
+applies to all three tasks together. Heureux does not grade pronunciation,
+predict NCLC eligibility, or save audio, edits, or transcripts.
+
+### Tâche 2 · Exercice en interaction
+
+Open **Expression → EO → Tâche 2 → Interaction** for an original role-play:
+ask a cultural centre receptionist about two photography workshops and decide
+which suits you. There are two minutes of preparation and three minutes thirty
+of conversation ([official format](https://www.france-education-international.fr/test/tcf-canada?langue=fr#quevaluent-les-differentes-epreuves)).
+The learner can end preparation early in practice. The timed exchange includes
+both speakers; switching tabs does not pause it.
+
+The embedded French intent model uses TF-IDF similarity over labeled example
+questions, with conversation state to resolve follow-ups. Replies draw on fixed
+scenario facts. An unrecognized request gets a clarification, not a fabricated
+answer. On compatible devices an optional preinstalled language model can
+classify an unclear question; it cannot set prices or generate arbitrary replies.
+Neither path sends questions to a model server. In voice mode, after microphone
+permission and preparation, the receptionist speaks, then listens. A short pause
+submits the spoken question automatically; the microphone stays off during
+playback. Recognition may use the browser’s own online service. Learners can
+pause the microphone or switch to the keyboard to edit their current words.
+Notes and dialogue stay in tab memory. Feedback cites the questions asked;
+this studio does not assign an official speaking score.
 
 ## French narration across the app
 

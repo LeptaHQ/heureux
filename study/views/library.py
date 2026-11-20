@@ -3207,6 +3207,26 @@ def _speaking_duration_label(word_count):
     return f"{minutes} min {seconds:02d}"
 
 
+@require_http_methods(["GET"])
+def eo_tache_two_interaction(request):
+    task = _route_task("eo", "tache-2", request=request)
+    template = (
+        "study/expression/eo/tache_2/interaction.html"
+        if task.available else "study/shared/coming_soon.html"
+    )
+    return render(request, template, {"part": task.part, "task": task})
+
+
+@require_http_methods(["GET"])
+def eo_tache_one_interview(request):
+    task = _route_task(*content_module.EO_TACHE_ONE_TASK, request=request)
+    template = (
+        "study/expression/eo/tache_1/interview.html"
+        if task.available else "study/shared/coming_soon.html"
+    )
+    return render(request, template, {"part": task.part, "task": task})
+
+
 @require_http_methods(["GET", "POST"])
 def eo_tache_one_response(request):
     task = _route_task(*content_module.EO_TACHE_ONE_TASK, request=request)

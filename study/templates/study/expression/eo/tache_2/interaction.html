@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Jeu de rôle · Tâche 2 · Heureux{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo1-interview.css' %}?v=3">{% endblock %}
+{% block content %}
+{% include "study/expression/partials/task_nav.html" %}
+<div class="eo-studio eo-roleplay" id="eo2-studio">
+  <header class="eo-studio__heading"><div>
+    <p class="eo-kicker">Studio oral <span>/</span> Tâche 02</p>
+    <h1>À vous de poser les questions.</h1>
+    <p>Un jeu de rôle en français pour obtenir des renseignements et faire un choix.</p>
+  </div><span class="eo-tag">TCF Canada · Entraînement</span></header>
+  <noscript><p>Activez JavaScript pour lancer la simulation.</p></noscript>
+  <div class="eo-workspace">
+    <section class="eo-console" aria-label="Situation et interlocuteur">
+      <div class="eo-console__top"><span class="eo-indicator" id="t2-phase">Avant la simulation</span>
+        <span class="eo-clock" role="timer" aria-label="Temps restant dans la phase" id="t2-clock">02:00</span></div>
+      <div class="eo-console__body">
+        <p class="eo-console__label" id="t2-speaker">Le principe</p>
+        <h2 tabindex="-1" aria-live="polite" id="t2-line">Cette fois, vous menez la conversation.</h2>
+        <p class="eo-console__note" id="t2-caption">La consigne et vos rôles seront révélés au début de la préparation.</p>
+      </div>
+      <div class="eo-console__base"><span>Préparation · 2 min</span><span>Échange · 3 min 30</span></div>
+    </section>
+    <section class="eo-desk" id="t2-setup">
+      <p class="eo-kicker">Avant de commencer</p><h2>Installez-vous</h2>
+      <p>Vous aurez deux minutes pour lire la consigne et prendre des notes. Ensuite, votre interlocuteur vous laissera ouvrir l’échange.</p>
+      <fieldset class="eo-modes"><legend class="sr-only">Comment participer</legend>
+        <label><input type="radio" name="t2-mode" id="t2-voice"><span><strong>Conversation au micro</strong><small>Parlez, puis marquez une pause. L’interlocuteur répond et vous rend la parole.</small></span></label>
+        <label><input type="radio" name="t2-mode" id="t2-text" checked><span><strong>Au clavier</strong><small>Écrivez vos questions sans utiliser le micro.</small></span></label>
+      </fieldset>
+      <p class="eo-help" id="t2-privacy">Au clavier, vos mots ne quittent pas cet onglet.</p>
+      <label class="eo-toggle"><input type="checkbox" id="t2-sound" checked> Écouter la voix de l’interlocuteur</label>
+      <label class="eo-toggle" id="t2-model-option" hidden><input type="checkbox" id="t2-model"> Aider la mini-IA avec le modèle déjà installé sur cet appareil</label>
+      <button type="button" class="btn eo-primary" id="t2-start" disabled>Commencer la préparation</button>
+      <p class="eo-help" id="t2-status" role="status"></p>
+    </section>
+    <section class="eo-desk" id="t2-prep" hidden>
+      <p class="eo-kicker">01 / Préparation</p><h2>Prenez connaissance de votre rôle</h2>
+      <p class="eo-help">Réfléchissez aux renseignements à demander. Le micro est coupé.</p>
+      <details><summary>Prendre des notes (facultatif)</summary>
+        <label for="t2-notes">Vos notes resteront disponibles pendant l’échange.</label>
+        <textarea id="t2-notes" maxlength="1600" rows="4" autocomplete="off"></textarea></details>
+      <button type="button" class="btn" id="t2-skip">Je suis prêt · passer à l’échange</button>
+    </section>
+    <section class="eo-desk" id="t2-live" hidden>
+      <p class="eo-kicker">02 / Interaction</p><h2>À vous la parole</h2>
+      <p id="t2-voice-guide" hidden>Posez votre question à voix haute. Une courte pause suffit pour passer la parole.</p>
+      <p class="eo-dictation" id="t2-heard" hidden></p>
+      <label class="eo-field-label" id="t2-question-label" for="t2-question">Votre question ou votre relance</label>
+      <textarea id="t2-question" maxlength="1600" rows="3" autocomplete="off" placeholder="Bonjour, je voudrais me renseigner…"></textarea>
+      <p class="eo-help" role="status" id="t2-turn-status"></p>
+      <button type="button" class="btn eo-primary" id="t2-send" disabled>Envoyer ma question</button>
+      <button type="button" class="btn" id="t2-mic" hidden>Reprendre le micro</button>
+      <div class="eo-small-actions">
+        <button type="button" id="t2-switch" hidden>Passer au clavier</button>
+        <button type="button" id="t2-repeat">Réécouter la réponse</button>
+        <button type="button" id="t2-stop">Terminer plus tôt</button>
+      </div>
+      <p class="eo-help" id="t2-live-privacy" hidden>Au micro, le navigateur peut traiter votre voix en ligne. Heureux ne conserve pas l’audio.</p>
+      <div class="eo-confirm" id="t2-confirm" hidden><p>Mettre fin à l’échange&nbsp;?</p>
+        <button type="button" class="btn" id="t2-keep">Continuer</button>
+        <button type="button" class="btn" id="t2-finish">Terminer</button></div>
+    </section>
+    <section class="eo-desk" id="t2-done" hidden>
+      <p class="eo-kicker">03 / Retour d’entraînement</p><h2 tabindex="-1" id="t2-done-title">Votre échange</h2>
+      <p id="t2-summary"></p><p id="t2-next"></p>
+      <button type="button" class="btn eo-primary" id="t2-retry">Nouvel essai</button>
+    </section>
+  </div>
+  <details class="eo-review" id="t2-reference" hidden><summary>Revoir la consigne et mes notes</summary>
+    <p id="t2-prompt">Je travaille à l’accueil d’un centre culturel. Vous souhaitez participer à un atelier de photographie. Vous me demandez des renseignements pour choisir une formule qui vous convient.</p>
+    <p id="t2-note-copy"></p></details>
+  <section class="eo-report" id="t2-report" hidden><h2>Ce que montrent vos questions</h2>
+    <p class="eo-help">Un retour sur l’interaction, pas une note officielle ni une mesure de la prononciation.</p>
+    <ul class="eo-feedback" id="t2-evidence"></ul><p id="t2-followup"></p>
+    <details class="eo-review"><summary>Relire la conversation</summary><ol id="t2-transcript"></ol></details>
+  </section>
+  <aside class="eo-background" aria-label="Repères">
+    <div><p class="eo-kicker">Votre interlocuteur</p><p>Une mini-IA locale reconnaît le sens de questions courantes et garde en mémoire la formule évoquée. Ses réponses s’appuient sur une situation fictive. Si la question lui échappe, elle demande une précision.</p></div>
+    <div><p class="eo-kicker">Le format officiel</p><p>Vous cherchez des informations dans une situation du quotidien. Il n’y a pas de nombre imposé de questions dans ce studio.</p>
+      <a href="https://www.france-education-international.fr/test/tcf-canada?langue=fr#quevaluent-les-differentes-epreuves" target="_blank" rel="noopener noreferrer">France Éducation international ↗</a></div>
+  </aside>
+</div>
+{% endblock %}
+{% block scripts %}
+  <script defer src="{% static 'study/js/expression/eo/tache_2/roleplay-engine.js' %}?v=1"></script>
+  <script defer src="{% static 'study/js/expression/eo/tache_2/interaction.js' %}?v=2"></script>
+{% endblock %}

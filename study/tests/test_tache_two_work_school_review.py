@@ -569,19 +569,6 @@ class WorkSchoolDialogueReviewTests(SimpleTestCase):
             "9084fa89a2ec63042dd893686661571b92ed878c25b245937a5d169e3b366ff8",
         )
 
-    def test_first_day_has_an_actual_difficulty_and_a_response_to_it(self):
-        row = self.by_group["friend-first-workday-report"]
-        self.assertIn("première journée", row.questions[0].question)
-        self.assertIn("premières tâches", row.questions[4].question)
-        self.assertIn("quelqu'un t'a montré", row.questions[4].question)
-        self.assertNotIn("logiciel", row.questions[4].question)
-        self.assertIn("modifier une commande", row.questions[5].answer)
-        self.assertNotIn("rappelé", row.questions[5].answer)
-        self.assertEqual(row.questions[6].follow_up_to, 6)
-        self.assertIn("dans ce cas-là", row.questions[6].question)
-        self.assertIn("rappelé le client ensemble", row.questions[6].answer)
-        self.assertNotIn("encourageant", row.closing)
-
     def test_recruiter_and_friend_are_asked_different_preparation_questions(self):
         recruiter = self.by_group["recruiter-scheduled-interview-preparation"]
         friend = self.by_group["friend-upcoming-job-interview-advice"]

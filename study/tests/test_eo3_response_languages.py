@@ -258,28 +258,22 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         self.assertIn("keep the noise down on public transport", row["english"])
         cuisine = scoped_models()["eo/tache-3/culture-p15"]
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[0].exemple)]
-        self.assertIn("one large dish", row["english"])
-        self.assertIn("Their hosts would explain", row["english"])
-        self.assertIn("this evening meal", row["english"])
-        self.assertIn("talk after work", row["english"])
+        self.assertIn("eat with their families", row["english"])
+        self.assertIn("meals are quick and often eaten alone", row["english"])
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[0].consequence)]
-        self.assertTrue(row["english"].startswith("The visitor"))
-        self.assertIn("this family keeps time together", row["english"])
-        self.assertIn("without assuming all families", row["english"])
+        self.assertIn("everyday culture", row["english"])
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.nuance)]
-        self.assertIn("it does not show all its culture", row["english"])
-        self.assertIn("political debates or the language", row["english"])
-        self.assertNotIn("must also explore the language", row["english"])
+        self.assertIn("it can't tell us everything", row["english"])
+        self.assertIn("political system, deeper values or language", row["english"])
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[0].developpement)]
-        self.assertIn("When people eat", row["english"])
-        self.assertIn("how everyday life is organised", row["english"])
-        self.assertIn("what these habits mean to our hosts", row["english"])
+        self.assertIn("when they eat, who they eat with", row["english"])
+        self.assertIn("how family, work and leisure fit into society", row["english"])
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[1].developpement)]
-        self.assertIn("Ingredients and preparation methods", row["english"])
-        self.assertIn("preserving food without a refrigerator", row["english"])
+        self.assertIn("the ingredients, spices and cooking methods", row["english"].lower())
+        self.assertIn("trade with the rest of the world", row["english"])
         row = data["groups"][cuisine.group][fingerprint(cuisine.response.arguments[1].exemple)]
-        self.assertIn("This method preserved fish, particularly during long sea voyages", row["english"])
-        self.assertIn("constraints of seafaring", row["english"])
+        self.assertIn("shared meals in the Maghreb", row["english"])
+        self.assertIn("seafaring history and trade across the Atlantic", row["english"])
         older = scoped_models()["eo/tache-3/culture-p8"]
         row = data["groups"][older.group][fingerprint(older.response.arguments[0].exemple)]
         self.assertIn("arguing with their parents", row["english"])
@@ -540,8 +534,12 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             self.skipTest("DeepL response translations have not been prepared.")
         cases = (
             (
-                "culture-p11", "argument-4-exemple",
-                ("knows no compatriots", "every week", "makes friends from other countries"),
+                "culture-p11", "argument-6-exemple",
+                ("at school pick-up", "the same concern", "ask the local council to put in a pedestrian crossing"),
+            ),
+            (
+                "culture-p24", "argument-1-exemple",
+                ("works all week abroad", "colleagues outside the office", "still feel deeply lonely"),
             ),
             (
                 "culture-p29", "argument-2-exemple",
@@ -1250,25 +1248,22 @@ class EO3ResponseLanguageTests(SimpleTestCase):
                     self.assertTrue(all(result["fields"].values()))
         provider.assert_not_called()
 
-    def test_cuisine_english_aligns_clear_agreement_shared_meal_and_preservation_history(self):
+    def test_cuisine_english_aligns_the_restored_answer(self):
         data = read_manifest(DEFAULT_PATH)
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/culture-p15"]
         rows = data["groups"][model.group]
         introduction = rows[fingerprint(model.response.position_claire)]["english"]
-        self.assertTrue(introduction.startswith("Yes, I think food is a good way to discover a country's culture."))
-        for phrase in ("how they live together", "part of their history", "skills passed down within families"):
+        self.assertIn("an important part of a country's culture", introduction)
+        for phrase in ("how people live together", "history and geography", "ingredients and recipes"):
             self.assertIn(phrase, introduction)
-        shared_meal = rows[fingerprint(model.response.arguments[0].exemple)]["english"]
-        self.assertIn("a visitor could share rice and fish with a family", shared_meal)
-        self.assertIn("around one large dish", shared_meal)
-        self.assertIn("come together and talk after work", shared_meal)
         history = rows[fingerprint(model.response.arguments[1].exemple)]["english"]
-        self.assertIn("salted and dried fish, found in Portuguese cooking", history)
-        self.assertIn("This method preserved fish, particularly during long sea voyages", history)
-        self.assertIn("connection between certain recipes and the constraints of seafaring", history)
-        self.assertNotIn("a visitor", history)
+        self.assertIn("couscous", history)
+        self.assertIn("cod in Portugal", history)
+        tasting = rows[fingerprint(model.response.arguments[2].exemple)]["english"]
+        self.assertIn("Vietnamese pho or Spanish tapas", tasting)
+        self.assertIn("mealtime rituals", tasting)
         with (
             override_settings(EO3_RESPONSE_TRANSLATIONS_PATH=DEFAULT_PATH),
             patch("study.translations.service.urllib.request.urlopen") as provider,
@@ -1339,8 +1334,8 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         for field, phrases in (
             ("argument-1-developpement", ("understanding a fast conversation", "problem you need to solve", "how to make yourself understood")),
             ("argument-2-developpement", ("Calls maintain the connection", "being there in person", "moments we used to share")),
-            ("argument-3-developpement", ("which doctor to consult", "these contacts", "whom to ask for help")),
-            ("argument-3-exemple", ("child, who has a fever", "a neighbour", "walk-in clinic's phone number", "check its opening hours")),
+            ("argument-3-developpement", ("where to go for an everyday need", "services may work differently", "whom to ask for help", "local resources")),
+            ("argument-3-exemple", ("parent who has recently arrived", "feverish child", "walk-in clinic", "call to check its hours")),
         ):
             with self.subTest(field=field):
                 english = rows[fingerprint(fields[field])]["english"]
@@ -1387,11 +1382,14 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             ),
             ("culture-p26", "argument-2-developpement", ("available jobs", "recognition of my qualifications", "additional training")),
             ("culture-p26", "argument-3-developpement", ("different pace of life", "know what to expect", "personal rejection")),
-            ("culture-p30", "argument-1-developpement", ("implied meanings", "knowing when to speak up", "good command of the language")),
-            ("culture-p30", "argument-2-developpement", ("without really being included", "discrimination", "others to make room for us")),
-            ("culture-p30", "argument-4-developpement", ("Even when others welcome us", "feeling that we belong", "emotional reference points")),
-            ("culture-p30", "argument-4-exemple", ("home, friends", "permanent position", "only passing through")),
-            ("culture-p30", "nuance", ("feel at home in the new country", "remaining attached to our roots")),
+            ("culture-p30", "introduction", ("even when we make an effort", "not just moving there", "finding our place among the local people")),
+            ("culture-p30", "argument-1-developpement", ("only by talking regularly with local people", "ways of thinking", "everyday exchanges")),
+            ("culture-p30", "argument-1-exemple", ("use tu or vous", "accept or decline an invitation")),
+            ("culture-p30", "argument-2-developpement", ("closed or wary", "professional networks are already established", "the edge of those circles")),
+            ("culture-p30", "argument-2-exemple", ("out of politeness for months", "gets together at weekends", "long before they arrived")),
+            ("culture-p30", "argument-4-developpement", ("not just about visible things", "whether we feel at home", "feeling out of step")),
+            ("culture-p30", "argument-4-exemple", ("speaks the language fluently", "stable housing", "still feel like an outsider")),
+            ("culture-p30", "nuance", ("genuine relationships with local people", "ups and downs", "never a mere formality")),
         ):
             with self.subTest(model=name, field=field):
                 model = models[f"eo/tache-3/{name}"]
@@ -1441,9 +1439,16 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         if not data["groups"]:
             self.skipTest("DeepL response translations have not been prepared.")
         cases = (
-            ("culture-p11", "argument-1-developpement", ("cannot rebuild in a few days", "a feeling of being understood")),
+            ("culture-p11", "argument-1-developpement", ("a network of people that took years to build", "rebuild it from scratch", "practical help")),
+            ("culture-p24", "argument-1-developpement", ("keep in touch with family from afar", "someone there day to day", "loneliness begins to weigh on us")),
             ("culture-p17", "argument-1-developpement", ("become more independent", "question our own assumptions", "starting a business")),
-            ("culture-p29", "argument-4-developpement", ("solve our problem and understand an unfamiliar system at the same time",)),
+            ("culture-p17", "argument-5-developpement", ("calls help us stay in touch", "no longer share everyday life", "do not come around again")),
+            ("culture-p17", "argument-5-exemple", ("finds a job she enjoys abroad", "his very first day of school", "wishes she could have been there")),
+            ("culture-p17", "argument-4-idea", ("work to pay the bills", "less time to learn the language")),
+            ("culture-p17", "argument-4-developpement", ("struggle to find the words", "financial breathing room", "work to pay the rent")),
+            ("culture-p17", "argument-4-exemple", ("struggles to follow her classes", "evening language classes", "when she works to pay her rent", "falls behind")),
+            ("culture-p29", "argument-4-developpement", ("struggle to find the words", "solve our problem and understand how the services work at the same time")),
+            ("culture-p29", "argument-2-developpement", ("calls help us stay in touch", "a visit requires time and money")),
             ("culture-p29", "argument-2-consequence", ("both the support we receive and the support we would like to give",)),
             ("culture-p29", "argument-3-developpement", ("look to the future with peace of mind",)),
             ("culture-p1", "argument-3-developpement", ("benefit of a local practice", "talking with the people who follow it", "decide whether it suits us")),

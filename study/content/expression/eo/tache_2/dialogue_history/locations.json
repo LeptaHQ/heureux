@@ -2793,6 +2793,51 @@
             {"topic": "Bilan", "question": "Et dans ce cas-là, qu'est-ce que tu as fait ?", "follow_up_to": 6, "condition": "After a specific difficulty, unless its resolution has already been explained."},
             {"topic": "Bilan", "question": "Au final, cette première journée correspondait-elle à l'idée que tu te faisais du poste ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "friend-first-workday-report",
+          "opening": "Salut Ève ! Maintenant que ta première journée est terminée, j'ai vraiment envie de savoir comment tu l'as vécue.",
+          "closing": "Merci de m'avoir raconté ta journée, Ève ! Tu me diras comment se passe la suite.",
+          "questions": [
+            {"topic": "Premières impressions", "question": "Alors, cette première journée, comment ça s'est passé pour toi ?", "follow_up_to": null},
+            {"topic": "Collègues et ambiance", "question": "À ton arrivée, qu'est-ce que tes collègues ont fait pour t'accueillir ?", "follow_up_to": null},
+            {"topic": "Collègues et ambiance", "question": "Après ce premier contact, tu as senti une ambiance plutôt détendue ou formelle ?", "follow_up_to": 2, "condition": "If Ève describes the welcome without already explaining the team atmosphere."},
+            {"topic": "Tâches et accompagnement", "question": "Et concrètement, quelles tâches as-tu effectuées pendant la journée ?", "follow_up_to": null},
+            {"topic": "Tâches et accompagnement", "question": "Pour tes premières tâches, quelqu'un t'a montré comment faire ou tu as dû te débrouiller seule ?", "follow_up_to": 4, "condition": "After the first tasks are described, unless guidance has already been explained."},
+            {"topic": "Bilan", "question": "Il y a eu un moment où tu ne savais pas trop quoi faire ?", "follow_up_to": null},
+            {"topic": "Bilan", "question": "Et dans ce cas-là, qu'est-ce que tu as fait ?", "follow_up_to": 6, "condition": "After a specific difficulty, unless its resolution has already been explained."},
+            {"topic": "Bilan", "question": "Au final, cette première journée correspondait-elle à l'idée que tu te faisais du poste ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "friend-first-workday-report",
+          "opening": "Salut Ève ! J'ai pensé à toi aujourd'hui.",
+          "closing": "Merci de m'avoir raconté ta journée, Ève ! Tu me diras comment se passe la suite.",
+          "questions": [
+            {"topic": "Premières impressions", "question": "Alors, cette première journée, comment ça s'est passé pour toi ?", "follow_up_to": null},
+            {"topic": "Collègues et ambiance", "question": "Et tes collègues, ils t'ont accueillie comment ?", "follow_up_to": null},
+            {"topic": "Collègues et ambiance", "question": "Et dans l'équipe, l'ambiance était plutôt détendue ou assez formelle ?", "follow_up_to": 2, "condition": "If Ève describes the welcome without already explaining the team atmosphere."},
+            {"topic": "Tâches et accompagnement", "question": "Et toi, tu as fait quoi pendant la journée ?", "follow_up_to": null},
+            {"topic": "Tâches et accompagnement", "question": "Quelqu'un t'a montré comment faire ou tu as dû te débrouiller seule ?", "follow_up_to": 4, "condition": "After the first tasks are described, unless guidance has already been explained."},
+            {"topic": "Bilan", "question": "Il y a eu un moment où tu ne savais pas trop quoi faire ?", "follow_up_to": null},
+            {"topic": "Bilan", "question": "Et dans ce cas-là, qu'est-ce que tu as fait ?", "follow_up_to": 6, "condition": "After a specific difficulty, unless its resolution has already been explained."},
+            {"topic": "Bilan", "question": "Au final, c'était comme tu l'imaginais, ce nouveau boulot ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "friend-first-workday-report",
+          "opening": "Salut Ève ! J'ai pensé à toi aujourd'hui.",
+          "closing": "Merci de m'avoir raconté ta journée, Ève ! Tu me diras comment se passe la suite.",
+          "questions": [
+            {"topic": "Premières impressions", "question": "Tu avais le trac en arrivant ou tu te sentais plutôt à l'aise ?", "follow_up_to": null},
+            {"topic": "Collègues et ambiance", "question": "Et pour faire connaissance avec tes collègues, quelqu'un t'a présentée à l'équipe ou ça s'est fait au fil de la journée ?", "follow_up_to": null},
+            {"topic": "Collègues et ambiance", "question": "Une fois au travail, ça discutait un peu entre collègues ou chacun restait plutôt dans son coin ?", "follow_up_to": null},
+            {"topic": "Tâches et accompagnement", "question": "Et côté boulot, qu'est-ce qu'on t'a confié pour commencer, et qu'est-ce que tu as déjà eu le temps de faire ?", "follow_up_to": null},
+            {"topic": "Tâches et accompagnement", "question": "Et pour cette première tâche, comment tu as appris à t'y prendre ?", "follow_up_to": 4, "condition": "After she names a task she tried, unless she explained how she learned it."},
+            {"topic": "Bilan", "question": "Il y a eu un moment où tu ne savais pas trop quoi faire ?", "follow_up_to": null},
+            {"topic": "Bilan", "question": "Et finalement, ça s'est réglé sur le moment ou il a fallu y revenir plus tard ?", "follow_up_to": 6, "condition": "After she describes a problem, unless she already explained when it was resolved."},
+            {"topic": "Bilan", "question": "Et le boulot lui-même, c'était comme tu l'imaginais ou il y a quelque chose qui t'a surprise ?", "follow_up_to": null}
+          ]
         }
       ]
     },

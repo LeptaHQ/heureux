@@ -128,6 +128,21 @@
       }
     },
     "eo/tache-3/culture-p11": {
+      "0aca727013599576d28578675b71902e6b87b3106d58444e898349a889bf7b02": {
+        "english": "Taking this kind of action helps us feel at home: we are not just living in the neighbourhood; we are working with others to make it better.",
+        "french": "Ce genre de démarche aide à se sentir chez soi : on ne fait pas que vivre dans le quartier, on agit avec les autres pour l'améliorer.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
+      "0b1cbbbb0c0ab74e7251828209a948505ae83768c5f8799e383ee7b84c13bbf0": {
+        "english": "That makes it easier to get through the shock of the first few months and feel less alone in an unfamiliar country.",
+        "french": "Cela permet de surmonter plus facilement le choc des premiers mois et de ne pas se sentir complètement seul dans un pays inconnu.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
+      "0c2df83e0ee4459a6b0040369ba36230c50f39238346da882a20e4b7471f7d9f": {
+        "english": "This slows integration and can turn the comfort of being among people from home into a real form of isolation.",
+        "french": "Cela ralentit l'intégration et peut transformer le confort du groupe d'origine en une véritable forme d'isolement.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "0d55863be7ef2692b6a19a5a0e44119cb0c6b8ced0cbf5d4cc94a838f59d45ff": {
         "english": "But this support can also come from people of another origin.",
         "french": "Mais ce soutien peut aussi venir de personnes d'une autre origine.",
@@ -137,6 +152,16 @@
         "english": "I find these relationships useful, especially at first, but I would not make them compulsory. We can find support from people of any origin.",
         "french": "Je trouve ces liens utiles, surtout au début, mais je ne les rendrais pas obligatoires. On peut trouver du soutien auprès de personnes de toutes origines.",
         "review_note": "Editorial English aligned with the bank-led substantive development repair. All preceding translations retained; no translation-provider call."
+      },
+      "11722a5096b73eea706affb828c182d54a5a5130c808935cc9a7ecc76be6263a": {
+        "english": "Finally, building relationships with other local residents also gives us a say in what happens in the neighbourhood.",
+        "french": "Enfin, nouer des liens avec d'autres habitants, c'est aussi avoir son mot à dire sur ce qui se passe dans le quartier.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
+      "1a1718d4664520c5f2cad9b8fdb284f6d4697fb2784672310de829e5ab6cec79": {
+        "english": "Even when we speak the language well, it is not always easy to make ourselves heard on our own. By talking to people in the neighbourhood, we sometimes discover that they share our concerns. Then we can look for a solution with them and put it forward together.",
+        "french": "Même quand on parle bien la langue, ce n'est pas toujours facile de se faire entendre tout seul. En discutant avec les gens du quartier, on découvre parfois qu'ils ont les mêmes préoccupations que nous. On peut alors chercher une solution avec eux et la proposer ensemble.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "1d88d324b031720804f086fdf65bb059554ffa27ed608959c17d3f07f2ab84d2": {
         "english": "First and foremost, speaking your own language with a fellow countryman can help you feel less lonely.",
@@ -157,10 +182,20 @@
         "french": "Bref, les compatriotes peuvent apporter du réconfort et une expérience utile, mais ne sont pas un passage obligé. Des liens fiables comptent davantage qu'une origine commune.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "28239758ed24a8cce0583ab85a650e40d5b41ee982970ae126f2074001d9636d": {
+        "english": "For example, people from the same country who are already settled there and know the area often give newcomers their first leads on a place to live, some work and useful places to go.",
+        "french": "Par exemple, un nouvel arrivant trouve souvent ses premières informations — un logement, un petit emploi, les bonnes adresses — grâce à des compatriotes déjà installés qui connaissent le terrain.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "2e330e5bafe2a7ebf44d7e0af4a71c5d932528ef9b3c53970a5c50c6924f35c5": {
         "english": "Some administrative procedures raise particular questions when you arrive with documents from another country. Someone who has been through a similar situation can tell you where to find the right information. You then start with specific leads, rather than looking everywhere without knowing what to ask.",
         "french": "Certaines démarches soulèvent des questions particulières lorsqu'on arrive avec des documents d'un autre pays. Une personne passée par une situation proche peut indiquer où chercher les renseignements adaptés. On commence alors avec des pistes précises, plutôt que de chercher partout sans savoir quoi demander.",
         "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "3000c45ef2cb0d76d1568fad9015571a8e7f90ce2fc92a105a8de333fe1bf50a": {
+        "english": "You can see this in some people who have lived abroad for years and still speak very little of the local language, simply because they have socialised almost exclusively within their own community.",
+        "french": "On le voit chez certaines personnes installées depuis des années à l'étranger qui parlent encore très peu la langue locale, simplement parce qu'elles n'ont presque fréquenté que leur communauté d'origine.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "3abdb1bffeed071958fe6ab2c530804bd202f77389c9583f0b28b5b730081a7a": {
         "english": "Spending time with fellow countrymen abroad seems useful to me, though it is not essential. These relationships can provide moral support, practical advice and a link to one’s culture of origin. But they should not constitute one’s sole social circle: meeting other local residents also helps one find one’s place in the host country.",
@@ -173,6 +208,11 @@
       "3cefe37ceedd8bac21fafea0129a1c3f64fde8ac690fe6dda0e6507cc446e4dc": {
         "english": "Furthermore, a fellow countryman who is already settled there can share useful practical advice.",
         "french": "Ensuite, un compatriote déjà installé peut partager une expérience pratique utile."
+      },
+      "3e3761786297e56fd52ebac7ca2e16b12dd87644a4724fd08eaa8d171faf168b": {
+        "english": "First of all, spending time with people from our own country is a real source of support, especially in the first few months.",
+        "french": "Tout d'abord, fréquenter des personnes de son pays d'origine est un vrai soutien, surtout dans les premiers mois.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "4caf707eea0cc72d38117589988d0bf7d8104ef65f5939bc68c652946e39b31b": {
         "english": "A newcomer knows no compatriots in her small town. A colleague from another country helps her understand a housing-aid application form. The newcomer also joins a language exchange group and makes friends from other countries there.",
@@ -200,6 +240,11 @@
       "7214c18a6b566d2baa5a8588b14b9066f5373cd4c5152d0c742757fe71b5f5e2": {
         "english": "Finally, these relationships can help to pass on one’s culture of origin.",
         "french": "Enfin, ces relations peuvent aider à transmettre la culture d'origine."
+      },
+      "77b3d048e26de63091e15553b437ffa88d6b7d874ec6ec0528c05cb2bbf2b26f": {
+        "english": "For example, a mother living abroad often chats with other parents from the neighbourhood at school pick-up. One day, she tells them she does not feel safe crossing the road with her child. Several say they have the same concern. Together, they ask the local council to put in a pedestrian crossing near the school.",
+        "french": "Par exemple, une mère installée à l'étranger discute souvent avec des parents du quartier à la sortie de l'école. Un jour, elle leur dit qu'elle ne se sent pas en sécurité quand elle traverse la rue avec son enfant. Plusieurs lui disent qu'ils ont le même souci. Ensemble, ils demandent à la mairie qu'un passage piéton soit aménagé près de l'école.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "7cdec83592ee57aac7f9ed287312ef3bf487536b439a93cc65fc72ca9c2de339": {
         "english": "She can thus find advice and company without spending time with people from her country.",
@@ -241,6 +286,16 @@
         "french": "Le risque n'est pas de fréquenter des compatriotes, mais de ne plus avoir d'occasions d'échanger en dehors de son cercle habituel. On peut garder ces liens rassurants tout en rencontrant d'autres habitants. Il n'y a pas à choisir entre ses origines et la vie sur place.",
         "review_note": "Editorial English aligned with the bank-led substantive development repair. All preceding translations retained; no translation-provider call."
       },
+      "a9086ed8ce6ed212c304ac3dd8da95932754058a89cf38a737cfc81f28343adb": {
+        "english": "If we only spend time with people from our own country, we end up living in a kind of cultural bubble: we live in the country, but we are not really part of its social life. We get little practice in the local language, we do not understand local customs and unwritten rules very well, and we gradually feel less connected to our neighbours, colleagues and institutions.",
+        "french": "En effet, si l'on ne fréquente que des personnes de son pays, on finit par vivre dans une sorte de bulle culturelle : on habite physiquement dans le pays, mais on ne participe pas vraiment à sa vie sociale. On pratique peu la langue locale, on comprend mal les codes et les habitudes, et une distance s'installe peu à peu avec les voisins, les collègues et les institutions.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
+      "b043d48e4c9ea8237bcf0eef9ec8295c6f1ce85c2627534a7b8d52085e474371": {
+        "english": "Next, the problem starts when our community from home becomes our only social circle.",
+        "french": "Ensuite, le problème commence lorsque la communauté d'origine devient le seul espace social.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "b4937d851a63a271160eb9d8c0b1b9cb563f06314376506644d579b4246b5998": {
         "english": "This advice remains a starting point: it is better for the information to be checked with the relevant organisation.",
         "french": "Ce conseil reste un point de départ : il vaut mieux que l'information soit vérifiée auprès de l'organisme compétent.",
@@ -263,9 +318,19 @@
         "english": "A newcomer may find it difficult to explain her loneliness in French. With a friend from her own country who speaks her language, she says she misses her family. Her friend listens to her and suggests they spend Sunday together.",
         "french": "Une nouvelle arrivante peut avoir du mal à expliquer sa solitude en français. Avec une amie de son pays qui parle sa langue, elle raconte que sa famille lui manque. Son amie l'écoute et lui propose de passer le dimanche ensemble."
       },
+      "c2dfaa304a05adee1b7ce7dd3889bca3700b92d1099abfc8ed926b2c1996a259": {
+        "english": "That said, we should not downplay the role of people from our own country. They help us cope with loneliness, make sense of some procedures and stay emotionally connected to our culture. The problem is not spending time with that community; it is shutting ourselves off within it.",
+        "french": "Cependant, il ne faut pas dévaloriser la communauté d'origine. Elle aide à surmonter la solitude, à comprendre certaines démarches et à garder un lien affectif avec sa culture. Le problème n'est donc pas de la fréquenter, mais de s'y enfermer.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "c3d5b0fcb2db43c73ab1b50175a73bcc8ec0b1e6f11f22ce8348213c917356f9": {
         "english": "Certain administrative procedures raise specific questions when you arrive with documents from another country. Someone who has been through a similar situation can point you in the right direction to find the relevant information.",
         "french": "Certaines démarches soulèvent des questions particulières lorsqu'on arrive avec des documents d'un autre pays. Une personne passée par une situation proche peut indiquer où chercher les renseignements adaptés."
+      },
+      "cb1c69ea957807f8b19463d0368e996cfa026110dbf205c76584f14ede56c5b0": {
+        "english": "In conclusion, I think it is normal and even helpful to spend time with people from our home country, especially at first, as long as we do not limit ourselves to that circle. The best way to integrate is to use the support of people from home as a springboard while genuinely getting to know people in the host country.",
+        "french": "En conclusion, je pense qu'il est normal et même utile de fréquenter des gens de son pays d'origine, surtout au début, mais à condition de ne pas s'y limiter. La meilleure intégration est celle qui s'appuie sur la communauté d'origine comme un tremplin, tout en s'ouvrant vraiment aux habitants du pays d'accueil.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "d6058a11acbbaa1c0eb4e6e337cc1e6905f2efa223169c7f9c79926300a2953a": {
         "english": "A relationship helps because of trust and shared experience, not just because of a country of birth. The absence of compatriots therefore does not prevent you from building a circle you can rely on.",
@@ -283,10 +348,20 @@
         "french": "Une infirmière nouvellement arrivée peut échanger avec une compatriote qui exerce déjà ce métier sur place. Celle-ci lui explique comment elle a fait reconnaître son diplôme et quels documents elle a dû préparer. La nouvelle arrivante sait alors à quel organisme s'adresser pour commencer ses démarches.",
         "review_note": "Celle-ci identifies the nurse already working there; an unqualified She leaves the speaker unclear."
       },
+      "e18a7a4aa064ea8bd7d24aa5b8f1b615ef039d6f7fcc32f253f4c205cf01a4eb": {
+        "english": "Back home, without even realising it, we rely on a network of people that took years to build: family, friends, neighbours, colleagues, our doctor and local shopkeepers. When we move abroad, that network is suddenly gone, and we have to rebuild it from scratch. Finding people who speak our language and share familiar ways of doing things helps us feel less alone at first and get practical help with the first things we need to sort out.",
+        "french": "En effet, dans son pays d'origine, on s'appuie sans s'en rendre compte sur un réseau humain qu'on a mis des années à construire : famille, amis, voisins, collègues, médecin, commerçants. À l'étranger, ce réseau disparaît du jour au lendemain, et il faut tout reconstruire à partir de zéro. Retrouver des personnes qui parlent sa langue et partagent ses repères permet de rompre la solitude des débuts et d'obtenir une aide concrète pour les premières démarches.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "e2e894dbccd3596fa0021066353cc68de04735c08b33db10d502487809796b7a": {
         "english": "For me, spending time with compatriots can therefore help, especially when you first arrive. But you can also find support from other people. The important thing is being able to rely on those around you, not that everyone comes from the same country.",
         "french": "Pour moi, fréquenter des compatriotes peut donc aider, surtout quand on arrive. Mais on peut aussi trouver du soutien auprès d'autres personnes. L'essentiel est de pouvoir compter sur son entourage, pas que tout le monde vienne du même pays.",
         "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "f0be0f9c2b5f425cab696a3073d037d5f24512c7baa633417bcb38961430c0f1": {
+        "english": "In my view, it is normal and even helpful to spend time with people from our own country, but they should not be our only social circle. Even though our own community offers real support, keeping to it alone eventually makes it harder to integrate. First, people from home can be an invaluable source of support, particularly in the first few months. Second, limiting ourselves to that circle gradually cuts us off from the host society. Finally, the relationships we build with people who live there are what give integration a lasting foundation.",
+        "french": "À mon avis, fréquenter des gens de son pays d'origine est normal et même utile, mais cela ne doit pas devenir le seul cercle social. Même si la communauté d'origine apporte un vrai soutien, s'y enfermer finit par freiner l'intégration. D'abord, la communauté d'origine est un soutien précieux, surtout dans les premiers mois. Ensuite, se limiter à ce cercle isole peu à peu de la société d'accueil. Enfin, ce sont les liens construits avec les habitants du pays qui rendent l'intégration vraiment solide.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "f59fa53aa5e04ea9789c6f829b34da1274a6ba90ca4e699b33cd898882488e37": {
         "english": "Spending time with compatriots abroad can be very useful, especially at first, but I do not think it is necessary. What matters is finding people you can trust, whatever their origin.",
@@ -304,6 +379,11 @@
       }
     },
     "eo/tache-3/culture-p17": {
+      "02ace9fc47d462a8dab7357ce67b2dbeb070e041d4d5c4f78c91851c30575949": {
+        "english": "Finally, a tight budget can make language difficulties and the challenges of settling in even harder to manage.",
+        "french": "Enfin, un budget serré peut rendre les difficultés de langue et d'adaptation encore plus lourdes à gérer.",
+        "review_note": "Editorial English aligned with the separate family-distance argument and the combined language and financial constraints. Preceding records retained; no translation-provider call."
+      },
       "066723513104f4889fd1f1597e5ee8ab40b4d8abc47e373f52c23c64e2fd3ca8": {
         "english": "Take the example of a student who wants to become a chef. He would like to specialise in pastry, but cannot find the training he wants near home. So he chooses a school abroad where he can take that course and do a restaurant placement.",
         "french": "Prenons l'exemple d'un étudiant qui veut devenir cuisinier. Il aimerait se spécialiser en pâtisserie, mais il ne trouve pas la formation qu'il cherche près de chez lui. Il choisit donc une école à l'étranger où il peut suivre cette formation et faire un stage en restaurant.",
@@ -347,6 +427,16 @@
         "english": "I would therefore say that life abroad can be enriching, but not always positive. What we learn there matters, without making money worries or the pain of being far from loved ones disappear.",
         "french": "Je dirais donc que la vie à l'étranger peut être enrichissante, mais pas toujours positive. Ce qu'on y apprend compte, sans faire disparaître les soucis d'argent ni la peine d'être loin des siens.",
         "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "3fd5c7b6876fd8fbcb11ec31f8496f2d348503aecafa56965e831b16613da3f6": {
+        "english": "For example, a student abroad understands enough of the language to do her shopping, but struggles to follow her university classes. She would like to go to the support sessions, but they are held in the evening, when she works to pay her rent. She goes over her notes at the weekend, but falls behind. The stay she had been looking forward to becomes exhausting.",
+        "french": "Par exemple, une étudiante à l'étranger comprend assez la langue pour faire ses courses, mais peine à suivre les cours à l'université. Elle voudrait aller aux séances de soutien, sauf qu'elles ont lieu le soir, quand elle travaille pour payer son loyer. Elle revoit ses notes le week-end, mais elle prend du retard. Le séjour qu'elle attendait avec impatience devient épuisant.",
+        "review_note": "Editorial English aligned with the separate family-distance argument and the combined language and financial constraints. Preceding records retained; no translation-provider call."
+      },
+      "4edc799d3b27b3eda3353c5fb89b2e74f737b1fe66253ffd3a6507149fd58ee4": {
+        "english": "So we can feel good about what we accomplish abroad and still find it painful to be far from the people we love.",
+        "french": "On peut donc être content de ce qu'on accomplit à l'étranger tout en souffrant d'être loin des siens.",
+        "review_note": "Editorial English aligned with the separate family-distance argument and the combined language and financial constraints. Preceding records retained; no translation-provider call."
       },
       "4f26097cf50f017158633fe0fc2bed432bc0ea6ca8ee3fc0d9c0877b7953a107": {
         "english": "In my view, saying that an experience abroad is always positive is too absolute. It can bring a great deal personally and professionally, but its overall value also depends on language, integration and living conditions.",
@@ -396,6 +486,16 @@
         "french": "Une recherche d'emploi peut se prolonger alors que les économies diminuent. Avec des revenus insuffisants ou irréguliers, payer le logement devient inquiétant. Cette pression peut empêcher de profiter des possibilités qui avaient motivé le départ.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "7434b61f0351661d4f19fc29846b2cf1d0fb08f5cefaba7e8f6579ce5312effc": {
+        "english": "For example, a student abroad struggles to follow her classes because she does not yet understand the local language well. Her university offers evening language classes, but that is when she works to pay her rent. She cannot attend and falls behind in her studies.",
+        "french": "Par exemple, une étudiante à l'étranger a du mal à suivre ses cours parce qu'elle ne comprend pas encore bien la langue du pays. Son université propose des cours de langue le soir, mais elle travaille à ces heures-là pour payer son loyer. Elle ne peut pas y aller et prend du retard dans ses études.",
+        "review_note": "Editorial English for the simpler example of a student whose evening job keeps her from attending language classes; no translation-provider call."
+      },
+      "7e8f66c673b97fc59d7199c93afd79ce87f52d37cba3af06dffc7cf971e2468d": {
+        "english": "When we live close to family, we can get together for a meal or drop by to say hello without having to plan it all in advance. When we live several hours away by plane, calls help us stay in touch, but we no longer share everyday life in the same way. Sometimes we cannot make it back for months. Meanwhile, our loved ones’ lives go on, and some of the moments we miss do not come around again.",
+        "french": "Quand on vit près de sa famille, on peut se retrouver à table ou passer dire bonjour sans avoir à tout organiser. À plusieurs heures de vol, les appels aident à garder le lien, mais on ne partage plus le quotidien de la même façon. Il arrive qu'on ne puisse pas rentrer pendant des mois. Pendant ce temps, la vie de nos proches continue, et certains moments ne se rattrapent pas.",
+        "review_note": "Editorial English aligned with the separate family-distance argument and the combined language and financial constraints. Preceding records retained; no translation-provider call."
+      },
       "7ec580ea733d8c1dcab1520ef78fc239c8ba6515f8f3d19c683f7fe0c2936314": {
         "english": "You can be happy to make progress in your studies or work and regret missing out on your loved ones' lives. Those two feelings do not cancel each other out: sometimes you cannot go home when someone close to you needs help.",
         "french": "On peut être heureux d'avancer dans ses études ou son travail et regretter de manquer la vie de ses proches. Ces deux sentiments ne s'annulent pas : il arrive qu'on ne puisse pas rentrer quand un proche a besoin d'aide.",
@@ -423,6 +523,11 @@
         "english": "A student who wants to become a chef might seek training in a specialism that isn’t taught near their home. A school abroad offering this training and a work placement in a restaurant then provides them with a practical way to learn the trade.",
         "french": "Un étudiant qui veut devenir cuisinier peut chercher une formation dans une spécialité qui n'est pas enseignée près de chez lui. Une école à l'étranger proposant cette formation et un stage en restaurant lui donne alors un moyen concret d'apprendre le métier."
       },
+      "a3ed01d45798e2231f5ebf6c91cc0a9788c8cc6fc5a2c633471bd7c39139a75a": {
+        "english": "Finally, when we have to work to pay the bills, we have less time to learn the language and find our feet.",
+        "french": "Enfin, quand on doit travailler pour payer ses factures, on a moins de temps pour apprendre la langue et trouver ses repères.",
+        "review_note": "Editorial English for the more direct link between paid work, time to learn the language and settling in; no translation-provider call."
+      },
       "a60e0db330454b2023aa0f0dfb2c0bef6b7049cbc884603024984a5fbd67db18": {
         "english": "I disagree with the word 'always'. Living abroad can be an opportunity for some people and an ordeal for others. A good training course is not enough to make the entire experience positive when everyday life becomes difficult.",
         "french": "Je ne suis pas d'accord avec le mot « toujours ». Vivre à l'étranger peut être une chance pour certains et une épreuve pour d'autres. Une bonne formation ne suffit pas à rendre toute l'expérience positive quand le quotidien devient difficile.",
@@ -443,6 +548,11 @@
         "french": "Tout d'abord, une expérience à l'étranger peut apporter beaucoup sur le plan personnel et professionnel.",
         "review_note": "Editorial English aligned with the bank-led substantive development repair. All preceding translations retained; no translation-provider call."
       },
+      "b4c67611685d8915a65eb921bce0565424a4a2dd904230d7db5bf1ef5e6033fc": {
+        "english": "In my view, saying that living abroad is always positive goes too far. It can bring a great deal personally and professionally, but we also need to consider the distance from family and the difficulties we face when settling in.",
+        "french": "À mon avis, dire qu'une expérience à l'étranger est toujours positive est trop absolu. Elle peut apporter beaucoup sur le plan personnel et professionnel, mais il faut aussi tenir compte de l'éloignement de la famille et des difficultés qu'on rencontre en s'installant.",
+        "review_note": "Editorial English aligned with the separate family-distance argument and the combined language and financial constraints. Preceding records retained; no translation-provider call."
+      },
       "bb37763d6a0116f657fad9f18c813b0882fa818fe2bb9e2bd00477b73f41e3b6": {
         "english": "Furthermore, financial difficulties can make life abroad a trying experience.",
         "french": "Ensuite, les difficultés financières peuvent rendre la vie à l'étranger éprouvante."
@@ -456,6 +566,11 @@
         "english": "Through this training and placement, he gains experience and develops the skills he needs to become a chef.",
         "french": "Grâce à cette formation et à ce stage, il acquiert de l'expérience et développe les compétences dont il a besoin pour devenir cuisinier.",
         "review_note": "Editorial English aligned with the approved consequence connecting training and placement to experience and skills; all preceding translations retained. No translation-provider call."
+      },
+      "c360a9e50263dcfa82d8b84e124984b1cf3f1bb7fb4713f17b39a1621b75e625": {
+        "english": "So we can have a goal that really matters to us and still spend much of our time abroad just trying to get by.",
+        "french": "On peut donc avoir un projet qui nous tient à cœur et passer pourtant une bonne partie du séjour à essayer de tenir le coup.",
+        "review_note": "Editorial English aligned with the separate family-distance argument and the combined language and financial constraints. Preceding records retained; no translation-provider call."
       },
       "cd40f2a975e700937989a4668a0a2b04db6e1d1a4d9257839298359098354a31": {
         "english": "For example, a student understands enough of the language to do her shopping, but struggles to follow classes and group discussions. She spends her evenings going over her notes and no longer dares to participate. The stay she had been looking forward to becomes exhausting.",
@@ -489,9 +604,24 @@
         "english": "In another country, you can find specialist training or learn methods with which you are unfamiliar. Courses, work placements and advice from professionals help you put this knowledge into practice.",
         "french": "Dans un autre pays, on peut trouver une formation spécialisée ou apprendre des méthodes que l'on connaît peu. Les cours, les stages et les conseils de professionnels aident à mettre ces connaissances en pratique."
       },
+      "f80a22e50302a6a7f31b62c20a6c97426aee8005ba9a06cf7ef836634202af8f": {
+        "english": "For example, a mother finds a job she enjoys abroad, but her son stays back home with his father for a few months. On his very first day of school, she gets a photo of him outside the school with his schoolbag. She is happy to see how proud he looks, but she wishes she could have been there to take him to school.",
+        "french": "Par exemple, une mère trouve un travail qui lui plaît à l'étranger, mais son fils reste quelques mois au pays avec son père. Le jour de sa première rentrée, elle reçoit une photo de lui devant l'école, avec son cartable. Elle est heureuse de le voir si fier, mais elle aurait aimé être là pour l'accompagner.",
+        "review_note": "Editorial English aligned with the separate family-distance argument and the combined language and financial constraints. Preceding records retained; no translation-provider call."
+      },
+      "f80c93ac4df47339ee4554dc2e29092d8163a0a00db0f7ffc5b6804d5f2b04d4": {
+        "english": "In the first few months, even a simple task can become lengthy and stressful when we struggle to find the words or do not know what steps to take. With a bit of financial breathing room, we can give ourselves time to take language classes or look for help. But when we also have to work to pay the rent, that is the very time we are short of. We end up using our energy just to keep up rather than moving forward with what we came to do.",
+        "french": "Dans les premiers mois, même une tâche simple peut devenir longue et stressante lorsqu'on cherche ses mots ou qu'on ne connaît pas les démarches. Avec un peu de marge financière, on peut se donner le temps de prendre des cours de langue ou de chercher de l'aide. Mais quand on doit aussi travailler pour payer son loyer, c'est justement ce temps-là qui manque. On dépense alors son énergie à tenir le rythme plutôt qu'à avancer dans son projet.",
+        "review_note": "Editorial English aligned with the separate family-distance argument and the combined language and financial constraints. Preceding records retained; no translation-provider call."
+      },
       "fc2fcd769e01652c70b8b4c8df8af56b7fe0ceb6930aecf455da74f8f701e406": {
         "english": "An experience can therefore be beneficial in one respect and painful in another.",
         "french": "Une expérience peut donc être avantageuse sur un plan et douloureuse sur un autre."
+      },
+      "fd20ee5e169b5a19a4cafa67382f50abfac5aa7d04485e01ff769429c8f9d6e1": {
+        "english": "But being far from family can take a toll, even when work or studies are going well.",
+        "french": "Mais l'éloignement de la famille peut peser lourd, même quand les études ou le travail se passent bien.",
+        "review_note": "Editorial English aligned with the separate family-distance argument and the combined language and financial constraints. Preceding records retained; no translation-provider call."
       }
     },
     "eo/tache-3/culture-p21": {
@@ -639,6 +769,11 @@
       }
     },
     "eo/tache-3/culture-p24": {
+      "12835ebecf8147cfe88592dee1ae414269313444347f56e5f05f1da113102b1d": {
+        "english": "That said, we should not downplay the role of people from our own country. They help us cope with loneliness, make sense of some procedures and stay emotionally connected to our culture. The problem is not spending time with that community; it is shutting ourselves off within it. In other words, relationships with local people should add to that support, not replace it.",
+        "french": "Cependant, il ne faut pas dévaloriser la communauté d'origine. Elle aide à surmonter la solitude, à comprendre certaines démarches et à garder un lien affectif avec sa culture. Le problème n'est donc pas de la fréquenter, mais de s'y enfermer. Autrement dit, les liens avec les habitants doivent compléter ce soutien, pas l'effacer.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "14616e268e2b508d4ca17e69e39edef44c586570d03648ae9e681335611146e8": {
         "english": "I find these relationships very important for living well abroad, without making them an obligation for everyone.",
         "french": "Je trouve ces relations très importantes pour bien vivre à l'étranger, sans en faire une obligation pour tout le monde.",
@@ -660,6 +795,16 @@
         "french": "L'absence de liens locaux ne suffit donc pas à conclure qu'elle vit mal.",
         "review_note": "The English example introduces the remote worker as 'Someone' and consistently uses 'they'. The consequence's unexplained 'she' breaks that reference chain. Correct only the English pronoun, retaining the French text, bilingual cues and preceding translation history. The complete preceding row is retained in editorial_history; no provider call or DeepL original was fabricated."
       },
+      "1d5aebe8633ac7935fc12f47a88079617ca43c6bfead8198e549a81eedbebc96": {
+        "english": "Local contacts give us access to several important things: information about the job market, opportunities that are not advertised, help with paperwork and emotional support in difficult times. These relationships also enrich our lives by giving us a glimpse into a different way of thinking and living. Over time, they also give us a sense of belonging that makes life abroad much more stable.",
+        "french": "En effet, les contacts sur place donnent accès à plusieurs choses essentielles : des informations sur le marché du travail, des opportunités qui ne passent pas par les annonces, une aide pour les démarches et un soutien moral dans les moments difficiles. De plus, ces relations apportent un enrichissement personnel, parce qu'elles font découvrir une autre manière de penser et de vivre. Avec le temps, elles donnent aussi un sentiment d'appartenance qui rend la vie à l'étranger beaucoup plus stable.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
+      "23687209197e6e79360b988befce8354e0d6b8942ff8cecb36cadd996fc593c8": {
+        "english": "In conclusion, I think it is almost essential to build relationships with local people to live well abroad, because they keep us from becoming isolated, help us genuinely integrate and open up many opportunities. Living in a country with no local ties means, in effect, living alongside that country rather than being part of it.",
+        "french": "En conclusion, je pense qu'il est presque indispensable de créer des relations avec les habitants pour bien vivre à l'étranger, parce qu'elles évitent l'isolement, permettent une vraie intégration et ouvrent de nombreuses opportunités. Vivre dans un pays sans aucun lien local revient, en pratique, à vivre à côté de ce pays plutôt que dedans.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "2c4dbf9954d5e13f729da0662552190f8b497b2e0a9c37cbbadbe9e8a96a4ca3": {
         "english": "I therefore find these relationships very useful for sharing daily life and feeling more comfortable locally. But I would not make them essential to everyone's well-being: what matters is not experiencing an isolation that causes suffering.",
         "french": "Je trouve donc ces relations très utiles, pour partager son quotidien et se sentir plus à l'aise sur place. Mais je ne les rendrais pas indispensables au bien-être de chacun : ce qui compte, c'est de ne pas vivre un isolement dont on souffre.",
@@ -680,6 +825,11 @@
         "french": "Par exemple, une voisine sait qu'une nouvelle arrivante cherche un emploi dans la vente. Elle lui parle d'un magasin qui recrute et lui donne le contact du responsable. L'arrivante peut alors présenter sa candidature à un poste qu'elle n'avait pas repéré.",
         "review_note": "Editorial English aligned with the bank-led substantive development repair. All preceding translations retained; no translation-provider call."
       },
+      "339ac9469727f57654830df7a637febe3d1feeebea760006a33bec6ef85ff6b6": {
+        "english": "Finally, I think that relationships with local people also open up social and professional opportunities that we would not otherwise have.",
+        "french": "Enfin, je pense que les relations avec les habitants ouvrent aussi des opportunités humaines et professionnelles que l'on n'aurait pas autrement.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "35dcf7a4c00b22b70e69a5edcadc4431012f837559318105000a66ac839ff3a7": {
         "english": "A newcomer might have lunch with a neighbour every Saturday. They chat about their week and, if one falls ill, the other can pop round with some groceries.",
         "french": "Une nouvelle arrivante peut déjeuner chaque samedi avec une voisine. Elles échangent sur leur semaine et, si l'une tombe malade, l'autre peut lui déposer quelques courses."
@@ -694,9 +844,34 @@
         "english": "In conclusion, I recommend these relationships for the support and understanding they provide. They make life easier, without being essential to everyone’s well-being. Everyone should be able to find a balance that suits them.",
         "french": "En conclusion, je recommande ces relations pour le soutien et la compréhension qu'elles apportent. Elles facilitent la vie, sans être indispensables au bien-être de tous. Chacun doit pouvoir trouver un équilibre qui lui convient."
       },
+      "49a03d01158531d5b05a7e830394d6816846c3f8823716869396f73475ce5e8c": {
+        "english": "Living abroad without local ties often means spending our days working or studying, then coming home to no one we can really talk to. Even if we keep in touch with family from afar, that does not replace having someone there day to day. In the long run, we live in the country without really taking part in its social life, and the loneliness begins to weigh on us.",
+        "french": "En effet, vivre à l'étranger sans liens locaux signifie souvent passer ses journées à travailler ou à étudier, puis à rentrer chez soi sans personne à qui parler vraiment. De plus, même si l'on garde le contact avec sa famille à distance, cela ne remplace pas une présence quotidienne. Sur le long terme, on habite physiquement dans le pays, mais on ne participe pas vraiment à sa vie sociale, et cette solitude finit par peser sur le moral.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
+      "58bd323a921a7f49e7651bb8fba5a68fdbccd460d71b2ce6c756f487d43949b4": {
+        "english": "This shows that these ties make a tangible difference to our quality of life abroad, well beyond friendship alone.",
+        "french": "Cela montre que ces liens jouent un rôle concret dans la qualité de vie à l'étranger, bien au-delà de la simple amitié.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
+      "5e64892eeac8baa987057f72d995db9d569ed708315ab2ad36bf813958d50237": {
+        "english": "In my view, to live well abroad, we need to build relationships with local people. First, without those ties, we soon end up feeling isolated and cut off from the host society. Second, local people are the ones who really help us learn the language and understand the country’s customs. Finally, those relationships open up social and professional opportunities we would not have otherwise.",
+        "french": "À mon avis, pour que l'on vive bien à l'étranger, il faut créer des relations avec les habitants. D'abord, sans ces liens, on finit rapidement par se sentir isolé et coupé de la société d'accueil. Ensuite, ce sont les habitants qui permettent vraiment d'apprendre la langue et de comprendre les codes du pays. Enfin, ces relations ouvrent aussi des opportunités humaines et professionnelles que l'on n'aurait pas autrement.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
+      "603bed7bc728962d2d85667c12820f6239a7631d5d8723824a3d5a05bbc94404": {
+        "english": "That shows that relationships with local people are not a minor detail: they are a key part of what it takes to live well abroad.",
+        "french": "Cela montre que les liens avec les habitants ne sont pas un détail, mais une vraie condition du bien-être à l'étranger.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "67481bb19a73635acb76a3fa063de34a45633d1bd3d700af834cad28aa9ade5a": {
         "english": "In a neighbourhood association, a newcomer is invited to a communal meal. A regular member explains that everyone brings a dish and helps her say, in the local language, what she intends to bring. The newcomer then reuses these expressions at other gatherings.",
         "french": "Dans une association de quartier, une nouvelle arrivante est invitée à un repas partagé. Une habituée lui explique que chacun apporte un plat et l'aide à dire, dans la langue du pays, ce qu'elle compte apporter. La nouvelle arrivante réutilise ensuite ces expressions lors d'autres rencontres."
+      },
+      "6865aec1cc0fc698696cd77750b845ffca7efaa9d5d16b91bcca99b75601ce14": {
+        "english": "For example, someone who works all week abroad but does not know their neighbours or their colleagues outside the office can be doing well financially and still feel deeply lonely.",
+        "french": "Par exemple, une personne qui travaille toute la semaine à l'étranger mais ne connaît ni ses voisins ni ses collègues en dehors du bureau peut réussir matériellement tout en se sentant profondément seule.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "6acd4b36e3a146cce2c6ebf168079cb92ca15af2fd6d758cbf94a26726fb1bd3": {
         "deepl_english": "This makes it easier for her to participate in community life, without assuming that all residents have the same habits.",
@@ -717,6 +892,11 @@
         "english": "Phone calls help maintain the bond, but do not always replace physical presence. Being able to meet up regularly allows people to share their daily lives and support one another.",
         "french": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Pouvoir se retrouver régulièrement permet de partager son quotidien et de s'entraider."
       },
+      "735949f8d0952771545bbe969e470e35619a00d722da5a8228d7e5c21f83a213": {
+        "english": "For example, many people find a better job or somewhere to live more easily through local contacts, sometimes without going through official listings at all.",
+        "french": "Par exemple, beaucoup de personnes trouvent un meilleur travail ou un logement plus facilement grâce à des contacts locaux, parfois même sans passer par les annonces officielles.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "76ecbbc57773be4baaea96fc0de97a980880319e9794417fb9b0446fbdfb0f19": {
         "english": "In my opinion, building relationships with residents helps with living well in a foreign country. But I would not say these relationships are essential for everyone. Their importance depends on what we expect from our new life.",
         "french": "À mon avis, créer des relations avec les habitants aide à bien vivre dans un pays étranger. Mais je ne dirais pas que ces relations sont indispensables pour tout le monde. Leur importance dépend de ce qu'on attend de sa nouvelle vie.",
@@ -726,6 +906,11 @@
         "english": "Calls maintain the connection, but do not always replace being there in person. You may hear from loved ones yet know no one you can have lunch or go for a walk with. Meeting regularly lets people share their daily lives and help each other.",
         "french": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. On peut recevoir des nouvelles de ses proches et ne connaître personne avec qui déjeuner ou se promener. Se retrouver régulièrement permet de partager son quotidien et de s'entraider.",
         "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "7b2d4121e2647bf3e54053845713e5b162121d045b5d4f10034e36b4082c1d60": {
+        "english": "Next, it is local people who really help us learn the language and understand the country’s social norms.",
+        "french": "Ensuite, ce sont les habitants qui permettent vraiment d'apprendre la langue et de comprendre les codes du pays.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "7e51bec4faea803ae818efccd3e3aae350c34c77b613e5aace5520556db43626": {
         "english": "But it is possible to live well without having yet built personal ties locally.",
@@ -741,6 +926,11 @@
         "english": "Regular conversations allow us to ask for explanations about a group's habits, such as how to accept an invitation. They also provide an opportunity to practise the language in real situations, with people we know.",
         "french": "Les conversations régulières permettent de demander des explications sur les habitudes d'un groupe, comme la façon d'accepter une invitation. Elles donnent aussi l'occasion de pratiquer la langue dans des situations réelles, avec des personnes qu'on connaît.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "9a08de0c5d3596dc6e4dd3f64b7f1944fbb2beeccaa15d13ee0555729f27baef": {
+        "english": "Classes and books give us a foundation, but it is only by speaking regularly with local people that we become truly comfortable using the language. Many cultural norms cannot be learnt from a textbook, either: we work them out through conversations, remarks and routines at work. Without these direct exchanges, there is always a gap between us and the society we live in.",
+        "french": "En effet, les cours et les livres donnent une base, mais c'est seulement en parlant régulièrement avec des locaux que l'on devient vraiment à l'aise dans la langue. De plus, beaucoup de codes culturels ne s'apprennent pas dans un manuel : ils se devinent à travers les conversations, les remarques et les habitudes au travail. Sans ces échanges directs, on garde toujours un décalage avec la société dans laquelle on vit.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "9f4a1be4d5ba12ff1a2b88465892a17f69482cc4294a9f9ffbc9a7d98d97ae94": {
         "english": "Regular conversations allow us to discover the customs of a group and to ask for explanations about anything that surprises us. They also provide an opportunity to practise the local language in real-life situations, with people we know.",
@@ -759,6 +949,16 @@
         "english": "In conclusion, these relationships are very useful, but not essential to everyone's well-being. They provide access to a shared life locally, while each person finds their balance according to their needs.",
         "french": "En conclusion, ces relations sont très utiles, mais pas indispensables au bien-être de tous. Elles donnent accès à une vie partagée sur place, tandis que chacun trouve son équilibre selon ses besoins.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "a355359fab0bc5f85bdde89ecf37cc9a3d8ff91ef315c58d59b35e2a71406c33": {
+        "english": "First, I think that without relationships with local people, we quickly end up feeling isolated in the country where we live.",
+        "french": "Je pense d'abord que sans relations avec les habitants, on finit rapidement par se sentir isolé dans le pays où l'on vit.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
+      "ac972acff76067763c0c731843945195a65baa88b607029f560c79e960f77db2": {
+        "english": "For example, it is often through conversations with colleagues or neighbours that we learn when to use tu or vous, how to accept an invitation or why certain procedures are done one way rather than another.",
+        "french": "Par exemple, c'est souvent en discutant avec des collègues ou des voisins que l'on comprend quand il faut tutoyer ou vouvoyer, comment accepter une invitation, ou pourquoi certaines démarches se font d'une manière plutôt que d'une autre.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "bb59a830e1545f4f0eb5c194fb2ae4b8e4d65534d1d0eadfab1fd5393e82c2c4": {
         "english": "In an association, a regular explains to a newcomer that everyone brings a dish. They discuss, in the country's language, what they will prepare. The newcomer then reuses these expressions at other gatherings.",
@@ -787,6 +987,11 @@
         "english": "In an association, a regular explains to a newcomer that everyone brings a dish for the shared meal. She helps her say, in the country's language, what she will bring. The newcomer then reuses these expressions at other gatherings.",
         "french": "Dans une association, une habituée explique à une nouvelle arrivante que chacun apporte un plat au repas partagé. Elle l'aide à dire, dans la langue du pays, ce qu'elle apportera. La nouvelle arrivante réutilise ensuite ces expressions lors d'autres rencontres.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "cff51a08eab9ee53dd261482b329898041de0c57dea5efdfd05300a50bddfb4d": {
+        "english": "This shows that local relationships are the foundation for genuine integration, not just a nice extra.",
+        "french": "Cela montre que les relations locales sont la base d'une vraie intégration, et pas seulement un agrément.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "d179f7fd9255557066460c1775a9da13e28a1896c3d867fd0d865c66ca78d009": {
         "english": "Finally, local relationships also open up practical opportunities.",
@@ -1361,6 +1566,11 @@
         "english": "Phone calls help maintain the bond, but do not always replace being there in person. For a visit to be possible, one needs enough time and money to make the journey.",
         "french": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Pour qu'une visite soit possible, il faut avoir assez de temps et d'argent pour faire le voyage."
       },
+      "7f66a1aa10602287fe0307e09b6ea437529c162237a41114b9b6558561f38328": {
+        "english": "In our home country, we often rely on a network of loved ones built up over the years. When we live several hours away by plane, calls help us stay in touch, but they do not replace having someone come to see us when we are having a hard time. Loneliness can weigh on us after a hard day or an illness. And when someone back home needs us, distance works in the other direction: a visit requires time and money.",
+        "french": "Dans son pays, on s'appuie souvent sur un réseau de proches construit au fil des années. À plusieurs heures de vol, les appels aident à garder le lien, mais ils ne remplacent pas quelqu'un qui vient vous voir quand vous allez mal. La solitude peut peser après une journée difficile ou une maladie. Et quand un proche a besoin de nous au pays, la distance agit dans l'autre sens : pour qu'une visite soit possible, il faut du temps et de l'argent.",
+        "review_note": "Editorial English reuses the distinction between staying in touch and being there in person while retaining the two-way support argument; no translation-provider call."
+      },
       "885c7e2e8f8b661c38a75ec48f538aa847698db5c63167606e80de48356b834c": {
         "english": "This accumulation of effort can make everyday life tiring, well beyond a single task.",
         "french": "Cette accumulation d'efforts peut rendre le quotidien fatigant, bien au-delà d'une seule démarche.",
@@ -1400,6 +1610,11 @@
         "english": "Housing costs and job opportunities can limit your choices. To stay within your budget, you sometimes have to accept less comfortable living conditions or ones that leave you less time for yourself. What you save in money may then cost you in time and fatigue.",
         "french": "Le coût du logement et les possibilités d'emploi peuvent limiter les choix. Pour respecter son budget, on doit parfois accepter des conditions de vie moins confortables ou qui laissent moins de temps pour soi. Ce que l'on économise en argent peut alors se payer en temps et en fatigue.",
         "review_note": "Editorial English aligned with the conversational Immigration revision; no translation-provider call."
+      },
+      "b029bb32f6cb143b19c206a506d435ab9405fe9a9b00d58ad2f1346e2c2635b4": {
+        "english": "In the first few months, even a simple task can become lengthy and stressful when we struggle to find the words or do not know what steps to take. We do not always know who to call or which documents to get ready. So we have to solve our problem and understand how the services work at the same time.",
+        "french": "Dans les premiers mois, même une tâche simple peut devenir longue et stressante lorsqu'on cherche ses mots ou qu'on ne connaît pas les démarches. On ne sait pas toujours qui appeler ni quels documents préparer. On doit donc à la fois résoudre son problème et comprendre comment fonctionnent les services.",
+        "review_note": "Editorial English reuses the explanation of why ordinary tasks take longer at first while retaining the focus on local services; no translation-provider call."
       },
       "b93ef7d79ab208f02d9e46523988c31e9e435b8d1a314653daf620b0eb9349dd": {
         "english": "Next, distance from loved ones removes a presence and support that are hard to replace.",
@@ -1447,14 +1662,29 @@
         "french": "Ne pas exercer son métier peut donc donner l'impression de ne pas avoir trouvé sa place, malgré les premiers liens.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
       },
+      "0d3b954510e68d537300f40ad22cc0fcb33c7b2e83d86c054c91b83cb9daa128": {
+        "english": "This shows that integration is a two-way process that develops slowly and never depends on just one person.",
+        "french": "Cela montre que l'intégration est un processus à deux sens, qui se construit lentement et ne dépend jamais d'une seule personne.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "10cb38425990d78d4a52b7acc6fd7ca5a0d6f668f6ce0fc1edd5aa3ae99b3bbf": {
         "english": "That said, integration is entirely possible. With time and genuine relationships, we can feel at home in the new country while remaining attached to our roots.",
         "french": "Cela dit, l'intégration est tout à fait possible. Avec du temps et des relations sincères, on peut se sentir chez soi dans le nouveau pays tout en restant attaché à ses origines.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
       },
+      "197725dcfe592c283cd5ad08c8f0a7f968e04b7b58a580d139ed2957a83ebdb9": {
+        "english": "Indeed, classes and books provide a foundation, but it is only by talking regularly with local people that we become truly comfortable and grasp implied meanings, humour and ways of thinking. What is more, many cultural codes cannot be learnt from a textbook: we work them out gradually through conversations, remarks and habits at work. Until we master them, we often keep misreading situations and feeling awkward.",
+        "french": "En effet, les cours et les livres donnent une base, mais c'est seulement en parlant régulièrement avec les habitants qu'on devient vraiment à l'aise et qu'on saisit les sous-entendus, l'humour et les manières de penser. De plus, beaucoup de codes culturels ne s'apprennent pas dans un manuel : ils se devinent peu à peu, à travers les conversations, les remarques et les habitudes au travail. Tant qu'on ne les maîtrise pas, on continue souvent à mal interpréter les situations et à se sentir maladroit.",
+        "review_note": "Editorial English for the restored bank-led cultural-codes development, tightened example and time-focused consequence. All preceding translations retained; no translation-provider call."
+      },
       "1f8f60528754c0098877dc1e03b60c3b017609b082f62afd861a098900464bd0": {
         "english": "In some professions, you have to have your qualifications recognised or undertake further training. The experience you had before leaving doesn’t necessarily mean you can start work straight away.",
         "french": "Dans certaines professions, on doit faire reconnaître son diplôme ou suivre une formation. L'expérience qu'on avait avant de partir ne permet pas forcément de commencer tout de suite."
+      },
+      "25ab2535924dffe55864f2806abaf404ae14d31b1eb040efe224a900f3dc7617": {
+        "english": "First, I think integrating is not easy because learning the language is not enough: we also have to understand the country’s cultural norms, and that takes a long time.",
+        "french": "Je pense d'abord que l'intégration n'est pas facile parce qu'il ne suffit pas d'apprendre la langue : il faut aussi comprendre les codes culturels du pays, ce qui demande beaucoup de temps.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "26cd78f99701d3f528f39a6fbf9730ad95481cc50915599a03370406ba55302c": {
         "english": "Whilst waiting for your qualification to be recognised, for example, you can do voluntary work to meet people. It’s useful, but it’s no substitute for the job or the income you were hoping for.",
@@ -1474,6 +1704,11 @@
         "english": "People often already have their friends and habits. We can live alongside them without sharing their social life. To grow closer, we need to see each other again and be welcomed, not just greet each other.",
         "french": "Les gens ont souvent déjà leurs amis et leurs habitudes. On peut vivre à côté d'eux sans partager leur vie sociale. Pour se rapprocher, on a besoin de se revoir et d'être accueilli, pas seulement de se saluer.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "375cbd176ee268a3a7119e4a0d7ce618c2f54f312807e8cfc644d0be969ec1e1": {
+        "english": "Finally, I think integration is hard because we can speak the language, work and be well settled without necessarily feeling truly at home.",
+        "french": "Enfin, je pense que l'intégration est difficile parce qu'on peut parler la langue, travailler et être bien installé sans pour autant se sentir vraiment chez soi.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "3abf8540eb1f970cd9252422ce7e9d62bc0d0a2822d9d4554d662801914cbcff": {
         "english": "In a club, for example, you might say hello to each other every week without really getting to know one another. But if the members invite you to help organise a club party with them, you’ll have something to do together over several weeks. Conversations then flow more easily.",
@@ -1498,6 +1733,11 @@
         "french": "Ensuite, l'intégration ne dépend pas seulement de nos efforts, mais aussi de l'accueil reçu.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
       },
+      "5cf6189e7759af32cf2a634b9a9e4e4e38ee2dc26cff883cb33088eb26a94ed9": {
+        "english": "Integration is not just about visible things such as work, housing or fluency in the language. What matters most is whether we feel at home, feel recognised and feel that we fully belong. But living in another country also means dealing with a different pace of life and a different outlook, which can leave us feeling out of step for a long time. Until we feel that we belong, we are more observers than participants in life there.",
+        "french": "En effet, l'intégration ne se résume pas à des éléments visibles comme le travail, le logement ou la maîtrise de la langue. Elle se mesure surtout au sentiment intérieur d'être chez soi, d'être reconnu et de se sentir pleinement à sa place. Or vivre dans un autre pays, c'est aussi affronter un rythme de vie et une mentalité différents, qui peuvent laisser un sentiment de décalage pendant longtemps. Tant que ce sentiment d'appartenance n'est pas là, on observe le pays plus qu'on ne le vit vraiment.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "5e21ede232ce4e5a03a466d1b7feff3080672a1857791f3662c94c5a440c7d0d": {
         "english": "Little by little, we can get to know one another better, rather than simply passing each other by.",
         "french": "Petit à petit, on peut apprendre à mieux se connaître, au lieu de simplement se croiser."
@@ -1506,6 +1746,11 @@
         "english": "First, speaking the language is not enough: understanding cultural codes takes time too.",
         "french": "D'abord, parler la langue ne suffit pas : comprendre les codes culturels prend aussi du temps.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
+      },
+      "660cba30f5f3f574b6099fa35ed1dd32808a1a391a1c74279739c41dc89cda55": {
+        "english": "For example, it often takes years before we instinctively know when to use tu or vous, how to accept or decline an invitation, or why some things are done one way rather than another.",
+        "french": "Par exemple, c'est souvent après des années seulement que l'on comprend spontanément quand il faut tutoyer ou vouvoyer, comment accepter ou refuser une invitation, ou pourquoi certaines choses se font d'une manière plutôt que d'une autre.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "6c7c9c67735695a57a63f6c409552595cad660bac3568ece4f3954eab76df92e": {
         "english": "In conclusion, integrating is possible, but it is not a mere formality. Personal efforts matter, as do the welcome from others and the possibility of working in one's field. Finding one's place therefore does not mean erasing one's past.",
@@ -1522,16 +1767,31 @@
         "french": "On gagne donc progressivement l'aisance que les cours seuls ne donnent pas.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
       },
+      "784b4e9623fb4f91751c09b006689d40c20bf31a1b0d76230e86e51dbbafae50": {
+        "english": "Classes and books provide a foundation, but it is only by talking regularly with local people that we become truly comfortable in the language and pick up on implied meanings, humour and ways of thinking. Many cultural norms are not learnt from a textbook, either: we work them out gradually through conversations, remarks and routines at work. Until we have learnt those norms, we often keep misreading situations and feeling awkward in everyday exchanges.",
+        "french": "En effet, les cours et les livres donnent une base, mais c'est seulement en parlant régulièrement avec les habitants que l'on devient vraiment à l'aise dans la langue et que l'on saisit les sous-entendus, l'humour et les manières de penser. De plus, beaucoup de codes culturels ne s'apprennent pas dans un manuel : ils se devinent peu à peu, à travers les conversations, les remarques et les habitudes au travail. Tant que ces codes ne sont pas maîtrisés, on continue souvent à mal interpréter les situations et à se sentir maladroit dans ses échanges quotidiens.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "88097faa22ce4e7856af370bb3e57a48f676069a8e07beee3f5dabd40495bbed": {
         "deepl_english": "Of course, having family and friends nearby and enough to live on whilst you’re settling in can make things easier. Conversely, discrimination can make things more difficult. And you can feel at home in your new country whilst remaining attached to your roots.",
         "english": "Of course, having family and friends nearby and enough to live on whilst you’re dealing with administrative procedures can make things easier. Conversely, discrimination can make things more difficult. And you can feel at home in your new country whilst remaining attached to your roots.",
         "french": "Bien sûr, avoir des proches sur place et de quoi vivre pendant les démarches peut faciliter les choses. À l'inverse, la discrimination peut les compliquer. Et on peut se sentir chez soi dans le nouveau pays tout en restant attaché à ses origines.",
         "review_note": "Pendant les démarches refers to the qualification-recognition procedures, not settling in generally."
       },
+      "8a469fc826eefcd8fdfed8660e404f06ddef0ef485efd64f69a734fd043d6d6a": {
+        "english": "This shows that genuine integration requires a good grasp of the finer points of the language and cultural norms, which only develops slowly.",
+        "french": "Cela montre que la vraie intégration suppose une maîtrise fine de la langue et des codes, qui ne s'acquiert que lentement.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "9042886c2fa5adf103b801bf68c212455d46758498925d2d4f90bb43c44aee3b": {
         "english": "Integration therefore takes time to understand cultural codes, be welcomed and feel at home. It is possible, but not automatic.",
         "french": "S'intégrer demande donc du temps pour comprendre les codes, être accueilli et se sentir chez soi. C'est possible, mais pas automatique.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
+      },
+      "92e0137afe483f4f9f0fd4def96d11509e8939b20aced7f4076fcfc5cff612bb": {
+        "english": "We can make every effort imaginable — learn the language, respect the local norms, try to get to know people — but if the society we move to stays closed or wary, there is a limit to how far we can integrate. And even in a welcoming country, groups of friends and professional networks are already established: a newcomer has to prove themselves for a long time before being fully included and often remains on the edge of those circles. So we can be physically living in a country without really taking part in its social life — living alongside it rather than in it.",
+        "french": "En effet, on peut faire tous les efforts du monde — apprendre la langue, respecter les codes, chercher à connaître les habitants — mais si la société qui nous reçoit reste fermée ou méfiante, l'intégration restera limitée. De plus, même dans un pays accueillant, les groupes d'amis et les réseaux professionnels sont déjà formés : un nouvel arrivant doit faire ses preuves longtemps avant d'y être pleinement inclus et reste souvent à la périphérie de ces cercles. On peut ainsi habiter physiquement dans un pays sans participer vraiment à sa vie sociale, c'est-à-dire vivre à côté de ce pays plutôt que dedans.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "9a8fd3d873833747cfc5957b534cd840a590d7313bb9f0abc45f3ee96e733827": {
         "english": "People often already have their own friends and routines. To get closer to them, we need to spend time together, not just exchange a few greetings.",
@@ -1550,6 +1810,11 @@
         "english": "Finally, even if you start to get to know people, you may still find it difficult to return to your profession.",
         "french": "Enfin, même si on commence à connaître du monde, on peut encore avoir du mal à reprendre son métier."
       },
+      "a15b98a93d3fabeb59ff9964e5c25a5760429b938042e3086cc1210a8be44f39": {
+        "english": "That said, it is worth recognising that many people do eventually integrate, especially if they are welcomed by the host society, have stable work and form genuine relationships with local people. Integration is entirely possible, then, but it remains a long process with ups and downs, never a mere formality.",
+        "french": "Cependant, il faut reconnaître que beaucoup de personnes finissent par s'intégrer, surtout lorsqu'elles bénéficient d'une société d'accueil ouverte, d'un travail stable et de relations sincères avec les habitants. L'intégration est donc un objectif tout à fait possible, mais qui reste un processus long, fait de hauts et de bas, et jamais une simple formalité.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "abac8f3761aec81791ac6b1bbf845706a425efac8f4ca359462163e8ae59ad2f": {
         "english": "For example, a new employee understands the discussions in meetings, but waits to be asked for her opinion. A colleague explains how to signal that she wants to contribute. Over the course of the meetings, she learns to take her place in the discussions.",
         "french": "Par exemple, une nouvelle salariée comprend les discussions en réunion, mais attend qu'on lui demande son avis. Un collègue lui explique comment signaler qu'elle souhaite intervenir. Au fil des réunions, elle apprend à prendre sa place dans les échanges.",
@@ -1559,9 +1824,24 @@
         "english": "Furthermore, you can’t build connections on your own.",
         "french": "Ensuite, on ne peut pas créer des liens tout seul."
       },
+      "b1de91dfbb1b2daa8943dc53a57028a390aca5b732748ed5875518a6dfd143c1": {
+        "english": "It therefore takes time to feel truly comfortable.",
+        "french": "Il faut donc du temps pour être vraiment à l'aise.",
+        "review_note": "Editorial English for the restored bank-led cultural-codes development, tightened example and time-focused consequence. All preceding translations retained; no translation-provider call."
+      },
       "b69eb43c9e1e515e1dfa85afe4357f8c7a19cb4caf48fc7c0eddfe4464c323df": {
         "english": "When a colleague takes the time to explain things, you can feel less left out.",
         "french": "Quand un collègue prend le temps d'expliquer, on peut se sentir moins à l'écart."
+      },
+      "ba0c56ec50509ec553f2c7a0d73d76d55d9411205c48de329b8c96e06d46b1e6": {
+        "english": "For example, a new employee understands everything in meetings but waits to be asked. A colleague explains that she can jump in, and she gradually dares to speak up.",
+        "french": "Par exemple, une nouvelle salariée comprend tout en réunion, mais attend qu'on l'interroge. Un collègue lui explique qu'elle peut intervenir, et elle ose peu à peu prendre la parole.",
+        "review_note": "Editorial English for the restored bank-led cultural-codes development, tightened example and time-focused consequence. All preceding translations retained; no translation-provider call."
+      },
+      "ba2f9e5c33d60483f69859b7124014db4674aa2874984ab9a30c702d98abe825": {
+        "english": "For example, a newcomer may be invited to lunch out of politeness for months without ever becoming part of the group of friends that gets together at weekends, simply because those bonds formed long before they arrived.",
+        "french": "Par exemple, un nouvel arrivant peut être invité à déjeuner par politesse pendant des mois, sans jamais entrer dans le groupe d'amis qui se retrouve le week-end, simplement parce que ces liens s'étaient formés bien avant son arrivée.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "bb2c5be0a60cd632cfd90b7af069648ab962aecb6135ee6beb9a1f9f41e3c36e": {
         "english": "In conclusion, it is possible to find one’s place in a new country, but it is not always easy. Our efforts matter, as do the welcome we receive from others and the opportunity to work in our chosen field.",
@@ -1572,16 +1852,41 @@
         "french": "C'est donc un processus à deux sens, pas seulement un effort individuel.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
       },
+      "cd9a1894278973c5caaa0510684f7ff1f4194db0eb30f3db15c6a165efc54d8e": {
+        "english": "For example, someone who speaks the language fluently, has a good job and has stable housing can still feel like an outsider and out of step culturally even after several years in the country.",
+        "french": "Par exemple, une personne qui parle couramment la langue, possède un bon emploi et un logement stable peut très bien se sentir encore étrangère, en décalage culturel, même après plusieurs années dans le pays.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
       "ce26e58c83fe222b2b0272402e67d57da30ec002212376b6e019e825be3ccfad": {
         "english": "A sense of belonging therefore cannot be measured only by work, housing or language level.",
         "french": "Le sentiment d'appartenance ne se mesure donc pas seulement au travail, au logement ou au niveau de langue.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
+      },
+      "d5d78549464d211dd2eaebbfe27b0d0b31eb27116ca2d1acadf6e96b94205011": {
+        "english": "In conclusion, I do not think it is particularly easy to integrate into a foreign country, because it takes a good command of the language and cultural norms, acceptance by the host society and the development of a real sense of belonging. It is an achievable goal, but it takes time and cannot be judged by practical criteria alone.",
+        "french": "En conclusion, je pense que s'intégrer dans un pays étranger n'est pas vraiment facile, parce que cela demande de maîtriser la langue et les codes culturels, d'être accepté par la société d'accueil et de développer un vrai sentiment d'appartenance. C'est un objectif atteignable, mais qui se construit lentement et qui ne peut pas se réduire à de simples critères pratiques.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
+      "dc3947ad821e552e0bc960e04a5e33f940736a5aadc583bb47e44fb807ee0f7f": {
+        "english": "That shows that integration goes well beyond practical adjustment: it is above all about feeling that we belong.",
+        "french": "Cela montre que l'intégration va bien au-delà de l'adaptation pratique : c'est surtout une question de sentiment d'appartenance.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
+      },
+      "dd0100c3e61033d5c44bd3439e9927af80587ccd18baf8d05dbea164cb4621ad": {
+        "english": "Second, I think integration does not depend on individual effort alone. The host society also needs to be welcoming and make time for newcomers.",
+        "french": "Ensuite, je pense que l'intégration ne dépend pas seulement des efforts de la personne. Il faut aussi que la société d'accueil soit ouverte et accorde du temps aux nouveaux arrivants.",
+        "review_note": "Editorial English aligned with the restored source wording and current reviewed French. Preceding translation records retained; no translation-provider call."
       },
       "ddf849fb002bd73c0fa253502881bab39f47935180560f03aa81ae9a2bcf9a54": {
         "deepl_english": "First of all, you don’t always know what topics other people are talking about.",
         "english": "First of all, you’re not always familiar with the subjects other people are talking about.",
         "french": "Tout d'abord, on ne connaît pas toujours les sujets dont les autres parlent.",
         "review_note": "Connaître les sujets means being familiar with them, not merely identifying the conversation topic."
+      },
+      "e725e44dad2286ca4ef008f6b7414afee69dbca6e3def367a26021616b9f5e9a": {
+        "english": "In my view, integrating into a foreign country is not really easy, even when we make an effort. Integrating is not just moving there: it means finding our place among the local people, and that can take years.",
+        "french": "À mon avis, s'intégrer dans un pays étranger n'est pas vraiment facile, même quand on fait des efforts. S'intégrer, ce n'est pas seulement s'installer : c'est trouver sa place parmi les habitants, et cela peut prendre des années.",
+        "review_note": "Editorial English for the developed integration introduction contrasting moving there with finding one's place."
       },
       "f5c99b0a933618a9ca29af0fb6dd4dd73d4459b1d5e96054edd865be8f147733": {
         "deepl_english": "It isn’t necessarily a language problem. You can understand the words without knowing what others are getting at.",
@@ -2025,6 +2330,11 @@
       }
     },
     "eo/tache-3/culture-p9": {
+      "062883eeb443781dcb526e59c16bba87078089d41f6ea3499f5ac3617cf71ceb": {
+        "english": "For example, one Sunday, a parent who has recently arrived needs to find somewhere to take their feverish child. Not yet familiar with the local health services, they look for a walk-in clinic and call to check its hours before setting off.",
+        "french": "Par exemple, un dimanche, un parent installé depuis peu cherche où consulter pour son enfant qui a de la fièvre. Il ne connaît pas encore les services de santé du quartier, alors il cherche une clinique sans rendez-vous et appelle pour vérifier les horaires avant de partir.",
+        "review_note": "Editorial English aligned with the revised, self-directed search for local healthcare services. No provider call; preceding translation rows retained."
+      },
       "0eb4027f578395d7124ee645e6b960bf5b350f6e1a88fafabae16d9606619764": {
         "english": "Even with some knowledge of the language, understanding a fast conversation or administrative vocabulary takes effort. You have to think both about the problem you need to solve and how to make yourself understood. A small administrative task may then take more time and energy.",
         "french": "Même avec des bases, comprendre un échange rapide ou un vocabulaire administratif demande un effort. Il faut qu'on réfléchisse à la fois au problème à résoudre et à la manière de se faire comprendre. Une petite démarche peut alors prendre davantage de temps et d'énergie.",
@@ -2080,6 +2390,11 @@
         "french": "Pour moi, oui, l'adaptation demande de vrais efforts pratiques et émotionnels. Mais la préparation, le soutien et le temps peuvent rendre cette expérience plus facile, sans que chacun avance au même rythme.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
       },
+      "8a417dc669e4052e14ddc601d6625f5eb9e4a8e914fd86194f9dac6166c22072": {
+        "english": "In our own country, we often know where to go for an everyday need or whom to ask for advice. Abroad, services may work differently, and sometimes we do not even know whom to ask for help. We then have to discover the local resources, sometimes just as a problem arises.",
+        "french": "Dans son pays, on sait souvent où aller pour un besoin courant ou à qui demander conseil. À l'étranger, les services ne fonctionnent pas forcément de la même façon, et il arrive qu'on ne sache même pas à qui demander de l'aide. Il faut alors découvrir les ressources du quartier, parfois au moment même où un problème se présente.",
+        "review_note": "Editorial English aligned with the revised explanation of unfamiliar local services and practical reference points. No provider call; preceding translation rows retained."
+      },
       "8b7e24d134c631f916be8a9e40b79377168cf298888bf9836f12d359141be796": {
         "english": "First and foremost, the language can make tasks that are usually simple feel exhausting.",
         "french": "Tout d'abord, la langue peut rendre fatigantes des tâches habituellement simples."
@@ -2097,6 +2412,11 @@
         "english": "During the first few months, we have to understand the language, discover administrative procedures and learn how the healthcare system works. Abroad, we sometimes do not even know whom to ask for help. A task that is usually simple may then require several searches and a lot of explanations, on top of work or study.",
         "french": "Dans les premiers mois, il faut comprendre la langue, découvrir les démarches administratives et apprendre comment fonctionne le système de santé. À l'étranger, il arrive qu'on ne sache même pas à qui demander de l'aide. Une tâche habituellement simple peut alors demander plusieurs recherches et beaucoup d'explications, en plus du travail ou des études.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
+      },
+      "9da54600d91d872903f321c30358cf1798fcf9e0957e949f56da8d3eec427d6b": {
+        "english": "Finally, everyday tasks can be difficult when you are not yet familiar with local services.",
+        "french": "Enfin, les démarches courantes peuvent être compliquées quand on ne connaît pas encore les services locaux.",
+        "review_note": "Editorial English of the revised claim about everyday tasks and unfamiliar local services. No provider call; preceding translation rows retained."
       },
       "a2dfed86c6bfa9a6db9d406ae36481f624a137874eae3c11bca0dd2c2b6a5c42": {
         "english": "In conclusion, adapting to life abroad involves learning to communicate, rebuilding relationships and reorganising one’s daily routine. With time and practical support, this can become easier. One cannot master everything as soon as one arrives.",
@@ -2196,6 +2516,11 @@
       "fdd3244ddaabfe2ec25e221443210b790e7a9546da51c2e062153c22f73fc65a": {
         "english": "Phone calls help maintain the connection, but they do not always replace being there in person. It takes time to meet people with whom you feel comfortable enough.",
         "french": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Il faut du temps pour rencontrer des personnes avec lesquelles on se sent suffisamment à l'aise."
+      },
+      "ff21508cabdb5cdaec2def4d1a8b3598195292eeef65ad52b90b83e7a0407284": {
+        "english": "This gives them a first lead for that day, but it will take time to learn whom to turn to in other situations.",
+        "french": "Il a ainsi une première piste pour ce jour-là, mais il lui faudra du temps pour savoir vers qui se tourner dans d'autres situations.",
+        "review_note": "Editorial English aligned with the revised consequence; no provider call and preceding translation rows retained."
       }
     },
     "eo/tache-3/economie-p14": {

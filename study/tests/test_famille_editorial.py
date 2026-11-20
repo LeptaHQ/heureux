@@ -6,7 +6,6 @@ from django.test import SimpleTestCase
 
 from study.catalogue import registry as catalogue
 from study.catalogue import loader as content
-from study.expression.eo.tache_3.responses import spoken_text
 
 
 class FamilleEditorialTests(SimpleTestCase):
@@ -78,7 +77,6 @@ class FamilleEditorialTests(SimpleTestCase):
                     self.assertTrue(cue.point.english)
                 self.assertEqual(len(model.response.arguments), 3)
                 self.assertEqual(len(plan.arguments), 3)
-                self.assertTrue(300 <= len(spoken_text(model.response).split()) <= 500)
                 cues = (
                     plan.introduction,
                     *(cue for argument in plan.arguments for cue in (

@@ -5917,11 +5917,11 @@ class BrowserTests(StaticLiveServerTestCase):
     def test_eo3_argument_language_toggles_use_stable_ids_and_current_translations(self):
         self.open_eo3_language_response("culture:p15")
         root = self.page.locator("[data-eo3-language]")
-        third = root.locator('[data-eo3-argument-toggle="4"]')
+        third = root.locator('[data-eo3-argument-toggle="5"]')
         expect(third).to_have_text("3")
         third.click()
-        expect(root.locator('[data-eo3-english^="argument-4-"]:visible')).to_have_count(4)
-        root.locator('[data-eo3-section-toggle="argument-4-exemple"]').click()
+        expect(root.locator('[data-eo3-english^="argument-5-"]:visible')).to_have_count(4)
+        root.locator('[data-eo3-section-toggle="argument-5-exemple"]').click()
         expect(root.locator("[data-eo3-english]:visible")).to_have_count(3)
         root.get_by_role("button", name="Anglais", exact=True).click()
         expect(root.locator("[data-eo3-english]:visible")).to_have_count(15)
@@ -6348,7 +6348,7 @@ class BrowserTests(StaticLiveServerTestCase):
             ("recruiter-scheduled-interview-preparation", {1: 1, 3: 3, 6: 5, 8: 8}),
             ("french-teacher-language-school-student-game", {1: 6, 2: 1, 4: 3}),
             ("director-canada-fortnight-training", {1: 1, 3: 3, 4: 5, 5: 6, 7: 8}),
-            ("friend-first-workday-report", {1: 1, 2: 2, 3: 3, 5: 5, 7: 7, 8: 8}),
+            ("friend-first-workday-report", {2: 2, 3: 3, 4: 4}),
             ("newcomer-canada-friend-job-market", {1: 1, 4: 4, 5: 5}),
             ("language-school-new-language", {1: 1, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}),
             ("parent-after-school-activity-advice", {1: 1, 2: 2, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}),

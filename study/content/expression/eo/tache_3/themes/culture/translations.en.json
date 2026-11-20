@@ -561,6 +561,11 @@
       }
     },
     "eo/tache-3/culture-p15": {
+      "064bf864e380cf54aece5f37d8d86d9fb468f0a5dda72c29780339759ad8cd54": {
+        "french": "En effet, les ingrédients utilisés, les épices, les façons de cuisiner sont liés au climat, aux ressources et aux échanges du pays avec le reste du monde. De plus, beaucoup de plats sont nés de moments précis de l'histoire, comme une période de pauvreté, une migration ou une influence étrangère. La cuisine est donc une sorte de mémoire vivante, transmise de génération en génération.",
+        "english": "The ingredients, spices and cooking methods people use are linked to the climate, the resources available and the country's trade with the rest of the world. Many dishes also came out of particular moments in history, such as times of poverty, migration or outside influence. Food is therefore a kind of living memory passed down from one generation to the next.",
+        "review_note": "Editorial English for the restored explanation of how geography, trade and history shape recipes."
+      },
       "087bfdd7c00d78d828ab0fb2a79c29cb74c483f7fea4d2e705f27d1f160d6468": {
         "english": "Ingredients and techniques are linked to the produce available, the seasons and trade. An old family recipe can therefore help us understand how people used to live and how they preserved food.",
         "french": "Les ingrédients et les techniques sont liés aux produits disponibles, aux saisons et aux échanges. Une ancienne recette familiale peut ainsi aider à comprendre comment on vivait et comment on conservait la nourriture."
@@ -574,6 +579,11 @@
         "english": "We can watch a traditional dish being prepared and taste the result, even if we do not understand all the explanations. By taking part, we learn the techniques by practising them ourselves, with someone to guide us.",
         "french": "On peut observer la préparation d'un plat traditionnel et goûter le résultat, même si l'on ne comprend pas toutes les explications. En y participant, on apprend les gestes en les faisant soi-même, avec quelqu'un pour nous guider.",
         "review_note": "Preserve the collective on/we viewpoint and render learning practical cooking actions naturally."
+      },
+      "19aaa8c3c1f3cfd8b30787973a92f95b12d5c49bd1a31abd315c6a92230661cc": {
+        "french": "Je pense d'abord que la cuisine d'un pays raconte beaucoup sur la vie quotidienne et les relations entre les gens.",
+        "english": "First, I think a country's food tells us a lot about everyday life and how people relate to one another.",
+        "review_note": "Editorial English for the first argument restored verbatim at the learner's request."
       },
       "1f983cc91af424e275a093423ab551994721dad4c264e8ba295649c7dcbdaf85": {
         "deepl_english": "While staying with a family, a traveller is surprised to find that dinner is served at 9 pm. His host explains that his wife finishes work late and that they wait for her to come home before eating together.",
@@ -600,11 +610,31 @@
         ],
         "review_note": "Editorial English translation aligned with the complete conversational Culture response. No new DeepL translation or provider call was made. The complete preceding row is retained in editorial_history."
       },
+      "2d5a4762fc854d57a78b91efdadcf12d7cc5d245d992d51bc71604aa0524bedc": {
+        "french": "Bien que la cuisine donne accès à une partie importante d'une culture, elle ne permet pas de tout comprendre. Elle ne dit pas grand-chose, par exemple, de son système politique, de ses valeurs profondes ou de sa langue. Elle est donc une porte d'entrée importante, mais elle doit être complétée par d'autres formes de découverte pour vraiment connaître un pays.",
+        "english": "Although food gives us access to an important part of a culture, it can't tell us everything. It tells us little about the country's political system, deeper values or language, for example. It is an important starting point, but we need other ways of exploring a country to really get to know it.",
+        "review_note": "Editorial English for the restored nuance; retain the contrast between a starting point and a complete understanding."
+      },
+      "2e9be16900f83b44f30e5aecacecadec98c863023d8de0ad83cc9cf2fc9b1532": {
+        "french": "Cela montre que la cuisine joue un vrai rôle de porte d'entrée vers la culture d'un pays.",
+        "english": "This shows that food can be a real starting point for getting to know a country's culture.",
+        "review_note": "Editorial English for the restored consequence about sparking curiosity."
+      },
+      "302c6612162c07131e23c8a2373cfc95b897aadd09844e74e34669d0253a1fce": {
+        "french": "En effet, contrairement à un livre ou à un cours, la cuisine s'expérimente directement : on goûte, on cuisine, on partage, et l'on se souvient de ce que l'on a ressenti. De plus, c'est un domaine ouvert à tout le monde, qu'on parle ou non la langue du pays. C'est souvent par la nourriture que l'on commence à s'intéresser à un pays avant d'aller plus loin.",
+        "english": "Unlike a book or a class, food is something we experience directly: we taste, cook and share it, and we remember how it made us feel. It's also open to everyone, whether or not they speak the country's language. Food is often what first gets us interested in a country before we go on to learn more.",
+        "review_note": "Editorial English for the restored development about direct experience and curiosity."
+      },
       "398473cd9d85ae66cf0ee0a4531639ef96e9fd222856e2bbcb3c86ffe26d7854": {
         "deepl_english": "In Portugal, a visitor is tasting a dish made with salted and dried fish. The chef explains that the fish was salted and dried so that it could be preserved during long sea voyages.",
         "english": "In Portugal, a visitor tastes a dish made with salted and dried fish. The cook explains that people salted and dried fish to keep it during long sea voyages.",
         "french": "Au Portugal, un visiteur goûte un plat fait avec du poisson salé et séché. Le cuisinier lui explique qu'on salait et séchait le poisson pour le garder pendant les longs voyages en mer.",
         "review_note": "Keep the cook's unspecified status and the source's simple illustrative tense; do not imply a professional chef."
+      },
+      "3a4b5ac39191145014f9313ca45a8b41975f1508f182385fc862f704e84931df": {
+        "french": "En effet, à travers la cuisine, on voit comment les gens organisent leurs repas, à quelles heures ils mangent, avec qui et dans quelle ambiance. De plus, ces habitudes ne sont pas anodines : elles montrent la place de la famille, du travail ou du temps libre dans la société. Connaître la cuisine d'un pays, c'est donc déjà comprendre une partie de sa manière de vivre.",
+        "english": "Food shows us how people organise their meals: when they eat, who they eat with and what the atmosphere is like. And these habits matter: they show how family, work and leisure fit into society. Getting to know a country's food is already a way to understand part of how people live there.",
+        "review_note": "Editorial English for the restored explanation of what meal habits reveal about everyday life."
       },
       "40baf4607c3433f407886af81d5f917671a71717d3c4391e339fa52d12ea44a4": {
         "deepl_english": "Meals aren’t just about nourishment: they can also be a time spent together. By sharing a meal with locals, we discover what time they eat, with whom, and how they share their food.",
@@ -644,6 +674,11 @@
         "english": "The dish thus becomes a concrete way to approach a history that might seem distant in a textbook.",
         "review_note": "Editorial English translation aligned with the complete conversational Culture response. No new DeepL translation or provider call was made."
       },
+      "4a6486fb5ea7400e49255f36e950f4bd0c23e0f1f9944850d80b6e9224634e0c": {
+        "french": "Ensuite, la cuisine d'un pays porte aussi en elle son histoire et sa géographie.",
+        "english": "Next, a country's food also tells us about its history and geography.",
+        "review_note": "Editorial English preserving both history and geography in the restored second argument."
+      },
       "4be4e1ec435637f2b0fccb8b1a341c9140141796d3619af5ea0eaf355b2d8216": {
         "french": "Les ingrédients et les méthodes de préparation n'ont pas toujours été choisis uniquement pour leur goût. Ils pouvaient répondre à une nécessité, comme conserver les aliments en l'absence de réfrigérateur. Retrouver cette origine permet de comprendre pourquoi une pratique s'est installée et continue à faire partie de la cuisine.",
         "english": "Ingredients and preparation methods were not always chosen solely for taste. They could meet a need, such as preserving food without a refrigerator. Discovering this origin helps explain why a practice developed and remains part of the cuisine.",
@@ -676,6 +711,11 @@
         "french": "Au Sénégal, un visiteur goûte un plat traditionnel de riz et de poisson. Son hôte lui montre comment le manger à la main, sans laisser tomber de riz.",
         "review_note": "Keep the hypothetical visitor gender-neutral and preserve by hand without implying both hands."
       },
+      "5c581fac5d9240d5ec249bccb3eddda92683b3a7755c4148b2dde4f49014c970": {
+        "french": "À mon avis, la cuisine permet réellement de connaître une partie importante de la culture d'un pays. D'abord, elle révèle les habitudes quotidiennes et la manière dont les gens vivent ensemble. Ensuite, elle porte en elle l'histoire et la géographie du pays, à travers ses ingrédients et ses recettes. Enfin, elle reste l'une des manières les plus concrètes et accessibles d'entrer dans une autre culture.",
+        "english": "I think food really can help us understand an important part of a country's culture. First, it reveals everyday habits and how people live together. It also reflects the country's history and geography through its ingredients and recipes. Finally, it remains one of the most practical and accessible ways to discover another culture.",
+        "review_note": "Editorial English for the restored spoken introduction, not the separate preparation position."
+      },
       "5d00cf62b8a967f9f760169ed5fc241c9365850acf51f61b75efc2cb45fd7a10": {
         "english": "Yes, I think food helps us understand a culture better. Meals show us how people live together. Some recipes also tell part of the country's history. So we discover much more than dishes, even though this is not enough to understand everything.",
         "french": "Oui, je pense que la cuisine permet de mieux connaître une culture. Les repas nous montrent comment les gens vivent ensemble. Certaines recettes racontent aussi une partie de l'histoire du pays. On découvre donc bien plus que des plats, même si cela ne suffit pas pour tout comprendre.",
@@ -696,9 +736,24 @@
         "french": "En conclusion, la cuisine nous fait découvrir des habitudes, une partie de l'histoire et des façons de cuisiner du pays. C'est un bon début, mais ça ne nous apprend pas tout sur sa culture.",
         "review_note": "Keep familiar wording and ways of cooking rather than adding a claim that every technique is traditional."
       },
+      "71d6e1329adfb121936d0019e658b6a64128b96cfdf1eada7d79b1202c659c65": {
+        "french": "En conclusion, je pense que la cuisine permet réellement de connaître une partie importante de la culture d'un pays, parce qu'elle révèle ses habitudes, son histoire et sa manière de vivre. Elle ne suffit pas à elle seule, mais elle reste l'une des entrées les plus vivantes et les plus concrètes dans une culture.",
+        "english": "In conclusion, I think food really helps us understand an important part of a country's culture because it reveals its habits, history and way of life. It isn't enough on its own, but it remains one of the liveliest and most hands-on ways to discover a culture.",
+        "review_note": "Editorial English for the restored synthesis of habits, history and everyday life."
+      },
+      "74988057a0fb6dccf019b69d5d0fa9bc6ed4bd4029fb827e942cd41d0162e568": {
+        "french": "Par exemple, une personne qui goûte pour la première fois un pho vietnamien ou des tapas espagnoles peut ensuite vouloir comprendre les rituels du repas, les produits utilisés et l'histoire de ces plats.",
+        "english": "For example, someone who tries Vietnamese pho or Spanish tapas for the first time may then want to learn about mealtime rituals, the ingredients used and the history of those dishes.",
+        "review_note": "Editorial English preserving the first tasting and the curiosity that may follow."
+      },
       "75c7ab27d09618b37f8202230d5a9dc6c5bf9c9032d815b845c80ece05643acc": {
         "english": "In this way, you can begin to familiarise yourself with a cuisine before you are able to discuss it with ease.",
         "french": "On peut ainsi commencer à connaître une cuisine avant de pouvoir en discuter facilement."
+      },
+      "76d3daf458f83693548e6f393419f94567e29d92dd6516de4d7850526cd1b29d": {
+        "french": "Enfin, je pense que la cuisine est l'une des manières les plus concrètes et les plus accessibles de découvrir une autre culture.",
+        "english": "Finally, I think food is one of the most hands-on and accessible ways to discover another culture.",
+        "review_note": "Editorial English for the restored third claim about direct cultural experience."
       },
       "7b5eb3ecd388c8cd333ec9405d4d4d8c0afc68bd2adcaca499dec843e6b73f0a": {
         "french": "L'heure à laquelle on mange, la place de chacun et le temps passé à table disent quelque chose de l'organisation du quotidien. Partager un repas permet aussi de demander ce que ces habitudes représentent pour ses hôtes, plutôt que leur donner un sens à partir de ses propres habitudes.",
@@ -712,6 +767,11 @@
       "7d3468ccd71b58b6e87ffbbdcedbc5d310728777083c509636a7d6c7f2b22bdd": {
         "english": "Recipes sometimes preserve techniques that served the needs of the past. By discovering why they were used, we gain a better understanding of the country’s history.",
         "french": "Les recettes gardent parfois des techniques qui répondaient aux besoins d'autrefois. En découvrant pourquoi on les utilisait, on comprend mieux le passé du pays."
+      },
+      "8185b5c90d4e448c8e05be43be76d40ed7db77d6deae6b72bf410d73d1cf5c92": {
+        "french": "Par exemple, dans certains pays les repas sont longs et pris en famille, alors que dans d'autres ils sont rapides et souvent pris seuls : ces différences en disent beaucoup sur le rapport au temps et aux relations sociales.",
+        "english": "For example, in some countries, people take their time over meals and eat with their families, whereas in others, meals are quick and often eaten alone. These differences tell us a lot about how people approach time and social relationships.",
+        "review_note": "Editorial English preserving the contrast in the requested French without adding specific countries."
       },
       "82780363ba7b2efd9bf4fb74421f3f97eadf4a9d6dd82d9be6e93fcbd9965554": {
         "deepl_english": "In the past, people had to find ways to preserve food for longer. Some of these methods have been passed down and are still used in the recipes we prepare today.",
@@ -761,6 +821,11 @@
         "english": "Yes, I partly agree: cuisine introduces us to a culture, but does not sum it up. It shows habits and a history that we can also discover by preparing a meal with someone.",
         "french": "Oui, je suis en partie d'accord : la cuisine fait découvrir une culture, mais elle ne la résume pas. Elle montre des habitudes et une histoire qu'on peut aussi découvrir en préparant un repas avec quelqu'un.",
         "review_note": "Editorial English aligned with the second editorial pass and Culture rewrite; no provider call or DeepL original was fabricated. Existing translation history is retained."
+      },
+      "a257765c03ac32d65f7f5d1a07cb29e4a586f55c0715046db766f28beb65c6ee": {
+        "french": "Cela montre que la cuisine donne déjà accès à des aspects très réels de la culture quotidienne d'un pays.",
+        "english": "This shows that food can reveal real aspects of a country's everyday culture.",
+        "review_note": "Editorial English preserving the limited claim about everyday culture."
       },
       "abdac8b20c86f724a576b226260cd7a22bf451d1a647df116835a11738ab9456": {
         "english": "We thus discover a way of doing things by practising it with someone, not just by tasting the result.",
@@ -862,6 +927,11 @@
         "english": "In conclusion, meals and recipes teach us about a culture, and we can discover it by cooking for ourselves. It’s a good way to start, but it doesn’t sum up an entire culture.",
         "french": "En conclusion, les repas et les recettes nous apprennent des choses sur une culture, et on peut la découvrir en cuisinant soi-même. C'est une bonne façon de commencer, mais pas de résumer toute une culture."
       },
+      "f0c30fbe9c9f409e9b958955ec7eba61939678775c400a3d3d509cca7f21a915": {
+        "french": "Cela montre que goûter la cuisine d'un pays, c'est aussi entrer en contact avec son passé et son territoire.",
+        "english": "So tasting a country's food is also a way to connect with its past and its land.",
+        "review_note": "Editorial English preserving the link to both the past and the place."
+      },
       "f0dc5149583d5b85857ab6d3f354027d462b498f4b754e4638842df880aa5046": {
         "english": "Ingredients and ways of preserving food retain traces of life in the past. Some recipes thus continue to tell a story even when the practical reasons for their creation have changed.",
         "french": "Les ingrédients et les façons de conserver les aliments gardent des traces de la vie d'autrefois. Certaines recettes continuent ainsi à raconter une histoire, même quand les raisons pratiques de leur création ont changé.",
@@ -882,6 +952,11 @@
         "english": "The way we eat is also part of the culture. During a meal, we can learn how to serve ourselves and what to avoid at the table.",
         "french": "La façon de manger fait aussi partie de la culture. Pendant un repas, on peut apprendre comment se servir et ce qu'il faut éviter à table.",
         "review_note": "Preserve the collective viewpoint of the response rather than switching to instructions addressed to the reader."
+      },
+      "fb45ad6fec2fb0339a7b6e56bf1dce1533b09b280f0d3f5ae370e39a238499f5": {
+        "french": "Par exemple, le couscous raconte à la fois l'importance des céréales, des légumes et du repas partagé au Maghreb, tandis que la morue au Portugal rappelle l'histoire maritime et les échanges avec l'Atlantique.",
+        "english": "For example, couscous shows the importance of grains, vegetables and shared meals in the Maghreb, while cod in Portugal recalls the country's seafaring history and trade across the Atlantic.",
+        "review_note": "Editorial English preserving both the Maghreb and Portuguese illustrations."
       },
       "fef116783fb63e84113a30df9e0c35a24311783516d4eb57eace99d45e07d44c": {
         "french": "Ensuite, certaines recettes gardent des traces de l'histoire du pays.",
@@ -1157,6 +1232,11 @@
       "3acffa15792d424ee29fc80e6fcd19c7fd427c93761154061b8f5dbf61af44fc": {
         "english": "A visitor spots a neighbourhood on a map that appears to be very close to the centre. But it takes them an hour to get there by bus, as they have to change twice.",
         "french": "Un visiteur repère sur une carte un quartier qui semble tout près du centre. Mais il met une heure à s'y rendre en bus, car il doit changer deux fois."
+      },
+      "3b4077026bc4d4652fe17c66347060cf7add98b55e067336be7da9e5dea9129c": {
+        "french": "Avec un texte traduit, on peut se renseigner à l'avance. Mais quand les gens donnent leur avis et se répondent, il n'y a pas toujours quelqu'un pour traduire ce qu'ils disent. On peut donc savoir de quoi ils parlent sans comprendre ce qui convainc les uns et ce qui inquiète les autres.",
+        "english": "We can read a translated text to find out about the topic ahead of time. But when people give their views and respond to one another, there isn't always someone to translate what they're saying. So we may know what they're talking about without understanding what convinces some and what worries others.",
+        "review_note": "Editorial English distinguishing translated background information from following people's views and responses in a live discussion."
       },
       "41755174f06e5f807ee157ff8879b4efb7871cc3e83e73e6f69a2bd8c2bba9ad": {
         "english": "He therefore has a better understanding of the transport options in this neighbourhood, without having needed to speak the language.",
@@ -1940,6 +2020,11 @@
       }
     },
     "eo/tache-3/education-p14": {
+      "0243a6ce06758254afd674b963088e2ceb2fe1946a0cd044fc59f42813616cdc": {
+        "french": "En effet, pour comprendre comment une société s'est construite, il faut remonter un peu dans le temps. Un guide touristique peut nous dire quels monuments visiter ou quelles spécialités goûter. Un livre d'histoire, lui, relie les événements qui ont marqué le pays et montre ce qu'ils ont changé dans la vie des gens. On ne retient donc pas seulement des dates : on comprend d'où viennent certaines institutions et pourquoi certains sujets font encore débat aujourd'hui.",
+        "english": "To understand how a society took shape, we have to go back in time a little. A tourist guide can tell us which monuments to visit or which local dishes to try. A history book, by contrast, connects the events that shaped the country and shows what they changed in people's lives. We don't just remember dates: we understand where certain institutions came from and why some issues are still debated today.",
+        "review_note": "Editorial English for the development linking the country's history to present-day debates, with the tourist-guide contrast restored; no translation-provider call."
+      },
       "09f2fe0bd4b9845d373c1a47636f3ccaf045748dbb9a0d23bdcc046063488858": {
         "french": "La lecture permet ainsi de dépasser les monuments et les paysages pour mieux comprendre la société.",
         "english": "Reading thus lets us go beyond monuments and landscapes to understand society better.",
@@ -1983,6 +2068,11 @@
         "english": "A book on the industrialisation of a city can explain how the establishment of factories attracted workers and transformed housing. The reader then comes to understand the origins of certain neighbourhoods and the debates surrounding their redevelopment, rather than seeing them merely as a tourist backdrop.",
         "french": "Un ouvrage sur l'industrialisation d'une ville peut expliquer comment l'installation d'usines a attiré des travailleurs et transformé le logement. Le lecteur comprend alors l'origine de certains quartiers et des débats sur leur transformation, au lieu de n'y voir qu'un décor touristique."
       },
+      "3430bb5f62b6f3ee1bd94034f61d93c20b6c2bd0988f857988fe2ab35c3b1f60": {
+        "french": "Ensuite, les romans et les récits nous font découvrir la vie quotidienne à travers le regard des habitants.",
+        "english": "Next, novels and personal accounts let us discover daily life through the eyes of the people who live there.",
+        "review_note": "Editorial English for the daily-life argument about what stories reveal about the people who live in a country; no translation-provider call."
+      },
       "3511be035bbe60ef475ef35b85bc9a8c284df3b9f6203695d02ac2f4b669638b": {
         "english": "Travelling is therefore not the only way in.",
         "french": "Le voyage n'est donc pas la seule porte d'entrée."
@@ -1992,6 +2082,16 @@
         "french": "Une personne qui ne peut pas financer un voyage peut emprunter un recueil de récits traduits. Elle découvre les quartiers et les métiers décrits, puis consulte les références proposées pour approfondir les questions qui l'intéressent.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "3950eadeeabde95c2c1f81979c1c536a849d8475cabc69a0b680203134b638d9": {
+        "french": "En effet, dans un récit, on suit les personnages dans des situations très concrètes : un repas en famille, une journée de travail ou une conversation entre voisins. On ne voit pas seulement ce qu'ils font : à travers leurs paroles et leurs réactions, on comprend ce qui compte pour eux. Une description peut nous dire en quoi consiste une tradition, mais un récit nous montre aussi pourquoi les gens y tiennent.",
+        "english": "In a story, we follow the characters through everyday situations: a family meal, a day at work or a conversation between neighbours. We don't just see what they do: their words and reactions help us understand what matters to them. A description can tell us what a tradition involves, but a story also shows us why people value it.",
+        "review_note": "Editorial English for the distinction between describing a tradition and showing why people value it; no translation-provider call."
+      },
+      "3d211103d410af7185d89bcc0a1f9f04a8f6db1373ae973e12137566ffe29d7d": {
+        "french": "Enfin, lire plusieurs livres sur un même pays aide à comprendre ce qui change d'une région à l'autre.",
+        "english": "Finally, reading several books about the same country helps us understand what differs from one region to another.",
+        "review_note": "Editorial English for the argument about comparing accounts across regions; no translation-provider call."
+      },
       "4111905294a06cb30e966cd071180b3385a52194a00aa5f3d1a847f66d84eaea": {
         "english": "When they are available in libraries or in translation, they provide access to distant voices. You can read them at your own pace and go back over passages that raise questions.",
         "french": "Lorsqu'ils sont disponibles en bibliothèque ou en traduction, ils donnent accès à des voix éloignées. On peut les lire à son rythme et reprendre les passages qui posent question."
@@ -1999,6 +2099,16 @@
       "41bcfde341ca720ce5ebdbeac78ecf7480bfca09a88959b32eb30e572ff79c0d": {
         "english": "A single image or piece of information does not always reveal how a city or an institution came into being. A book can outline the key stages and provide references for further reading.",
         "french": "Une image ou une information isolée ne dit pas toujours comment une ville ou une institution s'est construite. Un livre peut organiser les étapes et donner des références pour approfondir."
+      },
+      "48ef78fd2bd9e029fdf563db3fc11a6db7db2e2706913a8b551e26984071cf8e": {
+        "french": "Par exemple, une personne lit un article sur la place du français dans les entreprises québécoises et se demande pourquoi le sujet fait débat. Dans un livre sur l'histoire du Canada, elle découvre que, même après la conquête britannique, les familles francophones ont continué à parler français et à le transmettre à leurs enfants. Elle comprend alors mieux pourquoi certains tiennent à pouvoir travailler en français : c'est aussi une façon de faire vivre la langue en dehors de la maison.",
+        "english": "For example, someone reads an article about the place of French in Quebec businesses and wonders why the issue is debated. In a book about Canada's history, they discover that even after the British conquest, French-speaking families continued to speak French and pass it on to their children. They then understand better why some people care about being able to work in French: it is also a way of keeping the language alive outside the home.",
+        "review_note": "Editorial English for the Quebec example, in which a history book helps a reader make sense of the debate about French at work; no translation-provider call."
+      },
+      "4b0487065849f1d5e21e59f46619735ef0fc0a3cccea231b5a8929286d4bb8c4": {
+        "french": "Bien sûr, la lecture ne remplace pas totalement l'expérience directe. Ce serait trop attendre d'un seul livre qu'il explique tout : les lieux et les habitudes qu'il décrit ont pu changer depuis sa publication. Sur place, on peut voir comment les gens vivent aujourd'hui et leur poser des questions sur ce qu'on a lu.",
+        "english": "Of course, reading cannot fully replace first-hand experience. It would be expecting too much of one book to explain everything: the places and habits it describes may have changed since it was published. When we go there, we can see how people live today and ask them questions about what we've read.",
+        "review_note": "Editorial English for the nuance about changes since publication and the value of first-hand conversations; no translation-provider call."
       },
       "4b95427b42d04a2a5e81cedc47b0b28b162eb8bfe5d83c981f4f43623fab46dd": {
         "english": "Someone who cannot travel to Japan borrows a novel translated into French. They follow a family's daily life in Tokyo, then look for a book about the city's history to better understand the places mentioned.",
@@ -2038,6 +2148,11 @@
         "english": "Furthermore, these accounts reveal experiences that one might not necessarily encounter oneself.",
         "french": "Ensuite, les récits montrent des expériences que l'on ne rencontre pas forcément soi-même."
       },
+      "682fa4ac4c707702926acdf5fca958b523a1328386bc10de5bd9508a2e9801ac": {
+        "french": "En conclusion, les livres sont une vraie porte d'entrée vers un pays. Ils nous aident à comprendre son histoire et la vie de ses habitants. Et en croisant plusieurs récits, on découvre aussi que cette vie peut être très différente d'une région à l'autre.",
+        "english": "In conclusion, books are a real gateway to a country. They help us understand its history and the lives of its people. And by comparing several accounts, we also discover how different life can be from one region to another.",
+        "review_note": "Editorial English for the conclusion tying together history, everyday life and regional differences; no translation-provider call."
+      },
       "6cdf16683577c0b0acf1c8d01a45007aa1d98a6c0422f7beee1209e165fe81b7": {
         "english": "Yes, I agree: reading books is a good way to get to know a country. You can discover much more than its monuments. It does not entirely replace being there, but it would be a shame to see reading as merely preparation for a trip.",
         "french": "Oui, je suis d'accord : lire des livres est un bon moyen de connaître un pays. On peut y découvrir bien plus que ses monuments. Cela ne remplace pas complètement l'expérience sur place, mais ce serait dommage de considérer la lecture comme une simple préparation au voyage.",
@@ -2068,6 +2183,11 @@
         "french": "Il comprend alors une expérience humaine située, sans en faire celle de tous les habitants.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "7c0a824c5feaee2e339012a25fb69192d6f65465c1adb7841451b22fc70e2a59": {
+        "french": "Prenons l'exemple d'un roman qui se passe au Québec. Au printemps, une jeune fille retrouve sa famille à la cabane à sucre. Son grand-père lui montre comment faire du sirop d'érable et lui raconte que ses parents lui ont appris les mêmes gestes. Elle est fière de l'aider et lui demande si elle pourra revenir l'année suivante.",
+        "english": "Take a novel set in Quebec. In spring, a girl joins her family at a sugar shack. Her grandfather shows her how to make maple syrup and tells her his parents taught him the same steps. She's proud to help him and asks whether she can come back the following year.",
+        "review_note": "Editorial English for the fictional sugar-shack scene showing how a family passes down a tradition; no translation-provider call."
+      },
       "853d9987dc11a870f07869a7b0ddce526172f8ae3498fc151b1b7932be451250": {
         "english": "Of course, you need to consider who is writing and when. Fiction can shed light on an experience without providing verifiable facts. It would be expecting too much of one book to explain everything: several authors and encounters with people can add to this initial understanding.",
         "french": "Bien sûr, il faut regarder qui écrit et à quelle époque. La fiction peut éclairer une expérience sans fournir des faits vérifiables. Ce serait trop attendre d'un seul livre qu'il explique tout : plusieurs auteurs et des rencontres permettent de compléter cette première compréhension.",
@@ -2078,6 +2198,11 @@
         "english": "They gradually build real knowledge of the country, even without having visited it.",
         "review_note": "Editorial English translation aligned with the complete conversational Culture response. No new DeepL translation or provider call was made."
       },
+      "8ad5713faccea085e7cd25d204dfa82eb9c28ff96a80597ab28f7a04d5307eb8": {
+        "french": "Un livre peut très bien nous faire comprendre la vie dans une ville sans nous dire ce qui se passe ailleurs. En lisant un autre récit qui aborde le même sujet dans une autre région, on peut comparer ce que vivent les gens. On voit alors que certaines différences tiennent à des choses très concrètes, comme les distances à parcourir ou les transports dont on dispose près de chez soi.",
+        "english": "One book can give us a good understanding of life in one city without telling us what happens elsewhere. By reading another account that looks at the same topic in another region, we can compare what people experience. We then see that some differences come down to practical things, like how far people have to travel or what transport is available near them.",
+        "review_note": "Editorial English for the explanation of what comparing accounts from different regions reveals; no translation-provider call."
+      },
       "8efc2df1456a133c9596c8f35ec1ea3712428462824de637148e38f421b4211b": {
         "english": "A trip requires time and money. When books are available in libraries or in translation, we can access distant voices with more modest means.",
         "french": "Un voyage demande du temps et de l'argent. Quand des ouvrages sont disponibles en bibliothèque ou en traduction, on peut accéder à des voix éloignées avec des moyens plus modestes.",
@@ -2086,6 +2211,16 @@
       "90454f1c92f0d842019dead49e1f9e7d72a8b2dd3541e2a4268b0e9ef4466703": {
         "english": "Someone who cannot afford to travel can borrow a collection of translated stories and consult the references listed at the end. They can build up a genuine understanding, even if they have no direct experience of the places described.",
         "french": "Une personne qui ne peut pas financer un voyage peut emprunter un recueil de récits traduits et consulter les références proposées à la fin. Elle construit une connaissance réelle, même si elle ne connaît pas directement les lieux décrits."
+      },
+      "9318a9b196a97c095def817daa99e349eeb11faa78909c11459584eb5c1bca68": {
+        "french": "Par exemple, une lectrice découvre dans un récit qu'une employée de Tokyo va travailler en train chaque matin. Puis elle lit le témoignage d'un habitant d'un village du nord du Japon. Pour aller travailler dans la ville voisine, il prend sa voiture : le premier bus passe trop tard pour qu'il arrive à l'heure.",
+        "english": "For example, a reader learns from one account that a woman in Tokyo takes the train to work every morning. She then reads an account by someone who lives in a village in northern Japan. He drives to work in the neighbouring town: the first bus runs too late for him to get there on time.",
+        "review_note": "Editorial English for the comparison of two commutes in the same country, one by train and one by car; no translation-provider call."
+      },
+      "932c1dcde4d88564f1fdd7498e575391420f99f8912c63d0bb1358cc60e89ee6": {
+        "french": "Avec ces repères, on comprend mieux ce qu'on lit ou ce qu'on entend sur le pays aujourd'hui.",
+        "english": "With that background, we can make better sense of what we read or hear about the country today.",
+        "review_note": "Editorial English for the consequence of gaining historical context; no translation-provider call."
       },
       "988fca6dba6b150c5774b94186b09ab31dab449fb9b51c387749d4b0d073a986": {
         "english": "In a Quebec novel, a young person hesitates about leaving his village to study in Montreal. The reader follows his discussions with his parents: he wants to continue his education, but worries about leaving them on their own. We then understand why leaving is difficult for him.",
@@ -2096,6 +2231,11 @@
         "english": "We understand this family's life better, without assuming that all the other inhabitants live in the same way.",
         "french": "On comprend mieux la vie de cette famille, sans supposer que tous les habitants vivent de la même façon.",
         "review_note": "Editorial English for the complete Education English-first re-audit; aligned with the revised French and independently reviewed against every source question. No translation-provider call was made for this row."
+      },
+      "9ff74f64a7bc011031b9a5713d13c84b3781c17eaf14d1c0634cb62074a5420f": {
+        "french": "On découvre ainsi une tradition québécoise et on comprend comment elle rapproche les générations dans cette famille.",
+        "english": "This way, we discover a Quebec tradition and understand how it brings the generations together in this family.",
+        "review_note": "Editorial English for the consequence of understanding what the tradition means within the family; no translation-provider call."
       },
       "a5ee57e1397a317bf76501c9a3b002bc8564eb3034a0af077a9731439063497b": {
         "english": "Reading thus links present-day places to social history.",
@@ -2120,6 +2260,11 @@
         "french": "En conclusion, les livres sont une vraie porte d'entrée vers un pays. Ils permettent d'en comprendre l'histoire et d'approcher la vie de ses habitants, à condition de rester curieux et de croiser les points de vue.",
         "english": "In conclusion, books are a real gateway to a country. They help us understand its history and approach the lives of its inhabitants, provided we stay curious and compare perspectives.",
         "review_note": "Editorial English translation aligned with the complete conversational Culture response. No new DeepL translation or provider call was made."
+      },
+      "b694834bcbdeba29eeceb7661099ed291baf7a9f17d539efed98adb447965ed5": {
+        "french": "Dans un récit, on ne voit pas seulement ce que font les personnages : on suit leurs pensées, leurs hésitations et leurs relations avec les autres. Cette proximité aide à comprendre des choix qui peuvent surprendre au premier abord. Une tradition prend un autre sens quand on découvre les souvenirs qu'elle réveille ou les liens qu'elle entretient dans une famille. On apprend ainsi à connaître un pays à travers des expériences humaines, pas seulement à partir d'informations générales.",
+        "english": "In a story, we don't just see what the characters do: we follow their thoughts, hesitations and relationships with others. Getting close to them in this way helps us understand choices that may surprise us at first. A tradition takes on a new meaning when we discover the memories it brings back or the family ties it helps maintain. This lets us get to know a country through people's experiences, not just through general information.",
+        "review_note": "Editorial English for the restored character-perspective wording and its transition to the family tradition example; no translation-provider call."
       },
       "c3ed7dbd5a0714944a030fa2de1ffb238ca405675b1b2b679c69c920f9e02a0c": {
         "english": "By following a character's point of view, we discover their thoughts, not just their actions. Their hesitations make choices that may seem strange from the outside more understandable.",
@@ -2166,6 +2311,11 @@
       "fdfe9d5cb4c689ad483c941b639977c963ec5fcbb529fce5d2014ebeea0a7585": {
         "english": "First and foremost, a well-researched book can explain the context of a current situation.",
         "french": "Tout d'abord, un ouvrage documenté peut expliquer le contexte d'une situation actuelle."
+      },
+      "fe26c963c66fc583eed08b36719d84f67deb54df757aa497021cadf9e8c199f7": {
+        "french": "En comparant les deux récits, elle comprend que se déplacer sans voiture n'est pas aussi facile partout au Japon.",
+        "english": "By comparing the two accounts, she realises that getting around without a car isn't equally easy everywhere in Japan.",
+        "review_note": "Editorial English for the consequence of comparing the two commuting accounts; no translation-provider call."
       }
     },
     "eo/tache-3/education-p15": {

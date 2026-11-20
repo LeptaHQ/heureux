@@ -7,8 +7,7 @@ from study.catalogue import registry as catalogue
 from study.catalogue import loader as content
 from study.expression.eo.tache_2.dialogues import dialogue_response
 from study.tests.eo2_review_fixtures import (
-    assert_review_preservation, pre_realness_history,
-    FOLLOWUP_GROUPS, remove_followup_archives,
+    assert_review_preservation, FOLLOWUP_GROUPS,
 )
 
 
@@ -56,61 +55,50 @@ class FirstWorkdayFollowupTests(SimpleTestCase):
         )
         self.assertEqual(self.dialogue.register, "tu")
 
-    def test_exact_published_first_day_layout_is_archived_once(self):
+    def test_previous_first_day_layouts_are_preserved_exactly(self):
         revisions = self.history["groups"][GROUP]["revisions"]
-        self.assertEqual(len(revisions), 4)
+        self.assertEqual(len(revisions), 7)
         self.assertEqual(
-            fingerprint(revisions[2]),
-            "349c2575d10ca5208d12b3b1054b05dcd76e62ca06952f6865a89464baa87d9e",
+            fingerprint(revisions[:-1]),
+            "db00e471e2678e8830e1f5c51acbf1ab6de04dc07696782c4f4e45953b90f225",
         )
-        self.assertTrue(all("answer" not in q for q in revisions[2]["questions"]))
-        previous = pre_realness_history(self.history)
-        remove_followup_archives(previous)
         self.assertEqual(
-            fingerprint(previous),
-            "36a1200196a6395e28183bbaf39dcc356af054a04fdaafffd49f2653e78ebd7b",
+            fingerprint(revisions[-1]),
+            "8ed003275627db31a1df481921cb67ff05cfe667a0d9e8620e6b10834d0440f1",
         )
+        self.assertTrue(all("answer" not in q for q in revisions[-1]["questions"]))
 
-    def test_q5_asks_about_support_for_actual_tasks_not_software_or_clients(self):
+    def test_q5_follows_up_on_the_task_without_assuming_training(self):
         question = self.dialogue.questions[4]
-        self.assertEqual(
-            question.question,
-            "Pour tes premières tâches, quelqu'un t'a montré comment faire ou tu as dû te débrouiller seule ?",
-        )
+        self.assertIn("une formation ou on t'a montré", question.question)
         self.assertNotIn("logiciel", question.question)
         self.assertNotIn("clients", question.question)
         self.assertEqual(question.follow_up_to, 4)
-        self.assertIn("unless guidance has already been explained", question.condition)
-        self.assertIn("Une collègue m'a montré", question.answer)
+        self.assertIn("unless she has already explained how she learned it", question.condition)
+        self.assertIn("courte formation", question.answer)
         self.assertIn("restée à côté", question.answer)
 
-    def test_six_other_questions_stay_as_published(self):
-        old = self.history["groups"][GROUP]["revisions"][3]
-        for index, question in enumerate(self.dialogue.questions):
-            if index in (3, 5):
-                continue
-            archived = old["questions"][index]
-            self.assertEqual(question.question, archived["question"])
-            self.assertEqual(question.topic, archived["topic"])
-            self.assertEqual(question.follow_up_to, archived["follow_up_to"])
-            self.assertEqual(question.condition, archived.get("condition", ""))
-        self.assertEqual(len(self.dialogue.questions), 8)
+    def test_rewrite_keeps_the_welcome_atmosphere_and_work_question_wording(self):
+        old = self.history["groups"][GROUP]["revisions"][-1]
+        self.assertEqual(
+            [q.question for q in self.dialogue.questions[1:4]],
+            [q["question"] for q in old["questions"][1:4]],
+        )
         self.assertEqual(self.dialogue.opening, old["opening"])
         self.assertEqual(self.dialogue.closing, old["closing"])
 
-    def test_actual_tasks_and_uncertainty_do_not_assume_request_handling(self):
-        self.assertIn("quelles tâches as-tu effectuées", self.dialogue.questions[3].question)
-        self.assertIn("ne savais pas trop quoi faire", self.dialogue.questions[5].question)
-        self.assertNotIn("demande", self.dialogue.questions[5].question)
-        self.assertEqual(self.dialogue.questions[6].follow_up_to, 6)
-        self.assertIn("unless its resolution has already been explained", self.dialogue.questions[6].condition)
-        self.assertIn("Tasks carried out", self.hints[GROUP][3]["english"])
-        self.assertIn("unsure what to do", self.hints[GROUP][5]["english"])
+    def test_tasks_assigned_are_distinct_from_what_she_started_doing(self):
+        question = self.dialogue.questions[3]
+        self.assertIn("qu'est-ce qu'on t'a confié", question.question)
+        self.assertIn("tu as déjà eu le temps de faire", question.question)
+        self.assertIn("On m'a demandé", question.answer)
+        self.assertIn("J'ai commencé par retrouver des commandes", question.answer)
+        self.assertIn("tasks assigned and work already done", self.hints[GROUP][3]["english"])
 
-    def test_q5_cues_name_guidance_and_independence_instead_of_software_practice(self):
+    def test_q5_cues_point_to_learning_the_named_task(self):
         cue = self.hints[GROUP][4]
-        self.assertEqual(cue["french"], "Accompagnement ou autonomie pour les premières tâches")
-        self.assertEqual(cue["english"], "Guidance or independence with the first tasks")
+        self.assertEqual(cue["french"], "Formation ou apprentissage au fur et à mesure")
+        self.assertEqual(cue["english"], "Training session or being shown what to do as she went along")
 
     def test_learner_model_is_still_questions_only(self):
         response = dialogue_response(self.dialogue)

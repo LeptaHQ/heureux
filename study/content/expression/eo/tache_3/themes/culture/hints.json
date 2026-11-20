@@ -142,48 +142,48 @@
     },
     "culture-p15": {
       "introduction": {
-        "french": "La cuisine révèle une partie de la culture, pas tout.",
-        "english": "Cuisine reveals part of a culture, not everything."
+        "french": "La cuisine fait découvrir les habitudes, l'histoire et la géographie d'un pays.",
+        "english": "Food helps us discover a country's habits, history and geography."
       },
       "arguments": [
         {
           "point": {
-            "french": "Les repas montrent l'organisation familiale.",
-            "english": "Meals show how family life is organised."
+            "french": "Les repas montrent la place de la famille, du travail et des loisirs.",
+            "english": "Meals reveal how family, work and free time fit into everyday life."
           },
           "example": {
-            "french": "Au Sénégal, les hôtes expliquent leur repas commun après le travail.",
-            "english": "In Senegal, hosts explain their shared meal after work."
+            "french": "Selon les pays : prendre le temps de manger en famille ou manger vite, souvent seul.",
+            "english": "The contrast: taking time to eat with family versus eating quickly, often alone."
           }
         },
         {
           "point": {
-            "french": "Les recettes gardent des traces de l'histoire.",
-            "english": "Recipes preserve traces of history."
+            "french": "Les recettes reflètent le climat, les ressources et les échanges du pays.",
+            "english": "Recipes reflect a country's climate, resources and trade."
           },
           "example": {
-            "french": "Portugal : poisson salé et séché pour les longs voyages en mer.",
-            "english": "Portugal: fish salted and dried for long sea voyages."
+            "french": "Couscous au Maghreb : céréales, légumes et repas partagé ; morue au Portugal : histoire maritime et échanges atlantiques.",
+            "english": "Couscous in the Maghreb: grains, vegetables and shared meals; cod in Portugal: seafaring history and Atlantic trade."
           }
         },
         {
           "point": {
-            "french": "Cuisiner avec quelqu'un fait apprendre par les gestes.",
-            "english": "Cooking with someone teaches through actions."
+            "french": "Goûter, cuisiner et partager permettent de découvrir une culture, même sans parler sa langue.",
+            "english": "Tasting, cooking and sharing let us discover a culture even without speaking its language."
           },
           "example": {
-            "french": "Au Ghana, je pourrais piler le manioc avec mon hôte malgré peu de langue commune.",
-            "english": "In Ghana, I could pound cassava with my host despite little shared language."
+            "french": "Un pho vietnamien ou des tapas espagnoles : envie d'en connaître les rituels, les ingrédients et l'histoire.",
+            "english": "Vietnamese pho or Spanish tapas: curiosity about mealtime rituals, ingredients and the dishes' history."
           }
         }
       ],
       "nuance": {
-        "french": "Cuisine limitée sur politique, débats et langue ; pratiques variables.",
-        "english": "Cuisine says little about politics, debates and language; practices vary."
+        "french": "La cuisine dit peu sur la politique, les valeurs profondes et la langue. Compléter par d'autres découvertes.",
+        "english": "Food tells us little about politics, deeper values and language; we need other ways to learn about the country too."
       },
       "conclusion": {
-        "french": "Une porte d'entrée, pas toute la culture.",
-        "english": "An entry point, not the whole culture."
+        "french": "Habitudes, histoire, manière de vivre : la cuisine est une porte d'entrée, mais elle ne suffit pas.",
+        "english": "Food reveals habits, history and a way of life. It is a starting point, but is not enough on its own."
       }
     },
     "culture-p18": {
@@ -268,8 +268,8 @@
         },
         {
           "point": {
-            "french": "Sans la langue locale, certaines discussions restent difficiles à comprendre.",
-            "english": "Without the local language, some discussions are still difficult to understand."
+            "french": "On connaît le sujet, sans forcément comprendre pourquoi les gens s'opposent.",
+            "english": "We can know the topic and still miss why people disagree."
           },
           "example": {
             "french": "Un nouvel arrivant lit un projet de logements traduit, mais ne suit pas les avis pour et contre à la réunion de quartier.",
@@ -424,42 +424,42 @@
       "arguments": [
         {
           "point": {
-            "french": "L'histoire aide à comprendre le présent.",
-            "english": "History helps explain the present."
+            "french": "Les livres d'histoire relient les événements du passé pour éclairer les débats d'aujourd'hui.",
+            "english": "History books connect past events to help us understand present-day debates."
           },
           "example": {
-            "french": "Lire l'histoire du Québec pour comprendre la place actuelle du français.",
-            "english": "Read Quebec's history to understand the place of French today."
+            "french": "Au Québec, le français se transmet après la conquête britannique : on comprend mieux le débat sur sa place au travail.",
+            "english": "French is passed on in Quebec after the British conquest: this sheds light on today's debate about its place at work."
           }
         },
         {
           "point": {
-            "french": "Les récits montrent une expérience de l'intérieur.",
-            "english": "Stories show an experience from the inside."
+            "french": "Comprendre ce qu'une tradition représente pour ceux qui la vivent.",
+            "english": "Understand what a tradition means to the people who practise it."
           },
           "example": {
-            "french": "Un jeune veut étudier à Montréal, mais s'inquiète de laisser ses parents seuls ; le roman fait comprendre son hésitation.",
-            "english": "A young person wants to study in Montreal but worries about leaving his parents alone; the novel helps us understand his hesitation."
+            "french": "À la cabane à sucre, une fille apprend à faire du sirop avec son grand-père, qui l'a appris de ses parents.",
+            "english": "At a sugar shack, a girl learns to make maple syrup from her grandfather, who learned from his parents."
           }
         },
         {
           "point": {
-            "french": "Une bibliothèque ou une traduction permet de découvrir sans voyager.",
-            "english": "A library or translation enables discovery without travelling."
+            "french": "Comparer des récits pour comprendre les différences régionales.",
+            "english": "Compare accounts to understand differences between regions of the same country."
           },
           "example": {
-            "french": "Sans voyage au Japon, emprunter un roman traduit, puis lire sur l'histoire de Tokyo.",
-            "english": "Without travelling to Japan, borrow a translated novel, then read about Tokyo's history."
+            "french": "Au Japon : train pour aller au travail à Tokyo, voiture dans un village où le premier bus passe trop tard.",
+            "english": "In Japan, a Tokyo commuter takes the train; in a village, the first bus is too late, so a worker drives."
           }
         }
       ],
       "nuance": {
-        "french": "Tenir compte de l'auteur et de l'époque ; la fiction éclaire sans tout prouver.",
-        "english": "Consider the author and period; fiction offers insight without proving everything."
+        "french": "Les livres peuvent dater ; parler aux habitants éclaire leur quotidien actuel.",
+        "english": "Books can be out of date; talking with residents helps us understand what life there is like today."
       },
       "conclusion": {
-        "french": "Croiser les points de vue pour relier histoire et vies des habitants.",
-        "english": "Compare perspectives to connect history with inhabitants' lives."
+        "french": "Les livres éclairent l'histoire, le quotidien et les différences d'une région à l'autre.",
+        "english": "Books shed light on history, daily life and differences from one region to another."
       }
     },
     "education-p15": {

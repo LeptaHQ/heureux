@@ -159,10 +159,10 @@
           "consequence": "On peut donc être content d'avoir fait ce choix et ressentir malgré tout le manque de cette vie familiale."
         },
         {
-          "idea": "Enfin, on doit reconstruire les repères pratiques sur lesquels on comptait.",
-          "developpement": "Dans son pays, on sait souvent quel médecin consulter ou à qui poser une question. On s'appuie sur ces contacts sans y penser. À l'étranger, il arrive qu'on ne sache même pas à qui demander de l'aide.",
-          "exemple": "Un dimanche, un parent récemment installé dans le pays cherche un médecin pour son enfant qui a de la fièvre. Comme il ne connaît pas encore les services de santé du quartier, il demande conseil à une voisine. Elle lui donne le numéro d'une clinique sans rendez-vous pour qu'il puisse vérifier les horaires avant de s'y rendre.",
-          "consequence": "Il sait ainsi où se renseigner, mais ces contacts ne se retrouvent pas tous dès les premiers jours."
+          "idea": "Enfin, les démarches courantes peuvent être compliquées quand on ne connaît pas encore les services locaux.",
+          "developpement": "Dans son pays, on sait souvent où aller pour un besoin courant ou à qui demander conseil. À l'étranger, les services ne fonctionnent pas forcément de la même façon, et il arrive qu'on ne sache même pas à qui demander de l'aide. Il faut alors découvrir les ressources du quartier, parfois au moment même où un problème se présente.",
+          "exemple": "Par exemple, un dimanche, un parent installé depuis peu cherche où consulter pour son enfant qui a de la fièvre. Il ne connaît pas encore les services de santé du quartier, alors il cherche une clinique sans rendez-vous et appelle pour vérifier les horaires avant de partir.",
+          "consequence": "Il a ainsi une première piste pour ce jour-là, mais il lui faudra du temps pour savoir vers qui se tourner dans d'autres situations."
         }
       ],
       "nuance": "Cependant, les difficultés varient selon la langue, les ressources et les contacts déjà sur place. Des informations claires peuvent réduire les efforts. Avec le temps, les démarches deviennent plus familières ; une difficulté au début ne signifie pas un refus de s'adapter.",
@@ -177,35 +177,35 @@
       "prompt_signatures": {
         "culture:p11": "59d1f4423231cfd5714eecfc1ff42d846c8e51439c67ffeb575a60a85747d3ca"
       },
-      "reformulation": "Est-il nécessaire de fréquenter des compatriotes lorsqu'on vit à l'étranger ?",
-      "position": "Fréquenter des compatriotes peut être utile, mais n'est pas nécessaire pour bien vivre à l'étranger.",
-      "position_claire": "Je trouve ces liens utiles, surtout au début, mais je ne les rendrais pas obligatoires. On peut trouver du soutien auprès de personnes de toutes origines.",
+      "reformulation": "La vraie question est de savoir si, lorsqu'on vit à l'étranger, il faut surtout rester entre personnes de son pays d'origine ou s'ouvrir aussi aux habitants du pays d'accueil.",
+      "position": "À mon avis, garder des liens avec des personnes de son pays d'origine est utile, surtout au début, mais il ne faut pas s'y limiter : pour vraiment s'intégrer, il faut aussi s'ouvrir aux habitants du pays d'accueil.",
+      "position_claire": "À mon avis, fréquenter des gens de son pays d'origine est normal et même utile, mais cela ne doit pas devenir le seul cercle social. Même si la communauté d'origine apporte un vrai soutien, s'y enfermer finit par freiner l'intégration. D'abord, la communauté d'origine est un soutien précieux, surtout dans les premiers mois. Ensuite, se limiter à ce cercle isole peu à peu de la société d'accueil. Enfin, ce sont les liens construits avec les habitants du pays qui rendent l'intégration vraiment solide.",
       "arguments": [
         {
-          "idea": "Tout d'abord, retrouver des compatriotes peut apporter un vrai soutien affectif.",
-          "developpement": "Quand on arrive à l'étranger, on doit retrouver des repères tout en découvrant une langue et des habitudes parfois nouvelles. On ne peut pas reconstruire en quelques jours un entourage formé pendant des années. Retrouver des personnes avec qui l'on parle librement et partage certaines références permet de souffler, de raconter ce qu'on vit et de se sentir compris.",
-          "exemple": "Une nouvelle arrivante peut avoir du mal à expliquer sa solitude en français. Avec une amie de son pays qui parle sa langue, elle raconte que sa famille lui manque. Son amie l'écoute et lui propose de passer le dimanche ensemble.",
-          "consequence": "Elle trouve ainsi du soutien et de la compagnie, au lieu de rester seule."
+          "idea": "Tout d'abord, fréquenter des personnes de son pays d'origine est un vrai soutien, surtout dans les premiers mois.",
+          "developpement": "En effet, dans son pays d'origine, on s'appuie sans s'en rendre compte sur un réseau humain qu'on a mis des années à construire : famille, amis, voisins, collègues, médecin, commerçants. À l'étranger, ce réseau disparaît du jour au lendemain, et il faut tout reconstruire à partir de zéro. Retrouver des personnes qui parlent sa langue et partagent ses repères permet de rompre la solitude des débuts et d'obtenir une aide concrète pour les premières démarches.",
+          "exemple": "Par exemple, un nouvel arrivant trouve souvent ses premières informations — un logement, un petit emploi, les bonnes adresses — grâce à des compatriotes déjà installés qui connaissent le terrain.",
+          "consequence": "Cela permet de surmonter plus facilement le choc des premiers mois et de ne pas se sentir complètement seul dans un pays inconnu."
         },
         {
-          "idea": "Ensuite, un compatriote déjà installé peut partager une expérience pratique utile.",
-          "developpement": "Certaines démarches soulèvent des questions particulières lorsqu'on arrive avec des documents d'un autre pays. Une personne passée par une situation proche peut indiquer où chercher les renseignements adaptés. On commence alors avec des pistes précises, plutôt que de chercher partout sans savoir quoi demander.",
-          "exemple": "Une infirmière nouvellement arrivée peut échanger avec une compatriote qui exerce déjà ce métier sur place. Celle-ci lui explique comment elle a fait reconnaître son diplôme et quels documents elle a dû préparer. La nouvelle arrivante sait alors à quel organisme s'adresser pour commencer ses démarches.",
-          "consequence": "Elle sait ainsi par où commencer, même s'il vaut mieux que l'information soit vérifiée auprès de l'organisme compétent."
+          "idea": "Ensuite, le problème commence lorsque la communauté d'origine devient le seul espace social.",
+          "developpement": "En effet, si l'on ne fréquente que des personnes de son pays, on finit par vivre dans une sorte de bulle culturelle : on habite physiquement dans le pays, mais on ne participe pas vraiment à sa vie sociale. On pratique peu la langue locale, on comprend mal les codes et les habitudes, et une distance s'installe peu à peu avec les voisins, les collègues et les institutions.",
+          "exemple": "On le voit chez certaines personnes installées depuis des années à l'étranger qui parlent encore très peu la langue locale, simplement parce qu'elles n'ont presque fréquenté que leur communauté d'origine.",
+          "consequence": "Cela ralentit l'intégration et peut transformer le confort du groupe d'origine en une véritable forme d'isolement."
         },
         {
-          "idea": "Enfin, on peut aussi construire une vie sociale riche sans fréquenter de compatriotes.",
-          "developpement": "Ce qui rend une relation précieuse, c'est ce qu'on partage avec les autres, pas seulement une origine commune. En retrouvant régulièrement d'autres habitants, on peut pratiquer la langue, comprendre leurs habitudes et participer à leur vie sociale. Avec le temps, ces échanges peuvent devenir de vraies amitiés, même si l'on n'avait au départ ni la même langue maternelle ni les mêmes références.",
-          "exemple": "Prenons l'exemple d'une nouvelle arrivante qui ne connaît aucun compatriote dans sa ville. Elle rejoint un groupe d'échange linguistique et retrouve les mêmes personnes chaque semaine. Ils discutent de leur quotidien, puis organisent des sorties ensemble. Elle pratique la langue et se fait des amis d'autres pays.",
-          "consequence": "Elle trouve ainsi sa place dans la vie locale sans que ses amis viennent nécessairement de son pays."
+          "idea": "Enfin, nouer des liens avec d'autres habitants, c'est aussi avoir son mot à dire sur ce qui se passe dans le quartier.",
+          "developpement": "Même quand on parle bien la langue, ce n'est pas toujours facile de se faire entendre tout seul. En discutant avec les gens du quartier, on découvre parfois qu'ils ont les mêmes préoccupations que nous. On peut alors chercher une solution avec eux et la proposer ensemble.",
+          "exemple": "Par exemple, une mère installée à l'étranger discute souvent avec des parents du quartier à la sortie de l'école. Un jour, elle leur dit qu'elle ne se sent pas en sécurité quand elle traverse la rue avec son enfant. Plusieurs lui disent qu'ils ont le même souci. Ensemble, ils demandent à la mairie qu'un passage piéton soit aménagé près de l'école.",
+          "consequence": "Ce genre de démarche aide à se sentir chez soi : on ne fait pas que vivre dans le quartier, on agit avec les autres pour l'améliorer."
         }
       ],
-      "nuance": "Le risque n'est pas de fréquenter des compatriotes, mais de ne plus avoir d'occasions d'échanger en dehors de son cercle habituel. On peut garder ces liens rassurants tout en rencontrant d'autres habitants. Il n'y a pas à choisir entre ses origines et la vie sur place.",
-      "conclusion": "Je garderais donc les liens qui m'aident, sans choisir mes relations uniquement selon le pays d'origine. Le soutien et la confiance comptent davantage qu'une origine commune.",
+      "nuance": "Cependant, il ne faut pas dévaloriser la communauté d'origine. Elle aide à surmonter la solitude, à comprendre certaines démarches et à garder un lien affectif avec sa culture. Le problème n'est donc pas de la fréquenter, mais de s'y enfermer.",
+      "conclusion": "En conclusion, je pense qu'il est normal et même utile de fréquenter des gens de son pays d'origine, surtout au début, mais à condition de ne pas s'y limiter. La meilleure intégration est celle qui s'appuie sur la communauté d'origine comme un tremplin, tout en s'ouvrant vraiment aux habitants du pays d'accueil.",
       "argument_ids": [
         1,
-        2,
-        4
+        5,
+        6
       ]
     },
     "culture-p17": {
@@ -215,7 +215,7 @@
       },
       "reformulation": "Une expérience de vie à l'étranger peut-elle être positive dans tous les cas ?",
       "position": "La vie à l'étranger peut être enrichissante, mais le mot « toujours » est trop absolu.",
-      "position_claire": "À mon avis, dire qu'une expérience à l'étranger est toujours positive est trop absolu. Elle peut apporter beaucoup sur le plan personnel et professionnel, mais son bilan dépend aussi de la langue, de l'intégration et des conditions de vie.",
+      "position_claire": "À mon avis, dire qu'une expérience à l'étranger est toujours positive est trop absolu. Elle peut apporter beaucoup sur le plan personnel et professionnel, mais il faut aussi tenir compte de l'éloignement de la famille et des difficultés qu'on rencontre en s'installant.",
       "arguments": [
         {
           "idea": "Tout d'abord, une expérience à l'étranger peut apporter beaucoup sur le plan personnel et professionnel.",
@@ -224,24 +224,24 @@
           "consequence": "Grâce à cette formation et à ce stage, il acquiert de l'expérience et développe les compétences dont il a besoin pour devenir cuisinier."
         },
         {
-          "idea": "Mais l'expérience peut aussi être très difficile lorsqu'on ne maîtrise pas la langue ou les codes du pays.",
-          "developpement": "Dans les premiers mois, on doit découvrir les démarches administratives, le système de santé et de nouvelles habitudes. Même une tâche simple peut devenir longue et stressante lorsqu'on cherche ses mots. De plus, sans contact avec les habitants, on peut se sentir isolé et étranger à ce qui se passe. L'expérience devient alors une source de stress plutôt qu'une ouverture.",
-          "exemple": "Par exemple, une étudiante comprend assez la langue pour faire ses courses, mais peine à suivre les cours et les discussions de groupe. Elle passe ses soirées à reprendre ses notes et n'ose plus participer. Le séjour qu'elle attendait avec impatience devient épuisant.",
-          "consequence": "Le départ ne garantit donc pas à lui seul une expérience enrichissante."
+          "idea": "Mais l'éloignement de la famille peut peser lourd, même quand les études ou le travail se passent bien.",
+          "developpement": "Quand on vit près de sa famille, on peut se retrouver à table ou passer dire bonjour sans avoir à tout organiser. À plusieurs heures de vol, les appels aident à garder le lien, mais on ne partage plus le quotidien de la même façon. Il arrive qu'on ne puisse pas rentrer pendant des mois. Pendant ce temps, la vie de nos proches continue, et certains moments ne se rattrapent pas.",
+          "exemple": "Par exemple, une mère trouve un travail qui lui plaît à l'étranger, mais son fils reste quelques mois au pays avec son père. Le jour de sa première rentrée, elle reçoit une photo de lui devant l'école, avec son cartable. Elle est heureuse de le voir si fier, mais elle aurait aimé être là pour l'accompagner.",
+          "consequence": "On peut donc être content de ce qu'on accomplit à l'étranger tout en souffrant d'être loin des siens."
         },
         {
-          "idea": "Enfin, la situation personnelle et financière peut faire du même séjour une chance ou une épreuve.",
-          "developpement": "Disposer d'un budget suffisant permet de se consacrer à son projet, plutôt que de chercher seulement de quoi vivre. Mais les obligations familiales peuvent augmenter la pression : il faut parfois aider ses proches tout en payant ses propres dépenses. Il arrive qu'on ne puisse pas rentrer auprès d'un parent malade, faute de pouvoir financer un voyage imprévu.",
-          "exemple": "Une étudiante réussit ses examens à l'étranger, mais son père tombe malade dans son pays d'origine. Elle n'a pas l'argent pour aller le voir. Malgré ses bons résultats, elle souffre de ne pas pouvoir être auprès de lui.",
-          "consequence": "Une expérience peut donc être avantageuse sur un plan et douloureuse sur un autre."
+          "idea": "Enfin, quand on doit travailler pour payer ses factures, on a moins de temps pour apprendre la langue et trouver ses repères.",
+          "developpement": "Dans les premiers mois, même une tâche simple peut devenir longue et stressante lorsqu'on cherche ses mots ou qu'on ne connaît pas les démarches. Avec un peu de marge financière, on peut se donner le temps de prendre des cours de langue ou de chercher de l'aide. Mais quand on doit aussi travailler pour payer son loyer, c'est justement ce temps-là qui manque. On dépense alors son énergie à tenir le rythme plutôt qu'à avancer dans son projet.",
+          "exemple": "Par exemple, une étudiante à l'étranger a du mal à suivre ses cours parce qu'elle ne comprend pas encore bien la langue du pays. Son université propose des cours de langue le soir, mais elle travaille à ces heures-là pour payer son loyer. Elle ne peut pas y aller et prend du retard dans ses études.",
+          "consequence": "On peut donc avoir un projet qui nous tient à cœur et passer pourtant une bonne partie du séjour à essayer de tenir le coup."
         }
       ],
       "nuance": "Bien sûr, une difficulté ponctuelle ne rend pas tout le séjour négatif. Un soutien ou un changement de projet peut améliorer les choses. Mais apprendre d'une épreuve ne compense pas toujours la souffrance vécue.",
       "conclusion": "Le séjour peut donc enrichir une vie, mais son bilan dépend des conditions dans lesquelles on le vit.",
       "argument_ids": [
         1,
-        4,
-        2
+        5,
+        4
       ]
     },
     "culture-p21": {
@@ -284,9 +284,9 @@
         "culture:p24": "1820d6d18fe1ecbf446ab5e4cc615a5fc7117836777166dc89621337e8af4c77",
         "culture:p28": "1820d6d18fe1ecbf446ab5e4cc615a5fc7117836777166dc89621337e8af4c77"
       },
-      "reformulation": "Les relations avec les habitants sont-elles indispensables pour bien vivre à l'étranger ?",
-      "position": "Les relations avec les habitants sont très utiles, sans être indispensables au bien-être de tous.",
-      "position_claire": "Je trouve ces relations très importantes pour bien vivre à l'étranger, sans en faire une obligation pour tout le monde.",
+      "reformulation": "La vraie question est de savoir si créer des liens avec les habitants est vraiment indispensable pour bien vivre à l'étranger, ou seulement un avantage parmi d'autres.",
+      "position": "À mon avis, créer de vraies relations avec les habitants est presque indispensable pour bien vivre à l'étranger, parce que ce sont ces liens qui rendent l'intégration réelle, durable et humainement satisfaisante.",
+      "position_claire": "À mon avis, pour que l'on vive bien à l'étranger, il faut créer des relations avec les habitants. D'abord, sans ces liens, on finit rapidement par se sentir isolé et coupé de la société d'accueil. Ensuite, ce sont les habitants qui permettent vraiment d'apprendre la langue et de comprendre les codes du pays. Enfin, ces relations ouvrent aussi des opportunités humaines et professionnelles que l'on n'aurait pas autrement.",
       "argument_ids": [
         1,
         2,
@@ -294,26 +294,26 @@
       ],
       "arguments": [
         {
-          "idea": "Tout d'abord, des liens réguliers permettent de partager son quotidien et de ne pas rester seul.",
-          "developpement": "À l'étranger, on peut passer ses journées à travailler ou à étudier, puis rentrer chez soi sans personne à qui parler vraiment. Les appels entretiennent les liens avec la famille, mais ne remplacent pas toujours une présence quotidienne. Se retrouver permet de raconter sa journée, de partager un repas et de s'entraider. Il faut du temps et des échanges réguliers pour qu'une relation se construise.",
-          "exemple": "Une nouvelle arrivante peut déjeuner chaque samedi avec une voisine. Elles échangent sur leur semaine et, si l'une tombe malade, l'autre peut lui déposer quelques courses.",
-          "consequence": "La relation apporte alors de la compagnie et une aide concrète."
+          "idea": "Je pense d'abord que sans relations avec les habitants, on finit rapidement par se sentir isolé dans le pays où l'on vit.",
+          "developpement": "En effet, vivre à l'étranger sans liens locaux signifie souvent passer ses journées à travailler ou à étudier, puis à rentrer chez soi sans personne à qui parler vraiment. De plus, même si l'on garde le contact avec sa famille à distance, cela ne remplace pas une présence quotidienne. Sur le long terme, on habite physiquement dans le pays, mais on ne participe pas vraiment à sa vie sociale, et cette solitude finit par peser sur le moral.",
+          "exemple": "Par exemple, une personne qui travaille toute la semaine à l'étranger mais ne connaît ni ses voisins ni ses collègues en dehors du bureau peut réussir matériellement tout en se sentant profondément seule.",
+          "consequence": "Cela montre que les liens avec les habitants ne sont pas un détail, mais une vraie condition du bien-être à l'étranger."
         },
         {
-          "idea": "Ensuite, les échanges avec les habitants aident à comprendre les codes sociaux et à pratiquer la langue du pays.",
-          "developpement": "Les cours et les livres donnent une base, mais les conversations régulières permettent de réutiliser ce qu'on a appris et de gagner en aisance. On découvre aussi des choses qu'un manuel explique rarement : l'humour, les sous-entendus ou la manière d'accepter une invitation. En posant des questions et en observant les autres, on comprend mieux les situations et on ose davantage participer.",
-          "exemple": "Dans une association, une habituée explique à une nouvelle arrivante que chacun apporte un plat au repas partagé. Elle l'aide à dire, dans la langue du pays, ce qu'elle apportera. La nouvelle arrivante réutilise ensuite ces expressions lors d'autres rencontres.",
-          "consequence": "Elle peut ainsi prendre part au repas et discuter de ce qu'elle prépare, plutôt que rester en retrait faute de savoir quoi dire."
+          "idea": "Ensuite, ce sont les habitants qui permettent vraiment d'apprendre la langue et de comprendre les codes du pays.",
+          "developpement": "En effet, les cours et les livres donnent une base, mais c'est seulement en parlant régulièrement avec des locaux que l'on devient vraiment à l'aise dans la langue. De plus, beaucoup de codes culturels ne s'apprennent pas dans un manuel : ils se devinent à travers les conversations, les remarques et les habitudes au travail. Sans ces échanges directs, on garde toujours un décalage avec la société dans laquelle on vit.",
+          "exemple": "Par exemple, c'est souvent en discutant avec des collègues ou des voisins que l'on comprend quand il faut tutoyer ou vouvoyer, comment accepter une invitation, ou pourquoi certaines démarches se font d'une manière plutôt que d'une autre.",
+          "consequence": "Cela montre que les relations locales sont la base d'une vraie intégration, et pas seulement un agrément."
         },
         {
-          "idea": "Enfin, les relations sur place ouvrent aussi des possibilités concrètes.",
-          "developpement": "Les contacts sur place donnent accès à des informations qu'on ne trouve pas toujours dans les annonces : un emploi, une formation ou un logement disponible. Une personne qui connaît notre situation peut penser à nous et nous orienter vers une possibilité adaptée. Ces relations font aussi découvrir des activités et d'autres façons de vivre.",
-          "exemple": "Par exemple, une voisine sait qu'une nouvelle arrivante cherche un emploi dans la vente. Elle lui parle d'un magasin qui recrute et lui donne le contact du responsable. L'arrivante peut alors présenter sa candidature à un poste qu'elle n'avait pas repéré.",
-          "consequence": "Ces contacts peuvent donc aider à avancer dans un projet, pas seulement à se sentir moins seul."
+          "idea": "Enfin, je pense que les relations avec les habitants ouvrent aussi des opportunités humaines et professionnelles que l'on n'aurait pas autrement.",
+          "developpement": "En effet, les contacts sur place donnent accès à plusieurs choses essentielles : des informations sur le marché du travail, des opportunités qui ne passent pas par les annonces, une aide pour les démarches et un soutien moral dans les moments difficiles. De plus, ces relations apportent un enrichissement personnel, parce qu'elles font découvrir une autre manière de penser et de vivre. Avec le temps, elles donnent aussi un sentiment d'appartenance qui rend la vie à l'étranger beaucoup plus stable.",
+          "exemple": "Par exemple, beaucoup de personnes trouvent un meilleur travail ou un logement plus facilement grâce à des contacts locaux, parfois même sans passer par les annonces officielles.",
+          "consequence": "Cela montre que ces liens jouent un rôle concret dans la qualité de vie à l'étranger, bien au-delà de la simple amitié."
         }
       ],
-      "nuance": "Cela dit, une personne qui travaille à distance peut appeler régulièrement ses proches et prendre plaisir à faire de la randonnée seule. Elle peut apprécier sa nouvelle vie avant d'avoir créé des liens personnels sur place. Une solitude choisie n'est pas la même chose qu'un isolement qui fait souffrir.",
-      "conclusion": "Ces liens sont donc précieux : ils apportent du soutien, facilitent les échanges et ouvrent des portes, sans être indispensables au bien-être de chacun."
+      "nuance": "Cependant, il ne faut pas dévaloriser la communauté d'origine. Elle aide à surmonter la solitude, à comprendre certaines démarches et à garder un lien affectif avec sa culture. Le problème n'est donc pas de la fréquenter, mais de s'y enfermer. Autrement dit, les liens avec les habitants doivent compléter ce soutien, pas l'effacer.",
+      "conclusion": "En conclusion, je pense qu'il est presque indispensable de créer des relations avec les habitants pour bien vivre à l'étranger, parce qu'elles évitent l'isolement, permettent une vraie intégration et ouvrent de nombreuses opportunités. Vivre dans un pays sans aucun lien local revient, en pratique, à vivre à côté de ce pays plutôt que dedans."
     },
     "culture-p25": {
       "prompt_signatures": {
@@ -395,13 +395,13 @@
       "arguments": [
         {
           "idea": "D'abord, vivre dans un système inconnu rend les démarches du quotidien plus difficiles.",
-          "developpement": "Dans les premiers mois, il faut apprendre à utiliser une autre langue, comprendre les démarches administratives et découvrir le système de santé. On ne sait pas encore quels documents fournir ni comment fonctionnent les services. Une démarche habituelle peut alors devenir longue et stressante, parce qu'on doit à la fois résoudre son problème et comprendre un fonctionnement nouveau.",
+          "developpement": "Dans les premiers mois, même une tâche simple peut devenir longue et stressante lorsqu'on cherche ses mots ou qu'on ne connaît pas les démarches. On ne sait pas toujours qui appeler ni quels documents préparer. On doit donc à la fois résoudre son problème et comprendre comment fonctionnent les services.",
           "exemple": "Par exemple, une nouvelle arrivante veut ouvrir un compte bancaire. Elle doit d'abord comprendre les justificatifs demandés, puis revenir avec un document qu'elle n'avait pas prévu. Entre les explications dans une autre langue et le second rendez-vous, une démarche ordinaire lui prend plusieurs jours.",
           "consequence": "Cette accumulation d'efforts peut rendre le quotidien fatigant, bien au-delà d'une seule démarche."
         },
         {
           "idea": "Ensuite, l'éloignement des proches fait perdre une présence et un soutien difficiles à remplacer.",
-          "developpement": "Dans son pays, on s'appuie souvent sur un réseau de proches construit au fil des années. À l'étranger, les appels gardent ces liens vivants, mais ne remplacent pas quelqu'un qui vient vous voir quand vous allez mal. La solitude peut peser après une journée difficile ou une maladie. Et quand un proche a besoin de nous au pays, la distance agit dans l'autre sens : pour qu'une visite soit possible, il faut du temps et de l'argent.",
+          "developpement": "Dans son pays, on s'appuie souvent sur un réseau de proches construit au fil des années. À plusieurs heures de vol, les appels aident à garder le lien, mais ils ne remplacent pas quelqu'un qui vient vous voir quand vous allez mal. La solitude peut peser après une journée difficile ou une maladie. Et quand un proche a besoin de nous au pays, la distance agit dans l'autre sens : pour qu'une visite soit possible, il faut du temps et de l'argent.",
           "exemple": "Une salariée à l'étranger apprend que son père, resté dans son pays d'origine, a besoin d'aide après une opération. Elle voudrait le rejoindre, mais ne peut pas obtenir de congé immédiatement. Elle peut chercher quelqu'un pour aider son père sur place, tout en regrettant de ne pas être là.",
           "consequence": "L'éloignement pèse donc autant sur le soutien qu'on reçoit que sur celui qu'on voudrait apporter."
         },
@@ -426,29 +426,29 @@
       },
       "reformulation": "Est-il facile de trouver sa place dans une société étrangère ?",
       "position": "Ce n'est pas vraiment facile : comprendre les codes, être accueilli et se sentir chez soi prend du temps.",
-      "position_claire": "À mon avis, s'intégrer dans un pays étranger n'est pas vraiment facile, même quand on fait des efforts.",
+      "position_claire": "À mon avis, s'intégrer dans un pays étranger n'est pas vraiment facile, même quand on fait des efforts. S'intégrer, ce n'est pas seulement s'installer : c'est trouver sa place parmi les habitants, et cela peut prendre des années.",
       "arguments": [
         {
-          "idea": "D'abord, parler la langue ne suffit pas : comprendre les codes culturels prend aussi du temps.",
-          "developpement": "Les cours donnent une base, mais les conversations permettent d'apprendre les sous-entendus, l'humour et les façons de s'adresser aux autres. On peut comprendre tous les mots sans saisir une plaisanterie ou savoir quand prendre la parole. Ces habitudes se découvrent peu à peu, au travail ou avec les voisins. En attendant, on peut se sentir maladroit et hésiter à participer, même avec un bon niveau de langue.",
-          "exemple": "Par exemple, une nouvelle salariée comprend les discussions en réunion, mais attend qu'on lui demande son avis. Un collègue lui explique comment signaler qu'elle souhaite intervenir. Au fil des réunions, elle apprend à prendre sa place dans les échanges.",
-          "consequence": "On gagne donc progressivement l'aisance que les cours seuls ne donnent pas."
+          "idea": "Je pense d'abord que l'intégration n'est pas facile parce qu'il ne suffit pas d'apprendre la langue : il faut aussi comprendre les codes culturels du pays, ce qui demande beaucoup de temps.",
+          "developpement": "En effet, les cours et les livres donnent une base, mais c'est seulement en parlant régulièrement avec les habitants que l'on devient vraiment à l'aise dans la langue et que l'on saisit les sous-entendus, l'humour et les manières de penser. De plus, beaucoup de codes culturels ne s'apprennent pas dans un manuel : ils se devinent peu à peu, à travers les conversations, les remarques et les habitudes au travail. Tant que ces codes ne sont pas maîtrisés, on continue souvent à mal interpréter les situations et à se sentir maladroit dans ses échanges quotidiens.",
+          "exemple": "Par exemple, c'est souvent après des années seulement que l'on comprend spontanément quand il faut tutoyer ou vouvoyer, comment accepter ou refuser une invitation, ou pourquoi certaines choses se font d'une manière plutôt que d'une autre.",
+          "consequence": "Cela montre que la vraie intégration suppose une maîtrise fine de la langue et des codes, qui ne s'acquiert que lentement."
         },
         {
-          "idea": "Ensuite, l'intégration ne dépend pas seulement de nos efforts, mais aussi de l'accueil reçu.",
-          "developpement": "On peut apprendre la langue, respecter les habitudes et chercher à rencontrer du monde sans être vraiment inclus. Les habitants ont souvent déjà leurs amis et leurs activités ; ces liens ne s'ouvrent pas automatiquement à un nouvel arrivant. La méfiance ou la discrimination peuvent aussi fermer des portes. L'intégration suppose donc que les autres nous fassent une place.",
-          "exemple": "Dans un club, par exemple, on peut se saluer chaque semaine sans vraiment se connaître. Mais si les membres nous invitent à préparer une fête du club avec eux, on a quelque chose à faire ensemble pendant plusieurs semaines. Les conversations viennent alors plus facilement.",
-          "consequence": "C'est donc un processus à deux sens, pas seulement un effort individuel."
+          "idea": "Ensuite, je pense que l'intégration ne dépend pas seulement des efforts de la personne. Il faut aussi que la société d'accueil soit ouverte et accorde du temps aux nouveaux arrivants.",
+          "developpement": "En effet, on peut faire tous les efforts du monde — apprendre la langue, respecter les codes, chercher à connaître les habitants — mais si la société qui nous reçoit reste fermée ou méfiante, l'intégration restera limitée. De plus, même dans un pays accueillant, les groupes d'amis et les réseaux professionnels sont déjà formés : un nouvel arrivant doit faire ses preuves longtemps avant d'y être pleinement inclus et reste souvent à la périphérie de ces cercles. On peut ainsi habiter physiquement dans un pays sans participer vraiment à sa vie sociale, c'est-à-dire vivre à côté de ce pays plutôt que dedans.",
+          "exemple": "Par exemple, un nouvel arrivant peut être invité à déjeuner par politesse pendant des mois, sans jamais entrer dans le groupe d'amis qui se retrouve le week-end, simplement parce que ces liens s'étaient formés bien avant son arrivée.",
+          "consequence": "Cela montre que l'intégration est un processus à deux sens, qui se construit lentement et ne dépend jamais d'une seule personne."
         },
         {
-          "idea": "Enfin, on peut avoir un travail, un logement et parler la langue sans se sentir encore chez soi.",
-          "developpement": "Même lorsque les autres nous accueillent, il peut rester un décalage entre la vie qu'on mène et le sentiment d'être à sa place. On a laissé derrière soi des souvenirs, des fêtes et des habitudes qui donnaient un sens familier à l'année. Construire de nouveaux repères affectifs ne se fait pas aussi vite que trouver un logement.",
-          "exemple": "Par exemple, une salariée a un logement, des amis et deux ans d'expérience dans une entreprise du pays. Quand on lui propose un poste permanent, elle hésite. Elle aime sa vie sur place, mais se sent encore de passage et n'arrive pas à y imaginer son avenir.",
-          "consequence": "Le sentiment d'appartenance ne se mesure donc pas seulement au travail, au logement ou au niveau de langue."
+          "idea": "Enfin, je pense que l'intégration est difficile parce qu'on peut parler la langue, travailler et être bien installé sans pour autant se sentir vraiment chez soi.",
+          "developpement": "En effet, l'intégration ne se résume pas à des éléments visibles comme le travail, le logement ou la maîtrise de la langue. Elle se mesure surtout au sentiment intérieur d'être chez soi, d'être reconnu et de se sentir pleinement à sa place. Or vivre dans un autre pays, c'est aussi affronter un rythme de vie et une mentalité différents, qui peuvent laisser un sentiment de décalage pendant longtemps. Tant que ce sentiment d'appartenance n'est pas là, on observe le pays plus qu'on ne le vit vraiment.",
+          "exemple": "Par exemple, une personne qui parle couramment la langue, possède un bon emploi et un logement stable peut très bien se sentir encore étrangère, en décalage culturel, même après plusieurs années dans le pays.",
+          "consequence": "Cela montre que l'intégration va bien au-delà de l'adaptation pratique : c'est surtout une question de sentiment d'appartenance."
         }
       ],
-      "nuance": "Cela dit, l'intégration est tout à fait possible. Avec du temps et des relations sincères, on peut se sentir chez soi dans le nouveau pays tout en restant attaché à ses origines.",
-      "conclusion": "S'intégrer demande donc du temps pour comprendre les codes, être accueilli et se sentir chez soi. C'est possible, mais pas automatique.",
+      "nuance": "Cependant, il faut reconnaître que beaucoup de personnes finissent par s'intégrer, surtout lorsqu'elles bénéficient d'une société d'accueil ouverte, d'un travail stable et de relations sincères avec les habitants. L'intégration est donc un objectif tout à fait possible, mais qui reste un processus long, fait de hauts et de bas, et jamais une simple formalité.",
+      "conclusion": "En conclusion, je pense que s'intégrer dans un pays étranger n'est pas vraiment facile, parce que cela demande de maîtriser la langue et les codes culturels, d'être accepté par la société d'accueil et de développer un vrai sentiment d'appartenance. C'est un objectif atteignable, mais qui se construit lentement et qui ne peut pas se réduire à de simples critères pratiques.",
       "argument_ids": [
         1,
         2,

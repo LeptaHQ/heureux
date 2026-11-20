@@ -2797,11 +2797,65 @@
       }
     },
     "friend-first-workday-report": {
+      "0e4ddc2954cba38fa98ea49a24dcee6d1ab86eb0439f241965eef4473330a85a": {
+        "english": "And what did you do during the day?",
+        "french": "Et toi, tu as fait quoi pendant la journée ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of the conversational question about what Ève did on her first day."
+      },
+      "0effd9fcff4577c15dd3e2c2eb375c0d9c0a398d7305a6f08dce5007619ee458": {
+        "english": "Once you got started, did people chat a bit, or did everyone mostly keep to themselves?",
+        "french": "Une fois au travail, ça discutait un peu entre collègues ou chacun restait plutôt dans son coin ?",
+        "provider": "editorial",
+        "review_note": "Preserve the concrete contrast in how colleagues interacted while working."
+      },
       "1d18030b9eda06a2e370aa3c6fe37e39cab0d405298a1cc3ef3223d5fe676015": {
         "deepl_english": "So, what did you get up to?",
         "english": "And in that situation, what did you do?",
         "french": "Et dans ce cas-là, qu'est-ce que tu as fait ?",
         "review_note": "Ask how the named work situation was acted on, not a general account of activities."
+      },
+      "26d6b4f6004ad1c9f39b2e666f9536a1af1b0cadf4429fcfdde8c784f6e8c925": {
+        "english": "Did someone show you how to do it, or did you have to work it out on your own?",
+        "french": "Quelqu'un t'a montré comment faire ou tu as dû te débrouiller seule ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of the follow-up about whether someone showed Ève how to do the tasks she mentioned."
+      },
+      "2e4fe58116b586d94a1814f622d49012faf14ecbd91114b1fb378c141ab6a070": {
+        "english": "How did you get to work this morning, and how long did it take you?",
+        "french": "Tu es allée au boulot comment ce matin, et le trajet t'a pris combien de temps ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of the actual journey to work on the first morning."
+      },
+      "31d806b32bbbe3b2c2a338074b2bac38d5dfd98b2fdc95fc39facbd70a539182": {
+        "english": "And roughly what time did you get home this evening?",
+        "french": "Et ce soir, tu es rentrée chez toi vers quelle heure ?",
+        "provider": "editorial",
+        "review_note": "Ask when she got home, not when she left work."
+      },
+      "394fdbb78d3aaed1916acf8f6de176e2e60a3908eb923b03726808aeec052625": {
+        "english": "All in all, was the new job what you'd imagined?",
+        "french": "Au final, c'était comme tu l'imaginais, ce nouveau boulot ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation preserving the familiar register and the comparison with expectations."
+      },
+      "4837d5fdd2d5211a36ce239f41106e1112f142121f84e4be6af7b006fd69add8": {
+        "english": "Now that the first day's over, how do you feel about going back?",
+        "french": "Maintenant que le premier jour est passé, comment tu te sens à l'idée d'y retourner ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of how the first day changed her feelings about returning."
+      },
+      "4c5f1d12ba8718a8a7bdb86512bdbd0b164e795b4e687908140cb4b850efe0cb": {
+        "english": "Were you able to go out for lunch, or did you eat at work?",
+        "french": "À midi, tu as pu sortir pour déjeuner ou tu as mangé sur place ?",
+        "provider": "editorial",
+        "review_note": "Translate sur place as at work rather than adding a specific lunch venue."
+      },
+      "4e46775e0d3b36bfbb79f8e0b70c5f47d08b15a71b9a256db65d1bd2613c1ccd": {
+        "english": "Did you have a training session for that, or did someone show you what to do as you went along?",
+        "french": "Pour apprendre à faire ça, tu as eu une formation ou on t'a montré au fur et à mesure ?",
+        "provider": "editorial",
+        "review_note": "Distinguish a training session from being shown how to do the task on the job."
       },
       "6cc93b056a66474f0f589efcd64f738d65a9849b706cf4814b5e8f0bfaef26e7": {
         "english": "For your first tasks, did someone show you how to do them, or did you have to sort it out on your own?",
@@ -2821,6 +2875,24 @@
         "french": "Après ce premier contact, tu as senti une ambiance plutôt détendue ou formelle ?",
         "review_note": "Premier contact does not imply a formal meeting."
       },
+      "9150d12482995b9365ff6076161ab2bd3282a7477eb2723305dd55f3bb3caa85": {
+        "english": "And how did you learn to do that first task?",
+        "french": "Et pour cette première tâche, comment tu as appris à t'y prendre ?",
+        "provider": "editorial",
+        "review_note": "Ask how she learned the specific task she mentioned, not merely whether she had help."
+      },
+      "a1e5d767b2c449ebe3495e360be88f290aa6c399f487c2bbb49bc4dd67c86df7": {
+        "english": "And within the team, was the atmosphere fairly relaxed or rather formal?",
+        "french": "Et dans l'équipe, l'ambiance était plutôt détendue ou assez formelle ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation distinguishing the team atmosphere from the initial welcome."
+      },
+      "a3c56156befdd5796effc3aae3391aef4d854f7c89d5ef8b8d2688cbbd45c8b6": {
+        "english": "And was the job itself what you expected, or did anything surprise you?",
+        "french": "Et le boulot lui-même, c'était comme tu l'imaginais ou il y a quelque chose qui t'a surprise ?",
+        "provider": "editorial",
+        "review_note": "Invite a concrete surprise without assuming the job departed from her expectations."
+      },
       "a448449d4a8596c4d4ed118fe708b27221b8ed47b2616d0457293b8ff3dbc990": {
         "english": "And specifically, what tasks did you carry out during the day?",
         "french": "Et concrètement, quelles tâches as-tu effectuées pendant la journée ?",
@@ -2830,6 +2902,18 @@
       "af158e173939c5eee3ddb729a183243818ca15a0578b5df64bf1367e91902117": {
         "english": "And specifically, what were the first tasks you were given?",
         "french": "Et concrètement, quelles premières tâches t'a-t-on confiées ?"
+      },
+      "c219b606f776ae80a72b9d3bc67244bdea015ad1d75d1e734b81116b06a7e53a": {
+        "english": "Were you nervous when you got there, or did you feel fairly at ease?",
+        "french": "Tu avais le trac en arrivant ou tu te sentais plutôt à l'aise ?",
+        "provider": "editorial",
+        "review_note": "Translate le trac as nerves and keep the question anchored to arrival."
+      },
+      "c2fb97ae50cce8a1c51098f513dd52c505a24caa856133228094bd932fc72dd0": {
+        "english": "And how did your colleagues welcome you?",
+        "french": "Et tes collègues, ils t'ont accueillie comment ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation of the informal question about the colleagues' welcome."
       },
       "c997319ab22ed9925470f29c557c90a4c3ba0006384ec6412551c31a1fa01784": {
         "english": "So, how did that first day go for you?",
@@ -2844,6 +2928,24 @@
       "e22909d6ea64adb8f49792c66ab424c755974b7d81ce5090d48eb95b517d2c36": {
         "english": "All in all, did that first day live up to your expectations of the job?",
         "french": "Au final, cette première journée correspondait-elle à l'idée que tu te faisais du poste ?"
+      },
+      "f3215a8db01d2b3af241ace7e3f22283c9226419a358dec69dc3e0b62790f749": {
+        "english": "In the end, did it get sorted out there and then, or did you have to come back to it later?",
+        "french": "Et finalement, ça s'est réglé sur le moment ou il a fallu y revenir plus tard ?",
+        "provider": "editorial",
+        "review_note": "The follow-up asks when the problem was resolved, not for steps that may already have been described."
+      },
+      "fc10524e99e365d72b782c14a169eeec8d52729c91206fe88611ec4fcbdc4b39": {
+        "english": "Did someone introduce you to the team, or did you get to know your colleagues as the day went on?",
+        "french": "Et pour faire connaissance avec tes collègues, quelqu'un t'a présentée à l'équipe ou ça s'est fait au fil de la journée ?",
+        "provider": "editorial",
+        "review_note": "Preserve the contrast between a welcome with introductions and meeting colleagues gradually."
+      },
+      "ff705006b025da717621502d8f008eb1f3cc152e66ac5fbcc8f9aecf369149a5": {
+        "english": "As for the work, what were you given to start with, and what did you actually have time to do?",
+        "french": "Et côté boulot, qu'est-ce qu'on t'a confié pour commencer, et qu'est-ce que tu as déjà eu le temps de faire ?",
+        "provider": "editorial",
+        "review_note": "Distinguish duties assigned from what she had time to do on the first day."
       }
     },
     "friend-holiday-apartment-watch": {

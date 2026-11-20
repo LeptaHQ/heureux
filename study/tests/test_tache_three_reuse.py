@@ -87,6 +87,7 @@ class TacheThreeReuseTests(SimpleTestCase):
     def test_shared_language_does_not_merge_different_questions_or_positions(self):
         for first, second in (
             ("culture-p5", "culture-p17"),
+            ("culture-p17", "culture-p29"),
             ("culture-p18", "technologie-p12"),
             ("culture-p16", "famille-p9"),
             ("culture-p16", "culture-p24"),
@@ -145,23 +146,34 @@ class TacheThreeReuseTests(SimpleTestCase):
                 self.assertIn("un message numérique peut aussi être", nuance)
                 self.assertIn("réfléchi", nuance)
                 self.assertIn("conservé", nuance)
-        solitude = "Cependant, il faut distinguer une solitude choisie d'un isolement qui fait souffrir."
-        self.assertIn(solitude, self.response("culture-p24").nuance)
+        self.assertIn("les liens avec les habitants doivent compléter ce soutien", self.response("culture-p24").nuance)
         self.assertIn("souffrir de solitude", self.response("culture-p16").nuance)
         self.assertIn("convienne aussi aux parents", self.response("famille-p2").nuance)
         self.assertIn("si chacun y trouve son compte", self.response("famille-p16").conclusion)
 
-    def test_remote_contact_limit_keeps_the_same_words_for_three_relevant_questions(self):
-        shared = (
-            "Les appels entretiennent le lien, mais ne remplacent pas toujours "
-            "une présence physique."
+    def test_living_abroad_reuses_the_explanation_of_difficult_first_steps(self):
+        experience = self.response("culture-p17").arguments[2]
+        everyday = self.response("culture-p29").arguments[0]
+        self.assertEqual(
+            experience.developpement.split(". ", 1)[0],
+            everyday.developpement.split(". ", 1)[0],
         )
-        for group, index in (("culture-p9", 1), ("culture-p24", 0), ("culture-p29", 1)):
-            with self.subTest(group=group):
-                self.assertTrue(self.response(group).arguments[index].developpement.startswith(shared))
-        self.assertIn("dîner sans compagnie", self.response("culture-p9").arguments[1].exemple)
-        self.assertIn("quelques courses", self.response("culture-p24").arguments[0].exemple)
-        self.assertIn("après une opération", self.response("culture-p29").arguments[1].exemple)
+        self.assertNotEqual(experience.exemple, everyday.exemple)
+
+    def test_remote_contact_limit_keeps_the_examples_specific_to_each_question(self):
+        adaptation = self.response("culture-p9").arguments[1]
+        self.assertIn("ne remplacent pas toujours une présence physique", adaptation.developpement)
+        self.assertIn("dîner sans compagnie", adaptation.exemple)
+        local_ties = self.response("culture-p24").arguments[0]
+        self.assertIn("ne remplace pas une présence quotidienne", local_ties.developpement)
+        self.assertIn("réussir matériellement tout en se sentant profondément seule", local_ties.exemple)
+        experience = self.response("culture-p17").arguments[1]
+        distance = self.response("culture-p29").arguments[1]
+        for argument in (experience, distance):
+            self.assertIn("À plusieurs heures de vol, les appels aident à garder le lien", argument.developpement)
+        self.assertIn("sa première rentrée", experience.exemple)
+        self.assertIn("ne remplacent pas quelqu'un qui vient vous voir", distance.developpement)
+        self.assertIn("après une opération", distance.exemple)
 
     def test_famille_distance_distinguishes_missed_moments_local_help_and_visits(self):
         family = self.response("famille-p5")
@@ -197,7 +209,7 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("sans avoir noué d'amitié", living_well.arguments[2].consequence)
         self.assertIn("connaissance ne remplace pas toujours un confident", living_well.nuance)
 
-    def test_family_and_compatriot_trust_are_not_identity_guarantees(self):
+    def test_family_trust_and_compatriot_support_avoid_exclusivity(self):
         family = self.response("famille-p10")
         self.assertIn("la parenté ne la garantit pas", family.arguments[2].developpement)
         self.assertTrue(family.arguments[2].developpement.startswith("L'amitié suppose"))
@@ -205,7 +217,7 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("la même école", family.arguments[2].exemple)
         self.assertIn("se soutiennent", family.arguments[2].exemple)
         self.assertIn("pas seulement de leur parenté", family.arguments[2].consequence)
-        self.assertIn("selon la confiance et les affinités, pas seulement selon l'origine", self.response("culture-p11").nuance)
+        self.assertIn("Le problème n'est donc pas de la fréquenter, mais de s'y enfermer", self.response("culture-p11").nuance)
 
     def test_child_language_keeps_direct_family_contact_distinct_from_parent_child_dialogue(self):
         conversation = self.response("culture-p14").arguments[2]
@@ -223,14 +235,13 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("lire une histoire dans la langue du pays", child.nuance)
         self.assertIn("parler la langue familiale pendant une promenade", child.nuance)
 
-    def test_cuisine_and_local_workshops_demonstrate_guided_practice_without_merging_positions(self):
+    def test_tasting_and_guided_workshop_practice_keep_distinct_mechanisms(self):
         dance = self.response("culture-p14").arguments[1]
         cooking = self.response("culture-p15").arguments[2]
         self.assertIn("on peut essayer, se tromper et recevoir des conseils", dance.developpement)
-        self.assertIn("on observe, on essaie et l'autre personne nous guide", cooking.developpement)
         self.assertIn("danse irlandaise", self.response("culture-p14").arguments[1].exemple)
-        self.assertIn("préparer du fufu", self.response("culture-p15").arguments[2].exemple)
-        self.assertIn("sans bien parler sa langue", self.response("culture-p15").arguments[2].exemple)
+        self.assertIn("on goûte, on cuisine, on partage", cooking.developpement)
+        self.assertIn("peut ensuite vouloir comprendre les rituels du repas", cooking.exemple)
         self.assertNotEqual(
             self.models["eo/tache-3/culture-p14"].source_prompts,
             self.models["eo/tache-3/culture-p15"].source_prompts,

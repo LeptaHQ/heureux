@@ -71,11 +71,10 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
                 7: ("aéroport", "allers-retours quotidiens", "centre de formation"),
             },
             "friend-first-workday-report": {
-                1: ("première journée", "comment ça s'est passé"),
-                4: ("tâches", "effectuées"),
-                5: ("premières tâches", "quelqu'un t'a montré", "seule"),
-                6: ("ne savais pas trop quoi faire",),
-                7: ("dans ce cas-là",),
+                1: ("allée au boulot comment", "trajet"),
+                4: ("confié pour commencer", "le temps de faire"),
+                5: ("une formation", "au fur et à mesure"),
+                7: ("rentrée chez toi", "quelle heure"),
             },
             "newcomer-canada-friend-job-market": {
                 1: ("statut", "renseignements fiables"),
@@ -148,17 +147,16 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
         previous, published = revisions[:2]
         for before, after in ((2, 4), (3, 5), (4, 2), (5, 3), (6, 6), (7, 7), (8, 8)):
             self.assertEqual(previous.questions[before - 1].question, published.questions[after - 1].question)
-        self.assertEqual(day.questions[2].follow_up_to, 2)
+        self.assertIsNone(day.questions[2].follow_up_to)
         self.assertEqual(day.questions[4].follow_up_to, 4)
-        self.assertEqual(day.questions[6].follow_up_to, 6)
-        self.assertIn("client voulait modifier une commande", day.questions[5].answer)
-        self.assertIn("rappelé le client ensemble", day.questions[6].answer)
         self.assertIn("ne connaissais pas encore", day.questions[3].answer)
         self.assertEqual(
             [self.hints[day.group][index]["english"] for index in (1, 2, 3, 4)],
             [
-                "How colleagues welcomed her", "Atmosphere within the team",
-                "Tasks carried out on the first day", "Guidance or independence with the first tasks",
+                "Introductions on arrival or meeting colleagues over the course of the day",
+                "At work: colleagues chatting or keeping to themselves",
+                "First tasks assigned and work already done",
+                "Training session or being shown what to do as she went along",
             ],
         )
         association = self.by_group["friend-association-work-experience"]

@@ -165,9 +165,6 @@ def load_tache_three_models(
                 )},
                 arguments=tuple(arguments), is_personal=False,
             )
-            # A rehearsal envelope, not an official examination word limit.
-            if not 300 <= len(spoken_text(response).split()) <= 500:
-                raise ValueError(f"EO3 model exceeds its spoken rehearsal envelope: {group}")
             result[identity] = TacheThreeModel(
                 group=identity,
                 source_prompts=tuple(

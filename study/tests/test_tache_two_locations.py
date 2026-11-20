@@ -1232,7 +1232,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
         mappings = {
             "new-employee-company-orientation": {3: 3},
             "director-canada-fortnight-training": {7: 8},
-            "friend-first-workday-report": {4: 2, 5: 3, 8: 8},
+            "friend-first-workday-report": {},
             "newcomer-canada-friend-job-market": {},
             "canadian-work-hours-home-country-comparison": {5: 5},
             "former-colleague-new-job-to-change-employment": {},
@@ -1292,7 +1292,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_director_training_followup_preserves_moved_questions_and_saved_notes(self):
         self.assert_latest_review_preserves_questions_and_notes({"director-canada-fortnight-training"})
 
-    def test_first_day_q5_followup_preserves_published_questions_and_saved_notes(self):
+    def test_first_day_rewrite_preserves_published_questions_and_saved_notes(self):
         self.assert_latest_review_preserves_questions_and_notes({"friend-first-workday-report"})
 
     def test_software_job_search_preserves_published_questions_and_saved_notes(self):
@@ -1374,7 +1374,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_director_training_followup_preserves_a_private_route_and_prompt_note(self):
         self.assert_latest_review_preserves_private_routes({"director-canada-fortnight-training"})
 
-    def test_first_day_q5_followup_preserves_a_private_route_and_prompt_note(self):
+    def test_first_day_rewrite_preserves_a_private_route_and_prompt_note(self):
         self.assert_latest_review_preserves_private_routes({"friend-first-workday-report"})
 
     def test_software_job_search_preserves_a_private_route_and_prompt_note(self):

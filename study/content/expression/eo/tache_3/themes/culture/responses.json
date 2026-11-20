@@ -13,25 +13,25 @@
       "arguments": [
         {
           "idea": "Tout d'abord, les livres d'histoire aident à comprendre le présent d'un pays.",
-          "developpement": "En effet, une situation devient plus claire lorsqu'on sait comment elle s'est construite. Un livre peut relier des événements, expliquer l'origine d'une institution ou montrer pourquoi une question reste sensible aujourd'hui. On ne retient plus seulement des dates : on découvre ce qui donne du sens aux débats actuels.",
-          "exemple": "Par exemple, une personne qui lit l'histoire du Québec peut découvrir comment le français s'est implanté en Amérique du Nord et s'y est maintenu. Elle comprend alors mieux pourquoi sa place dans l'école ou le travail suscite encore des discussions.",
-          "consequence": "La lecture permet ainsi de dépasser les monuments et les paysages pour mieux comprendre la société."
+          "developpement": "En effet, pour comprendre comment une société s'est construite, il faut remonter un peu dans le temps. Un guide touristique peut nous dire quels monuments visiter ou quelles spécialités goûter. Un livre d'histoire, lui, relie les événements qui ont marqué le pays et montre ce qu'ils ont changé dans la vie des gens. On ne retient donc pas seulement des dates : on comprend d'où viennent certaines institutions et pourquoi certains sujets font encore débat aujourd'hui.",
+          "exemple": "Par exemple, une personne lit un article sur la place du français dans les entreprises québécoises et se demande pourquoi le sujet fait débat. Dans un livre sur l'histoire du Canada, elle découvre que, même après la conquête britannique, les familles francophones ont continué à parler français et à le transmettre à leurs enfants. Elle comprend alors mieux pourquoi certains tiennent à pouvoir travailler en français : c'est aussi une façon de faire vivre la langue en dehors de la maison.",
+          "consequence": "Avec ces repères, on comprend mieux ce qu'on lit ou ce qu'on entend sur le pays aujourd'hui."
         },
         {
-          "idea": "Ensuite, les romans et les récits font découvrir la vie de l'intérieur.",
-          "developpement": "On ne regarde pas seulement ce que font les personnages : on suit leurs pensées, leurs hésitations et leurs relations avec les autres. Cette proximité aide à comprendre des choix qui peuvent sembler étranges lorsqu'on les observe de loin. Un pays apparaît alors à travers des expériences humaines, et pas seulement des informations générales.",
-          "exemple": "Prenons l'exemple d'un roman québécois où un jeune hésite à quitter son village pour étudier à Montréal. À travers ses conversations avec ses parents, le lecteur comprend qu'il souhaite poursuivre ses études, mais qu'il s'inquiète aussi de les laisser seuls.",
-          "consequence": "On comprend mieux cette famille, sans en faire le portrait de tous les habitants du pays."
+          "idea": "Ensuite, les romans et les récits nous font découvrir la vie quotidienne à travers le regard des habitants.",
+          "developpement": "Dans un récit, on ne voit pas seulement ce que font les personnages : on suit leurs pensées, leurs hésitations et leurs relations avec les autres. Cette proximité aide à comprendre des choix qui peuvent surprendre au premier abord. Une tradition prend un autre sens quand on découvre les souvenirs qu'elle réveille ou les liens qu'elle entretient dans une famille. On apprend ainsi à connaître un pays à travers des expériences humaines, pas seulement à partir d'informations générales.",
+          "exemple": "Prenons l'exemple d'un roman qui se passe au Québec. Au printemps, une jeune fille retrouve sa famille à la cabane à sucre. Son grand-père lui montre comment faire du sirop d'érable et lui raconte que ses parents lui ont appris les mêmes gestes. Elle est fière de l'aider et lui demande si elle pourra revenir l'année suivante.",
+          "consequence": "On découvre ainsi une tradition québécoise et on comprend comment elle rapproche les générations dans cette famille."
         },
         {
-          "idea": "Enfin, les livres rendent cette découverte possible sans avoir les moyens de voyager.",
-          "developpement": "Un séjour demande du temps et un budget que tout le monde n'a pas. Emprunter un livre à la bibliothèque permet pourtant de commencer cette découverte, notamment lorsque des traductions sont disponibles. La curiosité n'a donc pas besoin d'attendre un départ.",
-          "exemple": "Par exemple, quelqu'un qui ne peut pas aller au Japon peut emprunter un roman traduit en français. En suivant la vie d'une famille à Tokyo, il découvre des lieux qui lui donnent envie de lire ensuite un ouvrage sur l'histoire de la ville.",
-          "consequence": "Il construit peu à peu une connaissance réelle du pays, même sans l'avoir visité."
+          "idea": "Enfin, lire plusieurs livres sur un même pays aide à comprendre ce qui change d'une région à l'autre.",
+          "developpement": "Un livre peut très bien nous faire comprendre la vie dans une ville sans nous dire ce qui se passe ailleurs. En lisant un autre récit qui aborde le même sujet dans une autre région, on peut comparer ce que vivent les gens. On voit alors que certaines différences tiennent à des choses très concrètes, comme les distances à parcourir ou les transports dont on dispose près de chez soi.",
+          "exemple": "Par exemple, une lectrice découvre dans un récit qu'une employée de Tokyo va travailler en train chaque matin. Puis elle lit le témoignage d'un habitant d'un village du nord du Japon. Pour aller travailler dans la ville voisine, il prend sa voiture : le premier bus passe trop tard pour qu'il arrive à l'heure.",
+          "consequence": "En comparant les deux récits, elle comprend que se déplacer sans voiture n'est pas aussi facile partout au Japon."
         }
       ],
-      "nuance": "Bien sûr, il faut tenir compte de l'auteur et de l'époque. Un roman éclaire une expérience, mais ne prouve pas que tout le monde vit ainsi. Ce serait trop attendre d'un seul livre qu'il explique tout : plusieurs lectures et des rencontres permettent d'élargir ce regard.",
-      "conclusion": "En conclusion, les livres sont une vraie porte d'entrée vers un pays. Ils permettent d'en comprendre l'histoire et d'approcher la vie de ses habitants, à condition de rester curieux et de croiser les points de vue."
+      "nuance": "Bien sûr, la lecture ne remplace pas totalement l'expérience directe. Ce serait trop attendre d'un seul livre qu'il explique tout : les lieux et les habitudes qu'il décrit ont pu changer depuis sa publication. Sur place, on peut voir comment les gens vivent aujourd'hui et leur poser des questions sur ce qu'on a lu.",
+      "conclusion": "En conclusion, les livres sont une vraie porte d'entrée vers un pays. Ils nous aident à comprendre son histoire et la vie de ses habitants. Et en croisant plusieurs récits, on découvre aussi que cette vie peut être très différente d'une région à l'autre."
     },
     "education-p15": {
       "prompt_signatures": {
@@ -383,36 +383,36 @@
       "prompt_signatures": {
         "culture:p15": "1e645d1bbb9396381ceed86de8ecbc921eade1b06835cd5c6c6a4c055134e815"
       },
-      "reformulation": "Que peut-on apprendre d'une culture à travers sa cuisine ?",
-      "position": "La cuisine est une porte d'entrée concrète, mais ne résume pas une culture.",
-      "position_claire": "Oui, je pense que la cuisine est une bonne manière de découvrir la culture d'un pays. Un repas ne nous renseigne pas seulement sur les goûts des habitants : il peut montrer comment ils vivent ensemble, raconter une partie de leur histoire et nous faire découvrir des gestes transmis dans les familles.",
+      "reformulation": "La vraie question est de savoir si la cuisine d'un pays permet vraiment d'entrer dans sa culture, ou si elle n'en montre qu'une petite partie.",
+      "position": "À mon avis, la cuisine est une excellente porte d'entrée vers la culture d'un pays, parce qu'elle révèle beaucoup d'habitudes, de valeurs et d'éléments d'histoire, même si elle ne suffit pas à elle seule à tout comprendre.",
+      "position_claire": "À mon avis, la cuisine permet réellement de connaître une partie importante de la culture d'un pays. D'abord, elle révèle les habitudes quotidiennes et la manière dont les gens vivent ensemble. Ensuite, elle porte en elle l'histoire et la géographie du pays, à travers ses ingrédients et ses recettes. Enfin, elle reste l'une des manières les plus concrètes et accessibles d'entrer dans une autre culture.",
       "argument_ids": [
         1,
         2,
-        4
+        5
       ],
       "arguments": [
         {
-          "idea": "Tout d'abord, les repas permettent de comprendre certaines habitudes de vie.",
-          "developpement": "L'heure à laquelle on mange, la place de chacun et le temps passé à table disent quelque chose de l'organisation du quotidien. Partager un repas permet aussi de demander ce que ces habitudes représentent pour ses hôtes, plutôt que leur donner un sens à partir de ses propres habitudes.",
-          "exemple": "Par exemple, au Sénégal, un visiteur pourrait partager du riz et du poisson avec une famille autour d'un même grand plat. Ses hôtes lui expliqueraient que ce repas du soir leur permet de se retrouver et de discuter après le travail.",
-          "consequence": "Il comprendrait ainsi comment cette famille garde un moment en commun, sans supposer que toutes les familles s'organisent de la même façon."
+          "idea": "Je pense d'abord que la cuisine d'un pays raconte beaucoup sur la vie quotidienne et les relations entre les gens.",
+          "developpement": "En effet, à travers la cuisine, on voit comment les gens organisent leurs repas, à quelles heures ils mangent, avec qui et dans quelle ambiance. De plus, ces habitudes ne sont pas anodines : elles montrent la place de la famille, du travail ou du temps libre dans la société. Connaître la cuisine d'un pays, c'est donc déjà comprendre une partie de sa manière de vivre.",
+          "exemple": "Par exemple, dans certains pays les repas sont longs et pris en famille, alors que dans d'autres ils sont rapides et souvent pris seuls : ces différences en disent beaucoup sur le rapport au temps et aux relations sociales.",
+          "consequence": "Cela montre que la cuisine donne déjà accès à des aspects très réels de la culture quotidienne d'un pays."
         },
         {
-          "idea": "Ensuite, certaines recettes gardent des traces de l'histoire du pays.",
-          "developpement": "Les ingrédients et les méthodes de préparation n'ont pas toujours été choisis uniquement pour leur goût. Ils pouvaient répondre à une nécessité, comme conserver les aliments en l'absence de réfrigérateur. Retrouver cette origine permet de comprendre pourquoi une pratique s'est installée et continue à faire partie de la cuisine.",
-          "exemple": "Prenons l'exemple du poisson salé et séché, présent dans la cuisine portugaise. Cette méthode permettait de conserver le poisson, notamment pendant de longs voyages en mer. En la découvrant, on comprend le lien entre certaines recettes et les contraintes de la navigation.",
-          "consequence": "Le plat devient alors une façon concrète d'aborder une histoire qui pourrait sembler lointaine dans un manuel."
+          "idea": "Ensuite, la cuisine d'un pays porte aussi en elle son histoire et sa géographie.",
+          "developpement": "En effet, les ingrédients utilisés, les épices, les façons de cuisiner sont liés au climat, aux ressources et aux échanges du pays avec le reste du monde. De plus, beaucoup de plats sont nés de moments précis de l'histoire, comme une période de pauvreté, une migration ou une influence étrangère. La cuisine est donc une sorte de mémoire vivante, transmise de génération en génération.",
+          "exemple": "Par exemple, le couscous raconte à la fois l'importance des céréales, des légumes et du repas partagé au Maghreb, tandis que la morue au Portugal rappelle l'histoire maritime et les échanges avec l'Atlantique.",
+          "consequence": "Cela montre que goûter la cuisine d'un pays, c'est aussi entrer en contact avec son passé et son territoire."
         },
         {
-          "idea": "Enfin, on peut découvrir une culture en cuisinant avec quelqu'un, même avec peu de mots.",
-          "developpement": "Les explications passent aussi par les gestes : on observe, on essaie et l'autre personne nous guide. Cette participation donne accès à un savoir-faire que la dégustation seule ne montrerait pas. On apprend comment le plat se prépare, et pas seulement à quoi il ressemble.",
-          "exemple": "Par exemple, pendant un séjour au Ghana, je pourrais apprendre à préparer du fufu avec mon hôte, même sans bien parler sa langue. Il me montrerait comment piler le manioc et me guiderait lorsque j'essaierais à mon tour.",
-          "consequence": "Je découvrirais ainsi une façon de cuisiner en la pratiquant avec lui, plutôt qu'en regardant simplement le plat terminé."
+          "idea": "Enfin, je pense que la cuisine est l'une des manières les plus concrètes et les plus accessibles de découvrir une autre culture.",
+          "developpement": "En effet, contrairement à un livre ou à un cours, la cuisine s'expérimente directement : on goûte, on cuisine, on partage, et l'on se souvient de ce que l'on a ressenti. De plus, c'est un domaine ouvert à tout le monde, qu'on parle ou non la langue du pays. C'est souvent par la nourriture que l'on commence à s'intéresser à un pays avant d'aller plus loin.",
+          "exemple": "Par exemple, une personne qui goûte pour la première fois un pho vietnamien ou des tapas espagnoles peut ensuite vouloir comprendre les rituels du repas, les produits utilisés et l'histoire de ces plats.",
+          "consequence": "Cela montre que la cuisine joue un vrai rôle de porte d'entrée vers la culture d'un pays."
         }
       ],
-      "nuance": "Bien que la cuisine ouvre une porte sur un pays, elle ne montre pas tout de sa culture. Les habitudes varient selon les régions, les familles et le budget. Un repas ne suffit pas non plus pour comprendre les débats politiques ou la langue.",
-      "conclusion": "En conclusion, la cuisine permet de découvrir des habitudes, une histoire et des savoir-faire. C'est une porte d'entrée accessible et vivante, à compléter par d'autres rencontres pour ne pas réduire un pays à ses plats."
+      "nuance": "Bien que la cuisine donne accès à une partie importante d'une culture, elle ne permet pas de tout comprendre. Elle ne dit pas grand-chose, par exemple, de son système politique, de ses valeurs profondes ou de sa langue. Elle est donc une porte d'entrée importante, mais elle doit être complétée par d'autres formes de découverte pour vraiment connaître un pays.",
+      "conclusion": "En conclusion, je pense que la cuisine permet réellement de connaître une partie importante de la culture d'un pays, parce qu'elle révèle ses habitudes, son histoire et sa manière de vivre. Elle ne suffit pas à elle seule, mais elle reste l'une des entrées les plus vivantes et les plus concrètes dans une culture."
     },
     "culture-p18": {
       "prompt_signatures": {
@@ -477,7 +477,7 @@
         },
         {
           "idea": "Mais sans cette langue, certaines discussions restent difficiles à suivre au moment où elles ont lieu.",
-          "developpement": "Tout n'est pas traduit, surtout lorsque plusieurs personnes réagissent et se répondent spontanément. On peut connaître le sujet tout en manquant les raisons des désaccords. C'est une limite différente d'un simple manque d'informations sur le pays.",
+          "developpement": "Avec un texte traduit, on peut se renseigner à l'avance. Mais quand les gens donnent leur avis et se répondent, il n'y a pas toujours quelqu'un pour traduire ce qu'ils disent. On peut donc savoir de quoi ils parlent sans comprendre ce qui convainc les uns et ce qui inquiète les autres.",
           "exemple": "Par exemple, un nouvel arrivant a lu un document traduit sur un projet de logements dans son quartier. Il sait ce qu'on veut construire, mais pendant la réunion des voisins, il ne comprend pas pourquoi certains défendent le projet et d'autres s'y opposent.",
           "consequence": "Parler la langue l'aiderait à suivre leurs arguments et à participer davantage à la discussion."
         }

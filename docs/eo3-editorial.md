@@ -17,12 +17,13 @@ structure/coherence, thematic development and appropriateness to the situation:
 The six-part teaching structure is an introduction, three developed arguments,
 a meaningful nuance and a conclusion. Three arguments and an example for each
 are editorial choices, **not official quotas**. There is no official oral word
-count. The reviewed models use a 300–500 whitespace-word rehearsal envelope,
-not a target length or a guarantee that every text fits 4 minutes 30. A longer
-model may need adapting to the learner's pace. Rehearse with pauses; do not rush
-to reproduce a text or assume a particular speaking rate. Adapt to the actual
-question and examiner's timing. Trim repetition before cutting explanations or
-the connections that make an answer understandable.
+count. Use 300–500 words as rough rehearsal guidance, not a validation rule or
+a guarantee that every text fits 4 minutes 30. Preserve explicitly requested
+wording even when it falls outside this range. A longer model may need adapting
+to the learner's pace. Rehearse with pauses; do not rush to reproduce a text or
+assume a particular speaking rate. Adapt to the actual question and examiner's
+timing. Trim repetition before cutting explanations or the connections that
+make an answer understandable.
 The language target is NCLC 7 preparation, not a promised score. Prefer familiar
 words and connected, expressive phrasing that is easy to say, learn and reuse.
 
@@ -240,9 +241,9 @@ restriction or example that the model does not support. Reread both languages
 against the full intervention.
 
 The Culture responses about adaptation, local relationships and difficulties
-abroad share the same qualified sentence about calls maintaining a bond without
-always replacing physical presence. Keep their distinct examples: a meal alone,
-nearby companionship and help, and being unable to visit a parent after surgery.
+abroad distinguish staying in touch from having someone there in person.
+Keep their distinct examples: a meal alone, doing well materially while
+feeling isolated, and being unable to visit a parent after surgery.
 Reuse this compatible premise, not one entire answer to these different questions.
 
 ## Reviewed defaults and preserved sources
@@ -265,9 +266,9 @@ Position selections use the model's stable annotation namespace with a
 complete owned legacy context proves that they belong to Position. Other answer
 and sidebar roots remain separate; notes and private responses are not replaced.
 
-`study/expression/eo/tache_3/responses.py` validates complete coverage of each authored theme,
-three supported arguments, distinct claims/mechanisms/examples, and the rehearsal
-envelope. Every source consigne is pinned by its exact text's SHA-256 signature,
+`study/expression/eo/tache_3/responses.py` validates complete coverage of each authored theme
+and three supported arguments with distinct claims, developments and examples.
+Every source consigne is pinned by its exact text's SHA-256 signature,
 including cross-theme equivalents. A changed consigne or membership requires
 re-auditing the model rather than silently accepting a new interpretation.
 Validation rejects malformed content; it does not substitute a generic answer.
@@ -577,25 +578,13 @@ versus forgetting in the nuance, rather than making that distinction a whole
 main argument. Regular contact can maintain or restore knowledge without making
 cultural continuity either inevitable or solely a matter of willpower.
 
-The cuisine answer distinguishes mealtime customs, recipes as traces of the past,
-and practical cultural learning despite limited shared language. Explain what
-meal organisation can reveal about work rhythms and family exchanges, rather than
-merely listing times, companions and ways of sharing food. A household's schedule
-is not, on its own, evidence of a national timetable or wider culinary tradition.
-The Senegalese illustration retains the documented shared-dish practice associated
-with [thieboudienne](https://en.wikipedia.org/wiki/Thieboudienne).
-Its hosts explain the meaning of their evening meal for their own household;
-the visitor does not infer a whole country's priorities from a single plate.
-The Portuguese salt-cod example connects a culinary preparation to
-[historical sea voyages](https://www.asae.gov.pt/newsletter2/asaenews-n-118-dezembro-2019/o-bacalhau-e-a-autenticidade-alimentar.aspx)
-and its [continued place in local diets](https://www.eeagrants-2014-2021.gov.pt/pt/programas/crescimento-azul/projetos/projetos/era-uma-vez-um-peixe-chamado-bacalhau/).
-These are situated traditions, not claims that every household follows them.
-Guided practice shares a sentence with the local-workshop answer, while retaining
-the separate cuisine question and its concrete cooking example. The fufu example
-situates limited shared language in a visit to Ghana, with a host demonstrating
-the preparation of cooked cassava; see [Britannica's account](https://www.britannica.com/topic/fufu).
-The practical learning reason has a fresh identity rather than reusing the
-retired social-exchange reason's annotations.
+The cuisine model preserves the user-requested source answer verbatim. It
+distinguishes mealtime customs, recipes as traces of history and geography, and
+how tasting a dish can spark curiosity about a culture. The meal comparison
+illustrates different habits; do not infer a national rule from a single
+household. The tasting argument has a fresh identity rather than reusing the
+retired guided-practice anchors. The local-workshop answer retains its distinct
+guided-practice mechanism.
 
 The cultural-discovery-without-travel answer must show what its resources teach,
 not merely name a recipe or describe a family meal. Its West African cookbook
@@ -684,8 +673,7 @@ Connect the concession to the alternatives explicitly; do not merge the two
 alternatives and replace them with further benefits of friendship.
 
 Publish these revisions as reviewed JSON models, with aligned bilingual Pistes
-and full English response blocks, within the 300–500-word spoken rehearsal
-envelope described above. Preserve historical Markdown, vocabulary and phrase sources, source
+and full English response blocks. Preserve historical Markdown, vocabulary and phrase sources, source
 signatures and semantic memberships. Famille 8 remains the same reviewed model
 as Culture 16; the truth-with-children and money-for-grades pairs remain shared.
 Preserve argument annotation identities for retained mechanisms and allocate

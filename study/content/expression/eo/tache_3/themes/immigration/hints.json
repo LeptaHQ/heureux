@@ -122,12 +122,12 @@
         },
         {
           "point": {
-            "french": "Les contacts pratiques sont à reconstruire.",
-            "english": "Practical contacts need rebuilding."
+            "french": "Ne pas connaître les services locaux complique les démarches.",
+            "english": "Unfamiliar local services can complicate everyday tasks."
           },
           "example": {
-            "french": "Enfant fiévreux un dimanche : une voisine donne le numéro d'une clinique sans rendez-vous pour vérifier les horaires.",
-            "english": "Child with a fever on Sunday: a neighbour gives a walk-in clinic's number to check opening hours."
+            "french": "Parent et enfant fiévreux un dimanche : trouver une clinique sans rendez-vous et vérifier ses horaires.",
+            "english": "Parent with a feverish child on Sunday: find a walk-in clinic and check its hours before going."
           }
         }
       ],
@@ -142,54 +142,54 @@
     },
     "culture-p11": {
       "introduction": {
-        "french": "Les compatriotes peuvent aider, sans être nécessaires.",
-        "english": "Compatriots can help without being necessary."
+        "french": "Les compatriotes aident au début, sans devenir notre seul cercle.",
+        "english": "People from home can help at first without becoming our only social circle."
       },
       "arguments": [
         {
           "point": {
-            "french": "Retrouver des repères familiers apporte un soutien affectif.",
-            "english": "Familiar reference points provide emotional support."
+            "french": "Langue et repères communs : se sentir moins seul et trouver de l'aide pour les premières démarches.",
+            "english": "A shared language and familiar ways: feel less alone and get help with the first steps."
           },
           "example": {
-            "french": "Une amie qui parle sa langue écoute l'arrivante et lui propose de passer le dimanche ensemble.",
-            "english": "A friend who speaks her language listens to the newcomer and suggests spending Sunday together."
+            "french": "Des compatriotes déjà installés orientent un nouvel arrivant : logement, petit emploi, bonnes adresses.",
+            "english": "People from the same country who already live there give a newcomer tips on housing, jobs and useful places."
           }
         },
         {
           "point": {
-            "french": "Une expérience proche peut orienter les démarches.",
-            "english": "Similar experience can guide procedures."
+            "french": "Rester entre compatriotes réduit les occasions de parler la langue et de comprendre les habitudes locales.",
+            "english": "Staying within our own community means fewer chances to speak the language and understand local customs."
           },
           "example": {
-            "french": "Une infirmière apprend d'une compatriote où demander la reconnaissance du diplôme.",
-            "english": "A nurse learns from a compatriot where to seek recognition of her qualification."
+            "french": "Après des années à l'étranger, parler encore peu la langue si l'on fréquente surtout ses compatriotes.",
+            "english": "Even after years abroad, someone may speak little of the language if they mostly socialise with people from home."
           }
         },
         {
           "point": {
-            "french": "On peut construire une vie sociale riche sans fréquenter de compatriotes.",
-            "english": "We can build a rich social life without compatriot relationships."
+            "french": "Les liens avec d'autres habitants permettent d'agir ensemble sur des problèmes du quartier.",
+            "english": "Getting to know other residents lets us act together on problems in the neighbourhood."
           },
           "example": {
-            "french": "Sans compatriotes connus : échanges chaque semaine dans un groupe linguistique, sorties et amitiés.",
-            "english": "No known compatriots: weekly language-group meetings, outings and friendships."
+            "french": "Rue dangereuse près de l'école : une mère et d'autres parents demandent ensemble un passage piéton à la mairie.",
+            "english": "Unsafe street near the school: a mother and other parents ask the council for a pedestrian crossing together."
           }
         }
       ],
       "nuance": {
-        "french": "Un cercle fermé limite les échanges ; garder ses liens et en créer d'autres.",
-        "english": "A closed circle limits exchanges; keep existing relationships and build others."
+        "french": "Garder le soutien des compatriotes et le lien culturel, sans s'enfermer.",
+        "english": "Keep the support of people from home and stay connected to our culture without shutting ourselves off."
       },
       "conclusion": {
-        "french": "Des liens fiables comptent davantage qu'une origine commune.",
-        "english": "Reliable relationships matter more than shared origins."
+        "french": "La communauté d'origine peut servir de tremplin, sans remplacer les liens avec les habitants.",
+        "english": "Our home community can be a springboard without replacing relationships with other residents."
       }
     },
     "culture-p17": {
       "introduction": {
-        "french": "Pas toujours positive : les possibilités et les difficultés sont réelles.",
-        "english": "Not always positive: opportunities and difficulties are both real."
+        "french": "Pas toujours positive : possibilités, éloignement de la famille et difficultés d'installation.",
+        "english": "Not always positive: opportunities, distance from family and difficulties settling in."
       },
       "arguments": [
         {
@@ -204,22 +204,22 @@
         },
         {
           "point": {
-            "french": "La langue et les codes mal compris peuvent rendre le séjour éprouvant.",
-            "english": "Language difficulties and unfamiliar social codes can make the stay trying."
+            "french": "Vivre loin de sa famille peut peser, même quand le travail ou les études vont bien.",
+            "english": "Living far from family can take a toll, even when work or studies are going well."
           },
           "example": {
-            "french": "Elle fait ses courses dans la langue, mais peine à suivre les cours ; soirées sur les notes, participation en baisse.",
-            "english": "She can shop in the language but struggles in class; evenings reviewing notes and less participation."
+            "french": "Une mère aime son travail à l'étranger, mais ne voit la première rentrée de son fils qu'en photo.",
+            "english": "A mother enjoys her job abroad but only sees her son's first day at school in a photo."
           }
         },
         {
           "point": {
-            "french": "Les moyens et les obligations familiales changent le bilan du séjour.",
-            "english": "Resources and family obligations affect the experience."
+            "french": "Travailler pour payer ses factures laisse moins de temps pour apprendre la langue et trouver ses repères.",
+            "english": "Working to pay the bills leaves less time to learn the language and find our feet."
           },
           "example": {
-            "french": "Examens réussis, père malade au pays : sans argent pour le voyage, elle souffre de ne pas être auprès de lui.",
-            "english": "She passes her exams, but her father is ill back home; without travel money, she suffers at being unable to visit."
+            "french": "Une étudiante travaille le soir pour payer son loyer : elle ne peut pas suivre les cours de langue et prend du retard.",
+            "english": "A student works evenings to pay rent, so she can't attend language classes and falls behind in her studies."
           }
         }
       ],
@@ -280,46 +280,46 @@
     },
     "culture-p24": {
       "introduction": {
-        "french": "Relations très importantes, sans être une obligation pour tous.",
-        "english": "Very important relationships, without being an obligation for everyone."
+        "french": "Créer des liens avec les habitants est presque indispensable pour bien vivre à l'étranger.",
+        "english": "Building relationships with local people is almost essential for living well abroad."
       },
       "nuance": {
-        "french": "Sans liens personnels locaux : travail à distance, appels aux proches et randonnée seule peuvent convenir.",
-        "english": "Without personal local ties: remote work, calls to loved ones and hiking alone can suit someone."
+        "french": "Garder le soutien des compatriotes et le compléter par des liens avec les habitants.",
+        "english": "Keep the support of people from home and complement it with ties to other local residents."
       },
       "conclusion": {
-        "french": "Soutien, langue, possibilités : des liens précieux, pas une obligation pour tous.",
-        "english": "Support, language and opportunities: valuable relationships, not an obligation for everyone."
+        "french": "Liens presque indispensables : moins d'isolement, meilleure intégration, plus d'occasions.",
+        "english": "Almost essential ties: less isolation, easier integration and more opportunities."
       },
       "arguments": [
         {
           "point": {
-            "french": "Des liens réguliers apportent une présence et un soutien quotidiens.",
-            "english": "Regular relationships provide everyday company and support."
+            "french": "Sans liens sur place, on peut se sentir seul malgré des journées bien remplies.",
+            "english": "Without local ties, even busy days do not necessarily keep loneliness away."
           },
           "example": {
-            "french": "Déjeuner possible chaque samedi avec une voisine ; quelques courses si l'une tombe malade.",
-            "english": "Possible lunches every Saturday with a neighbour; some groceries if one falls ill."
+            "french": "Réussite matérielle à l'étranger, mais grande solitude sans liens avec les voisins ni les collègues hors du bureau.",
+            "english": "Someone does well financially abroad but feels deeply lonely without ties to neighbours or colleagues outside work."
           }
         },
         {
           "point": {
-            "french": "Les conversations font progresser dans la langue et comprendre les codes.",
-            "english": "Conversations develop language skills and understanding of social codes."
+            "french": "Les échanges réguliers avec les habitants aident à apprendre la langue et à comprendre les usages du pays.",
+            "english": "Regular conversations with local people help us learn the language and understand local customs."
           },
           "example": {
-            "french": "Repas d'association : chacun apporte un plat. Une habituée aide l'arrivante à annoncer le sien ; l'arrivante réutilise ces expressions.",
-            "english": "Association meal: everyone brings a dish. A regular helps a newcomer say what she will bring; the newcomer then reuses these expressions."
+            "french": "Avec ses voisins ou ses collègues, on apprend quand tutoyer ou vouvoyer et comment accepter une invitation.",
+            "english": "Talking to neighbours or colleagues teaches us when to use tu or vous and how to accept an invitation."
           }
         },
         {
           "point": {
-            "french": "Les relations locales ouvrent aussi des possibilités concrètes.",
-            "english": "Local relationships also open up practical opportunities."
+            "french": "Contacts locaux : pistes d'emploi, aide aux démarches, soutien dans les moments difficiles.",
+            "english": "Local contacts share job leads, help with paperwork and offer support in difficult times."
           },
           "example": {
-            "french": "Une voisine signale un magasin qui recrute ; la nouvelle arrivante peut poser sa candidature.",
-            "english": "A neighbour points out a shop that is recruiting; the newcomer can apply."
+            "french": "Des contacts locaux aident à trouver un meilleur emploi ou un logement, parfois sans passer par les annonces.",
+            "english": "Local contacts help people find a better job or somewhere to live, sometimes without going through listings."
           }
         }
       ]
@@ -432,8 +432,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Un système inconnu rend les démarches ordinaires fatigantes.",
-            "english": "An unfamiliar system makes ordinary tasks tiring."
+            "french": "Quand on cherche ses mots ou qu'on ne connaît pas les démarches, même une tâche simple peut prendre du temps.",
+            "english": "When we're searching for the words or don't know the steps, even a simple task can take time."
           },
           "example": {
             "french": "Compte bancaire : justificatif imprévu, explications dans une autre langue et second rendez-vous.",
@@ -464,12 +464,12 @@
     },
     "culture-p30": {
       "introduction": {
-        "french": "L'intégration n'est pas vraiment facile, même en faisant des efforts.",
-        "english": "Integration is not really easy, even when making an effort."
+        "french": "Pas vraiment facile : s'installer ne suffit pas, il faut trouver sa place parmi les habitants.",
+        "english": "Not really easy: moving there is not enough; we must find our place among local people."
       },
       "nuance": {
-        "french": "On peut se sentir chez soi dans le nouveau pays sans renoncer à ses origines.",
-        "english": "We can feel at home in the new country without giving up our roots."
+        "french": "L'intégration reste possible : bon accueil, travail stable, relations sincères.",
+        "english": "Integration is possible: a welcoming society, stable work and genuine relationships help."
       },
       "conclusion": {
         "french": "Comprendre les codes, être accueilli, se sentir chez soi : processus possible, mais pas automatique.",
@@ -478,22 +478,22 @@
       "arguments": [
         {
           "point": {
-            "french": "Apprendre la langue et les codes culturels prend du temps.",
-            "english": "Learning the language and cultural codes takes time."
+            "french": "Les cours donnent une base ; les échanges réguliers aident à saisir les codes culturels.",
+            "english": "Classes give us a foundation; regular conversations help us pick up cultural norms."
           },
           "example": {
-            "french": "Elle comprend les réunions ; un collègue explique comment intervenir ; elle prend peu à peu la parole.",
-            "english": "She understands meetings; a colleague explains how to contribute; she gradually starts speaking up."
+            "french": "Avec le temps : quand tutoyer ou vouvoyer, comment accepter ou refuser une invitation.",
+            "english": "Over time: when to use tu or vous, how to accept or decline an invitation."
           }
         },
         {
           "point": {
-            "french": "Les efforts personnels ne suffisent pas sans l'accueil des autres.",
-            "english": "Personal efforts are not enough without a welcome from others."
+            "french": "Même quand on fait des efforts, entrer dans des cercles déjà formés dépend aussi de l'accueil.",
+            "english": "Even if we make an effort, joining an established circle also depends on how welcoming it is."
           },
           "example": {
-            "french": "Dans un club, préparer une fête ensemble permet de se revoir pendant plusieurs semaines.",
-            "english": "Club members invite us to prepare a celebration together, creating repeated contact over several weeks."
+            "french": "Invité à déjeuner par politesse pendant des mois, un nouvel arrivant ne rejoint pas le groupe qui se retrouve le week-end.",
+            "english": "A newcomer may be invited to lunch out of politeness for months without joining the group that meets at weekends."
           }
         },
         {
@@ -502,8 +502,8 @@
             "english": "A job and a home are not enough to feel that we belong."
           },
           "example": {
-            "french": "Logement, amis, emploi : un poste permanent la fait hésiter, car elle se sent encore de passage.",
-            "english": "Home, friends and work: she hesitates over a permanent post because she still feels she is only passing through."
+            "french": "Même après plusieurs années, langue maîtrisée, bon emploi et logement stable n'empêchent pas de se sentir étranger.",
+            "english": "Even after years abroad, fluency, a good job and stable housing do not necessarily stop someone feeling like a foreigner."
           }
         }
       ]

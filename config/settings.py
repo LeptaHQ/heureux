@@ -268,6 +268,10 @@ TRANSLATION_TIMEOUT = float(os.environ.get("TRANSLATION_TIMEOUT", "8"))
 DEEPL_API_KEY = os.environ.get("DEEPL_API_KEY", "").strip()
 DEEPL_TARGET_LANG = os.environ.get("DEEPL_TARGET_LANG", "EN-GB").strip().upper() or "EN-GB"
 
+# Private EO2 pilot: never fall back to a general-purpose key or another model.
+GEMINI_LIVE_API_KEY = os.environ.get("GOOGLE_AI_STUDIO_KEY", "").strip()
+GEMINI_LIVE_FREE_TIER_CONFIRMED = env_bool("GEMINI_LIVE_FREE_TIER_CONFIRMED")
+
 # Narration is generated only after explicit cost confirmation, never on visits.
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "").strip()
 ELEVENLABS_PIN = os.environ.get("ELEVENLABS_PIN", "").strip()
@@ -300,6 +304,9 @@ _csp_directives = [
 if not DEBUG:
     _csp_directives.append("upgrade-insecure-requests")
 CONTENT_SECURITY_POLICY = "; ".join(_csp_directives)
+GEMINI_LIVE_CONTENT_SECURITY_POLICY = CONTENT_SECURITY_POLICY.replace(
+    "connect-src 'self'", "connect-src 'self' wss://generativelanguage.googleapis.com"
+)
 # Keep a handle on the DeepL tab so repeated translations reuse it.
 SECURE_CROSS_ORIGIN_OPENER_POLICY = "same-origin-allow-popups"
 

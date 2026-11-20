@@ -71,6 +71,7 @@ from study.notes.anchors import (
     preserve_tache_two_highlights,
 )
 from study.expression.personalization import effective_response
+from study.expression.eo.tache_2 import gemini_live
 from study.expression.eo.tache_2.dialogues import (
     hint_section_presentation,
     prompt_note_presentation,
@@ -125,6 +126,8 @@ from .helpers import (
     _task_phrases,
     _task_scope,
     _tache_two_progress,
+    _tache_two_subject_month,
+    _tache_two_subject_batch,
     _tache_two_theme_progress,
     _theme_vocabulary_batch_summary as _aggregate_vocabulary_batches,
     batch_rows,
@@ -135,6 +138,7 @@ from .helpers import (
     recent_review_sessions,
     review_batches_from_rows,
     summarize_review_batches,
+    tache_two_publication,
 )
 
 
@@ -2696,34 +2700,6 @@ def _ee_tache_two_theme_vocabulary_detail(request, task, theme):
         ),
     )
 
-def _tache_two_subject_month(month_slug):
-    month = next(
-        (
-            month
-            for month in catalogue.tache_two_subject_months()
-            if month.slug == month_slug
-        ),
-        None,
-    )
-    if month is None:
-        raise Http404
-    return month
-
-
-def _tache_two_subject_batch(month, batch_number):
-    batch = next(
-        (
-            batch
-            for batch in month.batches
-            if batch.number == batch_number
-        ),
-        None,
-    )
-    if batch is None:
-        raise Http404
-    return batch
-
-
 def _subject_navigation_items(items, *, key, deduplicate):
     if deduplicate:
         representatives = {}
@@ -2905,18 +2881,7 @@ def task_subject_detail(
     subject_number,
 ):
     task = _memory_task(part_slug, task_slug, request=request)
-    month = _tache_two_subject_month(month_slug)
-    batch = _tache_two_subject_batch(month, batch_number)
-    subject = next(
-        (
-            subject
-            for subject in batch.subjects
-            if subject.number == subject_number
-        ),
-        None,
-    )
-    if subject is None:
-        raise Http404
+    month, batch, subject = tache_two_publication(month_slug, batch_number, subject_number)
 
     selected_prompt = get_object_or_404(
         Prompt.objects.select_related(
@@ -2996,6 +2961,7 @@ def task_subject_detail(
             "subject_month": month,
             "subject_batch": batch,
             "subject": subject,
+            "gemini_live_available": gemini_live.available_to(request.user, task),
             **question_context,
             "subject_prompt_note": prompt_note_presentation(selected_prompt, response_content),
             "prompt_note_edit_url": reverse(
@@ -3214,7 +3180,10 @@ def eo_tache_two_interaction(request):
         "study/expression/eo/tache_2/interaction.html"
         if task.available else "study/shared/coming_soon.html"
     )
-    return render(request, template, {"part": task.part, "task": task})
+    return render(request, template, {
+        "part": task.part, "task": task,
+        "gemini_live_available": gemini_live.available_to(request.user, task),
+    })
 
 
 @require_http_methods(["GET"])

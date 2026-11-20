@@ -55,13 +55,14 @@ from study.navigation.routing import prompt_detail_url, response_detail_url, rev
 from . import factories
 from .browser_server import BrowserLiveServerThread
 from .course_fixtures import course_catalog, sectioned_course_lesson
+from .eo2_live_browser_tests import LiveConversationBrowserMixin
 from .formulation_browser_tests import FormulationBrowserTests
 
 
 @override_settings(
     PASSWORD_HASHERS=["django.contrib.auth.hashers.MD5PasswordHasher"]
 )
-class BrowserTests(StaticLiveServerTestCase):
+class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
     server_thread_class = BrowserLiveServerThread
 
     @classmethod

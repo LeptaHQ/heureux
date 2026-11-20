@@ -36,6 +36,11 @@
             {% include "study/shared/partials/prompt_copy_button.html" with button_class="btn btn--sm prompt-copy-button tache-two-consigne__copy" source_id="tache-two-subject-prompt" label="Copier" success_label="Copiée !" subject_label=subject.title only %}
           </div>
           <p>{{ subject.prompt }}</p>
+          {% if gemini_live_available %}
+            <a class="btn btn--sm" href="{% subject_url 'study:eo_tache_two_live' subject_month.slug subject_batch.number subject.number %}">Lancer la conversation sur ce sujet</a>
+          {% else %}
+            <small class="muted">Conversation vocale indisponible.</small>
+          {% endif %}
         </div>
       </section>
 

@@ -91,14 +91,21 @@ class SecurityHeadersMiddleware:
 
     def __call__(self, request):
         response = self.get_response(request)
+        page = (
+            request.resolver_match.view_name
+            if request.resolver_match and response.status_code == 200 else None
+        )
+        live = (
+            page == "study:eo_tache_two_live"
+            and (getattr(response, "context_data", None) or {}).get("gemini_live_available") is True
+        )
         response.setdefault(
             "Content-Security-Policy",
-            settings.CONTENT_SECURITY_POLICY,
+            settings.GEMINI_LIVE_CONTENT_SECURITY_POLICY
+            if live else settings.CONTENT_SECURITY_POLICY,
         )
-        interview = (
-            request.resolver_match
-            and request.resolver_match.url_name in {"eo_tache_one_interview", "eo_tache_two_interaction"}
-            and response.status_code == 200
+        interview = live or page in (
+            "study:eo_tache_one_interview", "study:eo_tache_two_interaction",
         )
         response.setdefault(
             "Permissions-Policy",
@@ -136,9 +143,13 @@ class AuthenticationRequiredMiddleware:
         if is_public:
             return self.get_response(request)
         try:
-            resolve(request.path_info)
+            match = resolve(request.path_info)
         except Resolver404:
             response = self.get_response(request)
+            patch_cache_control(response, private=True, no_store=True)
+            return response
+        if match.view_name == "study:eo_tache_two_live_token":
+            response = JsonResponse({"error": "Reconnectez-vous au compte pilote."}, status=401)
             patch_cache_control(response, private=True, no_store=True)
             return response
         login_target = (

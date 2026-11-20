@@ -121,6 +121,29 @@ def _tache_two_response_ids_by_subject_key(content_keys):
     )
 
 
+def _tache_two_subject_month(month_slug):
+    month = next((m for m in catalogue.tache_two_subject_months() if m.slug == month_slug), None)
+    if month is None:
+        raise Http404
+    return month
+
+
+def _tache_two_subject_batch(month, batch_number):
+    batch = next((b for b in month.batches if b.number == batch_number), None)
+    if batch is None:
+        raise Http404
+    return batch
+
+
+def tache_two_publication(month_slug, batch_number, subject_number):
+    month = _tache_two_subject_month(month_slug)
+    batch = _tache_two_subject_batch(month, batch_number)
+    subject = next((s for s in batch.subjects if s.number == subject_number), None)
+    if subject is None:
+        raise Http404
+    return month, batch, subject
+
+
 def _tache_two_progress(user, months):
     """Attach material-specific progress to Tâche 2 months and subjects."""
     months = tuple(months)

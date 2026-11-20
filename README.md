@@ -142,8 +142,10 @@ The learner can end preparation early in practice. The timed exchange includes
 both speakers; switching tabs does not pause it.
 
 The embedded French intent model uses TF-IDF similarity over labeled example
-questions, with conversation state to resolve follow-ups. Replies draw on fixed
-scenario facts. An unrecognized request gets a clarification, not a fabricated
+questions, with conversation state to resolve follow-ups. It remembers stated
+availability for Saturday or Wednesday and whether the learner has a camera
+or only a phone. Recommendations use these details and the fixed workshop
+facts. An unrecognized request gets a clarification, not a fabricated
 answer. On compatible devices an optional preinstalled language model can
 classify an unclear question; it cannot set prices or generate arbitrary replies.
 Neither path sends questions to a model server. In voice mode, after microphone
@@ -153,6 +155,53 @@ playback. Recognition may use the browser’s own online service. Learners can
 pause the microphone or switch to the keyboard to edit their current words.
 Notes and dialogue stay in tab memory. Feedback cites the questions asked;
 this studio does not assign an official speaking score.
+
+**Opt-in native voice pilot.** The separate **Conversation vocale · Gemini Live**
+page streams speech in both directions. The receptionist is instructed to speak
+French, follow the learner’s questions and use the same two fictional workshops.
+The model generates its own replies and can be interrupted. It can still
+misunderstand or invent facts. Preparation is local; the 3:30 exchange starts
+when the audio session is ready. Ending the exercise or leaving the tab closes
+the call. Captions are temporary, not a scored transcript.
+
+With the pilot enabled, open any **EO → Tâche 2 → Sujets** detail page and
+select **Lancer la conversation sur ce sujet** beneath the consigne. Preparation
+uses that exact publication, and Gemini plays its interlocutor using its
+reviewed role, facts and `tu`/`vous` register. Personal notes and edited
+questions are not included. Starting from the general Interaction page still
+opens the photo-workshop exercise.
+
+To enable the pilot for a test account:
+
+1. In [Google AI Studio](https://aistudio.google.com/api-keys), create a key
+   for a **dedicated project with Cloud Billing disabled**. Check the
+   [model’s free tier](https://aistudio.google.com/docs/pricing#gemini-3.8-live)
+   and availability in that project. Do not link a billing account or enable
+   a paid tier to work around a quota error.
+2. Set `GOOGLE_AI_STUDIO_KEY` **only in the server’s secret settings** and
+   `GEMINI_LIVE_FREE_TIER_CONFIRMED=True`. The pilot uses the existing
+   `ELEVENLABS_PIN`; it needs neither an account-ID list nor an ElevenLabs API key.
+   Restart the server. An operator must verify billing, age, region and the
+   [provider’s terms](https://aistudio.google.com/docs/terms); the flag does
+   not check these. This is a private adult pilot in Canada and the US, not
+   an opt-in for the general learner population. Share the PIN only with eligible
+   testers trusted to authorize ElevenLabs generation too. Unset the Gemini
+   confirmation flag to stop new calls without affecting narration.
+3. Sign in as an approved tester, open **Tâche 2 → Interaction → Essayer la
+   conversation vocale**, and read the consent notice. Enter the shared audio
+   PIN at the end of preparation for each call. Heureux checks the PIN before
+   opening the microphone and never sends it to Google. The browser receives a
+   short-lived, single-use token, not the server key. After consent and
+   preparation, audio travels directly to Google, which may retain and review
+   free-tier content. Use fictional details. No real recording is needed to
+   run the automated tests.
+
+**First listening check:** ask « Je n’ai que mon téléphone ; je peux quand même
+venir samedi ? » (yes, for the park walk). Interrupt the reply with « Pardon,
+je voulais dire mercredi soir. » The receptionist should change to the indoor
+studio and explain the free camera loan **by reservation**, not promise a
+booking. Listen for intelligible French, a clean interruption and a response
+to the *correction*. An automated transport check cannot judge those.
 
 ## French narration across the app
 

@@ -515,6 +515,26 @@ urlpatterns = [
         name="eo_tache_two_interaction",
     ),
     path(
+        "expression/orale/tache-2/interaction/live/",
+        views.eo_tache_two_live,
+        name="eo_tache_two_live",
+    ),
+    path(
+        "expression/orale/tache-2/interaction/live/token/",
+        views.eo_tache_two_live_token,
+        name="eo_tache_two_live_token",
+    ),
+    path(
+        "expression/orale/tache-2/interaction/live/<slug:month_slug>/<int:batch_number>/<int:subject_number>/",
+        views.eo_tache_two_live,
+        name="eo_tache_two_live",
+    ),
+    path(
+        "expression/orale/tache-2/interaction/live/<slug:month_slug>/<int:batch_number>/<int:subject_number>/token/",
+        views.eo_tache_two_live_token,
+        name="eo_tache_two_live_token",
+    ),
+    path(
         "expression/orale/tache-2/vocabulaire-par-theme/",
         views.tache_two_theme_vocabulary,
         name="tache_two_theme_vocabulary",

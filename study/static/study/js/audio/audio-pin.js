@@ -1,4 +1,4 @@
-/* A PIN is requested only when the server would create a new paid recording. */
+/* Ask only when the server requires the shared audio PIN for this action. */
 (function () {
   "use strict";
   var dialog = document.querySelector("[data-audio-pin-dialog]");
@@ -10,7 +10,7 @@
     return error;
   }
 
-  function requestPin(message, signal) {
+  function requestPin(message, signal, prompt) {
     if (signal && signal.aborted) return Promise.reject(cancelled());
     if (!dialog || typeof dialog.showModal !== "function") {
       return Promise.reject(new Error("Le formulaire PIN est indisponible. Rechargez la page."));
@@ -23,6 +23,20 @@
       var status = dialog.querySelector("[data-audio-pin-error]");
       var cancelButtons = dialog.querySelectorAll("[data-audio-pin-cancel]");
       var previousFocus = document.activeElement;
+      var title = dialog.querySelector("h2");
+      var description = dialog.querySelector("[data-audio-pin-description]");
+      var submitButton = form.querySelector("[type=submit]");
+      var originalTitle = title.textContent, originalDescription = description.textContent;
+      var originalAction = submitButton.getAttribute("aria-label");
+      function setAction(label) {
+        submitButton.title = label;
+        submitButton.setAttribute("aria-label", label);
+      }
+      if (prompt) {
+        title.textContent = prompt.title;
+        description.textContent = prompt.description;
+        setAction(prompt.action);
+      }
       var settled = false;
       input.value = "";
       input.setAttribute("aria-invalid", message ? "true" : "false");
@@ -39,6 +53,11 @@
         if (signal) signal.removeEventListener("abort", close);
         pending = false;
         if (dialog.open) dialog.close();
+        if (prompt) {
+          title.textContent = originalTitle;
+          description.textContent = originalDescription;
+          setAction(originalAction);
+        }
         if (previousFocus && previousFocus.isConnected) previousFocus.focus({preventScroll: true});
         resolve(value);
       }
@@ -57,7 +76,7 @@
     });
   }
 
-  window.HeureuxAudioRequest = function (url, options) {
+  window.HeureuxAudioRequest = function (url, options, prompt) {
     if (new URL(url, location.href).origin !== location.origin) {
       return Promise.reject(new Error("La demande audio doit rester sur ce site."));
     }
@@ -72,7 +91,7 @@
         if (response.status !== 403) return response;
         return response.clone().json().then(function (data) {
           if (data.error !== "pin_required" && data.error !== "pin_invalid") return response;
-          return requestPin(data.error === "pin_invalid" ? data.message : "", options.signal)
+          return requestPin(data.error === "pin_invalid" ? data.message : "", options.signal, prompt)
             .then(function (value) {
               if (value === null) throw cancelled();
               return send(value);

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Conversation vocale · {% if subject %}{{ subject.title }} · {% endif %}Tâche 2 · Heureux{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo1-interview.css' %}?v=4">{% endblock %}
+{% block content %}
+{% include "study/expression/partials/task_nav.html" %}
+<div class="eo-studio eo-roleplay" id="live-studio" data-state="setup"
+     data-token-url="{{ token_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
+     data-scenario-title="{{ subject.title|default:'Choisir un atelier photo' }}"
+     data-scenario-prompt="{{ subject.prompt|default:'Je travaille à l’accueil d’un centre culturel. Vous souhaitez participer à un atelier de photographie. Demandez-moi des renseignements pour choisir une formule qui vous convient.' }}">
+  <header class="eo-studio__heading"><div><p class="eo-kicker">Studio oral <span>/</span> Tâche 02</p>
+    <h1>Conversation vocale</h1><p>{% if subject %}Votre sujet : <strong>{{ subject.title }}</strong>.{% else %}Parlez en français avec la personne à l’accueil.{% endif %} Vous pouvez interrompre votre interlocuteur ou revenir sur un détail.</p>
+  </div><span class="eo-tag">Pilote · Gemini Live</span></header>
+  <div class="eo-workspace">
+    <section class="eo-console" aria-label="Votre rôle et le temps restant">
+      <div class="eo-console__top"><span id="lv-phase" class="eo-indicator">Avant la simulation</span>
+        <span id="lv-clock" class="eo-clock" role="timer" aria-label="Temps restant">02:00</span></div>
+      <div class="eo-console__body"><p class="eo-console__label" id="lv-label">L’interaction</p>
+        <h2 tabindex="-1" id="lv-title">C’est vous qui menez l’échange.</h2>
+        <p class="eo-console__note" id="lv-prompt">La consigne apparaît au début de la préparation. Ensuite, vous vous adressez à une voix générée par l’IA, pas à une personne.</p>
+      </div>
+      <div class="eo-console__base"><span>Préparation · 2 min</span><span>Échange · 3 min 30</span></div>
+    </section>
+    <div class="eo-desk">
+      {% if gemini_live_available %}
+      <section id="lv-setup">
+        <h2>Avant d’ouvrir le micro</h2>
+        <p>Dans ce mode, votre voix va directement à Google. Sur l’offre gratuite, Google peut utiliser vos échanges pour améliorer ses produits, et des personnes peuvent les examiner. Utilisez des informations fictives.</p>
+        {% if subject %}<p class="eo-help">Gemini reçoit la situation publiée et ses repères de jeu de rôle, pas vos notes ni vos réponses personnelles enregistrées.</p>{% endif %}
+        <p class="eo-help">Heureux ne sauvegarde ni audio ni transcription. L’IA peut se tromper ; il ne s’agit pas d’une évaluation officielle.</p>
+        <a href="https://aistudio.google.com/docs/terms#data-use-unpaid" target="_blank" rel="noopener noreferrer">Conditions de Google ↗</a>
+        {% csrf_token %}
+        <label class="eo-toggle"><input type="checkbox" id="lv-consent"> J’ai au moins 18 ans, je participe depuis le Canada ou les États-Unis et j’accepte l’envoi de ma voix à Google pour cette séance.</label>
+        <button type="button" class="btn eo-primary" id="lv-start" disabled>Commencer la préparation</button>
+      </section>
+      <section id="lv-prep" hidden><h2>Préparez vos questions</h2>
+        <p>Le micro est coupé. À la fin des deux minutes, saisissez le même PIN que pour les audios ElevenLabs, puis autorisez le micro. Vous pouvez aussi commencer plus tôt.</p>
+        <button type="button" class="btn" id="lv-skip">Je suis prêt · commencer l’échange</button>
+      </section>
+      <section id="lv-call" hidden><h2>À vous la parole</h2>
+        <p>Commencez par un bonjour ou une question. Inutile de toucher un bouton entre les répliques.</p>
+        <button type="button" id="lv-mute" class="btn" hidden>Couper le micro</button>
+        <details id="lv-captions"><summary>Derniers mots transcrits</summary>
+          <p>Vous : <span id="lv-user-words">—</span></p><p>Interlocuteur : <span id="lv-ai-words">—</span></p>
+        </details>
+      </section>
+      <section id="lv-done" hidden><h2>Micro coupé</h2>
+        <button type="button" class="btn" id="lv-retry">Nouvel essai</button>
+      </section>
+      <p class="eo-help" role="status" id="lv-status"></p>
+      <details class="eo-review" id="lv-notepad" hidden><summary>Mes notes de préparation</summary>
+        <label for="lv-notes">Pour vous uniquement ; ces notes ne sont pas envoyées.</label>
+        <textarea id="lv-notes" maxlength="1600" rows="3" autocomplete="off"></textarea>
+      </details>
+      <button type="button" class="btn" id="lv-end" hidden>Terminer la séance</button>
+      <noscript>Activez JavaScript pour utiliser le mode vocal.</noscript>
+      {% else %}
+      <h2>Mode vocal en ligne indisponible</h2>
+      <p>Ce pilote n’est pas activé pour votre compte. Aucun son n’a été envoyé et votre micro est coupé.</p>
+      <p class="eo-help">Une fois le pilote activé, vous préparez votre rôle pendant deux minutes, puis vous parlez avec votre interlocuteur sans clavier. L’envoi de votre voix à Google nécessite votre accord à chaque séance.</p>
+      {% endif %}
+      {% if subject_url %}<a href="{{ subject_url }}">Revenir à la fiche de ce sujet</a>{% else %}<a href="{% url 'study:eo_tache_two_interaction' %}">Revenir au simulateur guidé, sans Gemini</a>{% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+{% if gemini_live_available %}<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=3"></script>{% endif %}
+{% endblock %}

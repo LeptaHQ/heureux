@@ -79,6 +79,8 @@
 .eo-roleplay .eo-console__note { max-width: 46ch; }
 .eo-roleplay .eo-review p, .eo-roleplay .eo-report ul { margin-top: .6rem; }
 #t2-note-copy { white-space: pre-wrap; }
+#live-studio .eo-desk section { display: grid; justify-items: start; gap: .75rem; }
+#lv-captions { overflow-wrap: anywhere; }
 @media (max-width: 720px) {
   .eo-studio__heading { align-items: start; flex-direction: column; }
   .eo-workspace, .eo-background { grid-template-columns: 1fr; }

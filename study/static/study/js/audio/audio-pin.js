@@ -1,4 +1,4 @@
-/* Ask only when the server requires the shared audio PIN for this action. */
+/* Use the shared audio PIN dialog for actions that require authorization. */
 (function () {
   "use strict";
   var dialog = document.querySelector("[data-audio-pin-dialog]");
@@ -81,6 +81,12 @@
       return Promise.reject(new Error("La demande audio doit rester sur ce site."));
     }
     var original = JSON.parse(options.body);
+    function askThenSend(message) {
+      return requestPin(message, options.signal, prompt).then(function (value) {
+        if (value === null) throw cancelled();
+        return send(value);
+      });
+    }
     function send(pin) {
       var payload = Object.assign({}, original);
       if (pin !== undefined) payload.pin = pin;
@@ -91,14 +97,10 @@
         if (response.status !== 403) return response;
         return response.clone().json().then(function (data) {
           if (data.error !== "pin_required" && data.error !== "pin_invalid") return response;
-          return requestPin(data.error === "pin_invalid" ? data.message : "", options.signal, prompt)
-            .then(function (value) {
-              if (value === null) throw cancelled();
-              return send(value);
-            });
+          return askThenSend(data.error === "pin_invalid" ? data.message : "");
         });
       });
     }
-    return send();
+    return prompt && prompt.confirmBeforeSend ? askThenSend("") : send();
   };
 })();

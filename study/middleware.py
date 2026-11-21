@@ -148,7 +148,7 @@ class AuthenticationRequiredMiddleware:
             response = self.get_response(request)
             patch_cache_control(response, private=True, no_store=True)
             return response
-        if match.view_name == "study:eo_tache_two_live_token":
+        if match.view_name in ("study:eo_tache_two_live_token", "study:eo_tache_two_live_evaluation"):
             response = JsonResponse({"error": "Reconnectez-vous au compte pilote."}, status=401)
             patch_cache_control(response, private=True, no_store=True)
             return response

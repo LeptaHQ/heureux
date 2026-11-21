@@ -98,10 +98,11 @@
     by("share-bar").style.setProperty("--share", String(mine / 100));
   }
 
-  function feedback(rows) {
+  function feedback(rows, reviewedMarks = []) {
     const {evidence = [], corrections = [], next = "", tally, annotations} = window.HeureuxEO2Feedback.assess(rows);
     glance(rows, tally);
-    const {marks, total} = place(rows, annotations);
+    const highlights = reviewedMarks.map(mark => window.HeureuxEO2Feedback.changedWords(mark.turnIndex, mark));
+    const {marks, total} = place(rows, [...highlights, ...annotations]);
     const good = strengths(rows, evidence);
     painters.forEach((paint, i) => paint(marks.get(i) || [], good.get(i) || []));
     by("key").hidden = !total;
@@ -192,8 +193,12 @@
         const close = () => { render(); item.querySelector("button").focus(); };
         const tools = make("span", "", "lv-turn__tools");
         tools.append(action("Appliquer", () => {
-          row.text = field.value.trim();
-          feedback(rows);
+          const value = field.value.trim();
+          if (value !== row.text) {
+            row.text = value;
+            bindEvaluation(rows, true);
+            feedback(rows);
+          }
           close();
         }), action("Annuler", close));
         // The marked-up sentence would be stale while the words change: the field takes its place.
@@ -216,7 +221,14 @@
   }
   by("replies").onclick = () => showReplies(by("replies").getAttribute("aria-pressed") !== "true");
 
+  function bindEvaluation(rows, edited) {
+    window.HeureuxEO2Evaluation?.bind(rows, annotations => {
+      const marked = feedback(rows, annotations);
+      if (annotations.length && marked) by("transcript").open = true;
+    }, edited);
+  }
   function clear() {
+    window.HeureuxEO2Evaluation?.clear();
     painters = [];
     for (const id of ["turns", "count", "evidence", "corrections", "next", "share-user", "share-model"]) by(id).replaceChildren();
     for (const id of ["fig-time", "fig-turns", "fig-questions", "fig-links"]) by(id).textContent = "—";
@@ -235,6 +247,7 @@
     by("fig-time").textContent = duration(elapsed);
     by("replies").hidden = !rows.some(row => row.speaker !== "user");
     by("turns").replaceChildren(...rows.map((row, i) => turn(row, i, rows)));
+    bindEvaluation(rows, false);
     const marked = feedback(rows);
     // Wide screens show it beside the findings; phones open it when it carries annotations.
     by("transcript").open = marked > 0 || window.matchMedia("(min-width: 62rem)").matches;

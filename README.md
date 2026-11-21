@@ -160,8 +160,12 @@ this studio does not assign an official speaking score.
 page streams speech in both directions. The receptionist is instructed to speak
 French, follow the learner’s questions and use the same two fictional workshops.
 The model generates its own replies and can be interrupted. It can still
-misunderstand or invent facts. Preparation is local; the 3:30 exchange starts
-when the audio session is ready. Ending the exercise or leaving the tab closes
+misunderstand or invent facts. **Écouter la consigne** optionally asks Gemini
+to read just the published French prompt. It does not open the microphone or
+start either timer. **Commencer la préparation** starts the local two minutes;
+select **Commencer l’échange** to finish early, or let preparation expire.
+The 3:30 exchange starts once the PIN, microphone and Gemini session are ready.
+Ending the exercise or leaving the tab closes
 the call. The browser builds a speaker-labelled transcript from the live captions.
 At the end, learners can reread their turns with suggested changes shown inline:
 the original wording, its replacement and a short reason. They can reveal the
@@ -170,9 +174,21 @@ Strengths are illustrated with real questions or follow-ups from the exchange.
 The local rules catch selected patterns, not every mistake; unmarked text is
 not a blanket endorsement, and a spelling difference is not a pronunciation error. An interrupted
 call can show the portion received; no learner speech means no assessment.
-The review needs no second AI request. Heureux stores neither the audio nor
-the transcript; starting another attempt or leaving the page clears the review.
-It is not a pronunciation assessment or an official TCF score.
+These local corrections need no second AI request. For a separate, optional
+Gemini evaluation, review the transcript, consent to sending it, and select
+**Évaluer mon niveau**. After checking the audio PIN, Heureux sends only the
+published consigne and both speakers’ reviewed words (not audio, notes or
+original versions) to [`gemini-3.8-flash`](https://aistudio.google.com/docs/pricing#gemini-3.8-flash).
+The debrief shows a practice mark **out of 20**, its **NCLC** and **CEFR**
+equivalents, a rationale supported by learner quotes, inline corrections, and
+a specific next step. Insufficient evidence is reported without a mark.
+Conversions follow the [TCF speaking scale](https://www.france-education-international.fr/document/grilleniveauxtcf)
+and the [IRCC TCF Canada speaking table](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html#level).
+This estimates one transcribed task, not pronunciation or the official
+three-task speaking result. Editing invalidates the estimate and never
+automatically resends the text. If Google is unavailable, the local review
+still works. Heureux does not save the audio or transcript; a new attempt
+or leaving the page clears the debrief.
 
 With the pilot enabled, open any **EO → Tâche 2 → Sujets** detail page and
 select the **headphones icon** just before Copy in the **Consigne** heading. Preparation
@@ -198,8 +214,9 @@ To enable the pilot for a test account:
    testers trusted to authorize ElevenLabs generation too. Unset the Gemini
    confirmation flag to stop new calls without affecting narration.
 3. Sign in as an approved tester, open **Tâche 2 → Interaction → Essayer la
-   conversation vocale**, and read the consent notice. Enter the shared audio
-   PIN at the end of preparation for each call. Heureux checks the PIN before
+   conversation vocale**. Preparation starts without a PIN or Google request.
+   To hear the prompt or open the voice exchange, authorize that action in the
+   shared audio PIN dialog. Heureux checks the PIN before
    opening the microphone and never sends it to Google. The browser receives a
    short-lived, single-use token, not the server key. After consent and
    preparation, audio travels directly to Google, which may retain and review

@@ -90,12 +90,12 @@ class LiveTokenError(Exception):
 
 
 @sensitive_variables("pin")
-def mint_token(request, task, pin, *, instruction=None):
+def mint_token(request, task, pin, *, instruction=None, reading=False):
     if not available_to(request.user, task):
         raise LiveTokenError(403, "Le mode vocal pilote n’est pas disponible.")
     authorize_audio_generation(request, pin)
     # The per-account mint limit is separate from the shared PIN failure limit.
-    key = account_throttle_key(str(request.user.pk), purpose="eo2-gemini-live-mint")
+    key = account_throttle_key(str(request.user.pk), purpose="eo2-gemini-reading" if reading else "eo2-gemini-live-mint")
     if reserve_throttled_action(key):
         raise LiveTokenError(429, "Trop de demandes. Réessayez dans quinze minutes.")
     token = _request_token(_RECEPTION if instruction is None else instruction)

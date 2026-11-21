@@ -525,6 +525,16 @@ urlpatterns = [
         name="eo_tache_two_live_token",
     ),
     path(
+        "expression/orale/tache-2/interaction/live/evaluation/",
+        views.eo_tache_two_live_evaluation,
+        name="eo_tache_two_live_evaluation",
+    ),
+    path(
+        "expression/orale/tache-2/interaction/live/<slug:month_slug>/<int:batch_number>/<int:subject_number>/evaluation/",
+        views.eo_tache_two_live_evaluation,
+        name="eo_tache_two_live_evaluation",
+    ),
+    path(
         "expression/orale/tache-2/interaction/live/<slug:month_slug>/<int:batch_number>/<int:subject_number>/",
         views.eo_tache_two_live,
         name="eo_tache_two_live",

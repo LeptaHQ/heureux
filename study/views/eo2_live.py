@@ -11,10 +11,16 @@ from django.views.decorators.http import require_GET, require_POST
 from study.audio.pins import AudioPinError
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
-from study.expression.eo.tache_2 import gemini_live
+from study.expression.eo.tache_2 import gemini_evaluation, gemini_live
 from study.models import Prompt
 from study.navigation.routing import subject_selection_url
 from .helpers import _route_task, active_task_for_request, tache_two_publication
+
+
+DEFAULT_CONSIGNE = (
+    "Je travaille à l’accueil d’un centre culturel. Vous souhaitez participer à un atelier de photographie. "
+    "Demandez-moi des renseignements pour choisir une formule qui vous convient."
+)
 
 
 def _live_publication(task, month_slug, batch_number, subject_number):
@@ -44,6 +50,8 @@ def eo_tache_two_live(request, **publication):
         "task": task,
         "gemini_live_available": gemini_live.available_to(request.user, task),
         "token_url": reverse("study:eo_tache_two_live_token", kwargs=publication),
+        "evaluation_url": reverse("study:eo_tache_two_live_evaluation", kwargs=publication),
+        "scenario_prompt": subject.prompt if subject else DEFAULT_CONSIGNE,
         "subject": subject,
         "subject_url": subject_url,
     })
@@ -62,7 +70,8 @@ def _session_request(request):
     if not isinstance(pairs, tuple):
         return None
     data = dict(pairs)
-    if len(data) != len(pairs) or data.keys() - {"consent", "pin"} or data.get("consent") is not True:
+    if (len(data) != len(pairs) or data.keys() - {"consent", "pin", "purpose"} or data.get("consent") is not True
+            or ("purpose" in data and data["purpose"] != "read_prompt")):
         return None
     if "pin" in data:
         if not isinstance(data["pin"], str):
@@ -87,13 +96,41 @@ def eo_tache_two_live_token(request, **publication):
         return JsonResponse({"error": "Un consentement explicite est requis."}, status=400)
     task = active_task_for_request(request, "eo", "tache-2")
     instruction = None
-    if publication:
+    reading = data.get("purpose") == "read_prompt"
+    if reading:
+        prompt = _live_publication(task, **publication)[0].prompt if publication else DEFAULT_CONSIGNE
+        instruction = (
+            "Vous êtes le lecteur d’une consigne de français, pas l’interlocuteur. "
+            "À la demande de lecture, lisez uniquement le passage suivant en français, "
+            "mot pour mot, sans introduction, commentaire, réponse ni suggestion. Puis taisez-vous.\n" + prompt
+        )
+    elif publication:
         subject, key = _live_publication(task, **publication)
         instruction = gemini_live.subject_instruction(subject, catalogue.tache_two_dialogues()[key])
     try:
-        token = gemini_live.mint_token(request, task, data.get("pin"), instruction=instruction)
+        token = gemini_live.mint_token(request, task, data.get("pin"), instruction=instruction, reading=reading)
     except AudioPinError as exc:
         return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
     except gemini_live.LiveTokenError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
     return JsonResponse({"token": token, "model": gemini_live.MODEL})
+
+
+@never_cache
+@require_POST
+@csrf_protect
+@sensitive_post_parameters()
+@sensitive_variables()
+def eo_tache_two_live_evaluation(request, **publication):
+    if request.content_type != "application/json":
+        return JsonResponse({"error": "Un objet JSON est requis."}, status=415)
+    task = active_task_for_request(request, "eo", "tache-2")
+    prompt = _live_publication(task, **publication)[0].prompt if publication else DEFAULT_CONSIGNE
+    try:
+        data = gemini_evaluation.request_data(request.read(gemini_evaluation.MAX_BODY + 1))
+        report = gemini_evaluation.evaluate(request, task, data.get("pin"), prompt, data["rows"])
+    except AudioPinError as exc:
+        return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
+    except gemini_evaluation.EvaluationError as exc:
+        return JsonResponse({"error": str(exc)}, status=exc.status)
+    return JsonResponse(report)

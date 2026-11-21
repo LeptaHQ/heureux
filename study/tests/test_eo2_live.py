@@ -9,7 +9,7 @@ from django.utils import timezone
 
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
-from study.expression.eo.tache_2 import gemini_live
+from study.expression.eo.tache_2 import gemini_evaluation, gemini_live
 from study.models import LoginThrottle, Prompt
 from . import factories
 
@@ -246,3 +246,123 @@ class GeminiLiveTests(TestCase):
         # Exactly once per valid request, with no redirects or retries.
         self.assertEqual(self.transport.call_count, 5)
         self.assertEqual(self.upstream.read.call_count, 2)
+
+    def test_reading_token_only_receives_the_selected_public_consigne(self):
+        args = ("mai", 2, 8)
+        key = tache_two_subject_content_key(*args)
+        entry = factories.make_response(theme=factories.make_theme("speaker", task=self.task))
+        Prompt.objects.filter(response=entry).update(content_key=key)
+        page = self.client.get(reverse("study:eo_tache_two_live", args=args))
+        self.assert_private(self.post(url=page.context["token_url"], body=json.dumps({
+            "consent": True, "purpose": "read_prompt", "pin": PILOT_PIN,
+        })), 200)
+        payload = json.loads(self.connection.request.call_args.kwargs["body"])
+        instruction = payload["bidiGenerateContentSetup"]["systemInstruction"]["parts"][0]["text"]
+        self.assertIn(page.context["subject"].prompt, instruction)
+        self.assertNotIn(catalogue.tache_two_dialogues()[key].questions[0].answer, instruction)
+
+    def evaluation_fixture(self):
+        transport = self.enterContext(patch.object(gemini_evaluation, "HTTPSConnection", autospec=True))
+        self.eval_connection = transport.return_value
+        self.eval_response = self.eval_connection.getresponse.return_value.__enter__.return_value
+        self.eval_response.status = 200
+        self.eval_url = reverse("study:eo_tache_two_live_evaluation")
+        self.rows = [
+            {"speaker": "user", "text": "Bonjour, combien coûte le prêt ?"},
+            {"speaker": "model", "text": "Cinq dollars."},
+            {"speaker": "user", "text": "📷 Et si je veux prend deux appareils ?"},
+        ]
+        self.report = {"score": 12, "reason": "Vous adaptez votre demande au tarif annoncé.",
+                       "evidence": [{"turnIndex": 0, "quote": "combien coûte le prêt", "why": "Le prix est ciblé."},
+                                    {"turnIndex": 2, "quote": "Et si je veux", "why": "Vous explorez une autre possibilité."}],
+                       "corrections": [{"turnIndex": 2, "before": "veux prend", "after": "veux prendre",
+                                        "why": "Après vouloir, le deuxième verbe reste à l’infinitif."}],
+                       "next": "Précisez la durée du prêt : « Et si je les garde deux jours ? »"}
+        return transport
+
+    def evaluate(self, *, url=None, **changes):
+        self.eval_response.read.return_value = json.dumps({"candidates": [{
+            "finishReason": "STOP", "content": {"parts": [{"text": json.dumps(self.report)}]},
+        }]}).encode()
+        return self.post(url=url or self.eval_url, body=json.dumps({
+            "consent": True, "pin": PILOT_PIN, "rows": self.rows, **changes,
+        }))
+
+    def test_review_uses_only_exact_publication_and_reviewed_text_and_maps_score(self):
+        self.evaluation_fixture()
+        args = ("mai", 2, 8)
+        key = tache_two_subject_content_key(*args)
+        entry = factories.make_response(theme=factories.make_theme("speaker", task=self.task))
+        Prompt.objects.filter(response=entry).update(content_key=key)
+        page = self.client.get(reverse("study:eo_tache_two_live", args=args))
+        url = page.context["evaluation_url"]
+        response = self.evaluate(url=url)
+        self.assert_private(response, 200)
+        self.assert_no_live_policy(response)
+        report = response.json()
+        self.assertEqual((report["score"], report["cefr"], report["nclc"]), (12, "B2", "8"))
+        mark, = report["annotations"]
+        encoded = self.rows[mark["turnIndex"]]["text"].encode("utf-16-le")
+        self.assertEqual(encoded[2*mark["start"]:2*mark["end"]].decode("utf-16-le"), "veux prend")
+        call = self.eval_connection.request.call_args
+        self.assertEqual(call.args, ("POST", "/v1beta/models/gemini-3.8-flash:generateContent"))
+        payload = json.loads(call.kwargs["body"])
+        self.assertEqual(json.loads(payload["contents"][0]["parts"][0]["text"]),
+                         {"consigne": page.context["subject"].prompt, "rows": self.rows})
+        self.assertNotIn(PILOT_PIN, repr(call))
+        self.assertNotIn(self.reviewer.username, repr(call))
+        self.assertNotIn(catalogue.tache_two_dialogues()[key].questions[0].answer, json.dumps(payload, ensure_ascii=False))
+        Prompt.objects.filter(response=entry).update(is_active=False)
+        self.assertEqual(self.evaluate(url=url).status_code, 404)
+        self.eval_connection.request.assert_called_once()
+
+    def test_review_gates_invalid_input_quota_and_auth(self):
+        transport = self.evaluation_fixture()
+        for changes in ({"consent": False}, {"notes": "private"}, {"rows": [self.rows[1]]},
+                        {"rows": [{**self.rows[0], "original": "misheard"}]}, {"rows": self.rows * 100}):
+            self.assert_private(self.evaluate(**changes), 400)
+        self.assert_private(self.post(url=self.eval_url, body=" " * (gemini_evaluation.MAX_BODY + 1)), 400)
+        self.assert_private(self.evaluate(pin=""), 403)
+        self.assert_private(self.client.post(self.eval_url, {"consent": True}, content_type="application/json"), 403)
+        with self.settings(GEMINI_LIVE_FREE_TIER_CONFIRMED=False):
+            self.assert_private(self.evaluate(), 403)
+        transport.assert_not_called()
+        self.eval_response.status = 429
+        for _ in range(5):
+            self.assert_private(self.evaluate(), 429)
+        self.eval_response.status = 200
+        self.assert_private(self.evaluate(), 429)
+        self.assertEqual(transport.call_count, 5)
+        self.client.logout()
+        self.assert_private(self.client.post(self.eval_url, content_type="application/json"), 401)
+
+    def test_scored_transcript_uses_speaking_conversions_not_independent_model_levels(self):
+        self.evaluation_fixture()
+        for score, cefr, nclc in (
+            (0, "A1 non atteint", "< 4"), (1, "A1", "< 4"), (2, "A2", "< 4"), (4, "A2", "4"),
+            (6, "B1", "5"), (7, "B1", "6"), (10, "B2", "7"), (12, "B2", "8"),
+            (14, "C1", "9"), (16, "C1", "10+"), (18, "C2", "10+"), (20, "C2", "10+"),
+        ):
+            with self.subTest(score=score):
+                result = gemini_evaluation._ground({**self.report, "score": score}, self.rows)
+                self.assertEqual((result["cefr"], result["nclc"]), (cefr, nclc))
+
+    def test_evaluation_withholds_unsupported_scores_and_rejects_bad_evidence(self):
+        self.evaluation_fixture()
+        self.report["evidence"].pop()
+        self.assertIsNone(self.evaluate().json()["score"])
+        for invalid in (
+            {"turnIndex": 1, "quote": "Cinq dollars.", "why": "Attribué au partenaire."},
+            {"turnIndex": 0, "quote": "Jamais prononcé.", "why": "Inventé."},
+        ):
+            self.report["evidence"] = [invalid]
+            self.assert_private(self.evaluate(), 503)
+        self.report["evidence"] = []
+        self.rows[-1]["text"] += " veux prend"
+        incomplete = self.evaluate().json()
+        self.assertIsNone(incomplete["score"])
+        self.assertEqual(incomplete["annotations"], [])
+        self.eval_response.read.return_value = b"x" * 70_000
+        response = self.post(url=self.eval_url, body=json.dumps({"rows": self.rows, "pin": PILOT_PIN, "consent": True}))
+        self.assert_private(response, 503)
+        self.assertNotIn(self.rows[0]["text"], str(response.content))

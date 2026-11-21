@@ -2,7 +2,7 @@
   "use strict";
   const root = document.getElementById("live-studio");
   const by = id => document.getElementById("lv-" + id);
-  if (!root || !by("consent")) return;
+  if (!root || !by("setup")) return;
   const text = (id, value) => { by(id).textContent = value; };
   const show = (id, visible) => { by(id).hidden = !visible; };
   const wsURL = "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContentConstrained";
@@ -14,7 +14,7 @@
   const initialTitle = by("title").textContent;
   const initialKicker = by("kicker").textContent;
   const stepOf = {loading:"prep",prep:"prep",connecting:"live",live:"live",done:"done"};
-  let active;
+  let active, reader;
   const state = () => root.dataset.state;
   const owns = s => active === s;
   function phase(next, label) {
@@ -61,10 +61,7 @@
     active = null; clearTimeout(s.timer); clearTimeout(s.watchdog); s.abort.abort();
     cutMic(s); cutSound(s);
     s.stream?.getTracks().forEach(t => { t.onended = null; t.stop(); });
-    if (s.sock) {
-      s.sock.onmessage = s.sock.onopen = s.sock.onclose = s.sock.onerror = null;
-      s.sock.close();
-    }
+    closeSocket(s);
     if (s.audio && s.audio.state !== "closed") s.audio.close();
     phase("done","Séance terminée");
     const reviewed = started && review.render(s.rows,{elapsed});
@@ -74,7 +71,7 @@
       cut ? "Bilan partiel · échange interrompu" : "Bilan de l’échange");
     text("title",!started ? "L’échange n’a pas commencé" : reviewed ? "Votre bilan" : "Pas de bilan pour cet essai");
     text("prompt",root.dataset.scenarioTitle); text("status",message); show("failed",!started);
-    text("user-words","—"); text("ai-words","—"); by("consent").checked = false; by("notes").value = "";
+    text("user-words","—"); text("ai-words","—"); by("notes").value = "";
     s.rows.length = 0; s.partial = {}; s.lastModel = null;
     by("title").focus();
   }
@@ -170,26 +167,99 @@
       }
     } catch { finish(s,"Réponse vocale illisible. La connexion et le micro ont été fermés."); }
   }
+  function closeSocket(s) {
+    if (!s.sock) return;
+    s.sock.onmessage = s.sock.onopen = s.sock.onclose = s.sock.onerror = null;
+    s.sock.close();
+  }
+  function tokenRequest(s, reading = false) {
+    return window.HeureuxAudioRequest(root.dataset.tokenUrl,{method:"POST",credentials:"same-origin",mode:"same-origin",cache:"no-store",
+      headers:{"Content-Type":"application/json","X-CSRFToken":root.querySelector('[name="csrfmiddlewaretoken"]').value},
+      body:JSON.stringify(reading ? {consent:true,purpose:"read_prompt"} : {consent:true}),signal:s.abort.signal},{
+      confirmBeforeSend:true,
+      title:reading ? "Autoriser la lecture de la consigne" : "Autoriser la conversation Gemini Live",
+      description:"En autorisant, je confirme avoir au moins 18 ans et participer depuis le Canada ou les États-Unis. " +
+        (reading ? "Seule la consigne est envoyée à Google, sans micro." :
+          "J’accepte d’envoyer ma voix à Google. Sur l’offre gratuite, des personnes peuvent examiner l’échange pour améliorer les produits de Google."),
+      action:reading ? "Autoriser la lecture" : "Autoriser cette conversation"
+    });
+  }
+  async function socketConfig(response) {
+    const {token,model} = await response.json();
+    if (typeof token !== "string" || !token.startsWith("auth_tokens/") || model !== "models/gemini-3.8-live") throw new Error("Configuration invalide");
+    return {token,model};
+  }
+  function openSocket(s, {token, model}) {
+    const socket = s.sock = new WebSocket(`${wsURL}?access_token=${encodeURIComponent(token)}`);
+    socket.binaryType = "arraybuffer";
+    socket.onopen = () => socket.send(JSON.stringify({setup:{model,generationConfig:{responseModalities:["AUDIO"]},inputAudioTranscription:{},outputAudioTranscription:{}}}));
+    return socket;
+  }
+  function stopReading(message = "") {
+    const s = reader;
+    if (s) {
+      reader = null;
+      clearTimeout(s.watchdog); clearTimeout(s.timer); s.abort.abort();
+      closeSocket(s); cutSound(s);
+      if (s.audio && s.audio.state !== "closed") s.audio.close();
+    }
+    text("listen","Écouter la consigne");
+    text("listen-status",message);
+  }
+  by("listen").onclick = async () => {
+    if (reader) { stopReading("Lecture arrêtée."); return; }
+    if (!capable || active || state() !== "setup") return;
+    const s = reader = {abort:new AbortController(),playing:new Set(),cursor:0};
+    text("listen","Arrêter la lecture"); text("listen-status","Ouverture de la lecture…");
+    const failed = () => { if (reader === s) stopReading("Lecture indisponible. Vous pouvez commencer la préparation sans l’écouter."); };
+    s.watchdog = setTimeout(failed,120000);
+    try {
+      s.audio = new Audio(); await s.audio.resume();
+      if (reader !== s) return;
+      const response = await tokenRequest(s,true);
+      if (reader !== s) return;
+      if (!response.ok) { failed(); return; }
+      const config = await socketConfig(response);
+      if (reader !== s) return;
+      const socket = openSocket(s,config);
+      socket.onerror = socket.onclose = failed;
+      socket.onmessage = e => {
+        if (reader !== s) return;
+        try {
+          const msg = JSON.parse(typeof e.data === "string" ? e.data : new TextDecoder().decode(e.data));
+          if (msg.error || msg.goAway) { failed(); return; }
+          if (msg.setupComplete) {
+            text("listen-status","Lecture en français · micro coupé, chronomètre arrêté.");
+            socket.send(JSON.stringify({clientContent:{turns:[{role:"user",parts:[{text:"Lisez la consigne."}]}],turnComplete:true}}));
+          }
+          const turn = msg.serverContent;
+          for (const part of turn?.modelTurn?.parts || []) if (part.inlineData?.mimeType?.startsWith("audio/pcm")) play(s,part.inlineData.data);
+          if (turn?.turnComplete) {
+            if (!s.cursor) { failed(); return; }
+            closeSocket(s);
+            s.timer = setTimeout(() => { if (reader === s) stopReading("Lecture terminée. Commencez la préparation quand vous êtes prêt."); },
+              Math.max(0,(s.cursor-s.audio.currentTime)*1000));
+          }
+        } catch { failed(); }
+      };
+    } catch (error) {
+      if (reader === s && error.name === "AbortError") stopReading("Lecture annulée.");
+      else failed();
+    }
+  };
   async function connect(s) {
     if (!owns(s) || state() !== "prep") return;
     clearTimeout(s.timer); phase("connecting","Connexion"); display(live);
     by("notepad").open = false; text("status","Connexion en cours. Le micro reste coupé.");
     s.watchdog = setTimeout(() => finish(s,"Le délai d’autorisation a expiré. Le micro reste coupé."),120000);
     try {
-      const response = await window.HeureuxAudioRequest(root.dataset.tokenUrl,{method:"POST",credentials:"same-origin",mode:"same-origin",cache:"no-store",
-        headers:{"Content-Type":"application/json","X-CSRFToken":root.querySelector('[name="csrfmiddlewaretoken"]').value},
-        body:JSON.stringify({consent:true}),signal:s.abort.signal},{
-        title:"Autoriser la conversation Gemini Live",
-        description:"Utilisez le PIN audio ElevenLabs. Il est vérifié par Heureux et n’est pas envoyé à Google. Cet appel ne génère pas d’enregistrement ElevenLabs.",
-        action:"Autoriser cette conversation"
-      });
+      const response = await tokenRequest(s);
       if (!owns(s)) return;
       if (!response.ok) {
         finish(s,response.status === 429 ? "Limite de tentatives atteinte. Utilisez le simulateur guidé ou réessayez plus tard." :
           "Gemini Live est indisponible pour cette séance. Vous pouvez revenir au simulateur guidé."); return;
       }
-      const {token,model} = await response.json(); if (!owns(s)) return;
-      if (typeof token !== "string" || !token.startsWith("auth_tokens/") || model !== "models/gemini-3.8-live") throw new Error("Configuration invalide");
+      const config = await socketConfig(response); if (!owns(s)) return;
       text("status","Autorisez le micro. Votre voix n’est pas envoyée avant l’ouverture de la séance.");
       clearTimeout(s.watchdog);
       s.watchdog = setTimeout(() => finish(s,"La connexion n’a pas abouti. Aucun nouvel essai automatique."),30000);
@@ -197,9 +267,7 @@
       if (!owns(s)) { stream.getTracks().forEach(t => t.stop()); return; }
       s.stream = stream;
       stream.getAudioTracks().forEach(t => { t.enabled = false; t.onended = () => finish(s,"Le microphone s’est déconnecté."); });
-      const socket = s.sock = new WebSocket(`${wsURL}?access_token=${encodeURIComponent(token)}`);
-      socket.binaryType = "arraybuffer";
-      socket.onopen = () => { if (owns(s)) socket.send(JSON.stringify({setup:{model,generationConfig:{responseModalities:["AUDIO"]},inputAudioTranscription:{},outputAudioTranscription:{}}})); };
+      const socket = openSocket(s,config);
       socket.onmessage = e => receive(s,e.data);
       socket.onerror = socket.onclose = () => finish(s,"Connexion vocale interrompue ou quota indisponible. Le micro est coupé.");
     } catch (error) {
@@ -211,11 +279,12 @@
     review.clear(); delete root.dataset.ending; delete root.dataset.mic;
     phase("setup","Avant la simulation"); display(prep); text("status",capable ? "" : "Ce navigateur ne permet pas l’appel vocal. Essayez un navigateur récent en HTTPS.");
     text("title",initialTitle); text("prompt",introduction);
-    by("consent").checked = false; by("start").disabled = true; by("captions").open = false;
+    stopReading();
+    by("start").disabled = by("listen").disabled = !capable; by("captions").open = false;
   }
-  by("consent").onchange = () => { by("start").disabled = !capable || !by("consent").checked; };
   by("start").onclick = async () => {
-    if (!capable || active || !by("consent").checked) return;
+    if (!capable || active || state() !== "setup") return;
+    stopReading();
     const s = active = {abort:new AbortController(),playing:new Set(),rows:[],partial:{},cursor:0};
     phase("loading","Installation"); text("status","Vérification de la lecture audio ; le micro reste coupé.");
     try {
@@ -238,7 +307,10 @@
   };
   by("end").onclick = () => { if (active) finish(active,"Vous avez mis fin à la séance.","normal"); };
   by("retry").onclick = () => { setup(); by("title").focus(); };
-  document.addEventListener("visibilitychange",() => { if (document.hidden && active) finish(active,"Séance fermée : vous avez quitté l’onglet."); });
+  document.addEventListener("visibilitychange",() => {
+    if (document.hidden && reader) stopReading("Lecture arrêtée.");
+    if (document.hidden && active) finish(active,"Séance fermée : vous avez quitté l’onglet.");
+  });
   window.addEventListener("pagehide",() => { if (active) finish(active,"Séance fermée."); setup(); });
   // Keep the session timeline below the site's sticky navigation.
   const nav = document.querySelector(".nav");

@@ -147,5 +147,5 @@
     }
     return {evidence, corrections, annotations, next, tally: {turns: learner.length, questions, followUps}};
   }
-  return {assess};
+  return {assess, changedWords};
 });

@@ -2,6 +2,10 @@
 
 import json
 import logging
+import random
+import re
+import time
+import uuid
 from contextlib import closing
 from http.client import HTTPException, HTTPSConnection
 
@@ -90,7 +94,7 @@ plus faible ou d'une erreur répétée. Dis quoi faire et à quel moment de l'é
 un exemple de formulation adapté à cette consigne, présenté comme un exemple, jamais comme une
 parole du candidat. Moins de 400 caractères.
 proposal : une réponse modèle personnalisée : les répliques du candidat réécrites dans l'ordre
-de l'échange, une réplique par élément, sans numéro ni guillemets. Garde ses intentions et le fil
+de l'échange, une réplique par élément, seize au plus, sans numéro ni guillemets. Garde ses intentions et le fil
 des réponses du partenaire ; rends chaque réplique précise, polie et naturelle, niveau NCLC 7 ou 8,
 avec le rôle et le registre (tu ou vous) de la consigne. Ouvre en posant le but sans réciter la
 consigne ; termine par un bref merci qui reprend l'information obtenue, sans nouvelle question.
@@ -103,23 +107,27 @@ def _object(**fields):
 
 
 _STR = {"type": "string"}
-_INDEX = {"type": "integer", "minimum": 0}
-_CRITERION = _object(points={"type": ["integer", "null"], "minimum": 0, "maximum": 5},
-                     why=_STR, turnIndex={"type": ["integer", "null"], "minimum": 0})
+_INDEX = {"type": "integer"}
+_NULLABLE_INDEX = {"type": ["integer", "null"]}
+# Counts and ranges stay in the prompt and _ground: Gemini compiles the schema into a grammar,
+# and each array or numeric bound multiplies its states until the request fails with HTTP 400.
 # Gemini fills fields in schema order: evidence comes before the marks it supports.
 _SCHEMA = _object(
-    corrections={"type": "array", "maxItems": 12, "items": _object(turnIndex=_INDEX, before=_STR, after=_STR, why=_STR)},
-    strengths={"type": "array", "maxItems": 3, "items": _object(turnIndex=_INDEX, why=_STR)},
-    criteria=_object(**dict.fromkeys(_CRITERIA, _CRITERION)),
+    corrections={"type": "array", "items": _object(turnIndex=_INDEX, before=_STR, after=_STR, why=_STR)},
+    strengths={"type": "array", "items": _object(turnIndex=_INDEX, why=_STR)},
+    criteria=_object(**dict.fromkeys(_CRITERIA, _object(points=_NULLABLE_INDEX, why=_STR, turnIndex=_NULLABLE_INDEX))),
     reason=_STR,
     next=_STR,
-    proposal={"type": "array", "maxItems": 16, "items": _STR},
+    proposal={"type": "array", "items": _STR},
 )
+# One retry for a transient provider failure, inside the time the view waits for a report.
+_DEADLINE_SECONDS = 180
+_RETRY_MIN_SECONDS = 30
 
 
 class EvaluationError(Exception):
-    def __init__(self, status, message):
-        self.status = status
+    def __init__(self, status, message, *, retry=False):
+        self.status, self.retry = status, retry
         super().__init__(message)
 
 
@@ -137,33 +145,59 @@ def _text(value, limit, *, empty=False):
     return value
 
 
+def _rows(rows, flags=frozenset()):
+    """Transcript rows as the debrief shows them; `flags` are optional keys that must be true."""
+    if not isinstance(rows, list) or not 1 <= len(rows) <= 180:
+        raise ValueError
+    size = 0
+    for row in rows:
+        if (not isinstance(row, dict) or row.keys() - flags != {"speaker", "text"} or row["speaker"] not in ("user", "model")
+                or any(row[key] is not True for key in row.keys() & flags)):
+            raise ValueError
+        size += len(_text(row["text"], 4_000, empty=True))
+    if size > 24_000 or not any(r["speaker"] == "user" and r["text"].strip() for r in rows):
+        raise ValueError
+    return rows
+
+
 @sensitive_variables()
 def request_data(body):
     try:
         if len(body) > MAX_BODY:
             raise ValueError
         data = json.loads(body, object_pairs_hook=_unique)
-        if not isinstance(data, dict) or data.keys() - {"consent", "rows", "pin", "reviewGrant"} or data.get("consent") is not True:
+        if (not isinstance(data, dict) or data.keys() - {"consent", "rows", "pin", "reviewGrant", "simulation"}
+                or data.get("consent") is not True):
             raise ValueError
         if "reviewGrant" in data:
             if "pin" in data:
                 raise ValueError
             _text(data["reviewGrant"], 256)
-        rows = data.get("rows")
-        if not isinstance(rows, list) or not 1 <= len(rows) <= 180:
-            raise ValueError
+        _rows(data.get("rows"))
         if "pin" in data:
             _text(data["pin"], 128, empty=True)
-        size = 0
-        for row in rows:
-            if not isinstance(row, dict) or row.keys() != {"speaker", "text"} or row["speaker"] not in ("user", "model"):
-                raise ValueError
-            size += len(_text(row["text"], 4_000, empty=True))
-        if size > 24_000 or not any(r["speaker"] == "user" and r["text"].strip() for r in rows):
-            raise ValueError
+        if "simulation" in data:
+            data["simulation"] = uuid.UUID(_text(data["simulation"], 36))
         return data
     except (ValueError, RecursionError):
         raise EvaluationError(400, "Consentement ou transcription invalide.") from None
+
+
+@sensitive_variables()
+def simulation_data(body):
+    """A finished exchange to keep: its rows, with interrupted replies, and its duration in ms."""
+    try:
+        if len(body) > MAX_BODY:
+            raise ValueError
+        data = json.loads(body, object_pairs_hook=_unique)
+        if not isinstance(data, dict) or data.keys() != {"rows", "elapsed"}:
+            raise ValueError
+        if type(data["elapsed"]) is not int or not 0 <= data["elapsed"] <= 600_000:
+            raise ValueError
+        _rows(data["rows"], frozenset({"interrupted"}))
+        return data
+    except (ValueError, RecursionError):
+        raise EvaluationError(400, "Transcription invalide.") from None
 
 
 def _band(score, bands):
@@ -222,20 +256,25 @@ def _ground(report, rows):
     if not usable:
         raise ValueError
 
+    # Gemini can overrun a count stated only in the prompt: keep the first items, not nothing.
     try:
         proposal = report.get("proposal")
-        if not isinstance(proposal, list) or len(proposal) > 16:
+        if not isinstance(proposal, list):
             raise ValueError
-        result["proposal"] = [_text(line, 400).strip() for line in proposal]
+        if len(proposal) > 16:
+            result["omitted"] = True
+        result["proposal"] = [_text(line, 400).strip() for line in proposal[:16]]
     except ValueError:
         result["omitted"] = True
 
     for field, limit in (("strengths", 3), ("corrections", 12)):
         items = report.get(field)
-        if not isinstance(items, list) or len(items) > limit:
+        if not isinstance(items, list):
             result["omitted"] = True
             continue
-        for item in items:
+        if len(items) > limit:
+            result["omitted"] = True
+        for item in items[:limit]:
             i = item.get("turnIndex") if isinstance(item, dict) else None
             words = _learner_text(rows, i)
             why = note(item, "why", 450)
@@ -291,32 +330,60 @@ def authorize(request, task, pin, *, grant, subject_key):
         raise EvaluationError(429, "Trop de bilans demandés. Réessayez dans quinze minutes.")
 
 
+def _provider_error(raw):
+    """The error status and message Gemini returns, safe to log and to show as a code."""
+    try:
+        error = json.loads(raw)["error"]
+        status, message = error.get("status"), error.get("message")
+    except (ValueError, KeyError, TypeError, AttributeError, RecursionError):
+        return "", ""
+    status = status if isinstance(status, str) and re.fullmatch(r"[A-Z_]{1,40}", status) else ""
+    return status, " ".join(message.split())[:300] if isinstance(message, str) else ""
+
+
+@sensitive_variables()
+def _post(payload, timeout):
+    try:
+        with closing(HTTPSConnection("generativelanguage.googleapis.com", timeout=timeout)) as conn:
+            conn.request("POST", f"/v1beta/models/{MODEL}:generateContent", body=payload,
+                         headers={"Content-Type": "application/json", "x-goog-api-key": settings.GEMINI_LIVE_API_KEY})
+            with conn.getresponse() as resp:
+                if resp.status == 200:
+                    return resp.read(_MAX_RESPONSE + 1)
+                provider, detail = _provider_error(resp.read(16_000))
+    except TimeoutError:
+        raise EvaluationError(504, "Gemini n’a pas répondu à temps. Votre transcription reste disponible.") from None
+    except (OSError, HTTPException):
+        raise EvaluationError(503, "Connexion à Gemini impossible. Votre transcription reste disponible.", retry=True) from None
+    logger.warning("EO2 evaluation: provider HTTP %d %s %s", resp.status, provider or "-", detail or "-")
+    code = f"HTTP {resp.status} {provider}".strip()
+    if resp.status == 429:
+        raise EvaluationError(429, f"Quota Gemini atteint ({code}). Les corrections locales restent disponibles.")
+    if resp.status >= 500:
+        raise EvaluationError(502, f"Gemini est momentanément indisponible ({code}). Votre transcription reste disponible.",
+                              retry=True)
+    raise EvaluationError(502, f"Gemini n’a pas accepté la demande de bilan ({code}). Votre transcription reste disponible.")
+
+
 # Runs off the request thread: no request, session or database access here.
 @sensitive_variables()
 def score(prompt, rows):
-    payload = {
+    payload = json.dumps({
         "systemInstruction": {"parts": [{"text": _INSTRUCTION}]},
         "contents": [{"role": "user", "parts": [{"text": json.dumps({
             "consigne": prompt, "rows": [dict(row, turnIndex=i) for i, row in enumerate(rows)],
         }, ensure_ascii=False)}]}],
         "generationConfig": {"responseFormat": {"text": {"mimeType": "APPLICATION_JSON", "schema": _SCHEMA}},
                              "thinkingConfig": {"thinkingLevel": "LOW"}, "maxOutputTokens": 8192},
-    }
+    }).encode()
+    deadline = time.monotonic() + _DEADLINE_SECONDS
     try:
-        with closing(HTTPSConnection("generativelanguage.googleapis.com", timeout=180)) as conn:
-            conn.request("POST", f"/v1beta/models/{MODEL}:generateContent", body=json.dumps(payload).encode(),
-                         headers={"Content-Type": "application/json", "x-goog-api-key": settings.GEMINI_LIVE_API_KEY})
-            with conn.getresponse() as resp:
-                if resp.status == 429:
-                    raise EvaluationError(429, "Quota Gemini atteint. Les corrections locales restent disponibles.")
-                if resp.status != 200:
-                    logger.warning("EO2 evaluation: provider HTTP %d", resp.status)
-                    raise EvaluationError(502, "Gemini n’a pas accepté la demande de bilan. Votre transcription reste disponible.")
-                body = resp.read(_MAX_RESPONSE + 1)
-    except TimeoutError:
-        raise EvaluationError(504, "Gemini n’a pas répondu à temps. Votre transcription reste disponible.") from None
-    except (OSError, HTTPException):
-        raise EvaluationError(503, "Connexion à Gemini impossible. Votre transcription reste disponible.") from None
+        body = _post(payload, _DEADLINE_SECONDS)
+    except EvaluationError as exc:
+        if not exc.retry or deadline - time.monotonic() < _RETRY_MIN_SECONDS:
+            raise
+        time.sleep(1 + random.random())
+        body = _post(payload, deadline - time.monotonic())
     try:
         if len(body) > _MAX_RESPONSE:
             raise ValueError

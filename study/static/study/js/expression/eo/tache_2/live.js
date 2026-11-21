@@ -260,6 +260,13 @@
         error.name === "NotAllowedError" ? "Micro refusé. Autorisez-le dans votre navigateur pour participer." : "Impossible d’ouvrir le micro ou la connexion vocale.");
     }
   }
+  // A saved exchange opens on its debrief; its report is the stored one, not a new Gemini call.
+  function reopen(saved) {
+    phase("done","Séance enregistrée");
+    root.dataset.ending = "normal";
+    text("title","Votre bilan"); text("prompt",root.dataset.scenarioTitle); text("status","Séance enregistrée.");
+    review.render(saved.rows,{elapsed:saved.elapsed,saved});
+  }
   function setup() {
     review.clear(); delete root.dataset.ending; delete root.dataset.mic;
     phase("setup","Avant la simulation"); display(prep); text("status",capable ? "" : "Ce navigateur ne permet pas l’appel vocal. Essayez un navigateur récent en HTTPS.");
@@ -306,7 +313,14 @@
     text("mute","Rouvrir le micro"); by("mute").setAttribute("aria-pressed","true"); text("status","Micro coupé. Aucun son n’est envoyé.");
   };
   by("end").onclick = () => { if (active) finish(active,"Vous avez mis fin à la séance.","normal"); };
-  by("retry").onclick = () => { setup(); by("title").focus(); };
+  by("retry").onclick = () => {
+    const url = new URL(location.href);
+    if (url.searchParams.has("simulation")) {
+      url.searchParams.delete("simulation");
+      history.replaceState(history.state,"",url);
+    }
+    setup(); by("title").focus();
+  };
   document.addEventListener("visibilitychange",() => {
     if (document.hidden && active) finish(active,"Séance fermée : vous avez quitté l’onglet.");
   });
@@ -316,7 +330,9 @@
   const pin = () => root.style.setProperty("--lv-top",`${nav ? Math.round(nav.getBoundingClientRect().height) : 0}px`);
   window.addEventListener("resize",pin); pin();
   setup();
-  if (location.hash === "#commencer") {
+  const saved = by("saved-simulation");
+  if (saved) reopen(JSON.parse(saved.textContent));
+  else if (location.hash === "#commencer") {
     history.replaceState(history.state,"",location.pathname + location.search);
     by("start").click();
   }

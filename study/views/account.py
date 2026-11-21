@@ -50,6 +50,7 @@ from ..models import (
     LearningLessonProgress,
     CourseAttempt,
     CourseProduction,
+    LiveSimulation,
     MemoryQuestionProgress,
     PersonalQuestionResponse,
     PersonalResponse,
@@ -362,6 +363,7 @@ def reset_progress(request):
         LearningLessonProgress.objects.filter(user=request.user).delete()
         CourseAttempt.objects.filter(user=request.user).delete()
         CourseProduction.objects.filter(user=request.user).delete()
+        LiveSimulation.objects.filter(user=request.user).delete()
         MemoryQuestionProgress.objects.filter(user=request.user).delete()
         ThemeVocabularyProgress.objects.filter(user=request.user).delete()
         _save_review_session(session, {}, clear_pass=True)
@@ -683,6 +685,13 @@ def export_account(request):
                 "self_reviewed_at": item.self_reviewed_at,
             }
             for item in CourseProduction.objects.filter(user=request.user).order_by("created_at", "pk")
+        ],
+        "live_simulations": [
+            {
+                "id": item.pk, "subject_key": item.subject_key, "rows": item.rows,
+                "elapsed_ms": item.elapsed_ms, "report": item.report, "created_at": item.created_at,
+            }
+            for item in LiveSimulation.objects.filter(user=request.user).order_by("created_at", "pk")
         ],
         "comprehension_test_completions": [
             {

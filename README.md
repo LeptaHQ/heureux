@@ -190,8 +190,11 @@ sparkle icon (**Évaluer mon niveau avec Gemini**) shows when the evaluation is 
 progress; if it fails, select the icon to try again. No second PIN is needed for this attempt. Heureux sends only the
 published consigne and both speakers’ transcribed words (not audio or notes)
 to [`gemini-3.8-flash`](https://aistudio.google.com/docs/pricing#gemini-3.8-flash).
-Heureux gives Gemini three minutes to respond and does not automatically resend the transcript.
-While it waits, the server sends a few blank keep-alive bytes so that a hosting
+Heureux gives Gemini three minutes to respond. If Google is briefly unavailable or the
+connection drops, it resends the transcript once within that time. A failure message names
+Google’s error code, such as `HTTP 400 INVALID_ARGUMENT`, which is also logged on the server.
+The response schema avoids length and range bounds that Gemini can reject as too complex;
+Heureux applies those limits after the reply instead. While it waits, the server sends a few blank keep-alive bytes so that a hosting
 proxy does not end the request before the bilan arrives.
 The debrief shows four practice marks **out of 5**: task completion, coherence
 and flow of ideas, lexical precision, and grammatical accuracy. Each mark uses
@@ -210,8 +213,12 @@ Conversions follow the [TCF speaking scale](https://www.france-education-interna
 and the [IRCC TCF Canada speaking table](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html#level).
 This estimates one transcribed task, not pronunciation or the official
 three-task speaking result. If Google is unavailable, the local review
-still works. Heureux does not save the audio or transcript; a new attempt
-or leaving the page clears the debrief.
+still works. Heureux never saves the audio. It saves the transcript when the
+exchange ends and adds the bilan once it arrives, keeping the learner’s thirty most
+recent sessions. The setup screen lists the five latest for that subject under
+**Séances enregistrées**. Reopening one shows its stored bilan and corrections without
+calling Gemini again. If it has no bilan yet, the sparkle icon requests one with the PIN.
+Account export includes these sessions, and a progress reset deletes them.
 
 With the pilot enabled, open any **EO → Tâche 2 → Sujets** detail page and
 select the **headphones icon** just before Copy in the **Consigne** heading. Preparation
@@ -1132,9 +1139,10 @@ case, typographic apostrophes, whitespace and optional terminal `. ! ? …`.
 Items testing capitalization or terminal punctuation can explicitly set
 `case_sensitive` or `terminal_punctuation_sensitive` to `true`.
 Account export format 11 includes reading, session history, course productions,
-private writing-response overrides, and annotation completion/source metadata;
-unfinished and abandoned session answer keys remain hidden. Confirmed progress
-reset removes course history and productions, preserving notes and highlights.
+saved Gemini Live sessions, private writing-response overrides, and annotation
+completion/source metadata; unfinished and abandoned session answer keys remain
+hidden. Confirmed progress reset removes course history, productions and saved
+Gemini Live sessions, preserving notes and highlights.
 Account deletion cascades all owned course data. No practice percentage converts
 to an official CEFR, TCF or NCLC score.
 

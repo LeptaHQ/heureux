@@ -135,10 +135,9 @@
             linked = true;
             followUps++;
             cite("Détail de la réponse repris", row, source.text);
-          } else {
-            const politeRequest = sentences(row.text).some(sentence =>
-              /^(?:pourriez[- ]vous|pourrais[- ]tu)\s+(?:me |m'|nous )?(?:dire|indiquer|preciser|expliquer|conseiller|renseigner)\b/.test(sentence));
-            cite(politeRequest ? "Demande polie au conditionnel" : "Question formulée", row);
+          } else if (sentences(row.text).some(sentence =>
+            /^(?:pourriez[- ]vous|pourrais[- ]tu)\s+(?:me |m'|nous )?(?:dire|indiquer|preciser|expliquer|conseiller|renseigner)\b/.test(sentence))) {
+            cite("Demande polie au conditionnel", row);
           }
         }
       }

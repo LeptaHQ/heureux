@@ -78,7 +78,9 @@ for (const [first, reply, followup] of [
   for (const text of ["Bonjour.", "Merci beaucoup.", "Je voudrais participer.", "Je sais quand il faut venir.",
     "Je sais que vous pouvez répéter les exercices.", "Vous pouvez répéter la question.",
     "Quand il est tard, vous pouvez partir.", "Comment il est arrivé ici reste un mystère."]) {
-    assert.deepEqual(assess([user(text)]).evidence, [], text);
+    const result = assess([user(text)]);
+    assert.deepEqual(result.evidence, [], text);
+    assert.match(result.next, /Je ne repère pas de demande/, text);
   }
   for (const row of [
     user("Pour les documents, combien de"),
@@ -89,18 +91,19 @@ for (const [first, reply, followup] of [
     assert.deepEqual(result.evidence, []);
     assert.match(result.next, /incomplètes/);
   }
-  assert.match(assess([user("Quel est le prix ?")]).next, /pas encore de réponse/);
-  assert.equal(assess([user("quels documents faut il apporter")]).evidence.length, 1);
-  assert.equal(assess([user("Vous avez un créneau demain ?")]).evidence.length, 1);
-  assert.equal(assess([user("Vous êtes où ?")]).evidence.length, 1);
+  // A plain question counts as a question but earns no strength label.
+  for (const text of ["Quel est le prix ?", "quels documents faut il apporter", "Vous avez un créneau demain ?",
+    "Vous êtes où ?", "Pouvez-vous répéter ces exercices tous les jours ?"]) {
+    const result = assess([user(text)]);
+    assert.deepEqual(result.evidence, [], text);
+    assert.match(result.next, /pas encore de réponse/, text);
+  }
   assert.deepEqual(assess([model("Quel est le prix ?"), user("Quel est le prix ?")]).evidence, []);
   const clarification = assess([model("Il faut un justificatif."), user("Vous pouvez reformuler ?")]);
   assert.equal(clarification.evidence[0].label, "Demande de reformulation");
   assert.match(clarification.next, /Après la reformulation/);
   assert.equal(assess([user("Pardon, pourriez-vous répéter votre réponse ?")])
     .evidence[0].label, "Demande de reformulation");
-  assert.equal(assess([user("Pouvez-vous répéter ces exercices tous les jours ?")])
-    .evidence[0].label, "Question formulée");
   assert.deepEqual(assess([user("Bonjour, pourriez-vous m’indiquer les horaires ?")]).evidence, [
     {label:"Demande polie au conditionnel", quote:"Bonjour, pourriez-vous m’indiquer les horaires ?"},
   ]);
@@ -182,6 +185,6 @@ for (const [first, reply, followup] of [
   assert.equal(result.corrections[0].after, "J’ai besoin de");
   const withoutGrammar = {window: {}};
   vm.runInNewContext(fs.readFileSync(feedbackPath, "utf8"), withoutGrammar);
-  assert.equal(withoutGrammar.window.HeureuxEO2Feedback.assess([user("Quel est le prix ?")]).evidence.length, 1);
+  assert.match(withoutGrammar.window.HeureuxEO2Feedback.assess([user("Quel est le prix ?")]).next, /pas encore de réponse/);
 }
 console.log("EO2 local transcript feedback checks passed");

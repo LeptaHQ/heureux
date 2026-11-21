@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Conversation vocale · {% if subject %}{{ subject.title }} · {% endif %}Tâche 2 · Heureux{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=12">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=13">{% endblock %}
 {% block content %}
 <article class="lv-studio" id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
-    data-token-url="{{ token_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
+    data-token-url="{{ token_url }}" data-save-url="{{ save_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
     data-scenario-title="{{ subject.title|default:'Choisir un atelier photo' }}"
     data-scenario-prompt="{{ scenario_prompt }}">
   <div class="lv-topline">
@@ -37,6 +37,17 @@
     <section id="lv-setup" class="lv-setup" aria-label="Lancer la séance">
       {% csrf_token %}
       <button type="button" class="lv-primary" id="lv-start" disabled>Commencer la séance {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
+      {% if saved_simulations %}
+      <section class="lv-saved" aria-labelledby="lv-saved-title">
+        <h2 id="lv-saved-title">Séances enregistrées</h2>
+        <ul>
+          {% for item in saved_simulations %}
+          <li><a href="?simulation={{ item.id }}">{{ item.created_at|date:"j M Y · H:i" }}</a>
+            <span>{% if item.status == "scored" %}{{ item.score }}/20 · NCLC {{ item.nclc }}{% elif item.status %}Bilan sans note{% else %}Sans bilan{% endif %}</span></li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
     </section>
     <details class="lv-notepad" id="lv-notepad" hidden>
       <summary>{% include "study/shared/partials/ui_icon.html" with name="pencil" only %} Mes notes <small>non envoyées</small></summary>
@@ -145,7 +156,7 @@
             </div>
           </details>
         </div>
-        <p class="lv-fineprint">Les repères du bilan sont calculés dans cet onglet à partir des paroles transcrites&nbsp;: ils ne jugent pas la prononciation et ne sont pas une note. Le texte disparaît au prochain essai ou en quittant cette page.</p>
+        <p class="lv-fineprint">Les repères du bilan sont calculés dans cet onglet à partir des paroles transcrites&nbsp;: ils ne jugent pas la prononciation et ne sont pas une note. L’échange et son bilan sont enregistrés dans votre compte, qui garde vos trente dernières séances.</p>
       </div>
       <div class="lv-done-actions">
         <button type="button" class="lv-primary" id="lv-retry" hidden>Nouvel essai {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
@@ -154,6 +165,7 @@
       </div>
     </section>
     <noscript><p>Activez JavaScript pour utiliser le mode vocal.</p></noscript>
+    {% if saved_simulation %}{{ saved_simulation|json_script:"lv-saved-simulation" }}{% endif %}
     {% else %}
     <div class="lv-unavailable">
       <a class="lv-primary" href="{% url 'study:eo_tache_two_interaction' %}">Ouvrir le simulateur guidé {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</a>
@@ -165,9 +177,9 @@
 {% block scripts %}
 {% if gemini_live_available %}
 <script defer src="{% static 'study/js/expression/eo/tache_1/transcript-review.js' %}?v=3"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-feedback.js' %}?v=3"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=7"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=5"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=8"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-feedback.js' %}?v=4"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=8"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=6"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=9"></script>
 {% endif %}
 {% endblock %}

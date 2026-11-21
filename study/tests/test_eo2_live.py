@@ -1,5 +1,6 @@
 import json
 import threading
+import uuid
 from datetime import datetime, timedelta
 from unittest.mock import patch
 
@@ -11,7 +12,7 @@ from django.utils import timezone
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
 from study.expression.eo.tache_2 import gemini_evaluation, gemini_live
-from study.models import LoginThrottle, Prompt
+from study.models import LiveSimulation, LoginThrottle, Prompt
 from study.views import eo2_live
 from . import factories
 
@@ -427,11 +428,98 @@ class GeminiLiveTests(TestCase):
 
     def test_malformed_proposal_is_dropped_without_losing_the_score(self):
         self.evaluation_fixture()
-        for proposal in (None, "Bonjour.", ["Bonjour."] * 17, ["Bonjour.", " "], ["x" * 401], [3]):
+        for proposal in (None, "Bonjour.", ["Bonjour.", " "], ["x" * 401], [3]):
             with self.subTest(proposal=proposal):
                 self.report["proposal"] = proposal
                 result = gemini_evaluation._ground(self.report, self.rows)
                 self.assertEqual((result["score"], result["omitted"], result["proposal"]), (12, True, []))
+
+    def test_overlong_lists_keep_their_first_items_and_the_schema_has_no_bounds(self):
+        self.evaluation_fixture()
+        self.report["proposal"] = [f"Réplique {n}." for n in range(17)]
+        self.report["strengths"] *= 2
+        report = self.evaluate().json()
+        self.assertEqual((report["score"], report["omitted"], len(report["evidence"])), (12, True, 3))
+        self.assertEqual(report["proposal"], self.report["proposal"][:16])
+        payload = json.loads(self.eval_connection.request.call_args.kwargs["body"])
+        schema = json.dumps(payload["generationConfig"]["responseFormat"])
+        for bound in ("minItems", "maxItems", "minimum", "maximum"):
+            self.assertNotIn(bound, schema)  # Gemini rejects a schema whose bounds make it too large to compile.
+
+    def test_transient_provider_failure_retries_once_and_errors_name_the_provider_code(self):
+        self.evaluation_fixture()
+        sleep = self.enterContext(patch.object(gemini_evaluation.time, "sleep"))
+        body = json.dumps({"rows": self.rows, "pin": PILOT_PIN, "consent": True})
+        report = json.dumps({"candidates": [{
+            "finishReason": "STOP", "content": {"parts": [{"text": json.dumps(self.report)}]},
+        }]}).encode()
+        unavailable = b'{"error":{"code":503,"message":"The model is overloaded.","status":"UNAVAILABLE"}}'
+        replies = iter([(503, unavailable), (200, report)])
+
+        def reply(*args, **kwargs):
+            self.eval_response.status, self.eval_response.read.return_value = next(replies)
+        self.eval_connection.request.side_effect = reply
+        self.assertEqual(self.post(url=self.eval_url, body=body).json()["score"], 12)
+        replies = iter([(503, unavailable)] * 2)
+        with self.assertLogs(gemini_evaluation.logger, "WARNING") as logs:
+            failed = self.post(url=self.eval_url, body=body)
+        self.assert_private(failed, 502)
+        self.assertIn("HTTP 503 UNAVAILABLE", failed.json()["error"])
+        self.assertIn("The model is overloaded.", logs.output[0])
+        replies = iter([(400, b'{"error":{"code":400,"message":"Schema too complex.","status":"INVALID_ARGUMENT"}}')])
+        rejected = self.post(url=self.eval_url, body=body)
+        self.assert_private(rejected, 502)
+        self.assertIn("HTTP 400 INVALID_ARGUMENT", rejected.json()["error"])
+        self.assertEqual((self.eval_connection.request.call_count, sleep.call_count), (5, 2))
+
+    def test_saved_exchange_keeps_its_report_and_reopens_only_for_its_owner(self):
+        self.evaluation_fixture()
+        save_url = reverse("study:eo_tache_two_live_save")
+        rows = [self.rows[0], {**self.rows[1], "interrupted": True}, self.rows[2]]
+        for invalid in ({"rows": rows}, {"rows": rows, "elapsed": -1}, {"rows": rows, "elapsed": 1.5},
+                        {"rows": [{**self.rows[0], "interrupted": False}], "elapsed": 1}, {"rows": [self.rows[1]], "elapsed": 1}):
+            self.assert_private(self.post(url=save_url, body=json.dumps(invalid)), 400)
+        with self.settings(GEMINI_LIVE_FREE_TIER_CONFIRMED=False):
+            self.assert_private(self.post(url=save_url, body=json.dumps({"rows": rows, "elapsed": 0})), 403)
+        saved = self.post(url=save_url, body=json.dumps({"rows": rows, "elapsed": 95_000}))
+        self.assert_private(saved, 201)
+        simulation = LiveSimulation.objects.get(pk=saved.json()["id"])
+        self.assertEqual((simulation.user, simulation.subject_key, simulation.rows, simulation.elapsed_ms, simulation.report),
+                         (self.reviewer, "", rows, 95_000, None))
+        other = LiveSimulation.objects.create(user=self.other, rows=rows)
+        # Neither another learner's exchange nor a different transcript can receive this report.
+        self.evaluate(simulation=str(other.pk))
+        self.evaluate(simulation=str(simulation.pk), rows=[*self.rows[:2], {"speaker": "user", "text": "Et le samedi ?"}])
+        self.assertFalse(LiveSimulation.objects.exclude(report=None).exists())
+        self.assertEqual(self.evaluate(simulation=str(simulation.pk)).json()["score"], 12)
+        simulation.refresh_from_db()
+        self.assertEqual(simulation.report["score"], 12)
+        unscored = LiveSimulation.objects.create(user=self.reviewer, rows=rows,
+                                                 report={"score": None, "nclc": None, "scoreStatus": "insufficient"})
+
+        page = self.client.get(self.live, {"simulation": simulation.pk})
+        self.assertEqual(page.context["saved_simulation"],
+                         {"id": simulation.pk, "rows": rows, "elapsed": 95_000, "report": simulation.report})
+        self.assertEqual([(row["id"], row["status"]) for row in page.context["saved_simulations"]],
+                         [(unscored.pk, "insufficient"), (simulation.pk, "scored")])
+        self.assertContains(page, 'id="lv-saved-simulation"')
+        self.assertContains(page, "12/20 · NCLC 8")
+        self.assertContains(page, "Bilan sans note")
+        self.assertNotContains(page, "null/20")
+        for value in ("not-a-uuid", other.pk, uuid.uuid4()):
+            self.assertIsNone(self.client.get(self.live, {"simulation": value}).context["saved_simulation"])
+
+        LiveSimulation.objects.filter(pk=simulation.pk).update(created_at=timezone.now() - timedelta(days=1))
+        with patch.object(eo2_live, "SAVED_SIMULATIONS", 2):
+            kept = {uuid.UUID(self.post(url=save_url, body=json.dumps({"rows": rows, "elapsed": 0})).json()["id"]) for _ in range(2)}
+        self.assertEqual(set(LiveSimulation.objects.filter(user=self.reviewer).values_list("pk", flat=True)), kept)
+        account = Client()
+        account.force_login(self.reviewer)
+        exported = account.get(reverse("study:export_account")).json()["live_simulations"]
+        self.assertEqual({row["id"] for row in exported}, set(map(str, kept)))
+        account.post(reverse("study:reset_progress"), {"current_pin": "123456", "confirmation": "REINITIALISER"})
+        self.assertFalse(LiveSimulation.objects.filter(user=self.reviewer).exists())
+        self.assertTrue(LiveSimulation.objects.filter(pk=other.pk).exists())
 
     def test_no_total_for_partial_unobserved_or_unsupported_rubric(self):
         self.evaluation_fixture()
@@ -494,6 +582,14 @@ class GeminiLiveTests(TestCase):
             self.assertEqual(next(chunks), b" ")  # Sent before Gemini answers, so the proxy sees activity.
             release.set()
             self.assertEqual(json.loads(b"".join(chunks))["score"], 12)
+            simulation = LiveSimulation.objects.create(user=self.reviewer, rows=self.rows)
+            release.clear()
+            left = self.post(url=self.eval_url, body=json.dumps({**json.loads(body), "simulation": str(simulation.pk)}))
+            self.assertEqual(next(iter(left.streaming_content)), b" ")
+            threading.Timer(0.05, release.set).start()
+            left.close()  # The learner leaves before the report arrives.
+            simulation.refresh_from_db()
+            self.assertEqual(simulation.report["score"], 12)
             release.clear()
             self.eval_response.status = 400
             chunks = iter(self.post(url=self.eval_url, body=body).streaming_content)

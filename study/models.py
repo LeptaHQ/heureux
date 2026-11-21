@@ -880,6 +880,27 @@ class CourseProduction(models.Model):
         super().save(*args, **kwargs)
 
 
+class LiveSimulation(models.Model):
+    """A transcribed Tâche 2 voice exchange, kept so its debrief and report can be reopened."""
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+        related_name="live_simulations",
+    )
+    subject_key = models.CharField(max_length=120, blank=True)
+    rows = models.JSONField()
+    elapsed_ms = models.PositiveIntegerField(default=0)
+    report = models.JSONField(null=True, blank=True)
+    created_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ["-created_at", "-id"]
+        indexes = [
+            models.Index(fields=["user", "subject_key", "-created_at"], name="live_simulation_user_subject"),
+        ]
+
+
 class ComprehensionMode(models.TextChoices):
     ECRITE = "ecrite", "Écrite"
     ORALE = "orale", "Orale"

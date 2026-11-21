@@ -5,6 +5,8 @@ from django.test import override_settings
 from django.urls import reverse
 from playwright.sync_api import expect
 
+from study.models import LiveSimulation
+
 from . import factories
 
 
@@ -247,7 +249,7 @@ class LiveConversationBrowserMixin:
         expect(self.page.locator("#lv-done")).to_be_visible()
         self.assertEqual(self.page.evaluate("[probe.played.at(-1).wasStopped,probe.track.readyState]"), [True, "ended"])
         expect(self.page.locator("#lv-title")).to_have_text("Votre bilan")
-        expect(self.page.locator("#lv-evidence")).to_contain_text("Combien coûte l’atelier ?")
+        expect(self.page.locator("#lv-observations")).to_be_hidden()  # Plain questions earn no strength label.
         self.page.locator("#lv-transcript summary").click()
         turns = self.page.locator("#lv-turns li")
         expect(turns.locator("p")).to_have_text([
@@ -546,7 +548,7 @@ class LiveConversationBrowserMixin:
         expect(button.locator('[data-icon="sparkles"]')).to_be_visible()
         expect(controls.locator("details, input")).to_have_count(0)
         self.assert_no_horizontal_overflow()
-        expect(self.page.locator("#lv-evidence")).to_contain_text("Combien coûte le prêt")
+        expect(self.page.locator("#lv-turns")).to_contain_text("Combien coûte le prêt")
         button.click()
         expect(status).to_contain_text("pas arrivé à temps")
         expect(level).to_have_text("Non évalué")
@@ -578,3 +580,71 @@ class LiveConversationBrowserMixin:
         self.assertTrue(calls[0]["rows"] == calls[1]["rows"] == calls[2]["rows"])
         self.assertEqual(calls[2]["rows"][-1], {"speaker": "user", "text": original})
         self.assertEqual(self.page.evaluate("[probe.calls,probe.track.readyState]"), [1, "ended"])
+
+    def test_native_voice_saved_exchange_reopens_on_its_stored_report(self):
+        report = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "reason": "Vous comparez les options.",
+                  "criteria": [], "next": "Précisez la durée du prêt.", "evidence": [],
+                  "annotations": [{"turnIndex": 0, "start": 8, "end": 13, "before": "prend",
+                                   "after": "prendre", "why": "Après vouloir, employez l’infinitif."}],
+                  "proposal": ["Bonjour, je voudrais prendre un appareil photo."]}
+        calls = []
+
+        def fake_review(route):
+            body = route.request.post_data_json
+            calls.append(body)
+            if len(calls) == 1:
+                route.fulfill(status=429, json={"error": "Quota atteint."})
+            elif body.get("pin") != PILOT_PIN:
+                route.fulfill(status=403, json={"error": "pin_required", "message": "Code PIN requis."})
+            else:
+                route.fulfill(json=report)
+
+        # The settings stay on after the page loads so the exchange really reaches the save endpoint.
+        with override_settings(GEMINI_LIVE_API_KEY="fixture-not-a-key", GEMINI_LIVE_FREE_TIER_CONFIRMED=True,
+                               ELEVENLABS_PIN=PILOT_PIN):
+            self.open_live_pilot()
+            self.page.route("**" + reverse("study:eo_tache_two_live_evaluation"), fake_review)
+            self.start_preparation()
+            self.page.locator("#lv-skip").click()
+            expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
+            self.page.evaluate("""() => {
+              const ws = probe.sockets[0];
+              ws.receive({setupComplete:{}});
+              ws.receive({serverContent:{inputTranscription:{text:'Je veux prend un appareil.'},
+                outputTranscription:{text:'Lequel ?'},turnComplete:true}});
+            }""")
+            self.page.locator("#lv-end").click()
+            button, level, status = (self.page.locator("#lv-" + key) for key in ("assess", "level", "assessment-status"))
+            expect(status).to_have_text("Quota atteint.")
+            simulation = LiveSimulation.objects.get(user=self.user)
+            self.assertEqual(simulation.rows, [{"speaker": "user", "text": "Je veux prend un appareil."},
+                                               {"speaker": "model", "text": "Lequel ?"}])
+            self.assertEqual(calls[0]["simulation"], str(simulation.pk))
+            self.assertIn(f"simulation={simulation.pk}", self.page.url)
+
+            self.page.reload()
+            expect(self.page.locator("#lv-turns")).to_contain_text("Je veux prend un appareil.")
+            expect(status).to_have_text("Pas encore de bilan pour cet échange : touchez ✨ pour le demander.")
+            expect(level).to_have_text("Non évalué")
+            button.click()
+            expect(self.pin_dialog.get_by_role("heading")).to_have_text("Demander le bilan Gemini")
+            self.pin_dialog.get_by_label("Code PIN ElevenLabs").fill(PILOT_PIN)
+            self.pin_dialog.get_by_role("button", name="Demander le bilan").click()
+            expect(level).to_have_text("12/20 · NCLC 8 · B2")
+            self.assertEqual((calls[-1]["simulation"], "reviewGrant" in calls[-1]), (str(simulation.pk), False))
+
+            LiveSimulation.objects.filter(pk=simulation.pk).update(report=report)
+            reviews = len(calls)
+            self.page.goto(self.live_server_url + reverse("study:eo_tache_two_live"))
+            saved = self.page.locator(".lv-saved li")
+            expect(saved).to_have_count(1)
+            expect(saved).to_contain_text("12/20 · NCLC 8")
+            saved.get_by_role("link").click()
+            expect(level).to_have_text("12/20 · NCLC 8 · B2")
+            expect(self.page.locator("#lv-proposal li")).to_have_text(report["proposal"])
+            transcript = self.page.locator("#lv-transcript")
+            if not transcript.evaluate("el => el.open"):
+                transcript.locator("summary").click()
+            expect(self.page.locator('#lv-turns [data-speaker="user"] .lv-turn__said ins')).to_have_text("prendre")
+            self.assertEqual(len(calls), reviews)
+            self.assert_no_horizontal_overflow()

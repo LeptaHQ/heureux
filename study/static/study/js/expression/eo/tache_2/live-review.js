@@ -203,7 +203,8 @@
     showReplies(false);
   }
   // Returns whether any words were transcribed, so the caller can title an empty attempt honestly.
-  function render(captured, {elapsed = 0} = {}) {
+  // `saved` is a stored exchange, {id, report}, reopened without asking Gemini again.
+  function render(captured, {elapsed = 0, saved = null} = {}) {
     const rows = captured.filter(row => row.text.trim()).map(row => ({...row, text: row.text.trim()}));
     if (!rows.length) { by("empty").hidden = false; return false; }
     by("report").hidden = false;
@@ -212,13 +213,14 @@
     by("replies").hidden = !rows.some(row => row.speaker !== "user");
     let mine = 0;
     by("turns").replaceChildren(...rows.map((row, i) => turn(row, i, row.speaker === "user" ? ++mine : 0)));
-    window.HeureuxEO2Evaluation?.bind(rows, annotations => {
-      const marked = feedback(rows, annotations);
-      if (annotations.length && marked) by("transcript").open = true;
-    });
     const marked = feedback(rows);
     // Wide screens show it beside the findings; phones open it when it carries annotations.
     by("transcript").open = marked > 0 || window.matchMedia("(min-width: 62rem)").matches;
+    // After the local pass, so a stored report's corrections are painted over it, not under it.
+    window.HeureuxEO2Evaluation?.bind(rows, annotations => {
+      const marked = feedback(rows, annotations);
+      if (annotations.length && marked) by("transcript").open = true;
+    }, {elapsed, id: saved?.id, report: saved?.report});
     return true;
   }
   window.HeureuxEO2LiveReview = {render, clear};

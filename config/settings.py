@@ -268,13 +268,14 @@ TRANSLATION_TIMEOUT = float(os.environ.get("TRANSLATION_TIMEOUT", "8"))
 DEEPL_API_KEY = os.environ.get("DEEPL_API_KEY", "").strip()
 DEEPL_TARGET_LANG = os.environ.get("DEEPL_TARGET_LANG", "EN-GB").strip().upper() or "EN-GB"
 
-# Private EO2 pilot: never fall back to a general-purpose key or another model.
-GEMINI_LIVE_API_KEY = os.environ.get("GOOGLE_AI_STUDIO_KEY", "").strip()
-GEMINI_LIVE_FREE_TIER_CONFIRMED = env_bool("GEMINI_LIVE_FREE_TIER_CONFIRMED")
+# Private EO2 pilot: never fall back to another key or model.
+GEMINI_LIVE_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
+# The pilot's written bilan; the conversation itself stays on Gemini Live.
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "").strip()
 
 # Narration is generated only after explicit cost confirmation, never on visits.
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "").strip()
-ELEVENLABS_PIN = os.environ.get("ELEVENLABS_PIN", "").strip()
+AI_PIN = os.environ.get("AI_PIN", "").strip()
 DEFAULT_EXCEPTION_REPORTER_FILTER = "study.audio.pins.PinExceptionReporterFilter"
 ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "").strip()
 ELEVENLABS_MODEL_ID = os.environ.get(

@@ -184,20 +184,20 @@ The local rules catch selected patterns, not every mistake; unmarked text is
 not a blanket endorsement, and a spelling difference is not a pronunciation error. An interrupted
 call can show the portion received; no learner speech means no assessment.
 These local corrections need no second AI request. When time is up, Heureux
-also starts a Gemini evaluation automatically: the consent given before the
-exchange covers sending its transcript for this bilan. A small spinner beside the
-sparkle icon (**Évaluer mon niveau avec Gemini**) shows when the evaluation is in
+also starts a Groq evaluation automatically: the consent given before the
+exchange covers sending its transcript to Groq for this bilan. A small spinner beside the
+sparkle icon (**Évaluer mon niveau avec Groq**) shows when the evaluation is in
 progress; if it fails, select the icon to try again. No second PIN is needed for this attempt. Heureux sends only the
 published consigne and both speakers’ transcribed words (not audio or notes)
-to [`gemini-3.8-flash`](https://aistudio.google.com/docs/pricing#gemini-3.8-flash).
-Heureux gives Gemini three minutes to finish, counted across the whole reply. It streams
-the report as Gemini writes it, so if time runs out the message says how far Gemini got:
-no response at all, a response with nothing written yet, or when the first fragment arrived.
-The server logs the same detail, plus the token counts when a bilan is slow or unfinished.
-If Google is briefly unavailable or the
+to [`openai/gpt-oss-120b`](https://console.groq.com/docs/model/openai/gpt-oss-120b) on Groq,
+which [may log them for up to 30 days](https://console.groq.com/docs/your-data) unless
+Zero Data Retention is turned on in its data controls.
+Heureux gives Groq three minutes to finish, counted across the whole reply, and logs the
+token counts when a bilan is slow or unfinished. If Groq is briefly unavailable or the
 connection drops, it resends the transcript once within that time. A failure message names
-Google’s error code, such as `HTTP 400 INVALID_ARGUMENT`, which is also logged on the server.
-The response schema avoids length and range bounds that Gemini can reject as too complex;
+Groq’s error code, such as `HTTP 400 json_validate_failed`, which is also logged on the server;
+a quota error also says when to try again whenever Groq does.
+The strict response schema avoids length and range bounds, so
 Heureux applies those limits after the reply instead. While it waits, the server sends a few blank keep-alive bytes so that a hosting
 proxy does not end the request before the bilan arrives.
 The debrief shows four practice marks **out of 5**: task completion, coherence
@@ -208,7 +208,7 @@ for one **total out of 20** and maps it to **NCLC** and **CEFR**. This is a
 practice rubric, not official TCF weighting. The closing tip names the single
 change likely to gain the most next time, with an example phrase for that consigne. Strengths quote actual learner
 turns from the transcript; up to twelve inline corrections identify the words to
-change and why. Gemini also writes a **Proposition**: the learner’s
+change and why. The bilan also includes a **Proposition**: the learner’s
 own turns, rewritten in order as a polished model they can copy and rehearse.
 It never invents partner replies. An unverifiable edit, strength or proposal is left out without discarding
 a supported score. An incomplete rubric is not extrapolated to a total.
@@ -216,12 +216,12 @@ Pronunciation, pace and accent are not assessed from text.
 Conversions follow the [TCF speaking scale](https://www.france-education-international.fr/document/grilleniveauxtcf)
 and the [IRCC TCF Canada speaking table](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html#level).
 This estimates one transcribed task, not pronunciation or the official
-three-task speaking result. If Google is unavailable, the local review
+three-task speaking result. If Groq is unavailable, the local review
 still works. Heureux never saves the audio. It saves the transcript when the
 exchange ends and adds the bilan once it arrives, keeping the learner’s thirty most
 recent sessions. The setup screen lists the five latest for that subject under
 **Séances enregistrées**. Reopening one shows its stored bilan and corrections without
-calling Gemini again. If it has no bilan yet, the sparkle icon requests one with the PIN.
+calling Groq again. If it has no bilan yet, the sparkle icon requests one with the PIN.
 Account export includes these sessions, and a progress reset deletes them.
 
 With the pilot enabled, open any **EO → Tâche 2 → Sujets** detail page and
@@ -238,15 +238,15 @@ To enable the pilot for a test account:
    [model’s free tier](https://aistudio.google.com/docs/pricing#gemini-3.8-live)
    and availability in that project. Do not link a billing account or enable
    a paid tier to work around a quota error.
-2. Set `GOOGLE_AI_STUDIO_KEY` **only in the server’s secret settings** and
-   `GEMINI_LIVE_FREE_TIER_CONFIRMED=True`. The pilot uses the existing
-   `ELEVENLABS_PIN`; it needs neither an account-ID list nor an ElevenLabs API key.
+2. Set `GEMINI_API_KEY` for the conversation and a [Groq key](https://console.groq.com/keys)
+   as `GROQ_API_KEY` for the bilan, **only in the server’s secret settings**. The pilot uses the existing
+   `AI_PIN`; it needs neither an account-ID list nor an ElevenLabs API key.
    Restart the server. An operator must verify billing, age, region and the
-   [provider’s terms](https://aistudio.google.com/docs/terms); the flag does
+   [provider’s terms](https://aistudio.google.com/docs/terms); Heureux does
    not check these. This is a private adult pilot in Canada and the US, not
    an opt-in for the general learner population. Share the PIN only with eligible
-   testers trusted to authorize ElevenLabs generation too. Unset the Gemini
-   confirmation flag to stop new calls without affecting narration.
+   testers trusted to authorize ElevenLabs generation too. Unset `GEMINI_API_KEY`
+   to stop new calls, or only `GROQ_API_KEY` to stop new bilans, without affecting narration.
 3. Sign in as an approved tester, open **Tâche 2 → Interaction → Essayer la
    conversation vocale**. Heureux checks the PIN before reading the prompt
    and never sends the PIN to Google. The reading and the exchange use separate,
@@ -287,7 +287,7 @@ Set the server environment (Render: **Environment**, not Build Command):
 
 ```text
 ELEVENLABS_API_KEY=<server secret>
-ELEVENLABS_PIN=<separate server-side generation PIN>
+AI_PIN=<separate server-side generation PIN>
 ELEVENLABS_VOICE_ID=kENkNtk0xyzG09WW40xE
 ELEVENLABS_MODEL_ID=eleven_multilingual_v2
 EO3_AUDIO_ENABLED=True
@@ -346,7 +346,7 @@ pip install -r requirements.txt && python manage.py collectstatic --noinput && p
 ```
 
 The ordinary Gunicorn invocation automatically loads `gunicorn.conf.py`: worker
-and graceful-shutdown timeouts are 210 seconds, above both the 180-second Gemini
+and graceful-shutdown timeouts are 210 seconds, above both the 180-second Groq
 scoring timeout and the 90-second audio preparation timeout. Render needs no
 start-command edit. One preparation occupies one
 worker; no threads or queue daemon are required. Vercel serves cached playback
@@ -377,7 +377,7 @@ read clicks only look up the cache; a missing/error recording never silently
 switches engines. **Voix de l’appareil** is an explicit alternative.
 
 Every **new** ElevenLabs recording also requires the separate server-side
-`ELEVENLABS_PIN`. Set it in Render's Environment settings; leaving it empty blocks
+`AI_PIN`. Set it in Render's Environment settings; leaving it empty blocks
 new generation, not playback of cached audio. The app requests it in a masked
 dialog for each recording, including edited EO3 responses and general French
 read-aloud. Audio cost confirmations use a download icon to continue to the PIN

@@ -85,8 +85,7 @@ class LiveConversationBrowserMixin:
 
         self.page.route("**" + reverse("study:eo_tache_two_live_token", args=subject_args), fake_token)
         with override_settings(
-            GEMINI_LIVE_API_KEY="fixture-not-a-key", GEMINI_LIVE_FREE_TIER_CONFIRMED=True,
-            ELEVENLABS_PIN=PILOT_PIN,
+            GEMINI_LIVE_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN,
         ):
             if subject_args:
                 details = reverse("study:task_subject_detail", args=("eo", "tache-2", *subject_args))
@@ -159,7 +158,7 @@ class LiveConversationBrowserMixin:
         expect(self.start).to_be_enabled()
         self.start.click()
         self.assertEqual(self.page.evaluate("probe.calls"), 0)
-        expect(self.pin_dialog).to_contain_text("J’accepte d’envoyer ma voix à Google pendant l’échange, puis sa transcription pour le bilan.")
+        expect(self.pin_dialog).to_contain_text("J’accepte d’envoyer ma voix à Google pendant l’échange, puis sa transcription à Groq pour le bilan.")
         self.assertEqual(self.token_requests, [])
         self.submit_live_pin("incorrect")
         expect(self.pin_dialog.get_by_role("alert")).to_have_text("Code PIN incorrect.")
@@ -544,14 +543,14 @@ class LiveConversationBrowserMixin:
         expect(button).to_be_enabled()
         self.page.set_viewport_size({"width": 320, "height": 700})
         controls = self.page.locator("#lv-assessment-controls")
-        expect(button).to_have_accessible_name("Évaluer mon niveau avec Gemini")
+        expect(button).to_have_accessible_name("Évaluer mon niveau avec Groq")
         expect(button).to_have_text("")
         expect(button.locator('[data-icon="sparkles"]')).to_be_visible()
         expect(controls.locator("details, input")).to_have_count(0)
         self.assert_no_horizontal_overflow()
         expect(self.page.locator("#lv-turns")).to_contain_text("Combien coûte le prêt")
         button.click()
-        expect(status).to_contain_text("Délai.")  # A streamed timeout shows how far Gemini got.
+        expect(status).to_contain_text("Délai.")  # A timeout after keep-alive spaces arrives in the body.
         expect(level).to_have_text("Non évalué")
         button.click()
         expect(level).to_have_text("12/20 · NCLC 8 · B2")
@@ -601,8 +600,7 @@ class LiveConversationBrowserMixin:
                 route.fulfill(json=report)
 
         # The settings stay on after the page loads so the exchange really reaches the save endpoint.
-        with override_settings(GEMINI_LIVE_API_KEY="fixture-not-a-key", GEMINI_LIVE_FREE_TIER_CONFIRMED=True,
-                               ELEVENLABS_PIN=PILOT_PIN):
+        with override_settings(GEMINI_LIVE_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN):
             self.open_live_pilot()
             self.page.route("**" + reverse("study:eo_tache_two_live_evaluation"), fake_review)
             self.start_preparation()
@@ -628,7 +626,7 @@ class LiveConversationBrowserMixin:
             expect(status).to_have_text("Pas encore de bilan pour cet échange : touchez ✨ pour le demander.")
             expect(level).to_have_text("Non évalué")
             button.click()
-            expect(self.pin_dialog.get_by_role("heading")).to_have_text("Demander le bilan Gemini")
+            expect(self.pin_dialog.get_by_role("heading")).to_have_text("Demander le bilan Groq")
             self.pin_dialog.get_by_label("Code PIN ElevenLabs").fill(PILOT_PIN)
             self.pin_dialog.get_by_role("button", name="Demander le bilan").click()
             expect(level).to_have_text("12/20 · NCLC 8 · B2")

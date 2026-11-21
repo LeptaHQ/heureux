@@ -41,7 +41,7 @@ class AudioPinTests(SimpleTestCase):
                 self.assertNotIn(AUDIO_PIN, str(caught.exception))
         require_generation_pin(AUDIO_PIN)
 
-    @override_settings(ELEVENLABS_PIN="")
+    @override_settings(AI_PIN="")
     def test_unconfigured_pin_blocks_new_generation(self):
         with self.assertRaises(AudioPinError) as caught:
             require_generation_pin(AUDIO_PIN)
@@ -50,7 +50,7 @@ class AudioPinTests(SimpleTestCase):
 
     def test_exception_reports_redact_the_environment_pin(self):
         filtered = PinExceptionReporterFilter().get_safe_settings()
-        self.assertNotEqual(filtered["ELEVENLABS_PIN"], AUDIO_PIN)
+        self.assertNotEqual(filtered["AI_PIN"], AUDIO_PIN)
         self.assertNotIn(AUDIO_PIN, repr(filtered))
 
     @patch("study.audio.pins.sys.stdin.isatty", return_value=False)
@@ -106,7 +106,7 @@ class AudioPinRequestTests(TestCase):
         self.assertFalse(FrenchNarrationBudget.objects.exists())
         provider.assert_not_called()
 
-    @override_settings(ELEVENLABS_PIN="")
+    @override_settings(AI_PIN="")
     @patch("study.audio.french.synthesize")
     def test_unconfigured_pin_returns_explicit_error_for_both_generation_paths(self, provider):
         for request in (self.eo3, self.french):
@@ -121,7 +121,7 @@ class AudioPinRequestTests(TestCase):
         ready = self.french(pin=AUDIO_PIN)
         self.assertEqual(ready.status_code, 200, ready.content)
         self.assertEqual(ready.json()["state"], "ready")
-        with self.settings(ELEVENLABS_PIN="", FRENCH_AUDIO_GENERATION_ENABLED=False):
+        with self.settings(AI_PIN="", FRENCH_AUDIO_GENERATION_ENABLED=False):
             cached = self.french()
             self.assertEqual(cached.status_code, 200)
             self.assertEqual(cached.json()["url"], ready.json()["url"])
@@ -132,7 +132,7 @@ class AudioPinRequestTests(TestCase):
     @patch("study.audio.french.synthesize", return_value=(AUDIO, TIMING))
     def test_eo3_cached_audio_needs_no_pin_even_if_environment_pin_is_removed(self, provider):
         self.assertEqual(self.eo3(pin=AUDIO_PIN).status_code, 200)
-        with self.settings(ELEVENLABS_PIN=""):
+        with self.settings(AI_PIN=""):
             self.assertEqual(self.eo3().status_code, 200)
             url = reverse("study:eo3_audio", args=["culture-p1", self.spec.fingerprint])
             self.assertEqual(self.client.get(url).status_code, 200)
@@ -177,7 +177,7 @@ class AudioPinRequestTests(TestCase):
         eo3_provider.assert_not_called()
         french_provider.assert_not_called()
 
-    @override_settings(ELEVENLABS_PIN="")
+    @override_settings(AI_PIN="")
     @patch("study.expression.eo.tache_3.audio.synthesize")
     def test_operator_dry_run_does_not_need_a_pin(self, provider):
         output = StringIO()
@@ -185,7 +185,7 @@ class AudioPinRequestTests(TestCase):
         self.assertIn("1 to generate", output.getvalue())
         provider.assert_not_called()
 
-    @override_settings(ELEVENLABS_PIN="")
+    @override_settings(AI_PIN="")
     @patch("study.audio.french.synthesize")
     @patch("study.expression.eo.tache_3.audio.synthesize")
     def test_confirm_cost_cannot_bypass_pin_for_operator_commands(self, eo3_provider, french_provider):
@@ -195,7 +195,7 @@ class AudioPinRequestTests(TestCase):
             ("generate_eo3_audio", {"group": "culture-p1"}),
         ):
             with self.subTest(command=name):
-                with self.assertRaisesMessage(CommandError, "ELEVENLABS_PIN"):
+                with self.assertRaisesMessage(CommandError, "AI_PIN"):
                     call_command(name, confirm_cost=True, stdout=StringIO(), **values)
         eo3_provider.assert_not_called()
         french_provider.assert_not_called()

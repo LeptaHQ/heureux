@@ -293,7 +293,7 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
 
     @override_settings(
         ELEVENLABS_API_KEY="test-key",
-        ELEVENLABS_PIN="test-audio-pin",
+        AI_PIN="test-audio-pin",
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1_000_000,
     )
     @patch("study.audio.french.synthesize", return_value=(b"ID3-test", []))

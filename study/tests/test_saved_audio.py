@@ -74,7 +74,7 @@ class SavedSubjectAudioTests(TestCase):
     def test_voice_change_keeps_saved_audio_with_no_key_pin_or_generation_budget(self, provider):
         old = self.take()
         with self.settings(
-            ELEVENLABS_VOICE_ID="NewVoice", ELEVENLABS_API_KEY="", ELEVENLABS_PIN="",
+            ELEVENLABS_VOICE_ID="NewVoice", ELEVENLABS_API_KEY="", AI_PIN="",
             FRENCH_AUDIO_GENERATION_ENABLED=False, FRENCH_AUDIO_CHARACTER_BUDGET=0,
         ):
             presentation = narration_presentation(self.model)
@@ -192,7 +192,7 @@ class SavedSubjectAudioTests(TestCase):
     @patch("study.management.commands.generate_eo3_audio.command_generation_pin")
     def test_operator_reuses_saved_subject_and_refresh_estimate_is_explicit(self, pin, provider):
         self.take(self.source.text + "\n\nUne ancienne conclusion.")
-        with self.settings(ELEVENLABS_VOICE_ID="NewVoice", ELEVENLABS_PIN=""):
+        with self.settings(ELEVENLABS_VOICE_ID="NewVoice", AI_PIN=""):
             output = StringIO()
             call_command("generate_eo3_audio", group=self.model.group, confirm_cost=True, stdout=output)
             self.assertIn("0 to generate", output.getvalue())
@@ -224,7 +224,7 @@ class SavedFrenchAudioTests(TestCase):
     @patch("study.audio.french.synthesize")
     def test_voice_change_reuses_owned_scope_without_pin_queue_or_spend(self, provider):
         source = {"grant": source_grant(self.text, self.user.pk, private=False)}
-        with self.settings(ELEVENLABS_VOICE_ID="NewVoice", ELEVENLABS_PIN=""):
+        with self.settings(ELEVENLABS_VOICE_ID="NewVoice", AI_PIN=""):
             reply = self.client.post(reverse("study:french_audio_resolve"), {
                 "sources": [source], "prepare": True, "confirm_cost": True,
             }, content_type="application/json")

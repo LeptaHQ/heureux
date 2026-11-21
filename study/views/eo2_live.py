@@ -33,7 +33,7 @@ EVALUATION_KEEPALIVE_SECONDS = 10
 # The final keep-alive tick must still end before Gunicorn's 210 s worker timeout.
 EVALUATION_DEADLINE_SECONDS = 190
 _EVALUATION_FAILED = {"error": "Le bilan a échoué. Votre transcription reste disponible."}
-_EVALUATION_LATE = {"error": "Gemini n’a pas répondu à temps. Votre transcription reste disponible."}
+_EVALUATION_LATE = {"error": "Groq n’a pas répondu à temps. Votre transcription reste disponible."}
 # Each learner keeps their most recent exchanges, across subjects; older ones are deleted on save.
 SAVED_SIMULATIONS = 30
 
@@ -240,14 +240,14 @@ def eo_tache_two_live_evaluation(request, **publication):
         return JsonResponse(body, status=status)
 
     # Render's Cloudflare edge drops a request that sends nothing for 100 s (HTTP 524).
-    # Send the headers now, then JSON-insignificant spaces until Gemini answers.
+    # Send the headers now, then JSON-insignificant spaces until Groq answers.
     def keep_alive():
         try:
             yield b" "
             while not done.wait(EVALUATION_KEEPALIVE_SECONDS) and time.monotonic() < deadline:
                 yield b" "
         except GeneratorExit:
-            # The learner left mid-report; its saved exchange still receives Gemini's answer.
+            # The learner left mid-report; its saved exchange still receives Groq's answer.
             if simulation and done.wait(max(0, deadline - time.monotonic())) and outcome:
                 keep(*outcome[0])
             raise

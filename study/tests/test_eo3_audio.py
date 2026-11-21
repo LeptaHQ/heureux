@@ -39,7 +39,7 @@ AUDIO_PIN = "test-audio-pin"
 AUDIO_SETTINGS = {
     "EO3_AUDIO_ENABLED": True,
     "ELEVENLABS_API_KEY": "test-secret-do-not-render",
-    "ELEVENLABS_PIN": AUDIO_PIN,
+    "AI_PIN": AUDIO_PIN,
     "ELEVENLABS_VOICE_ID": "FrenchFemaleVoice",
     "ELEVENLABS_MODEL_ID": "eleven_multilingual_v2",
 }
@@ -393,7 +393,7 @@ class EO3AudioTests(TestCase):
     @patch("study.management.commands.generate_eo3_audio.command_generation_pin", return_value=AUDIO_PIN)
     def test_confirmed_command_generates_one_and_skips_cached_audio_without_key(self, pin_prompt, provider):
         call_command("generate_eo3_audio", group="culture-p1", confirm_cost=True, stdout=StringIO())
-        with self.settings(ELEVENLABS_API_KEY="", ELEVENLABS_PIN=""):
+        with self.settings(ELEVENLABS_API_KEY="", AI_PIN=""):
             call_command("generate_eo3_audio", group="culture-p1", confirm_cost=True, stdout=StringIO())
         provider.assert_called_once()
         pin_prompt.assert_called_once()

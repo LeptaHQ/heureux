@@ -432,7 +432,7 @@ def reserve_throttled_action(key_hash: str, now=None, *, limit=LOGIN_FAILURE_LIM
 def authorize_audio_generation(request, pin):
     from study.audio.pins import AudioPinError, require_generation_pin
 
-    if not django_settings.ELEVENLABS_PIN or pin is None or pin == "":
+    if not django_settings.AI_PIN or pin is None or pin == "":
         require_generation_pin(pin)
     now = timezone.now()
     error = None

@@ -1,4 +1,4 @@
-"""Optional text-only assessment of a transcribed Tâche 2 exchange."""
+"""Optional text-only assessment of a transcribed Tâche 2 exchange, written by Groq."""
 
 import json
 import logging
@@ -18,7 +18,7 @@ from django.views.decorators.debug import sensitive_variables
 from study.accounts.services import authorize_audio_generation
 from . import gemini_live
 
-MODEL = "gemini-3.8-flash"
+MODEL = "openai/gpt-oss-120b"
 MAX_BODY = 96_000
 _MAX_RESPONSE = 64_000
 logger = logging.getLogger(__name__)
@@ -105,15 +105,15 @@ presque rien dit."""
 
 
 def _object(**fields):
-    return {"type": "object", "properties": fields, "required": list(fields)}
+    return {"type": "object", "properties": fields, "required": list(fields), "additionalProperties": False}
 
 
 _STR = {"type": "string"}
 _INDEX = {"type": "integer"}
 _NULLABLE_INDEX = {"type": ["integer", "null"]}
-# Counts and ranges stay in the prompt and _ground: Gemini compiles the schema into a grammar,
-# and each array or numeric bound multiplies its states until the request fails with HTTP 400.
-# Gemini fills fields in schema order: evidence comes before the marks it supports.
+# Strict mode constrains decoding to this schema: every field is required and no other is allowed.
+# Counts and ranges stay in the prompt and _ground; bounds in a decoding grammar multiply its states.
+# The model fills fields in schema order: evidence comes before the marks it supports.
 _SCHEMA = _object(
     corrections={"type": "array", "items": _object(turnIndex=_INDEX, before=_STR, after=_STR, why=_STR)},
     strengths={"type": "array", "items": _object(turnIndex=_INDEX, why=_STR)},
@@ -125,11 +125,9 @@ _SCHEMA = _object(
 # One retry for a transient provider failure, inside the time the view waits for a report.
 _DEADLINE_SECONDS = 180
 _RETRY_MIN_SECONDS = 30
-# Each streamed event repeats Gemini's response metadata around a few words of the report.
-_MAX_STREAM = 4 * _MAX_RESPONSE
-# A slower report is logged with where its time went.
+# A slower report is logged with its token counts.
 _SLOW_SECONDS = 30
-_UNREADABLE = "La réponse de Gemini ne contient pas de grille lisible. Les corrections locales restent disponibles."
+_UNREADABLE = "La réponse de Groq ne contient pas de grille lisible. Les corrections locales restent disponibles."
 
 
 class EvaluationError(Exception):
@@ -263,7 +261,7 @@ def _ground(report, rows):
     if not usable:
         raise ValueError
 
-    # Gemini can overrun a count stated only in the prompt: keep the first items, not nothing.
+    # The model can overrun a count stated only in the prompt: keep the first items, not nothing.
     try:
         proposal = report.get("proposal")
         if not isinstance(proposal, list):
@@ -324,8 +322,8 @@ def _ground(report, rows):
 
 @sensitive_variables()
 def authorize(request, task, pin, *, grant, subject_key):
-    if not gemini_live.available_to(request.user, task):
-        raise EvaluationError(403, "Le bilan Gemini n’est pas disponible.")
+    if not (gemini_live.available_to(request.user, task) and settings.GROQ_API_KEY):
+        raise EvaluationError(403, "Le bilan Groq n’est pas disponible.")
     if grant is None:
         authorize_audio_generation(request, pin)  # Studio tabs opened before the one-PIN rollout.
     else:
@@ -336,23 +334,14 @@ def authorize(request, task, pin, *, grant, subject_key):
 
 
 def _provider_error(raw):
-    """The error status and message Gemini returns, safe to log and to show as a code."""
+    """The error code and message Groq returns, safe to log and to show as a code."""
     try:
         error = json.loads(raw)["error"]
-        status, message = error.get("status"), error.get("message")
+        code, message = error.get("code") or error.get("type"), error.get("message")
     except (ValueError, KeyError, TypeError, AttributeError, RecursionError):
         return "", ""
-    status = status if isinstance(status, str) and re.fullmatch(r"[A-Z_]{1,40}", status) else ""
-    return status, " ".join(message.split())[:300] if isinstance(message, str) else ""
-
-
-def _progress(reply):
-    """How far a streamed reply got, safe to log and to show."""
-    if reply["first"] is not None:
-        return f"premier fragment à {reply['first']:.0f} s, {len(reply['events'])} au total"
-    if reply["headers"] is not None:
-        return f"réponse ouverte à {reply['headers']:.0f} s, sans fragment"
-    return "aucune réponse"
+    code = code if isinstance(code, str) and re.fullmatch(r"[a-z_]{1,40}", code) else ""
+    return code, " ".join(message.split())[:300] if isinstance(message, str) else ""
 
 
 def _cut(sock, late):
@@ -364,57 +353,37 @@ def _cut(sock, late):
         pass
 
 
-# Streamed, so a slow report shows whether Gemini was still queued, thinking or writing.
 @sensitive_variables()
 def _post(payload, deadline):
     started = time.monotonic()
-    reply = {"headers": None, "first": None, "events": []}
     late, timer = threading.Event(), None
     try:
-        with closing(HTTPSConnection("generativelanguage.googleapis.com", timeout=deadline - started)) as conn:
-            conn.request("POST", f"/v1beta/models/{MODEL}:streamGenerateContent?alt=sse", body=payload,
-                         headers={"Content-Type": "application/json", "x-goog-api-key": settings.GEMINI_LIVE_API_KEY})
+        with closing(HTTPSConnection("api.groq.com", timeout=deadline - started)) as conn:
+            conn.request("POST", "/openai/v1/chat/completions", body=payload,
+                         headers={"Content-Type": "application/json", "Authorization": f"Bearer {settings.GROQ_API_KEY}"})
             sock = conn.sock  # getresponse() can hand the socket over to the response.
-            # A read that keeps receiving fragments renews its own timeout; this ends it at the deadline.
+            # A read that keeps receiving bytes renews its own timeout; this ends it at the deadline.
             timer = threading.Timer(max(0, deadline - time.monotonic()), _cut, (sock, late))
             timer.daemon = True
             timer.start()
             with conn.getresponse() as resp:
-                reply["headers"] = time.monotonic() - started
                 if resp.status == 200:
-                    size, data, raw = 0, [], []
-                    while (remaining := deadline - time.monotonic()) > 0:
-                        sock.settimeout(remaining)  # One deadline for the whole stream, not for each read.
-                        line = resp.readline(_MAX_RESPONSE + 1)
-                        if late.is_set():
-                            raise TimeoutError
-                        if not line:
-                            # Like Google's client: a bare JSON error can follow or replace the events.
-                            reply["events"] += [b"".join(lines) for lines in (data, raw) if lines]
-                            reply["elapsed"] = time.monotonic() - started
-                            return reply
-                        size += len(line)
-                        if size > _MAX_STREAM:
-                            raise EvaluationError(502, _UNREADABLE)
-                        if line.startswith(b"data:"):
-                            if reply["first"] is None:
-                                reply["first"] = time.monotonic() - started
-                            data.append(line[5:])
-                        elif line.strip():
-                            raw.append(line)
-                        elif data:
-                            reply["events"].append(b"".join(data))
-                            data = []
-                    raise TimeoutError
+                    body = resp.read(_MAX_RESPONSE + 1)
+                    if late.is_set():
+                        raise TimeoutError
+                    if len(body) > _MAX_RESPONSE:
+                        raise EvaluationError(502, _UNREADABLE)
+                    return body, time.monotonic() - started
                 provider, detail = _provider_error(resp.read(16_000))
+                wait = resp.getheader("retry-after") or ""
     except (OSError, HTTPException) as exc:
-        elapsed, progress = time.monotonic() - started, _progress(reply)
+        elapsed = time.monotonic() - started
         if not (isinstance(exc, TimeoutError) or late.is_set()):
-            logger.warning("EO2 evaluation: connection %s after %.0f s (%s)", type(exc).__name__, elapsed, progress)
-            raise EvaluationError(503, "Connexion à Gemini impossible. Votre transcription reste disponible.",
+            logger.warning("EO2 evaluation: connection %s after %.0f s", type(exc).__name__, elapsed)
+            raise EvaluationError(503, "Connexion à Groq impossible. Votre transcription reste disponible.",
                                   retry=True) from None
-        logger.warning("EO2 evaluation: no complete report after %.0f s (%s)", elapsed, progress)
-        raise EvaluationError(504, f"Gemini n’a pas terminé le bilan à temps ({progress}, arrêt à {elapsed:.0f} s). "
+        logger.warning("EO2 evaluation: no report after %.0f s", elapsed)
+        raise EvaluationError(504, f"Groq n’a pas terminé le bilan à temps (arrêt à {elapsed:.0f} s). "
                                    "Votre transcription reste disponible.") from None
     finally:
         if timer is not None:
@@ -422,56 +391,45 @@ def _post(payload, deadline):
     logger.warning("EO2 evaluation: provider HTTP %d %s %s", resp.status, provider or "-", detail or "-")
     code = f"HTTP {resp.status} {provider}".strip()
     if resp.status == 429:
-        raise EvaluationError(429, f"Quota Gemini atteint ({code}). Les corrections locales restent disponibles.")
+        later = f" Réessayez dans {wait} s." if re.fullmatch(r"\d{1,5}", wait) else ""
+        raise EvaluationError(429, f"Quota Groq atteint ({code}).{later} Les corrections locales restent disponibles.")
     if resp.status >= 500:
-        raise EvaluationError(502, f"Gemini est momentanément indisponible ({code}). Votre transcription reste disponible.",
+        raise EvaluationError(502, f"Groq est momentanément indisponible ({code}). Votre transcription reste disponible.",
                               retry=True)
-    raise EvaluationError(502, f"Gemini n’a pas accepté la demande de bilan ({code}). Votre transcription reste disponible.")
+    raise EvaluationError(502, f"Groq n’a pas accepté la demande de bilan ({code}). Votre transcription reste disponible.")
 
 
 # Runs off the request thread: no request, session or database access here.
 @sensitive_variables()
 def score(prompt, rows):
     payload = json.dumps({
-        "systemInstruction": {"parts": [{"text": _INSTRUCTION}]},
-        "contents": [{"role": "user", "parts": [{"text": json.dumps({
+        "model": MODEL,
+        "messages": [{"role": "system", "content": _INSTRUCTION}, {"role": "user", "content": json.dumps({
             "consigne": prompt, "rows": [dict(row, turnIndex=i) for i, row in enumerate(rows)],
-        }, ensure_ascii=False)}]}],
-        "generationConfig": {"responseFormat": {"text": {"mimeType": "APPLICATION_JSON", "schema": _SCHEMA}},
-                             "thinkingConfig": {"thinkingLevel": "LOW"}, "maxOutputTokens": 8192},
+        }, ensure_ascii=False)}],
+        "response_format": {"type": "json_schema", "json_schema": {"name": "bilan", "strict": True, "schema": _SCHEMA}},
+        # Groq's free tier counts this cap, plus a full exchange's ~4K-token prompt, against 8K tokens a minute.
+        "reasoning_effort": "low", "include_reasoning": False, "max_completion_tokens": 3584,
     }).encode()
     deadline = time.monotonic() + _DEADLINE_SECONDS
     try:
-        reply = _post(payload, deadline)
+        body, elapsed = _post(payload, deadline)
     except EvaluationError as exc:
         if not exc.retry or deadline - time.monotonic() < _RETRY_MIN_SECONDS:
             raise
         time.sleep(1 + random.random())
-        reply = _post(payload, deadline)
+        body, elapsed = _post(payload, deadline)
     try:
-        text, finish, usage = [], None, {}
-        for event in reply["events"]:
-            chunk = json.loads(event)
-            if "error" in chunk:
-                provider, detail = _provider_error(event)
-                logger.warning("EO2 evaluation: provider error mid-stream %s %s", provider or "-", detail or "-")
-                raise EvaluationError(502, f"Gemini a interrompu le bilan ({provider or 'erreur'}). "
-                                           "Votre transcription reste disponible.")
-            if chunk.get("promptFeedback", {}).get("blockReason"):
-                raise EvaluationError(422, "Gemini n’a pas produit de bilan pour cette transcription.")
-            usage = chunk.get("usageMetadata", usage)
-            for candidate in chunk.get("candidates", ()):
-                finish = candidate.get("finishReason", finish)
-                text += [p.get("text", "") for p in candidate.get("content", {}).get("parts", ()) if not p.get("thought")]
-        if finish != "STOP" or reply["elapsed"] > _SLOW_SECONDS:
-            logger.warning("EO2 evaluation: finish %s after %.0f s (%s; tokens %s)", finish, reply["elapsed"],
-                           _progress(reply), {key: usage.get(key) for key in
-                                              ("promptTokenCount", "thoughtsTokenCount", "candidatesTokenCount")})
-        if finish != "STOP":
-            raise EvaluationError(422, "Gemini n’a pas terminé le bilan. Aucune note globale n’a été attribuée.")
-        text = "".join(text)
-        if len(text) > _MAX_RESPONSE:
-            raise ValueError
-        return _ground(json.loads(text, object_pairs_hook=_unique), rows)
-    except (ValueError, KeyError, TypeError, AttributeError, RecursionError):
+        reply = json.loads(body)
+        choice, usage = reply["choices"][0], reply.get("usage") or {}
+        finish = choice.get("finish_reason")
+        if finish != "stop" or elapsed > _SLOW_SECONDS:
+            logger.warning("EO2 evaluation: finish %s after %.0f s (tokens %s)", finish, elapsed, {key: usage.get(key) for key in
+                           ("prompt_tokens", "completion_tokens", "completion_tokens_details")})
+        if choice["message"].get("refusal"):
+            raise EvaluationError(422, "Groq n’a pas produit de bilan pour cette transcription.")
+        if finish != "stop":
+            raise EvaluationError(422, "Groq n’a pas terminé le bilan. Aucune note globale n’a été attribuée.")
+        return _ground(json.loads(choice["message"]["content"], object_pairs_hook=_unique), rows)
+    except (ValueError, KeyError, IndexError, TypeError, AttributeError, RecursionError):
         raise EvaluationError(502, _UNREADABLE) from None

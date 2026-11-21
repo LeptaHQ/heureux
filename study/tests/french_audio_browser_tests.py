@@ -529,7 +529,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         expect(pin_dialog.locator("[data-audio-pin-input]")).to_have_value("")
         self.assertFalse(any(AUDIO_PIN in url for url in self.requests))
         self.assertNotIn(AUDIO_PIN, self.page.evaluate("JSON.stringify({...localStorage, ...sessionStorage})"))
-        with self.settings(ELEVENLABS_PIN=""):
+        with self.settings(AI_PIN=""):
             self.page.reload()
             expect(self.page.locator("[data-eo3-audio]")).to_have_count(1)
             self.page.locator("[data-eo3-toggle]").click()
@@ -548,7 +548,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator("[data-confirm-dialog]")).to_be_hidden()
         self.assert_no_general_audio_requests()
         self.page.locator("[data-narrator-close]").click()
-        with self.settings(ELEVENLABS_PIN=""):
+        with self.settings(AI_PIN=""):
             read.click()
             self.assertEqual(self.page.evaluate("__spoken.length"), 2)
         provider.assert_not_called()
@@ -639,7 +639,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
 
     @override_settings(
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,
-        ELEVENLABS_PIN="",
+        AI_PIN="",
     )
     @patch("study.audio.french.synthesize")
     def test_cached_series_advances_skips_and_finishes_without_generation(self, provider):
@@ -683,7 +683,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
 
     @override_settings(
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,
-        ELEVENLABS_PIN="",
+        AI_PIN="",
     )
     @patch("study.audio.french.synthesize")
     def test_cached_series_speed_and_twice_mode_repeat_each_track_exactly_twice(self, provider):
@@ -832,7 +832,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
 
     @override_settings(
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,
-        ELEVENLABS_PIN="",
+        AI_PIN="",
     )
     @patch("study.audio.french.synthesize")
     def test_cached_series_reuses_previous_text_and_voice_without_preparing(self, provider):
@@ -855,7 +855,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
 
     @override_settings(
         FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1000000,
-        ELEVENLABS_PIN="",
+        AI_PIN="",
     )
     @patch("study.audio.french.synthesize")
     def test_cached_series_with_no_audio_does_not_prepare_or_ask_for_pin(self, provider):

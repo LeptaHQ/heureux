@@ -1,10 +1,9 @@
-import io
 import json
 import socket
 import threading
 import uuid
 from datetime import datetime, timedelta
-from unittest.mock import DEFAULT, Mock, patch
+from unittest.mock import Mock, patch
 
 from django.conf import settings
 from django.test import Client, TestCase, override_settings
@@ -22,7 +21,7 @@ from . import factories
 PILOT_PIN = "test-audio-pin"
 
 
-@override_settings(GEMINI_LIVE_API_KEY="test-pilot-key", GEMINI_LIVE_FREE_TIER_CONFIRMED=True, ELEVENLABS_PIN=PILOT_PIN)
+@override_settings(GEMINI_LIVE_API_KEY="test-pilot-key", GROQ_API_KEY="test-groq-key", AI_PIN=PILOT_PIN)
 class GeminiLiveTests(TestCase):
     @classmethod
     def setUpTestData(cls):
@@ -84,10 +83,9 @@ class GeminiLiveTests(TestCase):
 
     def test_pilot_gates_apply_to_both_pages_and_direct_mint(self):
         for gate in (
-            {"GEMINI_LIVE_API_KEY": "", "GEMINI_API_KEY": "not-a-fallback"},
-            {"GEMINI_LIVE_FREE_TIER_CONFIRMED": False},
-            {"ELEVENLABS_PIN": ""},
-            {"ELEVENLABS_PIN": "x" * 129},
+            {"GEMINI_LIVE_API_KEY": ""},
+            {"AI_PIN": ""},
+            {"AI_PIN": "x" * 129},
         ):
             with self.subTest(gate=next(iter(gate))), self.settings(**gate):
                 page = self.client.get(self.live)
@@ -284,7 +282,7 @@ class GeminiLiveTests(TestCase):
         exchange = {"purpose": "exchange", "exchangeGrant": result["exchangeGrant"], "consent": True}
         self.assert_private(self.post(body=json.dumps(exchange)), 403)  # Not the generic workshop.
         self.assert_private(self.post(url=url, body=json.dumps({**exchange, "pin": PILOT_PIN})), 400)
-        with self.settings(GEMINI_LIVE_FREE_TIER_CONFIRMED=False):
+        with self.settings(GEMINI_LIVE_API_KEY=""):
             self.assert_private(self.post(url=url, body=json.dumps(exchange)), 403)
         with patch("django.core.signing.time.time", return_value=timezone.now().timestamp() + 601):
             self.assert_private(self.post(url=url, body=json.dumps(exchange)), 403)
@@ -304,7 +302,7 @@ class GeminiLiveTests(TestCase):
         with patch("django.core.signing.time.time", return_value=timezone.now().timestamp() + 3601):
             self.assert_private(self.post(url=review_url, body=json.dumps(review)), 403)
         transport.assert_not_called()
-        self.stream_report()
+        self.complete()
         self.assert_private(self.post(url=review_url, body=json.dumps(review)), 200)
         self.assertNotIn(review["reviewGrant"], repr(self.eval_connection.request.call_args))
         self.client.logout()
@@ -318,12 +316,7 @@ class GeminiLiveTests(TestCase):
         self.eval_connection.sock = Mock()
         self.eval_response = self.eval_connection.getresponse.return_value.__enter__.return_value
         self.eval_response.status = 200
-
-        def respond():
-            # Each request reads Gemini's server-sent events from the start.
-            self.eval_response.readline = io.BytesIO(self.events).readline
-            return DEFAULT
-        self.eval_connection.getresponse.side_effect = respond
+        self.eval_response.getheader.return_value = None
         self.eval_url = reverse("study:eo_tache_two_live_evaluation")
         self.rows = [
             {"speaker": "user", "text": "Bonjour, combien coûte le prêt ?"},
@@ -345,17 +338,15 @@ class GeminiLiveTests(TestCase):
                        "next": "Précisez la durée du prêt : « Et si je les garde deux jours ? »"}
         return transport
 
-    @staticmethod
-    def sse(*chunks):
-        return b"".join(b"data: " + json.dumps(chunk).encode() + b"\r\n\r\n" for chunk in chunks)
-
-    def stream_report(self):
-        self.events = self.sse({"candidates": [{
-            "finishReason": "STOP", "content": {"parts": [{"text": json.dumps(self.report)}]},
-        }]})
+    def complete(self, content=None, finish="stop", **message):
+        self.eval_response.read.return_value = json.dumps({
+            "choices": [{"message": {"content": json.dumps(self.report) if content is None else content, **message},
+                         "finish_reason": finish}],
+            "usage": {"prompt_tokens": 3900, "completion_tokens": 1200},
+        }).encode()
 
     def evaluate(self, *, url=None, **changes):
-        self.stream_report()
+        self.complete()
         return self.post(url=url or self.eval_url, body=json.dumps({
             "consent": True, "pin": PILOT_PIN, "rows": self.rows, **changes,
         }))
@@ -380,12 +371,17 @@ class GeminiLiveTests(TestCase):
         encoded = self.rows[mark["turnIndex"]]["text"].encode("utf-16-le")
         self.assertEqual(encoded[2*mark["start"]:2*mark["end"]].decode("utf-16-le"), "veux prend")
         call = self.eval_connection.request.call_args
-        self.assertEqual(call.args, ("POST", "/v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse"))
+        self.assertEqual(call.args, ("POST", "/openai/v1/chat/completions"))
         payload = json.loads(call.kwargs["body"])
-        fmt = payload["generationConfig"]["responseFormat"]["text"]
-        self.assertEqual(fmt["mimeType"], "APPLICATION_JSON")
+        self.assertEqual(payload["model"], "openai/gpt-oss-120b")
+        fmt = payload["response_format"]["json_schema"]
+        self.assertTrue(fmt["strict"])
         self.assertEqual(set(fmt["schema"]["properties"]["criteria"]["required"]), set(self.report["criteria"]))
-        self.assertEqual(json.loads(payload["contents"][0]["parts"][0]["text"]),
+        schema = json.dumps(fmt["schema"])
+        self.assertEqual(schema.count('"type": "object"'), schema.count('"additionalProperties": false'))  # Strict mode.
+        system, user = payload["messages"]
+        self.assertEqual(system["role"], "system")
+        self.assertEqual(json.loads(user["content"]),
                          {"consigne": page.context["subject"].prompt, "rows": [dict(row, turnIndex=i) for i, row in enumerate(self.rows)]})
         self.assertNotIn(PILOT_PIN, repr(call))
         self.assertNotIn(self.reviewer.username, repr(call))
@@ -402,15 +398,18 @@ class GeminiLiveTests(TestCase):
         self.assert_private(self.post(url=self.eval_url, body=" " * (gemini_evaluation.MAX_BODY + 1)), 400)
         self.assert_private(self.evaluate(pin=""), 403)
         self.assert_private(self.client.post(self.eval_url, {"consent": True}, content_type="application/json"), 403)
-        with self.settings(GEMINI_LIVE_FREE_TIER_CONFIRMED=False):
-            self.assert_private(self.evaluate(), 403)
+        for key in ("GEMINI_LIVE_API_KEY", "GROQ_API_KEY"):
+            with self.settings(**{key: ""}):
+                self.assert_private(self.evaluate(), 403)
         transport.assert_not_called()
         self.eval_response.status = 429
         for _ in range(5):
-            self.assert_private(self.evaluate(), 429)  # Gemini's quota, passed on; Heureux adds none.
+            self.assert_private(self.evaluate(), 429)  # Groq's quota, passed on; Heureux adds none.
+        self.eval_response.getheader.return_value = "7"
+        self.assertIn("Réessayez dans 7 s.", self.evaluate().json()["error"])
         self.eval_response.status = 200
         self.assert_private(self.evaluate(), 200)
-        self.assertEqual(transport.call_count, 6)
+        self.assertEqual(transport.call_count, 7)
         self.client.logout()
         self.assert_private(self.client.post(self.eval_url, content_type="application/json"), 401)
 
@@ -453,17 +452,17 @@ class GeminiLiveTests(TestCase):
         self.assertEqual((report["score"], report["omitted"], len(report["evidence"])), (12, True, 3))
         self.assertEqual(report["proposal"], self.report["proposal"][:16])
         payload = json.loads(self.eval_connection.request.call_args.kwargs["body"])
-        schema = json.dumps(payload["generationConfig"]["responseFormat"])
+        schema = json.dumps(payload["response_format"])
         for bound in ("minItems", "maxItems", "minimum", "maximum"):
-            self.assertNotIn(bound, schema)  # Gemini rejects a schema whose bounds make it too large to compile.
+            self.assertNotIn(bound, schema)  # Strict decoding would compile every bound into its grammar.
 
     def test_transient_provider_failure_retries_once_and_errors_name_the_provider_code(self):
         self.evaluation_fixture()
         sleep = self.enterContext(patch.object(gemini_evaluation.time, "sleep"))
         body = json.dumps({"rows": self.rows, "pin": PILOT_PIN, "consent": True})
-        self.stream_report()
-        unavailable = b'{"error":{"code":503,"message":"The model is overloaded.","status":"UNAVAILABLE"}}'
-        replies = iter([(503, unavailable), (200, b"")])
+        self.complete()
+        unavailable = b'{"error":{"message":"The model is overloaded.","type":"internal_server_error"}}'
+        replies = iter([(503, unavailable), (200, self.eval_response.read.return_value)])
 
         def reply(*args, **kwargs):
             self.eval_response.status, self.eval_response.read.return_value = next(replies)
@@ -473,12 +472,13 @@ class GeminiLiveTests(TestCase):
         with self.assertLogs(gemini_evaluation.logger, "WARNING") as logs:
             failed = self.post(url=self.eval_url, body=body)
         self.assert_private(failed, 502)
-        self.assertIn("HTTP 503 UNAVAILABLE", failed.json()["error"])
+        self.assertIn("HTTP 503 internal_server_error", failed.json()["error"])
         self.assertIn("The model is overloaded.", logs.output[0])
-        replies = iter([(400, b'{"error":{"code":400,"message":"Schema too complex.","status":"INVALID_ARGUMENT"}}')])
+        replies = iter([(400, b'{"error":{"message":"Invalid schema.","type":"invalid_request_error",'
+                              b'"code":"json_validate_failed"}}')])
         rejected = self.post(url=self.eval_url, body=body)
         self.assert_private(rejected, 502)
-        self.assertIn("HTTP 400 INVALID_ARGUMENT", rejected.json()["error"])
+        self.assertIn("HTTP 400 json_validate_failed", rejected.json()["error"])
         self.assertEqual((self.eval_connection.request.call_count, sleep.call_count), (5, 2))
 
     def test_saved_exchange_keeps_its_report_and_reopens_only_for_its_owner(self):
@@ -488,7 +488,7 @@ class GeminiLiveTests(TestCase):
         for invalid in ({"rows": rows}, {"rows": rows, "elapsed": -1}, {"rows": rows, "elapsed": 1.5},
                         {"rows": [{**self.rows[0], "interrupted": False}], "elapsed": 1}, {"rows": [self.rows[1]], "elapsed": 1}):
             self.assert_private(self.post(url=save_url, body=json.dumps(invalid)), 400)
-        with self.settings(GEMINI_LIVE_FREE_TIER_CONFIRMED=False):
+        with self.settings(GEMINI_LIVE_API_KEY=""):
             self.assert_private(self.post(url=save_url, body=json.dumps({"rows": rows, "elapsed": 0})), 403)
         saved = self.post(url=save_url, body=json.dumps({"rows": rows, "elapsed": 95_000}))
         self.assert_private(saved, 201)
@@ -552,90 +552,56 @@ class GeminiLiveTests(TestCase):
         self.assertEqual(greeting_only["scoreStatus"], "insufficient")
         self.assertTrue(all(row["score"] is None for row in greeting_only["criteria"]))
 
-    def test_split_json_response_and_diagnostic_errors_do_not_retry(self):
+    def test_unreadable_unfinished_or_refused_reports_do_not_retry(self):
         self.evaluation_fixture()
         body = json.dumps({"rows": self.rows, "pin": PILOT_PIN, "consent": True})
-        text = json.dumps(self.report)
-        first = {"candidates": [{"content": {"parts": [{"thought": True, "text": "not the assessment"},
-                                                       {"text": text[:70]}]}}]}
-        # One event may span several data lines.
-        self.events = b"".join(b"data: " + line.encode() + b"\n" for line in json.dumps(first, indent=1).splitlines())
-        self.events += b"\n" + self.sse({"candidates": [{"content": {"parts": [{"text": text[70:]}]},
-                                                         "finishReason": "STOP"}]})
-        self.assertEqual(self.post(url=self.eval_url, body=body).json()["score"], 12)
-        self.events = self.sse(*[{"candidates": [{"content": {"parts": [{"text": "x" * 40_000}]}}]}] * 2,
-                               {"candidates": [{"finishReason": "STOP"}]})
+        self.complete(json.dumps(self.report)[:70])
         malformed = self.post(url=self.eval_url, body=body)
         self.assert_private(malformed, 502)
         self.assertIn("grille lisible", malformed.json()["error"])
-        self.events = self.sse({"candidates": [{"finishReason": "MAX_TOKENS"}],
-                                "usageMetadata": {"thoughtsTokenCount": 7000, "candidatesTokenCount": 1192}})
+        self.eval_response.read.return_value = b'{"choices": []}'
+        self.assert_private(self.post(url=self.eval_url, body=body), 502)
+        self.complete("", finish="length")
         with self.assertLogs(gemini_evaluation.logger, "WARNING") as logs:
             self.assert_private(self.post(url=self.eval_url, body=body), 422)
-        self.assertIn("finish MAX_TOKENS", logs.output[0])
-        self.assertIn("'thoughtsTokenCount': 7000", logs.output[0])
+        self.assertIn("finish length", logs.output[0])
+        self.assertIn("'prompt_tokens': 3900", logs.output[0])
+        self.complete("", refusal="Je ne peux pas évaluer ce texte.")
+        self.assert_private(self.post(url=self.eval_url, body=body), 422)
         self.eval_response.status = 400
         self.assert_private(self.post(url=self.eval_url, body=body), 502)
         self.eval_connection.request.side_effect = TimeoutError("private-provider-details")
         timeout = self.post(url=self.eval_url, body=body)
         self.assert_private(timeout, 504)
-        self.assertIn("aucune réponse", timeout.json()["error"])
+        self.assertIn("à temps", timeout.json()["error"])
         self.assertNotIn("private-provider-details", timeout.json()["error"])
-        self.assertEqual(self.eval_connection.request.call_count, 5)
+        self.assertEqual(self.eval_connection.request.call_count, 6)
 
-    def test_stream_failures_stop_at_one_deadline_and_say_how_far_gemini_got(self):
+    def test_trickling_or_oversized_reply_stops_at_one_deadline(self):
         self.evaluation_fixture()
         body = json.dumps({"rows": self.rows, "pin": PILOT_PIN, "consent": True})
-        respond = self.eval_connection.getresponse.side_effect
-
-        def stall():
-            # Gemini starts writing, then the socket times out waiting for the rest.
-            self.eval_response.readline = Mock(side_effect=[
-                b'data: {"candidates": []}\r\n', b"\r\n", TimeoutError("private-provider-details")])
-            return DEFAULT
-        self.eval_connection.getresponse.side_effect = stall
-        with self.assertLogs(gemini_evaluation.logger, "WARNING") as logs:
-            timeout = self.post(url=self.eval_url, body=body)
-        self.assert_private(timeout, 504)
-        self.assertIn("premier fragment à 0 s, 1 au total", timeout.json()["error"])
-        self.assertNotIn("private-provider-details", timeout.json()["error"])
-        self.assertIn("premier fragment", logs.output[0])
-        waits = [call.args[0] for call in self.eval_connection.sock.settimeout.call_args_list]
-        self.assertEqual(len(waits), 3)
-        self.assertTrue(gemini_evaluation._DEADLINE_SECONDS >= waits[0] >= waits[1] >= waits[2] > 0)
-        self.eval_connection.getresponse.side_effect = respond
-        self.stream_report()
-        with patch.object(gemini_evaluation, "_MAX_STREAM", 100):
+        self.complete()
+        with patch.object(gemini_evaluation, "_MAX_RESPONSE", 100):
             self.assertIn("grille lisible", self.post(url=self.eval_url, body=body).json()["error"])
-        self.events = self.sse({"error": {"code": 500, "message": "Internal.", "status": "INTERNAL"}})
-        interrupted = self.post(url=self.eval_url, body=body)
-        self.assert_private(interrupted, 502)
-        self.assertIn("(INTERNAL)", interrupted.json()["error"])
-        self.events = self.sse({"candidates": []}) + json.dumps(
-            {"error": {"code": 503, "message": "Overloaded.", "status": "UNAVAILABLE"}}, indent=2).encode()
-        self.assertIn("(UNAVAILABLE)", self.post(url=self.eval_url, body=body).json()["error"])
         near, far = socket.socketpair()
         self.addCleanup(far.close)
         self.addCleanup(near.close)
         self.eval_connection.sock = near
 
-        def trickle():
-            def readline(limit):
-                near.settimeout(5)  # Each fragment that arrives in time renews the read timeout.
-                return near.recv(limit)
-            self.eval_response.readline = readline
-            return DEFAULT
-        self.eval_connection.getresponse.side_effect = trickle
+        def read(limit):
+            near.settimeout(5)  # Each fragment that arrives in time renews the read timeout.
+            return near.recv(limit)
+        self.eval_response.read = read
         with patch.object(gemini_evaluation, "_DEADLINE_SECONDS", 0.2), self.assertLogs(gemini_evaluation.logger, "WARNING"):
             late = self.post(url=self.eval_url, body=body)
         self.assert_private(late, 504)
-        self.assertIn("sans fragment, arrêt à 0 s", late.json()["error"])
-        self.assertEqual(self.eval_connection.request.call_count, 5)
+        self.assertIn("arrêt à 0 s", late.json()["error"])
+        self.assertEqual(self.eval_connection.request.call_count, 2)
 
     def test_slow_review_streams_keep_alive_before_the_report_or_its_error(self):
         self.evaluation_fixture()
         body = json.dumps({"rows": self.rows, "pin": PILOT_PIN, "consent": True})
-        self.stream_report()
+        self.complete()
         release = threading.Event()
         self.eval_connection.request.side_effect = lambda *args, **kwargs: release.wait(5)
         with patch.multiple(eo2_live, EVALUATION_GRACE_SECONDS=0, EVALUATION_KEEPALIVE_SECONDS=0.01):
@@ -643,7 +609,7 @@ class GeminiLiveTests(TestCase):
             self.assert_private(response, 200)
             self.assertFalse(response.has_header("Content-Encoding"))
             chunks = iter(response.streaming_content)
-            self.assertEqual(next(chunks), b" ")  # Sent before Gemini answers, so the proxy sees activity.
+            self.assertEqual(next(chunks), b" ")  # Sent before Groq answers, so the proxy sees activity.
             release.set()
             self.assertEqual(json.loads(b"".join(chunks))["score"], 12)
             simulation = LiveSimulation.objects.create(user=self.reviewer, rows=self.rows)
@@ -663,7 +629,7 @@ class GeminiLiveTests(TestCase):
             release.clear()
             with patch.object(eo2_live, "EVALUATION_DEADLINE_SECONDS", 0):
                 late = json.loads(b"".join(self.post(url=self.eval_url, body=body).streaming_content))
-            release.set()  # Gemini is still pending, but the stream ended before Gunicorn's timeout.
+            release.set()  # Groq is still pending, but the stream ended before Gunicorn's timeout.
         self.assertEqual(failed["status"], 502)
-        self.assertIn("Gemini", failed["error"])
+        self.assertIn("Groq", failed["error"])
         self.assertEqual(late["status"], 504)

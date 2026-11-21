@@ -203,7 +203,7 @@
     showReplies(false);
   }
   // Returns whether any words were transcribed, so the caller can title an empty attempt honestly.
-  // `saved` is a stored exchange, {id, report}, reopened without asking Gemini again.
+  // `saved` is a stored exchange, {id, report}, reopened without asking Groq again.
   function render(captured, {elapsed = 0, saved = null} = {}) {
     const rows = captured.filter(row => row.text.trim()).map(row => ({...row, text: row.text.trim()}));
     if (!rows.length) { by("empty").hidden = false; return false; }

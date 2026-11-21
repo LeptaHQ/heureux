@@ -77,10 +77,9 @@ def subject_instruction(subject: TacheTwoSubjectData, dialogue: TacheTwoDialogue
 
 def available_to(user, task):
     return bool(
-        settings.GEMINI_LIVE_FREE_TIER_CONFIRMED is True
-        and settings.GEMINI_LIVE_API_KEY
+        settings.GEMINI_LIVE_API_KEY
         and user.is_authenticated and user.is_active
-        and 0 < len(settings.ELEVENLABS_PIN) <= 128
+        and 0 < len(settings.AI_PIN) <= 128
         and task and task.available and task.part.available
     )
 

@@ -26,11 +26,11 @@ class PinExceptionReporterFilter(SafeExceptionReporterFilter):
 
 @sensitive_variables()
 def require_generation_pin(pin):
-    expected = settings.ELEVENLABS_PIN
+    expected = settings.AI_PIN
     if not expected or len(expected) > 128:
         raise AudioPinError(
             "pin_unconfigured",
-            "La génération est bloquée : configurez ELEVENLABS_PIN sur le serveur "
+            "La génération est bloquée : configurez AI_PIN sur le serveur "
             "(128 caractères maximum). Les enregistrements existants restent disponibles.",
             503,
         )
@@ -45,7 +45,7 @@ def require_generation_pin(pin):
 
 @sensitive_variables()
 def command_generation_pin():
-    if not settings.ELEVENLABS_PIN or len(settings.ELEVENLABS_PIN) > 128:
+    if not settings.AI_PIN or len(settings.AI_PIN) > 128:
         require_generation_pin(None)
     if sys.stdin is None or not sys.stdin.isatty():
         raise AudioPinError(

@@ -108,7 +108,7 @@
     if (!rows || pending) return;
     const call = pending = new AbortController();
     button.disabled = true;
-    status("Gemini examine votre échange…", true);
+    status("Groq examine votre échange…", true);
     const done = text => status(simulation ? text : `${text} Cet échange n’a pas pu être enregistré.`);
     try {
       if (!simulation) {
@@ -126,8 +126,8 @@
         ...(simulation && {simulation}), ...(grant && {reviewGrant: grant})});
       // Without this tab's review grant, such as for a reopened exchange, the audio PIN authorizes the report.
       const response = await (grant ? fetch(root.dataset.evaluationUrl, options) :
-        window.HeureuxAudioRequest(root.dataset.evaluationUrl, options, {title: "Demander le bilan Gemini", action: "Demander le bilan",
-          description: "La transcription de cet échange sera envoyée à Google pour le bilan."}));
+        window.HeureuxAudioRequest(root.dataset.evaluationUrl, options, {title: "Demander le bilan Groq", action: "Demander le bilan",
+          description: "La transcription de cet échange sera envoyée à Groq pour le bilan."}));
       if (pending !== call) return;
       if (!response.ok) {
         if (response.status === 403) grant = null;
@@ -137,7 +137,7 @@
         }
         const detail = response.headers.get("content-type")?.includes("application/json") ? await response.json() : null;
         if (pending !== call) return;
-        done(response.status === 401 ? "Reconnectez-vous pour demander un bilan Gemini." :
+        done(response.status === 401 ? "Reconnectez-vous pour demander un bilan Groq." :
           typeof detail?.message === "string" ? detail.message :
           typeof detail?.error === "string" ? detail.error :
           `Le service de bilan n’a pas répondu correctement (HTTP ${response.status}). Votre transcription reste disponible.`);
@@ -146,7 +146,6 @@
       const report = await response.json();
       if (pending !== call) return;
       // A slow report arrives after keep-alive spaces, so its failure is in the body, not the HTTP status.
-      // A timeout there says how far Gemini got.
       if (typeof report.error === "string") {
         done(report.error);
         return;

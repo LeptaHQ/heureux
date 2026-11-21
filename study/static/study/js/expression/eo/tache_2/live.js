@@ -260,7 +260,7 @@
         error.name === "NotAllowedError" ? "Micro refusé. Autorisez-le dans votre navigateur pour participer." : "Impossible d’ouvrir le micro ou la connexion vocale.");
     }
   }
-  // A saved exchange opens on its debrief; its report is the stored one, not a new Gemini call.
+  // A saved exchange opens on its debrief; its report is the stored one, not a new Groq call.
   function reopen(saved) {
     phase("done","Séance enregistrée");
     root.dataset.ending = "normal";
@@ -279,7 +279,7 @@
     try {
       const response = await window.HeureuxAudioRequest(root.dataset.tokenUrl,requestOptions(s,{purpose:"attempt"}),{
         confirmBeforeSend:true, title:"Autoriser la conversation Gemini Live", action:"Autoriser cette conversation",
-        description:"La consigne sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant l’échange, puis sa transcription pour le bilan. " +
+        description:"La consigne sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant l’échange, puis sa transcription à Groq pour le bilan. " +
           "Je confirme avoir au moins 18 ans et participer depuis le Canada ou les États-Unis. Des personnes peuvent examiner l’échange pour améliorer les produits de Google.",
         onConfirm:() => {
           phase("loading","Ouverture"); text("status","Ouverture de la lecture · micro coupé.");

@@ -4,6 +4,8 @@ import json
 import logging
 import random
 import re
+import socket
+import threading
 import time
 import uuid
 from contextlib import closing
@@ -13,7 +15,7 @@ from django.conf import settings
 from django.core import signing
 from django.views.decorators.debug import sensitive_variables
 
-from study.accounts.services import account_throttle_key, authorize_audio_generation, reserve_throttled_action
+from study.accounts.services import authorize_audio_generation
 from . import gemini_live
 
 MODEL = "gemini-3.8-flash"
@@ -123,6 +125,11 @@ _SCHEMA = _object(
 # One retry for a transient provider failure, inside the time the view waits for a report.
 _DEADLINE_SECONDS = 180
 _RETRY_MIN_SECONDS = 30
+# Each streamed event repeats Gemini's response metadata around a few words of the report.
+_MAX_STREAM = 4 * _MAX_RESPONSE
+# A slower report is logged with where its time went.
+_SLOW_SECONDS = 30
+_UNREADABLE = "La réponse de Gemini ne contient pas de grille lisible. Les corrections locales restent disponibles."
 
 
 class EvaluationError(Exception):
@@ -326,8 +333,6 @@ def authorize(request, task, pin, *, grant, subject_key):
             gemini_live.grant_signer(request, subject_key, purpose="review").unsign(grant, max_age=3600)
         except signing.BadSignature:
             raise EvaluationError(403, "L’autorisation du bilan a expiré. Les corrections locales restent disponibles.") from None
-    if reserve_throttled_action(account_throttle_key(str(request.user.pk), purpose="eo2-gemini-evaluation")):
-        raise EvaluationError(429, "Trop de bilans demandés. Réessayez dans quinze minutes.")
 
 
 def _provider_error(raw):
@@ -341,20 +346,79 @@ def _provider_error(raw):
     return status, " ".join(message.split())[:300] if isinstance(message, str) else ""
 
 
-@sensitive_variables()
-def _post(payload, timeout):
+def _progress(reply):
+    """How far a streamed reply got, safe to log and to show."""
+    if reply["first"] is not None:
+        return f"premier fragment à {reply['first']:.0f} s, {len(reply['events'])} au total"
+    if reply["headers"] is not None:
+        return f"réponse ouverte à {reply['headers']:.0f} s, sans fragment"
+    return "aucune réponse"
+
+
+def _cut(sock, late):
+    late.set()
     try:
-        with closing(HTTPSConnection("generativelanguage.googleapis.com", timeout=timeout)) as conn:
-            conn.request("POST", f"/v1beta/models/{MODEL}:generateContent", body=payload,
+        # The plain socket call: SSLSocket.shutdown would also drop the TLS state under the reading thread.
+        socket.socket.shutdown(sock, socket.SHUT_RDWR)
+    except OSError:
+        pass
+
+
+# Streamed, so a slow report shows whether Gemini was still queued, thinking or writing.
+@sensitive_variables()
+def _post(payload, deadline):
+    started = time.monotonic()
+    reply = {"headers": None, "first": None, "events": []}
+    late, timer = threading.Event(), None
+    try:
+        with closing(HTTPSConnection("generativelanguage.googleapis.com", timeout=deadline - started)) as conn:
+            conn.request("POST", f"/v1beta/models/{MODEL}:streamGenerateContent?alt=sse", body=payload,
                          headers={"Content-Type": "application/json", "x-goog-api-key": settings.GEMINI_LIVE_API_KEY})
+            sock = conn.sock  # getresponse() can hand the socket over to the response.
+            # A read that keeps receiving fragments renews its own timeout; this ends it at the deadline.
+            timer = threading.Timer(max(0, deadline - time.monotonic()), _cut, (sock, late))
+            timer.daemon = True
+            timer.start()
             with conn.getresponse() as resp:
+                reply["headers"] = time.monotonic() - started
                 if resp.status == 200:
-                    return resp.read(_MAX_RESPONSE + 1)
+                    size, data, raw = 0, [], []
+                    while (remaining := deadline - time.monotonic()) > 0:
+                        sock.settimeout(remaining)  # One deadline for the whole stream, not for each read.
+                        line = resp.readline(_MAX_RESPONSE + 1)
+                        if late.is_set():
+                            raise TimeoutError
+                        if not line:
+                            # Like Google's client: a bare JSON error can follow or replace the events.
+                            reply["events"] += [b"".join(lines) for lines in (data, raw) if lines]
+                            reply["elapsed"] = time.monotonic() - started
+                            return reply
+                        size += len(line)
+                        if size > _MAX_STREAM:
+                            raise EvaluationError(502, _UNREADABLE)
+                        if line.startswith(b"data:"):
+                            if reply["first"] is None:
+                                reply["first"] = time.monotonic() - started
+                            data.append(line[5:])
+                        elif line.strip():
+                            raw.append(line)
+                        elif data:
+                            reply["events"].append(b"".join(data))
+                            data = []
+                    raise TimeoutError
                 provider, detail = _provider_error(resp.read(16_000))
-    except TimeoutError:
-        raise EvaluationError(504, "Gemini n’a pas répondu à temps. Votre transcription reste disponible.") from None
-    except (OSError, HTTPException):
-        raise EvaluationError(503, "Connexion à Gemini impossible. Votre transcription reste disponible.", retry=True) from None
+    except (OSError, HTTPException) as exc:
+        elapsed, progress = time.monotonic() - started, _progress(reply)
+        if not (isinstance(exc, TimeoutError) or late.is_set()):
+            logger.warning("EO2 evaluation: connection %s after %.0f s (%s)", type(exc).__name__, elapsed, progress)
+            raise EvaluationError(503, "Connexion à Gemini impossible. Votre transcription reste disponible.",
+                                  retry=True) from None
+        logger.warning("EO2 evaluation: no complete report after %.0f s (%s)", elapsed, progress)
+        raise EvaluationError(504, f"Gemini n’a pas terminé le bilan à temps ({progress}, arrêt à {elapsed:.0f} s). "
+                                   "Votre transcription reste disponible.") from None
+    finally:
+        if timer is not None:
+            timer.cancel()
     logger.warning("EO2 evaluation: provider HTTP %d %s %s", resp.status, provider or "-", detail or "-")
     code = f"HTTP {resp.status} {provider}".strip()
     if resp.status == 429:
@@ -378,23 +442,36 @@ def score(prompt, rows):
     }).encode()
     deadline = time.monotonic() + _DEADLINE_SECONDS
     try:
-        body = _post(payload, _DEADLINE_SECONDS)
+        reply = _post(payload, deadline)
     except EvaluationError as exc:
         if not exc.retry or deadline - time.monotonic() < _RETRY_MIN_SECONDS:
             raise
         time.sleep(1 + random.random())
-        body = _post(payload, deadline - time.monotonic())
+        reply = _post(payload, deadline)
     try:
-        if len(body) > _MAX_RESPONSE:
-            raise ValueError
-        response = json.loads(body)
-        if response.get("promptFeedback", {}).get("blockReason"):
-            raise EvaluationError(422, "Gemini n’a pas produit de bilan pour cette transcription.")
-        candidate, = response["candidates"]
-        if candidate["finishReason"] != "STOP":
+        text, finish, usage = [], None, {}
+        for event in reply["events"]:
+            chunk = json.loads(event)
+            if "error" in chunk:
+                provider, detail = _provider_error(event)
+                logger.warning("EO2 evaluation: provider error mid-stream %s %s", provider or "-", detail or "-")
+                raise EvaluationError(502, f"Gemini a interrompu le bilan ({provider or 'erreur'}). "
+                                           "Votre transcription reste disponible.")
+            if chunk.get("promptFeedback", {}).get("blockReason"):
+                raise EvaluationError(422, "Gemini n’a pas produit de bilan pour cette transcription.")
+            usage = chunk.get("usageMetadata", usage)
+            for candidate in chunk.get("candidates", ()):
+                finish = candidate.get("finishReason", finish)
+                text += [p.get("text", "") for p in candidate.get("content", {}).get("parts", ()) if not p.get("thought")]
+        if finish != "STOP" or reply["elapsed"] > _SLOW_SECONDS:
+            logger.warning("EO2 evaluation: finish %s after %.0f s (%s; tokens %s)", finish, reply["elapsed"],
+                           _progress(reply), {key: usage.get(key) for key in
+                                              ("promptTokenCount", "thoughtsTokenCount", "candidatesTokenCount")})
+        if finish != "STOP":
             raise EvaluationError(422, "Gemini n’a pas terminé le bilan. Aucune note globale n’a été attribuée.")
-        parts = candidate["content"]["parts"]
-        text = "".join(p["text"] for p in parts if not p.get("thought"))
+        text = "".join(text)
+        if len(text) > _MAX_RESPONSE:
+            raise ValueError
         return _ground(json.loads(text, object_pairs_hook=_unique), rows)
     except (ValueError, KeyError, TypeError, AttributeError, RecursionError):
-        raise EvaluationError(502, "La réponse de Gemini ne contient pas de grille lisible. Les corrections locales restent disponibles.") from None
+        raise EvaluationError(502, _UNREADABLE) from None

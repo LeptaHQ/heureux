@@ -25,7 +25,7 @@
     <section class="eo-desk" id="t2-setup">
       <p class="eo-kicker">Avant de commencer</p><h2>Installez-vous</h2>
       <p>Vous aurez deux minutes pour lire la consigne et prendre des notes. Ensuite, votre interlocuteur vous laissera ouvrir l’échange.</p>
-      {% if gemini_live_available %}<a class="btn" href="{% url 'study:eo_tache_two_live' %}#commencer">Essayer la conversation vocale avec Gemini Live</a>{% endif %}
+      {% if gemini_live_available %}<a class="btn" href="{% url 'study:eo_tache_two_live' %}">Essayer la conversation vocale avec Gemini Live</a>{% endif %}
       <fieldset class="eo-modes"><legend class="sr-only">Comment participer</legend>
         <label><input type="radio" name="t2-mode" id="t2-voice"><span><strong>Conversation au micro</strong><small>Parlez, puis marquez une pause. L’interlocuteur répond et vous rend la parole.</small></span></label>
         <label><input type="radio" name="t2-mode" id="t2-text" checked><span><strong>Au clavier</strong><small>Écrivez vos questions sans utiliser le micro.</small></span></label>

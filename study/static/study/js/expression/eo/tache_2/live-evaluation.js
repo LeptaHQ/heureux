@@ -146,8 +146,9 @@
       const report = await response.json();
       if (pending !== call) return;
       // A slow report arrives after keep-alive spaces, so its failure is in the body, not the HTTP status.
+      // A timeout there says how far Gemini got.
       if (typeof report.error === "string") {
-        done(report.status === 504 ? late : report.error);
+        done(report.error);
         return;
       }
       done(show(report));

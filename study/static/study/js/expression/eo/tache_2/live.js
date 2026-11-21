@@ -332,8 +332,4 @@
   setup();
   const saved = by("saved-simulation");
   if (saved) reopen(JSON.parse(saved.textContent));
-  else if (location.hash === "#commencer") {
-    history.replaceState(history.state,"",location.pathname + location.search);
-    by("start").click();
-  }
 })();

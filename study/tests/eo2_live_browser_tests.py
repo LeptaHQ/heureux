@@ -140,8 +140,9 @@ class LiveConversationBrowserMixin:
         self._import_eo_tache_two_content()
         args = ("octobre", 5, 21)
         self.open_live_pilot(subject_args=args)
-        expect(self.pin_dialog).to_be_visible()  # No second launch click on the studio page.
+        expect(self.pin_dialog).to_be_hidden()  # The PIN waits for « Commencer la séance ».
         self.assertEqual(self.token_requests, [])
+        self.start.click()
         self.submit_live_pin()
         self.finish_prompt()
         expect(self.page.locator("#lv-prompt")).to_have_text(json.loads(self.selected_consigne))
@@ -550,7 +551,7 @@ class LiveConversationBrowserMixin:
         self.assert_no_horizontal_overflow()
         expect(self.page.locator("#lv-turns")).to_contain_text("Combien coûte le prêt")
         button.click()
-        expect(status).to_contain_text("pas arrivé à temps")
+        expect(status).to_contain_text("Délai.")  # A streamed timeout shows how far Gemini got.
         expect(level).to_have_text("Non évalué")
         button.click()
         expect(level).to_have_text("12/20 · NCLC 8 · B2")

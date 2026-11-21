@@ -35,7 +35,7 @@
             <h2 id="subject-prompt-title">Consigne</h2>
             <div class="tache-two-consigne__actions">
               {% if gemini_live_available %}
-                <a class="icon-button" href="{% subject_url 'study:eo_tache_two_live' subject_month.slug subject_batch.number subject.number fragment='commencer' %}" aria-label="Lancer la conversation sur ce sujet" title="Lancer la conversation sur ce sujet">{% include "study/shared/partials/ui_icon.html" with name="headphones" only %}</a>
+                <a class="icon-button" href="{% subject_url 'study:eo_tache_two_live' subject_month.slug subject_batch.number subject.number %}" aria-label="Lancer la conversation sur ce sujet" title="Lancer la conversation sur ce sujet">{% include "study/shared/partials/ui_icon.html" with name="headphones" only %}</a>
               {% else %}
                 <button type="button" class="icon-button" disabled aria-label="Conversation vocale indisponible" title="Conversation vocale indisponible">{% include "study/shared/partials/ui_icon.html" with name="headphones" only %}</button>
               {% endif %}

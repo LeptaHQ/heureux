@@ -190,7 +190,11 @@ sparkle icon (**Évaluer mon niveau avec Gemini**) shows when the evaluation is 
 progress; if it fails, select the icon to try again. No second PIN is needed for this attempt. Heureux sends only the
 published consigne and both speakers’ transcribed words (not audio or notes)
 to [`gemini-3.8-flash`](https://aistudio.google.com/docs/pricing#gemini-3.8-flash).
-Heureux gives Gemini three minutes to respond. If Google is briefly unavailable or the
+Heureux gives Gemini three minutes to finish, counted across the whole reply. It streams
+the report as Gemini writes it, so if time runs out the message says how far Gemini got:
+no response at all, a response with nothing written yet, or when the first fragment arrived.
+The server logs the same detail, plus the token counts when a bilan is slow or unfinished.
+If Google is briefly unavailable or the
 connection drops, it resends the transcript once within that time. A failure message names
 Google’s error code, such as `HTTP 400 INVALID_ARGUMENT`, which is also logged on the server.
 The response schema avoids length and range bounds that Gemini can reject as too complex;

@@ -101,7 +101,7 @@ def issue_grant(request, subject_key, *, purpose):
 
 
 @sensitive_variables("pin", "exchange_grant")
-def mint_token(request, task, pin, *, instruction=None, reading=False, exchange_grant=None, subject_key=""):
+def mint_token(request, task, pin, *, instruction=None, exchange_grant=None, subject_key=""):
     if not available_to(request.user, task):
         raise LiveTokenError(403, "Le mode vocal pilote n’est pas disponible.")
     if exchange_grant is None:
@@ -114,10 +114,6 @@ def mint_token(request, task, pin, *, instruction=None, reading=False, exchange_
         # A single atomic redemption; the 15-minute lock outlives the 10-minute grant.
         if reserve_throttled_action(account_throttle_key(nonce, purpose="eo2-exchange-grant"), limit=1):
             raise LiveTokenError(403, "Cette autorisation a déjà été utilisée.")
-    # The per-account mint limit is separate from the shared PIN failure limit.
-    key = account_throttle_key(str(request.user.pk), purpose="eo2-gemini-reading" if reading else "eo2-gemini-live-mint")
-    if reserve_throttled_action(key):
-        raise LiveTokenError(429, "Trop de demandes. Réessayez dans quinze minutes.")
     token = _request_token(_RECEPTION if instruction is None else instruction)
     if token is None:
         raise LiveTokenError(503, "Le service vocal est indisponible pour le moment.")

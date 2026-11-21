@@ -140,8 +140,7 @@ def eo_tache_two_live_token(request, **publication):
     instruction = None
     purpose = data.get("purpose")
     subject, key = _live_publication(task, **publication) if publication else (None, "")
-    reading = purpose in ("attempt", "read_prompt")
-    if reading:
+    if purpose in ("attempt", "read_prompt"):
         instruction = (
             "Vous êtes le lecteur d’une consigne de français, pas l’interlocuteur. "
             "À la demande de lecture, lisez uniquement le passage suivant en français, "
@@ -151,7 +150,7 @@ def eo_tache_two_live_token(request, **publication):
     elif subject:
         instruction = gemini_live.subject_instruction(subject, catalogue.tache_two_dialogues()[key])
     try:
-        token = gemini_live.mint_token(request, task, data.get("pin"), instruction=instruction, reading=reading,
+        token = gemini_live.mint_token(request, task, data.get("pin"), instruction=instruction,
                                       exchange_grant=data.get("exchangeGrant"), subject_key=key)
     except AudioPinError as exc:
         return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)

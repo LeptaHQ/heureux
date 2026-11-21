@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Conversation vocale · {% if subject %}{{ subject.title }} · {% endif %}Tâche 2 · Heureux{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=13">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=14">{% endblock %}
 {% block content %}
 <article class="lv-studio" id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
     data-token-url="{{ token_url }}" data-save-url="{{ save_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
@@ -83,6 +83,11 @@
           <p>Si vous avez parlé, vérifiez le micro choisi par le navigateur, puis lancez un nouvel essai.</p></div>
       </div>
       <div id="lv-report" class="lv-report" hidden>
+        <dl class="lv-glance">
+          <div><dt>Durée</dt><dd id="lv-fig-time">—</dd></div>
+          <div><dt>Vos répliques</dt><dd id="lv-fig-turns">—</dd></div>
+          <div class="lv-share" id="lv-share" hidden><dt>Part des mots</dt><dd><span>Vous <b id="lv-share-user"></b></span><span class="lv-share__bar" aria-hidden="true"><i id="lv-share-bar"></i></span><span>Interlocuteur <b id="lv-share-model"></b></span></dd></div>
+        </dl>
         <section id="lv-assessment" class="lv-assessment" aria-labelledby="lv-assessment-title">
           <div class="lv-assessment__score">
             <h2 id="lv-assessment-title">Estimation pour cet échange</h2>
@@ -116,47 +121,23 @@
             <p id="lv-assessment-next" class="lv-assessment__next"></p>
           </div>
         </section>
-        <div class="lv-debrief">
-          <div class="lv-talk">
-            <details id="lv-transcript" class="lv-transcript"><summary>Votre conversation <small id="lv-count"></small></summary>
-              <button type="button" class="lv-toggle" id="lv-replies" aria-controls="lv-turns">{% include "study/shared/partials/ui_icon.html" with name="eye" only %} <span id="lv-replies-label">Afficher les réponses de l’interlocuteur</span></button>
-              <ol class="lv-turns" id="lv-turns" data-replies="hidden"></ol>
-            </details>
-            <section id="lv-proposal" class="lv-proposal" hidden aria-labelledby="lv-proposal-title">
-              <p class="lv-proposal__kicker">Réponse personnalisée générée pour vous</p>
-              <div class="lv-proposal__card">
-                <div class="lv-proposal__head">
-                  <h2 id="lv-proposal-title">{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %} Proposition</h2>
-                  <button type="button" class="lv-copy" id="lv-proposal-copy">{% include "study/shared/partials/ui_icon.html" with name="copy" only %} <span id="lv-proposal-copy-label" aria-live="polite">Copier</span></button>
-                </div>
-                <ol class="lv-proposal__lines" id="lv-proposal-lines"></ol>
-              </div>
-            </section>
-          </div>
-          <section class="lv-next" aria-labelledby="lv-next-title">
-            <h2 id="lv-next-title">{% include "study/shared/partials/ui_icon.html" with name="lightbulb" only %} À essayer la prochaine fois</h2>
-            <p id="lv-next"></p>
-          </section>
-          <div class="lv-findings">
-            <section id="lv-observations" hidden aria-labelledby="lv-observations-title"><h2 id="lv-observations-title">Points d’appui</h2><ul class="lv-examples" id="lv-evidence"></ul></section>
-            <section id="lv-language" hidden aria-labelledby="lv-language-title"><h2 id="lv-language-title">Formulations à vérifier</h2><ul class="lv-fixes" id="lv-corrections"></ul></section>
-          </div>
-          <details class="lv-glance">
-            <summary><span id="lv-glance-title">Chiffres de l’échange</span> <small>durée, répliques, part des mots</small></summary>
-            <dl class="lv-figures">
-              <div><dt>Durée de l’échange</dt><dd id="lv-fig-time">—</dd></div>
-              <div><dt>Vos répliques</dt><dd id="lv-fig-turns">—</dd></div>
-              <div><dt>Questions repérées</dt><dd id="lv-fig-questions">—</dd></div>
-              <div><dt>Détails repris</dt><dd id="lv-fig-links">—</dd></div>
-            </dl>
-            <div class="lv-share" id="lv-share" hidden>
-              <p class="lv-share__legend"><span>Vous <b id="lv-share-user"></b></span> <span>Interlocuteur <b id="lv-share-model"></b></span></p>
-              <span class="lv-share__bar" aria-hidden="true"><i id="lv-share-bar"></i></span>
-              <p class="lv-share__caption">Part des mots transcrits de chaque côté</p>
-            </div>
+        <div class="lv-talk">
+          <details id="lv-transcript" class="lv-transcript"><summary>Votre conversation <small id="lv-count"></small></summary>
+            <button type="button" class="lv-toggle" id="lv-replies" aria-controls="lv-turns">{% include "study/shared/partials/ui_icon.html" with name="eye" only %} <span id="lv-replies-label">Afficher les réponses de l’interlocuteur</span></button>
+            <ol class="lv-turns" id="lv-turns" data-replies="hidden"></ol>
           </details>
+          <section id="lv-proposal" class="lv-proposal" hidden aria-labelledby="lv-proposal-title">
+            <p class="lv-proposal__kicker">Réponse personnalisée générée pour vous</p>
+            <div class="lv-proposal__card">
+              <div class="lv-proposal__head">
+                <h2 id="lv-proposal-title">{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %} Proposition</h2>
+                <button type="button" class="lv-copy" id="lv-proposal-copy">{% include "study/shared/partials/ui_icon.html" with name="copy" only %} <span id="lv-proposal-copy-label" aria-live="polite">Copier</span></button>
+              </div>
+              <ol class="lv-proposal__lines" id="lv-proposal-lines"></ol>
+            </div>
+          </section>
         </div>
-        <p class="lv-fineprint">Les repères du bilan sont calculés dans cet onglet à partir des paroles transcrites&nbsp;: ils ne jugent pas la prononciation et ne sont pas une note. L’échange et son bilan sont enregistrés dans votre compte, qui garde vos trente dernières séances.</p>
+        <p class="lv-fineprint">Le bilan s’appuie seulement sur les paroles transcrites&nbsp;: il ne juge pas la prononciation. L’échange et son bilan sont enregistrés dans votre compte, qui garde vos trente dernières séances.</p>
       </div>
       <div class="lv-done-actions">
         <button type="button" class="lv-primary" id="lv-retry" hidden>Nouvel essai {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
@@ -176,10 +157,8 @@
 {% endblock %}
 {% block scripts %}
 {% if gemini_live_available %}
-<script defer src="{% static 'study/js/expression/eo/tache_1/transcript-review.js' %}?v=3"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-feedback.js' %}?v=4"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=9"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=6"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=10"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=7"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=10"></script>
 {% endif %}
 {% endblock %}

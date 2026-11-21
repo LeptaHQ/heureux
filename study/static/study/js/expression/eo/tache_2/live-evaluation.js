@@ -153,7 +153,7 @@
       done(show(report));
     } catch (error) {
       if (pending === call) done(error.name === "AbortError" ? "Bilan annulé. Aucune note attribuée." :
-        "Impossible de recevoir le bilan. Gardez cet onglet ouvert : votre transcription et vos corrections restent disponibles.");
+        "Impossible de recevoir le bilan. Gardez cet onglet ouvert : votre transcription reste disponible.");
     } finally {
       if (pending === call) {
         pending = null;

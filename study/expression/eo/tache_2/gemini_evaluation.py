@@ -127,7 +127,7 @@ _DEADLINE_SECONDS = 180
 _RETRY_MIN_SECONDS = 30
 # A slower report is logged with its token counts.
 _SLOW_SECONDS = 30
-_UNREADABLE = "La réponse de Groq ne contient pas de grille lisible. Les corrections locales restent disponibles."
+_UNREADABLE = "La réponse de Groq ne contient pas de grille lisible. Votre transcription reste disponible."
 
 
 class EvaluationError(Exception):
@@ -330,7 +330,7 @@ def authorize(request, task, pin, *, grant, subject_key):
         try:
             gemini_live.grant_signer(request, subject_key, purpose="review").unsign(grant, max_age=3600)
         except signing.BadSignature:
-            raise EvaluationError(403, "L’autorisation du bilan a expiré. Les corrections locales restent disponibles.") from None
+            raise EvaluationError(403, "L’autorisation du bilan a expiré. Votre transcription reste disponible.") from None
 
 
 def _provider_error(raw):
@@ -392,7 +392,7 @@ def _post(payload, deadline):
     code = f"HTTP {resp.status} {provider}".strip()
     if resp.status == 429:
         later = f" Réessayez dans {wait} s." if re.fullmatch(r"\d{1,5}", wait) else ""
-        raise EvaluationError(429, f"Quota Groq atteint ({code}).{later} Les corrections locales restent disponibles.")
+        raise EvaluationError(429, f"Quota Groq atteint ({code}).{later} Votre transcription reste disponible.")
     if resp.status >= 500:
         raise EvaluationError(502, f"Groq est momentanément indisponible ({code}). Votre transcription reste disponible.",
                               retry=True)

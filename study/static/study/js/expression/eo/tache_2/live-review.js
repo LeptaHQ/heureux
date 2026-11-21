@@ -7,13 +7,6 @@
     if (className) node.className = className;
     return node;
   };
-  const quote = value => `« ${value} »`;
-  const action = (label, run) => {
-    const button = make("button", label);
-    button.type = "button";
-    button.onclick = run;
-    return button;
-  };
   const count = text => (text.match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu) || []).length;
   const duration = ms => {
     const sec = Math.round(ms / 1000);
@@ -22,25 +15,18 @@
   let painters = [];
   let spoken = "";
 
-  // Quoted speech with its speaker, so the evidence reads like the exchange itself.
-  const said = (speaker, words) => {
-    const line = make("p", "", "lv-said");
-    line.dataset.speaker = speaker;
-    line.append(make("small", speaker === "user" ? "Vous" : "Interlocuteur"), make("span", quote(words)));
-    return line;
-  };
-  // « before » → « after », shared by the findings list and each turn's explanations.
-  const pair = (line, before, after) => {
-    if (before) {
-      const struck = make("span", "« ", "lv-fix__before");
-      struck.append(make("del", before), " »");
-      line.append(struck, make("span", " → ", "lv-fix__arrow"));
-    }
-    line.append(make("strong", after ? quote(after) : "Supprimer ce passage", "lv-fix__after"));
-    return line;
-  };
+  // Narrow a reviewer correction to the words it actually changes.
+  const pieces = text => text.match(/[\p{L}\p{M}\p{N}]+(?:['’-][\p{L}\p{M}\p{N}]+)*|\s+|[^\s]/gu) || [];
+  function changedWords({turnIndex, start, before = "", after = ""}) {
+    const left = pieces(before), right = pieces(after);
+    let first = 0, l = left.length, r = right.length;
+    while (first < l && first < r && left[first] === right[first]) start += left[first++].length;
+    while (l > first && r > first && left[l - 1] === right[r - 1]) { l--; r--; }
+    const words = left.slice(first, l).join("");
+    return {turnIndex, start, end: start + words.length, before: words, after: right.slice(first, r).join("")};
+  }
 
-  // Keep only annotations that still match the learner's current words, numbered in reading order.
+  // Keep only annotations that still match the learner's current words, in reading order.
   function place(rows, annotations) {
     const marks = new Map();
     let n = 0;
@@ -53,22 +39,11 @@
     }).sort((a, b) => a.turnIndex - b.turnIndex || a.start - b.start || a.end - b.end).forEach(mark => {
       const list = marks.get(mark.turnIndex) || [];
       if (list.length && mark.start < list.at(-1).end) return;
-      list.push({start: mark.start, end: mark.end, before: mark.before ?? "", after: mark.after ?? "",
-        why: mark.why || "", n: ++n});
+      list.push({start: mark.start, end: mark.end, before: mark.before ?? "", after: mark.after ?? ""});
       marks.set(mark.turnIndex, list);
+      n++;
     });
     return {marks, total: n};
-  }
-  // Strengths come only from the report's positive evidence, never from the absence of a flag.
-  function strengths(rows, evidence) {
-    const found = new Map();
-    for (const item of evidence) {
-      const index = Number.isInteger(item.turnIndex) ? item.turnIndex : rows.findIndex((row, i) =>
-        row.speaker === "user" && row.text === item.quote && !(found.get(i) || []).includes(item.label));
-      if (rows[index]?.speaker !== "user") continue;
-      found.set(index, [...(found.get(index) || []), item.label]);
-    }
-    return found;
   }
   function sentence(text, marks) {
     const parts = [];
@@ -76,7 +51,6 @@
     for (const mark of marks) {
       parts.push(text.slice(at, mark.start));
       const span = make("span", "", "lv-mark");
-      span.dataset.mark = mark.n;
       if (mark.before) span.append(make("span", "à vérifier : ", "sr-only"), make("del", mark.before));
       if (mark.after) span.append(make("span", mark.before ? ", proposition : " : "ajout proposé : ", "sr-only"), make("ins", mark.after));
       parts.push(span);
@@ -85,19 +59,8 @@
     parts.push(text.slice(at));
     return parts;
   }
-  function reveal(n) {
-    const mark = by("turns").querySelector(`[data-mark="${n}"]`);
-    if (!mark) return;
-    by("transcript").open = true;
-    const line = mark.closest(".lv-turn__said");
-    line.focus({preventScroll: true});
-    line.scrollIntoView({block: "center", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
-  }
-
-  function glance(rows, tally) {
-    by("fig-turns").textContent = tally.turns;
-    by("fig-questions").textContent = tally.questions;
-    by("fig-links").textContent = tally.followUps;
+  function glance(rows) {
+    by("fig-turns").textContent = rows.filter(row => row.speaker === "user").length;
     const words = {user: 0, model: 0};
     rows.forEach(row => { words[row.speaker === "user" ? "user" : "model"] += count(row.text); });
     const total = words.user + words.model;
@@ -109,79 +72,34 @@
     by("share-bar").style.setProperty("--share", String(mine / 100));
   }
 
+  // Only the reviewer's corrections are painted; until it answers, the transcript stays as spoken.
   function feedback(rows, reviewedMarks = null) {
-    const {evidence = [], corrections = [], next = "", tally, annotations} = window.HeureuxEO2Feedback.assess(rows);
-    glance(rows, tally);
-    const highlights = (reviewedMarks || []).map(mark => window.HeureuxEO2Feedback.changedWords(mark.turnIndex, mark));
-    const {marks, total} = place(rows, [...highlights, ...annotations]);
-    const good = strengths(rows, evidence);
-    painters.forEach((paint, i) => paint(marks.get(i) || [], good.get(i) || []));
+    const {marks, total} = place(rows, (reviewedMarks || []).map(changedWords));
+    painters.forEach((paint, i) => paint(marks.get(i) || []));
     const mine = rows.filter(row => row.speaker === "user").length;
-    const markCount = total ? `${total} à vérifier` : reviewedMarks === null ? "aucune suggestion locale" : "aucune correction vérifiée";
+    const markCount = reviewedMarks === null ? "" : total ? `${total} à vérifier` : "aucune correction vérifiée";
     const turns = `${mine} prise${mine > 1 ? "s" : ""} de parole`;
     by("count").textContent = `(${[turns, spoken, mine ? markCount : ""].filter(Boolean).join(" · ")})`;
-
-    by("observations").hidden = !evidence.length;
-    by("evidence").replaceChildren(...evidence.map(({label, quote:words, context}) => {
-      const item = make("li", "");
-      item.append(make("span", label, "lv-chip"));
-      if (context) item.append(said("model", context));
-      item.append(said("user", words));
-      return item;
-    }));
-
-    // Marks shown in the conversation are indexed here; anything not placed keeps its explanation.
-    const placed = [...marks.values()].flat();
-    const items = placed.map(mark => {
-      const item = make("li", "");
-      const jump = action("", () => reveal(mark.n));
-      jump.className = "lv-jump";
-      jump.append(make("span", "Voir dans la conversation la formulation : ", "sr-only"));
-      item.append(pair(jump, mark.before, mark.after));
-      return item;
-    });
-    const covered = fix => placed.some(mark => (mark.why && mark.why === fix.why) ||
-      (fix.before.includes(mark.before) && fix.after.includes(mark.after)));
-    corrections.filter(fix => !covered(fix)).forEach(({before, after, why}) => {
-      const item = make("li", "");
-      item.append(pair(make("p", "", "lv-fix"), before, after), make("small", why));
-      items.push(item);
-    });
-    by("language").hidden = !items.length;
-    by("corrections").replaceChildren(...items);
-    by("next").textContent = next;
     return total;
   }
 
-  // Learner turns are numbered like the proposal's lines; the reasons sit under the corrected words.
+  // Learner turns are numbered like the proposal's lines; corrections sit on the words themselves.
   function turn(row, index, n) {
     const item = make("li", "");
     const user = row.speaker === "user";
     item.dataset.speaker = row.speaker;
-    const tags = make("span", "", "lv-tags");
     const line = make("p", "", "lv-turn__said");
-    const notes = make("ul", "", "lv-why");
-    notes.hidden = true;
     let who = make("strong", "Interlocuteur", "lv-who");
     if (user) {
-      line.tabIndex = -1;
       who = make("span", `${n}.`, "lv-num");
       who.prepend(make("span", "Votre prise de parole ", "sr-only"));
     }
     const body = make("div", "", "lv-turn");
     item.append(body);
-    body.append(tags, who, line, notes);
+    body.append(who, line);
     if (row.interrupted) body.append(make("small", "Réponse interrompue."));
-    painters[index] = (marks, good) => {
-      tags.hidden = !good.length;
-      tags.replaceChildren(...good.map(label => make("span", label, "lv-chip")));
+    painters[index] = marks => {
       line.replaceChildren(...sentence(row.text, marks));
-      notes.replaceChildren(...marks.map(mark => {
-        const note = pair(make("li", "", "lv-why__item"), mark.before, mark.after);
-        if (mark.why) note.append(make("small", mark.why));
-        return note;
-      }));
-      notes.hidden = !marks.length;
       item.toggleAttribute("data-marked", marks.length > 0);
     };
     return item;
@@ -196,8 +114,8 @@
   function clear() {
     window.HeureuxEO2Evaluation?.clear();
     painters = [];
-    for (const id of ["turns", "count", "evidence", "corrections", "next", "share-user", "share-model"]) by(id).replaceChildren();
-    for (const id of ["fig-time", "fig-turns", "fig-questions", "fig-links"]) by(id).textContent = "—";
+    for (const id of ["turns", "count", "share-user", "share-model"]) by(id).replaceChildren();
+    for (const id of ["fig-time", "fig-turns"]) by(id).textContent = "—";
     by("report").hidden = by("empty").hidden = by("share").hidden = true;
     by("transcript").open = false;
     showReplies(false);
@@ -213,10 +131,11 @@
     by("replies").hidden = !rows.some(row => row.speaker !== "user");
     let mine = 0;
     by("turns").replaceChildren(...rows.map((row, i) => turn(row, i, row.speaker === "user" ? ++mine : 0)));
-    const marked = feedback(rows);
-    // Wide screens show it beside the findings; phones open it when it carries annotations.
-    by("transcript").open = marked > 0 || window.matchMedia("(min-width: 62rem)").matches;
-    // After the local pass, so a stored report's corrections are painted over it, not under it.
+    glance(rows);
+    feedback(rows);
+    // Wide screens show it open; phones open it once the reviewer marks corrections.
+    by("transcript").open = window.matchMedia("(min-width: 62rem)").matches;
+    // After the plain pass, so a stored report's corrections are painted over it, not under it.
     window.HeureuxEO2Evaluation?.bind(rows, annotations => {
       const marked = feedback(rows, annotations);
       if (annotations.length && marked) by("transcript").open = true;

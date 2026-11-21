@@ -37,10 +37,10 @@ def require_generation_pin(pin):
     if pin is None or pin == "":
         raise AudioPinError(
             "pin_required",
-            "Saisissez le code PIN ElevenLabs pour autoriser ce nouvel enregistrement.",
+            "Saisissez le code pour autoriser ce nouvel enregistrement.",
         )
     if not isinstance(pin, str) or len(pin) > 128 or not constant_time_compare(pin, expected):
-        raise AudioPinError("pin_invalid", "Code PIN ElevenLabs incorrect.")
+        raise AudioPinError("pin_invalid", "Code incorrect.")
 
 
 @sensitive_variables()
@@ -50,7 +50,7 @@ def command_generation_pin():
     if sys.stdin is None or not sys.stdin.isatty():
         raise AudioPinError(
             "pin_required",
-            "Utilisez un terminal interactif pour saisir le code PIN ElevenLabs. "
+            "Utilisez un terminal interactif pour saisir le code. "
             "Aucune nouvelle génération n'a été lancée.",
         )
-    return getpass.getpass("Code PIN ElevenLabs : ")
+    return getpass.getpass("Code : ")

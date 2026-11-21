@@ -446,7 +446,7 @@ def authorize_audio_generation(request, pin):
         if locked:
             error = AudioPinError(
                 "pin_locked",
-                "Trop d'essais de code PIN ElevenLabs. Réessayez plus tard.",
+                "Trop d'essais de code. Réessayez plus tard.",
                 429,
             )
         else:

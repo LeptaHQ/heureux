@@ -16,7 +16,7 @@
 .lv-studio [hidden] { display: none !important; }
 .lv-studio :is(a, button, input, textarea, summary):focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
 .lv-studio h1:focus:not(:focus-visible) { outline: none; }
-.lv-studio :is(.lv-back a, .lv-brand, .lv-primary, .lv-secondary, .lv-orb, .lv-next h2, .lv-notice, .lv-toggle, .lv-copy) { --icon-color: currentColor; }
+.lv-studio :is(.lv-back a, .lv-brand, .lv-primary, .lv-secondary, .lv-orb, .lv-notice, .lv-toggle, .lv-copy) { --icon-color: currentColor; }
 :where(.lv-studio) p { margin: 0; }
 
 /* Top line */
@@ -126,14 +126,14 @@
 
 /* Notepad: lined paper, never sent. */
 .lv-notepad { padding-top: 0.25rem; }
-.lv-notepad summary, .lv-captions summary, .lv-transcript > summary, .lv-glance > summary { display: flex; align-items: center; gap: 0.5rem; list-style: none; cursor: pointer; }
-:is(.lv-notepad, .lv-captions, .lv-transcript, .lv-glance) > summary::-webkit-details-marker { display: none; }
-:is(.lv-notepad, .lv-captions, .lv-transcript, .lv-glance) > summary::after {
+.lv-notepad summary, .lv-captions summary, .lv-transcript > summary { display: flex; align-items: center; gap: 0.5rem; list-style: none; cursor: pointer; }
+:is(.lv-notepad, .lv-captions, .lv-transcript) > summary::-webkit-details-marker { display: none; }
+:is(.lv-notepad, .lv-captions, .lv-transcript) > summary::after {
   content: ""; width: 0.45rem; height: 0.45rem; margin-left: auto;
   border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
   transform: translateY(-0.12rem) rotate(45deg); transition: transform 0.15s ease;
 }
-:is(.lv-notepad, .lv-captions, .lv-transcript, .lv-glance)[open] > summary::after { transform: translateY(0.12rem) rotate(-135deg); }
+:is(.lv-notepad, .lv-captions, .lv-transcript)[open] > summary::after { transform: translateY(0.12rem) rotate(-135deg); }
 .lv-notepad summary { padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-weight: 600; }
 .lv-notepad summary .ui-icon { color: var(--tone-notes); }
 .lv-notepad summary small { color: var(--text-faint); font-size: 0.82rem; font-weight: 400; }
@@ -283,52 +283,18 @@
 .lv-criteria tbody td:nth-of-type(2) { color: var(--text-soft); }
 .lv-criteria tbody tr:last-child > * { border-bottom: 1px solid var(--border); }
 
-/* Secondary counts, taken from the transcript, folded away by default. */
-.lv-glance { grid-area: figures; border-block: 1px solid var(--border); }
-.lv-glance > summary { padding: 0.6rem 0; font-size: 0.92rem; font-weight: 600; }
-.lv-glance > summary small { color: var(--text-soft); font-size: 0.82rem; font-weight: 400; }
-.lv-figures { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem 0; margin: 0; padding: 0.3rem 0 0.85rem; }
-.lv-figures > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 0.2rem; padding: 0 0.9rem; border-left: 1px solid var(--border); }
-.lv-figures > div:nth-child(odd) { padding-left: 0; border-left: 0; }
-.lv-figures dt { color: var(--text-soft); font-size: 0.8rem; line-height: 1.3; }
-.lv-figures dd { margin: 0; color: var(--text); font-size: 1.35rem; font-weight: 600; font-variant-numeric: tabular-nums lining-nums; line-height: 1.1; white-space: nowrap; }
-.lv-share { display: grid; gap: 0.4rem; padding-bottom: 0.85rem; }
-.lv-share__legend { display: flex; justify-content: space-between; gap: 1rem; color: var(--text-soft); font-size: 0.86rem; }
-.lv-share__legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
-.lv-share__legend span::before { content: ""; width: 0.65rem; height: 0.65rem; background: var(--tone-oral); }
-.lv-share__legend span + span::before { background: color-mix(in srgb, var(--text-faint) 45%, transparent); }
-.lv-share__legend b { color: var(--text); font-variant-numeric: tabular-nums; }
-.lv-share__bar { display: block; height: 8px; overflow: hidden; background: color-mix(in srgb, var(--text-faint) 45%, transparent); }
+/* Counts from the transcript: one strip above the estimate, wrapping to two rows at most. */
+.lv-glance { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 1.75rem; margin: 0; color: var(--text-soft); font-size: 0.88rem; line-height: 1.5; }
+.lv-glance > div { display: flex; align-items: baseline; gap: 0.45rem; }
+.lv-glance dd { margin: 0; color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
+.lv-share { flex: 1 1 20rem; }
+.lv-share dd { display: flex; flex: 1; align-items: center; gap: 0.6rem; color: var(--text-soft); font-weight: 400; }
+.lv-share b { color: var(--text); font-weight: 600; }
+.lv-share__bar { flex: 1 1 3rem; max-width: 16rem; height: 8px; overflow: hidden; background: color-mix(in srgb, var(--text-faint) 45%, transparent); }
 .lv-share__bar i { display: block; width: calc(var(--share, 0) * 100%); height: 100%; background: var(--tone-oral); border-right: 2px solid var(--bg); }
-.lv-share__caption { color: var(--text-faint); font-size: 0.8rem; }
 
-/* Debrief: the annotated conversation leads; the next step, findings and counts follow or sit beside it. */
-.lv-debrief { display: grid; grid-template-areas: "talk" "next" "findings" "figures"; gap: 1rem; align-items: start; }
-.lv-findings { grid-area: findings; display: grid; gap: 1.1rem; }
-:is(.lv-findings, .lv-next) h2 { display: flex; align-items: center; gap: 0.5rem; margin: 0 0 0.5rem; color: var(--text-soft); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
-.lv-next { grid-area: next; padding: 0.65rem 0.95rem 0.75rem; background: var(--lv-tint); border-left: 4px solid var(--tone-oral); }
-.lv-next h2 { margin-bottom: 0.25rem; color: var(--tone-oral); }
-.lv-next h2 .ui-icon { font-size: 1.05rem; }
-#lv-next { color: var(--text); font-size: 1.02rem; line-height: 1.5; }
-.lv-examples, .lv-fixes { display: grid; margin: 0; padding: 0; list-style: none; }
-.lv-examples li, .lv-fixes li { display: grid; gap: 0.4rem; padding: 0.75rem 0; border-top: 1px solid var(--border); }
-.lv-examples li:last-child, .lv-fixes li:last-child { border-bottom: 1px solid var(--border); }
-.lv-chip { justify-self: start; padding: 0.1rem 0.55rem; background: var(--tone-oral-soft); color: var(--tone-oral); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.03em; }
-.lv-said { display: grid; grid-template-columns: 7.75rem minmax(0, 1fr); gap: 0.6rem; line-height: 1.5; }
-.lv-said small { padding-top: 0.22rem; color: var(--text-faint); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.lv-said[data-speaker="model"] span { color: var(--text-soft); }
-.lv-said[data-speaker="user"] small { color: var(--tone-oral); }
-.lv-said[data-speaker="user"] span { color: var(--text); font-size: 1.05rem; }
-.lv-fix { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.3rem; line-height: 1.5; }
-.lv-fix__arrow { color: var(--text-faint); }
-.lv-fixes small { color: var(--text-soft); font-size: 0.86rem; }
-.lv-fixes li:has(> .lv-jump) { padding: 0; }
-.lv-jump { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.3rem; width: 100%; padding: 0.75rem 0; border: 0; background: none; color: var(--text); font: inherit; line-height: 1.5; text-align: left; cursor: pointer; }
-.lv-jump::after { content: "Voir"; content: "Voir" / ""; margin-left: auto; padding-left: 1rem; color: var(--lv-action); font-size: 0.86rem; text-decoration: underline; text-underline-offset: 0.2em; }
-.lv-jump:hover .lv-fix__after { text-decoration-thickness: 2px; }
-
-/* The conversation: learner turns numbered like the proposal; marks carry the fixes, notes the reasons. */
-.lv-talk { grid-area: talk; display: grid; gap: 1rem; min-width: 0; }
+/* The conversation: learner turns numbered like the proposal; marks carry the fixes. */
+.lv-talk { display: grid; gap: 1rem; min-width: 0; }
 .lv-transcript { background: var(--surface); border: 1px solid var(--border); border-top: 2px solid var(--tone-oral); }
 .lv-transcript > summary { padding: 0.95rem 1.15rem; font-size: 1.12rem; font-weight: 600; }
 .lv-transcript > summary small { color: var(--text-soft); font-size: 0.86rem; font-weight: 400; }
@@ -347,21 +313,14 @@
 .lv-turn__said { display: inline; }
 li[data-speaker="user"] .lv-turn__said { color: var(--text); font-size: 1.08rem; }
 li[data-speaker="model"] .lv-turn__said { color: var(--text-soft); font-size: 0.96rem; }
-.lv-turn__said:focus { outline: 2px solid var(--tone-oral); outline-offset: 0.35rem; }
-.lv-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.45rem; }
-.lv-tags .lv-chip { background: var(--surface); box-shadow: inset 0 0 0 1px var(--lv-rule); }
 
 /* Inline marks: the flagged words struck on a red tint, the fix in bold green on a green tint. */
-.lv-mark del, .lv-fix__before del { color: var(--lv-correction); text-decoration: line-through; text-decoration-skip-ink: none; }
-.lv-mark ins, .lv-fix__after { color: var(--success); font-weight: 700; }
+.lv-mark del { color: var(--lv-correction); text-decoration: line-through; text-decoration-skip-ink: none; }
+.lv-mark ins { color: var(--success); font-weight: 700; }
 .lv-mark :is(del, ins) { padding: 0.05em 0.22em; border-radius: 0.25rem; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .lv-mark del { background: color-mix(in srgb, var(--lv-correction) 12%, transparent); }
 .lv-mark ins { background: color-mix(in srgb, var(--success) 10%, transparent); text-decoration: none; }
 .lv-mark del ~ ins { margin-inline-start: 0.25em; }
-.lv-fix__after { text-decoration: underline; text-underline-offset: 0.15em; }
-.lv-why { display: grid; gap: 0.5rem; margin: 0.6rem 0 0; padding: 0.6rem 0 0; list-style: none; border-top: 1px dashed var(--border); }
-.lv-why__item { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.3rem; font-size: 0.92rem; line-height: 1.5; }
-.lv-why__item small { flex-basis: 100%; }
 .lv-turn small { display: block; margin-top: 0.3rem; color: var(--text-soft); font-size: 0.82rem; }
 
 /* Proposal: the learner's own exchange, rewritten as a model to copy and rehearse. */
@@ -405,7 +364,6 @@ li[data-speaker="model"] .lv-turn__said { color: var(--text-soft); font-size: 0.
   .lv-assessment__result { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); column-gap: 2rem; align-items: start; }
   .lv-assessment__result:has(#lv-assessment-criteria:empty) { grid-template-columns: minmax(0, 1fr); }
   .lv-assessment__result > :not(.lv-assessment__part) { grid-column: 1 / -1; }
-  .lv-debrief { grid-template-columns: minmax(0, 1.55fr) minmax(16rem, 1fr); grid-template-areas: "talk next" "talk findings" "talk figures"; grid-template-rows: auto auto 1fr; row-gap: 1.1rem; column-gap: clamp(1.75rem, 3.5vw, 2.75rem); }
 }
 
 /* Phones */
@@ -425,7 +383,6 @@ li[data-speaker="model"] .lv-turn__said { color: var(--text-soft); font-size: 0.
   .lv-studio[data-state="setup"] .lv-step { grid-template-columns: 6.4rem minmax(0, 1fr); grid-template-areas: "name about" "meta about"; padding-left: 0.7rem; border-left: 3px solid var(--lv-rule); }
   .lv-studio[data-state="setup"] .lv-step__bar { display: none; }
   .lv-studio[data-state="setup"] .lv-step__name { font-size: 0.92rem; }
-  .lv-said { grid-template-columns: minmax(0, 1fr); gap: 0.15rem; }
   .lv-turns > li { padding: 0.7rem 0.95rem; }
   .lv-transcript > summary { padding: 0.75rem 0.95rem; font-size: 1.05rem; }
   .lv-toggle { margin: 0.6rem 0.95rem; }

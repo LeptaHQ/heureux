@@ -115,7 +115,7 @@ class LiveConversationBrowserMixin:
 
     def submit_live_pin(self, pin=PILOT_PIN):
         expect(self.pin_dialog.get_by_role("heading")).to_have_text("Autoriser la conversation Gemini Live")
-        self.pin_dialog.get_by_label("Code PIN ElevenLabs").fill(pin)
+        self.pin_dialog.get_by_label("Code", exact=True).fill(pin)
         self.pin_dialog.get_by_role("button", name="Autoriser cette conversation").click()
 
     def finish_prompt(self):
@@ -172,7 +172,7 @@ class LiveConversationBrowserMixin:
         self.assertEqual(len(self.token_requests), 3)  # Bad PIN, corrected PIN, one exchange.
         self.assertEqual(self.page.evaluate("[probe.calls,probe.sockets.length]"), [1, 1])
         self.assertNotIn(PILOT_PIN, self.page.evaluate("probe.readers[0].url + probe.sockets[0].url + JSON.stringify([probe.readingMessages,probe.sent])"))
-        expect(self.pin_dialog.get_by_label("Code PIN ElevenLabs")).to_have_value("")
+        expect(self.pin_dialog.get_by_label("Code", exact=True)).to_have_value("")
         self.assertEqual(self.page.evaluate("probe.sent.map(m => Object.keys(m))"), [["setup"]])
         self.assertFalse(self.page.evaluate("probe.track.enabled"))
         self.page.evaluate("probe.sockets[0].receive({setupComplete:{}})")
@@ -249,7 +249,6 @@ class LiveConversationBrowserMixin:
         expect(self.page.locator("#lv-done")).to_be_visible()
         self.assertEqual(self.page.evaluate("[probe.played.at(-1).wasStopped,probe.track.readyState]"), [True, "ended"])
         expect(self.page.locator("#lv-title")).to_have_text("Votre bilan")
-        expect(self.page.locator("#lv-observations")).to_be_hidden()  # Plain questions earn no strength label.
         self.page.locator("#lv-transcript summary").click()
         turns = self.page.locator("#lv-turns li")
         expect(turns.locator("p")).to_have_text([
@@ -257,12 +256,12 @@ class LiveConversationBrowserMixin:
         ])
         expect(turns.locator("textarea, input, [contenteditable]")).to_have_count(0)
         expect(turns.locator(".lv-num")).to_have_text(["Votre prise de parole 1.", "Votre prise de parole 2."])
-        expect(turns.locator(".lv-why:visible")).to_have_count(0)
-        expect(self.page.locator("#lv-count")).to_have_text("(2 prises de parole · 3 min 30 s · aucune suggestion locale)")
+        expect(self.page.locator("#lv-count")).to_have_text("(2 prises de parole · 3 min 30 s)")
+        expect(self.page.locator("#lv-fig-turns")).to_have_text("2")
         self.assertEqual(len(self.token_requests), 2)
         self.page.evaluate("window.dispatchEvent(new Event('pagehide'))")
         expect(turns).to_have_count(0)
-        expect(self.page.locator("#lv-evidence")).to_be_empty()
+        expect(self.page.locator("#lv-fig-turns")).to_have_text("—")
 
     def test_native_voice_late_permission_and_quota_do_not_reconnect(self):
         self.open_live_pilot()
@@ -314,6 +313,11 @@ class LiveConversationBrowserMixin:
 
     def test_native_voice_marks_only_changed_learner_words_in_readonly_transcript(self):
         self.open_live_pilot()
+        report = {"score": 10, "scoreStatus": "scored", "nclc": "7", "cefr": "B2", "reason": "", "criteria": [],
+                  "next": "", "evidence": [], "proposal": [], "annotations": [
+                      {"turnIndex": 1, "start": 0, "end": 5, "before": "Je va", "after": "Je vais"},
+                      {"turnIndex": 2, "start": 3, "end": 16, "before": "je m’inscrire", "after": "je m’inscris"}]}
+        self.page.route("**" + reverse("study:eo_tache_two_live_evaluation"), lambda route: route.fulfill(json=report))
         self.start_preparation()
         self.page.locator("#lv-skip").click()
         expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
@@ -327,7 +331,7 @@ class LiveConversationBrowserMixin:
           ws.receive({serverContent:{inputTranscription:{text:"Si je m’inscrire ce soir, est-ce trop tard ?"}}});
         }""")
         self.page.locator("#lv-end").click()
-        expect(self.page.locator("#lv-evidence")).to_contain_text("Demande polie au conditionnel")
+        expect(self.page.locator("#lv-count")).to_contain_text("1 à vérifier")
         transcript = self.page.locator("#lv-transcript")
         if not transcript.evaluate("el => el.open"):
             transcript.locator("summary").click()
@@ -336,19 +340,14 @@ class LiveConversationBrowserMixin:
         expect(turns.locator(".lv-turn__said ins")).to_have_text(["m’inscris"])
         expect(turns.locator('[data-speaker="model"] del')).to_have_count(0)
         expect(turns.locator("textarea, input, [contenteditable]")).to_have_count(0)
-        why = turns.locator(".lv-why").last
-        expect(why).to_be_visible()
-        expect(why).to_contain_text("m’inscris")
         replies = self.page.locator("#lv-replies")
         expect(replies).to_have_text("Afficher les réponses de l’interlocuteur")
         replies.click()
         expect(turns.locator('[data-speaker="model"]')).to_be_visible()
         expect(replies).to_have_text("Masquer les réponses de l’interlocuteur")
-        self.page.locator("#lv-corrections button").first.click()
-        expect(turns.locator(".lv-turn__said").last).to_be_focused()
         self.assertEqual(len(self.token_requests), 2)
 
-    def test_native_voice_shows_inline_local_suggestions_when_gemini_review_fails(self):
+    def test_native_voice_failed_review_leaves_transcript_unmarked_and_can_retry(self):
         self.open_live_pilot()
         review_calls = []
 
@@ -367,17 +366,18 @@ class LiveConversationBrowserMixin:
             text:"J’ai j’ai une question. J’ai donc voudrais réserver."},turnComplete:true}});
         }""")
         self.page.locator("#lv-end").click()
+        transcript = self.page.locator("#lv-transcript")
+        if not transcript.evaluate("el => el.open"):
+            transcript.locator("summary").click()
         line = self.page.locator('#lv-turns [data-speaker="user"]')
         expect(line).to_be_visible()
-        expect(line.locator(".lv-turn__said del")).to_have_count(2)
-        expect(line.locator("ins")).to_have_text("Je voudrais donc")
-        expect(line).to_contain_text("doublon de transcription possible")
         status = self.page.locator("#lv-assessment-status")
         spinner = self.page.locator(".lv-assessment__spinner")
         expect(status).to_contain_text("pas arrivé à temps")
         expect(status).not_to_have_class(re.compile("sr-only"))
         expect(spinner).to_be_hidden()
-        expect(line.locator("ins")).to_be_visible()
+        expect(line.locator("del, ins")).to_have_count(0)
+        expect(line.locator("p")).to_have_text("J’ai j’ai une question. J’ai donc voudrais réserver.")
         self.assertEqual(len(review_calls), 1)
         self.assertEqual(review_calls[0]["rows"], [
             {"speaker": "user", "text": "J’ai j’ai une question. J’ai donc voudrais réserver."},
@@ -434,10 +434,10 @@ class LiveConversationBrowserMixin:
                 self.assertGreaterEqual(width_px, 44)
                 self.assertGreaterEqual(radius, width_px / 2)
             self.assert_no_horizontal_overflow()
-        self.pin_dialog.get_by_label("Code PIN ElevenLabs").fill("unfinished")
+        self.pin_dialog.get_by_label("Code", exact=True).fill("unfinished")
         self.pin_dialog.get_by_role("button", name="Annuler").click()
         expect(self.page.locator("#lv-status")).to_contain_text("annulée")
-        expect(self.pin_dialog.get_by_label("Code PIN ElevenLabs")).to_have_value("")
+        expect(self.pin_dialog.get_by_label("Code", exact=True)).to_have_value("")
         expect(self.pin_dialog.get_by_role("heading", include_hidden=True)).to_have_text("Nouvel audio ElevenLabs")
         self.assertEqual(self.page.evaluate("[probe.calls,probe.readers.length,probe.sockets.length]"), [0, 0, 0])
         self.assertEqual(self.token_requests, [])
@@ -566,7 +566,6 @@ class LiveConversationBrowserMixin:
         expect(target.locator(".lv-turn__said del")).to_have_text("prend")
         expect(target.locator(".lv-turn__said ins")).to_have_text("prendre")
         expect(target.locator("textarea, input, [contenteditable]")).to_have_count(0)
-        expect(target.locator(".lv-why")).to_contain_text("Après vouloir, employez l’infinitif.")
         proposal = self.page.locator("#lv-proposal")
         expect(proposal).to_be_visible()
         expect(proposal.locator("li")).to_have_text(report["proposal"])
@@ -627,7 +626,7 @@ class LiveConversationBrowserMixin:
             expect(level).to_have_text("Non évalué")
             button.click()
             expect(self.pin_dialog.get_by_role("heading")).to_have_text("Demander le bilan Groq")
-            self.pin_dialog.get_by_label("Code PIN ElevenLabs").fill(PILOT_PIN)
+            self.pin_dialog.get_by_label("Code", exact=True).fill(PILOT_PIN)
             self.pin_dialog.get_by_role("button", name="Demander le bilan").click()
             expect(level).to_have_text("12/20 · NCLC 8 · B2")
             self.assertEqual((calls[-1]["simulation"], "reviewGrant" in calls[-1]), (str(simulation.pk), False))

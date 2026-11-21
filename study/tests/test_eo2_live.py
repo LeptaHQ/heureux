@@ -333,6 +333,8 @@ class GeminiLiveTests(TestCase):
                                      {"turnIndex": 2, "why": "Vous explorez une autre possibilité."}],
                        "corrections": [{"turnIndex": 2, "before": "veux prend", "after": "veux prendre",
                                         "why": "Après vouloir, le deuxième verbe reste à l’infinitif."}],
+                       "proposal": ["Bonjour, combien coûte le prêt d’un appareil photo ?",
+                                    "Et si je veux prendre deux appareils, le tarif change-t-il ?"],
                        "next": "Précisez la durée du prêt : « Et si je les garde deux jours ? »"}
         return transport
 
@@ -359,6 +361,7 @@ class GeminiLiveTests(TestCase):
         self.assertEqual((report["score"], report["cefr"], report["nclc"]), (12, "B2", "8"))
         self.assertEqual([item["score"] for item in report["criteria"]], [4, 3, 3, 2])
         self.assertEqual([item["quote"] for item in report["evidence"]], [self.rows[0]["text"], self.rows[2]["text"]])
+        self.assertEqual(report["proposal"], self.report["proposal"])
         mark, = report["annotations"]
         encoded = self.rows[mark["turnIndex"]]["text"].encode("utf-16-le")
         self.assertEqual(encoded[2*mark["start"]:2*mark["end"]].decode("utf-16-le"), "veux prend")
@@ -419,6 +422,14 @@ class GeminiLiveTests(TestCase):
         self.assertEqual((report["score"], report["omitted"], report["annotations"]), (12, True, []))
         self.assertEqual([item["quote"] for item in report["evidence"]], [self.rows[2]["text"]])
         self.eval_connection.request.assert_called_once()
+
+    def test_malformed_proposal_is_dropped_without_losing_the_score(self):
+        self.evaluation_fixture()
+        for proposal in (None, "Bonjour.", ["Bonjour."] * 17, ["Bonjour.", " "], ["x" * 401], [3]):
+            with self.subTest(proposal=proposal):
+                self.report["proposal"] = proposal
+                result = gemini_evaluation._ground(self.report, self.rows)
+                self.assertEqual((result["score"], result["omitted"], result["proposal"]), (12, True, []))
 
     def test_no_total_for_partial_unobserved_or_unsupported_rubric(self):
         self.evaluation_fixture()

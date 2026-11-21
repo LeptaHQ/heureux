@@ -47,9 +47,17 @@ ne permettent pas de situer l'interaction, laisse toutes les notes nulles ; ne m
 reason : résume le résultat et sa principale limite, sans inventer de note.
 strengths : zéro à trois points réellement réussis ; pour chacun, indique le turnIndex
 de la réplique « user » et explique pourquoi elle fonctionne, sans la citer ni la réécrire.
-corrections : jusqu'à quatre corrections utiles, avec le plus petit segment exact et unique « before »,
-son remplacement naturel « after » et une brève explication « why ». Aucune si rien de certain.
+corrections : relève, réplique par réplique, chaque erreur certaine, jusqu'à douze, avec le plus
+petit segment exact et unique « before », son remplacement naturel « after » et une brève
+explication « why ». Aucune si rien de certain.
 Ne corrige pas une variante valide ou un possible artefact de dictée.
+proposal : une réponse modèle personnalisée : les répliques du candidat réécrites dans l'ordre
+de l'échange, une réplique par élément, sans numéro ni guillemets. Garde ses intentions et le fil
+des réponses du partenaire ; rends chaque réplique précise, polie et naturelle, niveau NCLC 7 ou 8,
+avec le rôle et le registre (tu ou vous) de la consigne. Ouvre en posant le but sans réciter la
+consigne ; termine par un bref merci qui reprend l'information obtenue, sans nouvelle question.
+N'invente ni réponse du partenaire ni fait absent de l'échange. Liste vide si le candidat n'a
+presque rien dit.
 next : donne une action précise à tenter dans cette situation et un exemple de formulation
 en français, présenté comme un exemple, jamais comme une parole du candidat."""
 
@@ -66,7 +74,8 @@ _SCHEMA = _object(
     criteria=_object(**dict.fromkeys(_CRITERIA, _CRITERION)),
     reason=_STR,
     strengths={"type": "array", "maxItems": 3, "items": _object(turnIndex=_INDEX, why=_STR)},
-    corrections={"type": "array", "maxItems": 4, "items": _object(turnIndex=_INDEX, before=_STR, after=_STR, why=_STR)},
+    corrections={"type": "array", "maxItems": 12, "items": _object(turnIndex=_INDEX, before=_STR, after=_STR, why=_STR)},
+    proposal={"type": "array", "maxItems": 16, "items": _STR},
     next=_STR,
 )
 
@@ -142,7 +151,7 @@ def _ground(report, rows):
     if not isinstance(rubric, dict) or not any(key in rubric for key in _CRITERIA):
         raise ValueError
     result = {"score": None, "nclc": None, "cefr": None, "criteria": [], "evidence": [],
-              "annotations": [], "omitted": False, "scoreStatus": "insufficient"}
+              "annotations": [], "proposal": [], "omitted": False, "scoreStatus": "insufficient"}
 
     def note(item, key, limit):
         try:
@@ -176,7 +185,15 @@ def _ground(report, rows):
     if not usable:
         raise ValueError
 
-    for field, limit in (("strengths", 3), ("corrections", 4)):
+    try:
+        proposal = report.get("proposal")
+        if not isinstance(proposal, list) or len(proposal) > 16:
+            raise ValueError
+        result["proposal"] = [_text(line, 400).strip() for line in proposal]
+    except ValueError:
+        result["omitted"] = True
+
+    for field, limit in (("strengths", 3), ("corrections", 12)):
         items = report.get(field)
         if not isinstance(items, list) or len(items) > limit:
             result["omitted"] = True
@@ -241,7 +258,7 @@ def evaluate(request, task, pin, prompt, rows, *, grant, subject_key):
             "consigne": prompt, "rows": [dict(row, turnIndex=i) for i, row in enumerate(rows)],
         }, ensure_ascii=False)}]}],
         "generationConfig": {"responseFormat": {"text": {"mimeType": "APPLICATION_JSON", "schema": _SCHEMA}},
-                             "thinkingConfig": {"thinkingLevel": "LOW"}, "maxOutputTokens": 4096},
+                             "thinkingConfig": {"thinkingLevel": "LOW"}, "maxOutputTokens": 8192},
     }
     try:
         with closing(HTTPSConnection("generativelanguage.googleapis.com", timeout=180)) as conn:

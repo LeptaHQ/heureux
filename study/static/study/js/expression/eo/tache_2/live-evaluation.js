@@ -11,6 +11,30 @@
     message.classList.toggle("sr-only", busy);
     message.textContent = text;
   };
+  let copied;
+  const copyLabel = text => {
+    clearTimeout(copied);
+    by("proposal-copy-label").textContent = text;
+    if (text !== "Copier") copied = setTimeout(() => copyLabel("Copier"), 2400);
+  };
+  by("proposal-copy").onclick = async () => {
+    const text = [...by("proposal-lines").children].map(line => line.textContent).join("\n");
+    try {
+      await window.HeureuxClipboard.writeText(text);
+      copyLabel("Copié !");
+    } catch {
+      copyLabel("Échec");
+    }
+  };
+  function propose(lines) {
+    copyLabel("Copier");
+    by("proposal-lines").replaceChildren(...lines.map(text => {
+      const line = document.createElement("li");
+      line.textContent = text;
+      return line;
+    }));
+    by("proposal").hidden = !lines.length;
+  }
 
   function bind(transcript, paint) {
     pending?.abort();
@@ -25,6 +49,7 @@
     by("assessment-controls").hidden = !hasSpeech;
     by("assessment-result").hidden = true;
     for (const id of ["assessment-reason", "assessment-evidence", "assessment-criteria", "assessment-next"]) by(id).replaceChildren();
+    propose([]);
     status(rows && !hasSpeech ? "Aucune parole de votre part à évaluer." : "");
   }
   consent.onchange = () => {
@@ -83,6 +108,7 @@
       by("assessment-result").hidden = false;
       by("assessment-controls").hidden = true;
       onResult(report.annotations);
+      propose(report.proposal || []);
       status(report.omitted ? "Les éléments non vérifiables ont été écartés." :
         report.score === null ? "Bilan disponible sans note globale." : "Estimation d’entraînement disponible.");
     } catch (error) {

@@ -253,8 +253,10 @@ class LiveConversationBrowserMixin:
         expect(turns.locator("p")).to_have_text([
             "Combien coûte l’atelier ?", "Vingt dollars.", "Est-ce que je peux payer par carte ?",
         ])
-        expect(turns.locator("button, textarea, [contenteditable]")).to_have_count(0)
-        expect(self.page.locator("#lv-count")).to_contain_text("aucune suggestion locale")
+        expect(turns.locator("textarea, input, [contenteditable]")).to_have_count(0)
+        expect(turns.locator(".lv-num")).to_have_text(["Votre prise de parole 1.", "Votre prise de parole 2."])
+        expect(turns.locator(".lv-why:visible")).to_have_count(0)
+        expect(self.page.locator("#lv-count")).to_have_text("(2 prises de parole · 3 min 30 s · aucune suggestion locale)")
         self.assertEqual(len(self.token_requests), 2)
         self.page.evaluate("window.dispatchEvent(new Event('pagehide'))")
         expect(turns).to_have_count(0)
@@ -328,12 +330,18 @@ class LiveConversationBrowserMixin:
         if not transcript.evaluate("el => el.open"):
             transcript.locator("summary").click()
         turns = self.page.locator("#lv-turns")
-        expect(turns.locator("del")).to_have_text(["m’inscrire"])
-        expect(turns.locator("ins")).to_have_text(["m’inscris"])
+        expect(turns.locator(".lv-turn__said del")).to_have_text(["m’inscrire"])
+        expect(turns.locator(".lv-turn__said ins")).to_have_text(["m’inscris"])
         expect(turns.locator('[data-speaker="model"] del')).to_have_count(0)
-        expect(turns.locator("button, textarea, [contenteditable]")).to_have_count(0)
-        self.page.locator("#lv-replies").click()
+        expect(turns.locator("textarea, input, [contenteditable]")).to_have_count(0)
+        why = turns.locator(".lv-why").last
+        expect(why).to_be_visible()
+        expect(why).to_contain_text("m’inscris")
+        replies = self.page.locator("#lv-replies")
+        expect(replies).to_have_text("Afficher les réponses de l’interlocuteur")
+        replies.click()
         expect(turns.locator('[data-speaker="model"]')).to_be_visible()
+        expect(replies).to_have_text("Masquer les réponses de l’interlocuteur")
         self.page.locator("#lv-corrections button").first.click()
         expect(turns.locator(".lv-turn__said").last).to_be_focused()
         self.assertEqual(len(self.token_requests), 2)
@@ -359,7 +367,7 @@ class LiveConversationBrowserMixin:
         self.page.locator("#lv-end").click()
         line = self.page.locator('#lv-turns [data-speaker="user"]')
         expect(line).to_be_visible()
-        expect(line.locator("del")).to_have_count(2)
+        expect(line.locator(".lv-turn__said del")).to_have_count(2)
         expect(line.locator("ins")).to_have_text("Je voudrais donc")
         expect(line).to_contain_text("doublon de transcription possible")
         self.assertEqual(review_calls, [])
@@ -508,7 +516,9 @@ class LiveConversationBrowserMixin:
                       {"turnIndex": 0, "quote": "Combien coûte le prêt ?", "why": "Vous demandez directement le prix du prêt."},
                       {"turnIndex": 2, "quote": original, "why": "Vous relancez sur le cas de deux appareils."}],
                   "annotations": [{"turnIndex": 2, "start": 12, "end": 22, "before": "veux prend",
-                                   "after": "veux prendre", "why": "Après vouloir, employez l’infinitif."}]}
+                                   "after": "veux prendre", "why": "Après vouloir, employez l’infinitif."}],
+                  "proposal": ["Bonjour, combien coûte le prêt d’un appareil photo ?",
+                               "Et si je veux prendre deux appareils, le tarif change-t-il ?"]}
 
         def fake_review(route):
             body = route.request.post_data_json
@@ -567,9 +577,19 @@ class LiveConversationBrowserMixin:
         if not transcript.evaluate("el => el.open"):
             transcript.locator("summary").click()
         target = self.page.locator('#lv-turns [data-speaker="user"]').last
-        expect(target.locator("del")).to_have_text("prend")
-        expect(target.locator("ins")).to_have_text("prendre")
-        expect(target.locator("button, textarea, [contenteditable]")).to_have_count(0)
+        expect(target.locator(".lv-turn__said del")).to_have_text("prend")
+        expect(target.locator(".lv-turn__said ins")).to_have_text("prendre")
+        expect(target.locator("textarea, input, [contenteditable]")).to_have_count(0)
+        expect(target.locator(".lv-why")).to_contain_text("Après vouloir, employez l’infinitif.")
+        proposal = self.page.locator("#lv-proposal")
+        expect(proposal).to_be_visible()
+        expect(proposal.locator("li")).to_have_text(report["proposal"])
+        self.page.evaluate("""() => Object.defineProperty(navigator, "clipboard", {configurable: true,
+          value: {writeText: text => { window.copiedProposal = text; return Promise.resolve(); }}})""")
+        proposal.get_by_role("button", name="Copier").click()
+        expect(proposal.locator("#lv-proposal-copy-label")).to_have_text("Copié !")
+        self.assertEqual(self.page.evaluate("window.copiedProposal"), "\n".join(report["proposal"]))
+        self.assert_no_horizontal_overflow()
         self.assertEqual(len(calls), 2)
         self.assertEqual(calls[0]["rows"], calls[1]["rows"])
         self.assertEqual(calls[1]["rows"][-1], {"speaker": "user", "text": original})

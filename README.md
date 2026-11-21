@@ -171,8 +171,9 @@ point a connection indicator appears and the interlocutor is asked to say
 fails or is interrupted, preparation does not start.
 Ending the exercise or leaving the tab closes
 the call. The browser builds a speaker-labelled transcript from the live captions.
-At the end, learners can reread their turns with suggested changes shown inline:
-the original wording, its replacement and a short reason. They can reveal the
+At the end, learners can reread their numbered turns with suggested changes shown inline:
+the original wording struck through and its replacement highlighted, with the
+reason just below the turn. They can reveal the
 partner’s replies for context. The transcript is read-only; suggestions do not
 replace the words used for scoring.
 Strengths are illustrated with real questions or follow-ups from the exchange.
@@ -192,8 +193,10 @@ The debrief shows four practice marks **out of 5**: task completion, coherence
 and flow of ideas, lexical precision, and grammatical accuracy. Heureux adds them
 for one **total out of 20** and maps it to **NCLC** and **CEFR**. This is a
 practice rubric, not official TCF weighting. Strengths quote actual learner
-turns from the transcript; inline corrections identify the words to
-change and why. An unverifiable edit or strength is left out without discarding
+turns from the transcript; up to twelve inline corrections identify the words to
+change and why. Gemini also writes a **Proposition**: the learner’s
+own turns, rewritten in order as a polished model they can copy and rehearse.
+It never invents partner replies. An unverifiable edit, strength or proposal is left out without discarding
 a supported score. An incomplete rubric is not extrapolated to a total.
 Pronunciation, pace and accent are not assessed from text.
 Conversions follow the [TCF speaking scale](https://www.france-education-international.fr/document/grilleniveauxtcf)

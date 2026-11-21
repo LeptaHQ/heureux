@@ -17,15 +17,26 @@
   const count = text => (text.match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu) || []).length;
   const duration = ms => {
     const sec = Math.round(ms / 1000);
-    return sec < 60 ? `${sec} s` : `${Math.floor(sec / 60)} min ${String(sec % 60).padStart(2, "0")}`;
+    return sec < 60 ? `${sec} s` : `${Math.floor(sec / 60)} min ${String(sec % 60).padStart(2, "0")} s`;
   };
   let painters = [];
+  let spoken = "";
 
   // Quoted speech with its speaker, so the evidence reads like the exchange itself.
   const said = (speaker, words) => {
     const line = make("p", "", "lv-said");
     line.dataset.speaker = speaker;
     line.append(make("small", speaker === "user" ? "Vous" : "Interlocuteur"), make("span", quote(words)));
+    return line;
+  };
+  // « before » → « after », shared by the findings list and each turn's explanations.
+  const pair = (line, before, after) => {
+    if (before) {
+      const struck = make("span", "« ", "lv-fix__before");
+      struck.append(make("del", before), " »");
+      line.append(struck, make("span", " → ", "lv-fix__arrow"));
+    }
+    line.append(make("strong", after ? quote(after) : "Supprimer ce passage", "lv-fix__after"));
     return line;
   };
 
@@ -107,7 +118,8 @@
     painters.forEach((paint, i) => paint(marks.get(i) || [], good.get(i) || []));
     const mine = rows.filter(row => row.speaker === "user").length;
     const markCount = total ? `${total} à vérifier` : reviewedMarks === null ? "aucune suggestion locale" : "aucune correction vérifiée";
-    by("count").textContent = (mine === 1 ? "votre réplique" : `vos ${mine} répliques`) + (mine ? ` · ${markCount}` : "");
+    const turns = `${mine} prise${mine > 1 ? "s" : ""} de parole`;
+    by("count").textContent = `(${[turns, spoken, mine ? markCount : ""].filter(Boolean).join(" · ")})`;
 
     by("observations").hidden = !evidence.length;
     by("evidence").replaceChildren(...evidence.map(({label, quote:words, context}) => {
@@ -120,21 +132,11 @@
 
     // Marks shown in the conversation are indexed here; anything not placed keeps its explanation.
     const placed = [...marks.values()].flat();
-    const pair = (line, before, after) => {
-      if (before) {
-        const struck = make("span", "« ", "lv-fix__before");
-        struck.append(make("del", before), " »");
-        line.append(struck, make("span", " → ", "lv-fix__arrow"));
-      }
-      line.append(make("strong", after ? quote(after) : "Supprimer ce passage", "lv-fix__after"));
-      return line;
-    };
     const items = placed.map(mark => {
       const item = make("li", "");
       const jump = action("", () => reveal(mark.n));
       jump.className = "lv-jump";
-      jump.append(make("span", "Voir dans l’échange la formulation ", "sr-only"), make("b", String(mark.n), "lv-fix__n"),
-        make("span", " : ", "sr-only"));
+      jump.append(make("span", "Voir dans la conversation la formulation : ", "sr-only"));
       item.append(pair(jump, mark.before, mark.after));
       return item;
     });
@@ -151,38 +153,45 @@
     return total;
   }
 
-  function turn(row, index) {
+  // Learner turns are numbered like the proposal's lines; the reasons sit under the corrected words.
+  function turn(row, index, n) {
     const item = make("li", "");
     const user = row.speaker === "user";
     item.dataset.speaker = row.speaker;
     const tags = make("span", "", "lv-tags");
     const line = make("p", "", "lv-turn__said");
-    const notes = make("span", "", "lv-why");
-    if (user) line.tabIndex = -1;
+    const notes = make("ul", "", "lv-why");
+    notes.hidden = true;
+    let who = make("strong", "Interlocuteur", "lv-who");
+    if (user) {
+      line.tabIndex = -1;
+      who = make("span", `${n}.`, "lv-num");
+      who.prepend(make("span", "Votre prise de parole ", "sr-only"));
+    }
     const body = make("div", "", "lv-turn");
-    item.append(make("strong", user ? "Vous" : "Interlocuteur"), body);
-    body.append(tags, line, notes);
+    item.append(body);
+    body.append(tags, who, line, notes);
     if (row.interrupted) body.append(make("small", "Réponse interrompue."));
     painters[index] = (marks, good) => {
       tags.hidden = !good.length;
       tags.replaceChildren(...good.map(label => make("span", label, "lv-chip")));
       line.replaceChildren(...sentence(row.text, marks));
-      notes.hidden = !marks.length;
       notes.replaceChildren(...marks.map(mark => {
-        const note = make("span", "", "lv-why__item");
-        note.append(make("b", String(mark.n)), mark.why || `${quote(mark.before)} → ${quote(mark.after)}`);
+        const note = pair(make("li", "", "lv-why__item"), mark.before, mark.after);
+        if (mark.why) note.append(make("small", mark.why));
         return note;
       }));
+      notes.hidden = !marks.length;
       item.toggleAttribute("data-marked", marks.length > 0);
     };
     return item;
   }
 
   function showReplies(on) {
-    by("replies").setAttribute("aria-pressed", String(on));
     by("turns").dataset.replies = on ? "shown" : "hidden";
+    by("replies-label").textContent = `${on ? "Masquer" : "Afficher"} les réponses de l’interlocuteur`;
   }
-  by("replies").onclick = () => showReplies(by("replies").getAttribute("aria-pressed") !== "true");
+  by("replies").onclick = () => showReplies(by("turns").dataset.replies !== "shown");
 
   function clear() {
     window.HeureuxEO2Evaluation?.clear();
@@ -198,9 +207,11 @@
     const rows = captured.filter(row => row.text.trim()).map(row => ({...row, text: row.text.trim()}));
     if (!rows.length) { by("empty").hidden = false; return false; }
     by("report").hidden = false;
+    spoken = elapsed > 0 ? duration(elapsed) : "";
     by("fig-time").textContent = duration(elapsed);
     by("replies").hidden = !rows.some(row => row.speaker !== "user");
-    by("turns").replaceChildren(...rows.map(turn));
+    let mine = 0;
+    by("turns").replaceChildren(...rows.map((row, i) => turn(row, i, row.speaker === "user" ? ++mine : 0)));
     window.HeureuxEO2Evaluation?.bind(rows, annotations => {
       const marked = feedback(rows, annotations);
       if (annotations.length && marked) by("transcript").open = true;

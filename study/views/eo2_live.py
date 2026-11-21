@@ -1,6 +1,8 @@
 import json
+import threading
+import time
 
-from django.http import Http404, JsonResponse
+from django.http import Http404, JsonResponse, StreamingHttpResponse
 from django.template.response import TemplateResponse
 from django.urls import reverse
 from django.views.decorators.cache import never_cache
@@ -21,6 +23,13 @@ DEFAULT_CONSIGNE = (
     "Je travaille à l’accueil d’un centre culturel. Vous souhaitez participer à un atelier de photographie. "
     "Demandez-moi des renseignements pour choisir une formule qui vous convient."
 )
+# A quick report keeps its real HTTP status; a slower one streams keep-alive spaces first.
+EVALUATION_GRACE_SECONDS = 20
+EVALUATION_KEEPALIVE_SECONDS = 10
+# The final keep-alive tick must still end before Gunicorn's 210 s worker timeout.
+EVALUATION_DEADLINE_SECONDS = 190
+_EVALUATION_FAILED = {"error": "Le bilan a échoué. Votre transcription reste disponible."}
+_EVALUATION_LATE = {"error": "Gemini n’a pas répondu à temps. Votre transcription reste disponible."}
 
 
 def _live_publication(task, month_slug, batch_number, subject_number):
@@ -141,10 +150,39 @@ def eo_tache_two_live_evaluation(request, **publication):
     subject, key = _live_publication(task, **publication) if publication else (None, "")
     try:
         data = gemini_evaluation.request_data(request.read(gemini_evaluation.MAX_BODY + 1))
-        report = gemini_evaluation.evaluate(request, task, data.get("pin"), subject.prompt if subject else DEFAULT_CONSIGNE,
-                                            data["rows"], grant=data.get("reviewGrant"), subject_key=key)
+        gemini_evaluation.authorize(request, task, data.get("pin"), grant=data.get("reviewGrant"), subject_key=key)
     except AudioPinError as exc:
         return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
     except gemini_evaluation.EvaluationError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
-    return JsonResponse(report)
+    prompt, rows = subject.prompt if subject else DEFAULT_CONSIGNE, data["rows"]
+    outcome, done = [], threading.Event()
+
+    def score():
+        try:
+            outcome.append((gemini_evaluation.score(prompt, rows), 200))
+        except gemini_evaluation.EvaluationError as exc:
+            outcome.append(({"error": str(exc)}, exc.status))
+        finally:
+            done.set()
+
+    deadline = time.monotonic() + EVALUATION_DEADLINE_SECONDS
+    threading.Thread(target=score, daemon=True).start()
+    if done.wait(EVALUATION_GRACE_SECONDS):
+        body, status = outcome[0] if outcome else (_EVALUATION_FAILED, 500)
+        return JsonResponse(body, status=status)
+
+    # Render's Cloudflare edge drops a request that sends nothing for 100 s (HTTP 524).
+    # Send the headers now, then JSON-insignificant spaces until Gemini answers.
+    def keep_alive():
+        yield b" "
+        while not done.wait(EVALUATION_KEEPALIVE_SECONDS) and time.monotonic() < deadline:
+            yield b" "
+        if not done.is_set():
+            body, status = _EVALUATION_LATE, 504
+        else:
+            body, status = outcome[0] if outcome else (_EVALUATION_FAILED, 500)
+        yield json.dumps(body if status == 200 else {**body, "status": status}).encode()
+
+    request.META.pop("HTTP_ACCEPT_ENCODING", None)  # GZipMiddleware would hold the spaces back.
+    return StreamingHttpResponse(keep_alive(), content_type="application/json")

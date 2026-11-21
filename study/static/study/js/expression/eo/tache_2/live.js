@@ -192,7 +192,7 @@
     if (typeof token !== "string" || !token.startsWith("auth_tokens/") || model !== "models/gemini-3.8-live") throw new Error("Configuration invalide");
     const socket = s.sock = new WebSocket(`${wsURL}?access_token=${encodeURIComponent(token)}`);
     socket.binaryType = "arraybuffer";
-    socket.onopen = () => { if (owns(s) && s.sock === socket) socket.send(JSON.stringify({setup:{model,generationConfig:{responseModalities:["AUDIO"]},inputAudioTranscription:{},outputAudioTranscription:{}}})); };
+    socket.onopen = () => { if (owns(s) && s.sock === socket) socket.send(JSON.stringify({setup:{model,generationConfig:{responseModalities:["AUDIO"]},inputAudioTranscription:{languageCodes:["fr-FR"]},outputAudioTranscription:{}}})); };
     return socket;
   }
   function readPrompt(s, config) {
@@ -272,7 +272,7 @@
     try {
       const response = await window.HeureuxAudioRequest(root.dataset.tokenUrl,requestOptions(s,{purpose:"attempt"}),{
         confirmBeforeSend:true, title:"Autoriser la conversation Gemini Live", action:"Autoriser cette conversation",
-        description:"La consigne sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant l’échange. " +
+        description:"La consigne sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant l’échange, puis sa transcription pour le bilan. " +
           "Je confirme avoir au moins 18 ans et participer depuis le Canada ou les États-Unis. Des personnes peuvent examiner l’échange pour améliorer les produits de Google.",
         onConfirm:() => {
           phase("loading","Ouverture"); text("status","Ouverture de la lecture · micro coupé.");

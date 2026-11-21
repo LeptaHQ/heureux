@@ -156,7 +156,7 @@ class LiveConversationBrowserMixin:
         expect(self.start).to_be_enabled()
         self.start.click()
         self.assertEqual(self.page.evaluate("probe.calls"), 0)
-        expect(self.pin_dialog).to_contain_text("J’accepte d’envoyer ma voix à Google")
+        expect(self.pin_dialog).to_contain_text("J’accepte d’envoyer ma voix à Google pendant l’échange, puis sa transcription pour le bilan.")
         self.assertEqual(self.token_requests, [])
         self.submit_live_pin("incorrect")
         expect(self.pin_dialog.get_by_role("alert")).to_have_text("Code PIN incorrect.")
@@ -370,9 +370,6 @@ class LiveConversationBrowserMixin:
         expect(line.locator(".lv-turn__said del")).to_have_count(2)
         expect(line.locator("ins")).to_have_text("Je voudrais donc")
         expect(line).to_contain_text("doublon de transcription possible")
-        self.assertEqual(review_calls, [])
-        self.page.locator("#lv-assessment-consent").check()
-        self.page.locator("#lv-assess").click()
         status = self.page.locator("#lv-assessment-status")
         spinner = self.page.locator(".lv-assessment__spinner")
         expect(status).to_contain_text("pas arrivé à temps")
@@ -385,7 +382,6 @@ class LiveConversationBrowserMixin:
         ])
         self.page.evaluate("""() => { window.fetch = () =>
           new Promise(resolve => probe.releaseReview = report => resolve(Response.json(report))); }""")
-        self.page.locator("#lv-assessment-consent").check()
         self.page.locator("#lv-assess").click()
         expect(self.page.locator('#lv-assess [data-icon="sparkles"]')).to_be_visible()
         expect(spinner).to_be_visible()
@@ -393,12 +389,6 @@ class LiveConversationBrowserMixin:
         expect(status).to_have_class(re.compile("sr-only"))
         self.page.emulate_media(reduced_motion="reduce")
         expect(spinner).to_have_css("animation-name", "none")
-        self.page.locator("#lv-assessment-consent").uncheck()
-        expect(spinner).to_be_hidden()
-        expect(status).to_contain_text("arrêtée")
-        self.page.locator("#lv-assessment-consent").check()
-        self.page.locator("#lv-assess").click()
-        expect(spinner).to_be_visible()
         self.page.locator("#lv-retry").click()
         self.page.evaluate("""() => probe.releaseReview({score:20, nclc:'10+', cefr:'C2',
           criteria:[], evidence:[], annotations:[]})""")
@@ -502,7 +492,7 @@ class LiveConversationBrowserMixin:
             expect(self.page.locator("#lv-time")).to_be_hidden()
         self.assertEqual(self.page.evaluate("[probe.calls,probe.sockets.length]"), [0, 0])
 
-    def test_native_voice_optional_review_scores_captured_transcript_with_consent(self):
+    def test_native_voice_review_starts_itself_and_retries_on_the_captured_transcript(self):
         self.open_live_pilot()
         calls = []
         original = "📷 Et si je veux prend deux appareils ?"
@@ -527,6 +517,8 @@ class LiveConversationBrowserMixin:
                 route.fulfill(status=403, json={"error": "missing grant"})
             elif len(calls) == 1:
                 route.fulfill(status=429, json={"error": "Quota atteint."})
+            elif len(calls) == 2:  # A slow report streams keep-alive spaces, then its error.
+                route.fulfill(content_type="application/json", body="  " + json.dumps({"error": "Délai.", "status": 504}))
             else:
                 route.fulfill(json=report)
 
@@ -542,30 +534,22 @@ class LiveConversationBrowserMixin:
           ws.receive({serverContent:{inputTranscription:{text:words},turnComplete:true}});
         }""", original)
         self.page.locator("#lv-end").click()
-        consent, button, level = (self.page.locator("#lv-" + key) for key in ("assessment-consent", "assess", "level"))
+        button, level = (self.page.locator("#lv-" + key) for key in ("assess", "level"))
+        status = self.page.locator("#lv-assessment-status")
+        expect(status).to_contain_text("Quota atteint")
         expect(level).to_have_text("Non évalué")
-        expect(button).to_be_disabled()
+        expect(button).to_be_enabled()
         self.page.set_viewport_size({"width": 320, "height": 700})
         controls = self.page.locator("#lv-assessment-controls")
         expect(button).to_have_accessible_name("Évaluer mon niveau avec Gemini")
         expect(button).to_have_text("")
         expect(button.locator('[data-icon="sparkles"]')).to_be_visible()
-        expect(controls.locator("details")).to_have_count(0)
-        expect(consent).to_have_accessible_name("Partager le texte avec Google")
-        self.assertEqual(controls.locator("label span").evaluate("""el => {
-          const range = document.createRange(); range.selectNodeContents(el);
-          return range.getClientRects().length;
-        }"""), 1)
-        expect(consent).not_to_be_checked()
-        expect(button).to_be_disabled()
+        expect(controls.locator("details, input")).to_have_count(0)
         self.assert_no_horizontal_overflow()
-        consent.check()
-        self.assertEqual(calls, [])
-        button.click()
-        expect(self.page.locator("#lv-assessment-status")).to_contain_text("Quota atteint")
-        expect(level).to_have_text("Non évalué")
         expect(self.page.locator("#lv-evidence")).to_contain_text("Combien coûte le prêt")
-        consent.check()
+        button.click()
+        expect(status).to_contain_text("pas arrivé à temps")
+        expect(level).to_have_text("Non évalué")
         button.click()
         expect(level).to_have_text("12/20 · NCLC 8 · B2")
         expect(self.page.locator("#lv-assessment-evidence")).to_contain_text("Vous relancez sur le cas de deux appareils.")
@@ -590,7 +574,7 @@ class LiveConversationBrowserMixin:
         expect(proposal.locator("#lv-proposal-copy-label")).to_have_text("Copié !")
         self.assertEqual(self.page.evaluate("window.copiedProposal"), "\n".join(report["proposal"]))
         self.assert_no_horizontal_overflow()
-        self.assertEqual(len(calls), 2)
-        self.assertEqual(calls[0]["rows"], calls[1]["rows"])
-        self.assertEqual(calls[1]["rows"][-1], {"speaker": "user", "text": original})
+        self.assertEqual(len(calls), 3)
+        self.assertTrue(calls[0]["rows"] == calls[1]["rows"] == calls[2]["rows"])
+        self.assertEqual(calls[2]["rows"][-1], {"speaker": "user", "text": original})
         self.assertEqual(self.page.evaluate("[probe.calls,probe.track.readyState]"), [1, "ended"])

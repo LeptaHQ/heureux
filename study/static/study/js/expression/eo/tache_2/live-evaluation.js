@@ -2,8 +2,9 @@
   "use strict";
   const root = document.getElementById("live-studio");
   const by = id => document.getElementById("lv-" + id);
-  const consent = by("assessment-consent"), button = by("assess");
-  if (!consent || !button) return;
+  const button = by("assess");
+  if (!button) return;
+  const late = "Le bilan n’est pas arrivé à temps. Vous pouvez réessayer dans cet onglet.";
   let rows, onResult, pending, grant;
   const status = (text, busy = false) => {
     button.setAttribute("aria-busy", String(busy));
@@ -42,8 +43,6 @@
     rows = transcript;
     onResult = paint;
     const hasSpeech = rows?.some(row => row.speaker === "user" && row.text.trim());
-    consent.checked = false;
-    consent.disabled = !hasSpeech;
     button.disabled = true;
     by("level").textContent = "Non évalué";
     by("assessment-controls").hidden = !hasSpeech;
@@ -51,17 +50,11 @@
     for (const id of ["assessment-reason", "assessment-evidence", "assessment-criteria", "assessment-next"]) by(id).replaceChildren();
     propose([]);
     status(rows && !hasSpeech ? "Aucune parole de votre part à évaluer." : "");
+    if (hasSpeech) assess();
   }
-  consent.onchange = () => {
-    if (!consent.checked && pending) {
-      pending.abort();
-      pending = null;
-      status("Demande arrêtée. Les corrections locales restent disponibles.");
-    }
-    button.disabled = !consent.checked || !!pending;
-  };
-  button.onclick = async () => {
-    if (!rows || !consent.checked || pending) return;
+  // Starts when the exchange ends; the sparkle button only retries after a failure.
+  async function assess() {
+    if (!rows || pending) return;
     const call = pending = new AbortController();
     button.disabled = true;
     status("Gemini examine votre échange…", true);
@@ -74,7 +67,7 @@
       if (pending !== call) return;
       if (!response.ok) {
         if (response.status === 504) {
-          status("Le bilan n’est pas arrivé à temps. Vous pouvez réessayer dans cet onglet.");
+          status(late);
           return;
         }
         const detail = response.headers.get("content-type")?.includes("application/json") ? await response.json() : null;
@@ -86,6 +79,11 @@
       }
       const report = await response.json();
       if (pending !== call) return;
+      // A slow report arrives after keep-alive spaces, so its failure is in the body, not the HTTP status.
+      if (typeof report.error === "string") {
+        status(report.status === 504 ? late : report.error);
+        return;
+      }
       by("level").textContent = report.scoreStatus === "incomplete" ? "Grille partielle · pas de total" :
         report.score === null ? "Échange insuffisant pour une note" :
         `${report.score}/20 · NCLC ${report.nclc} · ${report.cefr}`;
@@ -117,10 +115,10 @@
     } finally {
       if (pending === call) {
         pending = null;
-        consent.checked = false;
-        button.disabled = true;
+        button.disabled = false;
       }
     }
-  };
+  }
+  button.onclick = assess;
   window.HeureuxEO2Evaluation = {bind, setGrant: value => { grant = value; }, clear: () => { grant = null; bind(null, null); }};
 })();

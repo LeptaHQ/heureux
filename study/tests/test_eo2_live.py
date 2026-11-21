@@ -1,4 +1,5 @@
 import json
+import threading
 from datetime import datetime, timedelta
 from unittest.mock import patch
 
@@ -11,6 +12,7 @@ from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
 from study.expression.eo.tache_2 import gemini_evaluation, gemini_live
 from study.models import LoginThrottle, Prompt
+from study.views import eo2_live
 from . import factories
 
 
@@ -154,7 +156,7 @@ class GeminiLiveTests(TestCase):
         instruction = setup.pop("systemInstruction")["parts"][0]["text"]
         self.assertEqual(setup, {
             "model": "models/gemini-3.8-live", "generationConfig": {"responseModalities": ["AUDIO"]},
-            "inputAudioTranscription": {}, "outputAudioTranscription": {},
+            "inputAudioTranscription": {"languageCodes": ["fr-FR"]}, "outputAudioTranscription": {},
         })
         for fact in (
             "samedi de 10 h à 11 h 30", "mercredi de 18 h à 20 h", "téléphone ou un appareil",
@@ -475,3 +477,33 @@ class GeminiLiveTests(TestCase):
         self.assert_private(timeout, 504)
         self.assertNotIn("private-provider-details", timeout.json()["error"])
         self.assertEqual(self.eval_connection.request.call_count, 5)
+
+    def test_slow_review_streams_keep_alive_before_the_report_or_its_error(self):
+        self.evaluation_fixture()
+        body = json.dumps({"rows": self.rows, "pin": PILOT_PIN, "consent": True})
+        self.eval_response.read.return_value = json.dumps({"candidates": [{
+            "finishReason": "STOP", "content": {"parts": [{"text": json.dumps(self.report)}]},
+        }]}).encode()
+        release = threading.Event()
+        self.eval_connection.request.side_effect = lambda *args, **kwargs: release.wait(5)
+        with patch.multiple(eo2_live, EVALUATION_GRACE_SECONDS=0, EVALUATION_KEEPALIVE_SECONDS=0.01):
+            response = self.post(url=self.eval_url, body=body, HTTP_ACCEPT_ENCODING="gzip")
+            self.assert_private(response, 200)
+            self.assertFalse(response.has_header("Content-Encoding"))
+            chunks = iter(response.streaming_content)
+            self.assertEqual(next(chunks), b" ")  # Sent before Gemini answers, so the proxy sees activity.
+            release.set()
+            self.assertEqual(json.loads(b"".join(chunks))["score"], 12)
+            release.clear()
+            self.eval_response.status = 400
+            chunks = iter(self.post(url=self.eval_url, body=body).streaming_content)
+            self.assertEqual(next(chunks), b" ")
+            release.set()
+            failed = json.loads(b"".join(chunks))
+            release.clear()
+            with patch.object(eo2_live, "EVALUATION_DEADLINE_SECONDS", 0):
+                late = json.loads(b"".join(self.post(url=self.eval_url, body=body).streaming_content))
+            release.set()  # Gemini is still pending, but the stream ended before Gunicorn's timeout.
+        self.assertEqual(failed["status"], 502)
+        self.assertIn("Gemini", failed["error"])
+        self.assertEqual(late["status"], 504)

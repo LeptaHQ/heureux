@@ -245,8 +245,6 @@
 .lv-assessment__action { display: inline-flex; align-items: center; gap: 0.4rem; }
 .lv-assessment__spinner { visibility: hidden; width: 1rem; height: 1rem; box-sizing: border-box; border: 2px solid var(--border-strong); border-top-color: var(--lv-action); border-radius: 50%; }
 #lv-assess[aria-busy="true"] + .lv-assessment__spinner { visibility: visible; animation: lv-spin 0.8s linear infinite; }
-.lv-assessment__consent { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.4rem; color: var(--text-soft); font-size: 0.86rem; line-height: 1.45; cursor: pointer; }
-.lv-assessment__consent input { width: 1.1rem; height: 1.1rem; margin: 0.12rem 0 0; accent-color: var(--tone-oral); }
 .lv-assessment .icon-button { --icon-color: currentColor; width: 2.75rem; height: 2.75rem; }
 .lv-assessment .icon-button:disabled { border-color: var(--border); background: var(--surface); color: var(--text-faint); cursor: not-allowed; }
 .lv-assessment__status { color: var(--text); font-size: 0.9rem; line-height: 1.45; }
@@ -430,7 +428,6 @@ li[data-speaker="model"] .lv-turn__said { color: var(--text-soft); font-size: 0.
   .lv-proposal__lines { padding-left: 1.35rem; }
   .lv-assessment { gap: 0.5rem; padding-block: 0.6rem 0.7rem; }
   #lv-level { font-size: 1.1rem; }
-  .lv-assessment__consent { font-size: 0.84rem; }
   .lv-notice { padding: 1rem 1.05rem; gap: 0.8rem; }
   .lv-done-actions .lv-primary { flex: 1 1 100%; }
 }

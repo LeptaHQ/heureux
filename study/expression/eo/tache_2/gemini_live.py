@@ -137,7 +137,8 @@ def _request_token(instruction: str) -> str | None:
             "model": MODEL,
             "generationConfig": {"responseModalities": ["AUDIO"]},
             "systemInstruction": {"parts": [{"text": instruction}]},
-            "inputAudioTranscription": {},
+            # A hint, not a lock: without it, accented French can be captioned as Spanish.
+            "inputAudioTranscription": {"languageCodes": ["fr-FR"]},
             "outputAudioTranscription": {},
         },
     }

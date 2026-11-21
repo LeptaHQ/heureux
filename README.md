@@ -170,7 +170,8 @@ point a connection indicator appears and the interlocutor is asked to say
 « Bonjour ! », then leave the first question to the learner. If reading
 fails or is interrupted, preparation does not start.
 Ending the exercise or leaving the tab closes
-the call. The browser builds a speaker-labelled transcript from the live captions.
+the call. The browser builds a speaker-labelled transcript from the live captions;
+Gemini is told to expect French, so an accent is less likely to be captioned as another language.
 At the end, learners can reread their numbered turns with suggested changes shown inline:
 the original wording struck through and its replacement highlighted, with the
 reason just below the turn. They can reveal the
@@ -182,17 +183,23 @@ transcription duplicates, not grammar errors.
 The local rules catch selected patterns, not every mistake; unmarked text is
 not a blanket endorsement, and a spelling difference is not a pronunciation error. An interrupted
 call can show the portion received; no learner speech means no assessment.
-These local corrections need no second AI request. For a separate, optional
-Gemini evaluation, review the transcript, consent to sending it, and select
-the sparkle icon (**Évaluer mon niveau avec Gemini**). A small spinner beside it shows
-when the evaluation is in progress. No second PIN is needed for this attempt. Heureux sends only the
+These local corrections need no second AI request. When time is up, Heureux
+also starts a Gemini evaluation automatically: the consent given before the
+exchange covers sending its transcript for this bilan. A small spinner beside the
+sparkle icon (**Évaluer mon niveau avec Gemini**) shows when the evaluation is in
+progress; if it fails, select the icon to try again. No second PIN is needed for this attempt. Heureux sends only the
 published consigne and both speakers’ transcribed words (not audio or notes)
 to [`gemini-3.8-flash`](https://aistudio.google.com/docs/pricing#gemini-3.8-flash).
 Heureux gives Gemini three minutes to respond and does not automatically resend the transcript.
+While it waits, the server sends a few blank keep-alive bytes so that a hosting
+proxy does not end the request before the bilan arrives.
 The debrief shows four practice marks **out of 5**: task completion, coherence
-and flow of ideas, lexical precision, and grammatical accuracy. Heureux adds them
+and flow of ideas, lexical precision, and grammatical accuracy. Each mark uses
+Tâche 2 descriptors with indicative CEFR anchors (1 ≈ A2 up to 5 ≈ C2), and its
+note says what the exchange showed and what would earn the next mark. Heureux adds them
 for one **total out of 20** and maps it to **NCLC** and **CEFR**. This is a
-practice rubric, not official TCF weighting. Strengths quote actual learner
+practice rubric, not official TCF weighting. The closing tip names the single
+change likely to gain the most next time, with an example phrase for that consigne. Strengths quote actual learner
 turns from the transcript; up to twelve inline corrections identify the words to
 change and why. Gemini also writes a **Proposition**: the learner’s
 own turns, rewritten in order as a polished model they can copy and rehearse.
@@ -234,7 +241,7 @@ To enable the pilot for a test account:
    and never sends the PIN to Google. The reading and the exchange use separate,
    short-lived, single-use Google tokens. The exchange token is minted after
    microphone permission, so none of its lifetime is lost during preparation.
-   The optional review uses a separate, time-limited authorization bound to the
+   The automatic review uses a separate, time-limited authorization bound to the
    same signed-in session and subject. During the exchange, microphone audio
    travels directly to Google, which may retain and review
    free-tier content. Use fictional details. No real recording is needed to

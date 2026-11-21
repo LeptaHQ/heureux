@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Conversation vocale · {% if subject %}{{ subject.title }} · {% endif %}Tâche 2 · Heureux{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=11">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=12">{% endblock %}
 {% block content %}
 <article class="lv-studio" id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
     data-token-url="{{ token_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
@@ -79,7 +79,6 @@
           </div>
           <div class="lv-assessment__body">
             <div id="lv-assessment-controls" class="lv-assessment__controls">
-              <label class="lv-assessment__consent"><input type="checkbox" id="lv-assessment-consent" autocomplete="off"> <span>Partager le texte avec Google</span></label>
               <span class="lv-assessment__action">
                 <button type="button" class="icon-button" id="lv-assess" aria-label="Évaluer mon niveau avec Gemini" title="Évaluer mon niveau avec Gemini" disabled>{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %}</button>
                 <span class="lv-assessment__spinner" aria-hidden="true"></span>
@@ -167,8 +166,8 @@
 {% if gemini_live_available %}
 <script defer src="{% static 'study/js/expression/eo/tache_1/transcript-review.js' %}?v=3"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-feedback.js' %}?v=3"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=6"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=7"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=5"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=7"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=8"></script>
 {% endif %}
 {% endblock %}

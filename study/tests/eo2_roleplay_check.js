@@ -83,3 +83,5 @@ assert.equal(chain("Le samedi me va très bien, combien ça coûte ?")[0].reply,
 assert.match(chain("Lequel est le moins cher ?")[0].reply, /20 dollars.*35 dollars/);
 assert.equal(chain("Que me conseillez-vous de manger à Tokyo ?")[0].parts[0].kind, "clarify");
 assert.deepEqual(engine.feedback([{question:"Laquelle me convient ?", ...target}]).evidence.map(e => e.label), [engine.labels.fit]);
+
+require("./eo2_live_feedback_check");

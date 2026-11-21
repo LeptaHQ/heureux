@@ -33,14 +33,16 @@
         <div>
           <div class="tache-two-consigne__heading">
             <h2 id="subject-prompt-title">Consigne</h2>
-            {% include "study/shared/partials/prompt_copy_button.html" with button_class="btn btn--sm prompt-copy-button tache-two-consigne__copy" source_id="tache-two-subject-prompt" label="Copier" success_label="Copiée !" subject_label=subject.title only %}
+            <div class="tache-two-consigne__actions">
+              {% if gemini_live_available %}
+                <a class="icon-button" href="{% subject_url 'study:eo_tache_two_live' subject_month.slug subject_batch.number subject.number %}" aria-label="Lancer la conversation sur ce sujet" title="Lancer la conversation sur ce sujet">{% include "study/shared/partials/ui_icon.html" with name="headphones" only %}</a>
+              {% else %}
+                <button type="button" class="icon-button" disabled aria-label="Conversation vocale indisponible" title="Conversation vocale indisponible">{% include "study/shared/partials/ui_icon.html" with name="headphones" only %}</button>
+              {% endif %}
+              {% include "study/shared/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="tache-two-subject-prompt" label="Copier" label_hidden=True success_label="Copiée !" subject_label=subject.title only %}
+            </div>
           </div>
           <p>{{ subject.prompt }}</p>
-          {% if gemini_live_available %}
-            <a class="btn btn--sm" href="{% subject_url 'study:eo_tache_two_live' subject_month.slug subject_batch.number subject.number %}">Lancer la conversation sur ce sujet</a>
-          {% else %}
-            <small class="muted">Conversation vocale indisponible.</small>
-          {% endif %}
         </div>
       </section>
 

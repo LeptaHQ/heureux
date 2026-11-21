@@ -1,69 +1,136 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Conversation vocale · {% if subject %}{{ subject.title }} · {% endif %}Tâche 2 · Heureux{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo1-interview.css' %}?v=4">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}">{% endblock %}
 {% block content %}
-{% include "study/expression/partials/task_nav.html" %}
-<div class="eo-studio eo-roleplay" id="live-studio" data-state="setup"
-     data-token-url="{{ token_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
-     data-scenario-title="{{ subject.title|default:'Choisir un atelier photo' }}"
-     data-scenario-prompt="{{ subject.prompt|default:'Je travaille à l’accueil d’un centre culturel. Vous souhaitez participer à un atelier de photographie. Demandez-moi des renseignements pour choisir une formule qui vous convient.' }}">
-  <header class="eo-studio__heading"><div><p class="eo-kicker">Studio oral <span>/</span> Tâche 02</p>
-    <h1>Conversation vocale</h1><p>{% if subject %}Votre sujet : <strong>{{ subject.title }}</strong>.{% else %}Parlez en français avec la personne à l’accueil.{% endif %} Vous pouvez interrompre votre interlocuteur ou revenir sur un détail.</p>
-  </div><span class="eo-tag">Pilote · Gemini Live</span></header>
-  <div class="eo-workspace">
-    <section class="eo-console" aria-label="Votre rôle et le temps restant">
-      <div class="eo-console__top"><span id="lv-phase" class="eo-indicator">Avant la simulation</span>
-        <span id="lv-clock" class="eo-clock" role="timer" aria-label="Temps restant">02:00</span></div>
-      <div class="eo-console__body"><p class="eo-console__label" id="lv-label">L’interaction</p>
-        <h2 tabindex="-1" id="lv-title">C’est vous qui menez l’échange.</h2>
-        <p class="eo-console__note" id="lv-prompt">La consigne apparaît au début de la préparation. Ensuite, vous vous adressez à une voix générée par l’IA, pas à une personne.</p>
-      </div>
-      <div class="eo-console__base"><span>Préparation · 2 min</span><span>Échange · 3 min 30</span></div>
+<article class="lv-studio" id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
+    data-token-url="{{ token_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
+    data-scenario-title="{{ subject.title|default:'Choisir un atelier photo' }}"
+    data-scenario-prompt="{{ subject.prompt|default:'Je travaille à l’accueil d’un centre culturel. Vous souhaitez participer à un atelier de photographie. Demandez-moi des renseignements pour choisir une formule qui vous convient.' }}">
+  <div class="lv-topline">
+    <nav class="lv-back" aria-label="Retour">
+      {% if subject_url %}<a href="{{ subject_url }}" aria-label="Revenir à la fiche de ce sujet">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Fiche du sujet</a>
+      {% else %}<a href="{% url 'study:eo_tache_two_interaction' %}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Simulateur guidé</a>{% endif %}
+    </nav>
+    <p class="lv-brand">{% include "study/shared/partials/ui_icon.html" with name="headphones" only %} Studio oral · Tâche 2</p>
+  </div>
+  {% if gemini_live_available %}
+  <div class="lv-track">
+    <ol class="lv-steps" aria-label="Déroulé de la séance">
+      <li class="lv-step" data-step="prep"><span class="lv-step__name">Préparation</span> <span class="lv-step__meta">2 min</span>
+        <span class="lv-step__bar" aria-hidden="true"><i></i></span><span class="lv-step__about">La consigne s’affiche, micro coupé.</span></li>
+      <li class="lv-step" data-step="live"><span class="lv-step__name">Échange</span> <span class="lv-step__meta">3 min 30</span>
+        <span class="lv-step__bar" aria-hidden="true"><i></i></span><span class="lv-step__about">Vous menez la conversation à voix haute.</span></li>
+      <li class="lv-step" data-step="done"><span class="lv-step__name">Bilan</span> <span class="lv-step__meta">à chaud</span>
+        <span class="lv-step__bar" aria-hidden="true"><i></i></span><span class="lv-step__about">Transcription et repères tirés de vos paroles.</span></li>
+    </ol>
+    <div class="lv-time" id="lv-time" hidden><span id="lv-phase">Préparation</span> <span id="lv-clock" role="timer" aria-label="Temps restant">02:00</span></div>
+  </div>
+  {% endif %}
+  <div class="lv-stage">
+    <header class="lv-head">
+      <p class="lv-kicker" id="lv-kicker">Tâche 2 · Interaction</p>
+      <h1 id="lv-title" tabindex="-1">{{ subject.title|default:"Conversation vocale" }}</h1>
+      <p class="lv-prompt" id="lv-prompt">{% if gemini_live_available %}Deux minutes pour préparer vos questions, puis trois minutes trente pour mener l’échange en français.{% else %}Ce mode n’est pas activé. Le simulateur guidé reste disponible sans Gemini.{% endif %}</p>
+    </header>
+    {% if gemini_live_available %}
+    <section id="lv-setup" class="lv-setup" aria-labelledby="lv-setup-title">
+      <h2 id="lv-setup-title">Avant d’ouvrir le micro</h2>
+      <ul class="lv-terms">
+        <li>{% include "study/shared/partials/ui_icon.html" with name="globe" only %}<p>Votre voix est envoyée à Google pendant l’échange avec Gemini. Sur l’offre gratuite, Google peut utiliser vos échanges pour améliorer ses produits et les faire examiner par des personnes. Utilisez des détails fictifs. <a href="https://aistudio.google.com/docs/terms#data-use-unpaid" target="_blank" rel="noopener noreferrer">Conditions de Google</a></p></li>
+        <li>{% include "study/shared/partials/ui_icon.html" with name="eye" only %}<p>Heureux ne sauvegarde ni votre voix ni le texte. La transcription et le bilan restent dans cet onglet. Vos notes de préparation ne sont pas envoyées.</p></li>
+      </ul>
+      {% csrf_token %}
+      <label class="lv-consent"><input type="checkbox" id="lv-consent" autocomplete="off"> <span>J’ai au moins 18 ans, je participe depuis le Canada ou les États-Unis et j’accepte l’envoi de ma voix à Google pour cette séance.</span></label>
+      <button type="button" class="lv-primary" id="lv-start" disabled>Commencer la préparation {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
     </section>
-    <div class="eo-desk">
-      {% if gemini_live_available %}
-      <section id="lv-setup">
-        <h2>Avant d’ouvrir le micro</h2>
-        <p>Dans ce mode, votre voix va directement à Google. Sur l’offre gratuite, Google peut utiliser vos échanges pour améliorer ses produits, et des personnes peuvent les examiner. Utilisez des informations fictives.</p>
-        {% if subject %}<p class="eo-help">Gemini reçoit la situation publiée et ses repères de jeu de rôle, pas vos notes ni vos réponses personnelles enregistrées.</p>{% endif %}
-        <p class="eo-help">Heureux ne sauvegarde ni audio ni transcription. L’IA peut se tromper ; il ne s’agit pas d’une évaluation officielle.</p>
-        <a href="https://aistudio.google.com/docs/terms#data-use-unpaid" target="_blank" rel="noopener noreferrer">Conditions de Google ↗</a>
-        {% csrf_token %}
-        <label class="eo-toggle"><input type="checkbox" id="lv-consent"> J’ai au moins 18 ans, je participe depuis le Canada ou les États-Unis et j’accepte l’envoi de ma voix à Google pour cette séance.</label>
-        <button type="button" class="btn eo-primary" id="lv-start" disabled>Commencer la préparation</button>
-      </section>
-      <section id="lv-prep" hidden><h2>Préparez vos questions</h2>
-        <p>Le micro est coupé. À la fin des deux minutes, saisissez le même PIN que pour les audios ElevenLabs, puis autorisez le micro. Vous pouvez aussi commencer plus tôt.</p>
-        <button type="button" class="btn" id="lv-skip">Je suis prêt · commencer l’échange</button>
-      </section>
-      <section id="lv-call" hidden><h2>À vous la parole</h2>
-        <p>Commencez par un bonjour ou une question. Inutile de toucher un bouton entre les répliques.</p>
-        <button type="button" id="lv-mute" class="btn" hidden>Couper le micro</button>
-        <details id="lv-captions"><summary>Derniers mots transcrits</summary>
-          <p>Vous : <span id="lv-user-words">—</span></p><p>Interlocuteur : <span id="lv-ai-words">—</span></p>
+    <details class="lv-notepad" id="lv-notepad" hidden>
+      <summary>{% include "study/shared/partials/ui_icon.html" with name="pencil" only %} Mes notes <small>non envoyées</small></summary>
+      <label class="sr-only" for="lv-notes">Mes notes de préparation, non envoyées</label>
+      <textarea id="lv-notes" maxlength="1600" rows="5" autocomplete="off" placeholder="Mots-clés, questions à poser…"></textarea>
+    </details>
+    <aside class="lv-console" aria-label="Micro et commandes">
+      <div class="lv-orb" aria-hidden="true">{% include "study/shared/partials/ui_icon.html" with name="microphone" only %}</div>
+      <p class="lv-cue" id="lv-prep" hidden>Repérez trois ou quatre points à éclaircir. Vous pouvez lancer l’échange avant la fin du compte à rebours.</p>
+      <p id="lv-status" class="lv-status" role="status"></p>
+      <div class="lv-actions">
+        <button type="button" class="lv-primary" id="lv-skip" hidden>Commencer l’échange {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
+        <button type="button" class="lv-secondary" id="lv-mute" hidden>Couper le micro</button>
+        <button type="button" class="lv-quiet" id="lv-end" hidden>Terminer la séance</button>
+      </div>
+      <section id="lv-call" hidden aria-label="Échange vocal">
+        <details id="lv-captions" class="lv-captions"><summary>Derniers mots transcrits</summary>
+          <dl><dt>Vous</dt><dd id="lv-user-words">—</dd><dt>Interlocuteur</dt><dd id="lv-ai-words">—</dd></dl>
         </details>
       </section>
-      <section id="lv-done" hidden><h2>Micro coupé</h2>
-        <button type="button" class="btn" id="lv-retry">Nouvel essai</button>
-      </section>
-      <p class="eo-help" role="status" id="lv-status"></p>
-      <details class="eo-review" id="lv-notepad" hidden><summary>Mes notes de préparation</summary>
-        <label for="lv-notes">Pour vous uniquement ; ces notes ne sont pas envoyées.</label>
-        <textarea id="lv-notes" maxlength="1600" rows="3" autocomplete="off"></textarea>
-      </details>
-      <button type="button" class="btn" id="lv-end" hidden>Terminer la séance</button>
-      <noscript>Activez JavaScript pour utiliser le mode vocal.</noscript>
-      {% else %}
-      <h2>Mode vocal en ligne indisponible</h2>
-      <p>Ce pilote n’est pas activé pour votre compte. Aucun son n’a été envoyé et votre micro est coupé.</p>
-      <p class="eo-help">Une fois le pilote activé, vous préparez votre rôle pendant deux minutes, puis vous parlez avec votre interlocuteur sans clavier. L’envoi de votre voix à Google nécessite votre accord à chaque séance.</p>
-      {% endif %}
-      {% if subject_url %}<a href="{{ subject_url }}">Revenir à la fiche de ce sujet</a>{% else %}<a href="{% url 'study:eo_tache_two_interaction' %}">Revenir au simulateur guidé, sans Gemini</a>{% endif %}
+    </aside>
+    <section id="lv-done" class="lv-done" hidden aria-label="Fin de séance">
+      <div id="lv-failed" class="lv-notice" hidden>
+        {% include "study/shared/partials/ui_icon.html" with name="alert-triangle" only %}
+        <div><h2>Aucun bilan pour cette tentative</h2>
+          <p>L’échange vocal ne s’est pas ouvert : aucun son n’a été envoyé et il n’y a rien à analyser. Le motif est indiqué ci-dessus. Un nouvel essai recommence la préparation à 2 minutes.</p></div>
+      </div>
+      <div id="lv-empty" class="lv-notice" hidden>
+        {% include "study/shared/partials/ui_icon.html" with name="microphone" only %}
+        <div><h2>Aucune parole transcrite</h2>
+          <p>Aucune parole n’a été transcrite. Il n’y a pas assez d’éléments pour un bilan : ni repères, ni estimation.</p>
+          <p>Si vous avez parlé, vérifiez le micro choisi par le navigateur, puis lancez un nouvel essai.</p></div>
+      </div>
+      <div id="lv-report" class="lv-report" hidden>
+        <section class="lv-glance" aria-labelledby="lv-glance-title">
+          <h2 class="sr-only" id="lv-glance-title">En un coup d’œil</h2>
+          <dl class="lv-figures">
+            <div><dt>Durée de l’échange</dt><dd id="lv-fig-time">—</dd></div>
+            <div><dt>Vos répliques</dt><dd id="lv-fig-turns">—</dd></div>
+            <div><dt>Questions repérées</dt><dd id="lv-fig-questions">—</dd></div>
+            <div><dt>Détails repris</dt><dd id="lv-fig-links">—</dd></div>
+          </dl>
+          <div class="lv-share" id="lv-share" hidden>
+            <p class="lv-share__legend"><span>Vous <b id="lv-share-user"></b></span> <span>Interlocuteur <b id="lv-share-model"></b></span></p>
+            <span class="lv-share__bar" aria-hidden="true"><i id="lv-share-bar"></i></span>
+            <p class="lv-share__caption">Part des mots transcrits de chaque côté</p>
+          </div>
+        </section>
+        <div class="lv-debrief">
+          <section class="lv-next" aria-labelledby="lv-next-title">
+            <h2 id="lv-next-title">{% include "study/shared/partials/ui_icon.html" with name="lightbulb" only %} À essayer la prochaine fois</h2>
+            <p id="lv-next"></p>
+          </section>
+          <details id="lv-transcript" class="lv-transcript"><summary>Votre échange <small id="lv-count"></small></summary>
+            <div class="lv-talkbar">
+              <p class="lv-hint">Vos répliques, telles que transcrites. Un mot mal entendu ? Rectifiez-le : le bilan se met à jour.</p>
+              <button type="button" class="lv-toggle" id="lv-replies" aria-controls="lv-turns" aria-pressed="false"><span class="lv-toggle__switch" aria-hidden="true"></span> Réponses de l’interlocuteur</button>
+            </div>
+            <p class="lv-key" id="lv-key" hidden><span><del>mot</del> à vérifier</span> <span><ins>mot</ins> proposition</span> <span><b>1</b> explication sous la phrase</span></p>
+            <ol class="lv-turns" id="lv-turns" data-replies="hidden"></ol>
+          </details>
+          <div class="lv-findings">
+            <section id="lv-observations" hidden aria-labelledby="lv-observations-title"><h2 id="lv-observations-title">Points d’appui</h2><ul class="lv-examples" id="lv-evidence"></ul></section>
+            <section id="lv-language" hidden aria-labelledby="lv-language-title"><h2 id="lv-language-title">Formulations à vérifier</h2><ul class="lv-fixes" id="lv-corrections"></ul></section>
+          </div>
+        </div>
+        <p class="lv-fineprint">Ces repères portent sur les paroles transcrites, pas sur la prononciation. Ce n’est pas une note TCF. Le texte disparaît au prochain essai ou en quittant cette page.</p>
+      </div>
+      <div class="lv-done-actions">
+        <button type="button" class="lv-primary" id="lv-retry" hidden>Nouvel essai {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
+        {% if subject_url %}<a class="lv-quiet" href="{{ subject_url }}">Retour à la fiche</a>
+        {% else %}<a class="lv-quiet" href="{% url 'study:eo_tache_two_interaction' %}">Simulateur guidé, sans Gemini</a>{% endif %}
+      </div>
+    </section>
+    <noscript><p>Activez JavaScript pour utiliser le mode vocal.</p></noscript>
+    {% else %}
+    <div class="lv-unavailable">
+      <a class="lv-primary" href="{% url 'study:eo_tache_two_interaction' %}">Ouvrir le simulateur guidé {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</a>
     </div>
+    {% endif %}
   </div>
-</div>
+</article>
 {% endblock %}
 {% block scripts %}
-{% if gemini_live_available %}<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=3"></script>{% endif %}
+{% if gemini_live_available %}
+<script defer src="{% static 'study/js/expression/eo/tache_1/transcript-review.js' %}?v=3"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-feedback.js' %}"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=4"></script>
+{% endif %}
 {% endblock %}

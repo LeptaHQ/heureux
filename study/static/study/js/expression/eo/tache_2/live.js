@@ -9,22 +9,36 @@
   const Audio = window.AudioContext || window.webkitAudioContext;
   const capable = Boolean(window.isSecureContext && navigator.mediaDevices?.getUserMedia && Audio && window.AudioWorkletNode);
   const prep = 120000, live = 210000;
+  const review = window.HeureuxEO2LiveReview;
+  const introduction = by("prompt").textContent;
+  const initialTitle = by("title").textContent;
+  const initialKicker = by("kicker").textContent;
+  const stepOf = {loading:"prep",prep:"prep",connecting:"live",live:"live",done:"done"};
   let active;
   const state = () => root.dataset.state;
   const owns = s => active === s;
   function phase(next, label) {
     root.dataset.state = next;
     for (const id of ["setup","prep","done"]) show(id,next === id);
-    show("call",next === "connecting" || next === "live");
+    show("call",next === "live");
+    show("start",next === "setup"); show("skip",next === "prep"); show("retry",next === "done");
+    show("time",["prep","connecting","live"].includes(next));
     show("notepad",["prep","connecting","live"].includes(next));
     show("mute",next === "live"); show("end",!["setup","done"].includes(next));
     text("phase",label);
+    if (next !== "done") text("kicker",["prep","connecting","live"].includes(next) ? "Consigne" : initialKicker);
+    for (const step of root.querySelectorAll(".lv-step")) {
+      if (step.dataset.step === stepOf[next]) step.setAttribute("aria-current","step");
+      else step.removeAttribute("aria-current");
+    }
   }
   function stamp() { return {wall:Date.now(),mono:performance.now()}; }
   function left(s) {
     return s.duration - Math.max(0,Date.now()-s.began.wall,performance.now()-s.began.mono);
   }
   function display(ms) {
+    const total = ["connecting","live"].includes(state()) ? live : prep;
+    root.style.setProperty("--lv-left",String(Math.min(1,Math.max(0,ms/total))));
     const sec = Math.max(0,Math.ceil(ms/1000));
     text("clock",`${String(Math.floor(sec/60)).padStart(2,"0")}:${String(sec%60).padStart(2,"0")}`);
   }
@@ -38,9 +52,12 @@
     }
     s.source?.disconnect(); s.source = null;
     s.stream?.getAudioTracks().forEach(t => { t.enabled = false; });
+    delete root.dataset.mic;
   }
-  function finish(s, message) {
+  function finish(s, message, ending = "interrupted") {
     if (!owns(s)) return;
+    const started = state() === "live";
+    const elapsed = started ? Math.min(live,Math.max(0,Date.now()-s.began.wall,performance.now()-s.began.mono)) : 0;
     active = null; clearTimeout(s.timer); clearTimeout(s.watchdog); s.abort.abort();
     cutMic(s); cutSound(s);
     s.stream?.getTracks().forEach(t => { t.onended = null; t.stop(); });
@@ -49,13 +66,21 @@
       s.sock.close();
     }
     if (s.audio && s.audio.state !== "closed") s.audio.close();
-    phase("done","Séance terminée"); text("label","Fin de l’échange"); text("title","L’appel est fermé.");
-    text("prompt","Aucun enregistrement ni historique de cet échange n’est conservé par Heureux."); text("status",message);
+    phase("done","Séance terminée");
+    const reviewed = started && review.render(s.rows,{elapsed});
+    root.dataset.ending = started ? ending : "failed";
+    const cut = ending !== "normal";
+    text("kicker",!started ? "Séance interrompue" : !reviewed ? (cut ? "Échange interrompu" : "Échange terminé") :
+      cut ? "Bilan partiel · échange interrompu" : "Bilan de l’échange");
+    text("title",!started ? "L’échange n’a pas commencé" : reviewed ? "Votre bilan" : "Pas de bilan pour cet essai");
+    text("prompt",root.dataset.scenarioTitle); text("status",message); show("failed",!started);
     text("user-words","—"); text("ai-words","—"); by("consent").checked = false; by("notes").value = "";
+    s.rows.length = 0; s.partial = {}; s.lastModel = null;
+    by("title").focus();
   }
   function running(s) {
     if (!owns(s) || state() !== "live") return false;
-    if (left(s) <= 0) { display(0); finish(s,"Les 3 min 30 sont écoulées."); return false; }
+    if (left(s) <= 0) { display(0); finish(s,"Les 3 min 30 sont écoulées.","normal"); return false; }
     return true;
   }
   function tick(s) {
@@ -63,7 +88,7 @@
     const ms = left(s); display(ms);
     if (ms <= 0) {
       if (state() === "prep" && ms > -live && !document.hidden) connect(s);
-      else finish(s,"Le temps est écoulé.");
+      else finish(s,state() === "live" ? "Les 3 min 30 sont écoulées. Le micro est coupé." : "Le temps est écoulé.","normal");
     } else s.timer = setTimeout(() => tick(s), Math.min(ms,ms%1000 || 1000));
   }
   function startMic(s) {
@@ -79,8 +104,9 @@
       s.sock.send(JSON.stringify({realtimeInput:{audio}}));
     };
     source.connect(capture); capture.connect(s.audio.destination);
+    root.dataset.mic = "open";
     text("mute","Couper le micro"); by("mute").setAttribute("aria-pressed","false");
-    text("status","Micro ouvert. Parlez naturellement ; vous pouvez interrompre la réponse.");
+    text("status","Micro ouvert · transcription automatique. Vous pouvez interrompre votre interlocuteur.");
   }
   function play(s, encoded) {
     const bytes = atob(encoded);
@@ -96,10 +122,19 @@
     s.playing.add(source); source.onended = () => { s.playing.delete(source); source.disconnect(); };
     source.start(when); s.cursor = when+buffer.duration;
   }
-  function caption(s, id, piece) {
-    if (!piece || typeof piece.text !== "string") return;
-    const prefix = s.captions[id] || "";
-    s.captions[id] = (prefix+piece.text).slice(-1600); text(id,s.captions[id]);
+  function caption(s, speaker, piece) {
+    if (!piece) return;
+    if (typeof piece.text === "string" && piece.text.length) {
+      let row = s.partial[speaker];
+      if (!row) {
+        row = s.partial[speaker] = {speaker, text:""};
+        s.rows.push(row);
+        if (speaker === "model") s.lastModel = row;
+      }
+      row.text += piece.text;
+      text(speaker === "user" ? "user-words" : "ai-words", row.text.slice(-1600));
+    }
+    if (piece.finished) delete s.partial[speaker];
   }
   function receive(s, raw) {
     if (!owns(s)) return;
@@ -112,18 +147,33 @@
       }
       const turn = msg.serverContent;
       if (!turn || !running(s)) return;
-      if (turn.interrupted) { cutSound(s); s.captions = {}; }
-      caption(s,"user-words",turn.inputTranscription); caption(s,"ai-words",turn.outputTranscription);
+      if (turn.interrupted) {
+        s.awaitingInterruptedEnd = true;
+        cutSound(s);
+        caption(s,"model",turn.outputTranscription);
+        if (s.lastModel) s.lastModel.interrupted = true;
+        // A new learner utterance can already be in progress when the barge-in arrives.
+        if (s.lastModel && s.rows.at(-1) === s.lastModel) delete s.partial.user;
+        delete s.partial.model; s.lastModel = null;
+        caption(s,"user",turn.inputTranscription);
+      } else {
+        if (turn.modelTurn || turn.outputTranscription?.text) s.awaitingInterruptedEnd = false;
+        caption(s,"user",turn.inputTranscription); caption(s,"model",turn.outputTranscription);
+      }
       if (!turn.interrupted) for (const part of turn.modelTurn?.parts || []) {
         if (part.inlineData?.mimeType?.startsWith("audio/pcm")) play(s,part.inlineData.data);
       }
-      if (turn.turnComplete) s.captions = {};
+      if (turn.turnComplete) {
+        // The interrupted model turn can end after the learner has already started talking.
+        if (!s.awaitingInterruptedEnd) s.partial = {};
+        s.lastModel = null; s.awaitingInterruptedEnd = false;
+      }
     } catch { finish(s,"Réponse vocale illisible. La connexion et le micro ont été fermés."); }
   }
   async function connect(s) {
     if (!owns(s) || state() !== "prep") return;
     clearTimeout(s.timer); phase("connecting","Connexion"); display(live);
-    text("status","Autorisez cette séance avec le PIN audio. Le micro reste coupé.");
+    by("notepad").open = false; text("status","Connexion en cours. Le micro reste coupé.");
     s.watchdog = setTimeout(() => finish(s,"Le délai d’autorisation a expiré. Le micro reste coupé."),120000);
     try {
       const response = await window.HeureuxAudioRequest(root.dataset.tokenUrl,{method:"POST",credentials:"same-origin",mode:"same-origin",cache:"no-store",
@@ -158,25 +208,25 @@
     }
   }
   function setup() {
+    review.clear(); delete root.dataset.ending; delete root.dataset.mic;
     phase("setup","Avant la simulation"); display(prep); text("status",capable ? "" : "Ce navigateur ne permet pas l’appel vocal. Essayez un navigateur récent en HTTPS.");
-    text("label","L’interaction"); text("title","C’est vous qui menez l’échange.");
-    text("prompt","La consigne apparaît au début de la préparation. L’interlocuteur est une IA.");
+    text("title",initialTitle); text("prompt",introduction);
     by("consent").checked = false; by("start").disabled = true; by("captions").open = false;
   }
   by("consent").onchange = () => { by("start").disabled = !capable || !by("consent").checked; };
   by("start").onclick = async () => {
     if (!capable || active || !by("consent").checked) return;
-    const s = active = {abort:new AbortController(),playing:new Set(),captions:{},cursor:0};
+    const s = active = {abort:new AbortController(),playing:new Set(),rows:[],partial:{},cursor:0};
     phase("loading","Installation"); text("status","Vérification de la lecture audio ; le micro reste coupé.");
     try {
       s.audio = new Audio(); await s.audio.resume();
       if (!owns(s)) return;
       await s.audio.audioWorklet.addModule(root.dataset.worklet);
       if (!owns(s)) return;
-      s.began = stamp(); s.duration = prep; phase("prep","Préparation"); text("label","Votre consigne");
+      s.began = stamp(); s.duration = prep; phase("prep","Préparation"); by("notepad").open = true;
       text("title",root.dataset.scenarioTitle);
       text("prompt",root.dataset.scenarioPrompt);
-      text("status","Micro coupé. Aucun son n’est transmis."); tick(s); by("title").focus();
+      text("status","Micro coupé · votre PIN audio sera demandé avant l’échange."); tick(s); by("title").focus();
     } catch { if (owns(s)) finish(s,"La lecture audio n’est pas disponible dans ce navigateur."); }
   };
   by("skip").onclick = () => { if (active) connect(active); };
@@ -186,9 +236,13 @@
     cutMic(s); if (s.sock.readyState === WebSocket.OPEN) s.sock.send(JSON.stringify({realtimeInput:{audioStreamEnd:true}}));
     text("mute","Rouvrir le micro"); by("mute").setAttribute("aria-pressed","true"); text("status","Micro coupé. Aucun son n’est envoyé.");
   };
-  by("end").onclick = () => { if (active) finish(active,"Vous avez mis fin à la séance."); };
-  by("retry").onclick = setup;
+  by("end").onclick = () => { if (active) finish(active,"Vous avez mis fin à la séance.","normal"); };
+  by("retry").onclick = () => { setup(); by("title").focus(); };
   document.addEventListener("visibilitychange",() => { if (document.hidden && active) finish(active,"Séance fermée : vous avez quitté l’onglet."); });
   window.addEventListener("pagehide",() => { if (active) finish(active,"Séance fermée."); setup(); });
+  // Keep the session timeline below the site's sticky navigation.
+  const nav = document.querySelector(".nav");
+  const pin = () => root.style.setProperty("--lv-top",`${nav ? Math.round(nav.getBoundingClientRect().height) : 0}px`);
+  window.addEventListener("resize",pin); pin();
   setup();
 })();

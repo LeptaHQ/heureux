@@ -1,11 +1,11 @@
 {% load static %}/* Heureux service worker — offline app shell. */
-var CACHE = "heureux-v293";
+var CACHE = "heureux-v294";
 var SHELL = [
   "{% url 'offline' %}",
-  "{% static 'study/css/app.css' %}?v=286",
+  "{% static 'study/css/app.css' %}?v=287",
   "{% static 'study/js/theme-init.js' %}?v=4",
   "{% static 'study/js/audio/speech.js' %}?v=6",
-  "{% static 'study/js/audio/audio-pin.js' %}?v=1",
+  "{% static 'study/js/audio/audio-pin.js' %}?v=2",
   "{% static 'study/js/audio/narration.js' %}?v=4",
   "{% static 'study/js/expression/eo/tache_3/audio-preparation.js' %}?v=7",
   "{% static 'study/js/expression/eo/tache_3/eo3-audio.js' %}?v=12",
@@ -26,7 +26,7 @@ var SHELL = [
   "{% static 'study/icons/icon-192.png' %}?v=2",
   "{% static 'study/icons/icon-512.png' %}?v=2",
   "{% static 'study/icons/logo.svg' %}?v=2",
-  "{% static 'study/icons/ui-icons.svg' %}?v=4"
+  "{% static 'study/icons/ui-icons.svg' %}?v=6"
 ];
 
 self.addEventListener("install", function (event) {

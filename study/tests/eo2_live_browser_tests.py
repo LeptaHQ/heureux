@@ -1,3 +1,6 @@
+import json
+import re
+
 from django.test import override_settings
 from django.urls import reverse
 from playwright.sync_api import expect
@@ -79,7 +82,23 @@ class LiveConversationBrowserMixin:
                 details = reverse("study:task_subject_detail", args=("eo", "tache-2", *subject_args))
                 self.page.goto(self.live_server_url + details)
                 self.selected_consigne = self.page.locator("#tache-two-subject-prompt").text_content()
-                self.page.get_by_role("link", name="Lancer la conversation sur ce sujet").click()
+                prompt = self.page.locator(".tache-two-consigne")
+                launch = prompt.get_by_role("link", name="Lancer la conversation sur ce sujet")
+                copy = prompt.locator("[data-prompt-copy]")
+                expect(copy).to_have_accessible_name(re.compile(r"^Copier la consigne"))
+                self.assertEqual(prompt.locator(".tache-two-consigne__actions [data-icon]").evaluate_all(
+                    "icons => icons.map(icon => icon.dataset.icon)"), ["headphones", "copy"])
+                expect(launch).to_have_text("")
+                expect(copy.locator("[data-prompt-copy-label]")).to_have_class("sr-only")
+                self.assertLess(launch.bounding_box()["x"], copy.bounding_box()["x"])
+                self.page.evaluate("""Object.defineProperty(navigator, 'clipboard', {
+                    configurable:true, value:{writeText: async text => { window.copiedPrompt = text; }}
+                })""")
+                copy.click()
+                expect(copy).to_have_class(re.compile(r"\bis-copied\b"))
+                self.assertEqual(self.page.evaluate("window.copiedPrompt"), json.loads(self.selected_consigne))
+                self.assert_no_horizontal_overflow()
+                launch.click()
             else:
                 self.page.goto(self.live_server_url + reverse("study:eo_tache_two_live"))
         self.consent = self.page.locator("#lv-consent")
@@ -92,7 +111,6 @@ class LiveConversationBrowserMixin:
         self.pin_dialog.get_by_role("button", name="Autoriser cette conversation").click()
 
     def test_native_voice_subject_launch_uses_exact_consigne_and_retains_return_link(self):
-        import json
         self._import_eo_tache_two_content()
         args = ("octobre", 5, 21)
         self.open_live_pilot(subject_args=args)
@@ -141,7 +159,12 @@ class LiveConversationBrowserMixin:
         self.assertEqual(self.page.evaluate("probe.played[0].buffer.sampleRate"), 24000)
         self.page.locator("#lv-captions summary").click()
         expect(self.page.locator("#lv-ai-words")).to_have_text("À dix heures.")
-        self.page.evaluate("probe.sockets[0].receive({serverContent:{interrupted:true}})")
+        self.page.evaluate("""() => {
+          const send = serverContent => probe.sockets[0].receive({serverContent});
+          send({interrupted:true, inputTranscription:{text:"Et le "}});
+          send({turnComplete:true});
+          send({inputTranscription:{text:"dimanche ?",finished:true}});
+        }""")
         self.assertTrue(self.page.evaluate("probe.played[0].wasStopped && probe.track.enabled"))
         self.page.locator("#lv-mute").click()
         self.assertFalse(self.page.evaluate("probe.track.enabled"))
@@ -152,7 +175,11 @@ class LiveConversationBrowserMixin:
         self.assertEqual(self.page.evaluate("[probe.track.readyState,probe.sockets[0].readyState,probe.audio.state]"),
                          ["ended", 3, "closed"])
         expect(self.page.locator("#lv-user-words")).to_have_text("—")
+        self.page.locator("#lv-transcript summary").click()
+        expect(self.page.locator("#lv-turns li p")).to_have_text(["Le samedi ?", "À dix heures.", "Et le dimanche ?"])
+        expect(self.page.locator('#lv-turns [data-speaker="model"]')).to_contain_text("interrompue")
         self.page.locator("#lv-retry").click()
+        expect(self.page.locator("#lv-turns li")).to_have_count(0)
         expect(self.start).to_be_disabled()
         self.assert_no_horizontal_overflow()
 
@@ -173,12 +200,34 @@ class LiveConversationBrowserMixin:
         self.page.evaluate("probe.sockets[0].receive({setupComplete:{}})")
         self.page.clock.fast_forward(209_000)
         expect(self.page.locator("#lv-clock")).to_have_text("00:01")
-        self.page.evaluate("""probe.sockets[0].receive({serverContent:{modelTurn:{
-          parts:[{inlineData:{mimeType:'audio/pcm',data:btoa('\\0'.repeat(144000))}}]
-        }}})""")
+        self.page.evaluate("""() => {
+          const send = serverContent => probe.sockets[0].receive({serverContent});
+          send({inputTranscription:{text:"Combien coûte "}});
+          send({inputTranscription:{text:"l’atelier ?",finished:true}, outputTranscription:{text:"Vingt "}});
+          send({outputTranscription:{text:"dollars.",finished:true},turnComplete:true});
+          send({inputTranscription:{text:"Est-ce que je peux payer par carte ?"}, modelTurn:{
+            parts:[{inlineData:{mimeType:'audio/pcm',data:btoa('\\0'.repeat(144000))}}]}});
+        }""")
         self.page.clock.fast_forward(1_000)
         expect(self.page.locator("#lv-done")).to_be_visible()
         self.assertEqual(self.page.evaluate("[probe.played[0].wasStopped,probe.track.readyState]"), [True, "ended"])
+        expect(self.page.locator("#lv-title")).to_have_text("Votre bilan")
+        expect(self.page.locator("#lv-evidence")).to_contain_text("Combien coûte l’atelier ?")
+        self.page.locator("#lv-transcript summary").click()
+        turns = self.page.locator("#lv-turns li")
+        expect(turns.locator("p")).to_have_text([
+            "Combien coûte l’atelier ?", "Vingt dollars.", "Est-ce que je peux payer par carte ?",
+        ])
+        expect(turns.nth(1).get_by_role("button")).to_have_count(0)
+        turns.first.get_by_role("button").click()
+        turns.first.get_by_role("textbox").fill("Combien coûte la sortie ?")
+        turns.first.get_by_role("button", name="Appliquer").click()
+        expect(self.page.locator("#lv-evidence")).to_contain_text("Combien coûte la sortie ?")
+        expect(turns.first.locator("small")).to_contain_text("Combien coûte l’atelier ?")
+        self.assertEqual(len(self.token_requests), 2)
+        self.page.evaluate("window.dispatchEvent(new Event('pagehide'))")
+        expect(turns).to_have_count(0)
+        expect(self.page.locator("#lv-evidence")).to_be_empty()
 
     def test_native_voice_late_permission_and_quota_do_not_reconnect(self):
         self.open_live_pilot()
@@ -199,6 +248,8 @@ class LiveConversationBrowserMixin:
         self.page.locator("#lv-skip").click()
         self.submit_live_pin()
         expect(self.page.locator("#lv-status")).to_contain_text("Micro refusé")
+        expect(self.page.locator("#lv-title")).to_have_text("L’échange n’a pas commencé")
+        expect(self.page.locator("#lv-empty")).to_be_hidden()
         self.assertEqual(len(self.token_requests), 4)
         self.page.locator("#lv-retry").click()
         self.consent.check()
@@ -210,6 +261,62 @@ class LiveConversationBrowserMixin:
         expect(self.page.locator("#lv-status")).to_contain_text("Limite")
         self.assertEqual(self.page.evaluate("[probe.calls,probe.track.readyState,probe.sockets.length]"), [2, "ended", 0])
         self.assertEqual(len(self.token_requests), 6)
+
+    def test_native_voice_partial_disconnect_and_silent_attempt(self):
+        self.open_live_pilot()
+        for with_words in (True, False):
+            self.consent.check()
+            self.start.click()
+            self.page.locator("#lv-skip").click()
+            self.submit_live_pin()
+            expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
+            self.page.evaluate("""withWords => {
+              const socket = probe.sockets.at(-1);
+              socket.receive({setupComplete:{}});
+              if (withWords) socket.receive({serverContent:{inputTranscription:{text:"Quand commence"}}});
+              socket.onclose(); delete document.documentElement.dataset.handshake;
+            }""", with_words)
+            expect(self.page.locator("#lv-status")).to_contain_text("interrompue")
+            if with_words:
+                self.page.locator("#lv-transcript summary").click()
+                expect(self.page.locator("#lv-turns li p")).to_have_text("Quand commence")
+            else:
+                expect(self.page.locator("#lv-empty")).to_be_visible()
+                expect(self.page.locator("#lv-report")).to_be_hidden()
+            self.page.locator("#lv-retry").click()
+
+    def test_native_voice_marks_only_changed_learner_words_and_rechecks_after_edit(self):
+        self.open_live_pilot()
+        self.consent.check()
+        self.start.click()
+        self.page.locator("#lv-skip").click()
+        self.submit_live_pin()
+        expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
+        self.page.evaluate("""() => {
+          const ws = probe.sockets[0];
+          ws.receive({setupComplete:{}});
+          ws.receive({serverContent:{
+            inputTranscription:{text:"Pourriez-vous m’indiquer le tarif ?"},
+            outputTranscription:{text:"Je va vérifier le prix."}, turnComplete:true
+          }});
+          ws.receive({serverContent:{inputTranscription:{text:"Si je m’inscrire ce soir, est-ce trop tard ?"}}});
+        }""")
+        self.page.locator("#lv-end").click()
+        expect(self.page.locator("#lv-evidence")).to_contain_text("Demande polie au conditionnel")
+        transcript = self.page.locator("#lv-transcript")
+        if not transcript.evaluate("el => el.open"):
+            transcript.locator("summary").click()
+        turns = self.page.locator("#lv-turns")
+        expect(turns.locator("del")).to_have_text(["m’inscrire"])
+        expect(turns.locator("ins")).to_have_text(["m’inscris"])
+        expect(turns.locator('[data-speaker="model"] del')).to_have_count(0)
+        learner = turns.locator('[data-speaker="user"]').last
+        learner.get_by_role("button", name=re.compile("Rectifier", re.I)).click()
+        learner.get_by_role("textbox").fill("Si je m’inscris ce soir, est-ce trop tard ?")
+        learner.get_by_role("button", name="Appliquer").click()
+        expect(turns.locator("del, ins")).to_have_count(0)
+        expect(learner).to_contain_text("Si je m’inscrire ce soir, est-ce trop tard ?")
+        self.assertEqual(len(self.token_requests), 2)
 
     def test_native_voice_disconnect_and_navigation_discard_pending_audio(self):
         self.open_live_pilot()

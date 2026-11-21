@@ -2310,6 +2310,10 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   padding: 0.3rem 0.7rem;
   font-size: 0.78rem;
 }
+.tache-two-subject-detail .tache-two-consigne__heading { flex-direction: row; align-items: center; }
+.tache-two-subject-detail .tache-two-consigne__actions { width: auto; flex-wrap: nowrap; gap: .35rem; }
+.tache-two-subject-detail .tache-two-consigne__actions .icon-button { width: 36px; height: 36px; }
+.tache-two-subject-detail .tache-two-consigne__actions button:disabled { opacity: .48; cursor: not-allowed; }
 .tache-two-consigne p {
   max-width: 58rem;
   margin: 0;

@@ -21,22 +21,33 @@
     [/\bje suis en train (apprendre|travailler|parler|faire)\b/iu,
       (m, verb) => `je suis en train ${verb === "apprendre" ? "d’" : "de "}${verb}`,
       "Pour décrire une action en cours, on dit « être en train de » suivi de l’infinitif."],
+    [/\ble (guitare|flûte|clarinette|séance|leçon)(?![\p{L}-])/iu, "la $1",
+      "Ce nom est féminin : on emploie « la »."],
+    [/(?:^|[.!?…]\s+|\b(?:si|quand|lorsque|que) )je m['’]inscrire(?!\p{L})/iu, m => m.replace(/inscrire$/iu, "inscris"),
+      "Avec « je », on dit « je m’inscris ». L’infinitif convient après un autre verbe : « je voudrais m’inscrire »."],
+    [/(?:^|[.!?…]\s+)(?:(?:oui|non|moi),\s*)?(?:les|ces) (?:guitares|activités|séances|sorties|ateliers|horaires|cours) m['’]intéresse(?!\p{L})/iu,
+      m => m + "nt", "À l’écrit, le verbe s’accorde avec le sujet pluriel : « m’intéressent ». Les deux formes se prononcent pareil."],
   ];
   const fold = s => s.normalize("NFD").replace(/\p{M}/gu, "").replace(/[’‘]/g, "'").toLowerCase();
   const words = s => fold(s).match(/[a-zœ]+/g) || [];
   const key = s => words(s).join(" ");
-  function corrections(rows) {
-    const notes = [], seen = new Set();
-    for (const {answer, index} of rows) {
-      for (const [pattern, replacement, why] of rules) {
-        const found = pattern.exec(answer);
-        if (!found || seen.has(pattern)) continue;
+  function* phraseEdits(answer) {
+    for (const [pattern, replacement, why] of rules) {
+      for (const found of answer.matchAll(new RegExp(pattern.source, pattern.flags + "g"))) {
         const before = found[0];
         let after = before.replace(pattern, replacement);
         if (/^\p{Lu}/u.test(before)) after = after[0].toLocaleUpperCase("fr") + after.slice(1);
-        if (after === before) continue;
+        if (after !== before) yield {start: found.index, before, after, why};
+      }
+    }
+  }
+  function corrections(rows) {
+    const notes = [], seen = new Set();
+    for (const {answer, index} of rows) {
+      for (const {before, after, why} of phraseEdits(answer)) {
+        if (seen.has(why)) continue;
         notes.push({turn: index + 1, before, after, why});
-        seen.add(pattern);
+        seen.add(why);
         if (notes.length === 4) return notes;
       }
     }
@@ -92,5 +103,5 @@
     }
     return result;
   }
-  return {assess};
+  return {assess, phraseEdits};
 });

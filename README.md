@@ -162,10 +162,20 @@ French, follow the learner’s questions and use the same two fictional workshop
 The model generates its own replies and can be interrupted. It can still
 misunderstand or invent facts. Preparation is local; the 3:30 exchange starts
 when the audio session is ready. Ending the exercise or leaving the tab closes
-the call. Captions are temporary, not a scored transcript.
+the call. The browser builds a speaker-labelled transcript from the live captions.
+At the end, learners can reread their turns with suggested changes shown inline:
+the original wording, its replacement and a short reason. They can reveal the
+partner’s replies for context and fix a misheard word to update the feedback.
+Strengths are illustrated with real questions or follow-ups from the exchange.
+The local rules catch selected patterns, not every mistake; unmarked text is
+not a blanket endorsement, and a spelling difference is not a pronunciation error. An interrupted
+call can show the portion received; no learner speech means no assessment.
+The review needs no second AI request. Heureux stores neither the audio nor
+the transcript; starting another attempt or leaving the page clears the review.
+It is not a pronunciation assessment or an official TCF score.
 
 With the pilot enabled, open any **EO → Tâche 2 → Sujets** detail page and
-select **Lancer la conversation sur ce sujet** beneath the consigne. Preparation
+select the **headphones icon** just before Copy in the **Consigne** heading. Preparation
 uses that exact publication, and Gemini plays its interlocutor using its
 reviewed role, facts and `tu`/`vous` register. Personal notes and edited
 questions are not included. Starting from the general Interaction page still

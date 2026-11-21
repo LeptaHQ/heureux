@@ -298,14 +298,8 @@ class SmokeTests(TestCase):
             reverse("study:part_detail", args=[part.slug])
         )
 
-        self.assertContains(
-            response,
-            f"ui-icons.svg?v=4#icon-{part.icon}",
-        )
-        self.assertContains(
-            response,
-            f"ui-icons.svg?v=4#icon-{task.icon}",
-        )
+        for icon in (part.icon, task.icon):
+            self.assertRegex(response.content.decode(), rf"ui-icons\.svg\?v=\d+#icon-{re.escape(icon)}\"")
         self.assertNotContains(response, "emoji")
 
     def test_legacy_vocabulary_hubs_redirect_to_local_owners(self):

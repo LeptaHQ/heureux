@@ -183,9 +183,11 @@ not a blanket endorsement, and a spelling difference is not a pronunciation erro
 call can show the portion received; no learner speech means no assessment.
 These local corrections need no second AI request. For a separate, optional
 Gemini evaluation, review the transcript, consent to sending it, and select
-the graduation-cap icon (**Évaluer mon niveau**). No second PIN is needed for this attempt. Heureux sends only the
+the sparkle icon (**Évaluer mon niveau avec Gemini**). A small spinner beside it shows
+when the evaluation is in progress. No second PIN is needed for this attempt. Heureux sends only the
 published consigne and both speakers’ transcribed words (not audio or notes)
 to [`gemini-3.8-flash`](https://aistudio.google.com/docs/pricing#gemini-3.8-flash).
+Heureux gives Gemini three minutes to respond and does not automatically resend the transcript.
 The debrief shows four practice marks **out of 5**: task completion, coherence
 and flow of ideas, lexical precision, and grammatical accuracy. Heureux adds them
 for one **total out of 20** and maps it to **NCLC** and **CEFR**. This is a
@@ -323,8 +325,9 @@ pip install -r requirements.txt && python manage.py collectstatic --noinput && p
 ```
 
 The ordinary Gunicorn invocation automatically loads `gunicorn.conf.py`: worker
-and graceful-shutdown timeouts are 120 seconds, above the adapter's 90-second
-socket timeout. Render needs no start-command edit. One preparation occupies one
+and graceful-shutdown timeouts are 210 seconds, above both the 180-second Gemini
+scoring timeout and the 90-second audio preparation timeout. Render needs no
+start-command edit. One preparation occupies one
 worker; no threads or queue daemon are required. Vercel serves cached playback
 but rejects interactive paid preparation because its function runtime is not
 configured for these bounded long requests.
@@ -543,8 +546,10 @@ sits beside the note label, leaving the other actions in their existing column.
 Pinning persists per learner, and unpinning restores the
 note's original date position. Without JavaScript, full notes and pin forms
 remain available. Apply migration 0067 before deploying this feature.
-Note and translation pop-ups use rounded action controls, including DeepL and
-Google **G** links. Translate works with touch taps as well as mouse and keyboard
+Buttons are rounded throughout Heureux, including in cards, toolbars, and dialogs.
+The shared audio PIN dialog uses compact cancel (×) and confirm (✓) controls.
+Note and translation pop-ups also round the DeepL and Google **G** action links.
+Translate works with touch taps as well as mouse and keyboard
 activation. When `DEEPL_API_KEY` is set, the panel translates through DeepL on the
 server first (`DEEPL_TARGET_LANG`, default `EN-GB`; keys ending in `:fx` use the
 free API), then falls back to the browser's on-device engine. Without DeepL, the

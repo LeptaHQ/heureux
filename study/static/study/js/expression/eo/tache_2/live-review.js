@@ -105,7 +105,6 @@
     const {marks, total} = place(rows, [...highlights, ...annotations]);
     const good = strengths(rows, evidence);
     painters.forEach((paint, i) => paint(marks.get(i) || [], good.get(i) || []));
-    by("key").hidden = !total;
     const mine = rows.filter(row => row.speaker === "user").length;
     const markCount = total ? `${total} à vérifier` : reviewedMarks === null ? "aucune suggestion locale" : "aucune correction vérifiée";
     by("count").textContent = (mine === 1 ? "votre réplique" : `vos ${mine} répliques`) + (mine ? ` · ${markCount}` : "");
@@ -190,7 +189,7 @@
     painters = [];
     for (const id of ["turns", "count", "evidence", "corrections", "next", "share-user", "share-model"]) by(id).replaceChildren();
     for (const id of ["fig-time", "fig-turns", "fig-questions", "fig-links"]) by(id).textContent = "—";
-    by("report").hidden = by("empty").hidden = by("share").hidden = by("key").hidden = true;
+    by("report").hidden = by("empty").hidden = by("share").hidden = true;
     by("transcript").open = false;
     showReplies(false);
   }

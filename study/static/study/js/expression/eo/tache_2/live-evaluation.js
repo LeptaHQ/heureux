@@ -5,7 +5,12 @@
   const consent = by("assessment-consent"), button = by("assess");
   if (!consent || !button) return;
   let rows, onResult, pending, grant;
-  const status = text => { by("assessment-status").textContent = text; };
+  const status = (text, busy = false) => {
+    button.setAttribute("aria-busy", String(busy));
+    const message = by("assessment-status");
+    message.classList.toggle("sr-only", busy);
+    message.textContent = text;
+  };
 
   function bind(transcript, paint) {
     pending?.abort();
@@ -34,7 +39,7 @@
     if (!rows || !consent.checked || pending) return;
     const call = pending = new AbortController();
     button.disabled = true;
-    status("Gemini examine votre échange…");
+    status("Gemini examine votre échange…", true);
     try {
       const response = await fetch(root.dataset.evaluationUrl, {
         method: "POST", credentials: "same-origin", mode: "same-origin", cache: "no-store", redirect: "error", signal: call.signal,
@@ -43,6 +48,10 @@
       });
       if (pending !== call) return;
       if (!response.ok) {
+        if (response.status === 504) {
+          status("Le bilan n’est pas arrivé à temps. Vous pouvez réessayer dans cet onglet.");
+          return;
+        }
         const detail = response.headers.get("content-type")?.includes("application/json") ? await response.json() : null;
         if (pending !== call) return;
         status(response.status === 401 ? "Reconnectez-vous pour demander un bilan Gemini." :

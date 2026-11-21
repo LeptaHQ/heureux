@@ -244,7 +244,7 @@ def evaluate(request, task, pin, prompt, rows, *, grant, subject_key):
                              "thinkingConfig": {"thinkingLevel": "LOW"}, "maxOutputTokens": 4096},
     }
     try:
-        with closing(HTTPSConnection("generativelanguage.googleapis.com", timeout=35)) as conn:
+        with closing(HTTPSConnection("generativelanguage.googleapis.com", timeout=180)) as conn:
             conn.request("POST", f"/v1beta/models/{MODEL}:generateContent", body=json.dumps(payload).encode(),
                          headers={"Content-Type": "application/json", "x-goog-api-key": settings.GEMINI_LIVE_API_KEY})
             with conn.getresponse() as resp:

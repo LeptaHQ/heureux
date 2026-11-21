@@ -1,3 +1,3 @@
-# Explicit paid preparation can wait up to 90 seconds for the provider.
-timeout = 120
-graceful_timeout = 120
+# Leave time to return a response after the three-minute Gemini scoring timeout.
+timeout = 210
+graceful_timeout = 210

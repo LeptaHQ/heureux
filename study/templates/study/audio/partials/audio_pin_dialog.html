@@ -7,9 +7,6 @@
         </span>
         <h2 id="audio-pin-title">Nouvel audio ElevenLabs</h2>
       </div>
-      <button class="icon-button form-dialog__close" type="button" aria-label="Annuler" title="Annuler" data-audio-pin-cancel>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
-      </button>
     </header>
     <div class="form-dialog__body">
       <p data-audio-pin-description>Ce nouvel enregistrement consomme des crédits ElevenLabs. Les audios déjà préparés restent accessibles sans code.</p>
@@ -23,10 +20,10 @@
     </div>
     <footer class="form-dialog__actions">
       <button class="icon-button confirm-dialog__action" type="button" aria-label="Annuler" title="Annuler" data-audio-pin-cancel>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+        {% include "study/shared/partials/ui_icon.html" with name="x" only %}
       </button>
       <button class="icon-button confirm-dialog__action audio-pin-dialog__submit" type="submit" aria-label="Autoriser et générer l'audio" title="Autoriser et générer l'audio">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>
+        {% include "study/shared/partials/ui_icon.html" with name="check" only %}
       </button>
     </footer>
   </form>

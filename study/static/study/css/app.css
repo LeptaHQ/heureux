@@ -8420,6 +8420,26 @@ a.qrow:focus-visible {
   grid-template-rows: auto minmax(0, 1fr) auto;
   max-height: inherit;
 }
+.audio-pin-dialog :is(.form-dialog__header, .form-dialog__actions) {
+  padding: 0.45rem 0.85rem;
+}
+.audio-pin-dialog .form-dialog__icon {
+  width: auto;
+  height: auto;
+  border: 0;
+}
+.audio-pin-dialog .form-dialog__body {
+  gap: 0.55rem;
+  padding: 0.65rem 0.85rem;
+}
+.audio-pin-dialog .icon-button {
+  --icon-x-color: currentColor;
+  --icon-check-color: currentColor;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+}
 .audio-pin-dialog .form-dialog__body > p {
   margin: 0;
 }
@@ -18013,8 +18033,8 @@ html[data-collection-view-mode="table"]
   white-space: nowrap;
 }
 
-/* All study cards and table surfaces use the same square visual language. */
-:is(
+/* Keep surface resets less specific than the shared rounded-control rule. */
+:where(
   [class*="card"],
   [class*="table"],
   [class*="deck"],
@@ -18028,7 +18048,7 @@ html[data-collection-view-mode="table"]
 }
 
 /* Rounded corners are reserved for controls the learner can press. */
-:is(
+:where(
   input:not([type="checkbox"]):not([type="radio"]),
   textarea,
   select,

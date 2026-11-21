@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Conversation vocale · {% if subject %}{{ subject.title }} · {% endif %}Tâche 2 · Heureux{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=8">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=10">{% endblock %}
 {% block content %}
 <article class="lv-studio" id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
     data-token-url="{{ token_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
@@ -80,10 +80,12 @@
           <div class="lv-assessment__body">
             <div id="lv-assessment-controls" class="lv-assessment__controls">
               <label class="lv-assessment__consent"><input type="checkbox" id="lv-assessment-consent" autocomplete="off"> <span>Partager le texte avec Google</span></label>
-              <button type="button" class="icon-button" id="lv-assess" aria-label="Évaluer mon niveau" title="Évaluer mon niveau" disabled>{% include "study/shared/partials/ui_icon.html" with name="graduation-cap" only %}</button>
+              <span class="lv-assessment__action">
+                <button type="button" class="icon-button" id="lv-assess" aria-label="Évaluer mon niveau avec Gemini" title="Évaluer mon niveau avec Gemini" disabled>{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %}</button>
+                <span class="lv-assessment__spinner" aria-hidden="true"></span>
+              </span>
             </div>
             <p id="lv-assessment-status" class="lv-assessment__status" role="status"></p>
-            <p class="lv-assessment__scope">Note indicative sur la transcription, hors prononciation.</p>
           </div>
           <div id="lv-assessment-result" class="lv-assessment__result" hidden>
             <p id="lv-assessment-reason"></p>
@@ -107,7 +109,6 @@
         <div class="lv-debrief">
           <details id="lv-transcript" class="lv-transcript"><summary>Votre échange <small id="lv-count"></small></summary>
             <button type="button" class="lv-toggle" id="lv-replies" aria-controls="lv-turns" aria-pressed="false"><span class="lv-toggle__switch" aria-hidden="true"></span> Réponses de l’interlocuteur</button>
-            <p class="lv-key" id="lv-key" hidden><span><del>mot</del> à vérifier</span> <span><ins>mot</ins> proposition</span> <span><b>1</b> explication</span></p>
             <ol class="lv-turns" id="lv-turns" data-replies="hidden"></ol>
           </details>
           <section class="lv-next" aria-labelledby="lv-next-title">
@@ -154,8 +155,8 @@
 {% if gemini_live_available %}
 <script defer src="{% static 'study/js/expression/eo/tache_1/transcript-review.js' %}?v=3"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-feedback.js' %}?v=3"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=4"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=3"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=5"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=4"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=7"></script>
 {% endif %}
 {% endblock %}

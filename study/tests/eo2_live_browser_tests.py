@@ -344,7 +344,7 @@ class LiveConversationBrowserMixin:
 
         def unavailable(route):
             review_calls.append(route.request.post_data_json)
-            route.fulfill(status=503, json={"error": "Connexion à Gemini impossible."})
+            route.fulfill(status=504, content_type="text/html", body="<h1>Gateway Timeout</h1>")
 
         self.page.route("**" + reverse("study:eo_tache_two_live_evaluation"), unavailable)
         self.start_preparation()
@@ -365,7 +365,11 @@ class LiveConversationBrowserMixin:
         self.assertEqual(review_calls, [])
         self.page.locator("#lv-assessment-consent").check()
         self.page.locator("#lv-assess").click()
-        expect(self.page.locator("#lv-assessment-status")).to_contain_text("Connexion à Gemini impossible")
+        status = self.page.locator("#lv-assessment-status")
+        spinner = self.page.locator(".lv-assessment__spinner")
+        expect(status).to_contain_text("pas arrivé à temps")
+        expect(status).not_to_have_class(re.compile("sr-only"))
+        expect(spinner).to_be_hidden()
         expect(line.locator("ins")).to_be_visible()
         self.assertEqual(len(review_calls), 1)
         self.assertEqual(review_calls[0]["rows"], [
@@ -375,7 +379,18 @@ class LiveConversationBrowserMixin:
           new Promise(resolve => probe.releaseReview = report => resolve(Response.json(report))); }""")
         self.page.locator("#lv-assessment-consent").check()
         self.page.locator("#lv-assess").click()
-        expect(self.page.locator("#lv-assessment-status")).to_contain_text("examine")
+        expect(self.page.locator('#lv-assess [data-icon="sparkles"]')).to_be_visible()
+        expect(spinner).to_be_visible()
+        expect(status).to_contain_text("examine")
+        expect(status).to_have_class(re.compile("sr-only"))
+        self.page.emulate_media(reduced_motion="reduce")
+        expect(spinner).to_have_css("animation-name", "none")
+        self.page.locator("#lv-assessment-consent").uncheck()
+        expect(spinner).to_be_hidden()
+        expect(status).to_contain_text("arrêtée")
+        self.page.locator("#lv-assessment-consent").check()
+        self.page.locator("#lv-assess").click()
+        expect(spinner).to_be_visible()
         self.page.locator("#lv-retry").click()
         self.page.evaluate("""() => probe.releaseReview({score:20, nclc:'10+', cefr:'C2',
           criteria:[], evidence:[], annotations:[]})""")
@@ -407,8 +422,20 @@ class LiveConversationBrowserMixin:
     def test_native_voice_cancel_shared_pin_leaves_microphone_closed(self):
         self.open_live_pilot()
         self.start.click()
+        buttons = self.pin_dialog.get_by_role("button")
+        expect(buttons).to_have_count(2)
+        for width in (320, 1183):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            for button in buttons.all():
+                width_px, height_px, radius = button.evaluate(
+                    "el => [el.offsetWidth, el.offsetHeight, parseFloat(getComputedStyle(el).borderRadius)]"
+                )
+                self.assertEqual(width_px, height_px)
+                self.assertGreaterEqual(width_px, 44)
+                self.assertGreaterEqual(radius, width_px / 2)
+            self.assert_no_horizontal_overflow()
         self.pin_dialog.get_by_label("Code PIN ElevenLabs").fill("unfinished")
-        self.pin_dialog.get_by_role("button", name="Annuler").first.click()
+        self.pin_dialog.get_by_role("button", name="Annuler").click()
         expect(self.page.locator("#lv-status")).to_contain_text("annulée")
         expect(self.pin_dialog.get_by_label("Code PIN ElevenLabs")).to_have_value("")
         expect(self.pin_dialog.get_by_role("heading", include_hidden=True)).to_have_text("Nouvel audio ElevenLabs")
@@ -510,9 +537,9 @@ class LiveConversationBrowserMixin:
         expect(button).to_be_disabled()
         self.page.set_viewport_size({"width": 320, "height": 700})
         controls = self.page.locator("#lv-assessment-controls")
-        expect(button).to_have_accessible_name("Évaluer mon niveau")
+        expect(button).to_have_accessible_name("Évaluer mon niveau avec Gemini")
         expect(button).to_have_text("")
-        expect(button.locator('[data-icon="graduation-cap"]')).to_be_visible()
+        expect(button.locator('[data-icon="sparkles"]')).to_be_visible()
         expect(controls.locator("details")).to_have_count(0)
         expect(consent).to_have_accessible_name("Partager le texte avec Google")
         self.assertEqual(controls.locator("label span").evaluate("""el => {

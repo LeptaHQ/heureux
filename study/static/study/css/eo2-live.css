@@ -1,10 +1,11 @@
-/* EO2 voice studio: one timed run (préparation → échange → bilan) on a single page.
+/* EO2 voice studio: code PIN → sujet lu (sans chrono) → préparation → échange → bilan, on one page.
    The déroulé band is the timer; the consigne always leads, the micro console sits beside it. */
 .lv-studio {
   --lv-action: #1f5f5a;
   --lv-action-ink: #ffffff;
   --lv-rule: color-mix(in srgb, var(--tone-oral) 30%, var(--border));
   --lv-tint: color-mix(in srgb, var(--tone-oral-soft) 72%, var(--surface));
+  --lv-correction: color-mix(in srgb, var(--pen-accent) 78%, var(--text));
   --lv-left: 1;
   --lv-top: 0px;
   max-width: 68rem;
@@ -64,33 +65,40 @@
 .lv-studio[data-state="done"] [data-step="prep"], .lv-studio[data-state="done"] [data-step="live"],
 .lv-studio:is([data-state="connecting"], [data-state="live"]) [data-step="prep"] { color: var(--text-soft); }
 .lv-studio[data-state="done"] [data-step="live"] .lv-step__bar i { width: calc((1 - var(--lv-left)) * 100%); }
-.lv-studio[data-ending="failed"] [data-step="live"] .lv-step__bar i { width: 0; }
+.lv-studio[data-ending="failed"] [data-step="live"] .lv-step__bar i,
+.lv-studio:is([data-state="authorizing"], [data-state="loading"], [data-state="reading"]) .lv-step__bar i { width: 0; }
 .lv-time { flex: none; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; min-width: 6.4rem; padding-left: 1.1rem; border-left: 1px solid var(--border); }
 #lv-phase { color: var(--text-soft); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
 #lv-clock { color: var(--text); font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.3rem); font-weight: 600; font-variant-numeric: tabular-nums lining-nums; line-height: 1.05; }
 .lv-studio[data-state="live"] #lv-clock { color: var(--tone-oral); }
+.lv-studio:is([data-state="authorizing"], [data-state="loading"], [data-state="reading"], [data-state="connecting"]) #lv-clock { color: var(--text-faint); }
 
 /* Stage */
 .lv-stage { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: clamp(1.25rem, 3vw, 2rem); }
 .lv-kicker { margin-bottom: 0.55rem; color: var(--tone-oral); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
 .lv-head h1 { margin: 0; font-size: clamp(2rem, 1.35rem + 2.6vw, 3.1rem); line-height: 1.08; letter-spacing: -0.01em; text-wrap: balance; }
 .lv-prompt { max-width: 40rem; margin-top: 0.9rem; color: var(--text-soft); font-size: 1.14rem; line-height: 1.55; }
-.lv-studio:is([data-state="loading"], [data-state="prep"], [data-state="connecting"], [data-state="live"]) .lv-head h1 { font-size: clamp(1.45rem, 1.15rem + 1.2vw, 2rem); }
-.lv-studio:is([data-state="prep"], [data-state="connecting"], [data-state="live"]) .lv-prompt {
+.lv-studio:is([data-state="loading"], [data-state="authorizing"], [data-state="reading"], [data-state="prep"], [data-state="connecting"], [data-state="live"]) .lv-head h1 { font-size: clamp(1.45rem, 1.15rem + 1.2vw, 2rem); }
+.lv-studio:is([data-state="reading"], [data-state="prep"], [data-state="connecting"], [data-state="live"]) .lv-prompt {
   max-width: 44rem; margin-top: 1.1rem; padding: 0.15rem 0 0.15rem 1.15rem;
   border-left: 4px solid var(--tone-oral);
   color: var(--text); font-size: clamp(1.18rem, 1.05rem + 0.55vw, 1.42rem); line-height: 1.6;
 }
 
-/* Setup: no card, just the start action and the optional read-aloud under the brief. */
+/* Reading: the consigne is being read aloud, so its rule sweeps; nothing suggests a live mic. */
+.lv-studio[data-state="reading"] .lv-prompt { position: relative; border-left-color: var(--lv-rule); }
+.lv-studio[data-state="reading"] .lv-prompt::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -4px; width: 4px;
+  background: linear-gradient(to bottom, transparent, var(--tone-oral) 25% 75%, transparent) no-repeat 0 0 / 100% 45%;
+  animation: lv-read 1.8s ease-in-out infinite alternate;
+}
+@keyframes lv-read { to { background-position: 0 100%; } }
+
+/* Setup (direct visit or after a cancel): one start action under the brief. */
 .lv-setup { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem 1.25rem; }
 .lv-setup .lv-primary { flex: 1 1 100%; }
-.lv-listen { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.75rem; }
-.lv-listen .lv-secondary { flex: none; min-height: 2.5rem; padding: 0.4rem 1.05rem; font-size: 0.92rem; }
-.lv-listen__note { color: var(--text-soft); font-size: 0.84rem; line-height: 1.4; }
-.lv-listen__status { flex: 1 1 100%; color: var(--text); font-size: 0.88rem; line-height: 1.45; }
 /* Live regions stay in the accessibility tree but take no room until they speak. */
-:is(.lv-listen__status, .lv-assessment__status):empty { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+:is(.lv-status, .lv-assessment__status):empty { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 
 /* Buttons */
 .lv-primary, .lv-secondary {
@@ -136,10 +144,11 @@
 
 /* Console: the microphone's state is always visible beside the consigne. */
 .lv-console { display: grid; justify-items: center; gap: 0.95rem; text-align: center; }
-.lv-studio:is([data-state="loading"], [data-state="prep"], [data-state="connecting"], [data-state="live"]) .lv-console {
+.lv-studio:is([data-state="loading"], [data-state="authorizing"], [data-state="reading"], [data-state="prep"], [data-state="connecting"], [data-state="live"]) .lv-console {
   padding: clamp(1.3rem, 3vw, 1.75rem) clamp(1.1rem, 2.5vw, 1.5rem); background: var(--lv-tint); border-top: 4px solid var(--tone-oral);
 }
-.lv-studio:is([data-state="setup"], [data-state="done"]) .lv-orb { display: none; }
+.lv-studio:is([data-state="setup"], [data-state="authorizing"], [data-state="loading"], [data-state="done"]) .lv-orb { display: none; }
+.lv-orb [data-icon="headphones"], .lv-studio[data-state="reading"] .lv-orb [data-icon="microphone"] { display: none; }
 .lv-orb {
   position: relative; display: grid; place-items: center;
   width: 5.75rem; height: 5.75rem; margin: 0.4rem 0 0.2rem;
@@ -160,12 +169,41 @@
 .lv-studio[data-state="connecting"] .lv-orb::before { inset: -9px; border-style: dashed; animation: lv-spin 7s linear infinite; }
 @keyframes lv-pulse { from { opacity: 0.75; transform: scale(1); } to { opacity: 0; transform: scale(1.55); } }
 @keyframes lv-spin { to { transform: rotate(360deg); } }
+/* Untimed steps (code PIN, ouverture, lecture du sujet): a slim strip, headphones rather than a microphone. */
+.lv-studio:is([data-state="authorizing"], [data-state="loading"], [data-state="reading"]) .lv-console {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.8rem;
+  padding: 0.7rem 0.95rem; text-align: left;
+}
+.lv-studio[data-state="reading"] .lv-orb { flex: none; width: 2.6rem; height: 2.6rem; margin: 0; border-width: 1.5px; font-size: 1.2rem; }
+.lv-studio[data-state="reading"] .lv-orb [data-icon="headphones"] { display: block; }
+.lv-studio[data-state="reading"] .lv-orb::after { content: none; }
+.lv-studio:is([data-state="authorizing"], [data-state="loading"], [data-state="reading"]) .lv-status { flex: 1 1 11rem; max-width: none; color: var(--text); }
+.lv-studio:is([data-state="authorizing"], [data-state="loading"], [data-state="reading"]) .lv-actions { display: flex; width: auto; margin-left: auto; }
+/* Connected: one brief cue once the interlocutor is verifiably on the line; static without motion. */
+.lv-linked { display: none; }
+.lv-studio[data-state="live"] .lv-linked {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.2rem 0.75rem 0.2rem 0.6rem; border: 1px solid var(--lv-rule); border-radius: 999px;
+  background: var(--surface); color: var(--text); font-size: 0.8rem; font-weight: 600; line-height: 1.4;
+  animation: lv-arrive 0.45s ease-out both;
+}
+.lv-linked::before { content: ""; flex: none; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--success); }
+.lv-studio[data-state="live"] .lv-linked::before { animation: lv-ping 1.1s ease-out 0.3s 2; }
+.lv-studio[data-state="live"] .lv-console { position: relative; }
+.lv-studio[data-state="live"] .lv-console::before {
+  content: ""; position: absolute; top: -4px; left: 0; width: 100%; height: 4px; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.85), transparent) no-repeat -70% 0 / 40% 100%;
+  animation: lv-sweep 0.9s ease-out 0.15s both;
+}
+@keyframes lv-arrive { from { opacity: 0; transform: translateY(-0.3rem); } }
+@keyframes lv-ping { from { box-shadow: 0 0 0 0 color-mix(in srgb, var(--success) 55%, transparent); } to { box-shadow: 0 0 0 0.55rem transparent; } }
+@keyframes lv-sweep { to { background-position: 170% 0; } }
 .lv-cue { max-width: 19rem; color: var(--text); font-size: 0.98rem; line-height: 1.5; }
 .lv-status { max-width: 19rem; color: var(--text-soft); font-size: 0.92rem; line-height: 1.45; }
 .lv-studio[data-state="live"] .lv-status { color: var(--text); }
 .lv-studio[data-state="setup"] .lv-status { max-width: none; color: var(--warning); text-align: left; }
 .lv-actions { display: grid; gap: 0.55rem; width: 100%; }
-.lv-actions .lv-primary, .lv-actions .lv-secondary { width: 100%; }
+.lv-actions .lv-primary, .lv-actions .lv-secondary { width: 100%; padding-inline: 1rem; text-wrap: balance; }
 #lv-call { width: 100%; }
 .lv-captions { border-top: 1px solid var(--lv-rule); text-align: left; }
 .lv-captions summary { padding: 0.7rem 0 0.2rem; color: var(--text-soft); font-size: 0.88rem; }
@@ -204,14 +242,41 @@
 .lv-assessment:has(#lv-assessment-result:not([hidden])) #lv-level { color: var(--text); }
 .lv-assessment__body { display: grid; gap: 0.45rem; min-width: 0; }
 .lv-assessment__controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem 1rem; }
-.lv-assessment__consent { flex: 1 1 20rem; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.6rem; color: var(--text-soft); font-size: 0.86rem; line-height: 1.45; cursor: pointer; }
+.lv-assessment__consent { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.4rem; color: var(--text-soft); font-size: 0.86rem; line-height: 1.45; cursor: pointer; }
 .lv-assessment__consent input { width: 1.1rem; height: 1.1rem; margin: 0.12rem 0 0; accent-color: var(--tone-oral); }
-.lv-assessment .lv-secondary { flex: none; min-height: 2.5rem; padding: 0.4rem 1.1rem; font-size: 0.94rem; }
+.lv-assessment .icon-button { --icon-color: currentColor; width: 2.75rem; height: 2.75rem; }
+.lv-assessment .icon-button:disabled { border-color: var(--border); background: var(--surface); color: var(--text-faint); cursor: not-allowed; }
 .lv-assessment__status { color: var(--text); font-size: 0.9rem; line-height: 1.45; }
 .lv-assessment__scope { color: var(--text-soft); font-size: 0.8rem; line-height: 1.45; }
-.lv-assessment__result { display: grid; gap: 0.35rem; padding-top: 0.55rem; border-top: 1px dashed var(--lv-rule); font-size: 0.93rem; line-height: 1.5; }
-.lv-assessment__evidence { display: grid; gap: 0.2rem; margin: 0; padding-left: 1.1rem; color: var(--text-soft); }
+.lv-assessment__result { display: grid; gap: 0.75rem; padding-top: 0.6rem; border-top: 1px dashed var(--lv-rule); font-size: 0.93rem; line-height: 1.5; }
+#lv-assessment-reason { color: var(--text); }
+/* Shown only when the transcript actually carries inline marks. */
+.lv-assessment__jump { display: none; }
+.lv-report:has(#lv-key:not([hidden])) .lv-assessment__jump { display: block; }
+.lv-assessment__jump a { color: var(--lv-action); font-weight: 600; text-underline-offset: 0.2em; }
+.lv-assessment__part { display: grid; gap: 0.3rem; min-width: 0; }
+.lv-assessment h3 { display: flex; align-items: center; gap: 0.4rem; margin: 0; color: var(--text); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.4; text-transform: uppercase; }
+.lv-assessment h3 .ui-icon { font-size: 1rem; }
+.lv-assessment__aside { color: var(--text-soft); font-size: 0.8rem; line-height: 1.45; }
+.lv-assessment__evidence { display: grid; gap: 0.25rem; margin: 0.1rem 0 0; padding-left: 1.1rem; color: var(--text-soft); }
+.lv-assessment__evidence q { color: var(--text); }
+.lv-assessment__none { color: var(--text-soft); font-style: italic; }
+.lv-assessment__evidence:not(:empty) + .lv-assessment__none,
+.lv-assessment__part:has(#lv-assessment-criteria:empty) { display: none; }
+.lv-assessment__next { padding-left: 0.75rem; border-left: 3px solid var(--tone-oral); color: var(--text); }
 :is(#lv-assessment-reason, .lv-assessment__evidence, .lv-assessment__next):empty { display: none; }
+
+/* Scoring detail: a real table; its rows stack on narrow screens so nothing scrolls sideways. */
+.lv-criteria { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 0.88rem; line-height: 1.45; }
+.lv-criteria :is(th, td) { padding: 0.45rem 0.75rem 0.45rem 0; border-top: 1px solid var(--border); text-align: left; vertical-align: top; overflow-wrap: break-word; hyphens: auto; }
+.lv-criteria :is(th, td):last-child { padding-right: 0; }
+.lv-criteria thead th { padding-block: 0 0.3rem; border-top: 0; color: var(--text-soft); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.lv-criteria thead th:first-child { width: 32%; }
+.lv-criteria thead th:nth-child(2) { width: 3.9rem; }
+.lv-criteria tbody th { color: var(--text); font-weight: 600; }
+.lv-criteria tbody td:nth-of-type(1) { color: var(--text); font-weight: 700; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
+.lv-criteria tbody td:nth-of-type(2) { color: var(--text-soft); }
+.lv-criteria tbody tr:last-child > * { border-bottom: 1px solid var(--border); }
 
 /* Secondary counts, taken from the transcript, folded away by default. */
 .lv-glance { grid-area: figures; border-block: 1px solid var(--border); }
@@ -251,24 +316,19 @@
 .lv-said[data-speaker="user"] span { color: var(--text); font-size: 1.05rem; }
 .lv-fix { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.3rem; line-height: 1.5; }
 .lv-fix__n { margin-right: 0.3rem; }
-.lv-fix__before { color: var(--text-soft); }
-.lv-fix__before del { text-decoration: line-through 2px var(--warning); text-decoration-skip-ink: none; }
 .lv-fix__arrow { color: var(--text-faint); }
-.lv-fix__after { color: var(--tone-oral); }
 .lv-fixes small { color: var(--text-soft); font-size: 0.86rem; }
 .lv-fixes li:has(> .lv-jump) { padding: 0; }
 .lv-jump { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.3rem; width: 100%; padding: 0.75rem 0; border: 0; background: none; color: var(--text); font: inherit; line-height: 1.5; text-align: left; cursor: pointer; }
 .lv-jump::after { content: "Voir"; content: "Voir" / ""; margin-left: auto; padding-left: 1rem; color: var(--lv-action); font-size: 0.86rem; text-decoration: underline; text-underline-offset: 0.2em; }
-.lv-jump:hover .lv-fix__after { text-decoration: underline; }
+.lv-jump:hover .lv-fix__after { text-decoration-thickness: 2px; }
 
 /* The conversation: learner turns carry the marks; replies are context on demand. */
 .lv-transcript { grid-area: talk; background: var(--surface); border: 1px solid var(--border); border-top: 2px solid var(--tone-oral); }
 .lv-transcript > summary { padding: 0.95rem 1.15rem; font-size: 1.12rem; font-weight: 600; }
 .lv-transcript > summary small { color: var(--text-soft); font-size: 0.86rem; font-weight: 400; }
 .lv-transcript[open] > summary { border-bottom: 1px solid var(--border); }
-.lv-talkbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1.25rem; padding: 0.7rem 1.15rem; }
-.lv-hint { flex: 1 1 17rem; color: var(--text-soft); font-size: 0.86rem; line-height: 1.45; }
-.lv-toggle { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.25rem 0; border: 0; background: none; color: var(--text); font: inherit; font-size: 0.88rem; cursor: pointer; }
+.lv-toggle { display: inline-flex; align-items: center; gap: 0.55rem; margin: 0.45rem 1.15rem; padding: 0.25rem 0; border: 0; background: none; color: var(--text); font: inherit; font-size: 0.88rem; cursor: pointer; }
 .lv-toggle__switch { position: relative; flex: none; width: 2.1rem; height: 1.2rem; border-radius: 999px; background: color-mix(in srgb, var(--text-faint) 50%, transparent); transition: background 0.15s; }
 .lv-toggle__switch::after { content: ""; position: absolute; top: 0.15rem; left: 0.15rem; width: 0.9rem; height: 0.9rem; border-radius: 50%; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.3); transition: transform 0.15s; }
 .lv-toggle[aria-pressed="true"] .lv-toggle__switch { background: var(--lv-action); }
@@ -282,7 +342,7 @@
 .lv-turns[data-replies="hidden"] > li { grid-template-columns: minmax(0, 1fr); }
 .lv-turns[data-replies="hidden"] > li > strong { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .lv-turns > li > strong { padding-top: 0.3rem; color: var(--text-faint); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-.lv-turns > li[data-speaker="user"] { background: var(--lv-tint); box-shadow: inset 3px 0 0 var(--tone-oral); }
+.lv-turns > li[data-speaker="user"] { background: var(--surface); }
 .lv-turns > li[data-speaker="user"] > strong { color: var(--tone-oral); }
 .lv-turns > li[data-speaker="model"] { padding-block: 0.65rem; }
 .lv-turns > li[data-speaker="model"] .lv-turn__said { color: var(--text-soft); font-size: 0.96rem; }
@@ -292,23 +352,16 @@
 .lv-turn__said:focus { outline: 2px solid var(--tone-oral); outline-offset: 0.35rem; }
 .lv-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.45rem; }
 .lv-tags .lv-chip { background: var(--surface); box-shadow: inset 0 0 0 1px var(--lv-rule); }
-.lv-turns > li[data-editing] :is(.lv-tags, .lv-turn__said, .lv-why) { display: none; }
 
 /* Inline marks: strike only the flagged words, highlight the proposal, number the reason. */
-.lv-mark { --lv-ins: color-mix(in srgb, var(--tone-oral) 24%, var(--surface)); }
-[data-theme="dark"] .lv-mark { --lv-ins: color-mix(in srgb, var(--tone-oral) 34%, var(--surface)); }
-.lv-mark del, .lv-key del { color: var(--text-soft); text-decoration: line-through 2px var(--warning); text-decoration-skip-ink: none; }
-.lv-mark ins, .lv-key ins { padding: 0 0.18em; background: var(--lv-ins, color-mix(in srgb, var(--tone-oral) 24%, var(--surface))); color: var(--text); font-weight: 600; text-decoration: none; box-shadow: inset 0 -2px 0 var(--tone-oral); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-.lv-mark del + ins { margin-left: 0.25em; }
-.lv-mark::after { content: attr(data-mark); position: relative; top: -0.6em; margin-left: 0.12em; color: var(--warning); font-size: 0.66em; font-weight: 700; font-variant-numeric: tabular-nums; }
-.lv-why { display: grid; gap: 0.3rem; margin-top: 0.6rem; padding-top: 0.55rem; border-top: 1px dashed var(--lv-rule); }
+.lv-mark del, .lv-key del, .lv-fix__before del { color: var(--lv-correction); text-decoration: line-through; text-decoration-skip-ink: none; }
+.lv-mark ins, .lv-key ins, .lv-fix__after { color: var(--success); font-weight: 700; text-decoration: underline; text-underline-offset: 0.15em; }
+.lv-mark del ~ ins { margin-inline-start: 0.25em; }
+.lv-mark::after { content: attr(data-mark); position: relative; top: -0.6em; margin-left: 0.12em; color: var(--lv-correction); font-size: 0.66em; font-weight: 700; font-variant-numeric: tabular-nums; }
+.lv-why { display: grid; gap: 0.3rem; margin-top: 0.6rem; padding-top: 0.55rem; border-top: 1px dashed var(--border); }
 .lv-why__item { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline; gap: 0.55rem; color: var(--text-soft); font-size: 0.88rem; line-height: 1.45; }
-:is(.lv-why__item, .lv-key) b, .lv-fix__n { display: inline-grid; place-items: center; min-width: 1.15rem; height: 1.15rem; padding: 0 0.2rem; box-sizing: border-box; border: 1px solid var(--warning); color: var(--warning); font-size: 0.7rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+:is(.lv-why__item, .lv-key) b, .lv-fix__n { display: inline-grid; place-items: center; min-width: 1.15rem; height: 1.15rem; padding: 0 0.2rem; box-sizing: border-box; border: 1px solid currentColor; color: var(--lv-correction); font-size: 0.7rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
 .lv-turn small { display: block; margin-top: 0.3rem; color: var(--text-soft); font-size: 0.82rem; }
-.lv-turn > button, .lv-turn__tools button { margin-top: 0.35rem; padding: 0.15rem 0; border: 0; background: none; color: var(--lv-action); font: inherit; font-size: 0.88rem; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
-.lv-turn textarea { display: block; box-sizing: border-box; width: 100%; margin-top: 0.2rem; padding: 0.5rem 0.65rem; border: 1px solid var(--border-strong); background: var(--surface); color: var(--text); font: inherit; font-size: 1.05rem; line-height: 1.5; resize: vertical; }
-.lv-turn__tools { display: flex; flex-wrap: wrap; gap: 0.35rem 1.1rem; }
-.lv-turn__tools button:first-child { font-weight: 600; }
 .lv-fineprint { max-width: 46rem; color: var(--text-faint); font-size: 0.8rem; line-height: 1.5; }
 .lv-done-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
 .lv-unavailable { padding-top: 0.25rem; }
@@ -317,7 +370,7 @@
 @media (min-width: 56rem) {
   .lv-studio[data-state="setup"] .lv-stage { grid-template-columns: minmax(0, 46rem); grid-template-areas: "head" "setup" "console"; row-gap: 1.5rem; }
   .lv-setup .lv-primary { flex: none; }
-  .lv-studio:is([data-state="loading"], [data-state="prep"], [data-state="connecting"], [data-state="live"]) .lv-stage {
+  .lv-studio:is([data-state="loading"], [data-state="authorizing"], [data-state="reading"], [data-state="prep"], [data-state="connecting"], [data-state="live"]) .lv-stage {
     grid-template-columns: minmax(0, 1fr) minmax(17.5rem, 21rem); grid-template-areas: "head console" "notes console";
     grid-template-rows: auto 1fr; column-gap: clamp(2rem, 4.5vw, 4rem);
   }
@@ -331,13 +384,16 @@
   .lv-studio[data-state="done"] .lv-head { grid-area: head; }
   .lv-studio[data-state="done"] .lv-console { grid-area: console; align-self: end; padding-left: 1.25rem; border-left: 1px solid var(--border); }
   .lv-studio[data-state="done"] .lv-done { grid-area: done; }
-  .lv-assessment { grid-template-columns: minmax(10rem, 18rem) minmax(0, 1fr); grid-template-areas: "score body" ". result"; column-gap: 1.25rem; row-gap: 0; }
+  .lv-assessment { grid-template-columns: minmax(10rem, 18rem) minmax(0, 1fr); grid-template-areas: "score body" "result result"; column-gap: 1.25rem; row-gap: 0; }
   .lv-assessment__score { grid-area: score; flex-direction: column; flex-wrap: nowrap; align-self: stretch; gap: 0.2rem; padding-right: 1.25rem; border-right: 1px solid var(--border); }
   #lv-level { font-size: 1.45rem; }
   .lv-assessment__body { grid-area: body; }
   .lv-assessment__result { grid-area: result; margin-top: 0.6rem; }
 }
 @media (min-width: 62rem) {
+  .lv-assessment__result { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); column-gap: 2rem; align-items: start; }
+  .lv-assessment__result:has(#lv-assessment-criteria:empty) { grid-template-columns: minmax(0, 1fr); }
+  .lv-assessment__result > :not(.lv-assessment__part) { grid-column: 1 / -1; }
   .lv-debrief { grid-template-columns: minmax(0, 1.55fr) minmax(16rem, 1fr); grid-template-areas: "talk next" "talk findings" "talk figures"; grid-template-rows: auto auto 1fr; row-gap: 1.1rem; column-gap: clamp(1.75rem, 3.5vw, 2.75rem); }
 }
 
@@ -361,14 +417,22 @@
   .lv-said, .lv-turns > li { grid-template-columns: minmax(0, 1fr); gap: 0.15rem; }
   .lv-turns > li { padding: 0.7rem 0.95rem; }
   .lv-transcript > summary { padding: 0.75rem 0.95rem; font-size: 1.05rem; }
-  .lv-talkbar { gap: 0.35rem 1rem; padding: 0.55rem 0.95rem; }
+  .lv-toggle { margin: 0.3rem 0.95rem; }
   .lv-key { gap: 0.3rem 1rem; padding: 0 0.95rem 0.6rem; }
   .lv-assessment { gap: 0.5rem; padding-block: 0.6rem 0.7rem; }
   #lv-level { font-size: 1.1rem; }
-  .lv-assessment__consent, .lv-hint { font-size: 0.84rem; }
+  .lv-assessment__consent { font-size: 0.84rem; }
   .lv-assessment__scope { font-size: 0.78rem; }
   .lv-notice { padding: 1rem 1.05rem; gap: 0.8rem; }
   .lv-done-actions .lv-primary { flex: 1 1 100%; }
+}
+@media (max-width: 34rem) {
+  .lv-criteria, .lv-criteria tbody { display: block; }
+  .lv-criteria thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .lv-criteria tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 0.75rem; padding: 0.5rem 0; border-top: 1px solid var(--border); }
+  .lv-criteria tbody tr:last-child { border-bottom: 1px solid var(--border); }
+  .lv-criteria :is(th, td), .lv-criteria tbody tr:last-child > * { padding: 0; border: 0; }
+  .lv-criteria tbody td:nth-of-type(2) { grid-column: 1 / -1; margin-top: 0.15rem; }
 }
 @media (max-width: 26.25rem) {
   .lv-studio:not([data-state="setup"]) .lv-step__meta { display: none; }
@@ -377,4 +441,5 @@
 @media (prefers-reduced-motion: reduce) {
   .lv-studio *, .lv-studio *::before, .lv-studio *::after { animation: none !important; transition: none !important; }
   .lv-studio[data-mic="open"] .lv-orb::before { opacity: 0.35; transform: scale(1.2); }
+  .lv-studio[data-state="reading"] .lv-prompt::before { background: var(--tone-oral); }
 }

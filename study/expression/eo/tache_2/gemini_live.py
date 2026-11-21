@@ -7,7 +7,9 @@ from datetime import timedelta
 from http.client import HTTPException, HTTPSConnection
 
 from django.conf import settings
+from django.core import signing
 from django.utils import timezone
+from django.utils.crypto import get_random_string
 from django.views.decorators.debug import sensitive_variables
 
 from study.accounts.services import account_throttle_key, authorize_audio_generation, reserve_throttled_action
@@ -89,11 +91,29 @@ class LiveTokenError(Exception):
         super().__init__(message)
 
 
-@sensitive_variables("pin")
-def mint_token(request, task, pin, *, instruction=None, reading=False):
+def grant_signer(request, subject_key, *, purpose):
+    # Scope the signature without exposing the session cookie or identity in the grant.
+    return signing.TimestampSigner(salt=f"eo2:{purpose}:{request.user.pk}:{request.session.session_key}:{subject_key}")
+
+
+def issue_grant(request, subject_key, *, purpose):
+    return grant_signer(request, subject_key, purpose=purpose).sign(get_random_string(24))
+
+
+@sensitive_variables("pin", "exchange_grant")
+def mint_token(request, task, pin, *, instruction=None, reading=False, exchange_grant=None, subject_key=""):
     if not available_to(request.user, task):
         raise LiveTokenError(403, "Le mode vocal pilote n’est pas disponible.")
-    authorize_audio_generation(request, pin)
+    if exchange_grant is None:
+        authorize_audio_generation(request, pin)
+    else:
+        try:
+            nonce = grant_signer(request, subject_key, purpose="exchange").unsign(exchange_grant, max_age=600)
+        except signing.BadSignature:
+            raise LiveTokenError(403, "L’autorisation de cet échange n’est plus valide.") from None
+        # A single atomic redemption; the 15-minute lock outlives the 10-minute grant.
+        if reserve_throttled_action(account_throttle_key(nonce, purpose="eo2-exchange-grant"), limit=1):
+            raise LiveTokenError(403, "Cette autorisation a déjà été utilisée.")
     # The per-account mint limit is separate from the shared PIN failure limit.
     key = account_throttle_key(str(request.user.pk), purpose="eo2-gemini-reading" if reading else "eo2-gemini-live-mint")
     if reserve_throttled_action(key):

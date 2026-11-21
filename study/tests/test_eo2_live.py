@@ -261,6 +261,57 @@ class GeminiLiveTests(TestCase):
         self.assertIn(page.context["subject"].prompt, instruction)
         self.assertNotIn(catalogue.tache_two_dialogues()[key].questions[0].answer, instruction)
 
+    def test_one_pin_authorizes_the_exact_reading_then_one_fresh_exchange_and_opt_in_review(self):
+        args = ("mai", 2, 8)
+        key = tache_two_subject_content_key(*args)
+        entry = factories.make_response(theme=factories.make_theme("studio-attempt", task=self.task))
+        Prompt.objects.filter(response=entry).update(content_key=key)
+        page = self.client.get(reverse("study:eo_tache_two_live", args=args))
+        url = page.context["token_url"]
+        response = self.post(url=url, body=json.dumps({"purpose": "attempt", "pin": PILOT_PIN, "consent": True}))
+        self.assert_private(response, 200)
+        result = response.json()
+        self.assertEqual(set(result), {"token", "model", "exchangeGrant"})
+        self.transport.assert_called_once()  # No speaking token while the subject is read.
+        def instruction():
+            return json.loads(self.connection.request.call_args.kwargs["body"])["bidiGenerateContentSetup"]["systemInstruction"]["parts"][0]["text"]
+        answer = catalogue.tache_two_dialogues()[key].questions[0].answer
+        self.assertIn(page.context["scenario_prompt"], instruction())
+        self.assertNotIn(answer, instruction())
+
+        exchange = {"purpose": "exchange", "exchangeGrant": result["exchangeGrant"], "consent": True}
+        self.assert_private(self.post(body=json.dumps(exchange)), 403)  # Not the generic workshop.
+        self.assert_private(self.post(url=url, body=json.dumps({**exchange, "pin": PILOT_PIN})), 400)
+        with self.settings(GEMINI_LIVE_FREE_TIER_CONFIRMED=False):
+            self.assert_private(self.post(url=url, body=json.dumps(exchange)), 403)
+        with patch("django.core.signing.time.time", return_value=timezone.now().timestamp() + 601):
+            self.assert_private(self.post(url=url, body=json.dumps(exchange)), 403)
+        response = self.post(url=url, body=json.dumps(exchange))
+        self.assert_private(response, 200)
+        self.assertIn(answer, instruction())
+        self.assertNotIn(exchange["exchangeGrant"], repr(self.connection.request.call_args))
+        self.assert_private(self.post(url=url, body=json.dumps(exchange)), 403)  # Already redeemed.
+        self.assertEqual(self.transport.call_count, 2)
+
+        transport = self.evaluation_fixture()
+        review = {"consent": True, "rows": self.rows, "reviewGrant": response.json()["reviewGrant"]}
+        review_url = page.context["evaluation_url"]
+        self.assert_private(self.post(url=self.eval_url, body=json.dumps(review)), 403)
+        self.assert_private(self.post(url=review_url, body=json.dumps({**review, "consent": False})), 400)
+        self.assert_private(self.post(url=review_url, body=json.dumps({**review, "reviewGrant": exchange["exchangeGrant"]})), 403)
+        with patch("django.core.signing.time.time", return_value=timezone.now().timestamp() + 3601):
+            self.assert_private(self.post(url=review_url, body=json.dumps(review)), 403)
+        transport.assert_not_called()
+        self.eval_response.read.return_value = json.dumps({"candidates": [{
+            "finishReason": "STOP", "content": {"parts": [{"text": json.dumps(self.report)}]},
+        }]}).encode()
+        self.assert_private(self.post(url=review_url, body=json.dumps(review)), 200)
+        self.assertNotIn(review["reviewGrant"], repr(self.eval_connection.request.call_args))
+        self.client.logout()
+        self.client.force_login(self.reviewer)
+        self.assert_private(self.post(url=review_url, body=json.dumps(review)), 403)
+        transport.assert_called_once()
+
     def evaluation_fixture(self):
         transport = self.enterContext(patch.object(gemini_evaluation, "HTTPSConnection", autospec=True))
         self.eval_connection = transport.return_value
@@ -272,9 +323,14 @@ class GeminiLiveTests(TestCase):
             {"speaker": "model", "text": "Cinq dollars."},
             {"speaker": "user", "text": "📷 Et si je veux prend deux appareils ?"},
         ]
-        self.report = {"score": 12, "reason": "Vous adaptez votre demande au tarif annoncé.",
-                       "evidence": [{"turnIndex": 0, "quote": "combien coûte le prêt", "why": "Le prix est ciblé."},
-                                    {"turnIndex": 2, "quote": "Et si je veux", "why": "Vous explorez une autre possibilité."}],
+        self.report = {"criteria": {
+                           "task": {"points": 4, "turnIndex": 0, "why": "La demande de prix est claire."},
+                           "coherence": {"points": 3, "turnIndex": 2, "why": "La relance précise la quantité."},
+                           "lexicon": {"points": 3, "turnIndex": 2, "why": "Le terme « appareils » est précis."},
+                           "grammar": {"points": 2, "turnIndex": 2, "why": "Le second verbe doit rester à l’infinitif."}},
+                       "reason": "Vous adaptez votre demande au tarif annoncé.",
+                       "strengths": [{"turnIndex": 0, "why": "Le prix est ciblé."},
+                                     {"turnIndex": 2, "why": "Vous explorez une autre possibilité."}],
                        "corrections": [{"turnIndex": 2, "before": "veux prend", "after": "veux prendre",
                                         "why": "Après vouloir, le deuxième verbe reste à l’infinitif."}],
                        "next": "Précisez la durée du prêt : « Et si je les garde deux jours ? »"}
@@ -301,14 +357,19 @@ class GeminiLiveTests(TestCase):
         self.assert_no_live_policy(response)
         report = response.json()
         self.assertEqual((report["score"], report["cefr"], report["nclc"]), (12, "B2", "8"))
+        self.assertEqual([item["score"] for item in report["criteria"]], [4, 3, 3, 2])
+        self.assertEqual([item["quote"] for item in report["evidence"]], [self.rows[0]["text"], self.rows[2]["text"]])
         mark, = report["annotations"]
         encoded = self.rows[mark["turnIndex"]]["text"].encode("utf-16-le")
         self.assertEqual(encoded[2*mark["start"]:2*mark["end"]].decode("utf-16-le"), "veux prend")
         call = self.eval_connection.request.call_args
         self.assertEqual(call.args, ("POST", "/v1beta/models/gemini-3.8-flash:generateContent"))
         payload = json.loads(call.kwargs["body"])
+        fmt = payload["generationConfig"]["responseFormat"]["text"]
+        self.assertEqual(fmt["mimeType"], "APPLICATION_JSON")
+        self.assertEqual(set(fmt["schema"]["properties"]["criteria"]["required"]), set(self.report["criteria"]))
         self.assertEqual(json.loads(payload["contents"][0]["parts"][0]["text"]),
-                         {"consigne": page.context["subject"].prompt, "rows": self.rows})
+                         {"consigne": page.context["subject"].prompt, "rows": [dict(row, turnIndex=i) for i, row in enumerate(self.rows)]})
         self.assertNotIn(PILOT_PIN, repr(call))
         self.assertNotIn(self.reviewer.username, repr(call))
         self.assertNotIn(catalogue.tache_two_dialogues()[key].questions[0].answer, json.dumps(payload, ensure_ascii=False))
@@ -344,25 +405,62 @@ class GeminiLiveTests(TestCase):
             (14, "C1", "9"), (16, "C1", "10+"), (18, "C2", "10+"), (20, "C2", "10+"),
         ):
             with self.subTest(score=score):
-                result = gemini_evaluation._ground({**self.report, "score": score}, self.rows)
+                for i, row in enumerate(self.report["criteria"].values()):
+                    row["points"] = score // 4 + (i < score % 4)
+                result = gemini_evaluation._ground(self.report, self.rows)
                 self.assertEqual((result["cefr"], result["nclc"]), (cefr, nclc))
 
-    def test_evaluation_withholds_unsupported_scores_and_rejects_bad_evidence(self):
+    def test_unverifiable_detail_does_not_destroy_a_supported_score(self):
         self.evaluation_fixture()
-        self.report["evidence"].pop()
-        self.assertIsNone(self.evaluate().json()["score"])
-        for invalid in (
-            {"turnIndex": 1, "quote": "Cinq dollars.", "why": "Attribué au partenaire."},
-            {"turnIndex": 0, "quote": "Jamais prononcé.", "why": "Inventé."},
-        ):
-            self.report["evidence"] = [invalid]
-            self.assert_private(self.evaluate(), 503)
-        self.report["evidence"] = []
+        self.report["strengths"][0]["turnIndex"] = 1  # The partner never earns marks for the learner.
         self.rows[-1]["text"] += " veux prend"
-        incomplete = self.evaluate().json()
-        self.assertIsNone(incomplete["score"])
-        self.assertEqual(incomplete["annotations"], [])
+        self.report["corrections"].append({"turnIndex": 0, "before": "inventé", "after": "mot", "why": "Correction."})
+        report = self.evaluate().json()
+        self.assertEqual((report["score"], report["omitted"], report["annotations"]), (12, True, []))
+        self.assertEqual([item["quote"] for item in report["evidence"]], [self.rows[2]["text"]])
+        self.eval_connection.request.assert_called_once()
+
+    def test_no_total_for_partial_unobserved_or_unsupported_rubric(self):
+        self.evaluation_fixture()
+        self.report["criteria"]["grammar"]["turnIndex"] = 1
+        partial = self.evaluate().json()
+        self.assertIsNone(partial["score"])
+        self.assertEqual(partial["scoreStatus"], "incomplete")
+        self.assertIsNone(partial["criteria"][-1]["score"])
+        self.assertEqual(partial["criteria"][0]["score"], 4)
+        self.assertTrue(partial["evidence"])
+        self.assertTrue(partial["annotations"])
+        for item in self.report["criteria"].values():
+            item.update(points=None, turnIndex=None, why="Échantillon trop bref.")
+        too_short = self.evaluate().json()
+        self.assertEqual((too_short["score"], too_short["nclc"], too_short["scoreStatus"]), (None, None, "insufficient"))
+        self.assertFalse(too_short["omitted"])
+        for item in self.report["criteria"].values():
+            item.update(points=4, turnIndex=1)
+        greeting_only = self.evaluate(rows=[{"speaker": "model", "text": "Bonjour !"},
+                                            {"speaker": "user", "text": "Bonjour !"}]).json()
+        self.assertEqual(greeting_only["scoreStatus"], "insufficient")
+        self.assertTrue(all(row["score"] is None for row in greeting_only["criteria"]))
+
+    def test_split_json_response_and_diagnostic_errors_do_not_retry(self):
+        self.evaluation_fixture()
+        body = json.dumps({"rows": self.rows, "pin": PILOT_PIN, "consent": True})
+        text = json.dumps(self.report)
+        self.eval_response.read.return_value = json.dumps({"candidates": [{
+            "finishReason": "STOP", "content": {"parts": [
+                {"thought": True, "text": "not the assessment"}, {"text": text[:70]}, {"text": text[70:]}]},
+        }]}).encode()
+        self.assertEqual(self.post(url=self.eval_url, body=body).json()["score"], 12)
         self.eval_response.read.return_value = b"x" * 70_000
-        response = self.post(url=self.eval_url, body=json.dumps({"rows": self.rows, "pin": PILOT_PIN, "consent": True}))
-        self.assert_private(response, 503)
-        self.assertNotIn(self.rows[0]["text"], str(response.content))
+        malformed = self.post(url=self.eval_url, body=body)
+        self.assert_private(malformed, 502)
+        self.assertIn("grille lisible", malformed.json()["error"])
+        self.eval_response.read.return_value = b'{"candidates":[{"finishReason":"MAX_TOKENS"}]}'
+        self.assert_private(self.post(url=self.eval_url, body=body), 422)
+        self.eval_response.status = 400
+        self.assert_private(self.post(url=self.eval_url, body=body), 502)
+        self.eval_connection.request.side_effect = TimeoutError("private-provider-details")
+        timeout = self.post(url=self.eval_url, body=body)
+        self.assert_private(timeout, 504)
+        self.assertNotIn("private-provider-details", timeout.json()["error"])
+        self.assertEqual(self.eval_connection.request.call_count, 5)

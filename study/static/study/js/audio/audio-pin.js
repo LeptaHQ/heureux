@@ -17,7 +17,7 @@
     }
     if (pending) return Promise.reject(new Error("Une saisie de code PIN est déjà en cours."));
     pending = true;
-    return new Promise(function (resolve) {
+    return new Promise(function (resolve, reject) {
       var form = dialog.querySelector("[data-audio-pin-form]");
       var input = dialog.querySelector("[data-audio-pin-input]");
       var status = dialog.querySelector("[data-audio-pin-error]");
@@ -59,7 +59,11 @@
           setAction(originalAction);
         }
         if (previousFocus && previousFocus.isConnected) previousFocus.focus({preventScroll: true});
-        resolve(value);
+        // AudioContext.resume must run in the PIN submit gesture, before any fetch.
+        if (value !== null && prompt && prompt.onConfirm) {
+          try { resolve(Promise.resolve(prompt.onConfirm()).then(function () { return value; })); }
+          catch (error) { reject(error); }
+        } else resolve(value);
       }
       function close() { finish(null); }
       function submit(event) {
@@ -83,7 +87,7 @@
     var original = JSON.parse(options.body);
     function askThenSend(message) {
       return requestPin(message, options.signal, prompt).then(function (value) {
-        if (value === null) throw cancelled();
+        if (value === null || (options.signal && options.signal.aborted)) throw cancelled();
         return send(value);
       });
     }

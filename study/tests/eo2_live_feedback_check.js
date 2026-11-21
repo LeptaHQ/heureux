@@ -155,6 +155,22 @@ for (const [first, reply, followup] of [
   assert.deepEqual(assess([user("Je prends le guitare, pardon, la guitare.")]).annotations, []);
 }
 
+// Spoken restarts are proofreading suggestions, not grammar or delivery judgments.
+{
+  const text = "🎫 J’ai j'ai une question. J’ai donc voudrais réserver. Merci pour merci pour les horaires.";
+  const {annotations} = assess([model(text), user(text + " À demain.")]);
+  assert.equal(annotations.length, 3);
+  assert(annotations.every(a => a.turnIndex === 1 && (text + " À demain.").slice(a.start, a.end) === a.before));
+  assert.match(annotations[0].why, /doublon de transcription possible/);
+  assert.match(annotations[2].why, /doublon de transcription possible/);
+  const corrected = annotations.reduceRight((s, a) => s.slice(0, a.start) + a.after + s.slice(a.end), text);
+  assert.equal(corrected, "🎫 J’ai une question. Je voudrais donc réserver. Merci pour les horaires.");
+  for (const row of [user("Oui oui, c’est très très pratique."), user("Je dis « j’ai j’ai une question »."),
+    user("J’ai, pardon, je voudrais réserver."), {...user("C’est c’est ouvert ?"), interrupted: true}]) {
+    assert.deepEqual(assess([row]).annotations, []);
+  }
+}
+
 // The classic browser script shares grammar only, never the Tâche 1 assessment.
 {
   const sandbox = {window: {HeureuxEO1Review: {

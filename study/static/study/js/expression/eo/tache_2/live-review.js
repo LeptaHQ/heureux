@@ -98,16 +98,17 @@
     by("share-bar").style.setProperty("--share", String(mine / 100));
   }
 
-  function feedback(rows, reviewedMarks = []) {
+  function feedback(rows, reviewedMarks = null) {
     const {evidence = [], corrections = [], next = "", tally, annotations} = window.HeureuxEO2Feedback.assess(rows);
     glance(rows, tally);
-    const highlights = reviewedMarks.map(mark => window.HeureuxEO2Feedback.changedWords(mark.turnIndex, mark));
+    const highlights = (reviewedMarks || []).map(mark => window.HeureuxEO2Feedback.changedWords(mark.turnIndex, mark));
     const {marks, total} = place(rows, [...highlights, ...annotations]);
     const good = strengths(rows, evidence);
     painters.forEach((paint, i) => paint(marks.get(i) || [], good.get(i) || []));
     by("key").hidden = !total;
     const mine = rows.filter(row => row.speaker === "user").length;
-    by("count").textContent = (mine === 1 ? "votre réplique" : `vos ${mine} répliques`) + (total ? ` · ${total} à vérifier` : "");
+    const markCount = total ? `${total} à vérifier` : reviewedMarks === null ? "aucune suggestion locale" : "aucune correction vérifiée";
+    by("count").textContent = (mine === 1 ? "votre réplique" : `vos ${mine} répliques`) + (mine ? ` · ${markCount}` : "");
 
     by("observations").hidden = !evidence.length;
     by("evidence").replaceChildren(...evidence.map(({label, quote:words, context}) => {
@@ -126,7 +127,7 @@
         struck.append(make("del", before), " »");
         line.append(struck, make("span", " → ", "lv-fix__arrow"));
       }
-      line.append(make("strong", quote(after), "lv-fix__after"));
+      line.append(make("strong", after ? quote(after) : "Supprimer ce passage", "lv-fix__after"));
       return line;
     };
     const items = placed.map(mark => {
@@ -151,22 +152,22 @@
     return total;
   }
 
-  function turn(row, index, rows) {
+  function turn(row, index) {
     const item = make("li", "");
     const user = row.speaker === "user";
     item.dataset.speaker = row.speaker;
     const tags = make("span", "", "lv-tags");
     const line = make("p", "", "lv-turn__said");
     const notes = make("span", "", "lv-why");
-    let marks = [], good = [];
     if (user) line.tabIndex = -1;
-    function paint(nextMarks = marks, nextGood = good) {
-      marks = nextMarks;
-      good = nextGood;
+    const body = make("div", "", "lv-turn");
+    item.append(make("strong", user ? "Vous" : "Interlocuteur"), body);
+    body.append(tags, line, notes);
+    if (row.interrupted) body.append(make("small", "Réponse interrompue."));
+    painters[index] = (marks, good) => {
       tags.hidden = !good.length;
       tags.replaceChildren(...good.map(label => make("span", label, "lv-chip")));
-      if (row.text) line.replaceChildren(...sentence(row.text, marks));
-      else line.textContent = "Passage retiré du bilan.";
+      line.replaceChildren(...sentence(row.text, marks));
       notes.hidden = !marks.length;
       notes.replaceChildren(...marks.map(mark => {
         const note = make("span", "", "lv-why__item");
@@ -174,44 +175,7 @@
         return note;
       }));
       item.toggleAttribute("data-marked", marks.length > 0);
-    }
-    function render() {
-      delete item.dataset.editing;
-      const body = make("div", "", "lv-turn");
-      item.replaceChildren(make("strong", user ? "Vous" : "Interlocuteur"), body);
-      body.append(tags, line, notes);
-      paint();
-      if (row.interrupted) body.append(make("small", "Réponse interrompue."));
-      if (!user) return;
-      if (row.text !== row.original) body.append(make("small", `Transcription initiale : ${quote(row.original)} `));
-      const edit = action("Rectifier", () => {
-        const field = document.createElement("textarea");
-        field.value = row.text;
-        field.rows = 2;
-        field.autocomplete = "off";
-        field.setAttribute("aria-label", `Rectifier vos paroles, réplique ${index + 1}`);
-        const close = () => { render(); item.querySelector("button").focus(); };
-        const tools = make("span", "", "lv-turn__tools");
-        tools.append(action("Appliquer", () => {
-          const value = field.value.trim();
-          if (value !== row.text) {
-            row.text = value;
-            bindEvaluation(rows, true);
-            feedback(rows);
-          }
-          close();
-        }), action("Annuler", close));
-        // The marked-up sentence would be stale while the words change: the field takes its place.
-        item.dataset.editing = "";
-        line.after(field);
-        edit.replaceWith(tools);
-        field.focus();
-      });
-      edit.setAttribute("aria-label", `Rectifier mes paroles, réplique ${index + 1}`);
-      body.append(edit);
-    }
-    render();
-    painters[index] = paint;
+    };
     return item;
   }
 
@@ -221,12 +185,6 @@
   }
   by("replies").onclick = () => showReplies(by("replies").getAttribute("aria-pressed") !== "true");
 
-  function bindEvaluation(rows, edited) {
-    window.HeureuxEO2Evaluation?.bind(rows, annotations => {
-      const marked = feedback(rows, annotations);
-      if (annotations.length && marked) by("transcript").open = true;
-    }, edited);
-  }
   function clear() {
     window.HeureuxEO2Evaluation?.clear();
     painters = [];
@@ -238,16 +196,16 @@
   }
   // Returns whether any words were transcribed, so the caller can title an empty attempt honestly.
   function render(captured, {elapsed = 0} = {}) {
-    const rows = captured.filter(row => row.text.trim()).map(row => {
-      const text = row.text.trim();
-      return {...row, original:text, text};
-    });
+    const rows = captured.filter(row => row.text.trim()).map(row => ({...row, text: row.text.trim()}));
     if (!rows.length) { by("empty").hidden = false; return false; }
     by("report").hidden = false;
     by("fig-time").textContent = duration(elapsed);
     by("replies").hidden = !rows.some(row => row.speaker !== "user");
-    by("turns").replaceChildren(...rows.map((row, i) => turn(row, i, rows)));
-    bindEvaluation(rows, false);
+    by("turns").replaceChildren(...rows.map(turn));
+    window.HeureuxEO2Evaluation?.bind(rows, annotations => {
+      const marked = feedback(rows, annotations);
+      if (annotations.length && marked) by("transcript").open = true;
+    });
     const marked = feedback(rows);
     // Wide screens show it beside the findings; phones open it when it carries annotations.
     by("transcript").open = marked > 0 || window.matchMedia("(min-width: 62rem)").matches;

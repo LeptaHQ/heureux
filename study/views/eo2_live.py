@@ -59,7 +59,7 @@ def eo_tache_two_live(request, **publication):
 
 @sensitive_variables()
 def _session_request(request):
-    # Allow space for a 128-character JSON-escaped PIN, but no other payload.
+    # Only small authorization payloads, never learner content.
     body = request.read(2049)
     if len(body) > 2048:
         return None
@@ -70,8 +70,14 @@ def _session_request(request):
     if not isinstance(pairs, tuple):
         return None
     data = dict(pairs)
-    if (len(data) != len(pairs) or data.keys() - {"consent", "pin", "purpose"} or data.get("consent") is not True
-            or ("purpose" in data and data["purpose"] != "read_prompt")):
+    if (len(data) != len(pairs) or data.keys() - {"consent", "pin", "purpose", "exchangeGrant"} or data.get("consent") is not True
+            or ("purpose" in data and data["purpose"] not in ("attempt", "exchange", "read_prompt"))):
+        return None
+    if data.get("purpose") == "exchange":
+        grant = data.get("exchangeGrant")
+        if "pin" in data or not isinstance(grant, str) or not grant.isascii() or not 1 <= len(grant) <= 256:
+            return None
+    elif "exchangeGrant" in data:
         return None
     if "pin" in data:
         if not isinstance(data["pin"], str):
@@ -87,7 +93,7 @@ def _session_request(request):
 @require_POST
 @csrf_protect
 @sensitive_post_parameters("pin")
-@sensitive_variables("data")
+@sensitive_variables()
 def eo_tache_two_live_token(request, **publication):
     if request.content_type != "application/json":
         return JsonResponse({"error": "Un objet JSON est requis."}, status=415)
@@ -96,24 +102,31 @@ def eo_tache_two_live_token(request, **publication):
         return JsonResponse({"error": "Un consentement explicite est requis."}, status=400)
     task = active_task_for_request(request, "eo", "tache-2")
     instruction = None
-    reading = data.get("purpose") == "read_prompt"
+    purpose = data.get("purpose")
+    subject, key = _live_publication(task, **publication) if publication else (None, "")
+    reading = purpose in ("attempt", "read_prompt")
     if reading:
-        prompt = _live_publication(task, **publication)[0].prompt if publication else DEFAULT_CONSIGNE
         instruction = (
             "Vous êtes le lecteur d’une consigne de français, pas l’interlocuteur. "
             "À la demande de lecture, lisez uniquement le passage suivant en français, "
-            "mot pour mot, sans introduction, commentaire, réponse ni suggestion. Puis taisez-vous.\n" + prompt
+            "mot pour mot, sans introduction, commentaire, réponse ni suggestion. Puis taisez-vous.\n"
+            + (subject.prompt if subject else DEFAULT_CONSIGNE)
         )
-    elif publication:
-        subject, key = _live_publication(task, **publication)
+    elif subject:
         instruction = gemini_live.subject_instruction(subject, catalogue.tache_two_dialogues()[key])
     try:
-        token = gemini_live.mint_token(request, task, data.get("pin"), instruction=instruction, reading=reading)
+        token = gemini_live.mint_token(request, task, data.get("pin"), instruction=instruction, reading=reading,
+                                      exchange_grant=data.get("exchangeGrant"), subject_key=key)
     except AudioPinError as exc:
         return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
     except gemini_live.LiveTokenError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
-    return JsonResponse({"token": token, "model": gemini_live.MODEL})
+    result = {"token": token, "model": gemini_live.MODEL}
+    if purpose == "attempt":
+        result["exchangeGrant"] = gemini_live.issue_grant(request, key, purpose="exchange")
+    elif purpose == "exchange":
+        result["reviewGrant"] = gemini_live.issue_grant(request, key, purpose="review")
+    return JsonResponse(result)
 
 
 @never_cache
@@ -125,10 +138,11 @@ def eo_tache_two_live_evaluation(request, **publication):
     if request.content_type != "application/json":
         return JsonResponse({"error": "Un objet JSON est requis."}, status=415)
     task = active_task_for_request(request, "eo", "tache-2")
-    prompt = _live_publication(task, **publication)[0].prompt if publication else DEFAULT_CONSIGNE
+    subject, key = _live_publication(task, **publication) if publication else (None, "")
     try:
         data = gemini_evaluation.request_data(request.read(gemini_evaluation.MAX_BODY + 1))
-        report = gemini_evaluation.evaluate(request, task, data.get("pin"), prompt, data["rows"])
+        report = gemini_evaluation.evaluate(request, task, data.get("pin"), subject.prompt if subject else DEFAULT_CONSIGNE,
+                                            data["rows"], grant=data.get("reviewGrant"), subject_key=key)
     except AudioPinError as exc:
         return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
     except gemini_evaluation.EvaluationError as exc:

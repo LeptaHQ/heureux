@@ -416,7 +416,7 @@ def authenticate_with_throttle(request, username: str, pin: str):
         return None, False
 
 
-def reserve_throttled_action(key_hash: str, now=None) -> bool:
+def reserve_throttled_action(key_hash: str, now=None, *, limit=LOGIN_FAILURE_LIMIT) -> bool:
     """Atomically reserve one rate-limited action; return whether it was blocked."""
     now = now or timezone.now()
     _prune_stale_throttles(now)
@@ -424,7 +424,7 @@ def reserve_throttled_action(key_hash: str, now=None) -> bool:
         throttle, locked = _locked_throttle(key_hash, now)
         if locked:
             return True
-        _record_throttled_attempt(throttle, now)
+        _record_throttled_attempt(throttle, now, limit=limit)
         return False
 
 

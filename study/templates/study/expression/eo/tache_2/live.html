@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Conversation vocale · {% if subject %}{{ subject.title }} · {% endif %}Tâche 2 · Heureux{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=2">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=8">{% endblock %}
 {% block content %}
 <article class="lv-studio" id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
     data-token-url="{{ token_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
@@ -18,7 +18,7 @@
   <div class="lv-track">
     <ol class="lv-steps" aria-label="Déroulé de la séance">
       <li class="lv-step" data-step="prep"><span class="lv-step__name">Préparation</span> <span class="lv-step__meta">2 min</span>
-        <span class="lv-step__bar" aria-hidden="true"><i></i></span><span class="lv-step__about">La consigne s’affiche, micro coupé.</span></li>
+        <span class="lv-step__bar" aria-hidden="true"><i></i></span><span class="lv-step__about">Le chrono part une fois le sujet lu, micro coupé.</span></li>
       <li class="lv-step" data-step="live"><span class="lv-step__name">Échange</span> <span class="lv-step__meta">3 min 30</span>
         <span class="lv-step__bar" aria-hidden="true"><i></i></span><span class="lv-step__about">Vous menez la conversation à voix haute.</span></li>
       <li class="lv-step" data-step="done"><span class="lv-step__name">Bilan</span> <span class="lv-step__meta">à chaud</span>
@@ -31,17 +31,12 @@
     <header class="lv-head">
       <p class="lv-kicker" id="lv-kicker">Tâche 2 · Interaction</p>
       <h1 id="lv-title" tabindex="-1">{{ subject.title|default:"Conversation vocale" }}</h1>
-      <p class="lv-prompt" id="lv-prompt">{% if gemini_live_available %}Deux minutes pour préparer vos questions, puis trois minutes trente pour mener l’échange en français.{% else %}Ce mode n’est pas activé. Le simulateur guidé reste disponible sans Gemini.{% endif %}</p>
+      <p class="lv-prompt" id="lv-prompt">{% if gemini_live_available %}Code PIN, lecture du sujet à voix haute, puis le chrono&nbsp;: 2&nbsp;min pour préparer, 3&nbsp;min&nbsp;30 pour mener l’échange en français.{% else %}Ce mode n’est pas activé. Le simulateur guidé reste disponible sans Gemini.{% endif %}</p>
     </header>
     {% if gemini_live_available %}
     <section id="lv-setup" class="lv-setup" aria-label="Lancer la séance">
       {% csrf_token %}
-      <button type="button" class="lv-primary" id="lv-start" disabled>Commencer la préparation {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
-      <div class="lv-listen">
-        <button type="button" class="lv-secondary" id="lv-listen" aria-describedby="lv-listen-note" disabled>Écouter la consigne</button>
-        <p class="lv-listen__note" id="lv-listen-note">Micro coupé · sans chrono</p>
-        <p class="lv-listen__status" id="lv-listen-status" role="status"></p>
-      </div>
+      <button type="button" class="lv-primary" id="lv-start" disabled>Commencer la séance {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
     </section>
     <details class="lv-notepad" id="lv-notepad" hidden>
       <summary>{% include "study/shared/partials/ui_icon.html" with name="pencil" only %} Mes notes <small>non envoyées</small></summary>
@@ -49,11 +44,12 @@
       <textarea id="lv-notes" maxlength="1600" rows="5" autocomplete="off" placeholder="Mots-clés, questions à poser…"></textarea>
     </details>
     <aside class="lv-console" aria-label="Micro et commandes">
-      <div class="lv-orb" aria-hidden="true">{% include "study/shared/partials/ui_icon.html" with name="microphone" only %}</div>
-      <p class="lv-cue" id="lv-prep" hidden>Repérez trois ou quatre points à éclaircir. Vous pouvez lancer l’échange avant la fin du compte à rebours.</p>
+      <p class="lv-linked">Interlocuteur en ligne</p>
+      <div class="lv-orb" aria-hidden="true">{% include "study/shared/partials/ui_icon.html" with name="microphone" only %}{% include "study/shared/partials/ui_icon.html" with name="headphones" only %}</div>
+      <p class="lv-cue" id="lv-prep" hidden>Repérez trois ou quatre points à éclaircir.</p>
       <p id="lv-status" class="lv-status" role="status"></p>
       <div class="lv-actions">
-        <button type="button" class="lv-primary" id="lv-skip" hidden>Commencer l’échange {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
+        <button type="button" class="lv-primary" id="lv-skip" hidden>Passer à l’échange&nbsp;· 3&nbsp;min&nbsp;30 {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
         <button type="button" class="lv-secondary" id="lv-mute" hidden>Couper le micro</button>
         <button type="button" class="lv-quiet" id="lv-end" hidden>Terminer la séance</button>
       </div>
@@ -67,7 +63,7 @@
       <div id="lv-failed" class="lv-notice" hidden>
         {% include "study/shared/partials/ui_icon.html" with name="alert-triangle" only %}
         <div><h2>Aucun bilan pour cette tentative</h2>
-          <p>L’échange vocal ne s’est pas ouvert&nbsp;: aucun son n’a été envoyé et il n’y a rien à analyser. Le motif est indiqué ci-dessus. Un nouvel essai recommence la préparation à 2 minutes.</p></div>
+          <p>L’échange vocal ne s’est pas ouvert&nbsp;: votre micro n’a rien envoyé et il n’y a rien à analyser. Le motif est indiqué ci-dessus. Un nouvel essai reprend au début&nbsp;: code PIN, lecture du sujet, puis 2&nbsp;minutes de préparation.</p></div>
       </div>
       <div id="lv-empty" class="lv-notice" hidden>
         {% include "study/shared/partials/ui_icon.html" with name="microphone" only %}
@@ -83,24 +79,34 @@
           </div>
           <div class="lv-assessment__body">
             <div id="lv-assessment-controls" class="lv-assessment__controls">
-              <label class="lv-assessment__consent"><input type="checkbox" id="lv-assessment-consent" autocomplete="off"> <span>J’accepte de renvoyer à Google, via Heureux, le texte relu des deux voix et la consigne publiée (ni audio ni notes de préparation). Offre gratuite : des personnes peuvent lire ces données.</span></label>
-              <button type="button" class="lv-secondary" id="lv-assess" disabled>Évaluer mon niveau</button>
+              <label class="lv-assessment__consent"><input type="checkbox" id="lv-assessment-consent" autocomplete="off"> <span>Partager le texte avec Google</span></label>
+              <button type="button" class="icon-button" id="lv-assess" aria-label="Évaluer mon niveau" title="Évaluer mon niveau" disabled>{% include "study/shared/partials/ui_icon.html" with name="graduation-cap" only %}</button>
             </div>
             <p id="lv-assessment-status" class="lv-assessment__status" role="status"></p>
-            <p class="lv-assessment__scope">Note d’entraînement sur 20 pour ce seul échange transcrit&nbsp;; NCLC et CECRL en sont des correspondances, pas des niveaux évalués à part. Ce n’est pas un résultat officiel du TCF Canada, qui note les trois tâches. Prononciation non évaluée.</p>
+            <p class="lv-assessment__scope">Note indicative sur la transcription, hors prononciation.</p>
           </div>
           <div id="lv-assessment-result" class="lv-assessment__result" hidden>
             <p id="lv-assessment-reason"></p>
-            <ul id="lv-assessment-evidence" class="lv-assessment__evidence"></ul>
+            <p class="lv-assessment__jump"><a href="#lv-transcript">Corrections signalées dans votre échange, ci-dessous</a></p>
+            <section class="lv-assessment__part" aria-labelledby="lv-assessment-strengths-title">
+              <h3 id="lv-assessment-strengths-title">{% include "study/shared/partials/ui_icon.html" with name="check" only %} Points forts</h3>
+              <ul id="lv-assessment-evidence" class="lv-assessment__evidence"></ul>
+              <p class="lv-assessment__none">Pas assez d’éléments dans ce texte pour citer un point fort.</p>
+            </section>
+            <section class="lv-assessment__part lv-assessment__marks" aria-labelledby="lv-assessment-criteria-title">
+              <h3 id="lv-assessment-criteria-title">Détail de la notation</h3>
+              <table class="lv-criteria" aria-labelledby="lv-assessment-criteria-title" aria-describedby="lv-assessment-criteria-note">
+                <thead><tr><th scope="col">Critère</th><th scope="col">Note</th><th scope="col">Observation</th></tr></thead>
+                <tbody id="lv-assessment-criteria"></tbody>
+              </table>
+              <p class="lv-assessment__aside" id="lv-assessment-criteria-note">Chaque critère sur 5. Cohérence et fluidité&nbsp;: enchaînement des idées, pas débit de parole.</p>
+            </section>
             <p id="lv-assessment-next" class="lv-assessment__next"></p>
           </div>
         </section>
         <div class="lv-debrief">
           <details id="lv-transcript" class="lv-transcript"><summary>Votre échange <small id="lv-count"></small></summary>
-            <div class="lv-talkbar">
-              <p class="lv-hint">Mot mal transcrit&nbsp;? Rectifiez-le&nbsp;: le bilan se recalcule.</p>
-              <button type="button" class="lv-toggle" id="lv-replies" aria-controls="lv-turns" aria-pressed="false"><span class="lv-toggle__switch" aria-hidden="true"></span> Réponses de l’interlocuteur</button>
-            </div>
+            <button type="button" class="lv-toggle" id="lv-replies" aria-controls="lv-turns" aria-pressed="false"><span class="lv-toggle__switch" aria-hidden="true"></span> Réponses de l’interlocuteur</button>
             <p class="lv-key" id="lv-key" hidden><span><del>mot</del> à vérifier</span> <span><ins>mot</ins> proposition</span> <span><b>1</b> explication</span></p>
             <ol class="lv-turns" id="lv-turns" data-replies="hidden"></ol>
           </details>
@@ -147,9 +153,9 @@
 {% block scripts %}
 {% if gemini_live_available %}
 <script defer src="{% static 'study/js/expression/eo/tache_1/transcript-review.js' %}?v=3"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-feedback.js' %}"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=5"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-feedback.js' %}?v=3"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=4"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=3"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=7"></script>
 {% endif %}
 {% endblock %}

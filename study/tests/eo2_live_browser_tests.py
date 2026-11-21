@@ -16,7 +16,7 @@ class LiveConversationBrowserMixin:
         """Real Web Audio and worklet; synthetic input and a local stand-in for Gemini."""
         factories.make_task(self.part, "tache-2")
         self.page.add_init_script("""
-        window.probe = {calls:0, sockets:[], played:[], sent:[]};
+        window.probe = {calls:0, readers:[], sockets:[], played:[], sent:[], readingMessages:[]};
         const p = window.probe;
         window.AudioContext = class extends window.AudioContext {
           constructor(...args) { super(...args); p.audio = this; }
@@ -28,7 +28,7 @@ class LiveConversationBrowserMixin:
             return node;
           }
         };
-        Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {value: async () => {
+        Object.defineProperty(navigator, 'mediaDevices', {value: {getUserMedia: async () => {
           p.calls++;
           if (p.deny) throw new DOMException('Denied', 'NotAllowedError');
           const out = p.audio.createMediaStreamDestination(), tone = p.audio.createOscillator();
@@ -39,17 +39,19 @@ class LiveConversationBrowserMixin:
             await new Promise(resolve => p.release = resolve);
           }
           return out.stream;
-        }});
+        }}});
         window.WebSocket = class {
           static OPEN = 1;
           constructor(url) {
-            this.url=url; this.readyState=1; this.bufferedAmount=0; p.sockets.push(this);
+            this.url=url; this.readyState=1; this.bufferedAmount=0;
+            this.reading=decodeURIComponent(url).endsWith('auth_tokens/reader');
+            (this.reading ? p.readers : p.sockets).push(this);
             queueMicrotask(() => this.onopen?.());
           }
           send(value) {
             const message = JSON.parse(value);
-            p.sent.push(message);
-            if (message.setup) document.documentElement.dataset.handshake='true';
+            (this.reading ? p.readingMessages : p.sent).push(message);
+            if (message.setup) document.documentElement.dataset[this.reading ? 'reader' : 'handshake']='true';
             if (message.realtimeInput?.audio && !document.documentElement.dataset.hasAudio &&
                 /[^\\x00]/.test(atob(message.realtimeInput.audio.data)))
               document.documentElement.dataset.hasAudio='true';
@@ -65,12 +67,18 @@ class LiveConversationBrowserMixin:
         def fake_token(route):
             body = route.request.post_data_json
             self.token_requests.append(body)
-            if body.get("pin") != PILOT_PIN:
+            if body.get("purpose") == "exchange" and body == {
+                "consent": True, "purpose": "exchange", "exchangeGrant": "fixture-exchange",
+            }:
+                token, grant = "exchange", {"reviewGrant": "fixture-review"}
+            elif body.get("purpose") == "attempt" and body.get("pin") == PILOT_PIN:
+                token, grant = "reader", {"exchangeGrant": "fixture-exchange"}
+            else:
                 code = "pin_invalid" if body.get("pin") else "pin_required"
                 route.fulfill(status=403, json={"error": code, "message": "Code PIN incorrect."})
                 return
             route.fulfill(status=self.mint_status, json={
-                "model": "models/gemini-3.8-live", "token": "auth_tokens/synthetic",
+                "model": "models/gemini-3.8-live", "token": "auth_tokens/" + token, **grant,
             })
 
         self.page.route("**" + reverse("study:eo_tache_two_live_token", args=subject_args), fake_token)
@@ -109,15 +117,34 @@ class LiveConversationBrowserMixin:
         self.pin_dialog.get_by_label("Code PIN ElevenLabs").fill(pin)
         self.pin_dialog.get_by_role("button", name="Autoriser cette conversation").click()
 
+    def finish_prompt(self):
+        expect(self.page.locator("html")).to_have_attribute("data-reader", "true")
+        self.page.evaluate("""() => {
+          delete document.documentElement.dataset.reader;
+          const ws = probe.readers.at(-1);
+          ws.receive({setupComplete:{}});
+          ws.receive({serverContent:{modelTurn:{parts:[{inlineData:{
+            mimeType:'audio/pcm;rate=24000',data:btoa('\\x01\\x00'.repeat(240))
+          }}]},turnComplete:true}});
+        }""")
+        expect(self.page.locator("#lv-prep")).to_be_visible()
+
+    def start_preparation(self):
+        self.start.click()
+        self.submit_live_pin()
+        self.finish_prompt()
+
     def test_native_voice_subject_launch_uses_exact_consigne_and_retains_return_link(self):
         self._import_eo_tache_two_content()
         args = ("octobre", 5, 21)
         self.open_live_pilot(subject_args=args)
-        self.start.click()
+        expect(self.pin_dialog).to_be_visible()  # No second launch click on the studio page.
+        self.assertEqual(self.token_requests, [])
+        self.submit_live_pin()
+        self.finish_prompt()
         expect(self.page.locator("#lv-prompt")).to_have_text(json.loads(self.selected_consigne))
         self.assertEqual(self.page.evaluate("probe.calls"), 0)
         self.page.locator("#lv-skip").click()
-        self.submit_live_pin()
         expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
         self.page.locator("#lv-end").click()
         self.page.get_by_role("link", name="Revenir à la fiche de ce sujet").click()
@@ -128,23 +155,27 @@ class LiveConversationBrowserMixin:
         expect(self.page.locator("#lv-setup input[type=checkbox], #lv-setup .lv-terms")).to_have_count(0)
         expect(self.start).to_be_enabled()
         self.start.click()
-        expect(self.page.locator("#lv-prep")).to_be_visible()
         self.assertEqual(self.page.evaluate("probe.calls"), 0)
-        self.assertEqual(self.token_requests, [])
-        self.page.locator("#lv-skip").click()
         expect(self.pin_dialog).to_contain_text("J’accepte d’envoyer ma voix à Google")
         self.assertEqual(self.token_requests, [])
         self.submit_live_pin("incorrect")
         expect(self.pin_dialog.get_by_role("alert")).to_have_text("Code PIN incorrect.")
-        self.assertEqual(self.page.evaluate("[probe.calls,probe.sockets.length]"), [0, 0])
+        self.assertEqual(self.page.evaluate("[probe.calls,probe.readers.length,probe.sockets.length]"), [0, 0, 0])
         self.submit_live_pin()
+        self.finish_prompt()
+        self.assertEqual(self.token_requests[-1], {"consent": True, "purpose": "attempt", "pin": PILOT_PIN})
+        self.page.evaluate("document.getElementById('lv-skip').click(); document.getElementById('lv-skip').click()")
         expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
-        self.assertEqual(self.token_requests[-1], {"consent": True, "pin": PILOT_PIN})
-        self.assertNotIn(PILOT_PIN, self.page.evaluate("probe.sockets[0].url + JSON.stringify(probe.sent)"))
+        self.assertEqual(self.token_requests[-1], {"consent": True, "purpose": "exchange", "exchangeGrant": "fixture-exchange"})
+        self.assertEqual(len(self.token_requests), 3)  # Bad PIN, corrected PIN, one exchange.
+        self.assertEqual(self.page.evaluate("[probe.calls,probe.sockets.length]"), [1, 1])
+        self.assertNotIn(PILOT_PIN, self.page.evaluate("probe.readers[0].url + probe.sockets[0].url + JSON.stringify([probe.readingMessages,probe.sent])"))
         expect(self.pin_dialog.get_by_label("Code PIN ElevenLabs")).to_have_value("")
         self.assertEqual(self.page.evaluate("probe.sent.map(m => Object.keys(m))"), [["setup"]])
         self.assertFalse(self.page.evaluate("probe.track.enabled"))
         self.page.evaluate("probe.sockets[0].receive({setupComplete:{}})")
+        self.page.evaluate("probe.sockets[0].receive({setupComplete:{}})")
+        self.assertEqual(self.page.evaluate("probe.sent.filter(m => m.realtimeInput?.text?.includes('Bonjour')).length"), 1)
         expect(self.page.locator("html")).to_have_attribute("data-has-audio", "true")
         audio = self.page.evaluate("""() => {
           const a = probe.sent.find(m => m.realtimeInput?.audio && /[^\\x00]/.test(atob(m.realtimeInput.audio.data))).realtimeInput.audio;
@@ -156,7 +187,7 @@ class LiveConversationBrowserMixin:
           inputTranscription:{text:'Le samedi ?'}, outputTranscription:{text:'À dix heures.'},
           modelTurn:{parts:[{inlineData:{mimeType:'audio/pcm;rate=24000',data:btoa('\\0'.repeat(96000))}}]}
         }})""")
-        self.assertEqual(self.page.evaluate("probe.played[0].buffer.sampleRate"), 24000)
+        self.assertEqual(self.page.evaluate("probe.played.at(-1).buffer.sampleRate"), 24000)
         self.page.locator("#lv-captions summary").click()
         expect(self.page.locator("#lv-ai-words")).to_have_text("À dix heures.")
         self.page.evaluate("""() => {
@@ -165,7 +196,7 @@ class LiveConversationBrowserMixin:
           send({turnComplete:true});
           send({inputTranscription:{text:"dimanche ?",finished:true}});
         }""")
-        self.assertTrue(self.page.evaluate("probe.played[0].wasStopped && probe.track.enabled"))
+        self.assertTrue(self.page.evaluate("probe.played.at(-1).wasStopped && probe.track.enabled"))
         self.page.locator("#lv-mute").click()
         self.assertFalse(self.page.evaluate("probe.track.enabled"))
         self.assertTrue(self.page.evaluate("probe.sent.at(-1).realtimeInput.audioStreamEnd"))
@@ -187,16 +218,21 @@ class LiveConversationBrowserMixin:
         self.open_live_pilot()
         self.page.clock.install(time="2026-03-16T10:00:00Z")
         self.page.clock.pause_at("2026-03-16T10:00:05Z")
-        self.start.click()
-        expect(self.page.locator("#lv-prep")).to_be_visible()
+        self.start_preparation()
         self.page.clock.fast_forward(119_000)
         expect(self.page.locator("#lv-clock")).to_have_text("00:01")
         self.assertEqual(self.page.evaluate("probe.calls"), 0)
+        self.page.evaluate("probe.wait=true")
         self.page.clock.fast_forward(1_000)
-        self.submit_live_pin()
+        expect(self.page.locator("html")).to_have_attribute("data-waiting", "true")
+        self.page.clock.fast_forward(40_000)
+        self.assertEqual(len(self.token_requests), 1)  # No exchange token ages during the mic prompt.
+        self.page.evaluate("probe.release()")
         expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
         self.page.clock.fast_forward(7_000)  # Device setup is outside the interaction clock.
+        expect(self.page.locator("#lv-time")).to_be_hidden()
         self.page.evaluate("probe.sockets[0].receive({setupComplete:{}})")
+        expect(self.page.locator("#lv-clock")).to_have_text("03:30")
         self.page.clock.fast_forward(209_000)
         expect(self.page.locator("#lv-clock")).to_have_text("00:01")
         self.page.evaluate("""() => {
@@ -209,7 +245,7 @@ class LiveConversationBrowserMixin:
         }""")
         self.page.clock.fast_forward(1_000)
         expect(self.page.locator("#lv-done")).to_be_visible()
-        self.assertEqual(self.page.evaluate("[probe.played[0].wasStopped,probe.track.readyState]"), [True, "ended"])
+        self.assertEqual(self.page.evaluate("[probe.played.at(-1).wasStopped,probe.track.readyState]"), [True, "ended"])
         expect(self.page.locator("#lv-title")).to_have_text("Votre bilan")
         expect(self.page.locator("#lv-evidence")).to_contain_text("Combien coûte l’atelier ?")
         self.page.locator("#lv-transcript summary").click()
@@ -217,53 +253,45 @@ class LiveConversationBrowserMixin:
         expect(turns.locator("p")).to_have_text([
             "Combien coûte l’atelier ?", "Vingt dollars.", "Est-ce que je peux payer par carte ?",
         ])
-        expect(turns.nth(1).get_by_role("button")).to_have_count(0)
-        turns.first.get_by_role("button").click()
-        turns.first.get_by_role("textbox").fill("Combien coûte la sortie ?")
-        turns.first.get_by_role("button", name="Appliquer").click()
-        expect(self.page.locator("#lv-evidence")).to_contain_text("Combien coûte la sortie ?")
-        expect(turns.first.locator("small")).to_contain_text("Combien coûte l’atelier ?")
-        self.assertEqual(len(self.token_requests), 1)
+        expect(turns.locator("button, textarea, [contenteditable]")).to_have_count(0)
+        expect(self.page.locator("#lv-count")).to_contain_text("aucune suggestion locale")
+        self.assertEqual(len(self.token_requests), 2)
         self.page.evaluate("window.dispatchEvent(new Event('pagehide'))")
         expect(turns).to_have_count(0)
         expect(self.page.locator("#lv-evidence")).to_be_empty()
 
     def test_native_voice_late_permission_and_quota_do_not_reconnect(self):
         self.open_live_pilot()
-        self.start.click()
+        self.start_preparation()
         self.page.evaluate("probe.wait=true")
         self.page.locator("#lv-skip").click()
-        self.submit_live_pin()
         expect(self.page.locator("html")).to_have_attribute("data-waiting", "true")
         self.page.locator("#lv-end").click()
         self.page.evaluate("probe.release()")
         self.assertEqual(self.page.evaluate("probe.track.readyState"), "ended")
         self.assertEqual(len(self.token_requests), 1)
         self.page.locator("#lv-retry").click()
-        self.start.click()
+        self.start_preparation()
         self.page.evaluate("probe.wait=false; probe.deny=true")
         self.page.locator("#lv-skip").click()
-        self.submit_live_pin()
         expect(self.page.locator("#lv-status")).to_contain_text("Micro refusé")
         expect(self.page.locator("#lv-title")).to_have_text("L’échange n’a pas commencé")
         expect(self.page.locator("#lv-empty")).to_be_hidden()
         self.assertEqual(len(self.token_requests), 2)
         self.page.locator("#lv-retry").click()
-        self.start.click()
+        self.start_preparation()
         self.page.evaluate("probe.deny=false")
         self.mint_status = 429
         self.page.locator("#lv-skip").click()
-        self.submit_live_pin()
         expect(self.page.locator("#lv-status")).to_contain_text("Limite")
-        self.assertEqual(self.page.evaluate("[probe.calls,probe.track.readyState,probe.sockets.length]"), [2, "ended", 0])
-        self.assertEqual(len(self.token_requests), 3)
+        self.assertEqual(self.page.evaluate("[probe.calls,probe.track.readyState,probe.sockets.length]"), [3, "ended", 0])
+        self.assertEqual(len(self.token_requests), 4)
 
     def test_native_voice_partial_disconnect_and_silent_attempt(self):
         self.open_live_pilot()
         for with_words in (True, False):
-            self.start.click()
+            self.start_preparation()
             self.page.locator("#lv-skip").click()
-            self.submit_live_pin()
             expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
             self.page.evaluate("""withWords => {
               const socket = probe.sockets.at(-1);
@@ -280,11 +308,10 @@ class LiveConversationBrowserMixin:
                 expect(self.page.locator("#lv-report")).to_be_hidden()
             self.page.locator("#lv-retry").click()
 
-    def test_native_voice_marks_only_changed_learner_words_and_rechecks_after_edit(self):
+    def test_native_voice_marks_only_changed_learner_words_in_readonly_transcript(self):
         self.open_live_pilot()
-        self.start.click()
+        self.start_preparation()
         self.page.locator("#lv-skip").click()
-        self.submit_live_pin()
         expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
         self.page.evaluate("""() => {
           const ws = probe.sockets[0];
@@ -304,20 +331,63 @@ class LiveConversationBrowserMixin:
         expect(turns.locator("del")).to_have_text(["m’inscrire"])
         expect(turns.locator("ins")).to_have_text(["m’inscris"])
         expect(turns.locator('[data-speaker="model"] del')).to_have_count(0)
-        learner = turns.locator('[data-speaker="user"]').last
-        learner.get_by_role("button", name=re.compile("Rectifier", re.I)).click()
-        learner.get_by_role("textbox").fill("Si je m’inscris ce soir, est-ce trop tard ?")
-        learner.get_by_role("button", name="Appliquer").click()
-        expect(turns.locator("del, ins")).to_have_count(0)
-        expect(learner).to_contain_text("Si je m’inscrire ce soir, est-ce trop tard ?")
-        self.assertEqual(len(self.token_requests), 1)
+        expect(turns.locator("button, textarea, [contenteditable]")).to_have_count(0)
+        self.page.locator("#lv-replies").click()
+        expect(turns.locator('[data-speaker="model"]')).to_be_visible()
+        self.page.locator("#lv-corrections button").first.click()
+        expect(turns.locator(".lv-turn__said").last).to_be_focused()
+        self.assertEqual(len(self.token_requests), 2)
+
+    def test_native_voice_shows_inline_local_suggestions_when_gemini_review_fails(self):
+        self.open_live_pilot()
+        review_calls = []
+
+        def unavailable(route):
+            review_calls.append(route.request.post_data_json)
+            route.fulfill(status=503, json={"error": "Connexion à Gemini impossible."})
+
+        self.page.route("**" + reverse("study:eo_tache_two_live_evaluation"), unavailable)
+        self.start_preparation()
+        self.page.locator("#lv-skip").click()
+        expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
+        self.page.evaluate("""() => {
+          const ws = probe.sockets[0];
+          ws.receive({setupComplete:{}});
+          ws.receive({serverContent:{inputTranscription:{
+            text:"J’ai j’ai une question. J’ai donc voudrais réserver."},turnComplete:true}});
+        }""")
+        self.page.locator("#lv-end").click()
+        line = self.page.locator('#lv-turns [data-speaker="user"]')
+        expect(line).to_be_visible()
+        expect(line.locator("del")).to_have_count(2)
+        expect(line.locator("ins")).to_have_text("Je voudrais donc")
+        expect(line).to_contain_text("doublon de transcription possible")
+        self.assertEqual(review_calls, [])
+        self.page.locator("#lv-assessment-consent").check()
+        self.page.locator("#lv-assess").click()
+        expect(self.page.locator("#lv-assessment-status")).to_contain_text("Connexion à Gemini impossible")
+        expect(line.locator("ins")).to_be_visible()
+        self.assertEqual(len(review_calls), 1)
+        self.assertEqual(review_calls[0]["rows"], [
+            {"speaker": "user", "text": "J’ai j’ai une question. J’ai donc voudrais réserver."},
+        ])
+        self.page.evaluate("""() => { window.fetch = () =>
+          new Promise(resolve => probe.releaseReview = report => resolve(Response.json(report))); }""")
+        self.page.locator("#lv-assessment-consent").check()
+        self.page.locator("#lv-assess").click()
+        expect(self.page.locator("#lv-assessment-status")).to_contain_text("examine")
+        self.page.locator("#lv-retry").click()
+        self.page.evaluate("""() => probe.releaseReview({score:20, nclc:'10+', cefr:'C2',
+          criteria:[], evidence:[], annotations:[]})""")
+        expect(self.page.locator("#lv-level")).to_have_text("Non évalué")
+        expect(self.page.locator("#lv-assessment-result")).to_be_hidden()
+        expect(line).to_have_count(0)
 
     def test_native_voice_disconnect_and_navigation_discard_pending_audio(self):
         self.open_live_pilot()
         for action in ("probe.sockets.at(-1).onclose()", "window.dispatchEvent(new Event('pagehide'))"):
-            self.start.click()
+            self.start_preparation()
             self.page.locator("#lv-skip").click()
-            self.submit_live_pin()
             expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
             # The setup ACK may already be queued for delivery when the call closes.
             self.page.evaluate("""() => {
@@ -332,74 +402,100 @@ class LiveConversationBrowserMixin:
             if self.page.locator("#lv-retry").is_visible():
                 self.page.locator("#lv-retry").click()
             expect(self.start).to_be_enabled()
-        self.assertEqual(len(self.token_requests), 2)
+        self.assertEqual(len(self.token_requests), 4)
 
     def test_native_voice_cancel_shared_pin_leaves_microphone_closed(self):
         self.open_live_pilot()
         self.start.click()
-        self.page.locator("#lv-skip").click()
         self.pin_dialog.get_by_label("Code PIN ElevenLabs").fill("unfinished")
         self.pin_dialog.get_by_role("button", name="Annuler").first.click()
         expect(self.page.locator("#lv-status")).to_contain_text("annulée")
         expect(self.pin_dialog.get_by_label("Code PIN ElevenLabs")).to_have_value("")
         expect(self.pin_dialog.get_by_role("heading", include_hidden=True)).to_have_text("Nouvel audio ElevenLabs")
-        self.assertEqual(self.page.evaluate("[probe.calls,probe.sockets.length]"), [0, 0])
+        self.assertEqual(self.page.evaluate("[probe.calls,probe.readers.length,probe.sockets.length]"), [0, 0, 0])
         self.assertEqual(self.token_requests, [])
 
-    def test_native_voice_prompt_reading_never_starts_either_clock_or_the_microphone(self):
+    def test_native_voice_prep_waits_for_last_audible_chunk_after_turn_complete(self):
         self.open_live_pilot()
-        listen = self.page.locator("#lv-listen")
-        expect(listen).to_be_enabled()
-        listen.click()
-        expect(self.pin_dialog).to_contain_text("Seule la consigne est envoyée à Google")
-        self.assertEqual(self.token_requests, [])
-        self.pin_dialog.get_by_label("Code PIN ElevenLabs").fill(PILOT_PIN)
-        self.pin_dialog.get_by_role("button", name="Autoriser la lecture", exact=True).click()
-        expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
-        self.page.evaluate("""() => {
-          const ws = probe.sockets[0];
-          ws.receive({setupComplete:{}});
-          ws.receive({serverContent:{modelTurn:{parts:[{inlineData:{
-            mimeType:'audio/pcm;rate=24000',data:btoa('\\0'.repeat(2400))
-          }}]},turnComplete:true}});
-        }""")
-        expect(self.page.locator("#lv-listen-status")).to_contain_text("Lecture terminée")
-        self.assertEqual(self.page.evaluate("[probe.calls,probe.sockets[0].readyState,probe.played.length]"), [0, 3, 1])
-        self.assertEqual(self.token_requests[-1], {"consent": True, "purpose": "read_prompt", "pin": PILOT_PIN})
-        self.assertTrue(self.page.evaluate("probe.sent.some(m => m.clientContent?.turnComplete)"))
-        expect(self.page.locator("#live-studio")).to_have_attribute("data-state", "setup")
-        expect(self.page.locator("#lv-time")).to_be_hidden()
+        self.page.clock.install()
         self.start.click()
+        self.submit_live_pin()
+        expect(self.page.locator("html")).to_have_attribute("data-reader", "true")
+        self.page.evaluate("""async () => {
+          const ws = probe.readers[0];
+          ws.receive({setupComplete:{}});
+          ws.receive({setupComplete:{}});
+          window.readChunk = {parts:[{inlineData:{
+            mimeType:'audio/pcm;rate=24000',data:btoa('\\x01\\x00'.repeat(2400))
+          }}]};
+          ws.receive({serverContent:{modelTurn:readChunk}});
+          await new Promise(resolve => probe.played[0].addEventListener('ended', resolve, {once:true}));
+        }""")
+        expect(self.page.locator("#lv-time")).to_be_hidden()  # A gap between chunks isn't the end of the reading.
+        self.page.evaluate("""async () => {
+          await probe.audio.suspend();
+          probe.readers[0].receive({serverContent:{modelTurn:readChunk,turnComplete:true}});
+        }""")
+        self.page.clock.fast_forward(10_000)  # Wall time passes; Web Audio hasn't played its final buffer.
+        expect(self.page.locator("#live-studio")).to_have_attribute("data-state", "reading")
+        expect(self.page.locator("#lv-time")).to_be_hidden()
+        self.assertEqual(self.page.evaluate("probe.readingMessages.filter(m => m.realtimeInput)"),
+                         [{"realtimeInput": {"text": "Lisez la consigne."}}])
+        self.page.evaluate("probe.audio.resume()")
+        expect(self.page.locator("#lv-prep")).to_be_visible()
         expect(self.page.locator("#lv-clock")).to_have_text("02:00")
         self.assertEqual(self.page.evaluate("probe.calls"), 0)
 
-    def test_native_voice_optional_review_scores_current_text_and_discards_stale_results(self):
+    def test_native_voice_incomplete_or_silent_reading_does_not_start_preparation(self):
+        self.open_live_pilot()
+        for failure in ("socket.onclose()", "socket.receive({serverContent:{modelTurn:{parts:[{inlineData:"
+                        "{mimeType:'audio/pcm',data:'AAAAAA=='}}]},turnComplete:true}})"):
+            self.start.click()
+            self.submit_live_pin()
+            expect(self.page.locator("html")).to_have_attribute("data-reader", "true")
+            self.page.evaluate("""() => {
+              const socket = probe.readers.at(-1);
+              delete document.documentElement.dataset.reader;
+              window.oldReader = socket.onmessage;
+              socket.receive({setupComplete:{}});
+              %s;
+            }""" % failure)
+            expect(self.page.locator("#lv-status")).to_contain_text("La préparation n’a pas démarré")
+            self.page.locator("#lv-retry").click()
+            self.page.evaluate("oldReader({data:JSON.stringify({serverContent:{turnComplete:true}})})")
+            expect(self.start).to_be_enabled()
+            expect(self.page.locator("#lv-time")).to_be_hidden()
+        self.assertEqual(self.page.evaluate("[probe.calls,probe.sockets.length]"), [0, 0])
+
+    def test_native_voice_optional_review_scores_captured_transcript_with_consent(self):
         self.open_live_pilot()
         calls = []
-        exhausted = False
         original = "📷 Et si je veux prend deux appareils ?"
-        edited = "Et si je veux prendre deux appareils ?"
-        report = {"score": 12, "nclc": "8", "cefr": "B2", "reason": "Vous comparez les options.",
+        report = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "reason": "Vous comparez les options.",
+                  "criteria": [{"label": label, "score": score, "why": why} for label, score, why in (
+                      ("Accomplissement de la tâche", 4, "La demande de tarif est précise."),
+                      ("Cohérence et fluidité", 3, "Vous enchaînez les questions."),
+                      ("Précision lexicale", 3, "Le terme « prêt » convient."),
+                      ("Correction grammaticale", 2, "Attention à l’infinitif après vouloir."))],
                   "next": "Précisez la durée du prêt.", "evidence": [
-                      {"turnIndex": 0, "quote": "Combien coûte", "why": "Une demande de prix."},
-                      {"turnIndex": 2, "quote": "Et si je veux", "why": "Une hypothèse."}],
+                      {"turnIndex": 0, "quote": "Combien coûte le prêt ?", "why": "Vous demandez directement le prix du prêt."},
+                      {"turnIndex": 2, "quote": original, "why": "Vous relancez sur le cas de deux appareils."}],
                   "annotations": [{"turnIndex": 2, "start": 12, "end": 22, "before": "veux prend",
                                    "after": "veux prendre", "why": "Après vouloir, employez l’infinitif."}]}
 
         def fake_review(route):
             body = route.request.post_data_json
             calls.append(body)
-            if exhausted:
+            if body.get("reviewGrant") != "fixture-review" or "pin" in body:
+                route.fulfill(status=403, json={"error": "missing grant"})
+            elif len(calls) == 1:
                 route.fulfill(status=429, json={"error": "Quota atteint."})
-            elif body.get("pin") != PILOT_PIN:
-                route.fulfill(status=403, json={"error": "pin_required"})
             else:
                 route.fulfill(json=report)
 
         self.page.route("**" + reverse("study:eo_tache_two_live_evaluation"), fake_review)
-        self.start.click()
+        self.start_preparation()
         self.page.locator("#lv-skip").click()
-        self.submit_live_pin()
         expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
         self.page.evaluate("""words => {
           const ws = probe.sockets[0];
@@ -412,45 +508,42 @@ class LiveConversationBrowserMixin:
         consent, button, level = (self.page.locator("#lv-" + key) for key in ("assessment-consent", "assess", "level"))
         expect(level).to_have_text("Non évalué")
         expect(button).to_be_disabled()
+        self.page.set_viewport_size({"width": 320, "height": 700})
+        controls = self.page.locator("#lv-assessment-controls")
+        expect(button).to_have_accessible_name("Évaluer mon niveau")
+        expect(button).to_have_text("")
+        expect(button.locator('[data-icon="graduation-cap"]')).to_be_visible()
+        expect(controls.locator("details")).to_have_count(0)
+        expect(consent).to_have_accessible_name("Partager le texte avec Google")
+        self.assertEqual(controls.locator("label span").evaluate("""el => {
+          const range = document.createRange(); range.selectNodeContents(el);
+          return range.getClientRects().length;
+        }"""), 1)
+        expect(consent).not_to_be_checked()
+        expect(button).to_be_disabled()
+        self.assert_no_horizontal_overflow()
         consent.check()
         self.assertEqual(calls, [])
         button.click()
-        self.pin_dialog.get_by_label("Code PIN ElevenLabs").fill(PILOT_PIN)
-        self.pin_dialog.get_by_role("button", name="Autoriser ce bilan").click()
+        expect(self.page.locator("#lv-assessment-status")).to_contain_text("Quota atteint")
+        expect(level).to_have_text("Non évalué")
+        expect(self.page.locator("#lv-evidence")).to_contain_text("Combien coûte le prêt")
+        consent.check()
+        button.click()
         expect(level).to_have_text("12/20 · NCLC 8 · B2")
-        expect(self.page.locator("#lv-assessment-evidence")).to_contain_text("Une hypothèse.")
+        expect(self.page.locator("#lv-assessment-evidence")).to_contain_text("Vous relancez sur le cas de deux appareils.")
+        table = self.page.locator("#lv-assessment-criteria")
+        expect(table.get_by_role("rowheader")).to_have_text([item["label"] for item in report["criteria"]])
+        expect(table.locator("tr > td:first-of-type")).to_have_text(["4/5", "3/5", "3/5", "2/5"])
+        self.assert_no_horizontal_overflow()
         transcript = self.page.locator("#lv-transcript")
         if not transcript.evaluate("el => el.open"):
             transcript.locator("summary").click()
         target = self.page.locator('#lv-turns [data-speaker="user"]').last
+        expect(target.locator("del")).to_have_text("prend")
         expect(target.locator("ins")).to_have_text("prendre")
-
-        def change(text):
-            target.get_by_role("button", name=re.compile("Rectifier")).click()
-            target.get_by_role("textbox").fill(text)
-            target.get_by_role("button", name="Appliquer").click()
-
-        change(edited)
-        expect(level).to_have_text("Non évalué")
-        expect(self.page.locator("#lv-assessment-evidence")).to_be_empty()
-        expect(consent).not_to_be_checked()
-        self.assertEqual(calls[-1]["rows"][-1], {"speaker": "user", "text": original})
+        expect(target.locator("button, textarea, [contenteditable]")).to_have_count(0)
         self.assertEqual(len(calls), 2)
-        exhausted = True
-        consent.check()
-        button.click()
-        expect(self.page.locator("#lv-assessment-status")).to_contain_text("Limite atteinte")
-        expect(self.page.locator("#lv-evidence")).to_contain_text("Combien coûte le prêt")
-        expect(level).to_have_text("Non évalué")
-        self.page.evaluate("""() => { window.HeureuxAudioRequest = (url, opts) => {
-          probe.review = JSON.parse(opts.body);
-          return new Promise(resolve => probe.releaseReview = report => resolve(Response.json(report)));
-        }; }""")
-        consent.check()
-        button.click()
-        self.assertEqual(self.page.evaluate("probe.review.rows.at(-1)"), {"speaker": "user", "text": edited})
-        change(edited + " Merci.")
-        self.page.evaluate("report => probe.releaseReview(report)", report)
-        expect(level).to_have_text("Non évalué")
-        expect(self.page.locator("#lv-assessment-result")).to_be_hidden()
+        self.assertEqual(calls[0]["rows"], calls[1]["rows"])
+        self.assertEqual(calls[1]["rows"][-1], {"speaker": "user", "text": original})
         self.assertEqual(self.page.evaluate("[probe.calls,probe.track.readyState]"), [1, "ended"])

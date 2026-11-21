@@ -60,6 +60,21 @@
     return "";
   }
   const pieces = text => text.match(/[\p{L}\p{M}\p{N}]+(?:['’-][\p{L}\p{M}\p{N}]+)*|\s+|[^\s]/gu) || [];
+  function* turnEdits(text) {
+    if (phraseEdits) yield* phraseEdits(text);
+    // Normalize only same-width apostrophes for matching; offsets and examples use the original.
+    const sample = text.replace(/’/g, "'");
+    for (const match of sample.matchAll(/(?<![\p{L}\p{M}'-])(j'ai|c'est|je voudrais|est-ce que|merci pour)(?:[ \t]+\1)+(?![\p{L}\p{M}'-])/giu)) {
+      const start = match.index, before = text.slice(start, start + match[0].length);
+      yield {start, before, after: before.slice(0, match[1].length),
+        why: "Reprise ou doublon de transcription possible. À la relecture, une seule occurrence suffit ; ce n’est pas une faute de grammaire."};
+    }
+    for (const match of sample.matchAll(/(?<![\p{L}\p{M}'-])j'ai( donc)? voudrais(?![\p{L}\p{M}'-])/giu)) {
+      const start = match.index, before = text.slice(start, start + match[0].length);
+      yield {start, before, after: (before.startsWith("J") ? "Je" : "je") + " voudrais" + (match[1] ? " donc" : ""),
+        why: "Si ces mots ont bien été transcrits, « voudrais » est déjà conjugué : dites « je voudrais », sans « j’ai »."};
+    }
+  }
   function changedWords(turnIndex, match) {
     const left = pieces(match.before), right = pieces(match.after);
     let first = 0, l = left.length, r = right.length, start = match.start;
@@ -87,9 +102,9 @@
         ? previous : null;
       if (complete(row) && !(source && key(source.text) === key(row.text))) {
         // A self-repair or a quoted example is not an error to attribute to the speaker.
-        if (phraseEdits && !/["«»“”]/.test(row.text) &&
+        if (!/["«»“”]/.test(row.text) &&
             !/\b(?:pardon|je (?:voulais|veux) dire|je me corrige|plutot)\b/.test(fold(row.text))) {
-          const edits = Array.from(phraseEdits(row.text), match => ({match, change: changedWords(index, match)}))
+          const edits = Array.from(turnEdits(row.text), match => ({match, change: changedWords(index, match)}))
             .sort((a, b) => a.change.start - b.change.start);
           let previousEnd = -1;
           for (const {match, change} of edits) {
@@ -131,9 +146,9 @@
     });
     let next;
     if (!learner.length) {
-      next = "Aucune parole personnelle à examiner. Posez une question, puis vérifiez sa transcription.";
+      next = "Aucune parole personnelle à examiner. Commencez par poser une question.";
     } else if (!learner.some(complete)) {
-      next = "Les paroles transcrites semblent incomplètes. Terminez votre demande, puis vérifiez la transcription.";
+      next = "Les paroles transcrites semblent incomplètes. Allez au bout de votre question.";
     } else if (!questions && !reformulation) {
       next = "Je ne repère pas de demande d’information assez nette dans cet extrait. Précisez ce que vous souhaitez savoir.";
     } else if (!questions) {

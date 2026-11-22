@@ -1,8 +1,16 @@
-<div class="subject-collection__families">
-  {% for family in group.families %}
-    <details class="subject-collection__family" id="theme-{{ group.slug }}-family-{{ family.slug }}" data-subject-family-group="{{ family.slug }}">
-      {% include "study/shared/partials/theme_group_summary.html" with title=family.name icon="file-text" count=family.subject_count count_label="sujet" status=family.progress.status completed=family.completed total=family.total progress_label="Réponses uniques terminées" only %}
-      {% include "study/expression/partials/subject_collection_table.html" with subjects=family.subjects %}
-    </details>
+{% extends "study/expression/partials/subject_collection_table.html" %}
+{% block native_table_body %}
+  {% for family in sections %}
+    <tbody role="rowgroup" id="theme-{% firstof family.theme_slug group.slug %}-family-{{ family.slug }}" data-subject-family-group="{{ family.slug }}">
+      <tr class="subject-subheading"><th scope="rowgroup" colspan="2">
+        <span>{{ family.name }}</span>
+        <small>{{ family.subject_count }} sujet{{ family.subject_count|pluralize }}</small>
+        <small class="subject-subheading__progress" title="Réponses uniques terminées">{{ family.completed }}/{{ family.total }} <span class="sr-only">réponses uniques terminées</span></small>
+      </th></tr>
+      {% for subject in family.subjects %}
+        {% url 'study:response_detail' part.slug task.slug subject.prompt.pk as subject_url %}
+        {% include "study/expression/partials/subject_collection_row.html" with href=subject_url title=subject.prompt.text response_id=subject.prompt.response_id prompt_key=subject.prompt.pk %}
+      {% endfor %}
+    </tbody>
   {% endfor %}
-</div>
+{% endblock %}

@@ -120,10 +120,7 @@
     if (!toggles.length || !collections.length) return;
 
     var subjectGroups = Array.from(
-      document.querySelectorAll(
-        "[data-subject-collection] [data-t1-table-theme], " +
-        "[data-subject-collection] [data-subject-family-group]"
-      )
+      document.querySelectorAll("[data-subject-collection] details[data-t1-table-theme]")
     ).map(function (element) {
       return {
         element: element,
@@ -150,7 +147,7 @@
         "[data-t1-table-theme], [data-subject-family-group]"
       );
       if (isSubjectGroup && revealGroups) {
-        var disclosure = target;
+        var disclosure = target.closest("details");
         while (disclosure) {
           disclosure.open = true;
           disclosure = disclosure.parentElement.closest("details");
@@ -160,7 +157,9 @@
 
       if (!isSubjectGroup) target.classList.add("is-annotation-anchor");
       window.requestAnimationFrame(function () {
-        target.scrollIntoView({ block: "center" });
+        var heading = target.matches("[data-subject-family-group]")
+          ? target.querySelector("th[scope='rowgroup']") : null;
+        (heading || target).scrollIntoView({ block: "center" });
       });
     }
 
@@ -501,21 +500,18 @@
     }
 
     tables.forEach(function (table) {
-      var body = table.tBodies[0];
-      if (!body) return;
-      var rows = Array.from(
-        body.querySelectorAll(":scope > [data-nested-sort-row]")
-      );
+      var groups = Array.from(table.tBodies, function (body) {
+        return {body: body, rows: Array.from(body.querySelectorAll(":scope > [data-nested-sort-row]"))};
+      });
       var buttons = Array.from(
         table.querySelectorAll("[data-nested-table-sort]")
       );
-      if (rows.length < 2 || !buttons.length) return;
+      if (!buttons.length || !groups.some(function (group) { return group.rows.length > 1; })) return;
 
-      var originalOrder = new Map(
-        rows.map(function (row, index) {
-          return [row, index];
-        })
-      );
+      var originalOrder = new Map();
+      groups.forEach(function (group) {
+        group.rows.forEach(function (row, index) { originalOrder.set(row, index); });
+      });
 
       buttons.forEach(function (button) {
         resetButton(button);
@@ -532,7 +528,7 @@
           var multiplier = direction === "ascending" ? 1 : -1;
           var key = button.dataset.nestedTableSort;
 
-          rows.sort(function (left, right) {
+          function compare(left, right) {
             if (!direction) {
               return originalOrder.get(left) - originalOrder.get(right);
             }
@@ -552,7 +548,7 @@
               if (subjectComparison) return subjectComparison;
             }
             return originalOrder.get(left) - originalOrder.get(right);
-          });
+          }
 
           buttons.forEach(resetButton);
           if (direction) {
@@ -568,11 +564,11 @@
             );
           }
 
-          var fragment = document.createDocumentFragment();
-          rows.forEach(function (row) {
-            fragment.appendChild(row);
+          groups.forEach(function (group) {
+            var fragment = document.createDocumentFragment();
+            group.rows.sort(compare).forEach(function (row) { fragment.appendChild(row); });
+            group.body.appendChild(fragment);
           });
-          body.appendChild(fragment);
         });
       });
     });

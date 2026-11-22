@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import unicodedata
 
 from django.db import transaction
 from django.db.models import Count, F, Prefetch, Q, Value, Window
@@ -1498,6 +1499,56 @@ def _classified_oral_subject_themes(themes, response_progress, prompts, taxonomy
     return result
 
 
+def _oral_directory_selection(params, groups):
+    theme = params.get("theme", "")
+    status = params.get("etat")
+    order = params.get("tri")
+    status = status if status in ("new", "active", "done") else ""
+    order = order if order in ("az", "za", "reprendre") else ""
+    selection = {
+        "theme": theme,
+        "unavailable_theme": theme and not any(group["slug"] == theme for group in groups),
+        "status": status,
+        "order": order,
+        "active": bool(theme or status or order),
+    }
+    if selection["active"]:
+        rows, sections = [], []
+        for group in groups:
+            if theme and theme != group["slug"]:
+                continue
+            for section in group.get("families") or [group]:
+                label = group["name"] if section is group else f'{group["name"]} · {section["name"]}'
+                matches = [
+                    row for row in section["subjects"]
+                    if not status or row["progress"].status == status
+                ]
+                if not order and section is not group and matches:
+                    unique = {row["prompt"].response_id: row["progress"] for row in matches}
+                    sections.append({
+                        "slug": section["slug"],
+                        "name": section["name"] if theme else label,
+                        "theme_slug": group["slug"],
+                        "subjects": matches,
+                        "subject_count": len(matches),
+                        **summarize_subject_progress(unique.values()),
+                    })
+                rows.extend({**row, "directory_theme": label} for row in matches)
+        if order in ("az", "za"):
+            def title_key(row):
+                title = row["title"] if "title" in row else row["prompt"].text
+                folded = unicodedata.normalize("NFD", title.casefold())
+                return "".join(c for c in folded if not unicodedata.combining(c))
+
+            rows.sort(key=title_key, reverse=order == "za")
+        elif order == "reprendre":
+            rank = {"active": 0, "new": 1, "done": 2}
+            rows.sort(key=lambda row: rank[row["progress"].status])
+        selection["rows"] = rows
+        selection["sections"] = sections
+    return selection
+
+
 def browse(request, part_slug=None, task_slug=None):
     forced_task = _route_task(part_slug, task_slug, request=request)
     deduplicate = request.GET.get("deduplicate", "1") == "1"
@@ -1527,6 +1578,7 @@ def browse(request, part_slug=None, task_slug=None):
                 "task": forced_task,
                 **deduplication_context,
                 "subject_themes": themes,
+                "oral_selection": _oral_directory_selection(request.GET, themes),
                 "subject_summary": subject_state,
                 "theme_count": subject_state["theme_count"],
                 "subject_count": sum(theme["subject_count"] for theme in themes),
@@ -1767,6 +1819,7 @@ def browse(request, part_slug=None, task_slug=None):
     }
     if oral_directory:
         context.update(deduplication_context)
+        context["oral_selection"] = _oral_directory_selection(request.GET, subject_themes)
     return render(request, "study/expression/browse.html", context)
 
 

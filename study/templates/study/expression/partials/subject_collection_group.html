@@ -5,7 +5,7 @@
     {% include "study/shared/partials/theme_group_summary.html" with title=title icon=group.icon count=count count_label="sujet" status=status completed=completed total=total only %}
   {% endif %}
   {% if group.families %}
-    {% include "study/expression/partials/subject_collection_families.html" %}
+    {% include "study/expression/partials/subject_collection_families.html" with sections=group.families %}
   {% else %}
     {% include "study/expression/partials/subject_collection_table.html" %}
   {% endif %}

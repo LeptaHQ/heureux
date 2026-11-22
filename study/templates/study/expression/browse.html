@@ -26,11 +26,7 @@
 </div>
 {% endif %}
 {% if oral_directory %}
-  {% if subject_themes %}
-    {% include "study/expression/partials/subject_collection.html" with groups=subject_themes kind="eo3" secondary_label="Vocabulaire" %}
-  {% else %}
-    <p class="muted">Aucun contenu pour cette sélection pour l'instant.</p>
-  {% endif %}
+  {% include "study/expression/partials/oral_subject_directory.html" with groups=subject_themes kind="eo3" %}
 {% else %}
 <div class="grid grid--decks collection-table collection-table--decks" data-collection-view="adaptive">
   {% include "study/shared/partials/collection_table_header.html" with variant="decks" column_1="Thème" column_2="Contenu" column_3="Progression" column_4="État" only %}

@@ -1,0 +1,48 @@
+{% if groups or oral_selection.active %}
+  <form class="oral-sujet-filters" method="get" action="{{ request.path }}" aria-label="Filtrer et trier les sujets">
+    <input type="hidden" name="deduplicate" value="{{ deduplicate_subjects|yesno:'1,0' }}">
+    <label>Thème
+      <select name="theme">
+        <option value="">Tous les thèmes</option>
+        {% if oral_selection.unavailable_theme %}<option value="{{ oral_selection.theme }}" selected>Thème sans sujet affiché</option>{% endif %}
+        {% for group in groups %}<option value="{{ group.slug }}"{% if oral_selection.theme == group.slug %} selected{% endif %}>{{ group.name }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>Progression
+      <select name="etat">
+        <option value="">Tous les états</option>
+        <option value="new"{% if oral_selection.status == 'new' %} selected{% endif %}>À commencer</option>
+        <option value="active"{% if oral_selection.status == 'active' %} selected{% endif %}>En cours</option>
+        <option value="done"{% if oral_selection.status == 'done' %} selected{% endif %}>Terminés</option>
+      </select>
+    </label>
+    <label>Tri
+      <select name="tri">
+        <option value="">Ordre du catalogue</option>
+        <option value="az"{% if oral_selection.order == 'az' %} selected{% endif %}>Sujet : A → Z</option>
+        <option value="za"{% if oral_selection.order == 'za' %} selected{% endif %}>Sujet : Z → A</option>
+        <option value="reprendre"{% if oral_selection.order == 'reprendre' %} selected{% endif %}>En cours d’abord</option>
+      </select>
+    </label>
+    <button type="submit" class="btn">Appliquer</button>
+    {% if oral_selection.active %}<a href="{{ request.path }}{% if not deduplicate_subjects %}?deduplicate=0{% endif %}">Réinitialiser</a>{% endif %}
+  </form>
+  {% if oral_selection.active %}
+    {% if oral_selection.rows %}
+      <p class="oral-sujet-result-count">{{ oral_selection.rows|length }} sujet{{ oral_selection.rows|length|pluralize }}</p>
+      <div class="t1-collection subject-collection sortable-subject-directory" data-subject-collection data-collection-view>
+        {% if oral_selection.sections %}
+          {% include "study/expression/partials/subject_collection_families.html" with sections=oral_selection.sections %}
+        {% else %}
+          {% include "study/expression/partials/subject_collection_table.html" with subjects=oral_selection.rows %}
+        {% endif %}
+      </div>
+    {% else %}
+      <p class="oral-sujet-result-count">Aucun sujet ne correspond à ces filtres.</p>
+    {% endif %}
+  {% else %}
+    {% include "study/expression/partials/subject_collection.html" %}
+  {% endif %}
+{% else %}
+  <p class="muted">Aucun contenu pour cette sélection pour l’instant.</p>
+{% endif %}

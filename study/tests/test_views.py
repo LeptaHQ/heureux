@@ -2454,6 +2454,13 @@ class TaskOrganizationTests(TestCase):
         self.assertEqual([row["progress"].status for row in rows], ["done", "new"])
         self.assertEqual(self.client.get(url, {"deduplicate": "0"}).context["prompt_count"], 4)
         self.assertEqual(self.client.get(url, {"deduplicate": "1"}).context["prompt_count"], 2)
+        selected = {"theme": alias_theme.slug, "etat": "done"}
+        empty = self.client.get(url, selected)
+        self.assertContains(empty, "Aucun sujet ne correspond à ces filtres")
+        self.assertNotContains(empty, "data-subject-collection-row")
+        restored = self.client.get(url, {**selected, "deduplicate": "0"})
+        self.assertContains(restored, "data-subject-collection-row", count=1)
+        self.assertContains(restored, "Autre thème, même réponse.")
         self.client.force_login(factories.make_user("other-oral-dedup"))
         other = self.client.get(url, {"deduplicate": "1"})
         self.assertContains(other, "data-collection-progress-value>0/2</span>")
@@ -2462,6 +2469,41 @@ class TaskOrganizationTests(TestCase):
             for group in other.context["subject_themes"]
             for row in group["subjects"]
         ))
+
+    def test_oral_directory_sorts_across_subthemes_and_filters_by_progress(self):
+        done = self.response_card.response.prompts.get()
+        active = factories.make_spine_card(
+            theme=self.theme, family=factories.make_family("deuxieme"),
+            user=self.user, response_practice_started_at=timezone.now(),
+        ).response.prompts.get()
+        new = factories.make_response(theme=self.theme, family=done.family).prompts.get()
+        for prompt, title in ((done, "École"), (active, "Zulu"), (new, "Famille")):
+            prompt.text = title
+            prompt.save(update_fields=["text"])
+        self.client.post(
+            reverse("study:subject_completion", args=["eo", "tache-3", done.response_id]),
+            {"completed": "1"},
+        )
+        url = self._task_url("study:task_browse")
+        for sort, expected in (
+            ("az", [done, new, active]), ("za", [active, new, done]),
+            ("reprendre", [active, new, done]),
+        ):
+            with self.subTest(sort=sort):
+                page = self.client.get(url, {"tri": sort})
+                self.assertEqual(
+                    [row["prompt"] for row in page.context["oral_selection"]["rows"]],
+                    expected,
+                )
+                self.assertContains(page, "data-subject-collection-row", count=3)
+                self.assertNotContains(page, 'scope="rowgroup"')
+
+        selected = self.client.get(url, {"theme": self.theme.slug, "etat": "active"})
+        self.assertContains(selected, 'scope="rowgroup"', count=1)
+        self.assertContains(selected, 'data-nested-table-sort="subject"')
+        self.assertContains(selected, prompt_detail_url(active))
+        self.assertNotContains(selected, prompt_detail_url(done))
+        self.assertNotContains(selected, prompt_detail_url(new))
 
     def test_oral_directory_expands_themes_with_shared_subject_progress(self):
         canonical = self.response_card.response.prompts.get(is_canonical=True)

@@ -21,9 +21,7 @@
 
   {% include "study/shared/partials/collection_toolbar.html" with with_search=True progress_completed=subject_summary.completed progress_total=subject_summary.total progress_unit="sujets terminés" show_views=subject_themes %}
 
-  {% if subject_themes %}
-    {% include "study/expression/partials/subject_collection.html" with groups=subject_themes kind="eo2" secondary_label="Questions" %}
-  {% endif %}
+  {% include "study/expression/partials/oral_subject_directory.html" with groups=subject_themes kind="eo2" secondary_label="Questions" %}
 </div>
 {% endblock %}
 

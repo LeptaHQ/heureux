@@ -599,7 +599,9 @@ sits beside the note label, leaving the other actions in their existing column.
 Pinning persists per learner, and unpinning restores the
 note's original date position. Without JavaScript, full notes and pin forms
 remain available. Apply migration 0067 before deploying this feature.
-Buttons are rounded throughout Heureux, including in cards, toolbars, and dialogs.
+Throughout Heureux, form fields (including custom dropdowns) and modals have
+rounded corners without pill-shaped ends. Icon buttons are circular and text
+buttons are pill-shaped, including inside cards, toolbars, and dialogs.
 The shared audio PIN dialog uses compact cancel (×) and confirm (✓) controls.
 Note and translation pop-ups also round the DeepL and Google **G** action links.
 Translate works with touch taps as well as mouse and keyboard
@@ -1044,8 +1046,8 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   their earliest/latest activity and resolving ownership with the same priority.
 - Subject directories reuse one collection/group/row component and render each
   publication once, with card and table presentations of the same elements.
-  EO Tâche 3 nests subject families within themes; each level counts unique
-  responses for progress without duplicating subject rows.
+  Open an EO Tâche 3 theme to see one table. Subthemes are labeled row groups,
+  not additional disclosures. Each level counts unique responses for progress.
   Theme-specific labels in `study/content/expression/eo/tache_3/sources/subject_family_labels.json`
   clarify the existing families without changing memberships or saved progress.
   EO/EE subject directories and subject-only searches default to **Dédupliquer**,
@@ -1054,6 +1056,10 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   chosen mode, including previous/next navigation and its within-theme counter.
   Opening an equivalent publication keeps its own text and selected response,
   while its navigation position refers to the shared group when deduplicated.
+  EO2 and EO3 also let you filter these subjects by display theme and study
+  progress. Sort the selection alphabetically or put in-progress subjects first.
+  Filters and sorting are shareable in the directory URL; keyword search still
+  searches the whole task, including alternative formulations.
   The removed EO Tâche 3 theme/family and
   practice-overview URLs have no routes and return 404, without redirects.
   Individual practice sessions, study content, and saved progress remain.

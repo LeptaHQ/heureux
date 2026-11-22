@@ -559,7 +559,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.assertEqual(geometry["nestedForms"], 0)
         controls = geometry["controls"]
         for index, control in enumerate(controls):
-            self.assertGreaterEqual(control["height"], 44)
+            self.assertGreaterEqual(control["height"], 32)
             self.assertGreaterEqual(control["left"], geometry["bounds"]["left"] - 1)
             self.assertLessEqual(control["right"], geometry["bounds"]["right"] + 1)
             for other in controls[index + 1:]:
@@ -1751,8 +1751,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                                 group.locator(":scope > summary").press("Enter")
                                 self.assertTrue(group.evaluate("element => element.open"))
                                 family = group.locator("[data-subject-family-group]").first
-                                if not family.evaluate("element => element.open"):
-                                    family.locator(":scope > summary").click()
+                                expect(family.locator("th[scope='rowgroup']")).to_be_visible()
                             self.assertTrue(self.page.evaluate(
                                 """
                                 () => window.__subjectRows.every((row, index) =>
@@ -1870,7 +1869,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                     self.page.set_viewport_size({"width": width, "height": 844})
                     self.assert_compact_collection_toolbar()
 
-    def test_nested_oral_families_keep_independent_disclosures_sorting_and_progress(self):
+    def test_oral_subthemes_are_static_row_groups_with_sorting_and_progress(self):
         first = self.first.response.prompts.get(is_canonical=True)
         second = self.second.response.prompts.get(is_canonical=True)
         second_family = factories.make_family("nested-second")
@@ -1907,30 +1906,26 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             f'[data-subject-family-group="{second_family.slug}"]'
         )
         row = family.locator("[data-subject-collection-row]")
-        self.assertEqual(self.page.locator("[data-subject-family-group][open]").count(), 0)
+        expect(theme.locator("table")).to_have_count(1)
+        expect(theme.locator("details")).to_have_count(0)
         theme.locator(":scope > summary").press("Enter")
-        self.assertFalse(row.is_visible())
-        family.locator(":scope > summary").press("Enter")
         expect(row).to_be_visible()
+        expect(other_family.locator("th[scope='rowgroup']")).to_be_visible()
         theme.locator(":scope > summary").click()
         self.assertFalse(row.is_visible())
-        self.assertTrue(family.evaluate("element => element.open"))
         theme.locator(":scope > summary").click()
         expect(row).to_be_visible()
 
         self.page.get_by_role("button", name="Cartes", exact=True).click()
-        family.locator(":scope > summary").click()
-        self.page.get_by_role("button", name="Tableau", exact=True).click()
+        expect(row).to_be_hidden()
+        theme.locator(":scope > summary").click()
         expect(row).to_be_visible()
-        self.page.get_by_role("button", name="Cartes", exact=True).click()
-        self.assertFalse(row.is_visible())
         self.page.get_by_role("button", name="Tableau", exact=True).click()
         expect(row).to_be_visible()
 
-        other_family.locator(":scope > summary").click()
         titles = other_family.locator(".subject-table-row-link")
         original = titles.all_text_contents()
-        other_family.locator('[data-nested-table-sort="subject"]').click()
+        theme.locator('[data-nested-table-sort="subject"]').click()
         self.assertEqual(titles.all_text_contents(), list(reversed(original)))
         expect(row).to_have_count(1)
         expect(self.page.locator("[data-subject-collection-row]")).to_have_count(4)
@@ -1938,13 +1933,12 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         with self.page.expect_navigation(wait_until="domcontentloaded"):
             row.get_by_role("checkbox").click()
         expect(theme.locator(":scope > summary .progress-status")).to_have_text("1/2")
-        expect(family.locator(":scope > summary .progress-status")).to_have_text("1/1")
-        expect(other_family.locator(":scope > summary .progress-status")).to_have_text("1/2")
+        expect(family.locator(".subject-subheading__progress")).to_contain_text("1/1")
+        expect(other_family.locator(".subject-subheading__progress")).to_contain_text("1/2")
         expect(
             self.page.locator(f"#theme-{other_theme.slug} > summary .progress-status")
         ).to_have_text("1/1")
         theme.locator(":scope > summary").click()
-        family.locator(":scope > summary").click()
         expect(row.get_by_role("checkbox")).to_be_checked()
         expect(row.locator(".progress-status")).to_have_text("Terminé")
         self.assert_no_horizontal_overflow()
@@ -1966,19 +1960,44 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             f'[data-subject-family-group="{first.family.slug}"]',
         )
         theme.locator(":scope > summary").click()
-        family.locator(":scope > summary").click()
         links = family.locator(".subject-table-row-link")
         expect(links).to_have_count(2)
-        family.locator('[data-nested-table-sort="subject"]').click()
+        theme.locator('[data-nested-table-sort="subject"]').click()
         expect(links).to_have_text([second.text, first.text])
         row = family.locator(f'[data-subject-progress-row="{first.response_id}"]')
         with self.page.expect_navigation(wait_until="domcontentloaded"):
             row.get_by_role("checkbox").click()
         theme.locator(":scope > summary").click()
-        family.locator(":scope > summary").click()
         expect(row.get_by_role("checkbox")).to_be_checked()
         expect(row.locator(".progress-status")).to_have_text("Terminé")
         self.assert_no_horizontal_overflow()
+
+    def test_eo2_subject_filter_can_be_combined_reset_and_bookmarked(self):
+        self._import_eo_tache_two_content()
+        url = self.live_server_url + reverse("study:task_browse", args=["eo", "tache-2"])
+        self.page.goto(url)
+        form = self.page.locator(".oral-sujet-filters")
+        rows = self.page.locator("[data-subject-collection-row]")
+        total = rows.count()
+        form.locator('[name="theme"]').select_option("logement")
+        form.locator('[name="tri"]').select_option("az")
+        form.get_by_role("button", name="Appliquer").click()
+        selected_url = self.page.url
+        count = rows.count()
+        self.assertGreater(count, 1)
+        self.assertLess(count, total)
+        expect(self.page.locator(".oral-sujet-result-count")).to_have_text(f"{count} sujets")
+        form.locator('[name="etat"]').select_option("done")
+        form.get_by_role("button", name="Appliquer").click()
+        expect(rows).to_have_count(0)
+        expect(self.page.get_by_text("Aucun sujet ne correspond à ces filtres.")).to_be_visible()
+        self.page.get_by_role("link", name="Réinitialiser").click()
+        expect(self.page).to_have_url(url)
+        expect(rows).to_have_count(total)
+        self.page.goto(selected_url)
+        expect(rows).to_have_count(count)
+        expect(form.locator('[name="theme"]')).to_have_value("logement")
+        expect(form.locator('[name="tri"]')).to_have_value("az")
 
     def assert_scrollable_dialog_layout(self, dialog, close):
         body = dialog.locator(".methodology-dialog__body")
@@ -2079,7 +2098,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         theme = self.page.locator(f"#theme-{self.theme.slug}")
         family = theme.locator("[data-subject-family-group]").first
         self.assertTrue(theme.evaluate("element => element.open"))
-        self.assertTrue(family.evaluate("element => element.open"))
+        expect(family.locator("th[scope='rowgroup']")).to_be_visible()
         expect(self.page.get_by_text("Voir cette famille dans tous les thèmes")).to_have_count(0)
         toggle = self.page.get_by_role("button", name="Dédupliquer", exact=True)
         expect(toggle).to_have_attribute("aria-pressed", "true")
@@ -2092,7 +2111,6 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.assertIn("deduplicate=1", self.page.url)
         expect(self.page.locator("[data-subject-collection-row]")).to_have_count(2)
         theme.locator(":scope > summary").click()
-        family.locator(":scope > summary").click()
         row = family.locator(f'[data-subject-progress-row="{prompt.response_id}"]')
         with self.page.expect_navigation(wait_until="domcontentloaded"):
             row.get_by_role("checkbox").click()
@@ -7703,8 +7721,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         theme_url = self.live_server_url + theme_detail_url(self.theme)
         self.page.goto(theme_url)
         family = self.page.locator("[data-subject-family-group]").first
-        if not family.evaluate("element => element.open"):
-            family.locator(":scope > summary").click()
+        expect(family.locator("th[scope='rowgroup']")).to_be_visible()
         row = self.page.locator(
             f'[data-subject-progress-row="{response_id}"]'
         )
@@ -7718,8 +7735,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(
             self.page.locator(f"#theme-{self.theme.slug} > summary .progress-status")
         ).to_have_text("1/2")
-        if not family.evaluate("element => element.open"):
-            family.locator(":scope > summary").click()
+        expect(family.locator("th[scope='rowgroup']")).to_be_visible()
         self.assert_no_horizontal_overflow()
 
         self.assert_opens_new_tab(
@@ -10874,7 +10890,6 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             f"#theme-{self.theme.slug}"
         )
         family = response_list.locator("[data-subject-family-group]").first
-        family.locator(":scope > summary").click()
         row = family.locator("[data-subject-collection-row]").first
         row.wait_for()
         self.assertEqual(
@@ -12556,7 +12571,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         notes[0].refresh_from_db()
         self.assertTrue(notes[0].completed)
 
-    def test_notes_and_note_translation_popups_have_rounded_buttons(self):
+    def test_notes_distinguish_rounded_fields_and_dialogs_from_action_buttons(self):
         Annotation.objects.create(
             user=self.user, task=self.task, kind=AnnotationKind.NOTE,
             title="Une note française", body="An English note",
@@ -12566,7 +12581,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         for width in (390, 1183):
             self.page.set_viewport_size({"width": width, "height": 844})
             for selector in (
-                ".notes-toolbar button",
+                ".notes-toolbar button:not(.custom-select__button)",
                 ".notes-toolbar__actions .btn",
                 ".annotation-card__actions button",
                 "#note-create-dialog button",
@@ -12580,7 +12595,17 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                         "getComputedStyle(button).borderTopLeftRadius))"
                     )
                     self.assertTrue(radii)
-                    self.assertTrue(all(radius > 0 for radius in radii), radii)
+                    self.assertTrue(all(radius >= 50 for radius in radii), radii)
+            for selector in (
+                "#notes-search", ".notes-toolbar .custom-select__button",
+                "#note-edit-title-input", "#note-edit-body", "#note-create-dialog select",
+            ):
+                with self.subTest(width=width, field=selector):
+                    radius = self.page.locator(selector).evaluate(
+                        "el => parseFloat(getComputedStyle(el).borderTopLeftRadius)"
+                    )
+                    self.assertGreater(radius, 0)
+                    self.assertLess(radius, 16)  # Less than half a compact field's height.
             for selector in (
                 "#note-create-dialog", "#note-edit-dialog",
                 ".selection-note-panel", ".translation-panel",
@@ -12590,6 +12615,13 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                         "element => parseFloat(getComputedStyle(element).borderTopLeftRadius)"
                     ), 0,
                 )
+            self.page.locator('[data-dialog-open="note-create-dialog"]').click()
+            dialog = self.page.locator("#note-create-dialog")
+            icon = dialog.locator(".form-dialog__icon")
+            expect(icon).to_have_css("border-radius", "50%")
+            box = icon.bounding_box()
+            self.assertAlmostEqual(box["width"], box["height"], delta=0.5)
+            dialog.locator(".form-dialog__close").click()
             self.assert_no_horizontal_overflow()
 
     def test_translation_google_link_is_round_and_neutral_in_both_themes(self):

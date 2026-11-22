@@ -12,6 +12,7 @@
       {% if kind == "writing" %}{% subject_bookmark sujet_id=progress_sujet.pk label=title %}{% else %}{% subject_bookmark response_id=response_id label=title %}{% endif %}
     </div>
     <span class="t1-table__subject-date">
+      {% if subject.directory_theme %}{{ subject.directory_theme }} · {% endif %}
       {% if legacy %}
         {% if not subject.is_personalized %}{% if subject.has_model_response %}Réponse modèle{% else %}<span class="badge-soon">À rédiger</span>{% endif %}{% endif %}
       {% elif kind == "eo2" %}

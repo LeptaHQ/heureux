@@ -158,7 +158,9 @@ this studio does not assign an official speaking score.
 
 **Opt-in native voice pilot.** The separate **Conversation vocale · Gemini Live**
 page streams speech in both directions. The receptionist is instructed to speak
-French, follow the learner’s questions and use the same two fictional workshops.
+French, answer the learner’s questions and leave the next turn to the learner.
+It may ask a short clarification only if the context is insufficient for a useful
+answer, not to keep the conversation going. The default topic is the same two fictional workshops.
 The model generates its own replies and can be interrupted. It can still
 misunderstand or invent facts. The headphones open the audio PIN dialog.
 Enter the PIN once for the attempt. Gemini reads the selected French prompt
@@ -210,7 +212,13 @@ change likely to gain the most next time, with an example phrase for that consig
 turns from the transcript; up to twelve inline corrections identify the words to
 change and why. The bilan also includes a **Proposition**: the learner’s
 own turns, rewritten in order as a polished model they can copy and rehearse.
-It never invents partner replies. An unverifiable edit, strength or proposal is left out without discarding
+The reviewer receives both speakers’ captured turns in order, even when partner
+replies are hidden in the UI. Each proposed line must point to the corresponding
+learner turn. Groq is asked to keep questions as questions and personal answers
+as answers, preserving who did what and what was known at that point in the
+conversation. If the turn references do not match, the proposal is omitted;
+matching references do not themselves verify a paraphrase’s meaning.
+An unverifiable edit, strength or proposal is left out without discarding
 a supported score. An incomplete rubric is not extrapolated to a total.
 Pronunciation, pace and accent are not assessed from text.
 Conversions follow the [TCF speaking scale](https://www.france-education-international.fr/document/grilleniveauxtcf)
@@ -264,6 +272,24 @@ je voulais dire mercredi soir. » The receptionist should change to the indoor
 studio and explain the free camera loan **by reservation**, not promise a
 booking. Listen for intelligible French, a clean interruption and a response
 to the *correction*. An automated transport check cannot judge those.
+
+### Tâche 3 · Expression d’un point de vue
+
+Open **Expression → EO → Tâche 3 → Simulation** for a practice question, or
+use the headphones on a subject page to practise that exact question. The same
+opt-in voice pilot reads the question with the microphone off. Once the reading
+finishes and the microphone is ready, speak for up to **4:30**, without preparation
+or interviewer interruptions. The microphone stops at the deadline or when you
+end the session. The Groq debrief evaluates the position, supporting reasons,
+coherence and language of the transcribed intervention, not pronunciation.
+The transcript remains read-only; practice scores are not official TCF results.
+Saved sessions can be reopened or deleted; each oral task keeps its own history.
+
+On a phone, allow microphone access for the site and keep the studio tab open.
+During a session the studio shows the browser’s input label (when available) and
+whether it receives sound. If the phone suspends audio, tap **Réactiver le son**.
+If there is no input, try the same phrase without Bluetooth to isolate the headset route.
+The input label and signal indicator stay on the device.
 
 ## French narration across the app
 

@@ -3931,6 +3931,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "response_content": response_content,
             "arguments": response_content.arguments,
             "subject_hints": subject_hints,
+            "eo3_simulation_available": is_eo3 and gemini_live.available_to(request.user, task),
             "ee_response": ee_response,
             "ee_combination_label": ee_combination_label,
             "ee_source_month": ee_source_month,

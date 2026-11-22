@@ -1,7 +1,7 @@
 from django.urls import path, register_converter
 
 from . import views
-from .views import audio, course, formulations
+from .views import audio, course, eo2_live, formulations
 
 
 class ExpressionPartConverter:
@@ -35,6 +35,21 @@ register_converter(ExpressionPartConverter, "expression_part")
 register_converter(OverviewPartConverter, "overview_part")
 
 app_name = "study"
+
+
+def _studio_routes(base, publication, task_slug, name):
+    return [
+        path(base + subject + suffix, view, {"task_slug": task_slug}, name=name + tail)
+        for subject in ("", publication)
+        for suffix, view, tail in (
+            ("", eo2_live.oral_live, ""),
+            ("token/", eo2_live.oral_live_token, "_token"),
+            ("save/", eo2_live.oral_live_save, "_save"),
+            ("evaluation/", eo2_live.oral_live_evaluation, "_evaluation"),
+            ("delete/", eo2_live.oral_live_delete, "_delete"),
+        )
+    ]
+
 
 urlpatterns = [
     path(
@@ -514,46 +529,9 @@ urlpatterns = [
         views.eo_tache_two_interaction,
         name="eo_tache_two_interaction",
     ),
-    path(
-        "expression/orale/tache-2/interaction/live/",
-        views.eo_tache_two_live,
-        name="eo_tache_two_live",
-    ),
-    path(
-        "expression/orale/tache-2/interaction/live/token/",
-        views.eo_tache_two_live_token,
-        name="eo_tache_two_live_token",
-    ),
-    path(
-        "expression/orale/tache-2/interaction/live/save/",
-        views.eo_tache_two_live_save,
-        name="eo_tache_two_live_save",
-    ),
-    path(
-        "expression/orale/tache-2/interaction/live/evaluation/",
-        views.eo_tache_two_live_evaluation,
-        name="eo_tache_two_live_evaluation",
-    ),
-    path(
-        "expression/orale/tache-2/interaction/live/<slug:month_slug>/<int:batch_number>/<int:subject_number>/save/",
-        views.eo_tache_two_live_save,
-        name="eo_tache_two_live_save",
-    ),
-    path(
-        "expression/orale/tache-2/interaction/live/<slug:month_slug>/<int:batch_number>/<int:subject_number>/evaluation/",
-        views.eo_tache_two_live_evaluation,
-        name="eo_tache_two_live_evaluation",
-    ),
-    path(
-        "expression/orale/tache-2/interaction/live/<slug:month_slug>/<int:batch_number>/<int:subject_number>/",
-        views.eo_tache_two_live,
-        name="eo_tache_two_live",
-    ),
-    path(
-        "expression/orale/tache-2/interaction/live/<slug:month_slug>/<int:batch_number>/<int:subject_number>/token/",
-        views.eo_tache_two_live_token,
-        name="eo_tache_two_live_token",
-    ),
+    *_studio_routes("expression/orale/tache-2/interaction/live/", "<slug:month_slug>/<int:batch_number>/<int:subject_number>/",
+                    "tache-2", "eo_tache_two_live"),
+    *_studio_routes("expression/orale/tache-3/simulation/", "<int:prompt_id>/", "tache-3", "eo_tache_three_live"),
     path(
         "expression/orale/tache-2/vocabulaire-par-theme/",
         views.tache_two_theme_vocabulary,

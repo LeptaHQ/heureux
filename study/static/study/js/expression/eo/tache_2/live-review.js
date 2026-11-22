@@ -1,6 +1,7 @@
 (() => {
   "use strict";
   const by = id => document.getElementById("lv-" + id);
+  const opinion = document.getElementById("live-studio").dataset.mode === "opinion";
   const make = (tag, text, className) => {
     const node = document.createElement(tag);
     node.textContent = text;
@@ -68,9 +69,10 @@
     return parts;
   }
   function glance(rows) {
-    by("fig-turns").textContent = rows.filter(row => row.speaker === "user").length;
     const words = {user: 0, model: 0};
     rows.forEach(row => { words[row.speaker === "user" ? "user" : "model"] += count(row.text); });
+    by("fig-turns").textContent = opinion ? words.user : rows.filter(row => row.speaker === "user").length;
+    if (opinion) { by("share").hidden = true; return; }
     const total = words.user + words.model;
     by("share").hidden = !total;
     if (!total) return;
@@ -86,7 +88,7 @@
     painters.forEach((paint, i) => paint(marks.get(i) || []));
     const mine = rows.filter(row => row.speaker === "user").length;
     const markCount = reviewedMarks === null ? "" : total ? `${total} à vérifier` : "aucune correction vérifiée";
-    const turns = `${mine} prise${mine > 1 ? "s" : ""} de parole`;
+    const turns = opinion ? "" : `${mine} prise${mine > 1 ? "s" : ""} de parole`;
     by("count").textContent = `(${[turns, spoken, mine ? markCount : ""].filter(Boolean).join(" · ")})`;
     return total;
   }

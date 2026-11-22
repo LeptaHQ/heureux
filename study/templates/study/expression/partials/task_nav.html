@@ -46,6 +46,7 @@
   {% elif part.slug == 'eo' and task.slug == 'tache-3' %}
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'response_detail' %}is-active{% endif %}"
        href="{% subject_url 'study:task_browse' part.slug task.slug %}">Sujets</a>
+    <a href="{% url 'study:eo_tache_three_live' %}">Simulation</a>
   {% elif part.slug == 'ee' and task.slug == 'tache-3' %}
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'theme_detail' or request.resolver_match.url_name == 'response_detail' %}is-active{% endif %}"
        href="{% subject_url 'study:task_browse' part.slug task.slug %}">Sujets</a>

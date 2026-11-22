@@ -96,7 +96,7 @@ class SecurityHeadersMiddleware:
             if request.resolver_match and response.status_code == 200 else None
         )
         live = (
-            page == "study:eo_tache_two_live"
+            page in ("study:eo_tache_two_live", "study:eo_tache_three_live")
             and (getattr(response, "context_data", None) or {}).get("gemini_live_available") is True
         )
         response.setdefault(
@@ -148,7 +148,8 @@ class AuthenticationRequiredMiddleware:
             response = self.get_response(request)
             patch_cache_control(response, private=True, no_store=True)
             return response
-        if match.view_name in ("study:eo_tache_two_live_token", "study:eo_tache_two_live_evaluation"):
+        if match.view_name in ("study:eo_tache_two_live_token", "study:eo_tache_two_live_evaluation",
+                               "study:eo_tache_three_live_token", "study:eo_tache_three_live_evaluation"):
             response = JsonResponse({"error": "Reconnectez-vous au compte pilote."}, status=401)
             patch_cache_control(response, private=True, no_store=True)
             return response

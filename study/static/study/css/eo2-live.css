@@ -100,8 +100,11 @@
 .lv-saved { flex: 1 1 100%; }
 .lv-saved h2 { margin: 0 0 0.35rem; color: var(--text-soft); font-size: 0.85rem; font-weight: 600; }
 .lv-saved ul { display: grid; gap: 0.3rem; margin: 0; padding: 0; list-style: none; }
-.lv-saved li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.2rem 1rem; font-size: 0.9rem; }
+.lv-saved li { display: flex; flex-wrap: wrap; align-items: center; gap: 0.2rem 1rem; font-size: 0.9rem; }
+.lv-saved a { margin-right: auto; }
 .lv-saved span { color: var(--text-faint); }
+.lv-saved form { display: inline-flex; margin: 0; }
+.lv-saved .icon-button { width: 2rem; height: 2rem; }
 /* Live regions stay in the accessibility tree but take no room until they speak. */
 :is(.lv-status, .lv-assessment__status):empty { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 

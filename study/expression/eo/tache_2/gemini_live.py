@@ -20,17 +20,23 @@ MODEL = "models/gemini-3.8-live"
 _HOST = "generativelanguage.googleapis.com"
 _MAX_RESPONSE_BYTES = 16_384
 
+_TURN_RULE = """Dans la tâche 2 du TCF Canada, c’est le candidat qui cherche des renseignements
+et mène l’échange. À l’ouverture, un simple bonjour suffit ; un bref « Ça va ? » est possible
+si la relation s’y prête, sans enchaîner sur un autre sujet. Ensuite, répondez à sa demande,
+puis laissez-lui la parole. Même après un silence, ne relancez pas par « Et vous ? » ou
+« Autre chose ? ». Une seule exception après les salutations : si, même avec le contexte, vous ne pouvez pas donner
+de réponse utile sans une précision, posez une seule question courte et naturelle sur ce point.
+Si vous pouvez répondre pour les deux options, faites-le plutôt que de demander de choisir."""
+
 # Fictional facts from the Tâche 2 studio's roleplay-engine.js.
-_RECEPTION = """Vous êtes à l’accueil du centre culturel. Vous répondez en français à une
+_RECEPTION = _TURN_RULE + "\n\n" + """Vous êtes à l’accueil du centre culturel. Vous répondez en français à une
 personne qui se renseigne sur deux ateliers photo pour débutants. Vouvoyez-la.
-Laissez-la mener l’échange. Parlez comme à un comptoir au Canada : une ou
-deux phrases, un débit naturel, sans réciter une fiche ni terminer chaque
-réponse par une question. Suivez le fil : « et l’autre ? » reprend le dernier
+Parlez comme à un comptoir au Canada : une ou deux phrases, un débit naturel,
+sans réciter une fiche. Suivez le fil : « et l’autre ? » reprend le dernier
 point comparé. Si la personne se reprend, partez de sa dernière précision.
 Pour conseiller, tenez compte ensemble de ses disponibilités, de son budget
 et de son matériel. Si aucune formule ne convient, dites pourquoi ; ne créez
-pas de troisième option. Demandez une précision seulement si le contexte ne
-suffit pas. Pour un détail inconnu, dites que vous ne pouvez pas le confirmer.
+pas de troisième option. Pour un détail inconnu, dites que vous ne pouvez pas le confirmer.
 Restez à l’accueil : ni cours de langue, ni correction,
 ni note, ni estimation de niveau. Ne demandez aucune donnée personnelle et ne
 prenez aucune réservation réelle. N’inventez pas de renseignements.
@@ -58,12 +64,11 @@ def subject_instruction(subject: TacheTwoSubjectData, dialogue: TacheTwoDialogue
         "consigne": subject.prompt,
         "registre": dialogue.register,
         "rôles et limites": dialogue.note,
-        "repères fictifs": [{"question possible": q.question, "réponse": q.answer} for q in dialogue.questions],
+        "repères fictifs": [{"question possible du candidat": q.question, "réponse": q.answer} for q in dialogue.questions],
     }
     return (
-        "Simulation de la Tâche 2 du TCF Canada. Jouez uniquement l’interlocuteur "
-        "auquel le candidat doit s’adresser dans cette consigne. Le candidat mène "
-        "l’échange et pose ses propres questions. Parlez en français dans le registre "
+        _TURN_RULE + "\n\nJouez uniquement l’interlocuteur "
+        "auquel le candidat doit s’adresser dans cette consigne. Parlez en français dans le registre "
         "indiqué. Répondez brièvement, comme dans la vie courante, en tenant compte "
         "des précisions, corrections et relances du candidat. Les exemples ci-dessous "
         "sont des repères, pas un dialogue à réciter ni des questions à poser. "

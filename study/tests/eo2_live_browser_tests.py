@@ -14,9 +14,11 @@ PILOT_PIN = "test-audio-pin"
 
 
 class LiveConversationBrowserMixin:
-    def open_live_pilot(self, *, subject_args=()):
+    def open_live_pilot(self, *, subject_args=(), opinion=False):
         """Real Web Audio and worklet; synthetic input and a local stand-in for Gemini."""
-        factories.make_task(self.part, "tache-2")
+        self.opinion = opinion
+        studio = "study:eo_tache_three_live" if opinion else "study:eo_tache_two_live"
+        factories.make_task(self.part, "tache-3" if opinion else "tache-2")
         self.page.add_init_script("""
         window.probe = {calls:0, readers:[], sockets:[], played:[], sent:[], readingMessages:[]};
         const p = window.probe;
@@ -34,7 +36,8 @@ class LiveConversationBrowserMixin:
           p.calls++;
           if (p.deny) throw new DOMException('Denied', 'NotAllowedError');
           const out = p.audio.createMediaStreamDestination(), tone = p.audio.createOscillator();
-          tone.connect(out); tone.start();
+          if (!p.silent) tone.connect(out);
+          tone.start();
           p.track = out.stream.getAudioTracks()[0];
           if (p.wait) {
             document.documentElement.dataset.waiting='true';
@@ -83,11 +86,15 @@ class LiveConversationBrowserMixin:
                 "model": "models/gemini-3.8-live", "token": "auth_tokens/" + token, **grant,
             })
 
-        self.page.route("**" + reverse("study:eo_tache_two_live_token", args=subject_args), fake_token)
+        self.page.route("**" + reverse(studio + "_token", args=subject_args), fake_token)
         with override_settings(
             GEMINI_LIVE_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN,
         ):
-            if subject_args:
+            if opinion and subject_args:
+                details = reverse("study:response_detail", args=("eo", "tache-3", *subject_args))
+                self.page.goto(self.live_server_url + details)
+                self.page.get_by_role("link", name="Simuler la tâche 3 sur ce sujet").click()
+            elif subject_args:
                 details = reverse("study:task_subject_detail", args=("eo", "tache-2", *subject_args))
                 self.page.goto(self.live_server_url + details)
                 self.selected_consigne = self.page.locator("#tache-two-subject-prompt").text_content()
@@ -109,14 +116,15 @@ class LiveConversationBrowserMixin:
                 self.assert_no_horizontal_overflow()
                 launch.click()
             else:
-                self.page.goto(self.live_server_url + reverse("study:eo_tache_two_live"))
+                self.page.goto(self.live_server_url + reverse(studio))
         self.start = self.page.locator("#lv-start")
         self.pin_dialog = self.page.locator("[data-audio-pin-dialog]")
 
     def submit_live_pin(self, pin=PILOT_PIN):
-        expect(self.pin_dialog.get_by_role("heading")).to_have_text("Autoriser la conversation Gemini Live")
+        expect(self.pin_dialog.get_by_role("heading")).to_have_text(
+            "Autoriser la simulation orale" if self.opinion else "Autoriser la conversation Gemini Live")
         self.pin_dialog.get_by_label("Code", exact=True).fill(pin)
-        self.pin_dialog.get_by_role("button", name="Autoriser cette conversation").click()
+        self.pin_dialog.get_by_role("button", name="Autoriser cette simulation" if self.opinion else "Autoriser cette conversation").click()
 
     def finish_prompt(self):
         expect(self.page.locator("html")).to_have_attribute("data-reader", "true")
@@ -128,7 +136,8 @@ class LiveConversationBrowserMixin:
             mimeType:'audio/pcm;rate=24000',data:btoa('\\x01\\x00'.repeat(240))
           }}]},turnComplete:true}});
         }""")
-        expect(self.page.locator("#lv-prep")).to_be_visible()
+        if not self.opinion:
+            expect(self.page.locator("#lv-prep")).to_be_visible()
 
     def start_preparation(self):
         self.start.click()
@@ -151,6 +160,108 @@ class LiveConversationBrowserMixin:
         self.page.locator("#lv-end").click()
         self.page.get_by_role("link", name="Revenir à la fiche de ce sujet").click()
         expect(self.page).to_have_url(self.live_server_url + reverse("study:task_subject_detail", args=("eo", "tache-2", *args)))
+
+    @override_settings(GEMINI_LIVE_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN)
+    def test_native_voice_opinion_reads_then_listens_until_deadline_and_keeps_last_words(self):
+        prompt = self.first.response.prompts.get()
+        args = (prompt.pk,)
+        self.open_live_pilot(opinion=True, subject_args=args)
+        expect(self.page).to_have_url(self.live_server_url + reverse("study:eo_tache_three_live", args=args))
+        report = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "reason": "",
+                  "next": "", "criteria": [], "annotations": [], "evidence": [], "proposal": []}
+        calls = []
+
+        def review(route):
+            calls.append(route.request.post_data_json)
+            route.fulfill(json=report)
+
+        self.page.route("**" + reverse("study:eo_tache_three_live_evaluation", args=args), review)
+        self.page.clock.install(time="2026-03-16T10:00:00Z")
+        self.page.clock.pause_at("2026-03-16T10:00:05Z")
+        self.start.click()
+        self.submit_live_pin()
+        expect(self.page.locator("html")).to_have_attribute("data-reader", "true")
+        expect(self.page.locator("#lv-prompt")).to_have_text(prompt.text)
+        self.page.clock.fast_forward(8_000)
+        self.assertEqual(self.page.evaluate("[probe.calls, probe.sockets.length]"), [0, 0])
+        self.finish_prompt()
+        expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
+        self.assertFalse(self.page.evaluate("probe.track.enabled"))
+        self.page.clock.fast_forward(5_000)
+        expect(self.page.locator("#lv-time")).to_be_hidden()
+        self.page.evaluate("""() => {
+          const ws = probe.sockets[0];
+          Object.defineProperty(probe.track, 'muted', {value:true, configurable:true});
+          ws.receive({setupComplete:{}});
+        }""")
+        self.page.clock.fast_forward(4_000)
+        expect(self.page.locator("#lv-status")).to_contain_text("le chronomètre attend")
+        expect(self.page.locator("#lv-time")).to_be_hidden()
+        self.page.evaluate("""() => {
+          const ws = probe.sockets[0];
+          delete probe.track.muted;
+          probe.track.dispatchEvent(new Event('unmute'));
+          ws.receive({serverContent:{inputTranscription:{text:'À mon avis, '},
+            outputTranscription:{text:'Interruption.'}, modelTurn:{parts:[{
+              inlineData:{mimeType:'audio/pcm',data:btoa('\\0'.repeat(480))}
+            }]},turnComplete:true}});
+        }""")
+        self.assertEqual(self.page.evaluate("probe.played.length"), 1)  # Only the question was audible.
+        self.assertFalse(self.page.evaluate("probe.sent.some(m => m.realtimeInput?.text)"))
+        expect(self.page.locator("#lv-notepad")).to_be_hidden()
+        expect(self.page.locator("#lv-clock")).to_have_text("04:30")
+        self.page.clock.fast_forward(269_000)
+        expect(self.page.locator("#lv-clock")).to_have_text("00:01")
+        self.page.clock.fast_forward(1_000)
+        self.assertEqual(self.page.evaluate("[probe.track.readyState, probe.sent.at(-1).realtimeInput.audioStreamEnd]"),
+                         ["ended", True])
+        self.page.clock.fast_forward(1_500)
+        self.page.evaluate("""probe.sockets[0].receive({serverContent:{
+          inputTranscription:{text:'la marche '}}})""")
+        self.page.clock.fast_forward(1_200)
+        self.page.evaluate("""probe.sockets[0].receive({serverContent:{
+          inputTranscription:{text:'est préférable.',finished:true}}})""")
+        self.page.clock.fast_forward(2_000)
+        expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
+        saved = LiveSimulation.objects.get(user=self.user)
+        self.assertEqual((saved.subject_key, saved.elapsed_ms, saved.rows),
+                         (f"eo3:{prompt.pk}", 270_000, [{"speaker": "user", "text": "À mon avis, la marche est préférable."}]))
+        self.assertEqual(calls, [{"rows": saved.rows, "simulation": str(saved.pk), "consent": True, "reviewGrant": "fixture-review"}])
+        self.assertEqual(len(self.token_requests), 2)
+        expect(self.page.locator("#lv-fig-turns")).to_have_text("7")
+        expect(self.page.locator("#lv-share")).to_be_hidden()
+        self.assert_no_horizontal_overflow()
+        LiveSimulation.objects.filter(pk=saved.pk).update(report=report)
+        self.page.reload()
+        expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
+        self.assertEqual(len(calls), 1)
+
+    def test_native_voice_suspended_mobile_audio_recovers_and_reports_silent_input(self):
+        self.open_live_pilot()
+        self.page.clock.install(time="2026-03-16T10:00:00Z")
+        self.page.clock.pause_at("2026-03-16T10:00:05Z")
+        self.start_preparation()
+        self.page.evaluate("probe.silent=true")
+        self.page.locator("#lv-skip").click()
+        expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
+        self.page.evaluate("probe.audio.suspend()")
+        self.page.clock.fast_forward(28_000)
+        self.page.evaluate("probe.sockets[0].receive({setupComplete:{}})")
+        resume = self.page.get_by_role("button", name="Réactiver le son")
+        expect(resume).to_be_visible()
+        expect(self.page.locator("#lv-time")).to_be_hidden()
+        self.page.clock.fast_forward(5_000)
+        self.assertFalse(self.page.evaluate("probe.track.enabled"))
+        resume.click()
+        expect(self.page.locator("#lv-clock")).to_have_text("03:30")
+        self.page.clock.fast_forward(6_000)
+        expect(self.page.locator("#lv-mic-signal")).to_contain_text("Aucun son détecté")
+        self.page.evaluate("probe.audio.suspend()")
+        resume.click()
+        expect(self.page.locator("#lv-clock")).to_have_text("03:24")
+        self.assertEqual(self.page.evaluate("[probe.calls,probe.sockets.length]"), [1, 1])
+        self.assertEqual(len(self.token_requests), 2)
+        self.assert_no_horizontal_overflow()
 
     def test_native_voice_waits_for_handshake_and_supports_interruption(self):
         self.open_live_pilot()
@@ -179,6 +290,7 @@ class LiveConversationBrowserMixin:
         self.page.evaluate("probe.sockets[0].receive({setupComplete:{}})")
         self.assertEqual(self.page.evaluate("probe.sent.filter(m => m.realtimeInput?.text?.includes('Bonjour')).length"), 1)
         expect(self.page.locator("html")).to_have_attribute("data-has-audio", "true")
+        expect(self.page.locator("#lv-mic-signal")).to_contain_text("Son détecté")
         audio = self.page.evaluate("""() => {
           const a = probe.sent.find(m => m.realtimeInput?.audio && /[^\\x00]/.test(atob(m.realtimeInput.audio.data))).realtimeInput.audio;
           const b = atob(a.data);
@@ -662,3 +774,16 @@ class LiveConversationBrowserMixin:
             expect(self.page.locator('#lv-turns [data-speaker="user"] .lv-turn__said ins')).to_have_text("prendre")
             self.assertEqual(len(calls), reviews)
             self.assert_no_horizontal_overflow()
+
+            self.page.goto(self.live_server_url + reverse("study:eo_tache_two_live"))
+            delete = saved.get_by_role("button", name="Supprimer la séance du")
+            expect(delete.locator('[data-icon="trash"]')).to_be_visible()
+            delete.click()
+            dialog = self.page.locator("[data-confirm-dialog]")
+            dialog.get_by_role("button", name="Annuler", exact=True).click()
+            expect(saved).to_have_count(1)
+            delete.click()
+            with self.page.expect_navigation():
+                dialog.locator("[data-confirm-accept]").click()
+            expect(saved).to_have_count(0)
+            self.assertFalse(LiveSimulation.objects.filter(user=self.user).exists())

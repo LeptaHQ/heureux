@@ -3,10 +3,12 @@ import logging
 import threading
 import time
 import uuid
+from dataclasses import dataclass
 
 from django.db import DatabaseError
 from django.db.models.fields.json import KT
 from django.http import Http404, JsonResponse, StreamingHttpResponse
+from django.shortcuts import get_object_or_404, redirect
 from django.template.response import TemplateResponse
 from django.urls import reverse
 from django.views.decorators.cache import never_cache
@@ -20,13 +22,15 @@ from study.catalogue.loader import tache_two_subject_content_key
 from study.expression.eo.tache_2 import gemini_evaluation, gemini_live
 from study.models import LiveSimulation, Prompt
 from study.navigation.routing import subject_selection_url
-from .helpers import _route_task, active_task_for_request, tache_two_publication
+from .helpers import _route_task, tache_two_publication
 
 
 DEFAULT_CONSIGNE = (
     "Je travaille à l’accueil d’un centre culturel. Vous souhaitez participer à un atelier de photographie. "
     "Demandez-moi des renseignements pour choisir une formule qui vous convient."
 )
+OPINION_CONSIGNE = "Est-il préférable de découvrir une ville à pied plutôt qu’en voiture ? Pourquoi ?"
+EO3_KEY_PREFIX = "eo3:"
 # A quick report keeps its real HTTP status; a slower one streams keep-alive spaces first.
 EVALUATION_GRACE_SECONDS = 20
 EVALUATION_KEEPALIVE_SECONDS = 10
@@ -40,32 +44,54 @@ SAVED_SIMULATIONS = 30
 logger = logging.getLogger(__name__)
 
 
-def _live_publication(task, month_slug, batch_number, subject_number):
+@dataclass(frozen=True)
+class LiveSubject:
+    key: str
+    title: str
+    prompt: str
+    detail_url: str = ""
+    role: object = None
+
+
+def _live_subject(task, publication):
+    if task.slug == "tache-3":
+        if not publication:
+            return LiveSubject(EO3_KEY_PREFIX + "default", "Découvrir une ville", OPINION_CONSIGNE)
+        prompt = get_object_or_404(
+            Prompt.objects.only("id", "text"), pk=publication["prompt_id"], theme__task=task,
+            theme__is_active=True, is_active=True, response__is_active=True,
+        )
+        return LiveSubject(f"{EO3_KEY_PREFIX}{prompt.pk}", "Votre sujet", prompt.text,
+                           reverse("study:response_detail", args=["eo", task.slug, prompt.pk]))
+    if not publication:
+        return LiveSubject("", "Choisir un atelier photo", DEFAULT_CONSIGNE)
+    month_slug, batch_number, subject_number = (publication[k] for k in ("month_slug", "batch_number", "subject_number"))
     _, _, subject = tache_two_publication(month_slug, batch_number, subject_number)
     key = tache_two_subject_content_key(month_slug, batch_number, subject_number)
     if not Prompt.objects.filter(
         theme__task=task, content_key=key, is_active=True, response__is_active=True,
     ).exists():
         raise Http404
-    return subject, key
+    return LiveSubject(key, subject.title, subject.prompt, reverse("study:task_subject_detail", kwargs={
+        "part_slug": "eo", "task_slug": task.slug, **publication,
+    }), subject)
+
+
+def _route_name(task):
+    return "study:eo_tache_three_live" if task.slug == "tache-3" else "study:eo_tache_two_live"
 
 
 @never_cache
 @require_GET
 @ensure_csrf_cookie
-def eo_tache_two_live(request, **publication):
-    task = _route_task("eo", "tache-2", request=request)
-    subject, key = None, ""
-    subject_url = ""
-    if publication:
-        subject, key = _live_publication(task, **publication)
-        subject_url = subject_selection_url(reverse("study:task_subject_detail", kwargs={
-            "part_slug": "eo", "task_slug": "tache-2", **publication,
-        }), request)
+def oral_live(request, task_slug, **publication):
+    task = _route_task("eo", task_slug, request=request)
+    subject = _live_subject(task, publication)
+    route = _route_name(task)
     available = gemini_live.available_to(request.user, task)
     saved, reopened = [], None
     if available:
-        simulations = LiveSimulation.objects.filter(user=request.user, subject_key=key)
+        simulations = LiveSimulation.objects.filter(user=request.user, subject_key=subject.key)
         # Only the figures the list shows, not each stored transcript and report.
         saved = list(simulations.values(
             "id", "created_at", score=KT("report__score"), nclc=KT("report__nclc"), status=KT("report__scoreStatus"),
@@ -80,16 +106,18 @@ def eo_tache_two_live(request, **publication):
         "part": task.part,
         "task": task,
         "gemini_live_available": available,
-        "token_url": reverse("study:eo_tache_two_live_token", kwargs=publication),
-        "save_url": reverse("study:eo_tache_two_live_save", kwargs=publication),
-        "evaluation_url": reverse("study:eo_tache_two_live_evaluation", kwargs=publication),
+        "monologue": task.slug == "tache-3",
+        "token_url": reverse(route + "_token", kwargs=publication),
+        "save_url": reverse(route + "_save", kwargs=publication),
+        "evaluation_url": reverse(route + "_evaluation", kwargs=publication),
+        "delete_url": subject_selection_url(reverse(route + "_delete", kwargs=publication), request),
         "saved_simulations": saved,
         "saved_simulation": reopened and {
             "id": reopened["id"], "rows": reopened["rows"], "elapsed": reopened["elapsed_ms"], "report": reopened["report"],
         },
-        "scenario_prompt": subject.prompt if subject else DEFAULT_CONSIGNE,
+        "scenario_prompt": subject.prompt,
         "subject": subject,
-        "subject_url": subject_url,
+        "subject_url": subject_selection_url(subject.detail_url, request) if subject.detail_url else "",
     })
 
 
@@ -130,25 +158,30 @@ def _session_request(request):
 @csrf_protect
 @sensitive_post_parameters("pin")
 @sensitive_variables()
-def eo_tache_two_live_token(request, **publication):
+def oral_live_token(request, task_slug, **publication):
     if request.content_type != "application/json":
         return JsonResponse({"error": "Un objet JSON est requis."}, status=415)
     data = _session_request(request)
     if data is None:
         return JsonResponse({"error": "Un consentement explicite est requis."}, status=400)
-    task = active_task_for_request(request, "eo", "tache-2")
+    task = _route_task("eo", task_slug, request=request)
     instruction = None
     purpose = data.get("purpose")
-    subject, key = _live_publication(task, **publication) if publication else (None, "")
+    subject = _live_subject(task, publication)
+    key = subject.key
     if purpose in ("attempt", "read_prompt"):
         instruction = (
             "Vous êtes le lecteur d’une consigne de français, pas l’interlocuteur. "
             "À la demande de lecture, lisez uniquement le passage suivant en français, "
             "mot pour mot, sans introduction, commentaire, réponse ni suggestion. Puis taisez-vous.\n"
-            + (subject.prompt if subject else DEFAULT_CONSIGNE)
+            + subject.prompt
         )
-    elif subject:
-        instruction = gemini_live.subject_instruction(subject, catalogue.tache_two_dialogues()[key])
+    elif task.slug == "tache-3":
+        instruction = ("Vous écoutez une prise de position en français, en continu. Gardez le silence, "
+                       "même pendant les pauses. Ne posez pas de questions et ne corrigez pas le candidat.\n"
+                       "Question posée : " + subject.prompt)
+    elif subject.role:
+        instruction = gemini_live.subject_instruction(subject.role, catalogue.tache_two_dialogues()[key])
     try:
         token = gemini_live.mint_token(request, task, data.get("pin"), instruction=instruction,
                                       exchange_grant=data.get("exchangeGrant"), subject_key=key)
@@ -169,21 +202,25 @@ def eo_tache_two_live_token(request, **publication):
 @csrf_protect
 @sensitive_post_parameters()
 @sensitive_variables()
-def eo_tache_two_live_save(request, **publication):
+def oral_live_save(request, task_slug, **publication):
     if request.content_type != "application/json":
         return JsonResponse({"error": "Un objet JSON est requis."}, status=415)
-    task = active_task_for_request(request, "eo", "tache-2")
-    _, key = _live_publication(task, **publication) if publication else (None, "")
+    task = _route_task("eo", task_slug, request=request)
+    subject = _live_subject(task, publication)
+    monologue = task_slug == "tache-3"
     if not gemini_live.available_to(request.user, task):
         return JsonResponse({"error": "L’enregistrement n’est pas disponible."}, status=403)
     try:
-        data = gemini_evaluation.simulation_data(request.read(gemini_evaluation.MAX_BODY + 1))
+        data = gemini_evaluation.simulation_data(request.read(gemini_evaluation.MAX_BODY + 1), monologue=monologue)
     except gemini_evaluation.EvaluationError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
     simulation = LiveSimulation.objects.create(
-        user=request.user, subject_key=key, rows=data["rows"], elapsed_ms=data["elapsed"],
+        user=request.user, subject_key=subject.key, rows=data["rows"], elapsed_ms=data["elapsed"],
     )
-    stale = list(LiveSimulation.objects.filter(user=request.user).values_list("pk", flat=True)[SAVED_SIMULATIONS:])
+    history = LiveSimulation.objects.filter(user=request.user)
+    scope = {"subject_key__startswith": EO3_KEY_PREFIX}
+    history = history.filter(**scope) if monologue else history.exclude(**scope)
+    stale = list(history.values_list("pk", flat=True)[SAVED_SIMULATIONS:])
     if stale:
         LiveSimulation.objects.filter(pk__in=stale).delete()
     return JsonResponse({"id": str(simulation.pk)}, status=201)
@@ -192,24 +229,41 @@ def eo_tache_two_live_save(request, **publication):
 @never_cache
 @require_POST
 @csrf_protect
+def oral_live_delete(request, task_slug, **publication):
+    task = _route_task("eo", task_slug, request=request)
+    subject = _live_subject(task, publication)
+    try:
+        pk = uuid.UUID(request.POST.get("simulation", ""))
+    except ValueError:
+        raise Http404
+    deleted, _ = LiveSimulation.objects.filter(pk=pk, user=request.user, subject_key=subject.key).delete()
+    if not deleted:
+        raise Http404
+    return redirect(subject_selection_url(reverse(_route_name(task), kwargs=publication), request))
+
+
+@never_cache
+@require_POST
+@csrf_protect
 @sensitive_post_parameters()
 @sensitive_variables()
-def eo_tache_two_live_evaluation(request, **publication):
+def oral_live_evaluation(request, task_slug, **publication):
     if request.content_type != "application/json":
         return JsonResponse({"error": "Un objet JSON est requis."}, status=415)
-    task = active_task_for_request(request, "eo", "tache-2")
-    subject, key = _live_publication(task, **publication) if publication else (None, "")
+    task = _route_task("eo", task_slug, request=request)
+    subject = _live_subject(task, publication)
+    monologue = task_slug == "tache-3"
     try:
-        data = gemini_evaluation.request_data(request.read(gemini_evaluation.MAX_BODY + 1))
-        gemini_evaluation.authorize(request, task, data.get("pin"), grant=data.get("reviewGrant"), subject_key=key)
+        data = gemini_evaluation.request_data(request.read(gemini_evaluation.MAX_BODY + 1), monologue=monologue)
+        gemini_evaluation.authorize(request, task, data.get("pin"), grant=data.get("reviewGrant"), subject_key=subject.key)
     except AudioPinError as exc:
         return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
     except gemini_evaluation.EvaluationError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
-    prompt, rows = subject.prompt if subject else DEFAULT_CONSIGNE, data["rows"]
+    rows = data["rows"]
     simulation = None
     if "simulation" in data:
-        saved = LiveSimulation.objects.filter(pk=data["simulation"], user=request.user, subject_key=key).values_list(
+        saved = LiveSimulation.objects.filter(pk=data["simulation"], user=request.user, subject_key=subject.key).values_list(
             "rows", flat=True).first()
         # Only the exchange that was saved may carry this report.
         if saved and [{"speaker": row["speaker"], "text": row["text"]} for row in saved] == rows:
@@ -222,11 +276,11 @@ def eo_tache_two_live_evaluation(request, **publication):
             try:
                 LiveSimulation.objects.filter(pk=simulation).update(report=body)
             except DatabaseError:
-                logger.exception("EO2 evaluation: report not saved")
+                logger.exception("Oral evaluation: report not saved")
 
     def score():
         try:
-            outcome.append((gemini_evaluation.score(prompt, rows), 200))
+            outcome.append((gemini_evaluation.score(subject.prompt, rows, monologue=monologue), 200))
         except gemini_evaluation.EvaluationError as exc:
             outcome.append(({"error": str(exc)}, exc.status))
         finally:

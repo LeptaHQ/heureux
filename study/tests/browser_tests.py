@@ -2132,7 +2132,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         nav = self.page.locator(".task-nav--eo-t3")
         self.assertEqual(
             [label.strip() for label in nav.locator("a").all_text_contents()],
-            ["Vue d'ensemble", "Vocabulaire", "Sujets"],
+            ["Vue d'ensemble", "Sujets", "Simulation"],
         )
         expect(self.page.locator(f'a[href="{former_url}"]')).to_have_count(0)
         for width in (320, 390, 1183):
@@ -7554,6 +7554,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
+    @override_settings(GEMINI_LIVE_API_KEY="fixture-not-a-key", AI_PIN="test-audio-pin")
     def test_eo3_vocabulary_removal_preserves_mobile_subject_progress(self):
         prompt = self.first.response.prompts.get(is_canonical=True)
         phrase = factories.make_phrase(tier=PhraseTier.SUBJECT)
@@ -7568,7 +7569,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 expect(self.page.locator('[data-task-choice="subjects"]')).to_be_visible()
                 self.assertEqual(
                     self.page.locator(".task-nav a").all_text_contents(),
-                    ["Vue d'ensemble", "Sujets"],
+                    ["Vue d'ensemble", "Sujets", "Simulation"],
                 )
                 self.page.goto(self.live_server_url + directory)
                 self.page.get_by_role("button", name="Tableau", exact=True).click()
@@ -7587,7 +7588,9 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 expect(self.page.locator(".response-sidebar-card--status")).to_be_visible()
                 expect(self.page.locator(".response-sidebar-card--vocabulary")).to_have_count(0)
                 expect(self.page.locator(".response-sidebar-card--phrases")).to_have_count(0)
-                expect(self.page.get_by_role("link", name="Pratiquer cette réponse")).to_be_visible()
+                launch = self.page.get_by_role("link", name="Simuler la tâche 3 sur ce sujet")
+                expect(launch).to_be_visible()
+                expect(launch).to_have_attribute("href", reverse("study:eo_tache_three_live", args=[prompt.pk]))
                 self.assert_no_horizontal_overflow()
         phrase.refresh_from_db()
         self.assertTrue(phrase.is_active)

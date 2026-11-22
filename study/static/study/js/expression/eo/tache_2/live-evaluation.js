@@ -1,6 +1,7 @@
 (() => {
   "use strict";
   const root = document.getElementById("live-studio");
+  const opinion = root.dataset.mode === "opinion";
   const by = id => document.getElementById("lv-" + id);
   const button = by("assess");
   if (!button) return;
@@ -39,7 +40,7 @@
 
   function show(report) {
     by("level").textContent = report.scoreStatus === "incomplete" ? "Grille partielle · pas de total" :
-      report.score === null ? "Échange insuffisant pour une note" :
+      report.score === null ? (opinion ? "Intervention insuffisante pour une note" : "Échange insuffisant pour une note") :
       `${report.score}/20 · NCLC ${report.nclc} · ${report.cefr}`;
     by("assessment-reason").textContent = report.reason;
     by("assessment-criteria").replaceChildren(...report.criteria.map(({label, score, why}) => {
@@ -86,7 +87,8 @@
     if (report) status(show(report));
     else if (simulation) {
       button.disabled = false;
-      status("Pas encore de bilan pour cet échange : touchez ✨ pour le demander.");
+      status(opinion ? "Pas encore de bilan pour cette intervention : touchez ✨ pour le demander." :
+        "Pas encore de bilan pour cet échange : touchez ✨ pour le demander.");
     } else assess();
   }
   const post = (call, body) => ({
@@ -109,11 +111,11 @@
     if (!rows || pending) return;
     const call = pending = new AbortController();
     button.disabled = true;
-    status("Groq examine votre échange…", true);
+    status(opinion ? "Groq examine votre intervention…" : "Groq examine votre échange…", true);
     // A result or failure reopens the bilan if it was folded while Groq worked.
     const done = text => {
       by("assessment").open = true;
-      status(simulation ? text : `${text} Cet échange n’a pas pu être enregistré.`);
+      status(simulation ? text : `${text} Cette séance n’a pas pu être enregistrée.`);
     };
     try {
       if (!simulation) {
@@ -132,7 +134,7 @@
       // Without this tab's review grant, such as for a reopened exchange, the audio PIN authorizes the report.
       const response = await (grant ? fetch(root.dataset.evaluationUrl, options) :
         window.HeureuxAudioRequest(root.dataset.evaluationUrl, options, {title: "Demander le bilan Groq", action: "Demander le bilan",
-          description: "La transcription de cet échange sera envoyée à Groq pour le bilan."}));
+          description: "La transcription de cette séance sera envoyée à Groq pour le bilan."}));
       if (pending !== call) return;
       if (!response.ok) {
         if (response.status === 403) grant = null;

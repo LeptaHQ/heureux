@@ -8,12 +8,14 @@
   const wsURL = "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContentConstrained";
   const Audio = window.AudioContext || window.webkitAudioContext;
   const capable = Boolean(window.isSecureContext && navigator.mediaDevices?.getUserMedia && Audio && window.AudioWorkletNode);
-  const prep = 120000, live = 210000;
+  const opinion = root.dataset.mode === "opinion";
+  const prep = 120000, live = opinion ? 270000 : 210000;
+  const timeLabel = opinion ? "4 min 30" : "3 min 30";
   const review = window.HeureuxEO2LiveReview;
   const introduction = by("prompt").textContent;
   const initialTitle = by("title").textContent;
   const initialKicker = by("kicker").textContent;
-  const stepOf = {prep:"prep",connecting:"live",live:"live",done:"done"};
+  const stepOf = {reading:"reading",prep:"prep",connecting:"live",live:"live",done:"done"};
   let active;
   const state = () => root.dataset.state;
   const owns = s => active === s;
@@ -23,8 +25,9 @@
     show("call",next === "live");
     show("start",next === "setup"); show("skip",next === "prep"); show("retry",next === "done");
     show("time",next === "prep" || next === "live");
-    show("notepad",["prep","connecting","live"].includes(next));
-    show("mute",next === "live"); show("end",!["setup","done"].includes(next));
+    show("notepad",!opinion && ["prep","connecting","live"].includes(next));
+    show("mute",next === "live"); show("end",!["setup","draining","done"].includes(next));
+    if (!["connecting","live"].includes(next)) show("resume-audio",false);
     text("phase",label);
     if (next !== "done") text("kicker",["reading","prep","connecting","live"].includes(next) ? "Consigne" : initialKicker);
     for (const step of root.querySelectorAll(".lv-step")) {
@@ -56,29 +59,44 @@
   }
   function finish(s, message, ending = "interrupted") {
     if (!owns(s)) return;
-    const started = state() === "live";
-    const elapsed = started ? Math.min(live,Math.max(0,Date.now()-s.began.wall,performance.now()-s.began.mono)) : 0;
+    const started = ["live","draining"].includes(state());
+    const elapsed = started ? s.elapsed ?? Math.min(live, Math.max(0,live-left(s))) : 0;
     active = null; clearTimeout(s.timer); clearTimeout(s.watchdog); s.abort.abort();
     s.exchangeGrant = null;
+    if (s.audio) s.audio.onstatechange = null;
     cutMic(s); cutSound(s);
-    s.stream?.getTracks().forEach(t => { t.onended = null; t.stop(); });
+    s.stream?.getTracks().forEach(t => { t.onended = t.onunmute = null; t.stop(); });
     closeSocket(s);
     if (s.audio && s.audio.state !== "closed") s.audio.close();
     phase("done","Séance terminée");
     const reviewed = started && review.render(s.rows,{elapsed});
     root.dataset.ending = started ? ending : "failed";
     const cut = ending !== "normal";
-    text("kicker",!started ? "Séance interrompue" : !reviewed ? (cut ? "Échange interrompu" : "Échange terminé") :
-      cut ? "Bilan partiel · échange interrompu" : "Bilan de l’échange");
-    text("title",!started ? "L’échange n’a pas commencé" : reviewed ? "Votre bilan" : "Pas de bilan pour cet essai");
+    text("kicker",!started ? "Séance interrompue" : opinion ? (cut ? "Bilan partiel" : "Fin de la prise de parole") :
+      !reviewed ? (cut ? "Échange interrompu" : "Échange terminé") : cut ? "Bilan partiel · échange interrompu" : "Bilan de l’échange");
+    text("title",!started ? (opinion ? "La prise de parole n’a pas commencé" : "L’échange n’a pas commencé") :
+      reviewed ? "Votre bilan" : "Pas de bilan pour cet essai");
     text("prompt",root.dataset.scenarioTitle); text("status",message); show("failed",!started);
-    text("user-words","—"); text("ai-words","—"); by("notes").value = "";
+    text("user-words","—"); if (!opinion) text("ai-words","—"); by("notes").value = "";
     s.rows.length = 0; s.partial = {}; s.lastModel = null;
     by("title").focus();
   }
+  function endAttempt(s, message) {
+    if (!opinion || state() !== "live") { finish(s,message,"normal"); return; }
+    s.elapsed = Math.min(live,Math.max(0,live-left(s)));
+    clearTimeout(s.timer); cutMic(s);
+    s.stream.getTracks().forEach(t => t.stop());
+    phase("draining","Fin de la transcription");
+    text("status","Micro coupé · réception des derniers mots.");
+    if (s.sock?.readyState === WebSocket.OPEN) s.sock.send(JSON.stringify({realtimeInput:{audioStreamEnd:true}}));
+    // No provider event marks the whole transcript complete. Allow a quiet gap after the last
+    // input chunk, with an absolute cap even if the socket never settles.
+    s.finishCaptions = () => finish(s,message,"normal");
+    s.watchdog = setTimeout(s.finishCaptions,6000);
+  }
   function running(s) {
     if (!owns(s) || state() !== "live") return false;
-    if (left(s) <= 0) { display(0); finish(s,"Les 3 min 30 sont écoulées.","normal"); return false; }
+    if (left(s) <= 0) { display(0); endAttempt(s,`Les ${timeLabel} sont écoulées.`); return false; }
     return true;
   }
   function tick(s) {
@@ -86,10 +104,24 @@
     const ms = left(s); display(ms);
     if (ms <= 0) {
       if (state() === "prep" && ms > -live && !document.hidden) connect(s);
-      else finish(s,state() === "live" ? "Les 3 min 30 sont écoulées. Le micro est coupé." : "Le temps est écoulé.","normal");
-    } else s.timer = setTimeout(() => tick(s), Math.min(ms,ms%1000 || 1000));
+      else endAttempt(s,state() === "live" ? `Les ${timeLabel} sont écoulées. Le micro est coupé.` : "Le temps est écoulé.");
+    } else {
+      if (state() === "live") micSignal(s);
+      s.timer = setTimeout(() => tick(s), Math.min(ms,ms%1000 || 1000));
+    }
+  }
+  function micSignal(s) {
+    const track = s.stream.getAudioTracks()[0];
+    const input = track.label || "Microphone du navigateur";
+    const signal = !s.capture ? "Micro coupé" : s.audio.state !== "running" ? "Son suspendu" :
+      track.muted ? "Entrée interrompue par le téléphone" :
+      performance.now()-s.lastSignal < 5000 ? "Son détecté" : performance.now()-s.micOpened < 5000 ? "En écoute" :
+      "Aucun son détecté · vérifiez le micro ou essayez sans écouteurs";
+    const value = `${input} · ${signal}`;
+    if (by("mic-signal").textContent !== value) text("mic-signal",value);
   }
   function startMic(s) {
+    s.micOpened = performance.now(); s.lastSignal = -Infinity;
     s.stream.getAudioTracks().forEach(t => { t.enabled = true; });
     const capture = s.capture = new AudioWorkletNode(s.audio,"french-live-pcm",{channelCount:1,channelCountMode:"explicit"});
     capture.onprocessorerror = () => { if (s.capture === capture) finish(s,"La capture audio s’est arrêtée."); };
@@ -98,13 +130,33 @@
       if (!running(s) || s.capture !== capture || s.sock.readyState !== WebSocket.OPEN) return;
       if (s.sock.bufferedAmount > 128000) { finish(s,"Connexion trop lente pour poursuivre sans décaler votre voix."); return; }
       const bytes = new Uint8Array(data);
+      if (new Int16Array(data).some(value => Math.abs(value) > 32)) s.lastSignal = performance.now();
       const audio = {mimeType:"audio/pcm;rate=16000",data:btoa(String.fromCharCode(...bytes))};
       s.sock.send(JSON.stringify({realtimeInput:{audio}}));
     };
     source.connect(capture); capture.connect(s.audio.destination);
     root.dataset.mic = "open";
     text("mute","Couper le micro"); by("mute").setAttribute("aria-pressed","false");
-    text("status","Micro ouvert · transcription automatique. Vous pouvez interrompre votre interlocuteur.");
+    text("status",opinion ? "Micro ouvert · développez votre point de vue. L’interlocuteur vous écoute en silence." :
+      "Micro ouvert · transcription automatique. Vous pouvez interrompre votre interlocuteur.");
+  }
+  function audioReady(s) {
+    if (!owns(s) || !s.handshake || !["connecting","live"].includes(state())) return;
+    const suspended = s.audio.state !== "running";
+    show("resume-audio",suspended);
+    if (suspended) { text("status","Le téléphone a suspendu le son. Touchez « Réactiver le son »."); return; }
+    if (state() === "live") { text("status",s.capture ? "Micro ouvert · transcription automatique." : "Micro coupé."); return; }
+    const track = s.stream.getAudioTracks()[0];
+    if (!track || track.readyState !== "live") {
+      finish(s,"Le micro est déconnecté. Vérifiez vos écouteurs ou essayez le micro du téléphone."); return;
+    }
+    if (track.muted) {
+      track.enabled = true;  // Let the device wake, without wiring it to the socket yet.
+      text("status","Le micro ne fournit pas encore de son. Vérifiez les écouteurs ; le chronomètre attend."); return;
+    }
+    clearTimeout(s.watchdog); startMic(s);
+    s.began = stamp(); s.duration = live; phase("live",opinion ? "Point de vue" : "Interaction"); tick(s);
+    if (!opinion) s.sock.send(JSON.stringify({realtimeInput:{text:"Pour ouvrir cet échange, dites « Bonjour ! », avec une brève salutation si elle convient à notre relation, puis laissez-moi poser la première question sur le sujet."}}));
   }
   function play(s, encoded, onEnded) {
     const bytes = atob(encoded);
@@ -140,16 +192,25 @@
     try {
       const msg = JSON.parse(typeof raw === "string" ? raw : new TextDecoder().decode(raw));
       if (msg.error || msg.goAway) { finish(s,"Le service a fermé la connexion. Aucun nouvel appel n’a été lancé."); return; }
-      if (msg.setupComplete && state() === "connecting") {
-        if (s.audio.state !== "running" || !s.stream.getAudioTracks().some(track => track.readyState === "live")) {
-          finish(s,"Le son ou le microphone n’est plus disponible."); return;
-        }
-        clearTimeout(s.watchdog); startMic(s);
-        s.began = stamp(); s.duration = live; phase("live","Interaction"); tick(s);
-        s.sock.send(JSON.stringify({realtimeInput:{text:"Pour ouvrir cet échange, dites uniquement « Bonjour ! », puis laissez-moi poser la première question."}}));
+      if (msg.setupComplete && state() === "connecting" && !s.handshake) {
+        s.handshake = true;
+        clearTimeout(s.watchdog);
+        // A late handshake must still leave time for an explicit tap to resume mobile audio.
+        s.watchdog = setTimeout(() => finish(s,"Le son ou le micro n’est pas prêt. Vérifiez les écouteurs ou essayez le micro du téléphone."),120000);
+        audioReady(s);
       }
       const turn = msg.serverContent;
-      if (!turn || !running(s)) return;
+      if (!turn) return;
+      if (opinion) {
+        if (state() === "live") running(s);
+        if (["live","draining"].includes(state())) caption(s,"user",turn.inputTranscription);
+        if (state() === "draining" && (turn.inputTranscription?.text || turn.inputTranscription?.finished)) {
+          clearTimeout(s.timer);
+          s.timer = setTimeout(s.finishCaptions,1800);
+        }
+        return;  // The candidate keeps the floor, even if Gemini emits a reply during a pause.
+      }
+      if (!running(s)) return;
       if (turn.interrupted) {
         s.awaitingInterruptedEnd = true;
         cutSound(s);
@@ -201,11 +262,13 @@
     text("status","Lecture du sujet · micro coupé, chronomètre arrêté.");
     by("title").focus();
     const socket = openSocket(s,config);
-    const failed = () => finish(s,"La lecture du sujet n’a pas abouti. La préparation n’a pas démarré.");
+    const failed = () => finish(s,"La lecture du sujet n’a pas abouti. " +
+      (opinion ? "Le chronomètre n’a pas démarré." : "La préparation n’a pas démarré."));
     let requested = false, audible = false, complete = false;
     function afterPlayback() {
       if (!owns(s) || state() !== "reading" || !complete || s.playing.size) return;
       clearTimeout(s.watchdog);
+      if (opinion) { connect(s); return; }
       s.began = stamp(); s.duration = prep; phase("prep","Préparation"); by("notepad").open = true;
       text("status","Micro coupé · préparez vos questions."); tick(s);
     }
@@ -232,18 +295,23 @@
     };
   }
   async function connect(s) {
-    if (!owns(s) || state() !== "prep") return;
+    if (!owns(s) || state() !== (opinion ? "reading" : "prep")) return;
     clearTimeout(s.timer); phase("connecting","Connexion");
-    by("notepad").open = false; text("status","Autorisez le micro. Les 3 min 30 commencent une fois la connexion établie.");
+    by("notepad").open = false; text("status",`Autorisez le micro. Les ${timeLabel} commencent une fois la connexion établie.`);
     s.watchdog = setTimeout(() => finish(s,"Le délai d’autorisation du micro a expiré."),120000);
     try {
       const stream = await navigator.mediaDevices.getUserMedia({video:false,audio:{channelCount:1,echoCancellation:true,noiseSuppression:true}});
       if (!owns(s)) { stream.getTracks().forEach(t => t.stop()); return; }
       s.stream = stream;
-      stream.getAudioTracks().forEach(t => { t.enabled = false; t.onended = () => finish(s,"Le microphone s’est déconnecté."); });
+      stream.getAudioTracks().forEach(t => {
+        t.enabled = false;
+        t.onunmute = () => audioReady(s);
+        t.onended = () => finish(s,"Le microphone s’est déconnecté. Vérifiez vos écouteurs ou essayez sans Bluetooth.");
+      });
+      s.audio.onstatechange = () => audioReady(s);
       clearTimeout(s.watchdog);
       s.watchdog = setTimeout(() => finish(s,"La connexion n’a pas abouti. Aucun nouvel essai automatique."),30000);
-      text("status","Connexion à l’interlocuteur · le chronomètre est arrêté.");
+      text("status","Connexion au studio · le chronomètre est arrêté.");
       const response = await fetch(root.dataset.tokenUrl,requestOptions(s,{purpose:"exchange",exchangeGrant:s.exchangeGrant}));
       s.exchangeGrant = null;
       if (!owns(s)) return;
@@ -257,7 +325,9 @@
       socket.onerror = socket.onclose = () => finish(s,"Connexion vocale interrompue ou quota indisponible. Le micro est coupé.");
     } catch (error) {
       if (owns(s)) finish(s,error.name === "AbortError" ? "Ouverture annulée. Aucun appel n’est en cours." :
-        error.name === "NotAllowedError" ? "Micro refusé. Autorisez-le dans votre navigateur pour participer." : "Impossible d’ouvrir le micro ou la connexion vocale.");
+        error.name === "NotAllowedError" ? "Micro refusé. Autorisez le microphone pour ce site dans votre navigateur." :
+        ["NotFoundError","NotReadableError"].includes(error.name) ? "Micro indisponible. Vérifiez le micro des écouteurs ou réessayez sans Bluetooth." :
+        "Impossible d’ouvrir le micro ou la connexion vocale.");
     }
   }
   // A saved exchange opens on its debrief; its report is the stored one, not a new Groq call.
@@ -278,8 +348,10 @@
     const s = active = {abort:new AbortController(),playing:new Set(),rows:[],partial:{},cursor:0};
     try {
       const response = await window.HeureuxAudioRequest(root.dataset.tokenUrl,requestOptions(s,{purpose:"attempt"}),{
-        confirmBeforeSend:true, title:"Autoriser la conversation Gemini Live", action:"Autoriser cette conversation",
-        description:"La consigne sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant l’échange, puis sa transcription à Groq pour le bilan. " +
+        confirmBeforeSend:true, title:opinion ? "Autoriser la simulation orale" : "Autoriser la conversation Gemini Live", action:opinion ? "Autoriser cette simulation" : "Autoriser cette conversation",
+        description:(opinion ? "La question sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant ma prise de parole, puis sa transcription à Groq pour le bilan. " :
+          "La consigne sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant l’échange, puis sa transcription à Groq pour le bilan. ") +
+          "Heureux conserve la transcription et le bilan, pas l’audio. " +
           "Je confirme avoir au moins 18 ans et participer depuis le Canada ou les États-Unis. Des personnes peuvent examiner l’échange pour améliorer les produits de Google.",
         onConfirm:() => {
           phase("loading","Ouverture"); text("status","Ouverture de la lecture · micro coupé.");
@@ -302,17 +374,22 @@
       if (!owns(s)) return;
       if (error.name === "AbortError") {
         finish(s,"Ouverture annulée."); setup(); text("status","Ouverture annulée."); by("start").focus();
-      } else finish(s,"Impossible de lancer la lecture du sujet. La préparation n’a pas démarré.");
+      } else finish(s,"Impossible de lancer la lecture du sujet. Le chronomètre n’a pas démarré.");
     }
   };
   by("skip").onclick = () => { if (active) connect(active); };
+  by("resume-audio").onclick = async () => {
+    const s = active; if (!s) return;
+    try { await s.audio.resume(); audioReady(s); }
+    catch { if (owns(s)) finish(s,"Le son n’a pas repris. Vérifiez le micro ou réessayez sans écouteurs."); }
+  };
   by("mute").onclick = () => {
     const s = active; if (!s || !running(s)) return;
     if (!s.capture) { startMic(s); return; }
     cutMic(s); if (s.sock.readyState === WebSocket.OPEN) s.sock.send(JSON.stringify({realtimeInput:{audioStreamEnd:true}}));
     text("mute","Rouvrir le micro"); by("mute").setAttribute("aria-pressed","true"); text("status","Micro coupé. Aucun son n’est envoyé.");
   };
-  by("end").onclick = () => { if (active) finish(active,"Vous avez mis fin à la séance.","normal"); };
+  by("end").onclick = () => { if (active) endAttempt(active,"Vous avez mis fin à la séance."); };
   by("retry").onclick = () => {
     const url = new URL(location.href);
     if (url.searchParams.has("simulation")) {

@@ -881,7 +881,7 @@ class CourseProduction(models.Model):
 
 
 class LiveSimulation(models.Model):
-    """A transcribed Tâche 2 voice exchange, kept so its debrief and report can be reopened."""
+    """A transcribed oral practice session, kept so its debrief and report can be reopened."""
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(

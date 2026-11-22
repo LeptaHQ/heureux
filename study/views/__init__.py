@@ -30,7 +30,6 @@ from .comprehension import (
     comprehension_test_detail,
 )
 from .dashboard import dashboard, expression_hub
-from .eo2_live import eo_tache_two_live, eo_tache_two_live_evaluation, eo_tache_two_live_save, eo_tache_two_live_token
 from .learning import (
     learn,
     learn_lesson,

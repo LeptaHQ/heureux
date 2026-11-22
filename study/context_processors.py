@@ -47,6 +47,7 @@ EXPRESSION_ROUTES = {
     "eo_tache_one_interview",
     "eo_tache_two_interaction",
     "eo_tache_two_live",
+    "eo_tache_three_live",
     "task_browse",
     "task_memories",
     "task_memory_detail",
@@ -107,6 +108,8 @@ def _explicit_task(request):
     kwargs = match.kwargs if match else {}
     part_slug = kwargs.get("part_slug")
     task_slug = kwargs.get("task_slug")
+    if match and match.url_name in {"eo_tache_two_live", "eo_tache_three_live"}:
+        part_slug = "eo"
     if match and match.url_name in {
         "tache_two_theme_vocabulary",
         "tache_two_theme_vocabulary_detail",

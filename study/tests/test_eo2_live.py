@@ -155,6 +155,7 @@ class GeminiLiveTests(TestCase):
             self.assertLessEqual(expiry, after + timedelta(minutes=minutes))
         setup = payload["bidiGenerateContentSetup"]
         instruction = setup.pop("systemInstruction")["parts"][0]["text"]
+        self.assertIn(gemini_live._TURN_RULE, instruction)
         self.assertEqual(setup, {
             "model": "models/gemini-3.8-live", "generationConfig": {"responseModalities": ["AUDIO"]},
             "inputAudioTranscription": {"languageCodes": ["fr-FR"]}, "outputAudioTranscription": {},
@@ -204,6 +205,7 @@ class GeminiLiveTests(TestCase):
                 instruction = payload["bidiGenerateContentSetup"]["systemInstruction"]["parts"][0]["text"]
                 self.assertNotIn("DB-only sentinel", instruction)
                 self.assertNotIn("parc des Saules", instruction)
+                self.assertIn(gemini_live._TURN_RULE, instruction)
                 self.assertIn(page.context["subject"].prompt, instruction)
                 self.assertIn(dialogue.questions[0].answer, instruction)
                 self.assertIn(f'"registre": "{dialogue.register}"', instruction)
@@ -333,8 +335,8 @@ class GeminiLiveTests(TestCase):
                                      {"turnIndex": 2, "why": "Vous explorez une autre possibilité."}],
                        "corrections": [{"turnIndex": 2, "before": "veux prend", "after": "veux prendre",
                                         "why": "Après vouloir, le deuxième verbe reste à l’infinitif."}],
-                       "proposal": ["Bonjour, combien coûte le prêt d’un appareil photo ?",
-                                    "Et si je veux prendre deux appareils, le tarif change-t-il ?"],
+                       "proposal": [{"turnIndex": 0, "text": "Bonjour, combien coûte le prêt d’un appareil photo ?"},
+                                    {"turnIndex": 2, "text": "Et si je veux prendre deux appareils, le tarif change-t-il ?"}],
                        "next": "Précisez la durée du prêt : « Et si je les garde deux jours ? »"}
         return transport
 
@@ -366,7 +368,7 @@ class GeminiLiveTests(TestCase):
         self.assertEqual((report["score"], report["cefr"], report["nclc"]), (12, "B2", "8"))
         self.assertEqual([item["score"] for item in report["criteria"]], [4, 3, 3, 2])
         self.assertEqual([item["quote"] for item in report["evidence"]], [self.rows[0]["text"], self.rows[2]["text"]])
-        self.assertEqual(report["proposal"], self.report["proposal"])
+        self.assertEqual(report["proposal"], [line["text"] for line in self.report["proposal"]])
         mark, = report["annotations"]
         encoded = self.rows[mark["turnIndex"]]["text"].encode("utf-16-le")
         self.assertEqual(encoded[2*mark["start"]:2*mark["end"]].decode("utf-16-le"), "veux prend")
@@ -454,19 +456,44 @@ class GeminiLiveTests(TestCase):
 
     def test_malformed_proposal_is_dropped_without_losing_the_score(self):
         self.evaluation_fixture()
-        for proposal in (None, "Bonjour.", ["Bonjour.", " "], ["x" * 401], [3]):
+        first, last = self.report["proposal"]
+        for proposal in (None, "Bonjour.", [first, {**last, "text": " "}], [first, {**last, "text": "x" * 401}],
+                         [3], [last, first], [first, first], [first], [{**first, "turnIndex": False}, last]):
             with self.subTest(proposal=proposal):
                 self.report["proposal"] = proposal
                 result = gemini_evaluation._ground(self.report, self.rows)
                 self.assertEqual((result["score"], result["omitted"], result["proposal"]), (12, True, []))
 
+    def test_proposal_keeps_a_personal_answer_on_the_learners_turn(self):
+        self.evaluation_fixture()
+        self.rows = [
+            {"speaker": "user", "text": "Vous avez déjà visité Nantes ?"},
+            {"speaker": "model", "text": "Pas encore. Et vous, qu’avez-vous fait là-bas ?"},
+            {"speaker": "user", "text": "Moi, j’ai visité mon frère à Nantes."},
+            {"speaker": "model", "text": "Ça a dû lui faire plaisir !"},
+        ]
+        first, answer = self.report["proposal"]
+        first["text"], answer["text"] = "Avez-vous déjà visité Nantes ?", "J’ai rendu visite à mon frère à Nantes."
+        result = self.evaluate().json()
+        self.assertEqual(result["proposal"], [first["text"], answer["text"]])
+        system, conversation = json.loads(self.eval_connection.request.call_args.kwargs["body"])["messages"]
+        self.assertIn("une réponse personnelle reste une réponse", system["content"])
+        self.assertEqual(json.loads(conversation["content"])["rows"],
+                         [dict(row, turnIndex=i) for i, row in enumerate(self.rows)])
+
+        self.report["proposal"][1] = {"turnIndex": 1, "text": "Qu’avez-vous fait à Nantes ?"}
+        result = self.evaluate().json()
+        self.assertEqual((result["score"], result["proposal"], result["omitted"]), (12, [], True))
+
     def test_overlong_lists_keep_their_first_items_and_the_schema_has_no_bounds(self):
         self.evaluation_fixture()
-        self.report["proposal"] = [f"Réplique {n}." for n in range(17)]
+        self.rows.extend([{"speaker": "user", "text": f"Réplique {n}."} for n in range(15)])
+        self.report["proposal"] = [dict(turnIndex=i, text=row["text"]) for i, row in enumerate(self.rows)
+                                   if row["speaker"] == "user"]
         self.report["strengths"] *= 2
         report = self.evaluate().json()
         self.assertEqual((report["score"], report["omitted"], len(report["evidence"])), (12, True, 3))
-        self.assertEqual(report["proposal"], self.report["proposal"][:16])
+        self.assertEqual(report["proposal"], [line["text"] for line in self.report["proposal"][:16]])
         payload = json.loads(self.eval_connection.request.call_args.kwargs["body"])
         schema = json.dumps(payload["response_format"])
         for bound in ("minItems", "maxItems", "minimum", "maximum"):
@@ -545,6 +572,99 @@ class GeminiLiveTests(TestCase):
         account.post(reverse("study:reset_progress"), {"current_pin": "123456", "confirmation": "REINITIALISER"})
         self.assertFalse(LiveSimulation.objects.filter(user=self.reviewer).exists())
         self.assertTrue(LiveSimulation.objects.filter(pk=other.pk).exists())
+
+    def test_learner_deletes_only_their_own_saved_exchange_of_this_subject(self):
+        args = ("mai", 2, 8)
+        key = tache_two_subject_content_key(*args)
+        response = factories.make_response(theme=factories.make_theme("subject-live", task=self.task))
+        Prompt.objects.filter(response=response).update(content_key=key)
+        rows = [{"speaker": "user", "text": "Bonjour."}]
+        mine = LiveSimulation.objects.create(user=self.reviewer, rows=rows)
+        subject = LiveSimulation.objects.create(user=self.reviewer, subject_key=key, rows=rows)
+        other = LiveSimulation.objects.create(user=self.other, rows=rows)
+        delete_url = reverse("study:eo_tache_two_live_delete")
+        page = self.client.get(self.live)
+        self.assertEqual(page.context["delete_url"], delete_url)
+        self.assertContains(page, f'name="simulation" value="{mine.pk}"')
+
+        def delete(pk, url=delete_url):
+            return self.post(f"simulation={pk}", "application/x-www-form-urlencoded", url=url)
+
+        self.assert_private(self.client.get(delete_url), 405)
+        self.assertEqual(self.client.post(delete_url, {"simulation": mine.pk}).status_code, 403)
+        for pk in ("not-a-uuid", uuid.uuid4(), other.pk, subject.pk):
+            self.assert_private(delete(pk), 404)
+        self.assertEqual(LiveSimulation.objects.count(), 3)
+        self.assertRedirects(delete(mine.pk), self.live, fetch_redirect_response=False)
+        self.assertRedirects(delete(subject.pk, reverse("study:eo_tache_two_live_delete", args=args)),
+                             reverse("study:eo_tache_two_live", args=args), fetch_redirect_response=False)
+        self.assertEqual(list(LiveSimulation.objects.values_list("pk", flat=True)), [other.pk])
+        self.assertNotContains(self.client.get(self.live), "lv-saved")
+
+    def test_opinion_studio_uses_the_exact_subject_and_separate_grants(self):
+        task = factories.make_task(self.task.part, "tache-3")
+        theme = factories.make_theme("debats", task=task)
+        response = factories.make_response(theme=theme)
+        canonical = response.prompts.get()
+        variant = Prompt.objects.create(theme=theme, response=response, family=canonical.family, number=canonical.number + 1,
+                                        content_key="opinion-variant", text="La marche est-elle le meilleur moyen de découvrir une ville ?")
+        url = reverse("study:eo_tache_three_live", args=[variant.pk])
+        page = self.client.get(url, {"deduplicate": "0"})
+        self.assert_private(page, 200)
+        self.assertEqual(page.context["scenario_prompt"], variant.text)
+        self.assertEqual(page.context["subject_url"], reverse("study:response_detail", args=["eo", task.slug, variant.pk]) + "?deduplicate=0")
+        self.assertIn("microphone=(self)", page["Permissions-Policy"])
+        self.assertIn("wss://generativelanguage.googleapis.com", page["Content-Security-Policy"])
+        self.assertNotContains(page, response.body)
+        with self.settings(GEMINI_LIVE_API_KEY=""):
+            self.assert_no_live_policy(self.client.get(url))
+        token = page.context["token_url"]
+        first = self.post(url=token, body=json.dumps({"consent": True, "pin": PILOT_PIN, "purpose": "attempt"}))
+        def instruction():
+            return json.loads(self.connection.request.call_args.kwargs["body"])["bidiGenerateContentSetup"]["systemInstruction"]["parts"][0]["text"]
+        self.assertIn(variant.text, instruction())
+        self.assertNotIn(canonical.text, instruction())
+        grant = json.dumps({"consent": True, "purpose": "exchange", "exchangeGrant": first.json()["exchangeGrant"]})
+        for wrong in (self.token_url, reverse("study:eo_tache_three_live_token", args=[canonical.pk])):
+            self.assert_private(self.post(grant, url=wrong), 403)
+        self.assert_private(self.post(grant, url=token), 200)
+        self.assertIn("Gardez le silence", instruction())
+        self.assertNotIn(gemini_live._TURN_RULE, instruction())
+        theme.is_active = False
+        theme.save(update_fields=["is_active"])
+        self.assertEqual(self.client.get(url).status_code, 404)
+        self.assertEqual(self.post(grant, url=token).status_code, 404)
+
+    def test_single_opinion_can_be_saved_scored_and_reopened_without_a_partner(self):
+        factories.make_task(self.task.part, "tache-3")
+        self.evaluation_fixture()
+        page = self.client.get(reverse("study:eo_tache_three_live"))
+        sentence = "À pied, on peut observer les bâtiments et prendre le temps de discuter avec les habitants. "
+        rows = [{"speaker": "user", "text": (sentence * 48).strip()}]
+        self.assertGreater(len(rows[0]["text"]), 4000)
+        previous = LiveSimulation.objects.create(user=self.reviewer, rows=self.rows)
+        save = page.context["save_url"]
+        with patch.object(eo2_live, "SAVED_SIMULATIONS", 1):
+            saved = self.post(url=save, body=json.dumps({"rows": rows, "elapsed": 270000}))
+        self.assert_private(saved, 201)
+        self.assertTrue(LiveSimulation.objects.filter(pk=previous.pk).exists())
+        pk = saved.json()["id"]
+        self.assertIsNone(self.client.get(self.live, {"simulation": pk}).context["saved_simulation"])
+        self.assert_private(self.post(url=save, body=json.dumps({"rows": self.rows, "elapsed": 1000})), 400)
+        for mark in self.report["criteria"].values():
+            mark.update(turnIndex=0, why="Votre exemple explique l’intérêt de la marche.")
+        self.report.update(proposal=[sentence.strip()], corrections=[], strengths=[])
+        result = self.evaluate(url=page.context["evaluation_url"], rows=rows, simulation=pk)
+        self.assert_private(result, 200)
+        self.assertEqual(result.json()["scoreStatus"], "scored")
+        system, user = json.loads(self.eval_connection.request.call_args.kwargs["body"])["messages"]
+        self.assertIn("tâche 3", system["content"])
+        self.assertEqual(json.loads(user["content"]), {"consigne": page.context["scenario_prompt"], "rows": [{**rows[0], "turnIndex": 0}]})
+        reopened = self.client.get(reverse("study:eo_tache_three_live"), {"simulation": pk})
+        self.assertEqual(reopened.context["saved_simulation"]["report"], result.json())
+        brief = self.evaluate(url=page.context["evaluation_url"], rows=[{"speaker": "user", "text": "Oui, bien sûr."}])
+        self.assertIsNone(brief.json()["score"])
+        self.assertNotIn("interaction", brief.json()["reason"])
 
     def test_no_total_for_partial_unobserved_or_unsupported_rubric(self):
         self.evaluation_fixture()

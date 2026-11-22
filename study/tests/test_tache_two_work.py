@@ -123,7 +123,7 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
             "acquaintance-new-job-overall-experience": {
                 6: ("assurance santé", "congés", "transports"), 7: ("Quelle part",),
             },
-            "retirement-party-invitation": {6: ("Pour quand", "comment vous prévenir")},
+            "retirement-party-invitation": {8: ("Pour quand", "comment vous prévenir")},
             "supervisor-overseas-job-offer": {
                 5: ("réévaluée", "coût de la vie"), 8: ("poste actuel", "poste équivalent"),
             },

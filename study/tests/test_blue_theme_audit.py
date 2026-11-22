@@ -12,6 +12,68 @@ from study.tests.eo2_review_fixtures import (
 )
 
 
+# Editions immediately before the leisure dialogue review, not the latest revision.
+LEISURE_ARCHIVE_INDEX = {
+    "acquaintance-hiking-walking-club": 1,
+    "acquaintance-recent-cinema-film": 2,
+    "bookshop-public-game-participation": 2,
+    "canada-cinema-employee-friend": 1,
+    "canadian-press-newsagent-selection": 1,
+    "canadian-tourist-office-restful-weekend": 2,
+    "colleague-association-dance-classes": 2,
+    "colleague-board-game-club": 2,
+    "colleague-invitation-unspecified-show": 0,
+    "colleague-looking-for-sports-partner": 2,
+    "colleague-recommended-city-weekend": 1,
+    "colleague-unusable-music-festival-tickets": 1,
+    "cultural-center-reception-activities": 2,
+    "employee-yoga-colleague-organizer": 0,
+    "experienced-blogger-start-travel-blog": 1,
+    "friend-birthday-party-on-boat": 2,
+    "friend-canada-cross-country-skiing": 1,
+    "friend-choose-film-ticket-already-held": 2,
+    "friend-choose-television-series": 2,
+    "friend-city-for-cultural-magazine-article": 3,
+    "friend-concert-invitation": 1,
+    "friend-cooking-workshop-experience": 2,
+    "friend-entertain-visiting-nephews": 4,
+    "friend-films-for-association-review": 1,
+    "friend-music-festival-organizer": 1,
+    "friend-reading-for-literary-review": 2,
+    "friend-shows-for-association-article": 1,
+    "friend-sister-birthday-gift": 1,
+    "friend-sports-center-club-membership": 0,
+    "friend-tv-game-participation": 0,
+    "friend-unspecified-artistic-activity": 2,
+    "friend-weekend-getaway-advice": 2,
+    "friend-weekly-theatre-class": 0,
+    "guitar-teacher-lesson-enrollment": 1,
+    "holiday-region-tourist-office": 1,
+    "local-acquaintance-birthday-restaurant-choice": 2,
+    "municipal-library-document-borrowing": 2,
+    "municipal-pool-learn-swimming-reception": 1,
+    "music-school-course-information": 0,
+    "neighbor-community-sports-instructor": 1,
+    "neighbor-friends-countryside-outing-advice": 1,
+    "neighbor-gardening-activity-organizer": 2,
+    "neighbor-home-music-tutor-advice": 0,
+    "neighbor-municipal-pool-information": 2,
+    "neighbor-party-planning-advice": 1,
+    "neighbor-photography-association-class": 0,
+    "neighbor-vancouver-running-race": 2,
+    "neighborhood-library-membership": 1,
+    "plan-friends-birthday-with-birthday-person": 2,
+    "retirement-party-invitation": 2,
+    "sport-club-reception-choose-activity": 3,
+    "station-stranger-mountain-passion": 1,
+    "toy-library-membership": 2,
+}
+LEISURE_NOTE_OR_REPLY_ONLY = {
+    "new-quebec-resident-first-party",
+    "newcomer-neighbor-partner-surprise-birthday",
+}
+
+
 def fingerprint(value):
     return hashlib.sha256(
         json.dumps(value, ensure_ascii=False, sort_keys=True).encode(),
@@ -44,9 +106,10 @@ class BlueThemeAuditTests(SimpleTestCase):
         self.history = json.loads((
             content.QUESTION_BANK_DIR / "dialogue_history/locations.json"
         ).read_text())["groups"]
+        self.archived_editions = PUBLISHED_ARCHIVE_INDEX | LEISURE_ARCHIVE_INDEX
         self.recorded_models = {
-            group: self.history[group]["revisions"][PUBLISHED_ARCHIVE_INDEX[group]]
-            if group in REVIEWED_GROUPS else visible(row)
+            group: self.history[group]["revisions"][self.archived_editions[group]]
+            if group in self.archived_editions else visible(row)
             for group, row in self.raw.items()
         }
 
@@ -78,8 +141,9 @@ class BlueThemeAuditTests(SimpleTestCase):
                 )
         for group, audit in reviewed.items():
             with self.subTest(group=group):
-                if group not in REVIEWED_GROUPS:
+                if group not in self.archived_editions and group not in LEISURE_NOTE_OR_REPLY_ONLY:
                     self.assertEqual(fingerprint(self.raw[group]), audit["after_sha"])
+                if group not in self.archived_editions:
                     self.assertEqual(fingerprint(self.hints[group]), audit["after_hints_sha"])
                 for field in ("objective", "known", "reason"):
                     self.assertTrue(audit[field].strip())
@@ -96,11 +160,12 @@ class BlueThemeAuditTests(SimpleTestCase):
     def test_substantive_scenario_fixes_remain_grounded_in_the_prompt_and_replies(self):
         for regression in self.manifest["regressions"]:
             with self.subTest(**regression):
-                superseded = regression["group"] in REVIEWED_GROUPS
+                superseded = regression["group"] in self.archived_editions
+                fields = regression["field"].split(".")
                 # New reviews validate current replies, notes and cues; old visible wording stays archived.
-                if superseded and regression["field"] in {"questions.answer", "note", "hints"}:
+                if superseded and (fields[-1] == "answer" or fields[0] in {"note", "notes", "hints"}):
                     continue
-                if regression["field"] == "hints":
+                if fields[0] == "hints":
                     cues = self.hints[regression["group"]]
                     self.assertEqual(len(cues), regression["expected_count"])
                     for language in ("french", "english"):
@@ -113,7 +178,6 @@ class BlueThemeAuditTests(SimpleTestCase):
                     self.recorded_models[regression["group"]]
                     if superseded else self.raw[regression["group"]]
                 )
-                fields = regression["field"].split(".")
                 if "expected_order" in regression:
                     self.assertEqual(fields[0], "questions")
                     self.assertEqual(
@@ -190,6 +254,13 @@ class BlueThemeAuditTests(SimpleTestCase):
             and not path.is_relative_to(root / "translations")
         }
         self.assertEqual(fingerprint(immutable), self.manifest["immutable_content_sha"])
+
+    def test_leisure_rewrites_keep_the_exact_pre_edit_annotation_layouts(self):
+        snapshots = [self.recorded_models[group] for group in sorted(LEISURE_ARCHIVE_INDEX)]
+        self.assertEqual(
+            fingerprint(snapshots),
+            "eab4784964b67e74a562866906bfe2d4414afeb6b8dad699dfec582b393b2861",
+        )
 
     def test_known_unknown_and_reply_driven_goals_stay_distinct_in_employment_and_education(self):
         colleague = self.recorded_models["acquaintance-new-job-overall-experience"]["questions"]

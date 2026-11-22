@@ -186,8 +186,8 @@
         "english": "Session location"
       },
       {
-        "french": "Horaires prévus",
-        "english": "Scheduled session times"
+        "french": "Créneau : pause du midi ou après le travail",
+        "english": "Session time: lunch break or after work"
       },
       {
         "french": "Tapis personnel ou fourni",
@@ -198,12 +198,12 @@
         "english": "Employer funding"
       },
       {
-        "french": "Modalités d'inscription",
-        "english": "Registration procedure"
+        "french": "Engagement hebdomadaire ou réservation selon ses disponibilités",
+        "english": "Weekly commitment or booking when available"
       },
       {
-        "french": "Nombre de places par séance",
-        "english": "Number of places per session"
+        "french": "Démarche pour réserver une place",
+        "english": "How to book a spot"
       }
     ],
     "neighbor-photography-association-class": [
@@ -224,8 +224,12 @@
         "english": "Class times"
       },
       {
-        "french": "Matériel à apporter",
-        "english": "Equipment to bring"
+        "french": "Matériel pour débuter : téléphone ou appareil photo",
+        "english": "Equipment for beginners: phone or camera"
+      },
+      {
+        "french": "Prêt d'un appareil pour apprendre à faire les réglages",
+        "english": "Borrowing a camera to learn how to use its settings"
       },
       {
         "french": "Coût de l'inscription",
@@ -234,10 +238,6 @@
       {
         "french": "Inscription à la prochaine session",
         "english": "Registering for the next session"
-      },
-      {
-        "french": "Prêt d'un appareil pour débuter",
-        "english": "Camera loan for starting out"
       }
     ],
     "cultural-center-reception-activities": [
@@ -258,8 +258,8 @@
         "english": "Workshop times"
       },
       {
-        "french": "Salle des ateliers",
-        "english": "Workshop room"
+        "french": "Ce qu'on apprend pendant la session de dessin",
+        "english": "What the drawing session covers"
       },
       {
         "french": "Tarif d'une session",
@@ -284,8 +284,8 @@
         "english": "Reaching the park without a car"
       },
       {
-        "french": "Activités proposées sur les sites conseillés",
-        "english": "Activities available at the recommended sites"
+        "french": "Durée à prévoir pour le parc et le musée sans se presser",
+        "english": "Time to allow for the park and museum without rushing"
       },
       {
         "french": "Horaires d'ouverture des lieux conseillés",
@@ -424,6 +424,10 @@
         "english": "Times for the activities offered"
       },
       {
+        "french": "Équipement à apporter pour chacun des deux cours",
+        "english": "Equipment to bring for each class"
+      },
+      {
         "french": "Séance d'essai avant de s'engager",
         "english": "Trial session before committing"
       },
@@ -432,16 +436,12 @@
         "english": "Prices offered for the classes"
       },
       {
-        "french": "Équipement nécessaire pour les cours",
-        "english": "Equipment needed for the classes"
-      },
-      {
-        "french": "Documents nécessaires à l'inscription",
-        "english": "Documents needed to register"
-      },
-      {
         "french": "Durée d'engagement et interruption de l'abonnement",
         "english": "Commitment period and ending membership"
+      },
+      {
+        "french": "Heures d'accès à la salle en dehors des cours",
+        "english": "Gym opening hours outside class times"
       }
     ],
     "museum-group-visit-reception": [
@@ -518,8 +518,8 @@
         "english": "Types of films currently showing"
       },
       {
-        "french": "Film conseillé pour une soirée légère",
-        "english": "Recommended film for a light evening"
+        "french": "Comédie conseillée parmi les films à l'affiche",
+        "english": "Recommended comedy now showing"
       },
       {
         "french": "Histoire du film sans dévoiler la fin",
@@ -538,12 +538,12 @@
         "english": "Ticket price"
       },
       {
-        "french": "Réservation pour la séance de vingt heures trente",
-        "english": "Booking for the eight-thirty screening"
+        "french": "Séance de vingt heures trente : réservation ou achat sur place",
+        "english": "Eight-thirty screening: booking or buying at the cinema"
       },
       {
-        "french": "Choix de la place pendant la réservation",
-        "english": "Choosing a seat while booking"
+        "french": "Choix du siège à la réservation ou placement libre",
+        "english": "Choosing a seat when booking or sitting anywhere"
       }
     ],
     "friend-seaside-holiday-advice": [
@@ -586,24 +586,24 @@
         "english": "Recent read recommended for the magazine"
       },
       {
-        "french": "Auteur du livre",
-        "english": "Book's author"
+        "french": "Genre du livre recommandé",
+        "english": "Genre of the recommended book"
       },
       {
-        "french": "Histoire sans raconter la fin",
-        "english": "Story without revealing the ending"
+        "french": "Sujet du livre sans dévoiler la fin",
+        "english": "What the book is about without giving away the ending"
       },
       {
-        "french": "Avis sur les rencontres racontées",
-        "english": "Reaction to the encounters in the story"
+        "french": "Rencontre qui a le plus marqué le lecteur",
+        "english": "The encounter that stayed with the reader the most"
       },
       {
         "french": "Style simple ou exigeant",
         "english": "Simple or demanding writing style"
       },
       {
-        "french": "Aspect à développer dans l'article",
-        "english": "Aspect to develop in the article"
+        "french": "Angle de l'article pour donner envie de lire sans résumer l'histoire",
+        "english": "An angle that sparks interest without summarising the story"
       },
       {
         "french": "Critique pour équilibrer la présentation",
@@ -620,32 +620,32 @@
         "english": "Television game's format"
       },
       {
-        "french": "Difficulté liée au chronomètre",
-        "english": "Difficulty caused by the time limit"
+        "french": "Conditions à remplir pour pouvoir s'inscrire",
+        "english": "Requirements for applying"
       },
       {
-        "french": "Démarche d'inscription suivie",
-        "english": "Application steps taken"
+        "french": "Démarche pour poser sa candidature",
+        "english": "How to apply"
       },
       {
-        "french": "Conditions de sélection",
-        "english": "Selection requirements"
+        "french": "Temps passé au studio le jour du tournage",
+        "english": "Time spent at the studio on filming day"
       },
       {
-        "french": "Temps passé au studio",
-        "english": "Time spent at the studio"
+        "french": "Manche d'essai avant de passer devant les caméras",
+        "english": "Practice round before going on camera"
       },
       {
-        "french": "Frais payés pour participer",
-        "english": "Costs paid to participate"
+        "french": "Plus grande source de pression pendant l'enregistrement",
+        "english": "What caused the most pressure during recording"
       },
       {
         "french": "Bénéfices personnels de l'expérience",
         "english": "Personal benefits of the experience"
       },
       {
-        "french": "Préparation à améliorer avant l'enregistrement",
-        "english": "Preparation to improve before filming"
+        "french": "Préparation au chrono si l'expérience était à refaire",
+        "english": "Preparing for the timer if doing it again"
       }
     ],
     "newcomer-city-transit-service": [
@@ -938,20 +938,20 @@
         "english": "Lesson frequency"
       },
       {
-        "french": "Créneaux encore disponibles",
-        "english": "Slots still available"
+        "french": "Créneaux encore disponibles pour commencer bientôt",
+        "english": "Times still available for starting soon"
       },
       {
         "french": "Tarif d'un cours à domicile",
         "english": "Home lesson fee"
       },
       {
-        "french": "Instrument personnel dès le premier cours",
-        "english": "Own instrument from the first lesson"
+        "french": "Instrument à avoir chez soi dès le premier cours",
+        "english": "Whether an instrument is needed at home for the first lesson"
       },
       {
-        "french": "Partitions et exercices entre les cours",
-        "english": "Sheet music and exercises between lessons"
+        "french": "Mise en contact pour confirmer les disponibilités",
+        "english": "Getting in touch to confirm availability"
       }
     ],
     "invite-friend-countryside-stay": [
@@ -1130,8 +1130,8 @@
         "english": "Work done during classes"
       },
       {
-        "french": "Participation aux scènes devant le groupe",
-        "english": "Performing scenes in front of the group"
+        "french": "Passage devant le groupe dès le premier cours ou plus tard",
+        "english": "Performing in front of the group in the first class or later"
       },
       {
         "french": "Jour et horaires des cours",
@@ -1146,16 +1146,16 @@
         "english": "Session cost"
       },
       {
+        "french": "Textes et matériel compris ou à acheter en plus",
+        "english": "Scripts and supplies included or bought separately"
+      },
+      {
         "french": "Possibilité d'essayer un cours",
         "english": "Option to try a class"
       },
       {
         "french": "Interlocuteur pour l'inscription",
         "english": "Who handles registration"
-      },
-      {
-        "french": "Textes et matériel compris dans le tarif",
-        "english": "Texts and materials included in the fee"
       }
     ],
     "new-resident-neighbor-neighborhood-orientation": [
@@ -1194,8 +1194,8 @@
     ],
     "friend-films-for-association-review": [
       {
-        "french": "Film apprécié à présenter dans la revue",
-        "english": "Enjoyed film to present in the magazine"
+        "french": "Film aimé par l'ami et adapté à l'article",
+        "english": "A film your friend liked that would suit the article"
       },
       {
         "french": "Genre du film recommandé",
@@ -1206,8 +1206,8 @@
         "english": "Story without revealing the ending"
       },
       {
-        "french": "Avis sur la façon de raconter son parcours",
-        "english": "Reaction to how the character's journey is told"
+        "french": "Aspect du parcours de la danseuse qui a le plus touché l'ami",
+        "english": "What moved the friend most about the dancer's story"
       },
       {
         "french": "Acteurs du film",
@@ -1222,8 +1222,8 @@
         "english": "Price paid for the screening"
       },
       {
-        "french": "Disponibilité au cinéma ou légalement en ligne",
-        "english": "Availability at the cinema or legally online"
+        "french": "Où conseiller aux lecteurs de voir le film : cinéma ou location en ligne",
+        "english": "Where readers could see the film: cinema or online rental"
       }
     ],
     "travel-agency-choose-holiday-destination": [
@@ -1282,16 +1282,16 @@
         "english": "Meal format to plan"
       },
       {
+        "french": "Dépenses communes après un buffet partagé",
+        "english": "Shared expenses with a potluck buffet"
+      },
+      {
         "french": "Musique pour des invités d'âges différents",
         "english": "Music for guests of different ages"
       },
       {
         "french": "Animation pour faire connaissance",
         "english": "Activity to help people get acquainted"
-      },
-      {
-        "french": "Dépenses communes après un buffet partagé",
-        "english": "Shared expenses with a potluck buffet"
       }
     ],
     "newcomer-local-acquaintance-meet-people": [
@@ -1402,8 +1402,8 @@
         "english": "Show suggested by the colleague"
       },
       {
-        "french": "Raisons de vouloir voir ce spectacle",
-        "english": "Reasons for wanting to see the show"
+        "french": "Sujet de la comédie proposée",
+        "english": "What the suggested comedy is about"
       },
       {
         "french": "Salle de la représentation",
@@ -1418,16 +1418,16 @@
         "english": "Ticket price"
       },
       {
-        "french": "Autres collègues intéressés par la sortie",
-        "english": "Other colleagues interested in the outing"
+        "french": "Sortie à deux ou avec d'autres personnes",
+        "english": "Going together or with other people"
+      },
+      {
+        "french": "Réservation groupée pour être assis ensemble",
+        "english": "Booking as a group to sit together"
       },
       {
         "french": "Organisation du trajet",
         "english": "Travel arrangements"
-      },
-      {
-        "french": "Achat des billets pour être placés ensemble",
-        "english": "Buying tickets to sit together"
       }
     ],
     "municipal-cultural-service-city-activities": [
@@ -1580,8 +1580,12 @@
         "english": "Language difficulty of the articles"
       },
       {
-        "french": "Articles courts pour commencer",
-        "english": "Short articles to start with"
+        "french": "Articles courts pour commencer à lire la revue",
+        "english": "Short articles for getting started with the magazine"
+      },
+      {
+        "french": "Possibilité de feuilleter avant de choisir",
+        "english": "Browsing before choosing"
       },
       {
         "french": "Fréquence de parution",
@@ -1592,12 +1596,8 @@
         "english": "Single-issue price"
       },
       {
-        "french": "Possibilité de feuilleter avant de choisir",
-        "english": "Browsing before choosing"
-      },
-      {
-        "french": "Version numérique ou abonnement plus économique",
-        "english": "Digital edition or better-value subscription"
+        "french": "Coût d'un abonnement comparé à l'achat chaque semaine",
+        "english": "Subscription cost compared with buying it each week"
       }
     ],
     "french-teacher-study-abroad-advice": [
@@ -1674,8 +1674,8 @@
         "english": "Activities offered at the sports centre"
       },
       {
-        "french": "Accompagnement des débutants en cours collectifs",
-        "english": "Beginner support in group classes"
+        "french": "Aide apportée aux débutants dans les cours collectifs",
+        "english": "Support for beginners in group classes"
       },
       {
         "french": "Ambiance conviviale ou compétitive",
@@ -1686,6 +1686,10 @@
         "english": "Centre opening hours"
       },
       {
+        "french": "Affaires à apporter pour la première séance",
+        "english": "What to bring for the first session"
+      },
+      {
         "french": "Prix de l'abonnement de l'ami",
         "english": "Price of the friend's membership"
       },
@@ -1694,12 +1698,8 @@
         "english": "Activities included in the package"
       },
       {
-        "french": "Matériel personnel à apporter",
-        "english": "Personal equipment to bring"
-      },
-      {
-        "french": "Séance d'essai avant l'abonnement",
-        "english": "Trial session before taking out membership"
+        "french": "Cours d'essai sans abonnement immédiat",
+        "english": "Trial class without an immediate membership"
       }
     ],
     "neighbor-municipal-cultural-outings": [
@@ -2044,6 +2044,10 @@
     ],
     "station-stranger-mountain-passion": [
       {
+        "french": "Origine de la passion pour la montagne",
+        "english": "How the passion for the mountains began"
+      },
+      {
         "french": "Ce qui plaît le plus dans la montagne",
         "english": "What appeals most about the mountains"
       },
@@ -2056,24 +2060,20 @@
         "english": "Preferred season for visiting the valleys mentioned"
       },
       {
-        "french": "Activités pratiquées pendant les séjours",
-        "english": "Activities practised during mountain stays"
+        "french": "Randonnée et autres activités pratiquées en montagne",
+        "english": "Hiking and other mountain activities"
       },
       {
         "french": "Matériel emporté en randonnée",
         "english": "Equipment carried on hikes"
       },
       {
-        "french": "Préparation d'une sortie en montagne",
-        "english": "Preparing a mountain outing"
+        "french": "Critères pour choisir un itinéraire en montagne",
+        "english": "What to consider when choosing a mountain route"
       },
       {
         "french": "Souvenir de montagne le plus marquant",
         "english": "Most memorable mountain experience"
-      },
-      {
-        "french": "Sortie abandonnée à cause des conditions",
-        "english": "Outing abandoned because of conditions"
       }
     ],
     "furniture-delivery-service": [
@@ -2120,8 +2120,8 @@
         "english": "Order of visits over the weekend"
       },
       {
-        "french": "Hébergement conseillé pour limiter les trajets",
-        "english": "Recommended accommodation to minimize journeys"
+        "french": "Quartier où loger pour limiter les trajets vers les sites à visiter",
+        "english": "Area to stay in to keep journeys to the sights short"
       },
       {
         "french": "Prix d'une nuit dans le secteur recommandé",
@@ -2140,8 +2140,8 @@
         "english": "Getting around locally"
       },
       {
-        "french": "Forfait de transport pour le week-end",
-        "english": "Weekend transport pass"
+        "french": "Forfait de bus ou billets à l'unité pour plusieurs trajets",
+        "english": "Bus pass versus single tickets for several rides"
       }
     ],
     "neighbor-vancouver-running-race": [
@@ -2166,16 +2166,16 @@
         "english": "Entry price by distance"
       },
       {
-        "french": "Préparation du voisin pour la course",
-        "english": "Neighbour's preparation for the race"
-      },
-      {
-        "french": "Lieu et horaires des départs",
-        "english": "Start location and times"
+        "french": "Organisation de l'entraînement avant la course",
+        "english": "Training schedule leading up to the race"
       },
       {
         "french": "Moment et lieu du retrait du dossard",
         "english": "When and where to collect the race bib"
+      },
+      {
+        "french": "Lieu et heure du départ le jour de la course",
+        "english": "Race-day start location and time"
       }
     ],
     "colleague-known-region-holiday": [
@@ -2222,20 +2222,20 @@
         "english": "Preferred venue"
       },
       {
-        "french": "Budget maximal et prise en charge des dépenses",
-        "english": "Maximum budget and who pays the expenses"
-      },
-      {
         "french": "Personnes à inviter et nombre approximatif",
         "english": "People to invite and approximate number"
       },
       {
-        "french": "Aide à apporter pour le repas",
-        "english": "Help to provide with the meal"
+        "french": "Budget maximal et prise en charge des dépenses",
+        "english": "Maximum budget and who pays the expenses"
       },
       {
         "french": "Restrictions alimentaires pour le repas",
         "english": "Dietary restrictions for the meal"
+      },
+      {
+        "french": "Aide à apporter pour le repas",
+        "english": "How to help with the meal"
       },
       {
         "french": "Ambiance souhaitée",
@@ -2476,12 +2476,12 @@
         "english": "Film running time"
       },
       {
-        "french": "Horaires connus des séances de la semaine",
-        "english": "Known screening times for the week"
+        "french": "Cinéma où l'ami ou le collègue a vu le film",
+        "english": "Cinema where the friend or colleague saw the film"
       },
       {
-        "french": "Langue et sous-titres de la séance vue",
-        "english": "Language and subtitles at the screening attended"
+        "french": "Autres séances de la semaine dans le même cinéma",
+        "english": "Other screenings this week at the same cinema"
       }
     ],
     "new-colleague-quebec-career-migration": [
@@ -2558,12 +2558,12 @@
         "english": "Steps to become a member"
       },
       {
-        "french": "Documents et ressources numériques empruntables",
-        "english": "Physical and digital items available to borrow"
-      },
-      {
         "french": "Coût éventuel de l'inscription",
         "english": "Any membership fee"
+      },
+      {
+        "french": "Emprunts possibles en dehors des livres papier",
+        "english": "Things you can borrow besides print books"
       },
       {
         "french": "Horaires d'ouverture",
@@ -2578,12 +2578,12 @@
         "english": "Events offered to members"
       },
       {
-        "french": "Réservation des rencontres avec les auteurs",
-        "english": "Booking author events"
-      },
-      {
         "french": "Gratuité ou participation aux animations",
         "english": "Free events or event fees"
+      },
+      {
+        "french": "Réservation des rencontres avec les auteurs",
+        "english": "Booking author events"
       }
     ],
     "recruiter-scheduled-interview-preparation": [
@@ -2656,8 +2656,8 @@
     ],
     "friend-choose-film-ticket-already-held": [
       {
-        "french": "Film conseillé parmi ceux proposés",
-        "english": "Recommended film among those offered"
+        "french": "Film à l'affiche conseillé pour se changer les idées",
+        "english": "A film now showing that makes a good distraction"
       },
       {
         "french": "Genre du film conseillé",
@@ -2672,8 +2672,8 @@
         "english": "Film's cast"
       },
       {
-        "french": "Comprendre le film sans bien connaître la danse",
-        "english": "Following the film without knowing much about dance"
+        "french": "Place de la natation synchronisée dans l'histoire du groupe",
+        "english": "How synchronised swimming fits into the group's story"
       },
       {
         "french": "Durée du film",
@@ -2684,8 +2684,8 @@
         "english": "Fast or measured pacing"
       },
       {
-        "french": "Langue de projection et sous-titres",
-        "english": "Screening language and subtitles"
+        "french": "Vérifications sur le billet avant de choisir une séance",
+        "english": "What to check on the ticket before choosing a screening"
       }
     ],
     "friend-sister-birthday-gift": [
@@ -2706,8 +2706,8 @@
         "english": "Preference for an object or an activity"
       },
       {
-        "french": "Objets déjà possédés et doublons à éviter",
-        "english": "Existing possessions and duplicates to avoid"
+        "french": "Activité déjà offerte en cadeau : atelier ou sortie",
+        "english": "Previous experience gifts, such as workshops or outings"
       },
       {
         "french": "Budget raisonnable pour le cadeau",
@@ -2718,8 +2718,8 @@
         "english": "Date the gift needs to be ready"
       },
       {
-        "french": "Intérêt d'un cadeau commun",
-        "english": "Benefits of a joint gift"
+        "french": "Sortie liée à la lecture pour 40 $ maximum",
+        "english": "Book-related outing for no more than $40"
       }
     ],
     "friend-canadian-weekend-customs": [
@@ -2872,8 +2872,12 @@
         "english": "Recommended format for a beginner"
       },
       {
-        "french": "Jours et horaires proposés",
-        "english": "Available days and times"
+        "french": "Créneaux des leçons individuelles : fin de journée ou samedi",
+        "english": "Individual lesson times: late in the day or Saturday"
+      },
+      {
+        "french": "Location d'un instrument auprès de l'école",
+        "english": "Renting an instrument from the school"
       },
       {
         "french": "Tarifs des différentes formules",
@@ -2884,12 +2888,8 @@
         "english": "Paying for a session in instalments"
       },
       {
-        "french": "Cours d'essai avant l'inscription",
-        "english": "Trial lesson before registering"
-      },
-      {
-        "french": "Location d'un instrument auprès de l'école",
-        "english": "Renting an instrument from the school"
+        "french": "Cours d'essai avant de choisir une formule",
+        "english": "Trial lesson before choosing a package"
       }
     ],
     "hotel-reception-room-booking": [
@@ -2932,16 +2932,16 @@
         "english": "Places visited on club outings"
       },
       {
-        "french": "Transport jusqu'au parc régional",
-        "english": "Transport to the regional park"
-      },
-      {
         "french": "Jours habituels des sorties",
         "english": "Usual outing days"
       },
       {
-        "french": "Profil des membres du club",
-        "english": "Club member backgrounds"
+        "french": "Organisation du trajet pour une sortie au parc régional",
+        "english": "Travel arrangements for a regional park outing"
+      },
+      {
+        "french": "Composition du groupe : habitués et nouveaux",
+        "english": "Group mix: regulars and newcomers"
       },
       {
         "french": "Groupes et niveaux de randonnée",
@@ -3016,46 +3016,46 @@
         "english": "Reaching the festival without a car"
       },
       {
-        "french": "Nombre de billets vendus et prix demandé",
-        "english": "Number of tickets for sale and asking price"
+        "french": "Type de billets disponibles et prix de chaque billet",
+        "english": "Type of tickets available and the price of each"
       },
       {
-        "french": "Changement de nom lors de l'achat",
-        "english": "Changing the ticket holder's name when buying"
+        "french": "Transfert d'un pass à son nom",
+        "english": "Transferring a pass into your name"
       },
       {
-        "french": "Vérification des billets et paiement sécurisé au transfert",
-        "english": "Checking tickets and paying safely during transfer"
+        "french": "Mode de paiement une fois le pass reçu",
+        "english": "How to pay once the pass has arrived"
       }
     ],
     "local-acquaintance-birthday-restaurant-choice": [
       {
-        "french": "Restaurants du quartier et cuisines proposées",
-        "english": "Local restaurants and cuisines offered"
+        "french": "Restaurants du coin et types de cuisine",
+        "english": "Local restaurants and types of cuisine"
       },
       {
-        "french": "Autre adresse proposant une cuisine française",
-        "english": "Alternative restaurant serving French cuisine"
-      },
-      {
-        "french": "Budget par personne",
-        "english": "Budget per person"
-      },
-      {
-        "french": "Formule de groupe chez Lina",
-        "english": "Group menu at Chez Lina"
+        "french": "Restaurant le mieux adapté aux invités qui ne mangent pas de viande",
+        "english": "Best restaurant for guests who don't eat meat"
       },
       {
         "french": "Ambiance calme pour discuter ou animée avec musique",
         "english": "Quiet atmosphere for talking or lively atmosphere with music"
       },
       {
-        "french": "Restaurant adapté à une fête en groupe",
-        "english": "Restaurant suited to a group celebration"
+        "french": "Budget par personne dans chaque restaurant, sans boisson, taxes et pourboire compris",
+        "english": "Per-person budget at each restaurant, excluding drinks but including tax and tip"
       },
       {
-        "french": "Possibilité d'apporter son gâteau chez Lina",
-        "english": "Bringing your own cake to Chez Lina"
+        "french": "Formule de groupe plus avantageuse pour une douzaine de personnes",
+        "english": "Better-value group menu for about twelve people"
+      },
+      {
+        "french": "Une même table pour douze chez Lina",
+        "english": "One table for twelve at Chez Lina"
+      },
+      {
+        "french": "Possibilité d'apporter son propre gâteau",
+        "english": "Whether you can bring your own cake"
       },
       {
         "french": "Délai de réservation pour un groupe",
@@ -3072,8 +3072,8 @@
         "english": "Lane allocation by swimming speed"
       },
       {
-        "french": "Équipements en dehors des bassins",
-        "english": "Facilities apart from the pools"
+        "french": "Installations pour se changer et ranger ses affaires",
+        "english": "Changing facilities and storage for belongings"
       },
       {
         "french": "Horaires pour nager librement",
@@ -3092,8 +3092,8 @@
         "english": "Best-value options for frequent visits"
       },
       {
-        "french": "Affaires à apporter aux vestiaires et au bassin",
-        "english": "Items for the changing rooms and pool"
+        "french": "Affaires à emporter pour une première visite",
+        "english": "What to pack for a first visit"
       }
     ],
     "visit-friend-canada-december-preparation": [
@@ -3170,8 +3170,8 @@
         "english": "Sports disciplines offered"
       },
       {
-        "french": "Déroulement du cardio-boxe",
-        "english": "What cardio-boxing involves"
+        "french": "Contenu d'un cours de boxe cardio",
+        "english": "What a cardio boxing class involves"
       },
       {
         "french": "Lieu des séances et accès à la salle",
@@ -3182,8 +3182,8 @@
         "english": "Times for each discipline"
       },
       {
-        "french": "Profil habituel des participants",
-        "english": "Usual participant backgrounds"
+        "french": "Profil des participants : débutants ou habitués",
+        "english": "Who attends: beginners or regular exercisers"
       },
       {
         "french": "Conditions d'inscription et cotisation",
@@ -3194,8 +3194,8 @@
         "english": "Trial session before paying membership"
       },
       {
-        "french": "Équipement à apporter",
-        "english": "Equipment to bring"
+        "french": "Matériel à prévoir pour la première séance",
+        "english": "Equipment to bring to the first session"
       }
     ],
     "bicycle-rental-model-and-terms": [
@@ -3276,8 +3276,8 @@
         "english": "Concert's music style"
       },
       {
-        "french": "Musique plutôt calme ou rythmée",
-        "english": "Calm or lively music"
+        "french": "Ambiance du concert : écoute tranquille ou danse",
+        "english": "Concert atmosphere: sitting and listening or dancing"
       },
       {
         "french": "Lieu du concert",
@@ -3318,20 +3318,20 @@
         "english": "Workshop days and times"
       },
       {
-        "french": "Prix payé et ingrédients compris",
-        "english": "Price paid and whether ingredients were included"
+        "french": "Ustensiles à apporter ou fournis sur place",
+        "english": "Utensils to bring or provided at the workshop"
       },
       {
-        "french": "Forfaits pour plusieurs ateliers",
-        "english": "Packages for several workshops"
+        "french": "Prix payé et ingrédients compris",
+        "english": "Price paid and whether ingredients were included"
       },
       {
         "french": "Délai de réservation",
         "english": "Booking notice"
       },
       {
-        "french": "Ustensiles fournis ou matériel à apporter",
-        "english": "Utensils provided or equipment to bring"
+        "french": "Démarche d'inscription après avoir choisi une date",
+        "english": "Signing up after choosing a date"
       }
     ],
     "edmonton-newcomer-neighbor-schools": [
@@ -3442,12 +3442,12 @@
         "english": "How to learn cross-country skiing"
       },
       {
-        "french": "Cours proposés le week-end",
-        "english": "Lessons available at weekends"
-      },
-      {
         "french": "Pistes proches adaptées aux débutants",
         "english": "Nearby trails suitable for beginners"
+      },
+      {
+        "french": "Cours proposés le week-end",
+        "english": "Lessons available at weekends"
       },
       {
         "french": "Matériel nécessaire pour débuter",
@@ -3462,12 +3462,12 @@
         "english": "Clothing suited to cold and exertion"
       },
       {
-        "french": "Prix séparés des cours et de la location",
-        "english": "Separate lesson and rental prices"
+        "french": "Budget de la première sortie : cours et location",
+        "english": "First outing budget: lesson and equipment rental"
       },
       {
-        "french": "Frais d'accès aux pistes",
-        "english": "Trail access fees"
+        "french": "Accès aux pistes compris ou facturé à part",
+        "english": "Trail access included or charged separately"
       }
     ],
     "friend-entertain-visiting-nephews": [
@@ -3484,12 +3484,12 @@
         "english": "Active home game without complicated equipment"
       },
       {
-        "french": "Jeu de société aux règles simples et aux parties courtes",
-        "english": "Board game with simple rules and short rounds"
+        "french": "Jeu de société aux règles simples pour un moment calme",
+        "english": "Board game with simple rules for a quieter moment"
       },
       {
-        "french": "Sortie pour se dépenser, adaptée à différents âges",
-        "english": "Active outing suited to different ages"
+        "french": "Sortie pour se dépenser s'il fait beau",
+        "english": "An outing to burn off energy in good weather"
       },
       {
         "french": "Sortie intérieure en cas de pluie : atelier ou exposition interactive",
@@ -3500,8 +3500,8 @@
         "english": "Advance booking for the museum"
       },
       {
-        "french": "Budget des entrées pour enfants et adultes",
-        "english": "Admission budget for children and adults"
+        "french": "Prix d'entrée au musée par enfant et par adulte",
+        "english": "Museum admission per child and per adult"
       }
     ],
     "canada-newcomer-municipal-settlement-service": [
@@ -3574,36 +3574,36 @@
     ],
     "friend-choose-television-series": [
       {
-        "french": "Série conseillée et genre",
-        "english": "Recommended series and genre"
+        "french": "Série à suspense qui ne soit pas trop sombre",
+        "english": "A suspenseful series that isn't too dark"
       },
       {
         "french": "Intrigue principale sans révéler la fin",
         "english": "Main plot without revealing the ending"
       },
       {
-        "french": "Autre suggestion pour une série légère",
-        "english": "Alternative suggestion for a light series"
+        "french": "Acteur qui joue le personnage principal",
+        "english": "Actor playing the main character"
       },
       {
-        "french": "Acteurs de la première série conseillée",
-        "english": "Cast of the first recommended series"
+        "french": "Histoire suivie ou épisodes indépendants",
+        "english": "Continuing story or standalone episodes"
       },
       {
-        "french": "Nombre et durée moyenne des épisodes de la première série",
-        "english": "Number and average length of episodes in the first series"
+        "french": "Nombre et durée des épisodes",
+        "english": "Number and length of episodes"
       },
       {
-        "french": "Chaînes ou plateformes proposant les séries",
-        "english": "Channels or platforms offering the series"
+        "french": "Chaîne ou plateforme où regarder la série",
+        "english": "TV channel or streaming service that carries the series"
       },
       {
-        "french": "Français et sous-titres français disponibles",
-        "english": "French audio and French subtitles available"
+        "french": "Possibilité d'activer les sous-titres français",
+        "english": "Whether French subtitles can be turned on"
       },
       {
-        "french": "Budget de la plateforme, avec ou sans publicité",
-        "english": "Platform budget with or without ads"
+        "french": "Coût mensuel de la formule qui donne accès à la série",
+        "english": "Monthly cost of the plan that includes the series"
       }
     ],
     "new-city-friend-low-budget-outings": [
@@ -3744,16 +3744,12 @@
     ],
     "experienced-blogger-start-travel-blog": [
       {
-        "french": "Premières étapes de création du blog",
-        "english": "First steps in creating the blog"
+        "french": "Première étape de préparation du blog",
+        "english": "First step in preparing the blog"
       },
       {
-        "french": "Dépenses de lancement malgré un modèle gratuit",
-        "english": "Start-up costs despite using a free template"
-      },
-      {
-        "french": "Plateforme conseillée pour débuter",
-        "english": "Recommended platform for a beginner"
+        "french": "Budget éventuel pour mettre le blog en ligne",
+        "english": "Possible costs of putting the blog online"
       },
       {
         "french": "Rubriques pour organiser récits et conseils",
@@ -3764,8 +3760,12 @@
         "english": "Content of the budget section"
       },
       {
-        "french": "Types de contenus qui attirent les lecteurs",
-        "english": "Content types that attract readers"
+        "french": "Choix du format sur place : courte vidéo ou récit illustré",
+        "english": "Choosing a format on the trip: short video or story with photos"
+      },
+      {
+        "french": "Moment de publier le premier article : avant ou pendant le voyage",
+        "english": "When to publish the first article: before or during the trip"
       },
       {
         "french": "Rythme régulier et réaliste de publication",
@@ -3836,8 +3836,8 @@
         "english": "Practical transport to the destination"
       },
       {
-        "french": "Prix d'une fourgonnette pour la journée",
-        "english": "Price of a van for the day"
+        "french": "Coût de la location d'une voiture à la journée",
+        "english": "Cost of renting a car for the day"
       },
       {
         "french": "Budget de la journée par personne, à quatre",
@@ -4138,8 +4138,8 @@
         "english": "Games played most often"
       },
       {
-        "french": "Adhésion annuelle et frais par soirée",
-        "english": "Annual membership and costs per evening"
+        "french": "Budget : frais par soirée ou cotisation annuelle",
+        "english": "Cost: per-evening charges or annual membership fee"
       },
       {
         "french": "Essai avant de s'inscrire",
@@ -4172,16 +4172,16 @@
         "english": "Whether guests may bring someone"
       },
       {
-        "french": "Date limite et moyen de confirmer sa présence",
-        "english": "RSVP deadline and method"
-      },
-      {
         "french": "Programme et ordre : apéritif, discours, repas ou danse",
         "english": "Programme and order: drinks, speeches, meal or dancing"
       },
       {
         "french": "Participation aux frais ou aide pour la soirée",
         "english": "Financial contribution or help with the party"
+      },
+      {
+        "french": "Date limite et moyen de confirmer sa présence",
+        "english": "RSVP deadline and method"
       }
     ],
     "neighbor-gardening-activity-organizer": [
@@ -4194,8 +4194,8 @@
         "english": "Sharing the vegetable garden's harvest"
       },
       {
-        "french": "Accès à l'activité pour les débutants",
-        "english": "Access to the activity for beginners"
+        "french": "Accompagnement des personnes qui n'ont jamais jardiné",
+        "english": "Support for people who have never gardened"
       },
       {
         "french": "Lieu des séances",
@@ -4206,8 +4206,8 @@
         "english": "Days and times across the seasons"
       },
       {
-        "french": "Présence requise aux séances",
-        "english": "Required session attendance"
+        "french": "Participation possible le samedi seulement",
+        "english": "Whether joining on Saturdays only is possible"
       },
       {
         "french": "Coût de la saison et prestations comprises",
@@ -4240,16 +4240,16 @@
         "english": "Loan periods by item type: book, magazine or DVD"
       },
       {
-        "french": "Prolongation en ligne ou au comptoir et conditions",
-        "english": "Online or counter renewal and conditions"
+        "french": "Prolongation du prêt si trois semaines ne suffisent pas",
+        "english": "Renewing the loan if three weeks isn't enough"
       },
       {
         "french": "Conséquences d'un retard",
         "english": "Consequences of an overdue return"
       },
       {
-        "french": "Remboursement et frais pour perte ou dommage",
-        "english": "Reimbursement and fees for loss or damage"
+        "french": "Somme à payer pour un document perdu ou abîmé",
+        "english": "What to pay for a lost or damaged item"
       }
     ],
     "municipal-pool-learn-swimming-reception": [
@@ -4258,32 +4258,32 @@
         "english": "Lessons for adults who cannot swim"
       },
       {
-        "french": "Durée de chaque leçon",
-        "english": "Length of each lesson"
+        "french": "Premiers exercices quand on n'est pas à l'aise dans l'eau",
+        "english": "First exercises for people not yet comfortable in the water"
       },
       {
-        "french": "Créneaux en semaine et le week-end",
-        "english": "Weekday and weekend lesson times"
+        "french": "Créneaux possibles et durée d'une leçon",
+        "english": "Available time slots and lesson length"
       },
       {
         "french": "Rattrapage d'une leçon dans un autre groupe",
         "english": "Making up a missed lesson in another group"
       },
       {
-        "french": "Prix de la formule selon le lieu de résidence",
-        "english": "Package price by residency status"
+        "french": "Prix de la session et tarif réduit pour les résidents",
+        "english": "Course price and reduced rate for city residents"
       },
       {
         "french": "Justificatif pour le tarif résident",
         "english": "Proof required for the resident rate"
       },
       {
-        "french": "Règles d'accès au bassin",
-        "english": "Pool access rules"
+        "french": "Inscription au créneau : en ligne ou à l'accueil",
+        "english": "Booking a time slot: online or at reception"
       },
       {
-        "french": "Entraînement en dehors des cours",
-        "english": "Practice outside lesson times"
+        "french": "Consignes avant d'entrer dans le bassin",
+        "english": "Rules to follow before getting in the pool"
       }
     ],
     "friend-two-years-quebec-expatriation-experience": [
@@ -4356,8 +4356,8 @@
     ],
     "colleague-looking-for-sports-partner": [
       {
-        "french": "Sport pratiqué et partenaire recherché",
-        "english": "Sport practised and type of partner wanted"
+        "french": "Sport pour lequel le collègue cherche un partenaire",
+        "english": "Sport the colleague wants a partner for"
       },
       {
         "french": "Niveau nécessaire pour jouer ensemble",
@@ -4376,16 +4376,16 @@
         "english": "Possibility of attending only once a week"
       },
       {
-        "french": "Matériel à apporter et matériel fourni",
-        "english": "Equipment to bring and equipment supplied"
+        "french": "Matériel à apporter si l'on joue ensemble",
+        "english": "Equipment to bring if playing together"
       },
       {
         "french": "Prix d'une séance par personne",
         "english": "Price per person for one session"
       },
       {
-        "french": "Première séance avant de jouer régulièrement ensemble",
-        "english": "First session before playing together regularly"
+        "french": "Première partie pour voir si l'on joue bien ensemble",
+        "english": "First game to see how well you play together"
       }
     ],
     "child-friends-family-holiday-invitation": [
@@ -4500,16 +4500,16 @@
         "english": "Memorable acrobatics, staging or music"
       },
       {
-        "french": "Public visé et accueil des jeunes enfants",
-        "english": "Intended audience and suitability for young children"
+        "french": "Spectacle adapté ou non aux jeunes enfants",
+        "english": "Suitability of the show for young children"
       },
       {
         "french": "Durée de la représentation et entracte éventuel",
         "english": "Performance duration and any interval"
       },
       {
-        "french": "Lieu de représentation et secteur de la ville",
-        "english": "Performance venue and area of the city"
+        "french": "Lieu du spectacle à Seattle : salle ou chapiteau",
+        "english": "Venue in Seattle: theatre or big top"
       },
       {
         "french": "Fourchette de prix selon les places",
@@ -4520,8 +4520,8 @@
         "english": "Discounts and promotions for families and groups"
       },
       {
-        "french": "Aspect à mettre en avant dans l'article",
-        "english": "Aspect to highlight in the article"
+        "french": "Détail du spectacle qui ferait sentir l'ambiance aux lecteurs",
+        "english": "A detail that gives readers a feel for the show"
       }
     ],
     "colleague-montreal-work-week-transit": [
@@ -4768,8 +4768,8 @@
         "english": "Quiet place within two hours"
       },
       {
-        "french": "Déroulement d'une séance de spa nordique et accès en hiver",
-        "english": "Nordic spa session and winter access"
+        "french": "Déroulement d'une première visite au spa nordique",
+        "english": "What to expect on a first visit to the Nordic spa"
       },
       {
         "french": "Visites tranquilles : village, galeries d'art ou marché",
@@ -4784,12 +4784,12 @@
         "english": "Per-person budget: night, recommended activities and meal"
       },
       {
-        "french": "Transport pour rejoindre le lieu conseillé",
-        "english": "Transport to the recommended destination"
+        "french": "Aller-retour en autocar le week-end et liaison jusqu'à l'auberge",
+        "english": "Weekend round trip by coach and connection to the inn"
       },
       {
-        "french": "Navette vers le village et fréquence",
-        "english": "Shuttle to the village and service frequency"
+        "french": "Dernière navette depuis le village après la soirée au bistro",
+        "english": "Last shuttle from the village after an evening at the bistro"
       },
       {
         "french": "Suggestions à réserver à l'avance et moyens de réservation",
@@ -4806,20 +4806,12 @@
         "english": "Departure point and time"
       },
       {
+        "french": "Heure limite d'arrivée au quai pour embarquer",
+        "english": "Latest time to arrive at the dock to board"
+      },
+      {
         "french": "Heure et quai de retour",
         "english": "Return time and dock"
-      },
-      {
-        "french": "Heure limite d'embarquement et retard",
-        "english": "Boarding cutoff and late arrival"
-      },
-      {
-        "french": "Participation demandée et prestations comprises",
-        "english": "Contribution requested and what it includes"
-      },
-      {
-        "french": "Moyen et date limite de paiement",
-        "english": "Payment method and deadline"
       },
       {
         "french": "Nombre d'invités, amis ou collègues",
@@ -4828,6 +4820,14 @@
       {
         "french": "Tenue adaptée et protection contre le froid",
         "english": "Suitable clothing and protection from the cold"
+      },
+      {
+        "french": "Participation demandée et prestations comprises",
+        "english": "Contribution requested and what it includes"
+      },
+      {
+        "french": "Mode de paiement et date limite si je participe",
+        "english": "How and when to pay if I decide to go"
       }
     ],
     "camping-reception-stay-preparation": [
@@ -5010,16 +5010,16 @@
         "english": "Distinctive features compared with other familiar cities"
       },
       {
-        "french": "Quartier comme fil conducteur de l'article",
-        "english": "Neighbourhood as the article's unifying thread"
+        "french": "Quartier à prendre comme fil conducteur pour raconter la ville",
+        "english": "A neighbourhood to use as the focus for the city's story"
       },
       {
-        "french": "Architecture à voir en priorité",
-        "english": "Architectural sights to prioritize"
+        "french": "Monument moderne en contraste avec les bâtiments anciens",
+        "english": "A modern landmark that contrasts with the older buildings"
       },
       {
-        "french": "Présence des bâtiments en brique rouge",
-        "english": "Where red-brick buildings are found"
+        "french": "Ce que la tour révèle de l'histoire de Seattle",
+        "english": "What the tower reveals about Seattle's history"
       },
       {
         "french": "Expérience culturelle à vivre le soir",
@@ -5036,16 +5036,12 @@
     ],
     "friend-music-festival-organizer": [
       {
-        "french": "Dates et nombre de jours du festival",
-        "english": "Festival dates and number of days"
+        "french": "Week-end du festival",
+        "english": "Festival weekend"
       },
       {
         "french": "Lieu des concerts",
         "english": "Concert location"
-      },
-      {
-        "french": "Horaires du premier au dernier concert",
-        "english": "Times from the first to the last concert"
       },
       {
         "french": "Genres de musique représentés",
@@ -5056,8 +5052,12 @@
         "english": "Known artists and their performance days"
       },
       {
-        "french": "Prix d'une journée et possibilité d'un pass de trois jours",
-        "english": "Day ticket price and availability of a three-day pass"
+        "french": "Heure du premier et du dernier concert le vendredi",
+        "english": "Friday's first concert start and last concert finish"
+      },
+      {
+        "french": "Tarif à la journée ou pour tout le festival",
+        "english": "Day ticket price and full-festival price"
       },
       {
         "french": "Possibilité de sortir et rentrer avec le pass",
@@ -5142,8 +5142,8 @@
         "english": "Types of games for children, families and adults"
       },
       {
-        "french": "Jeux de société conseillés aux adultes débutants",
-        "english": "Board games recommended for adult beginners"
+        "french": "Jeux de société pour des adultes qui jouent peu",
+        "english": "Board games for adults who rarely play"
       },
       {
         "french": "Jeu sur place et explication des règles",
@@ -5158,8 +5158,8 @@
         "english": "Number of games and loan period"
       },
       {
-        "french": "Réservation en ligne ou au comptoir",
-        "english": "Online or counter reservations"
+        "french": "Réservation d'un jeu déjà emprunté",
+        "english": "Reserving a game that's already on loan"
       },
       {
         "french": "Tarifs annuels résidents et non-résidents",
@@ -5214,6 +5214,10 @@
         "english": "Literary knowledge needed"
       },
       {
+        "french": "Participation sans partenaire et intégration à une équipe",
+        "english": "Coming on your own and joining a team there"
+      },
+      {
         "french": "Âge minimum pour participer",
         "english": "Minimum age to participate"
       },
@@ -5232,24 +5236,24 @@
       {
         "french": "Modalités et date limite d'inscription",
         "english": "Registration method and deadline"
-      },
-      {
-        "french": "Inscription individuelle et intégration à une équipe, si nécessaire",
-        "english": "Individual registration and joining a team if needed"
       }
     ],
     "friend-unspecified-artistic-activity": [
       {
-        "french": "Activité artistique et cadre amateur ou professionnel",
-        "english": "Artistic activity and amateur or professional setting"
+        "french": "Activité artistique pratiquée par l'ami",
+        "english": "The artistic activity your friend does"
       },
       {
-        "french": "Bénéfices personnels et confiance en soi",
-        "english": "Personal benefits and self-confidence"
+        "french": "Ce qui plaît le plus dans l'improvisation",
+        "english": "What your friend likes most about improv"
       },
       {
-        "french": "Expérience nécessaire pour participer",
-        "english": "Experience needed to participate"
+        "french": "Accueil de personnes sans expérience sur scène",
+        "english": "Whether people with no stage experience can join"
+      },
+      {
+        "french": "Construction d'une scène sans texte préparé",
+        "english": "Creating a scene without a script"
       },
       {
         "french": "Lieu des séances et facilité d'accès",
@@ -5258,10 +5262,6 @@
       {
         "french": "Jours et horaires des séances",
         "english": "Session days and times"
-      },
-      {
-        "french": "Matériel et tenue pour une première séance",
-        "english": "Equipment and clothing for a first session"
       },
       {
         "french": "Possibilité et réservation d'une séance d'essai",
@@ -5320,20 +5320,20 @@
         "english": "Studio or online lessons"
       },
       {
-        "french": "Créneaux en semaine et le samedi",
-        "english": "Weekday and Saturday slots"
-      },
-      {
-        "french": "Possibilité d'un créneau fixe le samedi",
-        "english": "Option for a regular Saturday slot"
-      },
-      {
         "french": "Durée des leçons et rythme conseillé",
         "english": "Lesson length and recommended frequency"
       },
       {
-        "french": "Prix à la leçon et forfait de quatre cours",
-        "english": "Single-lesson price and four-lesson package"
+        "french": "Créneaux en semaine et le samedi",
+        "english": "Weekday and Saturday slots"
+      },
+      {
+        "french": "Même créneau le samedi chaque semaine",
+        "english": "Same Saturday time slot each week"
+      },
+      {
+        "french": "Prix d'une leçon et tarif pour plusieurs cours",
+        "english": "Price per lesson and package rate for multiple lessons"
       },
       {
         "french": "Guitare personnelle, prêt ou location",
@@ -5464,16 +5464,16 @@
         "english": "Beginner class times"
       },
       {
-        "french": "Trajet ensemble après le travail",
-        "english": "Travelling together after work"
-      },
-      {
         "french": "Cours d'essai avant de payer la session",
         "english": "Trial class before paying for the session"
       },
       {
         "french": "Budget total des cours et adhésion éventuelle",
         "english": "Total class cost and any membership fee"
+      },
+      {
+        "french": "Réservation du cours d'essai auprès de l'association ou du prof",
+        "english": "Booking the trial class through the association or the teacher"
       }
     ],
     "colleague-management-promotion-party": [

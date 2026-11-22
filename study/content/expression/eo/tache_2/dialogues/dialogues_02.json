@@ -136,10 +136,10 @@
         {"topic": "Professeur et niveau", "question": "Ses cours de guitare sont-ils accessibles aux débutants ?", "answer": "Oui, il accompagne aussi des personnes qui n'ont jamais joué.", "follow_up_to": 1, "condition": "If guitar is taught; substitute the instrument that interests you."},
         {"topic": "Professeur et niveau", "question": "Quelle expérience a-t-il dans l'enseignement de la musique ?", "answer": "Il enseigne depuis plusieurs années et a aussi travaillé dans une école de musique.", "follow_up_to": null},
         {"topic": "Organisation", "question": "À quelle fréquence propose-t-il les cours ?", "answer": "En général, une séance par semaine, selon les objectifs de chacun.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Vous savez quels créneaux sont encore disponibles ?", "answer": "À ma connaissance, le mercredi soir, mais il faudra le confirmer avec lui.", "follow_up_to": null},
-        {"topic": "Tarif et matériel", "question": "Quel est le tarif d'un cours à domicile ?", "answer": "La dernière fois que j'ai demandé, c'était 35 $ pour une heure.", "follow_up_to": null},
-        {"topic": "Tarif et matériel", "question": "Faut-il posséder son instrument dès le premier cours ?", "answer": "Il peut prêter une guitare pour l'essai, mais il faut un clavier chez soi pour le piano. Je vous transmettrai ses coordonnées.", "follow_up_to": null},
-        {"topic": "Tarif et matériel", "question": "Est-ce que le professeur fournit les partitions et les exercices entre deux cours ?", "answer": "Oui, il remet des partitions adaptées au niveau et des exercices à travailler pendant la semaine.", "follow_up_to": null}
+        {"topic": "Organisation", "question": "Et si je voulais commencer bientôt, vous savez quels créneaux il a de libres ?", "answer": "Il me semble qu'il lui reste de la place le mercredi soir, mais c'est à confirmer avec lui.", "follow_up_to": null},
+        {"topic": "Tarif et premier cours", "question": "Quel est le tarif d'un cours à domicile ?", "answer": "La dernière fois que j'ai demandé, c'était 35 $ pour une heure.", "follow_up_to": null},
+        {"topic": "Tarif et premier cours", "question": "Pour une première leçon, faut-il déjà avoir un instrument chez soi ?", "answer": "Il peut apporter une guitare pour vous faire essayer, mais pour le piano il faut avoir un clavier chez soi.", "follow_up_to": null},
+        {"topic": "Tarif et premier cours", "question": "Vous pourriez me mettre en contact avec lui pour que je vérifie ses disponibilités ?", "answer": "Bien sûr, je peux vous transmettre ses coordonnées.", "follow_up_to": null}
       ]
     },
     {
@@ -235,13 +235,13 @@
       "closing": "Merci pour ces infos ! Je vais voir si je peux essayer un cours avant de m'inscrire.",
       "questions": [
         {"topic": "Contenu et participation", "question": "Qu'est-ce que vous travaillez pendant les cours ?", "answer": "L'improvisation, la voix et de courtes scènes jouées en groupe.", "follow_up_to": null},
-        {"topic": "Contenu et participation", "question": "Pour ces scènes, faut-il jouer devant tout le groupe dès le début ?", "answer": "Non, on commence par de petits exercices à deux, puis on progresse.", "follow_up_to": 1, "condition": "If acted scenes are part of the course."},
+        {"topic": "Contenu et participation", "question": "Pour ces scènes, il faut se lancer devant tout le monde dès le premier cours ?", "answer": "Non, on commence par des exercices à deux. Les petites scènes devant les autres viennent plus tard.", "follow_up_to": 1, "condition": "If acted scenes are part of the course."},
         {"topic": "Lieu et horaires", "question": "Quel jour et à quelle heure ont lieu les cours ?", "answer": "Le jeudi, de dix-neuf heures à vingt et une heures.", "follow_up_to": null},
         {"topic": "Lieu et horaires", "question": "Où se trouve la salle de cours ?", "answer": "Au centre culturel, près de l'arrêt de bus principal.", "follow_up_to": null},
         {"topic": "Tarifs et inscription", "question": "Combien coûte la session ?", "answer": "J'ai payé 180 $ pour douze semaines.", "follow_up_to": null},
+        {"topic": "Tarifs et inscription", "question": "À ce tarif-là, il y a des textes ou du matériel à acheter en plus ?", "answer": "Non, le prof fournit les textes et on n'a rien d'autre à acheter.", "follow_up_to": 5, "condition": "If the fee is given without saying what is included."},
         {"topic": "Tarifs et inscription", "question": "Peut-on essayer un cours avant de s'inscrire ?", "answer": "Oui, le premier cours peut servir d'essai, à condition de prévenir le professeur.", "follow_up_to": null},
-        {"topic": "Tarifs et inscription", "question": "À qui dois-je m'adresser pour m'inscrire ?", "answer": "À l'accueil du centre culturel ; ils gèrent les inscriptions.", "follow_up_to": null},
-        {"topic": "Tarifs et inscription", "question": "Les textes et le matériel utilisés pendant les cours sont-ils compris dans le tarif ?", "answer": "Oui, les textes sont fournis et il n'y a aucun matériel particulier à acheter.", "follow_up_to": null}
+        {"topic": "Tarifs et inscription", "question": "À qui dois-je m'adresser pour m'inscrire ?", "answer": "À l'accueil du centre culturel ; ils gèrent les inscriptions.", "follow_up_to": null}
       ]
     },
     {
@@ -268,14 +268,14 @@
       "opening": "Salut ! Je cherche un film à présenter dans la revue de mon association culturelle.",
       "closing": "Merci pour ton avis ! J'ai maintenant une piste concrète pour préparer mon article.",
       "questions": [
-        {"topic": "Choix du film", "question": "Quel film que tu as aimé me conseillerais-tu de présenter ?", "answer": "En corps, de Cédric Klapisch.", "follow_up_to": null},
+        {"topic": "Choix du film", "question": "Parmi les films que tu as aimés, lequel ferait un bon sujet pour mon article ?", "answer": "En corps, de Cédric Klapisch.", "follow_up_to": null},
         {"topic": "Choix du film", "question": "C'est quel genre de film ?", "answer": "Une comédie dramatique centrée sur la danse.", "follow_up_to": null},
         {"topic": "Histoire et avis", "question": "Quelle est l'histoire, sans dévoiler la fin ?", "answer": "Une danseuse classique blessée découvre la danse contemporaine et cherche une nouvelle voie.", "follow_up_to": null},
-        {"topic": "Histoire et avis", "question": "Qu'est-ce qui t'a plu dans cette façon de raconter son parcours ?", "answer": "Le film montre sa reconstruction sans réduire le personnage à sa blessure.", "follow_up_to": 3, "condition": "After the plot is outlined; adapt the reference to its actual subject."},
+        {"topic": "Histoire et avis", "question": "Dans le parcours de cette danseuse, qu'est-ce qui t'a le plus touché ?", "answer": "Le fait qu'elle ne cherche pas seulement à retrouver son niveau d'avant. Elle découvre qu'elle peut danser autrement.", "follow_up_to": 3, "condition": "After the plot is outlined; adapt the reference to its actual subject."},
         {"topic": "Histoire et avis", "question": "Quels acteurs jouent dans le film ?", "answer": "Marion Barbeau et Denis Podalydès, entre autres.", "follow_up_to": null},
         {"topic": "Lieu et prix", "question": "Où l'as-tu vu ?", "answer": "Au cinéma de mon quartier, pendant une soirée consacrée au cinéma français.", "follow_up_to": null},
         {"topic": "Lieu et prix", "question": "Combien avais-tu payé pour cette séance ?", "answer": "12 $, sans réduction particulière.", "follow_up_to": 6, "condition": "If they saw it at a paid screening."},
-        {"topic": "Lieu et prix", "question": "Est-ce que le film est encore à l'affiche ou disponible légalement en ligne ?", "answer": "La dernière fois que j'ai cherché, il était proposé en location en ligne ; la disponibilité actuelle dépend du pays et reste à vérifier.", "follow_up_to": null}
+        {"topic": "Lieu et prix", "question": "Pour les lecteurs qui voudraient le voir maintenant, tu leur conseillerais de chercher une séance ou de le louer en ligne ?", "answer": "C'était une projection ponctuelle. Je regarderais d'abord si le film est disponible en location en ligne.", "follow_up_to": null}
       ]
     },
     {
@@ -307,9 +307,9 @@
         {"topic": "Lieu et moment", "question": "Quel lieu pourrait convenir à cette fête ?", "answer": "La salle du centre de quartier, si elle est disponible à la location.", "follow_up_to": null},
         {"topic": "Lieu et moment", "question": "Quel moment serait le plus pratique pour la rencontre ?", "answer": "Un samedi en fin d'après-midi permettrait aux familles de passer sans finir trop tard.", "follow_up_to": null},
         {"topic": "Repas et animations", "question": "Quel type de repas serait le plus facile à prévoir ?", "answer": "Un buffet partagé, où chacun apporte quelque chose en indiquant les ingrédients.", "follow_up_to": null},
+        {"topic": "Repas et animations", "question": "Avec ce buffet partagé, quelles dépenses communes faudrait-il prévoir et comment les répartir ?", "answer": "Il resterait les frais de salle et de décoration ; on pourrait les partager entre les participants après leur avoir proposé un budget.", "follow_up_to": 5, "condition": "If a shared buffet is suggested without a common-cost arrangement."},
         {"topic": "Repas et animations", "question": "Quelle musique conviendrait à des invités d'âges différents ?", "answer": "Une playlist variée, à un volume qui permet de discuter.", "follow_up_to": null},
-        {"topic": "Repas et animations", "question": "Quelle animation aiderait les voisins à faire connaissance ?", "answer": "Un petit jeu de présentation, puis des tables où les gens peuvent discuter.", "follow_up_to": null},
-        {"topic": "Repas et animations", "question": "Avec ce buffet partagé, quelles dépenses communes faudrait-il prévoir et comment les répartir ?", "answer": "Il resterait les frais de salle et de décoration ; on pourrait les partager entre les participants après leur avoir proposé un budget.", "follow_up_to": 5, "condition": "If a shared buffet is suggested without a common-cost arrangement."}
+        {"topic": "Repas et animations", "question": "Quelle animation aiderait les voisins à faire connaissance ?", "answer": "Un petit jeu de présentation, puis des tables où les gens peuvent discuter.", "follow_up_to": null}
       ]
     },
     {

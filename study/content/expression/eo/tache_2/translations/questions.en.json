@@ -2,6 +2,12 @@
   "generated_at": "2026-11-02T07:23:51.415923+00:00",
   "groups": {
     "acquaintance-hiking-walking-club": {
+      "1bfda551ca7f6fb0566f30693caccf5208e001cc472d8aa2d2cbfc84cca796b9": {
+        "english": "And on the days you go to the regional park, how do you arrange the trip there?",
+        "french": "Et les jours où vous allez au parc régional, vous vous organisez comment pour le trajet ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "1f8a683953a843a996d5dd95dac0a1dd09efb7079fe0410b18dfc731c3ef0295": {
         "english": "Are there different ability levels?",
         "french": "Est-ce qu'il y a plusieurs niveaux ?",
@@ -49,6 +55,12 @@
         "french": "Qui fait partie du club ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "f62cb31a87db06800fea68f800bbabe2a50d6d006860f879c70cb9a117efbcb9": {
+        "english": "Who's in the group: mostly regulars, or newcomers too?",
+        "french": "Qui est-ce qu'on retrouve dans le groupe : surtout des habitués ou aussi des nouveaux ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       }
     },
     "acquaintance-new-job-overall-experience": {
@@ -92,6 +104,12 @@
       }
     },
     "acquaintance-recent-cinema-film": {
+      "3649fa6f9b12a9f3c72583c6aed00dbca355b27524f68d6147651ccc69de6cbe": {
+        "english": "And which cinema did you see it at?",
+        "french": "Et tu l'as vu dans quel cinéma ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "3bbfdeadf5b536847ee53b25df1544dcb96be0d0343812df46a16d1159fc19e9": {
         "english": "Who plays the main roles?",
         "french": "Qui joue les rôles principaux ?",
@@ -133,6 +151,12 @@
         "french": "Quel film as-tu vu ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "a794f4000f788a92063f618b8508b28f8a2bc57cc77ab120214f2881967f454f": {
+        "english": "Did you notice whether that cinema had any other screenings this week?",
+        "french": "Tu as vu si ce cinéma proposait d'autres séances cette semaine ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "bcbec5d22ce37c7c9f9195930f7a52b5dd40712ba1db9c8c9628678d77accdcc": {
         "english": "What language did you see it in, and were there subtitles?",
@@ -193,6 +217,12 @@
         "french": "Combien coûte la participation ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "822404f40747c82041dbfcc09c993660c1cf7f7e35ac91b76ceada0e4c018b7f": {
+        "english": "And for the teams, can I come on my own and join a group there?",
+        "french": "Et pour les équipes, est-ce que je peux venir sans partenaire et rejoindre un groupe sur place ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "924b0c4cfaa3868fe79bb54a4f89d96cc5118e81713338759d95eb5d122bf124": {
         "english": "If the game is played in teams, can we register alone and join a group there?",
@@ -333,6 +363,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "23204d018f2dce2616181bee9a900db89747d159b0479d046a2da5066ccf54b9": {
+        "english": "And if I feel like seeing a comedy, which one would you recommend?",
+        "french": "Et si j'ai envie d'une comédie, laquelle tu me conseillerais ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "3aab7acbefe56751def39eac260cbbe3638a5a098e1f454ca03f6d91a55307d0": {
         "english": "What kinds of films are showing at your cinema at the moment?",
         "french": "Quels types de films passent en ce moment dans ton cinéma ?",
@@ -356,6 +392,18 @@
         "french": "Est-ce que je pourrai choisir ma place au moment de la réservation ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "700b23157df0e508c8fa75cd1e689b71b3abbec307cfe800744e33ff3b109a28": {
+        "english": "When you book online, do you choose a seat or just sit wherever you like when you get there?",
+        "french": "En réservant en ligne, on choisit son siège ou on s'assoit où on veut en arrivant ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "a1dbf78f07f7d7ac68dca9e96e139693e119eb1637f1bdd746688b974377dd88": {
+        "english": "For the eight-thirty screening, is it better to book, or can I buy a ticket when I arrive?",
+        "french": "Pour celle de vingt heures trente, il vaut mieux réserver ou je peux acheter le billet en arrivant ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "c1f31dd1421e01320febfe80e69d558a93cda93e02b3146dba61edce75a2f159": {
         "english": "Is the film shown in French, with or without subtitles?",
@@ -584,6 +632,12 @@
       }
     },
     "canadian-press-newsagent-selection": {
+      "076164aa2f818be85b159e57572921840922b36751def4cbd7423005ee69d59a": {
+        "english": "To make it easier to get started, does the magazine have short articles too?",
+        "french": "Pour commencer plus facilement, est-ce que la revue propose aussi des articles courts ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "39e84feced428c8434a4e1c4478b0567b85aea613caf003313708c43020fa60e": {
         "english": "Is there a digital edition or a subscription that's cheaper than buying individual issues?",
         "french": "Existe-t-il une formule numérique ou un abonnement moins cher que l'achat au numéro ?",
@@ -626,6 +680,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "e4c4542efdfb145f2ba1243bcb7688062ad0eed6a462c9408929e068c23d6069": {
+        "english": "And if I like this magazine, would a subscription work out cheaper than buying it each week?",
+        "french": "Et si cette revue me plaît, est-ce qu'un abonnement reviendrait moins cher que de l'acheter chaque semaine ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "e83f8a4eb5421a3a79a059490ab2510f347429b091789e8cfd8a9459c66074e1": {
         "english": "Can I browse this issue to see whether the topics interest me?",
         "french": "Puis-je feuilleter ce numéro pour voir si les sujets m'intéressent ?",
@@ -658,6 +718,18 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "5adc76c39626a011e10ea4dab63ced964ac1f8b3ec32d27eefb29e6462a0746c": {
+        "english": "Can I travel there and back by coach at the weekend, and how would I reach the inn from the stop?",
+        "french": "Peut-on faire l'aller-retour en autocar le week-end, et comment rejoindre l'auberge depuis l'arrêt ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "608ed4ff5c100f5bccb3a150837fec69ac4c637e3c360cb39c3344dde4bda3b9": {
+        "english": "To get back after an evening at the bistro, what time does the last shuttle leave the village?",
+        "french": "Pour rentrer après la soirée au bistro, à quelle heure part la dernière navette du village ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "72aa7f3df37b22054ff3e39591ec180ad7e5655ff93b8069990c6eada1a47292": {
         "english": "Does the shuttle also go to the village for outings, and how often does it run?",
         "french": "La navette permet-elle aussi de rejoindre le village pour les sorties, et à quelle fréquence passe-t-elle ?",
@@ -681,6 +753,12 @@
         "french": "Quel budget prévoir par personne pour une nuit sur place, les activités conseillées et un repas ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "d2e0c003d2f775400a5ac8771b940be82260bf28f07de01d8642f513dc5979b9": {
+        "english": "And what happens on a first visit to the Nordic spa?",
+        "french": "Et au spa nordique, comment se déroule une première visite ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       }
     },
     "canadian-work-hours-home-country-comparison": {
@@ -797,6 +875,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "6d1a01441fa41e20742ba1896375986e02d65a002dfabe44228c3fb6de76d52c": {
+        "english": "And to book that trial class, do we go through the association or let the teacher know directly?",
+        "french": "Et pour réserver ce cours d'essai, on passe par l'association ou on prévient directement le prof ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "81302ab8870fa56a148da64079ac36b8718602b9b8916f9cf7ba4e399f236701": {
         "english": "Where are the classes held, and how long does it take to get there from work?",
         "french": "Où ont lieu les cours, et combien de temps faut-il pour s'y rendre depuis le travail ?",
@@ -898,6 +982,12 @@
         "french": "À quelle fréquence vous retrouvez-vous, et à quelle heure ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "7a6cb0da8f799a01968ee3d691af06cc88b38963fb5e322da9c30f7a352c56e9": {
+        "english": "And in terms of cost, do you pay per evening, or is there an annual membership fee?",
+        "french": "Côté budget, on paie à chaque soirée ou il y a une cotisation annuelle ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "93c750e431ba5bfa5611625a6b337dac2366916fae9c9d9d2b0b0070e83fcbf6": {
         "english": "And what if I couldn't come every week?",
@@ -1061,6 +1151,12 @@
       }
     },
     "colleague-invitation-unspecified-show": {
+      "1228d3cf30c3c613b5acce1ecf8bd44269c6213008bfe23ebc926c2100954810": {
+        "english": "What's that comedy about?",
+        "french": "De quoi ça parle, cette comédie ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "1e658dc2ed045aac3aa8c751da0b33269844e6e7117667415956a1a81202c859": {
         "english": "How much is a ticket?",
         "french": "Combien coûte une place ?",
@@ -1078,6 +1174,18 @@
         "french": "Comment pourrait-on s'organiser pour le trajet ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "6dba72d67338f1c538341e29dff576ac3aa9a9d763ed52af309a22faf29622e2": {
+        "english": "Were you thinking of going just the two of us, or would other people join us?",
+        "french": "Tu pensais qu'on irait à deux ou d'autres personnes se joindraient à nous ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "8b8bc295dfc2fc6038c8b6cdf048b30eb2164add6640e58ee0a7043dfc83eb11": {
+        "english": "Once we know who's coming, how do we book so we can sit together?",
+        "french": "Une fois qu'on saura qui vient, comment est-ce qu'on réserve pour être assis ensemble ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "921a067b16736fd17fe3f12c33517eff0b68e8ffbf4f8fba7bef23b53e36c1ae": {
         "english": "What makes you want to see that show?",
@@ -1197,6 +1305,24 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "b9b40b65f185786c7a97d5cdcc4baaca45eb9591b5d0bf24b5bb20586b52d941": {
+        "english": "Would you like to play a game first to see how we get on playing together?",
+        "french": "Ça vous dirait qu'on fasse une première partie pour voir si on joue bien ensemble ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "ccd6ca50def60178476e61560f354ad8394a3bc848898ce3662406c4f2f4862c": {
+        "english": "Which sport do you need a partner for?",
+        "french": "Pour quel sport cherchez-vous quelqu'un ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "d13ae8153116aeb839b2fa343c807abeaae8b9b47246c84cd20b3b445f546664": {
+        "english": "In terms of equipment, what should I bring if we played together?",
+        "french": "Côté matériel, qu'est-ce que je devrais apporter si on jouait ensemble ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "df42467208bcee56acbf78baab3f5479cfab15b094f778a9eb2bd20a9a0639a6": {
         "english": "And what if I could only come once a week?",
         "french": "Et si je ne pouvais venir qu'une fois par semaine ?",
@@ -1266,6 +1392,18 @@
         "french": "Quel budget faut-il prévoir pour un repas là-bas ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "1dbacf109dcbf2a7d3afb9192f27c0213996fc311760e014afd6a3591a27caf3": {
+        "english": "If I take the bus several times, would a pass work out cheaper than single tickets?",
+        "french": "Si je fais plusieurs trajets en bus, est-ce qu'un forfait me reviendrait moins cher que des billets à l'unité ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "4bc78274d7de0739bfad50cacb57b2551d61aa876666e55221853af7929edb41": {
+        "english": "Which neighbourhood would you recommend staying in to keep journeys to those places short?",
+        "french": "Dans quel quartier me conseillerais-tu de loger pour limiter les trajets vers ces lieux ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "4cdd342b161f813a723fe836215b9b72cceaf134b856d8ebfa8324397a236604": {
         "english": "In what order would you visit them over a weekend?",
@@ -1372,11 +1510,23 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "8f79440c777f13b5be7589381c618ef5fe0986afb3f841f3e8c5441ed2e541b8": {
+        "english": "Once the pass is in my account, how would you prefer me to pay you?",
+        "french": "Une fois le pass dans mon compte, comment préférez-vous que je vous règle ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "9c45c4e3e53de9380b59d39b101356f5a081e173fb3287f803480f0b962d7091": {
         "english": "If I bought them from you, would the names on the tickets need to be changed?",
         "french": "Si je vous les achetais, faudrait-il modifier le nom sur les billets ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "aa5701a35eacfb9b68e1ba5993a848c4d42410fbefcbbaa7f77fbba83ee30e33": {
+        "english": "If I take one pass, how would it be transferred into my name?",
+        "french": "Si je vous prends un pass, comment se fait le transfert à mon nom ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "c09c4133968968d907a928ae1f435c97275bed7af43c0f9844cae897f23f90b3": {
         "english": "Where does the festival take place?",
@@ -1407,6 +1557,12 @@
         "french": "Comment pourrions-nous vérifier leur validité et sécuriser le paiement au moment du transfert ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "fb09cc21fce8c0a6c4d7673576abb81ae29e532ffa70773456d25ef5061ce3d3": {
+        "english": "What tickets could you sell me, and at what price?",
+        "french": "Quels billets pourriez-vous me céder, et à quel prix ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       }
     },
     "colleague-wedding-report": {
@@ -1471,6 +1627,12 @@
         "french": "Quelles activités proposez-vous en ce moment ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "413ac73637be2263158fc6713dee145ffd70c5b4ef51199dc9352cdd4af1e6fe": {
+        "english": "And what do we learn in drawing over the course of this session?",
+        "french": "Et en dessin, qu'est-ce qu'on apprend au cours de cette session ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "4d41152aee31cb9c309a079d034958de1ffc293bba5fd0b414dd8108dd49944f": {
         "english": "In which room do they take place?",
@@ -1629,6 +1791,18 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "49c9e5070891bb1894d7dd8a5a973e728d12a77ca345be8c17906108f990ebce": {
+        "english": "Do we have to commit to coming every week, or can we book when we're free?",
+        "french": "Est-ce qu'on s'engage à venir toutes les semaines ou on réserve selon ses disponibilités ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "55506fb82f7b4904007893ef02820084d10bea1b8ae23739625b29da408a89c6": {
+        "english": "What time have you set aside: during lunch or after work?",
+        "french": "Tu as prévu quel créneau, pendant la pause du midi ou après le travail ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "598365d93207fe792d30aab465a171e05131dcea07698e7a2363ce9789d7660a": {
         "english": "Are these sessions suitable for beginners too?",
         "french": "Est-ce que ces séances conviennent aussi aux personnes qui débutent ?",
@@ -1652,6 +1826,12 @@
         "french": "Comment se déroule une séance de yoga doux ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "da33d14cee244f2651adc17e832016b789c724ef4ac3c32b658bf7b32c48d387": {
+        "english": "And how do I go about booking a spot?",
+        "french": "Et pour réserver une place, je m'y prends comment ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "df924a83dd27e93b12b273514ae1c78c489e65d672ea9a52e5d2e11e5f609810": {
         "english": "How can we sign up?",
@@ -1802,6 +1982,18 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "3bfc0a5ab1b870a164620f3568c4a475ea36d4b4ebf4e984a404acbc08ca7404": {
+        "english": "To share what I discover along the way, when is a short video better than a story with photos?",
+        "french": "Pour montrer ce que je découvre sur place, dans quel cas vaut-il mieux faire une courte vidéo plutôt qu'un récit avec des photos ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "3e3ee2c525bfaa2676ce6591d62d1239245681187aedf40a1ea4476fc2d00a59": {
+        "english": "When you launched your travel blog, what did you start with?",
+        "french": "Quand vous avez lancé votre blog de voyage, par quoi avez-vous commencé ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "72aa3cee2cfea7ab43a56883cdf6cf81abd582eb8b863107aecf516515431996": {
         "english": "Which platform would you recommend for someone starting out without particular technical skills?",
         "french": "Quelle plateforme me conseilleriez-vous pour débuter sans compétences techniques particulières ?",
@@ -1826,11 +2018,23 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "af0ae564ae83ddb92d6b0c0a36ed550c8b1fc064e3070d99c237d665afb2192a": {
+        "english": "And to put the blog online, did you need to set aside money right from the start?",
+        "french": "Et pour mettre le blog en ligne, est-ce que vous aviez dû prévoir un budget dès le départ ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "b91a3d4e708cc8a050be627ad65dad5b817fafaca51de40973c1157a4b4f9dd7": {
         "english": "What do you put in the budget section?",
         "french": "Qu'est-ce que vous mettez dans la rubrique budget ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "df354a9b83bbf4362bc8799a108b5a9d570776daab0ce70964721ad25d3f701e": {
+        "english": "Would you publish the first article before leaving or once you get there?",
+        "french": "Le premier article, vous le publieriez avant de partir ou une fois sur place ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       }
     },
     "fellow-parent-first-school-fete": {
@@ -2137,6 +2341,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "2d7cccf86cba1cbc3b44d0c1ee5f1b894c94b960f31a60d5a199a8c184fff4ef": {
+        "english": "If I come, how can I pay you and by when?",
+        "french": "Si je viens, comment est-ce que je peux te payer et jusqu'à quand ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "45a5d78b7db5a7bfbb95e6a3df3cb8edd9280912c5b4c68a597c4bcd107e6862": {
         "english": "What is the boarding deadline, and what happens if I arrive after boarding has closed?",
         "french": "Quelle est l'heure limite d'embarquement, et que se passe-t-il si j'arrive après sa fermeture ?",
@@ -2154,6 +2364,12 @@
         "french": "À quelle heure le bateau reviendra-t-il, et le débarquement se fera-t-il au quai de départ ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "b74fc916be4ffb06e56b4c4a9ae652cbe6588443faed6316277e754f42012471": {
+        "english": "What's the latest I need to be at the dock to board?",
+        "french": "À quelle heure au plus tard faut-il être sur le quai pour embarquer ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "c003014f28e8462850b6c99af06ed3278ce95d23be8745b2b0eb804aefef0687": {
         "english": "Where will the boat leave from, and at what time?",
@@ -2199,11 +2415,23 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "3d70ed35a859fc34d33c1ae2d1f327f74f7d3c78d4267265859eeb8480f673b2": {
+        "english": "How much should I budget for a first outing with a lesson and rented equipment?",
+        "french": "Pour une première sortie avec un cours et du matériel loué, il faudrait compter combien ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "921cf1b153a7ba255442df2c2d502eab5973bc20eb9eb7894c5e42e91bc33569": {
         "english": "Do you also have to pay to use the trails?",
         "french": "Faut-il aussi payer pour accéder aux pistes ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "987cc2b4c35d614896a912b6ec1e08ce49df5b339bdb9982e802aa4505cf3567": {
+        "english": "And is access to the trails included in that price, or is it extra?",
+        "french": "Et l'accès aux pistes, c'est compris dans ce prix ou c'est à part ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "a81ae7f35b1eb584331cbbf17373a3cfafa8a7b37a4920d8e3752688670baba9": {
         "english": "What should I wear to stay warm without getting too hot while exercising?",
@@ -2386,6 +2614,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "6bc8cc8624b98e73c1c646f0c2a0e8831b42ee08f72393106783776dc0c4c52d": {
+        "english": "Is synchronised swimming really the subject of the film, or is it mostly a way to tell the group's story?",
+        "french": "La natation synchronisée, c'est vraiment le sujet du film ou c'est surtout une façon de raconter l'histoire du groupe ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "84da39dd94623f81fcae8aced54a2de83e7eff0b2b0b6b15357d2af88112b8cb": {
         "english": "How long is the film?",
         "french": "Combien de temps dure le film ?",
@@ -2415,6 +2649,18 @@
         "french": "De quoi parle l'histoire, sans dévoiler la fin ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "d23ae813d594f08100406d0fcc6fdd8f342a88976e58928cbd5654f9247019e2": {
+        "english": "What should I check on my ticket before choosing a screening?",
+        "french": "Qu'est-ce que je devrais vérifier sur mon billet avant de choisir une séance ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "df53038d299e78d5af6208dcad05eab8c01ae24f6b464d77d711f6f727bb38e7": {
+        "english": "Of the films showing now, which one would you recommend to take my mind off things?",
+        "french": "Parmi les films à l'affiche, lequel tu me conseillerais pour me changer les idées ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       }
     },
     "friend-choose-television-series": {
@@ -2423,6 +2669,12 @@
         "french": "Où peut-on regarder ces séries : sur une chaîne ou une plateforme ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "09a951ffec4ee0e0cc21ef6cda60e1b89a861d093b233502a8e88eeee87f80e9": {
+        "english": "What would you recommend for a suspenseful series that isn't too dark?",
+        "french": "Pour une série avec du suspense, mais pas trop sombre, tu me conseillerais quoi ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "2613117d94fbc0237f534724d7a637ddd192b3b72425f377ebe1e28ed84dd898": {
         "english": "Who is in the first series you recommended?",
@@ -2436,17 +2688,41 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "4801bf2ddb9802c6e864596a9efb0278360bbf86cafcec9523dfa411e73b886e": {
+        "english": "Does the story continue from episode to episode, or does each episode stand on its own?",
+        "french": "L'histoire se suit d'un épisode à l'autre ou chaque épisode est indépendant ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "55548d74bc56d8735b57d7b18a73f4eae13aa6613ccf355549860d9d4d2af0db": {
+        "english": "And who plays the main character?",
+        "french": "Et qui joue le personnage principal ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "5b0adc449416e977333fd8e27e015997927a29763dc9b6d4d4ac74702a8c1ea0": {
         "english": "What monthly budget should I allow for the platform offering the first series, with or without adverts?",
         "french": "Quel budget mensuel faut-il prévoir pour la plateforme qui propose la première série, avec ou sans publicité ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "71148b83ab94b6f0c6ef788ae80f7070ff2330512cef69cca8f80d8ffca62e4f": {
+        "english": "And where do you watch it: on a TV channel or on a streaming service?",
+        "french": "Et tu la regardes où, sur une chaîne ou sur une plateforme ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "78159e273a1b36b7c3847a5863657c04e373efe7d17279e3af4b80540acc3964": {
         "english": "Will I be able to watch them in French or with French subtitles?",
         "french": "Est-ce que je pourrai les regarder en français ou avec des sous-titres français ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "78555b01a2f85a1618785f786c6e82a9f599f7e9d4c8be71943ab36cc2bcdf16": {
+        "english": "And how much do you pay a month for the plan that gives you access to the series?",
+        "french": "Et toi, tu paies combien par mois pour la formule qui te donne accès à la série ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "7b45e112ac715c7f7c1d1f7f2ead3c637257378c3e0c6f2d74bdf34ec3e85407": {
         "english": "How many episodes does the first series have, and how long are they on average?",
@@ -2465,6 +2741,18 @@
         "french": "Quelle série me conseillerais-tu en ce moment, et dans quel genre ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "d3bc7bccb58f8063524e7ba9523acf2bc346dc3809723f79136bf2172f602d11": {
+        "english": "Do you know if I can turn on French subtitles on that service?",
+        "french": "Sur cette plateforme, tu sais si je peux mettre les sous-titres en français ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "dd804d68e180dfbbecea3152325a38edc087c329c417071cb1e05c320cc5e691": {
+        "english": "Do you know roughly how many episodes there are and how long they are?",
+        "french": "Tu as une idée du nombre d'épisodes et de leur durée ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       }
     },
     "friend-choose-tonight-outing": {
@@ -2504,6 +2792,12 @@
       }
     },
     "friend-city-for-cultural-magazine-article": {
+      "23581609bbc0a675d5ba2f45c3b1f433ea5fe3131c5cb6518ec3e96766a85348": {
+        "english": "If I want to tell the city's story through a single neighbourhood, which would you recommend?",
+        "french": "Si je veux raconter la ville à partir d'un seul quartier, lequel tu me conseillerais ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "3b6010b653a6cec73180f2a060bae90f3202aaad02868a1138fde12e25fd59c7": {
         "english": "What is the easiest way for visitors to get around there?",
         "french": "Comment les visiteurs peuvent-ils s'y déplacer le plus facilement ?",
@@ -2516,11 +2810,23 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "6aeddf27e9aef006891afe5a84f8942a180442af45ce31d98780d3e10dc49e69": {
+        "english": "To contrast with those old buildings, what modern landmark could I write about?",
+        "french": "Pour faire contraste avec ces bâtiments anciens, quel monument moderne je pourrais présenter ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "6ea8e316eefea61c425f66304d09e843c20444b3e95ae867e72a94c684d064af": {
         "english": "Of the cities you've visited, which is your favourite?",
         "french": "Parmi les villes que tu as visitées, laquelle préfères-tu ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "7d3cdd8eb45d2a1ccc146b401b28e9abce6f420663ed40c34e6a2d467d38ee0a": {
+        "english": "And what does that tower tell us about Seattle's history?",
+        "french": "Et qu'est-ce que cette tour raconte de l'histoire de Seattle ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "81e2f16eed1bbd8f21f988f9c5f604b6215b11dbc14e02e21c2584622d170de3": {
         "english": "What cultural experience would you recommend in the evening to discover the local atmosphere?",
@@ -2609,6 +2915,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "4f0a9b16b653fe3ba8a3a65a03390e47961625df18ad067c1aa2f1a0055b5e73": {
+        "english": "And at this jazz manouche concert, do people mostly sit and listen, or do they dance as well?",
+        "french": "Et pendant ce concert de jazz manouche, on reste plutôt assis à écouter ou les gens dansent aussi ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "68ffe8137be213b3226c8997b0f287a15e4e15e9f43280362ead3a7d8e36b896": {
         "english": "When is the concert?",
         "french": "C'est quand, ce concert ?",
@@ -2677,6 +2989,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "8382b9c824f3a5543e706fe6620e2357b7f5245be428f168b08a23dd1ac0a103": {
+        "english": "Once I've found a date that works for me, how do I sign up?",
+        "french": "Une fois que j'ai repéré une date qui me convient, je m'inscris comment ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "95747147c2fef1deb11891bd8a83baa91955bd53664cc86e6dc79e07e1cc8c01": {
         "english": "How much did you pay, and were the ingredients included?",
         "french": "Tu as payé combien, et les ingrédients étaient-ils compris ?",
@@ -2688,6 +3006,12 @@
         "french": "À quels horaires ont lieu les ateliers ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "c991285394e229ec47dde4b0a4597be2c1c9207418025780d49c7fcc2456bed6": {
+        "english": "Did you have to bring any utensils to the workshop, or was everything there?",
+        "french": "Pour suivre l'atelier, tu as dû apporter des ustensiles ou tout était sur place ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "f57b8f9b02ddd201c2db1b1f036ee32c5012b29c99ec58695bbf43ac92bb826d": {
         "english": "Are the utensils included in the price, or do you need to bring your own equipment?",
@@ -2715,6 +3039,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "4e41af6a82e193f8736351a20482512432c84d852458c6f780c8039bcce06b6b": {
+        "english": "If the weather is good, where could I take them to burn off some energy?",
+        "french": "S'il fait beau, où est-ce que je pourrais les emmener pour qu'ils se dépensent ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "608d6a770577d9d6145b65729018a997096eb221588c33901cecd908a8131898": {
         "english": "For that outing, what budget should I allow for children's and adults' admission?",
         "french": "Pour cette sortie, quel budget prévoir pour les entrées des enfants et des adultes ?",
@@ -2739,6 +3069,18 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "9a0c0d1effa718ec928d0973fe7f9230b14c4593be7ab69120c648c2e30d06f4": {
+        "english": "And for museum admission, do you know how much I should budget per child and per adult?",
+        "french": "Et pour les entrées au musée, tu sais combien il faudrait compter par enfant et par adulte ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "a0a6eafba49222841a8787a8e64a6a55c153a1d7df495d0563c6c9ff30b7bef2": {
+        "english": "And for a quieter moment, what board game with simple rules could I suggest to them?",
+        "french": "Et pour un moment plus calme, quel jeu de société aux règles simples je pourrais leur proposer ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "f3e3893f7e3c5ae6f5feea4c9500b7259417a3b9eb204e18c753a5eb937a1562": {
         "english": "For the museum, do we need to book in advance?",
         "french": "Pour le musée, faut-il réserver à l'avance ?",
@@ -2758,6 +3100,12 @@
         "french": "Est-ce que le film est encore à l'affiche ou disponible légalement en ligne ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "47afb8aa03dc9664d224ca178156ba64a975909b32ac1ad9ff931738c5f11aae": {
+        "english": "Of the films you've enjoyed, which one would make a good subject for my article?",
+        "french": "Parmi les films que tu as aimés, lequel ferait un bon sujet pour mon article ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "84b64d058109516d0168357ec19b7050a0ed1ab1d2795b913ab8945dbe0661ff": {
         "english": "What did you like about the way it tells her story?",
@@ -2783,11 +3131,23 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "9faae42406b7341c4cf2a450f1220503e6c3d66717b9308b122afea3bb87d87f": {
+        "english": "For readers who want to see it now, would you suggest looking for a screening or renting it online?",
+        "french": "Pour les lecteurs qui voudraient le voir maintenant, tu leur conseillerais de chercher une séance ou de le louer en ligne ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "c73211ba8cca960aca4bde623dac98996350dc5362651be688d96983158f10fc": {
         "english": "Where did you see it?",
         "french": "Où l'as-tu vu ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "e84fed5beeb4fe7ba88390efa6cc5942ad47c6d6def9029ee47d46950bf5ee1d": {
+        "english": "What moved you most about this dancer's story?",
+        "french": "Dans le parcours de cette danseuse, qu'est-ce qui t'a le plus touché ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "f6261219a415b3c25e7dcf772c7afa568cc273767d1e1332f57cc5eb7e335cf3": {
         "english": "Who acts in the film?",
@@ -3109,6 +3469,12 @@
       }
     },
     "friend-music-festival-organizer": {
+      "17add2e8049ff35f866dcda63e3a0485425bf447b4a3b7c1900411c0734a2e84": {
+        "english": "Which weekend are you holding your festival?",
+        "french": "Tu le fais quel week-end, ton festival ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "24cbb5dc336e40d5f8162c492276a1e7ef2ce4588aeb70912570b2dbd69db948": {
         "english": "On what dates will the festival take place, and how many days will it last?",
         "french": "À quelles dates le festival aura-t-il lieu, et combien de jours durera-t-il ?",
@@ -3126,6 +3492,12 @@
         "french": "Où auront lieu les concerts ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "a2c56e099134c36f2c073165d2c59bc9274d88cdb04c6509a1aadac68c7f386e": {
+        "english": "If I come on Friday, what time do the concerts start and about what time do they finish?",
+        "french": "Si je viens le vendredi, les concerts commencent à quelle heure et se terminent vers quelle heure ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "b5203d91de5a94b27ea40fe1429d5949b11141a4dea29d4e4d5ade11976ca0fa": {
         "english": "How much is a day ticket, and is there a pass for all three days?",
@@ -3156,6 +3528,12 @@
         "french": "Où peut-on acheter les billets, et y en aura-t-il à l'entrée ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "ebfad4796d4ebb61015c36fbd06f53c350720a74f251acc83d2c4f6839382c6e": {
+        "english": "How much is it to come for one day or stay for the whole weekend?",
+        "french": "Il faut compter combien pour venir une journée ou pour rester tout le week-end ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       }
     },
     "friend-new-ottawa-restaurant": {
@@ -3257,11 +3635,23 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "818a65b75ba1885954f5c7808dd9b2c1107a3b28265088ec175971a132502c2a": {
+        "english": "Which of those encounters stayed with you the most?",
+        "french": "Parmi ces rencontres, laquelle t'a le plus marqué ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "8b35d06b2d9a6956d1fd35b9a329ac10a13413687e03cbddabb8e5229f9aeb82": {
         "english": "What aspect would be worth exploring in my article?",
         "french": "Quel aspect mériterait d'être développé dans mon article ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "8fbd4b6e51dd61741f6d1864eb7e0152ddaeacc9d4c0985675ebc6367c256bb1": {
+        "english": "In my article, what could I highlight to make people want to read it without summarising the story?",
+        "french": "Dans mon article, qu'est-ce que je pourrais mettre en avant pour donner envie de le lire sans résumer l'histoire ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "a44c2c73694f0c30092726bbe15028a4bb507b9d4a4b89f5db975c4ca75d4391": {
         "english": "How would you describe the writing style: fairly simple or demanding?",
@@ -3269,11 +3659,23 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "cb800f4ccca752612e9ca70ca37c7c61913bc58bf528e74a7620dbf90e92f616": {
+        "english": "What kind of book is it, exactly?",
+        "french": "C'est quel genre de livre, au juste ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "cfc1446ceaa7d1c36a6e6cb8eab951cbb098cc99be4db115130abd1b95f25543": {
         "english": "What kind of reader would you recommend the book to, and why?",
         "french": "À quel type de lecteur conseillerais-tu ce livre, et pour quelle raison ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "ebd27f5fc6f6b7c0b351cfed58ba6caf6671e1f50537bf2685b43d6783b56cb4": {
+        "english": "Can you tell me what it's about without giving away the ending?",
+        "french": "Tu peux me dire de quoi ça parle sans me raconter la fin ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "f883ce3da33e106294dd281b4f5d2ce5dbc2dcc585ee008ee48c2d16be7d27d5": {
         "english": "Is there anything you would criticise to give my review some balance?",
@@ -3333,11 +3735,23 @@
       }
     },
     "friend-shows-for-association-article": {
+      "09d0d793cdb933dee8162bd2c2a21b9fecc48d5ba6e682eef4edb24e6c83816a": {
+        "english": "Where in Seattle did you see it: in a theatre or under a big top?",
+        "french": "Tu l'as vu où à Seattle, dans une salle ou sous un chapiteau ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "121aaefa8d47e164e5719628b7b1abc2bb3a8f4fa1f2f3068c1902eeeeabcc0b": {
         "english": "How long did the performance last, and was there an interval?",
         "french": "Combien de temps durait la représentation, et y avait-il un entracte ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "1f9c33a57cf5c2070d9246ec499186decb961ade829942890edf7cefdf3401c7": {
+        "english": "What detail from the show should I describe in my article to give readers a feel for the atmosphere?",
+        "french": "Pour faire sentir l'ambiance aux lecteurs, quel détail du spectacle je devrais raconter dans mon article ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "30c5143368c86431d6eb97b18e5b12e2f44cc77cf3ea71f5bc24cea6cf97c1dd": {
         "english": "What was the ticket price range for different seats?",
@@ -3350,6 +3764,12 @@
         "french": "Y avait-il des tarifs réduits ou des promotions pour les familles et les groupes ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "73f19a8a6aa5ee25dddba855eb3ed16388a2a934cd86ee99ddffa48a50a20abc": {
+        "english": "If parents read my article, would you tell them the show is suitable for young children too?",
+        "french": "Si des parents lisent mon article, tu leur dirais que le spectacle convient aussi aux petits ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "970677940ce17cc19ce70508077872b50f41c3249d9d602c9f09d21bea9d825d": {
         "english": "At what venue was the show performed, and in which part of the city?",
@@ -3389,6 +3809,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "53b4736ef7ddc1400fc9b5ac9ca39b4c55c330052d3a17d0cfb9899d4544910d": {
+        "english": "Do you know if she's already been given an experience, like a workshop or an outing?",
+        "french": "Tu sais si on lui a déjà offert une activité, comme un atelier ou une sortie ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "606e8de087f700a6848eb12f0a0806492b3abb58684f450142ec91aacc9e5ae7": {
         "english": "How would you describe her personality?",
         "french": "Comment décrirais-tu son caractère ?",
@@ -3400,6 +3826,12 @@
         "french": "Quel genre de livres lui plaît le plus ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "80c49a86dc57ce79821770a0f838fd7cf362c3c299522e6e673dfb41395bd9e0": {
+        "english": "So, with a maximum of $40, what book-related outing would you recommend?",
+        "french": "Alors, pour 40 $ maximum, quelle sortie liée à la lecture tu me conseillerais ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "8491902666b4fbdda611ec62b4ad89fdf8b103e614f147827facdaf7f95c06e4": {
         "english": "What budget would you consider reasonable for the gift?",
@@ -3439,6 +3871,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "2eac568b58876eccb626ce29a9df84ce3c9fe18a847ddc3fadffcfb47636705b": {
+        "english": "What would you suggest I bring for a first session?",
+        "french": "Pour une première séance, tu me conseillerais d'apporter quoi ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "3d96599c30d029306992c4e702a1b24ca83995a08728cf5b3b5d4cbc783de614": {
         "english": "What activities are offered at your sports centre?",
         "french": "Quelles activités sont proposées dans ton centre sportif ?",
@@ -3450,6 +3888,12 @@
         "french": "Combien paies-tu pour ton abonnement ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "4eb7f72d3cc2a341bf315d4f8d8e0c1d64dd62b2b0b5fa2cc271071ed7daf772": {
+        "english": "Do you know if I can try a class without signing up for a membership right away?",
+        "french": "Tu sais si je peux essayer un cours sans prendre d'abonnement tout de suite ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "8631276eecc22babc4affc50db8d4eaa794dd3c57b480fd37992a2e064df8a48": {
         "english": "What are the opening hours?",
@@ -3468,6 +3912,12 @@
         "french": "Quelles activités sont comprises dans cette formule ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "cf14be017f7ea6ec282f0d0b25b53c7dcd5a7a78c62a9ffba7c4e267c40ead49": {
+        "english": "And in the group classes, what do the instructors do to help beginners?",
+        "french": "Et dans les cours collectifs, qu'est-ce que les animateurs font pour aider les débutants ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "ec72034e2a90bf85304d3ede891a5834db830a37ff5103a79ba6360a88ccb4b9": {
         "english": "What equipment do you need to bring yourself?",
@@ -3523,11 +3973,29 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "342bf21ef5a8425aa3be88020aa3f8ec5ea83bd123f00ff90fe772ac84821f30": {
+        "english": "On filming day, how long did you spend at the studio?",
+        "french": "Le jour du tournage, tu as passé combien de temps au studio ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "388f794442f7959d7b47a2b98d1a88333f1477e32f416b3cd8e98fa747549789": {
+        "english": "And to get used to the clock, what would you do before filming if you did it again?",
+        "french": "Et pour t'habituer au chrono, qu'est-ce que tu ferais avant le tournage si c'était à refaire ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "46bdee4dc15f1e8a7449bf83da0b433e6396087b48c341d32faba85445701487": {
         "english": "What conditions did you need to meet to be selected?",
         "french": "Quelles conditions fallait-il remplir pour être sélectionné ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "7cc91da80f4705fef5efefa458a1a0589f5066cc4e2d83388506c72030343078": {
+        "english": "Before going in front of the cameras, did you get a chance to do a practice round?",
+        "french": "Avant de passer devant les caméras, tu as eu le temps de faire un essai ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "80efb41c8de65cb32c9a7ea541a23a311f83b9dba55d8626eeda3a9c77358ffb": {
         "english": "How much time did you spend at the studio?",
@@ -3535,11 +4003,29 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "9b226013d75a2506eac4a8bc9fbc3fea899e230f52501cc71fdc9276ada94803": {
+        "english": "What requirements did you have to meet to be allowed to apply?",
+        "french": "Quelles conditions fallait-il remplir pour avoir le droit de s'inscrire ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "a34ccd1fd24d71fc30973c7f4efa943ce7e3f9e8bdba40e6dc6120b014d02a2e": {
         "english": "How did you apply?",
         "french": "Comment t'es-tu inscrit ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "a86cff22726bea4359d8f8fbc7f62f031f9389b058a173f90c97e0c3bc42beb3": {
+        "english": "And during the recording, what put you under the most pressure?",
+        "french": "Et pendant l'enregistrement, qu'est-ce qui t'a mis le plus de pression ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "bb72cde272518c5056b7479b7ce239a3c771929327ecc8c6e433412688cfb2e8": {
+        "english": "How did you go about applying?",
+        "french": "Tu as fait comment pour poser ta candidature ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "bcc3e0ff9a7426c883b0232ccf010fecbb0e50fb33ad4deafd98d671116bdf52": {
         "english": "What was the format of the game you took part in?",
@@ -3607,6 +4093,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "216a0c47307b59d9327560f228bce935621bcfac58079a631c27f1ea54794878": {
+        "english": "Does the troupe also take people who've never performed on stage?",
+        "french": "La troupe prend aussi des gens qui n'ont jamais joué sur scène ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "3823e1aa5ec13f4024c6cac435511d6fc1c3ff568104424cdfd024f53986bf1a": {
         "english": "What do you gain from that activity personally, especially in terms of self-confidence?",
         "french": "Qu'est-ce que cette activité t'apporte sur le plan personnel, notamment pour la confiance en toi ?",
@@ -3619,6 +4111,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "5bb0d5a5c092775033def645508e7c6177edfbf1f0cee1403ec1fa857a8ed345": {
+        "english": "In a session, how do you come up with a scene when nobody has a script?",
+        "french": "Pendant une séance, comment vous inventez une scène quand personne n'a de texte ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "604c9fa6ddb76c3a632ea1fb28655404cdbdc4822262b9a137c24a0367d488a0": {
         "english": "What days and times are the sessions?",
         "french": "Quels sont les jours et les horaires des séances ?",
@@ -3630,6 +4128,12 @@
         "french": "Quel matériel ou quelle tenue faut-il prévoir pour une première séance ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "c5253dd103c219236698d33cb6fad4f862bf5488502e56cefa27b74e36e94c79": {
+        "english": "What do you like most about improv?",
+        "french": "Qu'est-ce qui te plaît le plus dans l'impro ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "c625292137b75021a37d55dad310fda2c7d96c6679dbc315d3a435aefdd89b8b": {
         "english": "And after that free session, how much does registration cost?",
@@ -3648,6 +4152,12 @@
         "french": "Dans quel lieu se déroulent les séances, et est-il facile d'accès ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "ff1cb405fc8d13701f2c523e8db5355d94044bd558cfb517452c2d8959bca783": {
+        "english": "What kind of artistic activity do you do, exactly?",
+        "french": "Tu fais quoi comme activité artistique, au juste ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       }
     },
     "friend-upcoming-canada-trip-advice": {
@@ -3839,6 +4349,12 @@
       }
     },
     "friend-weekly-theatre-class": {
+      "13935d544a3e3abc58e16215a1a53ef4d07fe693706bee2d064152dd323b72de": {
+        "english": "For those scenes, do you have to perform in front of everyone from the very first class?",
+        "french": "Pour ces scènes, il faut se lancer devant tout le monde dès le premier cours ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "1c83120c31cf240e326fd27d1c4ae8da676e255e19f71da8e6a257cb47bf2caf": {
         "english": "What day and time are the classes?",
         "french": "Quel jour et à quelle heure ont lieu les cours ?",
@@ -3880,6 +4396,12 @@
         "french": "Qu'est-ce que vous travaillez pendant les cours ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "9839a2756496ee3b401e3262df0eaa815909516a9678da39ce12e0fdcd8ebc2d": {
+        "english": "At that price, are there scripts or supplies we have to buy separately?",
+        "french": "À ce tarif-là, il y a des textes ou du matériel à acheter en plus ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "c459f2e70eb7b7caa36111f189a5acbcd2202ee188ced9a03c9ca29a36872e79": {
         "english": "How much does the course cost?",
@@ -4026,6 +4548,12 @@
       }
     },
     "guitar-teacher-lesson-enrollment": {
+      "0ad519615c1b285ee2163a53afb1bf0412031d4bb75d2f6b5614a2b22a21e1e6": {
+        "english": "How much is one lesson, and do you offer a package rate if I book several?",
+        "french": "Combien coûte une leçon, et proposez-vous un tarif si je réserve plusieurs cours ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "297b08b5a13407e7bd454df4181a8d9da8018516f15ccdac8cf365d6baec0002": {
         "english": "What times do you offer on weekdays and Saturdays?",
         "french": "Quels créneaux proposez-vous en semaine et le samedi ?",
@@ -4049,6 +4577,12 @@
         "french": "Quels sont vos tarifs à la leçon et pour un forfait de quatre cours ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "59b274acf40f76fe650d6b25828f9c76bbcc7c84c2a8044c6f01e77d3f95cd78": {
+        "english": "If I choose Saturday, can I keep the same time slot every week?",
+        "french": "Si je choisis le samedi, est-ce que je peux garder le même créneau chaque semaine ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "64e3fee57d7100e3bf5bf5dfaf02ed19f1af2044620d780f65e72d04ac84c71c": {
         "english": "Are lessons held in your studio, online or in both formats?",
@@ -4319,6 +4853,12 @@
         "french": "Quelles activités faut-il réserver à l'avance ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "ef58fc52a3b13f3ec07bf1f4ef8bce99ba571bef74ab91b7fe569b2e3b486f9b": {
+        "english": "How much time should we allow for the park and the museum without rushing?",
+        "french": "Combien de temps faudrait-il prévoir pour le parc et le musée, sans se presser ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       }
     },
     "home-chef-family-meal": {
@@ -4614,6 +5154,18 @@
       }
     },
     "local-acquaintance-birthday-restaurant-choice": {
+      "0af51406c9d9cc220747e2fafd917bd3464efee4c16ec9b1e5431beafebd722d": {
+        "english": "Which local restaurants would you recommend for my birthday, and what kind of food do they serve?",
+        "french": "Pour fêter mon anniversaire, quelles adresses me conseilleriez-vous dans le coin, et quelle cuisine y propose-t-on ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "0d8326e52b0960a3693b1b8401ce45302a354f193f4937869fd610f0dcfad1f7": {
+        "english": "For a meal without drinks, how much should we budget per person at each restaurant, including tax and tip?",
+        "french": "Pour un repas sans boisson, combien faudrait-il prévoir par personne dans chacun de ces restaurants, taxes et pourboire compris ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "12ff8fa1342f793f553376e6bebb48333d2f15f2d24dd011b606d02038d33e7a": {
         "english": "How much should we budget per person?",
         "french": "Combien est-ce qu'il faut prévoir par personne ?",
@@ -4632,6 +5184,18 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "5677233235736d08eb71a4e06ed05f53ede20e79ae396ffdd2fbabea7db9e785": {
+        "english": "If some of my guests don't eat meat, which restaurant would suit them best?",
+        "french": "Si certains de mes invités ne mangent pas de viande, lequel conviendrait le mieux ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "65bb07282aa9bdab29ee2f58329454bc350e0dc694dec0458c67c800bf1bef5a": {
+        "english": "And for the cake, do you know if we can bring our own?",
+        "french": "Et pour le gâteau, vous savez si on peut apporter le nôtre ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "6938222768bb2a935e87aa52e4eb55e71b5233b9c4a1e87e93a22ead1801bfb8": {
         "english": "For a party at Chez Lina, would the restaurant allow us to bring our own cake?",
         "french": "Pour une fête chez Lina, le restaurant accepterait-il qu'on apporte notre gâteau ?",
@@ -4644,6 +5208,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "7f0ee10a4678466bfd1118c4f226ce2fe729bdc488baf1868be107bb4fccce4f": {
+        "english": "And at Chez Lina, could all twelve of us sit at the same table?",
+        "french": "Et chez Lina, est-ce qu'on pourrait être à douze à la même table ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "8ee60d78078b130b501a1a8b6f7b8da88f3e4bc09b42d922bef4403e1f9acfc3": {
         "english": "And if my guests preferred French food, what other restaurant would you recommend?",
         "french": "Et si mes invités préféraient une cuisine française, quelle autre adresse me conseilleriez-vous ?",
@@ -4655,6 +5225,12 @@
         "french": "Combien de temps à l'avance faudrait-il réserver pour un groupe ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "bb11ac1e8a67647b1ffd6313638f1a0fcc102ca000f6db6305d4163e1feed905": {
+        "english": "For about twelve people, do you know of a better-value group menu?",
+        "french": "Pour une douzaine de personnes, connaissez-vous une formule de groupe plus avantageuse ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "d6d7cd59355b6c728a05163671b0d75be723bdda0597e7394871bd78463d236e": {
         "english": "Where would we be most comfortable for a group celebration?",
@@ -4748,6 +5324,18 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "470e1598fddc522365bd181d0f6f3ae80a9b5676eaa6b9b5db4f2b85847538dc": {
+        "english": "If I haven't finished reading after three weeks, how can I renew the loan?",
+        "french": "Si je n'ai pas fini de lire au bout des trois semaines, comment puis-je prolonger le prêt ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "5743bca9b89a3603952c197ca19bdc50378beb9698e01c1cf26a1232be5f0611": {
+        "english": "And if I lose something or it gets damaged, what will I have to pay?",
+        "french": "Et si je perds un document ou qu'il est abîmé, qu'est-ce que je devrai payer ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "7d1d3112a93f5d1d04b6a59b0d9c8373ca24b7c84e517c24cbd10aa2fa2055aa": {
         "english": "What happens if I return something late?",
         "french": "Qu'est-ce qui se passe en cas de retard ?",
@@ -4804,11 +5392,23 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "4ed4e96a85394952d7151368996898f338a830a42425d6188d6761e7a21978f8": {
+        "english": "What times can I take the course, and how long does each lesson last?",
+        "french": "Sur quels créneaux puis-je suivre la session, et combien de temps dure une leçon ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "5d0f0e9250e7ee42420304d22eb8d916a35a1151f68b2c0a7c6e3ed784aa2377": {
         "english": "If I missed a lesson, could I make it up with another group that same week?",
         "french": "Si je manquais une leçon, pourrais-je la reprendre dans un autre groupe la même semaine ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "6260b224f97614387408e0eebc40cac732d9b6f86798f06af11487d78c035d06": {
+        "english": "How much does the course cost, and is there a reduced rate for city residents?",
+        "french": "Quel est le prix de la session, et y a-t-il un tarif réduit pour les habitants de la ville ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "62886b5090e8217f2878f6eba74bb09be131abe063d0958ebecca00f7eb89bc0": {
         "english": "How long does each lesson last?",
@@ -4822,17 +5422,35 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "95f10e2fcdac5a56f114a8e581aaf1f5951eb62b95a03a85f69141adbc859d14": {
+        "english": "To sign up for the time that suits me, do I go through your website or come to reception?",
+        "french": "Pour m'inscrire au créneau qui me convient, je dois passer par votre site ou par l'accueil ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "a154549180473ea4df3b5ec11e1a66520f78b38b005810dbf5a5a0c647ce0909": {
         "english": "What weekday and weekend times are available for adult beginners?",
         "french": "Quels créneaux sont proposés en semaine et le week-end pour les adultes débutants ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "a36a7fe69fd304576911915925099a45034b76f1b3fcd5720b92d5309f9bda5f": {
+        "english": "And on the first day, are there any rules I should follow before getting in the water?",
+        "french": "Et le premier jour, y a-t-il des consignes à respecter avant d'entrer dans l'eau ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "c0caf266957a678c9f44cdf7d2d03249045a169c8f65426950ef6c50b22a947c": {
         "english": "Could I also come and practise outside lesson times?",
         "french": "Je pourrais aussi venir m'entraîner en dehors des cours ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "c1283d679a897eb6a1114a542c9382a14b94790876f5245bf303f620860f456c": {
+        "english": "What do we do in the first few lessons if we're not yet comfortable in the water?",
+        "french": "Lors des premières séances, qu'est-ce qu'on fait si on n'est pas encore à l'aise dans l'eau ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       }
     },
     "museum-group-visit-reception": {
@@ -4876,6 +5494,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "0d31a9138a2ec82b9aaba8449cc29f340e3f6f4e719dcbe8f68db0625552279e": {
+        "english": "Before choosing a package, could I book a trial lesson?",
+        "french": "Avant de choisir une formule, est-ce que je pourrais réserver un cours d'essai ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "243e541526bbd2af36c44d70e37a5e642c8a5296685e832ec7500933c81fb9e5": {
         "english": "Do you offer a trial lesson before registration?",
         "french": "Proposez-vous un cours d'essai avant l'inscription ?",
@@ -4893,6 +5517,12 @@
         "french": "Peut-on louer un instrument auprès de l'école au lieu d'en acheter un immédiatement ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "7745910fe68561c18a5caa29aff43f1fd7a22baea34bd716df255b49bfbacc09": {
+        "english": "And for individual lessons, what times do you offer late in the day or on Saturdays?",
+        "french": "Et pour les leçons individuelles, quels créneaux proposez-vous en fin de journée ou le samedi ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "8b652708727424591f06f608ac32f88be310b87fcc6b3876b2d43c9b5ad59626": {
         "english": "Would it be possible to pay for the course in instalments?",
@@ -4969,6 +5599,18 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "1c13cfa605e80c0f8f130cc4566f6f0e4ae392bc00b88b126b7c7d18a5fa0223": {
+        "english": "What should I bring to my first session?",
+        "french": "Qu'est-ce que je devrais apporter pour une première séance ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "1dc0fc5a30ef75ae0fc72a1b0181b04b3d59d82584c181a9d4cf36f22ab122be": {
+        "english": "When you say 'cardio boxing', what do we actually do in class?",
+        "french": "Quand vous dites « boxe cardio », on fait quoi concrètement pendant le cours ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "2903232003d06e2a3e52e99d81b18287fefa711bf56decc47cd1aacfe4865c94": {
         "english": "What types of exercise do you offer?",
         "french": "Qu'est-ce que vous proposez comme disciplines ?",
@@ -4992,6 +5634,12 @@
         "french": "Où ont lieu les séances, et comment accéder à la salle ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "499b117b62a289cd9f2c7ce0d89c594342078ba8e3abcd33339d63c773a423a3": {
+        "english": "Do you mostly get beginners or people who already train regularly?",
+        "french": "Vous accueillez plutôt des débutants ou des gens qui s'entraînent déjà régulièrement ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "c830eb3a9f5f8703ca23d3f42c94fc807748fba97d2868395da754497e2fc7e1": {
         "english": "What times are available for each of those activities?",
@@ -5141,6 +5789,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "cd35bfb2d437460a9593672d1db8696aeb65887e468f6c203d02f164375c137c": {
+        "english": "If no one has a car, how much would it cost to rent one for the day?",
+        "french": "Si personne n'a de voiture, combien coûterait d'en louer une pour la journée ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "d3d62a2957a0a53c0d12545a9b76ed107234f0f9be457d92dbebba971e851a80": {
         "english": "What would be the most practical way to get there?",
         "french": "Quel moyen de transport serait le plus pratique pour y aller ?",
@@ -5155,6 +5809,12 @@
       }
     },
     "neighbor-gardening-activity-organizer": {
+      "38d75fb9773f389aaa0bb40bfc28a3290fc562b6b882e2667911164a81e306d8": {
+        "english": "And if I've never gardened, how do you help beginners get started?",
+        "french": "Et si je n'ai jamais jardiné, comment vous aidez les débutants à se lancer ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "3f602637a40d5787db003a37ca684b91216e7e47f81b5dd1d62f49cd20987abd": {
         "english": "Is the activity suitable for beginners?",
         "french": "L'activité est-elle accessible aux débutants ?",
@@ -5202,6 +5862,12 @@
         "french": "Où est-ce que les séances ont lieu ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "f477d9ef74c404f916cc40f2bc6f14936e36fa58bd18f5c3e20a414bf9d63084": {
+        "english": "And if I'm only available on Saturdays, would that still work for you?",
+        "french": "Et si je ne suis disponible que le samedi, est-ce que ça vous convient quand même ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       }
     },
     "neighbor-home-childcare-provider-referral": {
@@ -5239,6 +5905,12 @@
       }
     },
     "neighbor-home-music-tutor-advice": {
+      "101ab63d86e653bd274efe57871d59caebcce877940ee307edcd94ea090d7c20": {
+        "english": "And if I wanted to start soon, do you know what times he has free?",
+        "french": "Et si je voulais commencer bientôt, vous savez quels créneaux il a de libres ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "2033335eba2b8da209dcb36695a4831f326434df0fa1052afadc0f7da5d3eadd": {
         "english": "Do you need to own an instrument from the first lesson?",
         "french": "Faut-il posséder son instrument dès le premier cours ?",
@@ -5263,6 +5935,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "8db3a76653d3fb3189462a02928127e5dec5bfb606f41d3a0bcdd27d6ea2f7e2": {
+        "english": "Could you put me in touch with him so I can check his availability?",
+        "french": "Vous pourriez me mettre en contact avec lui pour que je vérifie ses disponibilités ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "a223e9d539986672b991fc0ee30a928743c52101b0c0c1445e7a7c3206dd6b91": {
         "english": "Which instruments does that teacher teach?",
         "french": "Quels instruments ce professeur enseigne-t-il ?",
@@ -5274,6 +5952,12 @@
         "french": "Ses cours de guitare sont-ils accessibles aux débutants ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "e6e53e3073a8e17a4ab2737b250cfd85977050992e61e9e56a5a5c2e0acdf102": {
+        "english": "For a first lesson, do I already need an instrument at home?",
+        "french": "Pour une première leçon, faut-il déjà avoir un instrument chez soi ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "e87d66c8ede54aac5cd9609a7b486f0d5a94e1b88d4d5eef8080fa90a34ba280": {
         "english": "How much does a home lesson cost?",
@@ -5349,11 +6033,23 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "5a2ab21ade8563d547f1a300624c7de46365270096f5d4b9265798b914df76f7": {
+        "english": "And for my first visit, what should I pack in my bag?",
+        "french": "Et pour ma première visite, qu'est-ce que je devrais mettre dans mon sac ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "a824ac64d3ee629290352ce03fbaefff7115daae67871c3f36c2cc5962a44b3b": {
         "english": "What do I need to bring to use the changing rooms and enter the pools?",
         "french": "Que faut-il apporter pour utiliser les vestiaires et accéder aux bassins ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "c65e428c843b82e86207c7a169c49e9df19a63cd0b6ee007bfc321f8e5609881": {
+        "english": "What facilities are there for getting changed and keeping your belongings?",
+        "french": "Qu'est-ce qu'il y a sur place pour se changer et ranger ses affaires ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "d22bd46a2be088721be2439f6e7cf1a6d09a7e1e56659937eb54c7f1659fa843": {
         "english": "If I wanted to avoid the crowds, when would be the best time to go?",
@@ -5473,11 +6169,23 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "8b719aa3ac995e17ea887fe10e46355c0186732b071319fa1a33d13ad5a58419": {
+        "english": "To get started, is a phone enough, or do you already need a camera?",
+        "french": "Pour commencer, est-ce qu'un téléphone suffit ou faut-il déjà avoir un appareil photo ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "9fc58791c2c4dcce6612e9d5cb4c026ac81d1954fd0be3776745e5782a876b92": {
         "english": "Can the association lend me a camera for the first few lessons?",
         "french": "L'association peut-elle prêter un appareil pour les premières séances ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "b88ca889358b52c53fb06f993d45a7ad33042022fd685ad73abaec31cea34ec8": {
+        "english": "But if I want to learn how to use a camera's settings, do you know if the association can lend me one?",
+        "french": "Mais si je veux apprendre à faire les réglages sur un appareil, vous savez si l'association peut m'en prêter un ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       }
     },
     "neighbor-seaside-house-rental": {
@@ -5553,6 +6261,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "8f8c18f6b71a395d3fdb8c168882b8234cf567df43f5826c11d2046e82f5befe": {
+        "english": "And on race day, where and at what time does it start?",
+        "french": "Et le jour même, où et à quelle heure prend-on le départ ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "92d8db02221dd72558fdb7718e56f1f3c3bf3422806250daaa6f83c4498eeda5": {
         "english": "How can you register for the race, and what is the deadline?",
         "french": "Comment peut-on s'inscrire à la course, et jusqu'à quelle date ?",
@@ -5564,6 +6278,12 @@
         "french": "Quel est le prix de l'inscription ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "fcddb92c658f80a3c09e7b8b6bb44086fb393b46ecdd85802dfe05edb27a616e": {
+        "english": "And how are you organising your training between now and the race?",
+        "french": "Et d'ici la course, comment vous organisez votre entraînement ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "fe57e0e5f58dfbff8e2b3583d2e6101cf54840c4313a3766c4fa29e5a9a88a70": {
         "english": "Is the five-kilometre course suitable for someone who alternates running and walking?",
@@ -5590,6 +6310,12 @@
         "french": "Quelles sont les démarches pour devenir membre ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "51fbb0345c11ee642a7e459326f28b040d3b02147ad8b10e1e410dd69daa3ae0": {
+        "english": "Once I have the card, what can I borrow besides print books?",
+        "french": "Une fois que j'ai la carte, qu'est-ce que je peux emprunter en dehors des livres papier ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "9b29d1424009434e2c6a9dee5cd2a0be87c92804cbd7c8af41f4a9faf3955697": {
         "english": "How many books can I borrow at once, and for how long?",
@@ -6641,6 +7367,12 @@
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
       },
+      "64064b9d2546047f0bc0a16ae223a19eb569cbc57e16d2809cb218c7bf0edd2b": {
+        "english": "And if I want to work out outside class, what hours is the gym open?",
+        "french": "Et si je veux m'entraîner en dehors des cours, à quelles heures la salle est-elle accessible ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "66beacd0c7a0d097c370268b022ed8f9b4af2a7993057280fbc69a9fb2f9b15b": {
         "english": "What times are available for the activities we've just discussed?",
         "french": "Quels sont les créneaux des activités dont nous venons de parler ?",
@@ -6676,14 +7408,32 @@
         "french": "Puis-je essayer une séance avant de m'engager ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "fac2abb010053b53c3d9af66e5fa121685b1a73b40a0d6188bd40704833db3f2": {
+        "english": "And as for equipment, what should I bring for either class?",
+        "french": "Et côté équipement, qu'est-ce que je devrais apporter pour l'un ou l'autre cours ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       }
     },
     "station-stranger-mountain-passion": {
+      "0a8859c95800dda29e7531a4f30ecbbdb39bf071e64da44c626cea67cc3ade7f": {
+        "english": "What do you look at when choosing a route?",
+        "french": "Quand vous choisissez un itinéraire, à quoi faites-vous attention ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
       "20b91696db0961319e56ceda5a146bbfd0bc79b6822e8c07f690e25b52126b79": {
         "english": "How do you prepare for an outing before setting off?",
         "french": "Comment préparez-vous une sortie avant de partir ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "2e800a10ffc8a732863c03e47f7159c76bed006774ab3d33d92118859c9a3707": {
+        "english": "Do you remember what got you into going to the mountains?",
+        "french": "Vous vous souvenez de ce qui vous a donné le goût de la montagne ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "4c0cdf8bc1d788e7ce8917404501a2c328796f2f0420e498997c91234e595c2f": {
         "english": "What is your favourite season for exploring those valleys?",
@@ -6714,6 +7464,12 @@
         "french": "Qu'est-ce qui vous plaît le plus dans la montagne ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "dd2c388b744a9c2834f7f4a8f16cb5a7ecc0c81af3704661f5951a42413ad982": {
+        "english": "These days, do you mostly go hiking, or do you do other activities in the mountains too?",
+        "french": "Aujourd'hui, vous faites surtout de la randonnée ou vous pratiquez d'autres activités en montagne ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "de405373735af1fd341c10fca7e1e9d42c295b8527b4d3ba38d6c06cee4dc110": {
         "english": "What is your most memorable mountain experience?",
@@ -6882,6 +7638,18 @@
         "french": "Comment s'inscrire, et quels justificatifs faut-il pour bénéficier du tarif résident ?",
         "provider": "editorial",
         "review_note": "Editorial translation reviewed against the complete French dialogue and source prompt."
+      },
+      "952f4558297ffb9595abafac0061b0fe0c71131c60a8433c8ea75d36038ff361": {
+        "english": "What board games would you recommend for an evening with adults who don't play often?",
+        "french": "Pour une soirée entre adultes qui ne jouent pas souvent, quels jeux de société conseilleriez-vous ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
+      },
+      "a682dc04a25558433a103ea80e8e435f77d4f2f0bb8a4e27887cdf952a186b7b": {
+        "english": "And if the game I want is already on loan, can I reserve it for when it comes back?",
+        "french": "Et si le jeu que je veux est déjà emprunté, est-ce que je peux le réserver pour son retour ?",
+        "provider": "editorial",
+        "review_note": "Editorial translation aligned with the complete French dialogue and source prompt."
       },
       "b4847237d8a85afa6f2333e993c80c57cc35c0afa008f3861340977e59ce90a0": {
         "english": "For a popular game, can we reserve it online, or do we need to come to the counter?",
@@ -7248,7 +8016,7 @@
     }
   },
   "provider": "deepl",
-  "reviewed_at": "2026-11-12T17:04:07.100693+00:00",
+  "reviewed_at": "2026-11-22T08:48:42+00:00",
   "source_language": "FR",
   "target_language": "EN-GB",
   "version": 1

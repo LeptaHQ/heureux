@@ -29,13 +29,13 @@
       "closing": "Merci pour toutes ces infos ! Je vais vérifier mes disponibilités pour cette sortie.",
       "questions": [
         {"topic": "Spectacle", "question": "Quel spectacle voudrais-tu aller voir ?", "answer": "Une comédie intitulée « Un dîner imprévu ».", "follow_up_to": null},
-        {"topic": "Spectacle", "question": "Qu'est-ce qui te donne envie de voir ce spectacle ?", "answer": "J'ai entendu de bons avis sur la troupe, et le sujet a l'air amusant.", "follow_up_to": 1, "condition": "After the show is identified, unless they already explain their interest."},
+        {"topic": "Spectacle", "question": "De quoi ça parle, cette comédie ?", "answer": "D'un repas de famille qui tourne au désordre quand un invité arrive alors que personne ne l'attendait.", "follow_up_to": 1, "condition": "If a show is named but its subject has not been explained."},
         {"topic": "Lieu, horaire et prix", "question": "Dans quelle salle aura lieu la représentation ?", "answer": "Au théâtre des Rives, près de la gare du centre-ville.", "follow_up_to": null},
         {"topic": "Lieu, horaire et prix", "question": "À quelle date et à quelle heure est-elle prévue ?", "answer": "Vendredi prochain, à vingt heures.", "follow_up_to": null},
         {"topic": "Lieu, horaire et prix", "question": "Combien coûte une place ?", "answer": "25 $ au tarif normal.", "follow_up_to": null},
-        {"topic": "Organisation de la sortie", "question": "Est-ce que d'autres collègues viennent avec nous ?", "answer": "Deux collègues sont intéressés, mais ils n'ont pas encore confirmé.", "follow_up_to": null},
-        {"topic": "Organisation de la sortie", "question": "Comment pourrait-on s'organiser pour le trajet ?", "answer": "Si tu es disponible, on pourrait se retrouver devant le bureau à 18 h 45 et prendre le métro ensemble.", "follow_up_to": null},
-        {"topic": "Organisation de la sortie", "question": "Comment allons-nous acheter les billets pour être placés ensemble ?", "answer": "Une fois nos disponibilités confirmées, je peux faire une seule réservation en ligne et tu me rembourseras ensuite.", "follow_up_to": null}
+        {"topic": "Organisation de la sortie", "question": "Tu pensais qu'on irait à deux ou d'autres personnes se joindraient à nous ?", "answer": "Deux collègues sont intéressés, mais ils n'ont pas encore confirmé.", "follow_up_to": null},
+        {"topic": "Organisation de la sortie", "question": "Une fois qu'on saura qui vient, comment est-ce qu'on réserve pour être assis ensemble ?", "answer": "Je peux faire une seule réservation en ligne pour le groupe. Tu me rembourseras ta place ensuite.", "follow_up_to": null},
+        {"topic": "Organisation de la sortie", "question": "Comment pourrait-on s'organiser pour le trajet ?", "answer": "Si tu es disponible, on pourrait se retrouver devant le bureau à 18 h 45 et prendre le métro ensemble.", "follow_up_to": null}
       ]
     },
     {
@@ -116,11 +116,11 @@
         {"topic": "Publication et thèmes", "question": "Quels journaux ou magazines conseilleriez-vous pour découvrir l'actualité canadienne ?", "answer": "Je vous suggère cette revue canadienne d'actualité en français, ou un quotidien local pour les nouvelles de la ville.", "follow_up_to": null},
         {"topic": "Publication et thèmes", "question": "Quels thèmes aborde cette revue d'actualité ?", "answer": "La société, la politique, l'économie et la culture.", "follow_up_to": 1, "condition": "If a current-affairs magazine is suggested; adapt to the publication you choose."},
         {"topic": "Difficulté de lecture", "question": "Quel est le niveau de langue des articles ?", "answer": "Le français est accessible, mais certains articles politiques utilisent un vocabulaire plus spécialisé.", "follow_up_to": null},
-        {"topic": "Difficulté de lecture", "question": "Pour commencer malgré ce vocabulaire spécialisé, y trouve-t-on aussi des articles courts ?", "answer": "Oui, plusieurs pages proposent des nouvelles brèves et des portraits.", "follow_up_to": 3, "condition": "If political vocabulary is described as specialized and short articles remain unspecified."},
+        {"topic": "Difficulté de lecture", "question": "Pour commencer plus facilement, est-ce que la revue propose aussi des articles courts ?", "answer": "Oui, en début de numéro, il y a des brèves d'une demi-page, plus faciles à lire que les grands dossiers.", "follow_up_to": 3, "condition": "If political vocabulary is described as specialized and short articles remain unspecified."},
+        {"topic": "Difficulté de lecture", "question": "Puis-je feuilleter ce numéro pour voir si les sujets m'intéressent ?", "answer": "Bien sûr, vous pouvez regarder celui-ci avant de décider.", "follow_up_to": null},
         {"topic": "Parution et achat", "question": "À quelle fréquence paraît-elle ?", "answer": "Une fois par semaine.", "follow_up_to": null},
         {"topic": "Parution et achat", "question": "Combien coûte un numéro ?", "answer": "6 $ pour un numéro.", "follow_up_to": null},
-        {"topic": "Parution et achat", "question": "Puis-je feuilleter ce numéro pour voir si les sujets m'intéressent ?", "answer": "Bien sûr, vous pouvez regarder celui-ci avant de décider.", "follow_up_to": null},
-        {"topic": "Parution et achat", "question": "Existe-t-il une formule numérique ou un abonnement moins cher que l'achat au numéro ?", "answer": "Oui, l'abonnement numérique annuel revient environ trente pour cent moins cher.", "follow_up_to": null}
+        {"topic": "Parution et achat", "question": "Et si cette revue me plaît, est-ce qu'un abonnement reviendrait moins cher que de l'acheter chaque semaine ?", "answer": "Oui. L'abonnement numérique annuel coûte environ 30 % de moins que si vous achetez chaque numéro séparément.", "follow_up_to": 7, "condition": "If the single-issue price is given but no subscription is mentioned."}
       ]
     },
     {
@@ -169,13 +169,13 @@
       "closing": "Merci pour ton avis ! Je vais regarder les activités et confirmer les conditions auprès du centre.",
       "questions": [
         {"topic": "Activités et ambiance", "question": "Quelles activités sont proposées dans ton centre sportif ?", "answer": "Des cours collectifs, une salle de musculation et des séances de natation.", "follow_up_to": null},
-        {"topic": "Activités et ambiance", "question": "Comment les débutants sont-ils accompagnés dans les cours collectifs ?", "answer": "Les animateurs montrent les mouvements et proposent des variantes plus simples.", "follow_up_to": 1, "condition": "If group classes are offered; adapt to the activity you are considering."},
+        {"topic": "Activités et ambiance", "question": "Et dans les cours collectifs, qu'est-ce que les animateurs font pour aider les débutants ?", "answer": "Ils montrent les mouvements, puis ils te proposent une variante si un exercice est trop difficile.", "follow_up_to": 1, "condition": "If group classes are offered; adapt to the activity you are considering."},
         {"topic": "Activités et ambiance", "question": "Tu trouves l'ambiance plutôt conviviale ou compétitive ?", "answer": "Plutôt conviviale, avec des personnes de niveaux assez différents.", "follow_up_to": null},
-        {"topic": "Horaires", "question": "Quels sont les horaires d'ouverture ?", "answer": "De 7 h à 21 h en semaine et de 8 h à 18 h le week-end, d'après le planning que j'ai reçu.", "follow_up_to": null},
-        {"topic": "Coût et matériel", "question": "Combien paies-tu pour ton abonnement ?", "answer": "45 $ par mois pour la formule que j'ai choisie.", "follow_up_to": null},
-        {"topic": "Coût et matériel", "question": "Quelles activités sont comprises dans cette formule ?", "answer": "La salle et plusieurs cours collectifs ; certaines séances spéciales sont en supplément.", "follow_up_to": 5, "condition": "After an actual membership price is given, unless inclusions are already clear."},
-        {"topic": "Coût et matériel", "question": "Quel matériel faut-il apporter soi-même ?", "answer": "Une tenue de sport, des chaussures propres et une serviette ; le centre prête le matériel des cours.", "follow_up_to": null},
-        {"topic": "Coût et matériel", "question": "Peut-on faire une séance d'essai avant de choisir un abonnement ?", "answer": "Oui, la première séance coûte dix dollars et cette somme est déduite si tu t'inscris.", "follow_up_to": null}
+        {"topic": "Horaires et matériel", "question": "Quels sont les horaires d'ouverture ?", "answer": "De 7 h à 21 h en semaine et de 8 h à 18 h le week-end, d'après le planning que j'ai reçu.", "follow_up_to": null},
+        {"topic": "Horaires et matériel", "question": "Pour une première séance, tu me conseillerais d'apporter quoi ?", "answer": "Une tenue de sport, des chaussures propres et une serviette. Pour les cours collectifs, le centre prête les tapis.", "follow_up_to": null},
+        {"topic": "Abonnement et essai", "question": "Combien paies-tu pour ton abonnement ?", "answer": "45 $ par mois pour la formule que j'ai choisie.", "follow_up_to": null},
+        {"topic": "Abonnement et essai", "question": "Quelles activités sont comprises dans cette formule ?", "answer": "La salle et plusieurs cours collectifs ; certaines séances spéciales sont en supplément.", "follow_up_to": 6, "condition": "After an actual membership price is given, unless inclusions are already clear."},
+        {"topic": "Abonnement et essai", "question": "Tu sais si je peux essayer un cours sans prendre d'abonnement tout de suite ?", "answer": "Oui, j'avais payé 10 $ pour mon premier cours. Ils les ont déduits de mon abonnement ensuite.", "follow_up_to": null}
       ]
     },
     {

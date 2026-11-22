@@ -3257,7 +3257,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         prompt = Prompt.objects.select_related("response", "theme__task__part").get(
             content_key="culture:p15",
         )
-        models = catalogue.tache_three_models()
+        models = catalogue.tache_three_public_models()
         model = models[prompt.response.semantic_group]
         before = model.response
         arguments = list(before.arguments)
@@ -3351,7 +3351,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 )
                 saved = list(Annotation.objects.filter(pk__in=ids).order_by("pk").values(*metadata))
                 cards_before = list(Card.objects.filter(user=self.user).order_by("pk").values())
-                with mock.patch.object(catalogue, "tache_three_models", return_value={
+                with mock.patch.object(catalogue, "tache_three_public_models", return_value={
                     **models, model.group: replace(model, response=after),
                 }):
                     returned = load_surface()
@@ -3434,7 +3434,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         prompt = Prompt.objects.select_related("response", "theme__task__part").get(
             content_key="culture:p15",
         )
-        models = catalogue.tache_three_models()
+        models = catalogue.tache_three_public_models()
         model = models[prompt.response.semantic_group]
         before = model.response
         arguments = list(before.arguments)
@@ -3528,7 +3528,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 )
                 saved = list(Annotation.objects.filter(pk__in=ids).order_by("pk").values(*metadata))
                 cards_before = list(Card.objects.filter(user=self.user).order_by("pk").values())
-                with mock.patch.object(catalogue, "tache_three_models", return_value={
+                with mock.patch.object(catalogue, "tache_three_public_models", return_value={
                     **models, model.group: replace(model, response=after),
                 }):
                     returned = load_surface()

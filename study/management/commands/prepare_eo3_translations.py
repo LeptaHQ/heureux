@@ -5,8 +5,9 @@ from http.client import HTTPException
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 
+from study.catalogue.registry import tache_three_public_models as scoped_models
 from study.expression.eo.tache_3.languages import (
-    empty_manifest, fingerprint, model_theme, public_fields, scoped_models,
+    empty_manifest, fingerprint, model_theme, public_fields,
     translation_path, validate_manifest, read_manifest, write_manifest,
 )
 from study.expression.eo.tache_3.responses import spoken_text
@@ -46,14 +47,21 @@ class Command(BaseCommand):
         pending = []
         total = 0
         for group, model in sorted(models.items()):
-            texts = public_fields(model)
-            total += len(texts)
-            saved = data["groups"].get(group, {})
-            missing = list(dict.fromkeys(
-                text for text in texts.values() if fingerprint(text) not in saved
-            ))
-            if missing:
-                pending.append((group, model, missing))
+            seen = set(data["groups"].get(group, {}))
+            published = set()
+            for edition in model.editions():
+                texts = public_fields(edition)
+                missing = []
+                for text in texts.values():
+                    if edition is model or text not in published:
+                        total += 1
+                    published.add(text)
+                    digest = fingerprint(text)
+                    if digest not in seen:
+                        missing.append(text)
+                        seen.add(digest)
+                if missing:
+                    pending.append((group, edition, missing))
         count = sum(len(texts) for _, _, texts in pending)
         characters = sum(len(text) for _, _, texts in pending for text in texts)
         self.stdout.write(

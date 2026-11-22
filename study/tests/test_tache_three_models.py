@@ -30,6 +30,7 @@ from study.notes.anchors import AnnotationRootText
 from study.expression.eo.history import variant_annotation_key
 from study.expression.personalization import EffectiveArgument, EffectiveResponse, effective_response
 from study.navigation.routing import prompt_detail_url
+from study.expression.eo.tache_3.languages import public_fields
 from study.expression.eo.tache_3.responses import (
     MODELS_DIR, load_tache_three_models, reviewed_model, spoken_text,
 )
@@ -664,11 +665,6 @@ class TacheThreeModelContentTests(SimpleTestCase):
         plans = catalogue.tache_three_subject_hints()
         for short, index, findings, french_cue, english_cue in (
             (
-                "technologie-p5", 2,
-                ("bourses étudiantes", "les futurs inscrits", "non les étudiants qui reçoivent déjà une bourse"),
-                "pas les bénéficiaires actuels", "not current recipients",
-            ),
-            (
                 "technologie-p21", 0,
                 ("supprimer certains arrêts", "le gain de temps", "marcher plus loin"),
                 "gain de temps", "longer walk",
@@ -851,14 +847,14 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("documentaire sur les Pays-Bas, sous-titré en français", response(19).arguments[1].exemple)
         self.assertIn("des digues et des pompes", response(19).arguments[1].exemple)
         self.assertIn("gagner des terres sur la mer", response(19).arguments[1].exemple)
-        self.assertIn("les documentaires permettent aussi de comprendre", response(20).arguments[1].idea)
-        self.assertIn("en pratiquant avec d'autres personnes", response(20).arguments[2].idea)
+        self.assertIn("il serait faux de dire que seule la lecture", response(20).arguments[1].idea)
+        self.assertIn("certains pans entiers de la culture", response(20).arguments[2].idea)
         self.assertIn("coûter plus cher", response(21).nuance)
         self.assertIn("quand on ne partage pas la chambre", response(21).nuance)
         self.assertIn("relations de confiance", response(24).nuance)
         self.assertIn("conjoint", response(25).arguments[2].developpement)
         self.assertIn("si j'immigrais", response(26).position_claire.casefold())
-        self.assertIn("du temps, des ressources et de l'histoire familiale", response(27).nuance)
+        self.assertIn("choisir ce que l'on veut conserver et transmettre", response(27).nuance)
         self.assertIn("Selon le pays et le statut", response(29).arguments[2].developpement)
         self.assertIn("on ne peut pas créer des liens tout seul", response(30).arguments[1].idea)
         self.assertIn("publicité", response(31).arguments[2].idea)
@@ -898,7 +894,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             "culture-p19": (1, 2, 4),
             "culture-p24": (1, 2, 5),
             "culture-p26": (5, 2, 3),
-            "culture-p27": (1, 4, 3),
+            "culture-p27": (5, 6, 3),
             "culture-p29": (4, 2, 3),
             "culture-p30": (1, 2, 4),
             "culture-p35": (1, 2, 4),
@@ -1191,7 +1187,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p9", 1, "dîner sans compagnie", "dîner seule", "eat dinner alone"),
             ("culture-p11", 0, "compatriotes déjà installés", "compatriotes déjà installés", "already live there"),
             ("culture-p11", 2, "passage piéton", "passage piéton", "pedestrian crossing"),
-            ("culture-p12", 0, "objets mal triés", "vérifie ensuite les règles locales", "checks local rules"),
+            ("culture-p12", 0, "un bon documentaire sur l'environnement", "Un bon documentaire sur l'environnement", "A good documentary on the environment"),
             ("culture-p13", 1, "peinture mexicaine", "Peinture mexicaine", "Mexican"),
             ("culture-p13", 1, "fleurs et les photos", "fleurs et photos", "flowers and photos"),
             ("culture-p14", 0, "cuisine portugaise", "cuisine portugaise", "Portuguese cooking"),
@@ -1207,11 +1203,11 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p16", 0, "prochain entretien", "prochain entretien", "next interview"),
             ("culture-p16", 1, "sa sœur", "sa sœur", "sister"),
             ("culture-p16", 2, "piano", "piano", "piano"),
-            ("culture-p18", 0, "promenades du dimanche", "promenades du dimanche", "Sunday walks"),
-            ("culture-p18", 1, "lettre d'amour", "Lettre d'amour", "Love letter"),
-            ("culture-p18", 1, "reprendre confiance", "reprendre confiance", "rebuild confidence"),
+            ("culture-p18", 0, "carte d'anniversaire", "carte d'anniversaire", "birthday card"),
+            ("culture-p18", 1, "en quelques mots ou en émojis", "en quelques mots ou en émojis", "a few words or emojis"),
+            ("culture-p18", 2, "grands-parents", "grands-parents", "grandparents"),
             ("culture-p19", 2, "projet de logements", "projet de logements", "housing proposal"),
-            ("culture-p20", 2, "motif de feuilles", "motif de feuilles", "leaf pattern"),
+            ("culture-p20", 1, "l'histoire, la musique ou la géographie", "l'histoire, la musique ou la géographie", "history, music or geography"),
             ("culture-p24", 0, "collègues en dehors du bureau", "collègues hors du bureau", "colleagues outside work"),
             ("culture-p24", 1, "tutoyer ou vouvoyer", "tutoyer ou vouvoyer", "use tu or vous"),
             ("culture-p24", 2, "sans passer par les annonces", "sans passer par les annonces", "without going through listings"),
@@ -1221,11 +1217,11 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p26", 1, "2 500 dollars nets par mois", "2 500 dollars nets par mois", "$2,500 monthly take-home pay"),
             ("culture-p26", 1, "un loyer à 2 000 dollars", "2 000 de loyer", "$2,000 rent"),
             ("culture-p26", 1, "500 dollars pour les autres dépenses", "500 pour le reste", "$500 for other costs"),
-            ("culture-p27", 0, "proverbe", "proverbe", "proverb"),
-            ("culture-p27", 1, "danse traditionnelle", "oublie des pas", "forgets steps"),
-            ("culture-p27", 1, "Sa sœur", "sa sœur", "her sister"),
+            ("culture-p27", 0, "vingt ou trente ans", "vingt ou trente ans", "twenty or thirty years"),
+            ("culture-p27", 1, "la même vision de la famille", "garde sa vision de la famille", "retains their views on family"),
+            ("culture-p27", 2, "deux familles", "deux familles", "Two families"),
             ("culture-p30", 1, "à déjeuner par politesse", "à déjeuner par politesse", "to lunch out of politeness"),
-            ("culture-p31", 2, "partenariat rémunéré", "partenariat rémunéré", "paid partnership"),
+            ("culture-p31", 2, "les mêmes expressions agressives", "les expressions agressives", "picks up aggressive phrases"),
         ):
             identity = f"eo/tache-3/{group}"
             with self.subTest(group=group, argument=index + 1):
@@ -1254,7 +1250,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertTrue(content.parse_subject_vocabulary(self.sources))
 
     def test_unreviewed_models_keep_their_original_effective_content(self):
-        with patch("study.catalogue.registry.tache_three_models", return_value={}):
+        with patch("study.catalogue.registry.tache_three_public_models", return_value={}):
             for source in self.sources:
                 for prompt in source.prompts:
                     self.assertEqual(
@@ -1367,28 +1363,23 @@ class TacheThreeModelViewTests(TestCase):
             "response__theme__task__part", "theme__task__part", "family",
         ).get(content_key=key)
 
-    def assert_model_order(self, html, response):
-        rendered = AnnotationRootText(html).text.decode("utf-16-le")
-        parts = (
-            response.position_claire,
-            *(text for argument in response.arguments for text in (
-                argument.idea, argument.developpement, argument.exemple, argument.consequence,
-            )),
-            response.nuance, response.conclusion,
-        )
-        positions = [rendered.index(text) for text in parts]
-        self.assertEqual(positions, sorted(positions))
-        self.assertEqual(len(set(positions)), len(positions))
+    def assert_model_order(self, html, model, *, root_class=None):
+        rendered = AnnotationRootText(html, root_class=root_class)
+        expected = public_fields(model)
+        self.assertEqual(list(rendered.response_fields), list(expected))
+        for field, text in expected.items():
+            self.assertEqual(rendered.slice(*rendered.response_fields[field]), text, field)
 
-    def test_all_reviewed_publications_show_full_ordered_interventions_on_detail_and_review(self):
-        for model in catalogue.tache_three_models().values():
-            for key, source_text in model.source_prompts:
+    def test_publications_show_active_answers_and_keep_their_speaking_plans(self):
+        for group_model in catalogue.tache_three_public_models().values():
+            for key, source_text in group_model.source_prompts:
                 with self.subTest(prompt=key):
+                    model = group_model.for_prompt(key)
                     prompt = self.prompt(key)
                     page = self.client.get(prompt_detail_url(prompt))
                     self.assertEqual(page.status_code, 200)
                     self.assertEqual(page.context["selected_prompt"].text, source_text)
-                    self.assert_model_order(page.content.decode(), model.response)
+                    self.assert_model_order(page.content.decode(), model, root_class="answer-columns")
                     self.assertContains(page, "data-response-edit", count=1)
                     self.assertContains(page, "Exemple concret", count=3)
                     note = catalogue.tache_three_prompt_notes()[model.group]
@@ -1410,26 +1401,30 @@ class TacheThreeModelViewTests(TestCase):
                     self.assertIn("Comprendre la consigne", front)
                     self.assertIn(escape(note.note), front)
                     self.assertNotIn("subject-hints--speaking", front)
-                    self.assertIs(payload["eo3_pistes"], plan)
                     rendered = render_to_string("study/review/partials/card_back.html", payload)
-                    self.assertIn("subject-hints--speaking", rendered)
-                    for cue in (plan.introduction, plan.nuance, plan.conclusion):
-                        self.assertIn(escape(cue.french), rendered)
                     self.assertIn("Ouvrir la fiche", rendered)
-                    self.assertNotIn("data-response-field", rendered)
-                    self.assertNotIn("Exemple concret", rendered)
-                    # Read-aloud still voices the full answer; nothing else shows it.
-                    visible = re.sub(r'data-(?:read-aloud-value|speech-text)="[^"]*"', "", rendered)
-                    self.assertIn(escape(model.response.conclusion), rendered)
-                    self.assertNotIn(escape(model.response.conclusion), visible)
-                    self.assertEqual(
-                        AnnotationRootText(
-                            "<div data-annotation-root>" + rendered + "</div>"
-                        ).text.decode("utf-16-le").strip(),
-                        "Ouvrir la fiche",
-                    )
+                    back = "<div data-annotation-root>" + rendered + "</div>"
+                    if model.alternate_pistes:
+                        self.assertIsNone(payload["eo3_pistes"])
+                        self.assertNotIn("subject-hints--speaking", rendered)
+                        self.assert_model_order(back, model)
+                    else:
+                        self.assertIs(payload["eo3_pistes"], plan)
+                        self.assertIn("subject-hints--speaking", rendered)
+                        for cue in (plan.introduction, plan.nuance, plan.conclusion):
+                            self.assertIn(escape(cue.french), rendered)
+                        self.assertNotIn("data-response-field", rendered)
+                        self.assertNotIn("Exemple concret", rendered)
+                        # Read-aloud still voices the full answer; nothing else shows it.
+                        visible = re.sub(r'data-(?:read-aloud-value|speech-text)="[^"]*"', "", rendered)
+                        self.assertIn(escape(model.response.conclusion), rendered)
+                        self.assertNotIn(escape(model.response.conclusion), visible)
+                        self.assertEqual(
+                            AnnotationRootText(back).text.decode("utf-16-le").strip(),
+                            "Ouvrir la fiche",
+                        )
                     self.assertEqual(payload["response_content"], model.response)
-                    self.assertNotEqual(payload["annotation_source_key"], variant_annotation_key(prompt, original_effective(prompt)))
+                    self.assertEqual(payload["annotation_source_key"], f"response:{key}:model")
 
     def test_editor_seeds_current_supported_default_without_writing_a_private_row(self):
         prompt = self.prompt()

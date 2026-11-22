@@ -346,6 +346,7 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
     model = reviewed_model(response, canonical)
     reviewed_eo3 = not content.is_personal and model is not None
     structured_eo3 = model is not None
+    alternate_pistes = reviewed_eo3 and model.alternate_pistes
     arguments = annotation_arguments(canonical, content)
     task = response.theme.task
     annotation_key = f"response:{response.content_key}"
@@ -402,11 +403,12 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
         "reviewed_eo3": reviewed_eo3,
         "structured_eo3": structured_eo3,
         "eo3_audio": (
-            narration_presentation(reviewed_model(response, canonical), content, card.user_id)
-            if content.is_personal else narration_presentation(reviewed_model(response, canonical))
+            narration_presentation(catalogue.tache_three_public_models()[model.group], content, card.user_id)
+            if content.is_personal else narration_presentation(model)
         ) if structured_eo3 else None,
         "eo3_prompt_note": prompt_note_for_response(response, canonical),
-        "eo3_pistes": catalogue.tache_three_subject_plan(response.semantic_group),
+        "eo3_pistes": None if alternate_pistes else catalogue.tache_three_subject_plan(response.semantic_group),
+        "eo3_alternate_pistes": alternate_pistes,
         "arguments": arguments,
         "eo3_language": language_presentation(model, content, arguments),
         **(question_presentation(canonical, content) if tache_two_subject else {}),

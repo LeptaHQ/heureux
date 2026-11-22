@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand, CommandError
 from study.catalogue import registry as catalogue
 from study.audio.pins import AudioPinError, command_generation_pin
 from study.expression.eo.tache_3.audio import (
-    NarrationError, generate_narration, narration_source, narration_spec, saved_narrations,
+    NarrationError, generate_narration, narration_source, narration_spec, public_narration_sources, saved_narrations,
 )
 
 
@@ -19,7 +19,7 @@ class Command(BaseCommand):
         parser.add_argument("--refresh", action="store_true", help="Use current text/voice instead of an older saved take.")
 
     def handle(self, *args, **options):
-        models = catalogue.tache_three_models()
+        models = catalogue.tache_three_public_models()
         if options["group"]:
             group = options["group"]
             if not group.startswith("eo/tache-3/"):
@@ -32,7 +32,10 @@ class Command(BaseCommand):
         try:
             specs = [narration_spec(model) for model in models.values()]
             sources = [narration_source(model) for model in models.values()]
-            saved = saved_narrations(sources, current_only=options["refresh"])
+            saved = saved_narrations(
+                sources, public_sources={group: public_narration_sources(model) for group, model in models.items()},
+                current_only=options["refresh"],
+            )
             cached = {spec.fingerprint for spec, source in zip(specs, sources) if source in saved}
             missing = [spec for spec in specs if spec.fingerprint not in cached]
             self.stdout.write(

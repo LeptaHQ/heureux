@@ -40,6 +40,10 @@ def oral_response_context(request, prompt):
     model = reviewed_model(response, prompt)
     structured_eo3 = model is not None
     reviewed_eo3 = structured_eo3 and not value.is_personal
+    audio_model = (
+        catalogue.tache_three_public_models()[model.group]
+        if structured_eo3 and value.is_personal else model
+    )
     arguments = annotation_arguments(prompt, value)
     if match or structured_eo3:
         # Changed public layouts must not replay offsets from published models.
@@ -54,10 +58,11 @@ def oral_response_context(request, prompt):
         "eo3_language": language_presentation(model, value, arguments),
         "reviewed_eo3": reviewed_eo3,
         "structured_eo3": structured_eo3,
+        "eo3_alternate_pistes": reviewed_eo3 and model.alternate_pistes,
         "single_response_eo3": prompt.theme.task.slug == "tache-3",
         "eo3_response_copy_text": response_text(value) if structured_eo3 else "",
         "eo3_audio": (
-            narration_presentation(model, value, request.user.pk) if value.is_personal
+            narration_presentation(audio_model, value, request.user.pk) if value.is_personal
             else narration_presentation(model)
         ) if structured_eo3 else None,
         "eo3_cached_playlist_url": (

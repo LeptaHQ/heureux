@@ -224,7 +224,7 @@ and limits, and retain a specific illustration when copying would weaken it.
 For example, helping someone through a difficult period is not the same as
 practical help, and Canada-specific access to a profession is not a universal rule.
 
-The reviewed reuse includes personal letters, friendship, household cooperation,
+The reviewed reuse includes friendship, household cooperation,
 asking an adult for help, conversations at a distance, public assistance,
 regular visits, repairs, conservation, urban traffic, salary trade-offs and
 checking a publication's origin. Some are identical arguments; others share only
@@ -254,8 +254,8 @@ each argument has `idea`, `developpement`, `exemple` and `consequence`;
 `nuance` and `conclusion` finish the intervention. `position` and `reformulation`
 remain concise preparation metadata, not additional spoken paragraphs.
 
-Position is always displayed in Pistes for reviewed EO3 responses, including
-personal edits. The spoken answer starts with Introduction; Position is excluded
+Position is displayed in Pistes on the detail page, including personal edits.
+The spoken answer starts with Introduction; Position is excluded
 from response copying and narration. The editor labels it `Position (Pistes)`.
 Keep the current learner's text, including an intentionally empty value, rather
 than substituting the public model's position. A blank value shows an explicit
@@ -412,6 +412,14 @@ the immutable publication models, they reproduce the prior visible layouts;
 regressions compare the original and current annotation-root text byte for byte
 when the new reviewed presentation is not selected.
 
+`tache_3/archive_defaults.json` selects archive wording by canonical publication
+key and pins its ordered argument identities. Equivalent publications use their
+own wording if their archived bodies differ. This does not replace the reviewed
+editions in `themes/` or change imported response storage. If the spoken
+answer differs from the reviewed edition, practice shows the full archive
+answer; the previous bilingual Pistes remain on the detail page as a separate
+plan. Only English saved against the exact French is eligible for display.
+
 The current public default is selected through `effective_response`, consistently
 for detail, practice and the personal editor. Reviewed public practice backs show
 the introduction and all three supports, not just claim headings. Personal
@@ -488,37 +496,32 @@ of living abroad and the motivations for leaving. Likewise, book usefulness is
 not reading necessity, and cultural transmission to children is not the same
 question as forgetting one's own practices.
 
-The book-utility and reading-necessity answers retain reflection and concentration
-as a substantive benefit: following a sustained argument and its objections, not
-merely pausing or looking something up. Culture P6 and the equivalent Education P8
-share the separately reviewed user-requested revision. Its other benefits are
-durable learning and imaginative engagement with characters' situations and
-choices. Keep its bilingual Pistes aligned; do not force literal equality with
-P20. Explaining historical connections a week later demonstrates retention,
-rather than merely testing whether anything remains. In the necessity answer,
-a Guernica documentary and guided pottery practice show actual learning without
-reading; do not substitute people who merely read little. These compatible
-passages do not make the two questions equivalent.
+The book-utility and reading-necessity answers both treat reflection and
+concentration as substantive benefits. Culture P6 and the equivalent Education P8
+share the separately reviewed revision: following a sustained argument and its
+objections, durable learning and imaginative engagement with characters'
+situations and choices. Explaining historical connections a week later
+demonstrates retention, rather than merely testing whether anything remains.
+P20 leads with sustained reflection, acknowledges other ways to learn, then
+distinguishes reading original texts from learning about them. Keep each
+model's bilingual Pistes aligned without forcing the two answers to match.
 
 The school-arts model demonstrates coached expression, evidence-based
 interpretation of a painting and actual musical learning made possible by school
 equipment. It does not promise that arts automatically improve every other
-subject. The television-utility model distinguishes learning, shared discussion
-and legitimate rest; relaxation need not produce new knowledge. Keep this
-separate from the reality-TV model's selective luxury images, copied humiliation
-and paid recommendations. Explain the link between the show and following its
-candidates online rather than treating unrelated advertising as a television
-effect.
+subject. The television-utility model discusses learning, shared cultural
+experiences and the risk of watching out of habit without time limits. Keep this
+separate from the reality-TV model's superficial images of success, normalized
+conflict and repeated exposure while young viewers are developing their
+critical judgment.
 
-The personal-letter models retain attention to the recipient, reflection before
-sending and family memories. Their reflection arguments differ: clarifying an
-explanation is not the same as expressing feelings more fully. Reuse the complete
-family-memory argument and its bilingual cues where the mechanism is identical. Show
-what the letter actually says and what rereading changes, rather than merely
-asserting that paper creates thoughtful writing. Family memory concerns a
-person's experiences in their own words, not chiefly an account-login convenience.
-Digital messages can also be personal, carefully written and preserved. Keep
-regretting fewer letters distinct from calling handwriting obsolete.
+Culture P18 distinguishes attention to the recipient, fuller expression of
+feelings and family memories. Family memory concerns a person's experiences in
+their own words, not chiefly access without an account. Technologie P12 asks
+whether handwritten correspondence is obsolete: digital communication has
+replaced many everyday letters, but personal value and reading without an
+account or device still matter. Keep the consignes distinct. Digital messages
+can also be personal, carefully written and preserved.
 
 Reuse sound claims and familiar expressions where the mechanism is genuinely the
 same. The adult-observer and older-observer models share their three argument
@@ -569,14 +572,11 @@ and neighbour illustrations, the first-person conditional and the limits of
 preparation. The retained feasibility and cultural reasons keep their identities;
 the new practical reason uses a fresh ID, not a retired logistics or rights ID.
 
-The cultural-forgetting question concerns knowledge that the person previously
-possessed. Children never learning a tradition does not demonstrate forgetting.
-Distinguish reduced use of a language from losing occasions to practise shared
-cultural skills, even while the language remains in use. Examples should show
-an actual forgotten expression or formerly mastered gesture; keep adaptation
-versus forgetting in the nuance, rather than making that distinction a whole
-main argument. Regular contact can maintain or restore knowledge without making
-cultural continuity either inevitable or solely a matter of willpower.
+The cultural-forgetting model preserves the user-requested source answer
+verbatim. It contrasts changing daily habits, lasting attachment and what
+families choose to transmit. When personalizing it, distinguish adaptation from
+forgetting knowledge someone previously had. Circumstances as well as personal
+choices can affect what people are able to pass on.
 
 The cuisine model preserves the user-requested source answer verbatim. It
 distinguishes mealtime customs, recipes as traces of history and geography, and

@@ -411,7 +411,7 @@ class InAppSampleTests(TestCase):
     def test_claim_is_global_even_after_text_or_model_changes(self, provider):
         self.assertEqual(self.prepare().status_code, 200)
         edited = replace(self.model, response=replace(self.model.response, conclusion="Autre conclusion."))
-        with patch.object(catalogue, "tache_three_models", return_value={SAMPLE_GROUP: edited}):
+        with patch.object(catalogue, "tache_three_public_models", return_value={SAMPLE_GROUP: edited}):
             self.url = reverse("study:eo3_audio_prepare", args=["culture-p1", narration_spec(edited).fingerprint])
             self.assertEqual(self.prepare().status_code, 200)
             self.assertEqual(self.client.post(self.url, {

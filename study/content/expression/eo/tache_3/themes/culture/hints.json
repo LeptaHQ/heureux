@@ -50,48 +50,48 @@
     },
     "culture-p12": {
       "introduction": {
-        "french": "La télévision n'est pas forcément du temps perdu.",
-        "english": "Television is not necessarily wasted time."
+        "french": "La télévision n'est pas forcément du temps perdu : tout dépend du programme et de l'usage.",
+        "english": "TV is not necessarily a waste of time. It depends on the programme and on how we watch it."
       },
       "arguments": [
         {
           "point": {
-            "french": "Images et explications peuvent instruire.",
-            "english": "Images and explanations can teach."
+            "french": "Les images et le son aident à comprendre des réalités qu'on connaît mal.",
+            "english": "Pictures and sound help us understand things we are unfamiliar with."
           },
           "example": {
-            "french": "Documentaire sur le tri : une personne vérifie ensuite les règles locales.",
-            "english": "A sorting documentary: a viewer then checks local rules."
+            "french": "Un bon documentaire sur l'environnement ou l'histoire peut nous apprendre quelque chose en une heure.",
+            "english": "A good documentary on the environment or history can teach us something in an hour."
           }
         },
         {
           "point": {
-            "french": "La télévision peut réunir les gens autour d'un événement partagé.",
-            "english": "Television can bring people together around a shared event."
+            "french": "Les films, les débats et les concerts nourrissent la culture commune et les conversations.",
+            "english": "Films, debates and concerts contribute to a shared culture and give people things to talk about."
           },
           "example": {
-            "french": "Coupe du monde chez un voisin : encourager l'équipe, discuter à la mi-temps et engager la conversation.",
-            "english": "World Cup at a neighbour's home: cheer the team on, talk at half-time and start a conversation."
+            "french": "Regarder un film ou un match important en famille : le moment partagé compte autant que le programme.",
+            "english": "Watch a film or a big match with family: spending time together matters as much as the programme."
           }
         },
         {
           "point": {
-            "french": "Le repos a une valeur en lui-même.",
-            "english": "Rest has value in itself."
+            "french": "Ce qui fait perdre du temps, c'est de regarder sans choisir et sans limite.",
+            "english": "What wastes time is watching without making a choice or setting a limit."
           },
           "example": {
-            "french": "Comédie après le travail : rire, puis éteindre à la fin de l'épisode.",
-            "english": "Comedy after work: laugh, then switch off at the end of the episode."
+            "french": "Laisser défiler des programmes pendant des heures ou choisir un film qu'on a vraiment envie de voir.",
+            "english": "Let programmes run for hours, or choose a film you actually want to see."
           }
         }
       ],
       "nuance": {
-        "french": "Trop de télévision : se coucher trop tard ou passer moins de temps avec des proches.",
-        "english": "Too much television: going to bed too late or spending less time with loved ones."
+        "french": "Regarder trop longtemps sans choisir peut faire perdre du temps.",
+        "english": "Watching for too long without choosing a programme can waste time."
       },
       "conclusion": {
-        "french": "Intérêt selon le programme, la durée et le besoin.",
-        "english": "Value depends on the programme, duration and need."
+        "french": "Tout dépend de ce qu'on regarde, du temps qu'on y consacre et du regard critique qu'on garde.",
+        "english": "It depends on what you watch, how long you spend watching and how critically you watch it."
       }
     },
     "culture-p14": {
@@ -192,32 +192,32 @@
         "english": "Regret the decline in letters while appreciating digital communication."
       },
       "nuance": {
-        "french": "Numérique attentionné, sauvegardé, contact quotidien à distance ; courrier lent, parfois cher ou perdu.",
-        "english": "Thoughtful, saved digital messages; daily remote contact. Post is slow, sometimes expensive or lost."
+        "french": "Le numérique facilite le contact à distance ; dommage de perdre pour autant le geste d'écrire à la main.",
+        "english": "Digital tools make it easier to stay in touch at a distance, but it would be a shame to lose the habit of writing by hand."
       },
       "conclusion": {
-        "french": "Attention personnelle, expression approfondie et souvenirs : garder les lettres pour les occasions qui comptent.",
-        "english": "Personal attention, fuller expression and memories: keep letters for meaningful occasions."
+        "french": "Regretter la perte de l'attention personnelle, d'une écriture plus nuancée et de souvenirs durables.",
+        "english": "Regret the loss of the personal touch, more nuanced writing and lasting memories."
       },
       "arguments": [
         {
           "point": {
-            "french": "Choisir, écrire à la main et envoyer : un geste personnel qui peut toucher le destinataire.",
-            "english": "Choose, write by hand and post: a personal gesture that can move the recipient."
+            "french": "Écrire, acheter un timbre, aller à la poste : du temps consacré à quelqu'un.",
+            "english": "Writing, buying a stamp and going to the post office: time set aside for someone."
           },
           "example": {
-            "french": "Carte d'anniversaire du père : promenades du dimanche, écriture reconnue et impression de l'entendre.",
-            "english": "Father's birthday card: Sunday walks, familiar handwriting and the feeling of hearing his voice."
+            "french": "Une carte d'anniversaire écrite à la main par un proche, plutôt qu'un message vite envoyé.",
+            "english": "A handwritten birthday card from someone close, rather than a message sent in seconds."
           }
         },
         {
           "point": {
-            "french": "Prendre le temps de choisir ses mots pour exprimer pleinement ses sentiments.",
-            "english": "Take time to choose words carefully and express feelings fully."
+            "french": "Prendre le temps de choisir ses mots et d'expliquer ce qu'on ressent.",
+            "english": "Take time to choose words carefully and explain how we feel."
           },
           "example": {
-            "french": "Lettre d'amour : les encouragements pendant la recherche d'emploi ont aidé à reprendre confiance.",
-            "english": "Love letter: encouragement during a job search helped rebuild confidence."
+            "french": "Décrire un sentiment dans une lettre plutôt que le résumer en quelques mots ou en émojis.",
+            "english": "Describe a feeling in a letter rather than summing it up in a few words or emojis."
           }
         },
         {
@@ -226,8 +226,8 @@
             "english": "Letters can preserve a record of family history."
           },
           "example": {
-            "french": "Retrouver une lettre de sa grand-mère : ses débuts à l'étranger, le travail au café et la petite chambre.",
-            "english": "Find a grandmother's letter about her early life abroad: work at a cafe and a small rented room."
+            "french": "Des lettres de grands-parents qu'on garde, alors que des textos se perdent au changement de téléphone.",
+            "english": "Keep letters from grandparents, while old texts may go missing when we change phones."
           }
         }
       ]
@@ -280,16 +280,16 @@
     },
     "culture-p20": {
       "introduction": {
-        "french": "Lecture et culture : une association justifiée, sans rendre la lecture indispensable.",
-        "english": "Reading and culture: a justified association, without making reading essential."
+        "french": "La lecture garde un rôle particulier sans être indispensable pour être cultivé.",
+        "english": "Reading plays a special role but is not essential to being cultured."
       },
       "nuance": {
-        "french": "Livres utiles pour le style ; lire beaucoup ne suffit pas sans comprendre et réfléchir.",
-        "english": "Books help with style; reading a lot is not enough without understanding and reflection."
+        "french": "La curiosité compte ; lire beaucoup ne suffit pas sans comprendre, réfléchir et discuter.",
+        "english": "Curiosity matters; reading a lot isn't enough without understanding, reflection and discussion."
       },
       "conclusion": {
-        "french": "Lire, regarder des documentaires et pratiquer : des voies complémentaires pour se cultiver.",
-        "english": "Reading, watching documentaries and practising: complementary ways to build cultural knowledge."
+        "french": "Pas besoin de lire pour être cultivé ; les livres développent la réflexion et donnent accès à l'héritage culturel.",
+        "english": "Reading isn't essential to being cultured, but books deepen thinking and open up our cultural heritage."
       },
       "arguments": [
         {
@@ -298,120 +298,120 @@
             "english": "Reading can develop reflection and concentration."
           },
           "example": {
-            "french": "Un essai sur la voiture confronte la pollution aux difficultés des habitants sans bus pour aller travailler.",
-            "english": "An essay on cars weighs pollution against the difficulties of residents with no bus to work."
+            "french": "Un essai ou un roman entier donne accès à des nuances qu'un résumé rapide laisse de côté.",
+            "english": "A full essay or novel reveals nuances that a quick summary leaves out."
           }
         },
         {
           "point": {
-            "french": "Les documentaires et les émissions culturelles permettent aussi d'approfondir ses connaissances.",
-            "english": "Documentaries and cultural programmes can also deepen our knowledge."
+            "french": "Documentaires, podcasts, voyages et échanges apportent aussi de vraies connaissances.",
+            "english": "Documentaries, podcasts, travel and conversations also give us real knowledge."
           },
           "example": {
-            "french": "Guernica : gros plans sur les personnages, explication du bombardement ; comprendre pourquoi Picasso dénonce la guerre.",
-            "english": "Guernica: close-ups of the figures, an explanation of the bombing; understand why Picasso condemns war."
+            "french": "Voyager, regarder des documentaires et discuter pour connaître l'histoire, la musique ou la géographie d'un pays.",
+            "english": "Learn a country's history, music or geography through travel, documentaries and conversations."
           }
         },
         {
           "point": {
-            "french": "On apprend aussi en pratiquant une activité culturelle.",
-            "english": "Practising a cultural activity is another way to learn."
+            "french": "Les livres donnent accès au style et à la pensée des auteurs.",
+            "english": "Books give us access to authors' style and ideas."
           },
           "example": {
-            "french": "Tracer un motif de feuilles sur un bol et apprendre qu'il décorait les plats des repas de fête chez la grand-mère de l'artisan.",
-            "english": "Copy a leaf pattern onto a bowl and learn that the artisan's grandmother used it on dishes for festive meals."
+            "french": "Lire un roman ou un philosophe, au lieu de s'en tenir à un résumé en vidéo.",
+            "english": "Read a novel or a philosopher's work rather than stopping at a video summary."
           }
         }
       ]
     },
     "culture-p27": {
       "introduction": {
-        "french": "Oubli possible, non automatique : pratiquer sa langue et ses traditions aide à les garder.",
-        "english": "Forgetting is possible, not automatic: practising language and traditions helps keep them."
+        "french": "Vivre à l'étranger change des habitudes sans forcément effacer le lien avec sa culture d'origine.",
+        "english": "Living abroad changes habits without necessarily erasing the connection to one's original culture."
       },
       "nuance": {
-        "french": "Temps et ressources comptent ; changer d'habitudes n'est pas forcément oublier ce qu'on veut transmettre.",
-        "english": "Time and resources matter; changing habits does not necessarily mean forgetting what one wants to pass on."
+        "french": "On ne garde pas tout intact ; on choisit ce qu'on veut conserver et transmettre.",
+        "english": "We cannot keep everything unchanged; we choose what to preserve and pass on."
       },
       "conclusion": {
-        "french": "Mots et gestes peuvent s'oublier ; liens et pratique comptent, pas seulement les années.",
-        "english": "Words and movements can be forgotten; ties and practice matter, not just the years."
+        "french": "Les habitudes changent, mais l'identité et la transmission peuvent maintenir le lien.",
+        "english": "Habits change, but identity and passing on traditions can keep the connection alive."
       },
       "arguments": [
         {
           "point": {
-            "french": "Quand on utilise moins sa langue d'origine, on peut finir par oublier certains mots et certaines expressions.",
-            "english": "Using one's original language less can lead to forgetting words and expressions."
+            "french": "On adopte peu à peu les habitudes du pays d'accueil.",
+            "english": "Over time, we adopt habits from the country we move to."
           },
           "example": {
-            "french": "Un père répète un proverbe mais en a oublié le sens quand son enfant l'interroge.",
-            "english": "A father repeats a proverb but cannot recall its meaning when his child asks about it."
+            "french": "Après vingt ou trente ans : davantage de plats locaux et langue du pays d'accueil à la maison.",
+            "english": "After twenty or thirty years: more local dishes, and the host country's language spoken at home."
           }
         },
         {
           "point": {
-            "french": "On peut aussi perdre certains savoir-faire liés aux traditions familiales.",
-            "english": "Some skills involved in family traditions can be lost."
+            "french": "Les valeurs apprises pendant l'enfance peuvent rester malgré les changements du quotidien.",
+            "english": "Childhood values can endure as daily habits change."
           },
           "example": {
-            "french": "Une mère oublie des pas ; sa sœur les lui remontre. Elle doit les réapprendre avant de les transmettre.",
-            "english": "A mother forgets steps; her sister shows them again. She needs to relearn them before passing them on."
+            "french": "Une personne à l'aise à l'étranger garde sa vision de la famille et reste attachée à son pays d'origine.",
+            "english": "Someone at home abroad retains their views on family and still feels attached to their country of origin."
           }
         },
         {
           "point": {
-            "french": "Des contacts réguliers peuvent préserver ces repères malgré les années.",
-            "english": "Regular contact can preserve these cultural reference points despite the passing years."
+            "french": "La pratique de la langue et des traditions aide à garder le lien vivant.",
+            "english": "Speaking the language and practising traditions help keep the connection alive."
           },
           "example": {
-            "french": "Des appels hebdomadaires avec sa sœur permettent de continuer à utiliser les expressions familiales après vingt ans à l'étranger.",
-            "english": "Weekly calls with a sister keep family expressions in use after twenty years abroad."
+            "french": "Même pays d'accueil, deux familles : l'une transmet sa langue et ses traditions ; l'autre adopte presque tout le mode de vie local.",
+            "english": "Two families, same host country: one passes on its language and traditions; the other mostly adopts the local way of life."
           }
         }
       ]
     },
     "culture-p31": {
       "introduction": {
-        "french": "Influence négative possible : des moments choisis à l'écran peuvent devenir un modèle de vie.",
-        "english": "Possible negative influence: selected moments on screen can become a model for life."
+        "french": "La télé-réalité peut avoir une mauvaise influence : modèles superficiels, conflits banalisés et adolescents très exposés.",
+        "english": "Reality TV can have a bad influence: shallow role models, conflict made to seem normal, and regular exposure for teens."
       },
       "nuance": {
-        "french": "Regarder sans imiter est possible ; discuter des images et publicités aide à reconnaître la mise en scène.",
-        "english": "Watching without imitating is possible; discussing images and advertisements helps identify staging."
+        "french": "Les émissions et les réactions varient ; c'est surtout la répétition sans recul ni discussion qui pose problème.",
+        "english": "Programmes and reactions vary. The main problem is watching repeatedly without questioning or discussing what you see."
       },
       "conclusion": {
-        "french": "En discuter pour distinguer ce qui est mis en spectacle de sa propre vie.",
-        "english": "Discuss it to distinguish what is turned into a spectacle from one's own life."
+        "french": "Développer l'esprit critique à l'école et en famille aide à limiter cette influence.",
+        "english": "Developing critical thinking at school and at home helps limit this influence."
       },
       "arguments": [
         {
           "point": {
-            "french": "Ces émissions peuvent donner une image trompeuse de la réussite.",
-            "english": "These programmes can give a misleading image of success."
+            "french": "L'apparence, l'argent et le buzz peuvent donner une image trompeuse de la réussite.",
+            "english": "Looks, money and buzz can give a misleading impression of success."
           },
           "example": {
-            "french": "Un lycéen compare ses cours et son petit boulot aux vacances en villa d'un candidat ; sa vie lui paraît décevante.",
-            "english": "A pupil compares school and a weekend job with a contestant's villa holiday and finds their own life disappointing."
+            "french": "Des adolescents imitent des candidats sur les réseaux sociaux : vêtements de luxe et mises en scène de richesse.",
+            "english": "Teenagers copy contestants on social media by wearing luxury clothes and showing off wealth."
           }
         },
         {
           "point": {
-            "french": "Certaines émissions peuvent banaliser les comportements agressifs.",
-            "english": "Some programmes can make aggressive behaviour seem normal."
+            "french": "Les disputes et les insultes montrées comme un spectacle peuvent sembler normales.",
+            "english": "Arguments and insults shown as entertainment can start to seem normal."
           },
           "example": {
-            "french": "Une remarque sur le physique reprise parmi les moments drôles ; les rires passent avant le malaise du candidat visé.",
-            "english": "A remark about a contestant's appearance replayed as a funny moment; laughter overshadows the person's discomfort."
+            "french": "Une dispute de couple rediffusée puis partagée comme un spectacle plutôt que vue comme un manque de respect.",
+            "english": "A couple's argument is replayed and shared as a spectacle rather than seen as disrespectful."
           }
         },
         {
           "point": {
-            "french": "Un jeune peut confondre les publicités des candidats avec des conseils personnels.",
-            "english": "A young viewer can mistake contestants' advertising for personal advice."
+            "french": "Les adolescents construisent leur identité pendant que les extraits se multiplient en ligne.",
+            "english": "Teenagers are forming their identities while clips keep spreading online."
           },
           "example": {
-            "french": "Après avoir acheté les chaussures recommandées, un jeune remarque la mention « partenariat rémunéré ».",
-            "english": "After buying the recommended shoes, a teenager notices the paid partnership disclosure."
+            "french": "Un adolescent qui regarde tous les jours reprend les expressions agressives et juge les autres sur leur apparence.",
+            "english": "A teen who watches every day picks up aggressive phrases and judges others by their appearance."
           }
         }
       ]
@@ -510,8 +510,8 @@
     },
     "sante-p16": {
       "introduction": {
-        "french": "Adapter à son pays : apprécier les recettes et les repas partagés, sans oublier temps et budget.",
-        "english": "Adapt to your country: value the recipes and shared meals while considering time and budget."
+        "french": "États-Unis : recettes régionales et repas partagés, sans oublier le temps et le budget.",
+        "english": "United States: regional recipes and shared meals, with time and budget constraints."
       },
       "arguments": [
         {
@@ -520,8 +520,8 @@
             "english": "Family and regional recipes help vary meals."
           },
           "example": {
-            "french": "Varier une recette de riz aux haricots avec les légumes disponibles.",
-            "english": "Vary a rice-and-beans recipe with available vegetables."
+            "french": "Au Texas, tacos au poulet de la veille ou aux légumes grillés et au fromage.",
+            "english": "In Texas, tacos with leftover chicken or with grilled vegetables and cheese."
           }
         },
         {
@@ -540,8 +540,8 @@
             "english": "Meals that pass on skills and maintain relationships."
           },
           "example": {
-            "french": "Préparer un plat de haricots avec un plus jeune qui note les étapes pour le refaire.",
-            "english": "Make a bean dish with a younger relative who notes the steps to cook it again."
+            "french": "Thanksgiving : une grand-mère apprend à son petit-fils à préparer la tarte à la citrouille de la famille.",
+            "english": "Thanksgiving: a grandmother teaches her grandson to make the family's pumpkin pie."
           }
         }
       ],
@@ -556,186 +556,186 @@
     },
     "technologie-p3": {
       "introduction": {
-        "french": "Respecter un choix sans le rendre supérieur.",
-        "english": "Respect a choice without declaring it superior."
+        "french": "Ne pas regarder la télévision est un choix respectable si on reste ouvert à d'autres sources.",
+        "english": "Choosing not to watch TV is reasonable if we stay open to other sources."
       },
       "arguments": [
         {
           "point": {
-            "french": "Choisir son temps libre.",
-            "english": "Choose how to spend free time."
+            "french": "Chacun choisit comment passer son temps libre, sans suivre les habitudes des autres.",
+            "english": "Everyone can choose how to spend their free time without following other people's habits."
           },
           "example": {
-            "french": "Cuisiner avec son enfant et discuter de la journée.",
-            "english": "Cook with your child and talk about the day."
+            "french": "Rentrer épuisé du travail et préférer lire ou écouter la radio pour se détendre.",
+            "english": "Come home exhausted from work and prefer reading or listening to the radio to unwind."
           }
         },
         {
           "point": {
-            "french": "S'informer autrement.",
-            "english": "Use other information sources."
+            "french": "La radio, la presse et les podcasts permettent de suivre l'actualité sans télévision.",
+            "english": "Radio, the press and podcasts keep us up to date without TV."
           },
           "example": {
-            "french": "Écouter un reportage et lire le projet municipal pour comprendre une fermeture de bibliothèque.",
-            "english": "Hear a report and read the municipal proposal to understand a library closure."
+            "french": "Écouter la radio le matin, puis compléter avec quelques articles en ligne.",
+            "english": "Listen to the radio in the morning, then read a few articles online."
           }
         },
         {
           "point": {
-            "french": "Découvrir d'autres formes culturelles.",
-            "english": "Discover other cultural forms."
+            "french": "Le sérieux des journalistes, la diversité des points de vue et le recul comptent plus que le support.",
+            "english": "Reliable reporting, different viewpoints and critical thinking matter more than the medium."
           },
           "example": {
-            "french": "Participer à une lecture publique puis emprunter un livre de l'auteur pour découvrir son œuvre et en discuter.",
-            "english": "Attend a public reading, then borrow the author's book to discover their work and discuss it."
+            "french": "Même temps passé à s'informer, à la télé ou par la radio et la presse : compréhension différente.",
+            "english": "The same time spent on TV or on radio and the press can lead to different understandings of the news."
           }
         }
       ],
       "nuance": {
-        "french": "Les programmes télévisés peuvent aussi avoir de la valeur.",
-        "english": "Television programmes can also have value."
+        "french": "La télévision reste utile pour un résumé de l'actualité, des événements en images ou une émission en famille.",
+        "english": "TV is useful for a quick news summary, seeing events unfold or sharing a programme with family."
       },
       "conclusion": {
-        "french": "Sans télévision, on peut s'informer, découvrir des œuvres et choisir ses loisirs.",
-        "english": "Without television, people can stay informed, discover works and choose their leisure activities."
+        "french": "On peut vivre sans télévision : l'essentiel est de choisir ses médias plutôt que de suivre une habitude.",
+        "english": "We can live without TV. What matters is choosing our media rather than following a habit."
       }
     },
     "technologie-p5": {
       "introduction": {
-        "french": "Refuser un format n'est pas refuser l'information.",
-        "english": "Rejecting a format is not rejecting information."
+        "french": "Je comprends le refus du journal télévisé si on continue à s'informer autrement.",
+        "english": "I understand choosing not to watch TV news if you keep up with the news in other ways."
       },
       "nuance": {
-        "french": "Les autres supports ne sont pas automatiquement fiables.",
-        "english": "Other formats are not automatically reliable."
+        "french": "Refuser un média ne veut pas dire se couper de l'actualité : on peut s'informer sérieusement autrement.",
+        "english": "Avoiding one medium does not mean tuning out the news. We can stay informed in other ways."
       },
       "conclusion": {
-        "french": "Comprendre et vérifier plutôt que suivre un format imposé.",
-        "english": "Understand and verify rather than follow an imposed format."
+        "french": "Choisir des sources fiables pour rester informé sans s'épuiser.",
+        "english": "Choose reliable sources to stay informed without wearing yourself out."
       },
       "arguments": [
         {
           "point": {
-            "french": "Choisir les images reçues.",
-            "english": "Choose which images to encounter."
+            "french": "Les images difficiles et les sujets répétitifs peuvent fatiguer et inquiéter.",
+            "english": "Distressing images and repeated stories can leave people tired and worried."
           },
           "example": {
-            "french": "Lire un compte rendu sans regarder des scènes difficiles.",
-            "english": "Read reporting without watching distressing scenes."
+            "french": "Après une journée stressante au travail, éviter le journal télévisé du soir pour mieux se reposer.",
+            "english": "After a stressful day at work, skip the evening TV news to get some rest."
           }
         },
         {
           "point": {
-            "french": "Maîtriser le rythme.",
-            "english": "Control the pace."
+            "french": "Le journal télévisé donne rapidement un aperçu des grands événements.",
+            "english": "TV news gives a quick overview of major events."
           },
           "example": {
-            "french": "Dans un article économique, éclaircir un terme puis reprendre le raisonnement sans perdre la suite.",
-            "english": "In an economics article, clarify a term, then resume the reasoning without losing the thread."
+            "french": "En cas d'élection ou de crise sanitaire, il donne les informations essentielles en quelques minutes.",
+            "english": "During an election or a public health crisis, it covers the essentials in a few minutes."
           }
         },
         {
           "point": {
-            "french": "Chercher le contexte.",
-            "english": "Seek context."
+            "french": "Croiser la presse, la radio et d'autres sources fiables donne une vision plus complète.",
+            "english": "Comparing the press, radio and other reliable sources gives a fuller picture."
           },
           "example": {
-            "french": "Réforme des bourses : le dossier précise qu'elle concerne les futurs inscrits, pas les bénéficiaires actuels.",
-            "english": "Grant reform: detailed coverage shows it applies to future students, not current recipients."
+            "french": "Radio le matin, journal en ligne dans la journée, magazine plus approfondi en fin de semaine.",
+            "english": "Radio in the morning, an online paper during the day and a magazine with more depth at the end of the week."
           }
         }
       ]
     },
     "technologie-p6": {
       "introduction": {
-        "french": "Un premier aperçu, pas toute l'actualité.",
-        "english": "An initial overview, not all the news."
+        "french": "Un journal télévisé donne vite un aperçu, mais ne suffit pas pour bien s'informer.",
+        "english": "TV news gives a quick overview, but it is not enough on its own."
       },
       "arguments": [
         {
           "point": {
-            "french": "Repérer plusieurs sujets.",
-            "english": "Discover several topics."
+            "french": "En moins d'une demi-heure, on a les grands titres du jour.",
+            "english": "In less than half an hour, you can catch up on the day's main stories."
           },
           "example": {
-            "french": "Découvrir un problème d'accès aux soins en regardant le journal.",
-            "english": "Discover a healthcare-access issue while watching the news."
+            "french": "Au retour du travail, le journal de 20 heures donne les grandes lignes.",
+            "english": "Catch the main stories on the eight o'clock news after work."
           }
         },
         {
           "point": {
-            "french": "Comprendre une image en sachant où et quand elle a été prise.",
-            "english": "Understand an image by knowing where and when it was taken."
+            "french": "Les images rendent un sujet plus concret si elles sont bien expliquées.",
+            "english": "Footage makes a story more concrete when it comes with a clear explanation."
           },
           "example": {
-            "french": "Route coupée après une inondation : les images et la carte expliquent pourquoi certains trajets habituels sont impossibles.",
-            "english": "Road cut off after flooding: images and a map explain why some usual journeys are impossible."
+            "french": "Un reportage en images montre les conséquences d'une crise humanitaire.",
+            "english": "Footage from a report shows the effects of a humanitarian crisis."
           }
         },
         {
           "point": {
-            "french": "Comprendre les raisons d'un débat.",
-            "english": "Understand the reasons behind a debate."
+            "french": "Un format court résume ; d'autres sources aident à approfondir.",
+            "english": "A short format gives a summary; other sources can go into more depth."
           },
           "example": {
-            "french": "Comparer les économies et les services perdus dans un reportage sur une fermeture de bibliothèque.",
-            "english": "Compare savings and lost services in a report about a library closure."
+            "french": "Après deux minutes sur un sujet économique, lire un article plus détaillé.",
+            "english": "After a two-minute economics story, read a more detailed article."
           }
         }
       ],
       "nuance": {
-        "french": "Une image n'est pas automatiquement une preuve complète.",
-        "english": "An image is not automatically complete evidence."
+        "french": "Sujets répétitifs ou spectaculaires : regarder avec recul.",
+        "english": "Stay critical when coverage is repetitive or sensational."
       },
       "conclusion": {
-        "french": "Des sujets clairs, des images vérifiées et les raisons des désaccords expliquées.",
-        "english": "Clear stories, verified images and explanations of why people disagree."
+        "french": "Prendre le journal comme point de départ, puis approfondir ailleurs.",
+        "english": "Use TV news as a starting point, then find more depth elsewhere."
       }
     },
     "technologie-p12": {
       "introduction": {
-        "french": "La lettre garde une utilité pour remercier, écrire posément et transmettre des souvenirs.",
-        "english": "Letters remain useful for thanks, thoughtful writing and passing on memories."
+        "french": "Les lettres sont plus rares, mais elles gardent une valeur personnelle et se relisent sans appareil.",
+        "english": "Letters are rarer, but they still have personal value and can be reread without a device."
       },
       "arguments": [
         {
           "point": {
-            "french": "Une lettre personnelle peut montrer qu'on a pensé à quelqu'un.",
-            "english": "A personal letter can show someone that you thought of them."
+            "french": "Le numérique est plus rapide, moins cher et plus pratique au quotidien.",
+            "english": "Digital communication is faster, cheaper and more convenient for everyday exchanges."
           },
           "example": {
-            "french": "Remercier l'amie qui l'a hébergée : cet accueil lui a permis de garder de l'argent pour la caution.",
-            "english": "Thank the friend who provided a place to stay, leaving money for the apartment deposit."
+            "french": "En entreprise, les e-mails ont largement remplacé le courrier papier pour les échanges internes.",
+            "english": "In companies, emails have largely replaced paper mail for internal communication."
           }
         },
         {
           "point": {
-            "french": "Préparer une lettre aide à clarifier ce qu'on veut dire.",
-            "english": "Preparing a letter helps clarify what you want to say."
+            "french": "Le temps, l'effort et l'écriture donnent à la lettre une valeur personnelle.",
+            "english": "Time, effort and handwriting give a letter its personal value."
           },
           "example": {
-            "french": "Relire une lettre à sa sœur : retirer une phrase trop brusque et expliquer le départ pour un emploi.",
-            "english": "Reread a letter to a sister: remove a blunt sentence and explain the move for a job."
+            "french": "Garder de vieilles lettres d'un proche, alors qu'on relit rarement les anciens messages numériques.",
+            "english": "Keep old letters from a loved one, while rarely rereading old digital messages."
           }
         },
         {
           "point": {
-            "french": "Les lettres peuvent garder une trace de l'histoire familiale.",
-            "english": "Letters can preserve a record of family history."
+            "french": "Une lettre peut se relire des années plus tard sans compte ni appareil.",
+            "english": "A letter can be reread years later without an account or device."
           },
           "example": {
-            "french": "Retrouver une lettre de sa grand-mère : ses débuts à l'étranger, le travail au café et la petite chambre.",
-            "english": "Find a grandmother's letter about her early life abroad: work at a cafe and a small rented room."
+            "french": "Relire une lettre écrite il y a cinquante ans ; certains anciens e-mails sont introuvables.",
+            "english": "Reread a letter written fifty years ago; some older emails can no longer be found."
           }
         }
       ],
       "nuance": {
-        "french": "Le numérique peut aussi être personnel et conservé ; courrier lent, parfois perdu ou abîmé, écriture parfois difficile.",
-        "english": "Digital messages can also be personal and kept; post can be slow, lost or damaged, and handwriting difficult."
+        "french": "Pour confirmer un rendez-vous ou poser une question rapide, le numérique reste plus adapté.",
+        "english": "Digital communication is still better for confirming an appointment or asking a quick question."
       },
       "conclusion": {
-        "french": "Choisir le support selon la relation et le besoin.",
-        "english": "Choose the medium for the relationship and need."
+        "french": "La lettre a changé de rôle : plus rare au quotidien, elle reste précieuse pour les messages personnels.",
+        "english": "Letters have a different role now: less common in daily life, but still valuable for personal messages."
       }
     },
     "technologie-p21": {

@@ -121,10 +121,11 @@ class Command(BaseCommand):
             *content.ee_tache_three_families(ee_tache_three_months),
         ]
         standard_responses = content.parse_responses()
-        from study.expression.eo.tache_3.responses import load_tache_three_models
+        from study.expression.eo.tache_3.responses import load_archive_defaults, load_tache_three_models
         from study.expression.eo.tache_3.prompt_notes import load_tache_three_prompt_notes
 
         load_tache_three_models(responses=standard_responses)
+        load_archive_defaults(standard_responses)
         load_tache_three_prompt_notes(responses=standard_responses)
         tache_two_responses = content.parse_tache_two_responses(
             subject_months

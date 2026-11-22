@@ -444,7 +444,7 @@ class EO3AudioTests(TestCase):
     def test_unlinked_legacy_audio_needs_matching_text_but_not_the_current_voice(self):
         self.save_recording()
         updated = replace(self.model, response=replace(self.model.response, conclusion="Autre réponse."))
-        with patch.object(catalogue, "tache_three_models", return_value={self.model.group: updated}):
+        with patch.object(catalogue, "tache_three_public_models", return_value={self.model.group: updated}):
             self.assertEqual(self.client.get(self.url).status_code, 404)
         for change in (
             {"ELEVENLABS_VOICE_ID": "DifferentVoice"},
@@ -526,7 +526,7 @@ class EO3AudioTests(TestCase):
             self.assertContains(self.client.get(prompt_detail_url(self.prompt)), "n'est pas encore configurée")
 
     def test_equivalent_publications_share_the_same_canonical_recording(self):
-        model = catalogue.tache_three_models()["eo/tache-3/culture-p3"]
+        model = catalogue.tache_three_public_models()["eo/tache-3/culture-p3"]
         spec = narration_spec(model)
         EO3Narration.objects.create(
             fingerprint=spec.fingerprint, group=spec.group,
@@ -578,11 +578,8 @@ class EO3OnDemandNarrationTests(TestCase):
 
     def setUp(self):
         self.client.force_login(self.user)
-        self.group = next(
-            group for group in catalogue.tache_three_models()
-            if group.startswith("eo/tache-3/") and group != "eo/tache-3/culture-p1"
-        )
-        self.model = catalogue.tache_three_models()[self.group]
+        self.group = "eo/tache-3/technologie-p20"
+        self.model = catalogue.tache_three_public_models()[self.group]
         self.spec = narration_spec(self.model)
         self.url = reverse("study:eo3_audio_prepare", args=[
             self.group.removeprefix("eo/tache-3/"), self.spec.fingerprint,

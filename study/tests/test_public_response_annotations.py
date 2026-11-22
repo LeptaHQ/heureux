@@ -299,7 +299,7 @@ class PublicResponsePreservationTests(TestCase):
 
     def test_eo3_example_edit_keeps_one_public_key_and_every_unchanged_field(self):
         prompt = self.prompt("culture:p1")
-        models = catalogue.tache_three_models()
+        models = catalogue.tache_three_public_models()
         model = models[prompt.response.semantic_group]
         before = model.response
         texts = [
@@ -315,7 +315,7 @@ class PublicResponsePreservationTests(TestCase):
         arguments = list(before.arguments)
         arguments[0] = replace(arguments[0], exemple="A completely rewritten example of a different length.")
         after = replace(before, arguments=tuple(arguments))
-        with patch.object(catalogue, "tache_three_models", return_value={
+        with patch.object(catalogue, "tache_three_public_models", return_value={
             **models, model.group: replace(model, response=after),
         }):
             self.assertEqual(variant_annotation_key(prompt, after), original_key)
@@ -331,7 +331,7 @@ class PublicResponsePreservationTests(TestCase):
 
     def test_adjacent_rewrites_keep_unique_unchanged_introduction_and_conclusion_anchors(self):
         prompt = self.prompt("technologie:p21")
-        models = catalogue.tache_three_models()
+        models = catalogue.tache_three_public_models()
         model = models[prompt.response.semantic_group]
         before = model.response
         arguments = list(before.arguments)
@@ -375,7 +375,7 @@ class PublicResponsePreservationTests(TestCase):
                     {row["id"] for row in initial},
                     {mark.pk for mark in [*marks, removed]},
                 )
-                with patch.object(catalogue, "tache_three_models", return_value={
+                with patch.object(catalogue, "tache_three_public_models", return_value={
                     **models, model.group: replace(model, response=after),
                 }):
                     returned = {row["id"] for row in self.fetch(marks[0].source_path)}
@@ -395,7 +395,7 @@ class PublicResponsePreservationTests(TestCase):
         )
 
     def test_all_eo3_models_preserve_unchanged_detail_and_practice_sections(self):
-        models = catalogue.tache_three_models()
+        models = catalogue.tache_three_public_models()
         self.assertEqual(len(models), 131)
         cards_before = list(Card.objects.filter(user=self.user).order_by("pk").values())
         for model in models.values():
@@ -424,7 +424,7 @@ class PublicResponsePreservationTests(TestCase):
                         prompt, before, before.conclusion, surface=surface,
                         kind=AnnotationKind.NOTE,
                     )
-                    with patch.object(catalogue, "tache_three_models", return_value={
+                    with patch.object(catalogue, "tache_three_public_models", return_value={
                         **models, model.group: replace(model, response=after),
                     }):
                         suffix = ":back" if surface == "back" else ""
@@ -517,7 +517,7 @@ class PublicResponsePreservationTests(TestCase):
 
     def test_explicit_argument_identity_follows_an_authored_move_not_a_reused_quote(self):
         prompt = self.prompt("culture:p1")
-        models = catalogue.tache_three_models()
+        models = catalogue.tache_three_public_models()
         model = models[prompt.response.semantic_group]
         before = model.response
         for surface in ("detail", "back"):
@@ -531,7 +531,7 @@ class PublicResponsePreservationTests(TestCase):
                     replace(before.arguments[1], order=3),
                 ))
                 for identities, expected in (((1, 4, 2), {kept.pk}), ((1, 4, 5), set())):
-                    with patch.object(catalogue, "tache_three_models", return_value={
+                    with patch.object(catalogue, "tache_three_public_models", return_value={
                         **models, model.group: replace(
                             model, response=after, argument_ids=identities,
                         ),
@@ -544,7 +544,7 @@ class PublicResponsePreservationTests(TestCase):
 
     def test_a_stale_unscoped_client_after_cutover_remains_stored_without_guessed_identity(self):
         prompt = self.prompt("culture:p1")
-        models = catalogue.tache_three_models()
+        models = catalogue.tache_three_public_models()
         model = models[prompt.response.semantic_group]
         before = model.response
         stale = self.mark(prompt, before, before.arguments[1].exemple)
@@ -555,7 +555,7 @@ class PublicResponsePreservationTests(TestCase):
         )
         after = replace(before, arguments=tuple(arguments))
         Annotation.objects.filter(pk=stale.pk).delete()
-        with patch.object(catalogue, "tache_three_models", return_value={
+        with patch.object(catalogue, "tache_three_public_models", return_value={
             **models, model.group: replace(model, response=after),
         }):
             response = self.client.post(reverse("study:annotation_create"), {
@@ -578,7 +578,7 @@ class PublicResponsePreservationTests(TestCase):
 
     def test_idempotent_old_page_highlight_retry_keeps_its_verified_field_anchor(self):
         prompt = self.prompt("culture:p1")
-        models = catalogue.tache_three_models()
+        models = catalogue.tache_three_public_models()
         model = models[prompt.response.semantic_group]
         before = model.response
         mark = self.mark(prompt, before, before.arguments[1].exemple)
@@ -591,7 +591,7 @@ class PublicResponsePreservationTests(TestCase):
             consequence="New consequence after the unchanged example.",
         )
         after = replace(before, arguments=tuple(arguments))
-        with patch.object(catalogue, "tache_three_models", return_value={
+        with patch.object(catalogue, "tache_three_public_models", return_value={
             **models, model.group: replace(model, response=after),
         }):
             response = self.client.post(reverse("study:annotation_create"), {
@@ -734,7 +734,7 @@ class PublicResponsePreservationTests(TestCase):
         for key in ("culture:p1", "tache2:fevrier:batch-02:subject-07"):
             prompt = self.prompt(key)
             eo2 = key.startswith("tache2:")
-            catalogue_function = "tache_two_dialogues" if eo2 else "tache_three_models"
+            catalogue_function = "tache_two_dialogues" if eo2 else "tache_three_public_models"
             items = getattr(catalogue, catalogue_function)()
             item = items[key if eo2 else prompt.response.semantic_group]
             before = dialogue_response(item) if eo2 else item.response

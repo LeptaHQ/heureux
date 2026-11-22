@@ -671,6 +671,7 @@ class OralCorpusUpgradeTests(TestCase):
             patch.object(content, "parse_responses", content.parse_response_storage),
             patch.object(content, "parse_tache_two_responses", content.parse_tache_two_storage_responses),
             patch("study.expression.eo.tache_3.responses.load_tache_three_models", return_value={}),
+            patch("study.expression.eo.tache_3.responses.load_archive_defaults", return_value={}),
             patch("study.expression.eo.tache_3.prompt_notes.load_tache_three_prompt_notes", return_value={}),
         ):
             call_command("import_content", stdout=StringIO())

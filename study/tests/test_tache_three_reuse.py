@@ -16,25 +16,15 @@ class TacheThreeReuseTests(SimpleTestCase):
     def cue(self, group, index):
         return self.plans[f"eo/tache-3/{group}"].arguments[index]
 
-    def test_compatible_complete_arguments_and_bilingual_cues_are_identical(self):
-        for first, second, indices in (
-            ("culture-p18", "technologie-p12", (2,)),
-        ):
-            for index in indices:
-                with self.subTest(first=first, second=second, argument=index + 1):
-                    self.assertEqual(
-                        self.response(first).arguments[index],
-                        self.response(second).arguments[index],
-                    )
-                    self.assertEqual(self.cue(first, index), self.cue(second, index))
-        for index in (0, 1):
-            with self.subTest(argument=index + 1):
-                self.assertNotEqual(
-                    self.response("culture-p18").arguments[index],
-                    self.response("technologie-p12").arguments[index],
-                )
-        self.assertIn("exprimer ses sentiments", self.response("culture-p18").arguments[1].idea)
-        self.assertIn("clarifier ce que l'on veut vraiment dire", self.response("technologie-p12").arguments[1].idea)
+    def test_letter_models_distinguish_family_memory_from_access_without_technology(self):
+        personal = self.response("culture-p18")
+        handwritten = self.response("technologie-p12")
+        self.assertIn("temps et de la réflexion", personal.arguments[1].idea)
+        self.assertIn("rôle de mémoire personnelle", personal.arguments[2].consequence)
+        self.assertIn("pour les usages quotidiens", handwritten.arguments[0].consequence)
+        self.assertIn("leur dimension affective", handwritten.arguments[1].consequence)
+        self.assertIn("sans batterie, sans compte", handwritten.arguments[2].developpement)
+        self.assertIn("without an account or device", self.cue("technologie-p12", 2).point.english)
 
     def test_cohabitation_answers_distinguish_parental_consent_from_reciprocal_help(self):
         comfort = self.response("famille-p2")
@@ -140,12 +130,6 @@ class TacheThreeReuseTests(SimpleTestCase):
             self.response("environnement-p6").arguments[0].developpement,
             self.response("environnement-p8").arguments[2].developpement,
         )
-        for group in ("culture-p18", "technologie-p12"):
-            with self.subTest(group=group):
-                nuance = self.response(group).nuance
-                self.assertIn("un message numérique peut aussi être", nuance)
-                self.assertIn("réfléchi", nuance)
-                self.assertIn("conservé", nuance)
         self.assertIn("les liens avec les habitants doivent compléter ce soutien", self.response("culture-p24").nuance)
         self.assertIn("souffrir de solitude", self.response("culture-p16").nuance)
         self.assertIn("convienne aussi aux parents", self.response("famille-p2").nuance)
@@ -229,8 +213,6 @@ class TacheThreeReuseTests(SimpleTestCase):
         self.assertIn("pose ses propres questions sans attendre sa mère", child.arguments[1].exemple)
         self.assertIn("Sa mère", child.arguments[0].exemple)
         self.assertIn("écoute les détails", child.arguments[0].exemple)
-        self.assertIn("chaque semaine à", self.response("culture-p27").arguments[2].exemple)
-        self.assertIn("sa sœur", self.response("culture-p27").arguments[2].exemple)
         self.assertIn("pas obligé de réserver une langue à la maison et l'autre à l'école", child.nuance)
         self.assertIn("lire une histoire dans la langue du pays", child.nuance)
         self.assertIn("parler la langue familiale pendant une promenade", child.nuance)

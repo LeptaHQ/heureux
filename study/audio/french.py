@@ -16,7 +16,7 @@ from django.views.decorators.debug import sensitive_variables
 from study.audio.pins import require_generation_pin
 from study.expression.eo.tache_3.audio import (
     NarrationError, NarrationSource, NarrationSpec, OUTPUT_FORMAT, PreSynthesisRejection, SAMPLE_GROUP,
-    VOICE_SETTINGS, narration_spec, on_demand_enabled, sample_rejection_message, synthesize,
+    VOICE_SETTINGS, matching_public_narration, narration_spec, on_demand_enabled, sample_rejection_message, synthesize,
     saved_narration, text_narration_spec,
 )
 from study.models import EO3Narration, FrenchNarration, FrenchNarrationBudget
@@ -180,13 +180,15 @@ def generate_prepared(fingerprint, *, pin=None, refresh=False):
             if not settings.EO3_AUDIO_ENABLED:
                 raise NarrationError("EO3 narration is disabled.")
             from study.catalogue import registry as catalogue
-            model = catalogue.tache_three_models().get(recording.target_group)
+            model = catalogue.tache_three_public_models().get(recording.target_group)
             if model is None:
                 raise NarrationError("This response is no longer available.")
-            spec = (
-                text_narration_spec(model.group, recording.text, recording.owner_id)
-                if recording.owner_id is not None else narration_spec(model)
-            )
+            if recording.owner_id is not None:
+                spec = text_narration_spec(model.group, recording.text, recording.owner_id)
+            else:
+                _, spec = matching_public_narration(model, fingerprint)
+                if spec is None:
+                    raise NarrationError("The response or synthesis settings changed. Request a new recording.")
         elif recording.target_group:
             if recording.owner_id is not None:
                 raise NarrationError("On-demand narration is disabled for edited responses.")
@@ -196,7 +198,7 @@ def generate_prepared(fingerprint, *, pin=None, refresh=False):
             ):
                 raise NarrationError("Only the authorized Culture p1 sample may be prepared before audition.")
             from study.catalogue import registry as catalogue
-            spec = narration_spec(catalogue.tache_three_models()[SAMPLE_GROUP])
+            spec = narration_spec(catalogue.tache_three_public_models()[SAMPLE_GROUP])
             if budget.sample_claimed:
                 raise NarrationError(
                     "The single authorized sample was already attempted. Inspect provider usage. "

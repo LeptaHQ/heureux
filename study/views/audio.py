@@ -17,9 +17,9 @@ from study.catalogue import registry as catalogue
 from study.accounts.services import authorize_audio_generation
 from study.audio.pins import AudioPinError
 from study.expression.eo.tache_3.audio import (
-    NarrationError, NarrationSource, SAMPLE_GROUP, narration_presentation, narration_source,
-    narration_spec, on_demand_enabled, personal_narrations, saved_narration, saved_narrations,
-    saved_recordings, source_matches_recording,
+    NarrationError, NarrationSource, SAMPLE_GROUP, matching_public_narration, narration_presentation,
+    narration_source, on_demand_enabled, personal_narrations, public_narration_sources, saved_narration,
+    saved_narrations, saved_recordings, source_matches_recording,
 )
 from ..models import EO3Narration, FrenchNarration, Prompt
 from study.expression.eo.history import preferred_personals
@@ -81,7 +81,8 @@ def eo3_audio_playlist(request, prompt_id):
     remaining = prompts[start:]
     models = {prompt.pk: reviewed_model(prompt.response, prompt) for prompt in remaining}
     public_sources = {
-        model.group: narration_source(model) for model in models.values() if model is not None
+        model.group: public_narration_sources(catalogue.tache_three_public_models()[model.group])
+        for model in models.values() if model is not None
     }
     personal = preferred_personals(
         {prompt.response_id: prompt.response for prompt in remaining}.values(), request.user,
@@ -94,9 +95,9 @@ def eo3_audio_playlist(request, prompt_id):
         edited = personal[prompt.response_id]
         if edited is not None:
             content = effective_response(prompt.response, request.user, personal=edited)
-            source = narration_source(model, content, request.user.pk)
+            source = narration_source(catalogue.tache_three_public_models()[model.group], content, request.user.pk)
         else:
-            source = public_sources[model.group]
+            source = narration_source(model)
         candidates.append((position, prompt, source))
     ready = saved_narrations(
         [source for _, _, source in candidates], public_sources=public_sources,
@@ -122,13 +123,13 @@ def eo3_audio_playlist(request, prompt_id):
 
 def _requested_narration(model, fingerprint, user):
     """The published spec, or the requester's own edited copy, matching ``fingerprint``."""
-    spec = narration_spec(model)
-    if spec.fingerprint == fingerprint:
-        return spec, None
+    edition, spec = matching_public_narration(model, fingerprint)
+    if spec is not None:
+        return edition, spec, None
     for personal_spec, personal in personal_narrations(model, user):
         if personal_spec.fingerprint == fingerprint:
-            return personal_spec, personal
-    return None, None
+            return model, personal_spec, personal
+    return model, None, None
 
 
 @sensitive_variables("pin")
@@ -166,7 +167,7 @@ def _prepare_on_demand(spec, group, user, owner=None, *, pin=None, refresh=False
 @sensitive_variables("data")
 def eo3_audio_prepare(request, group, fingerprint):
     on_demand = on_demand_enabled()
-    model = catalogue.tache_three_models().get(f"eo/tache-3/{group}")
+    model = catalogue.tache_three_public_models().get(f"eo/tache-3/{group}")
     if not settings.EO3_AUDIO_ENABLED or model is None or (
         not on_demand and model.group != SAMPLE_GROUP
     ):
@@ -183,7 +184,7 @@ def eo3_audio_prepare(request, group, fingerprint):
         return _audio_json({"message": "Confirmez explicitement le coût de préparation de cet unique extrait."}, 400)
     personal = None
     try:
-        spec, personal = _requested_narration(model, fingerprint, request.user)
+        model, spec, personal = _requested_narration(model, fingerprint, request.user)
         if personal is not None and not on_demand:
             raise Http404
         if spec is None:
@@ -191,7 +192,7 @@ def eo3_audio_prepare(request, group, fingerprint):
         refresh = data.get("refresh") is True
         source = NarrationSource(spec.group, spec.text, request.user.pk if personal is not None else None)
         saved = saved_narration(
-            source, public_source=narration_source(model), current_only=refresh,
+            source, public_sources=public_narration_sources(model), current_only=refresh,
         )
         if saved is None and EO3Narration.objects.filter(pk=fingerprint).exists():
             raise NarrationError("L’enregistrement est vide ou incohérent. Faites-le vérifier avant de le recréer.")
@@ -327,7 +328,7 @@ def french_audio(request, fingerprint):
 def eo3_audio(request, group, fingerprint):
     if not settings.EO3_AUDIO_ENABLED:
         raise Http404
-    model = catalogue.tache_three_models().get(f"eo/tache-3/{group}")
+    model = catalogue.tache_three_public_models().get(f"eo/tache-3/{group}")
     if model is None:
         raise Http404
     recording = saved_recordings([model.group], [request.user.pk]).filter(pk=fingerprint).first()
@@ -335,7 +336,7 @@ def eo3_audio(request, group, fingerprint):
         raise Http404
     private = recording.saved_owner_id is not None
     if recording.saved_text is None:
-        if source_matches_recording(narration_source(model), recording):
+        if any(source_matches_recording(source, recording) for source in public_narration_sources(model)):
             private = False
         else:
             try:

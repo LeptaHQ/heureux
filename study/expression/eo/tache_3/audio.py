@@ -160,10 +160,27 @@ def narration_source(model, personal=None, owner_id=None):
     return NarrationSource(model.group, narration_text(model, personal), owner_id)
 
 
+def public_narration_sources(model):
+    sources = tuple(narration_source(edition) for edition in model.editions())
+    if model.alternate_pistes:
+        from study.catalogue import registry as catalogue
+
+        sources += (narration_source(catalogue.tache_three_models()[model.group]),)
+    return sources
+
+
 def narration_spec(model, personal=None, owner_id=None):
     """Spec for the reviewed model, or for ``owner_id``'s edited copy of it."""
     source = narration_source(model, personal, owner_id)
     return text_narration_spec(source.group, source.text, source.owner_id)
+
+
+def matching_public_narration(model, fingerprint):
+    for edition in model.editions():
+        spec = narration_spec(edition)
+        if spec.fingerprint == fingerprint:
+            return edition, spec
+    return model, None
 
 
 def narration_text(model, personal=None):
@@ -259,8 +276,11 @@ def saved_narrations(sources, *, public_sources=None, current_only=False):
             elif source_matches_recording(source, recording):
                 owner, matches = source.owner_id, True
             else:
-                public = public_sources.get(source.group)
-                if public is None or not source_matches_recording(public, recording):
+                public = next((
+                    candidate for candidate in public_sources.get(source.group, ())
+                    if source_matches_recording(candidate, recording)
+                ), None)
+                if public is None:
                     continue
                 owner, matches = None, public.text == source.text
             rank = (owner != source.owner_id, not matches, recording.fingerprint != current)
@@ -270,9 +290,9 @@ def saved_narrations(sources, *, public_sources=None, current_only=False):
     return result
 
 
-def saved_narration(source, *, public_source=None, current_only=False):
+def saved_narration(source, *, public_sources=(), current_only=False):
     return saved_narrations(
-        [source], public_sources={source.group: public_source} if public_source else None,
+        [source], public_sources={source.group: public_sources},
         current_only=current_only,
     ).get(source)
 
@@ -307,7 +327,7 @@ def narration_presentation(model, personal=None, owner_id=None):
     if not settings.EO3_AUDIO_ENABLED or model is None:
         return None
     source = narration_source(model, personal, owner_id)
-    saved = saved_narration(source, public_source=narration_source(model))
+    saved = saved_narration(source, public_sources=public_narration_sources(model))
     if saved is not None:
         recording = saved.recording
         try:

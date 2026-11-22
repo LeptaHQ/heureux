@@ -2558,6 +2558,8 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 .eo3-language-controls [hidden],
 [data-eo3-language] [data-eo3-french][hidden],
 [data-eo3-language] [data-eo3-english][hidden] { display: none !important; }
+p[data-eo3-french$="-developpement"],
+p[data-eo3-english$="-developpement"] { white-space: pre-line; }
 .eo3-section-toggle {
   appearance: none; border: 0; padding: 0; border-radius: 0.25rem;
   background: transparent; color: inherit; font: inherit;

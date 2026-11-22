@@ -120,10 +120,10 @@ class SpeakingHintsContentTests(SimpleTestCase):
             self.assertIn("possible, not automatic", abroad.english)
             self.assertNotIn("leaving alone", abroad.english)
             match = plans["eo/tache-3/culture-p12"].arguments[1].example
-            self.assertIn("Coupe du monde chez un voisin", match.french)
-            self.assertIn("discuter à la mi-temps", match.french)
-            self.assertIn("World Cup at a neighbour", match.english)
-            self.assertIn("talk at half-time", match.english)
+            self.assertIn("un match important en famille", match.french)
+            self.assertIn("le moment partagé compte autant que le programme", match.french)
+            self.assertIn("a big match with family", match.english)
+            self.assertIn("spending time together matters as much as the programme", match.english)
             theatre = plans["eo/tache-3/culture-p7"].arguments[2].example
             self.assertIn("an actress", theatre.english)
             self.assertIn("actors and technicians", theatre.english)
@@ -275,7 +275,7 @@ class SpeakingPromptNotesViewTests(TestCase):
     def prompt(self, key):
         return Prompt.objects.select_related("response", "theme__task__part").get(content_key=key)
 
-    def test_equivalent_polarities_share_reviewed_defaults_and_preserve_source_models(self):
+    def test_equivalent_polarities_share_guidance_but_keep_their_archived_positions(self):
         canonical, alias = self.prompt("culture:p3"), self.prompt("economie:p5")
         self.assertEqual(canonical.response_id, alias.response_id)
         expected = catalogue.tache_three_prompt_notes()[canonical.response.semantic_group]
@@ -297,12 +297,13 @@ class SpeakingPromptNotesViewTests(TestCase):
                 self.assertEqual(
                     [argument.idea for argument in page.context["arguments"]],
                     [argument.idea for argument in
-                     catalogue.tache_three_models()[prompt.response.semantic_group].response.arguments],
+                     catalogue.tache_three_public_models()[prompt.response.semantic_group].response.arguments],
                 )
-                self.assertNotEqual(
+                self.assertEqual(
                     page.context["response_content"].position_claire,
                     prompt.model_content["position_claire"],
                 )
+                self.assertEqual(page.context["response_content"].position, prompt.model_content["position"])
                 for key in ("model", "personal"):
                     self.assertEqual(self.client.get(prompt_detail_url(prompt), {key: "1"}).status_code, 404)
 

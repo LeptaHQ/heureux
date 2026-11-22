@@ -87,8 +87,8 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("surface", conclusion.french)
         self.assertNotIn("surface", conclusion.english)
         nuance = self.plans["eo/tache-3/culture-p27"].nuance
-        self.assertIn("n'est pas forcément oublier", nuance.french)
-        self.assertIn("does not necessarily mean forgetting", nuance.english)
+        self.assertIn("ce qu'on veut conserver et transmettre", nuance.french)
+        self.assertIn("what to preserve and pass on", nuance.english)
 
     def test_related_youth_questions_reuse_language_without_merging_the_actors(self):
         adults = self.response(2)
@@ -223,11 +223,11 @@ class CultureEditorialTests(SimpleTestCase):
             (19, 0, ("à Tokyo", "le métro chaque matin", "à voix basse", "évitent les appels téléphoniques")),
             (19, 1, ("documentaire sur les Pays-Bas, sous-titré en français", "des digues et des pompes", "gagner des terres sur la mer", "protection contre les inondations")),
             (19, 2, ("document traduit", "projet de logements", "dans son quartier", "pendant la réunion", "il ne comprend pas pourquoi", "certains défendent le projet et d'autres s'y opposent")),
-            (20, 1, ("documentaire sur Guernica de Picasso", "gros plans", "personnages qui crient", "bombardement", "dénonce la violence de la guerre")),
+            (20, 1, ("l'histoire, la musique ou la géographie d'un pays", "elles ont voyagé, regardé des documentaires et discuté")),
             (24, 1, ("en discutant avec des collègues ou des voisins", "tutoyer ou vouvoyer", "accepter une invitation")),
             (26, 2, ("prévoir leurs visites à l'avance", "question d'organisation", "pas un refus de me voir")),
             (30, 2, ("parle couramment la langue", "un bon emploi", "un logement stable", "se sentir encore étrangère")),
-            (31, 1, ("remarque sur le physique", "moments les plus drôles", "à peine le malaise")),
+            (31, 1, ("rediffusée plusieurs fois", "extrait viral", "comme un spectacle")),
             (35, 2, ("distribution alimentaire", "La famille comprend", "comme les autres bénévoles, il contribue")),
         ):
             with self.subTest(response=number, argument=argument + 1):
@@ -235,50 +235,30 @@ class CultureEditorialTests(SimpleTestCase):
                 for phrase in required:
                     self.assertIn(phrase, example)
 
-    def test_television_value_includes_shared_experiences_and_nonproductive_rest(self):
+    def test_television_value_includes_learning_shared_experiences_and_intentional_viewing(self):
         response = self.response(12)
-        self.assertIn("objets mal triés", response.arguments[0].exemple)
-        self.assertIn("consignes de sa commune", response.arguments[0].exemple)
-        self.assertIn("rassembler des personnes", response.arguments[1].idea)
-        self.assertIn("Un match ou un spectacle en direct", response.arguments[1].developpement)
-        self.assertIn("on partage des émotions", response.arguments[1].developpement)
-        for phrase in ("Coupe du monde", "chez l'un d'eux", "se connaissent peu", "discutant à la mi-temps", "engager la conversation"):
-            self.assertIn(phrase, response.arguments[1].exemple)
-        self.assertIn("un moment partagé", response.arguments[1].consequence)
-        self.assertIn("même lorsqu'on n'apprend rien de nouveau", response.arguments[2].idea)
-        self.assertIn("éteint à la fin de l'épisode", response.arguments[2].exemple)
+        self.assertIn("documentaire sur l'environnement ou sur l'histoire", response.arguments[0].exemple)
+        self.assertIn("valeur culturelle et sociale", response.arguments[1].idea)
+        self.assertIn("un match important en famille", response.arguments[1].exemple)
+        self.assertIn("un moment partagé qui compte autant que le contenu", response.arguments[1].exemple)
+        self.assertIn("programmes que l'on n'a même pas choisis", response.arguments[2].exemple)
+        self.assertIn("l'usage passif", response.arguments[2].consequence)
         plan = self.plans["eo/tache-3/culture-p12"]
-        self.assertIn("Coupe du monde", plan.arguments[1].example.french)
-        self.assertIn("World Cup", plan.arguments[1].example.english)
-        self.assertIn("à la fin de l'épisode", plan.arguments[2].example.french)
-        self.assertIn("at the end of the episode", plan.arguments[2].example.english)
-        self.assertIn("des proches", plan.nuance.french)
-        self.assertIn("loved ones", plan.nuance.english)
-        self.assertIn("négliger le sommeil", response.nuance)
-        self.assertIn("le temps avec les proches", response.nuance)
-        self.assertNotIn("ce qu'on délaisse", response.nuance)
-        self.assertIn("informer, réunir et détendre", response.conclusion)
+        self.assertIn("match important en famille", plan.arguments[1].example.french)
+        self.assertIn("a big match with family", plan.arguments[1].example.english)
+        self.assertIn("sans choisir", response.nuance)
+        self.assertIn("du regard critique que l'on garde", response.conclusion)
 
-    def test_reality_television_shows_distinct_comparison_normalisation_and_advertising_risks(self):
+    def test_reality_television_distinguishes_superficial_success_conflict_and_repeated_exposure(self):
         response = self.response(31)
-        comparison, normalisation, advertising = response.arguments
-        self.assertIn("ses cours et son petit boulot du week-end", comparison.exemple)
-        self.assertIn("une partie choisie de la vie du candidat", comparison.exemple)
-        self.assertIn("rendre l'humiliation plus acceptable", normalisation.idea)
-        self.assertIn("une insulte attire l'attention et fait rire", normalisation.developpement)
-        self.assertIn("une manière normale de se faire remarquer", normalisation.developpement)
-        self.assertIn("la plaisanterie plutôt que la peine", normalisation.developpement)
-        self.assertIn("moments les plus drôles", normalisation.exemple)
-        self.assertIn("à peine le malaise de la personne concernée", normalisation.exemple)
-        self.assertIn("acceptable parce qu'elle amuse les autres", normalisation.consequence)
-        self.assertIn("ce qu'elle fait vivre à celui qui la reçoit", normalisation.consequence)
-        self.assertIn("Après l'émission", advertising.developpement)
-        self.assertIn("sur les réseaux sociaux", advertising.developpement)
-        self.assertIn("une marque le rémunère", advertising.developpement)
-        self.assertIn("Après l'achat, il remarque", advertising.exemple)
-        self.assertIn("partenariat rémunéré", advertising.exemple)
-        self.assertIn("sans avoir identifié la publicité", advertising.consequence)
-        self.assertIn("sans vouloir imiter", response.nuance)
+        success, normalisation, exposure = response.arguments
+        self.assertIn("mises en scène de richesse", success.exemple)
+        self.assertIn("une vision déformée de la réussite", success.consequence)
+        self.assertIn("comme un spectacle plutôt que comme un vrai manque de respect", normalisation.exemple)
+        self.assertIn("rendre ordinaires des comportements", normalisation.consequence)
+        self.assertIn("le regard critique sont encore en pleine construction", exposure.developpement)
+        self.assertIn("un adolescent qui suit quotidiennement ces programmes", exposure.exemple)
+        self.assertIn("tous les jeunes y sont sensibles de la même manière", response.nuance)
 
     def test_school_arts_restore_original_expression_cultural_openness_and_career_arguments(self):
         response = self.response(13)
@@ -592,52 +572,28 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("qui convienne à chacun", response.arguments[2].consequence)
         self.assertNotIn("me laissant mes propres habitudes", response.arguments[2].consequence)
 
-    def test_forgotten_traditional_skill_requires_relearning_before_transmission(self):
-        argument = self.response(27).arguments[1]
-        self.assertIn("une danse traditionnelle à ses enfants", argument.exemple)
-        self.assertIn("après des années sans danser", argument.exemple)
-        self.assertIn("ne retrouve plus certains pas", argument.exemple)
-        self.assertIn("Sa sœur les lui montre à nouveau", argument.exemple)
-        self.assertIn("réapprendre une partie de la danse", argument.consequence)
-        self.assertIn("la transmettre à son tour", argument.consequence)
-        self.assertNotIn("brioche", argument.exemple)
+    def test_cultural_forgetting_keeps_the_requested_source_answer_and_aligned_cues(self):
+        model = self.models["eo/tache-3/culture-p27"]
+        response = model.response
+        source = next(source for source in self.sources if source.semantic_group == model.group)
+        for field in ("reformulation", "position", "position_claire", "nuance", "conclusion"):
+            self.assertEqual(getattr(response, field), getattr(source, field), field)
+        self.assertEqual(
+            [asdict(argument) for argument in response.arguments],
+            [asdict(argument) for argument in source.arguments],
+        )
+        cue = self.plans[model.group].arguments[2].example
+        self.assertIn("l'une transmet sa langue et ses traditions", cue.french)
+        self.assertIn("one passes on its language and traditions", cue.english)
 
-    def test_cultural_forgetting_introduction_explains_practice_without_repeating_the_same_claim(self):
-        response = self.response(27)
-        self.assertIn("peut conduire à oublier", response.position_claire)
-        self.assertIn("cet oubli n'est pas automatique", response.position_claire)
-        self.assertIn("occasions de parler sa langue ou de pratiquer une tradition", response.position_claire)
-        self.assertIn("les liens que l'on garde comptent aussi", response.position_claire)
-        self.assertIn("on peut oublier certains mots", response.arguments[0].idea)
-        self.assertIn("certains savoir-faire peuvent se perdre", response.arguments[1].idea)
-
-    def test_regular_contact_keeps_cultural_expressions_in_use_after_twenty_years(self):
-        argument = self.response(27).arguments[2]
-        self.assertIn("depuis vingt ans à l'étranger", argument.exemple)
-        self.assertIn("chaque semaine à sa sœur", argument.exemple)
-        self.assertIn("continuer à employer des expressions", argument.exemple)
-        self.assertIn("qu'elle entend rarement au travail", argument.exemple)
-        cue = self.plans["eo/tache-3/culture-p27"].arguments[2].example
-        self.assertIn("continuer à utiliser les expressions familiales", cue.french)
-        self.assertIn("après vingt ans", cue.french)
-        self.assertIn("keep family expressions in use", cue.english)
-        self.assertIn("after twenty years abroad", cue.english)
-        self.assertNotIn("recall a forgotten expression", cue.english)
-
-    def test_reality_tv_cues_keep_humiliation_and_spectacle_without_inventing_staging(self):
+    def test_reality_tv_cues_keep_the_dispute_and_critical_thinking(self):
         response = self.response(31)
         plan = self.plans["eo/tache-3/culture-p31"]
-        self.assertIn("banaliser les comportements agressifs", plan.arguments[1].point.french)
-        self.assertIn("remarque sur le physique", plan.arguments[1].example.french)
-        self.assertIn("les rires passent avant le malaise", plan.arguments[1].example.french)
-        self.assertIn("replayed as a funny moment", plan.arguments[1].example.english)
-        self.assertIn("laughter overshadows the person's discomfort", plan.arguments[1].example.english)
-        self.assertNotIn("instead of", plan.arguments[1].example.english)
-        self.assertIn("mis en spectacle", plan.conclusion.french)
-        self.assertIn("what is turned into a spectacle", plan.conclusion.english)
-        self.assertNotIn("staged", plan.conclusion.english)
-        self.assertIn("acheté en croyant suivre un conseil personnel", response.arguments[2].consequence)
-        self.assertNotIn("Le regard critique doit", response.arguments[2].consequence)
+        self.assertIn("dispute de couple rediffusée", plan.arguments[1].example.french)
+        self.assertIn("replayed and shared as a spectacle", plan.arguments[1].example.english)
+        self.assertIn("l'esprit critique à l'école et en famille", plan.conclusion.french)
+        self.assertIn("critical thinking at school and at home", plan.conclusion.english)
+        self.assertIn("les parents et l'école développent l'esprit critique", response.arguments[2].consequence)
 
     def test_personal_project_example_connects_learning_progress_to_enjoyment_without_friends(self):
         response = self.response(16)
@@ -721,7 +677,7 @@ class CultureEditorialTests(SimpleTestCase):
             (14, 2, "approfondir ce que l'on découvre", "demander une explication", "pourquoi elle enlève ses chaussures"),
             (26, 2, "éviter des malentendus", "comprendre son comportement", "prévoir leurs visites"),
             (30, 2, "sans pour autant se sentir vraiment chez soi", "un rythme de vie et une mentalité différents", "se sentir encore étrangère"),
-            (31, 1, "rendre l'humiliation plus acceptable", "une manière normale de se faire remarquer", "remarque sur le physique"),
+            (31, 1, "banalise des comportements", "une manière acceptable de gérer", "commentée comme un spectacle"),
             (33, 1, "mobiliser le public", "informations vérifiées", "réunion publique"),
         ):
             with self.subTest(response=number, argument=index + 1):
@@ -843,79 +799,37 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertNotIn("mieux que la plupart", story.idea)
         self.assertNotIn("indispensable", self.response(6).conclusion)
 
-    def test_reading_alternatives_demonstrate_documentary_learning_and_guided_practice(self):
-        response = self.response(20)
-        listening, practice = response.arguments[1:]
-        self.assertIn("les documentaires permettent aussi de comprendre des œuvres", listening.idea)
-        self.assertIn("attirer notre attention sur un détail", listening.developpement)
-        self.assertIn("le commentaire explique le contexte", listening.developpement)
-        self.assertIn("comprendre ce qu'elle exprime", listening.developpement)
-        for phrase in ("Guernica de Picasso", "gros plans", "personnages qui crient", "bombardement", "dénonce la violence de la guerre"):
-            self.assertIn(phrase, listening.exemple)
-        self.assertIn("culture artistique et historique", listening.consequence)
-        self.assertIn("sans avoir nécessairement lu de livre", listening.consequence)
-        cue = self.plans["eo/tache-3/culture-p20"].arguments[1].example
-        self.assertIn("Guernica", cue.french)
-        self.assertIn("bombing", cue.english)
-        for phrase in ("motif de feuilles", "sa grand-mère", "repas de fête", "les participants lorsqu'ils reproduisent"):
-            self.assertIn(phrase, practice.exemple)
-        self.assertIn("sans passer obligatoirement par un livre", practice.consequence)
-        self.assertIn("ces façons d'apprendre peuvent se compléter", response.nuance)
-        self.assertIn("Les documentaires, les rencontres et la pratique", response.conclusion)
-        self.assertIn("documentaries", self.plans["eo/tache-3/culture-p20"].conclusion.english)
-        self.assertIn("style d'un écrivain", response.nuance)
-        self.assertIn("comprendre, réfléchir et discuter ce que l'on découvre", response.nuance)
-        self.assertIn("le nombre de livres lus ne dit pas tout", response.nuance)
-        self.assertIn("reading a lot", self.plans["eo/tache-3/culture-p20"].nuance.english)
+    def test_reading_necessity_puts_reflection_before_alternatives_and_original_texts(self):
+        model = self.models["eo/tache-3/culture-p20"]
+        response = model.response
+        reflection, alternatives, originals = response.arguments
+        self.assertEqual(model.argument_ids, (1, 2, 4))
+        self.assertIn("D'abord, la lecture reste la voie la plus profonde", response.position_claire)
+        self.assertIn("Ensuite, la culture passe aujourd'hui aussi par les documentaires", response.position_claire)
+        self.assertIn("Je pense d'abord", reflection.idea)
+        self.assertIn("revenir en arrière et de réfléchir", reflection.developpement)
+        self.assertIn("un essai ou un roman complet", reflection.exemple)
+        self.assertIn("Cela dit", alternatives.idea)
+        self.assertIn("par leur métier, par leurs rencontres ou par leur curiosité", alternatives.developpement)
+        self.assertIn("une langue, un style et une époque", originals.developpement)
+        self.assertIn("lire vraiment leurs œuvres", originals.exemple)
 
     def test_personal_letters_keep_emotional_attention_fuller_expression_and_family_memories(self):
-        attention, reflection, memory = self.response(18).arguments
-        self.assertIn("consacré une attention particulière", attention.idea)
-        for phrase in ("Choisir une carte", "chercher quelques mots", "en pensant à cette personne", "sa présence"):
-            self.assertIn(phrase, attention.developpement)
-        for phrase in ("son anniversaire", "son père", "promenades du dimanche", "son écriture", "l'entendre lui parler"):
-            self.assertIn(phrase, attention.exemple)
-        self.assertIn("un signe de proximité", attention.consequence)
-        self.assertIn("exprimer ses sentiments plus en profondeur", reflection.idea)
-        for phrase in ("ce qu'on ressent et pourquoi", "une formule rapide", "des mots précis", "à voix haute"):
-            self.assertIn(phrase, reflection.developpement)
-        for phrase in ("lettre d'amour", "sa compagne", "cherchait du travail", "reprendre confiance", "un simple « je t'aime »"):
-            self.assertIn(phrase, reflection.exemple)
-        self.assertIn("pourquoi il compte dans notre vie", reflection.consequence)
-        for phrase in ("une boîte de souvenirs de famille", "envoyée par sa grand-mère", "travail dans un café", "la petite chambre qu'elle louait"):
-            self.assertIn(phrase, memory.exemple)
-        self.assertIn("Elle découvre une période", memory.consequence)
-        self.assertIn("la vie de sa grand-mère qu'elle n'a pas connue elle-même", memory.consequence)
-        self.assertNotIn("compte numérique", memory.idea)
         response = self.response(18)
-        self.assertIn("un message numérique peut aussi être réfléchi", response.nuance)
-        self.assertIn("attentionné et conservé", response.nuance)
-        self.assertIn("se perdre", response.nuance)
-        for phrase in ("L'attention, les mots et les souvenirs", "garde les lettres pour certaines occasions"):
-            self.assertIn(phrase, response.conclusion)
-        plan = self.plans["eo/tache-3/culture-p18"]
-        self.assertIn("un geste personnel", plan.arguments[0].point.french)
-        self.assertIn("exprimer pleinement ses sentiments", plan.arguments[1].point.french)
-        self.assertIn("fuller expression", plan.conclusion.english)
+        attention, reflection, memory = response.arguments
+        self.assertIn("avait pris du temps spécialement pour nous", attention.developpement)
+        self.assertIn("voir l'écriture de quelqu'un, de toucher le papier", attention.developpement)
+        self.assertIn("on construisait des phrases plus complètes", reflection.developpement)
+        self.assertIn("expliquer un sentiment ou une situation en détail", reflection.exemple)
+        self.assertIn("une sorte de petite histoire personnelle ou familiale", memory.developpement)
+        self.assertIn("grands-parents ou par un premier amour", memory.exemple)
+        self.assertIn("garder le contact avec des personnes très éloignées", response.nuance)
 
-    def test_reading_necessity_and_personal_cultural_forgetting_keep_their_scope(self):
+    def test_reading_necessity_keeps_its_scope(self):
         reading = self.response(20)
-        self.assertIn("pas une condition unique pour être cultivé", reading.conclusion)
-        self.assertIn("un documentaire sur Guernica", reading.arguments[1].exemple)
-        self.assertIn("sans avoir nécessairement lu de livre sur le sujet", reading.arguments[1].consequence)
-        self.assertNotIn("elle lit peu", reading.arguments[1].exemple)
-        forgetting = self.response(27)
-        self.assertEqual(self.models["eo/tache-3/culture-p27"].argument_ids, (1, 4, 3))
-        self.assertIn("lorsqu'on utilise moins sa langue d'origine", forgetting.arguments[0].idea)
-        self.assertIn("sa grand-mère lui disait souvent", forgetting.arguments[0].exemple)
-        self.assertIn("sans savoir expliquer le message", forgetting.arguments[0].exemple)
-        self.assertIn("même lorsque l'on continue à parler sa langue", forgetting.arguments[1].idea)
-        self.assertIn("une danse traditionnelle à ses enfants", forgetting.arguments[1].exemple)
-        self.assertIn("ne retrouve plus certains pas", forgetting.arguments[1].exemple)
-        self.assertIn("Sa sœur les lui montre à nouveau", forgetting.arguments[1].exemple)
-        self.assertNotIn("Les enfants", forgetting.arguments[1].developpement)
-        self.assertIn("Un long séjour à l'étranger n'empêche donc pas, à lui seul", forgetting.arguments[2].consequence)
-        self.assertIn("ne signifie donc pas forcément qu'une ancienne culture a été oubliée", forgetting.nuance)
+        self.assertIn("on n'est pas obligé de lire pour être cultivé", reading.conclusion)
+        self.assertIn("l'héritage culturel que rien d'autre ne remplace vraiment", reading.conclusion)
+        self.assertIn("lire beaucoup ne suffit pas en soi à être cultivé", reading.nuance)
 
     def test_immigration_economic_contribution_keeps_work_and_skills_together(self):
         model = self.models["eo/tache-3/culture-p35"]

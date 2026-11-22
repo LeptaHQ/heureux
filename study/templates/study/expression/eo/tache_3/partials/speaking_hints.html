@@ -1,7 +1,9 @@
 <section class="card section-card response-sidebar-card subject-hints subject-hints--speaking" aria-labelledby="subject-hints-title">
   <h2 class="spine-label" id="subject-hints-title" tabindex="-1" lang="fr">Pistes</h2>
   {% if show_position %}{% include "study/expression/eo/tache_3/partials/eo3_position.html" with position=position position_annotation_key=position_annotation_key only %}{% endif %}
+  {% if alternate_plan %}<details><summary>Un autre plan pour ce sujet</summary>{% else %}
   <p class="muted subject-hints__intro">Un plan possible pour la réponse modèle, à reformuler avec vos mots.</p>
+  {% endif %}
   <div class="subject-hints__section">
     <h3 class="subject-hints__label">Introduction</h3>
     {% include "study/expression/partials/subject_hint_text.html" with hint=hints.introduction only %}
@@ -28,4 +30,5 @@
     <h3 class="subject-hints__label">Conclusion</h3>
     {% include "study/expression/partials/subject_hint_text.html" with hint=hints.conclusion only %}
   </div>
+  {% if alternate_plan %}</details>{% endif %}
 </section>

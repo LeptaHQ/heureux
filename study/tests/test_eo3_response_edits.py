@@ -275,14 +275,14 @@ class EO3ResponseEditTests(TestCase):
         self.assertIn(current.pk, self.visible())
 
     def test_special_argument_identities_survive_private_edits(self):
-        prompt = self.get_prompt("economie:p22")
-        model = catalogue.tache_three_models()[prompt.response.semantic_group].response
+        prompt = self.get_prompt("technologie:p12")
+        model = catalogue.tache_three_public_models()[prompt.response.semantic_group].response
         mark = self.mark(model, model.arguments[1].exemple, prompt=prompt)
         after = self.edited_example(model)
         self.save(after, prompt)
-        self.assertEqual([arg.annotation_id for arg in annotation_arguments(prompt, after)], [1, 4, 2])
+        self.assertEqual([arg.annotation_id for arg in annotation_arguments(prompt, after)], [4, 1, 3])
         self.assert_attached(mark, after, prompt=prompt)
-        self.assertEqual(mark.response_anchor["field"], "argument-4-exemple")
+        self.assertEqual(mark.response_anchor["field"], "argument-1-exemple")
 
     def test_saved_private_argument_identities_do_not_follow_later_public_model_rewrites(self):
         after = self.edited_example(self.model)
@@ -292,7 +292,7 @@ class EO3ResponseEditTests(TestCase):
         mark = self.mark(
             current, current.arguments[1].exemple, field="argument-2-exemple",
         )
-        models = catalogue.tache_three_models()
+        models = catalogue.tache_three_public_models()
         group = self.prompt.response.semantic_group
         replacement = replace(
             models[group],
@@ -303,7 +303,7 @@ class EO3ResponseEditTests(TestCase):
             )),
             argument_ids=(1, 4, 5),
         )
-        with patch("study.catalogue.registry.tache_three_models", return_value={**models, group: replacement}):
+        with patch("study.catalogue.registry.tache_three_public_models", return_value={**models, group: replacement}):
             self.assertEqual(
                 [argument.annotation_id for argument in annotation_arguments(self.prompt, current)],
                 [1, 2, 3],
@@ -440,11 +440,12 @@ class EO3ResponseEditTests(TestCase):
         self.assertEqual(Annotation.objects.filter(pk=mark.pk).values().get(), saved)
 
     def test_copy_uses_the_current_response_in_french_paragraphs_without_ui_or_hints(self):
-        for model in catalogue.tache_three_models().values():
+        for model in catalogue.tache_three_public_models().values():
             with self.subTest(group=model.group):
                 copied = response_text(model.response)
-                self.assertEqual(len(copied.split("\n\n")), 6)
-                self.assertEqual(copied.replace("\n\n", " "), spoken_text(model.response))
+                internal_breaks = sum(arg.developpement.count("\n\n") for arg in model.response.arguments)
+                self.assertEqual(len(copied.split("\n\n")), 6 + internal_breaks)
+                self.assertEqual(copied.replace("\n\n", " "), spoken_text(model.response).replace("\n\n", " "))
         after = self.edited_example(self.model)
         self.save(after)
         page = self.client.get(prompt_detail_url(self.prompt))
@@ -494,7 +495,7 @@ class EO3ResponseEditTests(TestCase):
 
     def test_other_accounts_prompts_and_study_state_are_unchanged(self):
         other_prompt = self.get_prompt("culture:p2")
-        other_model = catalogue.tache_three_models()[other_prompt.response.semantic_group].response
+        other_model = catalogue.tache_three_public_models()[other_prompt.response.semantic_group].response
         other_mark = self.mark(
             other_model, other_model.conclusion, prompt=other_prompt,
         )

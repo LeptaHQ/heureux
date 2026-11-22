@@ -2,16 +2,18 @@
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 import hashlib
 import json
 from pathlib import Path
+import re
 
 from study.catalogue import loader as content
 from study.expression.personalization import AnnotationArgument, EffectiveArgument, EffectiveResponse
 
 
 MODELS_DIR = content.EO_TACHE_THREE_THEMES_DIR
+ARCHIVE_DEFAULTS_PATH = content.EO_TACHE_THREE_DIR / "archive_defaults.json"
 
 
 @dataclass(frozen=True)
@@ -20,6 +22,14 @@ class TacheThreeModel:
     source_prompts: tuple[tuple[str, str], ...]
     response: EffectiveResponse
     argument_ids: tuple[int, ...] = (1, 2, 3)
+    alternate_pistes: bool = False
+    variants: tuple[tuple[str, TacheThreeModel], ...] = ()
+
+    def for_prompt(self, key):
+        return next((model for source, model in self.variants if source == key), self)
+
+    def editions(self):
+        return (self, *(model for _, model in self.variants))
 
 
 def annotation_arguments(prompt, response):
@@ -28,6 +38,11 @@ def annotation_arguments(prompt, response):
     ):
         return response.arguments
     model = reviewed_model(prompt.response, prompt) if prompt is not None else None
+    if model is not None and response.is_personal:
+        from study.catalogue import registry as catalogue
+
+        # Personal copies saved before explicit argument IDs used the reviewed IDs.
+        model = catalogue.tache_three_models()[model.group]
     if model is None or (not response.is_personal and model.response != response) or (
         tuple(argument.order for argument in response.arguments)
         != tuple(argument.order for argument in model.response.arguments)
@@ -39,13 +54,25 @@ def annotation_arguments(prompt, response):
     )
 
 
-def _text(value, label):
-    if (
-        not isinstance(value, str) or not value.strip()
-        or value != value.strip() or any(char in value for char in "\n\r\t")
+def _text(value, label, *, allow_paragraphs=False):
+    paragraphs = value.split("\n\n") if allow_paragraphs and isinstance(value, str) else (value,)
+    if any(
+        not isinstance(part, str) or not part or part != part.strip()
+        or any(char in part for char in "\n\r\t")
+        for part in paragraphs
     ):
         raise ValueError(f"Invalid EO3 {label}")
     return value
+
+
+def _argument_ids(ids, label):
+    if (
+        not isinstance(ids, list) or len(ids) != 3
+        or any(type(identity) is not int or not 1 <= identity <= 9999 for identity in ids)
+        or len(set(ids)) != 3
+    ):
+        raise ValueError(f"Invalid EO3 argument identities: {label}")
+    return tuple(ids)
 
 
 def spoken_text(response):
@@ -119,13 +146,7 @@ def load_tache_three_models(
                 required <= set(row) <= required | {"argument_ids"}
             ):
                 raise ValueError(f"Invalid EO3 model fields: {group}")
-            argument_ids = row.get("argument_ids", [1, 2, 3])
-            if (
-                not isinstance(argument_ids, list) or len(argument_ids) != 3
-                or any(type(identity) is not int or not 1 <= identity <= 9999 for identity in argument_ids)
-                or len(set(argument_ids)) != 3
-            ):
-                raise ValueError(f"Invalid EO3 argument identities: {group}")
+            argument_ids = _argument_ids(row.get("argument_ids", [1, 2, 3]), group)
             signatures = {
                 prompt.content_key: hashlib.sha256(
                     prompt.text.encode("utf-8")
@@ -144,8 +165,13 @@ def load_tache_three_models(
                     raise ValueError(f"Invalid EO3 argument: {group}/{order}")
                 arguments.append(EffectiveArgument(
                     order=order,
-                    **{name: _text(value, f"{group}/{order}/{name}")
-                       for name, value in argument.items()},
+                    **{
+                        name: _text(
+                            value, f"{group}/{order}/{name}",
+                            allow_paragraphs=name == "developpement",
+                        )
+                        for name, value in argument.items()
+                    },
                 ))
             for field in ("idea", "developpement", "exemple"):
                 values = [getattr(argument, field).casefold() for argument in arguments]
@@ -171,9 +197,83 @@ def load_tache_three_models(
                     (prompt.content_key, prompt.text) for prompt in source.prompts
                 ),
                 response=response,
-                argument_ids=tuple(argument_ids),
+                argument_ids=argument_ids,
             )
     return result
+
+
+def archive_response(body):
+    """Read the archive prose without the legacy spoken-field whitespace joins."""
+    preparation, intro, first, second, third, nuance, conclusion = re.split(
+        r"\n+### \*\*[1-6]\. [^\n]+\*\*\n+", body,
+    )
+    reformulation, position = preparation.removeprefix("`Reformulation`\n\n").split(
+        "\n\n`Position`\n\n",
+    )
+    arguments = []
+    for order, section in enumerate((first, second, third), 1):
+        idea, development, example, consequence = re.split(
+            r"\n\n\*\*(?:Développement|Exemple|Conséquence)\*\*\n\n",
+            section.removeprefix("**Idée**\n\n"),
+        )
+        arguments.append(EffectiveArgument(order, idea, development, example, consequence))
+    return EffectiveResponse(
+        reformulation, position, intro, tuple(arguments), nuance, conclusion, False,
+    )
+
+
+def load_archive_defaults(sources, path=ARCHIVE_DEFAULTS_PATH):
+    """Publish selected archive occurrences without replacing their reviewed editions."""
+    selected = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=content._unique_json_fields)
+    if not isinstance(selected, dict) or not selected:
+        raise ValueError("Invalid EO3 archive defaults")
+    models = {}
+    used = set()
+    for source in sources:
+        if source.content_key not in selected:
+            continue
+        signatures = tuple((prompt.content_key, prompt.text) for prompt in source.prompts)
+
+        def edition(key, body):
+            used.add(key)
+            return TacheThreeModel(
+                group=source.semantic_group, source_prompts=signatures,
+                response=archive_response(body),
+                argument_ids=_argument_ids(selected.get(key), key),
+            )
+
+        model = edition(source.content_key, source.body)
+        variants = []
+        for prompt in source.prompts:
+            body = prompt.model_content["body"]
+            if prompt.content_key == source.content_key or body == source.body:
+                continue
+            other = edition(prompt.content_key, body)
+            if spoken_text(other.response) != spoken_text(model.response):
+                prompts = ((prompt.content_key, prompt.text), *(
+                    signature for signature in signatures if signature[0] != prompt.content_key
+                ))
+                other = replace(other, source_prompts=prompts)
+            variants.append((prompt.content_key, other))
+        models[model.group] = replace(model, variants=tuple(variants))
+    if used != set(selected):
+        raise ValueError(f"Unmatched EO3 archive defaults: {', '.join(sorted(set(selected) - used))}")
+    return models
+
+
+def publish_archive_defaults(reviewed, archived):
+    def with_pistes(model, reviewed_speech):
+        return replace(
+            model, alternate_pistes=spoken_text(model.response) != reviewed_speech,
+            variants=tuple(
+                (key, with_pistes(variant, reviewed_speech)) for key, variant in model.variants
+            ),
+        )
+
+    return {
+        group: with_pistes(archived[group], spoken_text(model.response)) if group in archived else model
+        for group, model in reviewed.items()
+    }
 
 
 def reviewed_model(response, prompt=None):
@@ -181,8 +281,9 @@ def reviewed_model(response, prompt=None):
 
     if not response.semantic_group.startswith("eo/tache-3/"):
         return None
-    model = catalogue.tache_three_models().get(response.semantic_group)
+    model = catalogue.tache_three_public_models().get(response.semantic_group)
     if model is not None and prompt is not None:
         if (prompt.content_key, prompt.text) not in model.source_prompts:
             raise RuntimeError("EO3 reviewed consignes are not synchronized")
+        return model.for_prompt(prompt.content_key)
     return model

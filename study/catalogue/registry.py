@@ -38,15 +38,22 @@ class _Eo3Source:
 
 
 @lru_cache(maxsize=1)
-def _eo3_sources() -> tuple[_Eo3Source, ...]:
-    """Share only immutable public validation identities, not imported bodies."""
-    return tuple(
+def _eo3_source_catalogue():
+    from study.expression.eo.tache_3.responses import load_archive_defaults
+
+    sources = content.parse_responses()
+    identities = tuple(
         _Eo3Source(
             source.semantic_group, source.theme,
             tuple(_PromptSignature(prompt.content_key, prompt.text) for prompt in source.prompts),
         )
-        for source in content.parse_responses()
+        for source in sources
     )
+    return identities, MappingProxyType(load_archive_defaults(sources))
+
+
+def _eo3_sources() -> tuple[_Eo3Source, ...]:
+    return _eo3_source_catalogue()[0]
 
 
 @lru_cache(maxsize=1)
@@ -98,9 +105,17 @@ def tache_three_subject_plan(semantic_group: str) -> content.SpeakingHintsData |
 
 @lru_cache(maxsize=1)
 def tache_three_models() -> Mapping[str, TacheThreeModel]:
+    """Preserved reviewed editions and their original argument identities."""
     from study.expression.eo.tache_3.responses import load_tache_three_models
 
     return MappingProxyType(load_tache_three_models(responses=_eo3_sources()))
+
+
+@lru_cache(maxsize=1)
+def tache_three_public_models() -> Mapping[str, TacheThreeModel]:
+    from study.expression.eo.tache_3.responses import publish_archive_defaults
+
+    return MappingProxyType(publish_archive_defaults(tache_three_models(), _eo3_source_catalogue()[1]))
 
 
 @lru_cache(maxsize=1)
@@ -188,7 +203,7 @@ def ee_writing_sources_by_slug(
 
 def clear_catalogue_cache() -> None:
     """Discard all shared catalogue entries, including their derived indexes."""
-    _eo3_sources.cache_clear()
+    _eo3_source_catalogue.cache_clear()
     tache_two_subject_months.cache_clear()
     tache_two_subject_themes.cache_clear()
     tache_two_subject_hints.cache_clear()
@@ -196,6 +211,7 @@ def clear_catalogue_cache() -> None:
     tache_two_location_history.cache_clear()
     tache_three_subject_hints.cache_clear()
     tache_three_models.cache_clear()
+    tache_three_public_models.cache_clear()
     tache_three_prompt_notes.cache_clear()
     ee_tache_one_subject_hints.cache_clear()
     task_memoires.cache_clear()

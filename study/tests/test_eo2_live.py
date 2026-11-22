@@ -653,18 +653,28 @@ class GeminiLiveTests(TestCase):
         self.assert_private(self.post(url=save, body=json.dumps({"rows": self.rows, "elapsed": 1000})), 400)
         for mark in self.report["criteria"].values():
             mark.update(turnIndex=0, why="Votre exemple explique l’intérêt de la marche.")
-        self.report.update(proposal=[sentence.strip()], corrections=[], strengths=[])
+        paragraph = (sentence * 5).strip()  # One developed paragraph can exceed the old per-turn limit.
+        conclusion = "C’est pour cela que je préfère marcher."
+        self.report.update(proposal=paragraph + "\r\n\r\n" + conclusion, corrections=[], strengths=[])
         result = self.evaluate(url=page.context["evaluation_url"], rows=rows, simulation=pk)
         self.assert_private(result, 200)
         self.assertEqual(result.json()["scoreStatus"], "scored")
-        system, user = json.loads(self.eval_connection.request.call_args.kwargs["body"])["messages"]
+        self.assertEqual(result.json()["proposal"], [paragraph, conclusion])
+        payload = json.loads(self.eval_connection.request.call_args.kwargs["body"])
+        self.assertEqual(payload["response_format"]["json_schema"]["schema"]["properties"]["proposal"], {"type": "string"})
+        system, user = payload["messages"]
         self.assertIn("tâche 3", system["content"])
         self.assertEqual(json.loads(user["content"]), {"consigne": page.context["scenario_prompt"], "rows": [{**rows[0], "turnIndex": 0}]})
         reopened = self.client.get(reverse("study:eo_tache_three_live"), {"simulation": pk})
         self.assertEqual(reopened.context["saved_simulation"]["report"], result.json())
+        self.report["proposal"] = " "
         brief = self.evaluate(url=page.context["evaluation_url"], rows=[{"speaker": "user", "text": "Oui, bien sûr."}])
+        self.assertEqual(brief.json()["proposal"], [])
         self.assertIsNone(brief.json()["score"])
         self.assertNotIn("interaction", brief.json()["reason"])
+        self.report["proposal"] = {"paragraph": "Format invalide."}
+        invalid = gemini_evaluation._ground(self.report, rows, monologue=True)
+        self.assertEqual((invalid["scoreStatus"], invalid["proposal"], invalid["omitted"]), ("scored", [], True))
 
     def test_no_total_for_partial_unobserved_or_unsupported_rubric(self):
         self.evaluation_fixture()

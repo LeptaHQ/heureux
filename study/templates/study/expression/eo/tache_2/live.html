@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}{% if monologue %}Simulation · Tâche 3{% else %}Conversation vocale · Tâche 2{% endif %} · {{ subject.title }} · Heureux{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=16">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=17">{% endblock %}
 {% block content %}
 <article class="lv-studio" id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
     data-token-url="{{ token_url }}" data-save-url="{{ save_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
@@ -142,18 +142,12 @@
           </div>
         </details>
         <div class="lv-talk">
+          {% if monologue %}{% include "study/expression/partials/live_proposal.html" %}{% endif %}
           <details id="lv-transcript" class="lv-transcript"><summary>{% if monologue %}Votre prise de parole{% else %}Votre conversation{% endif %} <small id="lv-count"></small></summary>
             <button type="button" class="lv-toggle" id="lv-replies" aria-controls="lv-turns">{% include "study/shared/partials/ui_icon.html" with name="eye" only %} <span id="lv-replies-label">Afficher les réponses de l’interlocuteur</span></button>
             <ol class="lv-turns" id="lv-turns" data-replies="hidden"></ol>
           </details>
-          <section id="lv-proposal" class="lv-proposal" hidden aria-labelledby="lv-proposal-title">
-            <p class="lv-proposal__kicker">Réponse personnalisée générée pour vous</p>
-            <details class="lv-proposal__card" id="lv-proposal-card" open>
-              <summary><h2 id="lv-proposal-title">{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %} Proposition</h2></summary>
-              <button type="button" class="lv-copy" id="lv-proposal-copy">{% include "study/shared/partials/ui_icon.html" with name="copy" only %} <span id="lv-proposal-copy-label" aria-live="polite">Copier</span></button>
-              <ol class="lv-proposal__lines" id="lv-proposal-lines"></ol>
-            </details>
-          </section>
+          {% if not monologue %}{% include "study/expression/partials/live_proposal.html" %}{% endif %}
         </div>
         <p class="lv-fineprint">Cette estimation d’entraînement n’est pas une note officielle du TCF. Le bilan porte sur les paroles transcrites, pas sur la prononciation. Votre compte conserve les trente dernières séances de cette tâche, sans audio.</p>
       </div>
@@ -176,8 +170,8 @@
 {% endblock %}
 {% block scripts %}
 {% if gemini_live_available %}
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=12"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=13"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=9"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=11"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=12"></script>
 {% endif %}
 {% endblock %}

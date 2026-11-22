@@ -133,9 +133,17 @@ dans before le plus court extrait unique, dans after son remplacement, dans why 
 de 100 caractères, avec le turnIndex. Douze corrections au plus. Respecte les variantes canadiennes,
 les hésitations et les reprises ; ne corrige jamais une simple préférence ni un possible défaut de dictée.
 reason : deux phrases de synthèse ; next : une priorité concrète illustrée pour le prochain essai.
-proposal : propose une version orale naturelle de la position réellement défendue, en préservant
-ses raisons et ses exemples, sans inventer d’expérience personnelle. Découpe-la en courts passages
-de moins de 400 caractères, seize au plus. Si la position n’est pas identifiable, liste vide.
+proposal : écris le texte que le candidat aurait pu prononcer en réponse à la consigne exacte.
+Relis toute sa transcription comme une seule intervention, pas comme une suite de répliques.
+Fais entendre sa position, ses raisons, ses exemples et ses réserves, avec le même point de vue
+et le même degré de certitude. Corrige le français et clarifie les liens entre ses idées dans
+un français oral naturel et précis (NCLC 7–8). N’ajoute pas d’argument, de fait, d’expérience
+ou de conseil qu’il n’a pas donné. Si son propos ne répond qu’en partie au sujet, ne réponds pas
+à sa place. Rapproche l’exemple de l’idée qu’il illustre, sans répéter l’idée en conclusion.
+Rédige un seul discours : regroupe les phrases qui développent une même idée dans un paragraphe ;
+passe une ligne blanche quand l’idée change. Ni titres, ni numéros, ni puces, ni commentaires.
+Une réponse courte peut tenir en un paragraphe ; si aucun point de vue n’est discernable,
+renvoie une chaîne vide plutôt qu’un modèle générique.
 Ne calcule ni total ni niveau."""
 
 
@@ -149,16 +157,16 @@ _NULLABLE_INDEX = {"type": ["integer", "null"]}
 # Strict mode constrains decoding to this schema: every field is required and no other is allowed.
 # Counts and ranges stay in the prompt and _ground; bounds in a decoding grammar multiply its states.
 # The model fills fields in schema order: evidence comes before the marks it supports.
-_SCHEMA = _object(
+_OPINION_SCHEMA = _object(
     corrections={"type": "array", "items": _object(turnIndex=_INDEX, before=_STR, after=_STR, why=_STR)},
     strengths={"type": "array", "items": _object(turnIndex=_INDEX, why=_STR)},
     criteria=_object(**dict.fromkeys(_CRITERIA, _object(points=_NULLABLE_INDEX, why=_STR, turnIndex=_NULLABLE_INDEX))),
     reason=_STR,
     next=_STR,
-    proposal={"type": "array", "items": _STR},
+    proposal=_STR,
 )
-# A monologue may be split into paragraphs. Dialogue rewrites instead map to exact learner turns.
-_DIALOGUE_SCHEMA = _object(**{**_SCHEMA["properties"],
+# A dialogue rewrite maps to exact turns; a monologue is continuous prose.
+_DIALOGUE_SCHEMA = _object(**{**_OPINION_SCHEMA["properties"],
                               "proposal": {"type": "array", "items": _object(turnIndex=_INDEX, text=_STR)}})
 # One retry for a transient provider failure, inside the time the view waits for a report.
 _DEADLINE_SECONDS = 180
@@ -333,17 +341,19 @@ def _ground(report, rows, *, monologue=False):
     # The model can overrun a count stated only in the prompt: keep the first items, not nothing.
     try:
         proposal = report.get("proposal")
-        if not isinstance(proposal, list):
-            raise ValueError
-        if len(proposal) > 16:
-            result["omitted"] = True
-        lines = proposal[:16]
-        if lines and not monologue:
-            if (not all(isinstance(line, dict) and type(line.get("turnIndex")) is int for line in lines)
+        if monologue:
+            prose = _text(proposal, 8000, empty=True).replace("\r\n", "\n").strip()
+            result["proposal"] = [" ".join(p.splitlines()) for p in re.split(r"\n[ \t\n]*\n", prose)] if prose else []
+        else:
+            if not isinstance(proposal, list):
+                raise ValueError
+            if len(proposal) > 16:
+                result["omitted"] = True
+            lines = proposal[:16]
+            if lines and (not all(isinstance(line, dict) and type(line.get("turnIndex")) is int for line in lines)
                     or [line["turnIndex"] for line in lines] != sorted(learners)[:16]):
                 raise ValueError
-            lines = [line.get("text") for line in lines]
-        result["proposal"] = [_text(line, 400).strip() for line in lines]
+            result["proposal"] = [_text(line.get("text"), 400).strip() for line in lines]
     except ValueError:
         result["omitted"] = True
 
@@ -484,7 +494,7 @@ def score(prompt, rows, *, monologue=False):
             "consigne": prompt, "rows": [dict(row, turnIndex=i) for i, row in enumerate(rows)],
         }, ensure_ascii=False)}],
         "response_format": {"type": "json_schema", "json_schema": {
-            "name": "bilan", "strict": True, "schema": _SCHEMA if monologue else _DIALOGUE_SCHEMA}},
+            "name": "bilan", "strict": True, "schema": _OPINION_SCHEMA if monologue else _DIALOGUE_SCHEMA}},
         # Groq's free tier counts this cap, plus a full exchange's ~4K-token prompt, against 8K tokens a minute.
         "reasoning_effort": "low", "include_reasoning": False, "max_completion_tokens": 3584,
     }).encode()

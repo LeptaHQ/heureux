@@ -340,6 +340,11 @@ button.lv-mark[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--lv-rule); }
 .lv-proposal h2 .ui-icon { color: var(--tone-oral); }
 .lv-proposal__lines { display: grid; gap: 0.55rem; margin: 0 1.15rem 1.1rem; padding-left: 1.6rem; color: var(--text); font-size: 1.02rem; line-height: 1.6; overflow-wrap: anywhere; }
 .lv-proposal__lines li::marker { color: var(--text-faint); font-size: 0.86rem; font-variant-numeric: tabular-nums; }
+.lv-proposal__prose { max-width: 68ch; margin: 0 auto; padding: 0 1.25rem 1.3rem; font-size: 1.08rem; line-height: 1.7; overflow-wrap: anywhere; }
+.lv-proposal__prose p { margin: 0; }
+.lv-proposal__prose p + p { margin-top: 0.9em; }
+[data-mode="opinion"] .lv-proposal__tools { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.7rem 1.15rem; color: var(--text-soft); font-size: 0.88rem; }
+[data-mode="opinion"] .lv-proposal__tools p, [data-mode="opinion"] .lv-copy { margin: 0; }
 .lv-fineprint { max-width: 46rem; color: var(--text-faint); font-size: 0.8rem; line-height: 1.5; }
 .lv-done-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
 .lv-unavailable { padding-top: 0.25rem; }
@@ -369,6 +374,26 @@ button.lv-mark[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--lv-rule); }
   .lv-assessment__result:has(#lv-assessment-criteria:empty) { grid-template-columns: minmax(0, 1fr); }
   .lv-assessment__result > :not(.lv-assessment__part) { grid-column: 1 / -1; }
 }
+
+/* After a monologue the question stays in view, not the live console or countdown. */
+[data-mode="opinion"] .lv-assessment__result { grid-template-columns: minmax(0, 1fr); }
+[data-mode="opinion"]:is([data-state="draining"], [data-state="done"]) .lv-track,
+[data-state="draining"] :is(.lv-orb, .lv-actions) { display: none; }
+.lv-studio[data-mode="opinion"]:is([data-state="draining"], [data-state="done"]) .lv-stage {
+  grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "console" "done"; row-gap: 0;
+  border-top: 2px solid var(--tone-oral);
+}
+[data-mode="opinion"]:is([data-state="draining"], [data-state="done"]) .lv-head { padding: 1rem 0 0.65rem; }
+[data-mode="opinion"]:is([data-state="draining"], [data-state="done"]) .lv-head h1 {
+  scroll-margin-top: calc(var(--lv-top) + 1rem); font-size: clamp(1.65rem, 3vw, 2.15rem);
+}
+[data-mode="opinion"]:is([data-state="draining"], [data-state="done"]) .lv-prompt { max-width: 68ch; margin-top: 0.4rem; font-size: 1.05rem; }
+.lv-studio[data-mode="opinion"]:is([data-state="draining"], [data-state="done"]) .lv-console {
+  justify-items: start; gap: 0; padding: 0; border: 0; text-align: left;
+}
+[data-mode="opinion"][data-state="draining"] .lv-status { max-width: none; padding: 0.6rem 0.85rem; background: var(--lv-tint); color: var(--text); }
+[data-mode="opinion"] .lv-assessment__body:has(#lv-assess[aria-busy="true"]) { display: flex; align-items: center; gap: 0.6rem; }
+[data-mode="opinion"] #lv-assess[aria-busy="true"] { display: none; }
 
 /* Phones */
 @media (max-width: 40rem) {

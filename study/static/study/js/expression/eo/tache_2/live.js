@@ -15,6 +15,7 @@
   const introduction = by("prompt").textContent;
   const initialTitle = by("title").textContent;
   const initialKicker = by("kicker").textContent;
+  const debriefPrompt = opinion ? root.dataset.scenarioPrompt : root.dataset.scenarioTitle;
   const stepOf = {reading:"reading",prep:"prep",connecting:"live",live:"live",done:"done"};
   let active;
   const state = () => root.dataset.state;
@@ -76,7 +77,7 @@
       !reviewed ? (cut ? "Échange interrompu" : "Échange terminé") : cut ? "Bilan partiel · échange interrompu" : "Bilan de l’échange");
     text("title",!started ? (opinion ? "La prise de parole n’a pas commencé" : "L’échange n’a pas commencé") :
       reviewed ? "Votre bilan" : "Pas de bilan pour cet essai");
-    text("prompt",root.dataset.scenarioTitle); text("status",message); show("failed",!started);
+    text("prompt",debriefPrompt); text("status",message); show("failed",!started);
     text("user-words","—"); if (!opinion) text("ai-words","—"); by("notes").value = "";
     s.rows.length = 0; s.partial = {}; s.lastModel = null;
     by("title").focus();
@@ -87,7 +88,9 @@
     clearTimeout(s.timer); cutMic(s);
     s.stream.getTracks().forEach(t => t.stop());
     phase("draining","Fin de la transcription");
-    text("status","Micro coupé · réception des derniers mots.");
+    text("title",s.elapsed >= live ? "Temps écoulé" : "Prise de parole terminée");
+    text("status","Le micro est coupé. La transcription se termine…");
+    by("title").focus();
     if (s.sock?.readyState === WebSocket.OPEN) s.sock.send(JSON.stringify({realtimeInput:{audioStreamEnd:true}}));
     // No provider event marks the whole transcript complete. Allow a quiet gap after the last
     // input chunk, with an absolute cap even if the socket never settles.
@@ -334,7 +337,7 @@
   function reopen(saved) {
     phase("done","Séance enregistrée");
     root.dataset.ending = "normal";
-    text("title","Votre bilan"); text("prompt",root.dataset.scenarioTitle); text("status","Séance enregistrée.");
+    text("title","Votre bilan"); text("prompt",debriefPrompt); text("status","Séance enregistrée.");
     review.render(saved.rows,{elapsed:saved.elapsed,saved});
   }
   function setup() {

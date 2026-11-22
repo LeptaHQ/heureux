@@ -164,18 +164,27 @@ class LiveConversationBrowserMixin:
     @override_settings(GEMINI_LIVE_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN)
     def test_native_voice_opinion_reads_then_listens_until_deadline_and_keeps_last_words(self):
         prompt = self.first.response.prompts.get()
+        prompt.text = "Vaut-il mieux découvrir une ville à pied plutôt qu’en voiture ?"
+        prompt.save(update_fields=["text"])
         args = (prompt.pk,)
         self.open_live_pilot(opinion=True, subject_args=args)
         expect(self.page).to_have_url(self.live_server_url + reverse("study:eo_tache_three_live", args=args))
+        paragraphs = [
+            "Je préfère découvrir une ville à pied. En marchant, je peux m’arrêter et remarquer des détails. "
+            "C’est comme ça que j’ai découvert une cour derrière le marché.",
+            "Cela dit, la marche ne convient pas à tout le monde. Ma sœur ne peut pas marcher longtemps, "
+            "alors quand je visite une ville avec elle, nous prenons la voiture.",
+        ]
+        spoken = "Moi, je préfère marcher, parce qu’on peut s’arrêter, euh, on voit les petits détails. "
+        last_words = "Une fois, j’ai vu une cour derrière le marché. Mais ma sœur, elle peut pas marcher longtemps, "
+        ending = "alors avec elle on prend la voiture."
         report = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "reason": "",
-                  "next": "", "criteria": [], "annotations": [], "evidence": [], "proposal": []}
+                  "next": "", "criteria": [{"label": "Cohérence et fluidité", "score": 3, "why": "L’exemple illustre votre préférence."}],
+                  "annotations": [], "evidence": [{"quote": spoken.strip(), "why": "Votre position est claire."}],
+                  "proposal": paragraphs}
         calls = []
-
-        def review(route):
-            calls.append(route.request.post_data_json)
-            route.fulfill(json=report)
-
-        self.page.route("**" + reverse("study:eo_tache_three_live_evaluation", args=args), review)
+        evaluation = "**" + reverse("study:eo_tache_three_live_evaluation", args=args)
+        self.page.route(evaluation, lambda route: calls.append(route))
         self.page.clock.install(time="2026-03-16T10:00:00Z")
         self.page.clock.pause_at("2026-03-16T10:00:05Z")
         self.start.click()
@@ -197,15 +206,15 @@ class LiveConversationBrowserMixin:
         self.page.clock.fast_forward(4_000)
         expect(self.page.locator("#lv-status")).to_contain_text("le chronomètre attend")
         expect(self.page.locator("#lv-time")).to_be_hidden()
-        self.page.evaluate("""() => {
+        self.page.evaluate("""text => {
           const ws = probe.sockets[0];
           delete probe.track.muted;
           probe.track.dispatchEvent(new Event('unmute'));
-          ws.receive({serverContent:{inputTranscription:{text:'À mon avis, '},
+          ws.receive({serverContent:{inputTranscription:{text},
             outputTranscription:{text:'Interruption.'}, modelTurn:{parts:[{
               inlineData:{mimeType:'audio/pcm',data:btoa('\\0'.repeat(480))}
             }]},turnComplete:true}});
-        }""")
+        }""", spoken)
         self.assertEqual(self.page.evaluate("probe.played.length"), 1)  # Only the question was audible.
         self.assertFalse(self.page.evaluate("probe.sent.some(m => m.realtimeInput?.text)"))
         expect(self.page.locator("#lv-notepad")).to_be_hidden()
@@ -215,25 +224,55 @@ class LiveConversationBrowserMixin:
         self.page.clock.fast_forward(1_000)
         self.assertEqual(self.page.evaluate("[probe.track.readyState, probe.sent.at(-1).realtimeInput.audioStreamEnd]"),
                          ["ended", True])
+        expect(self.page.get_by_role("heading", name="Temps écoulé")).to_be_visible()
+        expect(self.page.locator("#lv-status")).to_contain_text("Le micro est coupé")
+        expect(self.page.locator(".lv-track")).to_be_hidden()
+        expect(self.page.locator(".lv-orb")).to_be_hidden()
+        self.assert_no_horizontal_overflow()
         self.page.clock.fast_forward(1_500)
-        self.page.evaluate("""probe.sockets[0].receive({serverContent:{
-          inputTranscription:{text:'la marche '}}})""")
+        self.page.evaluate("text => probe.sockets[0].receive({serverContent:{inputTranscription:{text}}})", last_words)
         self.page.clock.fast_forward(1_200)
-        self.page.evaluate("""probe.sockets[0].receive({serverContent:{
-          inputTranscription:{text:'est préférable.',finished:true}}})""")
-        self.page.clock.fast_forward(2_000)
+        self.page.evaluate("text => probe.sockets[0].receive({serverContent:{inputTranscription:{text,finished:true}}})", ending)
+        with self.page.expect_request(evaluation):
+            self.page.clock.fast_forward(2_000)
+        expect(self.page.locator("#lv-level")).to_have_text("Bilan en préparation…")
+        expect(self.page.locator("#lv-assessment-status")).to_be_visible()
+        expect(self.page.locator("#lv-prompt")).to_have_text(prompt.text)
+        expect(self.page.locator("#lv-turns li p")).to_have_text(spoken + last_words + ending)
+        calls[0].fulfill(json=report)
         expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
         saved = LiveSimulation.objects.get(user=self.user)
         self.assertEqual((saved.subject_key, saved.elapsed_ms, saved.rows),
-                         (f"eo3:{prompt.pk}", 270_000, [{"speaker": "user", "text": "À mon avis, la marche est préférable."}]))
-        self.assertEqual(calls, [{"rows": saved.rows, "simulation": str(saved.pk), "consent": True, "reviewGrant": "fixture-review"}])
+                         (f"eo3:{prompt.pk}", 270_000, [{"speaker": "user", "text": spoken + last_words + ending}]))
+        self.assertEqual(calls[0].request.post_data_json,
+                         {"rows": saved.rows, "simulation": str(saved.pk), "consent": True, "reviewGrant": "fixture-review"})
         self.assertEqual(len(self.token_requests), 2)
-        expect(self.page.locator("#lv-fig-turns")).to_have_text("7")
+        expect(self.page.locator("#lv-fig-turns")).to_have_text(str(len((spoken + last_words + ending).split())))
         expect(self.page.locator("#lv-share")).to_be_hidden()
-        self.assert_no_horizontal_overflow()
+        proposal = self.page.locator("#lv-proposal")
+        expect(proposal.locator("#lv-proposal-lines > p")).to_have_text(paragraphs)
+        expect(proposal.get_by_role("list")).to_have_count(0)
+        self.page.evaluate("""() => Object.defineProperty(navigator, 'clipboard', {configurable: true,
+          value:{writeText: async text => { window.copiedProposal = text; }}})""")
+        proposal.get_by_role("button", name="Copier").click()
+        self.assertEqual(self.page.evaluate("window.copiedProposal"), "\n\n".join(paragraphs))
+        self.page.locator("#lv-assessment summary").click()
+        details = self.page.locator("#lv-assessment-result")
+        for width in (320, 1280):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            expect(details).to_be_visible()
+            full = details.bounding_box()
+            strengths, marks = [part.bounding_box() for part in details.locator(".lv-assessment__part").all()]
+            self.assertGreaterEqual(marks["y"], strengths["y"] + strengths["height"])
+            for part in (strengths, marks):
+                self.assertAlmostEqual(part["x"], full["x"], delta=1)
+                self.assertAlmostEqual(part["width"], full["width"], delta=1)
+            self.assert_no_horizontal_overflow()
         LiveSimulation.objects.filter(pk=saved.pk).update(report=report)
         self.page.reload()
         expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
+        expect(proposal.locator("#lv-proposal-lines > p")).to_have_text(paragraphs)
+        expect(self.page.locator("#lv-prompt")).to_have_text(prompt.text)
         self.assertEqual(len(calls), 1)
 
     def test_native_voice_suspended_mobile_audio_recovers_and_reports_silent_input(self):

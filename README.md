@@ -282,6 +282,10 @@ finishes and the microphone is ready, speak for up to **4:30**, without preparat
 or interviewer interruptions. The microphone stops at the deadline or when you
 end the session. The Groq debrief evaluates the position, supporting reasons,
 coherence and language of the transcribed intervention, not pronunciation.
+The debrief keeps the question visible while the last captions arrive. Its
+**Proposition** is a connected French rewrite of what the learner actually
+argued, not a list of turns or an independent model answer. Paragraph breaks
+are preserved when copying; reopening a saved report does not regenerate it.
 The transcript remains read-only; practice scores are not official TCF results.
 Saved sessions can be reopened or deleted; each oral task keeps its own history.
 

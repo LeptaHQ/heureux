@@ -10,7 +10,7 @@
   const status = (text, busy = false) => {
     button.setAttribute("aria-busy", String(busy));
     const message = by("assessment-status");
-    message.classList.toggle("sr-only", busy);
+    message.classList.toggle("sr-only", busy && !opinion);
     message.textContent = text;
   };
   let copied;
@@ -20,7 +20,7 @@
     if (text !== "Copier") copied = setTimeout(() => copyLabel("Copier"), 2400);
   };
   by("proposal-copy").onclick = async () => {
-    const text = [...by("proposal-lines").children].map(line => line.textContent).join("\n");
+    const text = [...by("proposal-lines").children].map(line => line.textContent).join(opinion ? "\n\n" : "\n");
     try {
       await window.HeureuxClipboard.writeText(text);
       copyLabel("Copié !");
@@ -31,7 +31,7 @@
   function propose(lines) {
     copyLabel("Copier");
     by("proposal-lines").replaceChildren(...lines.map(text => {
-      const line = document.createElement("li");
+      const line = document.createElement(opinion ? "p" : "li");
       line.textContent = text;
       return line;
     }));
@@ -62,6 +62,7 @@
     by("assessment-controls").hidden = true;
     onResult(report.annotations);
     propose(report.proposal || []);
+    if (opinion && report.proposal?.length && report.score !== null && !report.omitted) by("assessment").open = false;
     return report.omitted ? "Les éléments non vérifiables ont été écartés." :
       report.score === null ? "Bilan disponible sans note globale." : "Estimation d’entraînement disponible.";
   }
@@ -111,10 +112,12 @@
     if (!rows || pending) return;
     const call = pending = new AbortController();
     button.disabled = true;
-    status(opinion ? "Groq examine votre intervention…" : "Groq examine votre échange…", true);
+    if (opinion) by("level").textContent = "Bilan en préparation…";
+    status(opinion ? "Vous pouvez déjà relire votre transcription ci-dessous." : "Groq examine votre échange…", true);
     // A result or failure reopens the bilan if it was folded while Groq worked.
     const done = text => {
-      by("assessment").open = true;
+      if (!opinion || by("assessment-result").hidden || !simulation) by("assessment").open = true;
+      if (opinion && by("assessment-result").hidden) by("level").textContent = "Bilan indisponible";
       status(simulation ? text : `${text} Cette séance n’a pas pu être enregistrée.`);
     };
     try {

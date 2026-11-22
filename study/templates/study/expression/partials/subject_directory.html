@@ -1,0 +1,60 @@
+{% if groups or directory_selection.active %}
+  <form class="oral-sujet-filters" method="get" action="{{ request.path }}" aria-label="Filtrer et trier les sujets">
+    {% if subject_deduplication_available %}<input type="hidden" name="deduplicate" value="{{ deduplicate_subjects|yesno:'1,0' }}">{% endif %}
+    <div class="oral-sujet-filters__field">
+      <label for="sujets-theme">Thème</label>
+      <select id="sujets-theme" name="theme" data-custom-select>
+        <option value="">Tous les thèmes</option>
+        {% if directory_selection.unavailable_theme %}<option value="{{ directory_selection.theme }}" selected>Thème sans sujet affiché</option>{% endif %}
+        {% for slug, name in directory_selection.themes %}<option value="{{ slug }}"{% if directory_selection.theme == slug %} selected{% endif %}>{{ name }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="oral-sujet-filters__field">
+      <label for="sujets-etat">Statut</label>
+      <select id="sujets-etat" name="etat" data-custom-select>
+        <option value="">Tous les statuts</option>
+        <option value="new"{% if directory_selection.status == 'new' %} selected{% endif %}>À commencer</option>
+        <option value="active"{% if directory_selection.status == 'active' %} selected{% endif %}>En cours</option>
+        <option value="done"{% if directory_selection.status == 'done' %} selected{% endif %}>Terminés</option>
+        <option value="bookmarked"{% if directory_selection.status == 'bookmarked' %} selected{% endif %}>Favoris</option>
+      </select>
+    </div>
+    <div class="oral-sujet-filters__field">
+      <label for="sujets-tri">Tri</label>
+      <select id="sujets-tri" name="tri" data-custom-select>
+        <option value="">Ordre du catalogue</option>
+        <option value="az"{% if directory_selection.order == 'az' %} selected{% endif %}>Sujet : A → Z</option>
+        <option value="za"{% if directory_selection.order == 'za' %} selected{% endif %}>Sujet : Z → A</option>
+        <option value="reprendre"{% if directory_selection.order == 'reprendre' %} selected{% endif %}>En cours d’abord</option>
+      </select>
+    </div>
+    <span class="oral-sujet-filters__actions">
+      <button type="submit" class="icon-button" aria-label="Appliquer les filtres" title="Appliquer les filtres">
+        {% include "study/shared/partials/ui_icon.html" with name="check" only %}
+      </button>
+      {% if directory_selection.active %}
+        <a class="icon-button" href="{{ request.path }}{% if subject_deduplication_available and not deduplicate_subjects %}?deduplicate=0{% endif %}" aria-label="Réinitialiser les filtres" title="Réinitialiser les filtres">
+          {% include "study/shared/partials/ui_icon.html" with name="reset" only %}
+        </a>
+      {% endif %}
+    </span>
+  </form>
+  {% if directory_selection.active %}
+    {% if directory_selection.rows %}
+      <p class="oral-sujet-result-count">{{ directory_selection.rows|length }} sujet{{ directory_selection.rows|length|pluralize }}</p>
+      <div class="t1-collection subject-collection sortable-subject-directory" data-subject-collection data-collection-view{% if directory_selection.status == 'bookmarked' %} data-bookmarked-subjects{% endif %}>
+        {% if directory_selection.sections %}
+          {% include "study/expression/partials/subject_collection_families.html" with sections=directory_selection.sections %}
+        {% else %}
+          {% include "study/expression/partials/subject_collection_table.html" with subjects=directory_selection.rows %}
+        {% endif %}
+      </div>
+    {% else %}
+      <p class="oral-sujet-result-count">{% if directory_selection.status == 'bookmarked' %}Aucun favori ne correspond à ces filtres.{% else %}Aucun sujet ne correspond à ces filtres.{% endif %}</p>
+    {% endif %}
+  {% else %}
+    {% include "study/expression/partials/subject_collection.html" %}
+  {% endif %}
+{% else %}
+  <p class="muted">Aucun contenu pour cette sélection pour l’instant.</p>
+{% endif %}

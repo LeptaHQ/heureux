@@ -2031,6 +2031,55 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(rows).to_have_count(0)
         expect(self.page).to_have_url(favorite_url)
 
+    def test_writing_directory_filters_and_shared_control_shapes(self):
+        self._import_ee_writing_content()
+        url = self.live_server_url + reverse("study:task_browse", args=["ee", "tache-2"])
+        self.page.goto(url + "?deduplicate=0")
+        form = self.page.get_by_role("form", name="Filtrer et trier les sujets")
+        status = form.get_by_role("button", name="Statut Tous les statuts")
+        apply = form.get_by_role("button", name="Appliquer les filtres")
+        search = self.page.get_by_role("search").get_by_role("button", name="Rechercher")
+
+        def assert_square(control):
+            box = control.bounding_box()
+            self.assertAlmostEqual(box["width"], box["height"], delta=0.5)
+
+        for width in (1183, 390):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            expect(status).to_have_css("border-radius", "6px")
+            expect(self.page.locator("#subject-directory-search")).to_have_css("border-radius", "6px")
+            expect(apply).to_have_css("border-radius", "50%")
+            assert_square(apply)
+            if width == 390:
+                assert_square(search)
+                assert_square(self.page.get_by_role("button", name="Tableau", exact=True))
+            self.assert_no_horizontal_overflow()
+
+        status.click()
+        form.get_by_role("option", name="Favoris").click()
+        apply.click()
+        expect(self.page.get_by_text("Aucun favori ne correspond à ces filtres.")).to_be_visible()
+        reset = form.get_by_role("link", name="Réinitialiser les filtres")
+        assert_square(reset)
+        for width in (390, 1183):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            first = apply if width == 390 else form.get_by_role("button", name="Thème Tous les thèmes")
+            frame, left, right = (control.bounding_box() for control in (form, first, reset))
+            self.assertAlmostEqual(
+                left["x"] - frame["x"],
+                frame["x"] + frame["width"] - right["x"] - right["width"],
+                delta=1,
+            )
+        reset.click()
+        expect(self.page).to_have_url(url + "?deduplicate=0")
+        search.click()
+        assert_square(self.page.get_by_role("button", name="Chercher", exact=True))
+
+        self.context.clear_cookies()
+        self.page.goto(self.live_server_url + reverse("study:login"))
+        expect(self.page.locator("#id_pin")).to_have_css("border-radius", "6px")
+        expect(self.page.get_by_role("button", name="Continuer")).to_have_css("border-radius", "999px")
+
     def assert_scrollable_dialog_layout(self, dialog, close):
         body = dialog.locator(".methodology-dialog__body")
         box = dialog.bounding_box()
@@ -2050,9 +2099,10 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
 
     def assert_writing_methodology_layout(self):
         dialog = self.page.locator("#writing-methodology-dialog")
-        self.assert_scrollable_dialog_layout(
-            dialog, dialog.get_by_role("button", name="Fermer la méthodologie")
-        )
+        close = dialog.get_by_role("button", name="Fermer la méthodologie")
+        expect(dialog).to_have_css("border-radius", "18px")
+        expect(close).to_have_css("border-radius", "50%")
+        self.assert_scrollable_dialog_layout(dialog, close)
         self.assertEqual(dialog.locator("a").count(), 0)
         self.assertIsNone(dialog.evaluate(
             "element => element.closest('.memory-overview-hero')"
@@ -13602,7 +13652,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.locator(".learn-toolbar .learn-reading-note")).to_have_count(1)
         expect(self.page.locator(".learn-page > p")).to_have_count(0)
         level_filter = self.page.get_by_role("combobox", name="Niveau CEFR", exact=True)
-        expect(level_filter).to_have_css("border-radius", "0px")
+        expect(level_filter).to_have_css("border-radius", "6px")
         self.assertEqual(level_filter.evaluate("element => element.tagName"), "SELECT")
         level_filter.focus()
         expect(level_filter).to_be_focused()

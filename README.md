@@ -601,7 +601,8 @@ note's original date position. Without JavaScript, full notes and pin forms
 remain available. Apply migration 0067 before deploying this feature.
 Throughout Heureux, form fields (including custom dropdowns) and modals have
 rounded corners without pill-shaped ends. Icon buttons are circular and text
-buttons are pill-shaped, including inside cards, toolbars, and dialogs.
+buttons are pill-shaped, including inside cards, toolbars, and dialogs. Sign-in,
+registration, and signed-in pages load the same versioned stylesheet.
 The shared audio PIN dialog uses compact cancel (×) and confirm (✓) controls.
 Note and translation pop-ups also round the DeepL and Google **G** action links.
 Translate works with touch taps as well as mouse and keyboard
@@ -1056,11 +1057,12 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   chosen mode, including previous/next navigation and its within-theme counter.
   Opening an equivalent publication keeps its own text and selected response,
   while its navigation position refers to the shared group when deduplicated.
-  EO2 and EO3 also let you filter these subjects by display theme and study
+  The EO2, EO3, and EE1–3 Sujets directories let you filter by theme and study
   progress. Choose **Statut → Favoris** to see your bookmarked subjects from
   any progress state; bookmarking a subject does not change its progress.
   Sort alphabetically or put in-progress subjects first.
-  The three dropdowns support arrow keys, Enter to choose, and Escape
+  The filter bar is centered; on phones the action buttons sit centered below
+  the fields. The three dropdowns support arrow keys, Enter to choose, and Escape
   to close without changing the selection. Use **Appliquer les filtres** (✓)
   to apply all three choices together, or **Réinitialiser les filtres** (↺)
   to clear them without changing deduplication.

@@ -205,6 +205,10 @@ class PWATests(TestCase):
             if asset in page and version != page[asset]
         }
         self.assertEqual(mismatched, {})
+        stylesheet = "study/css/app.css?v=" + shell["study/css/app.css"]
+        self.assertContains(self.client.get(reverse("study:login")), stylesheet)
+        self.client.force_login(factories.make_user("shell-assets"))
+        self.assertContains(self.client.get(reverse("study:dashboard")), stylesheet)
 
     def test_progress_scripts_are_loaded_only_by_relevant_pages(self):
         template_root = settings.BASE_DIR / "study" / "templates" / "study"
@@ -2492,7 +2496,7 @@ class TaskOrganizationTests(TestCase):
             with self.subTest(sort=sort):
                 page = self.client.get(url, {"tri": sort})
                 self.assertEqual(
-                    [row["prompt"] for row in page.context["oral_selection"]["rows"]],
+                    [row["prompt"] for row in page.context["directory_selection"]["rows"]],
                     expected,
                 )
                 self.assertContains(page, "data-subject-collection-row", count=3)

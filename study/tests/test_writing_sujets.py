@@ -16,6 +16,7 @@ from study.models import (
     Annotation,
     AnnotationKind,
     PersonalWritingResponse,
+    SubjectBookmark,
     WritingSujet,
     WritingSujetCompletion,
     WritingResponseOverride,
@@ -235,6 +236,32 @@ class WritingSujetViewTests(TestCase):
             [self.multi.prompt, second.prompt],
         )
         self.assertContains(page, "data-subject-select", count=2)
+
+    def test_legacy_directory_filters_use_writing_progress_without_deduplication(self):
+        url = reverse("study:task_browse", args=["ee", "tache-1"])
+        PersonalWritingResponse.objects.create(user=self.owner, sujet=self.empty, body="Mon texte.")
+        WritingSujetCompletion.objects.create(user=self.owner, sujet=self.multi)
+        SubjectBookmark.objects.create(user=self.owner, sujet=self.single)
+        SubjectBookmark.objects.create(user=self.other, sujet=self.empty)
+
+        for params, expected in (
+            ({"tri": "reprendre"}, [self.empty, self.single, self.multi]),
+            ({"theme": "sorties", "tri": "az"}, [self.single, self.empty]),
+            ({"theme": "sorties", "tri": "za"}, [self.empty, self.single]),
+            ({"theme": "sorties", "etat": "active"}, [self.empty]),
+            ({"etat": "done"}, [self.multi]),
+            ({"etat": "bookmarked"}, [self.single]),
+        ):
+            with self.subTest(params=params):
+                page = self.client.get(url, params)
+                self.assertEqual([r["sujet"] for r in page.context["directory_selection"]["rows"]], expected)
+                self.assertContains(page, f'href="{url}" aria-label="Réinitialiser les filtres"')
+                self.assertNotContains(page, 'name="deduplicate"')
+                self.assertContains(page, self._detail_url(expected[0]))
+
+        empty = self.client.get(url, {"theme": "invitations", "etat": "new"})
+        self.assertContains(empty, "Aucun sujet ne correspond à ces filtres.")
+        self.assertNotContains(empty, "data-subject-collection-row")
 
     def test_main_response_has_edit_but_no_delete_and_rejects_direct_deletion(self):
         page = self.client.get(self._detail_url(self.multi))

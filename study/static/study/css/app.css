@@ -577,6 +577,9 @@
   --radius: 0px;
   --radius-sm: 0px;
   --radius-lg: 0px;
+  --radius-field: 6px;
+  --radius-dialog: 18px;
+  --radius-action: 999px;
   --card-bg: #ffffff;
   --card-bg-soft: #fbfcff;
   --card-border: color-mix(in srgb, var(--border) 84%, var(--primary) 16%);
@@ -14509,24 +14512,6 @@ html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task:focus-v
   border-radius: 0 !important;
 }
 
-/* Actions are circular for icons, pill-shaped for text. */
-input::file-selector-button,
-:is(
-  button,
-  input[type="button"],
-  input[type="submit"],
-  input[type="reset"],
-  input[type="image"],
-  [role="button"],
-  .btn,
-  .icon-button,
-  .linkbtn,
-  .panel-action,
-  [data-writing-response-edit],
-  [data-response-edit]
-) {
-  border-radius: 999px !important;
-}
 .batch-card--unavailable {
   background: var(--surface-2);
 }
@@ -16869,6 +16854,12 @@ html[data-collection-view-mode="table"]
   flex: 0 0 auto;
   width: auto;
 }
+.collection-toolbar .search-form .btn--icon {
+  width: var(--toolbar-size);
+  height: var(--toolbar-size);
+  flex-basis: var(--toolbar-size);
+  padding: 0;
+}
 .collection-toolbar > .collection-view-toolbar {
   flex: 0 0 auto;
   margin: 0 0 0 auto;
@@ -16905,7 +16896,20 @@ html[data-collection-view-mode="table"]
     margin-left: 0;
   }
 }
+@media (max-width: 520px) {
+  .collection-toolbar .collection-view-toggle button {
+    width: var(--toolbar-size);
+    height: var(--toolbar-size);
+    padding: 0;
+  }
+}
 @media (max-width: 480px) {
+  .collection-toolbar .subject-directory-search .btn {
+    width: var(--toolbar-size);
+    height: var(--toolbar-size);
+    flex-basis: var(--toolbar-size);
+    padding: 0;
+  }
   .collection-toolbar .subject-directory-search .btn > span {
     display: none;
   }
@@ -16914,6 +16918,7 @@ html[data-collection-view-mode="table"]
 /* Subject directories: the same semantic rows serve cards and tables. */
 .oral-sujet-filters {
   display: flex; flex-wrap: wrap; align-items: end; gap: 0.4rem 0.6rem;
+  justify-content: center;
   margin: 0 0 0.6rem;
 }
 .oral-sujet-filters__field {
@@ -16946,6 +16951,7 @@ html[data-collection-view-mode="table"]
 @media (max-width: 36rem) {
   .oral-sujet-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .oral-sujet-filters__field:first-of-type { grid-column: 1 / -1; }
+  .oral-sujet-filters__actions { grid-column: 1 / -1; justify-self: center; }
 }
 .subject-collection {
   --collection-table-columns: minmax(0, 1fr) 8.4rem 7rem;
@@ -18092,18 +18098,30 @@ html[data-collection-view-mode="table"]
   border-radius: 0 !important;
 }
 
-/* The custom select trigger is a field, even though it renders as a button. */
+/* Shared control shapes, independent of the containing page, toolbar or card. */
+input::file-selector-button,
+:is(button, input[type="button"], input[type="submit"], input[type="reset"],
+    input[type="image"], [role="button"], .btn, .icon-button, .linkbtn,
+    .panel-action, a.chip, [data-writing-response-edit], [data-response-edit]) {
+  border-radius: var(--radius-action) !important;
+}
+
+:is(button, a, input):is(.btn--icon, .icon-button) {
+  border-radius: 50% !important;
+}
+
+/* A custom select trigger is a field, even when implemented as a button. */
 input:not([type="hidden"], [type="checkbox"], [type="radio"], [type="range"],
           [type="button"], [type="submit"], [type="reset"], [type="image"]),
 select,
 textarea,
 [contenteditable]:not([contenteditable="false"]),
 button.custom-select__button {
-  border-radius: 6px !important;
+  border-radius: var(--radius-field) !important;
 }
 
 :is(dialog, [role="dialog"], [role="alertdialog"]) {
-  border-radius: 18px !important;
+  border-radius: var(--radius-dialog) !important;
 }
 
 .learn-lesson-nav__link .ui-icon {

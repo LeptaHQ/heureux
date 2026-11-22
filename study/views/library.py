@@ -1500,7 +1500,12 @@ def _classified_oral_subject_themes(themes, response_progress, prompts, taxonomy
     return result
 
 
-def _oral_directory_selection(request, task, groups):
+def _subject_directory_selection(request, task, groups, *, writing_sujets=False):
+    if writing_sujets:
+        groups = [
+            {"slug": group["slug"], "name": group["label"], "subjects": group["sujets"]}
+            for group in groups
+        ]
     params = request.GET
     theme = params.get("theme", "")
     status = params.get("etat")
@@ -1508,6 +1513,7 @@ def _oral_directory_selection(request, task, groups):
     status = status if status in ("new", "active", "done", "bookmarked") else ""
     order = order if order in ("az", "za", "reprendre") else ""
     selection = {
+        "themes": [(group["slug"], group["name"]) for group in groups],
         "theme": theme,
         "unavailable_theme": theme and not any(group["slug"] == theme for group in groups),
         "status": status,
@@ -1515,10 +1521,15 @@ def _oral_directory_selection(request, task, groups):
         "active": bool(theme or status or order),
     }
     if selection["active"]:
-        bookmark_ids = subject_bookmark_ids(request, task, "response") if status == "bookmarked" else None
+        bookmark_ids = (
+            subject_bookmark_ids(request, task, "writing-sujet" if writing_sujets else "response")
+            if status == "bookmarked" else None
+        )
 
         def matches_status(row):
             if bookmark_ids is not None:
+                if writing_sujets:
+                    return row.get("progress_sujet", row["sujet"]).pk in bookmark_ids
                 response_id = row["response_id"] if "response_id" in row else row["prompt"].response_id
                 return response_id in bookmark_ids
             return not status or row["progress"].status == status
@@ -1543,7 +1554,10 @@ def _oral_directory_selection(request, task, groups):
                 rows.extend({**row, "directory_theme": label} for row in matches)
         if order in ("az", "za"):
             def title_key(row):
-                title = row["title"] if "title" in row else row["prompt"].text
+                if writing_sujets:
+                    title = row["prompt"]
+                else:
+                    title = row["title"] if "title" in row else row["prompt"].text
                 folded = unicodedata.normalize("NFD", title.casefold())
                 return "".join(c for c in folded if not unicodedata.combining(c))
 
@@ -1585,7 +1599,7 @@ def browse(request, part_slug=None, task_slug=None):
                 "task": forced_task,
                 **deduplication_context,
                 "subject_themes": themes,
-                "oral_selection": _oral_directory_selection(request, forced_task, themes),
+                "directory_selection": _subject_directory_selection(request, forced_task, themes),
                 "subject_summary": subject_state,
                 "theme_count": subject_state["theme_count"],
                 "subject_count": sum(theme["subject_count"] for theme in themes),
@@ -1615,6 +1629,9 @@ def browse(request, part_slug=None, task_slug=None):
                 "task": forced_task,
                 **deduplication_context,
                 **writing_context,
+                "directory_selection": _subject_directory_selection(
+                    request, forced_task, writing_context["categories"], writing_sujets=True,
+                ),
             },
         )
     if (
@@ -1626,6 +1643,9 @@ def browse(request, part_slug=None, task_slug=None):
         == content_module.EE_TACHE_THREE_TASK
         and _has_ee_tache_three_content(forced_task)
     ):
+        subject_context = _ee_tache_three_subject_context(
+            request.user, forced_task, deduplicate=deduplicate,
+        )
         return render(
             request,
             "study/expression/ee/tache_3/ee_tache_three_subjects.html",
@@ -1633,10 +1653,9 @@ def browse(request, part_slug=None, task_slug=None):
                 "part": forced_task.part,
                 "task": forced_task,
                 **deduplication_context,
-                **_ee_tache_three_subject_context(
-                    request.user,
-                    forced_task,
-                    deduplicate=deduplicate,
+                **subject_context,
+                "directory_selection": _subject_directory_selection(
+                    request, forced_task, subject_context["subject_themes"],
                 ),
             },
         )
@@ -1649,15 +1668,16 @@ def browse(request, part_slug=None, task_slug=None):
         == content_module.EE_TACHE_ONE_TASK
         and _has_ee_tache_one_content(forced_task)
     ):
+        subject_context = _ee_tache_one_subject_context(request.user, forced_task)
         return render(
             request,
             "study/expression/ee/tache_1/ee_tache_one_subjects.html",
             {
                 "part": forced_task.part,
                 "task": forced_task,
-                **_ee_tache_one_subject_context(
-                    request.user,
-                    forced_task,
+                **subject_context,
+                "directory_selection": _subject_directory_selection(
+                    request, forced_task, subject_context["categories"], writing_sujets=True,
                 ),
             },
         )
@@ -1826,7 +1846,7 @@ def browse(request, part_slug=None, task_slug=None):
     }
     if oral_directory:
         context.update(deduplication_context)
-        context["oral_selection"] = _oral_directory_selection(request, forced_task, subject_themes)
+        context["directory_selection"] = _subject_directory_selection(request, forced_task, subject_themes)
     return render(request, "study/expression/browse.html", context)
 
 

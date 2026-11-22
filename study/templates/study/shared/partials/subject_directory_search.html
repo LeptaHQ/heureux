@@ -10,7 +10,7 @@
     class="search-form__input"
     type="search"
     name="q"
-    placeholder="{% if oral_selection %}Rechercher dans tous les sujets…{% else %}Rechercher des mots dans les sujets…{% endif %}"
+    placeholder="{% if directory_selection %}Rechercher dans tous les sujets…{% else %}Rechercher des mots dans les sujets…{% endif %}"
     autocomplete="off">
   <input type="hidden" name="scope" value="subjects">
   {% if subject_deduplication_available %}<input type="hidden" name="deduplicate" value="{{ deduplicate_subjects|yesno:'1,0' }}">{% endif %}

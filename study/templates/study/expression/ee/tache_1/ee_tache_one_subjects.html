@@ -27,7 +27,7 @@
   {% include "study/shared/partials/collection_toolbar.html" with with_search=True progress_completed=completed_count progress_total=sujet_count progress_unit="sujets terminés" show_views=categories %}
 
   <div class="t1-collection">
-    {% include "study/expression/partials/subject_collection.html" with groups=categories kind="writing" secondary_label="Versions" legacy=True %}
+    {% include "study/expression/partials/subject_directory.html" with groups=categories kind="writing" secondary_label="Versions" legacy=True %}
   </div>
 </div>
 {% endblock %}

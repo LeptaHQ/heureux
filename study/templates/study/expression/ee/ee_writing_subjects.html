@@ -23,7 +23,7 @@
 
   {% include "study/shared/partials/collection_toolbar.html" with with_search=True progress_completed=subject_progress.completed progress_total=subject_progress.total progress_unit="sujets terminés" show_views=categories %}
 
-  {% include "study/expression/partials/subject_collection.html" with groups=categories kind="writing" secondary_label="Versions" %}
+  {% include "study/expression/partials/subject_directory.html" with groups=categories kind="writing" secondary_label="Versions" %}
 </div>
 {% include "study/expression/ee/partials/writing_methodology_dialog.html" with tache=writing_tache only %}
 {% endblock %}

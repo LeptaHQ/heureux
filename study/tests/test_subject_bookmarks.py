@@ -209,7 +209,7 @@ class SubjectBookmarkTests(TestCase):
             page = self.client.get(url, {**filters, "tri": "reprendre"})
         self.assertEqual(sum('FROM "study_subjectbookmark"' in q["sql"] for q in queries), 1)
         self.assertEqual(
-            [(r["prompt"].response_id, r["progress"].status) for r in page.context["oral_selection"]["rows"]],
+            [(r["prompt"].response_id, r["progress"].status) for r in page.context["directory_selection"]["rows"]],
             [(fresh.pk, "new"), (self.response.pk, "done")],
         )
         all_publications = self.client.get(url, {**filters, "deduplicate": "0"})
@@ -218,7 +218,7 @@ class SubjectBookmarkTests(TestCase):
         self.assertNotContains(all_publications, f'data-subject-progress-row="{other.pk}"')
         self.client.force_login(self.other)
         own = self.client.get(url, filters)
-        self.assertEqual([r["prompt"].response_id for r in own.context["oral_selection"]["rows"]], [other.pk])
+        self.assertEqual([r["prompt"].response_id for r in own.context["directory_selection"]["rows"]], [other.pk])
 
     def test_bookmark_ids_are_batched_per_request_user_task_and_target_type(self):
         SubjectBookmark.objects.create(user=self.user, response=self.response)
@@ -281,6 +281,12 @@ class SubjectBookmarkCatalogueTests(TestCase):
                 self.assertEqual(
                     sum('FROM "study_subjectbookmark"' in row["sql"] for row in queries), 1,
                 )
+                saved = self.client.get(directory_url, {"etat": "bookmarked", "tri": "az"})
+                selected = saved.context["directory_selection"]["rows"]
+                self.assertEqual([r["prompt"].response_id for r in selected], [response.pk])
+                if part == "ee":
+                    self.assertContains(saved, '<th scope="col">Contenu</th>')
+                    self.assertContains(saved, f'{selected[0]["document_count"]} documents')
                 detail = self.client.get(response_detail_url(response))
                 self.assertContains(detail, key)
                 self.assertContains(detail, "subject-bookmark is-bookmarked")
@@ -319,6 +325,17 @@ class SubjectBookmarkCatalogueTests(TestCase):
                 self.assertEqual(
                     sum('FROM "study_subjectbookmark"' in row["sql"] for row in queries), 1,
                 )
+                with CaptureQueriesContext(connection) as queries:
+                    saved = self.client.get(directory_url, {"etat": "bookmarked", "tri": "az"})
+                self.assertEqual(sum('FROM "study_subjectbookmark"' in q["sql"] for q in queries), 1)
+                rows = saved.context["directory_selection"]["rows"]
+                self.assertEqual([r["progress_sujet"].pk for r in rows], [canonical.pk])
+                self.assertContains(saved, '<th scope="col">Versions</th>')
+                publications = self.client.get(directory_url, {"etat": "bookmarked", "deduplicate": "0"})
+                self.assertEqual(len(publications.context["directory_selection"]["rows"]), len(group.members))
+                alias_url = reverse("study:writing_sujet_detail", args=["ee", task.slug, alias.pk])
+                self.assertContains(publications, f'href="{alias_url}?deduplicate=0"')
+                self.assertContains(publications, f'href="{directory_url}?deduplicate=0" aria-label="Réinitialiser')
         self.assertFalse(WritingSujetCompletion.objects.exists())
 
     def test_alternate_oral_batch_and_written_month_directories_show_bookmarks(self):

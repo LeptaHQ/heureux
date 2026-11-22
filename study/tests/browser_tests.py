@@ -14457,6 +14457,8 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
+        Annotation.objects.create(user=self.user, task=self.task, kind=AnnotationKind.NOTE,
+                                  title="Une note", body="A note", study_later=True)
         self.page.goto(
             self.live_server_url + reverse("study:notes_overview")
         )
@@ -14467,6 +14469,15 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             main_box["x"] + main_box["width"] / 2,
             delta=1,
         )
+        self.assertLess(tabs_box["width"], 280)
+        for selector in (".notes-recall", ".notes-view-controls .collection-view-toggle"):
+            box = self.page.locator(selector).bounding_box()
+            self.assertAlmostEqual(box["y"] + box["height"] / 2,
+                                   tabs_box["y"] + tabs_box["height"] / 2, delta=1)
+        actions = self.page.locator(".notes-toolbar__actions .btn:visible")
+        self.assertLessEqual(actions.first.bounding_box()["height"], 34)
+        self.page.set_viewport_size({"width": 320, "height": 568})
+        self.assertGreaterEqual(actions.first.bounding_box()["height"], 44)
         self.assert_no_horizontal_overflow()
 
     def test_text_and_icon_controls_have_distinct_shapes(self):

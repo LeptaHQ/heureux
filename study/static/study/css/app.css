@@ -519,6 +519,7 @@
   --bg-soft: #e9eef7;
   --surface: #ffffff;
   --surface-2: #f9fafd;
+  --subject-divider-bg: #eee;
   --border: #dfe5ef;
   --border-strong: #c7d1e1;
   --text: #111a2c;
@@ -596,6 +597,7 @@
   --bg-soft: #0e1c34;
   --surface: #101e36;
   --surface-2: #15243d;
+  --subject-divider-bg: #303030;
   --border: #263754;
   --border-strong: #3a4d6b;
   --text: #f4f7fc;
@@ -3426,47 +3428,49 @@ button.eo2-dialogue__number:disabled { color: var(--text-soft); cursor: default;
 }
 
 /* ---------- Notes hierarchy ---------- */
-.notes-hero { margin-bottom: 1rem; }
+.notes-hero { margin-bottom: 0.5rem; }
 .notes-collection { display: contents; }
 .notes-view-controls {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(16rem, 28rem) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  gap: 0.75rem;
-  margin: 0.55rem 0 0.65rem;
+  gap: 0.35rem;
+  margin: 0 0 0.35rem;
 }
 .notes-tabs {
   display: flex;
-  gap: 0.2rem;
-  max-width: 28rem;
+  gap: 0.125rem;
   margin: 0;
-  padding: 0.2rem;
+  padding: 2px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface-2);
 }
 .notes-view-controls .notes-tabs {
-  width: 100%;
-  max-width: none;
+  width: fit-content;
+  max-width: 100%;
+  justify-self: center;
   grid-column: 2;
+  grid-row: 1;
 }
 .notes-view-controls > .collection-view-toolbar {
   grid-column: 3;
+  grid-row: 1;
   justify-self: end;
   margin: 0;
 }
 .notes-view-controls > .notes-recall {
   grid-column: 1;
+  grid-row: 1;
   justify-self: start;
 }
 .notes-tab {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
-  min-height: 38px;
-  padding: 0.35rem 0.55rem;
+  gap: 0.25rem;
+  min-height: 28px;
+  padding: 0.1rem 0.45rem;
   border: 1px solid transparent;
   border-radius: 999px;
   background: transparent;
@@ -12085,8 +12089,8 @@ button.ce-choice:focus-visible .ce-choice__radio {
 
 .notes-scope-nav {
   display: flex;
-  gap: 0.3rem;
-  margin: 0.6rem 0 0.55rem;
+  gap: 0.25rem;
+  margin: 0 0 0.35rem;
   padding-bottom: 0.1rem;
   overflow-x: auto;
   scrollbar-width: thin;
@@ -12095,9 +12099,9 @@ button.ce-choice:focus-visible .ce-choice__radio {
   display: inline-flex;
   flex: none;
   align-items: center;
-  gap: 0.3rem;
-  min-height: 34px;
-  padding: 0.3rem 0.55rem;
+  gap: 0.22rem;
+  min-height: 28px;
+  padding: 0.1rem 0.4rem;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface);
@@ -12124,10 +12128,11 @@ button.ce-choice:focus-visible .ce-choice__radio {
   display: none;
 }
 .notes-toolbar {
+  --notes-control-size: 2rem;
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 0.8rem;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
 }
 .notes-filter-panel {
   flex: 1;
@@ -12135,26 +12140,43 @@ button.ce-choice:focus-visible .ce-choice__radio {
 }
 .notes-filter-form {
   margin: 0;
+  gap: 0.35rem;
 }
 .notes-search-field {
   flex: 1;
   min-width: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 44px;
-  gap: 0.55rem;
+  grid-template-columns: minmax(0, 1fr) var(--notes-control-size);
+  gap: 0.35rem;
 }
 .notes-search-field .btn--icon {
-  width: 44px;
-  height: 44px;
+  width: var(--notes-control-size);
+  height: var(--notes-control-size);
+  min-height: var(--notes-control-size);
 }
 .notes-desktop-status {
   display: flex;
 }
-.notes-toolbar .search-form__input { min-height: 44px; }
+.notes-toolbar .search-form__input,
+.notes-toolbar .search-form__select:not(.custom-select__native),
+.notes-toolbar .custom-select__button,
+.notes-toolbar__actions .btn {
+  min-height: var(--notes-control-size);
+  padding: 0.15rem 0.55rem;
+  font-size: 0.9rem;
+  gap: 0.3rem;
+}
 .notes-toolbar__actions {
   display: flex;
-  gap: 0.55rem;
+  gap: 0.35rem;
   flex: none;
+}
+@media (min-width: 761px) {
+  .notes-recall .recall-controls__options button,
+  .notes-view-controls .collection-view-toggle button {
+    min-height: 28px;
+    padding-inline: 0.4rem;
+  }
 }
 
 /* ---------- Stats dashboard ---------- */
@@ -13381,12 +13403,13 @@ button.ce-choice:focus-visible .ce-choice__radio {
     color: var(--tone-notes);
   }
   .notes-toolbar {
+    --notes-control-size: 44px;
     align-items: stretch;
     flex-direction: column;
-    gap: 0.65rem;
+    gap: 0.4rem;
   }
   .notes-filter-panel {
-    padding: 0.7rem;
+    padding: 0.4rem;
     border: 1px solid var(--border);
     border-radius: 16px;
     background: var(--surface);
@@ -13395,20 +13418,12 @@ button.ce-choice:focus-visible .ce-choice__radio {
   .notes-filter-form {
     display: block;
   }
-  .notes-search-field {
-    grid-template-columns: minmax(0, 1fr) 48px;
-    gap: 0.5rem;
-  }
   .notes-toolbar .search-form__input {
-    min-height: 50px;
-    padding: 0.7rem 0.85rem;
     border-radius: 13px;
     background: var(--surface-2);
     font-size: 1rem;
   }
   .notes-search-field .btn--icon {
-    width: 48px;
-    height: 48px;
     align-self: center;
     border-color: color-mix(in srgb, var(--tone-notes) 32%, var(--border));
     background: var(--tone-notes-soft);
@@ -13419,8 +13434,8 @@ button.ce-choice:focus-visible .ce-choice__radio {
   .notes-desktop-status { display: none; }
   .notes-mobile-status {
     display: block;
-    margin-top: 0.7rem;
-    padding-top: 0.65rem;
+    margin-top: 0.35rem;
+    padding-top: 0.35rem;
     border-top: 1px solid var(--border);
   }
   .notes-mobile-status__head {
@@ -13484,9 +13499,7 @@ button.ce-choice:focus-visible .ce-choice__radio {
   }
   .notes-toolbar__actions .btn {
     width: 100%;
-    min-height: 52px;
     justify-content: center;
-    padding: 0.65rem 0.55rem;
     border-radius: 14px;
     font-size: 0.86rem;
   }
@@ -17038,7 +17051,7 @@ html:not([data-collection-view-mode="table"]) .subject-collection .t1-table__pro
 }
 .subject-subheading th {
   padding: 0.22rem 0.65rem; text-align: left; font-size: 0.88rem;
-  border-block: 1px solid var(--border); background: var(--tone-oral-soft); color: var(--text);
+  border-block: 1px solid var(--border); background: var(--subject-divider-bg); color: var(--text);
 }
 .subject-subheading small { margin-left: 0.5rem; color: var(--text-soft); font-weight: 400; }
 .subject-subheading__progress { float: right; }

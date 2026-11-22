@@ -521,6 +521,10 @@ light and dark themes.
 
 ## Notes and highlights
 
+On desktop, **Notes / Surlignages** stays centered between **Flouter** and the
+view switcher. Folder filters and search actions sit directly below. On phones,
+search, status filters, and note actions keep tap targets at least 44 px high.
+
 Selected passages and translations offer separate **save without highlighting**
 and **save and highlight** actions. Note-only saving leaves existing highlights
 unchanged. If translation is unavailable, the translation dialog can still save
@@ -693,7 +697,8 @@ provenance, not competing current models. There is no old-path compatibility tre
 EO3 subject navigation uses `study/content/expression/eo/tache_3/subject_taxonomy.json`:
 9 display themes and 61 specific subthemes cover all 131 semantic groups and
 167 exact formulations. Every equivalent formulation shares its group's display
-category. These labels are presentation-only: the seven source/vocabulary themes,
+category. In the Sujets directory, grey dividers mark the subthemes in both
+Cards and Table views. These labels are presentation-only: the seven source/vocabulary themes,
 prompt numbers, ownership, URLs, answers and saved learner state remain unchanged.
 Source-theme names accompany original prompt numbers; progress counts unique
 responses in both the deduplicated and all-formulations views. The strict,

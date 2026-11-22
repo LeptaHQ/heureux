@@ -16,14 +16,15 @@
   let spoken = "";
 
   // Narrow a reviewer correction to the words it actually changes.
-  const pieces = text => text.match(/[\p{L}\p{M}\p{N}]+(?:['’-][\p{L}\p{M}\p{N}]+)*|\s+|[^\s]/gu) || [];
-  function changedWords({turnIndex, start, before = "", after = ""}) {
+  const pieces = text => text.match(/[\p{L}\p{M}\p{N}]+(?:['‘’-][\p{L}\p{M}\p{N}]+)*|\s+|[^\s]/gu) || [];
+  const same = (a, b) => a.replace(/[‘’]/g, "'").toLowerCase() === b.replace(/[‘’]/g, "'").toLowerCase();
+  function changedWords({turnIndex, start, before = "", after = "", why = ""}) {
     const left = pieces(before), right = pieces(after);
     let first = 0, l = left.length, r = right.length;
-    while (first < l && first < r && left[first] === right[first]) start += left[first++].length;
-    while (l > first && r > first && left[l - 1] === right[r - 1]) { l--; r--; }
+    while (first < l && first < r && same(left[first], right[first])) start += left[first++].length;
+    while (l > first && r > first && same(left[l - 1], right[r - 1])) { l--; r--; }
     const words = left.slice(first, l).join("");
-    return {turnIndex, start, end: start + words.length, before: words, after: right.slice(first, r).join("")};
+    return {turnIndex, start, end: start + words.length, before: words, after: right.slice(first, r).join(""), why};
   }
 
   // Keep only annotations that still match the learner's current words, in reading order.
@@ -39,18 +40,25 @@
     }).sort((a, b) => a.turnIndex - b.turnIndex || a.start - b.start || a.end - b.end).forEach(mark => {
       const list = marks.get(mark.turnIndex) || [];
       if (list.length && mark.start < list.at(-1).end) return;
-      list.push({start: mark.start, end: mark.end, before: mark.before ?? "", after: mark.after ?? ""});
+      list.push({start: mark.start, end: mark.end, before: mark.before ?? "", after: mark.after ?? "", why: mark.why || ""});
       marks.set(mark.turnIndex, list);
       n++;
     });
     return {marks, total: n};
   }
-  function sentence(text, marks) {
+  // A correction with a reason is a button that shows it under the turn (see `turn`).
+  function sentence(text, marks, reasonId) {
     const parts = [];
     let at = 0;
     for (const mark of marks) {
       parts.push(text.slice(at, mark.start));
-      const span = make("span", "", "lv-mark");
+      const span = make(mark.why ? "button" : "span", "", "lv-mark");
+      if (mark.why) {
+        span.type = "button";
+        span.dataset.why = mark.why;
+        span.setAttribute("aria-expanded", "false");
+        span.setAttribute("aria-controls", reasonId);
+      }
       if (mark.before) span.append(make("span", "à vérifier : ", "sr-only"), make("del", mark.before));
       if (mark.after) span.append(make("span", mark.before ? ", proposition : " : "ajout proposé : ", "sr-only"), make("ins", mark.after));
       parts.push(span);
@@ -98,8 +106,23 @@
     item.append(body);
     body.append(who, line);
     if (row.interrupted) body.append(make("small", "Réponse interrompue."));
+    // One reason at a time per turn, shown under it; the same correction hides it again.
+    const reason = make("small", "", "lv-turn__why");
+    reason.id = `lv-why-${index}`;
+    reason.hidden = true;
+    body.append(reason);
+    line.onclick = ({target}) => {
+      const mark = target.closest("button.lv-mark");
+      if (!mark) return;
+      const open = mark.getAttribute("aria-expanded") !== "true";
+      line.querySelectorAll("button.lv-mark").forEach(other => other.setAttribute("aria-expanded", "false"));
+      mark.setAttribute("aria-expanded", String(open));
+      reason.textContent = open ? mark.dataset.why : "";
+      reason.hidden = !open;
+    };
     painters[index] = marks => {
-      line.replaceChildren(...sentence(row.text, marks));
+      line.replaceChildren(...sentence(row.text, marks, reason.id));
+      reason.hidden = true;
       item.toggleAttribute("data-marked", marks.length > 0);
     };
     return item;

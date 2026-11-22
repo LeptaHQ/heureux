@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Conversation vocale · {% if subject %}{{ subject.title }} · {% endif %}Tâche 2 · Heureux{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=14">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=15">{% endblock %}
 {% block content %}
 <article class="lv-studio" id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
     data-token-url="{{ token_url }}" data-save-url="{{ save_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
@@ -88,11 +88,11 @@
           <div><dt>Vos répliques</dt><dd id="lv-fig-turns">—</dd></div>
           <div class="lv-share" id="lv-share" hidden><dt>Part des mots</dt><dd><span>Vous <b id="lv-share-user"></b></span><span class="lv-share__bar" aria-hidden="true"><i id="lv-share-bar"></i></span><span>Interlocuteur <b id="lv-share-model"></b></span></dd></div>
         </dl>
-        <section id="lv-assessment" class="lv-assessment" aria-labelledby="lv-assessment-title">
-          <div class="lv-assessment__score">
+        <details id="lv-assessment" class="lv-assessment" aria-labelledby="lv-assessment-title" open>
+          <summary class="lv-assessment__score">
             <h2 id="lv-assessment-title">Estimation pour cet échange</h2>
             <strong id="lv-level">Non évalué</strong>
-          </div>
+          </summary>
           <div class="lv-assessment__body">
             <div id="lv-assessment-controls" class="lv-assessment__controls">
               <span class="lv-assessment__action">
@@ -120,7 +120,7 @@
             </section>
             <p id="lv-assessment-next" class="lv-assessment__next"></p>
           </div>
-        </section>
+        </details>
         <div class="lv-talk">
           <details id="lv-transcript" class="lv-transcript"><summary>Votre conversation <small id="lv-count"></small></summary>
             <button type="button" class="lv-toggle" id="lv-replies" aria-controls="lv-turns">{% include "study/shared/partials/ui_icon.html" with name="eye" only %} <span id="lv-replies-label">Afficher les réponses de l’interlocuteur</span></button>
@@ -128,13 +128,11 @@
           </details>
           <section id="lv-proposal" class="lv-proposal" hidden aria-labelledby="lv-proposal-title">
             <p class="lv-proposal__kicker">Réponse personnalisée générée pour vous</p>
-            <div class="lv-proposal__card">
-              <div class="lv-proposal__head">
-                <h2 id="lv-proposal-title">{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %} Proposition</h2>
-                <button type="button" class="lv-copy" id="lv-proposal-copy">{% include "study/shared/partials/ui_icon.html" with name="copy" only %} <span id="lv-proposal-copy-label" aria-live="polite">Copier</span></button>
-              </div>
+            <details class="lv-proposal__card" id="lv-proposal-card" open>
+              <summary><h2 id="lv-proposal-title">{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %} Proposition</h2></summary>
+              <button type="button" class="lv-copy" id="lv-proposal-copy">{% include "study/shared/partials/ui_icon.html" with name="copy" only %} <span id="lv-proposal-copy-label" aria-live="polite">Copier</span></button>
               <ol class="lv-proposal__lines" id="lv-proposal-lines"></ol>
-            </div>
+            </details>
           </section>
         </div>
         <p class="lv-fineprint">Le bilan s’appuie seulement sur les paroles transcrites&nbsp;: il ne juge pas la prononciation. L’échange et son bilan sont enregistrés dans votre compte, qui garde vos trente dernières séances.</p>
@@ -157,8 +155,8 @@
 {% endblock %}
 {% block scripts %}
 {% if gemini_live_available %}
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=10"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=7"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=11"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=8"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=10"></script>
 {% endif %}
 {% endblock %}

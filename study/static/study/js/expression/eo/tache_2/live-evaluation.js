@@ -75,6 +75,7 @@
     elapsed = Math.round(spoken);
     const hasSpeech = rows?.some(row => row.speaker === "user" && row.text.trim());
     button.disabled = true;
+    by("assessment").open = by("proposal-card").open = true;
     by("level").textContent = "Non évalué";
     by("assessment-controls").hidden = !hasSpeech;
     by("assessment-result").hidden = true;
@@ -109,7 +110,11 @@
     const call = pending = new AbortController();
     button.disabled = true;
     status("Groq examine votre échange…", true);
-    const done = text => status(simulation ? text : `${text} Cet échange n’a pas pu être enregistré.`);
+    // A result or failure reopens the bilan if it was folded while Groq worked.
+    const done = text => {
+      by("assessment").open = true;
+      status(simulation ? text : `${text} Cet échange n’a pas pu être enregistré.`);
+    };
     try {
       if (!simulation) {
         const id = await save();

@@ -45,12 +45,17 @@ ni orthographe, ni ponctuation. Respecte le français parlé naturel et les vari
 n'invente aucune faute.
 
 Remplis les champs dans cet ordre.
-corrections : relève, réplique par réplique, chaque erreur certaine de grammaire, de vocabulaire
-(impropriété, calque de l'anglais) ou de registre, jusqu'à douze, en gardant les plus gênantes
-ou les plus répétées. Pour chacune : le plus petit segment exact et unique « before », son
-remplacement naturel « after » et, en moins de 160 caractères, une explication « why » qui nomme
-la règle. Aucune si rien de certain. Ne corrige ni une variante valide, ni une simple préférence
-de style, ni un possible artefact de dictée.
+corrections : relis chaque réplique « user », dans l'ordre, et relève chaque erreur certaine
+dans son contexte : grammaire (accord, temps ou mode, préposition, article, pronom ou « que »
+obligatoire manquant, structure interrogative), vocabulaire (mot impropre, calque de l'anglais)
+ou registre (tu ou vous). Une correction par erreur, douze au plus, en gardant les plus gênantes
+ou les plus répétées. « before » recopie exactement le plus court passage fautif, en général un
+à quatre mots, avec juste assez de mots voisins pour être unique dans la réplique, jamais toute
+une phrase ; pour un mot manquant, inclus le mot voisin. « after » remplace seulement ce passage.
+« why » nomme la règle en moins de 100 caractères. Aucune si rien de certain. L'oral n'est pas
+une faute : ignore hésitations, « euh », répétitions, reprises et faux départs, ponctuation et
+majuscules. Ne corrige ni une variante valide, ni une simple préférence de style, ni un possible
+artefact de dictée.
 strengths : zéro à trois points réellement réussis, si possible pour des critères différents ;
 pour chacun, indique le turnIndex de la réplique « user » et explique en moins de 200 caractères
 son effet sur l'échange, sans la citer ni la réécrire.
@@ -215,6 +220,30 @@ def _learner_text(rows, index):
     return ""
 
 
+def _fold(text):
+    return text.replace("’", "'").replace("‘", "'").lower()
+
+
+def _locate(words, before):
+    """Where `before` occurs once in the learner's words, also ignoring apostrophe style and case; else -1."""
+    for haystack, needle in ((words, before), (_fold(words), _fold(before))):
+        if len(haystack) != len(words) or len(needle) != len(before):
+            break
+        at = haystack.find(needle)
+        if at >= 0:
+            return -1 if haystack.find(needle, at + 1) >= 0 else at
+    return -1
+
+
+# Spoken hesitations, never a correction on their own.
+_FILLERS = {"euh", "heu", "hum"}
+
+
+def _said(text):
+    """The words as spoken, without punctuation, capitals, apostrophe style or fillers."""
+    return [word for word in re.findall(r"[\w'-]+", _fold(text)) if word not in _FILLERS]
+
+
 def _has_exchange(rows, indices):
     return len(indices) >= 2 and any(
         row["speaker"] == "model" and row["text"].strip() for row in rows[min(indices) + 1:max(indices)]
@@ -296,10 +325,11 @@ def _ground(report, rows):
             except ValueError:
                 result["omitted"] = True
                 continue
-            at = words.find(before)
-            if at < 0 or before == after or words.find(before, at + 1) >= 0:
+            at = _locate(words, before)
+            if at < 0 or _said(before) == _said(after):
                 result["omitted"] = True
                 continue
+            before = words[at:at + len(before)]
             # DOM offsets count UTF-16 code units, not Python code points.
             start = len(words[:at].encode("utf-16-le")) // 2
             end = start + len(before.encode("utf-16-le")) // 2

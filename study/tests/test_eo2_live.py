@@ -436,6 +436,22 @@ class GeminiLiveTests(TestCase):
         self.assertEqual([item["quote"] for item in report["evidence"]], [self.rows[2]["text"]])
         self.eval_connection.request.assert_called_once()
 
+    def test_corrections_ignore_apostrophe_style_case_punctuation_and_fillers(self):
+        self.evaluation_fixture()
+        self.rows[0]["text"] = "Bonjour, euh je voudrais savoir qu'est-ce que le prêt comprend."
+        self.report["corrections"][:0] = [
+            {"turnIndex": 0, "before": "Savoir qu’est-ce que", "after": "savoir ce que",
+             "why": "Dans une question indirecte, « ce que » remplace « qu’est-ce que »."},
+            {"turnIndex": 0, "before": "euh je", "after": "je", "why": "Hésitation."},
+            {"turnIndex": 0, "before": "bonjour,", "after": "Bonjour !", "why": "Ponctuation."},
+        ]
+        result = gemini_evaluation._ground(self.report, self.rows)
+        self.assertTrue(result["omitted"])
+        self.assertEqual([(mark["turnIndex"], mark["before"], mark["after"]) for mark in result["annotations"]],
+                         [(0, "savoir qu'est-ce que", "savoir ce que"), (2, "veux prend", "veux prendre")])
+        mark = result["annotations"][0]
+        self.assertEqual(self.rows[0]["text"][mark["start"]:mark["end"]], mark["before"])
+
     def test_malformed_proposal_is_dropped_without_losing_the_score(self):
         self.evaluation_fixture()
         for proposal in (None, "Bonjour.", ["Bonjour.", " "], ["x" * 401], [3]):

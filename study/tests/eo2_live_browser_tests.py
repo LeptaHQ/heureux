@@ -316,7 +316,8 @@ class LiveConversationBrowserMixin:
         report = {"score": 10, "scoreStatus": "scored", "nclc": "7", "cefr": "B2", "reason": "", "criteria": [],
                   "next": "", "evidence": [], "proposal": [], "annotations": [
                       {"turnIndex": 1, "start": 0, "end": 5, "before": "Je va", "after": "Je vais"},
-                      {"turnIndex": 2, "start": 3, "end": 16, "before": "je m’inscrire", "after": "je m’inscris"}]}
+                      {"turnIndex": 2, "start": 3, "end": 16, "before": "je m’inscrire", "after": "Je m’inscris",
+                       "why": "Après « si », le présent de l’indicatif."}]}
         self.page.route("**" + reverse("study:eo_tache_two_live_evaluation"), lambda route: route.fulfill(json=report))
         self.start_preparation()
         self.page.locator("#lv-skip").click()
@@ -338,6 +339,13 @@ class LiveConversationBrowserMixin:
         turns = self.page.locator("#lv-turns")
         expect(turns.locator(".lv-turn__said del")).to_have_text(["m’inscrire"])
         expect(turns.locator(".lv-turn__said ins")).to_have_text(["m’inscris"])
+        mark, reason = turns.locator("button.lv-mark"), turns.locator("[data-marked] .lv-turn__why")
+        expect(reason).to_be_hidden()
+        mark.click()
+        expect(mark).to_have_attribute("aria-expanded", "true")
+        expect(reason).to_have_text("Après « si », le présent de l’indicatif.")
+        mark.click()
+        expect(reason).to_be_hidden()
         expect(turns.locator('[data-speaker="model"] del')).to_have_count(0)
         expect(turns.locator("textarea, input, [contenteditable]")).to_have_count(0)
         replies = self.page.locator("#lv-replies")
@@ -549,8 +557,10 @@ class LiveConversationBrowserMixin:
         expect(controls.locator("details, input")).to_have_count(0)
         self.assert_no_horizontal_overflow()
         expect(self.page.locator("#lv-turns")).to_contain_text("Combien coûte le prêt")
-        button.click()
+        self.page.locator("#lv-assessment summary").click()
+        button.dispatch_event("click")  # Folded while Groq works, the bilan reopens on the answer.
         expect(status).to_contain_text("Délai.")  # A timeout after keep-alive spaces arrives in the body.
+        expect(status).to_be_visible()
         expect(level).to_have_text("Non évalué")
         button.click()
         expect(level).to_have_text("12/20 · NCLC 8 · B2")
@@ -574,6 +584,12 @@ class LiveConversationBrowserMixin:
         proposal.get_by_role("button", name="Copier").click()
         expect(proposal.locator("#lv-proposal-copy-label")).to_have_text("Copié !")
         self.assertEqual(self.page.evaluate("window.copiedProposal"), "\n".join(report["proposal"]))
+        self.assert_no_horizontal_overflow()
+        for section, body in ((self.page.locator("#lv-assessment"), "#lv-assessment-result"), (proposal, "#lv-proposal-lines")):
+            section.locator("summary").click()
+            expect(self.page.locator(body)).to_be_hidden()
+        expect(level).to_have_text("12/20 · NCLC 8 · B2")
+        expect(level).to_be_visible()
         self.assert_no_horizontal_overflow()
         self.assertEqual(len(calls), 3)
         self.assertTrue(calls[0]["rows"] == calls[1]["rows"] == calls[2]["rows"])

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{{ studio_title }} · Heureux{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=19">{% endblock %}
+{% block title %}Simulation · Heureux{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=21">{% endblock %}
 {% block content %}
 <article class="lv-studio" id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
     data-token-url="{{ token_url }}" data-save-url="{{ save_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
@@ -17,8 +17,8 @@
   </div>
   <div class="lv-stage">
     <header class="lv-head">
-      <p class="lv-kicker">{% if monologue %}Expression d’un point de vue{% else %}Interaction{% endif %}</p>
-      <h1 id="lv-title" tabindex="-1">{{ studio_title }}</h1>
+      <p class="lv-kicker" id="lv-kicker">{% if monologue %}Expression d’un point de vue{% else %}Interaction{% endif %}</p>
+      <h1 id="lv-title" tabindex="-1">Simulation</h1>
       <p class="lv-prompt" id="lv-prompt">{% if not gemini_live_available %}Le mode vocal n’est pas activé.{% elif monologue %}Écoutez la question, puis expliquez votre point de vue.{% else %}Écoutez la consigne, préparez vos questions, puis menez l’échange.{% endif %}</p>
       {% if subject_url and not monologue %}<p class="lv-selected-subject">Sujet choisi · {{ subject.title }}</p>{% endif %}
     </header>
@@ -107,7 +107,7 @@
           <div><dt>{% if monologue %}Mots transcrits{% else %}Vos répliques{% endif %}</dt><dd id="lv-fig-turns">—</dd></div>
           <div class="lv-share" id="lv-share" hidden><dt>Part des mots</dt><dd><span>Vous <b id="lv-share-user"></b></span><span class="lv-share__bar" aria-hidden="true"><i id="lv-share-bar"></i></span><span>Interlocuteur <b id="lv-share-model"></b></span></dd></div>
         </dl>
-        <details id="lv-assessment" class="lv-assessment" aria-labelledby="lv-assessment-title" open>
+        <details id="lv-assessment" class="lv-assessment lv-report-card" aria-labelledby="lv-assessment-title" open>
           <summary class="lv-assessment__score">
             <h2 id="lv-assessment-title">{% include "study/shared/partials/ui_icon.html" with name="target" only %} Estimation d’entraînement</h2>
             <strong id="lv-level">Non évalué</strong>
@@ -146,7 +146,7 @@
         </details>
         <div class="lv-talk">
           {% if monologue %}{% include "study/expression/partials/live_proposal.html" %}{% endif %}
-          <details id="lv-transcript" class="lv-transcript"><summary><h2>{% include "study/shared/partials/ui_icon.html" with name="microphone" only %} {% if monologue %}Votre prise de parole{% else %}Votre conversation{% endif %}</h2><small id="lv-count"></small></summary>
+          <details id="lv-transcript" class="lv-transcript lv-report-card"><summary><h2>{% include "study/shared/partials/ui_icon.html" with name="microphone" only %} {% if monologue %}Votre prise de parole{% else %}Votre conversation{% endif %}</h2><small id="lv-count"></small></summary>
             <button type="button" class="lv-toggle" id="lv-replies" aria-controls="lv-turns">{% include "study/shared/partials/ui_icon.html" with name="eye" only %} <span id="lv-replies-label">Afficher les réponses de l’interlocuteur</span></button>
             <ol class="lv-turns" id="lv-turns" data-replies="hidden"></ol>
           </details>
@@ -173,8 +173,8 @@
 {% endblock %}
 {% block scripts %}
 {% if gemini_live_available %}
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=14"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=15"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=10"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=13"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=14"></script>
 {% endif %}
 {% endblock %}

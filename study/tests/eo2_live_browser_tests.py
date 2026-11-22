@@ -121,7 +121,7 @@ class LiveConversationBrowserMixin:
         self.pin_dialog = self.page.locator("[data-audio-pin-dialog]")
 
     def submit_live_pin(self, pin=PILOT_PIN):
-        expect(self.pin_dialog.get_by_role("heading")).to_have_text("Autoriser la simulation orale")
+        expect(self.pin_dialog.get_by_role("heading")).to_have_text("Autoriser la simulation")
         self.pin_dialog.get_by_label("Code", exact=True).fill(pin)
         self.pin_dialog.get_by_role("button", name="Autoriser cette simulation").click()
 
@@ -147,8 +147,8 @@ class LiveConversationBrowserMixin:
         self._import_eo_tache_two_content()
         args = ("octobre", 5, 21)
         self.open_live_pilot(subject_args=args)
-        expect(self.page).to_have_title("Simulation orale · Tâche 2 · Heureux")
-        expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation orale · Tâche 2")
+        expect(self.page).to_have_title("Simulation · Heureux")
+        expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation")
         expect(self.page.locator(".lv-selected-subject")).to_be_visible()
         self.page.set_viewport_size({"width": 1280, "height": 850})
         self.assertLess(self.page.locator("#lv-title").bounding_box()["y"], self.page.locator(".lv-steps").bounding_box()["y"])
@@ -173,8 +173,8 @@ class LiveConversationBrowserMixin:
         prompt.save(update_fields=["text"])
         args = (prompt.pk,)
         self.open_live_pilot(opinion=True, subject_args=args)
-        expect(self.page).to_have_title("Simulation orale · Tâche 3 · Heureux")
-        expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation orale · Tâche 3")
+        expect(self.page).to_have_title("Simulation · Heureux")
+        expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation")
         self.page.set_viewport_size({"width": 390, "height": 844})
         self.page.evaluate("document.documentElement.dataset.theme = 'dark'")
         self.assertLess(self.page.locator("#lv-title").bounding_box()["y"], self.page.locator(".lv-steps").bounding_box()["y"])
@@ -301,7 +301,7 @@ class LiveConversationBrowserMixin:
         expect(self.page.locator("#lv-prompt")).to_have_text(prompt.text)
         self.assertEqual(len(calls), 1)
         self.page.locator("#lv-retry").click()
-        expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation orale · Tâche 3")
+        expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation")
         self.assertNotIn("#lv-", self.page.url)
 
     def test_native_voice_suspended_mobile_audio_recovers_and_reports_silent_input(self):
@@ -428,7 +428,8 @@ class LiveConversationBrowserMixin:
         self.page.clock.fast_forward(1_000)
         expect(self.page.locator("#lv-done")).to_be_visible()
         self.assertEqual(self.page.evaluate("[probe.played.at(-1).wasStopped,probe.track.readyState]"), [True, "ended"])
-        expect(self.page.locator("#lv-title")).to_have_text("Votre bilan")
+        expect(self.page.locator("#lv-title")).to_have_text("Simulation")
+        expect(self.page.locator("#lv-kicker")).to_have_text("Votre bilan")
         self.page.locator("#lv-transcript summary").click()
         turns = self.page.locator("#lv-turns li")
         expect(turns.locator("p")).to_have_text([
@@ -835,6 +836,8 @@ class LiveConversationBrowserMixin:
             expect(saved).to_have_count(1)
             expect(saved).to_contain_text("12/20 · NCLC 8")
             saved.get_by_role("link").click()
+            expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation")
+            expect(self.page.locator("#lv-kicker")).to_have_text("Votre bilan")
             expect(level).to_have_text("12/20 · NCLC 8 · B2")
             expect(self.page.locator("#lv-assessment-legacy")).to_be_visible()
             expect(self.page.locator("#lv-assessment-criteria a")).to_have_count(0)

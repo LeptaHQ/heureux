@@ -14,6 +14,7 @@
   const review = window.HeureuxEO2LiveReview;
   const introduction = by("prompt").textContent;
   const initialTitle = by("title").textContent;
+  const initialKicker = by("kicker").textContent;
   const debriefPrompt = root.dataset.scenarioPrompt;
   const stepOf = {reading:"reading",prep:"prep",connecting:"live",live:"live",done:"done"};
   let active;
@@ -56,6 +57,9 @@
     s.stream?.getAudioTracks().forEach(t => { t.enabled = false; });
     delete root.dataset.mic;
   }
+  function bilanHeading() {
+    text("title", initialTitle); text("kicker", "Votre bilan");
+  }
   function finish(s, message, ending = "interrupted") {
     if (!owns(s)) return;
     const started = ["live","draining"].includes(state());
@@ -70,8 +74,9 @@
     phase("done","Séance terminée");
     const reviewed = started && review.render(s.rows,{elapsed});
     root.dataset.ending = started ? ending : "failed";
-    text("title",!started ? (opinion ? "La prise de parole n’a pas commencé" : "L’échange n’a pas commencé") :
-      reviewed ? (ending === "normal" ? "Votre bilan" : "Votre bilan partiel") : "Pas de bilan pour cet essai");
+    if (reviewed && ending === "normal") bilanHeading();
+    else text("title",!started ? (opinion ? "La prise de parole n’a pas commencé" : "L’échange n’a pas commencé") :
+      reviewed ? "Votre bilan partiel" : "Pas de bilan pour cet essai");
     text("prompt",debriefPrompt); text("status",message); show("failed",!started);
     text("user-words","—"); if (!opinion) text("ai-words","—"); by("notes").value = "";
     s.rows.length = 0; s.partial = {}; s.lastModel = null;
@@ -332,13 +337,13 @@
   function reopen(saved) {
     phase("done","Séance enregistrée");
     root.dataset.ending = "normal";
-    text("title","Votre bilan"); text("prompt",debriefPrompt); text("status","Séance enregistrée.");
+    bilanHeading(); text("prompt",debriefPrompt); text("status","Séance enregistrée.");
     review.render(saved.rows,{elapsed:saved.elapsed,saved});
   }
   function setup() {
     review.clear(); delete root.dataset.ending; delete root.dataset.mic;
     phase("setup","Avant la simulation"); display(prep); text("status",capable ? "" : "Ce navigateur ne permet pas l’appel vocal. Essayez un navigateur récent en HTTPS.");
-    text("title",initialTitle); text("prompt",introduction);
+    text("title",initialTitle); text("kicker",initialKicker); text("prompt",introduction);
     by("start").disabled = !capable; by("captions").open = false;
   }
   by("start").onclick = async () => {
@@ -346,7 +351,7 @@
     const s = active = {abort:new AbortController(),playing:new Set(),rows:[],partial:{},cursor:0};
     try {
       const response = await window.HeureuxAudioRequest(root.dataset.tokenUrl,requestOptions(s,{purpose:"attempt"}),{
-        confirmBeforeSend:true, title:"Autoriser la simulation orale", action:"Autoriser cette simulation",
+        confirmBeforeSend:true, title:"Autoriser la simulation", action:"Autoriser cette simulation",
         description:(opinion ? "La question sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant ma prise de parole, puis sa transcription à Groq pour le bilan. " :
           "La consigne sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant l’échange, puis sa transcription à Groq pour le bilan. ") +
           "Heureux conserve la transcription et le bilan, pas l’audio. " +

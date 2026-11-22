@@ -156,8 +156,8 @@ pause the microphone or switch to the keyboard to edit their current words.
 Notes and dialogue stay in tab memory. Feedback cites the questions asked;
 this studio does not assign an official speaking score.
 
-**Opt-in native voice pilot.** The separate **Simulation orale · Tâche 2**
-page streams speech in both directions. The receptionist is instructed to speak
+**Opt-in native voice pilot.** The separate **Simulation** page for Tâche 2
+streams speech in both directions. The receptionist is instructed to speak
 French, answer the learner’s questions and leave the next turn to the learner.
 It may ask a short clarification only if the context is insufficient for a useful
 answer, not to keep the conversation going. The default topic is the same two fictional workshops.
@@ -174,7 +174,8 @@ fails or is interrupted, preparation does not start.
 Ending the exercise or leaving the tab closes
 the call. The browser builds a speaker-labelled transcript from the live captions;
 Gemini is told to expect French, so an accent is less likely to be captioned as another language.
-At the end, learners can reread their numbered turns with suggested changes shown inline:
+The bilan groups the practice estimate, transcript, and Proposition into separate collapsible cards.
+In the transcript, learners can reread their numbered turns with suggested changes shown inline:
 the original wording struck through and its replacement highlighted, with the
 reason just below the turn. They can reveal the
 partner’s replies for context. The transcript is read-only; suggestions do not

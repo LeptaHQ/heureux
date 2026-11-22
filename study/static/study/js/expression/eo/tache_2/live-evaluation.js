@@ -54,6 +54,7 @@
 
   function show(report) {
     const current = report.evidenceVersion === 1;
+    by("level").classList.toggle("lv-level--scored", Number.isInteger(report.score) && report.scoreStatus !== "incomplete");
     by("level").textContent = report.scoreStatus === "incomplete" ? "Grille partielle · pas de total" :
       report.score === null ? (opinion ? "Intervention insuffisante pour une note" : "Échange insuffisant pour une note") :
       `${report.score}/20 · NCLC ${report.nclc} · ${report.cefr}`;
@@ -64,7 +65,12 @@
       const row = document.createElement("tr"), name = document.createElement("th");
       name.scope = "row"; name.textContent = label;
       row.append(name);
-      row.insertCell().textContent = score === null ? "—" : `${score}/5`;
+      const mark = row.insertCell();
+      mark.textContent = score === null ? "—" : `${score}/5`;
+      if (Number.isInteger(score) && score >= 0 && score <= 5) {
+        mark.className = "lv-criterion-mark";
+        mark.style.setProperty("--lv-mark", `${score * 20}%`);
+      }
       const observation = row.insertCell();
       observation.textContent = why;
       if (quote) observation.append(citation(criterion, current));
@@ -97,6 +103,7 @@
     button.disabled = true;
     by("assessment").open = by("proposal-card").open = true;
     by("level").textContent = "Non évalué";
+    by("level").classList.remove("lv-level--scored");
     by("assessment-controls").hidden = !hasSpeech;
     by("assessment-result").hidden = true;
     for (const part of ["assessment-reason", "assessment-evidence", "assessment-criteria", "assessment-next"]) by(part).replaceChildren();

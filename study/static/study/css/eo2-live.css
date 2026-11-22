@@ -209,7 +209,7 @@
 .lv-studio[data-state="done"] .lv-track { margin-bottom: 1rem; padding-block: 0.55rem 0.65rem; }
 .lv-studio[data-state="done"] .lv-stage { row-gap: 0.3rem; }
 .lv-studio[data-state="done"] .lv-kicker { margin-bottom: 0.2rem; color: var(--tone-stats); }
-.lv-studio[data-state="done"] .lv-head h1 { font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem); }
+.lv-studio[data-state="done"] .lv-head h1 { color: var(--tone-stats); font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem); }
 .lv-studio[data-state="done"] .lv-console { gap: 0; justify-items: start; text-align: left; }
 .lv-studio[data-state="done"] .lv-actions { display: none; }
 .lv-studio[data-state="done"] .lv-status { display: flex; align-items: baseline; gap: 0.55rem; max-width: none; color: var(--text); font-size: 1rem; line-height: 1.55; }
@@ -225,16 +225,30 @@
 #lv-failed > .ui-icon { color: var(--warning); }
 .lv-report { display: grid; gap: 0.75rem; }
 
-/* Optional estimate: one strip, result first, consent beside it, scope always stated. */
-:is(.lv-assessment, .lv-transcript, .lv-proposal__card) { border-top: 1px solid var(--border); }
-:is(.lv-assessment, .lv-transcript, .lv-proposal__card) > summary { min-height: 2.75rem; padding-block: 0.35rem; }
+.lv-assessment { --lv-card-tint: var(--tone-stats-soft); --lv-card-ink: var(--tone-stats); }
+.lv-transcript { --lv-card-tint: var(--tone-oral-soft); --lv-card-ink: var(--lv-action); }
+.lv-proposal__card { --lv-card-tint: var(--tone-comprehension-soft); --lv-card-ink: var(--tone-comprehension); }
+.lv-report-card {
+  --lv-card-inset: clamp(0.65rem, 1.5vw, 0.9rem);
+  min-width: 0; padding-inline: var(--lv-card-inset);
+  border: 1px solid var(--border-strong);
+  background: color-mix(in srgb, var(--lv-card-tint) 36%, var(--surface));
+}
+.lv-report-card > summary {
+  min-height: 2.75rem; margin-inline: calc(-1 * var(--lv-card-inset)); padding: 0.4rem var(--lv-card-inset);
+  background: color-mix(in srgb, var(--lv-card-ink) 6%, var(--lv-card-tint));
+  color: var(--lv-card-ink);
+}
+.lv-report-card[open] { padding-bottom: 0.6rem; }
+.lv-report-card[open] > summary { margin-bottom: 0.45rem; }
 /* The level stays readable when the bilan is folded. */
 .lv-assessment__score { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0.15rem 1rem; list-style: none; cursor: pointer; }
 .lv-assessment__score::after { grid-column: 2; grid-row: 1 / span 2; }
 .lv-studio :is(.lv-assessment, .lv-transcript, .lv-proposal) summary h2 { display: flex; align-items: center; gap: 0.45rem; margin: 0; font-size: 1.1rem; font-weight: 600; line-height: 1.35; }
-.lv-assessment summary .ui-icon { color: var(--tone-stats); }
+.lv-assessment summary h2, .lv-assessment__marks h3 { color: var(--tone-stats); }
 #lv-level { color: var(--text-soft); font-size: 1.3rem; font-weight: 700; font-variant-numeric: tabular-nums lining-nums; line-height: 1.25; }
-.lv-assessment:has(#lv-assessment-result:not([hidden])) #lv-level { color: var(--text); }
+#lv-level.lv-level--scored { color: var(--tone-stats); }
+.lv-report summary h2 .ui-icon { color: inherit; }
 .lv-assessment__body { display: grid; gap: 0.35rem; min-width: 0; }
 .lv-assessment__controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem 1rem; }
 .lv-assessment__action { display: inline-flex; align-items: center; gap: 0.4rem; }
@@ -250,11 +264,12 @@
 .lv-report:has(.lv-turns > [data-marked]) .lv-assessment__jump { display: block; }
 .lv-assessment__jump a { color: var(--lv-action); font-weight: 600; text-underline-offset: 0.2em; }
 .lv-assessment__part { display: grid; gap: 0.3rem; min-width: 0; }
-.lv-assessment h3 { display: flex; align-items: center; gap: 0.4rem; margin: 0; color: var(--text); font-size: 1rem; font-weight: 600; line-height: 1.4; }
+.lv-assessment h3 { display: flex; align-items: center; gap: 0.4rem; margin: 0; font-size: 1rem; font-weight: 600; line-height: 1.4; }
 .lv-assessment h3 .ui-icon { font-size: 1rem; }
 .lv-assessment__aside { color: var(--text-soft); font-size: 0.8rem; line-height: 1.45; }
 .lv-assessment__evidence { display: grid; gap: 0.25rem; margin: 0.1rem 0 0; padding-left: 1.1rem; color: var(--text-soft); }
-.lv-assessment__evidence q { color: var(--text); }
+#lv-assessment-strengths-title, .lv-assessment__evidence li::marker { color: var(--tone-vocabulary); }
+.lv-assessment__evidence q { color: var(--lv-action); }
 .lv-assessment__none { color: var(--text-soft); font-style: italic; }
 .lv-assessment__evidence:not(:empty) + .lv-assessment__none,
 .lv-assessment__part:has(#lv-assessment-criteria:empty) { display: none; }
@@ -274,6 +289,11 @@
 .lv-criteria thead th:nth-child(2) { width: 3.9rem; }
 .lv-criteria tbody th { color: var(--text); font-weight: 600; }
 .lv-criteria tbody td:nth-of-type(1) { color: var(--text); font-weight: 700; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
+.lv-criteria tbody td.lv-criterion-mark { color: var(--tone-stats); }
+.lv-criterion-mark::after {
+  content: ""; display: block; width: 2.5rem; height: 0.25rem; margin-top: 0.15rem;
+  border-radius: 1rem; background: linear-gradient(to right, currentColor var(--lv-mark), var(--border) var(--lv-mark));
+}
 .lv-criteria tbody td:nth-of-type(2) { color: var(--text-soft); }
 .lv-criteria tbody tr:last-child > * { border-bottom: 1px solid var(--border); }
 
@@ -284,13 +304,16 @@
 .lv-share { flex: 1 1 20rem; }
 .lv-share dd { display: flex; flex: 1; align-items: center; gap: 0.6rem; color: var(--text-soft); font-weight: 400; }
 .lv-share b { color: var(--text); font-weight: 600; }
-.lv-share__bar { flex: 1 1 3rem; max-width: 16rem; height: 8px; overflow: hidden; background: color-mix(in srgb, var(--text-faint) 45%, transparent); }
+.lv-share__bar { flex: 1 1 3rem; max-width: 16rem; height: 8px; overflow: hidden; background: var(--tone-expression); }
 .lv-share__bar i { display: block; width: calc(var(--share, 0) * 100%); height: 100%; background: var(--tone-oral); border-right: 2px solid var(--bg); }
+#lv-fig-time { color: var(--tone-stats); }
+#lv-fig-turns, #lv-share-user { color: var(--lv-action); }
+#lv-share-model { color: var(--tone-expression); }
 
 /* The conversation: learner turns numbered like the proposal; marks carry the fixes. */
 .lv-talk { display: grid; gap: 0.5rem; min-width: 0; }
 .lv-transcript > summary { flex-wrap: wrap; }
-.lv-transcript > summary .ui-icon { color: var(--tone-oral); }
+.lv-transcript > summary h2, .lv-num { color: var(--lv-action); }
 .lv-transcript > summary small { color: var(--text-soft); font-size: 0.86rem; font-weight: 400; }
 .lv-toggle, .lv-copy { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text); font: inherit; font-size: 0.86rem; line-height: 1.3; cursor: pointer; }
 :is(.lv-toggle, .lv-copy):hover { border-color: var(--lv-rule); background: var(--lv-tint); }
@@ -300,8 +323,8 @@
 .lv-turns > li { padding-block: 0.45rem; border-top: 1px solid var(--border); }
 .lv-turns > li:first-child { border-top: 0; }
 .lv-turn { min-width: 0; padding-left: 1.75rem; line-height: 1.75; overflow-wrap: anywhere; }
-.lv-num { display: inline-block; width: 1.75rem; margin-left: -1.75rem; padding-right: 0.45rem; color: var(--text-faint); font-size: 0.86rem; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
-.lv-who { display: inline-block; margin-right: 0.5rem; padding: 0 0.55rem; border: 1px solid var(--border-strong); border-radius: 999px; color: var(--text-soft); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; line-height: 1.5; text-transform: uppercase; vertical-align: 0.15em; }
+.lv-num { display: inline-block; width: 1.75rem; margin-left: -1.75rem; padding-right: 0.45rem; font-size: 0.86rem; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.lv-who { display: inline-block; margin-right: 0.5rem; padding: 0 0.55rem; border-radius: 999px; background: var(--tone-expression-soft); color: color-mix(in srgb, var(--tone-expression) 80%, var(--text)); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; line-height: 1.5; text-transform: uppercase; vertical-align: 0.15em; }
 .lv-turn__said { display: inline; }
 li[data-speaker="user"] .lv-turn__said { color: var(--text); font-size: 1.08rem; }
 li[data-speaker="model"] .lv-turn__said { color: var(--text-soft); font-size: 0.96rem; }
@@ -321,9 +344,9 @@ button.lv-mark[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--lv-rule); }
 
 /* Proposal: the learner's own exchange, rewritten as a model to copy and rehearse. */
 .lv-proposal { display: grid; gap: 0.5rem; }
-.lv-proposal h2 .ui-icon { color: var(--tone-comprehension); }
+.lv-proposal h2, .lv-proposal .lv-copy { color: var(--tone-comprehension); }
 .lv-proposal__lines { display: grid; gap: 0.4rem; margin: 0; padding-left: 1.35rem; color: var(--text); font-size: 1.02rem; line-height: 1.6; overflow-wrap: anywhere; }
-.lv-proposal__lines li::marker { color: var(--text-faint); font-size: 0.86rem; font-variant-numeric: tabular-nums; }
+.lv-proposal__lines li::marker { color: var(--tone-comprehension); font-size: 0.86rem; font-weight: 600; font-variant-numeric: tabular-nums; }
 .lv-proposal__prose { max-width: 68ch; font-size: 1.08rem; line-height: 1.65; overflow-wrap: anywhere; }
 .lv-proposal__prose p { margin: 0; }
 .lv-proposal__prose p + p { margin-top: 0.9em; }

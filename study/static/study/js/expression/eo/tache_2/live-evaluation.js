@@ -38,23 +38,41 @@
     by("proposal").hidden = !lines.length;
   }
 
+  function citation({turnIndex, quote}, current) {
+    const words = document.createElement("q");
+    words.textContent = quote;
+    // Older bilans used whole turns as quotations. Display them as saved.
+    if (!current || !Number.isInteger(turnIndex) || rows[turnIndex]?.speaker !== "user" ||
+        !rows[turnIndex].text.includes(quote)) return words;
+    const link = document.createElement("a");
+    link.className = "lv-citation"; link.href = `#lv-turn-${turnIndex}`;
+    link.append(words);
+    link.onclick = () => { by("transcript").open = true; };
+    return link;
+  }
+  by("assessment-result").querySelector('[href="#lv-transcript"]').onclick = () => { by("transcript").open = true; };
+
   function show(report) {
+    const current = report.evidenceVersion === 1;
     by("level").textContent = report.scoreStatus === "incomplete" ? "Grille partielle · pas de total" :
       report.score === null ? (opinion ? "Intervention insuffisante pour une note" : "Échange insuffisant pour une note") :
       `${report.score}/20 · NCLC ${report.nclc} · ${report.cefr}`;
     by("assessment-reason").textContent = report.reason;
-    by("assessment-criteria").replaceChildren(...report.criteria.map(({label, score, why}) => {
+    by("assessment-legacy").hidden = current || !report.criteria.length;
+    by("assessment-criteria").replaceChildren(...report.criteria.map(criterion => {
+      const {label, score, why, quote} = criterion;
       const row = document.createElement("tr"), name = document.createElement("th");
       name.scope = "row"; name.textContent = label;
       row.append(name);
       row.insertCell().textContent = score === null ? "—" : `${score}/5`;
-      row.insertCell().textContent = why;
+      const observation = row.insertCell();
+      observation.textContent = why;
+      if (quote) observation.append(citation(criterion, current));
       return row;
     }));
-    by("assessment-evidence").replaceChildren(...report.evidence.map(({quote, why}) => {
-      const li = document.createElement("li"), words = document.createElement("q");
-      words.textContent = quote;
-      li.append(words, ` — ${why}`);
+    by("assessment-evidence").replaceChildren(...report.evidence.map(item => {
+      const li = document.createElement("li");
+      li.append(citation(item, current), ` — ${item.why}`);
       return li;
     }));
     by("assessment-next").textContent = report.next;

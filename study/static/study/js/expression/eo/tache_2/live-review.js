@@ -101,6 +101,8 @@
     const line = make("p", "", "lv-turn__said");
     let who = make("strong", "Interlocuteur", "lv-who");
     if (user) {
+      item.id = `lv-turn-${index}`;
+      item.tabIndex = -1;
       who = make("span", `${n}.`, "lv-num");
       who.prepend(make("span", "Votre prise de parole ", "sr-only"));
     }

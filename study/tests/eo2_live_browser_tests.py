@@ -121,10 +121,9 @@ class LiveConversationBrowserMixin:
         self.pin_dialog = self.page.locator("[data-audio-pin-dialog]")
 
     def submit_live_pin(self, pin=PILOT_PIN):
-        expect(self.pin_dialog.get_by_role("heading")).to_have_text(
-            "Autoriser la simulation orale" if self.opinion else "Autoriser la conversation Gemini Live")
+        expect(self.pin_dialog.get_by_role("heading")).to_have_text("Autoriser la simulation orale")
         self.pin_dialog.get_by_label("Code", exact=True).fill(pin)
-        self.pin_dialog.get_by_role("button", name="Autoriser cette simulation" if self.opinion else "Autoriser cette conversation").click()
+        self.pin_dialog.get_by_role("button", name="Autoriser cette simulation").click()
 
     def finish_prompt(self):
         expect(self.page.locator("html")).to_have_attribute("data-reader", "true")
@@ -148,11 +147,17 @@ class LiveConversationBrowserMixin:
         self._import_eo_tache_two_content()
         args = ("octobre", 5, 21)
         self.open_live_pilot(subject_args=args)
+        expect(self.page).to_have_title("Simulation orale · Tâche 2 · Heureux")
+        expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation orale · Tâche 2")
+        expect(self.page.locator(".lv-selected-subject")).to_be_visible()
+        self.page.set_viewport_size({"width": 1280, "height": 850})
+        self.assertLess(self.page.locator("#lv-title").bounding_box()["y"], self.page.locator(".lv-steps").bounding_box()["y"])
         expect(self.pin_dialog).to_be_hidden()  # The PIN waits for « Commencer la séance ».
         self.assertEqual(self.token_requests, [])
         self.start.click()
         self.submit_live_pin()
         self.finish_prompt()
+        expect(self.page.get_by_role("heading", level=1)).to_have_text("Votre consigne")
         expect(self.page.locator("#lv-prompt")).to_have_text(json.loads(self.selected_consigne))
         self.assertEqual(self.page.evaluate("probe.calls"), 0)
         self.page.locator("#lv-skip").click()
@@ -168,6 +173,12 @@ class LiveConversationBrowserMixin:
         prompt.save(update_fields=["text"])
         args = (prompt.pk,)
         self.open_live_pilot(opinion=True, subject_args=args)
+        expect(self.page).to_have_title("Simulation orale · Tâche 3 · Heureux")
+        expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation orale · Tâche 3")
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        self.page.evaluate("document.documentElement.dataset.theme = 'dark'")
+        self.assertLess(self.page.locator("#lv-title").bounding_box()["y"], self.page.locator(".lv-steps").bounding_box()["y"])
+        self.assert_no_horizontal_overflow()
         expect(self.page).to_have_url(self.live_server_url + reverse("study:eo_tache_three_live", args=args))
         paragraphs = [
             "Je préfère découvrir une ville à pied. En marchant, je peux m’arrêter et remarquer des détails. "
@@ -178,9 +189,16 @@ class LiveConversationBrowserMixin:
         spoken = "Moi, je préfère marcher, parce qu’on peut s’arrêter, euh, on voit les petits détails. "
         last_words = "Une fois, j’ai vu une cour derrière le marché. Mais ma sœur, elle peut pas marcher longtemps, "
         ending = "alors avec elle on prend la voiture."
-        report = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "reason": "",
-                  "next": "", "criteria": [{"label": "Cohérence et fluidité", "score": 3, "why": "L’exemple illustre votre préférence."}],
-                  "annotations": [], "evidence": [{"quote": spoken.strip(), "why": "Votre position est claire."}],
+        report = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "evidenceVersion": 1,
+                  "reason": "Vous expliquez pourquoi vous préférez marcher, puis précisez quand vous choisissez la voiture.",
+                  "next": "Après l’exemple du marché, revenez à votre idée : « En voiture, je n’aurais pas remarqué cette cour. »",
+                  "criteria": [{"label": label, "score": 3, "why": why, "turnIndex": 0, "quote": quote} for label, why, quote in (
+                      ("Accomplissement de la tâche", "Vous indiquez une préférence et une limite.", "je préfère marcher"),
+                      ("Cohérence et fluidité", "L’exemple du marché illustre votre préférence.", "une cour derrière le marché"),
+                      ("Précision lexicale", "Vos mots permettent de situer la scène.", "derrière le marché"),
+                      ("Correction grammaticale", "Vous exprimez la cause avec une proposition complète.", "parce qu’on peut s’arrêter"))],
+                  "annotations": [], "evidence": [{"turnIndex": 0, "quote": "avec elle on prend la voiture",
+                                                    "why": "Vous nuancez votre avis en tenant compte de votre sœur."}],
                   "proposal": paragraphs}
         calls = []
         evaluation = "**" + reverse("study:eo_tache_three_live_evaluation", args=args)
@@ -258,8 +276,10 @@ class LiveConversationBrowserMixin:
         self.assertEqual(self.page.evaluate("window.copiedProposal"), "\n\n".join(paragraphs))
         self.page.locator("#lv-assessment summary").click()
         details = self.page.locator("#lv-assessment-result")
-        for width in (320, 1280):
+        expect(details.get_by_role("heading", name="Au prochain essai")).to_be_visible()
+        for width, theme in ((320, "dark"), (1280, "light")):
             self.page.set_viewport_size({"width": width, "height": 844})
+            self.page.evaluate("theme => document.documentElement.dataset.theme = theme", theme)
             expect(details).to_be_visible()
             full = details.bounding_box()
             strengths, marks = [part.bounding_box() for part in details.locator(".lv-assessment__part").all()]
@@ -268,12 +288,21 @@ class LiveConversationBrowserMixin:
                 self.assertAlmostEqual(part["x"], full["x"], delta=1)
                 self.assertAlmostEqual(part["width"], full["width"], delta=1)
             self.assert_no_horizontal_overflow()
+        transcript = self.page.locator("#lv-transcript")
+        if transcript.evaluate("el => el.open"):
+            transcript.locator("summary").click()
+        details.get_by_role("link", name="une cour derrière le marché").press("Enter")
+        expect(self.page.locator("#lv-turn-0")).to_be_focused()
+        expect(self.page.locator("#lv-turn-0")).to_be_visible()
         LiveSimulation.objects.filter(pk=saved.pk).update(report=report)
         self.page.reload()
         expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
         expect(proposal.locator("#lv-proposal-lines > p")).to_have_text(paragraphs)
         expect(self.page.locator("#lv-prompt")).to_have_text(prompt.text)
         self.assertEqual(len(calls), 1)
+        self.page.locator("#lv-retry").click()
+        expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation orale · Tâche 3")
+        self.assertNotIn("#lv-", self.page.url)
 
     def test_native_voice_suspended_mobile_audio_recovers_and_reports_silent_input(self):
         self.open_live_pilot()
@@ -749,7 +778,8 @@ class LiveConversationBrowserMixin:
 
     def test_native_voice_saved_exchange_reopens_on_its_stored_report(self):
         report = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "reason": "Vous comparez les options.",
-                  "criteria": [], "next": "Précisez la durée du prêt.", "evidence": [],
+                  "criteria": [{"label": "Précision lexicale", "score": 3, "why": "Vous précisez l’objet demandé."}],
+                  "next": "Précisez la durée du prêt.", "evidence": [],
                   "annotations": [{"turnIndex": 0, "start": 8, "end": 13, "before": "prend",
                                    "after": "prendre", "why": "Après vouloir, employez l’infinitif."}],
                   "proposal": ["Bonjour, je voudrais prendre un appareil photo."]}
@@ -806,6 +836,8 @@ class LiveConversationBrowserMixin:
             expect(saved).to_contain_text("12/20 · NCLC 8")
             saved.get_by_role("link").click()
             expect(level).to_have_text("12/20 · NCLC 8 · B2")
+            expect(self.page.locator("#lv-assessment-legacy")).to_be_visible()
+            expect(self.page.locator("#lv-assessment-criteria a")).to_have_count(0)
             expect(self.page.locator("#lv-proposal li")).to_have_text(report["proposal"])
             transcript = self.page.locator("#lv-transcript")
             if not transcript.evaluate("el => el.open"):

@@ -156,7 +156,7 @@ pause the microphone or switch to the keyboard to edit their current words.
 Notes and dialogue stay in tab memory. Feedback cites the questions asked;
 this studio does not assign an official speaking score.
 
-**Opt-in native voice pilot.** The separate **Conversation vocale · Gemini Live**
+**Opt-in native voice pilot.** The separate **Simulation orale · Tâche 2**
 page streams speech in both directions. The receptionist is instructed to speak
 French, answer the learner’s questions and leave the next turn to the learner.
 It may ask a short clarification only if the context is insufficient for a useful
@@ -180,13 +180,9 @@ reason just below the turn. They can reveal the
 partner’s replies for context. The transcript is read-only; suggestions do not
 replace the words used for scoring.
 Strengths are illustrated with real questions or follow-ups from the exchange.
-The local review also marks a few common immediate restarts as possible
-transcription duplicates, not grammar errors.
-The local rules catch selected patterns, not every mistake; unmarked text is
-not a blanket endorsement, and a spelling difference is not a pronunciation error. An interrupted
+Unmarked text is not a blanket endorsement, and a spelling difference is not a pronunciation error. An interrupted
 call can show the portion received; no learner speech means no assessment.
-These local corrections need no second AI request. When time is up, Heureux
-also starts a Groq evaluation automatically: the consent given before the
+When time is up, Heureux starts a Groq evaluation automatically: the consent given before the
 exchange covers sending its transcript to Groq for this bilan. A small spinner beside the
 sparkle icon (**Évaluer mon niveau avec Groq**) shows when the evaluation is in
 progress; if it fails, select the icon to try again. No second PIN is needed for this attempt. Heureux sends only the
@@ -207,9 +203,14 @@ and flow of ideas, lexical precision, and grammatical accuracy. Each mark uses
 Tâche 2 descriptors with indicative CEFR anchors (1 ≈ A2 up to 5 ≈ C2), and its
 note says what the exchange showed and what would earn the next mark. Heureux adds them
 for one **total out of 20** and maps it to **NCLC** and **CEFR**. This is a
-practice rubric, not official TCF weighting. The closing tip names the single
-change likely to gain the most next time, with an example phrase for that consigne. Strengths quote actual learner
-turns from the transcript; up to twelve inline corrections identify the words to
+practice rubric, not official TCF weighting. **Au prochain essai** gives one
+action to practise, with an example specific to the task. In both studios, new
+marks and strengths cite short excerpts that link back to the learner’s own turn.
+Heureux checks that the words occur in that turn; the interpretation remains
+the reviewer’s judgment. A mark with no matching excerpt is withheld, not
+counted as zero. EO2’s marks must also cover learner turns on either side of
+a partner reply; EO3 can be assessed from one developed turn. Older reports
+keep their original marks without retrofitting evidence. Up to twelve inline corrections identify the words to
 change and why. The bilan also includes a **Proposition**: the learner’s
 own turns, rewritten in order as a polished model they can copy and rehearse.
 The reviewer receives both speakers’ captured turns in order, even when partner
@@ -224,8 +225,8 @@ Pronunciation, pace and accent are not assessed from text.
 Conversions follow the [TCF speaking scale](https://www.france-education-international.fr/document/grilleniveauxtcf)
 and the [IRCC TCF Canada speaking table](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html#level).
 This estimates one transcribed task, not pronunciation or the official
-three-task speaking result. If Groq is unavailable, the local review
-still works. Heureux never saves the audio. It saves the transcript when the
+three-task speaking result. If Groq is unavailable, the transcript remains
+available without a new score. Heureux never saves the audio. It saves the transcript when the
 exchange ends and adds the bilan once it arrives, keeping the learner’s thirty most
 recent sessions. The setup screen lists the five latest for that subject under
 **Séances enregistrées**. Reopening one shows its stored bilan and corrections without

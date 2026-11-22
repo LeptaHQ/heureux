@@ -1,9 +1,8 @@
 <section id="lv-proposal" class="lv-proposal" hidden aria-labelledby="lv-proposal-title">
-  {% if not monologue %}<p class="lv-proposal__kicker">Réponse personnalisée générée pour vous</p>{% endif %}
   <details class="lv-proposal__card" id="lv-proposal-card" open>
     <summary><h2 id="lv-proposal-title">{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %} Proposition</h2></summary>
     <div class="lv-proposal__tools">
-      {% if monologue %}<p>Votre point de vue, reformulé pour l’oral.</p>{% endif %}
+      <p>{% if monologue %}Votre point de vue, reformulé pour l’oral.{% else %}Vos répliques, reformulées dans l’ordre de l’échange.{% endif %}</p>
       <button type="button" class="lv-copy" id="lv-proposal-copy">{% include "study/shared/partials/ui_icon.html" with name="copy" only %} <span id="lv-proposal-copy-label" aria-live="polite">Copier</span></button>
     </div>
     {% if monologue %}<div class="lv-proposal__prose" id="lv-proposal-lines"></div>

@@ -14,8 +14,7 @@
   const review = window.HeureuxEO2LiveReview;
   const introduction = by("prompt").textContent;
   const initialTitle = by("title").textContent;
-  const initialKicker = by("kicker").textContent;
-  const debriefPrompt = opinion ? root.dataset.scenarioPrompt : root.dataset.scenarioTitle;
+  const debriefPrompt = root.dataset.scenarioPrompt;
   const stepOf = {reading:"reading",prep:"prep",connecting:"live",live:"live",done:"done"};
   let active;
   const state = () => root.dataset.state;
@@ -30,7 +29,6 @@
     show("mute",next === "live"); show("end",!["setup","draining","done"].includes(next));
     if (!["connecting","live"].includes(next)) show("resume-audio",false);
     text("phase",label);
-    if (next !== "done") text("kicker",["reading","prep","connecting","live"].includes(next) ? "Consigne" : initialKicker);
     for (const step of root.querySelectorAll(".lv-step")) {
       if (step.dataset.step === stepOf[next]) step.setAttribute("aria-current","step");
       else step.removeAttribute("aria-current");
@@ -72,11 +70,8 @@
     phase("done","Séance terminée");
     const reviewed = started && review.render(s.rows,{elapsed});
     root.dataset.ending = started ? ending : "failed";
-    const cut = ending !== "normal";
-    text("kicker",!started ? "Séance interrompue" : opinion ? (cut ? "Bilan partiel" : "Fin de la prise de parole") :
-      !reviewed ? (cut ? "Échange interrompu" : "Échange terminé") : cut ? "Bilan partiel · échange interrompu" : "Bilan de l’échange");
     text("title",!started ? (opinion ? "La prise de parole n’a pas commencé" : "L’échange n’a pas commencé") :
-      reviewed ? "Votre bilan" : "Pas de bilan pour cet essai");
+      reviewed ? (ending === "normal" ? "Votre bilan" : "Votre bilan partiel") : "Pas de bilan pour cet essai");
     text("prompt",debriefPrompt); text("status",message); show("failed",!started);
     text("user-words","—"); if (!opinion) text("ai-words","—"); by("notes").value = "";
     s.rows.length = 0; s.partial = {}; s.lastModel = null;
@@ -261,7 +256,7 @@
   }
   function readPrompt(s, config) {
     phase("reading","Lecture du sujet");
-    text("title",root.dataset.scenarioTitle); text("prompt",root.dataset.scenarioPrompt);
+    text("title","Votre consigne"); text("prompt",root.dataset.scenarioPrompt);
     text("status","Lecture du sujet · micro coupé, chronomètre arrêté.");
     by("title").focus();
     const socket = openSocket(s,config);
@@ -351,7 +346,7 @@
     const s = active = {abort:new AbortController(),playing:new Set(),rows:[],partial:{},cursor:0};
     try {
       const response = await window.HeureuxAudioRequest(root.dataset.tokenUrl,requestOptions(s,{purpose:"attempt"}),{
-        confirmBeforeSend:true, title:opinion ? "Autoriser la simulation orale" : "Autoriser la conversation Gemini Live", action:opinion ? "Autoriser cette simulation" : "Autoriser cette conversation",
+        confirmBeforeSend:true, title:"Autoriser la simulation orale", action:"Autoriser cette simulation",
         description:(opinion ? "La question sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant ma prise de parole, puis sa transcription à Groq pour le bilan. " :
           "La consigne sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant l’échange, puis sa transcription à Groq pour le bilan. ") +
           "Heureux conserve la transcription et le bilan, pas l’audio. " +
@@ -395,8 +390,9 @@
   by("end").onclick = () => { if (active) endAttempt(active,"Vous avez mis fin à la séance."); };
   by("retry").onclick = () => {
     const url = new URL(location.href);
-    if (url.searchParams.has("simulation")) {
+    if (url.searchParams.has("simulation") || url.hash.startsWith("#lv-")) {
       url.searchParams.delete("simulation");
+      url.hash = "";
       history.replaceState(history.state,"",url);
     }
     setup(); by("title").focus();

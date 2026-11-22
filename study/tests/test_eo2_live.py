@@ -326,13 +326,13 @@ class GeminiLiveTests(TestCase):
             {"speaker": "user", "text": "📷 Et si je veux prend deux appareils ?"},
         ]
         self.report = {"criteria": {
-                           "task": {"points": 4, "turnIndex": 0, "why": "La demande de prix est claire."},
-                           "coherence": {"points": 3, "turnIndex": 2, "why": "La relance précise la quantité."},
-                           "lexicon": {"points": 3, "turnIndex": 2, "why": "Le terme « appareils » est précis."},
-                           "grammar": {"points": 2, "turnIndex": 2, "why": "Le second verbe doit rester à l’infinitif."}},
+                           "task": {"points": 4, "turnIndex": 0, "quote": "combien coûte le prêt", "why": "La demande de prix est claire."},
+                           "coherence": {"points": 3, "turnIndex": 2, "quote": "Et si", "why": "La relance précise la quantité."},
+                           "lexicon": {"points": 3, "turnIndex": 2, "quote": "deux appareils", "why": "Le terme « appareils » est précis."},
+                           "grammar": {"points": 2, "turnIndex": 2, "quote": "veux prend", "why": "Le second verbe doit rester à l’infinitif."}},
                        "reason": "Vous adaptez votre demande au tarif annoncé.",
-                       "strengths": [{"turnIndex": 0, "why": "Le prix est ciblé."},
-                                     {"turnIndex": 2, "why": "Vous explorez une autre possibilité."}],
+                       "strengths": [{"turnIndex": 0, "quote": "combien coûte le prêt", "why": "Le prix est ciblé."},
+                                     {"turnIndex": 2, "quote": "Et si", "why": "Vous explorez une autre possibilité."}],
                        "corrections": [{"turnIndex": 2, "before": "veux prend", "after": "veux prendre",
                                         "why": "Après vouloir, le deuxième verbe reste à l’infinitif."}],
                        "proposal": [{"turnIndex": 0, "text": "Bonjour, combien coûte le prêt d’un appareil photo ?"},
@@ -367,7 +367,9 @@ class GeminiLiveTests(TestCase):
         report = response.json()
         self.assertEqual((report["score"], report["cefr"], report["nclc"]), (12, "B2", "8"))
         self.assertEqual([item["score"] for item in report["criteria"]], [4, 3, 3, 2])
-        self.assertEqual([item["quote"] for item in report["evidence"]], [self.rows[0]["text"], self.rows[2]["text"]])
+        self.assertEqual([item["quote"] for item in report["evidence"]], ["combien coûte le prêt", "Et si"])
+        self.assertEqual([(row["turnIndex"], row["quote"]) for row in report["criteria"]],
+                         [(0, "combien coûte le prêt"), (2, "Et si"), (2, "deux appareils"), (2, "veux prend")])
         self.assertEqual(report["proposal"], [line["text"] for line in self.report["proposal"]])
         mark, = report["annotations"]
         encoded = self.rows[mark["turnIndex"]]["text"].encode("utf-16-le")
@@ -435,8 +437,44 @@ class GeminiLiveTests(TestCase):
         self.report["corrections"].append({"turnIndex": 0, "before": "inventé", "after": "mot", "why": "Correction."})
         report = self.evaluate().json()
         self.assertEqual((report["score"], report["omitted"], report["annotations"]), (12, True, []))
-        self.assertEqual([item["quote"] for item in report["evidence"]], [self.rows[2]["text"]])
+        self.assertEqual([item["quote"] for item in report["evidence"]], ["Et si"])
         self.eval_connection.request.assert_called_once()
+
+    def test_only_excerpts_from_the_cited_learner_turn_support_a_mark(self):
+        self.evaluation_fixture()
+        criterion = self.report["criteria"]["task"]
+        for i, quote in ((0, "Cinq dollars"), (1, "Cinq dollars"), (0, "coûte le billet"),
+                         (0, "combien coûte ... prêt"), (0, "ombien"), (False, "Bonjour"), (2, "Bonjour"),
+                         (0, " ? "), (0, "a" * 161)):
+            with self.subTest(i=i, quote=quote):
+                criterion.update(turnIndex=i, quote=quote)
+                self.report["strengths"] = [dict(criterion)]
+                result = gemini_evaluation._ground(self.report, self.rows)
+                self.assertEqual((result["scoreStatus"], result["score"], result["evidence"]), ("incomplete", None, []))
+                self.assertEqual([row["score"] for row in result["criteria"]], [None, 3, 3, 2])
+                self.assertNotIn("quote", result["criteria"][0])
+
+        # A point fort is not one of the four marks, so it cannot supply missing EO2 coverage.
+        criterion.update(turnIndex=2, quote="deux appareils")
+        self.report["strengths"] = [{"turnIndex": 0, "quote": "Bonjour", "why": "Vous saluez."}]
+        result = gemini_evaluation._ground(self.report, self.rows)
+        self.assertTrue(result["evidence"])
+        self.assertEqual((result["scoreStatus"], result["score"]), ("incomplete", None))
+
+    def test_opinion_quotes_preserve_original_french_without_repeating_the_monologue(self):
+        self.evaluation_fixture()
+        original = "l’ide\u0301e\u00a0de marcher"
+        rows = [{"speaker": "user", "text": f"Je trouve que {original} est bonne : on peut regarder les bâtiments et discuter avec les habitants."}]
+        for item in (*self.report["criteria"].values(), *self.report["strengths"]):
+            item.update(turnIndex=0, quote="L'idée de marcher")
+        self.report.update(proposal="", corrections=[])
+        result = gemini_evaluation._ground(self.report, rows, monologue=True)
+        self.assertEqual(result["score"], 12)
+        for item in result["evidence"] + result["criteria"]:
+            self.assertEqual(item["quote"], original)
+        self.report["strengths"][0]["quote"] = "l'idée de marché"
+        result = gemini_evaluation._ground(self.report, rows, monologue=True)
+        self.assertEqual((result["omitted"], result["score"], len(result["evidence"])), (True, 12, 1))
 
     def test_corrections_ignore_apostrophe_style_case_punctuation_and_fillers(self):
         self.evaluation_fixture()
@@ -473,6 +511,8 @@ class GeminiLiveTests(TestCase):
             {"speaker": "model", "text": "Ça a dû lui faire plaisir !"},
         ]
         first, answer = self.report["proposal"]
+        for mark in self.report["criteria"].values():
+            mark["quote"] = self.rows[mark["turnIndex"]]["text"]
         first["text"], answer["text"] = "Avez-vous déjà visité Nantes ?", "J’ai rendu visite à mon frère à Nantes."
         result = self.evaluate().json()
         self.assertEqual(result["proposal"], [first["text"], answer["text"]])
@@ -652,7 +692,7 @@ class GeminiLiveTests(TestCase):
         self.assertIsNone(self.client.get(self.live, {"simulation": pk}).context["saved_simulation"])
         self.assert_private(self.post(url=save, body=json.dumps({"rows": self.rows, "elapsed": 1000})), 400)
         for mark in self.report["criteria"].values():
-            mark.update(turnIndex=0, why="Votre exemple explique l’intérêt de la marche.")
+            mark.update(turnIndex=0, quote="discuter avec les habitants", why="Votre exemple explique l’intérêt de la marche.")
         paragraph = (sentence * 5).strip()  # One developed paragraph can exceed the old per-turn limit.
         conclusion = "C’est pour cela que je préfère marcher."
         self.report.update(proposal=paragraph + "\r\n\r\n" + conclusion, corrections=[], strengths=[])
@@ -687,7 +727,7 @@ class GeminiLiveTests(TestCase):
         self.assertTrue(partial["evidence"])
         self.assertTrue(partial["annotations"])
         for item in self.report["criteria"].values():
-            item.update(points=None, turnIndex=None, why="Échantillon trop bref.")
+            item.update(points=None, turnIndex=None, quote="", why="Échantillon trop bref.")
         too_short = self.evaluate().json()
         self.assertEqual((too_short["score"], too_short["nclc"], too_short["scoreStatus"]), (None, None, "insufficient"))
         self.assertFalse(too_short["omitted"])

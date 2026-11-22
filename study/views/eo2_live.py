@@ -105,6 +105,7 @@ def oral_live(request, task_slug, **publication):
     return TemplateResponse(request, "study/expression/eo/tache_2/live.html", {
         "part": task.part,
         "task": task,
+        "studio_title": "Simulation orale · Tâche 3" if task.slug == "tache-3" else "Simulation orale · Tâche 2",
         "gemini_live_available": available,
         "monologue": task.slug == "tache-3",
         "token_url": reverse(route + "_token", kwargs=publication),

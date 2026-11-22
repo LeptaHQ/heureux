@@ -7,6 +7,7 @@ import re
 import socket
 import threading
 import time
+import unicodedata
 import uuid
 from contextlib import closing
 from http.client import HTTPException, HTTPSConnection
@@ -57,8 +58,7 @@ une faute : ignore hésitations, « euh », répétitions, reprises et faux dép
 majuscules. Ne corrige ni une variante valide, ni une simple préférence de style, ni un possible
 artefact de dictée.
 strengths : zéro à trois points réellement réussis, si possible pour des critères différents ;
-pour chacun, indique le turnIndex de la réplique « user » et explique en moins de 200 caractères
-son effet sur l'échange, sans la citer ni la réécrire.
+pour chacun, explique dans why en moins de 200 caractères son effet sur l'échange.
 criteria : quatre notes entières et indépendantes sur 5, avec ces repères indicatifs du CECR :
 0 = compétence non démontrée malgré un échantillon exploitable, 1 ≈ A2, 2 ≈ B1, 3 ≈ B2, 4 ≈ C1,
 5 ≈ C2. Les formes et stratégies citées sont des exemples, pas des prérequis : juge leur variété
@@ -89,8 +89,7 @@ sur les autres critères, sauf si elles gênent leur dimension propre.
 Pour chaque critère, « why » dit en moins de 300 caractères ce que l'échange montre, puis,
 sauf à 5, ce qu'il faudrait faire pour la note supérieure ; indique le turnIndex d'une
 réplique « user » probante. Appuie la grille sur plusieurs répliques de part
-et d'autre d'une réponse du partenaire. Ne recopie pas les citations : Heureux les prendra dans
-la transcription. Ne calcule ni total ni niveau.
+et d'autre d'une réponse du partenaire. Ne calcule ni total ni niveau.
 Pour un critère non observable : points null, turnIndex null, explique ce qui manque.
 Si deux salutations, de simples « oui », des répétitions ou une transcription incertaine
 ne permettent pas de situer l'interaction, laisse toutes les notes nulles ; ne mets pas zéro.
@@ -132,7 +131,9 @@ relis chaque phrase ; pour chaque erreur certaine de grammaire, vocabulaire ou r
 dans before le plus court extrait unique, dans after son remplacement, dans why la règle en moins
 de 100 caractères, avec le turnIndex. Douze corrections au plus. Respecte les variantes canadiennes,
 les hésitations et les reprises ; ne corrige jamais une simple préférence ni un possible défaut de dictée.
-reason : deux phrases de synthèse ; next : une priorité concrète illustrée pour le prochain essai.
+reason : en deux phrases au plus, résume ce qui fonctionne et ce qui limite cette intervention,
+sans chiffre ni niveau. next : propose une seule action en lien avec ce constat ; dis à quel moment
+l’essayer et illustre-la à partir d’une idée du candidat. Présente la formulation comme un exemple.
 proposal : écris le texte que le candidat aurait pu prononcer en réponse à la consigne exacte.
 Relis toute sa transcription comme une seule intervention, pas comme une suite de répliques.
 Fais entendre sa position, ses raisons, ses exemples et ses réserves, avec le même point de vue
@@ -145,6 +146,14 @@ passe une ligne blanche quand l’idée change. Ni titres, ni numéros, ni puces
 Une réponse courte peut tenir en un paragraphe ; si aucun point de vue n’est discernable,
 renvoie une chaîne vide plutôt qu’un modèle générique.
 Ne calcule ni total ni niveau."""
+
+_EVIDENCE_INSTRUCTION = """Pour chaque point fort et chaque critère noté, donne le turnIndex
+et, dans quote, un court extrait continu de cette ligne « user », mot pour mot (160 caractères
+maximum). Choisis les mots qui illustrent ton observation, pas le premier passage venu.
+Juge la prestation entière selon le critère : une citation illustre la note, elle ne suffit
+pas à la justifier. N’emprunte rien à la consigne, au partenaire ni à ta Proposition.
+Pour un critère non observable, laisse points et turnIndex à null, quote vide et explique
+ce qui manque. Ne confonds pas absence de preuve et erreur."""
 
 
 def _object(**fields):
@@ -159,8 +168,8 @@ _NULLABLE_INDEX = {"type": ["integer", "null"]}
 # The model fills fields in schema order: evidence comes before the marks it supports.
 _OPINION_SCHEMA = _object(
     corrections={"type": "array", "items": _object(turnIndex=_INDEX, before=_STR, after=_STR, why=_STR)},
-    strengths={"type": "array", "items": _object(turnIndex=_INDEX, why=_STR)},
-    criteria=_object(**dict.fromkeys(_CRITERIA, _object(points=_NULLABLE_INDEX, why=_STR, turnIndex=_NULLABLE_INDEX))),
+    strengths={"type": "array", "items": _object(turnIndex=_INDEX, quote=_STR, why=_STR)},
+    criteria=_object(**dict.fromkeys(_CRITERIA, _object(turnIndex=_NULLABLE_INDEX, quote=_STR, why=_STR, points=_NULLABLE_INDEX))),
     reason=_STR,
     next=_STR,
     proposal=_STR,
@@ -278,6 +287,25 @@ def _locate(words, before):
     return -1
 
 
+def _excerpt(words, quote):
+    """Return original words, tolerating French typography, never a paraphrase or a partial word."""
+    if not isinstance(quote, str) or not 0 < len(quote) <= 160 or not any(c.isalnum() for c in quote):
+        return ""
+    tokens = r"[\w\u0300-\u036f]+|[^\w\s]"
+    def normalized(token):
+        return _fold(unicodedata.normalize("NFC", token))
+
+    needle = [normalized(token) for token in re.findall(tokens, quote)]
+    spans = list(re.finditer(tokens, words))
+    haystack = [normalized(m[0]) for m in spans]
+    for at, word in enumerate(haystack):
+        if word == needle[0] and haystack[at:at + len(needle)] == needle:
+            excerpt = words[spans[at].start():spans[at + len(needle) - 1].end()]
+            if len(excerpt) <= 160:
+                return excerpt
+    return ""
+
+
 # Spoken hesitations, never a correction on their own.
 _FILLERS = {"euh", "heu", "hum"}
 
@@ -299,7 +327,7 @@ def _ground(report, rows, *, monologue=False):
     if not isinstance(rubric, dict) or not any(key in rubric for key in _CRITERIA):
         raise ValueError
     result = {"score": None, "nclc": None, "cefr": None, "criteria": [], "evidence": [],
-              "annotations": [], "proposal": [], "omitted": False, "scoreStatus": "insufficient"}
+              "annotations": [], "proposal": [], "omitted": False, "scoreStatus": "insufficient", "evidenceVersion": 1}
 
     def note(item, key, limit):
         try:
@@ -323,18 +351,25 @@ def _ground(report, rows, *, monologue=False):
         i = item.get("turnIndex") if isinstance(item, dict) else None
         why = note(item, "why", 450)
         points = item.get("points") if isinstance(item, dict) else None
+        citation = {}
         if not isinstance(item, dict) or "points" not in item or not why or (
-            points is not None and (type(points) is not int or not 0 <= points <= 5 or type(i) is not int or i not in learners)
+            points is not None and (type(points) is not int or not 0 <= points <= 5)
         ):
             result.update(omitted=True, scoreStatus="incomplete")
             points, why = None, "Appréciation non vérifiable."
         else:
             usable += 1
             if points is not None and sufficient:
-                cited.add(i)
+                quote = _excerpt(_learner_text(rows, i), item.get("quote"))
+                if quote:
+                    citation = {"turnIndex": i, "quote": quote}
+                    cited.add(i)
+                else:
+                    points, why = None, "La citation proposée ne correspond pas à vos paroles."
+                    result.update(omitted=True, scoreStatus="incomplete")
             elif points is not None:
                 points, why = None, insufficient
-        result["criteria"].append({"key": key, "label": label, "score": points, "why": why})
+        result["criteria"].append({"key": key, "label": label, "score": points, "why": why, **citation})
     if not usable:
         raise ValueError
 
@@ -372,8 +407,11 @@ def _ground(report, rows, *, monologue=False):
                 result["omitted"] = True
                 continue
             if field == "strengths":
-                cited.add(i)
-                result["evidence"].append({"turnIndex": i, "quote": words, "why": why})
+                quote = _excerpt(words, item.get("quote"))
+                if quote:
+                    result["evidence"].append({"turnIndex": i, "quote": quote, "why": why})
+                else:
+                    result["omitted"] = True
                 continue
             try:
                 before = _text(item.get("before"), 500)
@@ -403,6 +441,8 @@ def _ground(report, rows, *, monologue=False):
                                              (2, "A2"), (1, "A1"), (0, "A1 non atteint"))))
         else:
             result.update(scoreStatus="incomplete", reason="La grille ne s’appuie pas sur assez de répliques distinctes pour attribuer un total.")
+    elif any(row["score"] is not None for row in result["criteria"]):
+        result["scoreStatus"] = "incomplete"
     return result
 
 
@@ -488,9 +528,10 @@ def _post(payload, deadline):
 # Runs off the request thread: no request, session or database access here.
 @sensitive_variables()
 def score(prompt, rows, *, monologue=False):
+    instruction = _OPINION_INSTRUCTION if monologue else _INSTRUCTION
     payload = json.dumps({
         "model": MODEL,
-        "messages": [{"role": "system", "content": _OPINION_INSTRUCTION if monologue else _INSTRUCTION}, {"role": "user", "content": json.dumps({
+        "messages": [{"role": "system", "content": instruction + "\n" + _EVIDENCE_INSTRUCTION}, {"role": "user", "content": json.dumps({
             "consigne": prompt, "rows": [dict(row, turnIndex=i) for i, row in enumerate(rows)],
         }, ensure_ascii=False)}],
         "response_format": {"type": "json_schema", "json_schema": {

@@ -1151,8 +1151,9 @@
       button.setAttribute("aria-expanded", "false");
       button.id = base + "-button";
       var labelIds = select.getAttribute("aria-labelledby") || "";
-      if (!labelIds && select.labels) {
-        labelIds = Array.from(select.labels).map(function (label, index) {
+      var labels = Array.from(select.labels || []);
+      if (!labelIds) {
+        labelIds = labels.map(function (label, index) {
           if (!label.id) label.id = base + "-label-" + index;
           return label.id;
         }).join(" ");
@@ -1169,7 +1170,7 @@
       chevron.className = "custom-select__chevron";
       chevron.setAttribute("aria-hidden", "true");
       chevron.innerHTML =
-        '<svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"></path></svg>';
+        '<svg viewBox="0 0 24 24" focusable="false"><path d="m6 9 6 6 6-6"></path></svg>';
       button.appendChild(valueEl);
       button.appendChild(chevron);
 
@@ -1231,6 +1232,9 @@
       wrapper.appendChild(select);
       wrapper.appendChild(button);
       wrapper.appendChild(list);
+      labels.forEach(function (label) {
+        if (label.htmlFor && label.htmlFor === select.id) label.htmlFor = button.id;
+      });
 
       var activeIndex = Math.max(0, select.selectedIndex);
 

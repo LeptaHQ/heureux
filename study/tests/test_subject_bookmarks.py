@@ -187,6 +187,39 @@ class SubjectBookmarkTests(TestCase):
         self.assertFalse(WritingSujetCompletion.objects.exists())
         self.assertFalse(Card.objects.exists())
 
+    def test_oral_directory_favorites_filter_uses_private_shared_response_ids(self):
+        theme = self.response.theme
+        canonical = self.response.prompts.get(is_canonical=True)
+        alias = Prompt.objects.create(
+            content_key="test:favorite-filter-alias", response=self.response,
+            theme=theme, family=canonical.family, number=999, text="Autre formulation.",
+        )
+        other = factories.make_response(theme=theme)
+        fresh = factories.make_response(theme=theme)
+        SubjectBookmark.objects.create(user=self.user, response=self.response)
+        SubjectBookmark.objects.create(user=self.user, response=fresh)
+        SubjectBookmark.objects.create(user=self.other, response=other)
+        self.client.post(
+            reverse("study:subject_completion", args=["eo", "tache-3", self.response.pk]),
+            {"completed": "1"},
+        )
+        url = reverse("study:task_browse", args=["eo", "tache-3"])
+        filters = {"theme": theme.slug, "etat": "bookmarked"}
+        with CaptureQueriesContext(connection) as queries:
+            page = self.client.get(url, {**filters, "tri": "reprendre"})
+        self.assertEqual(sum('FROM "study_subjectbookmark"' in q["sql"] for q in queries), 1)
+        self.assertEqual(
+            [(r["prompt"].response_id, r["progress"].status) for r in page.context["oral_selection"]["rows"]],
+            [(fresh.pk, "new"), (self.response.pk, "done")],
+        )
+        all_publications = self.client.get(url, {**filters, "deduplicate": "0"})
+        self.assertContains(all_publications, prompt_detail_url(alias))
+        self.assertContains(all_publications, f'data-subject-progress-row="{self.response.pk}"', count=2)
+        self.assertNotContains(all_publications, f'data-subject-progress-row="{other.pk}"')
+        self.client.force_login(self.other)
+        own = self.client.get(url, filters)
+        self.assertEqual([r["prompt"].response_id for r in own.context["oral_selection"]["rows"]], [other.pk])
+
     def test_bookmark_ids_are_batched_per_request_user_task_and_target_type(self):
         SubjectBookmark.objects.create(user=self.user, response=self.response)
         SubjectBookmark.objects.create(user=self.other, sujet=self.sujet)

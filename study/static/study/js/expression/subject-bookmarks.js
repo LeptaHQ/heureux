@@ -67,6 +67,10 @@
         return data;
       });
     }).then(function (data) {
+      if (!data.bookmarked && form.closest("[data-bookmarked-subjects]")) {
+        window.location.reload();
+        return;
+      }
       matchingForms(key).forEach(function (matching) {
         var button = matching.querySelector("button");
         matching.classList.toggle("is-bookmarked", data.bookmarked);

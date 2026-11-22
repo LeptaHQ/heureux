@@ -1,8 +1,8 @@
 {% load static %}/* Heureux service worker — offline app shell. */
-var CACHE = "heureux-v298";
+var CACHE = "heureux-v299";
 var SHELL = [
   "{% url 'offline' %}",
-  "{% static 'study/css/app.css' %}?v=290",
+  "{% static 'study/css/app.css' %}?v=295",
   "{% static 'study/js/theme-init.js' %}?v=4",
   "{% static 'study/js/audio/speech.js' %}?v=6",
   "{% static 'study/js/audio/audio-pin.js' %}?v=4",
@@ -11,12 +11,13 @@ var SHELL = [
   "{% static 'study/js/expression/eo/tache_3/eo3-audio.js' %}?v=12",
   "{% static 'study/js/expression/eo/tache_3/eo3-cached-reader.js' %}?v=3",
   "{% static 'study/js/review/flashcards.js' %}?v=5",
-  "{% static 'study/js/app.js' %}?v=74",
+  "{% static 'study/js/app.js' %}?v=76",
   "{% static 'study/js/notes/selection-toolbar.js' %}?v=21",
   "{% static 'study/js/notes/annotations.js' %}?v=44",
   "{% static 'study/js/expression/eo/tache_2/eo2-question-languages.js' %}?v=2",
   "{% static 'study/js/expression/eo/tache_3/eo3-response-languages.js' %}?v=1",
   "{% static 'study/js/expression/subject-progress.js' %}?v=5",
+  "{% static 'study/js/expression/subject-bookmarks.js' %}?v=2",
   "{% static 'study/js/expression/ee/writing-word-count.js' %}?v=2",
   "{% static 'study/js/comprehension/comprehension-progress.js' %}?v=4",
   "{% static 'study/js/expression/memory-progress.js' %}?v=4",
@@ -26,7 +27,7 @@ var SHELL = [
   "{% static 'study/icons/icon-192.png' %}?v=2",
   "{% static 'study/icons/icon-512.png' %}?v=2",
   "{% static 'study/icons/logo.svg' %}?v=2",
-  "{% static 'study/icons/ui-icons.svg' %}?v=6"
+  "{% static 'study/icons/ui-icons.svg' %}?v=7"
 ];
 
 self.addEventListener("install", function (event) {

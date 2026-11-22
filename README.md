@@ -1057,7 +1057,13 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   Opening an equivalent publication keeps its own text and selected response,
   while its navigation position refers to the shared group when deduplicated.
   EO2 and EO3 also let you filter these subjects by display theme and study
-  progress. Sort the selection alphabetically or put in-progress subjects first.
+  progress. Choose **Statut → Favoris** to see your bookmarked subjects from
+  any progress state; bookmarking a subject does not change its progress.
+  Sort alphabetically or put in-progress subjects first.
+  The three dropdowns support arrow keys, Enter to choose, and Escape
+  to close without changing the selection. Use **Appliquer les filtres** (✓)
+  to apply all three choices together, or **Réinitialiser les filtres** (↺)
+  to clear them without changing deduplication.
   Filters and sorting are shareable in the directory URL; keyword search still
   searches the whole task, including alternative formulations.
   The removed EO Tâche 3 theme/family and

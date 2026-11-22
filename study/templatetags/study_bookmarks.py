@@ -1,5 +1,5 @@
 from django import template
-from study.models import SubjectBookmark
+from study.expression.bookmarks import subject_bookmark_ids
 
 register = template.Library()
 
@@ -17,26 +17,12 @@ def subject_bookmark(context, *, response_id=None, sujet_id=None, label=""):
     else:
         return {}
 
-    if not hasattr(request, "_subject_bookmarks"):
-        request._subject_bookmarks = {}
-    scope = (request.user.pk, task.pk, target_type)
-    if scope not in request._subject_bookmarks:
-        target = "response" if target_type == "response" else "sujet"
-        task_filter = (
-            {"response__theme__task": task} if target == "response"
-            else {"sujet__task": task}
-        )
-        request._subject_bookmarks[scope] = set(
-            SubjectBookmark.objects.filter(
-                user=request.user, **task_filter,
-            ).order_by().values_list(f"{target}_id", flat=True)
-        )
     key = f"{target_type}:{target_id}"
     return {
         "target_type": target_type,
         "target_id": target_id,
         "key": key,
-        "bookmarked": target_id in request._subject_bookmarks[scope],
+        "bookmarked": target_id in subject_bookmark_ids(request, task, target_type),
         "subject_label": label,
         "part": task.part,
         "task": task,

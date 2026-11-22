@@ -71,6 +71,7 @@ from study.notes.anchors import (
     preserve_ee_tache_three_highlights,
     preserve_tache_two_highlights,
 )
+from study.expression.bookmarks import subject_bookmark_ids
 from study.expression.personalization import effective_response
 from study.expression.eo.tache_2 import gemini_live
 from study.expression.eo.tache_2.dialogues import (
@@ -1499,11 +1500,12 @@ def _classified_oral_subject_themes(themes, response_progress, prompts, taxonomy
     return result
 
 
-def _oral_directory_selection(params, groups):
+def _oral_directory_selection(request, task, groups):
+    params = request.GET
     theme = params.get("theme", "")
     status = params.get("etat")
     order = params.get("tri")
-    status = status if status in ("new", "active", "done") else ""
+    status = status if status in ("new", "active", "done", "bookmarked") else ""
     order = order if order in ("az", "za", "reprendre") else ""
     selection = {
         "theme": theme,
@@ -1513,16 +1515,21 @@ def _oral_directory_selection(params, groups):
         "active": bool(theme or status or order),
     }
     if selection["active"]:
+        bookmark_ids = subject_bookmark_ids(request, task, "response") if status == "bookmarked" else None
+
+        def matches_status(row):
+            if bookmark_ids is not None:
+                response_id = row["response_id"] if "response_id" in row else row["prompt"].response_id
+                return response_id in bookmark_ids
+            return not status or row["progress"].status == status
+
         rows, sections = [], []
         for group in groups:
             if theme and theme != group["slug"]:
                 continue
             for section in group.get("families") or [group]:
                 label = group["name"] if section is group else f'{group["name"]} · {section["name"]}'
-                matches = [
-                    row for row in section["subjects"]
-                    if not status or row["progress"].status == status
-                ]
+                matches = [row for row in section["subjects"] if matches_status(row)]
                 if not order and section is not group and matches:
                     unique = {row["prompt"].response_id: row["progress"] for row in matches}
                     sections.append({
@@ -1578,7 +1585,7 @@ def browse(request, part_slug=None, task_slug=None):
                 "task": forced_task,
                 **deduplication_context,
                 "subject_themes": themes,
-                "oral_selection": _oral_directory_selection(request.GET, themes),
+                "oral_selection": _oral_directory_selection(request, forced_task, themes),
                 "subject_summary": subject_state,
                 "theme_count": subject_state["theme_count"],
                 "subject_count": sum(theme["subject_count"] for theme in themes),
@@ -1819,7 +1826,7 @@ def browse(request, part_slug=None, task_slug=None):
     }
     if oral_directory:
         context.update(deduplication_context)
-        context["oral_selection"] = _oral_directory_selection(request.GET, subject_themes)
+        context["oral_selection"] = _oral_directory_selection(request, forced_task, subject_themes)
     return render(request, "study/expression/browse.html", context)
 
 

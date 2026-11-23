@@ -1010,15 +1010,17 @@ class TacheThreeModelContentTests(SimpleTestCase):
     def test_quebec_family_example_links_confirmed_support_to_affordability(self):
         model = catalogue.tache_three_models()["eo/tache-3/education-p5"]
         example = model.response.arguments[2].exemple
-        self.assertIn("prépare son départ sans emploi au Québec", example)
-        self.assertIn("confirme qu'il peut l'aider dans ses démarches, mais pas l'héberger", example)
-        self.assertIn("compare donc ses économies à six mois de loyer, de courses et de transports", example)
-        self.assertIn("pour vérifier si elle peut partir", example)
+        self.assertIn("envisage de s'installer au Québec", example)
+        self.assertIn("recommande deux quartiers bien desservis par les transports en commun", example)
+        self.assertIn("il ne peut pas l'héberger", example)
+        self.assertIn("vérifie donc les loyers dans ces quartiers", example)
+        self.assertIn("six mois sur place, courses et transports compris", example)
+        self.assertIn("compare ensuite cette somme à ses économies", example)
         cue = catalogue.tache_three_subject_hints()[model.group].arguments[2].example
-        self.assertIn("soutien aux démarches, pas d'hébergement", cue.french)
-        self.assertIn("comparer les économies à six mois de dépenses", cue.french)
-        self.assertIn("help with paperwork, not housing", cue.english)
-        self.assertIn("compare savings with six months' living costs", cue.english)
+        self.assertIn("conseille deux quartiers, mais ne peut pas héberger la famille", cue.french)
+        self.assertIn("comparer l'épargne à six mois de dépenses", cue.french)
+        self.assertIn("recommends two neighbourhoods but can't host the family", cue.english)
+        self.assertIn("compare savings with six months' expenses", cue.english)
 
     def test_migration_choice_keeps_the_bank_constraints_and_a_real_option_to_stay(self):
         model = catalogue.tache_three_models()["eo/tache-3/economie-p14"]

@@ -3120,6 +3120,11 @@
         "french": "Une personne comprend bien les documents écrits, mais se perd quand elle téléphone pour un rendez-vous médical. En simulant cet appel avant le départ, elle repère qu'elle doit travailler les horaires et apprendre à demander de répéter.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "0989bb20f88c3fce8f6781163db31b9ea4fe5a31fed9b7e2ece7a2182cf0757f": {
+        "english": "Take the example of a family considering a move to Quebec. Someone close to them who already lives there recommends two neighbourhoods with good public transport links, but cannot put them up. The family therefore checks the rents in those neighbourhoods and works out how much six months there would cost, including groceries and transport. They then compare the total with their savings.",
+        "french": "Prenons l'exemple d'une famille qui envisage de s'installer au Québec. Un proche déjà sur place lui recommande deux quartiers bien desservis par les transports en commun, mais il ne peut pas l'héberger. La famille vérifie donc les loyers dans ces quartiers et calcule ce que lui coûteraient six mois sur place, courses et transports compris. Elle compare ensuite cette somme à ses économies.",
+        "review_note": "Editorial English aligned with the revised family budget example: neighbourhood advice helps estimate expenses but does not cover accommodation. Earlier rows retained; no translation-provider call."
+      },
       "0e78f1de28981aef8f40195b257e19b16125bd845e85e5046b74e28f72b832ce": {
         "english": "A nurse contacts the professional order in Quebec to ask whether her qualification allows her to practise and what steps she needs to take. She also asks about the time and costs involved before counting on an income from that profession.",
         "french": "Une infirmière contacte l'ordre professionnel au Québec pour savoir si son diplôme lui permet d'exercer et quelles démarches sont nécessaires. Elle demande aussi les délais et les frais à prévoir avant de compter sur un salaire dans ce métier.",

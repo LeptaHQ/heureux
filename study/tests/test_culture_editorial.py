@@ -621,26 +621,27 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("évaluer sa préparation sur un projet concret", response.arguments[2].consequence)
         self.assertIn("plutôt que sur sa seule popularité", response.arguments[2].consequence)
 
-    def test_adaptation_example_rebuilds_practical_contacts_without_assuming_the_clinic_is_open(self):
+    def test_adaptation_example_shows_the_cost_of_using_the_wrong_local_service(self):
         response = self.response(9)
         example = response.arguments[2].exemple
         for phrase in (
-            "un dimanche", "son enfant qui a de la fièvre",
-            "ne connaît pas encore les services de santé du quartier",
-            "cherche une clinique sans rendez-vous",
-            "appelle pour vérifier les horaires avant de partir",
+            "va à l'école pour inscrire son enfant, comme dans son pays",
+            "dans cette ville, les inscriptions se font à la mairie",
+            "Il repart sans avoir pu l'inscrire",
+            "il ne reste que quelques jours pour le faire",
         ):
             self.assertIn(phrase, example)
         self.assertIn("démarches courantes peuvent être compliquées", response.arguments[2].idea)
-        self.assertIn("ressources du quartier", response.arguments[2].developpement)
-        self.assertIn("Il a ainsi une première piste", response.arguments[2].consequence)
+        self.assertIn("se tromper d'endroit en faisant comme chez soi", response.arguments[2].developpement)
+        self.assertIn("perdre un temps précieux quand une date limite approche", response.arguments[2].developpement)
+        self.assertIn("Il sait maintenant où s'adresser pour cette démarche", response.arguments[2].consequence)
         cue = self.plans["eo/tache-3/culture-p9"].arguments[2].example
         point = self.plans["eo/tache-3/culture-p9"].arguments[2].point
         self.assertIn("services locaux", point.french)
         self.assertIn("complicate everyday tasks", point.english)
-        self.assertIn("trouver une clinique", cue.french)
-        self.assertIn("vérifier ses horaires", cue.french)
-        self.assertIn("find a walk-in clinic", cue.english)
+        self.assertIn("c'est à la mairie", cue.french)
+        self.assertIn("à quelques jours de la date limite", cue.french)
+        self.assertIn("a wasted trip days before the deadline", cue.english)
 
     def test_new_country_habits_distinguish_adaptation_from_majority_conformity(self):
         response = self.response(1)

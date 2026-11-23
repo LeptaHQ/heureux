@@ -466,8 +466,10 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         cases = (
             (
                 "education-p1", "argument-5-exemple",
-                ("already spoke French well", "everyone gives their opinion spontaneously"),
-                ("doctor's office",),
+                ("waits to be given the floor, as he did in his old job",
+                 "On this team, though, people speak up without waiting to be invited",
+                 "before he has a chance to give his view"),
+                ("doctor's office", "A colleague then explains"),
             ),
             (
                 "education-p5", "argument-1-exemple",
@@ -1336,8 +1338,20 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         for field, phrases in (
             ("argument-1-developpement", ("understanding a fast conversation", "problem you need to solve", "how to make yourself understood")),
             ("argument-2-developpement", ("Calls maintain the connection", "being there in person", "moments we used to share")),
-            ("argument-3-developpement", ("where to go for an everyday need", "services may work differently", "whom to ask for help", "local resources")),
-            ("argument-3-exemple", ("parent who has recently arrived", "feverish child", "walk-in clinic", "call to check its hours")),
+            (
+                "argument-3-developpement",
+                ("where to go for an everyday need", "services may work differently", "whom to ask for help",
+                 "go about things the way we would back home", "end up in the wrong place", "a deadline is approaching"),
+            ),
+            (
+                "argument-3-exemple",
+                ("goes to the school to enrol their child", "in this town, enrolment is handled at the town hall",
+                 "leave without having enrolled their child", "with only a few days left to do it"),
+            ),
+            (
+                "argument-3-consequence",
+                ("now know where to go for this procedure", "learn whom to turn to in other situations"),
+            ),
         ):
             with self.subTest(field=field):
                 english = rows[fingerprint(fields[field])]["english"]
@@ -1360,7 +1374,11 @@ class EO3ResponseLanguageTests(SimpleTestCase):
                 ("patience, curiosity", "open-mindedness", "cope with the unfamiliar",
                  "enjoy discovering new habits", "quickly lose their bearings"),
             ),
-            ("education-p1", "argument-4-exemple", ("two friends move to Canada", "takes months to feel at home")),
+            (
+                "education-p1", "argument-4-exemple",
+                ("take the wrong bus in their first week", "asks which bus to take and tries again",
+                 "gets discouraged at the thought of having to relearn", "starting to feel at home"),
+            ),
             (
                 "education-p1", "argument-5-developpement",
                 ("working, dealing with administrative tasks", "relationships with residents",
@@ -1371,8 +1389,16 @@ class EO3ResponseLanguageTests(SimpleTestCase):
                 ("a job, housing", "employment contract, family or a network",
                  "administrative, financial and professional preparation"),
             ),
-            ("education-p1", "argument-5-exemple", ("arrived in Quebec", "waited to be asked", "stayed silent")),
-            ("education-p1", "argument-2-exemple", ("a cousin who puts them up", "housing and work at the same time", "employer to give them a chance")),
+            (
+                "education-p1", "argument-5-exemple",
+                ("arrived in Quebec", "struggles to find the words",
+                 "reaches an agreement before he has a chance to give his view"),
+            ),
+            (
+                "education-p1", "argument-2-exemple",
+                ("already has a job and is staying with a cousin", "take the time to get to know their neighbourhood",
+                 "housing and work at the same time", "employer to give them a chance", "get by on their savings"),
+            ),
             ("education-p1", "nuance", ("inherently unable to adapt", "time, help and good preparation", "not fixed in advance")),
             ("culture-p26", "argument-5-developpement", ("which documents to prepare", "where to check my rights")),
             (

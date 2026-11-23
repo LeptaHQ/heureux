@@ -2533,6 +2533,11 @@
         "french": "Enfin, certains partent pour pouvoir exercer pleinement leur métier, même s'ils peuvent déjà gagner leur vie dans leur pays.",
         "review_note": "Editorial English aligned with the clarified distinction between earning a living and having the resources to practise one's profession fully. The development is unchanged; all preceding translations retained. No translation-provider call."
       },
+      "06a2c4556ed623e65bf9252891f93c8e6060f796aa4c9dace09789b93e2ddd98": {
+        "english": "When you already have a job and a stable life in your own country, you can take the time to weigh the pros and cons. You might want to get to know a country beyond what you would see as a tourist, or to join the person you love. In this case, you're not leaving to get by, but to pursue a plan that matters to you.",
+        "french": "Quand on a déjà un emploi et une vie stable dans son pays, on peut prendre le temps de peser le pour et le contre. On peut avoir envie de découvrir un pays autrement qu'en touriste ou de rejoindre la personne qu'on aime. Dans ce cas, on ne part pas pour s'en sortir, mais pour réaliser un projet qui nous tient à cœur.",
+        "review_note": "Editorial English aligned with the revised distinction between chosen and constrained departures. No translation-provider call; preceding rows retained."
+      },
       "0bc2a10f58d05ee02249d53cfdfb37694ee5c38667d5f2ff3f5bed78742fa462": {
         "english": "Finally, a decision to leave may involve a combination of constraints and personal desires.",
         "french": "Enfin, un départ peut mêler des contraintes et des envies personnelles."
@@ -2558,10 +2563,20 @@
         "french": "Lorsqu'une personne ne peut plus rester en sécurité, la décision ne ressemble pas au choix tranquille d'un nouveau cadre de vie. Il faut distinguer la destination souhaitée de la nécessité immédiate de chercher un lieu sûr.",
         "review_note": "Conversational English distinguishes the preferred destination from the immediate need for safety; the French meaning and original provider translation are retained."
       },
+      "241f469e013709dce7e2487ed66ac0c7b4cb6ead245e0d0da33fe25ad0f9f53f": {
+        "english": "So she doesn't have to leave her country to live with him: they choose together where to build their life.",
+        "french": "Elle n'est donc pas obligée de quitter son pays pour vivre avec lui : ils choisissent ensemble où construire leur vie.",
+        "review_note": "Editorial English aligned with the revised distinction between chosen and constrained departures. No translation-provider call; preceding rows retained."
+      },
       "29981435ef5da8212daeff822e628434d1a11505063351cda123ba31fb96f3dc": {
         "english": "She is not leaving to survive, but staying would mean abandoning her research.",
         "french": "Elle ne part pas pour survivre, mais rester l'obligerait à abandonner ses recherches.",
         "review_note": "Editorial English aligned with the strengthened economic, protection and professional constraints response; all preceding translations retained. No translation-provider call."
+      },
+      "2abe9ffc1df60b477d23217c69780968963f938dde6976f29127b41d6d82c4c2": {
+        "english": "In conclusion, financial hardship and insecurity often push people to leave, but not every move is forced. To me, the real question is not just whether the person wanted to leave, but also whether staying was a real option.",
+        "french": "En conclusion, les difficultés économiques et l'insécurité poussent souvent à partir, mais tous les départs ne sont pas imposés. Pour moi, la vraie question n'est donc pas seulement de savoir si la personne avait envie de partir, mais aussi si elle pouvait vraiment rester.",
+        "review_note": "Editorial English aligned with the revised distinction between chosen and constrained departures. No translation-provider call; preceding rows retained."
       },
       "2e16f6cd44772ea7efb72046f4c4037982e283e42c5ec4af2aa78887744b67ff": {
         "english": "A family under threat that cannot find a safe place within its own country may seek refuge abroad without having planned this departure. They are then leaving behind their familiar surroundings to protect themselves, rather than leaving simply because they prefer another country.",
@@ -2576,6 +2591,11 @@
         "english": "Finally, even a move that seems voluntary may be linked to a lack of opportunities at home.",
         "french": "Enfin, même un départ qui semble volontaire peut être lié au manque de possibilités sur place.",
         "review_note": "Editorial English aligned with the strengthened economic, protection and professional constraints response; all preceding translations retained. No translation-provider call."
+      },
+      "397b920f08eddc45089d42bc8d4a5145a678bbafae3f5198d635fc4f39f87ba8": {
+        "english": "That said, you can leave both because you want to and because you have to. Someone whose pay no longer covers their rent might, for example, take a better-paid job in a country where they'd already dreamed of living. They may be happy to leave even though they have very few realistic ways to stay. So we need to look at what options each person actually has.",
+        "french": "Cela dit, on peut partir à la fois par envie et par nécessité. Une personne dont le salaire ne suffit plus à payer son loyer peut, par exemple, accepter un poste mieux payé dans un pays où elle rêvait déjà de vivre. Elle peut être contente de partir et avoir pourtant très peu de solutions pour rester. Il faut donc qu'on regarde les possibilités réelles de chaque personne.",
+        "review_note": "Editorial English aligned with the revised distinction between chosen and constrained departures. No translation-provider call; preceding rows retained."
       },
       "557e4199896e57e1cb446f78d409fa42fd60448d6b5a9743754323366fe46efd": {
         "english": "An employee can keep her job or accept a two-year assignment abroad. She chooses the assignment to discover a different way of working.",
@@ -2678,6 +2698,11 @@
       "b0fa25c89c48c942106b48034d635917712d772008b76428cc9f7b0b99625d86": {
         "english": "Someone in employment may choose to join their partner abroad after comparing their plans. They accept the difficulties and give up certain habits, but this does not mean they were forced to leave their country.",
         "french": "Une personne ayant un emploi peut choisir de rejoindre son partenaire à l'étranger après avoir comparé leurs projets. Elle accepte des difficultés et renonce à certaines habitudes, mais cela ne permet pas de dire qu'elle était forcée de quitter son pays."
+      },
+      "b8bb8fbd1dfc528107d43613fcdc283d121f6e52b718f01c0ea062c6d2913dfb": {
+        "english": "For example, a woman has a job she enjoys in her own country. Her partner lives abroad, and they could settle together in either country. After talking it over, she decides to join him: she already knows the city where he lives and likes it there.",
+        "french": "Par exemple, une femme a un emploi qui lui plaît dans son pays. Son compagnon vit à l'étranger, et ils pourraient s'installer ensemble dans l'un ou l'autre pays. Après en avoir discuté, elle décide de le rejoindre : elle connaît déjà la ville où il habite et s'y plaît.",
+        "review_note": "Editorial English aligned with the revised distinction between chosen and constrained departures. No translation-provider call; preceding rows retained."
       },
       "c47a4890301052d5115ab174e5bc783d177c0ef529c26629240e42e95a89224c": {
         "english": "Take the example of a researcher who teaches in her own country but cannot find an equipped laboratory there for her research. She accepts a post abroad to pursue it, even though she would have preferred to stay close to her loved ones.",

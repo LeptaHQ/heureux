@@ -1491,13 +1491,10 @@ class EO3ResponseLanguageTests(SimpleTestCase):
             self.skipTest("DeepL response translations have not been prepared.")
         model = scoped_models()["eo/tache-3/economie-p14"]
         rows = data["groups"][model.group]
-        livelihood, safety, profession = model.response.arguments
+        livelihood, safety, choice = model.response.arguments
         fields = public_fields(model)
-        self.assertNotIn("argument-3-idea", fields)
-        self.assertEqual(fields["argument-4-idea"], profession.idea)
-        professional_constraint = rows[fingerprint(profession.idea)]["english"]
-        self.assertIn("practise their profession fully", professional_constraint)
-        self.assertIn("even though they can already earn a living", professional_constraint)
+        self.assertNotIn("argument-4-idea", fields)
+        self.assertEqual(fields["argument-3-idea"], choice.idea)
         self.assertIn("people often leave", rows[fingerprint(model.response.position_claire)]["english"])
         economic_pressure = rows[fingerprint(livelihood.developpement)]["english"]
         self.assertIn("a lack of jobs, wages that are too low or a lack of future prospects", economic_pressure)
@@ -1515,18 +1512,19 @@ class EO3ResponseLanguageTests(SimpleTestCase):
         school = rows[fingerprint(safety.exemple)]["english"]
         self.assertIn("violence repeatedly forces their children's school to close", school)
         self.assertIn("could give the children a chance", school)
-        self.assertIn("earn a living doing something else", rows[fingerprint(profession.developpement)]["english"])
-        researcher = rows[fingerprint(profession.exemple)]["english"]
-        self.assertIn("researcher who teaches in her own country", researcher)
-        self.assertIn("cannot find an equipped laboratory there for her research", researcher)
-        self.assertIn("not leaving to survive", rows[fingerprint(profession.consequence)]["english"])
+        self.assertIn("even though they could stay", rows[fingerprint(choice.idea)]["english"])
+        self.assertIn("weigh the pros and cons", rows[fingerprint(choice.developpement)]["english"])
+        couple = rows[fingerprint(choice.exemple)]["english"]
+        self.assertIn("a job she enjoys in her own country", couple)
+        self.assertIn("could settle together in either country", couple)
+        self.assertIn("doesn't have to leave her country to live with him", rows[fingerprint(choice.consequence)]["english"])
         nuance = rows[fingerprint(model.response.nuance)]["english"]
-        self.assertIn("some moves really are a choice", nuance)
-        self.assertIn("may be able to keep their job", nuance)
-        self.assertIn("Reasons can also overlap", nuance)
+        self.assertIn("both because you want to and because you have to", nuance)
+        self.assertIn("pay no longer covers their rent", nuance)
+        self.assertIn("they'd already dreamed of living", nuance)
         conclusion = rows[fingerprint(model.response.conclusion)]["english"]
-        self.assertIn("make a decent living, protect themselves or be able to practise their profession", conclusion)
-        self.assertIn("some also leave because they want to", conclusion)
+        self.assertIn("not every move is forced", conclusion)
+        self.assertIn("whether staying was a real option", conclusion)
 
     def test_migration_career_english_keeps_jobs_pay_conditions_and_projects(self):
         data = read_manifest(DEFAULT_PATH)

@@ -652,12 +652,12 @@
         "english": "Often a necessity, but some really have the option to stay."
       },
       "nuance": {
-        "french": "Certains choisissent vraiment de partir ; difficultés et envies peuvent aussi se mêler.",
-        "english": "Some genuinely choose to leave; difficulties and personal wishes can also overlap."
+        "french": "Pression et envie : un poste mieux payé pour couvrir son loyer, dans un pays où l'on rêvait de vivre.",
+        "english": "Pressure and desire: a better-paid job to cover the rent, in a country you've dreamed of living in."
       },
       "conclusion": {
-        "french": "Vivre correctement, se protéger, exercer son métier : des contraintes, mais pas tous les départs.",
-        "english": "Making a living, staying safe, practising a profession: real pressures, but not every move is imposed."
+        "french": "Vouloir partir ne veut pas dire qu'on avait le choix de rester.",
+        "english": "Wanting to leave doesn't mean you had the option of staying."
       },
       "arguments": [
         {
@@ -682,12 +682,12 @@
         },
         {
           "point": {
-            "french": "Vivre de son travail ne suffit pas toujours : on peut manquer des moyens d'exercer pleinement son métier.",
-            "english": "Earning a living does not always mean having the resources to practise your profession fully."
+            "french": "Partir pour un projet qui nous tient à cœur, même si rester est une vraie option.",
+            "english": "You can leave to pursue a plan that matters to you even if staying is a real option."
           },
           "example": {
-            "french": "Une chercheuse enseigne, mais manque de matériel pour ses recherches ; elle accepte un poste à l'étranger.",
-            "english": "A researcher teaches but lacks equipment for her research; she accepts a post abroad."
+            "french": "Un couple peut vivre dans l'un ou l'autre pays ; elle choisit de rejoindre son compagnon à l'étranger.",
+            "english": "The couple could live together in either country; the woman chooses to join her partner abroad."
           }
         }
       ]

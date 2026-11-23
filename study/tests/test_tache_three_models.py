@@ -1020,9 +1020,11 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("help with paperwork, not housing", cue.english)
         self.assertIn("compare savings with six months' living costs", cue.english)
 
-    def test_migration_choice_keeps_the_bank_developments_and_their_contrasts(self):
+    def test_migration_choice_keeps_the_bank_constraints_and_a_real_option_to_stay(self):
         model = catalogue.tache_three_models()["eo/tache-3/economie-p14"]
-        livelihood, safety, profession = model.response.arguments
+        response = model.response
+        livelihood, safety, choice = response.arguments
+        self.assertEqual(model.argument_ids, (1, 2, 3))
         self.assertIn("le manque d'emplois, les salaires trop faibles ou l'absence de perspectives d'avenir", livelihood.developpement)
         self.assertIn("une situation économique qui ne laisse pas beaucoup d'options", livelihood.developpement)
         self.assertIn("À l'inverse, dans un pays où l'économie offre du travail correct", livelihood.developpement)
@@ -1031,9 +1033,21 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("une question de protection pour soi et pour sa famille", safety.developpement)
         self.assertIn("dans un pays sûr et stable", safety.developpement)
         self.assertIn("ne se poserait pas avec la même urgence", safety.developpement)
-        self.assertIn("exercer pleinement leur métier", profession.idea)
-        self.assertIn("même s'ils peuvent déjà gagner leur vie", profession.idea)
-        self.assertIn("même si on peut gagner sa vie autrement", profession.developpement)
+        self.assertIn("alors qu'elles pourraient rester", choice.idea)
+        self.assertIn("peser le pour et le contre", choice.developpement)
+        self.assertIn("pourraient s'installer ensemble dans l'un ou l'autre pays", choice.exemple)
+        self.assertIn("ils choisissent ensemble", choice.consequence)
+        self.assertIn("à la fois par envie et par nécessité", response.nuance)
+        self.assertIn("le salaire ne suffit plus à payer son loyer", response.nuance)
+        self.assertIn("dans un pays où elle rêvait déjà de vivre", response.nuance)
+        self.assertIn("mais aussi si elle pouvait vraiment rester", response.conclusion)
+        plan = catalogue.tache_three_subject_hints()[model.group]
+        self.assertIn("rester est une vraie option", plan.arguments[2].point.french)
+        self.assertIn("staying is a real option", plan.arguments[2].point.english)
+        self.assertIn("dans l'un ou l'autre pays", plan.arguments[2].example.french)
+        self.assertIn("in either country", plan.arguments[2].example.english)
+        self.assertIn("Pression et envie", plan.nuance.french)
+        self.assertIn("Pressure and desire", plan.nuance.english)
 
     def test_habits_and_adaptation_restore_pre_bank_arguments(self):
         models = catalogue.tache_three_models()

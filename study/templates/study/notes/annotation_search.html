@@ -40,10 +40,11 @@
   </button>
 </form>
 
+<div data-annotation-search-results>
 <div class="section-heading annotation-results-heading">
   <div>
     <p class="eyebrow">Résultats</p>
-    <h2>{{ result_count }} élément{{ result_count|pluralize }}</h2>
+    <h2 data-annotation-result-count>{{ result_count }} élément{{ result_count|pluralize }}</h2>
   </div>
   <a class="btn btn--sm" href="{% url 'study:annotation_study' %}">Étudier ma sélection</a>
 </div>
@@ -62,5 +63,6 @@
     </div>
   {% endfor %}
 </div>
-{% if result_limit_reached %}<p class="center muted">Les 100 résultats les plus récents sont affichés. Affinez votre recherche pour aller plus loin.</p>{% endif %}
+<p class="center muted" data-annotation-result-limit {% if not result_limit_reached %}hidden{% endif %}>Les 100 résultats les plus récents sont affichés. Affinez votre recherche pour aller plus loin.</p>
+</div>
 {% endblock %}

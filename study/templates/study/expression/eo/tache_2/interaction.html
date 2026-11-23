@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Jeu de rôle · Tâche 2 · Heureux{% endblock %}
+{% block title %}Simulation · {{ task.short_label }} · Jeu de rôle guidé · Heureux{% endblock %}
 {% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo1-interview.css' %}?v=3">{% endblock %}
 {% block content %}
 {% include "study/expression/partials/task_nav.html" %}
-<div class="eo-studio eo-roleplay" id="eo2-studio">
+<div class="eo-studio eo-roleplay" id="eo2-studio"
+    data-finish-url="{% url 'study:eo2_practice_finish' %}" data-practice-topic="atelier-photo">
+  {% csrf_token %}
   <header class="eo-studio__heading"><div>
     <p class="eo-kicker">Studio oral <span>/</span> Tâche 02</p>
     <h1>À vous de poser les questions.</h1>
     <p>Un jeu de rôle en français pour obtenir des renseignements et faire un choix.</p>
+    <a class="btn" href="{% url 'study:eo2_topic_picker' %}">Choisir un sujet à pratiquer</a>
   </div><span class="eo-tag">TCF Canada · Entraînement</span></header>
   <noscript><p>Activez JavaScript pour lancer la simulation.</p></noscript>
   <div class="eo-workspace">
@@ -23,7 +26,7 @@
       <div class="eo-console__base"><span>Préparation · 2 min</span><span>Échange · 3 min 30</span></div>
     </section>
     <section class="eo-desk" id="t2-setup">
-      <p class="eo-kicker">Avant de commencer</p><h2>Installez-vous</h2>
+      <p class="eo-kicker">Sujet de ce studio · Atelier photo</p><h2>Installez-vous</h2>
       <p>Vous aurez deux minutes pour lire la consigne et prendre des notes. Ensuite, votre interlocuteur vous laissera ouvrir l’échange.</p>
       {% if gemini_live_available %}<a class="btn" href="{% url 'study:eo_tache_two_live' %}">Essayer la conversation vocale avec Gemini Live</a>{% endif %}
       <fieldset class="eo-modes"><legend class="sr-only">Comment participer</legend>
@@ -66,7 +69,10 @@
     <section class="eo-desk" id="t2-done" hidden>
       <p class="eo-kicker">03 / Retour d’entraînement</p><h2 tabindex="-1" id="t2-done-title">Votre échange</h2>
       <p id="t2-summary"></p><p id="t2-next"></p>
-      <button type="button" class="btn eo-primary" id="t2-retry">Nouvel essai</button>
+      <p class="eo-help" data-practice-status role="status"></p>
+      <button type="button" class="btn" data-practice-retry hidden>Réessayer l’enregistrement</button>
+      <button type="button" class="btn eo-primary" id="t2-retry" data-practice-restart>Nouvel essai</button>
+      <a href="{% url 'study:eo2_topic_picker' %}">Choisir un autre sujet</a>
     </section>
   </div>
   <details class="eo-review" id="t2-reference" hidden><summary>Revoir la consigne et mes notes</summary>
@@ -82,9 +88,11 @@
     <div><p class="eo-kicker">Le format officiel</p><p>Vous cherchez des informations dans une situation du quotidien. Il n’y a pas de nombre imposé de questions dans ce studio.</p>
       <a href="https://www.france-education-international.fr/test/tcf-canada?langue=fr#quevaluent-les-differentes-epreuves" target="_blank" rel="noopener noreferrer">France Éducation international ↗</a></div>
   </aside>
+  <p class="eo-help">Après un échange terminé, seuls le sujet et un identifiant d’essai sont envoyés pour compter la séance. Vos questions, vos notes et l’audio ne sont pas envoyés pour cet historique.</p>
 </div>
 {% endblock %}
 {% block scripts %}
   <script defer src="{% static 'study/js/expression/eo/tache_2/roleplay-engine.js' %}?v=2"></script>
-  <script defer src="{% static 'study/js/expression/eo/tache_2/interaction.js' %}?v=2"></script>
+  <script defer src="{% static 'study/js/expression/eo/tache_2/rehearsal-progress.js' %}?v=1"></script>
+  <script defer src="{% static 'study/js/expression/eo/tache_2/interaction.js' %}?v=4"></script>
 {% endblock %}

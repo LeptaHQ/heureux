@@ -167,6 +167,13 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         opened.close()
         return None
 
+    def click_subject_marker(self, button):
+        """An in-place save keeps this document, not just the same URL."""
+        self.page.evaluate("window.sameSubjectDocument = true")
+        button.click()
+        expect(self.page.locator("form[data-pending=true]")).to_have_count(0)
+        self.assertTrue(self.page.evaluate("window.sameSubjectDocument === true"))
+
     def assert_no_horizontal_overflow(self):
         fits = self.page.evaluate(
             "document.documentElement.scrollWidth <= "
@@ -219,12 +226,15 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.page.clock.pause_at("2026-03-16T10:00:05Z")
         self.page.locator("#t2-start").click()
         self.page.get_by_text("Prendre des notes (facultatif)").click()
-        self.page.locator("#t2-notes").fill("Comparer les horaires")
+        notes = "Comparer les horaires\nNoter les tarifs"
+        self.page.locator("#t2-notes").fill(notes)
         self.page.clock.fast_forward(119_000)
         expect(self.page.locator("#t2-clock")).to_have_text("00:01")
         expect(self.page.locator("#t2-live")).to_be_hidden()
         self.page.clock.fast_forward(1_000)
         expect(self.page.locator("#t2-clock")).to_have_text("03:30")
+        expect(self.page.locator("#t2-note-copy")).to_be_visible()
+        self.assertEqual(self.page.locator("#t2-note-copy").inner_text(), notes)
         self.page.locator("#t2-question").fill("Quel est le prix de la balade ?")
         self.page.locator("#t2-send").click()
         expect(self.page.locator("#t2-line")).to_contain_text("20 dollars")
@@ -243,8 +253,56 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.locator("#t2-transcript li")).to_have_count(0)
         expect(self.page.locator("#t2-notes")).to_have_value("")
         self.page.locator("#t2-start").click()
-        self.page.clock.fast_forward(331_000)
+        self.page.clock.fast_forward(120_000)
+        expect(self.page.locator("#t2-reference summary")).to_be_visible()
+        expect(self.page.locator("#t2-note-copy")).to_be_hidden()
+        self.page.clock.fast_forward(211_000)
         expect(self.page.locator("#t2-done")).to_be_visible()
+
+    def test_eo2_picker_saves_multiple_markers_without_navigation(self):
+        task = factories.make_task(self.part, "tache-2")
+        theme = factories.make_theme("sujets", task=task)
+        prompt = factories.make_response(theme=theme).prompts.get()
+        prompt.content_key = content.tache_two_subject_content_key("mai", 2, 8)
+        prompt.save(update_fields=["content_key"])
+        url = self.live_server_url + reverse("study:eo2_topic_picker")
+        self.page.goto(url)
+        rows = self.page.locator("#eo2-topic-results tbody tr")
+        photo, topic = rows.first, rows.last
+        done, retry = photo.get_by_role("checkbox"), photo.get_by_role("button")
+        waiting = []
+        pattern = re.compile(r"/statut/(?:\?.*)?$")
+        self.page.route(pattern, lambda route: waiting.append(route))
+        self.page.evaluate("window.pickerDocument = true")
+        done.click()
+        retry.click()
+        topic.get_by_role("checkbox").click()
+        expect(rows.locator('[aria-busy="true"]')).to_have_count(3)
+        expect(done).to_be_checked()
+        expect(retry).to_have_attribute("aria-pressed", "true")
+        waiting.pop().fulfill(status=503, body="")
+        for route in reversed(waiting):
+            route.continue_()
+        expect(rows.locator("[aria-busy]")).to_have_count(0)
+        expect(topic.get_by_role("checkbox")).not_to_be_checked()
+        expect(self.page.locator("[data-subject-progress-toast]")).to_contain_text("Réessayez")
+        self.page.unroute(pattern)
+        topic.get_by_role("checkbox").click()
+        expect(self.page.locator(".oral-sujet-result-count")).to_contain_text("2 terminés · 1 à refaire")
+        self.assertTrue(self.page.evaluate("window.pickerDocument"))
+        self.assertEqual(self.page.url, url)
+        self.page.reload()
+        expect(rows.locator('[aria-checked="true"]')).to_have_count(2)
+        expect(retry).to_have_attribute("aria-pressed", "true")
+
+        filtered = url + "?etat=retry&tri=az"
+        self.page.goto(filtered)
+        self.page.evaluate("window.pickerDocument = true")
+        retry.click()
+        expect(rows).to_have_count(0)
+        expect(self.page.locator(".oral-sujet-result-count")).to_contain_text("Aucun sujet")
+        self.assertEqual(self.page.url, filtered)
+        self.assertTrue(self.page.evaluate("window.pickerDocument"))
 
     def test_eo2_local_model_can_select_but_not_invent_a_reply(self):
         self.page.add_init_script("""window.LanguageModel = {
@@ -1835,8 +1893,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 )
                 subject_id = row.get_attribute(id_attribute)
                 equivalents = self.page.locator(f'[{id_attribute}="{subject_id}"]')
-                with self.page.expect_navigation(wait_until="domcontentloaded"):
-                    row.get_by_role("checkbox").click()
+                self.click_subject_marker(row.get_by_role("checkbox"))
                 self.assertEqual(self.page.url, url)
                 self.assertEqual(
                     equivalents.locator('button[aria-checked="true"]').count(),
@@ -1930,15 +1987,14 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(row).to_have_count(1)
         expect(self.page.locator("[data-subject-collection-row]")).to_have_count(4)
 
-        with self.page.expect_navigation(wait_until="domcontentloaded"):
-            row.get_by_role("checkbox").click()
+        self.click_subject_marker(row.get_by_role("checkbox"))
         expect(theme.locator(":scope > summary .progress-status")).to_have_text("1/2")
         expect(family.locator(".subject-subheading__progress")).to_contain_text("1/1")
         expect(other_family.locator(".subject-subheading__progress")).to_contain_text("1/2")
         expect(
             self.page.locator(f"#theme-{other_theme.slug} > summary .progress-status")
         ).to_have_text("1/1")
-        theme.locator(":scope > summary").click()
+        self.assertTrue(theme.evaluate("element => element.open"))
         expect(row.get_by_role("checkbox")).to_be_checked()
         expect(row.locator(".progress-status")).to_have_text("Terminé")
         self.assert_no_horizontal_overflow()
@@ -1965,9 +2021,8 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         theme.locator('[data-nested-table-sort="subject"]').click()
         expect(links).to_have_text([second.text, first.text])
         row = family.locator(f'[data-subject-progress-row="{first.response_id}"]')
-        with self.page.expect_navigation(wait_until="domcontentloaded"):
-            row.get_by_role("checkbox").click()
-        theme.locator(":scope > summary").click()
+        self.click_subject_marker(row.get_by_role("checkbox"))
+        expect(links).to_have_text([second.text, first.text])
         expect(row.get_by_role("checkbox")).to_be_checked()
         expect(row.locator(".progress-status")).to_have_text("Terminé")
         self.assert_no_horizontal_overflow()
@@ -2026,7 +2081,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(form.get_by_role("button", name="Statut Favoris")).to_be_visible()
         favorite_url = self.page.url
         self.assertEqual(parse_qs(urlsplit(favorite_url).query)["etat"], ["bookmarked"])
-        rows.get_by_role("button", name=re.compile("^Favori :")).click()
+        self.click_subject_marker(rows.get_by_role("button", name=re.compile("^Favori :")))
         expect(self.page.get_by_text("Aucun favori ne correspond à ces filtres.")).to_be_visible()
         expect(rows).to_have_count(0)
         expect(self.page).to_have_url(favorite_url)
@@ -2194,8 +2249,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.locator("[data-subject-collection-row]")).to_have_count(2)
         theme.locator(":scope > summary").click()
         row = family.locator(f'[data-subject-progress-row="{prompt.response_id}"]')
-        with self.page.expect_navigation(wait_until="domcontentloaded"):
-            row.get_by_role("checkbox").click()
+        self.click_subject_marker(row.get_by_role("checkbox"))
         self.assertIn("deduplicate=1", self.page.url)
         expect(theme.locator(":scope > summary .progress-status")).to_have_text("1/2")
         search = self.page.locator("[data-subject-directory-search]")
@@ -2384,10 +2438,9 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 forms = self.page.locator(
                     f'{form_selector}[{id_attribute}="{subject_id}"]'
                 )
-                forms.evaluate_all(
-                    "(forms, attribute) => forms.forEach(form => form.removeAttribute(attribute))",
-                    f"data-{prefix}-completion-refresh",
-                )
+                group = forms.first.locator("xpath=ancestor::details[1]")
+                if not group.evaluate("element => element.open"):
+                    group.locator(":scope > summary").click()
                 requests = []
                 route_pattern = "**" + forms.first.get_attribute("action")
                 self.page.route(route_pattern, lambda route: requests.append(route))
@@ -2421,6 +2474,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                     progress_field: {"status": "done", "label": "Terminé"},
                 }
                 requests.pop().fulfill(status=200, json=payload)
+                expect(forms.locator("[aria-busy]")).to_have_count(0)
                 expect(forms.first.locator("button")).to_have_attribute("aria-checked", "true")
                 self.assertEqual(forms.locator('[aria-checked="true"]').count(), forms.count())
                 self.assertEqual(forms.locator('input[name="completed"][value="0"]').count(), forms.count())
@@ -2441,6 +2495,78 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                     )
                     self.assertEqual(progress_rows.count(), forms.count())
                 self.page.unroute(route_pattern)
+
+    def test_subject_markers_save_independently_across_oral_and_written_directories(self):
+        self.theme.delete()
+        call_command("import_content", stdout=StringIO())
+        provision_user_study_data(self.user)
+        errors = []
+        self.page.on("pageerror", lambda error: errors.append(str(error)))
+        for part, tache in (("eo", 2), ("eo", 3), ("ee", 1), ("ee", 2), ("ee", 3)):
+            with self.subTest(part=part, tache=tache):
+                url = self.live_server_url + reverse("study:task_browse", args=[part, f"tache-{tache}"])
+                selection = url + "?deduplicate=0&tri=reprendre"
+                self.page.goto(selection)
+                rows = self.page.locator("[data-subject-collection-row]")
+                keys = rows.locator("[data-subject-bookmark-key]").evaluate_all(
+                    "forms => forms.map(form => form.dataset.subjectBookmarkKey)"
+                )
+                shared = next(key for key in keys if keys.count(key) > 1)
+                other = next(key for key in keys if key != shared)
+                shared_rows = rows.filter(has=self.page.locator(f'[data-subject-bookmark-key="{shared}"]'))
+                other_rows = rows.filter(has=self.page.locator(f'[data-subject-bookmark-key="{other}"]'))
+                check = shared_rows.first.get_by_role("checkbox")
+                bookmark = shared_rows.first.locator("button[aria-pressed]")
+                second = other_rows.first.get_by_role("checkbox")
+                total = self.page.locator("[data-collection-progress-value]")
+                denominator = total.inner_text().split("/")[1]
+                requests = []
+                paths = [button.evaluate("button => button.form.action") for button in (check, bookmark, second)]
+                pattern = re.compile("^(?:" + "|".join(map(re.escape, paths)) + ")$")
+                self.page.route(pattern, lambda route: requests.append(route))
+                self.page.evaluate("window.sameSubjectDocument = true")
+                check.click()
+                bookmark.click()
+                second.click()
+                expect(check).to_be_checked()
+                expect(bookmark).to_have_attribute("aria-pressed", "true")
+                expect(second).to_be_checked()
+                self.assertEqual(len(requests), 3)
+                requests[1].continue_()
+                expect(bookmark).to_be_enabled()
+                expect(bookmark).not_to_be_focused()
+                requests[2].fulfill(status=503, json={"error": "Réessayez."})
+                expect(second).not_to_be_checked()
+                expect(second).to_be_focused()
+                requests[0].continue_()
+                expect(check).to_be_enabled()
+                expect(second).to_be_focused()
+                self.page.unroute(pattern)
+                completed = 1 if part == "eo" else keys.count(shared)
+                expect(total).to_have_text(f"{completed}/{denominator}")
+                expect(shared_rows.locator('[aria-checked="true"]')).to_have_count(keys.count(shared))
+                expect(shared_rows.locator('[aria-pressed="true"]')).to_have_count(keys.count(shared))
+                # En cours d’abord puts the completed publications after the unstarted ones.
+                expect(rows.last.locator("[data-subject-bookmark-key]")).to_have_attribute("data-subject-bookmark-key", shared)
+                self.assertTrue(self.page.evaluate("window.sameSubjectDocument === true"))
+                self.assertEqual(self.page.url, selection)
+                self.page.reload()
+                expect(total).to_have_text(f"{completed}/{denominator}")
+                expect(second).not_to_be_checked()
+                # The two filters are independent; unchecking completion leaves the favorites intact.
+                self.page.goto(url + "?deduplicate=0&etat=done")
+                expect(rows).to_have_count(keys.count(shared))
+                self.click_subject_marker(check)
+                expect(rows).to_have_count(0)
+                expect(total).to_have_text(f"0/{denominator}")
+                self.page.goto(url + "?deduplicate=0&etat=bookmarked")
+                expect(rows).to_have_count(keys.count(shared))
+                self.click_subject_marker(bookmark)
+                expect(rows).to_have_count(0)
+                expect(self.page.locator("[data-subject-result-count]")).to_have_text("Aucun favori ne correspond à ces filtres.")
+                self.page.reload()
+                expect(rows).to_have_count(0)
+        self.assertEqual(errors, [])
 
     def test_ee_tache_three_theme_directory_is_collapsible_and_responsive(self):
         _months, task = self._import_ee_tache_three_content()
@@ -3127,8 +3253,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 )
                 if not group.evaluate("element => element.open"):
                     group.locator("summary").click()
-                with self.page.expect_navigation():
-                    rows.locator("[data-writing-sujet-completion-form] button").click()
+                self.click_subject_marker(rows.locator("[data-writing-sujet-completion-form] button"))
                 expect(toggle).to_have_attribute("aria-pressed", "true")
                 expect(rows).to_have_count(1)
                 expect(rows.locator(".progress-status")).to_have_text("Terminé")
@@ -4483,7 +4608,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         navigation.get_by_text("Apprendre", exact=True).wait_for()
         navigation.get_by_text("Mes outils", exact=True).wait_for()
         expect(navigation.locator(".nav__primary-link .nav__item-label")).to_have_text(
-            ["Accueil", "Apprendre", "Compréhension", "Expression", "Notes", "Stats"]
+            ["Accueil", "Apprendre", "Compréhension", "Expression", "Simulation", "Notes", "Stats"]
         )
         expect(navigation.get_by_role("link", name="Apprendre", exact=True)).to_have_attribute(
             "href", reverse("study:learn")
@@ -7810,8 +7935,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         row_checkbox = row.locator(
             "[data-subject-completion-form] button"
         )
-        with self.page.expect_navigation(wait_until="networkidle"):
-            row_checkbox.click()
+        self.click_subject_marker(row_checkbox)
         self.assertEqual(self.page.url, theme_url)
         self.assertEqual(row_checkbox.get_attribute("aria-checked"), "true")
         expect(
@@ -11217,11 +11341,14 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 self.assertEqual(issues, [], f"{width}px {mode}: {issues}")
                 self.assert_no_horizontal_overflow()
 
-        with self.page.expect_navigation(wait_until="domcontentloaded"):
-            equivalents.locator("[data-writing-sujet-completion-form] button").last.click()
+        self.click_subject_marker(equivalents.locator("[data-writing-sujet-completion-form] button").last)
         expect(equivalents.locator(".progress-status").first).to_have_text("Terminé")
         expect(equivalents.locator(".progress-status").last).to_have_text("Terminé")
         expect(equivalents.locator("[aria-checked='true']")).to_have_count(2)
+        self.click_subject_marker(equivalents.locator("[data-subject-bookmark-form] button").first)
+        expect(equivalents.locator("[aria-pressed='true']")).to_have_count(2)
+        self.page.reload()
+        expect(equivalents.locator("[aria-pressed='true']")).to_have_count(2)
 
     def test_annotation_search_rows_keep_identical_columns(self):
         Annotation.objects.create(
@@ -11295,13 +11422,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
 
     def test_mobile_note_dialogs_create_and_edit_cleanly(self):
         self.disable_service_worker()
-        notes_url = (
-            self.live_server_url
-            + reverse(
-                "study:task_notes",
-                args=[self.part.slug, self.task.slug],
-            )
-        )
+        notes_url = self.live_server_url + reverse("study:custom_notes")
         self.page.goto(notes_url)
         self.page.get_by_role("button", name="Nouvelle note").click()
 
@@ -11373,7 +11494,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             "strong",
             has_text="un point important",
         ).wait_for()
-        self.assertTrue(self.page.url.split("#")[-1].startswith("note-"))
+        self.assertEqual(urlsplit(self.page.url).path, reverse("study:custom_notes"))
 
         note_card.get_by_role("button", name="Modifier la note").click()
         edit_dialog = self.page.locator("#note-edit-dialog")
@@ -11447,10 +11568,15 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             dialog.get_by_role(
                 "button", name="Enregistrer", exact=True,
             ).click()
-            self.page.wait_for_url(self.live_server_url + personal_url + "**")
+            expect(dialog).to_be_hidden()
+            self.assertEqual(urlsplit(self.page.url).path, path)
+            self.assertEqual(parse_qs(urlsplit(self.page.url).query), {
+                "q": ["absent"], "status": ["done"],
+            })
             note = Annotation.objects.get(user=self.user, title=title)
             self.assertIsNone(note.task_id)
             self.assertEqual((note.source_path, note.source_key, note.quote), ("", "", ""))
+            self.page.goto(self.live_server_url + personal_url)
             expect(self.page.locator(f"#note-{note.pk}")).to_be_visible()
 
     def test_new_note_can_explicitly_choose_a_different_task_group(self):
@@ -11472,9 +11598,11 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             "button", name="Enregistrer", exact=True,
         ).click()
         destination = reverse("study:task_notes", args=["ee", "tache-1"])
-        self.page.wait_for_url(self.live_server_url + destination + "**")
+        expect(dialog).to_be_hidden()
+        self.assertEqual(urlsplit(self.page.url).path, path)
         note = Annotation.objects.get(user=self.user, title="Mon carnet EE1")
         self.assertEqual(note.task_id, ee.pk)
+        self.page.goto(self.live_server_url + destination)
         expect(self.page.locator(f"#note-{note.pk}")).to_be_visible()
         self.page.get_by_role("button", name="Nouvelle note", exact=True).click()
         expect(dialog.get_by_label("Groupe", exact=True)).to_have_value("")
@@ -12241,9 +12369,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             });
             """
         )
-        notes_url = reverse(
-            "study:task_notes", args=[self.part.slug, self.task.slug]
-        )
+        notes_url = reverse("study:custom_notes")
         self.page.goto(self.live_server_url + notes_url)
         self.page.get_by_role("button", name="Nouvelle note").click()
 
@@ -12255,10 +12381,9 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             name="Coller et fermer",
             exact=True,
         )
-        self.assertIn(
-            "ui-icons.svg?v=4#icon-clipboard-paste",
-            paste_close.locator("use").get_attribute("href"),
-        )
+        self.assertTrue(paste_close.locator("use").get_attribute("href").endswith(
+            "#icon-clipboard-paste"
+        ))
         paste_close.click()
 
         note_card = self.page.locator(
@@ -12291,9 +12416,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             });
             """
         )
-        notes_url = reverse(
-            "study:task_notes", args=[self.part.slug, self.task.slug]
-        )
+        notes_url = reverse("study:custom_notes")
         self.page.goto(self.live_server_url + notes_url)
         self.page.get_by_role("button", name="Nouvelle note").click()
 
@@ -12480,7 +12603,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             "Matching edited body"
         )
         self.assertEqual(urlsplit(self.page.url).query, urlsplit(page_two).query)
-        self.assertEqual(urlsplit(self.page.url).fragment, f"note-{notes[51].pk}")
+        self.assertEqual(urlsplit(self.page.url).fragment, urlsplit(page_two).fragment)
         expect(
             self.page.get_by_role("button", name="Tableau", exact=True)
         ).to_have_attribute("aria-pressed", "true")
@@ -12824,7 +12947,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.assertEqual(external.get_attribute("target"), "_blank")
         self.assertIn("noopener", external.get_attribute("rel").split())
 
-    def test_new_note_from_later_page_returns_to_its_first_page_anchor(self):
+    def test_new_note_from_later_page_preserves_its_filters_and_page(self):
         self._pagination_annotations(51)
         url = reverse("study:task_notes", args=[self.part.slug, self.task.slug])
         self.page.goto(
@@ -12839,13 +12962,13 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         dialog.get_by_role(
             "button", name="Enregistrer", exact=True,
         ).click()
-        new = self.page.locator(".annotation-card", has_text="Matching new note")
-        expect(new).to_have_count(1)
-        expect(self.page.locator("[data-annotation-item]")).to_have_count(50)
-        self.assertEqual(parse_qs(urlsplit(self.page.url).query).get("page", ["1"]), ["1"])
-        self.assertEqual(urlsplit(self.page.url).fragment, new.get_attribute("id"))
+        expect(dialog).to_be_hidden()
+        expect(self.page.locator("[data-hero-count='notes']")).to_have_text("52")
+        expect(self.page.locator("[data-annotation-item]")).to_have_count(2)
+        self.assertEqual(parse_qs(urlsplit(self.page.url).query).get("page"), ["2"])
+        self.assertEqual(urlsplit(self.page.url).fragment, "")
         expect(self.page.locator(".collection-pagination__summary")).to_have_text(
-            "Page 1 sur 2"
+            "Page 2 sur 2"
         )
 
     def test_annotation_search_opens_an_older_note_on_its_actual_page(self):
@@ -12958,7 +13081,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         notes_url = self.live_server_url + reverse(
             "study:task_notes", args=[self.part.slug, self.task.slug]
         )
-        for action in ("study", "complete", "delete"):
+        for action in ("study", "complete", "pin", "delete"):
             with self.subTest(action=action):
                 self.page.goto(notes_url)
                 form = self.page.locator(
@@ -13073,6 +13196,187 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             "filter", "blur(5px)"
         )
 
+    def test_note_pin_and_edit_reconcile_groups_and_search_without_navigation(self):
+        note = Annotation.objects.create(
+            user=self.user, kind=AnnotationKind.NOTE,
+            title="Matching ancien", body="Texte original.",
+            created_at=timezone.now() - timezone.timedelta(days=40),
+        )
+        url = self.live_server_url + reverse("study:custom_notes") + "?q=Matching&sort_earlier=asc"
+        self.page.goto(url)
+        self.page.evaluate("window.__notesRetained = true")
+        self.page.get_by_role("button", name="Tableau", exact=True).click()
+        self.page.locator('[data-notes-recall] [data-recall-column="english"]').click()
+        card = self.page.locator(f"#note-{note.pk}")
+        card.locator('[data-recall-cell="english"]').click()
+        card.get_by_role("button", name="Épingler la note", exact=True).click()
+        expect(self.page.locator("#notes-pinned-heading")).to_have_count(1)
+        expect(card.locator('[data-recall-cell="english"] [data-recall-content]')).to_have_css(
+            "filter", "none"
+        )
+        card.get_by_role("button", name="Désépingler la note", exact=True).click()
+        expect(self.page.locator("#notes-earlier-heading")).to_have_count(1)
+        expect(self.page.locator("#notes-pinned-heading")).to_have_count(0)
+        card.get_by_role("button", name="Modifier la note", exact=True).click()
+        dialog = self.page.locator("#note-edit-dialog")
+        dialog.get_by_label("Titre (facultatif)").fill("Autre titre")
+        dialog.get_by_role("button", name="Enregistrer", exact=True).click()
+        expect(dialog).to_be_hidden()
+        expect(card).to_have_count(0)
+        expect(self.page.locator('[data-hero-count="notes"]')).to_have_text("0")
+        expect(self.page.locator('[data-scope-count="custom"]').first).to_have_text("1")
+        self.assertEqual(self.page.url, url)
+        self.assertTrue(self.page.evaluate("window.__notesRetained"))
+        note.refresh_from_db()
+        self.assertEqual(note.title, "Autre titre")
+        self.assertFalse(note.is_pinned)
+
+    def test_concurrent_note_actions_discard_stale_refresh_and_keep_drafts(self):
+        notes = self._pagination_annotations(52)
+        url = self.live_server_url + reverse(
+            "study:task_notes", args=[self.part.slug, self.task.slug]
+        ) + "?q=Matching&status=todo&page=2"
+        self.page.goto(url)
+        self.page.evaluate("""() => {
+            window.__notesRetained = true;
+            const originalFetch = window.fetch;
+            let held = false;
+            window.fetch = (url, options) => originalFetch(url, options).then(response => {
+                if (!held && url === location.href && (!options.method || options.method === "GET")) {
+                    held = true;
+                    return new Promise(resolve => {
+                        window.__releaseNoteSnapshot = () => resolve(response);
+                    });
+                }
+                return response;
+            });
+        }""")
+        self.page.locator(f"#note-{notes[0].pk}").get_by_role(
+            "button", name="Ajouter à étudier", exact=True
+        ).click()
+        self.page.wait_for_function("() => typeof window.__releaseNoteSnapshot === 'function'")
+        self.page.locator(f"#note-{notes[1].pk}").get_by_role(
+            "button", name="Marquer comme terminé", exact=True
+        ).click()
+        expect(self.page.locator(f"#note-{notes[1].pk} .annotation-card__done")).to_be_visible()
+        self.page.locator("#notes-search").fill("Recherche non envoyée")
+        self.page.get_by_role("button", name="Nouvelle note", exact=True).click()
+        dialog = self.page.locator("#note-create-dialog")
+        dialog.get_by_label("Votre note").fill("Un brouillon indépendant.")
+        self.page.evaluate("window.__releaseNoteSnapshot()")
+        expect(self.page.locator("[data-annotation-item]")).to_have_count(50)
+        expect(self.page.locator('[data-tab-count="notes"]')).to_have_text("50")
+        expect(self.page.locator(".collection-pagination")).to_have_count(0)
+        expect(dialog).to_be_visible()
+        expect(dialog.get_by_label("Votre note")).to_have_value("Un brouillon indépendant.")
+        expect(self.page.locator("#notes-search")).to_have_value("Recherche non envoyée")
+        self.assertEqual(parse_qs(urlsplit(self.page.url).query), {
+            "q": ["Matching"], "status": ["todo"], "tab": ["notes"], "page": ["1"],
+        })
+        self.assertTrue(self.page.evaluate("window.__notesRetained"))
+        notes[0].refresh_from_db()
+        notes[1].refresh_from_db()
+        self.assertTrue(notes[0].study_later)
+        self.assertTrue(notes[1].completed)
+
+    def test_pinning_on_later_notes_page_refills_without_following_the_pin(self):
+        notes = self._pagination_annotations(51)
+        url = self.live_server_url + reverse(
+            "study:task_notes", args=[self.part.slug, self.task.slug]
+        ) + "?q=Matching&status=todo&page=2"
+        self.page.goto(url)
+        self.page.evaluate("window.__notesRetained = true")
+        self.page.locator(f"#note-{notes[0].pk}").get_by_role(
+            "button", name="Épingler la note", exact=True
+        ).click()
+        expect(self.page.locator(f"#note-{notes[0].pk}")).to_have_count(0)
+        expect(self.page.locator(f"#note-{notes[1].pk}")).to_have_count(1)
+        expect(self.page.locator('[data-hero-count="notes"]')).to_have_text("51")
+        expect(self.page.locator(".collection-pagination__summary")).to_have_text("Page 2 sur 2")
+        self.assertEqual(self.page.url, url)
+        self.assertTrue(self.page.evaluate("window.__notesRetained"))
+        notes[0].refresh_from_db()
+        self.assertTrue(notes[0].is_pinned)
+
+    def test_note_creation_errors_and_saved_refresh_failure_never_duplicate_a_note(self):
+        url = self.live_server_url + reverse("study:custom_notes")
+        self.page.goto(url)
+        self.page.evaluate("window.__notesRetained = true")
+        self.page.get_by_role("button", name="Nouvelle note", exact=True).click()
+        dialog = self.page.locator("#note-create-dialog")
+        dialog.get_by_label("Votre note").fill("Brouillon privé.")
+        requests = []
+        self.page.route(url, lambda route: requests.append(route))
+        dialog.get_by_role("button", name="Enregistrer", exact=True).click()
+        expect(dialog.get_by_role("button", name="Enregistrer", exact=True)).to_be_disabled()
+        self.page.keyboard.press("Escape")
+        expect(dialog).to_be_visible()
+        dialog.locator("form").evaluate("form => form.requestSubmit()")
+        self.assertEqual(len(requests), 1)
+        requests[0].fulfill(status=503, json={"error": "Échec temporaire."})
+        expect(dialog.locator("[data-annotation-create-error]")).to_have_text("Échec temporaire.")
+        expect(dialog.get_by_label("Votre note")).to_have_value("Brouillon privé.")
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 0)
+        self.page.unroute(url)
+
+        def fail_refresh(route):
+            if route.request.method == "GET":
+                route.fulfill(status=503, body="Unavailable")
+            else:
+                route.continue_()
+
+        self.page.route(url, fail_refresh)
+        dialog.get_by_role("button", name="Enregistrer", exact=True).click()
+        expect(dialog).to_be_hidden()
+        expect(self.page.locator("[data-annotation-toast]")).to_contain_text("Action enregistrée")
+        self.assertEqual(Annotation.objects.filter(user=self.user, body="Brouillon privé.").count(), 1)
+        self.page.get_by_role("button", name="Nouvelle note", exact=True).click()
+        expect(dialog.get_by_label("Votre note")).to_have_value("")
+        self.assertTrue(self.page.evaluate("window.__notesRetained"))
+
+    def test_search_study_bookmarks_refill_results_and_preserve_unsubmitted_filters(self):
+        notes = self._pagination_annotations(101, study_later=True)
+        url = self.live_server_url + reverse("study:annotation_search") + "?q=Matching&study=1"
+        self.page.goto(url)
+        self.page.evaluate("window.__notesRetained = true")
+        self.page.get_by_role("search").locator('input[name="q"]').fill("Recherche en cours")
+        card = self.page.locator(f"#annotation-{notes[-1].pk}")
+        card.get_by_role("button", name="Retirer de l’étude", exact=True).click()
+        expect(card).to_have_count(0)
+        expect(self.page.locator("[data-annotation-item]")).to_have_count(100)
+        expect(self.page.locator(f"#annotation-{notes[0].pk}")).to_have_count(1)
+        expect(self.page.locator("[data-annotation-result-count]")).to_have_text("100 éléments")
+        expect(self.page.locator("[data-annotation-result-limit]")).not_to_be_visible()
+        expect(self.page.get_by_role("search").locator('input[name="q"]')).to_have_value("Recherche en cours")
+        self.assertEqual(self.page.url, url)
+        self.assertTrue(self.page.evaluate("window.__notesRetained"))
+        notes[-1].refresh_from_db()
+        self.assertFalse(notes[-1].study_later)
+
+    def test_note_plain_forms_create_edit_and_update_markers_without_javascript(self):
+        context = self.browser.new_context(
+            java_script_enabled=False, service_workers="block",
+            storage_state=self.context.storage_state(),
+        )
+        self.addCleanup(context.close)
+        page = context.new_page()
+        page.goto(self.live_server_url + reverse("study:custom_notes"))
+        create = page.locator("noscript details").first
+        create.locator("summary").click()
+        create.get_by_label("Votre note").fill("Corps sans JavaScript.")
+        create.get_by_role("button", name="Enregistrer", exact=True).click()
+        note = Annotation.objects.get(user=self.user, body="Corps sans JavaScript.")
+        card = page.locator(f"#note-{note.pk}")
+        edit = card.locator("noscript details")
+        edit.locator("summary").click()
+        edit.get_by_label("Votre note").fill("Corps corrigé sans JavaScript.")
+        edit.get_by_role("button", name="Enregistrer", exact=True).click()
+        for label in ("Épingler la note", "Ajouter à étudier", "Marquer comme terminé"):
+            card.get_by_role("button", name=label, exact=True).click()
+        note.refresh_from_db()
+        self.assertEqual(note.body, "Corps corrigé sans JavaScript.")
+        self.assertTrue(note.is_pinned and note.study_later and note.completed)
+
     def test_notes_actions_apply_in_place_in_table_mode(self):
         recent = [
             Annotation.objects.create(
@@ -13169,10 +13473,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             node.wait_for(state="detached")
         self.assertEqual(sections.count(), 0)
         self.page.locator("#notes-panel .empty").wait_for(state="visible")
-        self.assertEqual(
-            self.page.locator("[data-collection-view-toggle]").count(),
-            0,
-        )
+        expect(self.page.locator("[data-collection-view-toggle]")).not_to_be_visible()
         self.assertEqual(self.page.url, url_before)
         self.assert_no_horizontal_overflow()
 
@@ -15964,6 +16265,39 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         first.refresh_from_db()
         self.assertEqual(first.title, "Titre révisé")
         self.assertEqual(first.body, "Contenu **révisé**.")
+
+    def test_study_deck_background_actions_keep_position_and_update_personal_title(self):
+        notes = self._pagination_annotations(2, study_later=True)
+        self.page.goto(self.live_server_url + reverse("study:annotation_study"))
+        self.page.evaluate("window.__notesRetained = true")
+        card = self.page.locator(f'[data-study-card][data-study-id="{notes[-1].pk}"]')
+        endpoint = "**" + reverse("study:annotation_study_toggle", args=[notes[-1].pk])
+        pending = []
+        self.page.route(endpoint, lambda route: pending.append(route))
+        card.locator('[data-study-flag="study_later"]').click()
+        expect(card.locator('[data-study-flag="completed"]')).to_be_disabled()
+        self.page.locator("[data-study-next]").click()
+        second = self.page.locator(f'[data-study-card][data-study-id="{notes[0].pk}"]')
+        second.locator('[data-study-flag="completed"]').click()
+        expect(second.locator('[data-study-flag="completed"]')).to_have_attribute("aria-pressed", "true")
+        pending[0].continue_()
+        expect(card.locator('[data-study-flag="study_later"]')).to_have_attribute("aria-pressed", "false")
+        expect(self.page.locator("[data-study-progress]")).to_have_text("2 / 2")
+        second.locator("[data-annotation-edit]").click()
+        dialog = self.page.locator("#note-edit-dialog")
+        dialog.get_by_label("Titre (facultatif)").fill("Titre personnel révisé")
+        dialog.get_by_label("Votre note").fill("Corps **révisé**.")
+        dialog.get_by_role("button", name="Enregistrer", exact=True).click()
+        expect(dialog).to_be_hidden()
+        expect(second.locator("[data-study-front] h2")).to_have_text("Titre personnel révisé")
+        self.page.locator("[data-study-reveal]").click()
+        expect(second.locator("[data-study-back] h2")).to_have_text("Titre personnel révisé")
+        expect(second.locator("[data-study-back] strong")).to_have_text("révisé")
+        expect(self.page.locator("[data-study-progress]")).to_have_text("2 / 2")
+        self.assertTrue(self.page.evaluate("window.__notesRetained"))
+        notes[0].refresh_from_db()
+        self.assertEqual(notes[0].title, "Titre personnel révisé")
+        self.assertTrue(notes[0].completed)
 
     def test_study_deck_reads_the_selected_passage_of_a_note(self):
         self.context.add_init_script(

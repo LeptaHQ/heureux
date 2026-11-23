@@ -1,0 +1,22 @@
+.eo-rehearsal h1 { font-size: clamp(1.8rem, 4vw, 2.7rem); overflow-wrap: anywhere; }
+.eo-rehearsal .eo-studio__heading { align-items: start; }
+.eo-rehearsal .eo-kicker { margin-top: .6rem; }
+.eo-rehearsal__tabs { display: flex; flex-wrap: wrap; gap: .5rem 1.3rem; margin: 1rem 0; border-bottom: 1px solid var(--border); padding-bottom: .8rem; font-size: .9rem; }
+.eo-rehearsal__tabs [aria-current] { color: var(--tone-oral); font-weight: 700; }
+.eo-rehearsal__prompt { display: grid; gap: .5rem; margin-bottom: 1.1rem; padding: 1rem 1.2rem; border: 1px solid var(--border); background: var(--surface); }
+.eo-rehearsal__prompt h2 { display: flex; align-items: center; gap: .5rem; font-size: 1rem; }
+.eo-rehearsal__prompt h2 .ui-icon { box-sizing: content-box; width: 1rem; height: 1rem; padding: .3rem; border-radius: 50%; color: var(--tone-oral); background: var(--tone-oral-soft); }
+.eo-rehearsal__prompt p { max-width: 75ch; line-height: 1.6; }
+.eo-rehearsal__setup { display: grid; justify-items: start; gap: .9rem; max-width: 70ch; padding: .8rem 0; }
+.eo-rehearsal__setup h2 { font-size: 1.5rem; }
+.eo-rehearsal__model { width: 100%; border-bottom: 1px solid var(--border); padding-bottom: .75rem; }
+.eo-rehearsal__model summary { font-weight: 650; cursor: pointer; min-height: 2rem; }
+.eo-rehearsal__model p { padding-top: .5rem; line-height: 1.6; }
+.eo-rehearsal__actions { display: flex; flex-wrap: wrap; gap: .7rem; }
+.eo-rehearsal__reply { display: grid; gap: .7rem; padding-top: .3rem; }
+.eo-rehearsal__reply h2 { font-size: 1.3rem; line-height: 1.5; }
+.eo-rehearsal .eo-console h2 { font-size: clamp(1.65rem, 3vw, 2.1rem); }
+.eo-rehearsal .eo-console__note { font-size: 1rem; }
+.eo-rehearsal__done { display: grid; justify-items: start; gap: .8rem; }
+.eo-rehearsal__privacy { max-width: 90ch; margin-top: 1rem !important; }
+.eo-rehearsal button, .eo-rehearsal .btn { white-space: normal; text-align: start; }

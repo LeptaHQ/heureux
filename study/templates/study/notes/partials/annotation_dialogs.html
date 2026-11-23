@@ -17,6 +17,7 @@
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ request.get_full_path }}">
     <div class="form-dialog__body">
+      <p class="form-dialog__error" role="alert" hidden data-annotation-create-error></p>
       <div class="notes-form-field">
         <label for="{{ form.task.id_for_label }}">{{ form.task.label }}</label>
         {{ form.task }}
@@ -65,6 +66,23 @@
   </form>
 </dialog>
 
-{% if notes %}
-  {% include "study/notes/partials/annotation_edit_dialog.html" %}
-{% endif %}
+{% include "study/notes/partials/annotation_edit_dialog.html" %}
+
+<noscript>
+  <details class="card">
+    <summary>Nouvelle note</summary>
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ request.get_full_path }}">
+      {{ form.errors }}
+      <p><label>Groupe <select name="task">
+        {% for value, label in form.task.field.choices %}
+          <option value="{{ value }}" {% if form.task.value|stringformat:"s" == value|stringformat:"s" %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select></label></p>
+      <p><label>Titre (facultatif) <input name="title" maxlength="160" value="{{ form.title.value|default_if_none:'' }}"></label></p>
+      <p><label>Votre note <textarea name="body" rows="5" required>{{ form.body.value|default_if_none:'' }}</textarea></label></p>
+      <button class="btn" type="submit">Enregistrer</button>
+    </form>
+  </details>
+</noscript>

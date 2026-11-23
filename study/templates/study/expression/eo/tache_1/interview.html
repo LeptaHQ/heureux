@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Entretien dirigé · Tâche 1 · Heureux{% endblock %}
+{% block title %}Simulation · {{ task.short_label }} · Entretien dirigé · Heureux{% endblock %}
 {% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo1-interview.css' %}?v=2">{% endblock %}
 {% block content %}
 {% include "study/expression/partials/task_nav.html" %}

@@ -6,7 +6,7 @@
   const button = by("assess");
   if (!button) return;
   const late = "Le bilan n’est pas arrivé à temps. Vous pouvez réessayer dans cet onglet.";
-  let rows, onResult, pending, grant, simulation, elapsed;
+  let rows, onResult, pending, grant, simulation, elapsed, attemptId;
   const status = (text, busy = false) => {
     button.setAttribute("aria-busy", String(busy));
     const message = by("assessment-status");
@@ -100,6 +100,7 @@
     simulation = id;
     elapsed = Math.round(spoken);
     const hasSpeech = rows?.some(row => row.speaker === "user" && row.text.trim());
+    attemptId = !opinion && hasSpeech && !id ? crypto.randomUUID() : null;
     button.disabled = true;
     by("assessment").open = by("proposal-card").open = true;
     by("level").textContent = "Non évalué";
@@ -125,8 +126,10 @@
   // Saving is not aborted by « Nouvel essai », so a quickly dismissed exchange still reaches the account.
   async function save() {
     try {
-      const response = await fetch(root.dataset.saveUrl, post({}, {elapsed, rows: rows.map(({speaker, text, interrupted}) =>
-        interrupted ? {speaker, text, interrupted: true} : {speaker, text})}));
+      const options = post({}, {elapsed, rows: rows.map(({speaker, text, interrupted}) =>
+        interrupted ? {speaker, text, interrupted: true} : {speaker, text})});
+      if (attemptId) options.headers["Idempotency-Key"] = attemptId;
+      const response = await fetch(root.dataset.saveUrl, options);
       return response.status === 201 ? (await response.json()).id : null;
     } catch {
       return null;

@@ -300,7 +300,11 @@
   async function connect(s) {
     if (!owns(s) || state() !== (opinion ? "reading" : "prep")) return;
     clearTimeout(s.timer); phase("connecting","Connexion");
-    by("notepad").open = false; text("status",`Autorisez le micro. Les ${timeLabel} commencent une fois la connexion établie.`);
+    const notes = by("notes");
+    by("notepad").open = !opinion && Boolean(notes.value.trim());
+    if (document.activeElement === notes) by("notepad").querySelector("summary").focus({preventScroll:true});
+    notes.scrollTop = 0;
+    text("status",`Autorisez le micro. Les ${timeLabel} commencent une fois la connexion établie.`);
     s.watchdog = setTimeout(() => finish(s,"Le délai d’autorisation du micro a expiré."),120000);
     try {
       const stream = await navigator.mediaDevices.getUserMedia({video:false,audio:{channelCount:1,echoCancellation:true,noiseSuppression:true}});

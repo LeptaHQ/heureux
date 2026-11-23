@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Simulation · EO Tâche 2 · {{ topic.title }} · Historique · Heureux{% endblock %}
+{% block content %}
+<section class="sim-page sim-tone--eo" aria-labelledby="history-title">
+  <nav class="sim-back" aria-label="Retour"><a href="{% url 'study:eo2_topic_picker' %}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Choisir un sujet</a></nav>
+  <header class="sim-head">
+    <p class="sim-kicker">EO Tâche 2 · Historique</p><h1 id="history-title">{{ topic.title }}</h1>
+    <p>{{ page.paginator.count }} séance{% if page.paginator.count > 1 %}s{% endif %} de simulation · {{ topic.source }}</p>
+  </header>
+  <a class="btn btn--primary" href="{% if token == 'atelier-photo' %}{% url 'study:eo_tache_two_interaction' %}{% else %}{% url 'study:eo2_rehearsal' token %}{% endif %}">Pratiquer ce sujet</a>
+  <ol class="eo2-history-list">
+    {% for entry in page %}
+      <li><time datetime="{{ entry.created_at|date:'c' }}">{{ entry.created_at|date:"j F Y · H:i" }}</time>
+        <span>{{ entry.vocal|yesno:"Studio vocal,Entraînement guidé" }}</span>
+        {% if live_url and entry.live_simulation_id %}<a href="{{ live_url }}?simulation={{ entry.live_simulation_id }}">Revoir la séance</a>{% endif %}</li>
+    {% empty %}<li>Pas encore de séance enregistrée sur ce sujet.</li>{% endfor %}
+  </ol>
+  {% include "study/simulation/eo2_pager.html" %}
+</section>
+{% endblock %}

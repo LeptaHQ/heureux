@@ -75,9 +75,13 @@
           {% if item.source_path %}<a class="annotation-study__source" href="{{ item.source_path }}" target="_blank" rel="noopener">Voir la source {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
         </div>
         <div class="flashcard-deck__actions annotation-study__card-actions">
+          <form method="post" action="{% url 'study:annotation_study_toggle' item.id %}" data-study-action>
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
+          <input type="hidden" name="study_later" value="{{ item.study_later|yesno:'0,1' }}">
           <button
             class="linkbtn annotation-action"
-            type="button"
+            type="submit"
             data-study-flag="study_later"
             data-study-flag-url="{% url 'study:annotation_study_toggle' item.id %}"
             data-study-flag-on="Retirer de l’étude"
@@ -93,9 +97,14 @@
             </span>
             <span class="sr-only" data-study-flag-label>{% if item.study_later %}Retirer de l’étude{% else %}Ajouter à étudier{% endif %}</span>
           </button>
+          </form>
+          <form method="post" action="{% url 'study:annotation_complete_toggle' item.id %}" data-study-action>
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
+          <input type="hidden" name="completed" value="{{ item.completed|yesno:'0,1' }}">
           <button
             class="linkbtn annotation-action"
-            type="button"
+            type="submit"
             data-study-flag="completed"
             data-study-flag-url="{% url 'study:annotation_complete_toggle' item.id %}"
             data-study-flag-on="Marquer comme à faire"
@@ -111,6 +120,7 @@
             </span>
             <span class="sr-only" data-study-flag-label>{% if item.completed %}Marquer comme à faire{% else %}Marquer comme terminé{% endif %}</span>
           </button>
+          </form>
           {% if item.kind != "highlight" %}
           <button
             class="linkbtn annotation-action"
@@ -126,9 +136,12 @@
             <span class="sr-only">Modifier la note</span>
           </button>
           {% endif %}
+          <form method="post" action="{% url 'study:annotation_delete' item.id %}" data-study-action>
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
           <button
             class="linkbtn linkbtn--muted annotation-action"
-            type="button"
+            type="submit"
             data-study-delete
             data-study-delete-url="{% url 'study:annotation_delete' item.id %}"
             data-study-delete-confirm="{% if item.kind == 'highlight' %}Supprimer ce surlignage ?{% else %}Supprimer cette note ?{% endif %}"
@@ -140,7 +153,9 @@
             </span>
             <span class="sr-only">{% if item.kind == "highlight" %}Supprimer le surlignage{% else %}Supprimer la note{% endif %}</span>
           </button>
+          </form>
         </div>
+        {% if item.kind == "note" %}{% include "study/notes/partials/annotation_plain_edit.html" with annotation=item %}{% endif %}
       </article>
     {% endfor %}
   </div>

@@ -62,6 +62,21 @@ The Expression hub and oral/written landing pages are metadata-only navigation:
 titles, descriptions, icons and links, without catalogue/progress/due counts or
 statistics requests. EO/EE task overviews aggregate the study progress they
 actually display without constructing full subject directories or review links.
+The navbar’s **Simulation** entry opens `/simulation/`. Its oral track links to the
+guided interview and role-play, plus the EO2/EO3 voice studios when enabled. The
+written track links to available EE task subjects for untimed practice. Oral studio
+tab titles identify the task and, for a subject-specific session, its topic.
+In **Simulation → Expression orale → Tâche 2 → Choisir un sujet**, the Sujets table
+and its **Thème**, **Statut** and **Tri** filters let learners find a topic. Its title
+opens the exact publication; the **Séances** count opens its history. **Terminé** is
+a manual completion checkbox; **À refaire** is an independent bookmark. Both save
+in place, so learners can mark several topics without reloading the page.
+A finished guided simulation or saved voice session marks
+the topic done and adds one dated attempt. Changing either marker or reopening history
+never adds an attempt. Guided history stores no transcript or audio. Existing retained
+EO2 voice sessions are included; previously discarded sessions cannot be reconstructed.
+Expiring a voice transcript keeps the practice count; explicitly deleting it removes
+that occurrence. A progress reset clears attempts and checkmarks but keeps retry bookmarks.
 The EO2 task overview is also metadata-only navigation, retaining its practice
 prompt and links to subjects and vocabulary without summary statistics.
 Content-bearing subject, vocabulary and question pages retain their learning
@@ -102,8 +117,10 @@ publication-deduplication setting.
 
 Subject bookmarks are private to each learner and independent of progress.
 Use the bookmark beside the subject's progress controls or in its directory row;
-saved bookmarks are filled red and persist across visits. Directory bookmarks
-replace the row's copy button; copying the consigne on the subject page is unchanged.
+saved bookmarks are filled red and persist across visits. In EO2, EO3 and all
+three EE subject directories, bookmarking and marking complete save in place.
+Counts and filtered rows update without closing an open theme or resetting your
+sort. Copying the consigne on the subject page is unchanged.
 
 EO2 and EO3 retain their subject content, responses and study controls. The
 separate EO2 interaction studio does not revive the old practice launcher.
@@ -138,8 +155,9 @@ Open **Expression → EO → Tâche 2 → Interaction** for an original role-pla
 ask a cultural centre receptionist about two photography workshops and decide
 which suits you. There are two minutes of preparation and three minutes thirty
 of conversation ([official format](https://www.france-education-international.fr/test/tcf-canada?langue=fr#quevaluent-les-differentes-epreuves)).
-The learner can end preparation early in practice. The timed exchange includes
-both speakers; switching tabs does not pause it.
+The learner can end preparation early in practice. In both the guided and voice
+studios, a scratch sheet with notes opens automatically when preparation ends.
+The timed guided exchange includes both speakers; switching tabs does not pause it.
 
 The embedded French intent model uses TF-IDF similarity over labeled example
 questions, with conversation state to resolve follow-ups. It remembers stated
@@ -591,9 +609,18 @@ Notes folders show 50 records per page and load only the active tab. Search and
 tab totals cover all matching records; the study total is calculated before the
 status filter. Flashcards use the full filtered selection, while the study queue
 keeps all marked records in the folder. Page navigation works without JavaScript.
-With JavaScript, status changes and deletion update in place, including refilling
-filtered pages and moving off an emptied final page. French/English blur,
-individual reveals and the chosen card/table view stay active.
+With JavaScript, study bookmarks, completion, pinning, editing, creation and
+confirmed deletion save in the background. The active folder, filters, date
+groups, counts and pagination are reconciled without reloading; emptied final
+pages are clamped. Creating a note keeps the current view even when the chosen
+group or active filters exclude it, and reports its saved group. French/English
+blur, individual reveals, card/table mode and unsaved search/dialog input remain
+intact. Different cards can save concurrently; stale refreshes cannot undo newer
+actions. Failed writes retain the draft/state for retry; a failed list refresh
+reports that the write already succeeded. Search bookmarks update in place,
+including refilling capped results. Study-deck actions retain the queue position,
+and edited personal titles update both faces. Source, folder and flashcard links
+remain normal navigation; plain POST forms remain available without JavaScript.
 Notes can be pinned with the pin action. Within the current folder and filters,
 pinned notes appear first in an « Épinglées » section, still within the same
 50-record pagination. With JavaScript, they use compact cards with a green dot
@@ -1065,6 +1092,9 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   The EO2, EO3, and EE1–3 Sujets directories let you filter by theme and study
   progress. Choose **Statut → Favoris** to see your bookmarked subjects from
   any progress state; bookmarking a subject does not change its progress.
+  Bookmarks and completion checkboxes save without reloading. You can mark
+  several subjects in succession; equivalent publications, progress counts,
+  and filtered results update in place. A failed save restores that marker.
   Sort alphabetically or put in-progress subjects first.
   The filter bar is centered; on phones the action buttons sit centered below
   the fields. The three dropdowns support arrow keys, Enter to choose, and Escape

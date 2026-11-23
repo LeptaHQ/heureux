@@ -22,7 +22,7 @@
     <span
       class="progress-status progress-status--{{ progress.status }}"
       data-subject-progress-status="{{ prompt.response_id }}">{{ progress.label }}</span>
-    {% include "study/expression/partials/subject_completion_form.html" with response_id=prompt.response_id progress=progress subject_label=prompt.text part=part task=task refresh=True %}
+    {% include "study/expression/partials/subject_completion_form.html" with response_id=prompt.response_id progress=progress subject_label=prompt.text part=part task=task %}
   </div>
   <a
     class="subject-row-hit-area"

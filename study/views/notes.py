@@ -20,6 +20,7 @@ from django.db.utils import IntegrityError
 from django.db.models import Case, Count, F, Q, Value, When
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.template.loader import render_to_string
 from django.urls import Resolver404, resolve, reverse
 from django.utils import timezone
 from django.utils.http import url_has_allowed_host_and_scheme, urlencode
@@ -671,7 +672,18 @@ def _notes_scope(
         form = NewNoteForm(request.POST, instance=instance)
         if form.is_valid():
             note = form.save()
+            if _is_fetch(request):
+                return JsonResponse({
+                    "id": note.pk,
+                    "created": True,
+                    "scope_label": _annotation_scope_label(note),
+                }, status=201)
             return redirect(_new_note_redirect(request, note))
+        if _is_fetch(request):
+            return JsonResponse({
+                "error": "Corrigez la note avant de l'enregistrer.",
+                "errors": form.errors,
+            }, status=400)
     else:
         form = NewNoteForm()
     status_filter = _annotation_status_filter(status)
@@ -2008,6 +2020,10 @@ def annotation_update(request, pk):
                 "title": annotation.title,
                 "body": annotation.body,
                 "body_html": render_markdown(annotation.body),
+                "title_html": render_to_string(
+                    "study/notes/partials/annotation_speech_title.html",
+                    {"title": annotation.title}, request=request,
+                ),
             }
         )
     return redirect(redirect_url)
@@ -2023,6 +2039,8 @@ def annotation_pin_toggle(request, pk):
         return HttpResponseBadRequest("Invalid pin status.")
     annotation.is_pinned = value == "1"
     annotation.save(update_fields=["is_pinned"])
+    if _is_fetch(request):
+        return JsonResponse({"id": annotation.pk, "is_pinned": annotation.is_pinned})
     target = urlsplit(_annotation_redirect(request, annotation))
     params = parse_qs(target.query)
     params.pop("page", None)

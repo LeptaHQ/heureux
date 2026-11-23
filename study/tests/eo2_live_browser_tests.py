@@ -6,6 +6,7 @@ from django.urls import reverse
 from playwright.sync_api import expect
 
 from study.models import LiveSimulation
+from study.views.helpers import tache_two_publication
 
 from . import factories
 
@@ -144,10 +145,11 @@ class LiveConversationBrowserMixin:
         self.finish_prompt()
 
     def test_native_voice_subject_launch_uses_exact_consigne_and_retains_return_link(self):
-        self._import_eo_tache_two_content()
+        task = self._import_eo_tache_two_content()
         args = ("octobre", 5, 21)
         self.open_live_pilot(subject_args=args)
-        expect(self.page).to_have_title("Simulation · Heureux")
+        subject = tache_two_publication(*args)[2]
+        expect(self.page).to_have_title(f"Simulation · {task.short_label} · {subject.title} · Heureux")
         expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation")
         expect(self.page.locator(".lv-selected-subject")).to_be_visible()
         self.page.set_viewport_size({"width": 1280, "height": 850})
@@ -173,7 +175,7 @@ class LiveConversationBrowserMixin:
         prompt.save(update_fields=["text"])
         args = (prompt.pk,)
         self.open_live_pilot(opinion=True, subject_args=args)
-        expect(self.page).to_have_title("Simulation · Heureux")
+        expect(self.page).to_have_title(f"Simulation · {self.task.short_label} · {prompt.text} · Heureux")
         expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation")
         self.page.set_viewport_size({"width": 390, "height": 844})
         self.page.evaluate("document.documentElement.dataset.theme = 'dark'")
@@ -401,12 +403,16 @@ class LiveConversationBrowserMixin:
         self.page.clock.install(time="2026-03-16T10:00:00Z")
         self.page.clock.pause_at("2026-03-16T10:00:05Z")
         self.start_preparation()
+        notes = self.page.locator("#lv-notes")
+        scratch = "Premier repère\nDeuxième repère"
+        notes.fill(scratch)
         self.page.clock.fast_forward(119_000)
         expect(self.page.locator("#lv-clock")).to_have_text("00:01")
         self.assertEqual(self.page.evaluate("probe.calls"), 0)
         self.page.evaluate("probe.wait=true")
         self.page.clock.fast_forward(1_000)
         expect(self.page.locator("html")).to_have_attribute("data-waiting", "true")
+        expect(notes).to_be_visible()
         self.page.clock.fast_forward(40_000)
         self.assertEqual(len(self.token_requests), 1)  # No exchange token ages during the mic prompt.
         self.page.evaluate("probe.release()")
@@ -415,6 +421,9 @@ class LiveConversationBrowserMixin:
         expect(self.page.locator("#lv-time")).to_be_hidden()
         self.page.evaluate("probe.sockets[0].receive({setupComplete:{}})")
         expect(self.page.locator("#lv-clock")).to_have_text("03:30")
+        expect(notes).to_be_visible()
+        expect(notes).to_have_value(scratch)
+        self.assertNotIn("Premier repère", self.page.evaluate("JSON.stringify(probe.sent)"))
         self.page.clock.fast_forward(209_000)
         expect(self.page.locator("#lv-clock")).to_have_text("00:01")
         self.page.evaluate("""() => {

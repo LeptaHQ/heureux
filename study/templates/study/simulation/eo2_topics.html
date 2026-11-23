@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Simulation · EO Tâche 2 · Choisir un sujet · Heureux{% endblock %}
+{% block content %}
+<section class="sim-page sim-tone--eo" aria-labelledby="eo2-title">
+  <nav class="sim-back" aria-label="Retour"><a href="{% url 'study:simulation_track' 'eo' %}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Expression orale</a></nav>
+  <header class="sim-head">
+    <p class="sim-kicker">Simulation · EO Tâche 2</p><h1 id="eo2-title">Choisir un sujet</h1>
+    <p>Sélectionnez un sujet pour le pratiquer. Le marque-page le garde dans « À refaire ».</p>
+  </header>
+  <div class="collection-toolbar">
+    {% include "study/shared/partials/subject_directory_search.html" with search_url=request.path %}
+  </div>
+  {% include "study/shared/partials/subject_directory_filters.html" %}
+  {% include "study/simulation/eo2_topic_results.html" %}
+</section>
+{% endblock %}
+{% block scripts %}
+<script defer src="{% static 'study/js/expression/eo/tache_2/topic-markers.js' %}?v=1"></script>
+{% endblock %}

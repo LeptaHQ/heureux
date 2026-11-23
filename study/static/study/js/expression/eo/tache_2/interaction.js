@@ -6,6 +6,7 @@
   const say = (id, value) => { by(id).textContent = value; };
   const show = (id, value) => { by(id).hidden = !value; };
   const engine = window.HeureuxEO2, speech = window.HeureuxFrenchSpeech;
+  const practice = window.HeureuxEO2Practice?.(root);
   const Recognizer = window.isSecureContext && (window.SpeechRecognition || window.webkitSpeechRecognition);
   if (!engine) { say("status", "La mini-IA n’a pas pu être chargée. Rechargez la page."); return; }
   const language = {expectedInputs:[{type:"text",languages:["fr"]}],expectedOutputs:[{type:"text",languages:["fr"]}]};
@@ -157,9 +158,12 @@
     say("caption",by("prompt").textContent); by("line").focus({preventScroll:true}); tick();
   }
   function enterLive(start) {
+    practice?.begin();
     end = start + live; phase("live"); say("phase","Interaction"); say("speaker","Accueil du centre culturel");
     say("line",engine.opening); say("caption","À vous de demander les détails dont vous avez besoin.");
-    show("reference",true); say("note-copy",by("notes").value || "Vous n’avez pas pris de notes.");
+    const notes = by("notes").value;
+    say("note-copy",notes.trim() ? notes : "Vous n’avez pas pris de notes.");
+    by("reference").open = Boolean(notes.trim()); show("reference",true);
     show("repeat",by("sound").checked); controls();
     if (voiceMode()) by("line").focus({preventScroll:true}); else by("question").focus({preventScroll:true});
     if (document.hidden && voiceMode()) { paused = true; say("turn-status","Micro en pause. Reprenez quand vous êtes prêt."); controls(); }
@@ -229,6 +233,7 @@
     say("next",notes.next); say("followup",notes.linked ? `Vous avez repris une information précédente : « ${notes.linked} »` : "");
     notes.evidence.forEach(e => item("evidence",`Échange ${e.turn} · ${e.label}`,`« ${e.question} »`));
     turns.forEach(t => item("transcript",`Vous : ${t.question}`,t.reply ? `Accueil : ${t.reply}` : "Pas de réponse de l’accueil avant la fin."));
+    practice?.finish(turns.some(turn => Boolean(turn.reply)));
     by("done-title").focus();
   }
   by("voice").disabled = !Recognizer; by("voice").checked = Boolean(Recognizer);

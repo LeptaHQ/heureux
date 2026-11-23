@@ -1420,6 +1420,16 @@
     var index = 0;
     var interaction = null;
     var clearingStudy = false;
+    var pendingCards = new Set();
+
+    function setCardPending(card, pending) {
+      if (pending) pendingCards.add(card);
+      else pendingCards.delete(card);
+      card.querySelectorAll("[data-study-flag], [data-study-delete], [data-annotation-edit]").forEach(
+        function (control) { control.disabled = pending; }
+      );
+      if (clearButton) clearButton.disabled = clearingStudy || pendingCards.size > 0;
+    }
     // Nothing leaves the « À étudier » pack mid-session: the end-of-run
     // button removes the cards the learner ticked off with the card's own
     // « Marquer comme terminé » control.
@@ -1430,17 +1440,20 @@
       button.setAttribute("aria-pressed", pressed ? "true" : "false");
       button.setAttribute("aria-label", label);
       button.setAttribute("title", label);
+      var input = button.form && button.form.elements[button.dataset.studyFlag];
+      if (input) input.value = pressed ? "0" : "1";
       var text = button.querySelector("[data-study-flag-label]");
       if (text) text.textContent = label;
     }
 
     function toggleFlag(button) {
       if (button.disabled) return;
+      var card = button.closest("[data-study-card]");
       var field = button.dataset.studyFlag;
       var next = button.getAttribute("aria-pressed") !== "true";
       var formData = new FormData();
       formData.set(field, next ? "1" : "0");
-      button.disabled = true;
+      setCardPending(card, true);
       fetch(button.dataset.studyFlagUrl, {
         method: "POST",
         headers: {
@@ -1452,7 +1465,7 @@
       })
         .then(readJson)
         .then(function (payload) {
-          if (typeof payload[field] !== "boolean") {
+          if (String(payload.id) !== card.dataset.studyId || typeof payload[field] !== "boolean") {
             throw new Error("Impossible de mettre à jour cet élément.");
           }
           var pressed = Boolean(payload[field]);
@@ -1468,18 +1481,18 @@
           showToast(error.message);
         })
         .finally(function () {
-          button.disabled = false;
+          setCardPending(card, false);
         });
     }
 
-    Array.from(deck.querySelectorAll("[data-study-flag]")).forEach(
-      function (button) {
-        button.addEventListener("click", function (event) {
-          event.stopPropagation();
-          toggleFlag(button);
-        });
-      }
-    );
+    deck.addEventListener("submit", function (event) {
+      var form = event.target.closest("[data-study-action]");
+      if (!form) return;
+      event.preventDefault();
+      var button = form.querySelector("[data-study-flag], [data-study-delete]");
+      if (button.matches("[data-study-flag]")) toggleFlag(button);
+      else deleteCard(button);
+    });
 
     function removeCard(card) {
       var currentCard = cards[index];
@@ -1513,6 +1526,7 @@
       var card = button.closest("[data-study-card]");
       if (!card || button.disabled || button.dataset.pending === "true") return;
       button.dataset.pending = "true";
+      setCardPending(card, true);
       var ask = window.HeureuxConfirm
         ? window.HeureuxConfirm({
             message: button.dataset.studyDeleteConfirm,
@@ -1523,7 +1537,11 @@
             window.confirm(button.dataset.studyDeleteConfirm)
           );
       ask.then(function (ok) {
-        if (!ok) return;
+        if (!ok) {
+          setCardPending(card, false);
+          button.focus({ preventScroll: true });
+          return;
+        }
         button.disabled = true;
         return fetch(button.dataset.studyDeleteUrl, {
           method: "POST",
@@ -1535,7 +1553,7 @@
         })
           .then(readJson)
           .then(function (payload) {
-            if (payload.deleted !== true) {
+            if (String(payload.id) !== card.dataset.studyId || payload.deleted !== true) {
               throw new Error("Impossible de supprimer cet élément.");
             }
             removeCard(card);
@@ -1545,18 +1563,13 @@
         showToast(error.message);
       }).finally(function () {
         delete button.dataset.pending;
-        button.disabled = false;
+        setCardPending(card, false);
+        if (card.isConnected && !card.classList.contains("hidden") &&
+            document.activeElement === document.body) {
+          button.focus({ preventScroll: true });
+        }
       });
     }
-
-    Array.from(deck.querySelectorAll("[data-study-delete]")).forEach(
-      function (button) {
-        button.addEventListener("click", function (event) {
-          event.stopPropagation();
-          deleteCard(button);
-        });
-      }
-    );
 
     function refreshCard(payload) {
       var card = deck.querySelector(
@@ -1565,22 +1578,32 @@
       if (!card) return false;
       card.dataset.annotationEditTitle = payload.title || "";
       card.dataset.annotationEditBody = payload.body || "";
+      var titleTemplate = document.createElement("template");
+      titleTemplate.innerHTML = payload.title_html;
+      if (card.dataset.annotationEditHasQuote !== "1") {
+        var frontHeading = card.querySelector("[data-study-front] h2");
+        if (payload.title) frontHeading.replaceWith(titleTemplate.content.firstElementChild.cloneNode(true));
+        else {
+          frontHeading.textContent = "Retrouvez l'idée que vous aviez notée.";
+          ["data-read-aloud-text", "data-speech-grant", "data-speech-text"].forEach(function (name) {
+            frontHeading.removeAttribute(name);
+          });
+        }
+      }
       var back = card.querySelector("[data-study-back]");
       if (back) {
         var heading = back.querySelector("h2");
         if (payload.title) {
-          if (!heading) {
-            heading = document.createElement("h2");
-            heading.dataset.readAloudText = "";
-            heading.lang = "fr";
+          var updatedHeading = titleTemplate.content.firstElementChild.cloneNode(true);
+          if (heading) heading.replaceWith(updatedHeading);
+          else {
             var eyebrow = back.querySelector(".eyebrow");
             if (eyebrow && eyebrow.nextSibling) {
-              back.insertBefore(heading, eyebrow.nextSibling);
+              back.insertBefore(updatedHeading, eyebrow.nextSibling);
             } else {
-              back.insertBefore(heading, back.firstChild);
+              back.insertBefore(updatedHeading, back.firstChild);
             }
           }
-          heading.textContent = payload.title;
         } else if (heading) {
           heading.remove();
         }
@@ -1670,7 +1693,7 @@
           pluralize(known);
       }
       if (clearButton) {
-        clearButton.disabled = clearingStudy;
+        clearButton.disabled = clearingStudy || pendingCards.size > 0;
         clearButton.classList.toggle("hidden", known === 0);
       }
       if (restart) restart.disabled = clearingStudy || cards.length === 0;

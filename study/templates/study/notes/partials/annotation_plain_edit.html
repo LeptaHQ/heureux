@@ -1,0 +1,12 @@
+<noscript>
+  <details>
+    <summary>Modifier la note</summary>
+    <form method="post" action="{% url 'study:annotation_update' annotation.id %}">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ request.get_full_path }}">
+      <p><label>Titre (facultatif) <input name="title" maxlength="160" value="{{ annotation.title }}"></label></p>
+      <p><label>Votre note <textarea name="body" rows="5" {% if not annotation.quote %}required{% endif %}>{{ annotation.body }}</textarea></label></p>
+      <button class="btn" type="submit">Enregistrer</button>
+    </form>
+  </details>
+</noscript>

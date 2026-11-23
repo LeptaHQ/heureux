@@ -45,7 +45,7 @@
             <span
               class="progress-status progress-status--{{ subject.progress.status }}"
               data-subject-progress-status="{{ subject.response_id }}">{{ subject.progress.label }}</span>
-            {% include "study/expression/partials/subject_completion_form.html" with response_id=subject.response_id progress=subject.progress subject_label=subject.title part=part task=task refresh=True %}
+            {% include "study/expression/partials/subject_completion_form.html" with response_id=subject.response_id progress=subject.progress subject_label=subject.title part=part task=task %}
           </div>
           {% if subject.vocabulary_progress.total %}
             <small>{{ subject.vocabulary_progress.completed }}/{{ subject.vocabulary_progress.total }} vocabs terminés</small>

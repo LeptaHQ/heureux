@@ -16,8 +16,8 @@
     </h1>
     <a class="btn btn--primary" href="{{ review_url }}">Réviser ce thème</a>
   </div>
-  <p>{{ rows|length }} sujets · {{ stats.total }} réponses uniques · {{ stats.completed }} terminé{{ stats.completed|pluralize }}.</p>
-  <div class="progress" style="height:12px; max-width:520px;">
+  <p>{{ rows|length }} sujets · {{ stats.total }} réponses uniques · <span data-subject-group-completed>{{ stats.completed }} terminé{{ stats.completed|pluralize }}</span>.</p>
+  <div class="progress" data-subject-group-bar data-unique="{{ subject_deduplication_available|yesno:'true,false' }}" style="height:12px; max-width:520px;">
     <span class="bg-mature" style="width: {% widthratio stats.completed stats.total 100 %}%;"></span>
     <span class="bg-started" style="width: {% widthratio stats.started_new stats.total 100 %}%;"></span>
   </div>

@@ -1,0 +1,9 @@
+<div id="eo2-topic-results" data-status="{{ directory_selection.status }}">
+  {% if page.paginator.count %}
+    <p class="oral-sujet-result-count">{{ page.paginator.count }} sujet{{ page.paginator.count|pluralize }}{% if directory_selection.active %} sur {{ total }}{% else %} · <span data-total="done">{{ done_total }}</span> <span data-done-label>terminé{% if done_total > 1 %}s{% endif %}</span> · <span data-total="retry">{{ retry_total }}</span> à refaire{% endif %}</p>
+    {% include "study/simulation/eo2_topics_table.html" %}
+    {% include "study/simulation/eo2_pager.html" %}
+  {% else %}
+    <p class="oral-sujet-result-count" role="status">Aucun sujet ne correspond à ces filtres.</p>
+  {% endif %}
+</div>

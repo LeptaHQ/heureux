@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load study_links study_speech %}
+{% load study_links study_speech study_bookmarks %}
 {% block title %}Recherche{% if task %} · {{ task.short_label }}{% elif part %} · {{ part.name }}{% endif %} · Heureux{% endblock %}
 
 {% block content %}
@@ -45,11 +45,12 @@
           <span class="qrow__num qrow__num--tag"><span class="chip">{{ sujet.category_label }}</span></span>
           <span class="qrow__text">{{ sujet.prompt }}</span>
           <div class="qrow__meta">
+            {% with task=sujet.task %}{% subject_bookmark sujet_id=sujet.progress_sujet.pk label=sujet.prompt %}{% endwith %}
             <span class="muted">{{ sujet.task.part.short_name }} · {{ sujet.task.name }}</span>
             <span
               class="progress-status progress-status--{{ sujet.subject_progress.status }}"
               data-writing-sujet-progress-status="{{ sujet.progress_sujet.pk }}">{{ sujet.subject_progress.label }}</span>
-            {% include "study/expression/ee/partials/writing_sujet_completion_form.html" with sujet=sujet.progress_sujet completed=sujet.subject_progress.explicitly_completed subject_label=sujet.prompt part=sujet.task.part task=sujet.task refresh=True %}
+            {% include "study/expression/ee/partials/writing_sujet_completion_form.html" with sujet=sujet.progress_sujet completed=sujet.subject_progress.explicitly_completed subject_label=sujet.prompt part=sujet.task.part task=sujet.task %}
           </div>
           <a
             class="subject-row-hit-area"

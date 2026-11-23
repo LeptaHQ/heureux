@@ -683,6 +683,7 @@ class SmokeTests(TestCase):
             ("study:dashboard", "study:dashboard"),
             ("study:comprehension_hub", "study:comprehension_hub"),
             ("study:expression", "study:expression"),
+            ("study:simulation", "study:simulation"),
             ("study:notes_overview", "study:notes_overview"),
             ("study:stats", "study:stats"),
         )
@@ -702,6 +703,37 @@ class SmokeTests(TestCase):
                     ),
                     1,
                 )
+
+    def test_simulation_tracks_link_to_available_studios_or_subjects(self):
+        oral, written = (reverse("study:simulation_track", args=[part]) for part in ("eo", "ee"))
+        hub = self.client.get(reverse("study:simulation"))
+        for track in (oral, written):
+            self.assertContains(hub, f'href="{track}"')
+
+        for number in (1, 2, 3):
+            factories.make_task(factories.make_part("eo"), f"tache-{number}")
+        writing = factories.make_task(factories.make_part("ee"), "tache-1")
+        factories.make_task(writing.part, "tache-2", available=False)
+        with self.settings(GEMINI_LIVE_API_KEY=""):
+            page = self.client.get(oral)
+            for name in ("study:eo_tache_one_interview", "study:eo_tache_two_interaction"):
+                self.assertContains(page, f'href="{reverse(name)}"')
+                self.assertEqual(self.client.get(reverse(name)).context["active_nav_area"], "simulation")
+            self.assertNotContains(page, 'Ouvrir le studio vocal')
+            self.assertContains(page, f'href="{reverse("study:task_browse", args=["eo", "tache-3"])}"')
+        with self.settings(GEMINI_LIVE_API_KEY="test-only", AI_PIN="test-pin"):
+            page = self.client.get(oral)
+            for name, topic in (("study:eo_tache_two_live", "Choisir un atelier photo"),
+                                ("study:eo_tache_three_live", "Découvrir une ville")):
+                self.assertContains(page, f'href="{reverse(name)}"')
+                studio = self.client.get(reverse(name))
+                self.assertEqual(studio.context["active_nav_area"], "simulation")
+                self.assertContains(studio, f'<title>Simulation · {studio.context["task"].short_label} · {topic} · Heureux</title>')
+        page = self.client.get(written)
+        self.assertEqual(page.context["active_nav_area"], "simulation")
+        self.assertContains(page, "La simulation chronométrée n’est pas encore disponible.")
+        self.assertContains(page, f'href="{reverse("study:task_browse", args=["ee", writing.slug])}"')
+        self.assertNotContains(page, f'href="{reverse("study:task_browse", args=["ee", "tache-2"])}"')
 
     def test_hierarchy_pages_render(self):
         self.assertEqual(
@@ -917,6 +949,7 @@ class SmokeTests(TestCase):
             "study:learn",
             "study:comprehension_hub",
             "study:expression",
+            "study:simulation",
             "study:notes_overview",
             "study:stats",
         ):
@@ -944,13 +977,14 @@ class SmokeTests(TestCase):
         self.assertContains(
             response,
             'class="nav__primary-link',
-            count=6,
+            count=7,
         )
         for label in (
             "Accueil",
             "Apprendre",
             "Compréhension",
             "Expression",
+            "Simulation",
             "Notes",
             "Stats",
         ):
@@ -968,7 +1002,7 @@ class SmokeTests(TestCase):
             'class="nav__group nav__group--tools" role="group" '
             'aria-label="Outils personnels"',
         )
-        self.assertContains(response, 'class="nav__item-icon"', count=6)
+        self.assertContains(response, 'class="nav__item-icon"', count=7)
         self.assertNotContains(response, 'class="footer__inner"')
 
     def test_global_pages_do_not_false_highlight_task_navigation(self):

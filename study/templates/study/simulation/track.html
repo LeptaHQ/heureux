@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Simulation · {{ track.title }} · Heureux{% endblock %}
+{% block content %}
+<section class="sim-page sim-tone--{{ part_slug }}" aria-labelledby="sim-title">
+  <nav class="sim-back" aria-label="Fil d’Ariane">
+    <a href="{% url 'study:simulation' %}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Simulation</a>
+  </nav>
+  <header class="sim-head">
+    <p class="sim-kicker">{% include "study/shared/partials/ui_icon.html" with name=track.icon only %} {{ track.code }} · TCF Canada</p>
+    <h1 id="sim-title">{{ track.title }}</h1>
+    <p>{% if part_slug == "ee" %}La simulation chronométrée n’est pas encore disponible. En attendant, entraînez-vous sur un sujet de chaque tâche.{% else %}Choisissez une tâche pour vous entraîner à votre rythme.{% endif %}</p>
+  </header>
+  <ol class="sim-tasks">
+    {% for row in rows %}
+      <li class="sim-task">
+        <div class="sim-task__meta"><span>Tâche {{ row.number }}</span><span>{{ row.format }}</span></div>
+        <h2>{{ row.title }}</h2>
+        <p>{{ row.description }}</p>
+        {% if row.hint %}<p class="sim-task__hint">{{ row.hint }}</p>{% endif %}
+        <div class="sim-task__actions">
+          {% for label, href in row.links %}<a class="btn btn--sm{% if forloop.first %} btn--primary{% endif %}" href="{{ href }}">{{ label }}<span class="sr-only"> · {{ track.code }} Tâche {{ row.number }}</span></a>{% endfor %}
+        </div>
+      </li>
+    {% empty %}
+      <li class="muted">Aucune tâche disponible pour le moment.</li>
+    {% endfor %}
+  </ol>
+</section>
+{% endblock %}

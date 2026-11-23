@@ -44,10 +44,6 @@ EXPRESSION_ROUTES = {
     "part_detail",
     "task_detail",
     "eo_tache_one_response",
-    "eo_tache_one_interview",
-    "eo_tache_two_interaction",
-    "eo_tache_two_live",
-    "eo_tache_three_live",
     "task_browse",
     "task_memories",
     "task_memory_detail",
@@ -65,6 +61,11 @@ EXPRESSION_ROUTES = {
     "task_phrases",
     "task_vocabulary_theme",
     "task_vocabulary_category",
+}
+SIMULATION_ROUTES = {
+    "simulation", "simulation_track", "eo_tache_one_interview",
+    "eo_tache_two_interaction", "eo_tache_two_live", "eo_tache_three_live",
+    "eo2_topic_picker", "eo2_topic_history", "eo2_rehearsal",
 }
 NOTES_ROUTES = {
     "notes_overview",
@@ -147,6 +148,8 @@ def _active_nav_area(request):
         return "comprehension"
     if route_name in EXPRESSION_ROUTES:
         return "expression"
+    if route_name in SIMULATION_ROUTES:
+        return "simulation"
     if route_name in NOTES_ROUTES:
         return "notes"
     if route_name in STATS_ROUTES:

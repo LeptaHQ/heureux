@@ -29,6 +29,16 @@
     toast.classList.toggle("hidden", !message);
   }
 
+  function setBookmarked(key, bookmarked) {
+    matchingForms(key).forEach(function (matching) {
+      var button = matching.querySelector("button");
+      matching.classList.toggle("is-bookmarked", bookmarked);
+      matching.querySelector("input[name='bookmarked']").value = bookmarked ? "0" : "1";
+      button.setAttribute("aria-pressed", String(bookmarked));
+      button.title = bookmarked ? "Retirer des favoris" : "Ajouter aux favoris";
+    });
+  }
+
   document.addEventListener("submit", function (event) {
     var form = event.target.closest(selector);
     if (!form) return;
@@ -36,16 +46,18 @@
     if (form.dataset.pending === "true") return;
 
     var key = form.dataset.subjectBookmarkKey;
-    var focused = document.activeElement;
-    var restoreFocus = form.contains(focused);
+    var directory = window.HeureuxSubjectDirectory;
+    var focus = directory.saveFocus(form);
     var body = new FormData(form);
+    var bookmarked = body.get("bookmarked") === "1";
     var csrf = form.querySelector("input[name='csrfmiddlewaretoken']");
     showError("");
     setPending(key, true);
+    setBookmarked(key, bookmarked);
 
     fetch(form.action, {
       method: "POST",
-      body: body,
+      body: body, keepalive: true,
       credentials: "same-origin",
       headers: {
         "Accept": "application/json",
@@ -67,26 +79,15 @@
         return data;
       });
     }).then(function (data) {
-      if (!data.bookmarked && form.closest("[data-bookmarked-subjects]")) {
-        window.location.reload();
-        return;
-      }
-      matchingForms(key).forEach(function (matching) {
-        var button = matching.querySelector("button");
-        matching.classList.toggle("is-bookmarked", data.bookmarked);
-        matching.querySelector("input[name='bookmarked']").value =
-          data.bookmarked ? "0" : "1";
-        button.setAttribute("aria-pressed", data.bookmarked ? "true" : "false");
-        button.title = data.bookmarked ? "Retirer des favoris" : "Ajouter aux favoris";
-      });
+      setBookmarked(key, data.bookmarked);
+      var rows = Array.from(matchingForms(key), item => item.closest("[data-subject-collection-row]")).filter(Boolean);
+      directory.bookmark(rows, data.bookmarked, focus.current());
     }).catch(function (error) {
+      setBookmarked(key, !bookmarked);
       showError(error.message || "Impossible d’enregistrer ce favori.");
     }).finally(function () {
       setPending(key, false);
-      if (restoreFocus && focused.isConnected &&
-          document.activeElement === document.body) {
-        focused.focus({ preventScroll: true });
-      }
+      focus.restore();
     });
   });
 })();

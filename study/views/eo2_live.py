@@ -5,7 +5,7 @@ import time
 import uuid
 from dataclasses import dataclass
 
-from django.db import DatabaseError
+from django.db import DatabaseError, transaction
 from django.db.models.fields.json import KT
 from django.http import Http404, JsonResponse, StreamingHttpResponse
 from django.shortcuts import get_object_or_404, redirect
@@ -20,7 +20,7 @@ from study.audio.pins import AudioPinError
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
 from study.expression.eo.tache_2 import gemini_evaluation, gemini_live
-from study.models import LiveSimulation, Prompt
+from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation, Prompt
 from study.navigation.routing import subject_selection_url
 from .helpers import _route_task, tache_two_publication
 
@@ -61,7 +61,7 @@ def _live_subject(task, publication):
             Prompt.objects.only("id", "text"), pk=publication["prompt_id"], theme__task=task,
             theme__is_active=True, is_active=True, response__is_active=True,
         )
-        return LiveSubject(f"{EO3_KEY_PREFIX}{prompt.pk}", "Votre sujet", prompt.text,
+        return LiveSubject(f"{EO3_KEY_PREFIX}{prompt.pk}", " ".join(prompt.text.split()), prompt.text,
                            reverse("study:response_detail", args=["eo", task.slug, prompt.pk]))
     if not publication:
         return LiveSubject("", "Choisir un atelier photo", DEFAULT_CONSIGNE)
@@ -202,6 +202,7 @@ def oral_live_token(request, task_slug, **publication):
 @csrf_protect
 @sensitive_post_parameters()
 @sensitive_variables()
+@transaction.atomic
 def oral_live_save(request, task_slug, **publication):
     if request.content_type != "application/json":
         return JsonResponse({"error": "Un objet JSON est requis."}, status=415)
@@ -214,9 +215,28 @@ def oral_live_save(request, task_slug, **publication):
         data = gemini_evaluation.simulation_data(request.read(gemini_evaluation.MAX_BODY + 1), monologue=monologue)
     except gemini_evaluation.EvaluationError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
+    if not monologue:
+        key = request.headers.get("Idempotency-Key")
+        try:
+            attempt_id = uuid.uuid4() if key is None else uuid.UUID(key)
+        except ValueError:
+            return JsonResponse({"error": "Identifiant de séance invalide."}, status=400)
+        attempt, created = EO2PracticeAttempt.objects.get_or_create(
+            user=request.user, attempt=attempt_id, defaults={"subject_key": subject.key, "vocal": True},
+        )
+        if not created:
+            if not attempt.vocal or attempt.subject_key != subject.key:
+                return JsonResponse({"error": "Cette séance appartient à un autre exercice."}, status=409)
+            if not attempt.live_simulation_id:
+                return JsonResponse({"error": "Cette transcription n’est plus conservée."}, status=410)
+            return JsonResponse({"id": str(attempt.live_simulation_id)}, status=201)
     simulation = LiveSimulation.objects.create(
         user=request.user, subject_key=subject.key, rows=data["rows"], elapsed_ms=data["elapsed"],
     )
+    if not monologue:
+        attempt.live_simulation = simulation
+        attempt.save(update_fields=["live_simulation"])
+        EO2TopicStatus.objects.update_or_create(user=request.user, subject_key=subject.key, defaults={"done": True})
     history = LiveSimulation.objects.filter(user=request.user)
     scope = {"subject_key__startswith": EO3_KEY_PREFIX}
     history = history.filter(**scope) if monologue else history.exclude(**scope)
@@ -229,6 +249,7 @@ def oral_live_save(request, task_slug, **publication):
 @never_cache
 @require_POST
 @csrf_protect
+@transaction.atomic
 def oral_live_delete(request, task_slug, **publication):
     task = _route_task("eo", task_slug, request=request)
     subject = _live_subject(task, publication)
@@ -236,6 +257,8 @@ def oral_live_delete(request, task_slug, **publication):
         pk = uuid.UUID(request.POST.get("simulation", ""))
     except ValueError:
         raise Http404
+    # Explicit deletion also forgets the occurrence; automatic transcript expiry does not.
+    EO2PracticeAttempt.objects.filter(user=request.user, subject_key=subject.key, live_simulation_id=pk).delete()
     deleted, _ = LiveSimulation.objects.filter(pk=pk, user=request.user, subject_key=subject.key).delete()
     if not deleted:
         raise Http404

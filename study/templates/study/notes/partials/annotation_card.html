@@ -24,7 +24,7 @@ Parameters:
 >
   <header class="annotation-card__head">
     {% if variant == "notes" %}
-      <form class="annotation-card__pin" method="post" action="{% url 'study:annotation_pin_toggle' annotation.id %}">
+      <form class="annotation-card__pin" method="post" action="{% url 'study:annotation_pin_toggle' annotation.id %}" data-annotation-action="pin" data-annotation-id="{{ annotation.id }}">
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ request.get_full_path }}">
         <input type="hidden" name="is_pinned" value="{% if annotation.is_pinned %}0{% else %}1{% endif %}">
@@ -145,4 +145,5 @@ Parameters:
   <footer class="annotation-card__actions">
     {% include "study/notes/partials/annotation_actions.html" with annotation=annotation variant=variant %}
   </footer>
+  {% if variant == "notes" %}{% include "study/notes/partials/annotation_plain_edit.html" %}{% endif %}
 </article>

@@ -3,6 +3,8 @@
   class="t1-table__row subject-collection-row subject-progress-row subject-table-row is-status-{{ subject.progress.status }}{% if kind == 'writing' %} writing-sujet-progress-row writing-sujet-progress-row--{{ subject.progress.status }}{% else %} subject-progress-row--{{ subject.progress.status }}{% endif %}{% if subject.is_personalized %} is-personalized{% endif %}"
   role="row"
   data-subject-collection-row
+  {% if kind == "writing" or kind == "ee3" %}data-progress-weight="{% if deduplicate_subjects or not subject.equivalent_count %}1{% else %}{{ subject.equivalent_count|add:1 }}{% endif %}"{% endif %}
+  {% if directory_selection.order == "reprendre" %}data-catalogue-order="{{ subject.catalogue_order }}"{% endif %}
   data-nested-sort-row
   {% if kind == "ee3" %}data-ee-tache-three-subject-row{% else %}data-t1-table-subject{% endif %}
   {% if kind == "writing" %}data-writing-sujet-progress-row="{{ progress_sujet.pk }}"{% else %}data-subject-progress-row="{{ response_id }}"{% endif %}>
@@ -34,9 +36,9 @@
     <div class="t1-table__progress">
       <span class="progress-status progress-status--{{ subject.progress.status }}" {% if kind == "writing" %}data-writing-sujet-progress-status="{{ progress_sujet.pk }}"{% else %}data-subject-progress-status="{{ response_id }}"{% endif %}>{{ subject.progress.label }}</span>
       {% if kind == "writing" %}
-        {% include "study/expression/ee/partials/writing_sujet_completion_form.html" with sujet=progress_sujet completed=subject.explicitly_completed subject_label=subject.prompt part=part task=task refresh=True %}
+        {% include "study/expression/ee/partials/writing_sujet_completion_form.html" with sujet=progress_sujet completed=subject.explicitly_completed subject_label=subject.prompt part=part task=task %}
       {% else %}
-        {% include "study/expression/partials/subject_completion_form.html" with response_id=response_id progress=subject.progress subject_label=title part=part task=task refresh=True %}
+        {% include "study/expression/partials/subject_completion_form.html" with response_id=response_id progress=subject.progress subject_label=title part=part task=task %}
       {% endif %}
       <span class="subject-collection__arrow" aria-hidden="true">{% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</span>
     </div>

@@ -1514,6 +1514,8 @@ def _subject_directory_selection(request, task, groups, *, writing_sujets=False)
     order = order if order in ("az", "za", "reprendre") else ""
     selection = {
         "themes": [(group["slug"], group["name"]) for group in groups],
+        "status_choices": (("new", "À commencer"), ("active", "En cours"), ("done", "Terminés"), ("bookmarked", "Favoris")),
+        "extra_orders": (("reprendre", "En cours d’abord"),),
         "theme": theme,
         "unavailable_theme": theme and not any(group["slug"] == theme for group in groups),
         "status": status,
@@ -1564,6 +1566,8 @@ def _subject_directory_selection(request, task, groups, *, writing_sujets=False)
             rows.sort(key=title_key, reverse=order == "za")
         elif order == "reprendre":
             rank = {"active": 0, "new": 1, "done": 2}
+            for index, row in enumerate(rows):
+                row["catalogue_order"] = index
             rows.sort(key=lambda row: rank[row["progress"].status])
         selection["rows"] = rows
         selection["sections"] = sections

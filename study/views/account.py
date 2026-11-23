@@ -51,6 +51,8 @@ from ..models import (
     CourseAttempt,
     CourseProduction,
     LiveSimulation,
+    EO2PracticeAttempt,
+    EO2TopicStatus,
     MemoryQuestionProgress,
     PersonalQuestionResponse,
     PersonalResponse,
@@ -364,6 +366,8 @@ def reset_progress(request):
         CourseAttempt.objects.filter(user=request.user).delete()
         CourseProduction.objects.filter(user=request.user).delete()
         LiveSimulation.objects.filter(user=request.user).delete()
+        EO2PracticeAttempt.objects.filter(user=request.user).delete()
+        EO2TopicStatus.objects.filter(user=request.user).update(done=False)
         MemoryQuestionProgress.objects.filter(user=request.user).delete()
         ThemeVocabularyProgress.objects.filter(user=request.user).delete()
         _save_review_session(session, {}, clear_pass=True)
@@ -686,6 +690,10 @@ def export_account(request):
             }
             for item in CourseProduction.objects.filter(user=request.user).order_by("created_at", "pk")
         ],
+        "eo2_simulation_status": list(EO2TopicStatus.objects.filter(user=request.user).values(
+            "subject_key", "done", "retry")),
+        "eo2_simulation_history": list(EO2PracticeAttempt.objects.filter(user=request.user).order_by("created_at").values(
+            "subject_key", "attempt", "vocal", "created_at", "live_simulation_id")),
         "live_simulations": [
             {
                 "id": item.pk, "subject_key": item.subject_key, "rows": item.rows,

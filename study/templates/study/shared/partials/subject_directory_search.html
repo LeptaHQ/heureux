@@ -1,7 +1,7 @@
 <form
   class="search-form subject-directory-search"
   method="get"
-  action="{% url 'study:task_search' part.slug task.slug %}"
+  action="{% if search_url %}{{ search_url }}{% else %}{% url 'study:task_search' part.slug task.slug %}{% endif %}"
   role="search"
   data-subject-directory-search>
   <label class="sr-only" for="subject-directory-search">Rechercher dans les sujets</label>
@@ -10,9 +10,14 @@
     class="search-form__input"
     type="search"
     name="q"
-    placeholder="{% if directory_selection %}Rechercher dans tous les sujets…{% else %}Rechercher des mots dans les sujets…{% endif %}"
+    {% if directory_selection.query %}value="{{ directory_selection.query }}"{% endif %}
+    placeholder="{% if search_url %}Rechercher un sujet ou un thème…{% elif directory_selection %}Rechercher dans tous les sujets…{% else %}Rechercher des mots dans les sujets…{% endif %}"
     autocomplete="off">
-  <input type="hidden" name="scope" value="subjects">
+  {% if search_url %}
+    {% if directory_selection.theme %}<input type="hidden" name="theme" value="{{ directory_selection.theme }}">{% endif %}
+    {% if directory_selection.status %}<input type="hidden" name="etat" value="{{ directory_selection.status }}">{% endif %}
+    {% if directory_selection.order %}<input type="hidden" name="tri" value="{{ directory_selection.order }}">{% endif %}
+  {% else %}<input type="hidden" name="scope" value="subjects">{% endif %}
   {% if subject_deduplication_available %}<input type="hidden" name="deduplicate" value="{{ deduplicate_subjects|yesno:'1,0' }}">{% endif %}
   <button class="btn btn--primary" type="submit" aria-label="Rechercher" title="Rechercher">
     {% include "study/shared/partials/ui_icon.html" with name="search" icon_class="btn__icon" only %}

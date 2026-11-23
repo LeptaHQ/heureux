@@ -1,0 +1,4 @@
+<button type="submit" class="icon-button" aria-pressed="{{ pressed|yesno:'true,false' }}"
+  aria-label="{{ prefix }} : {{ label }}" title="{% if pressed %}{{ remove }}{% else %}{{ add }}{% endif %}">
+  {% include "study/shared/partials/ui_icon.html" with name="bookmark" only %}
+</button>

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Simulation · Heureux{% endblock %}
+{% block title %}Simulation · {{ task.short_label }} · {{ subject.title|truncatechars:80 }}{% if saved_simulation %} · Séance enregistrée{% endif %} · Heureux{% endblock %}
 {% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=21">{% endblock %}
 {% block content %}
 <article class="lv-studio" id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
@@ -11,7 +11,7 @@
     <nav class="lv-back" aria-label="Retour">
       {% if subject_url %}<a href="{{ subject_url }}" aria-label="Revenir à la fiche de ce sujet">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Fiche du sujet</a>
       {% elif monologue %}<a href="{% url 'study:task_browse' part.slug task.slug %}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Sujets de la tâche 3</a>
-      {% else %}<a href="{% url 'study:eo_tache_two_interaction' %}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Simulateur guidé</a>{% endif %}
+      {% else %}<a href="{% url 'study:eo2_topic_picker' %}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Choisir un sujet</a>{% endif %}
     </nav>
     <p class="lv-brand">{% include "study/shared/partials/ui_icon.html" with name="headphones" only %} Studio oral · {{ task.short_label }}</p>
   </div>
@@ -159,6 +159,7 @@
         {% if subject_url %}<a class="lv-quiet" href="{{ subject_url }}">Retour à la fiche</a>
         {% elif monologue %}<a class="lv-quiet" href="{% url 'study:task_browse' part.slug task.slug %}">Choisir un autre sujet</a>
         {% else %}<a class="lv-quiet" href="{% url 'study:eo_tache_two_interaction' %}">Simulateur guidé, sans Gemini</a>{% endif %}
+        {% if not monologue %}<a class="lv-quiet" href="{% url 'study:eo2_topic_picker' %}">Choisir un sujet de simulation</a>{% endif %}
       </div>
     </section>
     <noscript><p>Activez JavaScript pour utiliser le mode vocal.</p></noscript>
@@ -173,8 +174,8 @@
 {% endblock %}
 {% block scripts %}
 {% if gemini_live_available %}
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=15"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=16"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=10"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=14"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=15"></script>
 {% endif %}
 {% endblock %}

@@ -9,7 +9,7 @@
     <a class="btn" href="{{ secondary_action_url }}">{{ secondary_action_label }}</a>
   {% endif %}
   {% if progress_total or progress_total == 0 %}
-    <span class="collection-toolbar__fraction" data-collection-progress title="{{ progress_completed }} sur {{ progress_total }} {{ progress_unit }}">
+    <span class="collection-toolbar__fraction" data-collection-progress data-progress-unit="{{ progress_unit }}" title="{{ progress_completed }} sur {{ progress_total }} {{ progress_unit }}">
       <span aria-hidden="true" data-collection-progress-value>{{ progress_completed }}/{{ progress_total }}</span>
       <span class="sr-only">{{ progress_completed }} sur {{ progress_total }} {{ progress_unit }}</span>
     </span>

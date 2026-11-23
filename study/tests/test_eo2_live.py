@@ -13,7 +13,7 @@ from django.utils import timezone
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
 from study.expression.eo.tache_2 import gemini_evaluation, gemini_live
-from study.models import LiveSimulation, LoginThrottle, Prompt
+from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation, LoginThrottle, Prompt
 from study.views import eo2_live
 from . import factories
 
@@ -573,8 +573,12 @@ class GeminiLiveTests(TestCase):
             self.assert_private(self.post(url=save_url, body=json.dumps(invalid)), 400)
         with self.settings(GEMINI_LIVE_API_KEY=""):
             self.assert_private(self.post(url=save_url, body=json.dumps({"rows": rows, "elapsed": 0})), 403)
-        saved = self.post(url=save_url, body=json.dumps({"rows": rows, "elapsed": 95_000}))
+        save_options = dict(url=save_url, body=json.dumps({"rows": rows, "elapsed": 95_000}),
+                            HTTP_IDEMPOTENCY_KEY=str(uuid.uuid4()))
+        saved = self.post(**save_options)
         self.assert_private(saved, 201)
+        self.assertEqual(self.post(**save_options).json(), saved.json())
+        self.assertEqual(EO2PracticeAttempt.objects.filter(user=self.reviewer).count(), 1)
         simulation = LiveSimulation.objects.get(pk=saved.json()["id"])
         self.assertEqual((simulation.user, simulation.subject_key, simulation.rows, simulation.elapsed_ms, simulation.report),
                          (self.reviewer, "", rows, 95_000, None))
@@ -590,6 +594,7 @@ class GeminiLiveTests(TestCase):
                                                  report={"score": None, "nclc": None, "scoreStatus": "insufficient"})
 
         page = self.client.get(self.live, {"simulation": simulation.pk})
+        self.assertContains(page, f"<title>Simulation · {self.task.short_label} · Choisir un atelier photo · Séance enregistrée · Heureux</title>")
         self.assertEqual(page.context["saved_simulation"],
                          {"id": simulation.pk, "rows": rows, "elapsed": 95_000, "report": simulation.report})
         self.assertEqual([(row["id"], row["status"]) for row in page.context["saved_simulations"]],
@@ -607,10 +612,17 @@ class GeminiLiveTests(TestCase):
         self.assertEqual(set(LiveSimulation.objects.filter(user=self.reviewer).values_list("pk", flat=True)), kept)
         account = Client()
         account.force_login(self.reviewer)
-        exported = account.get(reverse("study:export_account")).json()["live_simulations"]
+        export = account.get(reverse("study:export_account")).json()
+        exported = export["live_simulations"]
         self.assertEqual({row["id"] for row in exported}, set(map(str, kept)))
+        self.assertEqual(len(export["eo2_simulation_history"]), 3)
+        self.assertEqual(EO2PracticeAttempt.objects.filter(user=self.reviewer, live_simulation=None).count(), 1)
+        self.assertEqual(self.post(**save_options).status_code, 410)
+        EO2TopicStatus.objects.filter(user=self.reviewer).update(retry=True)
         account.post(reverse("study:reset_progress"), {"current_pin": "123456", "confirmation": "REINITIALISER"})
         self.assertFalse(LiveSimulation.objects.filter(user=self.reviewer).exists())
+        self.assertFalse(EO2PracticeAttempt.objects.filter(user=self.reviewer).exists())
+        self.assertTrue(EO2TopicStatus.objects.filter(user=self.reviewer, retry=True, done=False).exists())
         self.assertTrue(LiveSimulation.objects.filter(pk=other.pk).exists())
 
     def test_learner_deletes_only_their_own_saved_exchange_of_this_subject(self):
@@ -620,6 +632,7 @@ class GeminiLiveTests(TestCase):
         Prompt.objects.filter(response=response).update(content_key=key)
         rows = [{"speaker": "user", "text": "Bonjour."}]
         mine = LiveSimulation.objects.create(user=self.reviewer, rows=rows)
+        EO2PracticeAttempt.objects.create(user=self.reviewer, attempt=mine.pk, vocal=True, live_simulation=mine)
         subject = LiveSimulation.objects.create(user=self.reviewer, subject_key=key, rows=rows)
         other = LiveSimulation.objects.create(user=self.other, rows=rows)
         delete_url = reverse("study:eo_tache_two_live_delete")
@@ -636,6 +649,7 @@ class GeminiLiveTests(TestCase):
             self.assert_private(delete(pk), 404)
         self.assertEqual(LiveSimulation.objects.count(), 3)
         self.assertRedirects(delete(mine.pk), self.live, fetch_redirect_response=False)
+        self.assertFalse(EO2PracticeAttempt.objects.filter(attempt=mine.pk).exists())
         self.assertRedirects(delete(subject.pk, reverse("study:eo_tache_two_live_delete", args=args)),
                              reverse("study:eo_tache_two_live", args=args), fetch_redirect_response=False)
         self.assertEqual(list(LiveSimulation.objects.values_list("pk", flat=True)), [other.pk])

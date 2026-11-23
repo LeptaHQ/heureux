@@ -2,6 +2,7 @@
   "use strict";
 
   var toast = document.querySelector("[data-subject-progress-toast]");
+  var directory = window.HeureuxSubjectDirectory;
   var statuses = ["new", "active", "done"];
 
   function showError(message) {
@@ -54,10 +55,7 @@
       });
     }
 
-    function updatePage(data) {
-      var id = String(data[config.idField]);
-      var completed = data.completed;
-      var progress = data[config.progressField];
+    function updateChecks(id, completed) {
       matchingForms(id).forEach(function (form) {
         if (form.hasAttribute(prefix + "-reset-form")) return;
         var input = form.querySelector("[" + prefix + "-completed-input]");
@@ -77,7 +75,15 @@
           ? "Sujet terminé"
           : "Marquer comme terminé";
       });
-
+    }
+    function updatePage(data, sourceRow, focus) {
+      var id = String(data[config.idField]);
+      var progress = data[config.progressField];
+      var rows = Array.from(matchingProgress("row", id));
+      // An overlapping bookmark save can already have removed this row from Favorites.
+      if (!rows.length && sourceRow) rows.push(sourceRow);
+      var old = rows.length ? directory.statusOf(rows[0]) : null;
+      updateChecks(id, data.completed);
       matchingProgress("status", id).forEach(function (element) {
         statuses.forEach(function (status) {
           element.classList.remove("progress-status--" + status);
@@ -86,8 +92,9 @@
         element.textContent = progress.label;
       });
       matchingProgress("control", id).forEach(function (control) {
-        control.classList.toggle("is-complete", completed);
+        control.classList.toggle("is-complete", data.completed);
       });
+      directory.progress(rows, old, progress.status, focus);
       matchingProgress("row", id).forEach(function (row) {
         var rowClass = config.prefix + "-progress-row";
         statuses.forEach(function (status) {
@@ -119,14 +126,18 @@
 
       var id = form.getAttribute(config.idAttribute);
       var csrf = form.querySelector("input[name='csrfmiddlewaretoken']");
-      var focusBeforeSubmit = document.activeElement;
-      var restoreFocus = form.contains(focusBeforeSubmit);
+      var focus = directory.saveFocus(form);
+      var row = form.closest("[" + prefix + "-progress-row]");
+      var body = new FormData(form);
+      var checked = Array.from(matchingForms(id)).some(function (item) {
+        return item.querySelector('[aria-checked="true"]') !== null;
+      });
       showError("");
       setPending(id, true);
-
+      updateChecks(id, body.get("completed") === "1");
       fetch(form.getAttribute("action"), {
         method: "POST",
-        body: new FormData(form),
+        body: body, keepalive: true,
         credentials: "same-origin",
         headers: {
           "Accept": "application/json",
@@ -136,27 +147,27 @@
       })
         .then(readJson)
         .then(function (data) {
-          updatePage(data);
+          var progress = data[config.progressField];
+          if (String(data[config.idField]) !== id || typeof data.completed !== "boolean" ||
+              !progress || !statuses.includes(progress.status) || typeof progress.label !== "string") {
+            throw new Error("La réponse du serveur est inattendue.");
+          }
+          updatePage(data, row, focus.current());
           if (data.highlights_reset) {
             document.dispatchEvent(new CustomEvent("heureux:highlights-hidden", {
               detail: { ids: data.hidden_highlight_ids }
             }));
           }
-          if (form.getAttribute(prefix + "-completion-refresh") === "true") {
-            window.location.reload();
-          }
         })
         .catch(function (error) {
+          updateChecks(id, checked);
           showError(
             error.message || "Impossible d’enregistrer cette progression."
           );
         })
         .finally(function () {
           setPending(id, false);
-          if (restoreFocus && focusBeforeSubmit.isConnected &&
-              document.activeElement === document.body) {
-            focusBeforeSubmit.focus({ preventScroll: true });
-          }
+          focus.restore();
         });
     });
   }

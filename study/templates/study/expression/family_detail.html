@@ -9,11 +9,11 @@
   <div class="row between">
     <h1 style="margin-bottom:0;">{{ family.name }}</h1>
     <div class="row">
-      <span class="progress-status progress-status--{{ family_progress.status }}">{{ family_progress.label }}</span>
+      <span class="progress-status progress-status--{{ family_progress.status }}" data-subject-group-status>{{ family_progress.label }}</span>
       <a class="btn btn--primary" href="{{ review_url }}">Réviser cette famille</a>
     </div>
   </div>
-  <p>{{ rows|length }} sujet{{ rows|length|pluralize }} à travers les thèmes · {{ family_progress.completed }}/{{ family_progress.total }} terminés.</p>
+  <p>{{ rows|length }} sujet{{ rows|length|pluralize }} à travers les thèmes · <span data-subject-group-fraction>{{ family_progress.completed }}/{{ family_progress.total }}</span> terminés.</p>
 </div>
 
 {% if rows %}

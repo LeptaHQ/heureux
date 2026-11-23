@@ -59,6 +59,27 @@ class NotePinningTests(TestCase):
             self.client.post(self.pin_url(note), {"is_pinned": "1"}).status_code, 302
         )
 
+    def test_background_pin_and_creation_return_json_without_redirecting(self):
+        created = self.client.post(
+            self.url + "?status=done&q=absent",
+            {"body": "Une note personnelle."}, HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(created.status_code, 201)
+        note = Annotation.objects.get(pk=created.json()["id"], user=self.user)
+        self.assertTrue(created.json()["created"])
+        self.assertEqual(created.json()["scope_label"], "Notes personnelles")
+        pinned = self.client.post(
+            self.pin_url(note), {"is_pinned": "1"}, HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(pinned.status_code, 200)
+        self.assertEqual(pinned.json(), {"id": note.pk, "is_pinned": True})
+        invalid = self.client.post(
+            self.url, {"body": ""}, HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(invalid.status_code, 400)
+        self.assertIn("body", invalid.json()["errors"])
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 1)
+
     def test_pins_are_first_once_within_the_same_bounded_pagination(self):
         old = timezone.now() - timedelta(days=40)
         pins = [self.note(is_pinned=True, created_at=old) for _ in range(52)]

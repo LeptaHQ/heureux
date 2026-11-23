@@ -901,6 +901,37 @@ class LiveSimulation(models.Model):
         ]
 
 
+class EO2TopicStatus(models.Model):
+    """Simulation checklist, independent of ordinary subject study progress."""
+
+    user = models.ForeignKey(django_settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    subject_key = models.CharField(max_length=120, blank=True)
+    done = models.BooleanField(default=False)
+    retry = models.BooleanField(default=False)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["user", "subject_key"], name="eo2_one_topic_status"),
+        ]
+
+
+class EO2PracticeAttempt(models.Model):
+    """A completed practice turn sequence, without a second copy of the transcript."""
+
+    user = models.ForeignKey(django_settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    subject_key = models.CharField(max_length=120, blank=True)
+    attempt = models.UUIDField()
+    vocal = models.BooleanField(default=False)
+    live_simulation = models.OneToOneField(LiveSimulation, null=True, on_delete=models.SET_NULL)
+    created_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["user", "attempt"], name="eo2_one_practice_attempt"),
+        ]
+        indexes = [models.Index(fields=["user", "subject_key", "-created_at"], name="eo2_practice_by_topic")]
+
+
 class ComprehensionMode(models.TextChoices):
     ECRITE = "ecrite", "Écrite"
     ORALE = "orale", "Orale"

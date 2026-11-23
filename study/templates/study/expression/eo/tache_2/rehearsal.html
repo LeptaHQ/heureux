@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Simulation · {{ task.short_label }} · {{ topic.title|truncatechars:80 }} · Répétition guidée · Heureux{% endblock %}
+{% block page_styles %}
+<link rel="stylesheet" href="{% static 'study/css/eo1-interview.css' %}?v=3">
+<link rel="stylesheet" href="{% static 'study/css/eo2-rehearsal.css' %}?v=2">
+{% endblock %}
+{% block content %}
+{% include "study/expression/partials/task_nav.html" with compact=True %}
+<article class="eo-studio eo-rehearsal" id="eo2-rehearsal"
+    data-reply-url="{{ reply_url }}" data-finish-url="{% url 'study:eo2_practice_finish' %}"
+    data-practice-topic="{{ practice_topic }}" data-question-count="{{ question_count }}">
+  {% csrf_token %}
+  <header class="eo-studio__heading"><div>
+    <a class="subject-page-back" href="{% url 'study:eo2_topic_picker' %}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Choisir un autre sujet</a>
+    <p class="eo-kicker">Tâche 02 <span>/</span> Répétition guidée</p>
+    <h1>{{ topic.title }}</h1>
+  </div><span class="eo-tag">À votre rythme · {{ question_count }} étapes</span></header>
+  <nav class="eo-rehearsal__tabs" aria-label="Pratiquer ce sujet">
+    <a href="{{ subject_url }}">Fiche du sujet</a>
+    <span aria-current="page">Répétition guidée</span>
+    {% if gemini_live_available %}<a href="{{ live_url }}">Conversation vocale</a>{% endif %}
+  </nav>
+  <section class="eo-rehearsal__prompt" aria-labelledby="r2-prompt-title">
+    <h2 id="r2-prompt-title">{% include "study/shared/partials/ui_icon.html" with name="file-text" only %} Votre consigne</h2>
+    <p>{{ topic.prompt }}</p>
+  </section>
+  <noscript><p>Activez JavaScript pour répéter ce sujet, ou retrouvez ses questions dans la <a href="{{ subject_url }}">fiche du sujet</a>.</p></noscript>
+  <div class="eo-rehearsal__setup" id="r2-setup">
+    <p>Posez votre question à voix haute, puis affichez la réponse du dialogue.</p>
+    <button type="button" class="btn eo-primary" id="r2-start" disabled>Commencer la répétition</button>
+  </div>
+  <div class="eo-workspace" id="r2-workspace" hidden>
+    <section class="eo-console" aria-label="Votre tour de parole">
+      <div class="eo-console__top"><span class="eo-indicator" id="r2-step"></span><span>À vous de parler</span></div>
+      <div class="eo-console__body">
+        <p class="eo-console__label" id="r2-topic"></p>
+        <h2 id="r2-hint-en" lang="en" tabindex="-1"></h2>
+        <p class="eo-console__note" id="r2-hint-fr" lang="fr"></p>
+      </div>
+      <div class="eo-console__base">Parlez librement sur ce point, puis passez la parole.</div>
+    </section>
+    <section class="eo-desk" aria-label="Question et réponse">
+      <details class="eo-rehearsal__model" id="r2-opening"><summary>Pour ouvrir l’échange</summary><p>{{ opening }}</p></details>
+      <p class="eo-help" id="r2-followup" hidden></p>
+      <details class="eo-rehearsal__model" id="r2-model"><summary>Voir une question modèle</summary><p id="r2-question"></p></details>
+      <div id="r2-ask" class="eo-rehearsal__actions">
+        <button type="button" class="btn eo-primary" id="r2-reveal">J’ai posé ma question · voir la réponse</button>
+        <button type="button" class="btn" id="r2-skip" hidden>Passer cette relance</button>
+      </div>
+      <section class="eo-rehearsal__reply" id="r2-reply" hidden>
+        <p class="eo-kicker">Réponse du dialogue</p><h2 tabindex="-1" id="r2-answer"></h2>
+      </section>
+      <p class="eo-help" id="r2-status" role="status"></p>
+      <button type="button" class="btn eo-primary" id="r2-next" hidden>Question suivante</button>
+      <div class="eo-small-actions"><button type="button" id="r2-end">Terminer la répétition</button></div>
+    </section>
+  </div>
+  <section class="eo-report eo-rehearsal__done" id="r2-done" hidden>
+    <p class="eo-kicker">Fin de répétition</p><h2 id="r2-done-title" tabindex="-1">Votre entraînement</h2>
+    <p id="r2-summary"></p>
+    <details class="eo-rehearsal__model" id="r2-closing" hidden><summary>Pour conclure à voix haute</summary><p id="r2-closing-text"></p></details>
+    <p class="eo-help">Ce parcours ne mesure ni votre niveau ni votre prononciation. Pour un nouvel essai, cachez la question modèle et reformulez avec vos mots.</p>
+    <p class="eo-help" data-practice-status role="status"></p>
+    <button type="button" class="btn" data-practice-retry hidden>Réessayer l’enregistrement</button>
+    <div class="eo-rehearsal__actions">
+      <button type="button" class="btn eo-primary" id="r2-restart" data-practice-restart>Refaire ce sujet</button>
+      <a class="btn" href="{% url 'study:eo2_topic_picker' %}">Choisir un autre sujet</a>
+    </div>
+  </section>
+  <details class="eo-help eo-rehearsal__privacy"><summary>Confidentialité</summary>
+    <p>Votre micro reste éteint. Les séances terminées figurent dans votre historique, sans audio ni transcription.</p>
+  </details>
+</article>
+{{ initial_turn|json_script:"r2-initial-turn" }}
+{% endblock %}
+{% block scripts %}
+<script defer src="{% static 'study/js/expression/eo/tache_2/rehearsal-progress.js' %}?v=1"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/rehearsal.js' %}?v=1"></script>
+{% endblock %}

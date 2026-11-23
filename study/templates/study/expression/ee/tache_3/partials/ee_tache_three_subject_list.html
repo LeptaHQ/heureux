@@ -11,6 +11,7 @@
       class="ee-t3-subject-row subject-progress-row subject-progress-row--{{ subject.progress.status }}"
       data-collection-item
       data-ee-tache-three-subject-row
+      data-progress-weight="{% if deduplicate_subjects %}1{% else %}{{ subject.equivalent_count|add:1 }}{% endif %}"
       data-subject-progress-row="{{ subject.prompt.response_id }}">
       <div class="ee-t3-subject-row__number">
         <span>{{ subject.month_name }}</span>
@@ -28,7 +29,7 @@
         <span
           class="progress-status progress-status--{{ subject.progress.status }}"
           data-subject-progress-status="{{ subject.prompt.response_id }}">{{ subject.progress.label }}</span>
-        {% include "study/expression/partials/subject_completion_form.html" with response_id=subject.prompt.response_id progress=subject.progress subject_label=subject.prompt.text part=part task=task refresh=True %}
+        {% include "study/expression/partials/subject_completion_form.html" with response_id=subject.prompt.response_id progress=subject.progress subject_label=subject.prompt.text part=part task=task %}
       </div>
       <span
         class="ee-t3-subject-row__action"

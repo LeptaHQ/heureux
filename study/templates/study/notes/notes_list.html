@@ -49,15 +49,8 @@
     {% endif %}
   </nav>
 
-  {% if active_tab == "notes" %}
-    {% if notes %}
-      {% include "study/notes/partials/annotation_recall_controls.html" %}
-      {% include "study/shared/partials/collection_view_toggle.html" %}
-    {% endif %}
-  {% elif highlights %}
-    {% include "study/notes/partials/annotation_recall_controls.html" %}
-    {% include "study/shared/partials/collection_view_toggle.html" %}
-  {% endif %}
+  {% include "study/notes/partials/annotation_recall_controls.html" %}
+  {% include "study/shared/partials/collection_view_toggle.html" %}
 </div>
 
 <nav class="notes-scope-nav" aria-label="Filtrer par dossier">

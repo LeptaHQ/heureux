@@ -61,6 +61,9 @@
         <path d="M5 3h10l4 4v14H5z"></path>
         <path d="M14 3v5h5M9 12h6M9 16h6"></path>
       </symbol>
+      <symbol id="nav-icon-simulation" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"></circle><path d="m10 8 6 4-6 4z"></path>
+      </symbol>
       <symbol id="nav-icon-stats" viewBox="0 0 24 24">
         <path d="M4 20V10h4v10M10 20V4h4v16M16 20v-7h4v7M3 20h18"></path>
       </symbol>
@@ -115,6 +118,13 @@
             <span class="nav__item-copy">
               <span class="nav__item-label">Expression</span>
               <small aria-hidden="true">Oral et écrit</small>
+            </span>
+          </a>
+          <a href="{% url 'study:simulation' %}" class="nav__primary-link{% if active_nav_area == 'simulation' %} is-active{% endif %}"{% if active_nav_area == 'simulation' %} aria-current="page"{% endif %} data-nav-tone="simulation">
+            <span class="nav__item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nav-icon-simulation"></use></svg></span>
+            <span class="nav__item-copy">
+              <span class="nav__item-label">Simulation</span>
+              <small aria-hidden="true">S’entraîner par tâche</small>
             </span>
           </a>
         </div>
@@ -422,9 +432,9 @@
   <script src="{% static 'study/js/expression/eo/tache_3/eo3-audio.js' %}?v=12"></script>
   <script src="{% static 'study/js/expression/eo/tache_3/eo3-cached-reader.js' %}?v=3"></script>
   <script src="{% static 'study/js/review/flashcards.js' %}?v=5"></script>
-  <script src="{% static 'study/js/app.js' %}?v=76"></script>
+  <script src="{% static 'study/js/app.js' %}?v=78"></script>
   <script src="{% static 'study/js/notes/selection-toolbar.js' %}?v=21"></script>
-  <script src="{% static 'study/js/notes/annotations.js' %}?v=44"></script>
+  <script src="{% static 'study/js/notes/annotations.js' %}?v=45"></script>
   <script src="{% static 'study/js/expression/eo/tache_2/eo2-question-languages.js' %}?v=2"></script>
   <script src="{% static 'study/js/expression/eo/tache_3/eo3-response-languages.js' %}?v=1"></script>
   {% block scripts %}{% endblock %}

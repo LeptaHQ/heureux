@@ -7,12 +7,5 @@
   data-annotation-exclude>
   {% csrf_token %}
   <input type="hidden" name="bookmarked" value="{% if bookmarked %}0{% else %}1{% endif %}">
-  <button
-    class="icon-button"
-    type="submit"
-    aria-pressed="{{ bookmarked|yesno:'true,false' }}"
-    aria-label="Favori : {{ subject_label }}"
-    title="{% if bookmarked %}Retirer des favoris{% else %}Ajouter aux favoris{% endif %}">
-    {% include "study/shared/partials/ui_icon.html" with name="bookmark" only %}
-  </button>
+  {% include "study/shared/partials/subject_bookmark_button.html" with pressed=bookmarked label=subject_label prefix="Favori" remove="Retirer des favoris" add="Ajouter aux favoris" only %}
 </form>{% endif %}

@@ -4,14 +4,13 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.http import require_safe
 
-from study.expression.eo.tache_2 import gemini_live
 from study.models import Task
 
 
 TRACKS = {
     "eo": {
         "title": "Expression orale", "icon": "microphone", "code": "EO",
-        "intro": "Présentez-vous, menez un échange et défendez votre point de vue.",
+        "intro": "Menez un échange ou défendez votre point de vue à voix haute.",
         "action": "Choisir une tâche orale",
     },
     "ee": {
@@ -22,14 +21,13 @@ TRACKS = {
 }
 TASK_FORMATS = {
     "eo": (
-        ("Entretien dirigé", "2 min", "Répondez aux questions sur votre parcours et votre quotidien."),
-        ("Interaction", "2 min + 3 min 30", "Préparez vos questions, puis menez le jeu de rôle."),
-        ("Expression d’un point de vue", "4 min 30", "Développez votre opinion sans temps de préparation."),
+        (2, "Interaction", "2 min + 3 min 30", "Préparez vos questions, puis menez l’échange."),
+        (3, "Expression d’un point de vue", "4 min 30", "Développez votre opinion sans temps de préparation."),
     ),
     "ee": (
-        ("Écrire un message", "60–120 mots", "Adressez votre message à la personne indiquée dans la consigne."),
-        ("Raconter une expérience", "120–150 mots", "Rédigez un récit pour les lecteurs auxquels vous vous adressez."),
-        ("Comparer deux points de vue", "120–180 mots", "Présentez les deux opinions, puis défendez la vôtre."),
+        (1, "Écrire un message", "60–120 mots", "Adressez votre message à la personne indiquée dans la consigne."),
+        (2, "Raconter une expérience", "120–150 mots", "Rédigez un récit pour les lecteurs auxquels vous vous adressez."),
+        (3, "Comparer deux points de vue", "120–180 mots", "Présentez les deux opinions, puis défendez la vôtre."),
     ),
 }
 
@@ -48,30 +46,19 @@ def track(request, part_slug):
         )
     }
     rows = []
-    for number, (title, format_label, description) in enumerate(TASK_FORMATS[part_slug], start=1):
+    for number, title, format_label, description in TASK_FORMATS[part_slug]:
         task = tasks.get(f"tache-{number}")
         if task is None:
             continue
-        links = []
-        hint = ""
-        if part_slug == "eo":
-            if number == 1:
-                links.append(("Ouvrir l’entretien", reverse("study:eo_tache_one_interview")))
-            else:
-                if number == 2:
-                    links.append(("Choisir un sujet", reverse("study:eo2_topic_picker")))
-                if gemini_live.available_to(request.user, task):
-                    studio = "study:eo_tache_two_live" if number == 2 else "study:eo_tache_three_live"
-                    links.append(("Ouvrir le studio vocal", reverse(studio)))
-                elif number == 3:
-                    hint = "Studio vocal indisponible. Les sujets restent accessibles."
-                if number == 2:
-                    links.append(("Jeu de rôle guidé", reverse("study:eo_tache_two_interaction")))
-        if part_slug == "ee" or number == 3:
-            links.append(("Parcourir les sujets", reverse("study:task_browse", args=[part_slug, task.slug])))
+        if part_slug == "ee":
+            label, url = "Parcourir les sujets", reverse("study:task_browse", args=[part_slug, task.slug])
+        elif number == 2:
+            label, url = "Choisir un sujet", reverse("study:eo2_topic_picker")
+        else:
+            label, url = "Ouvrir la simulation", reverse("study:eo_tache_three_live")
         rows.append({
             "number": number, "title": title, "format": format_label,
-            "description": description, "links": links, "hint": hint,
+            "description": description, "label": label, "url": url,
         })
     return render(request, "study/simulation/track.html", {
         "track": TRACKS[part_slug], "part_slug": part_slug, "rows": rows,

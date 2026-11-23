@@ -685,7 +685,6 @@ class SmokeTests(TestCase):
             ("study:expression", "study:expression"),
             ("study:simulation", "study:simulation"),
             ("study:notes_overview", "study:notes_overview"),
-            ("study:stats", "study:stats"),
         )
 
         for page_name, navigation_name in destinations:
@@ -704,6 +703,11 @@ class SmokeTests(TestCase):
                     1,
                 )
 
+        stats = self.client.get(reverse("study:stats"))
+        self.assertContains(stats, 'class="nav__more is-active"')
+        self.assertContains(stats, f'href="{reverse("study:stats")}" class="is-active" aria-current="page"')
+        self.assertNotContains(stats, 'class="nav__primary-link is-active"')
+
     def test_simulation_tracks_link_to_available_studios_or_subjects(self):
         oral, written = (reverse("study:simulation_track", args=[part]) for part in ("eo", "ee"))
         hub = self.client.get(reverse("study:simulation"))
@@ -714,18 +718,17 @@ class SmokeTests(TestCase):
             factories.make_task(factories.make_part("eo"), f"tache-{number}")
         writing = factories.make_task(factories.make_part("ee"), "tache-1")
         factories.make_task(writing.part, "tache-2", available=False)
-        with self.settings(GEMINI_LIVE_API_KEY=""):
-            page = self.client.get(oral)
-            for name in ("study:eo_tache_one_interview", "study:eo_tache_two_interaction"):
-                self.assertContains(page, f'href="{reverse(name)}"')
-                self.assertEqual(self.client.get(reverse(name)).context["active_nav_area"], "simulation")
-            self.assertNotContains(page, 'Ouvrir le studio vocal')
-            self.assertContains(page, f'href="{reverse("study:task_browse", args=["eo", "tache-3"])}"')
+        page = self.client.get(oral)
+        self.assertContains(page, f'href="{reverse("study:eo2_topic_picker")}"')
+        self.assertContains(page, f'href="{reverse("study:eo_tache_three_live")}"')
+        for old in ("study:eo_tache_one_interview", "study:eo_tache_two_interaction"):
+            self.assertNotContains(page, f'href="{reverse(old)}"')
+        overview = self.client.get(reverse("study:task_detail", args=["eo", "tache-2"]))
+        self.assertNotContains(overview, f'href="{reverse("study:eo_tache_two_interaction")}"')
+        self.assertNotContains(overview, ">Interaction</a>")
         with self.settings(GEMINI_LIVE_API_KEY="test-only", AI_PIN="test-pin"):
-            page = self.client.get(oral)
             for name, topic in (("study:eo_tache_two_live", "Choisir un atelier photo"),
                                 ("study:eo_tache_three_live", "Découvrir une ville")):
-                self.assertContains(page, f'href="{reverse(name)}"')
                 studio = self.client.get(reverse(name))
                 self.assertEqual(studio.context["active_nav_area"], "simulation")
                 self.assertContains(studio, f'<title>Simulation · {studio.context["task"].short_label} · {topic} · Heureux</title>')
@@ -977,16 +980,15 @@ class SmokeTests(TestCase):
         self.assertContains(
             response,
             'class="nav__primary-link',
-            count=7,
+            count=6,
         )
         for label in (
             "Accueil",
             "Apprendre",
             "Compréhension",
             "Expression",
-            "Simulation",
             "Notes",
-            "Stats",
+            "Simulation",
         ):
             self.assertContains(
                 response,
@@ -1002,7 +1004,7 @@ class SmokeTests(TestCase):
             'class="nav__group nav__group--tools" role="group" '
             'aria-label="Outils personnels"',
         )
-        self.assertContains(response, 'class="nav__item-icon"', count=7)
+        self.assertContains(response, 'class="nav__item-icon"', count=6)
         self.assertNotContains(response, 'class="footer__inner"')
 
     def test_global_pages_do_not_false_highlight_task_navigation(self):

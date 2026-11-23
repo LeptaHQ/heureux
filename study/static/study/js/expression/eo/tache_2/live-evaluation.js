@@ -54,6 +54,7 @@
 
   function show(report) {
     const current = report.evidenceVersion === 1;
+    const retry = report.scoreStatus === "incomplete";
     by("level").classList.toggle("lv-level--scored", Number.isInteger(report.score) && report.scoreStatus !== "incomplete");
     by("level").textContent = report.scoreStatus === "incomplete" ? "Grille partielle · pas de total" :
       report.score === null ? (opinion ? "Intervention insuffisante pour une note" : "Échange insuffisant pour une note") :
@@ -66,7 +67,7 @@
       name.scope = "row"; name.textContent = label;
       row.append(name);
       const mark = row.insertCell();
-      mark.textContent = score === null ? "—" : `${score}/5`;
+      mark.textContent = score === null ? "Non évalué" : `${score}/5`;
       if (Number.isInteger(score) && score >= 0 && score <= 5) {
         mark.className = "lv-criterion-mark";
         mark.style.setProperty("--lv-mark", `${score * 20}%`);
@@ -83,10 +84,16 @@
     }));
     by("assessment-next").textContent = report.next;
     by("assessment-result").hidden = false;
-    by("assessment-controls").hidden = true;
+    by("assessment-controls").hidden = !retry;
+    if (retry) {
+      button.disabled = false;
+      button.setAttribute("aria-label", button.title = "Réévaluer le bilan");
+    }
     onResult(report.annotations);
     propose(report.proposal || []);
     if (opinion && report.proposal?.length && report.score !== null && !report.omitted) by("assessment").open = false;
+    if (report.previousReportKept && retry) return "La nouvelle évaluation reste incomplète. Votre bilan précédent a été conservé.";
+    if (retry) return "Vous pouvez demander une nouvelle évaluation de cette transcription avec ✨.";
     return report.omitted ? "Les éléments non vérifiables ont été écartés." :
       report.score === null ? "Bilan disponible sans note globale." : "Estimation d’entraînement disponible.";
   }
@@ -102,6 +109,7 @@
     const hasSpeech = rows?.some(row => row.speaker === "user" && row.text.trim());
     attemptId = !opinion && hasSpeech && !id ? crypto.randomUUID() : null;
     button.disabled = true;
+    button.setAttribute("aria-label", button.title = "Évaluer mon niveau");
     by("assessment").open = by("proposal-card").open = true;
     by("level").textContent = "Non évalué";
     by("level").classList.remove("lv-level--scored");
@@ -140,8 +148,8 @@
     if (!rows || pending) return;
     const call = pending = new AbortController();
     button.disabled = true;
-    if (opinion) by("level").textContent = "Bilan en préparation…";
-    status(opinion ? "Vous pouvez déjà relire votre transcription ci-dessous." : "Groq examine votre échange…", true);
+    if (opinion && by("assessment-result").hidden) by("level").textContent = "Bilan en préparation…";
+    status(opinion ? "Vous pouvez déjà relire votre transcription ci-dessous." : "Préparation de votre bilan…", true);
     // A result or failure reopens the bilan if it was folded while Groq worked.
     const done = text => {
       if (!opinion || by("assessment-result").hidden || !simulation) by("assessment").open = true;
@@ -164,7 +172,7 @@
         ...(simulation && {simulation}), ...(grant && {reviewGrant: grant})});
       // Without this tab's review grant, such as for a reopened exchange, the audio PIN authorizes the report.
       const response = await (grant ? fetch(root.dataset.evaluationUrl, options) :
-        window.HeureuxAudioRequest(root.dataset.evaluationUrl, options, {title: "Demander le bilan Groq", action: "Demander le bilan",
+        window.HeureuxAudioRequest(root.dataset.evaluationUrl, options, {title: "Demander le bilan", action: "Demander le bilan",
           description: "La transcription de cette séance sera envoyée à Groq pour le bilan."}));
       if (pending !== call) return;
       if (!response.ok) {
@@ -175,7 +183,7 @@
         }
         const detail = response.headers.get("content-type")?.includes("application/json") ? await response.json() : null;
         if (pending !== call) return;
-        done(response.status === 401 ? "Reconnectez-vous pour demander un bilan Groq." :
+        done(response.status === 401 ? "Reconnectez-vous pour demander votre bilan." :
           typeof detail?.message === "string" ? detail.message :
           typeof detail?.error === "string" ? detail.error :
           `Le service de bilan n’a pas répondu correctement (HTTP ${response.status}). Votre transcription reste disponible.`);

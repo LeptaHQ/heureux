@@ -120,13 +120,6 @@
               <small aria-hidden="true">Oral et écrit</small>
             </span>
           </a>
-          <a href="{% url 'study:simulation' %}" class="nav__primary-link{% if active_nav_area == 'simulation' %} is-active{% endif %}"{% if active_nav_area == 'simulation' %} aria-current="page"{% endif %} data-nav-tone="simulation">
-            <span class="nav__item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nav-icon-simulation"></use></svg></span>
-            <span class="nav__item-copy">
-              <span class="nav__item-label">Simulation</span>
-              <small aria-hidden="true">S’entraîner par tâche</small>
-            </span>
-          </a>
         </div>
 
         <div class="nav__group nav__group--tools" role="group" aria-label="Outils personnels">
@@ -138,11 +131,11 @@
               <small aria-hidden="true">Notes et surlignages</small>
             </span>
           </a>
-          <a href="{% url 'study:stats' %}" class="nav__primary-link{% if active_nav_area == 'stats' %} is-active{% endif %}"{% if active_nav_area == 'stats' %} aria-current="page"{% endif %} data-nav-tone="stats">
-            <span class="nav__item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nav-icon-stats"></use></svg></span>
+          <a href="{% url 'study:simulation' %}" class="nav__primary-link{% if active_nav_area == 'simulation' %} is-active{% endif %}"{% if active_nav_area == 'simulation' %} aria-current="page"{% endif %} data-nav-tone="simulation">
+            <span class="nav__item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nav-icon-simulation"></use></svg></span>
             <span class="nav__item-copy">
-              <span class="nav__item-label">Stats</span>
-              <small aria-hidden="true">Suivre mes progrès</small>
+              <span class="nav__item-label">Simulation</span>
+              <small aria-hidden="true">S’entraîner par tâche</small>
             </span>
           </a>
         </div>
@@ -152,7 +145,7 @@
           <span>Rechercher</span>
         </a>
 
-        <details class="nav__more{% if request.resolver_match.url_name == 'settings' or request.resolver_match.url_name == 'change_pin' or request.resolver_match.url_name == 'regenerate_recovery_codes' or request.resolver_match.url_name == 'reset_progress' or request.resolver_match.url_name == 'delete_account' %} is-active{% endif %}" data-nav-more>
+        <details class="nav__more{% if active_nav_area == 'stats' or request.resolver_match.url_name == 'settings' or request.resolver_match.url_name == 'change_pin' or request.resolver_match.url_name == 'regenerate_recovery_codes' or request.resolver_match.url_name == 'reset_progress' or request.resolver_match.url_name == 'delete_account' %} is-active{% endif %}" data-nav-more>
           <summary aria-label="Compte et réglages" title="Compte et réglages">
             <span class="nav__avatar" aria-hidden="true">{{ request.user.username|first|upper }}</span>
             <span class="nav__more-label">Compte et réglages</span>
@@ -164,6 +157,9 @@
               <strong>@{{ request.user.username }}</strong>
             </div>
             <span class="nav__menu-divider" aria-hidden="true"></span>
+            <a href="{% url 'study:stats' %}"{% if active_nav_area == 'stats' %} class="is-active" aria-current="page"{% endif %}>
+              Stats <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nav-icon-stats"></use></svg>
+            </a>
             <a href="{% url 'study:settings' %}" class="{% if request.resolver_match.url_name == 'settings' or request.resolver_match.url_name == 'change_pin' or request.resolver_match.url_name == 'regenerate_recovery_codes' or request.resolver_match.url_name == 'reset_progress' or request.resolver_match.url_name == 'delete_account' %}is-active{% endif %}">Réglages</a>
             <button type="button" data-theme-toggle>
               <span>Apparence</span>

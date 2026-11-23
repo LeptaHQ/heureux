@@ -16,9 +16,8 @@
         <td class="t1-table__subject">
           <div class="t1-table__subject-copy">
             <div>
-              <a aria-label="Pratiquer : {{ row.topic.title }}" href="{% if row.topic.args %}{% url 'study:eo2_rehearsal' row.token %}{% else %}{% url 'study:eo_tache_two_interaction' %}{% endif %}">{{ row.topic.title }}</a>
+              <a aria-label="Pratiquer : {{ row.topic.title }}" href="{{ row.topic.simulation_url }}">{{ row.topic.title }}</a>
               <span class="t1-table__subject-date">{{ row.topic.theme }} · {{ row.topic.source }}</span>
-              {% if live %}<a href="{% if row.topic.args %}{% url 'study:eo_tache_two_live' row.topic.args.0 row.topic.args.1 row.topic.args.2 %}{% else %}{% url 'study:eo_tache_two_live' %}{% endif %}">Studio vocal<span class="sr-only"> : {{ row.topic.title }}</span></a>{% endif %}
             </div>
             <form class="subject-bookmark{% if row.retry %} is-bookmarked{% endif %}" method="post" action="{{ status_url }}{% querystring %}">
               {% csrf_token %}<input type="hidden" name="field" value="retry"><input type="hidden" name="value" value="{{ row.retry|yesno:'0,1' }}">

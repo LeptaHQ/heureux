@@ -12,7 +12,7 @@ from django.utils import timezone
 
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
-from study.expression.eo.tache_2 import gemini_evaluation, gemini_live
+from study.expression.eo.tache_2 import live_conversation, oral_evaluation
 from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation, LoginThrottle, Prompt
 from study.views import eo2_live
 from . import factories
@@ -32,7 +32,7 @@ class GeminiLiveTests(TestCase):
     def setUp(self):
         # Patch the TLS boundary, not the mint logic. Even an unexpected mint
         # must not reach the network.
-        self.transport = self.enterContext(patch.object(gemini_live, "HTTPSConnection", autospec=True))
+        self.transport = self.enterContext(patch.object(live_conversation, "HTTPSConnection", autospec=True))
         self.connection = self.transport.return_value
         self.upstream = self.connection.getresponse.return_value.__enter__.return_value
         self.upstream.status = 200
@@ -76,12 +76,11 @@ class GeminiLiveTests(TestCase):
         self.assertNotContains(page, PILOT_PIN)
 
         studio = self.client.get(self.studio)
-        self.assertIs(studio.context["gemini_live_available"], True)
-        self.assertEqual(studio["Content-Security-Policy"], settings.CONTENT_SECURITY_POLICY)
-        self.assertIn("microphone=(self)", studio["Permissions-Policy"])
+        self.assertRedirects(studio, self.live, fetch_redirect_response=False)
+        self.assert_no_live_policy(studio)
         self.transport.assert_not_called()
 
-    def test_pilot_gates_apply_to_both_pages_and_direct_mint(self):
+    def test_unavailable_simulation_has_no_fallback_or_microphone_access(self):
         for gate in (
             {"GEMINI_LIVE_API_KEY": ""},
             {"AI_PIN": ""},
@@ -91,7 +90,10 @@ class GeminiLiveTests(TestCase):
                 page = self.client.get(self.live)
                 self.assertIs(page.context["gemini_live_available"], False)
                 self.assert_no_live_policy(page)
-                self.assertIs(self.client.get(self.studio).context["gemini_live_available"], False)
+                self.assertContains(page, "La simulation est indisponible")
+                self.assertNotContains(page, 'id="lv-start"')
+                self.assertNotContains(page, f'href="{self.studio}"')
+                self.assertNotContains(page, "Gemini")
                 self.assert_private(self.post(), 403)
         self.task.available = False
         self.task.save(update_fields=["available"])
@@ -155,7 +157,7 @@ class GeminiLiveTests(TestCase):
             self.assertLessEqual(expiry, after + timedelta(minutes=minutes))
         setup = payload["bidiGenerateContentSetup"]
         instruction = setup.pop("systemInstruction")["parts"][0]["text"]
-        self.assertIn(gemini_live._TURN_RULE, instruction)
+        self.assertIn(live_conversation._TURN_RULE, instruction)
         self.assertEqual(setup, {
             "model": "models/gemini-3.8-live", "generationConfig": {"responseModalities": ["AUDIO"]},
             "inputAudioTranscription": {"languageCodes": ["fr-FR"]}, "outputAudioTranscription": {},
@@ -205,7 +207,7 @@ class GeminiLiveTests(TestCase):
                 instruction = payload["bidiGenerateContentSetup"]["systemInstruction"]["parts"][0]["text"]
                 self.assertNotIn("DB-only sentinel", instruction)
                 self.assertNotIn("parc des Saules", instruction)
-                self.assertIn(gemini_live._TURN_RULE, instruction)
+                self.assertIn(live_conversation._TURN_RULE, instruction)
                 self.assertIn(page.context["subject"].prompt, instruction)
                 self.assertIn(dialogue.questions[0].answer, instruction)
                 self.assertIn(f'"registre": "{dialogue.register}"', instruction)
@@ -313,7 +315,7 @@ class GeminiLiveTests(TestCase):
         transport.assert_called_once()
 
     def evaluation_fixture(self):
-        transport = self.enterContext(patch.object(gemini_evaluation, "HTTPSConnection", autospec=True))
+        transport = self.enterContext(patch.object(oral_evaluation, "HTTPSConnection", autospec=True))
         self.eval_connection = transport.return_value
         self.eval_connection.sock = Mock()
         self.eval_response = self.eval_connection.getresponse.return_value.__enter__.return_value
@@ -326,13 +328,13 @@ class GeminiLiveTests(TestCase):
             {"speaker": "user", "text": "📷 Et si je veux prend deux appareils ?"},
         ]
         self.report = {"criteria": {
-                           "task": {"points": 4, "turnIndex": 0, "quote": "combien coûte le prêt", "why": "La demande de prix est claire."},
-                           "coherence": {"points": 3, "turnIndex": 2, "quote": "Et si", "why": "La relance précise la quantité."},
-                           "lexicon": {"points": 3, "turnIndex": 2, "quote": "deux appareils", "why": "Le terme « appareils » est précis."},
-                           "grammar": {"points": 2, "turnIndex": 2, "quote": "veux prend", "why": "Le second verbe doit rester à l’infinitif."}},
+                           "task": {"points": 4, "evidenceId": "E1", "why": "La demande de prix est claire."},
+                           "coherence": {"points": 3, "evidenceId": "E2", "why": "La relance précise la quantité."},
+                           "lexicon": {"points": 3, "evidenceId": "E2", "why": "Le terme « appareils » est précis."},
+                           "grammar": {"points": 2, "evidenceId": "E2", "why": "Le second verbe doit rester à l’infinitif."}},
                        "reason": "Vous adaptez votre demande au tarif annoncé.",
-                       "strengths": [{"turnIndex": 0, "quote": "combien coûte le prêt", "why": "Le prix est ciblé."},
-                                     {"turnIndex": 2, "quote": "Et si", "why": "Vous explorez une autre possibilité."}],
+                       "strengths": [{"evidenceId": "E1", "why": "Le prix est ciblé."},
+                                     {"evidenceId": "E2", "why": "Vous explorez une autre possibilité."}],
                        "corrections": [{"turnIndex": 2, "before": "veux prend", "after": "veux prendre",
                                         "why": "Après vouloir, le deuxième verbe reste à l’infinitif."}],
                        "proposal": [{"turnIndex": 0, "text": "Bonjour, combien coûte le prêt d’un appareil photo ?"},
@@ -353,6 +355,10 @@ class GeminiLiveTests(TestCase):
             "consent": True, "pin": PILOT_PIN, "rows": self.rows, **changes,
         }))
 
+    def ground(self, rows=None, *, monologue=False):
+        rows = self.rows if rows is None else rows
+        return oral_evaluation._ground(self.report, rows, oral_evaluation._evidence_rows(rows)[1], monologue=monologue)
+
     def test_review_uses_only_exact_publication_and_reviewed_text_and_maps_score(self):
         self.evaluation_fixture()
         args = ("mai", 2, 8)
@@ -367,9 +373,10 @@ class GeminiLiveTests(TestCase):
         report = response.json()
         self.assertEqual((report["score"], report["cefr"], report["nclc"]), (12, "B2", "8"))
         self.assertEqual([item["score"] for item in report["criteria"]], [4, 3, 3, 2])
-        self.assertEqual([item["quote"] for item in report["evidence"]], ["combien coûte le prêt", "Et si"])
+        first, last = self.rows[0]["text"], self.rows[2]["text"]
+        self.assertEqual([item["quote"] for item in report["evidence"]], [first, last])
         self.assertEqual([(row["turnIndex"], row["quote"]) for row in report["criteria"]],
-                         [(0, "combien coûte le prêt"), (2, "Et si"), (2, "deux appareils"), (2, "veux prend")])
+                         [(0, first), (2, last), (2, last), (2, last)])
         self.assertEqual(report["proposal"], [line["text"] for line in self.report["proposal"]])
         mark, = report["annotations"]
         encoded = self.rows[mark["turnIndex"]]["text"].encode("utf-16-le")
@@ -385,8 +392,11 @@ class GeminiLiveTests(TestCase):
         self.assertEqual(schema.count('"type": "object"'), schema.count('"additionalProperties": false'))  # Strict mode.
         system, user = payload["messages"]
         self.assertEqual(system["role"], "system")
-        self.assertEqual(json.loads(user["content"]),
-                         {"consigne": page.context["subject"].prompt, "rows": [dict(row, turnIndex=i) for i, row in enumerate(self.rows)]})
+        self.assertEqual(json.loads(user["content"]), {"consigne": page.context["subject"].prompt, "rows": [
+            {"turnIndex": 0, "speaker": "user", "passages": [{"id": "E1", "text": first}]},
+            {"turnIndex": 1, **self.rows[1]},
+            {"turnIndex": 2, "speaker": "user", "passages": [{"id": "E2", "text": last}]},
+        ]})
         self.assertNotIn(PILOT_PIN, repr(call))
         self.assertNotIn(self.reviewer.username, repr(call))
         self.assertNotIn(catalogue.tache_two_dialogues()[key].questions[0].answer, json.dumps(payload, ensure_ascii=False))
@@ -399,7 +409,7 @@ class GeminiLiveTests(TestCase):
         for changes in ({"consent": False}, {"notes": "private"}, {"rows": [self.rows[1]]},
                         {"rows": [{**self.rows[0], "original": "misheard"}]}, {"rows": self.rows * 100}):
             self.assert_private(self.evaluate(**changes), 400)
-        self.assert_private(self.post(url=self.eval_url, body=" " * (gemini_evaluation.MAX_BODY + 1)), 400)
+        self.assert_private(self.post(url=self.eval_url, body=" " * (oral_evaluation.MAX_BODY + 1)), 400)
         self.assert_private(self.evaluate(pin=""), 403)
         self.assert_private(self.client.post(self.eval_url, {"consent": True}, content_type="application/json"), 403)
         for key in ("GEMINI_LIVE_API_KEY", "GROQ_API_KEY"):
@@ -427,54 +437,74 @@ class GeminiLiveTests(TestCase):
             with self.subTest(score=score):
                 for i, row in enumerate(self.report["criteria"].values()):
                     row["points"] = score // 4 + (i < score % 4)
-                result = gemini_evaluation._ground(self.report, self.rows)
+                result = self.ground()
                 self.assertEqual((result["cefr"], result["nclc"]), (cefr, nclc))
 
     def test_unverifiable_detail_does_not_destroy_a_supported_score(self):
         self.evaluation_fixture()
-        self.report["strengths"][0]["turnIndex"] = 1  # The partner never earns marks for the learner.
+        self.report["strengths"][0]["evidenceId"] = "Cinq dollars."  # Partner text is not an evidence ID.
         self.rows[-1]["text"] += " veux prend"
         self.report["corrections"].append({"turnIndex": 0, "before": "inventé", "after": "mot", "why": "Correction."})
         report = self.evaluate().json()
         self.assertEqual((report["score"], report["omitted"], report["annotations"]), (12, True, []))
-        self.assertEqual([item["quote"] for item in report["evidence"]], ["Et si"])
+        self.assertEqual([item["quote"] for item in report["evidence"]], [self.rows[-1]["text"].removesuffix(" veux prend")])
         self.eval_connection.request.assert_called_once()
 
-    def test_only_excerpts_from_the_cited_learner_turn_support_a_mark(self):
+    def test_only_issued_learner_passages_support_a_mark(self):
         self.evaluation_fixture()
-        criterion = self.report["criteria"]["task"]
-        for i, quote in ((0, "Cinq dollars"), (1, "Cinq dollars"), (0, "coûte le billet"),
-                         (0, "combien coûte ... prêt"), (0, "ombien"), (False, "Bonjour"), (2, "Bonjour"),
-                         (0, " ? "), (0, "a" * 161)):
-            with self.subTest(i=i, quote=quote):
-                criterion.update(turnIndex=i, quote=quote)
+        criterion = self.report["criteria"]["lexicon"]
+        for ref in ("E0", "E3", "deux appareils", "Cinq dollars.", 1, False, None, ["E1"]):
+            with self.subTest(ref=ref):
+                criterion.update(evidenceId=ref)
                 self.report["strengths"] = [dict(criterion)]
-                result = gemini_evaluation._ground(self.report, self.rows)
+                result = self.ground()
                 self.assertEqual((result["scoreStatus"], result["score"], result["evidence"]), ("incomplete", None, []))
-                self.assertEqual([row["score"] for row in result["criteria"]], [None, 3, 3, 2])
-                self.assertNotIn("quote", result["criteria"][0])
+                self.assertEqual([row["score"] for row in result["criteria"]], [4, 3, None, 2])
+                self.assertNotIn("quote", result["criteria"][2])
 
         # A point fort is not one of the four marks, so it cannot supply missing EO2 coverage.
-        criterion.update(turnIndex=2, quote="deux appareils")
-        self.report["strengths"] = [{"turnIndex": 0, "quote": "Bonjour", "why": "Vous saluez."}]
-        result = gemini_evaluation._ground(self.report, self.rows)
+        for item in self.report["criteria"].values():
+            item.update(evidenceId="E2")
+        self.report["strengths"] = [{"evidenceId": "E1", "why": "Vous saluez."}]
+        result = self.ground()
         self.assertTrue(result["evidence"])
         self.assertEqual((result["scoreStatus"], result["score"]), ("incomplete", None))
 
     def test_opinion_quotes_preserve_original_french_without_repeating_the_monologue(self):
         self.evaluation_fixture()
-        original = "l’ide\u0301e\u00a0de marcher"
-        rows = [{"speaker": "user", "text": f"Je trouve que {original} est bonne : on peut regarder les bâtiments et discuter avec les habitants."}]
+        original = "Je trouve que l’ide\u0301e\u00a0de marcher est bonne."
+        rows = [{"speaker": "user", "text": f"{original} On peut regarder les bâtiments et discuter avec les habitants."}]
         for item in (*self.report["criteria"].values(), *self.report["strengths"]):
-            item.update(turnIndex=0, quote="L'idée de marcher")
+            item.update(evidenceId="E1")
         self.report.update(proposal="", corrections=[])
-        result = gemini_evaluation._ground(self.report, rows, monologue=True)
+        result = self.ground(rows, monologue=True)
         self.assertEqual(result["score"], 12)
         for item in result["evidence"] + result["criteria"]:
             self.assertEqual(item["quote"], original)
-        self.report["strengths"][0]["quote"] = "l'idée de marché"
-        result = gemini_evaluation._ground(self.report, rows, monologue=True)
+        self.report["strengths"][0]["evidenceId"] = "l'idée de marcher"
+        result = self.ground(rows, monologue=True)
         self.assertEqual((result["omitted"], result["score"], len(result["evidence"])), (True, 12, 1))
+
+    def test_passages_preserve_uncitable_text_and_never_split_a_word_to_make_evidence(self):
+        long_word = "x" * 161
+        rows = [{"speaker": "user", "text": f"   {long_word}   euh, à quelle heure ?"},
+                {"speaker": "model", "text": "E1 : à midi."},
+                {"speaker": "user", "text": "???"},
+                {"speaker": "user", "text": "Et si je ne peux passer qu’après midi ?"}]
+        sent, evidence = oral_evaluation._evidence_rows(rows)
+        self.assertEqual(sent[0]["passages"][0], {"id": None, "text": long_word})
+        self.assertEqual(sent[1], {"turnIndex": 1, **rows[1]})
+        self.assertEqual(sent[2]["passages"], [{"id": None, "text": "???"}])
+        self.assertEqual(list(evidence.values()), [{"turnIndex": 0, "quote": "euh, à quelle heure ?"},
+                                                   {"turnIndex": 3, "quote": rows[3]["text"]}])
+
+    def test_partner_fluency_does_not_turn_acknowledgements_into_a_score(self):
+        self.evaluation_fixture()
+        for row, text in zip(self.rows, ("Bonjour !", "Nous proposons plusieurs tarifs selon la durée de votre séjour.", "Euh, oui, merci.")):
+            row["text"] = text
+        result = self.evaluate().json()
+        self.assertEqual((result["scoreStatus"], result["score"]), ("insufficient", None))
+        self.assertTrue(all(row["score"] is None for row in result["criteria"]))
 
     def test_corrections_ignore_apostrophe_style_case_punctuation_and_fillers(self):
         self.evaluation_fixture()
@@ -485,12 +515,30 @@ class GeminiLiveTests(TestCase):
             {"turnIndex": 0, "before": "euh je", "after": "je", "why": "Hésitation."},
             {"turnIndex": 0, "before": "bonjour,", "after": "Bonjour !", "why": "Ponctuation."},
         ]
-        result = gemini_evaluation._ground(self.report, self.rows)
+        result = self.ground()
         self.assertTrue(result["omitted"])
         self.assertEqual([(mark["turnIndex"], mark["before"], mark["after"]) for mark in result["annotations"]],
                          [(0, "savoir qu'est-ce que", "savoir ce que"), (2, "veux prend", "veux prendre")])
         mark = result["annotations"][0]
         self.assertEqual(self.rows[0]["text"][mark["start"]:mark["end"]], mark["before"])
+
+    def test_corrections_require_one_whole_word_span_in_the_cited_turn(self):
+        self.evaluation_fixture()
+        self.rows[0]["text"] = "Je veux comprendre. C’est réserve\u0301, ou c'est libre ?"
+        self.rows[2]["text"] = "📷 Je veux comprendre. Et si je veux prend le train ?"
+        self.report["corrections"] = [
+            {"turnIndex": 0, "before": "prend", "after": "prendre", "why": "Infinitif."},
+            {"turnIndex": 0, "before": "c'est", "after": "c’était", "why": "Temps."},
+            {"turnIndex": 0, "before": "réserve", "after": "réserver", "why": "Infinitif."},
+            {"turnIndex": 2, "before": "prend", "after": "prendre", "why": "Infinitif après vouloir."},
+        ]
+        result = self.ground()
+        self.assertTrue(result["omitted"])
+        mark, = result["annotations"]
+        self.assertEqual((mark["turnIndex"], mark["before"], mark["after"]), (2, "prend", "prendre"))
+        original = self.rows[2]["text"].encode("utf-16-le")
+        self.assertEqual(original[:2 * mark["start"]].decode("utf-16-le"), "📷 Je veux comprendre. Et si je veux ")
+        self.assertEqual(original[2 * mark["start"]:2 * mark["end"]].decode("utf-16-le"), "prend")
 
     def test_malformed_proposal_is_dropped_without_losing_the_score(self):
         self.evaluation_fixture()
@@ -499,7 +547,7 @@ class GeminiLiveTests(TestCase):
                          [3], [last, first], [first, first], [first], [{**first, "turnIndex": False}, last]):
             with self.subTest(proposal=proposal):
                 self.report["proposal"] = proposal
-                result = gemini_evaluation._ground(self.report, self.rows)
+                result = self.ground()
                 self.assertEqual((result["score"], result["omitted"], result["proposal"]), (12, True, []))
 
     def test_proposal_keeps_a_personal_answer_on_the_learners_turn(self):
@@ -511,15 +559,13 @@ class GeminiLiveTests(TestCase):
             {"speaker": "model", "text": "Ça a dû lui faire plaisir !"},
         ]
         first, answer = self.report["proposal"]
-        for mark in self.report["criteria"].values():
-            mark["quote"] = self.rows[mark["turnIndex"]]["text"]
         first["text"], answer["text"] = "Avez-vous déjà visité Nantes ?", "J’ai rendu visite à mon frère à Nantes."
         result = self.evaluate().json()
         self.assertEqual(result["proposal"], [first["text"], answer["text"]])
         system, conversation = json.loads(self.eval_connection.request.call_args.kwargs["body"])["messages"]
         self.assertIn("une réponse personnelle reste une réponse", system["content"])
-        self.assertEqual(json.loads(conversation["content"])["rows"],
-                         [dict(row, turnIndex=i) for i, row in enumerate(self.rows)])
+        self.assertEqual(json.loads(conversation["content"])["rows"][2]["passages"],
+                         [{"id": "E2", "text": self.rows[2]["text"]}])
 
         self.report["proposal"][1] = {"turnIndex": 1, "text": "Qu’avez-vous fait à Nantes ?"}
         result = self.evaluate().json()
@@ -541,7 +587,7 @@ class GeminiLiveTests(TestCase):
 
     def test_transient_provider_failure_retries_once_and_errors_name_the_provider_code(self):
         self.evaluation_fixture()
-        sleep = self.enterContext(patch.object(gemini_evaluation.time, "sleep"))
+        sleep = self.enterContext(patch.object(oral_evaluation.time, "sleep"))
         body = json.dumps({"rows": self.rows, "pin": PILOT_PIN, "consent": True})
         self.complete()
         unavailable = b'{"error":{"message":"The model is overloaded.","type":"internal_server_error"}}'
@@ -552,7 +598,7 @@ class GeminiLiveTests(TestCase):
         self.eval_connection.request.side_effect = reply
         self.assertEqual(self.post(url=self.eval_url, body=body).json()["score"], 12)
         replies = iter([(503, unavailable)] * 2)
-        with self.assertLogs(gemini_evaluation.logger, "WARNING") as logs:
+        with self.assertLogs(oral_evaluation.logger, "WARNING") as logs:
             failed = self.post(url=self.eval_url, body=body)
         self.assert_private(failed, 502)
         self.assertIn("HTTP 503 internal_server_error", failed.json()["error"])
@@ -683,7 +729,7 @@ class GeminiLiveTests(TestCase):
             self.assert_private(self.post(grant, url=wrong), 403)
         self.assert_private(self.post(grant, url=token), 200)
         self.assertIn("Gardez le silence", instruction())
-        self.assertNotIn(gemini_live._TURN_RULE, instruction())
+        self.assertNotIn(live_conversation._TURN_RULE, instruction())
         theme.is_active = False
         theme.save(update_fields=["is_active"])
         self.assertEqual(self.client.get(url).status_code, 404)
@@ -706,7 +752,7 @@ class GeminiLiveTests(TestCase):
         self.assertIsNone(self.client.get(self.live, {"simulation": pk}).context["saved_simulation"])
         self.assert_private(self.post(url=save, body=json.dumps({"rows": self.rows, "elapsed": 1000})), 400)
         for mark in self.report["criteria"].values():
-            mark.update(turnIndex=0, quote="discuter avec les habitants", why="Votre exemple explique l’intérêt de la marche.")
+            mark.update(evidenceId="E1", why="Votre exemple explique l’intérêt de la marche.")
         paragraph = (sentence * 5).strip()  # One developed paragraph can exceed the old per-turn limit.
         conclusion = "C’est pour cela que je préfère marcher."
         self.report.update(proposal=paragraph + "\r\n\r\n" + conclusion, corrections=[], strengths=[])
@@ -718,7 +764,11 @@ class GeminiLiveTests(TestCase):
         self.assertEqual(payload["response_format"]["json_schema"]["schema"]["properties"]["proposal"], {"type": "string"})
         system, user = payload["messages"]
         self.assertIn("tâche 3", system["content"])
-        self.assertEqual(json.loads(user["content"]), {"consigne": page.context["scenario_prompt"], "rows": [{**rows[0], "turnIndex": 0}]})
+        sent = json.loads(user["content"])
+        self.assertEqual(sent["consigne"], page.context["scenario_prompt"])
+        only_row, = sent["rows"]
+        self.assertEqual(" ".join(p["text"] for p in only_row["passages"]), rows[0]["text"])
+        self.assertEqual(result.json()["criteria"][0]["quote"], sentence.strip())
         reopened = self.client.get(reverse("study:eo_tache_three_live"), {"simulation": pk})
         self.assertEqual(reopened.context["saved_simulation"]["report"], result.json())
         self.report["proposal"] = " "
@@ -727,12 +777,12 @@ class GeminiLiveTests(TestCase):
         self.assertIsNone(brief.json()["score"])
         self.assertNotIn("interaction", brief.json()["reason"])
         self.report["proposal"] = {"paragraph": "Format invalide."}
-        invalid = gemini_evaluation._ground(self.report, rows, monologue=True)
+        invalid = self.ground(rows, monologue=True)
         self.assertEqual((invalid["scoreStatus"], invalid["proposal"], invalid["omitted"]), ("scored", [], True))
 
     def test_no_total_for_partial_unobserved_or_unsupported_rubric(self):
         self.evaluation_fixture()
-        self.report["criteria"]["grammar"]["turnIndex"] = 1
+        self.report["criteria"]["grammar"]["evidenceId"] = "E999"
         partial = self.evaluate().json()
         self.assertIsNone(partial["score"])
         self.assertEqual(partial["scoreStatus"], "incomplete")
@@ -741,16 +791,43 @@ class GeminiLiveTests(TestCase):
         self.assertTrue(partial["evidence"])
         self.assertTrue(partial["annotations"])
         for item in self.report["criteria"].values():
-            item.update(points=None, turnIndex=None, quote="", why="Échantillon trop bref.")
+            item.update(points=None, evidenceId=None, why="Échantillon trop bref.")
         too_short = self.evaluate().json()
         self.assertEqual((too_short["score"], too_short["nclc"], too_short["scoreStatus"]), (None, None, "insufficient"))
         self.assertFalse(too_short["omitted"])
         for item in self.report["criteria"].values():
-            item.update(points=4, turnIndex=1)
+            item.update(points=4, evidenceId="E1")
         greeting_only = self.evaluate(rows=[{"speaker": "model", "text": "Bonjour !"},
                                             {"speaker": "user", "text": "Bonjour !"}]).json()
         self.assertEqual(greeting_only["scoreStatus"], "insufficient")
         self.assertTrue(all(row["score"] is None for row in greeting_only["criteria"]))
+
+    def test_only_a_complete_reassessment_replaces_the_saved_partial_report(self):
+        self.evaluation_fixture()
+        session = LiveSimulation.objects.create(user=self.reviewer, rows=self.rows)
+        params = {"simulation": str(session.pk)}
+        lexicon = self.report["criteria"]["lexicon"]
+        lexicon["evidenceId"] = "E999"
+        partial = self.evaluate(**params).json()
+        self.assertIsNone(partial["criteria"][2]["score"])
+
+        self.report["criteria"]["grammar"]["evidenceId"] = "E999"
+        lexicon["evidenceId"] = "E2"
+        self.assertEqual(self.evaluate(**params).json(), {**partial, "previousReportKept": True})
+        session.refresh_from_db()
+        self.assertEqual(session.report, partial)  # The two incomplete sets of marks are not merged.
+
+        self.eval_response.status = 429
+        self.assert_private(self.evaluate(**params), 429)
+        session.refresh_from_db()
+        self.assertEqual(session.report, partial)
+        self.eval_response.status = 200
+        self.report["criteria"]["grammar"]["evidenceId"] = "E2"
+        completed = self.evaluate(**params).json()
+        session.refresh_from_db()
+        self.assertEqual((completed["score"], completed), (12, session.report))
+        lexicon["evidenceId"] = "E999"
+        self.assertEqual(self.evaluate(**params).json(), {**completed, "previousReportKept": True})
 
     def test_unreadable_unfinished_or_refused_reports_do_not_retry(self):
         self.evaluation_fixture()
@@ -758,11 +835,11 @@ class GeminiLiveTests(TestCase):
         self.complete(json.dumps(self.report)[:70])
         malformed = self.post(url=self.eval_url, body=body)
         self.assert_private(malformed, 502)
-        self.assertIn("grille lisible", malformed.json()["error"])
+        self.assertIn("illisible", malformed.json()["error"])
         self.eval_response.read.return_value = b'{"choices": []}'
         self.assert_private(self.post(url=self.eval_url, body=body), 502)
         self.complete("", finish="length")
-        with self.assertLogs(gemini_evaluation.logger, "WARNING") as logs:
+        with self.assertLogs(oral_evaluation.logger, "WARNING") as logs:
             self.assert_private(self.post(url=self.eval_url, body=body), 422)
         self.assertIn("finish length", logs.output[0])
         self.assertIn("'prompt_tokens': 3900", logs.output[0])
@@ -781,8 +858,8 @@ class GeminiLiveTests(TestCase):
         self.evaluation_fixture()
         body = json.dumps({"rows": self.rows, "pin": PILOT_PIN, "consent": True})
         self.complete()
-        with patch.object(gemini_evaluation, "_MAX_RESPONSE", 100):
-            self.assertIn("grille lisible", self.post(url=self.eval_url, body=body).json()["error"])
+        with patch.object(oral_evaluation, "_MAX_RESPONSE", 100):
+            self.assertIn("illisible", self.post(url=self.eval_url, body=body).json()["error"])
         near, far = socket.socketpair()
         self.addCleanup(far.close)
         self.addCleanup(near.close)
@@ -792,7 +869,7 @@ class GeminiLiveTests(TestCase):
             near.settimeout(5)  # Each fragment that arrives in time renews the read timeout.
             return near.recv(limit)
         self.eval_response.read = read
-        with patch.object(gemini_evaluation, "_DEADLINE_SECONDS", 0.2), self.assertLogs(gemini_evaluation.logger, "WARNING"):
+        with patch.object(oral_evaluation, "_DEADLINE_SECONDS", 0.2), self.assertLogs(oral_evaluation.logger, "WARNING"):
             late = self.post(url=self.eval_url, body=body)
         self.assert_private(late, 504)
         self.assertIn("arrêt à 0 s", late.json()["error"])
@@ -831,5 +908,5 @@ class GeminiLiveTests(TestCase):
                 late = json.loads(b"".join(self.post(url=self.eval_url, body=body).streaming_content))
             release.set()  # Groq is still pending, but the stream ended before Gunicorn's timeout.
         self.assertEqual(failed["status"], 502)
-        self.assertIn("Groq", failed["error"])
+        self.assertIn("HTTP 400", failed["error"])
         self.assertEqual(late["status"], 504)

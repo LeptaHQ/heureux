@@ -6,7 +6,7 @@ repetition, notes, highlights, and explicit completion tracking.
 
 ## Local development
 
-Heureux uses Python 3.12.
+Local development uses Python 3.12. Render runs Python 3.11, so application code and migrations must also work on 3.11.
 
 ```bash
 python -m venv .venv
@@ -62,19 +62,20 @@ The Expression hub and oral/written landing pages are metadata-only navigation:
 titles, descriptions, icons and links, without catalogue/progress/due counts or
 statistics requests. EO/EE task overviews aggregate the study progress they
 actually display without constructing full subject directories or review links.
-The navbar’s **Simulation** entry opens `/simulation/`. Its oral track links to the
-guided interview and role-play, plus the EO2/EO3 voice studios when enabled. The
-written track links to available EE task subjects for untimed practice. Oral studio
+**Simulation** sits between **Notes** and search in the main navigation and opens
+`/simulation/`. **Stats** is in the profile dropdown, above **Réglages**.
+The oral track opens the same speaking simulator for EO2 and EO3, with the
+timing and stages appropriate to each task. The written track links to
+available EE subjects for untimed writing practice. Simulation
 tab titles identify the task and, for a subject-specific session, its topic.
 In **Simulation → Expression orale → Tâche 2 → Choisir un sujet**, the Sujets table
 and its **Thème**, **Statut** and **Tri** filters let learners find a topic. Its title
 opens the exact publication; the **Séances** count opens its history. **Terminé** is
 a manual completion checkbox; **À refaire** is an independent bookmark. Both save
 in place, so learners can mark several topics without reloading the page.
-A finished guided simulation or saved voice session marks
-the topic done and adds one dated attempt. Changing either marker or reopening history
-never adds an attempt. Guided history stores no transcript or audio. Existing retained
-EO2 voice sessions are included; previously discarded sessions cannot be reconstructed.
+A saved EO2 session marks the topic done and adds one dated attempt. Changing
+either marker or reopening a bilan never adds an attempt. Existing history
+also retains older guided attempts, which have no transcript or audio.
 Expiring a voice transcript keeps the practice count; explicitly deleting it removes
 that occurrence. A progress reset clears attempts and checkmarks but keeps retry bookmarks.
 The EO2 task overview is also metadata-only navigation, retaining its practice
@@ -122,65 +123,16 @@ three EE subject directories, bookmarking and marking complete save in place.
 Counts and filtered rows update without closing an open theme or resetting your
 sort. Copying the consigne on the subject page is unchanged.
 
-EO2 and EO3 retain their subject content, responses and study controls. The
-separate EO2 interaction studio does not revive the old practice launcher.
-The retired EO2 AI examiner prompt and practice guide are not
-loaded or shipped to the browser. Written-expression practice is unchanged.
-
-### Tâche 1 · Entretien dirigé
-
-Open **Expression → EO → Tâche 1 → Entretien** for a two-minute interview
-without preparation ([official format](https://www.france-education-international.fr/test/tcf-canada?langue=fr#quevaluent-les-differentes-epreuves)).
-Microphone setup is outside the clock; examiner speech, repeats and responses
-are inside it. The microphone option uses the browser's French speech recognition
-on HTTPS or localhost. The browser may use an online dictation service; learners
-can instead speak without a microphone or type. Permission to use the microphone
-is scoped to the studio page.
-
-The studio selects original guided follow-ups from the conversation. Browsers
-with a ready, French-capable on-device Prompt API can additionally offer
-generated follow-ups; there is no model download, paid API, or server inference.
-After the session, learners can check the original dictation, fix misheard
-words, and analyze the verified transcript in the tab. The review quotes
-specific phrases, suggests French corrections for recognized patterns, and
-explains a tentative CEFR descriptor match when there is enough evidence.
-Keyboard answers are labeled as written evidence. This is not a calibrated
-speaking score: the [official TCF speaking scale](https://www.france-education-international.fr/document/grilleniveauxtcf)
-applies to all three tasks together. Heureux does not grade pronunciation,
-predict NCLC eligibility, or save audio, edits, or transcripts.
-
 ### Tâche 2 · Exercice en interaction
 
-Open **Expression → EO → Tâche 2 → Interaction** for an original role-play:
-ask a cultural centre receptionist about two photography workshops and decide
-which suits you. There are two minutes of preparation and three minutes thirty
-of conversation ([official format](https://www.france-education-international.fr/test/tcf-canada?langue=fr#quevaluent-les-differentes-epreuves)).
-The learner can end preparation early in practice. In both the guided and voice
-studios, a scratch sheet with notes opens automatically when preparation ends.
-The timed guided exchange includes both speakers; switching tabs does not pause it.
+Choose a topic under **Simulation → Expression orale → Tâche 2**. The session has
+three stages: **Préparation → Échange → Bilan**. Notes on the scratch sheet
+remain visible during the exchange. If the service is unavailable, the page
+says so instead of opening a different exercise.
 
-The embedded French intent model uses TF-IDF similarity over labeled example
-questions, with conversation state to resolve follow-ups. It remembers stated
-availability for Saturday or Wednesday and whether the learner has a camera
-or only a phone. Recommendations use these details and the fixed workshop
-facts. An unrecognized request gets a clarification, not a fabricated
-answer. On compatible devices an optional preinstalled language model can
-classify an unclear question; it cannot set prices or generate arbitrary replies.
-Neither path sends questions to a model server. In voice mode, after microphone
-permission and preparation, the receptionist speaks, then listens. A short pause
-submits the spoken question automatically; the microphone stays off during
-playback. Recognition may use the browser’s own online service. Learners can
-pause the microphone or switch to the keyboard to edit their current words.
-Notes and dialogue stay in tab memory. Feedback cites the questions asked;
-this studio does not assign an official speaking score.
-
-**Opt-in native voice pilot.** The separate **Simulation** page for Tâche 2
-streams speech in both directions. The receptionist is instructed to speak
-French, answer the learner’s questions and leave the next turn to the learner.
-It may ask a short clarification only if the context is insufficient for a useful
-answer, not to keep the conversation going. The default topic is the same two fictional workshops.
-The model generates its own replies and can be interrupted. It can still
-misunderstand or invent facts. The headphones open the audio PIN dialog.
+In the photo-workshop scenario, a French-speaking receptionist answers the
+learner’s questions about two workshops. The interlocutor can be interrupted
+and may misunderstand or invent facts. **Commencer la séance** opens the consent and PIN dialog.
 Enter the PIN once for the attempt. Gemini reads the selected French prompt
 with the microphone off and both clocks stopped. When playback finishes,
 the **2:00** preparation countdown starts automatically. Skip the remaining
@@ -197,13 +149,14 @@ In the transcript, learners can reread their numbered turns with suggested chang
 the original wording struck through and its replacement highlighted, with the
 reason just below the turn. They can reveal the
 partner’s replies for context. The transcript is read-only; suggestions do not
-replace the words used for scoring.
+replace the words used for scoring. An inline correction is shown only when its
+word or phrase can be located unambiguously in that learner turn.
 Strengths are illustrated with real questions or follow-ups from the exchange.
 Unmarked text is not a blanket endorsement, and a spelling difference is not a pronunciation error. An interrupted
 call can show the portion received; no learner speech means no assessment.
 When time is up, Heureux starts a Groq evaluation automatically: the consent given before the
 exchange covers sending its transcript to Groq for this bilan. A small spinner beside the
-sparkle icon (**Évaluer mon niveau avec Groq**) shows when the evaluation is in
+sparkle icon (**Évaluer mon niveau**) shows when the evaluation is in
 progress; if it fails, select the icon to try again. No second PIN is needed for this attempt. Heureux sends only the
 published consigne and both speakers’ transcribed words (not audio or notes)
 to [`openai/gpt-oss-120b`](https://console.groq.com/docs/model/openai/gpt-oss-120b) on Groq,
@@ -223,11 +176,14 @@ Tâche 2 descriptors with indicative CEFR anchors (1 ≈ A2 up to 5 ≈ C2), and
 note says what the exchange showed and what would earn the next mark. Heureux adds them
 for one **total out of 20** and maps it to **NCLC** and **CEFR**. This is a
 practice rubric, not official TCF weighting. **Au prochain essai** gives one
-action to practise, with an example specific to the task. In both studios, new
-marks and strengths cite short excerpts that link back to the learner’s own turn.
-Heureux checks that the words occur in that turn; the interpretation remains
-the reviewer’s judgment. A mark with no matching excerpt is withheld, not
-counted as zero. EO2’s marks must also cover learner turns on either side of
+action to practise, with an example specific to the task. In both studios, Heureux
+labels short, unchanged passages of learner speech before grading. Groq selects
+an ID for each mark and strength; Heureux displays the original passage linked to
+its turn. Partner speech is context only and has no selectable IDs. This verifies
+who said the words, not whether the grader interpreted them correctly. Feedback
+should distinguish a poor word choice from a simple but precise one, and an
+audible grammatical problem from a dictation spelling. A mark without a valid
+passage is shown as **Non évalué**, not zero. EO2’s marks must also cover learner turns on either side of
 a partner reply; EO3 can be assessed from one developed turn. Older reports
 keep their original marks without retrofitting evidence. Up to twelve inline corrections identify the words to
 change and why. The bilan also includes a **Proposition**: the learner’s
@@ -241,6 +197,16 @@ matching references do not themselves verify a paraphrase’s meaning.
 An unverifiable edit, strength or proposal is left out without discarding
 a supported score. An incomplete rubric is not extrapolated to a total.
 Pronunciation, pace and accent are not assessed from text.
+To check the live grader after a rubric or model change, use the opt-in synthetic
+calibration below with a configured `GROQ_API_KEY`. It makes four grading requests
+(subject to provider quota), compares task-specific behavior rather than demanding
+an exact mark, and does not read saved learner sessions. These are regression
+signals, not validation against examiner ratings.
+
+```bash
+RUN_GROQ_CALIBRATION=1 python manage.py test study.tests.oral_bilan_calibration
+```
+
 Conversions follow the [TCF speaking scale](https://www.france-education-international.fr/document/grilleniveauxtcf)
 and the [IRCC TCF Canada speaking table](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html#level).
 This estimates one transcribed task, not pronunciation or the official
@@ -250,14 +216,17 @@ exchange ends and adds the bilan once it arrives, keeping the learner’s thirty
 recent sessions. The setup screen lists the five latest for that subject under
 **Séances enregistrées**. Reopening one shows its stored bilan and corrections without
 calling Groq again. If it has no bilan yet, the sparkle icon requests one with the PIN.
+On a partial rubric the same icon, **Réévaluer le bilan**, requests a fresh assessment
+of that transcript without repeating the simulation. Only a complete new rubric
+replaces the saved partial one; marks from separate assessments are never combined.
 Account export includes these sessions, and a progress reset deletes them.
 
 With the pilot enabled, open any **EO → Tâche 2 → Sujets** detail page and
 select the **headphones icon** just before Copy in the **Consigne** heading. Preparation
 uses that exact publication, and Gemini plays its interlocutor using its
 reviewed role, facts and `tu`/`vous` register. Personal notes and edited
-questions are not included. Starting from the general Interaction page still
-opens the photo-workshop exercise.
+questions are not included. Bookmarks for the old workshop or a published
+topic’s rehearsal redirect to the corresponding simulation.
 
 To enable the pilot for a test account:
 
@@ -275,8 +244,8 @@ To enable the pilot for a test account:
    an opt-in for the general learner population. Share the PIN only with eligible
    testers trusted to authorize ElevenLabs generation too. Unset `GEMINI_API_KEY`
    to stop new calls, or only `GROQ_API_KEY` to stop new bilans, without affecting narration.
-3. Sign in as an approved tester, open **Tâche 2 → Interaction → Essayer la
-   conversation vocale**. Heureux checks the PIN before reading the prompt
+3. Sign in as an approved tester, choose an EO2 topic under **Simulation**,
+   then select **Commencer la séance**. Heureux checks the PIN before reading the prompt
    and never sends the PIN to Google. The reading and the exchange use separate,
    short-lived, single-use Google tokens. The exchange token is minted after
    microphone permission, so none of its lifetime is lost during preparation.

@@ -17,10 +17,8 @@
   {% if part.slug == 'eo' and task.slug == 'tache-1' %}
     <a class="{% if request.resolver_match.url_name == 'eo_tache_one_response' %}is-active{% endif %}"
        href="{% url 'study:eo_tache_one_response' %}">Réponse</a>
-    <a class="{% if request.resolver_match.url_name != 'eo_tache_one_response' and request.resolver_match.url_name != 'eo_tache_one_interview' %}is-active{% endif %}"
+    <a class="{% if request.resolver_match.url_name != 'eo_tache_one_response' %}is-active{% endif %}"
        href="{% url 'study:task_detail' part.slug task.slug %}">Questions</a>
-    <a class="{% if request.resolver_match.url_name == 'eo_tache_one_interview' %}is-active{% endif %}"
-       href="{% url 'study:eo_tache_one_interview' %}"{% if request.resolver_match.url_name == 'eo_tache_one_interview' %} aria-current="page"{% endif %}>Entretien</a>
   {% else %}
     <a class="{% if request.resolver_match.url_name == 'task_detail' %}is-active{% endif %}"
        href="{% url 'study:task_detail' part.slug task.slug %}">Vue d'ensemble</a>
@@ -41,8 +39,6 @@
        href="{% subject_url 'study:task_browse' part.slug task.slug %}">Sujets</a>
     <a class="{% if request.resolver_match.url_name == 'tache_two_theme_vocabulary' or request.resolver_match.url_name == 'tache_two_theme_vocabulary_detail' %}is-active{% endif %}"
        href="{% url 'study:tache_two_theme_vocabulary' %}">Vocabulaire par thème</a>
-    <a class="{% if request.resolver_match.url_name == 'eo_tache_two_interaction' or request.resolver_match.url_name == 'eo_tache_two_live' %}is-active{% endif %}"
-       href="{% url 'study:eo_tache_two_interaction' %}"{% if request.resolver_match.url_name == 'eo_tache_two_interaction' %} aria-current="page"{% endif %}>Interaction</a>
   {% elif part.slug == 'eo' and task.slug == 'tache-3' %}
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'response_detail' %}is-active{% endif %}"
        href="{% subject_url 'study:task_browse' part.slug task.slug %}">Sujets</a>

@@ -4,7 +4,7 @@ from django.test import TestCase, override_settings
 from django.urls import reverse
 
 from study.catalogue.loader import tache_two_subject_content_key
-from study.models import EO2PracticeAttempt, EO2TopicStatus
+from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation
 from . import factories
 
 
@@ -25,43 +25,67 @@ class TopicPracticeTests(TestCase):
         self.picker = reverse("study:eo2_topic_picker")
         self.status = reverse("study:eo2_topic_status", args=[self.prompt.pk])
         self.history = reverse("study:eo2_topic_history", args=[self.prompt.pk])
-        self.finish = reverse("study:eo2_practice_finish")
+        self.live = reverse("study:eo_tache_two_live", args=["mai", 2, 8])
         self.rehearsal = reverse("study:eo2_rehearsal", args=[self.prompt.pk])
 
+    @override_settings(GEMINI_LIVE_API_KEY="test-key", AI_PIN="test-pin")
+    def test_topic_and_old_bookmarks_open_only_the_matching_simulation(self):
+        picker = self.client.get(self.picker)
+        photo = reverse("study:eo_tache_two_live")
+        self.assertContains(picker, f'href="{photo}"', count=1)
+        self.assertContains(picker, f'href="{self.live}"', count=1)
+        self.assertNotContains(picker, self.rehearsal)
+        self.assertRedirects(self.client.get(self.rehearsal), self.live)
+        self.assertRedirects(self.client.get(reverse("study:eo_tache_two_interaction")), photo)
+        for token, url in ((self.prompt.pk, self.live), ("atelier-photo", photo)):
+            history = self.client.get(reverse("study:eo2_topic_history", args=[token]))
+            self.assertContains(history, f'href="{url}">Pratiquer ce sujet')
+            session = self.client.get(url)
+            self.assertEqual(session.context["subject"].title, history.context["topic"].title)
+            for step in ("Préparation", "Échange", "Bilan"):
+                self.assertContains(session, f'class="lv-step__name">{step}</span>')
+            for obsolete in ("Gemini", "simulateur guidé", "Au clavier", self.rehearsal):
+                self.assertNotContains(session, obsolete)
+        self.assertFalse(EO2PracticeAttempt.objects.exists())
+
     def test_markers_are_independent_of_each_other_and_actual_sessions(self):
-        self.assertContains(self.client.get(self.picker), self.rehearsal)
-        self.assertEqual(self.client.get(self.rehearsal).status_code, 200)
         self.assertEqual(self.client.post(self.status, {"field": "done", "value": "1"}).status_code, 302)
         self.client.post(self.status, {"field": "retry", "value": "1"})
         for mark in ("done", "retry", "new"):
-            self.assertContains(self.client.get(self.picker, {"status": mark}), self.rehearsal)
+            self.assertContains(self.client.get(self.picker, {"status": mark}), self.live)
         self.client.post(self.status, {"field": "done", "value": "0"})
-        self.assertNotContains(self.client.get(self.picker, {"status": "done"}), self.rehearsal)
+        self.assertNotContains(self.client.get(self.picker, {"status": "done"}), self.live)
         self.assertEqual(self.client.get(self.history).context["page"].paginator.count, 0)
         self.assertFalse(EO2PracticeAttempt.objects.exists())
-        payload = {"topic": self.prompt.pk, "attempt": str(uuid.uuid4())}
-        self.assertEqual(self.client.post(self.finish, payload).json(), {"recorded": True})
-        self.client.post(self.status, {"field": "done", "value": "0"})
-        self.assertEqual(self.client.post(self.finish, payload).json(), {"recorded": True})
         current = EO2TopicStatus.objects.get(user=self.user, subject_key=self.prompt.content_key)
         self.assertFalse(current.done)
         self.assertTrue(current.retry)
-        self.assertEqual(self.client.post(self.finish, {**payload, "topic": "atelier-photo"}).status_code, 409)
-        self.client.post(self.finish, {**payload, "attempt": uuid.uuid4()})
-        self.assertEqual(self.client.get(self.history).context["page"].paginator.count, 2)
-        self.assertNotContains(self.client.get(self.picker, {"status": "new"}), self.rehearsal)
-        retry_page = self.client.get(self.picker, {"etat": "retry"})
-        self.assertEqual(retry_page.context["page"][0]["count"], 2)
-        self.assertContains(retry_page, self.history)
+        self.client.force_login(self.other)
+        self.assertNotContains(self.client.get(self.picker, {"status": "retry"}), self.live)
+
+    @override_settings(GEMINI_LIVE_API_KEY="test-key", AI_PIN="test-pin")
+    def test_existing_guided_attempt_and_saved_bilan_remain_private_and_count_once(self):
+        key = self.prompt.content_key
+        EO2PracticeAttempt.objects.create(user=self.user, subject_key=key, attempt=uuid.uuid4())
+        saved = LiveSimulation.objects.create(user=self.user, subject_key=key, rows=[])
+        EO2PracticeAttempt.objects.create(user=self.user, subject_key=key, attempt=saved.pk,
+                                          vocal=True, live_simulation=saved)
+        review_url = f"{self.live}?simulation={saved.pk}"
+        history = self.client.get(self.history)
+        self.assertContains(history, "Ancien entraînement guidé")
+        self.assertContains(history, f'href="{review_url}"', count=1)
+        self.assertEqual(str(self.client.get(review_url).context["saved_simulation"]["id"]), str(saved.pk))
+        topic_row = next(r for r in self.client.get(self.picker).context["page"] if r["token"] == self.prompt.pk)
+        self.assertEqual(topic_row["count"], 2)
+        for path in ("/simulation/orale/tache-2/seances/", f"/simulation/orale/tache-2/sujets/{self.prompt.pk}/replique/"):
+            self.assertEqual(self.client.post(path, {"topic": self.prompt.pk, "attempt": str(uuid.uuid4())}).status_code, 404)
+        self.assertEqual(EO2PracticeAttempt.objects.count(), 2)
         self.client.force_login(self.other)
         self.assertEqual(self.client.get(self.history).context["page"].paginator.count, 0)
-        self.assertNotContains(self.client.get(self.picker, {"status": "retry"}), self.rehearsal)
-        self.assertEqual(self.client.post(self.finish, payload).status_code, 200)
-        self.assertEqual(self.client.get(self.history).context["page"].paginator.count, 1)
+        self.assertIsNone(self.client.get(review_url).context["saved_simulation"])
 
     def test_table_combines_theme_search_and_status_and_sorts_all_results(self):
-        done = {"topic": self.prompt.pk, "attempt": uuid.uuid4()}
-        self.client.post(self.finish, done)
+        EO2PracticeAttempt.objects.create(user=self.user, subject_key=self.prompt.content_key, attempt=uuid.uuid4())
         self.client.post(self.status, {"field": "retry", "value": "1"})
         page = self.client.get(self.picker)
         topic = next(row["topic"] for row in page.context["page"] if row["token"] == self.prompt.pk)
@@ -90,15 +114,13 @@ class TopicPracticeTests(TestCase):
         self.assertFalse(EO2PracticeAttempt.objects.exists())
 
     def test_unpublished_and_unavailable_topics_cannot_be_practiced_or_marked(self):
-        self.assertEqual(self.client.post(self.finish, {"topic": self.prompt.pk, "attempt": "incorrect"}).status_code, 400)
         self.prompt.is_active = False
         self.prompt.save(update_fields=["is_active"])
-        self.assertNotContains(self.client.get(self.picker), self.rehearsal)
+        self.assertNotContains(self.client.get(self.picker), self.live)
         self.assertEqual(self.client.post(self.status, {"field": "retry", "value": "1"}).status_code, 404)
         self.assertEqual(self.client.get(self.history).status_code, 404)
         self.assertEqual(self.client.get(self.rehearsal).status_code, 404)
         self.task.available = False
         self.task.save(update_fields=["available"])
         self.assertEqual(self.client.get(self.picker).status_code, 404)
-        self.assertEqual(self.client.post(self.finish, {"topic": "atelier-photo", "attempt": uuid.uuid4()}).status_code, 404)
         self.assertFalse(EO2PracticeAttempt.objects.exists())

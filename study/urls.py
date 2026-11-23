@@ -1,7 +1,7 @@
 from django.urls import path, register_converter
 
 from . import views
-from .views import audio, course, eo2_live, eo2_practice, eo2_rehearsal, formulations, simulation
+from .views import audio, course, eo2_live, eo2_practice, formulations, simulation
 
 
 class ExpressionPartConverter:
@@ -147,9 +147,7 @@ urlpatterns = [
     path("simulation/orale/tache-2/sujets/", eo2_practice.picker, name="eo2_topic_picker"),
     path("simulation/orale/tache-2/sujets/<slug:token>/statut/", eo2_practice.set_status, name="eo2_topic_status"),
     path("simulation/orale/tache-2/sujets/<slug:token>/historique/", eo2_practice.history, name="eo2_topic_history"),
-    path("simulation/orale/tache-2/seances/", eo2_practice.finish, name="eo2_practice_finish"),
-    path("simulation/orale/tache-2/sujets/<int:prompt_id>/repeter/", eo2_rehearsal.rehearsal, name="eo2_rehearsal"),
-    path("simulation/orale/tache-2/sujets/<int:prompt_id>/replique/", eo2_rehearsal.rehearsal_reply, name="eo2_rehearsal_reply"),
+    path("simulation/orale/tache-2/sujets/<int:prompt_id>/repeter/", eo2_practice.legacy_rehearsal, name="eo2_rehearsal"),
     # Compréhension écrite (CE)
     path(
         "comprehension/ecrite/",

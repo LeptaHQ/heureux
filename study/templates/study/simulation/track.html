@@ -16,9 +16,8 @@
         <div class="sim-task__meta"><span>Tâche {{ row.number }}</span><span>{{ row.format }}</span></div>
         <h2>{{ row.title }}</h2>
         <p>{{ row.description }}</p>
-        {% if row.hint %}<p class="sim-task__hint">{{ row.hint }}</p>{% endif %}
         <div class="sim-task__actions">
-          {% for label, href in row.links %}<a class="btn btn--sm{% if forloop.first %} btn--primary{% endif %}" href="{{ href }}">{{ label }}<span class="sr-only"> · {{ track.code }} Tâche {{ row.number }}</span></a>{% endfor %}
+          <a class="btn btn--sm btn--primary" href="{{ row.url }}">{{ row.label }}<span class="sr-only"> · {{ track.code }} Tâche {{ row.number }}</span></a>
         </div>
       </li>
     {% empty %}

@@ -73,7 +73,7 @@ from study.notes.anchors import (
 )
 from study.expression.bookmarks import subject_bookmark_ids
 from study.expression.personalization import effective_response
-from study.expression.eo.tache_2 import gemini_live
+from study.expression.eo.tache_2 import live_conversation
 from study.expression.eo.tache_2.dialogues import (
     hint_section_presentation,
     prompt_note_presentation,
@@ -3045,7 +3045,7 @@ def task_subject_detail(
             "subject_month": month,
             "subject_batch": batch,
             "subject": subject,
-            "gemini_live_available": gemini_live.available_to(request.user, task),
+            "gemini_live_available": live_conversation.available_to(request.user, task),
             **question_context,
             "subject_prompt_note": prompt_note_presentation(selected_prompt, response_content),
             "prompt_note_edit_url": reverse(
@@ -3259,25 +3259,12 @@ def _speaking_duration_label(word_count):
 
 @require_http_methods(["GET"])
 def eo_tache_two_interaction(request):
-    task = _route_task("eo", "tache-2", request=request)
-    template = (
-        "study/expression/eo/tache_2/interaction.html"
-        if task.available else "study/shared/coming_soon.html"
-    )
-    return render(request, template, {
-        "part": task.part, "task": task,
-        "gemini_live_available": gemini_live.available_to(request.user, task),
-    })
+    return redirect("study:eo_tache_two_live")
 
 
 @require_http_methods(["GET"])
 def eo_tache_one_interview(request):
-    task = _route_task(*content_module.EO_TACHE_ONE_TASK, request=request)
-    template = (
-        "study/expression/eo/tache_1/interview.html"
-        if task.available else "study/shared/coming_soon.html"
-    )
-    return render(request, template, {"part": task.part, "task": task})
+    return redirect("study:task_detail", *content_module.EO_TACHE_ONE_TASK)
 
 
 @require_http_methods(["GET", "POST"])
@@ -4015,7 +4002,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "response_content": response_content,
             "arguments": response_content.arguments,
             "subject_hints": subject_hints,
-            "eo3_simulation_available": is_eo3 and gemini_live.available_to(request.user, task),
+            "eo3_simulation_available": is_eo3 and live_conversation.available_to(request.user, task),
             "ee_response": ee_response,
             "ee_combination_label": ee_combination_label,
             "ee_source_month": ee_source_month,

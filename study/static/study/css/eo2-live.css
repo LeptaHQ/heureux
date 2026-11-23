@@ -14,7 +14,8 @@
 [data-theme="dark"] .lv-studio { --lv-action: #67d2ca; --lv-action-ink: #062421; --lv-tint: var(--tone-oral-soft); }
 .lv-studio [hidden] { display: none !important; }
 .lv-studio :is(a, button, input, textarea, summary):focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
-.lv-studio h1:focus:not(:focus-visible) { outline: none; }
+/* Phase changes focus this heading for screen readers; it is not a control. */
+#lv-title:focus { outline: none; }
 .lv-studio :is(.lv-back a, .lv-brand, .lv-primary, .lv-secondary, .lv-orb, .lv-notice, .lv-toggle, .lv-copy) { --icon-color: currentColor; }
 :where(.lv-studio) p { margin: 0; }
 

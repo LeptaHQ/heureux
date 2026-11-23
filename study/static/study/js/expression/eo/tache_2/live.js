@@ -158,7 +158,7 @@
       text("status","Le micro ne fournit pas encore de son. Vérifiez les écouteurs ; le chronomètre attend."); return;
     }
     clearTimeout(s.watchdog); startMic(s);
-    s.began = stamp(); s.duration = live; phase("live",opinion ? "Point de vue" : "Interaction"); tick(s);
+    s.began = stamp(); s.duration = live; phase("live",opinion ? "Point de vue" : "Échange"); tick(s);
     if (!opinion) s.sock.send(JSON.stringify({realtimeInput:{text:"Pour ouvrir cet échange, dites « Bonjour ! », avec une brève salutation si elle convient à notre relation, puis laissez-moi poser la première question sur le sujet."}}));
   }
   function play(s, encoded, onEnded) {
@@ -250,7 +250,7 @@
   function tokenError(s, response) {
     finish(s,response.status === 429 ? "Limite de tentatives atteinte. Réessayez plus tard." :
       response.status === 403 ? "L’autorisation de cette séance n’est plus valide." :
-      "Gemini Live est indisponible pour cette séance.");
+      "La simulation est indisponible pour le moment.");
   }
   function openSocket(s, {token, model}) {
     if (typeof token !== "string" || !token.startsWith("auth_tokens/") || model !== "models/gemini-3.8-live") throw new Error("Configuration invalide");

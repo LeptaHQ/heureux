@@ -63,9 +63,8 @@ EXPRESSION_ROUTES = {
     "task_vocabulary_category",
 }
 SIMULATION_ROUTES = {
-    "simulation", "simulation_track", "eo_tache_one_interview",
-    "eo_tache_two_interaction", "eo_tache_two_live", "eo_tache_three_live",
-    "eo2_topic_picker", "eo2_topic_history", "eo2_rehearsal",
+    "simulation", "simulation_track", "eo_tache_two_live", "eo_tache_three_live",
+    "eo2_topic_picker", "eo2_topic_history",
 }
 NOTES_ROUTES = {
     "notes_overview",

@@ -1,4 +1,4 @@
-"""Provision a single constrained voice session; never proxy learner content."""
+"""Provision a single live voice conversation; never proxy learner content."""
 
 import json
 import re
@@ -28,7 +28,7 @@ puis laissez-lui la parole. Même après un silence, ne relancez pas par « Et v
 de réponse utile sans une précision, posez une seule question courte et naturelle sur ce point.
 Si vous pouvez répondre pour les deux options, faites-le plutôt que de demander de choisir."""
 
-# Fictional facts from the Tâche 2 studio's roleplay-engine.js.
+# Fictional facts for the built-in photo-workshop scenario.
 _RECEPTION = _TURN_RULE + "\n\n" + """Vous êtes à l’accueil du centre culturel. Vous répondez en français à une
 personne qui se renseigne sur deux ateliers photo pour débutants. Vouvoyez-la.
 Parlez comme à un comptoir au Canada : une ou deux phrases, un débit naturel,
@@ -107,7 +107,7 @@ def issue_grant(request, subject_key, *, purpose):
 @sensitive_variables("pin", "exchange_grant")
 def mint_token(request, task, pin, *, instruction=None, exchange_grant=None, subject_key=""):
     if not available_to(request.user, task):
-        raise LiveTokenError(403, "Le mode vocal pilote n’est pas disponible.")
+        raise LiveTokenError(403, "La simulation est indisponible pour le moment.")
     if exchange_grant is None:
         authorize_audio_generation(request, pin)
     else:

@@ -104,12 +104,9 @@ class SecurityHeadersMiddleware:
             settings.GEMINI_LIVE_CONTENT_SECURITY_POLICY
             if live else settings.CONTENT_SECURITY_POLICY,
         )
-        interview = live or page in (
-            "study:eo_tache_one_interview", "study:eo_tache_two_interaction",
-        )
         response.setdefault(
             "Permissions-Policy",
-            f"camera=(), geolocation=(), microphone={'(self)' if interview else '()'}, payment=(), "
+            f"camera=(), geolocation=(), microphone={'(self)' if live else '()'}, payment=(), "
             "usb=(), clipboard-read=(self), clipboard-write=(self)",
         )
         return response

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Simulation · {{ task.short_label }} · {{ subject.title|truncatechars:80 }}{% if saved_simulation %} · Séance enregistrée{% endif %} · Heureux{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=21">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=22">{% endblock %}
 {% block content %}
 <article class="lv-studio" id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
     data-token-url="{{ token_url }}" data-save-url="{{ save_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
@@ -19,7 +19,7 @@
     <header class="lv-head">
       <p class="lv-kicker" id="lv-kicker">{% if monologue %}Expression d’un point de vue{% else %}Interaction{% endif %}</p>
       <h1 id="lv-title" tabindex="-1">Simulation</h1>
-      <p class="lv-prompt" id="lv-prompt">{% if not gemini_live_available %}Le mode vocal n’est pas activé.{% elif monologue %}Écoutez la question, puis expliquez votre point de vue.{% else %}Écoutez la consigne, préparez vos questions, puis menez l’échange.{% endif %}</p>
+      <p class="lv-prompt" id="lv-prompt">{% if not gemini_live_available %}La simulation est indisponible pour le moment.{% elif monologue %}Écoutez la question, puis expliquez votre point de vue.{% else %}Écoutez la consigne, préparez vos questions, puis menez l’échange.{% endif %}</p>
       {% if subject_url and not monologue %}<p class="lv-selected-subject">Sujet choisi · {{ subject.title }}</p>{% endif %}
     </header>
     {% if gemini_live_available %}
@@ -115,7 +115,7 @@
           <div class="lv-assessment__body">
             <div id="lv-assessment-controls" class="lv-assessment__controls">
               <span class="lv-assessment__action">
-                <button type="button" class="icon-button" id="lv-assess" aria-label="Évaluer mon niveau avec Groq" title="Évaluer mon niveau avec Groq" disabled>{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %}</button>
+                <button type="button" class="icon-button" id="lv-assess" aria-label="Évaluer mon niveau" title="Évaluer mon niveau" disabled>{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %}</button>
                 <span class="lv-assessment__spinner" aria-hidden="true"></span>
               </span>
             </div>
@@ -157,16 +157,15 @@
       <div class="lv-done-actions">
         <button type="button" class="lv-primary" id="lv-retry" hidden>Nouvel essai {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
         {% if subject_url %}<a class="lv-quiet" href="{{ subject_url }}">Retour à la fiche</a>
-        {% elif monologue %}<a class="lv-quiet" href="{% url 'study:task_browse' part.slug task.slug %}">Choisir un autre sujet</a>
-        {% else %}<a class="lv-quiet" href="{% url 'study:eo_tache_two_interaction' %}">Simulateur guidé, sans Gemini</a>{% endif %}
-        {% if not monologue %}<a class="lv-quiet" href="{% url 'study:eo2_topic_picker' %}">Choisir un sujet de simulation</a>{% endif %}
+        {% elif monologue %}<a class="lv-quiet" href="{% url 'study:task_browse' part.slug task.slug %}">Choisir un autre sujet</a>{% endif %}
+        {% if not monologue %}<a class="lv-quiet" href="{% url 'study:eo2_topic_picker' %}">Choisir un autre sujet</a>{% endif %}
       </div>
     </section>
-    <noscript><p>Activez JavaScript pour utiliser le mode vocal.</p></noscript>
+    <noscript><p>Activez JavaScript pour commencer la séance.</p></noscript>
     {% if saved_simulation %}{{ saved_simulation|json_script:"lv-saved-simulation" }}{% endif %}
     {% else %}
     <div class="lv-unavailable">
-      {% if monologue %}<a class="lv-primary" href="{% url 'study:task_browse' part.slug task.slug %}">Parcourir les sujets</a>{% else %}<a class="lv-primary" href="{% url 'study:eo_tache_two_interaction' %}">Ouvrir le simulateur guidé {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
+      <a class="lv-primary" href="{% url 'study:simulation_track' 'eo' %}">Retour aux tâches orales</a>
     </div>
     {% endif %}
   </div>
@@ -174,8 +173,8 @@
 {% endblock %}
 {% block scripts %}
 {% if gemini_live_available %}
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=16"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=18"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=10"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=15"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=16"></script>
 {% endif %}
 {% endblock %}

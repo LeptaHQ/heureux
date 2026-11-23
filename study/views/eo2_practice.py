@@ -1,12 +1,10 @@
 """A learner's EO2 simulation checklist and topic-specific history."""
 
 import unicodedata
-import uuid
 from dataclasses import dataclass
 from functools import lru_cache
 
 from django.core.paginator import Paginator
-from django.db import transaction
 from django.db.models import Count, Max
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -16,10 +14,10 @@ from django.views.decorators.vary import vary_on_headers
 
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
-from study.expression.eo.tache_2 import gemini_live
+from study.expression.eo.tache_2 import live_conversation
 from study.models import EO2PracticeAttempt, EO2TopicStatus, Prompt
+from study.navigation.routing import subject_selection_url
 
-from .eo2_live import DEFAULT_CONSIGNE
 from .helpers import _route_task
 
 
@@ -27,14 +25,17 @@ from .helpers import _route_task
 class Topic:
     key: str
     title: str
-    prompt: str
     args: tuple
     source: str
     theme: str
     theme_slug: str
 
+    @property
+    def simulation_url(self):
+        return reverse("study:eo_tache_two_live", args=self.args)
 
-PHOTO = Topic("", "Choisir un atelier photo", DEFAULT_CONSIGNE, (), "Atelier guidé", "Loisirs, clubs & jeux", "loisirs-clubs-jeux")
+
+PHOTO = Topic("", "Choisir un atelier photo", (), "Sujet d’entraînement", "Loisirs, clubs & jeux", "loisirs-clubs-jeux")
 PHOTO_TOKEN = "atelier-photo"
 PICKER_STATUSES = {"new": "Sans séance", "done": "Terminés", "not-done": "Non terminés", "retry": "À refaire"}
 PICKER_ORDERS = {"recent": "Dernière séance", "least": "Moins pratiqués d’abord"}
@@ -51,7 +52,7 @@ def _topics():
             for subject in batch.subjects:
                 args = (month.slug, batch.number, subject.number)
                 key = tache_two_subject_content_key(*args)
-                topics[key] = Topic(key, subject.title, subject.prompt, args,
+                topics[key] = Topic(key, subject.title, args,
                                     f"{month.name} · Lot {batch.number} · Sujet {subject.number}",
                                     names[mapping[key]], mapping[key])
     return topics
@@ -142,7 +143,7 @@ def picker(request):
             "active": bool(theme or query or status or order),
             "status_choices": PICKER_STATUSES.items(), "extra_orders": PICKER_ORDERS.items(),
         },
-        "done_total": done_total, "retry_total": retry_total, "live": gemini_live.available_to(request.user, task),
+        "done_total": done_total, "retry_total": retry_total,
     })
 
 
@@ -169,22 +170,10 @@ def set_status(request, token):
     return redirect((url + "?" + params.urlencode() if params else url) + f"#topic-{token}")
 
 
-@require_POST
-@transaction.atomic
-def finish(request):
-    _, topic = resolve_topic(request, request.POST.get("topic"))
-    try:
-        attempt = uuid.UUID(request.POST.get("attempt", ""))
-    except ValueError:
-        return JsonResponse({"error": "Identifiant de séance invalide."}, status=400)
-    row, created = EO2PracticeAttempt.objects.get_or_create(
-        user=request.user, attempt=attempt, defaults={"subject_key": topic.key},
-    )
-    if row.subject_key != topic.key or row.vocal:
-        return JsonResponse({"error": "Cette séance appartient à un autre exercice."}, status=409)
-    if created:
-        EO2TopicStatus.objects.update_or_create(user=request.user, subject_key=topic.key, defaults={"done": True})
-    return JsonResponse({"recorded": True})
+@require_GET
+def legacy_rehearsal(request, prompt_id):
+    _, topic = resolve_topic(request, str(prompt_id))
+    return redirect(subject_selection_url(topic.simulation_url, request))
 
 
 @require_GET
@@ -193,6 +182,6 @@ def history(request, token):
     rows = EO2PracticeAttempt.objects.filter(user=request.user, subject_key=topic.key).order_by(
         "-created_at", "-pk").values("created_at", "vocal", "live_simulation_id")
     return render(request, "study/simulation/eo2_history.html", {
-        "topic": topic, "token": token, "page": Paginator(rows, 20).get_page(request.GET.get("page")),
-        "live_url": reverse("study:eo_tache_two_live", args=topic.args) if gemini_live.available_to(request.user, task) else "",
+        "topic": topic, "page": Paginator(rows, 20).get_page(request.GET.get("page")),
+        "can_reopen": live_conversation.available_to(request.user, task),
     })

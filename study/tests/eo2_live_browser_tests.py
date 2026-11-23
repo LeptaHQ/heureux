@@ -159,7 +159,15 @@ class LiveConversationBrowserMixin:
         self.start.click()
         self.submit_live_pin()
         self.finish_prompt()
-        expect(self.page.get_by_role("heading", level=1)).to_have_text("Votre consigne")
+        heading = self.page.get_by_role("heading", level=1)
+        expect(heading).to_have_text("Votre consigne")
+        expect(heading).to_be_focused()
+        # Reproduce keyboard modality: the phase heading stays plain, controls keep their ring.
+        self.page.keyboard.press("Tab")
+        expect(self.page.locator("#lv-notepad summary")).to_be_focused()
+        expect(self.page.locator("#lv-notepad summary")).to_have_css("outline-style", "solid")
+        heading.focus()
+        expect(heading).to_have_css("outline-style", "none")
         expect(self.page.locator("#lv-prompt")).to_have_text(json.loads(self.selected_consigne))
         self.assertEqual(self.page.evaluate("probe.calls"), 0)
         self.page.locator("#lv-skip").click()
@@ -741,7 +749,7 @@ class LiveConversationBrowserMixin:
         expect(button).to_be_enabled()
         self.page.set_viewport_size({"width": 320, "height": 700})
         controls = self.page.locator("#lv-assessment-controls")
-        expect(button).to_have_accessible_name("Évaluer mon niveau avec Groq")
+        expect(button).to_have_accessible_name("Évaluer mon niveau")
         expect(button).to_have_text("")
         expect(button.locator('[data-icon="sparkles"]')).to_be_visible()
         expect(controls.locator("details, input")).to_have_count(0)
@@ -832,7 +840,7 @@ class LiveConversationBrowserMixin:
             expect(status).to_have_text("Pas encore de bilan pour cet échange : touchez ✨ pour le demander.")
             expect(level).to_have_text("Non évalué")
             button.click()
-            expect(self.pin_dialog.get_by_role("heading")).to_have_text("Demander le bilan Groq")
+            expect(self.pin_dialog.get_by_role("heading")).to_have_text("Demander le bilan")
             self.pin_dialog.get_by_label("Code", exact=True).fill(PILOT_PIN)
             self.pin_dialog.get_by_role("button", name="Demander le bilan").click()
             expect(level).to_have_text("12/20 · NCLC 8 · B2")
@@ -857,6 +865,23 @@ class LiveConversationBrowserMixin:
             expect(self.page.locator('#lv-turns [data-speaker="user"] .lv-turn__said ins')).to_have_text("prendre")
             self.assertEqual(len(calls), reviews)
             self.assert_no_horizontal_overflow()
+
+            partial = {**report, "score": None, "scoreStatus": "incomplete", "nclc": None, "cefr": None,
+                       "evidenceVersion": 1, "criteria": [{"label": "Précision lexicale", "score": None,
+                                                           "why": "La citation proposée ne correspond pas à vos paroles."}]}
+            LiveSimulation.objects.filter(pk=simulation.pk).update(report=partial)
+            self.page.reload()
+            expect(level).to_have_text("Grille partielle · pas de total")
+            row = self.page.get_by_role("row").filter(has=self.page.get_by_role("rowheader", name="Précision lexicale"))
+            expect(row.get_by_role("cell", name="Non évalué", exact=True)).to_be_visible()
+            self.assertEqual(len(calls), reviews)  # Opening old or partial feedback never resubmits it.
+            self.page.get_by_role("button", name="Réévaluer le bilan").click()
+            self.pin_dialog.get_by_label("Code", exact=True).fill(PILOT_PIN)
+            self.pin_dialog.get_by_role("button", name="Demander le bilan").click()
+            expect(level).to_have_text("12/20 · NCLC 8 · B2")
+            expect(button).to_be_hidden()
+            self.assertEqual(calls[-1]["rows"], simulation.rows)
+            self.assertEqual(self.page.evaluate("probe.calls"), 0)
 
             self.page.goto(self.live_server_url + reverse("study:eo_tache_two_live"))
             delete = saved.get_by_role("button", name="Supprimer la séance du")

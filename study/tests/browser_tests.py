@@ -208,56 +208,26 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         )
         self.assertTrue(fits, f"{self.page.url}: {overflowing}")
 
-    def open_eo1_studio(self):
-        factories.make_task(self.part, "tache-1")
-        self.page.goto(self.live_server_url + reverse("study:eo_tache_one_interview"))
-        self.page.locator("#eo-voiced").uncheck()
-
-    def open_eo2_studio(self):
-        factories.make_task(self.part, "tache-2")
-        response = self.page.goto(self.live_server_url + reverse("study:eo_tache_two_interaction"))
-        self.assertIn("microphone=(self)", response.headers["permissions-policy"])
-        self.page.locator("#t2-sound").uncheck()
-
-    def test_eo2_prep_and_exchange_have_distinct_fixed_deadlines(self):
-        self.open_eo2_studio()
-        self.page.locator("#t2-text").check()
-        self.page.clock.install(time="2026-03-16T10:00:00Z")
-        self.page.clock.pause_at("2026-03-16T10:00:05Z")
-        self.page.locator("#t2-start").click()
-        self.page.get_by_text("Prendre des notes (facultatif)").click()
-        notes = "Comparer les horaires\nNoter les tarifs"
-        self.page.locator("#t2-notes").fill(notes)
-        self.page.clock.fast_forward(119_000)
-        expect(self.page.locator("#t2-clock")).to_have_text("00:01")
-        expect(self.page.locator("#t2-live")).to_be_hidden()
-        self.page.clock.fast_forward(1_000)
-        expect(self.page.locator("#t2-clock")).to_have_text("03:30")
-        expect(self.page.locator("#t2-note-copy")).to_be_visible()
-        self.assertEqual(self.page.locator("#t2-note-copy").inner_text(), notes)
-        self.page.locator("#t2-question").fill("Quel est le prix de la balade ?")
-        self.page.locator("#t2-send").click()
-        expect(self.page.locator("#t2-line")).to_contain_text("20 dollars")
-        self.page.locator("#t2-question").fill("Et l’autre ?")
-        self.page.locator("#t2-send").click()
-        expect(self.page.locator("#t2-line")).to_contain_text("35 dollars")
-        self.page.clock.fast_forward(209_000)
-        self.page.locator("#t2-question").fill("Où est le rendez-vous ?")
-        self.page.clock.fast_forward(1_000)
-        expect(self.page.locator("#t2-done")).to_be_visible()
-        expect(self.page.locator("#t2-followup")).to_contain_text("Et l’autre ?")
-        self.page.locator("#t2-report summary").click()
-        expect(self.page.locator("#t2-transcript")).to_contain_text("Où est le rendez-vous ?")
-        self.assert_no_horizontal_overflow()
-        self.page.locator("#t2-retry").click()
-        expect(self.page.locator("#t2-transcript li")).to_have_count(0)
-        expect(self.page.locator("#t2-notes")).to_have_value("")
-        self.page.locator("#t2-start").click()
-        self.page.clock.fast_forward(120_000)
-        expect(self.page.locator("#t2-reference summary")).to_be_visible()
-        expect(self.page.locator("#t2-note-copy")).to_be_hidden()
-        self.page.clock.fast_forward(211_000)
-        expect(self.page.locator("#t2-done")).to_be_visible()
+    @override_settings(GEMINI_LIVE_API_KEY="")
+    def test_legacy_eo2_bookmarks_open_only_the_matching_unavailable_live_studio(self):
+        task = factories.make_task(self.part, "tache-2")
+        theme = factories.make_theme("sujets", task=task)
+        publication = ("mai", 2, 8)
+        prompt = factories.make_response(theme=theme).prompts.get()
+        prompt.content_key = content.tache_two_subject_content_key(*publication)
+        prompt.save(update_fields=["content_key"])
+        workshop = reverse("study:eo_tache_two_interaction")
+        repetition = reverse("study:eo2_rehearsal", args=[prompt.pk])
+        for old, target in (
+            (workshop, reverse("study:eo_tache_two_live")),
+            (repetition + "?deduplicate=0", reverse("study:eo_tache_two_live", args=publication) + "?deduplicate=0"),
+        ):
+            with self.subTest(bookmark=old):
+                response = self.page.goto(self.live_server_url + old)
+                self.assertEqual(self.page.url, self.live_server_url + target)
+                expect(self.page.locator("#live-studio")).to_have_attribute("data-state", "unavailable")
+                expect(self.page.locator(f'a[href="{workshop}"], a[href="{repetition}"]')).to_have_count(0)
+                self.assertIn("microphone=()", response.headers["permissions-policy"])
 
     def test_eo2_picker_saves_multiple_markers_without_navigation(self):
         task = factories.make_task(self.part, "tache-2")
@@ -303,219 +273,6 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.locator(".oral-sujet-result-count")).to_contain_text("Aucun sujet")
         self.assertEqual(self.page.url, filtered)
         self.assertTrue(self.page.evaluate("window.pickerDocument"))
-
-    def test_eo2_local_model_can_select_but_not_invent_a_reply(self):
-        self.page.add_init_script("""window.LanguageModel = {
-          availability: async () => 'available', create: async () => ({
-            prompt: async () => (++window.calls === 1 ? 'gear' : 'Tout est gratuit !'), destroy() {}
-          })
-        }; window.calls=0;""")
-        self.open_eo2_studio()
-        self.page.locator("#t2-text").check()
-        self.page.locator("#t2-model").check()
-        self.page.locator("#t2-start").click()
-        self.page.locator("#t2-skip").click()
-        for expected in ["un téléphone", "préciser"]:
-            self.page.locator("#t2-question").fill("Hum…")
-            self.page.locator("#t2-send").click()
-            expect(self.page.locator("#t2-line")).to_contain_text(expected)
-        self.assertEqual(self.page.evaluate("window.calls"), 2)
-
-    def test_eo2_voice_conversation_needs_no_keyboard_or_submit(self):
-        self.page.add_init_script("""
-        Object.defineProperty(window, 'speechSynthesis', {value: {
-          getVoices: () => [], addEventListener() {}, cancel() {}, resume() {},
-          speak(line) { window.replies.push(line); }
-        }});
-        window.replies=[]; window.mics=[];
-        window.SpeechRecognition = class {
-          start() { window.mics.push(this); queueMicrotask(() => this.onstart?.()); }
-          abort() { this.closed=true; }
-        };
-        window.heard = (text, final) => {
-          const result = [{transcript:text}]; result.isFinal=final;
-          window.mics.at(-1).onresult({results:[result]});
-        };""")
-        self.open_eo2_studio()
-        self.page.clock.install(time="2026-03-16T10:00:00Z")
-        self.page.clock.pause_at("2026-03-16T10:00:05Z")
-        self.page.locator("#t2-sound").check()
-        expect(self.page.locator("#t2-voice")).to_be_checked()
-        self.assertEqual(self.page.evaluate("window.mics.length"), 0)
-        self.page.locator("#t2-start").click()
-        expect(self.page.locator("#t2-start")).to_have_text("Commencer la préparation")
-        self.assertTrue(self.page.evaluate("window.mics[0].closed"))
-        self.page.locator("#t2-start").click()
-        self.page.locator("#t2-skip").click()
-        expect(self.page.locator("#t2-question")).to_be_hidden()
-        expect(self.page.locator("#t2-send")).to_be_hidden()
-        self.assertEqual(self.page.evaluate("window.mics.length"), 1)
-        self.page.evaluate("window.replies.at(-1).onend()")
-        self.page.evaluate("window.heard('Quel est le prix', false)")
-        self.page.clock.fast_forward(2500)
-        self.assertEqual(self.page.evaluate("window.replies.length"), 1)
-        self.page.evaluate("window.heard('Quel est le prix de la balade ?', true)")
-        self.page.clock.fast_forward(2000)
-        expect(self.page.locator("#t2-line")).to_contain_text("20 dollars")
-        self.assertTrue(self.page.evaluate("window.mics.at(-1).closed"))
-        self.page.evaluate("window.replies.at(-1).onend()")
-        self.page.evaluate("window.heard('Et l’autre ?', true)")
-        self.page.clock.fast_forward(2000)
-        expect(self.page.locator("#t2-line")).to_contain_text("35 dollars")
-        self.page.evaluate("window.replies.at(-1).onend()")
-        self.page.evaluate("window.heard('Le prix du séjour', true)")
-        self.page.locator("#t2-switch").click()
-        self.page.clock.fast_forward(2000)
-        expect(self.page.locator("#t2-question")).to_have_value("Le prix du séjour")
-        self.page.locator("#t2-question").fill("Le prix du studio ?")
-        self.page.locator("#t2-send").click()
-        self.assertEqual(self.page.evaluate("window.replies.length"), 4)
-        self.page.locator("#t2-switch").click()
-        self.page.evaluate("window.heard('Ma dernière question', false)")
-        self.page.clock.fast_forward(211_000)
-        expect(self.page.locator("#t2-done")).to_be_visible()
-        self.assertTrue(self.page.evaluate("window.mics.at(-1).closed"))
-        self.page.locator("#t2-report summary").click()
-        expect(self.page.locator("#t2-transcript")).to_contain_text("Ma dernière question")
-
-    def test_eo2_voice_denial_does_not_start_the_clock_or_force_the_keyboard(self):
-        self.page.add_init_script("""window.SpeechRecognition = class {
-          start() { queueMicrotask(() => this.onerror?.({error:'not-allowed'})); }
-          abort() {}
-        };""")
-        self.open_eo2_studio()
-        self.page.locator("#t2-start").click()
-        expect(self.page.locator("#t2-status")).to_contain_text("refusé")
-        expect(self.page.locator("#t2-setup")).to_be_visible()
-        expect(self.page.locator("#t2-clock")).to_have_text("02:00")
-        self.page.locator("#t2-text").check()
-        self.page.locator("#t2-start").click()
-        self.page.locator("#t2-skip").click()
-        self.page.locator("#t2-switch").click()
-        expect(self.page.locator("#t2-turn-status")).to_contain_text("refusé")
-        expect(self.page.locator("#t2-mic")).to_have_text("Reprendre le micro")
-        self.page.locator("#t2-switch").click()
-        expect(self.page.locator("#t2-question")).to_be_editable()
-
-    def test_eo1_entretien_uses_one_deadline_and_preserves_final_answer(self):
-        self.open_eo1_studio()
-        self.page.clock.install(time="2026-03-16T10:00:00Z")
-        self.page.clock.pause_at("2026-03-16T10:00:05Z")
-        self.page.locator('[name="eo-mode"][value="text"]').check()
-        self.page.locator("#eo-start").click()
-        original = self.page.locator("#eo-question").inner_text()
-        self.page.locator("#eo-answer").fill("Le samedi, je joue au football avec mes voisins.")
-        self.page.locator("#eo-submit").click()
-        expect(self.page.locator("#eo-question")).not_to_have_text(original)
-        self.page.clock.fast_forward(119_000)
-        expect(self.page.locator("#eo-clock")).to_have_text("00:01")
-        self.page.locator("#eo-repeat").click()
-        expect(self.page.locator("#eo-clock")).to_have_text("00:01")
-        self.page.locator("#eo-answer").fill("On joue dans le parc.")
-        self.page.clock.fast_forward(1_000)
-        expect(self.page.locator("#eo-done")).to_be_visible()
-        expect(self.page.locator("#eo-clock")).to_have_text("00:00")
-        self.page.locator("#eo-review summary").click()
-        expect(self.page.locator("#eo-transcript li")).to_have_count(2)
-        expect(self.page.locator("#eo-transcript")).to_contain_text("On joue dans le parc.")
-        self.page.locator("#eo-analyze").click()
-        expect(self.page.locator("#eo-basis")).to_contain_text("au clavier")
-        expect(self.page.locator("#eo-correction-note")).to_contain_text("Aucune correction certaine")
-        self.assert_no_horizontal_overflow()
-        self.page.locator("#eo-retry").click()
-        expect(self.page.locator("#eo-transcript li")).to_have_count(0)
-        expect(self.page.locator("#eo-report")).to_be_hidden()
-        expect(self.page.locator("#eo-clock")).to_have_text("02:00")
-
-    def test_eo1_microphone_preflight_turn_and_early_finish(self):
-        self.page.add_init_script("""
-        Object.defineProperty(window, 'speechSynthesis', {value: {
-          getVoices: () => [], addEventListener() {}, cancel() {}, resume() {},
-          speak(line) { window.testSpoken = line; }
-        }});
-        window.SpeechRecognition = class {
-          start() { window.testMic = this; queueMicrotask(() => this.onstart?.()); }
-          abort() { this.closed = true; }
-        }""")
-        self.open_eo1_studio()
-        self.page.locator("#eo-voiced").check()
-        expect(self.page.locator("#eo-start")).to_have_text("Vérifier le micro")
-        self.assertIsNone(self.page.evaluate("window.testMic"))
-        self.page.locator("#eo-start").click()
-        expect(self.page.locator("#eo-start")).to_have_text("Commencer l’entretien")
-        self.assertTrue(self.page.evaluate("window.testMic.closed"))
-        self.page.locator("#eo-start").click()
-        self.assertTrue(self.page.evaluate("window.testMic.closed"))
-        self.page.evaluate("window.testSpoken.onend()")
-        self.page.evaluate("""() => {
-          const result = [{transcript: "Je travaille dans une librairie."}];
-          result.isFinal = true;
-          window.testMic.onresult({results: [result]});
-        }""")
-        expect(self.page.locator("#eo-dictation")).to_have_text("Je travaille dans une librairie.")
-        self.page.locator("#eo-submit").click()
-        expect(self.page.locator("#eo-turn-number")).to_have_text("Échange 02")
-        self.page.evaluate("window.testSpoken.onend()")
-        self.page.locator("#eo-stop").click()
-        self.page.locator("#eo-finish").click()
-        self.assertTrue(self.page.evaluate("window.testMic.closed"))
-        expect(self.page.locator("#eo-phase")).to_have_text("Arrêt anticipé")
-        self.page.locator("#eo-review summary").click()
-        expect(self.page.locator("#eo-transcript")).to_contain_text("Je travaille dans une librairie.")
-        field = self.page.get_by_label("Ce que j’ai dit · échange 1")
-        field.fill("Je va au travail.")
-        self.page.locator("#eo-analyze").click()
-        expect(self.page.locator("#eo-corrections")).to_contain_text("Vos mots : « Je va »")
-        expect(self.page.locator("#eo-corrections")).to_contain_text("À dire : « Je vais »")
-        expect(self.page.locator("#eo-basis")).to_contain_text("rectifiés par vous")
-        expect(self.page.locator("#eo-band")).to_have_text("Données insuffisantes")
-        field.fill("Je vais au travail.")
-        expect(self.page.locator("#eo-report")).to_be_hidden()
-        self.page.locator("#eo-analyze").click()
-        expect(self.page.locator("#eo-corrections li")).to_have_count(0)
-        expect(self.page.locator("#eo-transcript")).to_contain_text("Je travaille dans une librairie.")
-
-    def test_eo1_denied_microphone_keeps_a_working_no_mic_interview(self):
-        self.page.add_init_script("""window.SpeechRecognition = class {
-          start() { queueMicrotask(() => this.onerror({error:'not-allowed'})); }
-          abort() {}
-        }""")
-        self.open_eo1_studio()
-        self.page.locator("#eo-start").click()
-        expect(self.page.locator("#eo-setup-status")).to_contain_text("refusé")
-        self.page.locator('[name="eo-mode"][value="oral"]').check()
-        self.page.locator("#eo-start").click()
-        self.page.locator("#eo-submit").click()
-        self.page.locator("#eo-stop").click()
-        self.page.locator("#eo-finish").click()
-        expect(self.page.locator("#eo-summary")).to_contain_text("Aucune réponse transcrite")
-        expect(self.page.locator("#eo-band")).to_have_text("Données insuffisantes")
-        expect(self.page.locator("#eo-corrections li")).to_have_count(0)
-        self.assert_no_horizontal_overflow()
-
-    def test_eo1_installed_local_model_is_opt_in_and_falls_back_on_failure(self):
-        self.page.add_init_script("""window.LanguageModel = {
-          availability: async () => 'available',
-          create: async () => {
-            window.testInferences = (window.testInferences || 0) + 1;
-            return {destroy() {}, prompt: async () => {
-              if (window.testInferences === 1) return 'Que préférez-vous cuisiner le dimanche ?';
-              throw new Error('device model unavailable');
-            }};
-          }
-        }""")
-        self.open_eo1_studio()
-        self.page.locator('[name="eo-mode"][value="text"]').check()
-        expect(self.page.locator("#eo-ai")).not_to_be_checked()
-        self.page.locator("#eo-ai").check()
-        self.page.locator("#eo-start").click()
-        self.page.locator("#eo-answer").fill("Le dimanche, je cuisine avec ma sœur.")
-        self.page.locator("#eo-submit").click()
-        expect(self.page.locator("#eo-question")).to_have_text("Que préférez-vous cuisiner le dimanche ?")
-        self.page.locator("#eo-answer").fill("Du riz aux légumes.")
-        self.page.locator("#eo-submit").click()
-        expect(self.page.locator("#eo-turn-number")).to_have_text("Échange 03")
-        expect(self.page.locator("#eo-phase")).to_contain_text("relances guidées")
 
     def test_service_worker_retries_failed_assets_and_preserves_other_caches(self):
         worker = self.client.get("/sw.js").content.decode()
@@ -4608,7 +4365,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         navigation.get_by_text("Apprendre", exact=True).wait_for()
         navigation.get_by_text("Mes outils", exact=True).wait_for()
         expect(navigation.locator(".nav__primary-link .nav__item-label")).to_have_text(
-            ["Accueil", "Apprendre", "Compréhension", "Expression", "Simulation", "Notes", "Stats"]
+            ["Accueil", "Apprendre", "Compréhension", "Expression", "Notes", "Simulation"]
         )
         expect(navigation.get_by_role("link", name="Apprendre", exact=True)).to_have_attribute(
             "href", reverse("study:learn")
@@ -4642,7 +4399,15 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.assertEqual(mobile_active_style["borderRadius"], "0px"        )
         navigation.get_by_text("Vue d'ensemble", exact=True).wait_for()
         navigation.get_by_text("Notes et surlignages", exact=True).wait_for()
-        navigation.get_by_text("Suivre mes progrès", exact=True).wait_for()
+        simulation = navigation.get_by_role("link", name="Simulation", exact=True)
+        expect(simulation).to_have_attribute("href", reverse("study:simulation"))
+        profile = navigation.locator("[data-nav-more]")
+        stats = profile.get_by_role("link", name="Stats", exact=True)
+        expect(navigation.get_by_role("link", name="Stats", exact=True)).to_have_count(0)
+        profile.locator("summary").press("Enter")
+        expect(stats).to_be_visible()
+        expect(stats).to_have_attribute("href", reverse("study:stats"))
+        profile.locator("summary").press("Enter")
         self.assert_no_horizontal_overflow()
 
         self.page.keyboard.press("Escape")
@@ -4678,6 +4443,13 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.assertEqual(desktop_active_style["background"], "rgba(0, 0, 0, 0)")
         self.assertEqual(desktop_active_style["borderBottomWidth"], "2px")
         self.assertEqual(desktop_active_style["borderRadius"], "0px")
+        simulation.click()
+        expect(simulation).to_have_attribute("aria-current", "page")
+        profile.locator("summary").click()
+        stats.click()
+        expect(self.page).to_have_url(self.live_server_url + reverse("study:stats"))
+        profile.locator("summary").click()
+        expect(stats).to_have_attribute("aria-current", "page")
 
     def test_account_avatar_stays_circular_in_both_themes_and_responsive_layouts(self):
         for width in (320, 390, 760, 761, 1183):

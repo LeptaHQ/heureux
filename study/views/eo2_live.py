@@ -6,6 +6,7 @@ import uuid
 from dataclasses import dataclass
 
 from django.db import DatabaseError, transaction
+from django.db.models import Q
 from django.db.models.fields.json import KT
 from django.http import Http404, JsonResponse, StreamingHttpResponse
 from django.shortcuts import get_object_or_404, redirect
@@ -19,7 +20,7 @@ from django.views.decorators.http import require_GET, require_POST
 from study.audio.pins import AudioPinError
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
-from study.expression.eo.tache_2 import gemini_evaluation, gemini_live
+from study.expression.eo.tache_2 import live_conversation, oral_evaluation
 from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation, Prompt
 from study.navigation.routing import subject_selection_url
 from .helpers import _route_task, tache_two_publication
@@ -37,7 +38,7 @@ EVALUATION_KEEPALIVE_SECONDS = 10
 # The final keep-alive tick must still end before Gunicorn's 210 s worker timeout.
 EVALUATION_DEADLINE_SECONDS = 190
 _EVALUATION_FAILED = {"error": "Le bilan a échoué. Votre transcription reste disponible."}
-_EVALUATION_LATE = {"error": "Groq n’a pas répondu à temps. Votre transcription reste disponible."}
+_EVALUATION_LATE = {"error": "Le bilan n’est pas arrivé à temps. Votre transcription reste disponible."}
 # Each learner keeps their most recent exchanges, across subjects; older ones are deleted on save.
 SAVED_SIMULATIONS = 30
 
@@ -88,7 +89,7 @@ def oral_live(request, task_slug, **publication):
     task = _route_task("eo", task_slug, request=request)
     subject = _live_subject(task, publication)
     route = _route_name(task)
-    available = gemini_live.available_to(request.user, task)
+    available = live_conversation.available_to(request.user, task)
     saved, reopened = [], None
     if available:
         simulations = LiveSimulation.objects.filter(user=request.user, subject_key=subject.key)
@@ -181,19 +182,19 @@ def oral_live_token(request, task_slug, **publication):
                        "même pendant les pauses. Ne posez pas de questions et ne corrigez pas le candidat.\n"
                        "Question posée : " + subject.prompt)
     elif subject.role:
-        instruction = gemini_live.subject_instruction(subject.role, catalogue.tache_two_dialogues()[key])
+        instruction = live_conversation.subject_instruction(subject.role, catalogue.tache_two_dialogues()[key])
     try:
-        token = gemini_live.mint_token(request, task, data.get("pin"), instruction=instruction,
+        token = live_conversation.mint_token(request, task, data.get("pin"), instruction=instruction,
                                       exchange_grant=data.get("exchangeGrant"), subject_key=key)
     except AudioPinError as exc:
         return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
-    except gemini_live.LiveTokenError as exc:
+    except live_conversation.LiveTokenError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
-    result = {"token": token, "model": gemini_live.MODEL}
+    result = {"token": token, "model": live_conversation.MODEL}
     if purpose == "attempt":
-        result["exchangeGrant"] = gemini_live.issue_grant(request, key, purpose="exchange")
+        result["exchangeGrant"] = live_conversation.issue_grant(request, key, purpose="exchange")
     elif purpose == "exchange":
-        result["reviewGrant"] = gemini_live.issue_grant(request, key, purpose="review")
+        result["reviewGrant"] = live_conversation.issue_grant(request, key, purpose="review")
     return JsonResponse(result)
 
 
@@ -209,11 +210,11 @@ def oral_live_save(request, task_slug, **publication):
     task = _route_task("eo", task_slug, request=request)
     subject = _live_subject(task, publication)
     monologue = task_slug == "tache-3"
-    if not gemini_live.available_to(request.user, task):
+    if not live_conversation.available_to(request.user, task):
         return JsonResponse({"error": "L’enregistrement n’est pas disponible."}, status=403)
     try:
-        data = gemini_evaluation.simulation_data(request.read(gemini_evaluation.MAX_BODY + 1), monologue=monologue)
-    except gemini_evaluation.EvaluationError as exc:
+        data = oral_evaluation.simulation_data(request.read(oral_evaluation.MAX_BODY + 1), monologue=monologue)
+    except oral_evaluation.EvaluationError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
     if not monologue:
         key = request.headers.get("Idempotency-Key")
@@ -277,11 +278,11 @@ def oral_live_evaluation(request, task_slug, **publication):
     subject = _live_subject(task, publication)
     monologue = task_slug == "tache-3"
     try:
-        data = gemini_evaluation.request_data(request.read(gemini_evaluation.MAX_BODY + 1), monologue=monologue)
-        gemini_evaluation.authorize(request, task, data.get("pin"), grant=data.get("reviewGrant"), subject_key=subject.key)
+        data = oral_evaluation.request_data(request.read(oral_evaluation.MAX_BODY + 1), monologue=monologue)
+        oral_evaluation.authorize(request, task, data.get("pin"), grant=data.get("reviewGrant"), subject_key=subject.key)
     except AudioPinError as exc:
         return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
-    except gemini_evaluation.EvaluationError as exc:
+    except oral_evaluation.EvaluationError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
     rows = data["rows"]
     simulation = None
@@ -297,14 +298,23 @@ def oral_live_evaluation(request, task_slug, **publication):
         # Runs on the request thread, which owns the database connection.
         if status == 200 and simulation:
             try:
-                LiveSimulation.objects.filter(pk=simulation).update(report=body)
+                sessions = LiveSimulation.objects.filter(pk=simulation)
+                writable = Q(report__isnull=True)
+                if body.get("scoreStatus") == "scored":
+                    writable |= Q(report__scoreStatus="incomplete")
+                if not sessions.filter(writable).update(report=body):
+                    # Never mix marks from two assessments or replace a better saved report.
+                    saved = sessions.values_list("report", flat=True).first()
+                    if saved:
+                        return {**saved, "previousReportKept": True}
             except DatabaseError:
                 logger.exception("Oral evaluation: report not saved")
+        return body
 
     def score():
         try:
-            outcome.append((gemini_evaluation.score(subject.prompt, rows, monologue=monologue), 200))
-        except gemini_evaluation.EvaluationError as exc:
+            outcome.append((oral_evaluation.score(subject.prompt, rows, monologue=monologue), 200))
+        except oral_evaluation.EvaluationError as exc:
             outcome.append(({"error": str(exc)}, exc.status))
         finally:
             done.set()
@@ -313,8 +323,7 @@ def oral_live_evaluation(request, task_slug, **publication):
     threading.Thread(target=score, daemon=True).start()
     if done.wait(EVALUATION_GRACE_SECONDS):
         body, status = outcome[0] if outcome else (_EVALUATION_FAILED, 500)
-        keep(body, status)
-        return JsonResponse(body, status=status)
+        return JsonResponse(keep(body, status), status=status)
 
     # Render's Cloudflare edge drops a request that sends nothing for 100 s (HTTP 524).
     # Send the headers now, then JSON-insignificant spaces until Groq answers.
@@ -332,7 +341,7 @@ def oral_live_evaluation(request, task_slug, **publication):
             body, status = _EVALUATION_LATE, 504
         else:
             body, status = outcome[0] if outcome else (_EVALUATION_FAILED, 500)
-            keep(body, status)
+            body = keep(body, status)
         yield json.dumps(body if status == 200 else {**body, "status": status}).encode()
 
     request.META.pop("HTTP_ACCEPT_ENCODING", None)  # GZipMiddleware would hold the spaces back.

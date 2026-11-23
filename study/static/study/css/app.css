@@ -11836,7 +11836,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
 .sim-task__meta span:last-child { color: var(--text-soft); letter-spacing: normal; text-transform: none; }
 .sim-task h2 { margin-top: .3rem; font-size: 1.15rem; }
 .sim-task p { font-size: .9rem; margin-top: .18rem; }
-.sim-task .sim-task__hint { font-size: .82rem; }
 .sim-task__actions { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .7rem; }
 .sim-task__actions a { min-height: 44px; }
 .eo2-topic-table tr[id] { scroll-margin-top: 5rem; }

@@ -1,6 +1,7 @@
+from itertools import islice
+
 import django.db.models.deletion
 import django.utils.timezone
-from itertools import batched
 from django.conf import settings
 from django.db import migrations, models
 
@@ -13,12 +14,13 @@ def import_saved_practice(apps, schema_editor):
     # Read metadata only; previously expired/deleted recordings cannot be reconstructed.
     existing = live.exclude(subject_key__startswith="eo3:").order_by()
     metadata = existing.values_list("pk", "user_id", "subject_key", "created_at").iterator()
-    for batch in batched(metadata, 500):
+    while batch := tuple(islice(metadata, 500)):
         attempts.bulk_create([
             attempts.model(user_id=user, subject_key=key, attempt=pk, live_simulation_id=pk, vocal=True, created_at=created)
             for pk, user, key, created in batch
         ])
-    for batch in batched(existing.values_list("user_id", "subject_key").distinct().iterator(), 500):
+    topics = existing.values_list("user_id", "subject_key").distinct().iterator()
+    while batch := tuple(islice(topics, 500)):
         statuses.bulk_create([statuses.model(user_id=user, subject_key=key, done=True) for user, key in batch])
 
 

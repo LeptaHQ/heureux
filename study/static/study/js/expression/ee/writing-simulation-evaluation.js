@@ -148,10 +148,16 @@
     upgrades.hidden = !report.upgrades.length;
     list(find("upgrades"), report.upgrades, item);
 
-    const paragraphs = report.improvedResponse ? report.improvedResponse.split(/\r?\n[ \t]*\r?\n/) : [];
-    list(by("proposal-lines"), paragraphs, (value) => text(document.createElement("p"), value));
-    by("proposal").hidden = !paragraphs.length;
-    text(by("proposal-count"), paragraphs.length ? `${report.improvedWordCount} mots` : "");
+    const paragraphs = (value) => value.split(/\r?\n[ \t]*\r?\n/).map((part) => text(document.createElement("p"), part));
+    const proposal = report.improvedParts?.length
+      ? report.improvedParts.flatMap((part, index) => [
+        text(document.createElement("h3"), index ? "Point de vue argumenté" : "Synthèse neutre"),
+        ...paragraphs(part),
+      ])
+      : report.improvedResponse ? paragraphs(report.improvedResponse) : [];
+    by("proposal-lines").replaceChildren(...proposal);
+    by("proposal").hidden = !proposal.length;
+    text(by("proposal-count"), proposal.length ? `${report.improvedWordCount} mots` : "");
     list(find("priorities"), report.priorities, item);
     find("priorities").closest(".lv-next-step").hidden = !report.priorities.length;
 

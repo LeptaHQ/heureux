@@ -20,6 +20,7 @@ from playwright.sync_api import expect, sync_playwright
 from django.utils import timezone
 
 from study.catalogue import loader as content
+from study.catalogue import registry as catalogue
 from study.accounts.services import provision_user_study_data
 from study.catalogue.loader import load_sections
 from study.learning.courses import build_course_catalog, load_course_catalog
@@ -581,6 +582,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.page.set_viewport_size({"width": 320, "height": 900})
         self.page.goto(setup)
         self.page.get_by_role("button", name="Commencer la séance").click()
+        self.page.locator("#writing-body").fill("Ce brouillon reste en place.")
         for label, icon in (("Enregistrer le brouillon", "save"), ("Remettre la réponse", "check")):
             button = self.page.get_by_role("button", name=label)
             expect(button).to_have_text("")
@@ -597,12 +599,13 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         seconds.fill("30")
         expect(apply).to_have_text("")
         expect(apply.locator('[data-icon="check"]')).to_be_visible()
-        self.assertEqual(timer.locator("form").evaluate("el => getComputedStyle(el).position"), "static")
+        self.assertEqual(timer.locator(".ee1-timer-control__form").evaluate("el => getComputedStyle(el).position"), "static")
         self.assertLessEqual(seconds.bounding_box()["x"] + seconds.bounding_box()["width"], apply.bounding_box()["x"])
         self.assert_no_horizontal_overflow()
         apply.click()
         expect(timer).not_to_have_attribute("open", "")
         expect(self.page.get_by_role("timer")).to_contain_text(re.compile(r"07:(29|30)"))
+        expect(self.page.locator("#writing-body")).to_have_value("Ce brouillon reste en place.")
 
         self.page.goto(setup)
         saved = self.page.locator(".lv-saved li")
@@ -617,6 +620,36 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             dialog.locator("[data-confirm-accept]").click()
         expect(saved).to_have_count(0)
         self.assertEqual(self.page.url, setup)
+
+    @override_settings(GROQ_API_KEY="")
+    def test_comparison_studio_counts_and_preserves_each_section(self):
+        task = factories.make_task(factories.make_part("ee"), "tache-3")
+        theme = factories.make_theme("ee3-browser", task=task)
+        prompt = factories.make_response(theme=theme).prompts.get()
+        source = next(source for _, source in catalogue.ee_tache_three_sources_by_key().values() if source.has_usable_documents)
+        prompt.content_key, prompt.text = source.content_key, source.sujet
+        prompt.save(update_fields=["content_key", "text"])
+        self.page.set_viewport_size({"width": 320, "height": 900})
+        self.page.goto(self.live_server_url + reverse("study:ee3_subject_picker"))
+        self.page.get_by_role("link", name=f"Pratiquer : {prompt.text}").click()
+        self.page.get_by_role("button", name="Commencer la séance").click()
+        expect(self.page.get_by_role("heading", name="Document 1")).to_be_visible()
+        expect(self.page.get_by_role("heading", name="Document 2")).to_be_visible()
+        synthesis = " ".join(["Résumé"] * 40)
+        opinion = " ".join(["Exemple"] * 80)
+        self.page.get_by_role("textbox", name="Synthèse neutre").fill(synthesis)
+        self.page.get_by_role("textbox", name="Point de vue argumenté").fill(opinion)
+        expect(self.page.locator("#writing-body-word-status")).to_contain_text("40 mots")
+        expect(self.page.locator("#writing-position-word-status")).to_contain_text("80 mots")
+        expect(self.page.locator("[data-writing-word-count-display]")).to_have_text("120")
+        self.assert_no_horizontal_overflow()
+        self.page.get_by_role("button", name="Enregistrer le brouillon").click()
+        expect(self.page.get_by_role("textbox", name="Synthèse neutre")).to_have_value(synthesis)
+        expect(self.page.get_by_role("textbox", name="Point de vue argumenté")).to_have_value(opinion)
+        self.page.get_by_role("button", name="Remettre la réponse").click()
+        expect(self.page.get_by_role("heading", name="Synthèse neutre · 40 / 40–60 mots")).to_be_visible()
+        expect(self.page.get_by_role("heading", name="Point de vue argumenté · 80 / 80–120 mots")).to_be_visible()
+        self.assert_no_horizontal_overflow()
 
     @override_settings(
         EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="fixture-groq-key",

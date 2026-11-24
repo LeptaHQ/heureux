@@ -32,7 +32,7 @@
     {% csrf_token %}
   </form>
   {% if evaluation_providers|length < 2 %}
-    <span id="writing-evaluation-disclosure" class="lv-assessment__aside">L’évaluation envoie la consigne et votre réponse à {{ evaluation_provider_label }}.</span>
+    <span id="writing-evaluation-disclosure" class="lv-assessment__aside">L’évaluation envoie la consigne et votre réponse{% if documents %}, avec les deux documents,{% endif %} à {{ evaluation_provider_label }}.</span>
   {% endif %}
 {% endblock %}
 {% block assessment_status %}{% if attempt.evaluation_status == "processing" %}Bilan en préparation…{% elif attempt.evaluation_status == "not_requested" %}Bilan non demandé.{% endif %}{% endblock %}
@@ -74,9 +74,13 @@
       <h2>{% include "study/shared/partials/ui_icon.html" with name="file-text" only %} {{ simulation.response_label }}</h2>
       <small>{{ attempt.word_count|default:0 }} mots</small>
     </summary>
-    <div class="lv-proposal__prose markdown-prose" lang="fr">
-      {% if attempt.body %}{{ attempt.body|markdown_prose }}{% else %}<p class="muted">Aucun texte n’a été enregistré.</p>{% endif %}
-    </div>
+    {% include "study/simulation/partials/writing_documents.html" %}
+    {% for part in response_parts %}
+      {% if documents %}<h3>{{ part.label }} · {{ part.count }} / {{ part.min }}–{{ part.max }} mots</h3>{% endif %}
+      <div class="lv-proposal__prose markdown-prose" lang="fr">
+        {% if part.text %}{{ part.text|markdown_prose }}{% else %}<p class="muted">Aucun texte n’a été enregistré.</p>{% endif %}
+      </div>
+    {% endfor %}
     <section class="ee1-evaluation__section" aria-labelledby="writing-corrections-title" data-writing-review hidden>
       <h3 id="writing-corrections-title">Corrections</h3>
       <ol class="ee1-evaluation__corrections" data-writing-corrections></ol>
@@ -113,5 +117,5 @@
   </a>
 {% endblock %}
 {% block scripts %}
-  <script src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=8"></script>
+  <script src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=9"></script>
 {% endblock %}

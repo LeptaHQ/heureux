@@ -15,20 +15,19 @@
           <span class="sr-only">Modifier le temps</span>
           {% include "study/shared/partials/ui_icon.html" with name="clock" only %}
         </summary>
-        <form method="post" action="{{ timer_url }}" class="ee1-timer-control__form">
-          {% csrf_token %}
+        <div class="ee1-timer-control__form">
           <label>
             <span>Minutes</span>
-            <input type="number" name="timer_minutes" min="0" max="1440" value="{{ remaining_minutes }}" inputmode="numeric" required>
+            <input form="writing-form" type="number" name="timer_minutes" min="0" max="1440" value="{{ remaining_minutes }}" inputmode="numeric" required>
           </label>
           <label>
             <span>Secondes</span>
-            <input type="number" name="timer_seconds" min="0" max="59" value="{{ remaining_second_remainder }}" inputmode="numeric" required>
+            <input form="writing-form" type="number" name="timer_seconds" min="0" max="59" value="{{ remaining_second_remainder }}" inputmode="numeric" required>
           </label>
-          <button type="submit" class="icon-button" aria-label="Appliquer le temps" title="Appliquer le temps">
+          <button form="writing-form" formaction="{{ timer_url }}" type="submit" class="icon-button" aria-label="Appliquer le temps" title="Appliquer le temps">
             {% include "study/shared/partials/ui_icon.html" with name="check" only %}
           </button>
-        </form>
+        </div>
       </details>
     </div>
 
@@ -40,21 +39,24 @@
         <div class="spine-label" id="writing-prompt-title">Consigne</div>
         {% include "study/audio/partials/read_aloud_button.html" with label="Lire la consigne en français" compact=True button_class="icon-button" target="writing-prompt-text" annotation_exclude=True only %}
       </div>
-      <p id="writing-prompt-text" data-read-aloud-text lang="fr" {% speech_attrs prompt private=False %}>{{ prompt }}</p>
+      <p id="writing-prompt-text" data-read-aloud-text lang="fr" {% speech_attrs prompt private=False %}>{{ prompt|linebreaksbr }}</p>
+      {% include "study/simulation/partials/writing_documents.html" with expanded=True %}
     </section>
 
-    <form method="post" class="ee1-writing-form" data-writing-form data-ee1-form>
+    <form id="writing-form" method="post" class="ee1-writing-form" data-writing-form data-ee1-form>
       {% csrf_token %}
       {% if auto_evaluation %}<input type="hidden" name="evaluation_consent" value="groq">{% endif %}
       <div class="ee1-writing-field">
         <div class="ee1-writing-editor">
+          <div class="ee1-writing-editor__parts">
+          {% for part in response_parts %}
           <div class="ee1-writing-editor__input">
-            <label for="writing-body">{{ simulation.response_label }}</label>
+            <label for="{{ part.id }}">{{ part.label }}</label>
             <textarea
-              id="writing-body"
-              name="body"
+              id="{{ part.id }}"
+              name="{{ part.field }}"
               class="ee1-writing-textarea"
-              rows="18"
+              rows="{% if documents %}8{% else %}18{% endif %}"
               lang="fr"
               wrap="soft"
               autocomplete="off"
@@ -65,14 +67,16 @@
               data-gramm_editor="false"
               data-enable-grammarly="false"
               data-writing-word-input
-              data-word-min="{{ word_min }}"
-              data-word-max="{{ word_max }}"
+              data-word-min="{{ part.min }}"
+              data-word-max="{{ part.max }}"
               maxlength="{{ max_body_length }}"
-              aria-describedby="writing-word-status writing-tools-note"
-              placeholder="{{ simulation.response_placeholder }}">{{ attempt.body }}</textarea>
-            <p id="writing-word-status" class="muted{% if error %} auth-error{% endif %}" data-writing-word-status aria-live="polite">
-              {{ word_count }} mots · objectif {{ word_min }}–{{ word_max }}
+              aria-describedby="{{ part.id }}-word-status writing-tools-note"
+              placeholder="{{ part.placeholder }}">{{ part.text }}</textarea>
+            <p id="{{ part.id }}-word-status" class="muted{% if error %} auth-error{% endif %}" data-writing-word-status aria-live="polite">
+              {{ part.count }} mots · objectif {{ part.min }}–{{ part.max }}
             </p>
+          </div>
+          {% endfor %}
           </div>
           <aside class="ee1-writing-tools" aria-labelledby="writing-tools-title">
             <div class="spine-label" id="writing-tools-title">Outils d’écriture</div>
@@ -97,15 +101,16 @@
       </div>
       <div class="ee1-writing-form__footer">
         <p class="muted" id="writing-submit-note">
-          {% if auto_evaluation %}Remettre la réponse envoie votre texte et la consigne à Groq pour le bilan.{% else %}Vous pouvez enregistrer un brouillon sans remettre la réponse.{% endif %}
+          {% if auto_evaluation %}Remettre la réponse envoie votre texte et la consigne{% if documents %}, avec les deux documents,{% endif %} à Groq pour le bilan.{% else %}Vous pouvez enregistrer un brouillon sans remettre la réponse.{% endif %}
         </p>
         <div class="ee1-writing-form__actions">
-          <button class="icon-button" type="submit" name="action" value="save" aria-label="Enregistrer le brouillon" title="Enregistrer le brouillon">
+          <button class="icon-button" type="submit" name="action" value="save" formnovalidate aria-label="Enregistrer le brouillon" title="Enregistrer le brouillon">
             {% include "study/shared/partials/ui_icon.html" with name="save" only %}
           </button>
-          <button class="icon-button" type="submit" name="action" value="submit" aria-label="Remettre la réponse" aria-describedby="writing-submit-note" title="Remettre la réponse" data-writing-submit data-ee1-submit>
+          <button class="icon-button" type="submit" name="action" value="submit" formnovalidate aria-label="Remettre la réponse" aria-describedby="writing-submit-note" title="Remettre la réponse" data-writing-submit data-ee1-submit>
             {% include "study/shared/partials/ui_icon.html" with name="check" only %}
           </button>
+          <button type="submit" name="action" value="expire" formnovalidate data-writing-expire hidden></button>
         </div>
       </div>
     </form>
@@ -113,6 +118,6 @@
 
 {% block scripts %}
   {{ block.super }}
-  <script src="{% static 'study/js/expression/ee/writing-word-count.js' %}?v=2"></script>
-  <script src="{% static 'study/js/expression/ee/writing-simulation.js' %}?v=3"></script>
+  <script src="{% static 'study/js/expression/ee/writing-word-count.js' %}?v=3"></script>
+  <script src="{% static 'study/js/expression/ee/writing-simulation.js' %}?v=4"></script>
 {% endblock %}

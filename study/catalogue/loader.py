@@ -126,6 +126,7 @@ EE_TACHE_TWO_THEME_VOCABULARY_FIELDS = (
 EE_TACHE_TWO_THEME_VOCABULARY_PER_KIND = 5
 EE_TACHE_TWO_THEME_VOCABULARY_PER_THEME = 20
 EE_TACHE_THREE_WORD_LIMIT = (120, 180)
+EE_TACHE_THREE_SECTION_LIMITS = ((40, 60), (80, 120))
 
 # The 2025 corpus is published month by month; février 2025 was never
 # published by the source, so it is legitimately absent everywhere.
@@ -2794,6 +2795,14 @@ class EeTacheThreeCombinaison:
     document1_invalid: bool
 
     @property
+    def has_usable_documents(self) -> bool:
+        first, second = self.document1.strip(), self.document2.strip()
+        return bool(
+            first and second and first != second
+            and not (self.document1_invalid or self.document2_missing or self.documents_identical)
+        )
+
+    @property
     def has_source_issue(self) -> bool:
         return any(
             (
@@ -2832,8 +2841,8 @@ def _validate_ee_tache_three_answer(
     heading: str, synthese: str, point_de_vue: str, *, location: str,
 ) -> None:
     for label, text, minimum, maximum in (
-        ("synthèse", synthese, 40, 60),
-        ("point de vue", point_de_vue, 80, 120),
+        ("synthèse", synthese, *EE_TACHE_THREE_SECTION_LIMITS[0]),
+        ("point de vue", point_de_vue, *EE_TACHE_THREE_SECTION_LIMITS[1]),
         (
             "complete answer (including title)",
             ee_tache_three_answer_text(heading, synthese, point_de_vue),

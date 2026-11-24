@@ -4,15 +4,14 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 import threading
 import time
-import unicodedata
 from dataclasses import dataclass
 from datetime import timedelta
 from uuid import UUID
 
 from django.conf import settings
-from django.core.paginator import Paginator
 from django.db import close_old_connections, transaction
 from django.db.models import Count, Max, Q
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
@@ -25,8 +24,10 @@ from django.views.decorators.http import require_GET, require_http_methods, requ
 from django.views.decorators.vary import vary_on_headers
 
 from study.catalogue import loader as content_module
+from study.catalogue import registry as catalogue
 from study.catalogue.loader import _ee_word_count
 from study.models import (
+    Prompt,
     Task,
     WritingSimulationAttempt,
     WritingSimulationAttemptStatus,
@@ -36,14 +37,14 @@ from study.models import (
 from study.review.progress import writing_sujet_progress_by_id
 from study.simulation import writing_evaluation
 from study.simulation.evaluation import EvaluationError
+from .simulation import render_subject_picker, subject_picker_context
 
 logger = logging.getLogger(__name__)
 
 MAX_BODY_LENGTH = 20_000
 EVALUATION_STALE_AFTER = timedelta(minutes=5)
-PICKER_STATUSES = {"new": "Sans séance", "done": "Déjà pratiqués"}
-PICKER_ORDERS = {"recent": "Dernière séance", "least": "Moins pratiqués d’abord"}
 EVALUATION_PROVIDER_LABELS = {"groq": "Groq", "gemini": "Gemini", "cloudflare": "Workers"}
+_FINISHED_FIELDS = ("status", "submitted_at", "word_count")
 
 
 @dataclass(frozen=True)
@@ -127,6 +128,19 @@ SPECS = {
         ),
         picker_intro="Sélectionnez un sujet pour votre production de {word_min} à {word_max} mots.",
     ),
+    3: WritingSimulationSpec(
+        number=3,
+        word_min=content_module.EE_TACHE_THREE_WORD_LIMIT[0],
+        word_max=content_module.EE_TACHE_THREE_WORD_LIMIT[1],
+        minutes_setting="EE3_SIMULATION_MINUTES",
+        response_label="Votre production",
+        response_placeholder="Reformulez les deux points de vue sans donner votre avis…",
+        session_prompt=(
+            "Comparez les deux documents sans donner votre avis, puis défendez votre point de vue. "
+            "Vous disposez de {minutes} minutes."
+        ),
+        picker_intro="Choisissez un sujet avec deux documents pour rédiger une synthèse et défendre votre point de vue.",
+    ),
 }
 
 
@@ -149,12 +163,20 @@ def _single_post_value(request, key):
     return values[0]
 
 
-def _fold(value):
-    return "".join(
-        character
-        for character in unicodedata.normalize("NFKD", value.casefold())
-        if not unicodedata.combining(character)
+def _subjects(task, spec):
+    if spec.number != 3:
+        return WritingSujet.objects.filter(task=task, is_active=True)
+    return Prompt.objects.filter(
+        theme__task=task, theme__is_active=True, is_active=True, response__is_active=True,
+        content_key__in=[
+            key for key, (_, source) in catalogue.ee_tache_three_sources_by_key().items()
+            if source.has_usable_documents
+        ],
     )
+
+
+def _subject_id(value):
+    return int(value) if 0 < len(value) <= 18 and value.isascii() and value.isdecimal() else None
 
 
 def _session_steps(minutes):
@@ -215,97 +237,56 @@ def _session_context(
 @vary_on_headers("X-Requested-With")
 def subject_picker(request, spec):
     task = task_for(spec)
-    subjects = list(
-        WritingSujet.objects.filter(task=task, is_active=True)
-        .only("pk", "category", "category_label", "prompt", "order", "slug")
-        .order_by("category_label", "order", "pk")
-    )
-    subjects_by_slug = {sujet.slug: sujet for sujet in subjects}
-    canonical_slug_by_slug = content_module.ee_writing_canonical_slug_by_slug(
-        spec.number
-    )
-    progress_sujet_id_by_id = {
-        sujet.pk: subjects_by_slug.get(
-            canonical_slug_by_slug.get(sujet.slug, sujet.slug),
-            sujet,
-        ).pk
-        for sujet in subjects
-    }
+    subjects = _subjects(task, spec)
+    comparison = spec.number == 3
+    subject_field = "prompt_id" if comparison else "sujet_id"
     attempts = {
-        row["sujet_id"]: row
+        row[subject_field]: row
         for row in WritingSimulationAttempt.objects.filter(
-            user=request.user,
-            task=task,
-            sujet__isnull=False,
+            user=request.user, task=task, **{f"{subject_field}__isnull": False},
         )
-        .values("sujet_id")
+        .values(subject_field)
         .annotate(count=Count("pk"), latest=Max("started_at"))
     }
-    query = request.GET.get("q", "").strip()[:120]
-    category = request.GET.get("theme", "")
-    status = request.GET.get("etat", "")
-    if status not in PICKER_STATUSES:
-        status = ""
-    order = request.GET.get("tri", "")
-    if order not in {"az", "za", *PICKER_ORDERS}:
-        order = ""
-
-    categories = {}
     rows = []
-    needle = _fold(query)
+    if comparison:
+        subjects = subjects.select_related("theme").only(
+            "text", "content_key", "theme__slug", "theme__display_name",
+        ).order_by("theme__name", "number", "pk")
+    else:
+        subjects = subjects.only("category", "category_label", "prompt", "slug").order_by("category_label", "order", "pk")
+    setup_url = reverse(spec.route_names["setup"])
+    sources = catalogue.ee_tache_three_sources_by_key() if comparison else {}
     for sujet in subjects:
-        categories[sujet.category] = sujet.category_label
         summary = attempts.get(sujet.pk, {})
-        count = summary.get("count", 0)
-        if (
-            (category and sujet.category != category)
-            or (status == "new" and count)
-            or (status == "done" and not count)
-            or (
-                needle
-                and needle not in _fold(f"{sujet.prompt} {sujet.category_label}")
-            )
-        ):
-            continue
-        rows.append(
-            {
-                "sujet": sujet,
-                "count": count,
-                "latest": summary.get("latest"),
-                "setup_url": (
-                    f"{reverse(spec.route_names['setup'])}?sujet_id={sujet.pk}"
-                ),
-            }
-        )
-
-    if order in {"az", "za"}:
-        rows.sort(key=lambda row: _fold(row["sujet"].prompt), reverse=order == "za")
-    elif order == "recent":
-        rows.sort(
-            key=lambda row: (row["latest"] is not None, row["latest"]),
-            reverse=True,
-        )
-    elif order == "least":
-        rows.sort(key=lambda row: row["count"])
-
-    page = Paginator(rows, 15).get_page(request.GET.get("page"))
-    progress_by_id = writing_sujet_progress_by_id(
-        request.user,
-        {
-            progress_sujet_id_by_id[row["sujet"].pk]
-            for row in page.object_list
-        },
-        task_id=task.pk,
-    )
-    for row in page.object_list:
-        progress_sujet_id = progress_sujet_id_by_id[row["sujet"].pk]
-        row["progress_sujet_id"] = progress_sujet_id
-        row["progress"] = progress_by_id[progress_sujet_id]
-
-    practiced_total = sum(
-        bool(attempts.get(sujet.pk, {}).get("count")) for sujet in subjects
-    )
-    picker = {
+        caption = sujet.theme.display_name if comparison else sujet.category_label
+        if comparison:
+            month, source = sources[sujet.content_key]
+            publication = f"{caption} · {month.name} · {source.combinaison}"
+        else:
+            publication = caption
+        rows.append({
+            "sujet": sujet,
+            "row_id": f"sujet-{sujet.pk}",
+            "title": sujet.text if comparison else sujet.prompt,
+            "theme": sujet.theme.slug if comparison else sujet.category,
+            "theme_label": caption, "caption": publication,
+            "url": f"{setup_url}?sujet_id={sujet.pk}",
+            "count": summary.get("count", 0), "latest": summary.get("latest"),
+        })
+    context = subject_picker_context(request, rows)
+    page_rows = context["page"].object_list
+    if not comparison:
+        canonical_slugs = content_module.ee_writing_canonical_slug_by_slug(spec.number)
+        ids_by_slug = {row["sujet"].slug: row["sujet"].pk for row in rows}
+        for row in page_rows:
+            sujet = row["sujet"]
+            row["progress_sujet_id"] = ids_by_slug.get(canonical_slugs.get(sujet.slug), sujet.pk)
+        progress = writing_sujet_progress_by_id(request.user, {row["progress_sujet_id"] for row in page_rows}, task_id=task.pk)
+        for row in page_rows:
+            row["progress"] = progress[row["progress_sujet_id"]]
+    context["task"] = task
+    context["picker"] = {
         "back_url": reverse("study:simulation_track", args=["ee"]),
         "back_label": "Expression écrite",
         "kicker": f"Simulation · {spec.task_label}",
@@ -318,54 +299,19 @@ def subject_picker(request, spec):
         "tone": "sim-tone--ee",
         "icon": "pen-line",
         "results_id": f"ee{spec.number}-topic-results",
-        "kind": f"ee{spec.number}",
+        "writing_progress": not comparison,
         "show_practice_summary": True,
     }
-    return render(
-        request,
-        (
-            "study/simulation/subject_picker_results.html"
-            if request.headers.get("X-Requested-With") == "fetch"
-            else "study/simulation/subject_picker.html"
-        ),
-        {
-            "task": task,
-            "page": page,
-            "total": len(subjects),
-            "practiced_total": practiced_total,
-            "picker": picker,
-            "directory_selection": {
-                "themes": sorted(categories.items(), key=lambda item: _fold(item[1])),
-                "theme": category,
-                "unavailable_theme": category and category not in categories,
-                "query": query,
-                "status": status,
-                "order": order,
-                "active": bool(category or query or status or order),
-                "status_choices": PICKER_STATUSES.items(),
-                "extra_orders": PICKER_ORDERS.items(),
-            },
-        },
-    )
+    return render_subject_picker(request, context)
 
 
 def _setup_context(request, spec, task):
-    subjects = list(
-        WritingSujet.objects.filter(task=task, is_active=True)
-        .only("pk", "category", "category_label", "prompt", "order")
-        .order_by("category_label", "order", "pk")
-    )
-    by_category = {}
-    for sujet in subjects:
-        by_category.setdefault(
-            sujet.category,
-            {"label": sujet.category_label, "subjects": []},
-        )["subjects"].append(sujet)
     selected_sujet_id = request.GET.get("sujet_id", "")
-    selected_sujet = next(
-        (sujet for sujet in subjects if str(sujet.pk) == selected_sujet_id),
-        None,
-    )
+    selected_sujet = None
+    if selected_sujet_id:
+        selected_sujet = _subjects(task, spec).filter(pk=_subject_id(selected_sujet_id)).first()
+        if spec.number == 3 and selected_sujet is None:
+            raise Http404
     attempts = (
         WritingSimulationAttempt.objects.filter(user=request.user, task=task)
         .only("status", "started_at", "deadline_at", "evaluation_status")
@@ -391,12 +337,10 @@ def _setup_context(request, spec, task):
     return {
         **_session_context(
             spec,
-            selected_subject=selected_sujet.prompt if selected_sujet else "",
+            selected_subject=(selected_sujet.text if spec.number == 3 else selected_sujet.prompt) if selected_sujet else "",
         ),
         "task": task,
-        "categories": list(by_category.values()),
         "saved_sessions": saved_sessions,
-        "subject_count": len(subjects),
         "selected_sujet_id": selected_sujet_id,
         "start_url": reverse(spec.route_names["start"]),
         "delete_url": reverse(
@@ -426,26 +370,38 @@ def start(request, spec):
     except ValueError as exc:
         return HttpResponseBadRequest(str(exc))
 
-    subjects = WritingSujet.objects.filter(task=task, is_active=True)
+    subjects = _subjects(task, spec)
     if subject_value:
-        if not subject_value.isdigit():
+        pk = _subject_id(subject_value)
+        if pk is None:
             return HttpResponseBadRequest("Sujet invalide.")
-        sujet = get_object_or_404(subjects, pk=int(subject_value))
+        sujet = get_object_or_404(subjects, pk=pk)
     else:
         sujet = subjects.order_by("?").first()
         if sujet is None:
             return HttpResponseBadRequest(f"Aucun sujet {spec.task_label} n'est disponible.")
 
+    if spec.number == 3:
+        _, source = catalogue.ee_tache_three_sources_by_key()[sujet.content_key]
+        identity = {"prompt": sujet}
+        snapshot = {
+            "prompt": sujet.text, "prompt_key": sujet.content_key,
+            "category_label": sujet.theme.display_name,
+            "documents": [source.document1, source.document2],
+        }
+    else:
+        identity = {"sujet": sujet}
+        snapshot = {
+            "prompt": sujet.prompt, "category": sujet.category,
+            "category_label": sujet.category_label, "sujet_slug": sujet.slug,
+        }
     now = timezone.now()
     attempt = WritingSimulationAttempt.objects.create(
         user=request.user,
         task=task,
-        sujet=sujet,
+        **identity,
         snapshot={
-            "prompt": sujet.prompt,
-            "category": sujet.category,
-            "category_label": sujet.category_label,
-            "sujet_slug": sujet.slug,
+            **snapshot,
             "word_min": spec.word_min,
             "word_max": spec.word_max,
             "simulation_minutes": spec.minutes,
@@ -456,10 +412,47 @@ def start(request, spec):
     return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
 
 
+def _response_parts(attempt, spec):
+    word_min, word_max = _attempt_limits(attempt, spec)
+    if spec.number == 3:
+        labels = ("Synthèse neutre", "Point de vue argumenté")
+        placeholders = (spec.response_placeholder, "Présentez et justifiez votre point de vue…")
+        fields = ("body", "position_body")
+        limits = content_module.EE_TACHE_THREE_SECTION_LIMITS
+    else:
+        labels, placeholders, fields = (spec.response_label,), (spec.response_placeholder,), ("body",)
+        limits = ((word_min, word_max),)
+    return [
+        {
+            "field": field, "id": "writing-body" if field == "body" else "writing-position",
+            "label": label, "placeholder": placeholder, "text": getattr(attempt, field),
+            "min": minimum, "max": maximum, "count": _ee_word_count(getattr(attempt, field)),
+        }
+        for field, label, placeholder, (minimum, maximum) in zip(fields, labels, placeholders, limits)
+    ]
+
+
+def _draft_fields(request, spec):
+    body = _single_post_value(request, "body")
+    fields = {"body": body}
+    if spec.number == 3:
+        fields["position_body"] = _single_post_value(request, "position_body")
+    return fields
+
+
+def _has_response(attempt):
+    return bool(attempt.body.strip() or attempt.position_body.strip())
+
+
+def _word_count(attempt):
+    return _ee_word_count(attempt.body) + _ee_word_count(attempt.position_body)
+
+
 def _attempt_context(attempt, spec, *, error="", now=None):
     now = now or timezone.now()
-    remaining = max(0, int((attempt.deadline_at - now).total_seconds()))
+    remaining = max(0, math.ceil((attempt.deadline_at - now).total_seconds()))
     word_min, word_max = _attempt_limits(attempt, spec)
+    prompt = attempt.snapshot.get("prompt", "")
     context = _session_context(
         spec,
         selected_subject=attempt.snapshot.get("prompt", ""),
@@ -469,12 +462,14 @@ def _attempt_context(attempt, spec, *, error="", now=None):
         {
             "attempt": attempt,
             "task": attempt.task,
-            "prompt": attempt.snapshot.get("prompt", ""),
+            "prompt": content_module.ee_tache_three_instruction(prompt) if spec.number == 3 else prompt,
             "category_label": attempt.snapshot.get("category_label", ""),
             "remaining_seconds": remaining,
             "remaining_minutes": remaining // 60,
             "remaining_second_remainder": remaining % 60,
-            "word_count": _ee_word_count(attempt.body),
+            "word_count": _word_count(attempt),
+            "response_parts": _response_parts(attempt, spec),
+            "documents": attempt.snapshot.get("documents", ()),
             "word_min": word_min,
             "word_max": word_max,
             "max_body_length": MAX_BODY_LENGTH,
@@ -498,6 +493,12 @@ def update_timer(request, spec, attempt_id):
         return HttpResponseBadRequest("Durée invalide.")
     if not 0 <= minutes <= 1440 or not 0 <= seconds <= 59:
         return HttpResponseBadRequest("Durée invalide.")
+    try:
+        draft = _draft_fields(request, spec) if "body" in request.POST or "position_body" in request.POST else {}
+    except ValueError as exc:
+        return HttpResponseBadRequest(str(exc))
+    if sum(map(len, draft.values())) > MAX_BODY_LENGTH:
+        return HttpResponseBadRequest("Votre réponse est trop longue pour être enregistrée.")
 
     attempt = get_object_or_404(
         _owned_attempts(request, spec).select_for_update(of=("self",)),
@@ -506,21 +507,29 @@ def update_timer(request, spec, attempt_id):
     now = timezone.now()
     if attempt.status != WritingSimulationAttemptStatus.ACTIVE:
         return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
-    attempt.deadline_at = now + timedelta(minutes=minutes, seconds=seconds)
-    attempt.save(update_fields=["deadline_at"])
+    fields = list(draft)
+    for field, value in draft.items():
+        setattr(attempt, field, value)
+    if draft:
+        attempt.last_saved_at = now
+        fields.append("last_saved_at")
+    if attempt.deadline_at > now:
+        attempt.deadline_at = now + timedelta(minutes=minutes, seconds=seconds)
+        fields.append("deadline_at")
+    if _mark_expired(attempt, now):
+        fields.extend(_FINISHED_FIELDS)
+    attempt.save(update_fields=fields)
     return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
 
 
-def _expire_if_needed(attempt, now=None):
-    now = now or timezone.now()
+def _mark_expired(attempt, now):
     if (
         attempt.status == WritingSimulationAttemptStatus.ACTIVE
         and attempt.deadline_at <= now
     ):
         attempt.status = WritingSimulationAttemptStatus.EXPIRED
         attempt.submitted_at = now
-        attempt.word_count = _ee_word_count(attempt.body)
-        attempt.save(update_fields=["status", "submitted_at", "word_count"])
+        attempt.word_count = _word_count(attempt)
         return True
     return False
 
@@ -531,6 +540,11 @@ def _result_context(attempt, spec):
         providers, provider = _ee1_evaluation_options(attempt)
     else:
         providers, provider = (), writing_evaluation.provider_for(spec.number)
+    subject_url = ""
+    if attempt.sujet_id:
+        subject_url = reverse("study:writing_sujet_detail", args=["ee", attempt.task.slug, attempt.sujet_id])
+    elif attempt.prompt_id:
+        subject_url = reverse("study:response_detail", args=["ee", attempt.task.slug, attempt.prompt_id])
     context = _session_context(
         spec,
         title="Bilan de votre session",
@@ -546,14 +560,13 @@ def _result_context(attempt, spec):
         "task": attempt.task,
         "word_min": word_min,
         "word_max": word_max,
-        "session_title_assessment": bool(attempt.body.strip()) and attempt.status != WritingSimulationAttemptStatus.ABANDONED,
+        "session_title_assessment": _has_response(attempt) and attempt.status != WritingSimulationAttemptStatus.ABANDONED,
         "evaluation_provider": provider,
         "evaluation_provider_label": EVALUATION_PROVIDER_LABELS[provider],
         "evaluation_providers": [(key, EVALUATION_PROVIDER_LABELS[key]) for key in providers],
-        "subject_url": (
-            reverse("study:writing_sujet_detail", args=["ee", attempt.task.slug, attempt.sujet_id])
-            if attempt.sujet_id else ""
-        ),
+        "subject_url": subject_url,
+        "response_parts": _response_parts(attempt, spec),
+        "documents": attempt.snapshot.get("documents", ()),
         "debrief_back_url": reverse("study:simulation_track", args=["ee"]),
         "debrief_back_label": "Retour à EE",
     })
@@ -601,16 +614,11 @@ def delete(request, spec):
 @require_http_methods(["GET", "POST"])
 def attempt(request, spec, attempt_id):
     if request.method == "GET":
-        with transaction.atomic():
-            attempt = get_object_or_404(
-                _owned_attempts(request, spec).select_for_update(of=("self",)).select_related(
-                    "task__part", "sujet"
-                ),
-                pk=attempt_id,
-            )
-            _expire_if_needed(attempt)
-            is_active = attempt.status == WritingSimulationAttemptStatus.ACTIVE
-        if not is_active:
+        attempt = get_object_or_404(_owned_attempts(request, spec).select_related("task__part"), pk=attempt_id)
+        # A read must not freeze the old draft before the editor's last POST arrives.
+        now = timezone.now()
+        _mark_expired(attempt, now)
+        if attempt.status != WritingSimulationAttemptStatus.ACTIVE:
             return render(
                 request,
                 "study/simulation/writing_simulation_result.html",
@@ -619,27 +627,26 @@ def attempt(request, spec, attempt_id):
         return render(
             request,
             "study/simulation/writing_simulation_attempt.html",
-            _attempt_context(attempt, spec),
+            _attempt_context(attempt, spec, now=now),
         )
 
     try:
         action = _single_post_value(request, "action")
-        body = _single_post_value(request, "body")
+        draft = _draft_fields(request, spec)
     except ValueError as exc:
         return HttpResponseBadRequest(str(exc))
-    if action not in {"save", "submit", "abandon"}:
+    if action not in {"save", "submit", "abandon", "expire"}:
         return HttpResponseBadRequest("Action invalide.")
     with transaction.atomic():
         attempt = get_object_or_404(
-            _owned_attempts(request, spec).select_for_update(of=("self",)).select_related(
-                "task__part", "sujet"
-            ),
+            _owned_attempts(request, spec).select_for_update(of=("self",)).select_related("task__part"),
             pk=attempt_id,
         )
         if attempt.status != WritingSimulationAttemptStatus.ACTIVE:
             return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
-        if len(body) > MAX_BODY_LENGTH:
-            attempt.body = body
+        for field, value in draft.items():
+            setattr(attempt, field, value)
+        if sum(map(len, draft.values())) > MAX_BODY_LENGTH:
             return render(
                 request,
                 "study/simulation/writing_simulation_attempt.html",
@@ -652,19 +659,14 @@ def attempt(request, spec, attempt_id):
             )
 
         now = timezone.now()
-        attempt.body = body
         attempt.last_saved_at = now
-        if attempt.deadline_at <= now:
-            attempt.status = WritingSimulationAttemptStatus.EXPIRED
-            attempt.submitted_at = now
-            attempt.word_count = _ee_word_count(body)
-            attempt.save(
-                update_fields=["body", "last_saved_at", "status", "submitted_at", "word_count"]
-            )
+        fields = [*draft, "last_saved_at"]
+        if _mark_expired(attempt, now):
+            attempt.save(update_fields=[*fields, *_FINISHED_FIELDS])
             return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
 
-        if action == "save":
-            attempt.save(update_fields=["body", "last_saved_at"])
+        if action in {"save", "expire"}:
+            attempt.save(update_fields=fields)
             return redirect(
                 reverse(spec.route_names["attempt"], args=[attempt.pk]) + "?saved=1"
             )
@@ -672,36 +674,31 @@ def attempt(request, spec, attempt_id):
         if action == "abandon":
             attempt.status = WritingSimulationAttemptStatus.ABANDONED
             attempt.submitted_at = now
-            attempt.word_count = _ee_word_count(body)
-            attempt.save(
-                update_fields=["body", "last_saved_at", "status", "submitted_at", "word_count"]
-            )
+            attempt.word_count = _word_count(attempt)
+            attempt.save(update_fields=[*fields, *_FINISHED_FIELDS])
             return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
 
-        cleaned = body.strip()
-        word_min, word_max = _attempt_limits(attempt, spec)
-        word_count = _ee_word_count(cleaned)
-        if not cleaned:
+        error = ""
+        if spec.number != 3 and not attempt.body.strip():
             error = f"Rédigez {spec.response_label.lower()} avant de le remettre."
-        elif word_count < word_min or word_count > word_max:
-            error = (
-                f"{spec.response_label} doit compter entre "
-                f"{word_min} et {word_max} mots."
-            )
         else:
-            attempt.body = cleaned
+            for part in _response_parts(attempt, spec):
+                if not part["min"] <= part["count"] <= part["max"]:
+                    error = f"{part['label']} doit compter entre {part['min']} et {part['max']} mots."
+                    break
+        if not error:
+            for field, value in draft.items():
+                setattr(attempt, field, value.strip())
             attempt.status = WritingSimulationAttemptStatus.SUBMITTED
             attempt.submitted_at = now
-            attempt.last_saved_at = now
-            attempt.word_count = word_count
-            fields = ["body", "status", "submitted_at", "last_saved_at", "word_count"]
+            attempt.word_count = _word_count(attempt)
+            fields.extend(_FINISHED_FIELDS)
             if settings.GROQ_API_KEY and request.POST.getlist("evaluation_consent") == ["groq"]:
                 _queue_evaluation(attempt, spec, "groq" if spec.number == 1 else None, now, update_fields=fields)
             else:
                 attempt.save(update_fields=fields)
             return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
 
-        attempt.body = body
         return render(
             request,
             "study/simulation/writing_simulation_attempt.html",
@@ -778,7 +775,7 @@ def run_evaluation(attempt_id, started_at, spec, provider=None):
     try:
         attempt = (
             WritingSimulationAttempt.objects.filter(**claim)
-            .only("snapshot", "body", "word_count")
+            .only("snapshot", "body", "position_body", "word_count")
             .first()
         )
         if attempt is None:
@@ -795,10 +792,14 @@ def run_evaluation(attempt_id, started_at, spec, provider=None):
                 task_number=spec.number,
                 subject=attempt.snapshot.get("prompt", ""),
                 response=attempt.body,
-                word_count=attempt.word_count or _ee_word_count(attempt.body),
+                word_count=attempt.word_count or _word_count(attempt),
                 word_min=word_min,
                 word_max=word_max,
                 **({"provider": provider} if provider else {}),
+                **(
+                    {"position": attempt.position_body, "documents": attempt.snapshot.get("documents", ())}
+                    if spec.number == 3 else {}
+                ),
             )
         except EvaluationError as exc:
             status = WritingSimulationEvaluationStatus.UNAVAILABLE
@@ -873,12 +874,14 @@ def evaluate(request, spec, attempt_id):
             _owned_attempts(request, spec).select_for_update(of=("self",)),
             pk=attempt_id,
         )
+        now = timezone.now()
+        expired = _mark_expired(attempt, now)
         if attempt.status not in {
             WritingSimulationAttemptStatus.SUBMITTED,
             WritingSimulationAttemptStatus.EXPIRED,
         }:
             return HttpResponseBadRequest("Cette réponse ne peut pas encore être évaluée.")
-        if not attempt.body.strip():
+        if not _has_response(attempt):
             return HttpResponseBadRequest("Aucune réponse à évaluer.")
         provider = None
         if spec.number == 1:
@@ -902,7 +905,6 @@ def evaluate(request, spec, attempt_id):
         )
         if cached:
             return evaluation_json(attempt, provider=provider)
-        now = timezone.now()
         if (
             attempt.evaluation_status == WritingSimulationEvaluationStatus.PROCESSING
             and attempt.evaluation_started_at
@@ -914,7 +916,7 @@ def evaluate(request, spec, attempt_id):
                 {"error": "Ce modèle n’est pas disponible pour une nouvelle évaluation."},
                 status=409,
             )
-        _queue_evaluation(attempt, spec, provider, now)
+        _queue_evaluation(attempt, spec, provider, now, update_fields=_FINISHED_FIELDS if expired else ())
         return evaluation_json(attempt, status=202, provider=provider)
 
 

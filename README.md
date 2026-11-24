@@ -66,9 +66,13 @@ the study progress they display without constructing full subject directories
 or review links.
 **Simulation** sits between **Notes** and search in the main navigation and opens
 `/simulation/`. **Stats** is in the profile dropdown, above **Réglages**.
-EO2 and EO3 use one speaking simulator. EE1 and EE2 use one private writing
-simulator, with frozen prompts, draft saving and task-specific word limits
-(60–120 and 120–150 respectively). EE3 still links to untimed subject practice.
+EO2 and EO3 use one speaking simulator. EO3 opens the selected question and
+allows 4 min 30 of speaking without preparation. All three EE tasks use one
+private writing simulator with frozen prompts, draft saving and task-specific
+limits. EE3 also freezes both source documents and checks its two sections
+separately: a 40–60-word synthesis and an 80–120-word supported opinion.
+Subjects with missing, invalid or duplicate source documents remain available
+for study but cannot start an EE3 simulation.
 Oral and written studios use the same saved-session list. Its trash icon
 permanently deletes the chosen session and its bilan after confirmation.
 The session templates live under `study/templates/study/simulation/`, and the
@@ -88,7 +92,7 @@ draft or running out of time does not send it. When more than one model is
 available, the EE1 bilan’s sparkle button lets learners request another
 provider. Each report is saved separately; switching back opens the saved
 report without grading again. `EE1_EVALUATION_PROVIDER` sets the default for
-attempts that do not already have a provider. EE2 and oral grading use Groq. All
+attempts that do not already have a provider. EE2, EE3 and oral grading use Groq. All
 providers use the same evidence checks; optional feedback can be omitted
 without hiding a supported score. Temporary service failures are retried once with the same
 provider within the three-minute deadline. Groq can also use its one retry to
@@ -360,7 +364,8 @@ FRENCH_AUDIO_CHARACTER_BUDGET=0
 DEEPL_API_KEY=<server secret>
 DEEPL_TARGET_LANG=EN-GB
 EE1_SIMULATION_MINUTES=12
-EE2_SIMULATION_MINUTES=20
+EE2_SIMULATION_MINUTES=18
+EE3_SIMULATION_MINUTES=30
 ```
 
 The selected voice ID is shown above, but code always uses the configured voice;
@@ -368,9 +373,10 @@ voice IDs are not secrets. Never put the API key in Git, chat, HTML or browser
 code. Already prepared audio plays without a provider key. The narration UI and
 sample switch default on; an explicit `False` disables them. No additional flag
 activation is required when the server already has the voice and key configured.
-`EE1_SIMULATION_MINUTES` and `EE2_SIMULATION_MINUTES` control the default
-durations of new EE simulation attempts; existing attempts keep their original
-deadlines. The defaults are 12 and 20 minutes.
+`EE1_SIMULATION_MINUTES`, `EE2_SIMULATION_MINUTES` and `EE3_SIMULATION_MINUTES`
+control new attempts. The defaults are 12, 18 and 30 minutes respectively.
+Changing an active timer keeps the current draft; changing a server default
+does not alter existing attempts.
 
 **First audition: no shell or deployment command required.** Open **EO Tâche 3 →
 Culture → Sujet 1** and click the faint play icon beside the progress badge.

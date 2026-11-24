@@ -711,6 +711,14 @@ class GeminiLiveTests(TestCase):
         variant = Prompt.objects.create(theme=theme, response=response, family=canonical.family, number=canonical.number + 1,
                                         content_key="opinion-variant", text="La marche est-elle le meilleur moyen de découvrir une ville ?")
         url = reverse("study:eo_tache_three_live", args=[variant.pk])
+        picker = reverse("study:eo3_topic_picker")
+        LiveSimulation.objects.create(
+            user=self.reviewer, subject_key=f"eo3:{variant.pk}", rows=[{"speaker": "user", "text": "Je préfère marcher."}],
+        )
+        self.assertTemplateUsed(self.client.get(picker), "study/simulation/subject_picker_table.html")
+        practiced = self.client.get(picker, {"etat": "done"}, headers={"x-requested-with": "fetch"})
+        self.assertContains(practiced, url)
+        self.assertNotContains(practiced, reverse("study:eo_tache_three_live", args=[canonical.pk]))
         page = self.client.get(url, {"deduplicate": "0"})
         self.assert_private(page, 200)
         self.assertEqual(page.context["scenario_prompt"], variant.text)

@@ -67,6 +67,8 @@ SIMULATION_ROUTES = {
     "eo2_topic_picker", "eo2_topic_history", "ee1_simulation", "ee2_simulation",
     "ee1_simulation_start", "ee1_simulation_attempt", "ee1_subject_picker",
     "ee2_simulation_start", "ee2_simulation_attempt", "ee2_subject_picker",
+    "ee3_simulation", "ee3_simulation_start", "ee3_simulation_attempt", "ee3_subject_picker",
+    "eo3_topic_picker",
 }
 NOTES_ROUTES = {
     "notes_overview",

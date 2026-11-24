@@ -162,6 +162,7 @@ urlpatterns = [
     path("simulation/<expression_part:part_slug>/", simulation.track, name="simulation_track"),
     *_writing_simulation_routes(),
     path("simulation/orale/tache-2/sujets/", eo2_practice.picker, name="eo2_topic_picker"),
+    path("simulation/orale/tache-3/sujets/", eo2_live.opinion_picker, name="eo3_topic_picker"),
     path("simulation/orale/tache-2/sujets/<slug:token>/statut/", eo2_practice.set_status, name="eo2_topic_status"),
     path("simulation/orale/tache-2/sujets/<slug:token>/historique/", eo2_practice.history, name="eo2_topic_history"),
     path("simulation/orale/tache-2/sujets/<int:prompt_id>/repeter/", eo2_practice.legacy_rehearsal, name="eo2_rehearsal"),

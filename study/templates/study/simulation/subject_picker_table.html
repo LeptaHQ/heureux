@@ -5,23 +5,18 @@
   <thead><tr>
     <th scope="col"{% if directory_selection.order == 'az' %} aria-sort="ascending"{% elif directory_selection.order == 'za' %} aria-sort="descending"{% endif %}>Sujet</th>
     <th scope="col"{% if directory_selection.order == 'least' %} aria-sort="ascending"{% endif %}>Séances</th>
-    <th scope="col">Terminé</th>
+    {% if picker.writing_progress or picker.topic_markers %}<th scope="col">Terminé</th>{% endif %}
   </tr></thead>
 {% endblock %}
 {% block native_table_body %}
   <tbody>
     {% for row in page %}
-      <tr class="t1-table__row" id="{% if picker.kind == 'ee1' or picker.kind == 'ee2' %}sujet-{{ row.sujet.pk }}{% else %}topic-{{ row.token }}{% endif %}">
+      <tr class="t1-table__row" id="{{ row.row_id }}">
         <td class="t1-table__subject">
           <div class="t1-table__subject-copy">
             <div>
-              {% if picker.kind == "ee1" or picker.kind == "ee2" %}
-                <a aria-label="Pratiquer : {{ row.sujet.prompt }}" href="{{ row.setup_url }}">{{ row.sujet.prompt }}</a>
-                <span class="t1-table__subject-date">{{ row.sujet.category_label }}</span>
-              {% else %}
-                <a aria-label="Pratiquer : {{ row.topic.title }}" href="{{ row.topic.simulation_url }}">{{ row.topic.title }}</a>
-                <span class="t1-table__subject-date">{{ row.topic.theme }} · {{ row.topic.source }}</span>
-              {% endif %}
+              <a aria-label="Pratiquer : {{ row.title }}" href="{{ row.url }}">{{ row.title }}</a>
+              <span class="t1-table__subject-date">{{ row.caption }}</span>
             </div>
             {% if picker.kind == "eo2" %}
               {% url 'study:eo2_topic_status' row.token as status_url %}
@@ -33,14 +28,15 @@
           </div>
         </td>
         <td>
-          {% if picker.kind == "ee1" or picker.kind == "ee2" %}
-            {{ row.count }}
-          {% else %}
+          {% if picker.topic_markers %}
             <a href="{% url 'study:eo2_topic_history' row.token %}" title="Voir l’historique">{{ row.count }}<span class="sr-only"> séance{% if row.count > 1 %}s{% endif %} · Historique de {{ row.topic.title }}</span></a>
+          {% else %}
+            {{ row.count }}
           {% endif %}
         </td>
+        {% if picker.writing_progress or picker.topic_markers %}
         <td>
-          {% if picker.kind == "ee1" or picker.kind == "ee2" %}
+          {% if picker.writing_progress %}
             {% include "study/expression/ee/partials/writing_sujet_completion_form.html" with sujet=row.sujet completed=row.progress.explicitly_completed progress_sujet_id=row.progress_sujet_id subject_label=row.sujet.prompt part=task.part task=task %}
           {% else %}
             <form class="subject-completion-check{% if row.done %} is-complete{% endif %}" method="post" action="{{ status_url }}{% querystring %}">
@@ -49,6 +45,7 @@
             </form>
           {% endif %}
         </td>
+        {% endif %}
       </tr>
     {% endfor %}
   </tbody>

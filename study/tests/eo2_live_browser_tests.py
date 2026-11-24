@@ -262,7 +262,7 @@ class LiveConversationBrowserMixin:
         self.page.clock.fast_forward(1_200)
         self.page.evaluate("text => probe.sockets[0].receive({serverContent:{inputTranscription:{text,finished:true}}})", ending)
         with self.page.expect_request(evaluation):
-            self.page.clock.fast_forward(2_000)
+            self.page.evaluate("probe.sockets[0].onclose({wasClean:true})")
         expect(self.page.locator("#lv-level")).to_have_text("Bilan en préparation…")
         expect(self.page.locator("#lv-assessment-status")).to_be_visible()
         expect(self.page.locator("#lv-prompt")).to_have_text(prompt.text)

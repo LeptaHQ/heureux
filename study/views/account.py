@@ -592,6 +592,7 @@ def export_account(request):
             "sujet": item.sujet.slug if item.sujet else item.snapshot.get("sujet_slug", ""),
             "snapshot": item.snapshot,
             "body": item.body,
+            **({"position_body": item.position_body} if "documents" in item.snapshot else {}),
             "status": item.status,
             "started_at": item.started_at,
             "deadline_at": item.deadline_at,

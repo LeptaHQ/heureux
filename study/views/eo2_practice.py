@@ -19,6 +19,7 @@ from study.navigation.routing import subject_selection_url
 from study.simulation import live_conversation
 
 from .helpers import _route_task
+from .simulation import render_subject_picker
 
 
 @dataclass(frozen=True)
@@ -125,7 +126,9 @@ def picker(request):
             continue
         summary = attempts.get(topic.key, {})
         rows.append({"topic": topic, "token": token, "done": done, "retry": retry,
-                     "count": summary.get("count", 0), "latest": summary.get("latest")})
+                     "count": summary.get("count", 0), "latest": summary.get("latest"),
+                     "row_id": f"topic-{token}", "title": topic.title, "url": topic.simulation_url,
+                     "caption": f"{topic.theme} · {topic.source}"})
     if order in ("az", "za"):
         rows.sort(key=lambda r: _fold(r["topic"].title), reverse=order == "za")
     elif order == "recent":
@@ -133,9 +136,7 @@ def picker(request):
     elif order == "least":
         rows.sort(key=lambda r: r["count"])
     page = Paginator(rows, 15).get_page(request.GET.get("page"))
-    template = ("study/simulation/subject_picker_results.html" if request.headers.get("X-Requested-With") == "fetch"
-                else "study/simulation/subject_picker.html")
-    return render(request, template, {
+    return render_subject_picker(request, {
         "page": page, "total": total,
         "picker": {
             "back_url": reverse("study:simulation_track", args=["eo"]),

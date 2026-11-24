@@ -1,13 +1,13 @@
 (() => {
   const timer = document.querySelector("[data-writing-timer]");
   const form = document.querySelector("[data-writing-form]");
-  const submit = document.querySelector("[data-writing-submit]");
-  if (!timer || !form || !submit) return;
+  const expire = document.querySelector("[data-writing-expire]");
+  if (!timer || !form || !expire) return;
 
   const output = timer.querySelector("strong");
   const initialRemaining = Number(timer.dataset.remaining || 0) * 1000;
   const startedAt = window.performance.now();
-  const input = form.querySelector("[data-writing-word-input]");
+  let input = form.querySelector("[data-writing-word-input]");
   let submitted = false;
 
   const render = () => {
@@ -22,15 +22,16 @@
     if (remaining > 0 || submitted) return;
     submitted = true;
     output.textContent = "00:00";
-    const consent = form.elements.namedItem("evaluation_consent");
-    if (consent) consent.disabled = true;
-    submit.click();
+    form.requestSubmit(expire);
   };
 
   render();
   window.setInterval(render, 1000);
 
   if (input) {
+    form.querySelectorAll("[data-writing-word-input]").forEach((field) => {
+      field.addEventListener("focus", () => { input = field; });
+    });
     form.querySelectorAll("[data-writing-character]").forEach((button) => {
       button.addEventListener("click", () => {
         const start = input.selectionStart ?? input.value.length;

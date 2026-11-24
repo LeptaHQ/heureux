@@ -25,13 +25,14 @@ class EE2SimulationTests(TestCase):
         self.user = factories.make_user("ee2-simulation-owner")
         self.client.force_login(self.user)
 
+    @override_settings(EE2_SIMULATION_MINUTES=18)
     def test_setup_uses_shared_shell_and_ee2_constraints(self):
         response = self.client.get(reverse("study:ee2_simulation"))
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Studio écrit · EE Tâche 2")
         self.assertContains(response, "120 à 150 mots")
-        self.assertContains(response, "20 minutes")
+        self.assertContains(response, "18 minutes")
         self.assertContains(response, 'name="sujet_id"')
 
     def test_subject_picker_uses_the_shared_subject_table(self):
@@ -113,7 +114,7 @@ class EE2SimulationTests(TestCase):
         with patch("study.views.writing_simulation.timezone.now", return_value=now):
             response = self.client.post(
                 reverse("study:ee2_simulation_timer", args=[attempt.pk]),
-                {"timer_minutes": "7", "timer_seconds": "30"},
+                {"timer_minutes": "7", "timer_seconds": "30", "body": "Mon brouillon en cours."},
             )
 
         self.assertRedirects(
@@ -122,6 +123,7 @@ class EE2SimulationTests(TestCase):
         )
         attempt.refresh_from_db()
         self.assertEqual(attempt.deadline_at, now + timedelta(minutes=7, seconds=30))
+        self.assertEqual(attempt.body, "Mon brouillon en cours.")
         editor = self.client.get(
             reverse("study:ee2_simulation_attempt", args=[attempt.pk])
         )

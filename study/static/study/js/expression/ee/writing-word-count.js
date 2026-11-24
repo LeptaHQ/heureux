@@ -13,7 +13,7 @@
     const minimum = Number(input.dataset.wordMin || 0);
     const maximum = Number(input.dataset.wordMax || 0);
     const count = countWords(input.value);
-    const field = input.closest?.(".response-edit-field, .ee1-writing-field");
+    const field = input.closest?.(".response-edit-field");
     const form = input.closest?.("[data-writing-form]");
     const deferValidation = Boolean(form);
     const showValidation = !deferValidation || form.dataset.validateOnSubmit === "true";
@@ -44,10 +44,17 @@
   const update = () => {
     inputs.forEach((input) => {
       const status = input
-        .closest(".response-edit-field, .ee1-writing-field")
+        .closest(".response-edit-field, .ee1-writing-editor__input")
         ?.querySelector("[data-writing-word-status]");
       if (status) updateStatus(input, status);
     });
+    const writingCount = document.querySelector("[data-writing-form] [data-writing-word-count-display]");
+    if (writingCount) {
+      writingCount.textContent = String(
+        inputs.filter((input) => input.form?.matches("[data-writing-form]"))
+          .reduce((sum, input) => sum + countWords(input.value), 0)
+      );
+    }
     if (totalStatus) {
       const totalInputs = document.querySelectorAll(
         "[data-writing-word-total-input]"

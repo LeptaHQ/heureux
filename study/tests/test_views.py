@@ -720,9 +720,10 @@ class SmokeTests(TestCase):
             factories.make_task(factories.make_part("eo"), f"tache-{number}")
         writing = factories.make_task(factories.make_part("ee"), "tache-1")
         factories.make_task(writing.part, "tache-2", available=False)
+        factories.make_task(writing.part, "tache-3")
         page = self.client.get(oral)
         self.assertContains(page, f'href="{reverse("study:eo2_topic_picker")}"')
-        self.assertContains(page, f'href="{reverse("study:eo_tache_three_live")}"')
+        self.assertContains(page, f'href="{reverse("study:eo3_topic_picker")}"')
         for old in ("study:eo_tache_one_interview", "study:eo_tache_two_interaction"):
             self.assertNotContains(page, f'href="{reverse(old)}"')
         overview = self.client.get(reverse("study:task_detail", args=["eo", "tache-2"]))
@@ -736,9 +737,10 @@ class SmokeTests(TestCase):
                 self.assertContains(studio, f'<title>Simulation · {studio.context["task"].short_label} · {topic} · Heureux</title>')
         page = self.client.get(written)
         self.assertEqual(page.context["active_nav_area"], "simulation")
-        self.assertContains(page, "Commencez par la simulation chronométrée de la Tâche 1")
+        self.assertContains(page, "rédiger en temps limité")
         self.assertContains(page, f'href="{reverse("study:ee1_subject_picker")}"')
-        self.assertNotContains(page, f'href="{reverse("study:task_browse", args=["ee", "tache-2"])}"')
+        self.assertNotContains(page, f'href="{reverse("study:ee2_subject_picker")}"')
+        self.assertContains(page, f'href="{reverse("study:ee3_subject_picker")}"')
 
     def test_hierarchy_pages_render(self):
         self.assertEqual(

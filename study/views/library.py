@@ -4004,6 +4004,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "subject_hints": subject_hints,
             "eo3_simulation_available": is_eo3 and live_conversation.available_to(request.user, task),
             "ee_response": ee_response,
+            "ee3_simulation_available": ee_response and task.available and task.part.available and source.has_usable_documents,
             "ee_combination_label": ee_combination_label,
             "ee_source_month": ee_source_month,
             "ee_equivalent_subjects": ee_equivalent_subjects,

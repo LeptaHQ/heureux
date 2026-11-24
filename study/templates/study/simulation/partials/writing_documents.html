@@ -1,0 +1,13 @@
+{% if documents %}
+  <details class="ee1-source-documents"{% if expanded %} open{% endif %}>
+    <summary>Documents sources</summary>
+    <div class="ee-source-docs" lang="fr">
+      {% for document in documents %}
+        <article class="ee-source-doc">
+          <h3 class="ee-source-doc__label">Document {{ forloop.counter }}</h3>
+          {{ document|linebreaks }}
+        </article>
+      {% endfor %}
+    </div>
+  </details>
+{% endif %}

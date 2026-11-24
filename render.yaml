@@ -74,6 +74,8 @@ services:
         sync: false
       - key: EE2_SIMULATION_MINUTES
         sync: false
+      - key: EE3_SIMULATION_MINUTES
+        sync: false
       # --- ElevenLabs French voice -----------------------------------------
       # Required for any natural-voice audio (EO3 narration + read-aloud).
       - key: ELEVENLABS_API_KEY

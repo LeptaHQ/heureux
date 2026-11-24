@@ -329,7 +329,12 @@
       window.HeureuxEO2Evaluation?.setGrant(config.reviewGrant);
       const socket = openSocket(s,config);
       socket.onmessage = e => receive(s,e.data);
-      socket.onerror = socket.onclose = () => finish(s,"Connexion vocale interrompue ou quota indisponible. Le micro est coupé.");
+      const disconnected = () => finish(s,"Connexion vocale interrompue ou quota indisponible. Le micro est coupé.");
+      socket.onerror = disconnected;
+      socket.onclose = event => {
+        if (owns(s) && state() === "draining" && event.wasClean) s.finishCaptions();
+        else disconnected();
+      };
     } catch (error) {
       if (owns(s)) finish(s,error.name === "AbortError" ? "Ouverture annulée. Aucun appel n’est en cours." :
         error.name === "NotAllowedError" ? "Micro refusé. Autorisez le microphone pour ce site dans votre navigateur." :

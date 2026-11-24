@@ -6,7 +6,7 @@ import uuid
 from dataclasses import dataclass
 
 from django.db import DatabaseError, transaction
-from django.db.models import Q
+from django.db.models import Count, Max, Q
 from django.db.models.fields.json import KT
 from django.http import Http404, JsonResponse, StreamingHttpResponse
 from django.shortcuts import get_object_or_404, redirect
@@ -16,6 +16,7 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect, ensure_csrf_cookie
 from django.views.decorators.debug import sensitive_post_parameters, sensitive_variables
 from django.views.decorators.http import require_GET, require_POST
+from django.views.decorators.vary import vary_on_headers
 
 from study.audio.pins import AudioPinError
 from study.catalogue import registry as catalogue
@@ -25,6 +26,7 @@ from study.simulation.evaluation import DEADLINE_SECONDS, EvaluationError
 from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation, Prompt
 from study.navigation.routing import subject_selection_url
 from .helpers import _route_task, tache_two_publication
+from .simulation import render_subject_picker, subject_picker_context
 
 
 DEFAULT_CONSIGNE = (
@@ -55,13 +57,54 @@ class LiveSubject:
     role: object = None
 
 
+def _opinion_prompts(task):
+    return Prompt.objects.filter(theme__task=task, theme__is_active=True, is_active=True, response__is_active=True)
+
+
+@require_GET
+@vary_on_headers("X-Requested-With")
+def opinion_picker(request):
+    task = _route_task("eo", "tache-3", request=request)
+    if not (task.available and task.part.available):
+        raise Http404
+    counts = {
+        row["subject_key"]: row for row in LiveSimulation.objects.filter(
+            user=request.user, subject_key__startswith=EO3_KEY_PREFIX,
+        ).values("subject_key").annotate(count=Count("pk"), latest=Max("created_at"))
+    }
+
+    def row(token, title, theme, label, args):
+        stats = counts.get(f"{EO3_KEY_PREFIX}{token}", {})
+        return {
+            "row_id": f"topic-{token}", "title": title, "theme": theme, "theme_label": label,
+            "caption": label, "url": reverse("study:eo_tache_three_live", args=args),
+            "count": stats.get("count", 0), "latest": stats.get("latest"),
+        }
+
+    rows = [row("default", OPINION_CONSIGNE, "entrainement", "Sujet d’entraînement", ())]
+    prompts = _opinion_prompts(task).select_related("theme").only(
+        "text", "theme__slug", "theme__display_name",
+    ).order_by("theme__name", "number", "pk")
+    for prompt in prompts:
+        rows.append(row(prompt.pk, prompt.text, prompt.theme.slug, prompt.theme.display_name, (prompt.pk,)))
+    context = subject_picker_context(request, rows)
+    context["picker"] = {
+        "back_url": reverse("study:simulation_track", args=["eo"]),
+        "back_label": "Expression orale", "kicker": "Simulation · EO Tâche 3",
+        "title": "Choisir un sujet", "heading_id": "eo3-title",
+        "intro": "Choisissez une question et défendez votre point de vue en 4 min 30, sans préparation.",
+        "tone": "sim-tone--eo", "icon": "microphone", "results_id": "eo3-topic-results",
+        "show_practice_summary": True,
+    }
+    return render_subject_picker(request, context)
+
+
 def _live_subject(task, publication):
     if task.slug == "tache-3":
         if not publication:
             return LiveSubject(EO3_KEY_PREFIX + "default", "Découvrir une ville", OPINION_CONSIGNE)
         prompt = get_object_or_404(
-            Prompt.objects.only("id", "text"), pk=publication["prompt_id"], theme__task=task,
-            theme__is_active=True, is_active=True, response__is_active=True,
+            _opinion_prompts(task).only("text"), pk=publication["prompt_id"],
         )
         return LiveSubject(f"{EO3_KEY_PREFIX}{prompt.pk}", " ".join(prompt.text.split()), prompt.text,
                            reverse("study:response_detail", args=["eo", task.slug, prompt.pk]))
@@ -113,8 +156,8 @@ def oral_live(request, task_slug, **publication):
         if pk:
             reopened = simulations.filter(pk=pk).values("id", "rows", "elapsed_ms", "report").first()
     if monologue:
-        session_back_url = reverse("study:task_browse", args=[task.part.slug, task.slug])
-        session_back_label = "Sujets de la tâche 3"
+        session_back_url = reverse("study:eo3_topic_picker")
+        session_back_label = "Choisir un sujet"
         session_kicker = "Expression d’un point de vue"
         session_prompt = (
             "La simulation est indisponible pour le moment."

@@ -434,7 +434,7 @@ class WritingSimulationEvaluationStatus(models.TextChoices):
 
 
 class WritingSimulationAttempt(models.Model):
-    """A private, immutable EE1 simulation attempt with a frozen prompt."""
+    """A private writing attempt with a frozen subject and immutable submission."""
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(
@@ -456,8 +456,13 @@ class WritingSimulationAttempt(models.Model):
         blank=True,
         related_name="simulation_attempts",
     )
+    prompt = models.ForeignKey(
+        "Prompt", on_delete=models.SET_NULL, null=True, blank=True,
+        related_name="writing_simulation_attempts",
+    )
     snapshot = models.JSONField(default=dict)
     body = models.TextField(blank=True)
+    position_body = models.TextField(blank=True, default="")
     status = models.CharField(
         max_length=10,
         choices=WritingSimulationAttemptStatus.choices,
@@ -494,7 +499,7 @@ class WritingSimulationAttempt(models.Model):
     def save(self, *args, **kwargs):
         if not self._state.adding:
             original = type(self).objects.get(pk=self.pk)
-            immutable = ("user_id", "task_id", "sujet_id", "snapshot", "started_at")
+            immutable = ("user_id", "task_id", "sujet_id", "prompt_id", "snapshot", "started_at")
             if any(
                 getattr(self, field) != getattr(original, field)
                 for field in immutable
@@ -505,6 +510,7 @@ class WritingSimulationAttempt(models.Model):
             if original.status != WritingSimulationAttemptStatus.ACTIVE:
                 immutable_after_final = (
                     "body",
+                    "position_body",
                     "status",
                     "last_saved_at",
                     "submitted_at",
@@ -519,7 +525,7 @@ class WritingSimulationAttempt(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self) -> str:
-        return f"{self.user_id} · EE1 · {self.status}"
+        return f"{self.user_id} · EE · {self.status}"
 
 
 class SubjectBookmark(models.Model):

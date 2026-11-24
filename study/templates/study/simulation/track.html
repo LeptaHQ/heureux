@@ -8,7 +8,7 @@
   <header class="sim-head">
     <p class="sim-kicker">{% include "study/shared/partials/ui_icon.html" with name=track.icon only %} {{ track.code }} · TCF Canada</p>
     <h1 id="sim-title">{{ track.title }}</h1>
-    <p>{% if part_slug == "ee" %}Commencez par la simulation chronométrée de la Tâche 1, puis utilisez les sujets guidés pour les deux autres tâches.{% else %}Choisissez une tâche pour vous entraîner à votre rythme.{% endif %}</p>
+    <p>{% if part_slug == "ee" %}Choisissez une tâche pour rédiger en temps limité et consulter votre bilan.{% else %}Choisissez une tâche pour vous entraîner à votre rythme.{% endif %}</p>
   </header>
   <ol class="sim-tasks">
     {% for row in rows %}

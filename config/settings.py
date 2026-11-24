@@ -272,9 +272,12 @@ DEEPL_TARGET_LANG = os.environ.get("DEEPL_TARGET_LANG", "EN-GB").strip().upper()
 EE1_SIMULATION_MINUTES = env_int("EE1_SIMULATION_MINUTES", 12)
 if EE1_SIMULATION_MINUTES < 1:
     raise ImproperlyConfigured("EE1_SIMULATION_MINUTES must be at least 1.")
-EE2_SIMULATION_MINUTES = env_int("EE2_SIMULATION_MINUTES", 20)
+EE2_SIMULATION_MINUTES = env_int("EE2_SIMULATION_MINUTES", 18)
 if EE2_SIMULATION_MINUTES < 1:
     raise ImproperlyConfigured("EE2_SIMULATION_MINUTES must be at least 1.")
+EE3_SIMULATION_MINUTES = env_int("EE3_SIMULATION_MINUTES", 30)
+if EE3_SIMULATION_MINUTES < 1:
+    raise ImproperlyConfigured("EE3_SIMULATION_MINUTES must be at least 1.")
 
 # Gemini Live and EE1 grading use the same project credential.
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()

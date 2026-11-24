@@ -11998,6 +11998,9 @@ button.ce-choice:focus-visible .ce-choice__radio {
   font-size: 1.05rem;
   line-height: 1.6;
 }
+.ee1-source-documents { margin-block: .75rem; }
+.ee1-source-documents summary { cursor: pointer; font-weight: 650; }
+.ee1-writing-editor__parts { display: grid; min-width: 0; gap: .75rem; }
 .ee1-writing-form {
   padding: clamp(1rem, 2.3vw, 1.35rem);
   border: 1px solid var(--border);

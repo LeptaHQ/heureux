@@ -5573,6 +5573,21 @@
             {"topic": "Tarifs et inscription", "question": "Quels documents faut-il fournir pour s'inscrire ?", "follow_up_to": null},
             {"topic": "Tarifs et inscription", "question": "L'abonnement impose-t-il un engagement, ou puis-je l'interrompre en cours d'année ?", "follow_up_to": 5, "condition": "If a subscription is offered and its commitment terms remain unclear."}
           ]
+        },
+        {
+          "group": "sport-club-reception-choose-activity",
+          "opening": "Bonjour ! J'aimerais commencer une activité sportive et comparer vos cours.",
+          "closing": "Merci pour ces renseignements. Je vais choisir le cours qui correspond le mieux à mon planning.",
+          "questions": [
+            {"topic": "Activités et niveau", "question": "Quelles activités proposez-vous pour commencer progressivement ?", "follow_up_to": null},
+            {"topic": "Activités et niveau", "question": "Quelle différence y a-t-il entre le pilates et la gymnastique douce pour quelqu'un qui reprend le sport ?", "follow_up_to": 1, "condition": "If both pilates and gentle exercise are offered without explaining their differences."},
+            {"topic": "Horaires et essai", "question": "Quels sont les créneaux des activités dont nous venons de parler ?", "follow_up_to": null},
+            {"topic": "Horaires et essai", "question": "Et côté équipement, qu'est-ce que je devrais apporter pour l'un ou l'autre cours ?", "follow_up_to": null},
+            {"topic": "Horaires et essai", "question": "Puis-je essayer une séance avant de m'engager ?", "follow_up_to": null},
+            {"topic": "Coût et accès", "question": "Quels tarifs proposez-vous pour ces cours ?", "follow_up_to": null},
+            {"topic": "Coût et accès", "question": "L'abonnement impose-t-il un engagement, ou puis-je l'interrompre en cours d'année ?", "follow_up_to": 6, "condition": "If a subscription is offered and its commitment terms remain unclear."},
+            {"topic": "Coût et accès", "question": "Et si je veux m'entraîner en dehors des cours, à quelles heures la salle est-elle accessible ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -5908,6 +5923,21 @@
             {"topic": "Souvenirs", "question": "Quel souvenir de montagne vous a le plus marqué ?", "follow_up_to": null},
             {"topic": "Souvenirs", "question": "Avez-vous déjà dû renoncer à une sortie à cause des conditions sur place ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "station-stranger-mountain-passion",
+          "opening": "Vous me disiez que vous aimiez beaucoup la montagne. J'aimerais bien en savoir un peu plus.",
+          "closing": "Merci de m'en avoir parlé ! À vous entendre, ça donne envie de prendre l'air.",
+          "questions": [
+            {"topic": "La passion de la montagne", "question": "Vous vous souvenez de ce qui vous a donné le goût de la montagne ?", "follow_up_to": null},
+            {"topic": "La passion de la montagne", "question": "Qu'est-ce qui vous plaît le plus dans la montagne ?", "follow_up_to": null},
+            {"topic": "Régions préférées", "question": "Quelles régions aimez-vous particulièrement ?", "follow_up_to": null},
+            {"topic": "Régions préférées", "question": "Quelle saison préférez-vous pour découvrir ces vallées ?", "follow_up_to": 3, "condition": "If valleys are named without a preferred visiting season; adapt to the place."},
+            {"topic": "Activités et préparation", "question": "Aujourd'hui, vous faites surtout de la randonnée ou vous pratiquez d'autres activités en montagne ?", "follow_up_to": null},
+            {"topic": "Activités et préparation", "question": "Quel matériel emportez-vous pour ces randonnées ?", "follow_up_to": 5, "condition": "If hiking is mentioned; ask about equipment for the actual activity."},
+            {"topic": "Activités et préparation", "question": "Quand vous choisissez un itinéraire, à quoi faites-vous attention ?", "follow_up_to": null},
+            {"topic": "Souvenirs", "question": "Quel souvenir de montagne vous a le plus marqué ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -5957,6 +5987,21 @@
             {"topic": "Préparation et organisation", "question": "Comment vous préparez-vous pour cette course ?", "follow_up_to": null},
             {"topic": "Préparation et organisation", "question": "À quelle heure et à quel endroit se fait le départ ?", "follow_up_to": null},
             {"topic": "Préparation et organisation", "question": "Quand et où devrez-vous récupérer votre dossard avant la course ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "neighbor-vancouver-running-race",
+          "opening": "Bonjour ! La course à laquelle vous allez participer à Vancouver m'intéresse.",
+          "closing": "Merci pour ces infos. Je vais consulter les conditions de participation et voir si cette course me convient.",
+          "questions": [
+            {"topic": "Événement", "question": "À quelle date cette course aura-t-elle lieu ?", "follow_up_to": null},
+            {"topic": "Événement", "question": "Quelles distances sont proposées aux participants ?", "follow_up_to": null},
+            {"topic": "Événement", "question": "Le parcours de cinq kilomètres convient-il à quelqu'un qui alterne course et marche ?", "follow_up_to": 2, "condition": "If a short distance is offered; adapt to the distance actually named."},
+            {"topic": "Inscription", "question": "Comment peut-on s'inscrire à la course, et jusqu'à quelle date ?", "follow_up_to": null},
+            {"topic": "Inscription", "question": "Quel est le prix de l'inscription ?", "follow_up_to": null},
+            {"topic": "Préparation et organisation", "question": "Et d'ici la course, comment vous organisez votre entraînement ?", "follow_up_to": null},
+            {"topic": "Préparation et organisation", "question": "Quand et où devrez-vous récupérer votre dossard avant la course ?", "follow_up_to": null},
+            {"topic": "Préparation et organisation", "question": "Et le jour même, où et à quelle heure prend-on le départ ?", "follow_up_to": null}
           ]
         }
       ]
@@ -6073,6 +6118,21 @@
             {"topic": "Tarifs et accès", "question": "Existe-t-il des formules plus avantageuses pour venir souvent ?", "follow_up_to": 6, "condition": "After the single-entry price is given, if you plan to swim often."},
             {"topic": "Tarifs et accès", "question": "Que faut-il apporter pour utiliser les vestiaires et accéder aux bassins ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "neighbor-municipal-pool-information",
+          "opening": "Bonjour ! Vous allez souvent à la piscine municipale, je crois, et j'ai bien envie de m'y mettre. J'aimerais avoir votre avis avant d'y aller.",
+          "closing": "Merci ! Je vais essayer un matin et je verrai ensuite quelle formule me convient.",
+          "questions": [
+            {"topic": "Installations", "question": "Quels types de bassins trouve-t-on à la piscine ?", "follow_up_to": null},
+            {"topic": "Installations", "question": "Est-ce que les couloirs sont répartis selon la vitesse de nage ?", "follow_up_to": 1, "condition": "If lap lanes are mentioned, unless their organization is already explained."},
+            {"topic": "Installations", "question": "Qu'est-ce qu'il y a sur place pour se changer et ranger ses affaires ?", "follow_up_to": null},
+            {"topic": "Horaires", "question": "Quels sont les horaires pour venir nager librement ?", "follow_up_to": null},
+            {"topic": "Horaires", "question": "Si je voulais éviter la foule, à quel moment vaudrait-il mieux y aller ?", "follow_up_to": 4, "condition": "After opening hours are given, if you prefer quieter times."},
+            {"topic": "Tarifs et accès", "question": "Combien coûte une entrée ?", "follow_up_to": null},
+            {"topic": "Tarifs et accès", "question": "Existe-t-il des formules plus avantageuses pour venir souvent ?", "follow_up_to": 6, "condition": "After the single-entry price is given, if you plan to swim often."},
+            {"topic": "Tarifs et accès", "question": "Et pour ma première visite, qu'est-ce que je devrais mettre dans mon sac ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -6157,6 +6217,21 @@
             {"topic": "Conditions", "question": "Que faut-il faire pour participer ?", "follow_up_to": null},
             {"topic": "Conditions", "question": "Est-ce que je pourrais essayer une séance avant de payer cette cotisation ?", "follow_up_to": 6, "condition": "If a membership fee is required, unless a free trial is mentioned."},
             {"topic": "Conditions", "question": "Quel équipement dois-je apporter ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "neighbor-community-sports-instructor",
+          "opening": "Bonjour ! On m'a parlé des séances de sport que vous animez, et ça me donne envie de m'y mettre. J'aimerais en savoir un peu plus.",
+          "closing": "Merci pour toutes ces précisions ! Je vais voir quel créneau me convient pour essayer.",
+          "questions": [
+            {"topic": "Disciplines", "question": "Qu'est-ce que vous proposez comme disciplines ?", "follow_up_to": null},
+            {"topic": "Disciplines", "question": "Quand vous dites « boxe cardio », on fait quoi concrètement pendant le cours ?", "follow_up_to": 1, "condition": "If an unfamiliar activity is named; substitute the one mentioned."},
+            {"topic": "Horaires et participants", "question": "Où ont lieu les séances, et comment accéder à la salle ?", "follow_up_to": null},
+            {"topic": "Horaires et participants", "question": "Quels sont les créneaux pour chacune de ces disciplines ?", "follow_up_to": null},
+            {"topic": "Horaires et participants", "question": "Vous accueillez plutôt des débutants ou des gens qui s'entraînent déjà régulièrement ?", "follow_up_to": null},
+            {"topic": "Conditions", "question": "Que faut-il faire pour participer ?", "follow_up_to": null},
+            {"topic": "Conditions", "question": "Est-ce que je pourrais essayer une séance avant de payer cette cotisation ?", "follow_up_to": 6, "condition": "If a membership fee is required, unless a free trial is mentioned."},
+            {"topic": "Conditions", "question": "Qu'est-ce que je devrais apporter pour une première séance ?", "follow_up_to": null}
           ]
         }
       ]
@@ -6307,6 +6382,21 @@
             {"topic": "Matériel et tenue", "question": "Quelle tenue permet de rester au chaud sans avoir trop chaud pendant l'effort ?", "follow_up_to": null},
             {"topic": "Coût", "question": "Quel budget faut-il prévoir séparément pour un cours et une journée de location ?", "follow_up_to": null},
             {"topic": "Coût", "question": "Faut-il aussi payer pour accéder aux pistes ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "friend-canada-cross-country-skiing",
+          "opening": "Salut ! Le ski de fond me tente de plus en plus, et comme tu en fais, j'aimerais te demander quelques conseils.",
+          "closing": "Merci beaucoup, ça me motive ! Je vais suivre tes conseils et me lancer dès les premières neiges.",
+          "questions": [
+            {"topic": "Apprentissage", "question": "Quelle est la meilleure façon d'apprendre quand on n'en a jamais fait ?", "follow_up_to": null},
+            {"topic": "Apprentissage", "question": "Où pourrait-on pratiquer près d'ici sur des pistes adaptées aux débutants ?", "follow_up_to": null},
+            {"topic": "Apprentissage", "question": "Est-ce que ces cours se donnent aussi le week-end ?", "follow_up_to": 1, "condition": "If lessons are recommended, unless their schedule is already given."},
+            {"topic": "Matériel et tenue", "question": "Quel matériel faut-il prévoir pour débuter ?", "follow_up_to": null},
+            {"topic": "Matériel et tenue", "question": "Tu me conseillerais plutôt de louer ou d'acheter au début ?", "follow_up_to": null},
+            {"topic": "Matériel et tenue", "question": "Quelle tenue permet de rester au chaud sans avoir trop chaud pendant l'effort ?", "follow_up_to": null},
+            {"topic": "Coût", "question": "Pour une première sortie avec un cours et du matériel loué, il faudrait compter combien ?", "follow_up_to": null},
+            {"topic": "Coût", "question": "Et l'accès aux pistes, c'est compris dans ce prix ou c'est à part ?", "follow_up_to": 7, "condition": "If lesson and rental prices are given without the trail fee."}
           ]
         }
       ]
@@ -6577,6 +6667,21 @@
             {"topic": "Matériel et budget", "question": "Quel matériel faut-il apporter soi-même, et qu'est-ce qui est fourni sur place ?", "follow_up_to": null},
             {"topic": "Matériel et budget", "question": "À combien reviendrait une séance par personne ?", "follow_up_to": null},
             {"topic": "Première séance", "question": "Est-ce qu'on pourrait faire une séance d'essai avant de jouer ensemble régulièrement ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "colleague-looking-for-sports-partner",
+          "opening": "Bonjour ! Vous m'avez dit que vous cherchiez un partenaire de sport, et ça m'intrigue.",
+          "closing": "Merci pour ces précisions ! Je vais vérifier mon planning et le matériel avant de vous confirmer ma participation.",
+          "questions": [
+            {"topic": "Sport et niveau", "question": "Pour quel sport cherchez-vous quelqu'un ?", "follow_up_to": null},
+            {"topic": "Sport et niveau", "question": "Quel niveau faut-il avoir pour jouer avec vous ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Dans quel établissement jouez-vous, et est-il facilement accessible depuis le bureau ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Quels jours et à quelle heure vous entraînez-vous ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Et si je ne pouvais venir qu'une fois par semaine ?", "follow_up_to": 4, "condition": "After several weekly sessions are proposed, if your availability is limited."},
+            {"topic": "Matériel et budget", "question": "Côté matériel, qu'est-ce que je devrais apporter si on jouait ensemble ?", "follow_up_to": null},
+            {"topic": "Matériel et budget", "question": "À combien reviendrait une séance par personne ?", "follow_up_to": null},
+            {"topic": "Première séance", "question": "Ça vous dirait qu'on fasse une première partie pour voir si on joue bien ensemble ?", "follow_up_to": null}
           ]
         }
       ]
@@ -7563,6 +7668,21 @@
             {"topic": "Matériel et adhésion", "question": "Quel matériel faut-il prévoir ?", "follow_up_to": null},
             {"topic": "Matériel et adhésion", "question": "Combien coûte l'adhésion au club, et que couvre-t-elle ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "acquaintance-hiking-walking-club",
+          "opening": "Salut ! L'idée de venir marcher avec ton club me tente, et j'aimerais en savoir un peu plus.",
+          "closing": "Merci beaucoup, ça me donne vraiment envie ! Je vais voir quelle sortie correspond à mon niveau et à mon planning.",
+          "questions": [
+            {"topic": "Lieux et horaires", "question": "Où est-ce que le club organise ses sorties ?", "follow_up_to": null},
+            {"topic": "Lieux et horaires", "question": "Les sorties ont lieu quels jours, en général ?", "follow_up_to": null},
+            {"topic": "Lieux et horaires", "question": "Et les jours où vous allez au parc régional, vous vous organisez comment pour le trajet ?", "follow_up_to": 1, "condition": "If a distant park is mentioned; adapt to the place named."},
+            {"topic": "Participants et niveaux", "question": "Qui est-ce qu'on retrouve dans le groupe : surtout des habitués ou aussi des nouveaux ?", "follow_up_to": null},
+            {"topic": "Participants et niveaux", "question": "Est-ce qu'il y a plusieurs niveaux ?", "follow_up_to": null},
+            {"topic": "Participants et niveaux", "question": "Si je n'ai jamais fait de longues marches, je devrais commencer par quel groupe ?", "follow_up_to": 5, "condition": "After levels are described, if you have little hiking experience."},
+            {"topic": "Matériel et adhésion", "question": "Quel matériel faut-il prévoir ?", "follow_up_to": null},
+            {"topic": "Matériel et adhésion", "question": "Combien coûte l'adhésion au club, et que couvre-t-elle ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -7597,6 +7717,21 @@
             {"topic": "Tarifs", "question": "Que faut-il présenter pour obtenir le tarif résident ?", "follow_up_to": 5, "condition": "If a resident rate is mentioned and you live locally."},
             {"topic": "Accès au bassin", "question": "Est-ce qu'il y a des règles particulières pour accéder au bassin ?", "follow_up_to": null},
             {"topic": "Accès au bassin", "question": "Je pourrais aussi venir m'entraîner en dehors des cours ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "municipal-pool-learn-swimming-reception",
+          "opening": "Bonjour ! J'aimerais apprendre à nager, et je voudrais savoir ce que vous proposez aux adultes débutants.",
+          "closing": "Merci, c'est très clair. Je vais vérifier mes disponibilités avant de choisir un groupe.",
+          "questions": [
+            {"topic": "Cours et créneaux", "question": "Quels cours proposez-vous aux adultes qui ne savent pas nager ?", "follow_up_to": null},
+            {"topic": "Cours et créneaux", "question": "Lors des premières séances, qu'est-ce qu'on fait si on n'est pas encore à l'aise dans l'eau ?", "follow_up_to": null},
+            {"topic": "Cours et créneaux", "question": "Sur quels créneaux puis-je suivre la session, et combien de temps dure une leçon ?", "follow_up_to": null},
+            {"topic": "Cours et créneaux", "question": "Si je manquais une leçon, pourrais-je la reprendre dans un autre groupe la même semaine ?", "follow_up_to": 3, "condition": "After lesson times are given, if your schedule may change."},
+            {"topic": "Tarifs", "question": "Quel est le prix de la session, et y a-t-il un tarif réduit pour les habitants de la ville ?", "follow_up_to": null},
+            {"topic": "Tarifs", "question": "Que faut-il présenter pour obtenir le tarif résident ?", "follow_up_to": 5, "condition": "If a resident rate is mentioned and you live locally."},
+            {"topic": "Inscription et accès", "question": "Pour m'inscrire au créneau qui me convient, je dois passer par votre site ou par l'accueil ?", "follow_up_to": null},
+            {"topic": "Inscription et accès", "question": "Et le premier jour, y a-t-il des consignes à respecter avant d'entrer dans l'eau ?", "follow_up_to": null}
           ]
         }
       ]
@@ -8068,6 +8203,21 @@
             {"topic": "Participation", "question": "Comment peut-on s'inscrire ?", "follow_up_to": null},
             {"topic": "Participation", "question": "Le nombre de places est-il limité pour chaque séance ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "employee-yoga-colleague-organizer",
+          "opening": "Salut ! J'aimerais en savoir un peu plus sur les séances de yoga que tu organises.",
+          "closing": "Merci, c'est très clair ! Je vais vérifier mon planning avant de m'inscrire.",
+          "questions": [
+            {"topic": "Contenu et niveau", "question": "Est-ce que ces séances conviennent aussi aux personnes qui débutent ?", "follow_up_to": null},
+            {"topic": "Contenu et niveau", "question": "Comment se déroule une séance de yoga doux ?", "follow_up_to": 1, "condition": "If gentle yoga is offered; substitute the type actually mentioned."},
+            {"topic": "Organisation pratique", "question": "Où ont lieu les séances ?", "follow_up_to": null},
+            {"topic": "Organisation pratique", "question": "Tu as prévu quel créneau, pendant la pause du midi ou après le travail ?", "follow_up_to": null},
+            {"topic": "Organisation pratique", "question": "Faut-il apporter son propre tapis ?", "follow_up_to": null},
+            {"topic": "Participation", "question": "Est-ce que l'entreprise prend les séances en charge ?", "follow_up_to": null},
+            {"topic": "Participation", "question": "Est-ce qu'on s'engage à venir toutes les semaines ou on réserve selon ses disponibilités ?", "follow_up_to": null},
+            {"topic": "Participation", "question": "Et pour réserver une place, je m'y prends comment ?", "follow_up_to": 7, "condition": "If booking is required and the method has not been explained."}
+          ]
         }
       ]
     },
@@ -8187,6 +8337,21 @@
             {"topic": "Coût et matériel", "question": "Quelles activités sont comprises dans cette formule ?", "follow_up_to": 5, "condition": "After an actual membership price is given, unless inclusions are already clear."},
             {"topic": "Coût et matériel", "question": "Quel matériel faut-il apporter soi-même ?", "follow_up_to": null},
             {"topic": "Coût et matériel", "question": "Peut-on faire une séance d'essai avant de choisir un abonnement ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "friend-sports-center-club-membership",
+          "opening": "Salut ! Ton centre sportif m'intéresse et j'aimerais savoir comment ça se passe pour les membres.",
+          "closing": "Merci pour ton avis ! Je vais regarder les activités et confirmer les conditions auprès du centre.",
+          "questions": [
+            {"topic": "Activités et ambiance", "question": "Quelles activités sont proposées dans ton centre sportif ?", "follow_up_to": null},
+            {"topic": "Activités et ambiance", "question": "Et dans les cours collectifs, qu'est-ce que les animateurs font pour aider les débutants ?", "follow_up_to": 1, "condition": "If group classes are offered; adapt to the activity you are considering."},
+            {"topic": "Activités et ambiance", "question": "Tu trouves l'ambiance plutôt conviviale ou compétitive ?", "follow_up_to": null},
+            {"topic": "Horaires et matériel", "question": "Quels sont les horaires d'ouverture ?", "follow_up_to": null},
+            {"topic": "Horaires et matériel", "question": "Pour une première séance, tu me conseillerais d'apporter quoi ?", "follow_up_to": null},
+            {"topic": "Abonnement et essai", "question": "Combien paies-tu pour ton abonnement ?", "follow_up_to": null},
+            {"topic": "Abonnement et essai", "question": "Quelles activités sont comprises dans cette formule ?", "follow_up_to": 6, "condition": "After an actual membership price is given, unless inclusions are already clear."},
+            {"topic": "Abonnement et essai", "question": "Tu sais si je peux essayer un cours sans prendre d'abonnement tout de suite ?", "follow_up_to": null}
           ]
         }
       ]

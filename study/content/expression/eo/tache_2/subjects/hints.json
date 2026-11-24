@@ -182,28 +182,28 @@
         "english": "Format of a gentle yoga session"
       },
       {
-        "french": "Lieu des séances",
-        "english": "Session location"
+        "french": "Nombre de participants et aide pour corriger les postures",
+        "english": "Group size and help with correcting postures"
       },
       {
-        "french": "Créneau : pause du midi ou après le travail",
-        "english": "Session time: lunch break or after work"
+        "french": "Lieu et horaires : pause du midi ou après le travail",
+        "english": "Location and times: lunch break or after work"
       },
       {
-        "french": "Tapis personnel ou fourni",
-        "english": "Personal mat or one supplied"
+        "french": "Matériel à apporter ou fourni : tapis, serviette",
+        "english": "Equipment to bring or supplied: mat, towel"
       },
       {
-        "french": "Prise en charge par l'entreprise",
-        "english": "Employer funding"
+        "french": "Prise en charge totale par l'entreprise ou participation à payer",
+        "english": "Full employer funding or a contribution to pay"
       },
       {
         "french": "Engagement hebdomadaire ou réservation selon ses disponibilités",
         "english": "Weekly commitment or booking when available"
       },
       {
-        "french": "Démarche pour réserver une place",
-        "english": "How to book a spot"
+        "french": "Démarche et délai pour réserver une place",
+        "english": "How and when to book a spot"
       }
     ],
     "neighbor-photography-association-class": [
@@ -412,36 +412,36 @@
     ],
     "sport-club-reception-choose-activity": [
       {
-        "french": "Activités pour commencer progressivement",
-        "english": "Activities for starting gradually"
+        "french": "Activités pour débuter : souplesse ou renforcement musculaire",
+        "english": "Activities for starting out: flexibility or muscle strengthening"
       },
       {
         "french": "Différence entre pilates et gymnastique douce",
         "english": "Difference between Pilates and gentle exercise"
       },
       {
-        "french": "Créneaux des activités proposées",
-        "english": "Times for the activities offered"
+        "french": "Jours et horaires des deux activités, durée de chaque cours",
+        "english": "Days and times for both activities, length of each class"
       },
       {
-        "french": "Équipement à apporter pour chacun des deux cours",
-        "english": "Equipment to bring for each class"
+        "french": "Équipement à apporter ou fourni par le club, notamment les tapis",
+        "english": "Equipment to bring or supplied by the club, including mats"
       },
       {
-        "french": "Séance d'essai avant de s'engager",
-        "english": "Trial session before committing"
+        "french": "Possibilité de faire un essai et démarche pour le réserver",
+        "english": "Availability of a trial session and how to book it"
       },
       {
-        "french": "Tarifs proposés pour les cours",
-        "english": "Prices offered for the classes"
+        "french": "Budget mensuel et nombre de séances comprises",
+        "english": "Monthly cost and number of sessions included"
       },
       {
         "french": "Durée d'engagement et interruption de l'abonnement",
         "english": "Commitment period and ending membership"
       },
       {
-        "french": "Heures d'accès à la salle en dehors des cours",
-        "english": "Gym opening hours outside class times"
+        "french": "Horaires d'accès hors cours et inclusion dans l'abonnement",
+        "english": "Gym access hours outside classes and inclusion in membership"
       }
     ],
     "museum-group-visit-reception": [
@@ -1670,32 +1670,32 @@
     ],
     "friend-sports-center-club-membership": [
       {
-        "french": "Activités proposées au centre sportif",
-        "english": "Activities offered at the sports centre"
+        "french": "Activités proposées et celles déjà essayées par l'ami",
+        "english": "Activities offered and those the friend has already tried"
       },
       {
         "french": "Aide apportée aux débutants dans les cours collectifs",
         "english": "Support for beginners in group classes"
       },
       {
-        "french": "Ambiance conviviale ou compétitive",
-        "english": "Friendly or competitive atmosphere"
+        "french": "Ambiance conviviale ou compétitive et rencontres entre membres",
+        "english": "Friendly or competitive atmosphere and getting to know other members"
       },
       {
-        "french": "Horaires d'ouverture du centre",
-        "english": "Centre opening hours"
+        "french": "Horaires en semaine et le week-end, avant ou après le travail",
+        "english": "Weekday and weekend opening hours, before or after work"
       },
       {
-        "french": "Affaires à apporter pour la première séance",
-        "english": "What to bring for the first session"
+        "french": "Matériel à apporter ou prêté pour les cours : tapis, serviette",
+        "english": "Equipment to bring or borrow for classes: mat, towel"
       },
       {
-        "french": "Prix de l'abonnement de l'ami",
-        "english": "Price of the friend's membership"
+        "french": "Prix de l'abonnement et choix d'une formule mensuelle ou annuelle",
+        "english": "Membership price and choice of a monthly or annual plan"
       },
       {
-        "french": "Activités comprises dans la formule",
-        "english": "Activities included in the package"
+        "french": "Activités comprises dans la formule ou facturées en supplément",
+        "english": "Activities included in the plan or charged extra"
       },
       {
         "french": "Cours d'essai sans abonnement immédiat",
@@ -2048,32 +2048,32 @@
         "english": "How the passion for the mountains began"
       },
       {
-        "french": "Ce qui plaît le plus dans la montagne",
-        "english": "What appeals most about the mountains"
+        "french": "Attraits de la montagne : calme, paysages ou défi physique",
+        "english": "Mountain attractions: peace, scenery or physical challenge"
       },
       {
-        "french": "Régions de montagne préférées",
-        "english": "Favourite mountain regions"
+        "french": "Régions de montagne préférées et ce qui les rend attirantes",
+        "english": "Favourite mountain regions and what makes them appealing"
       },
       {
-        "french": "Saison préférée pour découvrir les vallées citées",
-        "english": "Preferred season for visiting the valleys mentioned"
+        "french": "Saison choisie pour les vallées citées et raisons de ce choix",
+        "english": "Preferred season for the valleys mentioned and reasons for that choice"
       },
       {
         "french": "Randonnée et autres activités pratiquées en montagne",
         "english": "Hiking and other mountain activities"
       },
       {
-        "french": "Matériel emporté en randonnée",
-        "english": "Equipment carried on hikes"
+        "french": "Équipement pour s'orienter et faire face aux changements de météo",
+        "english": "Equipment for navigation and changing weather"
       },
       {
-        "french": "Critères pour choisir un itinéraire en montagne",
-        "english": "What to consider when choosing a mountain route"
+        "french": "Durée et dénivelé d'un itinéraire adaptés à sa forme",
+        "english": "Choosing route duration and elevation gain to suit current fitness"
       },
       {
-        "french": "Souvenir de montagne le plus marquant",
-        "english": "Most memorable mountain experience"
+        "french": "Récit d'une sortie marquante et ce qui l'a rendue spéciale",
+        "english": "An account of a memorable outing and what made it special"
       }
     ],
     "furniture-delivery-service": [
@@ -2150,8 +2150,8 @@
         "english": "Date of the Vancouver race"
       },
       {
-        "french": "Distances proposées aux participants",
-        "english": "Distances available to participants"
+        "french": "Distances proposées et parcours plats ou avec des côtes",
+        "english": "Available distances and whether routes are flat or hilly"
       },
       {
         "french": "Possibilité d'alterner course et marche sur le cinq kilomètres",
@@ -2162,20 +2162,20 @@
         "english": "Registration method and deadline"
       },
       {
-        "french": "Prix d'inscription selon la distance",
-        "english": "Entry price by distance"
+        "french": "Prix selon la distance et prestations comprises : dossard, ravitaillement",
+        "english": "Price by distance and inclusions: race bib, refreshments"
       },
       {
-        "french": "Organisation de l'entraînement avant la course",
-        "english": "Training schedule leading up to the race"
+        "french": "Préparation avant la course et augmentation progressive de la distance",
+        "english": "Race preparation and gradually increasing distance"
       },
       {
-        "french": "Moment et lieu du retrait du dossard",
-        "english": "When and where to collect the race bib"
+        "french": "Lieu et moment du retrait du dossard et documents nécessaires",
+        "english": "Where and when to collect the race bib and documents needed"
       },
       {
-        "french": "Lieu et heure du départ le jour de la course",
-        "english": "Race-day start location and time"
+        "french": "Lieu et heure du départ, avance conseillée à l'arrivée",
+        "english": "Start location and time, and how early to arrive"
       }
     ],
     "colleague-known-region-holiday": [
@@ -2928,32 +2928,32 @@
     ],
     "acquaintance-hiking-walking-club": [
       {
-        "french": "Lieux des sorties du club",
-        "english": "Places visited on club outings"
+        "french": "Sorties sur les sentiers des environs ou dans des parcs plus éloignés",
+        "english": "Outings on local trails or in more distant parks"
       },
       {
-        "french": "Jours habituels des sorties",
-        "english": "Usual outing days"
+        "french": "Jours des sorties et durée : quelques heures ou toute la journée",
+        "english": "Outing days and duration: a few hours or a full day"
       },
       {
-        "french": "Organisation du trajet pour une sortie au parc régional",
-        "english": "Travel arrangements for a regional park outing"
+        "french": "Covoiturage vers le parc régional et partage des frais de trajet",
+        "english": "Carpooling to the regional park and sharing travel costs"
       },
       {
         "french": "Composition du groupe : habitués et nouveaux",
         "english": "Group mix: regulars and newcomers"
       },
       {
-        "french": "Groupes et niveaux de randonnée",
-        "english": "Hiking groups and ability levels"
+        "french": "Différences entre niveaux : distance, dénivelé et rythme",
+        "english": "Differences between levels: distance, elevation gain and pace"
       },
       {
-        "french": "Groupe conseillé sans expérience des longues marches",
-        "english": "Suggested group without long-distance walking experience"
+        "french": "Rythme du groupe découverte et attente des marcheurs plus lents",
+        "english": "Discovery group's pace and waiting for slower walkers"
       },
       {
-        "french": "Matériel nécessaire pour les sorties",
-        "english": "Equipment needed for outings"
+        "french": "Équipement pour la journée et possibilité d'emprunter des bâtons",
+        "english": "Equipment for a full day and possibility of borrowing walking poles"
       },
       {
         "french": "Prix de l'adhésion et frais couverts",
@@ -3064,36 +3064,36 @@
     ],
     "neighbor-municipal-pool-information": [
       {
-        "french": "Bassins disponibles à la piscine",
-        "english": "Pools available at the facility"
+        "french": "Bassins disponibles, notamment pour faire des longueurs",
+        "english": "Available pools, especially for swimming laps"
       },
       {
         "french": "Répartition des couloirs selon la vitesse",
         "english": "Lane allocation by swimming speed"
       },
       {
-        "french": "Installations pour se changer et ranger ses affaires",
-        "english": "Changing facilities and storage for belongings"
+        "french": "Cabines individuelles et casiers pour ses affaires",
+        "english": "Individual changing cubicles and lockers for belongings"
       },
       {
-        "french": "Horaires pour nager librement",
-        "english": "Public swimming times"
+        "french": "Créneaux de nage libre en semaine et le week-end, hors cours",
+        "english": "Weekday and weekend public swimming times outside lessons"
       },
       {
         "french": "Moments les moins fréquentés",
         "english": "Least busy times"
       },
       {
-        "french": "Prix d'une entrée adulte",
-        "english": "Adult single-entry price"
+        "french": "Prix d'une entrée adulte et limite de durée",
+        "english": "Adult admission price and time limit"
       },
       {
-        "french": "Formules avantageuses pour venir souvent",
-        "english": "Best-value options for frequent visits"
+        "french": "Carte de plusieurs entrées ou abonnement pour venir régulièrement",
+        "english": "Multi-visit card or membership for regular swimming"
       },
       {
-        "french": "Affaires à emporter pour une première visite",
-        "english": "What to pack for a first visit"
+        "french": "Affaires à apporter ou fournies sur place : bonnet, cadenas",
+        "english": "Items to bring or supplied on site: swimming cap, padlock"
       }
     ],
     "visit-friend-canada-december-preparation": [
@@ -3166,8 +3166,8 @@
     ],
     "neighbor-community-sports-instructor": [
       {
-        "french": "Disciplines sportives proposées",
-        "english": "Sports disciplines offered"
+        "french": "Disciplines proposées et objectifs : endurance, force ou détente",
+        "english": "Sports offered and goals: endurance, strength or relaxation"
       },
       {
         "french": "Contenu d'un cours de boxe cardio",
@@ -3178,24 +3178,24 @@
         "english": "Session location and room access"
       },
       {
-        "french": "Créneaux pour chaque discipline",
-        "english": "Times for each discipline"
+        "french": "Jours et horaires de chaque discipline, durée d'une séance",
+        "english": "Days and times for each sport, session length"
       },
       {
-        "french": "Profil des participants : débutants ou habitués",
-        "english": "Who attends: beginners or regular exercisers"
+        "french": "Âge et niveau des participants : débutants ou habitués",
+        "english": "Participants' ages and levels: beginners or regular exercisers"
       },
       {
-        "french": "Conditions d'inscription et cotisation",
-        "english": "Registration conditions and membership fee"
+        "french": "Adhésion ou paiement à la séance et tarif",
+        "english": "Membership or pay-per-session options and price"
       },
       {
-        "french": "Séance d'essai avant de payer la cotisation",
-        "english": "Trial session before paying membership"
+        "french": "Séance d'essai avant adhésion et réservation d'une place",
+        "english": "Trial session before joining and booking a place"
       },
       {
-        "french": "Matériel à prévoir pour la première séance",
-        "english": "Equipment to bring to the first session"
+        "french": "Matériel à apporter ou fourni selon le cours, notamment les tapis",
+        "english": "Equipment to bring or supplied for each class, including mats"
       }
     ],
     "bicycle-rental-model-and-terms": [
@@ -3438,20 +3438,20 @@
     ],
     "friend-canada-cross-country-skiing": [
       {
-        "french": "Façon d'apprendre le ski de fond",
-        "english": "How to learn cross-country skiing"
+        "french": "Apprentissage avec un moniteur ou une personne qui pratique déjà",
+        "english": "Learning with an instructor or someone who already skis"
       },
       {
         "french": "Pistes proches adaptées aux débutants",
         "english": "Nearby trails suitable for beginners"
       },
       {
-        "french": "Cours proposés le week-end",
-        "english": "Lessons available at weekends"
+        "french": "Cours le week-end : disponibilité, horaires et durée",
+        "english": "Weekend lessons: availability, times and duration"
       },
       {
-        "french": "Matériel nécessaire pour débuter",
-        "english": "Equipment needed to start"
+        "french": "Équipement adapté pour débuter : skis, chaussures et bâtons",
+        "english": "Suitable beginner equipment: skis, boots and poles"
       },
       {
         "french": "Location ou achat du matériel pour commencer",
@@ -3462,8 +3462,8 @@
         "english": "Clothing suited to cold and exertion"
       },
       {
-        "french": "Budget de la première sortie : cours et location",
-        "english": "First outing budget: lesson and equipment rental"
+        "french": "Budget du cours et de la location pour une première journée",
+        "english": "Lesson and equipment rental budget for a first day"
       },
       {
         "french": "Accès aux pistes compris ou facturé à part",
@@ -4254,8 +4254,8 @@
     ],
     "municipal-pool-learn-swimming-reception": [
       {
-        "french": "Cours pour adultes qui ne savent pas nager",
-        "english": "Lessons for adults who cannot swim"
+        "french": "Cours pour adultes débutants : petit groupe ou leçon individuelle",
+        "english": "Adult beginner lessons: small group or individual tuition"
       },
       {
         "french": "Premiers exercices quand on n'est pas à l'aise dans l'eau",
@@ -4266,24 +4266,24 @@
         "english": "Available time slots and lesson length"
       },
       {
-        "french": "Rattrapage d'une leçon dans un autre groupe",
-        "english": "Making up a missed lesson in another group"
+        "french": "Prévenir d'une absence et rattraper la leçon dans un autre groupe",
+        "english": "Reporting an absence and making up the lesson in another group"
       },
       {
         "french": "Prix de la session et tarif réduit pour les résidents",
         "english": "Course price and reduced rate for city residents"
       },
       {
-        "french": "Justificatif pour le tarif résident",
-        "english": "Proof required for the resident rate"
+        "french": "Justificatif pour le tarif résident, par exemple une facture récente",
+        "english": "Proof for the resident rate, such as a recent bill"
       },
       {
-        "french": "Inscription au créneau : en ligne ou à l'accueil",
-        "english": "Booking a time slot: online or at reception"
+        "french": "Confirmation de l'inscription en ligne ou à l'accueil et paiement",
+        "english": "Confirming registration online or at reception and payment"
       },
       {
-        "french": "Consignes avant d'entrer dans le bassin",
-        "english": "Rules to follow before getting in the pool"
+        "french": "Équipement à apporter et consignes avant d'entrer dans l'eau",
+        "english": "Equipment to bring and rules before entering the water"
       }
     ],
     "friend-two-years-quebec-expatriation-experience": [
@@ -4356,32 +4356,32 @@
     ],
     "colleague-looking-for-sports-partner": [
       {
-        "french": "Sport pour lequel le collègue cherche un partenaire",
-        "english": "Sport the colleague wants a partner for"
+        "french": "Sport envisagé et objectif : loisir ou compétition",
+        "english": "Proposed sport and goal: leisure or competition"
       },
       {
-        "french": "Niveau nécessaire pour jouer ensemble",
-        "english": "Ability needed to play together"
+        "french": "Niveau attendu : tenir un échange ou avoir beaucoup d'expérience",
+        "english": "Expected level: sustaining a rally or being highly experienced"
       },
       {
         "french": "Lieu de pratique et accès depuis le bureau",
         "english": "Playing venue and access from the office"
       },
       {
-        "french": "Jours et horaires des séances",
-        "english": "Session days and times"
+        "french": "Jours et heures disponibles, durée souhaitée des séances",
+        "english": "Available days and times, preferred session length"
       },
       {
         "french": "Possibilité de venir une seule fois par semaine",
         "english": "Possibility of attending only once a week"
       },
       {
-        "french": "Matériel à apporter si l'on joue ensemble",
-        "english": "Equipment to bring if playing together"
+        "french": "Raquette et volants à apporter ou à emprunter",
+        "english": "Racket and shuttlecocks to bring or borrow"
       },
       {
-        "french": "Prix d'une séance par personne",
-        "english": "Price per person for one session"
+        "french": "Partage du prix du terrain et accès au centre compris ou non",
+        "english": "Sharing the court cost and whether centre access is included"
       },
       {
         "french": "Première partie pour voir si l'on joue bien ensemble",

@@ -1933,6 +1933,31 @@ class PublishedTacheTwoHighlightTests(TestCase):
             revision=4,
         )
 
+    def test_yoga_question_merger_preserves_unchanged_highlights_and_archives_previous_wording(self):
+        self.assert_revision_highlights_preserved(
+            "employee-yoga-colleague-organizer",
+            {7: 7},
+            revision=1,
+        )
+
+    def test_sport_enrichments_preserve_unchanged_questions_and_archive_rewritten_highlights(self):
+        revisions = {
+            "sport-club-reception-choose-activity": 4,
+            "friend-sports-center-club-membership": 1,
+            "station-stranger-mountain-passion": 2,
+            "neighbor-vancouver-running-race": 3,
+            "acquaintance-hiking-walking-club": 2,
+            "neighbor-municipal-pool-information": 3,
+            "neighbor-community-sports-instructor": 2,
+            "friend-canada-cross-country-skiing": 2,
+            "municipal-pool-learn-swimming-reception": 2,
+            "colleague-looking-for-sports-partner": 3,
+        }
+        for group, revision in revisions.items():
+            with self.subTest(group=group):
+                self.assert_revision_matches_current(group, revision=revision)
+            Annotation.objects.filter(user=self.user).delete()
+
     def test_meal_volunteering_reorder_preserves_moved_questions_and_archives_the_broad_question(self):
         self.assert_revision_highlights_preserved(
             "friend-homeless-meal-volunteering",

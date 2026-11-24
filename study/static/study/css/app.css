@@ -11837,13 +11837,34 @@ button.ce-choice:focus-visible .ce-choice__radio {
 }
 .sim-path:hover .sim-path__action, .sim-path:focus-visible .sim-path__action { text-decoration: underline; }
 .sim-back a { display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; font-size: .87rem; }
-.sim-tasks { display: grid; gap: .65rem; margin: 0; padding: 0; list-style: none; }
-.sim-task { padding: .88rem 1rem; border: 1px solid var(--border); background: var(--surface); }
-.sim-task__meta { justify-content: space-between; }
+.sim-tasks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sim-task {
+  display: flex;
+  min-width: 0;
+  min-height: 15rem;
+  flex-direction: column;
+  padding: 1.1rem 1.15rem;
+  border: 1px solid color-mix(in srgb, var(--sim-ink) 24%, var(--border));
+  border-top: 3px solid var(--sim-ink);
+  background: linear-gradient(145deg, var(--sim-wash), var(--surface) 68%);
+}
+.sim-task__meta {
+  justify-content: space-between;
+  padding-bottom: .7rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--sim-ink) 18%, var(--border));
+}
 .sim-task__meta span:last-child { color: var(--text-soft); letter-spacing: normal; text-transform: none; }
-.sim-task h2 { margin-top: .3rem; font-size: 1.15rem; }
+.sim-task h2 { margin-top: .9rem; font-size: 1.2rem; }
 .sim-task p { font-size: .9rem; margin-top: .18rem; }
-.sim-task__actions { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .7rem; }
+.sim-task__actions .btn { align-self: flex-start; }
+.sim-task__actions { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: auto; }
 .sim-task__actions a { min-height: 44px; }
 .ee1-simulation {
   --ee1-ink: var(--tone-expression);

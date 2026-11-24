@@ -2380,6 +2380,11 @@
         "english": "Opening hours, distances and the services available do not necessarily match one’s previous routines. This reorganisation requires trial and error, and sometimes the help of people who already know the neighbourhood.",
         "french": "Les horaires, les distances et les services disponibles ne correspondent pas nécessairement à ses anciennes habitudes. Cette réorganisation demande des essais, et parfois l'aide de personnes qui connaissent déjà le quartier."
       },
+      "5346841f99ebaf51913120343b03b372f9aa15ca83eca6d2c271261e32df92fa": {
+        "english": "In our own country, we often know where to go for an everyday need or whom to ask for advice. Abroad, services may work differently, and sometimes we do not even know whom to ask for help. And when we have to sort out the problem that day, we can lose time calling the wrong service or making an unnecessary trip.",
+        "french": "Dans son pays, on sait souvent où aller pour un besoin courant ou à qui demander conseil. À l'étranger, les services ne fonctionnent pas forcément de la même façon, et il arrive qu'on ne sache même pas à qui demander de l'aide. Et quand il faut régler le problème le jour même, on peut perdre du temps à appeler le mauvais service ou à se déplacer pour rien.",
+        "review_note": "Editorial English for the revised local-services development; preserves the concrete cost of not knowing where to go. No translation-provider call."
+      },
       "61cf2ea63af4192da10c5d32e4a91a3f6c0248a9735094bd6a557107e3fdf03b": {
         "english": "First, practical everyday barriers can take a lot of energy.",
         "french": "D'abord, les barrières concrètes du quotidien peuvent demander beaucoup d'énergie.",
@@ -2389,6 +2394,11 @@
         "english": "For me, yes, adaptation demands real practical and emotional effort. But preparation, support and time can make the experience easier, without everyone progressing at the same pace.",
         "french": "Pour moi, oui, l'adaptation demande de vrais efforts pratiques et émotionnels. Mais la préparation, le soutien et le temps peuvent rendre cette expérience plus facile, sans que chacun avance au même rythme.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
+      },
+      "853ebeaf1f56dc4f42e81864d52e9b12821715021eb66ecab78a8fc0f9913cfa": {
+        "english": "They now know where to go for this procedure, but it will take time to learn whom to turn to in other situations.",
+        "french": "Il sait maintenant où s'adresser pour cette démarche, mais il lui faudra du temps pour savoir vers qui se tourner dans d'autres situations.",
+        "review_note": "Editorial English for the consequence of the school enrolment example; preserves the limits of what this one experience teaches. No translation-provider call."
       },
       "8a417dc669e4052e14ddc601d6625f5eb9e4a8e914fd86194f9dac6166c22072": {
         "english": "In our own country, we often know where to go for an everyday need or whom to ask for advice. Abroad, services may work differently, and sometimes we do not even know whom to ask for help. We then have to discover the local resources, sometimes just as a problem arises.",
@@ -2417,6 +2427,11 @@
         "english": "Finally, everyday tasks can be difficult when you are not yet familiar with local services.",
         "french": "Enfin, les démarches courantes peuvent être compliquées quand on ne connaît pas encore les services locaux.",
         "review_note": "Editorial English of the revised claim about everyday tasks and unfamiliar local services. No provider call; preceding translation rows retained."
+      },
+      "a0a98f62bc2b19ee35ef56fe8fbc202786b86d7b88177f0b48df557bc1c50b7d": {
+        "english": "For example, a parent who has recently arrived goes to the school to enrol their child, as they would back home. Once there, they learn that in this town, enrolment is handled at the town hall. They leave without having enrolled their child, with only a few days left to do it.",
+        "french": "Par exemple, un parent installé depuis peu va à l'école pour inscrire son enfant, comme dans son pays. Sur place, il apprend que, dans cette ville, les inscriptions se font à la mairie. Il repart sans avoir pu l'inscrire, alors qu'il ne reste que quelques jours pour le faire.",
+        "review_note": "Editorial English for the school enrolment example; the procedure applies to this town and the deadline is still open. No translation-provider call."
       },
       "a2dfed86c6bfa9a6db9d406ae36481f624a137874eae3c11bca0dd2c2b6a5c42": {
         "english": "In conclusion, adapting to life abroad involves learning to communicate, rebuilding relationships and reorganising one’s daily routine. With time and practical support, this can become easier. One cannot master everything as soon as one arrives.",
@@ -2463,6 +2478,11 @@
         "english": "Finally, the conditions of departure and support available there make a big difference to the experience.",
         "french": "Enfin, les conditions du départ et le soutien sur place changent beaucoup l'expérience.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
+      },
+      "c6733f449ca4efa2064dd819eeed8fabbe5a874b8290f80213ec8791efe22634": {
+        "english": "In our own country, we often know where to go for an everyday need or whom to ask for advice. Abroad, services may work differently, and sometimes we do not even know whom to ask for help. If we go about things the way we would back home, we can end up in the wrong place and lose precious time just when a deadline is approaching.",
+        "french": "Dans son pays, on sait souvent où aller pour un besoin courant ou à qui demander conseil. À l'étranger, les services ne fonctionnent pas forcément de la même façon, et il arrive qu'on ne sache même pas à qui demander de l'aide. On peut alors se tromper d'endroit en faisant comme chez soi, et perdre un temps précieux quand une date limite approche.",
+        "review_note": "Editorial English for the revised local-services development; carries over the mistaken assumption and resulting delay. No translation-provider call."
       },
       "cbc363e28d2e03c0f323da210bc2bd3ad915941d26b777d79f8f602e943774bc": {
         "english": "He therefore knows where to ask for information, but you do not find all those contacts again in the first few days.",
@@ -2801,6 +2821,11 @@
         "french": "Les premières démarches peuvent faire peur parce qu'on ne sait pas comment elles se passent. Avec un peu d'aide et plusieurs essais, elles deviennent plus familières. L'hésitation du début ne permet donc pas de juger les capacités d'une personne.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
       },
+      "212e2c5f97ad30cccca801ce2300496b45bbf7eb8082f32ba8578d34cd83147c": {
+        "english": "For example, two friends move to Canada and join the same volleyball team. One finds it easy to approach the others and quickly feels at ease in the group. The other hangs back at first but keeps coming back every week. Little by little, he gets to know his teammates and eventually feels at ease too.",
+        "french": "Par exemple, deux amis s'installent au Canada et rejoignent la même équipe de volley. L'un va facilement vers les autres et se sent vite à l'aise dans le groupe. L'autre reste d'abord en retrait, mais il revient chaque semaine. Peu à peu, il apprend à connaître ses coéquipiers et finit par se sentir à l'aise, lui aussi.",
+        "review_note": "Editorial English for the revised adaptation example: two newcomers join the same team and find their feet at different speeds. No translation-provider call."
+      },
       "21d4a9024dba46a700ca5e566a097052fa79a077688ff2c275c9fc332994355e": {
         "english": "For example, someone who arrives with a job offer and some savings uses their savings for their initial expenses, reducing their worry while waiting for their employer to pay their first salary.",
         "french": "Par exemple, une personne qui arrive avec une promesse d'embauche et un peu d'épargne utilise ses économies pour ses premières dépenses, ce qui réduit son inquiétude en attendant que son employeur lui verse son premier salaire.",
@@ -2884,10 +2909,20 @@
         "french": "Tout d'abord, s'adapter à un pays étranger demande des qualités personnelles que tout le monde ne possède pas au même niveau.",
         "review_note": "Editorial English aligned with the user's supplied adaptation response. Full source developments and contrasts retained with bounded qualifications; source-based examples clarify cause and effect. All preceding translations retained; no translation-provider call."
       },
+      "52050a26cef697e8196fd0d4877c8943ae466aa000763358e01564647084381b": {
+        "english": "Take two colleagues who arrived in Quebec at the same time. In a meeting, one follows the discussion in French and suggests a way to divide up the work. The other has an idea too, but he struggles to find the right words and waits to be given the floor, as he did in his old job. He notices that, on this team, the others speak up without waiting to be invited. The team reaches an agreement before he can give his view. Before the next meeting, he prepares a few sentences in French. This time he speaks up and shares his idea without waiting to be asked.",
+        "french": "Prenons deux collègues arrivés au Québec en même temps. En réunion, l'un suit la discussion en français et propose une façon de répartir le travail. L'autre a aussi une idée, mais il cherche ses mots et attend qu'on lui donne la parole, comme dans son ancien travail. Il remarque que, dans cette équipe, les autres interviennent sans attendre qu'on les invite à parler. L'équipe se met d'accord sans qu'il ait pu donner son avis. Avant la réunion suivante, il prépare quelques phrases en français. Cette fois, il prend la parole de lui-même et présente son idée.",
+        "review_note": "Editorial English for the revised Quebec workplace example; shows how noticing the team's convention and preparing in French change participation. No translation-provider call."
+      },
       "52cacea3f5d31ad1a556e82dfb736c3f55d076d018ad87831b13e673623962fd": {
         "english": "That said, personalities and needs differ. Some people prefer to return home or change their plans, even with support. This choice does not prove that they are incapable: the life on offer may simply not suit them.",
         "french": "Cela dit, les tempéraments et les besoins diffèrent. Certaines personnes préfèrent repartir ou changer de projet, même avec du soutien. Ce choix ne prouve pas qu'elles sont incapables : la vie proposée peut simplement ne pas leur convenir.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "5d1bd3cce091bf8c36fddeffa4e18f71f66025444db4b50ae33e06cf90c73fed": {
+        "english": "For example, two friends settle in a Canadian city where winters are much longer than back home. They used to enjoy spending their evenings outdoors, but it is already dark when they finish work. One goes for walks during his lunch break and gradually settles into a routine he enjoys. The other tries changing his habits too, but spending so much time indoors weighs on him. Even by the end of the winter, he still has not found a routine that works for him.",
+        "french": "Par exemple, deux amis s'installent dans une ville canadienne où l'hiver est beaucoup plus long que chez eux. Ils aimaient passer leurs soirées dehors, mais il fait déjà nuit quand ils sortent du travail. L'un profite de sa pause de midi pour aller marcher et retrouve peu à peu un rythme qui lui plaît. L'autre essaie aussi de changer ses habitudes, mais passer autant de temps à l'intérieur lui pèse. Même à la fin de l'hiver, il n'a toujours pas trouvé de rythme qui lui convienne.",
+        "review_note": "Editorial English for the longer-winter example; preserves the shared change in daily life and the two newcomers' different responses. No translation-provider call."
       },
       "5d610d4d17a01226e9d6da990f82aa9371aab901702f24518af5d7ff2e985271": {
         "english": "Not knowing a language or how things work locally upon arrival does not mean one is incapable of learning them. A specific need makes it possible to choose a first step and to see progress.",
@@ -2925,6 +2960,11 @@
         "english": "So her ability to adapt is not fixed on day one: it grows with experience.",
         "french": "Sa capacité d'adaptation n'est donc pas figée au premier jour : elle grandit avec l'expérience.",
         "review_note": "Human-authored English for the Education editorial pass; aligned and reviewed against the complete current French spoken intervention. No DeepL original or provider call was made for this row."
+      },
+      "7a2d849c2f602881afea340206b84d08c5d6e91ecfe08be0e1a9440c47d49916": {
+        "english": "Take two colleagues who arrived in Quebec at the same time. In a meeting, one follows the discussion in French and suggests a way to divide up the work. The other has an idea too, but he struggles to find the right words and waits to be given the floor, as he did in his old job. The team reaches an agreement before he can give his view. A colleague then explains that, in this team, anyone can speak up without waiting to be invited. Before the next meeting, he prepares a few sentences in French. This time he speaks up and shares his idea without waiting to be asked.",
+        "french": "Prenons deux collègues arrivés au Québec en même temps. En réunion, l'un suit la discussion en français et propose une façon de répartir le travail. L'autre a aussi une idée, mais il cherche ses mots et attend qu'on lui donne la parole, comme dans son ancien travail. L'équipe se met d'accord sans qu'il ait pu donner son avis. Une collègue lui explique ensuite que, dans cette équipe, chacun peut intervenir sans attendre d'y être invité. Avant la réunion suivante, il prépare quelques phrases en français. Cette fois, il prend la parole de lui-même et présente son idée.",
+        "review_note": "Editorial English for the revised Quebec workplace example; preserves both the language barrier and the team-specific convention. No translation-provider call."
       },
       "7bb6c81710a520b80c7b1acab1fa6efc32eb44948463edb22f470f7daabcf1bc": {
         "english": "He then feels less isolated and finds it easier to feel part of the team.",
@@ -2983,6 +3023,11 @@
         "english": "I believe that many people can learn to adapt to life abroad, but this is not a guaranteed outcome for everyone. Progress can be made, but resources and local support are also needed. Willpower alone is not enough in every situation.",
         "french": "Je pense que beaucoup de personnes peuvent apprendre à s'adapter à l'étranger, mais ce n'est pas un résultat assuré pour tout le monde. On peut progresser, mais il faut aussi des moyens et de l'aide sur place. La volonté seule ne suffit pas dans toutes les situations."
       },
+      "a21ee77669124c134656421392c029144ba35f1e30074e05d00387d5d8d59d89": {
+        "english": "Take two colleagues who arrived in Quebec at the same time. In a meeting, one follows the discussion in French and suggests a way to divide up the work. The other has an idea too, but he struggles to find the words and waits to be given the floor, as he did in his old job. On this team, though, people speak up without waiting to be invited. The group reaches an agreement before he has a chance to give his view.",
+        "french": "Prenons deux collègues arrivés au Québec en même temps. En réunion, l'un suit la discussion en français et propose une façon de répartir le travail. L'autre a aussi une idée, mais il cherche ses mots et attend qu'on lui donne la parole, comme dans son ancien travail. Or, dans cette équipe, chacun intervient de lui-même. Le groupe se met d'accord avant qu'il ait pu donner son avis.",
+        "review_note": "Editorial English for the shorter Quebec workplace example; both the language barrier and the team convention affect participation. No translation-provider call."
+      },
       "a2e063f32bc7b3d32d5ffaf9933b2cad243994dbdc76b374bf2e2a0ca5a7f207": {
         "english": "I think many people can learn to adapt to life in a foreign country, but success is not guaranteed for everyone. This ability is not fixed: it develops, and the conditions you arrive in matter a great deal.",
         "french": "Je pense que beaucoup de personnes peuvent apprendre à s'adapter dans un pays étranger, mais ce n'est pas un résultat assuré pour tout le monde. Cette capacité n'est pas figée : elle se construit, et les conditions dans lesquelles on arrive comptent beaucoup.",
@@ -3021,6 +3066,11 @@
         "french": "La langue et les codes locaux donnent donc des moyens concrets de participer à la vie du pays.",
         "review_note": "Editorial English aligned with the bank-led country knowledge, adaptation and integration comparison. All preceding translations retained; no translation-provider call."
       },
+      "c7b0d3644422ed5a23141fe5a62766a85d97f6d65dc5a4125f17b6cfec47dc3b": {
+        "english": "Imagine two people arriving in the same city abroad. One already has a job and is staying with a cousin, so they can take the time to get to know their neighbourhood. The other has to look for housing and work at the same time. While they wait for an employer to give them a chance, their main concern is how long they can get by on their savings.",
+        "french": "Imaginons deux personnes qui arrivent dans la même ville à l'étranger. L'une a déjà un emploi et loge chez son cousin. Elle peut donc prendre le temps de découvrir son quartier. L'autre doit chercher un logement et du travail en même temps. En attendant qu'un employeur lui donne sa chance, elle se demande surtout combien de temps elle pourra tenir avec ses économies.",
+        "review_note": "Editorial English for the revised arrival example; keeps the employment and housing contrast and its effect on each person's priorities. No translation-provider call."
+      },
       "c94f77e0bbdeb510527c92a5216e250462e82d6362d01b0b0749b4912ccdd41f": {
         "english": "A woman who has recently arrived does not dare to phone to make an appointment. A neighbour helps her the first time. For the next appointment, she prepares a few phrases, then makes the call on her own and gets a time slot.",
         "french": "Une nouvelle arrivante n'ose pas téléphoner pour prendre rendez-vous. Une voisine l'aide la première fois. Au rendez-vous suivant, elle prépare quelques phrases, puis passe l'appel seule et obtient un horaire.",
@@ -3035,6 +3085,11 @@
         "english": "Living in another country calls for patience, curiosity, a degree of open-mindedness and the ability to cope with the unfamiliar. People do not react to change in the same way: some find it genuinely motivating, while others soon feel lost. Without these qualities, even a small everyday difficulty can become a huge obstacle.",
         "french": "En effet, vivre dans un autre pays demande de la patience, de la curiosité, une certaine ouverture d'esprit et la capacité à supporter l'inconnu. Tout le monde ne réagit pas de la même manière au changement : certaines personnes y trouvent une vraie motivation, alors que d'autres s'y sentent vite perdues. En revanche, sans ces qualités, la moindre difficulté du quotidien peut devenir un obstacle énorme.",
         "review_note": "Editorial English aligned with the user's supplied adaptation response. Full source developments and contrasts retained with bounded qualifications; source-based examples clarify cause and effect. All preceding translations retained; no translation-provider call."
+      },
+      "d29fbccae4565c3a9494b500eca6a4f9ccee9af3c7391c3e0406acac53b37582": {
+        "english": "For example, two newcomers take the wrong bus in their first week. One asks which bus to take and tries again, even if it means getting it wrong again. The other gets discouraged at the thought of having to relearn things he used to do without thinking. He sticks to the only route he knows. A few weeks later, the first is getting around several neighbourhoods and starting to feel at home, while the other still rarely leaves his own.",
+        "french": "Par exemple, deux nouveaux arrivants se trompent de bus la première semaine. L'un demande quel bus prendre et réessaie, quitte à se tromper encore. L'autre se décourage à l'idée de devoir réapprendre des choses qu'il faisait sans y penser. Il s'en tient au seul trajet qu'il connaît. Quelques semaines plus tard, le premier se déplace dans plusieurs quartiers et commence à se sentir chez lui, alors que le second sort encore très peu du sien.",
+        "review_note": "Editorial English for the bus example; keeps the same initial mistake and how different reactions affect daily life in the city. No translation-provider call."
       },
       "d485ec30753b481c63a84f29bca19406974f7749f7e1f338a0763ba06044ebc4": {
         "editorial_history": [

@@ -487,10 +487,15 @@ class TacheThreeModelContentTests(SimpleTestCase):
     def test_education_cues_keep_uncertainty_and_language_progress_matches_the_practice(self):
         models = catalogue.tache_three_models()
         plans = catalogue.tache_three_subject_hints()
-        savings = plans["eo/tache-3/education-p1"].arguments[2].example
-        self.assertIn("un emploi et un cousin qui l'héberge", savings.french)
-        self.assertIn("logement et travail en même temps", savings.french)
-        self.assertIn("a cousin to stay with", savings.english)
+        traits, language, savings = plans["eo/tache-3/education-p1"].arguments
+        self.assertIn("réessaie et découvre la ville", traits.example.french)
+        self.assertIn("gets discouraged and sticks to one route", traits.example.english)
+        self.assertIn("interviennent d'eux-mêmes et décident sans son avis", language.example.french)
+        self.assertIn("reach an agreement without his input", language.example.english)
+        self.assertIn("loge chez son cousin", savings.example.french)
+        self.assertIn("faire durer ses économies", savings.example.french)
+        self.assertIn("a cousin to stay with", savings.example.english)
+        self.assertIn("make their savings last", savings.example.english)
         support = plans["eo/tache-3/education-p4"].arguments[2].example
         self.assertIn("cherche une aide en sciences", support.french)
         self.assertIn("seeks help with science", support.english)
@@ -980,19 +985,25 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("de la patience, de la curiosité, une certaine ouverture d'esprit", traits.developpement)
         self.assertIn("la capacité à supporter l'inconnu", traits.developpement)
         self.assertIn("certaines personnes aiment découvrir de nouvelles habitudes", traits.developpement)
-        self.assertIn("deux amis partent au Canada", traits.exemple)
-        self.assertIn("L'autre, plus réservé, met des mois", traits.exemple)
+        self.assertIn("deux nouveaux arrivants se trompent de bus", traits.exemple)
+        self.assertIn("réessaie, quitte à se tromper encore", traits.exemple)
+        self.assertIn("se décourage à l'idée de devoir réapprendre", traits.exemple)
+        self.assertIn("commence à se sentir chez lui, alors que le second sort encore très peu du sien", traits.exemple)
         self.assertIn("travailler, de faire des démarches ou simplement de créer des liens", language.developpement)
         self.assertIn("des codes culturels, des habitudes et des manières d'échanger", language.developpement)
         self.assertIn("Même avec de la bonne volonté", language.developpement)
         self.assertNotIn("aucun effort", language.developpement)
         self.assertIn("deux collègues arrivés au Québec", language.exemple)
-        self.assertIn("attendait qu'on l'interroge, comme dans son ancien travail", language.exemple)
+        self.assertIn("il cherche ses mots et attend qu'on lui donne la parole", language.exemple)
+        self.assertIn("dans cette équipe, chacun intervient de lui-même", language.exemple)
+        self.assertIn("Le groupe se met d'accord avant qu'il ait pu donner son avis", language.exemple)
         self.assertIn("un emploi, un logement et des proches déjà installés", conditions.developpement)
         self.assertIn("sans contrat de travail, sans famille et sans réseau", conditions.developpement)
         self.assertIn("une bonne préparation administrative, financière et professionnelle", conditions.developpement)
-        self.assertIn("un cousin qui l'héberge", conditions.exemple)
-        self.assertIn("chercher un logement et un travail en même temps", conditions.exemple)
+        self.assertIn("loge chez son cousin", conditions.exemple)
+        self.assertIn("prendre le temps de découvrir son quartier", conditions.exemple)
+        self.assertIn("chercher un logement et du travail en même temps", conditions.exemple)
+        self.assertIn("combien de temps elle pourra tenir avec ses économies", conditions.exemple)
         self.assertIn("La capacité d'adaptation se travaille, elle n'est pas figée à l'avance", response.nuance)
 
     def test_quebec_french_example_demonstrates_everyday_independence(self):
@@ -1065,8 +1076,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("au problème à résoudre et à la manière de se faire comprendre", language.developpement)
         self.assertIn("Les appels entretiennent le lien", distance.developpement)
         self.assertIn("quand on ne connaît pas encore les services locaux", contacts.idea)
-        self.assertIn("cherche une clinique sans rendez-vous", contacts.exemple)
-        self.assertIn("appelle pour vérifier les horaires avant de partir", contacts.exemple)
+        self.assertIn("va à l'école pour inscrire son enfant, comme dans son pays", contacts.exemple)
+        self.assertIn("dans cette ville, les inscriptions se font à la mairie", contacts.exemple)
 
     def test_goals_abroad_keeps_the_full_bank_preparation_development(self):
         preparation = catalogue.tache_three_models()["eo/tache-3/culture-p5"].response.arguments[1]

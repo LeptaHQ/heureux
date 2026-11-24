@@ -1,7 +1,7 @@
 from django.urls import path, register_converter
 
 from . import views
-from .views import audio, course, eo2_live, eo2_practice, formulations, simulation
+from .views import audio, course, ee1_simulation, eo2_live, eo2_practice, formulations, simulation
 
 
 class ExpressionPartConverter:
@@ -144,6 +144,14 @@ urlpatterns = [
     path("expression/", views.expression_hub, name="expression"),
     path("simulation/", simulation.hub, name="simulation"),
     path("simulation/<expression_part:part_slug>/", simulation.track, name="simulation_track"),
+    path("simulation/ecrite/tache-1/", ee1_simulation.setup, name="ee1_simulation"),
+    path("simulation/ecrite/tache-1/commencer/", ee1_simulation.start, name="ee1_simulation_start"),
+    path("simulation/ecrite/tache-1/<uuid:attempt_id>/bilan/", ee1_simulation.evaluate, name="ee1_simulation_evaluate"),
+    path(
+        "simulation/ecrite/tache-1/<uuid:attempt_id>/",
+        ee1_simulation.attempt,
+        name="ee1_simulation_attempt",
+    ),
     path("simulation/orale/tache-2/sujets/", eo2_practice.picker, name="eo2_topic_picker"),
     path("simulation/orale/tache-2/sujets/<slug:token>/statut/", eo2_practice.set_status, name="eo2_topic_status"),
     path("simulation/orale/tache-2/sujets/<slug:token>/historique/", eo2_practice.history, name="eo2_topic_history"),

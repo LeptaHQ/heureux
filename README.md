@@ -65,9 +65,13 @@ actually display without constructing full subject directories or review links.
 **Simulation** sits between **Notes** and search in the main navigation and opens
 `/simulation/`. **Stats** is in the profile dropdown, above **Réglages**.
 The oral track opens the same speaking simulator for EO2 and EO3, with the
-timing and stages appropriate to each task. The written track links to
-available EE subjects for untimed writing practice. Simulation
-tab titles identify the task and, for a subject-specific session, its topic.
+timing and stages appropriate to each task. **EE Tâche 1** has a private,
+timed writing simulation with a frozen prompt, server-enforced 60–120-word
+limit, draft saving and a self-review bilan; its 20-minute timer is an
+exercise guide because FEI’s official 60 minutes cover all three written
+tasks. The other written tasks still link to their available subjects for
+untimed writing practice. Simulation tab titles identify the task and, for a
+subject-specific session, its topic.
 In **Simulation → Expression orale → Tâche 2 → Choisir un sujet**, the Sujets table
 and its **Thème**, **Statut** and **Tri** filters let learners find a topic. Its title
 opens the exact publication; the **Séances** count opens its history. **Terminé** is

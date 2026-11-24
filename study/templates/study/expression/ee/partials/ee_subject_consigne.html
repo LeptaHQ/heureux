@@ -6,6 +6,11 @@
     <div class="tache-two-consigne__heading">
       <h2 id="{{ title_id }}">Consigne</h2>
       <div class="tache-two-consigne__actions">
+        {% if simulation_url %}
+          <a class="icon-button" href="{{ simulation_url }}{% if simulation_subject_id %}?sujet_id={{ simulation_subject_id }}{% endif %}" aria-label="Lancer la simulation écrite" title="Lancer la simulation écrite">
+            {% include "study/shared/partials/ui_icon.html" with name="pen-line" only %}
+          </a>
+        {% endif %}
         {% include "study/shared/partials/prompt_copy_button.html" with button_class="btn btn--sm prompt-copy-button tache-two-consigne__copy" source_id=subject_source_id label="Copier le sujet" success_label="Copié !" aria_label="Copier le sujet" only %}
       </div>
     </div>

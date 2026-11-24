@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}Simulation · EE Tâche 1 · Heureux{% endblock %}
+
+{% block content %}
+<main class="ee1-simulation ee1-simulation--setup" aria-labelledby="ee1-title">
+  <nav class="sim-back" aria-label="Fil d’Ariane">
+    <a href="{% url 'study:simulation_track' 'ee' %}">
+      {% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %}
+      Simulation · Expression écrite
+    </a>
+  </nav>
+
+  <header class="ee1-simulation__head">
+    <p class="sim-kicker">{% include "study/shared/partials/ui_icon.html" with name="pen-line" only %} EE · TCF Canada</p>
+    <h1 id="ee1-title">Tâche 1 · Écrire un message</h1>
+    <p>Rédigez un message clair, adapté au destinataire, en <strong>{{ word_min }} à {{ word_max }} mots</strong>.</p>
+  </header>
+
+  <div class="ee1-simulation__grid">
+    <section class="card ee1-simulation__brief" aria-labelledby="ee1-brief-title">
+      <div class="spine-label" id="ee1-brief-title">Avant de commencer</div>
+      <ul class="ee1-checklist">
+        <li>Choisissez un sujet précis ou laissez Heureux en tirer un au hasard.</li>
+        <li>Le repère de {{ simulation_minutes }} minutes est propre à cet entraînement.</li>
+        <li>À l’épreuve officielle, les 60 minutes couvrent les trois tâches d’Expression écrite.</li>
+      </ul>
+      {% if subject_count %}
+        <form method="post" action="{% url 'study:ee1_simulation_start' %}" class="ee1-start-form">
+          {% csrf_token %}
+          <label for="ee1-sujet">Sujet</label>
+          <select id="ee1-sujet" name="sujet_id">
+            <option value="">Sujet aléatoire</option>
+            {% for category in categories %}
+              <optgroup label="{{ category.label }}">
+                {% for sujet in category.subjects %}
+                  <option value="{{ sujet.pk }}"{% if selected_sujet_id == sujet.pk|stringformat:"s" %} selected{% endif %}>{{ sujet.prompt|truncatechars:150 }}</option>
+                {% endfor %}
+              </optgroup>
+            {% endfor %}
+          </select>
+          <button class="btn btn--primary" type="submit">
+            {% include "study/shared/partials/ui_icon.html" with name="play" only %}
+            Commencer la simulation
+          </button>
+        </form>
+      {% else %}
+        <p class="notice">Les sujets EE1 ne sont pas encore disponibles.</p>
+      {% endif %}
+      <p class="muted">{{ subject_count }} sujets EE1 disponibles.</p>
+    </section>
+
+    <aside class="card ee1-simulation__tips" aria-labelledby="ee1-tips-title">
+      <div class="spine-label" id="ee1-tips-title">Votre méthode</div>
+      <ol>
+        <li>Identifiez le destinataire et le registre.</li>
+        <li>Couvrez chaque détail demandé par la consigne.</li>
+        <li>Relisez l’ouverture, le corps et la formule de fin.</li>
+      </ol>
+    </aside>
+  </div>
+
+  {% if attempts %}
+    <section class="ee1-history" aria-labelledby="ee1-history-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Votre espace privé</p>
+          <h2 id="ee1-history-title">Dernières sessions</h2>
+        </div>
+      </div>
+      <ol class="ee1-history__list">
+        {% for item in attempts %}
+          <li class="card ee1-history__item">
+            <div>
+              <strong>{{ item.snapshot.prompt|truncatechars:110 }}</strong>
+              <span class="muted">{{ item.started_at|date:"j M Y · H:i" }}</span>
+            </div>
+            <span class="chip">{{ item.get_status_display }}</span>
+            <a class="btn btn--sm" href="{% url 'study:ee1_simulation_attempt' attempt_id=item.pk %}">Ouvrir</a>
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
+  {% endif %}
+</main>
+{% endblock %}

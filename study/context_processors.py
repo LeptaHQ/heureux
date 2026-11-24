@@ -64,7 +64,8 @@ EXPRESSION_ROUTES = {
 }
 SIMULATION_ROUTES = {
     "simulation", "simulation_track", "eo_tache_two_live", "eo_tache_three_live",
-    "eo2_topic_picker", "eo2_topic_history",
+    "eo2_topic_picker", "eo2_topic_history", "ee1_simulation",
+    "ee1_simulation_start", "ee1_simulation_attempt",
 }
 NOTES_ROUTES = {
     "notes_overview",

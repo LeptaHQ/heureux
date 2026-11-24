@@ -419,6 +419,109 @@ class WritingSujetCompletion(models.Model):
         return f"{self.user} · {self.sujet} · completed"
 
 
+class WritingSimulationAttemptStatus(models.TextChoices):
+    ACTIVE = "active", "En cours"
+    SUBMITTED = "submitted", "Remise"
+    EXPIRED = "expired", "Temps écoulé"
+    ABANDONED = "abandoned", "Abandonnée"
+
+
+class WritingSimulationEvaluationStatus(models.TextChoices):
+    NOT_REQUESTED = "not_requested", "Non demandé"
+    PROCESSING = "processing", "En préparation"
+    READY = "ready", "Disponible"
+    UNAVAILABLE = "unavailable", "Indisponible"
+
+
+class WritingSimulationAttempt(models.Model):
+    """A private, immutable EE1 simulation attempt with a frozen prompt."""
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="writing_simulation_attempts",
+    )
+    task = models.ForeignKey(
+        Task,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="writing_simulation_attempts",
+    )
+    sujet = models.ForeignKey(
+        WritingSujet,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="simulation_attempts",
+    )
+    snapshot = models.JSONField(default=dict)
+    body = models.TextField(blank=True)
+    status = models.CharField(
+        max_length=10,
+        choices=WritingSimulationAttemptStatus.choices,
+        default=WritingSimulationAttemptStatus.ACTIVE,
+    )
+    started_at = models.DateTimeField(default=timezone.now)
+    deadline_at = models.DateTimeField()
+    last_saved_at = models.DateTimeField(null=True, blank=True)
+    submitted_at = models.DateTimeField(null=True, blank=True)
+    word_count = models.PositiveSmallIntegerField(null=True, blank=True)
+    evaluation_status = models.CharField(
+        max_length=16,
+        choices=WritingSimulationEvaluationStatus.choices,
+        default=WritingSimulationEvaluationStatus.NOT_REQUESTED,
+    )
+    evaluation = models.JSONField(default=dict)
+    evaluation_error = models.TextField(blank=True)
+    evaluation_started_at = models.DateTimeField(null=True, blank=True)
+    evaluated_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ["-started_at", "-id"]
+        indexes = [
+            models.Index(
+                fields=["user", "task", "-started_at"],
+                name="writing_sim_user_task_started",
+            ),
+            models.Index(
+                fields=["user", "status", "-started_at"],
+                name="writing_sim_status_started",
+            ),
+        ]
+
+    def save(self, *args, **kwargs):
+        if not self._state.adding:
+            original = type(self).objects.get(pk=self.pk)
+            immutable = ("user_id", "task_id", "sujet_id", "snapshot", "started_at")
+            if any(
+                getattr(self, field) != getattr(original, field)
+                for field in immutable
+            ):
+                raise ValidationError(
+                    "Simulation attempt content and selection are immutable."
+                )
+            if original.status != WritingSimulationAttemptStatus.ACTIVE:
+                immutable_after_final = (
+                    "body",
+                    "status",
+                    "last_saved_at",
+                    "submitted_at",
+                    "word_count",
+                    "deadline_at",
+                )
+                if any(
+                    getattr(self, field) != getattr(original, field)
+                    for field in immutable_after_final
+                ):
+                    raise ValidationError("Submitted simulation results are immutable.")
+        super().save(*args, **kwargs)
+
+    def __str__(self) -> str:
+        return f"{self.user_id} · EE1 · {self.status}"
+
+
 class SubjectBookmark(models.Model):
     """A learner's saved subject, independent of study progress."""
 

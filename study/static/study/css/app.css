@@ -7704,6 +7704,13 @@ a.qrow:focus-visible {
   width: 2rem;
   height: 2rem;
 }
+.detail-head__actions {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 0.45rem;
+}
+
 .detail-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 1.4rem; align-items: start; }
 .detail-side { display: grid; gap: 1rem; }
 /* Keep the legacy annotation root intact while placing pistes after progression. */
@@ -11838,6 +11845,254 @@ button.ce-choice:focus-visible .ce-choice__radio {
 .sim-task p { font-size: .9rem; margin-top: .18rem; }
 .sim-task__actions { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .7rem; }
 .sim-task__actions a { min-height: 44px; }
+.ee1-simulation {
+  --ee1-ink: var(--tone-expression);
+  --ee1-wash: var(--tone-expression-soft);
+  max-width: 62rem;
+  margin-inline: auto;
+}
+.ee1-simulation__head { margin: .5rem 0 1.25rem; }
+.ee1-simulation__head h1,
+.ee1-attempt__head h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.45rem);
+  line-height: 1.12;
+  letter-spacing: -.045em;
+}
+.ee1-simulation__head > p:last-child {
+  max-width: 58ch;
+  margin: .45rem 0 0;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.ee1-simulation__grid,
+.ee1-result__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(15rem, .65fr);
+  gap: 1rem;
+  align-items: start;
+}
+.ee1-simulation__brief,
+.ee1-simulation__tips,
+.ee1-prompt-card,
+.ee1-result__response,
+.ee1-result__review {
+  padding: clamp(1rem, 2.3vw, 1.35rem);
+  background: var(--surface);
+}
+.ee1-checklist,
+.ee1-simulation__tips ol {
+  display: grid;
+  gap: .55rem;
+  margin: .8rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.ee1-start-form {
+  display: grid;
+  gap: .5rem;
+  margin-top: 1.05rem;
+}
+.ee1-start-form label,
+.ee1-writing-field label { font-weight: 700; }
+.ee1-start-form select { width: 100%; }
+.ee1-start-form .btn { justify-self: start; margin-top: .2rem; }
+.ee1-history { margin-top: 1.5rem; }
+.ee1-history__list {
+  display: grid;
+  gap: .55rem;
+  margin: .7rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.ee1-history__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: .7rem;
+  align-items: center;
+  padding: .8rem .9rem;
+  background: var(--surface);
+}
+.ee1-history__item strong,
+.ee1-history__item .muted { display: block; }
+.ee1-history__item .muted { margin-top: .2rem; }
+.ee1-attempt__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: .5rem 0 1rem;
+}
+.ee1-attempt__head p { margin: .35rem 0 0; }
+.ee1-timer {
+  flex: 0 0 auto;
+  min-width: 8.5rem;
+  padding: .65rem .8rem;
+  border: 1px solid var(--border);
+  background: var(--ee1-wash);
+  color: var(--ee1-ink);
+  text-align: center;
+}
+.ee1-timer__label {
+  display: block;
+  font-size: .68rem;
+  font-weight: 750;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.ee1-timer strong {
+  display: block;
+  margin-top: .1rem;
+  font-size: 1.45rem;
+  font-variant-numeric: tabular-nums;
+}
+.ee1-timer.is-warning { border-color: var(--danger, #b42318); color: var(--danger, #b42318); }
+.ee1-prompt-card { margin-bottom: 1rem; }
+.ee1-prompt-card p {
+  margin: .65rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+.ee1-writing-form {
+  padding: clamp(1rem, 2.3vw, 1.35rem);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.ee1-writing-field textarea {
+  display: block;
+  width: 100%;
+  min-height: 20rem;
+  margin-top: .5rem;
+  resize: vertical;
+  line-height: 1.6;
+}
+.ee1-writing-editor {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(13rem, 16rem);
+  gap: 1rem;
+  align-items: start;
+}
+.ee1-writing-editor__input { min-width: 0; }
+.ee1-writing-tools {
+  display: grid;
+  gap: .75rem;
+  padding: .9rem;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.ee1-writing-tools__count {
+  display: grid;
+  gap: .15rem;
+  padding-bottom: .7rem;
+  border-bottom: 1px solid var(--border);
+}
+.ee1-writing-tools__count strong {
+  font-size: 2rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.ee1-writing-tools__note,
+.ee1-writing-tools__guidance { margin: 0; line-height: 1.45; }
+.ee1-writing-tools__section { display: grid; gap: .5rem; }
+.ee1-writing-tools__section h2 {
+  margin: 0;
+  font-size: .78rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.ee1-accent-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: .3rem;
+}
+.ee1-accent-button {
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: .2rem;
+  border: 1px solid var(--border);
+  border-radius: .45rem;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+.ee1-accent-button:hover,
+.ee1-accent-button:focus-visible {
+  border-color: var(--ee1-ink);
+  color: var(--ee1-ink);
+}
+.ee1-writing-form__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: .7rem;
+}
+.ee1-writing-form__footer p { margin: 0; }
+.ee1-writing-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .45rem;
+}
+.ee1-result__summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .65rem;
+  margin-bottom: 1rem;
+}
+.ee1-result__summary .card {
+  display: grid;
+  gap: .3rem;
+  padding: .85rem 1rem;
+  background: var(--surface);
+}
+.ee1-result__summary strong { font-size: 1rem; }
+.ee1-result__response .markdown-prose { margin-top: .8rem; }
+.ee1-result__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1rem;
+}
+.ee1-evaluation {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.ee1-evaluation .response-batches__head { align-items: flex-start; }
+.ee1-evaluation .response-batches__head p { max-width: 48rem; margin: .35rem 0 0; }
+.ee1-evaluation__verdict {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+  align-items: baseline;
+  padding: .8rem 0;
+  border-block: 1px solid var(--border);
+}
+.ee1-evaluation__verdict strong { font-size: 1.1rem; }
+.ee1-evaluation__verdict span { color: var(--text-soft); }
+.ee1-evaluation__section { display: grid; gap: .55rem; margin-top: 1rem; }
+.ee1-evaluation__section h2 { margin: 0; font-size: .86rem; }
+.ee1-evaluation__section :is(p, ul, ol) { margin: 0; }
+.ee1-evaluation__section li + li { margin-top: .35rem; }
+.ee1-evaluation__table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.ee1-evaluation__table :is(th, td) {
+  padding: .55rem .65rem;
+  border-top: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+.ee1-evaluation__table th { font-weight: 650; }
+.ee1-evaluation__improved {
+  padding: .85rem;
+  border-left: 3px solid var(--ee1-ink);
+  background: var(--surface-2);
+  white-space: pre-line;
+}
+.ee1-compliance--met { color: var(--tone-success, var(--text)); }
+.ee1-compliance--missing { color: var(--tone-danger, var(--text)); }
 .eo2-topic-table tr[id] { scroll-margin-top: 5rem; }
 .eo2-topic-table :is(.subject-bookmark, .subject-completion-check) { display: grid; place-items: center; }
 .eo2-topic-table :is(th, td):not(:first-child) { width: 1%; text-align: center; white-space: nowrap; }
@@ -11854,6 +12109,24 @@ button.ce-choice:focus-visible .ce-choice__radio {
   .eo2-topic-table.t1-table :is(th, td) { padding-inline: .35rem; }
   .eo2-topic-table .t1-table__subject-copy { gap: .25rem; }
   .eo2-topic-table .t1-table__subject { overflow-wrap: anywhere; }
+  .ee1-simulation__grid,
+  .ee1-result__grid,
+  .ee1-result__summary { grid-template-columns: minmax(0, 1fr); }
+  .ee1-attempt__head,
+  .ee1-writing-form__footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ee1-writing-editor { grid-template-columns: minmax(0, 1fr); }
+  .ee1-writing-tools { order: 2; }
+  .ee1-timer { align-self: flex-start; }
+  .ee1-writing-form__actions { justify-content: flex-start; }
+  .ee1-writing-form__actions .btn { flex: 1 1 auto; }
+  .ee1-evaluation .response-batches__head { display: grid; gap: .75rem; }
+  .ee1-evaluation__table { font-size: .85rem; }
+  .ee1-evaluation__table :is(th, td) { padding-inline: .35rem; }
+  .ee1-history__item { grid-template-columns: minmax(0, 1fr) auto; }
+  .ee1-history__item .btn { grid-column: 1 / -1; justify-self: start; }
 }
 
 .expression-paths {

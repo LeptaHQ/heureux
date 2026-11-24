@@ -63,6 +63,7 @@ from ..models import (
     Settings,
     ThemeVocabularyProgress,
     WritingResponseOverride,
+    WritingSimulationAttempt,
     WritingSujetCompletion,
 )
 
@@ -72,7 +73,7 @@ from .review import (
 )
 from study.learning.practice import lock_course_user, public_snapshot
 
-ACCOUNT_EXPORT_VERSION = 12
+ACCOUNT_EXPORT_VERSION = 13
 
 
 def _auth_redirect(request):
@@ -365,6 +366,7 @@ def reset_progress(request):
         LearningLessonProgress.objects.filter(user=request.user).delete()
         CourseAttempt.objects.filter(user=request.user).delete()
         CourseProduction.objects.filter(user=request.user).delete()
+        WritingSimulationAttempt.objects.filter(user=request.user).delete()
         LiveSimulation.objects.filter(user=request.user).delete()
         EO2PracticeAttempt.objects.filter(user=request.user).delete()
         EO2TopicStatus.objects.filter(user=request.user).update(done=False)
@@ -694,6 +696,29 @@ def export_account(request):
             "subject_key", "done", "retry")),
         "eo2_simulation_history": list(EO2PracticeAttempt.objects.filter(user=request.user).order_by("created_at").values(
             "subject_key", "attempt", "vocal", "created_at", "live_simulation_id")),
+        "ee1_simulation_attempts": [
+            {
+                "id": item.pk,
+                "task": item.task.slug if item.task else "",
+                "sujet": item.sujet.slug if item.sujet else item.snapshot.get("sujet_slug", ""),
+                "snapshot": item.snapshot,
+                "body": item.body,
+                "status": item.status,
+                "started_at": item.started_at,
+                "deadline_at": item.deadline_at,
+                "last_saved_at": item.last_saved_at,
+                "submitted_at": item.submitted_at,
+                "word_count": item.word_count,
+                "evaluation_status": item.evaluation_status,
+                "evaluation": item.evaluation,
+                "evaluation_error": item.evaluation_error,
+                "evaluation_started_at": item.evaluation_started_at,
+                "evaluated_at": item.evaluated_at,
+            }
+            for item in WritingSimulationAttempt.objects.filter(user=request.user)
+            .select_related("task", "sujet")
+            .order_by("started_at", "pk")
+        ],
         "live_simulations": [
             {
                 "id": item.pk, "subject_key": item.subject_key, "rows": item.rows,

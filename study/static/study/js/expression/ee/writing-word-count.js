@@ -13,16 +13,28 @@
     const minimum = Number(input.dataset.wordMin || 0);
     const maximum = Number(input.dataset.wordMax || 0);
     const count = countWords(input.value);
+    const field = input.closest(".response-edit-field, .ee1-writing-field");
+    const countDisplay = field?.querySelector("[data-writing-word-count-display]");
+    const guidanceDisplay = field?.querySelector("[data-writing-word-guidance]");
     let guidance = "dans la limite";
     if (count < minimum) guidance = `${minimum - count} mot${minimum - count > 1 ? "s" : ""} à ajouter`;
     if (count > maximum) guidance = `${count - maximum} mot${count - maximum > 1 ? "s" : ""} à retirer`;
     status.textContent = `${count} mot${count > 1 ? "s" : ""} · ${guidance} · objectif ${minimum}–${maximum}`;
     status.classList.toggle("auth-error", count > 0 && (count < minimum || count > maximum));
+    if (countDisplay) countDisplay.textContent = String(count);
+    if (guidanceDisplay) {
+      guidanceDisplay.textContent = count < minimum
+        ? `${minimum - count} mot${minimum - count > 1 ? "s" : ""} à ajouter.`
+        : count > maximum
+          ? `${count - maximum} mot${count - maximum > 1 ? "s" : ""} à retirer.`
+          : `Dans la limite · objectif ${minimum}–${maximum} mots.`;
+      guidanceDisplay.classList.toggle("auth-error", count > 0 && (count < minimum || count > maximum));
+    }
   };
   const update = () => {
     inputs.forEach((input) => {
       const status = input
-        .closest(".response-edit-field")
+        .closest(".response-edit-field, .ee1-writing-field")
         ?.querySelector("[data-writing-word-status]");
       if (status) updateStatus(input, status);
     });

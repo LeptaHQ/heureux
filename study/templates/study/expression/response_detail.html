@@ -24,11 +24,13 @@
     {% endif %}
     {% if response_content.is_personal and not ee_response and not single_response_eo3 %} · <span class="chip">Version personnelle</span>{% endif %}
   </p>
+  {% if single_response_eo3 %}<div class="detail-head__actions">{% endif %}
   {% if eo3_simulation_available %}
     <a class="icon-button" href="{% subject_url 'study:eo_tache_three_live' selected_prompt.pk %}" aria-label="Simuler la tâche 3 sur ce sujet" title="Simuler la tâche 3 sur ce sujet">{% include "study/shared/partials/ui_icon.html" with name="headphones" only %}</a>
   {% endif %}
   {% if single_response_eo3 %}
       {% include "study/shared/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="eo3-subject-content" label="Copier le sujet" label_hidden=True only %}
+    </div>
     </div>
   {% endif %}
   <h1 class="detail-prompt"{% if eo3_audio %} data-eo3-read-prompt{% endif %}>{% if ee_response %}{{ selected_prompt.theme.display_name }}{% else %}{{ selected_prompt.text }}{% endif %}</h1>

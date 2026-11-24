@@ -15,6 +15,7 @@ from study.models import (
     WritingSujetCompletion,
 )
 from study.simulation import evaluation, writing_evaluation
+from study.simulation.evidence import number_passages
 from study.views import writing_simulation
 
 from . import factories
@@ -330,14 +331,14 @@ class EE1SimulationTests(TestCase):
             "scoreRange": {"min": 10, "max": 13},
             "confidence": "Medium",
             "uncertainty": "Une seule tâche ne suffit pas.",
-            "taskCompliance": [{"item": "But", "status": "Met", "quote": "Bonjour", "evidence": "Le message est adressé."}],
+            "taskCompliance": [{"item": "But", "status": "Met", "evidenceId": "E1", "evidence": "Le message est adressé."}],
             "criteria": {
-                key: {"rating": "Adequate", "quotes": ["Bonjour"], "evidence": "Le passage est exploitable."}
+                key: {"rating": "Adequate", "evidenceIds": ["E1"], "evidence": "Le passage est exploitable."}
                 for key in ("linguistic", "pragmatic", "sociolinguistic")
             },
             "gradeRationale": "Le texte montre un contrôle fonctionnel.",
-            "gradeEvidence": ["Une citation introuvable", "Bonjour"],
-            "strengths": [{"quote": "Bonjour", "text": "Ouverture claire."}],
+            "gradeEvidenceIds": ["E99", "E1"],
+            "strengths": [{"evidenceId": "E1", "text": "Ouverture claire."}],
             "corrections": [],
             "relevance": [],
             "upgrades": [],
@@ -352,7 +353,9 @@ class EE1SimulationTests(TestCase):
                 "J'ai déjà visité Montréal.",
             )
         )
-        packet = dict(subject=self.sujet.prompt, response="Bonjour", word_count=1, word_min=60, word_max=120)
+        evidence = {}
+        number_passages("Bonjour", evidence)
+        packet = dict(subject=self.sujet.prompt, response="Bonjour", evidence=evidence, word_count=1, word_min=60, word_max=120)
         report = self._provider_report()
         grounded = writing_evaluation.ground(report, **packet)
 
@@ -360,14 +363,14 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(grounded["nclc"], "NCLC 8")
         self.assertEqual(grounded["gradeEvidence"], ["Bonjour"])
         self.assertIn("gradeEvidence", grounded["omittedSections"])
-        report["gradeEvidence"] = ["Une citation introuvable"]
+        report["gradeEvidenceIds"] = ["E99"]
         with self.assertRaisesRegex(writing_evaluation.ReportError, r"gradeEvidence\.evidence"):
             writing_evaluation.ground(report, **packet)
-        report["gradeEvidence"] = ["Bonjour"]
-        report["criteria"]["linguistic"]["quotes"] = [None, "Texte absent"]
+        report["gradeEvidenceIds"] = ["E1"]
+        report["criteria"]["linguistic"]["evidenceIds"] = [None, "E99"]
         with self.assertRaisesRegex(writing_evaluation.ReportError, r"criteria\.linguistic\.evidence"):
             writing_evaluation.ground(report, **packet)
-        report["criteria"]["linguistic"]["quotes"] = ["Bonjour"]
+        report["criteria"]["linguistic"]["evidenceIds"] = ["E1"]
         report["score"] = 14
         with self.assertRaisesRegex(writing_evaluation.ReportError, "scoreRange"):
             writing_evaluation.ground(report, **packet)
@@ -376,14 +379,14 @@ class EE1SimulationTests(TestCase):
         report = self._provider_report()
         report["criteria"]["linguistic"].update(
             evidence="Observation détaillée. " * 40,
-            quotes=[42, "Bonjour"],
+            evidenceIds=[42, "E1"],
         )
         report.update(
             verdict="Avis détaillé. " * 80,
             confidence="Moyenne",
             uncertainty=None,
             gradeRationale="Justification détaillée. " * 100,
-            strengths=[{"quote": "Bonjour"}],
+            strengths=[{"evidenceId": "E1"}],
             corrections=[
                 {"before": "Bonjour", "after": None, "type": "Registre", "why": "Salutation."},
                 {"before": "salu!", "after": "salut !", "type": "Orthographe", "why": "Il manque le t."},
@@ -392,8 +395,12 @@ class EE1SimulationTests(TestCase):
             upgrades={"unexpected": True},
             priorities=[None, "Relire les accords."],
         )
+        response = "Bonjour, salu!"
+        evidence = {}
+        number_passages(response, evidence)
         result = writing_evaluation.ground(
-            report, subject=self.sujet.prompt, response="Bonjour, salu!", word_count=2, word_min=60, word_max=120,
+            report, subject=self.sujet.prompt, response=response, evidence=evidence,
+            word_count=2, word_min=60, word_max=120,
         )
         self.assertEqual(result["score"], 12)
         self.assertEqual(result["confidence"], "")
@@ -403,7 +410,7 @@ class EE1SimulationTests(TestCase):
         self.assertEqual([item["after"] for item in result["corrections"]], ["salut !"])
         self.assertEqual(result["priorities"], ["Relire les accords."])
         self.assertEqual(result["improvedResponse"], "")
-        self.assertEqual(result["criteria"][0]["quotes"], ["Bonjour"])
+        self.assertEqual(result["criteria"][0]["quotes"], [response])
         for prose, phrase, limit in (
             (result["verdict"], "Avis détaillé.", 900),
             (result["gradeRationale"], "Justification détaillée.", 1800),
@@ -414,7 +421,9 @@ class EE1SimulationTests(TestCase):
             self.assertLessEqual(len(prose), limit)
         self.assertTrue({"strengths", "corrections", "improvedResponse"} <= set(result["omittedSections"]))
 
-    def test_groq_schema_rejection_retries_once_and_checks_the_json_report(self):
+    def test_groq_reports_ground_evidence_in_strict_mode_and_after_schema_retry(self):
+        greeting = "Bonjour, j’ai trouvé une salle de sport près de chez moi."
+        original = f"{greeting}\n\nÀ bientôt !"
         valid = {**self._provider_report(), "strengths": ["Not a structured strength"]}
         invalid = {**valid, "score": True}
         rejected = b'{"error":{"code":"json_validate_failed"}}'
@@ -425,6 +434,7 @@ class EE1SimulationTests(TestCase):
             }]}).encode()
 
         for responses, expected in (
+            ([(200, completion(valid))], "ready"),
             ([(400, rejected), (200, completion(valid))], "ready"),
             ([(400, rejected), (200, completion(invalid))], "n’a pas pu être vérifié"),
             ([(400, rejected), (400, rejected)], "json_validate_failed"),
@@ -445,16 +455,18 @@ class EE1SimulationTests(TestCase):
 
                 def score():
                     return writing_evaluation.score(
-                        task_number=1, subject=self.sujet.prompt, response="Bonjour",
-                        word_count=1, word_min=60, word_max=120,
+                        task_number=1, subject=self.sujet.prompt, response=original,
+                        word_count=13, word_min=60, word_max=120,
                     )
 
-                with self.assertLogs(level="WARNING"):
-                    if expected == "ready":
-                        report = score()
-                        self.assertEqual(report["gradeEvidence"], ["Bonjour"])
-                        self.assertEqual(report["strengths"], [])
-                    else:
+                if expected == "ready":
+                    report = score()
+                    self.assertEqual(report["gradeEvidence"], [greeting])
+                    self.assertEqual(report["criteria"][0]["quotes"], [greeting])
+                    self.assertEqual(report["taskCompliance"][0]["quote"], greeting)
+                    self.assertEqual(report["strengths"], [])
+                else:
+                    with self.assertLogs(level="WARNING"):
                         with self.assertRaisesRegex(evaluation.EvaluationError, expected):
                             score()
                 requests = [json.loads(call.kwargs["body"]) for call in conn.request.call_args_list]
@@ -463,8 +475,9 @@ class EE1SimulationTests(TestCase):
                 system, user = requests[0]["messages"]
                 self.assertIn(load_ee_ai_examiner_prompt(1), system["content"])
                 self.assertEqual(json.loads(user["content"]), {
-                    "subject": self.sujet.prompt, "response": "Bonjour",
-                    "wordCount": 1, "wordMin": 60, "wordMax": 120,
+                    "subject": self.sujet.prompt, "response": original,
+                    "passages": [{"id": "E1", "text": greeting}, {"id": "E2", "text": "À bientôt !"}],
+                    "wordCount": 13, "wordMin": 60, "wordMax": 120,
                 })
                 if len(responses) == 2:
                     self.assertEqual(requests[0]["messages"][1], requests[1]["messages"][1])

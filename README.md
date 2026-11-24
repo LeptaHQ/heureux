@@ -71,7 +71,9 @@ The session templates live under `study/templates/study/simulation/`, and the
 shared evaluation code lives in `study/simulation/`.
 Both simulators use the same Groq request and decoding code; writing sends the
 exact subject, the response, its word count and limits, and the task’s grading
-instructions. If Groq rejects the writing schema, Heureux retries once in JSON
+instructions. Like the oral grader, it cites numbered passages from the learner’s
+original words instead of asking the model to reproduce the quotations. If Groq
+rejects the writing schema, Heureux retries once in JSON
 mode within the same three-minute deadline and still validates the report and
 its scoring evidence. Bad optional feedback is omitted without hiding an
 otherwise supported score.

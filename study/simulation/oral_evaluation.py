@@ -13,6 +13,7 @@ from study.accounts.services import authorize_audio_generation
 from . import live_conversation
 from .evaluation import EvaluationError, request_report, unique_fields
 from .evaluation import checked_text as _text
+from .evidence import number_passages
 
 MAX_BODY = 96_000
 _CRITERIA = {
@@ -270,26 +271,6 @@ def _locate(words, before):
     return first.start()
 
 
-_EXCERPT_LIMIT = 160
-
-
-def _passages(text):
-    """Short original spans; prefer sentence endings, never split a word or rewrite dictation."""
-    start = end = 0
-    for word in re.finditer(r"\S+", text):
-        if end > start and word.end() - start > _EXCERPT_LIMIT:
-            yield text[start:end]
-            start = end
-        if start == end:
-            start = word.start()
-        end = word.end()
-        if end - start >= 32 and text[end - 1] in ".!?…;":
-            yield text[start:end]
-            start = end
-    if end > start:
-        yield text[start:end]
-
-
 def _evidence_rows(rows):
     """Send the transcript once. Only the server's learner passages have citable IDs."""
     transcript, evidence = [], {}
@@ -297,13 +278,7 @@ def _evidence_rows(rows):
         if row["speaker"] != "user":
             transcript.append({"turnIndex": i, "speaker": row["speaker"], "text": row["text"]})
             continue
-        passages = []
-        for text in _passages(row["text"]):
-            key = None
-            if len(text) <= _EXCERPT_LIMIT and any(c.isalnum() for c in text):
-                key = f"E{len(evidence) + 1}"
-                evidence[key] = {"turnIndex": i, "quote": text}
-            passages.append({"id": key, "text": text})
+        passages = number_passages(row["text"], evidence, turn_index=i)
         transcript.append({"turnIndex": i, "speaker": "user", "passages": passages})
     return transcript, evidence
 

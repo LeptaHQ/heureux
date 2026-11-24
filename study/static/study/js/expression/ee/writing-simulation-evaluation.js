@@ -6,6 +6,8 @@
 
   const form = root.querySelector("[data-writing-evaluation-form]");
   const button = root.querySelector("[data-writing-evaluate]");
+  const buttonLabel = root.querySelector("[data-writing-evaluate-label]");
+  const summaryScore = root.querySelector("[data-writing-summary-score]");
   const status = root.querySelector("[data-writing-evaluation-status]");
   const result = root.querySelector("[data-writing-evaluation-result]");
   const url = root.dataset.evaluationUrl;
@@ -15,7 +17,17 @@
   const find = (name) => root.querySelector(`[data-writing-${name}]`);
   const setStatus = (text, tone = "") => {
     status.textContent = text;
-    status.className = `notice${tone ? ` notice--${tone}` : ""}`;
+    status.className = `lv-assessment__status${tone ? ` notice notice--${tone}` : ""}`;
+  };
+  const setButtonLabel = (label) => {
+    if (buttonLabel) {
+      buttonLabel.textContent = label;
+    } else {
+      button.textContent = label;
+    }
+  };
+  const setSummaryScore = (label) => {
+    if (summaryScore) summaryScore.textContent = label;
   };
   const text = (parent, value) => {
     parent.textContent = value || "";
@@ -41,6 +53,7 @@
       find("score"),
       `${report.cefr} · ${report.score}/20 · ${report.nclc} · ${report.scoreRange.min}–${report.scoreRange.max} (${report.nclcRange}) · confiance ${report.confidence}`,
     );
+    setSummaryScore(`${report.score}/20 · ${report.nclc} · ${report.cefr}`);
     text(find("uncertainty"), report.uncertainty);
     text(find("grade-rationale"), report.gradeRationale);
     const gradeEvidence = find("grade-evidence");
@@ -135,12 +148,13 @@
     if (payload.status === "ready" && payload.report) {
       showReport(payload.report);
       button.disabled = false;
-      button.textContent = "Réévaluer";
+      setButtonLabel("Réévaluer");
       setStatus("Bilan disponible. Il s’agit d’une estimation d’entraînement, pas d’une note officielle.", "success");
       return;
     }
     if (payload.status === "processing") {
       button.disabled = true;
+      setSummaryScore("Bilan en préparation…");
       setStatus("Bilan en préparation…");
       clearTimeout(poll);
       poll = setTimeout(fetchStatus, 1500);
@@ -148,11 +162,13 @@
     }
     button.disabled = false;
     if (payload.status === "unavailable") {
+      setSummaryScore("Non évalué");
       setStatus(payload.error || "Le bilan est temporairement indisponible. Vous pouvez réessayer.", "error");
-      button.textContent = "Réessayer";
+      setButtonLabel("Réessayer");
     } else {
+      setSummaryScore("Non évalué");
       setStatus("Bilan non demandé.");
-      button.textContent = "Évaluer ma réponse";
+      setButtonLabel("Évaluer ma réponse");
     }
   };
 

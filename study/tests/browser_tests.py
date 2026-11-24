@@ -1799,13 +1799,13 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         form.get_by_role("listbox", name="Thème").get_by_role(
             "option", name=re.compile("^Logement"),
         ).click()
+        expect(self.page).to_have_url(re.compile(rf"{re.escape(url)}\?theme=logement"))
         sort = form.get_by_role("button", name="Tri Ordre du catalogue")
         sort.press("ArrowDown")
         self.page.keyboard.press("ArrowDown")
         self.page.keyboard.press("Enter")
         expect(form.get_by_role("button", name="Tri Sujet : A → Z")).to_be_focused()
-        expect(self.page).to_have_url(url)
-        apply.press("Enter")
+        expect(self.page).to_have_url(re.compile(rf"{re.escape(url)}\?.*theme=logement.*tri=az"))
         selected_url = self.page.url
         count = rows.count()
         self.assertGreater(count, 1)
@@ -1813,7 +1813,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.locator(".oral-sujet-result-count")).to_have_text(f"{count} sujets")
         form.get_by_role("button", name="Statut Tous les statuts").click()
         form.get_by_role("option", name="Terminés", exact=True).click()
-        apply.click()
+        expect(self.page).to_have_url(re.compile(rf"{re.escape(url)}\?.*etat=done"))
         expect(rows).to_have_count(0)
         expect(self.page.get_by_text("Aucun sujet ne correspond à ces filtres.")).to_be_visible()
         reset = form.get_by_role("link", name="Réinitialiser les filtres", exact=True)
@@ -1832,7 +1832,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(bookmark).to_have_attribute("aria-pressed", "true")
         form.get_by_text("Statut", exact=True).click()
         form.get_by_role("listbox", name="Statut").get_by_role("option", name="Favoris").click()
-        apply.click()
+        expect(self.page).to_have_url(re.compile(rf"{re.escape(url)}\?.*etat=bookmarked"))
         expect(rows).to_have_count(1)
         expect(rows.locator(".subject-table-row-link")).to_have_text(subject)
         expect(form.get_by_role("button", name="Statut Favoris")).to_be_visible()

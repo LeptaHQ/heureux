@@ -5,7 +5,7 @@
   <thead><tr>
     <th scope="col"{% if directory_selection.order == 'az' %} aria-sort="ascending"{% elif directory_selection.order == 'za' %} aria-sort="descending"{% endif %}>Sujet</th>
     <th scope="col"{% if directory_selection.order == 'least' %} aria-sort="ascending"{% endif %}>Séances</th>
-    <th scope="col">{% if picker.kind == "ee1" %}Action{% else %}Terminé{% endif %}</th>
+    <th scope="col">Terminé</th>
   </tr></thead>
 {% endblock %}
 {% block native_table_body %}
@@ -16,14 +16,14 @@
           <div class="t1-table__subject-copy">
             <div>
               {% if picker.kind == "ee1" or picker.kind == "ee2" %}
-                <a aria-label="Choisir : {{ row.sujet.prompt }}" href="{{ row.setup_url }}">{{ row.sujet.prompt }}</a>
+                <a aria-label="Pratiquer : {{ row.sujet.prompt }}" href="{{ row.setup_url }}">{{ row.sujet.prompt }}</a>
                 <span class="t1-table__subject-date">{{ row.sujet.category_label }}</span>
               {% else %}
                 <a aria-label="Pratiquer : {{ row.topic.title }}" href="{{ row.topic.simulation_url }}">{{ row.topic.title }}</a>
                 <span class="t1-table__subject-date">{{ row.topic.theme }} · {{ row.topic.source }}</span>
               {% endif %}
             </div>
-            {% if picker.kind != "ee1" %}
+            {% if picker.kind == "eo2" %}
               {% url 'study:eo2_topic_status' row.token as status_url %}
               <form class="subject-bookmark{% if row.retry %} is-bookmarked{% endif %}" method="post" action="{{ status_url }}{% querystring %}">
                 {% csrf_token %}<input type="hidden" name="field" value="retry"><input type="hidden" name="value" value="{{ row.retry|yesno:'0,1' }}">
@@ -41,7 +41,7 @@
         </td>
         <td>
           {% if picker.kind == "ee1" or picker.kind == "ee2" %}
-            <a class="btn btn--sm btn--primary" href="{{ row.setup_url }}">Choisir</a>
+            {% include "study/expression/ee/partials/writing_sujet_completion_form.html" with sujet=row.sujet completed=row.progress.explicitly_completed progress_sujet_id=row.progress_sujet_id subject_label=row.sujet.prompt part=task.part task=task %}
           {% else %}
             <form class="subject-completion-check{% if row.done %} is-complete{% endif %}" method="post" action="{{ status_url }}{% querystring %}">
               {% csrf_token %}<input type="hidden" name="field" value="done"><input type="hidden" name="value" value="{{ row.done|yesno:'0,1' }}">

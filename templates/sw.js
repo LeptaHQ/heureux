@@ -2,7 +2,7 @@
 var CACHE = "heureux-v309";
 var SHELL = [
   "{% url 'offline' %}",
-  "{% static 'study/css/app.css' %}?v=303",
+  "{% static 'study/css/app.css' %}?v=307",
   "{% static 'study/js/theme-init.js' %}?v=4",
   "{% static 'study/js/audio/speech.js' %}?v=6",
   "{% static 'study/js/audio/audio-pin.js' %}?v=4",

@@ -3,7 +3,7 @@
   {% if directory_selection.query %}<input type="hidden" name="q" value="{{ directory_selection.query }}">{% endif %}
   <div class="oral-sujet-filters__field">
     <label for="sujets-theme">Thème</label>
-    <select id="sujets-theme" name="theme" data-custom-select>
+    <select id="sujets-theme" name="theme" data-custom-select data-auto-submit>
       <option value="">Tous les thèmes</option>
       {% if directory_selection.unavailable_theme %}<option value="{{ directory_selection.theme }}" selected>Thème sans sujet affiché</option>{% endif %}
       {% for slug, name in directory_selection.themes %}<option value="{{ slug }}"{% if directory_selection.theme == slug %} selected{% endif %}>{{ name }}</option>{% endfor %}
@@ -11,14 +11,14 @@
   </div>
   <div class="oral-sujet-filters__field">
     <label for="sujets-etat">Statut</label>
-    <select id="sujets-etat" name="etat" data-custom-select>
+    <select id="sujets-etat" name="etat" data-custom-select data-auto-submit>
       <option value="">Tous les statuts</option>
       {% for value, label in directory_selection.status_choices %}<option value="{{ value }}"{% if directory_selection.status == value %} selected{% endif %}>{{ label }}</option>{% endfor %}
     </select>
   </div>
   <div class="oral-sujet-filters__field">
     <label for="sujets-tri">Tri</label>
-    <select id="sujets-tri" name="tri" data-custom-select>
+    <select id="sujets-tri" name="tri" data-custom-select data-auto-submit>
       <option value="">Ordre du catalogue</option>
       <option value="az"{% if directory_selection.order == 'az' %} selected{% endif %}>Sujet : A → Z</option>
       <option value="za"{% if directory_selection.order == 'za' %} selected{% endif %}>Sujet : Z → A</option>

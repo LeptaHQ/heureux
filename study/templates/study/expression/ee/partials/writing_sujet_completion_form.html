@@ -3,7 +3,7 @@
   method="post"
   action="{% url 'study:writing_sujet_completion' part.slug task.slug sujet.pk %}"
   data-writing-sujet-completion-form
-  data-writing-sujet-id="{{ sujet.pk }}">
+  data-writing-sujet-id="{{ progress_sujet_id|default:sujet.pk }}">
   {% csrf_token %}
   <input
     type="hidden"

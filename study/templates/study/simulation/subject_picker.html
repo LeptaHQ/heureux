@@ -17,5 +17,6 @@
 </section>
 {% endblock %}
 {% block scripts %}
+{% include "study/expression/partials/subject_progress_script.html" %}
 {% if picker.topic_markers %}<script defer src="{% static 'study/js/expression/eo/tache_2/topic-markers.js' %}?v=1"></script>{% endif %}
 {% endblock %}

@@ -34,6 +34,20 @@ class EE2SimulationTests(TestCase):
         self.assertContains(response, "20 minutes")
         self.assertContains(response, 'name="sujet_id"')
 
+    def test_subject_picker_uses_the_shared_subject_table(self):
+        response = self.client.get(reverse("study:ee2_subject_picker"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, self.sujet.prompt)
+        self.assertContains(
+            response,
+            f'href="{reverse("study:ee2_simulation")}?sujet_id={self.sujet.pk}"',
+        )
+        self.assertContains(response, 'data-writing-sujet-completion-form')
+        self.assertNotContains(response, ">Choisir</a>")
+        self.assertNotContains(response, ">Choisir</button>")
+        self.assertNotContains(response, ">Action<")
+
     @override_settings(EE2_SIMULATION_MINUTES=9)
     def test_start_freezes_ee2_prompt_and_configured_duration(self):
         response = self.client.post(

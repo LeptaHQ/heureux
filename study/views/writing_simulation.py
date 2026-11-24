@@ -22,6 +22,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.http import require_GET, require_http_methods, require_POST, require_safe
 from django.views.decorators.vary import vary_on_headers
 
+from study.catalogue import loader as content_module
 from study.catalogue.loader import _ee_word_count
 from study.models import (
     Task,
@@ -30,6 +31,7 @@ from study.models import (
     WritingSimulationEvaluationStatus,
     WritingSujet,
 )
+from study.review.progress import writing_sujet_progress_by_id
 
 logger = logging.getLogger(__name__)
 
@@ -182,9 +184,20 @@ def subject_picker(request, spec):
     task = task_for(spec)
     subjects = list(
         WritingSujet.objects.filter(task=task, is_active=True)
-        .only("pk", "category", "category_label", "prompt", "order")
+        .only("pk", "category", "category_label", "prompt", "order", "slug")
         .order_by("category_label", "order", "pk")
     )
+    subjects_by_slug = {sujet.slug: sujet for sujet in subjects}
+    canonical_slug_by_slug = content_module.ee_writing_canonical_slug_by_slug(
+        spec.number
+    )
+    progress_sujet_id_by_id = {
+        sujet.pk: subjects_by_slug.get(
+            canonical_slug_by_slug.get(sujet.slug, sujet.slug),
+            sujet,
+        ).pk
+        for sujet in subjects
+    }
     attempts = {
         row["sujet_id"]: row
         for row in WritingSimulationAttempt.objects.filter(
@@ -242,6 +255,20 @@ def subject_picker(request, spec):
     elif order == "least":
         rows.sort(key=lambda row: row["count"])
 
+    page = Paginator(rows, 15).get_page(request.GET.get("page"))
+    progress_by_id = writing_sujet_progress_by_id(
+        request.user,
+        {
+            progress_sujet_id_by_id[row["sujet"].pk]
+            for row in page.object_list
+        },
+        task_id=task.pk,
+    )
+    for row in page.object_list:
+        progress_sujet_id = progress_sujet_id_by_id[row["sujet"].pk]
+        row["progress_sujet_id"] = progress_sujet_id
+        row["progress"] = progress_by_id[progress_sujet_id]
+
     practiced_total = sum(
         bool(attempts.get(sujet.pk, {}).get("count")) for sujet in subjects
     )
@@ -270,7 +297,7 @@ def subject_picker(request, spec):
         ),
         {
             "task": task,
-            "page": Paginator(rows, 15).get_page(request.GET.get("page")),
+            "page": page,
             "total": len(subjects),
             "practiced_total": practiced_total,
             "picker": picker,

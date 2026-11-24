@@ -11929,6 +11929,18 @@ button.ce-choice:focus-visible .ce-choice__radio {
   color: var(--text-soft);
   line-height: 1.5;
 }
+.ee1-result-status::before { display: none !important; }
+.ee1-result-status .ui-icon {
+  flex: none;
+  color: var(--tone-oral);
+}
+.ee1-session .lv-done-actions .lv-quiet {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  text-decoration: none;
+}
+.ee1-session .lv-done-actions .lv-quiet .ui-icon { color: var(--tone-oral); }
 .ee1-writing-field label { font-weight: 700; }
 .ee1-attempt__timerbar {
   display: flex;
@@ -12031,16 +12043,16 @@ button.ce-choice:focus-visible .ce-choice__radio {
   opacity: 1;
 }
 .ee1-writing-field textarea:hover {
-  border-color: color-mix(in srgb, var(--ee1-ink) 45%, var(--border-strong));
+  border-color: color-mix(in srgb, var(--tone-oral) 45%, var(--border-strong));
 }
 .ee1-writing-field textarea:focus {
-  border-color: var(--primary);
+  border-color: color-mix(in srgb, var(--tone-oral) 65%, var(--border-strong));
   background: var(--surface);
   box-shadow: none;
   outline: none;
 }
-.ee1-writing-field textarea:focus-visible {
-  outline: 1px solid var(--primary);
+.ee1-simulation .ee1-writing-field textarea:focus-visible {
+  outline: 1px solid color-mix(in srgb, var(--tone-oral) 58%, transparent);
   outline-offset: 1px;
 }
 .ee1-writing-editor {

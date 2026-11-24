@@ -1,75 +1,96 @@
 {% extends "base.html" %}
 {% load static study_markdown %}
 {% block title %}Simulation · {{ simulation.label }} · Bilan · Heureux{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=25">{% endblock %}
 
 {% block content %}
-<main class="ee1-simulation ee1-simulation--result writing-simulation writing-simulation--result" aria-labelledby="writing-result-title">
-  <header class="ee1-simulation__head">
-    <p class="sim-kicker">EE · Tâche {{ simulation.number }} · Production écrite</p>
-    <h1 id="writing-result-title">Bilan de votre session</h1>
-    <p>
-      {% if attempt.status == "submitted" %}
-        {% if simulation.number == 1 %}Votre message a été remis dans le temps.{% else %}Votre production a été remise dans le temps.{% endif %}
-      {% elif attempt.status == "expired" %}
-        Le temps est écoulé ; votre brouillon a été conservé.
-      {% else %}
-        Cette session a été abandonnée et reste privée dans votre historique.
-      {% endif %}
-    </p>
-  </header>
+<article
+  class="lv-studio ee1-session"
+  data-state="done"
+  data-ending="{% if attempt.status == "submitted" %}normal{% else %}failed{% endif %}"
+  data-mode="writing"
+>
+  <div class="lv-stage">
+    {% include "study/simulation/partials/session_header.html" %}
 
-  <section class="ee1-result__summary" aria-label="Résumé de la session">
-    <div class="card"><span class="spine-label">Statut</span><strong>{{ attempt.get_status_display }}</strong></div>
-    <div class="card"><span class="spine-label">Mots</span><strong>{{ attempt.word_count|default:0 }} / {{ word_min }}–{{ word_max }}</strong></div>
-    <div class="card"><span class="spine-label">Sujet</span><strong>{{ attempt.snapshot.category_label }}</strong></div>
-  </section>
-
-  <div class="ee1-result__grid">
-    <section class="card ee1-result__response" aria-labelledby="writing-response-title">
-      <div class="response-batches__head">
-        <div class="spine-label" id="writing-response-title">{{ simulation.response_label }}</div>
-      </div>
-      {% if attempt.body %}
-        <div class="markdown-prose" lang="fr">{{ attempt.body|markdown_prose }}</div>
-      {% else %}
-        <p class="muted">Aucun texte n’a été enregistré.</p>
-      {% endif %}
-    </section>
-
-    <aside class="card ee1-result__review" aria-labelledby="writing-review-title">
-      <div class="spine-label" id="writing-review-title">À vérifier</div>
-      <ul class="ee1-checklist">
-        <li>Ai-je répondu à chaque élément de la consigne&nbsp;?</li>
-        <li>Le registre et le format conviennent-ils au destinataire&nbsp;?</li>
-        <li>Mes idées sont-elles organisées et reliées&nbsp;?</li>
-        <li>Ai-je relu les accords, les accents et les prépositions&nbsp;?</li>
-      </ul>
+    <aside class="lv-console" aria-label="État de la session">
+      <p class="lv-status ee1-result-status">
+        {% if attempt.status == "submitted" %}
+          {% include "study/shared/partials/ui_icon.html" with name="check" only %}
+          <span>{% if simulation.number == 1 %}Votre message a été remis dans le temps.{% else %}Votre production a été remise dans le temps.{% endif %}</span>
+        {% elif attempt.status == "expired" %}
+          {% include "study/shared/partials/ui_icon.html" with name="clock" only %}
+          <span>Le temps est écoulé&nbsp;; votre brouillon a été conservé.</span>
+        {% else %}
+          {% include "study/shared/partials/ui_icon.html" with name="alert-triangle" only %}
+          <span>Cette session a été abandonnée et reste privée dans votre historique.</span>
+        {% endif %}
+      </p>
     </aside>
-  </div>
 
-  {% if attempt.status == "submitted" or attempt.status == "expired" %}
-    <section
-      class="card ee1-evaluation"
-      data-writing-evaluation
-      data-ee1-evaluation
-      data-evaluation-url="{% url route_names.evaluate attempt_id=attempt.pk %}"
-      data-evaluation-status="{{ attempt.evaluation_status }}"
-      aria-labelledby="writing-evaluation-title"
-    >
-      <div class="response-batches__head">
-        <div>
-          <div class="spine-label" id="writing-evaluation-title">Bilan assisté</div>
-          <p class="muted">Une estimation d’entraînement, fondée uniquement sur ce sujet et votre réponse. Elle n’est pas une note officielle du TCF.</p>
-        </div>
-        <form data-writing-evaluation-form data-ee1-evaluation-form>
-          {% csrf_token %}
-          <button class="btn btn--primary" type="submit" data-writing-evaluate data-ee1-evaluate>
-            Évaluer ma réponse
-          </button>
-        </form>
-      </div>
-      <p class="notice" data-writing-evaluation-status data-ee1-evaluation-status role="status">Bilan non demandé.</p>
-      <div data-writing-evaluation-result data-ee1-evaluation-result hidden>
+    <section class="lv-done" aria-label="Bilan de la session">
+      <div class="lv-report">
+        <dl class="lv-glance">
+          <div><dt>Statut</dt><dd>{{ attempt.get_status_display }}</dd></div>
+          <div><dt>Mots</dt><dd>{{ attempt.word_count|default:0 }} / {{ word_min }}–{{ word_max }}</dd></div>
+          <div><dt>Sujet</dt><dd>{{ attempt.snapshot.category_label }}</dd></div>
+        </dl>
+
+        <details class="lv-transcript lv-report-card" open>
+          <summary>
+            <h2>{% include "study/shared/partials/ui_icon.html" with name="file-text" only %} {{ simulation.response_label }}</h2>
+            <small>{{ attempt.word_count|default:0 }} mots</small>
+          </summary>
+          <div class="lv-proposal__prose markdown-prose" lang="fr">
+            {% if attempt.body %}
+              {{ attempt.body|markdown_prose }}
+            {% else %}
+              <p class="muted">Aucun texte n’a été enregistré.</p>
+            {% endif %}
+          </div>
+        </details>
+
+        <details class="lv-proposal__card lv-report-card" open>
+          <summary>
+            <h2>{% include "study/shared/partials/ui_icon.html" with name="check" only %} À vérifier</h2>
+          </summary>
+          <ul class="ee1-checklist">
+            <li>Ai-je répondu à chaque élément de la consigne&nbsp;?</li>
+            <li>Le registre et le format conviennent-ils au destinataire&nbsp;?</li>
+            <li>Mes idées sont-elles organisées et reliées&nbsp;?</li>
+            <li>Ai-je relu les accords, les accents et les prépositions&nbsp;?</li>
+          </ul>
+        </details>
+
+        {% if attempt.status == "submitted" or attempt.status == "expired" %}
+          <details
+            class="lv-assessment lv-report-card ee1-evaluation"
+            data-writing-evaluation
+            data-ee1-evaluation
+            data-evaluation-url="{% url route_names.evaluate attempt_id=attempt.pk %}"
+            data-evaluation-status="{{ attempt.evaluation_status }}"
+            open
+          >
+            <summary class="lv-assessment__score">
+              <div>
+                <h2 id="writing-evaluation-title">{% include "study/shared/partials/ui_icon.html" with name="target" only %} Bilan assisté</h2>
+                <p class="muted">Une estimation d’entraînement, fondée uniquement sur ce sujet et votre réponse. Elle n’est pas une note officielle du TCF.</p>
+              </div>
+              <strong data-writing-summary-score data-ee1-summary-score>Non évalué</strong>
+            </summary>
+            <div class="lv-assessment__body">
+              <div class="lv-assessment__controls">
+                <form data-writing-evaluation-form data-ee1-evaluation-form>
+                  {% csrf_token %}
+                  <button class="lv-primary" type="submit" data-writing-evaluate data-ee1-evaluate>
+                    {% include "study/shared/partials/ui_icon.html" with name="sparkles" only %}
+                    <span data-writing-evaluate-label>Évaluer ma réponse</span>
+                  </button>
+                </form>
+              </div>
+              <p class="lv-assessment__status" data-writing-evaluation-status data-ee1-evaluation-status role="status">Bilan non demandé.</p>
+            </div>
+            <div class="lv-assessment__result" data-writing-evaluation-result data-ee1-evaluation-result hidden>
         <div class="ee1-evaluation__verdict">
           <strong data-writing-verdict data-ee1-verdict></strong>
           <span data-writing-score data-ee1-score></span>
@@ -123,18 +144,30 @@
           <h2>Priorités pour le prochain essai</h2>
           <ol data-writing-priorities data-ee1-priorities></ol>
         </section>
+            </div>
+          </details>
+        {% endif %}
       </div>
-    </section>
-  {% endif %}
 
-  <div class="ee1-result__actions">
-    <a class="btn btn--primary" href="{% url route_names.setup %}">Nouvelle simulation</a>
-    {% if attempt.sujet %}
-      <a class="btn" href="{% url 'study:writing_sujet_detail' 'ee' attempt.task.slug attempt.sujet.pk %}">Étudier ce sujet</a>
-    {% endif %}
-    <a class="btn" href="{% url 'study:simulation_track' 'ee' %}">Retour à EE</a>
+      <nav class="lv-done-actions" aria-label="Actions de fin de session">
+        <a class="lv-primary" href="{% url route_names.setup %}">
+          Nouvelle simulation
+          {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}
+        </a>
+        {% if attempt.sujet %}
+          <a class="lv-quiet" href="{% url 'study:writing_sujet_detail' 'ee' attempt.task.slug attempt.sujet.pk %}">
+            {% include "study/shared/partials/ui_icon.html" with name="book-open" only %}
+            Étudier ce sujet
+          </a>
+        {% endif %}
+        <a class="lv-quiet" href="{% url 'study:simulation_track' 'ee' %}">
+          {% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %}
+          Retour à EE
+        </a>
+      </nav>
+    </section>
   </div>
-</main>
+</article>
 {% endblock %}
 
 {% block scripts %}

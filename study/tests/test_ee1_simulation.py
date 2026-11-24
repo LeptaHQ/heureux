@@ -10,6 +10,7 @@ from study.models import (
     WritingSimulationAttempt,
     WritingSimulationAttemptStatus,
     WritingSimulationEvaluationStatus,
+    WritingSujetCompletion,
 )
 
 from . import factories
@@ -61,6 +62,15 @@ class EE1SimulationTests(TestCase):
             response,
             f'href="{reverse("study:ee1_simulation")}?sujet_id={self.sujet.pk}"',
         )
+        self.assertContains(response, 'aria-label="Pratiquer :')
+        self.assertContains(response, 'data-writing-sujet-completion-form')
+        self.assertContains(response, "subject-progress.js")
+        self.assertContains(response, 'name="theme" data-custom-select data-auto-submit')
+        self.assertContains(response, 'name="etat" data-custom-select data-auto-submit')
+        self.assertContains(response, 'name="tri" data-custom-select data-auto-submit')
+        self.assertNotContains(response, ">Choisir</a>")
+        self.assertNotContains(response, ">Choisir</button>")
+        self.assertNotContains(response, ">Action<")
         fragment = self.client.get(
             reverse("study:ee1_subject_picker"),
             headers={"x-requested-with": "fetch"},
@@ -85,6 +95,24 @@ class EE1SimulationTests(TestCase):
         self.client.force_login(self.other)
         response = self.client.get(reverse("study:ee1_subject_picker"))
         self.assertTrue(all(row["count"] == 0 for row in response.context["page"]))
+
+    def test_subject_picker_uses_canonical_completion_for_equivalent_subjects(self):
+        WritingSujetCompletion.objects.create(user=self.owner, sujet=self.sujet)
+        with patch(
+            "study.views.writing_simulation.content_module.ee_writing_canonical_slug_by_slug",
+            return_value={
+                self.sujet.slug: self.sujet.slug,
+                self.other_sujet.slug: self.sujet.slug,
+            },
+        ):
+            response = self.client.get(reverse("study:ee1_subject_picker"))
+
+        self.assertContains(response, 'aria-checked="true"', count=2)
+        self.assertContains(
+            response,
+            f'data-writing-sujet-id="{self.sujet.pk}"',
+            count=2,
+        )
 
     @override_settings(EE1_SIMULATION_MINUTES=12)
     def test_setup_reuses_the_shared_session_page(self):
@@ -187,6 +215,11 @@ class EE1SimulationTests(TestCase):
         self.assertContains(result, "Bilan de votre session")
         self.assertContains(result, "Votre message a été remis dans le temps.")
         self.assertContains(result, "60 / 60–120")
+        self.assertContains(result, 'class="lv-studio ee1-session"')
+        self.assertContains(result, 'class="lv-track"')
+        self.assertContains(result, 'data-icon="target"')
+        self.assertContains(result, 'data-icon="arrow-right"')
+        self.assertContains(result, 'data-icon="book-open"')
         exported = self.client.get(reverse("study:export_account")).json()
         self.assertEqual(len(exported["ee1_simulation_attempts"]), 1)
         self.assertEqual(

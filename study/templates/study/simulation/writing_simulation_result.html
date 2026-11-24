@@ -117,5 +117,6 @@
   </a>
 {% endblock %}
 {% block scripts %}
-  <script src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=9"></script>
+  {{ block.super }}
+  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=10"></script>
 {% endblock %}

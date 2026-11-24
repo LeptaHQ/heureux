@@ -15,14 +15,14 @@ from django.urls import reverse
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect, ensure_csrf_cookie
 from django.views.decorators.debug import sensitive_post_parameters, sensitive_variables
-from django.views.decorators.http import require_GET, require_POST
+from django.views.decorators.http import require_GET, require_http_methods, require_POST
 from django.views.decorators.vary import vary_on_headers
 
 from study.audio.pins import AudioPinError
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
 from study.simulation import live_conversation, oral_evaluation
-from study.simulation.evaluation import DEADLINE_SECONDS, EvaluationError
+from study.simulation.evaluation import DEADLINE_SECONDS, PROVIDER_LABELS, EvaluationError, available_providers
 from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation, Prompt
 from study.navigation.routing import subject_selection_url
 from .helpers import _route_task, tache_two_publication
@@ -35,6 +35,7 @@ DEFAULT_CONSIGNE = (
 )
 OPINION_CONSIGNE = "Est-il préférable de découvrir une ville à pied plutôt qu’en voiture ? Pourquoi ?"
 EO3_KEY_PREFIX = "eo3:"
+ORAL_ALTERNATE_PROVIDERS = ("gemini", "cloudflare")
 # A quick report keeps its real HTTP status; a slower one streams keep-alive spaces first.
 EVALUATION_GRACE_SECONDS = 20
 EVALUATION_KEEPALIVE_SECONDS = 10
@@ -137,15 +138,21 @@ def oral_live(request, task_slug, **publication):
     monologue = task.slug == "tache-3"
     subject_url = subject_selection_url(subject.detail_url, request) if subject.detail_url else ""
     saved, reopened = [], None
+    configured = available_providers()
+    providers = set(configured)
+    selected_provider = next((key for key in PROVIDER_LABELS if key in configured), "groq")
     if available:
         simulations = LiveSimulation.objects.filter(user=request.user, subject_key=subject.key)
         # Only the figures the list shows, not each stored transcript and report.
         saved = list(simulations.values(
             "id", "created_at", score=KT("report__score"), nclc=KT("report__nclc"), status=KT("report__scoreStatus"),
+            has_alternate=Q(provider_reports__has_any_keys=ORAL_ALTERNATE_PROVIDERS),
         )[:5])
         for item in saved:
             if item["status"] == "scored":
                 item["summary"] = f'{item["score"]}/20 · NCLC {item["nclc"]}'
+            elif item["has_alternate"]:
+                item["summary"] = "Bilan disponible"
             else:
                 item["summary"] = "Bilan sans note" if item["status"] else "Sans bilan"
             item["url"] = f'?simulation={item["id"]}'
@@ -154,7 +161,19 @@ def oral_live(request, task_slug, **publication):
         except ValueError:
             pk = None
         if pk:
-            reopened = simulations.filter(pk=pk).values("id", "rows", "elapsed_ms", "report").first()
+            selected = simulations.filter(pk=pk)
+            reopened = selected.values(
+                "id", "rows", "elapsed_ms", "report",
+                **{f"has_{key}": Q(provider_reports__has_key=key) for key in ORAL_ALTERNATE_PROVIDERS},
+            ).first()
+            if reopened:
+                cached = {key for key in ORAL_ALTERNATE_PROVIDERS if reopened[f"has_{key}"]}
+                if reopened["report"]:
+                    cached.add("groq")
+                providers.update(cached)
+                selected_provider = next((key for key in PROVIDER_LABELS if key in cached), selected_provider)
+                if selected_provider in cached and selected_provider != "groq":
+                    reopened["report"] = _oral_report(selected, selected_provider)
     if monologue:
         session_back_url = reverse("study:eo3_topic_picker")
         session_back_label = "Choisir un sujet"
@@ -191,6 +210,12 @@ def oral_live(request, task_slug, **publication):
         "token_url": reverse(route + "_token", kwargs=publication),
         "save_url": reverse(route + "_save", kwargs=publication),
         "evaluation_url": reverse(route + "_evaluation", kwargs=publication),
+        "evaluation_provider": selected_provider,
+        "evaluation_provider_label": PROVIDER_LABELS[selected_provider],
+        "evaluation_providers": [(key, label) for key, label in PROVIDER_LABELS.items() if key in providers],
+        "auto_groq_evaluation": "groq" in configured,
+        "session_title_assessment": available and len(providers) > 1,
+        "assessment_action_hidden": True,
         "delete_url": subject_selection_url(reverse(route + "_delete", kwargs=publication), request),
         "saved_sessions": saved,
         "saved_simulation": reopened and {
@@ -359,53 +384,73 @@ def oral_live_delete(request, task_slug, **publication):
 
 
 @never_cache
-@require_POST
+@require_http_methods(["GET", "POST"])
 @csrf_protect
 @sensitive_post_parameters()
 @sensitive_variables()
 def oral_live_evaluation(request, task_slug, **publication):
-    if request.content_type != "application/json":
-        return JsonResponse({"error": "Un objet JSON est requis."}, status=415)
     task = _route_task("eo", task_slug, request=request)
     subject = _live_subject(task, publication)
+    sessions = LiveSimulation.objects.filter(user=request.user, subject_key=subject.key)
+    if request.method == "GET":
+        provider = request.GET.get("provider", "groq")
+        try:
+            pk = uuid.UUID(request.GET.get("simulation", ""))
+        except ValueError:
+            return JsonResponse({"error": "Identifiant de séance invalide."}, status=400)
+        if provider not in PROVIDER_LABELS:
+            return JsonResponse({"error": "Modèle d’évaluation invalide."}, status=400)
+        report = _oral_report(sessions.filter(pk=pk), provider)
+        if report is None:
+            return JsonResponse({"error": "Aucun bilan enregistré pour ce modèle."}, status=404)
+        return JsonResponse(report)
+    if request.content_type != "application/json":
+        return JsonResponse({"error": "Un objet JSON est requis."}, status=415)
     monologue = task_slug == "tache-3"
     try:
         data = oral_evaluation.request_data(request.read(oral_evaluation.MAX_BODY + 1), monologue=monologue)
-        oral_evaluation.authorize(request, task, data.get("pin"), grant=data.get("reviewGrant"), subject_key=subject.key)
+        provider = data.get("provider", "groq")
+        oral_evaluation.authorize(
+            request, task, data.get("pin"), grant=data.get("reviewGrant"), subject_key=subject.key, provider=provider,
+        )
     except AudioPinError as exc:
         return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
     except EvaluationError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
     rows = data["rows"]
-    simulation = None
+    scored_session = None
     if "simulation" in data:
-        saved = LiveSimulation.objects.filter(pk=data["simulation"], user=request.user, subject_key=subject.key).values_list(
-            "rows", flat=True).first()
+        selected = sessions.filter(pk=data["simulation"])
+        saved = selected.values_list("rows", flat=True).first()
         # Only the exchange that was saved may carry this report.
         if saved and [{"speaker": row["speaker"], "text": row["text"]} for row in saved] == rows:
-            simulation = data["simulation"]
+            scored_session = selected
     outcome, done = [], threading.Event()
 
     def keep(body, status):
         # Runs on the request thread, which owns the database connection.
-        if status == 200 and simulation:
+        if status == 200 and scored_session is not None:
             try:
-                sessions = LiveSimulation.objects.filter(pk=simulation)
-                writable = Q(report__isnull=True)
-                if body.get("scoreStatus") == "scored":
-                    writable |= Q(report__scoreStatus="incomplete")
-                if not sessions.filter(writable).update(report=body):
-                    # Never mix marks from two assessments or replace a better saved report.
-                    saved = sessions.values_list("report", flat=True).first()
-                    if saved:
+                with transaction.atomic():
+                    field = "report" if provider == "groq" else "provider_reports"
+                    session = scored_session.select_for_update().only(field).first()
+                    if session is None:
+                        return body
+                    saved = session.report if provider == "groq" else session.provider_reports.get(provider)
+                    if saved and not (saved.get("scoreStatus") == "incomplete" and body.get("scoreStatus") == "scored"):
                         return {**saved, "previousReportKept": True}
+                    if provider == "groq":
+                        session.report = body
+                    else:
+                        session.provider_reports[provider] = body
+                    session.save(update_fields=[field])
             except DatabaseError:
                 logger.exception("Oral evaluation: report not saved")
         return body
 
     def score():
         try:
-            outcome.append((oral_evaluation.score(subject.prompt, rows, monologue=monologue), 200))
+            outcome.append((oral_evaluation.score(subject.prompt, rows, monologue=monologue, provider=provider), 200))
         except EvaluationError as exc:
             outcome.append(({"error": str(exc)}, exc.status))
         finally:
@@ -418,15 +463,15 @@ def oral_live_evaluation(request, task_slug, **publication):
         return JsonResponse(keep(body, status), status=status)
 
     # Render's Cloudflare edge drops a request that sends nothing for 100 s (HTTP 524).
-    # Send the headers now, then JSON-insignificant spaces until Groq answers.
+    # Send the headers now, then JSON-insignificant spaces until the grader answers.
     def keep_alive():
         try:
             yield b" "
             while not done.wait(EVALUATION_KEEPALIVE_SECONDS) and time.monotonic() < deadline:
                 yield b" "
         except GeneratorExit:
-            # The learner left mid-report; its saved exchange still receives Groq's answer.
-            if simulation and done.wait(max(0, deadline - time.monotonic())) and outcome:
+            # The learner left mid-report; its saved exchange still receives the answer.
+            if scored_session is not None and done.wait(max(0, deadline - time.monotonic())) and outcome:
                 keep(*outcome[0])
             raise
         if not done.is_set():
@@ -438,3 +483,8 @@ def oral_live_evaluation(request, task_slug, **publication):
 
     request.META.pop("HTTP_ACCEPT_ENCODING", None)  # GZipMiddleware would hold the spaces back.
     return StreamingHttpResponse(keep_alive(), content_type="application/json")
+
+
+def _oral_report(sessions, provider):
+    field = "report" if provider == "groq" else f"provider_reports__{provider}"
+    return sessions.values_list(field, flat=True).first()

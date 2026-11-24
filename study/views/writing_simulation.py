@@ -36,14 +36,13 @@ from study.models import (
 )
 from study.review.progress import writing_sujet_progress_by_id
 from study.simulation import writing_evaluation
-from study.simulation.evaluation import EvaluationError
+from study.simulation.evaluation import PROVIDER_LABELS, EvaluationError, available_providers
 from .simulation import render_subject_picker, subject_picker_context
 
 logger = logging.getLogger(__name__)
 
 MAX_BODY_LENGTH = 20_000
 EVALUATION_STALE_AFTER = timedelta(minutes=5)
-EVALUATION_PROVIDER_LABELS = {"groq": "Groq", "gemini": "Gemini", "cloudflare": "Workers"}
 _FINISHED_FIELDS = ("status", "submitted_at", "word_count")
 
 
@@ -315,7 +314,7 @@ def _setup_context(request, spec, task):
     attempts = (
         WritingSimulationAttempt.objects.filter(user=request.user, task=task)
         .only("status", "started_at", "deadline_at", "evaluation_status")
-        .annotate(has_saved_report=Q(evaluation__reports__has_any_keys=list(EVALUATION_PROVIDER_LABELS)))
+        .annotate(has_saved_report=Q(evaluation__reports__has_any_keys=list(PROVIDER_LABELS)))
         .order_by("-started_at", "-id")[:8]
     )
     saved_sessions = []
@@ -562,8 +561,9 @@ def _result_context(attempt, spec):
         "word_max": word_max,
         "session_title_assessment": _has_response(attempt) and attempt.status != WritingSimulationAttemptStatus.ABANDONED,
         "evaluation_provider": provider,
-        "evaluation_provider_label": EVALUATION_PROVIDER_LABELS[provider],
-        "evaluation_providers": [(key, EVALUATION_PROVIDER_LABELS[key]) for key in providers],
+        "evaluation_provider_label": PROVIDER_LABELS[provider],
+        "evaluation_providers": [(key, PROVIDER_LABELS[key]) for key in providers],
+        "assessment_form_id": "writing-evaluation-form",
         "subject_url": subject_url,
         "response_parts": _response_parts(attempt, spec),
         "documents": attempt.snapshot.get("documents", ()),
@@ -717,8 +717,8 @@ def _ee1_reports(attempt):
 def _ee1_evaluation_options(attempt):
     default = writing_evaluation.provider_for(1)
     reports = _ee1_reports(attempt)
-    available = writing_evaluation.available_providers() | reports.keys()
-    providers = tuple(key for key in EVALUATION_PROVIDER_LABELS if key in available) or (default,)
+    available = available_providers() | reports.keys()
+    providers = tuple(key for key in PROVIDER_LABELS if key in available) or (default,)
     last_provider = attempt.evaluation.get("provider")
     if last_provider not in providers:
         last_provider = default if default in reports else next(iter(reports), None)
@@ -782,7 +782,7 @@ def run_evaluation(attempt_id, started_at, spec, provider=None):
             return
         word_min, word_max = _attempt_limits(attempt, spec)
         provider_name = provider or writing_evaluation.provider_for(spec.number)
-        if provider_name not in EVALUATION_PROVIDER_LABELS:
+        if provider_name not in PROVIDER_LABELS:
             provider_name = "unknown"
         log_context = f"task=ee{spec.number} provider={provider_name} attempt={attempt.pk}"
         logger.info("writing evaluation started %s", log_context)
@@ -911,7 +911,7 @@ def evaluate(request, spec, attempt_id):
             and now - attempt.evaluation_started_at < EVALUATION_STALE_AFTER
         ):
             return evaluation_json(attempt, status=202, provider=provider)
-        if provider and provider not in writing_evaluation.available_providers():
+        if provider and provider not in available_providers():
             return JsonResponse(
                 {"error": "Ce modèle n’est pas disponible pour une nouvelle évaluation."},
                 status=409,

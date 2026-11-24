@@ -672,6 +672,45 @@ class GeminiLiveTests(TestCase):
         self.assertTrue(EO2TopicStatus.objects.filter(user=self.reviewer, retry=True, done=False).exists())
         self.assertTrue(LiveSimulation.objects.filter(pk=other.pk).exists())
 
+    @override_settings(CLOUDFLARE_WORKERS_API_KEY="fixture-workers", CLOUDFLARE_ACCOUNT_ID="0123456789abcdef" * 2)
+    def test_alternate_oral_reports_require_separate_consent_and_do_not_replace_groq(self):
+        self.evaluation_fixture()
+        simulation = LiveSimulation.objects.create(user=self.reviewer, rows=self.rows)
+        default = self.evaluate(simulation=str(simulation.pk)).json()
+        page = self.client.get(self.live, {"simulation": simulation.pk})
+        self.assertTemplateUsed(page, "study/simulation/partials/assessment_action.html")
+        self.assertEqual(page.context["evaluation_providers"], [
+            ("groq", "Groq"), ("gemini", "Gemini"), ("cloudflare", "Workers"),
+        ])
+        grant = live_conversation.issue_grant(page.wsgi_request, "", purpose="review")
+        body = {"consent": True, "provider": "gemini", "rows": self.rows, "simulation": str(simulation.pk)}
+        reports = {}
+        with patch.object(evaluation, "request_gemini_report", return_value=self.report) as gemini:
+            self.assert_private(self.post(url=self.eval_url, body=json.dumps({**body, "reviewGrant": grant})), 403)
+            self.assert_private(self.post(url=self.eval_url, body=json.dumps({**body, "consent": False, "pin": PILOT_PIN})), 400)
+            gemini.assert_not_called()
+            response = self.post(url=self.eval_url, body=json.dumps({**body, "pin": PILOT_PIN}))
+            self.assert_private(response, 200)
+            reports["gemini"] = response.json()
+            gemini.assert_called_once()
+            self.assertEqual(gemini.call_args.args[2], oral_evaluation._DIALOGUE_SCHEMA)
+        workers_report = {**self.report, "reason": "Bilan Workers gardé à part."}
+        with patch.object(evaluation, "request_workers_report", return_value=workers_report) as workers:
+            response = self.evaluate(provider="cloudflare", simulation=str(simulation.pk))
+            self.assert_private(response, 200)
+            reports["cloudflare"] = response.json()
+            workers.assert_called_once()
+        simulation.refresh_from_db()
+        self.assertEqual(simulation.report, default)
+        self.assertEqual(simulation.provider_reports, reports)
+
+        for provider, report in {"groq": default, **reports}.items():
+            saved = self.client.get(self.eval_url, {"simulation": simulation.pk, "provider": provider})
+            self.assert_private(saved, 200)
+            self.assertEqual(saved.json(), report)
+        self.client.force_login(self.other)
+        self.assert_private(self.client.get(self.eval_url, {"simulation": simulation.pk, "provider": "gemini"}), 404)
+
     def test_learner_deletes_only_their_own_saved_exchange_of_this_subject(self):
         args = ("mai", 2, 8)
         key = tache_two_subject_content_key(*args)

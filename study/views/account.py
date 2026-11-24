@@ -731,6 +731,7 @@ def export_account(request):
             {
                 "id": item.pk, "subject_key": item.subject_key, "rows": item.rows,
                 "elapsed_ms": item.elapsed_ms, "report": item.report, "created_at": item.created_at,
+                **({"provider_reports": item.provider_reports} if item.provider_reports else {}),
             }
             for item in LiveSimulation.objects.filter(user=request.user).order_by("created_at", "pk")
         ],

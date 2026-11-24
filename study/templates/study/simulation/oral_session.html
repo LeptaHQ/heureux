@@ -3,6 +3,8 @@
 {% block title %}Simulation · {{ task.short_label }} · {{ subject.title|truncatechars:80 }}{% if saved_simulation %} · Séance enregistrée{% endif %} · Heureux{% endblock %}
 {% block studio_attributes %}id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
     data-token-url="{{ token_url }}" data-save-url="{{ save_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
+    data-evaluation-provider="{{ evaluation_provider }}" data-evaluation-provider-label="{{ evaluation_provider_label }}"
+    data-auto-groq-evaluation="{{ auto_groq_evaluation|yesno:'1,0' }}"
     data-mode="{% if monologue %}opinion{% else %}interaction{% endif %}"
     data-scenario-prompt="{{ scenario_prompt }}"{% endblock %}
 {% block session_body %}
@@ -107,9 +109,10 @@
     {% if saved_simulation %}{{ saved_simulation|json_script:"lv-saved-simulation" }}{% endif %}
 {% endblock %}
 {% block scripts %}
+{{ block.super }}
 {% if gemini_live_available %}
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=18"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=19"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=10"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=17"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=18"></script>
 {% endif %}
 {% endblock %}

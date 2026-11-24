@@ -9,7 +9,18 @@
   const button = by("assess");
   const level = by("level");
   const result = by("assessment-result");
-  const menu = document.getElementById("writing-models");
+  const picker = window.HeureuxAssessmentPicker(button, (provider) => {
+    if (provider !== form.dataset.evaluationProvider) {
+      form.dataset.evaluationProvider = provider;
+      picker.select(provider);
+      result.hidden = true;
+      find("review").hidden = true;
+      by("proposal").hidden = true;
+      level.classList.remove("lv-level--scored");
+      level.textContent = "Non évalué";
+    }
+    requestEvaluation();
+  });
   const url = form.dataset.evaluationUrl;
   const csrf = form.elements.csrfmiddlewaretoken.value;
   let poll;
@@ -21,7 +32,7 @@
     by("assessment-status").textContent = message;
   };
   const setButtonLabel = (label) => {
-    if (menu) return;
+    if (picker) return;
     button.setAttribute("aria-label", label);
     button.title = label;
   };
@@ -174,7 +185,7 @@
   const apply = (payload) => {
     if (payload.status === "ready" && payload.report) {
       showReport(payload.report);
-      if (!menu) {
+      if (!picker) {
         button.closest(".lv-assessment__action").hidden = true;
         document.getElementById("writing-evaluation-disclosure").hidden = true;
       }
@@ -199,7 +210,7 @@
   const fetchStatus = async () => {
     try {
       const endpoint = new URL(url, location.href);
-      if (menu) endpoint.searchParams.set("provider", form.dataset.evaluationProvider);
+      if (picker) endpoint.searchParams.set("provider", form.dataset.evaluationProvider);
       const response = await fetch(endpoint, { credentials: "same-origin", cache: "no-store" });
       if (!response.ok) throw new Error();
       apply(await response.json());
@@ -209,41 +220,7 @@
     }
   };
 
-  const setMenu = (open) => {
-    menu.hidden = !open;
-    button.setAttribute("aria-expanded", String(open));
-  };
-  if (menu) {
-    button.addEventListener("click", () => setMenu(menu.hidden));
-    document.addEventListener("click", (event) => {
-      if (!menu.hidden && !menu.contains(event.target) && !button.contains(event.target)) setMenu(false);
-    });
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && !menu.hidden) {
-        event.preventDefault();
-        setMenu(false);
-        button.focus();
-      }
-    });
-  }
-
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const selected = event.submitter;
-    if (menu) {
-      if (selected?.name !== "provider") return;
-      setMenu(false);
-      if (selected.value !== form.dataset.evaluationProvider) {
-        form.dataset.evaluationProvider = selected.value;
-        menu.querySelectorAll("button").forEach((choice) =>
-          choice.setAttribute("aria-pressed", String(choice === selected)));
-        result.hidden = true;
-        find("review").hidden = true;
-        by("proposal").hidden = true;
-        level.classList.remove("lv-level--scored");
-        level.textContent = "Non évalué";
-      }
-    }
+  async function requestEvaluation() {
     by("assessment").open = true;
     setStatus("Bilan en préparation…", true);
     try {
@@ -263,6 +240,10 @@
       setStatus("Le bilan est temporairement indisponible. Votre réponse reste disponible.");
       setButtonLabel("Réessayer");
     }
+  }
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    requestEvaluation();
   });
 
   if (form.dataset.evaluationStatus !== "not_requested") {

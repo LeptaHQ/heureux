@@ -83,7 +83,7 @@ it verifies citations using numbered passages from the learner’s original word
 EE1 grading with Gemini 3.8 Flash uses the same `GEMINI_API_KEY` as the voice
 simulator. Check [Google’s data-use terms](https://aistudio.google.com/docs/terms)
 before grading learner responses: Google may use free-tier inputs to improve
-its models. To add **Workers** ([Gemma 4 26B on Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)) to EE1, set `CLOUDFLARE_WORKERS_API_KEY` and
+its models. To add **Workers** ([Gemma 4 26B on Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)) to the EE1 and oral bilans, set `CLOUDFLARE_WORKERS_API_KEY` and
 `CLOUDFLARE_ACCOUNT_ID` on Render using the [Workers AI REST setup](https://developers.cloudflare.com/workers-ai/get-started/rest-api/).
 Heureux calls Workers AI directly; see [Cloudflare’s data-use terms](https://developers.cloudflare.com/workers-ai/platform/data-usage/).
 Gemma uses the [Workers AI daily free allocation](https://developers.cloudflare.com/workers-ai/platform/pricing/).
@@ -94,7 +94,7 @@ draft or running out of time does not send it. When more than one model is
 available, the EE1 bilan’s sparkle button lets learners request another
 provider. Each report is saved separately; switching back opens the saved
 report without grading again. `EE1_EVALUATION_PROVIDER` sets the default for
-attempts that do not already have a provider. EE2, EE3 and oral grading use Groq. All
+attempts that do not already have a provider. EE2 and EE3 grading uses Groq. All
 providers use the same evidence checks; optional feedback can be omitted
 without hiding a supported score. Temporary service failures are retried once with the same
 provider within the three-minute deadline. Groq can also use its one retry to
@@ -202,10 +202,12 @@ word or phrase can be located unambiguously in that learner turn.
 Strengths are illustrated with real questions or follow-ups from the exchange.
 Unmarked text is not a blanket endorsement, and a spelling difference is not a pronunciation error. An interrupted
 call can show the portion received; no learner speech means no assessment.
-When time is up, Heureux starts a Groq evaluation automatically: the consent given before the
-exchange covers sending its transcript to Groq for this bilan. A small spinner beside the
-sparkle icon (**Évaluer mon niveau**) shows when the evaluation is in
-progress; if it fails, select the icon to try again. No second PIN is needed for this attempt. Heureux sends only the
+When time is up, Heureux starts a Groq evaluation automatically if Groq is configured:
+the consent given before the exchange covers sending its transcript to Groq. The sparkle button
+beside the oral bilan title uses the same model picker as EE1. Choose Groq, Gemini, or Workers
+when configured; requesting a new Gemini or Workers report asks permission to send the
+transcript to that provider before sending it. Each provider’s saved report opens without resending
+the transcript. A spinner shows when an evaluation is in progress. For Groq, Heureux sends only the
 published consigne and both speakers’ transcribed words (not audio or notes)
 to [`openai/gpt-oss-120b`](https://console.groq.com/docs/model/openai/gpt-oss-120b) on Groq,
 which [may log them for up to 30 days](https://console.groq.com/docs/your-data) unless
@@ -284,7 +286,7 @@ To enable the pilot for a test account:
    [model’s free tier](https://aistudio.google.com/docs/pricing#gemini-3.8-live)
    and availability in that project. Do not link a billing account or enable
    a paid tier to work around a quota error.
-2. Set `GEMINI_API_KEY` for the conversation and EE1 grading, and a [Groq key](https://console.groq.com/keys)
+2. Set `GEMINI_API_KEY` for the conversation and optional Gemini grading, and a [Groq key](https://console.groq.com/keys)
    as `GROQ_API_KEY` for Groq bilans, **only in the server’s secret settings**. The voice pilot uses the existing
    `AI_PIN`; it needs neither an account-ID list nor an ElevenLabs API key.
    Restart the server. An operator must verify billing, age, region and the

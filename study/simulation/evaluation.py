@@ -16,6 +16,7 @@ from django.views.decorators.debug import sensitive_variables
 MODEL = "openai/gpt-oss-120b"
 _GEMINI_MODEL = "gemini-3.8-flash"
 _WORKERS_MODEL = "@cf/google/gemma-4-26b-a4b-it"
+PROVIDER_LABELS = {"groq": "Groq", "gemini": "Gemini", "cloudflare": "Workers"}
 DEADLINE_SECONDS = 180
 _MAX_RESPONSE = 64_000
 _RETRY_MIN_SECONDS = 30
@@ -240,13 +241,13 @@ def workers_available():
 
 
 @sensitive_variables()
-def request_workers_report(instruction, packet, schema):
+def request_workers_report(instruction, packet, schema, *, name="ee1_bilan"):
     if not workers_available():
         logger.warning("Cloudflare evaluation: missing token or invalid account ID")
         raise EvaluationError(503, "Le service de bilan est indisponible. Votre travail reste disponible.")
     body, elapsed = _request_with_retry(
         {
-            **_chat_payload(instruction, packet, schema, "ee1_bilan"),
+            **_chat_payload(instruction, packet, schema, name),
             "max_completion_tokens": 6144,
             "store": False,
         },
@@ -267,3 +268,24 @@ def request_workers_report(instruction, packet, schema):
     except (ValueError, KeyError, TypeError, AttributeError, RecursionError):
         logger.warning("Cloudflare evaluation: could not decode the report")
         raise EvaluationError(502, _UNREADABLE) from None
+
+
+def available_providers():
+    return {
+        provider for provider, configured in (
+            ("groq", settings.GROQ_API_KEY),
+            ("gemini", settings.GEMINI_API_KEY),
+            ("cloudflare", workers_available()),
+        ) if configured
+    }
+
+
+@sensitive_variables()
+def request_provider_report(provider, instruction, packet, schema, *, name="bilan", **groq_options):
+    if provider == "groq":
+        return request_report(instruction, packet, schema, name=name, **groq_options)
+    if provider == "gemini":
+        return request_gemini_report(instruction, packet, schema)
+    if provider == "cloudflare":
+        return request_workers_report(instruction, packet, schema, name=name)
+    raise EvaluationError(400, "Le modèle d’évaluation n’est pas disponible.")

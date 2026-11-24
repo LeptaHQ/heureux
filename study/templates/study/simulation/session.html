@@ -19,9 +19,11 @@
               </summary>
               <div class="lv-assessment__body">
                 {% block assessment_controls %}
+                  {% if not session_title_assessment %}
                   <div id="lv-assessment-controls" class="lv-assessment__controls">
                     {% include "study/simulation/partials/assessment_action.html" %}
                   </div>
+                  {% endif %}
                 {% endblock %}
                 <p id="lv-assessment-status" class="lv-assessment__status" role="status">{% block assessment_status %}{% endblock %}</p>
               </div>
@@ -43,4 +45,8 @@
     {% endblock %}
   </div>
 </article>
+{% endblock %}
+{% block scripts %}
+  {{ block.super }}
+  <script defer src="{% static 'study/js/simulation/assessment-picker.js' %}?v=1"></script>
 {% endblock %}

@@ -15,8 +15,64 @@ PILOT_PIN = "test-audio-pin"
 
 
 class LiveConversationBrowserMixin:
+    def choose_oral_grader(self, name):
+        self.page.locator("#lv-assess").click()
+        self.page.get_by_role("group", name="Modèles d’évaluation").get_by_role("button", name=name).click()
+
+    @override_settings(
+        GEMINI_API_KEY="fixture-gemini", GROQ_API_KEY="fixture-groq", AI_PIN=PILOT_PIN,
+        CLOUDFLARE_WORKERS_API_KEY="fixture-workers", CLOUDFLARE_ACCOUNT_ID="0123456789abcdef" * 2,
+    )
+    def test_oral_bilan_reuses_the_model_picker_and_keeps_a_failed_switch_private(self):
+        factories.make_task(self.part, "tache-2")
+        rows = [{"speaker": "user", "text": "Bonjour, j’ai une question."}]
+        groq = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "reason": "Bilan Groq.",
+                "criteria": [], "evidence": [], "annotations": [], "next": "", "proposal": []}
+        workers = {**groq, "score": 10, "nclc": "7", "reason": "Bilan Workers."}
+        saved = LiveSimulation.objects.create(
+            user=self.user, rows=rows, report=groq, provider_reports={"cloudflare": workers},
+        )
+        posts = []
+        endpoint = reverse("study:eo_tache_two_live_evaluation")
+
+        def reject_gemini(route):
+            posts.append(route.request.post_data_json)
+            route.fulfill(status=503, json={"error": "Gemini indisponible."})
+
+        self.page.route(f"**{endpoint}", reject_gemini)
+        url = reverse("study:eo_tache_two_live", query={"simulation": saved.pk})
+        self.page.goto(self.live_server_url + url)
+        level = self.page.locator("#lv-level")
+        expect(level).to_have_text("12/20 · NCLC 8 · B2")
+        sparkle = self.page.locator(".lv-title-row").get_by_role("button", name="Choisir le modèle d’évaluation")
+        expect(sparkle.locator('[data-icon="sparkles"]')).to_be_visible()
+        sparkle.click()
+        menu = self.page.get_by_role("group", name="Modèles d’évaluation")
+        expect(menu.get_by_role("button")).to_have_text(["Groq", "Gemini", "Workers"])
+        expect(menu.get_by_role("button", name="Groq")).to_have_attribute("aria-pressed", "true")
+        menu.get_by_role("button", name="Workers").click()
+        expect(level).to_have_text("10/20 · NCLC 7 · B2")
+        self.choose_oral_grader("Gemini")
+        pin = self.page.locator("[data-audio-pin-dialog]")
+        expect(pin).to_contain_text("envoyée à Gemini")
+        self.assertEqual(posts, [])
+        pin.get_by_label("Code", exact=True).fill(PILOT_PIN)
+        pin.get_by_role("button", name="Demander le bilan").click()
+        expect(self.page.get_by_role("status").filter(has_text="Gemini indisponible.")).to_be_visible()
+        expect(level).to_have_text("10/20 · NCLC 7 · B2")
+        sparkle.click()
+        expect(menu.get_by_role("button", name="Workers")).to_have_attribute("aria-pressed", "true")
+        self.page.keyboard.press("Escape")
+        expect(sparkle).to_be_focused()
+        self.choose_oral_grader("Groq")
+        expect(level).to_have_text("12/20 · NCLC 8 · B2")
+        self.assertEqual(posts, [{
+            "consent": True, "provider": "gemini", "pin": PILOT_PIN, "simulation": str(saved.pk), "rows": rows,
+        }])
+
     def open_live_pilot(self, *, subject_args=(), opinion=False):
         """Real Web Audio and worklet; synthetic input and a local stand-in for Gemini."""
+        self.enterContext(override_settings(GROQ_API_KEY="fixture-groq-key"))
         self.opinion = opinion
         studio = "study:eo_tache_three_live" if opinion else "study:eo_tache_two_live"
         factories.make_task(self.part, "tache-3" if opinion else "tache-2")
@@ -173,7 +229,7 @@ class LiveConversationBrowserMixin:
         self.page.locator("#lv-skip").click()
         expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
         self.page.locator("#lv-end").click()
-        self.page.get_by_role("link", name="Revenir à la fiche de ce sujet").click()
+        self.page.locator("#lv-done").get_by_role("link", name="Étudier ce sujet").click()
         expect(self.page).to_have_url(self.live_server_url + reverse("study:task_subject_detail", args=("eo", "tache-2", *args)))
 
     @override_settings(GEMINI_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN)
@@ -590,10 +646,10 @@ class LiveConversationBrowserMixin:
         ])
         self.page.evaluate("""() => { window.fetch = () =>
           new Promise(resolve => probe.releaseReview = report => resolve(Response.json(report))); }""")
-        self.page.locator("#lv-assess").click()
-        expect(self.page.locator('#lv-assess [data-icon="sparkles"]')).to_be_visible()
+        self.choose_oral_grader("Groq")
+        expect(self.page.locator('#lv-assess [data-icon="sparkles"]')).to_be_attached()
         expect(spinner).to_be_visible()
-        expect(status).to_contain_text("examine")
+        expect(status).to_contain_text("Préparation")
         expect(status).to_have_class(re.compile("sr-only"))
         self.page.emulate_media(reduced_motion="reduce")
         expect(spinner).to_have_css("animation-name", "none")
@@ -749,18 +805,18 @@ class LiveConversationBrowserMixin:
         expect(button).to_be_enabled()
         self.page.set_viewport_size({"width": 320, "height": 700})
         controls = self.page.locator("#lv-assessment-controls")
-        expect(button).to_have_accessible_name("Évaluer mon niveau")
+        expect(button).to_have_accessible_name("Choisir le modèle d’évaluation")
         expect(button).to_have_text("")
         expect(button.locator('[data-icon="sparkles"]')).to_be_visible()
         expect(controls.locator("details, input")).to_have_count(0)
         self.assert_no_horizontal_overflow()
         expect(self.page.locator("#lv-turns")).to_contain_text("Combien coûte le prêt")
         self.page.locator("#lv-assessment summary").click()
-        button.dispatch_event("click")  # Folded while Groq works, the bilan reopens on the answer.
+        self.choose_oral_grader("Groq")  # Folded while Groq works, the bilan reopens on the answer.
         expect(status).to_contain_text("Délai.")  # A timeout after keep-alive spaces arrives in the body.
         expect(status).to_be_visible()
         expect(level).to_have_text("Non évalué")
-        button.click()
+        self.choose_oral_grader("Groq")
         expect(level).to_have_text("12/20 · NCLC 8 · B2")
         expect(self.page.locator("#lv-assessment-evidence")).to_contain_text("Vous relancez sur le cas de deux appareils.")
         table = self.page.locator("#lv-assessment-criteria")
@@ -839,7 +895,7 @@ class LiveConversationBrowserMixin:
             expect(self.page.locator("#lv-turns")).to_contain_text("Je veux prend un appareil.")
             expect(status).to_have_text("Pas encore de bilan pour cet échange : touchez ✨ pour le demander.")
             expect(level).to_have_text("Non évalué")
-            button.click()
+            self.choose_oral_grader("Groq")
             expect(self.pin_dialog.get_by_role("heading")).to_have_text("Demander le bilan")
             self.pin_dialog.get_by_label("Code", exact=True).fill(PILOT_PIN)
             self.pin_dialog.get_by_role("button", name="Demander le bilan").click()
@@ -875,11 +931,11 @@ class LiveConversationBrowserMixin:
             row = self.page.get_by_role("row").filter(has=self.page.get_by_role("rowheader", name="Précision lexicale"))
             expect(row.get_by_role("cell", name="Non évalué", exact=True)).to_be_visible()
             self.assertEqual(len(calls), reviews)  # Opening old or partial feedback never resubmits it.
-            self.page.get_by_role("button", name="Réévaluer le bilan").click()
+            self.choose_oral_grader("Groq")
             self.pin_dialog.get_by_label("Code", exact=True).fill(PILOT_PIN)
             self.pin_dialog.get_by_role("button", name="Demander le bilan").click()
             expect(level).to_have_text("12/20 · NCLC 8 · B2")
-            expect(button).to_be_hidden()
+            expect(button).to_be_visible()
             self.assertEqual(calls[-1]["rows"], simulation.rows)
             self.assertEqual(self.page.evaluate("probe.calls"), 0)
 

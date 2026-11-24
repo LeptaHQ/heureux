@@ -1,17 +1,17 @@
-<div class="lv-assessment__action">
+<div class="lv-assessment__action"{% if assessment_action_hidden and session_title_assessment %} id="lv-assessment-controls" hidden{% endif %}>
   <button class="icon-button" id="lv-assess"
     {% if evaluation_providers|length > 1 %}
-      type="button" aria-label="Choisir le modèle d’évaluation" title="Choisir le modèle d’évaluation" aria-expanded="false" aria-controls="writing-models"
-    {% elif session_title_assessment %}
-      type="submit" form="writing-evaluation-form" aria-label="Évaluer ma réponse" aria-describedby="writing-evaluation-disclosure" title="Évaluer ma réponse"
+      type="button" aria-label="Choisir le modèle d’évaluation" title="Choisir le modèle d’évaluation" aria-expanded="false" aria-controls="lv-assessment-models"
+    {% elif assessment_form_id %}
+      type="submit" form="{{ assessment_form_id }}" aria-label="Évaluer ma réponse" aria-describedby="writing-evaluation-disclosure" title="Évaluer ma réponse"
     {% else %}
       type="button" aria-label="Évaluer mon niveau" title="Évaluer mon niveau" disabled
     {% endif %}>{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %}</button>
   <span class="lv-assessment__spinner" aria-hidden="true"></span>
   {% if evaluation_providers|length > 1 %}
-    <div id="writing-models" class="custom-select__list lv-assessment__models" role="group" aria-label="Modèles d’évaluation" hidden>
+    <div id="lv-assessment-models" class="custom-select__list lv-assessment__models" role="group" aria-label="Modèles d’évaluation" hidden>
       {% for provider, label in evaluation_providers %}
-        <button class="custom-select__option" type="submit" form="writing-evaluation-form" name="provider" value="{{ provider }}" title="Évaluer avec {{ label }}" aria-pressed="{% if provider == evaluation_provider %}true{% else %}false{% endif %}">{{ label }}{% include "study/shared/partials/ui_icon.html" with name="check" only %}</button>
+        <button class="custom-select__option" type="button" value="{{ provider }}" title="Évaluer avec {{ label }}" aria-pressed="{% if provider == evaluation_provider %}true{% else %}false{% endif %}">{{ label }}{% include "study/shared/partials/ui_icon.html" with name="check" only %}</button>
       {% endfor %}
     </div>
   {% endif %}

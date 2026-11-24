@@ -4,14 +4,13 @@ import json
 import re
 import uuid
 
-from django.conf import settings
 from django.core import signing
 from django.views.decorators.debug import sensitive_variables
 
 from study.accounts.services import authorize_audio_generation
 
 from . import live_conversation
-from .evaluation import EvaluationError, request_report, unique_fields
+from .evaluation import PROVIDER_LABELS, EvaluationError, available_providers, request_provider_report, unique_fields
 from .evaluation import checked_text as _text
 from .evidence import number_passages
 
@@ -205,8 +204,10 @@ def request_data(body, *, monologue=False):
         if len(body) > MAX_BODY:
             raise ValueError
         data = json.loads(body, object_pairs_hook=unique_fields)
-        if (not isinstance(data, dict) or data.keys() - {"consent", "rows", "pin", "reviewGrant", "simulation"}
+        if (not isinstance(data, dict) or data.keys() - {"consent", "rows", "pin", "reviewGrant", "simulation", "provider"}
                 or data.get("consent") is not True):
+            raise ValueError
+        if not isinstance(data.get("provider", "groq"), str) or data.get("provider", "groq") not in PROVIDER_LABELS:
             raise ValueError
         if "reviewGrant" in data:
             if "pin" in data:
@@ -428,9 +429,11 @@ def _ground(report, rows, evidence, *, monologue=False):
 
 
 @sensitive_variables()
-def authorize(request, task, pin, *, grant, subject_key):
-    if not (live_conversation.available_to(request.user, task) and settings.GROQ_API_KEY):
+def authorize(request, task, pin, *, grant, subject_key, provider="groq"):
+    if not (live_conversation.available_to(request.user, task) and provider in available_providers()):
         raise EvaluationError(403, "Le bilan n’est pas disponible.")
+    if grant is not None and provider != "groq":
+        raise EvaluationError(403, "Confirmez l’envoi à ce service avec votre code PIN.")
     if grant is None:
         authorize_audio_generation(request, pin)  # Studio tabs opened before the one-PIN rollout.
     else:
@@ -442,13 +445,15 @@ def authorize(request, task, pin, *, grant, subject_key):
 
 # Runs off the request thread: no request, session or database access here.
 @sensitive_variables()
-def score(prompt, rows, *, monologue=False):
+def score(prompt, rows, *, monologue=False, provider="groq"):
     instruction = _OPINION_INSTRUCTION if monologue else _INSTRUCTION
     transcript, evidence = _evidence_rows(rows)
-    report = request_report(
+    report = request_provider_report(
+        provider,
         instruction + "\n" + _EVIDENCE_INSTRUCTION,
         {"consigne": prompt, "rows": transcript},
         _OPINION_SCHEMA if monologue else _DIALOGUE_SCHEMA,
+        name=("eo3_bilan" if monologue else "eo2_bilan") if provider == "cloudflare" else "bilan",
     )
     try:
         return _ground(report, rows, evidence, monologue=monologue)

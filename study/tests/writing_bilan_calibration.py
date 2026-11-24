@@ -6,13 +6,13 @@ from unittest import skipUnless
 from django.test import SimpleTestCase
 
 from study.catalogue.loader import _ee_word_count
-from study.simulation import writing_evaluation
+from study.simulation import evaluation, writing_evaluation
 
 
 @skipUnless(os.environ.get("RUN_WRITING_CALIBRATION") == "1", "Opt in to live writing calibration.")
 class WritingBilanCalibration(SimpleTestCase):
     def test_compare_ee1_providers_on_the_same_message(self):
-        providers = sorted(writing_evaluation.available_providers())
+        providers = sorted(evaluation.available_providers())
         self.assertTrue(providers, "Configure at least one writing evaluation provider.")
         subject = (
             "Un ami cherche une librairie pour acheter des livres d’occasion. "

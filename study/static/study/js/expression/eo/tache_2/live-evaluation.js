@@ -6,7 +6,9 @@
   const button = by("assess");
   if (!button) return;
   const late = "Le bilan n’est pas arrivé à temps. Vous pouvez réessayer dans cet onglet.";
-  let rows, onResult, pending, grant, simulation, elapsed, attemptId;
+  const picker = window.HeureuxAssessmentPicker(button, (provider, label) => assess(provider, label));
+  const reports = new Map();
+  let rows, onResult, pending, grant, simulation, elapsed, attemptId, displayedProvider;
   const status = (text, busy = false) => {
     button.setAttribute("aria-busy", String(busy));
     const message = by("assessment-status");
@@ -52,7 +54,10 @@
   }
   by("assessment-result").querySelector('[href="#lv-transcript"]').onclick = () => { by("transcript").open = true; };
 
-  function show(report) {
+  function show(report, provider) {
+    reports.set(provider, report);
+    displayedProvider = provider;
+    picker?.select(provider);
     const current = report.evidenceVersion === 1;
     const retry = report.scoreStatus === "incomplete";
     by("level").classList.toggle("lv-level--scored", Number.isInteger(report.score) && report.scoreStatus !== "incomplete");
@@ -84,8 +89,8 @@
     }));
     by("assessment-next").textContent = report.next;
     by("assessment-result").hidden = false;
-    by("assessment-controls").hidden = !retry;
-    if (retry) {
+    by("assessment-controls").hidden = !picker && !retry;
+    if (retry && !picker) {
       button.disabled = false;
       button.setAttribute("aria-label", button.title = "Réévaluer le bilan");
     }
@@ -98,7 +103,7 @@
       report.score === null ? "Bilan disponible sans note globale." : "Estimation d’entraînement disponible.";
   }
 
-  // A saved exchange (`id`) reopens with its stored report, or waits for the sparkle button.
+  // Reopen the stored report without sending the transcript again.
   function bind(transcript, paint, {elapsed: spoken = 0, id = null, report = null} = {}) {
     pending?.abort();
     pending = null;
@@ -106,10 +111,15 @@
     onResult = paint;
     simulation = id;
     elapsed = Math.round(spoken);
+    reports.clear();
+    displayedProvider = null;
+    const provider = !id && root.dataset.autoGroqEvaluation === "1" ? "groq" : root.dataset.evaluationProvider;
+    picker?.close();
+    picker?.select(provider);
     const hasSpeech = rows?.some(row => row.speaker === "user" && row.text.trim());
     attemptId = !opinion && hasSpeech && !id ? crypto.randomUUID() : null;
     button.disabled = true;
-    button.setAttribute("aria-label", button.title = "Évaluer mon niveau");
+    if (!picker) button.setAttribute("aria-label", button.title = "Évaluer mon niveau");
     by("assessment").open = by("proposal-card").open = true;
     by("level").textContent = "Non évalué";
     by("level").classList.remove("lv-level--scored");
@@ -119,12 +129,15 @@
     propose([]);
     status(rows && !hasSpeech ? "Aucune parole de votre part à évaluer." : "");
     if (!hasSpeech) return;
-    if (report) status(show(report));
+    if (report) {
+      button.disabled = false;
+      status(show(report, provider));
+    }
     else if (simulation) {
       button.disabled = false;
       status(opinion ? "Pas encore de bilan pour cette intervention : touchez ✨ pour le demander." :
         "Pas encore de bilan pour cet échange : touchez ✨ pour le demander.");
-    } else assess();
+    } else assess("groq", "Groq", true);
   }
   const post = (call, body) => ({
     method: "POST", credentials: "same-origin", mode: "same-origin", cache: "no-store", redirect: "error", signal: call.signal,
@@ -143,14 +156,18 @@
       return null;
     }
   }
-  // Starts when the exchange ends, once it is saved; the sparkle button retries after a failure.
-  async function assess() {
+  async function assess(provider, label, automatic = false) {
     if (!rows || pending) return;
+    const existing = reports.get(provider);
+    if (existing && existing.scoreStatus !== "incomplete") {
+      status(show(existing, provider));
+      return;
+    }
     const call = pending = new AbortController();
     button.disabled = true;
     if (opinion && by("assessment-result").hidden) by("level").textContent = "Bilan en préparation…";
     status(opinion ? "Vous pouvez déjà relire votre transcription ci-dessous." : "Préparation de votre bilan…", true);
-    // A result or failure reopens the bilan if it was folded while Groq worked.
+    // Keep an existing report visible until the chosen model returns a result.
     const done = text => {
       if (!opinion || by("assessment-result").hidden || !simulation) by("assessment").open = true;
       if (opinion && by("assessment-result").hidden) by("level").textContent = "Bilan indisponible";
@@ -168,15 +185,37 @@
           history.replaceState(history.state, "", url);
         }
       }
+      if (automatic && root.dataset.autoGroqEvaluation !== "1") {
+        by("level").textContent = "Non évalué";
+        status(picker ? "Choisissez un modèle pour demander le bilan." : "Touchez ✨ pour demander le bilan.");
+        return;
+      }
+      if (!automatic && simulation && provider !== displayedProvider) {
+        const url = new URL(root.dataset.evaluationUrl, location.href);
+        url.searchParams.set("simulation", simulation);
+        url.searchParams.set("provider", provider);
+        const cached = await fetch(url, {credentials: "same-origin", cache: "no-store", signal: call.signal});
+        if (pending !== call) return;
+        if (cached.ok) {
+          const report = await cached.json();
+          if (pending === call) done(show(report, provider));
+          return;
+        }
+        if (cached.status !== 404) throw new Error();
+      }
+      const useGrant = provider === "groq" && grant;
       const options = post(call, {consent: true, rows: rows.map(({speaker, text}) => ({speaker, text})),
-        ...(simulation && {simulation}), ...(grant && {reviewGrant: grant})});
-      // Without this tab's review grant, such as for a reopened exchange, the audio PIN authorizes the report.
-      const response = await (grant ? fetch(root.dataset.evaluationUrl, options) :
-        window.HeureuxAudioRequest(root.dataset.evaluationUrl, options, {title: "Demander le bilan", action: "Demander le bilan",
-          description: "La transcription de cette séance sera envoyée à Groq pour le bilan."}));
+        ...(provider !== "groq" && {provider}), ...(simulation && {simulation}),
+        ...(useGrant && {reviewGrant: grant})});
+      const response = await (useGrant ? fetch(root.dataset.evaluationUrl, options) :
+        window.HeureuxAudioRequest(root.dataset.evaluationUrl, options, {
+          title: "Demander le bilan", action: "Demander le bilan",
+          description: `La transcription de cette séance sera envoyée à ${label} pour le bilan.`,
+          confirmBeforeSend: provider !== "groq",
+        }));
       if (pending !== call) return;
       if (!response.ok) {
-        if (response.status === 403) grant = null;
+        if (response.status === 403 && useGrant) grant = null;
         if (response.status === 504) {
           done(late);
           return;
@@ -196,7 +235,7 @@
         done(report.error);
         return;
       }
-      done(show(report));
+      done(show(report, provider));
     } catch (error) {
       if (pending === call) done(error.name === "AbortError" ? "Bilan annulé. Aucune note attribuée." :
         "Impossible de recevoir le bilan. Gardez cet onglet ouvert : votre transcription reste disponible.");
@@ -207,6 +246,6 @@
       }
     }
   }
-  button.onclick = assess;
+  if (!picker) button.onclick = () => assess(root.dataset.evaluationProvider, root.dataset.evaluationProviderLabel);
   window.HeureuxEO2Evaluation = {bind, setGrant: value => { grant = value; }, clear: () => { grant = null; bind(null, null); }};
 })();

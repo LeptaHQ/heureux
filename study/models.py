@@ -1001,6 +1001,7 @@ class LiveSimulation(models.Model):
     rows = models.JSONField()
     elapsed_ms = models.PositiveIntegerField(default=0)
     report = models.JSONField(null=True, blank=True)
+    provider_reports = models.JSONField(default=dict, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
 
     class Meta:

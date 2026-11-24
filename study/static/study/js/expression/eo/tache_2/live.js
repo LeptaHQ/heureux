@@ -361,8 +361,9 @@
     try {
       const response = await window.HeureuxAudioRequest(root.dataset.tokenUrl,requestOptions(s,{purpose:"attempt"}),{
         confirmBeforeSend:true, title:"Autoriser la simulation", action:"Autoriser cette simulation",
-        description:(opinion ? "La question sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant ma prise de parole, puis sa transcription à Groq pour le bilan. " :
-          "La consigne sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant l’échange, puis sa transcription à Groq pour le bilan. ") +
+        description:(opinion ? "La question sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant ma prise de parole" :
+          "La consigne sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant l’échange") +
+          (root.dataset.autoGroqEvaluation === "1" ? ", puis sa transcription à Groq pour le bilan. " : ". ") +
           "Heureux conserve la transcription et le bilan, pas l’audio. " +
           "Je confirme avoir au moins 18 ans et participer depuis le Canada ou les États-Unis. Des personnes peuvent examiner l’échange pour améliorer les produits de Google.",
         onConfirm:() => {

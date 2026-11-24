@@ -9,19 +9,19 @@
       "closing": "Merci beaucoup ! Grâce à vos recommandations, je vais pouvoir organiser un week-end vraiment reposant.",
       "questions": [
         {"topic": "Lieux à découvrir", "question": "Quel endroit calme me conseilleriez-vous pour un week-end réellement reposant, à moins de deux heures d'ici ?", "answer": "Une auberge en pleine forêt, à une heure d'ici, juste à côté d'un spa nordique.", "follow_up_to": null},
-        {"topic": "Lieux à découvrir", "question": "Et au spa nordique, comment se déroule une première visite ?", "answer": "On alterne les bains chauds, les bains froids et les périodes de repos. Chacun suit le circuit à son rythme.", "follow_up_to": 1, "condition": "If a Nordic spa is suggested without explaining its thermal circuit."},
+        {"topic": "Lieux à découvrir", "question": "Au spa nordique, y a-t-il un circuit à suivre, ou chacun choisit les bains et les temps de repos à son rythme ?", "answer": "Le circuit proposé alterne bains chauds, bains froids et repos, mais chacun adapte sa visite à ses envies ; on n'est pas obligé de tout faire.", "follow_up_to": 1, "condition": "If a Nordic spa is suggested without explaining its thermal circuit."},
         {"topic": "Lieux à découvrir", "question": "Et dans les environs, quelles visites tranquilles conseilleriez-vous : un village, des galeries d'art ou un marché ?", "answer": "Un joli village avec des galeries d'art, et un marché fermier le samedi matin.", "follow_up_to": null},
-        {"topic": "Sorties et budget", "question": "Pour le soir, avez-vous une sortie calme à me conseiller ?", "answer": "Le bistro du village propose de la musique acoustique le samedi, dans une ambiance tranquille.", "follow_up_to": null},
+        {"topic": "Sorties et budget", "question": "Pour le soir, connaissez-vous une sortie calme où écouter un peu de musique sans aller dans un lieu très bruyant ?", "answer": "Le bistro du village propose de la musique acoustique le samedi, dans une ambiance tranquille.", "follow_up_to": null},
         {"topic": "Sorties et budget", "question": "Quel budget prévoir par personne pour une nuit sur place, les activités conseillées et un repas ?", "answer": "Environ 220 $ par personne en chambre double, spa et dîner à l'auberge compris. Le marché et les galeries sont gratuits ; il faut juste prévoir une consommation au bistro.", "follow_up_to": null},
-        {"topic": "Déplacements", "question": "Peut-on faire l'aller-retour en autocar le week-end, et comment rejoindre l'auberge depuis l'arrêt ?", "answer": "Oui, avec un départ samedi matin et un retour dimanche en fin d'après-midi. Une navette gratuite relie l'arrêt du village à l'auberge.", "follow_up_to": null},
+        {"topic": "Déplacements", "question": "Peut-on faire l'aller-retour en autocar le week-end et, si oui, à quels horaires et comment rejoindre l'auberge depuis l'arrêt ?", "answer": "Oui, l'autocar part samedi à 9 h et revient dimanche à 16 h 30. Une navette gratuite relie l'arrêt du village à l'auberge.", "follow_up_to": null},
         {"topic": "Déplacements", "question": "Pour rentrer après la soirée au bistro, à quelle heure part la dernière navette du village ?", "answer": "Elle part à 23 h de l'arrêt principal, à cinq minutes à pied du bistro. La musique se termine vers 22 h 30.", "follow_up_to": 6, "condition": "If a village shuttle is mentioned without its last departure time."},
-        {"topic": "Réservations", "question": "Parmi vos suggestions, lesquelles faut-il réserver à l'avance, et par quel moyen ?", "answer": "Pour l'auberge et le spa, la réservation se fait en ligne ou par téléphone environ trois semaines avant, surtout pour les samedis et les fins de semaine prolongées.", "follow_up_to": null}
+        {"topic": "Réservations", "question": "Parmi l'hébergement, le spa et le transport, que faut-il réserver à l'avance, et comment s'y prendre ?", "answer": "Réservez l'auberge et le spa en ligne ou par téléphone, environ trois semaines avant. L'autocar se réserve aussi en ligne ; vérifiez ses places avant de confirmer l'hébergement.", "follow_up_to": null}
       ]
     },
     {
       "group": "friend-birthday-party-on-boat",
       "register": "tu",
-      "note": "Your friend is celebrating their birthday on a boat. You are interested in attending, but the prompt does not say you have accepted or even been invited. Ask about the date, boarding and return, then the guests and what to wear. Check the cost and how to pay if you decide to go. Use tu with your friend.",
+      "note": "Your friend is celebrating their birthday on a boat. You are interested, but the prompt establishes neither an invitation nor your acceptance. Use tu. Check date, departure, boarding cutoff and return before guests, suitable clothing and the contribution; keep payment conditional on attending. Embarquer means to board; quai means dock; adhérentes describes shoes with grip. The July date, boat arrangements and prices are existing fictional practice examples.",
       "opening": "Salut ! Fêter ton anniversaire sur un bateau, quelle bonne idée ! J'aimerais en savoir un peu plus.",
       "closing": "Merci pour toutes ces infos ! Je vais vérifier que je suis libre avant de te confirmer ma venue.",
       "questions": [
@@ -30,8 +30,8 @@
         {"topic": "Date et départ", "question": "À quelle heure au plus tard faut-il être sur le quai pour embarquer ?", "answer": "Il faut être sur le quai avant 18 h 50. Après, on ne pourra plus te faire monter.", "follow_up_to": 2, "condition": "If the departure time is given but the boarding cutoff is unclear."},
         {"topic": "Date et départ", "question": "À quelle heure le bateau reviendra-t-il, et le débarquement se fera-t-il au quai de départ ?", "answer": "Le bateau reviendra au même quai vers 23 h.", "follow_up_to": null},
         {"topic": "Invités et tenue", "question": "Combien d'invités seront présents, et s'agira-t-il surtout de tes amis ou de tes collègues ?", "answer": "Une trentaine : surtout des amis de l'université et quelques collègues.", "follow_up_to": null},
-        {"topic": "Invités et tenue", "question": "Quelle tenue serait adaptée, et faut-il prévoir quelque chose contre le froid sur l'eau ?", "answer": "Une tenue décontractée convient, avec une veste chaude : il fait frais sur l'eau le soir.", "follow_up_to": null},
-        {"topic": "Prix", "question": "Quelle participation demandes-tu, et qu'est-ce qui est compris dans ce montant ?", "answer": "Je demande 40 $ par personne, repas et croisière compris ; les boissons sont en plus.", "follow_up_to": null},
+        {"topic": "Invités et tenue", "question": "Quelle tenue serait adaptée sur le bateau, notamment pour les chaussures et la fraîcheur du soir ?", "answer": "Une tenue décontractée convient, avec des chaussures plates à semelles adhérentes et une veste chaude pour la fraîcheur sur l'eau.", "follow_up_to": null},
+        {"topic": "Prix", "question": "Quelle participation est demandée aux invités, et qu'est-ce qui est compris dans ce montant ?", "answer": "Je demande 40 $ par personne, repas et croisière compris ; les boissons sont en plus.", "follow_up_to": null},
         {"topic": "Prix", "question": "Si je viens, comment est-ce que je peux te payer et jusqu'à quand ?", "answer": "Par virement avant le 20 juin, car je dois payer la location à l'avance.", "follow_up_to": 7, "condition": "If a contribution is requested, unless payment arrangements are explained."}
       ]
     },
@@ -127,27 +127,27 @@
       "opening": "Salut ! Je dois écrire un article sur une ville pour un magazine culturel, et j'aimerais profiter de tes idées.",
       "closing": "Merci, c'est exactement ce qu'il me fallait ! Je tiens mon sujet, et je vais pouvoir commencer mon article.",
       "questions": [
-        {"topic": "La ville choisie", "question": "Parmi les villes que tu as visitées, laquelle préfères-tu ?", "answer": "Seattle, sans hésiter. C'est une des villes où j'ai le plus aimé me promener.", "follow_up_to": null},
+        {"topic": "La ville choisie", "question": "Parmi les villes que tu as visitées, laquelle te donnerait le plus envie de raconter son histoire et sa vie culturelle ?", "answer": "Seattle, sans hésiter. C'est une des villes où j'ai le plus aimé me promener et découvrir des lieux culturels.", "follow_up_to": null},
         {"topic": "La ville choisie", "question": "Qu'est-ce qui la distingue des autres villes que tu connais, selon toi ?", "answer": "La présence de l'eau et des montagnes : chaque colline offre un nouveau point de vue sur la ville.", "follow_up_to": 1, "condition": "If a city is named without explaining what makes it distinctive."},
         {"topic": "La ville choisie", "question": "Si je veux raconter la ville à partir d'un seul quartier, lequel tu me conseillerais ?", "answer": "Pioneer Square. Ses anciens bâtiments en brique rouge et ses galeries racontent deux époques du même quartier.", "follow_up_to": null},
         {"topic": "Architecture", "question": "Pour faire contraste avec ces bâtiments anciens, quel monument moderne je pourrais présenter ?", "answer": "La Space Needle. On la reconnaît à sa plateforme ronde au-dessus de la ville.", "follow_up_to": null},
         {"topic": "Architecture", "question": "Et qu'est-ce que cette tour raconte de l'histoire de Seattle ?", "answer": "Elle a été construite pour l'Exposition universelle de 1962. Son allure futuriste montre comment on imaginait l'avenir à l'époque.", "follow_up_to": 4, "condition": "If a modern landmark is suggested but its history is not explained."},
         {"topic": "Activités", "question": "Quelle expérience culturelle recommandes-tu le soir pour découvrir l'ambiance locale ?", "answer": "Écouter du jazz dans une petite salle de Pioneer Square, ou découvrir les concerts de Capitol Hill.", "follow_up_to": null},
-        {"topic": "Transports", "question": "Comment les visiteurs peuvent-ils s'y déplacer le plus facilement ?", "answer": "En métro léger Link et en bus, ou avec le monorail qui relie le centre au Seattle Center.", "follow_up_to": null},
+        {"topic": "Transports", "question": "Pour passer de Pioneer Square à la Space Needle puis à Capitol Hill, quels transports sont les plus pratiques ?", "answer": "Le Link relie Pioneer Square et Capitol Hill via Westlake ; pour la Space Needle, on prend le monorail depuis Westlake jusqu'au Seattle Center.", "follow_up_to": null},
         {"topic": "Transports", "question": "Pour mon article, quelle difficulté de déplacement faudrait-il signaler aux visiteurs ?", "answer": "Les rues sont parfois très pentues. Pour éviter une longue montée à pied, je vérifie le parcours et je prends le bus quand c'est nécessaire.", "follow_up_to": null}
       ]
     },
     {
       "group": "friend-music-festival-organizer",
       "register": "tu",
-      "note": "Your friend organizes a music festival in your city, and you want to attend. Use tu; their organizing role and the city are already known. Check dates, location, hours, concerts and ticket options without assuming multiple stages, a closing headliner or a pass. Ask about re-entry only if a pass is offered. Names, line-up, prices and arrangements are illustrative.",
+      "note": "Your friend organizes a music festival in your city and you want to attend. Use tu; the city and your friend's role are already known. Establish dates and venue, compare styles and artists, check hours, then day tickets, a possible pass and purchasing. Do not assume weekend dates or famous performers in the question. Ask about re-entry only after a pass is offered. Un bracelet is a wristband. The park, line-up, dates and prices are illustrative.",
       "opening": "Salut ! Ton festival de musique m'intéresse beaucoup, et j'aimerais vraiment y aller.",
       "closing": "Merci pour ces informations ! Je vais choisir un jour et vérifier les places disponibles avant de réserver.",
       "questions": [
-        {"topic": "Dates et lieu", "question": "Tu le fais quel week-end, ton festival ?", "answer": "Du vendredi 15 au dimanche 17 août.", "follow_up_to": null},
+        {"topic": "Dates et lieu", "question": "À quelles dates ton festival aura-t-il lieu ?", "answer": "Du vendredi 15 au dimanche 17 août.", "follow_up_to": null},
         {"topic": "Dates et lieu", "question": "Où auront lieu les concerts ?", "answer": "Dans le parc des Rives : deux scènes près du lac et une petite scène sous le pavillon.", "follow_up_to": null},
-        {"topic": "Programme", "question": "Quels genres de musique seront représentés ?", "answer": "Surtout de la pop, du rock et de l'électro, avec quelques concerts acoustiques.", "follow_up_to": null},
-        {"topic": "Programme", "question": "Quels artistes connus sont prévus, et quels jours joueront-ils ?", "answer": "Charlotte Cardin jouera le vendredi et Half Moon Run le dimanche.", "follow_up_to": null},
+        {"topic": "Programme", "question": "Le programme sera-t-il surtout consacré à un style de musique ou permettra-t-il d'en découvrir plusieurs ?", "answer": "Il permettra d'en découvrir plusieurs : surtout de la pop, du rock et de l'électro, avec quelques concerts acoustiques.", "follow_up_to": null},
+        {"topic": "Programme", "question": "Quels artistes seront à l'affiche, et quels jours joueront-ils ?", "answer": "Charlotte Cardin jouera le vendredi et Half Moon Run le dimanche.", "follow_up_to": null},
         {"topic": "Programme", "question": "Si je viens le vendredi, les concerts commencent à quelle heure et se terminent vers quelle heure ?", "answer": "Le vendredi, on commence vers 16 h et le dernier concert finit à 23 h. Ce sont aussi les horaires des deux autres jours.", "follow_up_to": null},
         {"topic": "Billets", "question": "Il faut compter combien pour venir une journée ou pour rester tout le week-end ?", "answer": "Le billet coûte 35 $ par jour. Le pass pour les trois jours coûte 80 $.", "follow_up_to": null},
         {"topic": "Billets", "question": "Avec le pass, je pourrais entrer et sortir librement ?", "answer": "Oui, grâce à un bracelet que tu gardes pendant les trois jours.", "follow_up_to": 6, "condition": "If a multi-day pass is offered, unless re-entry is already explained."},
@@ -157,18 +157,18 @@
     {
       "group": "french-teacher-canadian-new-year-customs",
       "register": "vous",
-      "note": "You will spend the next New Year in Canada and ask your French teacher about customs, places and activities. Use the future for your stay and the present for habits. Traditions, weather and event programmes vary by region; the teacher offers guidance, not guaranteed local schedules. Use vous.",
+      "note": "You will spend the next New Year in Canada and ask your French teacher about celebrations, not a guaranteed local itinerary. Use vous, future forms for your stay and present forms for habits. Customs, weather and public programmes vary by region; Quebec food and television, and Vancouver's swim, are examples rather than nationwide practices. Check transport with the local network. Tuque means a winter hat, mitaines means mittens, and tourtière is a meat pie.",
       "opening": "Bonjour ! Je vais passer le prochain Nouvel An au Canada, et j'aimerais savoir comment on le fête là-bas.",
       "closing": "Merci beaucoup ! Ça me donne des idées pour fêter le Nouvel An pendant mon séjour au Canada.",
       "questions": [
-        {"topic": "Lieux de fête", "question": "Où les Canadiens passent-ils généralement la soirée du 31 décembre ?", "answer": "Beaucoup la passent en famille ou entre amis, à la maison ; d'autres vont aux fêtes en plein air des grandes villes.", "follow_up_to": null},
+        {"topic": "Lieux de fête", "question": "Au Canada, la soirée du 31 décembre se passe-t-elle plutôt à la maison ou dans des fêtes publiques ?", "answer": "Beaucoup la passent en famille ou entre amis, à la maison ; d'autres vont aux fêtes en plein air des grandes villes. Cela dépend des personnes et des régions.", "follow_up_to": null},
         {"topic": "Lieux de fête", "question": "Comment se déroulent ces fêtes en plein air ?", "answer": "Selon la ville, il peut y avoir des concerts, un compte à rebours et parfois un feu d'artifice ; il peut faire très froid.", "follow_up_to": 1, "condition": "If outdoor celebrations are mentioned, unless they are already described."},
         {"topic": "Lieux de fête", "question": "Par un tel froid, comment conseilleriez-vous de s'habiller ?", "answer": "Plusieurs couches, une tuque, des mitaines et de bonnes bottes d'hiver permettent de rester au chaud.", "follow_up_to": 2, "condition": "If very cold temperatures are mentioned."},
-        {"topic": "Lieux de fête", "question": "Les transports en commun circulent-ils après minuit dans les grandes villes ce soir-là ?", "answer": "Certaines villes prolongent le service ; les horaires exacts et les lignes concernées sont à vérifier auprès du réseau local.", "follow_up_to": null},
-        {"topic": "Traditions", "question": "Est-ce qu'il y a une tradition particulière avant minuit ?", "answer": "Au Québec, beaucoup de familles regardent le « Bye Bye », une émission humoristique qui revient sur l'année écoulée.", "follow_up_to": null},
-        {"topic": "Traditions", "question": "Et côté repas, quels plats sont typiques ce soir-là ?", "answer": "Dans certaines familles québécoises, on sert de la tourtière, du ragoût de boulettes et une tarte au sucre ; les habitudes varient ailleurs.", "follow_up_to": null},
-        {"topic": "Le jour de l'An", "question": "Et le 1er janvier, que font les gens ?", "answer": "Certaines familles se rendent visite ; à Vancouver, il existe aussi une baignade du Nouvel An dans la baie.", "follow_up_to": null},
-        {"topic": "Le jour de l'An", "question": "Avez-vous déjà participé vous-même à cette tradition, et comment avez-vous vécu l'expérience ?", "answer": "Une fois : trente secondes dans l'eau m'ont suffi pour toute une vie.", "follow_up_to": 7, "condition": "If an unusual custom is described; ask about their own experience."}
+        {"topic": "Lieux de fête", "question": "Où pourrais-je vérifier les horaires de retour si je choisis une fête en ville ?", "answer": "Sur le site du réseau de transport local, dans les horaires spéciaux du 31 décembre ; il faut vérifier les derniers départs des lignes qui vous concernent.", "follow_up_to": null},
+        {"topic": "Traditions", "question": "Est-ce qu'il y a une tradition particulière avant minuit, par exemple une émission ou un compte à rebours ?", "answer": "Au Québec, beaucoup de familles regardent le « Bye Bye », une émission humoristique qui revient sur l'année écoulée.", "follow_up_to": null},
+        {"topic": "Traditions", "question": "Et côté repas, quels plats associe-t-on au réveillon, en tenant compte des différences entre régions ?", "answer": "Dans certaines familles québécoises, on sert de la tourtière, du ragoût de boulettes et une tarte au sucre ; ailleurs, les plats dépendent beaucoup des origines et traditions familiales.", "follow_up_to": null},
+        {"topic": "Le jour de l'An", "question": "Et le 1er janvier, quelles activités peut-on faire en dehors des repas de famille ?", "answer": "On peut rendre visite à des proches ; à Vancouver, il existe aussi une baignade du Nouvel An dans la baie.", "follow_up_to": null},
+        {"topic": "Le jour de l'An", "question": "Avez-vous déjà participé à cette baignade du Nouvel An, et qu'est-ce qui vous a marqué ?", "answer": "Oui, une fois. Le froid de l'eau m'a vraiment marqué : trente secondes m'ont suffi pour toute une vie.", "follow_up_to": 7, "condition": "If a New Year's swim is mentioned without the teacher's own experience."}
       ]
     },
     {
@@ -230,30 +230,30 @@
       "closing": "Merci beaucoup ! C'est décidé, je vais tenter ma chance.",
       "questions": [
         {"topic": "Contenu et public", "question": "Quel est le principe du jeu, et joue-t-on seul ou en équipe ?", "answer": "C'est une chasse au trésor littéraire : des équipes résolvent des énigmes cachées dans les rayons de la librairie.", "follow_up_to": null},
-        {"topic": "Contenu et public", "question": "Faut-il avoir beaucoup lu pour avoir une chance ?", "answer": "Pas forcément : les énigmes portent sur des classiques, mais les indices se trouvent dans les livres eux-mêmes.", "follow_up_to": 1, "condition": "If a literary game is described, unless the required knowledge is explained."},
+        {"topic": "Contenu et public", "question": "Faut-il avoir beaucoup lu pour avoir une chance, ou les indices permettent-ils de s'en sortir ?", "answer": "Les énigmes portent sur des classiques, mais les indices se trouvent dans les livres eux-mêmes. On peut donc réussir sans avoir tout lu.", "follow_up_to": 1, "condition": "If a literary game is described, unless the required knowledge is explained."},
         {"topic": "Contenu et public", "question": "Et pour les équipes, est-ce que je peux venir sans partenaire et rejoindre un groupe sur place ?", "answer": "Oui, nous formons des équipes avec les personnes venues seules, juste avant le départ.", "follow_up_to": 1, "condition": "If teams are required without explaining whether people can come alone."},
         {"topic": "Contenu et public", "question": "À partir de quel âge peut-on participer ?", "answer": "Le jeu est ouvert à tous dès douze ans.", "follow_up_to": null},
         {"topic": "Déroulement et récompenses", "question": "Quand le jeu aura-t-il lieu, et combien de temps faut-il prévoir ?", "answer": "Samedi prochain à 14 h ; il faut prévoir une heure de jeu et quinze minutes pour l'accueil.", "follow_up_to": null},
         {"topic": "Déroulement et récompenses", "question": "Comment désignez-vous les gagnants, et quelles récompenses sont prévues ?", "answer": "Une énigme résolue rapporte un point ; l'équipe qui en a le plus gagne 200 $ en bons d'achat. En cas d'égalité, la plus rapide gagne.", "follow_up_to": null},
-        {"topic": "Inscription", "question": "Combien coûte la participation ?", "answer": "La participation est gratuite.", "follow_up_to": null},
+        {"topic": "Inscription", "question": "La participation est-elle gratuite, ou faut-il payer des frais d'inscription par personne ou par équipe ?", "answer": "Elle est entièrement gratuite, aussi bien pour les personnes venues seules que pour les équipes déjà constituées.", "follow_up_to": null},
         {"topic": "Inscription", "question": "Comment s'inscrire, et avant quelle date ?", "answer": "L'inscription se fait à la caisse ou en ligne jusqu'à vendredi, dans la limite des places disponibles.", "follow_up_to": null}
       ]
     },
     {
       "group": "friend-unspecified-artistic-activity",
       "register": "tu",
-      "note": "Your Canadian friend practises an unspecified artistic activity, and you want to try it. Canadian nationality does not establish the location. Use tu. Identify the activity, then ask about benefits, beginner access, practical organization, a trial and fees. Do not assume a troupe or performances. Your friend reports experience; confirm a place with the organizer. Arrangements are illustrative.",
+      "note": "Your Canadian friend practises an unspecified artistic activity, and you want to try it. Canadian nationality does not establish the location. Use tu. Identify the activity before adapting the improv and troupe questions to what is actually named. Explore benefits, beginner access, organization, a trial and fees. Your friend reports experience; confirm a place and current terms with the organizer. Arrangements are illustrative.",
       "opening": "Salut ! Ton activité artistique m'intéresse beaucoup ; j'aimerais bien essayer, moi aussi.",
       "closing": "Merci ! Je vais contacter le responsable pour réserver une séance d'essai.",
       "questions": [
         {"topic": "L'activité", "question": "Tu fais quoi comme activité artistique, au juste ?", "answer": "Je fais du théâtre d'improvisation dans une troupe amateur.", "follow_up_to": null},
         {"topic": "L'activité", "question": "Qu'est-ce qui te plaît le plus dans l'impro ?", "answer": "On crée une scène à partir de presque rien et on ne sait jamais comment elle va finir. Ça m'aide aussi à oser prendre la parole.", "follow_up_to": 1, "condition": "If improv is mentioned; ask what they like about the activity named."},
-        {"topic": "L'activité", "question": "La troupe prend aussi des gens qui n'ont jamais joué sur scène ?", "answer": "Oui, il y a un groupe pour les nouveaux, et personne n'a besoin de passer une audition.", "follow_up_to": null},
-        {"topic": "L'activité", "question": "Pendant une séance, comment vous inventez une scène quand personne n'a de texte ?", "answer": "On part d'une situation que l'animateur nous donne. À deux ou trois, on invente les répliques au fur et à mesure.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Dans quel lieu se déroulent les séances, et est-il facile d'accès ?", "answer": "Dans une salle du centre communautaire, près de la bibliothèque et d'un arrêt d'autobus.", "follow_up_to": null},
+        {"topic": "L'activité", "question": "La troupe prend aussi des gens qui n'ont jamais joué sur scène ?", "answer": "Oui, il y a un groupe pour les nouveaux, et personne n'a besoin de passer une audition.", "follow_up_to": 1, "condition": "If a troupe is mentioned without entry requirements; otherwise adapt beginner-access wording."},
+        {"topic": "L'activité", "question": "Pendant une séance, comment vous inventez une scène quand personne n'a de texte ?", "answer": "On part d'une situation que l'animateur nous donne. À deux ou trois, on invente les répliques au fur et à mesure.", "follow_up_to": 1, "condition": "If improv is named without describing scene creation; otherwise ask about the activity described."},
+        {"topic": "Organisation", "question": "Dans quel lieu se déroulent les séances, et y a-t-il un arrêt de bus à proximité ?", "answer": "Dans une salle du centre communautaire, près de la bibliothèque. Il y a un arrêt d'autobus juste devant le centre.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Quels sont les jours et les horaires des séances ?", "answer": "Les séances ont lieu le mardi de 19 h à 21 h.", "follow_up_to": null},
         {"topic": "Inscription", "question": "Est-ce qu'on peut faire une séance d'essai, et comment la réserver ?", "answer": "Oui, la première séance est gratuite ; on peut écrire au responsable sur le site du centre pour qu'il confirme une place.", "follow_up_to": null},
-        {"topic": "Inscription", "question": "Et après cette séance gratuite, combien coûte l'inscription ?", "answer": "J'ai payé 120 $ pour une session de dix semaines.", "follow_up_to": 7, "condition": "If a free trial is mentioned, unless the full fee is given."}
+        {"topic": "Inscription", "question": "Et après cette séance gratuite, combien coûte une session et combien de séances comprend-elle ?", "answer": "J'ai payé 120 $ pour une session de dix séances, à raison d'une par semaine.", "follow_up_to": 7, "condition": "If a free trial is mentioned, unless the full fee is given."}
       ]
     },
     {
@@ -276,15 +276,15 @@
     {
       "group": "guitar-teacher-lesson-enrollment",
       "register": "vous",
-      "note": "You want to take lessons with a guitar teacher. Ask about the styles taught, where and when lessons take place, then rates and equipment. Your level is not specified, so do not invent one; a conditional question can cover it if needed. Use vous with the teacher.",
+      "note": "You want to take lessons with a guitar teacher. Ask about the styles taught, where and when lessons take place, then rates and equipment. Your level is not specified, so do not invent one; a conditional question can cover it if needed. Establish the available formats without assuming the teacher has a studio. Use vous with the teacher.",
       "opening": "Bonjour ! J'aimerais suivre des cours de guitare avec vous, et j'ai quelques questions sur leur organisation.",
       "closing": "Merci beaucoup ! Je vérifie mon emploi du temps et je vous réponds avant vendredi.",
       "questions": [
         {"topic": "Styles musicaux", "question": "Quels styles musicaux enseignez-vous ?", "answer": "J'enseigne surtout le folk, le rock et la guitare classique.", "follow_up_to": null},
         {"topic": "Styles musicaux", "question": "Pour le rock, est-ce qu'on pourrait travailler des chansons que je choisis moi-même ?", "answer": "Bien sûr : on part de vos morceaux préférés, et j'en tire les exercices techniques.", "follow_up_to": 1, "condition": "If rock is taught without explaining whether learners can choose songs."},
-        {"topic": "Organisation", "question": "Les cours se donnent-ils dans votre studio, en ligne, ou dans les deux formats ?", "answer": "Dans les deux formats : dans mon studio au centre-ville, ou en ligne si vous préférez.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Proposez-vous des cours en présence, en ligne, ou dans les deux formats ?", "answer": "Dans les deux formats : en présence dans mon studio au centre-ville, ou en ligne si vous préférez.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Combien de temps dure une leçon, et à quel rythme conseillez-vous de venir ?", "answer": "Une heure par semaine convient à la plupart des élèves, avec un peu de pratique entre les cours.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Quels créneaux proposez-vous en semaine et le samedi ?", "answer": "En semaine après 16 h, et le samedi matin.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Quels créneaux sont encore disponibles en semaine et le samedi ?", "answer": "Il reste quelques créneaux en semaine après 16 h, et un le samedi matin.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Si je choisis le samedi, est-ce que je peux garder le même créneau chaque semaine ?", "answer": "Oui, il me reste le samedi à 10 h. Je peux vous garder ce créneau jusqu'à vendredi.", "follow_up_to": 5, "condition": "If weekend slots are offered; adapt to the day that suits you."},
         {"topic": "Tarifs et matériel", "question": "Combien coûte une leçon, et proposez-vous un tarif si je réserve plusieurs cours ?", "answer": "Une leçon d'une heure coûte 50 $. Je propose aussi quatre cours pour 180 $.", "follow_up_to": null},
         {"topic": "Tarifs et matériel", "question": "Faut-il posséder sa propre guitare, ou existe-t-il une solution de prêt ou de location au début ?", "answer": "Il vous faudra une guitare pour pratiquer entre les cours. Je ne fais ni prêt ni location, mais je peux vous aider à en trouver une d'occasion.", "follow_up_to": null}
@@ -344,7 +344,7 @@
     {
       "group": "colleague-association-dance-classes",
       "register": "vous",
-      "note": "Your colleague takes dance classes with an association, and you are interested. Ask about the styles and whether beginners can join, then the place, schedule and price. Vous is chosen as a cautious default; close colleagues may use tu.",
+      "note": "Your colleague takes dance classes with an association, and you are interested. Ask about the styles and whether beginners can join, then the place, schedule and price. Vous is chosen as a cautious default; close colleagues may use tu. Your colleague reports their experience; confirm current places, fees and trial arrangements with the association.",
       "opening": "Bonjour ! Vos cours de danse me tentent beaucoup, et j'aimerais en savoir plus.",
       "closing": "Merci, ça me tente bien. Je vais commencer par un cours d'essai.",
       "questions": [
@@ -352,26 +352,26 @@
         {"topic": "Les cours", "question": "Pour la salsa, faut-il venir avec un partenaire ?", "answer": "Non, on change de partenaire toutes les cinq minutes ; c'est ce qui rend les cours si conviviaux.", "follow_up_to": 1, "condition": "If partner dances are mentioned; adapt to the style named."},
         {"topic": "Les cours", "question": "Est-ce qu'un débutant peut commencer en cours d'année ?", "answer": "Oui, un nouveau groupe débutant démarre chaque mois.", "follow_up_to": null},
         {"topic": "Lieu et horaires", "question": "Où ont lieu les cours, et combien de temps faut-il pour s'y rendre depuis le travail ?", "answer": "Dans une salle au-dessus de la bibliothèque municipale, à dix minutes à pied du bureau.", "follow_up_to": null},
-        {"topic": "Lieu et horaires", "question": "Quels sont les créneaux proposés pour les cours de débutants ?", "answer": "Salsa le jeudi à 19 h, tango le mardi à 18 h, et swing le samedi à 10 h ; les cours durent une heure et demie.", "follow_up_to": null},
+        {"topic": "Lieu et horaires", "question": "Quels sont les créneaux proposés pour les cours de débutants, en semaine ou le week-end ?", "answer": "La salsa a lieu le jeudi à 19 h, le tango le mardi à 18 h, et le swing le samedi à 10 h. Chaque cours dure une heure et demie.", "follow_up_to": null},
         {"topic": "Essai et inscription", "question": "Peut-on assister à un cours d'essai avant de payer la session complète ?", "answer": "Oui, le premier cours coûte 10 $, déduits ensuite du prix de la session.", "follow_up_to": null},
-        {"topic": "Essai et inscription", "question": "Quel budget total faut-il prévoir, en comptant une éventuelle adhésion à l'association ?", "answer": "160 $ en tout : 150 $ pour dix cours et 10 $ pour la cotisation annuelle.", "follow_up_to": null},
+        {"topic": "Essai et inscription", "question": "Quel budget total faut-il prévoir pour une session de salsa, en comptant une éventuelle adhésion à l'association ?", "answer": "Pour la salsa, j'ai payé 160 $ en tout : 150 $ pour dix cours et 10 $ de cotisation annuelle.", "follow_up_to": null},
         {"topic": "Essai et inscription", "question": "Et pour réserver ce cours d'essai, on passe par l'association ou on prévient directement le prof ?", "answer": "On passe par l'association. Sur son site, vous choisissez le style et le créneau, puis vous cochez « séance d'essai ».", "follow_up_to": 6, "condition": "If a trial is possible and the booking method is unclear."}
       ]
     },
     {
       "group": "colleague-management-promotion-party",
       "register": "vous",
-      "note": "Your colleague is throwing a party to celebrate their promotion to a management position: congratulate them, but do not ask why the party is being held, since that is given. Ask about the date, place, guests and organization. The prompt does not explicitly state an invitation or your acceptance. Vous is chosen as a cautious default; close colleagues may use tu.",
+      "note": "Your colleague is throwing a party to celebrate a management promotion. Congratulate them without asking why they are celebrating: that is known. Use vous as a cautious colleague register. Ask about timing, venue, weather backup, guests and organization. The prompt does not establish an invitation or acceptance, so keep participation conditional. Bouchées are finger food; espace couvert means a covered space. The Friday restaurant terrace and guest arrangements are fictional practice replies.",
       "opening": "Bonjour ! Félicitations pour votre nomination, c'est vraiment mérité ! J'aimerais en savoir un peu plus sur la fête.",
       "closing": "Merci pour ces précisions ! Je vais vérifier si je suis libre vendredi soir.",
       "questions": [
         {"topic": "Date et lieu", "question": "Quel jour avez-vous choisi pour célébrer votre promotion ?", "answer": "Vendredi prochain.", "follow_up_to": null},
         {"topic": "Date et lieu", "question": "À quelle heure la fête commencera-t-elle, et vers quelle heure devrait-elle se terminer ?", "answer": "Elle commencera à 18 h 30 et se terminera vers minuit.", "follow_up_to": null},
         {"topic": "Date et lieu", "question": "Dans quel lieu la fête se déroulera-t-elle, et est-ce près du bureau ?", "answer": "Sur la terrasse du restaurant italien, juste en face du bureau.", "follow_up_to": null},
-        {"topic": "Date et lieu", "question": "En cas de pluie, la réception sera-t-elle déplacée dans un espace couvert suffisamment grand ?", "answer": "Oui, le restaurant nous réserve aussi sa salle du fond.", "follow_up_to": 3, "condition": "If an outdoor venue is mentioned, unless a backup is given."},
+        {"topic": "Date et lieu", "question": "En cas de pluie, la réception sera-t-elle déplacée dans un espace couvert suffisamment grand ?", "answer": "Oui, le restaurant nous réserve aussi sa salle du fond, qui est assez grande pour accueillir tout le groupe.", "follow_up_to": 3, "condition": "If an outdoor venue is mentioned, unless a backup is given."},
         {"topic": "Invités", "question": "Qui avez-vous invité : l'équipe, d'anciens collègues ou aussi des proches ?", "answer": "Toute l'équipe, quelques anciens collègues et mon nouveau directeur.", "follow_up_to": null},
-        {"topic": "Invités", "question": "Est-ce que je peux venir accompagné, ou la fête est-elle réservée aux collègues ?", "answer": "Elle est réservée aux collègues cette fois, car le restaurant nous garde un nombre limité de places.", "follow_up_to": 5, "condition": "If guests are described but bringing a companion has not been discussed."},
-        {"topic": "Organisation", "question": "Puis-je apporter quelque chose, ou vous occupez-vous déjà des boissons et des bouchées ?", "answer": "Vous n'avez rien à apporter : je m'occupe déjà des bouchées et des boissons.", "follow_up_to": null},
+        {"topic": "Invités", "question": "La fête est-elle ouverte aux collègues accompagnés, ou préférez-vous limiter le nombre de participants ?", "answer": "Elle est réservée aux collègues cette fois, car le restaurant nous garde un nombre limité de places.", "follow_up_to": 5, "condition": "If colleagues are invited without clarifying whether companions are included."},
+        {"topic": "Organisation", "question": "Si je participe, y a-t-il quelque chose à apporter, comme des boissons ou des bouchées ?", "answer": "Vous n'auriez rien à apporter : je m'occupe déjà des bouchées et des boissons.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Quelle tenue conviendrait à cette soirée : vêtements de bureau ou tenue plus habillée ?", "answer": "Une tenue de bureau convient ; ce sera une soirée simple et détendue.", "follow_up_to": null}
       ]
     },

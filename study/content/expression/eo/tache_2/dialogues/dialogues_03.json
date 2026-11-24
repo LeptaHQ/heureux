@@ -24,15 +24,15 @@
     {
       "group": "colleague-invitation-unspecified-show",
       "register": "tu",
-      "note": "A colleague invites you to a show of unspecified genre. Identify it before checking venue, date, price, companions, travel and joint booking. You are considering an invitation, not organizing a corporate event. Tu is chosen for familiar colleagues. The show, venue, price and meeting plan are fictional examples; confirm availability before buying tickets.",
+      "note": "A colleague invites you to a show whose genre is unspecified. Identify it before asking about its story, venue, timing and total ticket cost, then companions, joint booking and travel. You are considering an invitation, not organizing a corporate event. Tu suits familiar colleagues. Pièce de théâtre means a play; frais de réservation are booking fees. The play, venue, price and travel plan are fictional examples, not prompt facts.",
       "opening": "Salut ! Ta proposition de sortie m'intéresse ; j'aimerais en savoir un peu plus avant de m'organiser.",
       "closing": "Merci pour toutes ces infos ! Je vais vérifier mes disponibilités pour cette sortie.",
       "questions": [
-        {"topic": "Spectacle", "question": "Quel spectacle voudrais-tu aller voir ?", "answer": "Une comédie intitulée « Un dîner imprévu ».", "follow_up_to": null},
+        {"topic": "Spectacle", "question": "Quel spectacle voudrais-tu aller voir : une pièce de théâtre, un concert ou autre chose ?", "answer": "Une pièce de théâtre, une comédie intitulée « Un dîner imprévu ».", "follow_up_to": null},
         {"topic": "Spectacle", "question": "De quoi ça parle, cette comédie ?", "answer": "D'un repas de famille qui tourne au désordre quand un invité arrive alors que personne ne l'attendait.", "follow_up_to": 1, "condition": "If a show is named but its subject has not been explained."},
         {"topic": "Lieu, horaire et prix", "question": "Dans quelle salle aura lieu la représentation ?", "answer": "Au théâtre des Rives, près de la gare du centre-ville.", "follow_up_to": null},
-        {"topic": "Lieu, horaire et prix", "question": "À quelle date et à quelle heure est-elle prévue ?", "answer": "Vendredi prochain, à vingt heures.", "follow_up_to": null},
-        {"topic": "Lieu, horaire et prix", "question": "Combien coûte une place ?", "answer": "25 $ au tarif normal.", "follow_up_to": null},
+        {"topic": "Lieu, horaire et prix", "question": "À quelle date est-elle prévue, et quels seraient les horaires de début et de fin ?", "answer": "Vendredi prochain, de vingt heures à vingt et une heures quarante-cinq environ.", "follow_up_to": null},
+        {"topic": "Lieu, horaire et prix", "question": "Combien coûte une place, frais de réservation compris ?", "answer": "Le tarif normal revient à 25 $, frais de réservation compris.", "follow_up_to": null},
         {"topic": "Organisation de la sortie", "question": "Tu pensais qu'on irait à deux ou d'autres personnes se joindraient à nous ?", "answer": "Deux collègues sont intéressés, mais ils n'ont pas encore confirmé.", "follow_up_to": null},
         {"topic": "Organisation de la sortie", "question": "Une fois qu'on saura qui vient, comment est-ce qu'on réserve pour être assis ensemble ?", "answer": "Je peux faire une seule réservation en ligne pour le groupe. Tu me rembourseras ta place ensuite.", "follow_up_to": null},
         {"topic": "Organisation de la sortie", "question": "Comment pourrait-on s'organiser pour le trajet ?", "answer": "Si tu es disponible, on pourrait se retrouver devant le bureau à 18 h 45 et prendre le métro ensemble.", "follow_up_to": null}
@@ -114,13 +114,13 @@
       "closing": "Merci pour vos conseils. Je vais feuilleter cette publication avant de faire mon choix.",
       "questions": [
         {"topic": "Publication et thèmes", "question": "Quels journaux ou magazines conseilleriez-vous pour découvrir l'actualité canadienne ?", "answer": "Je vous suggère cette revue canadienne d'actualité en français, ou un quotidien local pour les nouvelles de la ville.", "follow_up_to": null},
-        {"topic": "Publication et thèmes", "question": "Quels thèmes aborde cette revue d'actualité ?", "answer": "La société, la politique, l'économie et la culture.", "follow_up_to": 1, "condition": "If a current-affairs magazine is suggested; adapt to the publication you choose."},
-        {"topic": "Difficulté de lecture", "question": "Quel est le niveau de langue des articles ?", "answer": "Le français est accessible, mais certains articles politiques utilisent un vocabulaire plus spécialisé.", "follow_up_to": null},
+        {"topic": "Publication et thèmes", "question": "Cette revue parle surtout de politique ou aussi de sujets du quotidien, comme la culture et la vie au Canada ?", "answer": "Elle couvre la politique et l'économie, mais aussi la culture et les questions de société au Canada.", "follow_up_to": 1, "condition": "If a current-affairs magazine is suggested; adapt to the publication you choose."},
+        {"topic": "Difficulté de lecture", "question": "Le français des articles est-il plutôt courant, ou faut-il déjà connaître beaucoup de vocabulaire politique et économique ?", "answer": "Le français est généralement accessible ; les dossiers politiques et économiques emploient parfois des termes plus spécialisés.", "follow_up_to": null},
         {"topic": "Difficulté de lecture", "question": "Pour commencer plus facilement, est-ce que la revue propose aussi des articles courts ?", "answer": "Oui, en début de numéro, il y a des brèves d'une demi-page, plus faciles à lire que les grands dossiers.", "follow_up_to": 3, "condition": "If political vocabulary is described as specialized and short articles remain unspecified."},
-        {"topic": "Difficulté de lecture", "question": "Puis-je feuilleter ce numéro pour voir si les sujets m'intéressent ?", "answer": "Bien sûr, vous pouvez regarder celui-ci avant de décider.", "follow_up_to": null},
-        {"topic": "Parution et achat", "question": "À quelle fréquence paraît-elle ?", "answer": "Une fois par semaine.", "follow_up_to": null},
-        {"topic": "Parution et achat", "question": "Combien coûte un numéro ?", "answer": "6 $ pour un numéro.", "follow_up_to": null},
-        {"topic": "Parution et achat", "question": "Et si cette revue me plaît, est-ce qu'un abonnement reviendrait moins cher que de l'acheter chaque semaine ?", "answer": "Oui. L'abonnement numérique annuel coûte environ 30 % de moins que si vous achetez chaque numéro séparément.", "follow_up_to": 7, "condition": "If the single-issue price is given but no subscription is mentioned."}
+        {"topic": "Difficulté de lecture", "question": "Est-ce que je peux feuilleter ce numéro et lire un court article pour voir si les sujets et le niveau me conviennent ?", "answer": "Bien sûr, vous pouvez consulter ce numéro et lire un article avant de faire votre choix.", "follow_up_to": null},
+        {"topic": "Parution et achat", "question": "À quelle fréquence paraît-elle, et quel jour recevez-vous les nouveaux numéros ?", "answer": "Elle paraît chaque semaine ; nous recevons les nouveaux numéros le vendredi matin.", "follow_up_to": null},
+        {"topic": "Parution et achat", "question": "Quel est le prix d'un numéro papier, taxes comprises ?", "answer": "6 $ pour un numéro papier, taxes comprises.", "follow_up_to": null},
+        {"topic": "Parution et achat", "question": "Si je la lis chaque semaine, un abonnement papier reviendrait-il moins cher que l'achat de chaque numéro ?", "answer": "L'abonnement papier annuel revient à environ 30 % de moins que l'achat de chaque numéro ; il est proposé par l'éditeur.", "follow_up_to": 7, "condition": "If the single-issue price is given but no subscription is mentioned."}
       ]
     },
     {

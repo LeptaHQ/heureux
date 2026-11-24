@@ -60,18 +60,18 @@
     {
       "group": "canadian-friend-wedding-guest-preparation",
       "register": "tu",
-      "note": "You are invited to a Canadian friend's upcoming wedding and ask another friend for guidance. Use future forms for arrangements. Check timing, venue, guests, clothing and a suitable gift. The couple's preferences are not universal Canadian rules. Use tu with your friend; do not confuse this with a past-wedding report.",
+      "note": "You are invited to a Canadian female friend's upcoming wedding and ask another friend for guidance. Use tu with that friend and future forms for arrangements. Distinguish the ceremony from the reception, learn the guests' role, and ask about attire and gifts. The couple's choices are not universal Canadian rules. Une liste de cadeaux is a gift registry; échange de vœux means an exchange of vows. Dates and arrangements are illustrative.",
       "opening": "Salut ! J'aimerais bien me préparer pour le mariage auquel je suis invité.",
       "closing": "Merci pour tes conseils ! Je vais me préparer en tenant compte des souhaits des mariés.",
       "questions": [
         {"topic": "Déroulement de la cérémonie", "question": "Quand aura lieu la cérémonie ?", "answer": "Samedi 4 juillet, à quatorze heures.", "follow_up_to": null},
-        {"topic": "Déroulement de la cérémonie", "question": "Où se déroulera le mariage ?", "answer": "À la salle municipale, puis la réception aura lieu dans un hôtel voisin.", "follow_up_to": null},
-        {"topic": "Déroulement de la cérémonie", "question": "Comment se déroulera la cérémonie ?", "answer": "Il y aura un échange de vœux, quelques lectures et des photos avec les invités.", "follow_up_to": null},
-        {"topic": "Invités et tenue", "question": "Qui sera présent au mariage ?", "answer": "La famille proche des mariés et une cinquantaine d'amis.", "follow_up_to": null},
+        {"topic": "Déroulement de la cérémonie", "question": "La cérémonie et la réception auront-elles lieu au même endroit ?", "answer": "Non, la cérémonie se déroulera à la salle municipale, puis la réception aura lieu dans un hôtel voisin.", "follow_up_to": null},
+        {"topic": "Déroulement de la cérémonie", "question": "Comment se déroulera la cérémonie, et les invités seront-ils amenés à participer ?", "answer": "Il y aura un échange de vœux et quelques lectures. Les invités écouteront, puis seront appelés pour les photos ; aucune intervention n'est attendue de toi.", "follow_up_to": null},
+        {"topic": "Invités et tenue", "question": "Qui sera présent au mariage : surtout la famille ou aussi beaucoup d'amis ?", "answer": "La famille proche des mariés et une cinquantaine d'amis ; ce ne sera donc pas uniquement une réunion de famille.", "follow_up_to": null},
         {"topic": "Invités et tenue", "question": "Quelle tenue les mariés souhaitent-ils pour leurs invités ?", "answer": "Une tenue élégante, mais pas forcément très formelle.", "follow_up_to": null},
-        {"topic": "Cadeau", "question": "Quel cadeau serait le plus utile aux mariés ?", "answer": "Ils ont prévu une liste de cadeaux pour leur nouvel appartement.", "follow_up_to": null},
+        {"topic": "Cadeau", "question": "Les mariés ont-ils exprimé une préférence pour les cadeaux, comme une liste ou une contribution à un projet ?", "answer": "Ils ont prévu une liste de cadeaux pour leur nouvel appartement ; ils préfèrent qu'on choisisse quelque chose dessus.", "follow_up_to": null},
         {"topic": "Cadeau", "question": "Est-ce qu'il y a aussi des articles adaptés à un petit budget sur cette liste ?", "answer": "Oui, plusieurs objets coûtent entre 20 et 40 $.", "follow_up_to": 6, "condition": "If a gift list is mentioned without affordable options."},
-        {"topic": "Cadeau", "question": "S'ils souhaitent un cadeau, comment les mariés préfèrent-ils le recevoir ?", "answer": "On peut le faire livrer directement chez eux ou l'apporter à la réception.", "follow_up_to": null}
+        {"topic": "Cadeau", "question": "Pour un cadeau choisi sur la liste, vaut-il mieux le faire livrer chez eux ou l'apporter le jour du mariage ?", "answer": "Les deux leur conviennent : on peut le faire livrer directement chez eux ou l'apporter à la réception.", "follow_up_to": null}
       ]
     },
     {
@@ -133,11 +133,11 @@
       "closing": "Merci pour votre aide. Je pourrai contacter le professeur pour confirmer les disponibilités.",
       "questions": [
         {"topic": "Professeur et niveau", "question": "Quels instruments ce professeur enseigne-t-il ?", "answer": "Le piano et la guitare.", "follow_up_to": null},
-        {"topic": "Professeur et niveau", "question": "Ses cours de guitare sont-ils accessibles aux débutants ?", "answer": "Oui, il accompagne aussi des personnes qui n'ont jamais joué.", "follow_up_to": 1, "condition": "If guitar is taught; substitute the instrument that interests you."},
+        {"topic": "Professeur et niveau", "question": "Ses cours de guitare sont-ils accessibles aux débutants, même sans connaître le solfège ?", "answer": "Oui, il accompagne aussi des personnes qui n'ont jamais joué ni lu de partition. Il leur explique les notions nécessaires au fur et à mesure.", "follow_up_to": 1, "condition": "If guitar is taught; substitute the instrument that interests you."},
         {"topic": "Professeur et niveau", "question": "Quelle expérience a-t-il dans l'enseignement de la musique ?", "answer": "Il enseigne depuis plusieurs années et a aussi travaillé dans une école de musique.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "À quelle fréquence propose-t-il les cours ?", "answer": "En général, une séance par semaine, selon les objectifs de chacun.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "À quelle fréquence propose-t-il les cours : chaque semaine ou à un rythme plus souple ?", "answer": "En général, c'est une séance par semaine, mais il peut espacer les leçons selon les objectifs et les disponibilités de chacun.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Et si je voulais commencer bientôt, vous savez quels créneaux il a de libres ?", "answer": "Il me semble qu'il lui reste de la place le mercredi soir, mais c'est à confirmer avec lui.", "follow_up_to": null},
-        {"topic": "Tarif et premier cours", "question": "Quel est le tarif d'un cours à domicile ?", "answer": "La dernière fois que j'ai demandé, c'était 35 $ pour une heure.", "follow_up_to": null},
+        {"topic": "Tarif et premier cours", "question": "Quel est le tarif d'un cours à domicile, et le déplacement est-il compris ?", "answer": "La dernière fois que j'ai demandé, c'était 35 $ pour une heure, déplacement compris dans notre quartier. Il faudra confirmer son tarif actuel avec lui.", "follow_up_to": null},
         {"topic": "Tarif et premier cours", "question": "Pour une première leçon, faut-il déjà avoir un instrument chez soi ?", "answer": "Il peut apporter une guitare pour vous faire essayer, mais pour le piano il faut avoir un clavier chez soi.", "follow_up_to": null},
         {"topic": "Tarif et premier cours", "question": "Vous pourriez me mettre en contact avec lui pour que je vérifie ses disponibilités ?", "answer": "Bien sûr, je peux vous transmettre ses coordonnées.", "follow_up_to": null}
       ]
@@ -230,18 +230,18 @@
     {
       "group": "friend-weekly-theatre-class",
       "register": "tu",
-      "note": "Your friend already attends weekly theatre classes and you are considering joining. Weekly frequency is given: ask for the specific day and time rather than confirming it again. Explore content, participation, venue, cost and a possible trial. Your friend is a participant, not school management. Use tu.",
+      "note": "Your friend already attends weekly theatre classes and you are considering joining. Weekly frequency is given: ask for the specific day and time rather than confirming it again. Explore content, participation, venue, cost and a possible trial. Your friend is a participant, not school management. Use tu; vous in the content question refers to the whole class.",
       "opening": "Salut ! Tes cours de théâtre m'intéressent et j'aimerais savoir comment ça se passe.",
       "closing": "Merci pour ces infos ! Je vais voir si je peux essayer un cours avant de m'inscrire.",
       "questions": [
-        {"topic": "Contenu et participation", "question": "Qu'est-ce que vous travaillez pendant les cours ?", "answer": "L'improvisation, la voix et de courtes scènes jouées en groupe.", "follow_up_to": null},
+        {"topic": "Contenu et participation", "question": "Qu'est-ce que vous travaillez pendant les cours : plutôt l'improvisation, la voix ou des scènes préparées ?", "answer": "Un peu des trois : on travaille la voix, on improvise et on prépare de courtes scènes en groupe.", "follow_up_to": null},
         {"topic": "Contenu et participation", "question": "Pour ces scènes, il faut se lancer devant tout le monde dès le premier cours ?", "answer": "Non, on commence par des exercices à deux. Les petites scènes devant les autres viennent plus tard.", "follow_up_to": 1, "condition": "If acted scenes are part of the course."},
         {"topic": "Lieu et horaires", "question": "Quel jour et à quelle heure ont lieu les cours ?", "answer": "Le jeudi, de dix-neuf heures à vingt et une heures.", "follow_up_to": null},
-        {"topic": "Lieu et horaires", "question": "Où se trouve la salle de cours ?", "answer": "Au centre culturel, près de l'arrêt de bus principal.", "follow_up_to": null},
-        {"topic": "Tarifs et inscription", "question": "Combien coûte la session ?", "answer": "J'ai payé 180 $ pour douze semaines.", "follow_up_to": null},
+        {"topic": "Lieu et horaires", "question": "Où se trouve la salle de cours, dans un théâtre ou dans un centre de quartier ?", "answer": "C'est au centre culturel, près de l'arrêt de bus principal, et non dans un théâtre.", "follow_up_to": null},
+        {"topic": "Tarifs et inscription", "question": "Combien coûte la session, et combien de semaines de cours comprend-elle ?", "answer": "J'ai payé 180 $ pour une session de douze semaines de cours.", "follow_up_to": null},
         {"topic": "Tarifs et inscription", "question": "À ce tarif-là, il y a des textes ou du matériel à acheter en plus ?", "answer": "Non, le prof fournit les textes et on n'a rien d'autre à acheter.", "follow_up_to": 5, "condition": "If the fee is given without saying what is included."},
         {"topic": "Tarifs et inscription", "question": "Peut-on essayer un cours avant de s'inscrire ?", "answer": "Oui, le premier cours peut servir d'essai, à condition de prévenir le professeur.", "follow_up_to": null},
-        {"topic": "Tarifs et inscription", "question": "À qui dois-je m'adresser pour m'inscrire ?", "answer": "À l'accueil du centre culturel ; ils gèrent les inscriptions.", "follow_up_to": null}
+        {"topic": "Tarifs et inscription", "question": "À qui dois-je m'adresser pour m'inscrire, au professeur ou à l'accueil du centre ?", "answer": "À l'accueil du centre culturel ; ils gèrent les inscriptions, même si on prévient le professeur pour l'essai.", "follow_up_to": null}
       ]
     },
     {
@@ -269,12 +269,12 @@
       "closing": "Merci pour ton avis ! J'ai maintenant une piste concrète pour préparer mon article.",
       "questions": [
         {"topic": "Choix du film", "question": "Parmi les films que tu as aimés, lequel ferait un bon sujet pour mon article ?", "answer": "En corps, de Cédric Klapisch.", "follow_up_to": null},
-        {"topic": "Choix du film", "question": "C'est quel genre de film ?", "answer": "Une comédie dramatique centrée sur la danse.", "follow_up_to": null},
+        {"topic": "Choix du film", "question": "C'est plutôt un drame, une comédie ou un mélange des deux ?", "answer": "Une comédie dramatique : le sujet est parfois dur, mais il y a aussi de l'humour.", "follow_up_to": null},
         {"topic": "Histoire et avis", "question": "Quelle est l'histoire, sans dévoiler la fin ?", "answer": "Une danseuse classique blessée découvre la danse contemporaine et cherche une nouvelle voie.", "follow_up_to": null},
         {"topic": "Histoire et avis", "question": "Dans le parcours de cette danseuse, qu'est-ce qui t'a le plus touché ?", "answer": "Le fait qu'elle ne cherche pas seulement à retrouver son niveau d'avant. Elle découvre qu'elle peut danser autrement.", "follow_up_to": 3, "condition": "After the plot is outlined; adapt the reference to its actual subject."},
-        {"topic": "Histoire et avis", "question": "Quels acteurs jouent dans le film ?", "answer": "Marion Barbeau et Denis Podalydès, entre autres.", "follow_up_to": null},
-        {"topic": "Lieu et prix", "question": "Où l'as-tu vu ?", "answer": "Au cinéma de mon quartier, pendant une soirée consacrée au cinéma français.", "follow_up_to": null},
-        {"topic": "Lieu et prix", "question": "Combien avais-tu payé pour cette séance ?", "answer": "12 $, sans réduction particulière.", "follow_up_to": 6, "condition": "If they saw it at a paid screening."},
+        {"topic": "Histoire et avis", "question": "Quels acteurs t'ont marqué, et qu'as-tu pensé de leur façon de jouer ?", "answer": "Marion Barbeau rend les scènes de danse très crédibles ; j'ai aussi aimé l'humour qu'apporte Denis Podalydès.", "follow_up_to": null},
+        {"topic": "Lieu et prix", "question": "Où l'as-tu vu, et était-ce une séance ordinaire ou une projection spéciale ?", "answer": "Au cinéma de mon quartier, pendant une soirée consacrée au cinéma français.", "follow_up_to": null},
+        {"topic": "Lieu et prix", "question": "Combien avais-tu payé pour cette séance, et avais-tu bénéficié d'un tarif réduit ?", "answer": "12 $, sans réduction particulière.", "follow_up_to": 6, "condition": "If they saw it at a paid screening."},
         {"topic": "Lieu et prix", "question": "Pour les lecteurs qui voudraient le voir maintenant, tu leur conseillerais de chercher une séance ou de le louer en ligne ?", "answer": "C'était une projection ponctuelle. Je regarderais d'abord si le film est disponible en location en ligne.", "follow_up_to": null}
       ]
     },
@@ -298,15 +298,15 @@
     {
       "group": "neighbor-party-planning-advice",
       "register": "vous",
-      "note": "You are organizing a neighbours' party and want advice, not tickets for an existing event. Ask your neighbour about guests, venue, timing, food and entertainment. Consider practical neighbourhood constraints without pretending permission is already granted. Vous is chosen; invitation methods should follow the guests actually suggested.",
+      "note": "You want to organize a neighbours' party and ask your neighbour for advice, not tickets to an existing event. Use vous. Compare a manageable guest list, venue and timing before discussing shared food, costs, music and an icebreaker. A suggested room still needs availability and rental terms checked; no permission is assumed. Buffet partagé means a potluck buffet, and jeu de présentation means an introductory icebreaker. Follow the actual suggestions.",
       "opening": "Bonjour ! J'aimerais organiser une fête entre voisins et profiter de vos conseils.",
       "closing": "Merci pour vos idées. Je vais vérifier le lieu et proposer une date aux voisins.",
       "questions": [
-        {"topic": "Invités", "question": "Qui faudrait-il inviter pour commencer ?", "answer": "Les voisins les plus proches, pour garder une première rencontre facile à organiser.", "follow_up_to": null},
+        {"topic": "Invités", "question": "Pour une première fête, vaudrait-il mieux inviter tous les voisins concernés ou commencer par les voisins les plus proches ?", "answer": "Je commencerais par les voisins les plus proches, pour garder une première rencontre facile à organiser.", "follow_up_to": null},
         {"topic": "Invités", "question": "Pour joindre ces voisins proches sans oublier personne, vaudrait-il mieux passer les voir ou laisser un mot ?", "answer": "Un petit mot dans les boîtes aux lettres, avec un contact pour répondre, serait simple.", "follow_up_to": 1, "condition": "If nearby neighbours are suggested and invitation methods remain unspecified."},
-        {"topic": "Lieu et moment", "question": "Quel lieu pourrait convenir à cette fête ?", "answer": "La salle du centre de quartier, si elle est disponible à la location.", "follow_up_to": null},
-        {"topic": "Lieu et moment", "question": "Quel moment serait le plus pratique pour la rencontre ?", "answer": "Un samedi en fin d'après-midi permettrait aux familles de passer sans finir trop tard.", "follow_up_to": null},
-        {"topic": "Repas et animations", "question": "Quel type de repas serait le plus facile à prévoir ?", "answer": "Un buffet partagé, où chacun apporte quelque chose en indiquant les ingrédients.", "follow_up_to": null},
+        {"topic": "Lieu et moment", "question": "Quel lieu pourrait convenir à cette fête sans gêner les habitants qui n'y participent pas ?", "answer": "La salle du centre de quartier, si elle est disponible à la location ; elle éviterait de faire du bruit dans les parties communes de l'immeuble.", "follow_up_to": null},
+        {"topic": "Lieu et moment", "question": "Quel moment serait le plus pratique pour que les voisins puissent venir, même avec des enfants ?", "answer": "Un samedi en fin d'après-midi permettrait aux familles de passer sans finir trop tard.", "follow_up_to": null},
+        {"topic": "Repas et animations", "question": "Quel type de repas serait le plus facile à prévoir sans laisser toute la préparation à une seule personne ?", "answer": "Un buffet partagé, où chacun apporte quelque chose en indiquant les ingrédients, répartirait bien la préparation.", "follow_up_to": null},
         {"topic": "Repas et animations", "question": "Avec ce buffet partagé, quelles dépenses communes faudrait-il prévoir et comment les répartir ?", "answer": "Il resterait les frais de salle et de décoration ; on pourrait les partager entre les participants après leur avoir proposé un budget.", "follow_up_to": 5, "condition": "If a shared buffet is suggested without a common-cost arrangement."},
         {"topic": "Repas et animations", "question": "Quelle musique conviendrait à des invités d'âges différents ?", "answer": "Une playlist variée, à un volume qui permet de discuter.", "follow_up_to": null},
         {"topic": "Repas et animations", "question": "Quelle animation aiderait les voisins à faire connaissance ?", "answer": "Un petit jeu de présentation, puis des tables où les gens peuvent discuter.", "follow_up_to": null}

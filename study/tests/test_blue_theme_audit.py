@@ -72,6 +72,12 @@ LEISURE_NOTE_OR_REPLY_ONLY = {
     "new-quebec-resident-first-party",
     "newcomer-neighbor-partner-surprise-birthday",
 }
+LEISURE_ENRICHMENT_ARCHIVE_INDEX = {
+    "home-chef-family-meal": 1,
+    "new-quebec-resident-first-party": 0,
+    "colleague-management-promotion-party": 2,
+    "french-teacher-canadian-new-year-customs": 1,
+}
 
 
 def fingerprint(value):
@@ -106,7 +112,9 @@ class BlueThemeAuditTests(SimpleTestCase):
         self.history = json.loads((
             content.QUESTION_BANK_DIR / "dialogue_history/locations.json"
         ).read_text())["groups"]
-        self.archived_editions = PUBLISHED_ARCHIVE_INDEX | LEISURE_ARCHIVE_INDEX
+        self.archived_editions = (
+            PUBLISHED_ARCHIVE_INDEX | LEISURE_ARCHIVE_INDEX | LEISURE_ENRICHMENT_ARCHIVE_INDEX
+        )
         self.recorded_models = {
             group: self.history[group]["revisions"][self.archived_editions[group]]
             if group in self.archived_editions else visible(row)

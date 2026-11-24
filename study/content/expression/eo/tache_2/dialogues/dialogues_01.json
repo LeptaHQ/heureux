@@ -38,15 +38,15 @@
     {
       "group": "colleague-wedding-report",
       "register": "tu",
-      "note": "Your colleague attended a wedding last weekend. Ask about a past experience, not arrangements for an upcoming wedding. Cover the venue, food, entertainment and personal impressions. This example chooses tu for familiar colleagues; vous is also possible if your relationship is more formal. Keep your chosen register consistent.",
+      "note": "Your colleague attended a wedding last weekend. Ask what actually happened and how they experienced it, not how to plan an upcoming wedding. Cover the setting, menu, entertainment and memories without assuming they hosted. Tu suits familiar colleagues; keep it consistent. The country inn and surprise song are illustrative replies: auberge means an inn, and coin photo means a photo corner.",
       "opening": "Salut ! J'aimerais bien savoir comment s'est passé le mariage de ce week-end.",
       "closing": "Merci de m'avoir raconté tout ça ! On dirait que tu as passé une belle soirée.",
       "questions": [
-        {"topic": "Lieu et ambiance", "question": "Le mariage, c'était où exactement ?", "answer": "Dans une auberge à la campagne, avec la réception dans le jardin.", "follow_up_to": null},
-        {"topic": "Lieu et ambiance", "question": "L'ambiance était plutôt calme ou animée ?", "answer": "Plutôt animée et très conviviale : les invités circulaient librement et discutaient beaucoup.", "follow_up_to": null},
-        {"topic": "Repas", "question": "Qu'est-ce qui était prévu au menu ?", "answer": "Il y avait du poisson en plat principal et une option végétarienne.", "follow_up_to": null},
-        {"topic": "Repas", "question": "Tu as trouvé le repas réussi ?", "answer": "Oui, surtout le dessert aux fruits, qui était vraiment frais.", "follow_up_to": null},
-        {"topic": "Animations et souvenirs", "question": "Quelles animations y avait-il pendant la soirée ?", "answer": "Un DJ faisait danser les invités, et un coin photo avait été installé.", "follow_up_to": null},
+        {"topic": "Lieu et ambiance", "question": "Le mariage, c'était où exactement : dans une salle, un restaurant ou en plein air ?", "answer": "Dans une auberge à la campagne, avec la réception dans le jardin.", "follow_up_to": null},
+        {"topic": "Lieu et ambiance", "question": "L'ambiance était plutôt calme ou animée, et les invités se mélangeaient facilement ?", "answer": "Plutôt animée et très conviviale : même les invités qui ne se connaissaient pas circulaient et discutaient ensemble.", "follow_up_to": null},
+        {"topic": "Repas", "question": "Qu'est-ce qui était prévu au menu, du plat principal au dessert ?", "answer": "Il y avait du poisson avec des légumes, une option végétarienne et une tarte aux fruits en dessert.", "follow_up_to": null},
+        {"topic": "Repas", "question": "Qu'est-ce que tu as particulièrement apprécié dans le repas, et y a-t-il quelque chose qui t'a moins plu ?", "answer": "Le dessert aux fruits était vraiment frais et réussi. Le poisson, en revanche, était un peu sec.", "follow_up_to": null},
+        {"topic": "Animations et souvenirs", "question": "Quelles animations y avait-il pendant la soirée : de la musique, des jeux ou des activités auxquelles les invités pouvaient participer ?", "answer": "Un DJ faisait danser les invités, et un coin photo permettait de prendre des photos amusantes avec des accessoires.", "follow_up_to": null},
         {"topic": "Animations et souvenirs", "question": "Quel moment de la soirée t'a le plus marqué ?", "answer": "Le père de la mariée a chanté une chanson surprise, c'était très émouvant.", "follow_up_to": null},
         {"topic": "Animations et souvenirs", "question": "Comment les mariés ont-ils réagi à cette chanson surprise ?", "answer": "Ils étaient très émus ; la mariée a serré son père dans ses bras à la fin de la chanson.", "follow_up_to": 6, "condition": "If a surprise song is mentioned without the couple's reaction."},
         {"topic": "Animations et souvenirs", "question": "La fête s'est terminée vers quelle heure ?", "answer": "Vers une heure du matin, après une dernière danse.", "follow_up_to": null}
@@ -106,18 +106,18 @@
     {
       "group": "neighbor-photography-association-class",
       "register": "vous",
-      "note": "Your neighbour already attends the association's photography course. Ask for their experience and practical information, but do not treat them as the registration officer. Voisin means you already live nearby; there is no housing search here. This model uses vous. Confirm current fees and enrolment with the association.",
+      "note": "Your neighbour already attends the association's photography course. Ask for their experience and practical information, but do not treat them as the registration officer. Voisin means you already live nearby; there is no housing search here. This model uses vous. Follow the activities actually described and confirm current fees and enrolment with the association.",
       "opening": "Bonjour ! Les cours de photographie que vous suivez m'intéressent.",
       "closing": "Merci pour votre aide ! Je vais consulter le site de l'association pour la prochaine session.",
       "questions": [
-        {"topic": "Contenu et niveau", "question": "Qu'apprend-on dans ces cours de photographie ?", "answer": "On travaille le cadrage et la lumière, puis on fait des sorties photo.", "follow_up_to": null},
+        {"topic": "Contenu et niveau", "question": "Qu'apprend-on dans ces cours de photographie : surtout la technique, ou aussi à composer une image en pratiquant ?", "answer": "On travaille les réglages, mais aussi le cadrage et la lumière. On met ensuite tout cela en pratique pendant des sorties photo.", "follow_up_to": null},
         {"topic": "Contenu et niveau", "question": "Est-ce que ces sorties conviennent aussi aux débutants ?", "answer": "Oui, le professeur accompagne chacun et adapte ses conseils au niveau.", "follow_up_to": 1, "condition": "If photo outings are mentioned; otherwise ask about the activities actually described."},
-        {"topic": "Lieu et horaires", "question": "Où se déroulent les cours ?", "answer": "Dans le local de l'association, près de la bibliothèque.", "follow_up_to": null},
-        {"topic": "Lieu et horaires", "question": "À quels horaires ont-ils lieu ?", "answer": "Le mercredi, de dix-neuf heures à vingt heures trente.", "follow_up_to": null},
+        {"topic": "Lieu et horaires", "question": "Où se déroulent les cours, et les sorties photo restent-elles dans le quartier ?", "answer": "Les cours se passent dans le local de l'association, près de la bibliothèque. Pour les sorties, on photographie surtout les rues et le parc du quartier.", "follow_up_to": null},
+        {"topic": "Lieu et horaires", "question": "À quels horaires ont-ils lieu, plutôt en soirée ou le week-end, et combien dure une séance ?", "answer": "Les cours ont lieu le mercredi de dix-neuf heures à vingt heures trente. Les sorties se font aussi sur ce créneau, soit une heure et demie.", "follow_up_to": null},
         {"topic": "Matériel et inscription", "question": "Pour commencer, est-ce qu'un téléphone suffit ou faut-il déjà avoir un appareil photo ?", "answer": "Le téléphone suffit pour travailler le cadrage et la lumière. C'est ce que j'ai utilisé au début.", "follow_up_to": null},
         {"topic": "Matériel et inscription", "question": "Mais si je veux apprendre à faire les réglages sur un appareil, vous savez si l'association peut m'en prêter un ?", "answer": "Oui, elle a quelques appareils en prêt pour les premières séances, à réserver au moment de l'inscription.", "follow_up_to": 5, "condition": "If a phone is sufficient but you want to learn camera settings."},
-        {"topic": "Matériel et inscription", "question": "Combien coûte l'inscription ?", "answer": "La dernière session coûtait 120 $ pour dix cours.", "follow_up_to": null},
-        {"topic": "Matériel et inscription", "question": "Vous savez comment m'inscrire à la prochaine session ?", "answer": "Oui, le formulaire est sur le site de l'association ; vous y trouverez aussi les tarifs actualisés.", "follow_up_to": null}
+        {"topic": "Matériel et inscription", "question": "Combien coûte l'inscription, et paie-t-on pour toute une session ou à chaque cours ?", "answer": "Pour ma dernière session, j'ai payé 120 $ pour dix cours, en une fois. À ma connaissance, il n'y avait pas de paiement à la séance.", "follow_up_to": null},
+        {"topic": "Matériel et inscription", "question": "Vous savez comment m'inscrire à la prochaine session, en ligne ou directement auprès de l'association ?", "answer": "Le formulaire se remplit sur le site de l'association. Vous y trouverez aussi les tarifs actualisés et un contact si vous avez besoin d'aide.", "follow_up_to": null}
       ]
     },
     {
@@ -127,14 +127,14 @@
       "opening": "Bonjour ! Je voudrais me renseigner sur les activités de votre centre.",
       "closing": "Merci pour ces renseignements ! Je vais voir si je peux me libérer le mercredi.",
       "questions": [
-        {"topic": "Activités et public", "question": "Quelles activités proposez-vous en ce moment ?", "answer": "Nous avons des ateliers de dessin, des cours de danse et des concerts.", "follow_up_to": null},
+        {"topic": "Activités et public", "question": "Quelles activités proposez-vous en ce moment, des ateliers réguliers ou aussi des événements ponctuels ?", "answer": "Nous proposons des ateliers réguliers de dessin et des cours de danse. Il y a aussi des concerts ponctuels.", "follow_up_to": null},
         {"topic": "Activités et public", "question": "À partir de quel âge peut-on suivre les ateliers de dessin, et accueillent-ils tous les niveaux ?", "answer": "Dès treize ans ; les débutants et les personnes plus expérimentées travaillent dans le même groupe.", "follow_up_to": 1, "condition": "If drawing workshops are offered without entry requirements; adapt to the activity selected."},
         {"topic": "Places et déroulement", "question": "Reste-t-il des places pour la prochaine session de cet atelier ?", "answer": "Oui, il reste six places pour la session qui commence le mois prochain.", "follow_up_to": null},
-        {"topic": "Places et déroulement", "question": "À quels horaires ont lieu ces ateliers ?", "answer": "Le mercredi, de dix-huit heures à dix-neuf heures trente.", "follow_up_to": null},
+        {"topic": "Places et déroulement", "question": "À quels horaires ont lieu ces ateliers, en semaine ou le week-end ?", "answer": "Ils ont lieu en semaine, le mercredi, de dix-huit heures à dix-neuf heures trente.", "follow_up_to": null},
         {"topic": "Places et déroulement", "question": "Et en dessin, qu'est-ce qu'on apprend au cours de cette session ?", "answer": "On commence par des croquis au crayon, puis on travaille les proportions et la façon de placer les ombres.", "follow_up_to": null},
-        {"topic": "Tarifs et inscription", "question": "Quel est le tarif pour une session ?", "answer": "La session de huit ateliers coûte 60 $.", "follow_up_to": null},
+        {"topic": "Tarifs et inscription", "question": "Quel est le tarif pour une session de dessin, et combien d'ateliers comprend-elle ?", "answer": "La session de dessin coûte 60 $ et comprend huit ateliers.", "follow_up_to": null},
         {"topic": "Tarifs et inscription", "question": "Le matériel est-il compris dans ce prix ?", "answer": "Oui, le papier et les outils de dessin sont fournis.", "follow_up_to": 6, "condition": "After the fee is given, if materials have not been discussed."},
-        {"topic": "Tarifs et inscription", "question": "Quelle est la démarche pour s'inscrire ?", "answer": "Vous pouvez remplir le formulaire à l'accueil ou sur notre site.", "follow_up_to": null}
+        {"topic": "Tarifs et inscription", "question": "Quelle est la démarche pour s'inscrire, et jusqu'à quand peut-on le faire ?", "answer": "Vous pouvez remplir le formulaire à l'accueil ou sur notre site, jusqu'à une semaine avant le début de la session, tant qu'il reste des places.", "follow_up_to": null}
       ]
     },
     {
@@ -144,14 +144,14 @@
       "opening": "Bonjour ! J'aimerais découvrir la région pendant mes vacances.",
       "closing": "Merci pour vos conseils. Je vais préparer mes visites en tenant compte de ces horaires.",
       "questions": [
-        {"topic": "Visites", "question": "Quels parcs ou musées conseilleriez-vous pour découvrir la région ?", "answer": "Le parc du lac pour la promenade et le kayak, et le musée régional pour ses expositions et ses visites guidées.", "follow_up_to": null},
-        {"topic": "Visites", "question": "Est-ce qu'on peut rejoindre facilement le parc sans voiture ?", "answer": "Oui, un bus relie le centre à l'entrée du parc toutes les trente minutes, avec des retours jusqu'à vingt heures trente.", "follow_up_to": 1, "condition": "If a park is recommended without transport details; adapt to the actual site."},
+        {"topic": "Visites", "question": "Quels parcs ou musées conseilleriez-vous pour découvrir à la fois les paysages et la culture de la région ?", "answer": "Le parc du lac pour la promenade et le kayak, et le musée régional pour ses expositions et ses visites guidées.", "follow_up_to": null},
+        {"topic": "Visites", "question": "Peut-on rejoindre le parc sans voiture, et y a-t-il des transports pour rentrer en fin de journée ?", "answer": "Oui, un bus relie le centre à l'entrée du parc toutes les trente minutes, avec des retours jusqu'à vingt heures trente.", "follow_up_to": 1, "condition": "If a park is recommended without transport details; adapt to the actual site."},
         {"topic": "Durée et horaires", "question": "Combien de temps faudrait-il prévoir pour le parc et le musée, sans se presser ?", "answer": "Avec une heure de kayak, la visite du parc prend une demi-journée ; pour le musée, deux heures suffisent généralement.", "follow_up_to": null},
-        {"topic": "Durée et horaires", "question": "Quels sont les horaires d'ouverture des lieux conseillés ?", "answer": "Le parc ouvre tous les jours de 8 h à 20 h ; le musée, du mardi au dimanche de 10 h à 17 h.", "follow_up_to": null},
-        {"topic": "Budget et réservations", "question": "Quel budget faut-il prévoir pour ces visites ?", "answer": "Le parc est gratuit, le musée coûte 12 $, visite guidée comprise, et le kayak se loue 20 $ l'heure.", "follow_up_to": null},
-        {"topic": "Budget et réservations", "question": "Quelles activités faut-il réserver à l'avance ?", "answer": "Il vaut mieux réserver le kayak auprès de la base nautique et les visites guidées sur le site du musée, surtout le week-end.", "follow_up_to": null},
-        {"topic": "Repas", "question": "Où peut-on manger une spécialité de la région ?", "answer": "Au restaurant du port, qui propose du poisson local.", "follow_up_to": null},
-        {"topic": "Repas", "question": "Faut-il également réserver une table dans le restaurant que vous recommandez ?", "answer": "Oui, mieux vaut réserver la veille, particulièrement pour le dîner du samedi.", "follow_up_to": 7, "condition": "If a restaurant is suggested without booking advice."}
+        {"topic": "Durée et horaires", "question": "Quels sont les horaires du parc et du musée, et y a-t-il des jours de fermeture à prévoir ?", "answer": "Le parc ouvre tous les jours de 8 h à 20 h ; le musée, du mardi au dimanche de 10 h à 17 h.", "follow_up_to": null},
+        {"topic": "Budget et réservations", "question": "Quel budget faut-il prévoir pour ces visites, avec une activité comme le kayak ou une visite guidée ?", "answer": "Le parc est gratuit, le musée coûte 12 $, visite guidée comprise, et le kayak se loue 20 $ l'heure.", "follow_up_to": null},
+        {"topic": "Budget et réservations", "question": "Parmi ces activités, lesquelles faut-il réserver à l'avance, et comment s'y prendre ?", "answer": "Il vaut mieux réserver le kayak auprès de la base nautique et les visites guidées sur le site du musée, surtout le week-end.", "follow_up_to": null},
+        {"topic": "Repas", "question": "Quel restaurant conseilleriez-vous pour goûter une spécialité de la région, et qu'est-ce qu'on y mange ?", "answer": "Le restaurant du port sert du poisson local, notamment une soupe de poisson et du poisson grillé.", "follow_up_to": null},
+        {"topic": "Repas", "question": "Pour le restaurant que vous recommandez, faut-il réserver une table, et combien de temps à l'avance ?", "answer": "Oui, mieux vaut réserver la veille, particulièrement pour le dîner du samedi.", "follow_up_to": 7, "condition": "If a restaurant is suggested without booking advice."}
       ]
     },
     {
@@ -191,17 +191,17 @@
     {
       "group": "new-quebec-resident-first-party",
       "register": "tu",
-      "note": "Your friend has invited you to your first party since settling in Quebec. You already have accommodation: focus on this event's timing, clothing, what to bring and the hosts' preferences. Do not present one household's habits as universal Quebec customs. Use tu with your friend.",
+      "note": "Your friend has invited you to your first party since settling in Quebec. You already have accommodation; ask about this event's arrival window, setting, guests, clothing, gift and household etiquette. The inviter need not be the host. Do not treat one household's preferences as universal Quebec customs. Use tu with your friend. A petite attention is a small thoughtful gift; chaussons are slippers. Names and arrangements are practice examples.",
       "opening": "Salut ! Merci pour l'invitation. J'aimerais savoir comment me préparer pour la fête.",
       "closing": "Merci, ça me rassure ! Je vais préparer ma venue en suivant tes conseils.",
       "questions": [
-        {"topic": "Organisation de la soirée", "question": "La fête a lieu quand ?", "answer": "Samedi prochain, à partir de dix-huit heures.", "follow_up_to": null},
+        {"topic": "Organisation de la soirée", "question": "La fête a lieu quel jour, et à partir de quelle heure peut-on arriver ?", "answer": "Samedi prochain ; tu peux arriver entre dix-huit et dix-neuf heures.", "follow_up_to": null},
         {"topic": "Organisation de la soirée", "question": "Où est-ce qu'on se retrouve ?", "answer": "Chez Nadine ; je t'enverrai l'adresse et le numéro de l'appartement.", "follow_up_to": null},
-        {"topic": "Organisation de la soirée", "question": "Qui sera présent à la fête ?", "answer": "Une douzaine d'amis de Nadine, dont quelques personnes du quartier.", "follow_up_to": null},
-        {"topic": "Tenue et petite attention", "question": "Quel genre de tenue conviendrait ?", "answer": "Une tenue décontractée suffit, ce n'est pas une réception formelle.", "follow_up_to": null},
+        {"topic": "Organisation de la soirée", "question": "Ce sera plutôt une petite soirée entre proches ou une grande fête où je pourrai rencontrer du monde ?", "answer": "Une petite soirée avec une douzaine d'amis de Nadine, dont quelques personnes du quartier que tu pourras rencontrer.", "follow_up_to": null},
+        {"topic": "Tenue et petite attention", "question": "Quel genre de tenue conviendrait : quelque chose de décontracté ou de plus habillé ?", "answer": "Une tenue décontractée suffit, ce n'est pas une réception formelle.", "follow_up_to": null},
         {"topic": "Tenue et petite attention", "question": "Qu'est-ce que je pourrais apporter pour remercier les hôtes ?", "answer": "Un dessert à partager leur ferait plaisir.", "follow_up_to": null},
         {"topic": "Tenue et petite attention", "question": "Pour ce dessert, y a-t-il des aliments à éviter ?", "answer": "Oui, mieux vaut éviter les noix, car un invité y est allergique.", "follow_up_to": 5, "condition": "If they suggest bringing dessert; adapt to the proposed food."},
-        {"topic": "Habitudes sur place", "question": "Y a-t-il une habitude à connaître pour l'arrivée ?", "answer": "Chez Nadine, on enlève ses chaussures à l'entrée ; elle préfère qu'on apporte des chaussons.", "follow_up_to": null},
+        {"topic": "Habitudes sur place", "question": "À l'arrivée, y a-t-il des habitudes à respecter chez les hôtes, par exemple pour les chaussures ?", "answer": "Chez Nadine, on enlève ses chaussures à l'entrée ; elle préfère qu'on apporte des chaussons.", "follow_up_to": null},
         {"topic": "Habitudes sur place", "question": "Vers quelle heure vaut-il mieux partir pour ne pas déranger les hôtes ?", "answer": "La soirée devrait finir vers minuit, mais tu peux partir plus tôt sans problème.", "follow_up_to": null}
       ],
       "notes": {
@@ -250,19 +250,19 @@
       "closing": "Merci pour tes conseils ! Je vais regarder les possibilités d'hébergement avant de me décider.",
       "questions": [
         {"topic": "Destination et activités", "question": "Quel endroit calme me conseillerais-tu pour passer le week-end et me ressourcer ?", "answer": "Le lac Sammamish, à une heure de la ville, est agréable pour deux jours.", "follow_up_to": null},
-        {"topic": "Destination et activités", "question": "Qu'est-ce qu'on pourrait faire autour de ce lac ?", "answer": "Marcher au bord de l'eau ou louer des vélos pour suivre les pistes du parc.", "follow_up_to": 1, "condition": "If a lake is recommended without activities; adapt to the actual destination."},
-        {"topic": "Trajet", "question": "Quel serait le moyen le plus pratique pour y aller ?", "answer": "La voiture est la plus rapide ; le bus existe, mais le trajet prend deux heures.", "follow_up_to": null},
-        {"topic": "Hébergement et budget", "question": "Où pourrait-on dormir sur place ?", "answer": "Une petite auberge se trouve à quelques minutes à pied du lac.", "follow_up_to": null},
-        {"topic": "Hébergement et budget", "question": "Quel budget faudrait-il prévoir pour deux jours ?", "answer": "Si tu partages les frais de voiture, compte environ 180 $ par personne pour une nuit à l'auberge, les repas et le trajet. La location des vélos est en plus.", "follow_up_to": null},
+        {"topic": "Destination et activités", "question": "Autour de ce lac, quelles balades ou activités tranquilles pourrait-on faire sans passer son temps dans les transports ?", "answer": "On peut marcher au bord de l'eau ou louer des vélos près du lac pour suivre les pistes du parc ; tout se fait sur place.", "follow_up_to": 1, "condition": "If a lake is recommended without activities; adapt to the actual destination."},
+        {"topic": "Trajet", "question": "Pour y aller, la voiture est-elle indispensable ou peut-on se débrouiller en transports en commun ?", "answer": "La voiture prend environ une heure. Il y a aussi un bus, mais il faut compter deux heures de trajet.", "follow_up_to": null},
+        {"topic": "Hébergement et budget", "question": "Pour dormir près du lac, tu connais une petite auberge ou un autre hébergement tranquille accessible à pied ?", "answer": "Oui, une petite auberge se trouve à quelques minutes à pied du lac, dans une rue calme.", "follow_up_to": null},
+        {"topic": "Hébergement et budget", "question": "Pour deux jours avec une nuit sur place, quel budget par personne prévoir pour le logement, les repas et le trajet ?", "answer": "Si tu partages les frais de voiture, compte environ 180 $ par personne pour une nuit à l'auberge, les repas et le trajet. La location des vélos est en plus.", "follow_up_to": null},
         {"topic": "Hébergement et budget", "question": "Est-ce qu'il faut réserver cette auberge longtemps à l'avance ?", "answer": "Pour un week-end d'été, mieux vaut réserver deux ou trois semaines avant.", "follow_up_to": 4, "condition": "If an inn is recommended without explaining how far ahead to book."},
-        {"topic": "Solution en cas de pluie", "question": "Quelle activité resterait possible s'il pleuvait ?", "answer": "Un café tranquille près du lac permettrait de lire ou de jouer à un jeu de société à l'abri.", "follow_up_to": null},
+        {"topic": "Solution en cas de pluie", "question": "S'il pleuvait, est-ce qu'on pourrait quand même sortir quelque part à l'abri plutôt que rester dans la chambre ?", "answer": "Oui, un café tranquille près du lac permet de lire ou de jouer à un jeu de société à l'abri.", "follow_up_to": null},
         {"topic": "Solution en cas de pluie", "question": "Si je réserve un hébergement, quelles conditions d'annulation me conseilles-tu de vérifier en cas de mauvais temps ?", "answer": "Le délai et les frais restent à vérifier : lors de mon séjour, l'annulation était gratuite jusqu'à quarante-huit heures avant l'arrivée ; ensuite, la première nuit était facturée.", "follow_up_to": null}
       ]
     },
     {
       "group": "canada-cinema-employee-friend",
       "register": "tu",
-      "note": "You are on holiday in Canada and your friend works at a cinema. They can explain films, screenings and prices, but use tu because you are friends. No ticket or screening has been selected. Follow the films and times actually offered, then ask about booking and seat choice separately. Prices and screening arrangements are illustrative.",
+      "note": "You are on holiday in Canada and your friend works at a cinema. Use tu with your friend, who can explain the films, screenings and ticket arrangements. No film or screening is selected initially. Follow the actual comedy recommendation, then compare times and prices before booking and seat choice. À l'affiche means showing; placement libre means unassigned seating. Prices, the revival screening and booking arrangements are illustrative.",
       "opening": "Salut ! J'aimerais profiter des vacances pour aller voir un film dans ton cinéma.",
       "closing": "Merci pour le conseil ! Je vais voir s'il reste de la place pour cette séance.",
       "questions": [
@@ -270,8 +270,8 @@
         {"topic": "Choix du film", "question": "Et si j'ai envie d'une comédie, laquelle tu me conseillerais ?", "answer": "Intouchables. Il repasse cette semaine et il plaît beaucoup au public.", "follow_up_to": 1, "condition": "If comedies are showing and your friend has not recommended one."},
         {"topic": "Choix du film", "question": "De quoi parle ce film, sans me dévoiler la fin ?", "answer": "Un homme handicapé engage un aide à domicile, et une amitié inattendue se développe entre eux.", "follow_up_to": 2, "condition": "After a film is recommended, unless its story is already explained."},
         {"topic": "Choix du film", "question": "Est-ce que ce film est projeté en français, avec ou sans sous-titres ?", "answer": "Oui, nos projections de ce film sont en version originale française, sans sous-titres.", "follow_up_to": null},
-        {"topic": "Séance et billets", "question": "À quelles heures est-ce qu'il y a des séances ?", "answer": "À dix-huit heures et à vingt heures trente.", "follow_up_to": null},
-        {"topic": "Séance et billets", "question": "Quel est le prix d'une place ?", "answer": "Le tarif normal est de 13 $.", "follow_up_to": null},
+        {"topic": "Séance et billets", "question": "À quelles heures est-ce qu'il y a des séances de ce film en fin de journée ?", "answer": "En fin de journée, tu peux le voir à dix-huit heures ou à vingt heures trente.", "follow_up_to": null},
+        {"topic": "Séance et billets", "question": "Quel est le prix d'une place, et y a-t-il des séances moins chères ?", "answer": "Le tarif normal est de 13 $. Les séances qui commencent avant dix-sept heures coûtent 10 $, mais celles du soir sont au tarif normal.", "follow_up_to": null},
         {"topic": "Séance et billets", "question": "Pour celle de vingt heures trente, il vaut mieux réserver ou je peux acheter le billet en arrivant ?", "answer": "Tu peux l'acheter au guichet s'il reste de la place. Pour cette séance, je te conseille de le prendre sur le site.", "follow_up_to": 5, "condition": "If that screening is offered without booking instructions; use its actual time."},
         {"topic": "Séance et billets", "question": "En réservant en ligne, on choisit son siège ou on s'assoit où on veut en arrivant ?", "answer": "Tu choisis ton siège sur le plan de la salle quand tu prends ton billet.", "follow_up_to": 7, "condition": "If online booking is offered without explaining seat selection."}
       ]
@@ -301,30 +301,30 @@
       "closing": "Merci pour ton avis ! Ces pistes vont m'aider à choisir l'angle de mon article.",
       "questions": [
         {"topic": "Choix du livre", "question": "Parmi tes lectures récentes, quel livre me conseillerais-tu de présenter ?", "answer": "J'ai relu Le Petit Prince et je pense qu'il offrirait un beau sujet.", "follow_up_to": null},
-        {"topic": "Choix du livre", "question": "C'est quel genre de livre, au juste ?", "answer": "C'est un conte d'Antoine de Saint-Exupéry. Il ressemble à une histoire pour enfants, mais il parle aussi de solitude et d'amitié.", "follow_up_to": null},
+        {"topic": "Choix du livre", "question": "De quel genre de livre s'agit-il, et qui l'a écrit ?", "answer": "C'est un conte d'Antoine de Saint-Exupéry. Il ressemble à une histoire pour enfants, mais il parle aussi de solitude et d'amitié.", "follow_up_to": null},
         {"topic": "Contenu et impressions", "question": "Tu peux me dire de quoi ça parle sans me raconter la fin ?", "answer": "Un jeune prince voyage de planète en planète et rencontre des personnages qui ne voient pas le monde de la même façon que lui.", "follow_up_to": null},
-        {"topic": "Contenu et impressions", "question": "Parmi ces rencontres, laquelle t'a le plus marqué ?", "answer": "Celle avec le renard. J'ai aimé que l'amitié soit présentée comme quelque chose qui se construit avec le temps.", "follow_up_to": 3, "condition": "If encounters are mentioned without saying which one stood out."},
-        {"topic": "Pistes pour l'article", "question": "Comment décrirais-tu le style : plutôt simple ou exigeant ?", "answer": "Les phrases sont simples et le narrateur s'adresse au lecteur comme s'il lui racontait l'histoire de vive voix.", "follow_up_to": null},
+        {"topic": "Contenu et impressions", "question": "Parmi ces rencontres, laquelle t'a le plus marqué, et pour quelle raison ?", "answer": "Celle avec le renard. J'ai aimé que l'amitié soit présentée comme quelque chose qui se construit avec le temps.", "follow_up_to": 3, "condition": "If encounters are mentioned without saying which one stood out."},
+        {"topic": "Pistes pour l'article", "question": "Comment décrirais-tu le style : des phrases et un vocabulaire assez simples, ou une lecture plus exigeante ?", "answer": "Les phrases sont plutôt courtes et le vocabulaire courant. Le narrateur raconte l'histoire comme s'il parlait directement au lecteur.", "follow_up_to": null},
         {"topic": "Pistes pour l'article", "question": "Dans mon article, qu'est-ce que je pourrais mettre en avant pour donner envie de le lire sans résumer l'histoire ?", "answer": "Le contraste entre ce que les adultes trouvent important et ce que le petit prince remarque. Tu peux partir d'une rencontre sans raconter tout le voyage.", "follow_up_to": null},
-        {"topic": "Pistes pour l'article", "question": "Y a-t-il un point que tu critiquerais pour équilibrer ma présentation ?", "answer": "Certains passages très symboliques pourraient dérouter des lecteurs.", "follow_up_to": null},
+        {"topic": "Pistes pour l'article", "question": "Pour que ma présentation ne soit pas seulement un éloge, quelle limite ou difficulté de lecture pourrais-je aussi évoquer ?", "answer": "Certains passages très symboliques peuvent dérouter un lecteur qui cherche une histoire concrète ; il faut parfois les relire pour en saisir le sens.", "follow_up_to": null},
         {"topic": "Pistes pour l'article", "question": "À quel type de lecteur conseillerais-tu ce livre, et pour quelle raison ?", "answer": "Aux adolescents et aux adultes qui aiment les contes philosophiques, parce que les rencontres permettent plusieurs niveaux de lecture.", "follow_up_to": null}
       ]
     },
     {
       "group": "friend-tv-game-participation",
       "register": "tu",
-      "note": "Your friend took part in a television game and you are considering participating too. Use their experience to understand the challenges, registration, practical constraints and benefits. You are not merely discussing a show you watch. Use tu and distinguish past participation from the steps you might take.",
+      "note": "Your friend took part in a television game and you are considering participating too. Use their experience to understand the challenges, registration, practical constraints and benefits. You are not merely discussing a show you watch. Use tu and distinguish past participation from the steps you might take. Adapt the preparation relance to the difficulty actually described.",
       "opening": "Salut ! Ton expérience du jeu télévisé m'intéresse, car j'envisage d'y participer aussi.",
       "closing": "Merci de m'avoir raconté ton expérience ! Je vais regarder les conditions avant de me lancer.",
       "questions": [
-        {"topic": "Contenu du jeu", "question": "Quel était le principe du jeu auquel tu as participé ?", "answer": "C'était un quiz par équipes, avec des réponses à donner contre la montre.", "follow_up_to": null},
+        {"topic": "Contenu du jeu", "question": "Quel était le principe du jeu auquel tu as participé : un quiz, des épreuves pratiques ou un mélange des deux ?", "answer": "C'était un quiz par équipes, avec des réponses à donner contre la montre. Il n'y avait pas d'épreuves pratiques.", "follow_up_to": null},
         {"topic": "Inscription et sélection", "question": "Quelles conditions fallait-il remplir pour avoir le droit de s'inscrire ?", "answer": "Il fallait être majeur et ne jamais avoir participé à cette émission.", "follow_up_to": null},
-        {"topic": "Inscription et sélection", "question": "Tu as fait comment pour poser ta candidature ?", "answer": "J'ai rempli un formulaire et envoyé une courte vidéo de présentation. Ensuite, la chaîne m'a fait passer un entretien.", "follow_up_to": null},
+        {"topic": "Inscription et sélection", "question": "Tu as fait comment pour poser ta candidature : un simple formulaire ou aussi une vidéo et un entretien ?", "answer": "J'ai rempli un formulaire et envoyé une courte vidéo de présentation. Ensuite, la chaîne m'a fait passer un entretien pour choisir les candidats.", "follow_up_to": null},
         {"topic": "Participation et bilan", "question": "Le jour du tournage, tu as passé combien de temps au studio ?", "answer": "Presque toute la journée. On y est arrivés le matin et on est sortis en fin d'après-midi.", "follow_up_to": null},
         {"topic": "Participation et bilan", "question": "Avant de passer devant les caméras, tu as eu le temps de faire un essai ?", "answer": "Oui, on a fait une manche pour s'habituer aux boutons et au signal de départ.", "follow_up_to": null},
         {"topic": "Participation et bilan", "question": "Et pendant l'enregistrement, qu'est-ce qui t'a mis le plus de pression ?", "answer": "Le chrono. Parfois je connaissais la réponse, mais le temps de me décider, le signal retentissait déjà.", "follow_up_to": null},
-        {"topic": "Participation et bilan", "question": "Avec le recul, qu'est-ce que cette expérience t'a apporté ?", "answer": "J'ai gagné en confiance et rencontré des gens, même sans remporter le jeu.", "follow_up_to": null},
-        {"topic": "Participation et bilan", "question": "Et pour t'habituer au chrono, qu'est-ce que tu ferais avant le tournage si c'était à refaire ?", "answer": "Je ferais des quiz à la maison en me donnant quelques secondes par question. Ça m'aiderait à décider plus vite.", "follow_up_to": 6, "condition": "If the timer caused difficulty; adapt to the problem described."}
+        {"topic": "Participation et bilan", "question": "Et pour t'habituer au chrono, qu'est-ce que tu ferais avant le tournage si c'était à refaire ?", "answer": "Je ferais des quiz à la maison en me donnant quelques secondes par question. Ça m'aiderait à décider plus vite.", "follow_up_to": 6, "condition": "If the timer caused difficulty; adapt to the problem described."},
+        {"topic": "Participation et bilan", "question": "Avec le recul, qu'est-ce que cette expérience t'a apporté ?", "answer": "J'ai gagné en confiance et rencontré des gens, même sans remporter le jeu.", "follow_up_to": null}
       ]
     },
     {

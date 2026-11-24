@@ -1243,7 +1243,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "retirement-party-invitation": {1: 1, 2: 2, 4: 4},
             "supervisor-overseas-job-offer": {1: 1, 2: 2, 3: 3, 4: 7},
             "friend-association-work-experience": {1: 1, 3: 4},
-            "colleague-management-promotion-party": {1: 1, 2: 2, 3: 3, 4: 4, 7: 7, 8: 8},
+            "colleague-management-promotion-party": {1: 1, 2: 2, 3: 3, 4: 4, 8: 8},
         }
         for group, mapping in mappings.items():
             with self.subTest(group=group):
@@ -1952,6 +1952,65 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "friend-canada-cross-country-skiing": 2,
             "municipal-pool-learn-swimming-reception": 2,
             "colleague-looking-for-sports-partner": 3,
+        }
+        for group, revision in revisions.items():
+            with self.subTest(group=group):
+                self.assert_revision_matches_current(group, revision=revision)
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_leisure_enrichments_preserve_unchanged_questions_and_archive_rewritten_highlights(self):
+        revisions = {
+            "neighbor-photography-association-class": 1,
+            "cultural-center-reception-activities": 3,
+            "friend-tv-game-participation": 1,
+            "neighbor-home-music-tutor-advice": 1,
+            "friend-weekly-theatre-class": 1,
+            "friend-canadian-weekend-customs": 1,
+            "music-school-course-information": 1,
+            "friend-cooking-workshop-experience": 3,
+            "friend-entertain-visiting-nephews": 5,
+            "colleague-board-game-club": 3,
+            "neighbor-gardening-activity-organizer": 3,
+            "bookshop-public-game-participation": 3,
+            "friend-unspecified-artistic-activity": 3,
+            "guitar-teacher-lesson-enrollment": 2,
+            "colleague-association-dance-classes": 3,
+            "colleague-wedding-report": 2,
+            "new-quebec-resident-first-party": 0,
+            "canada-cinema-employee-friend": 2,
+            "canadian-friend-wedding-guest-preparation": 1,
+            "neighbor-party-planning-advice": 2,
+            "colleague-invitation-unspecified-show": 1,
+            "plan-friends-birthday-with-birthday-person": 3,
+            "friend-sister-birthday-gift": 2,
+            "home-chef-family-meal": 1,
+            "colleague-unusable-music-festival-tickets": 2,
+            "local-acquaintance-birthday-restaurant-choice": 3,
+            "friend-concert-invitation": 2,
+            "newcomer-neighbor-partner-surprise-birthday": 2,
+            "retirement-party-invitation": 3,
+            "friend-birthday-party-on-boat": 3,
+            "friend-music-festival-organizer": 2,
+            "french-teacher-canadian-new-year-customs": 1,
+            "colleague-management-promotion-party": 2,
+            "holiday-region-tourist-office": 2,
+            "friend-weekend-getaway-advice": 3,
+            "friend-reading-for-literary-review": 3,
+            "friend-films-for-association-review": 2,
+            "canadian-press-newsagent-selection": 2,
+            "colleague-recommended-city-weekend": 2,
+            "acquaintance-recent-cinema-film": 3,
+            "neighborhood-library-membership": 2,
+            "friend-choose-film-ticket-already-held": 3,
+            "friend-choose-television-series": 3,
+            "experienced-blogger-start-travel-blog": 2,
+            "neighbor-friends-countryside-outing-advice": 2,
+            "tourist-office-low-budget-weekend": 2,
+            "municipal-library-document-borrowing": 3,
+            "specialist-agency-day-excursions": 2,
+            "friend-shows-for-association-article": 2,
+            "canadian-tourist-office-restful-weekend": 3,
+            "friend-city-for-cultural-magazine-article": 4,
         }
         for group, revision in revisions.items():
             with self.subTest(group=group):

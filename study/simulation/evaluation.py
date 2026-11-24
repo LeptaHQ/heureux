@@ -21,6 +21,10 @@ _MAX_RESPONSE = 64_000
 _RETRY_MIN_SECONDS = 30
 _SLOW_SECONDS = 30
 _UNREADABLE = "Le bilan est illisible. Vous pouvez réessayer."
+_LOGGABLE_PROVIDER_CODES = {
+    "internal_server_error", "invalid_request_error", "json_validate_failed", "permission_denied",
+    "rate_limit_exceeded", "resource_exhausted", "unauthenticated", "unavailable",
+}
 logger = logging.getLogger(__name__)
 
 
@@ -45,18 +49,16 @@ def checked_text(value, limit, *, empty=False):
     return value
 
 
-def _provider_error(raw):
+def _provider_error_code(raw):
     try:
         reply = json.loads(raw)
         error = reply.get("error") or (reply.get("errors") or [{}])[0]
         code = error.get("code")
         if not isinstance(code, str) or not code:
             code = error.get("status") or error.get("type")
-        message = error.get("message")
     except (ValueError, KeyError, IndexError, TypeError, AttributeError, RecursionError):
-        return "", ""
-    code = code.lower() if isinstance(code, str) and re.fullmatch(r"[A-Za-z_]{1,40}", code) else ""
-    return code, " ".join(message.split())[:300] if isinstance(message, str) else ""
+        return ""
+    return code.lower() if isinstance(code, str) and re.fullmatch(r"[A-Za-z_]{1,40}", code) else ""
 
 
 def _cut(sock, late):
@@ -88,7 +90,7 @@ def _post(payload, deadline, *, host, path, auth, service):
                     if len(body) > _MAX_RESPONSE:
                         raise EvaluationError(502, _UNREADABLE)
                     return body, time.monotonic() - started
-                provider, detail = _provider_error(resp.read(16_000))
+                provider = _provider_error_code(resp.read(16_000))
                 wait = resp.getheader("retry-after") or ""
     except (OSError, HTTPException) as exc:
         elapsed = time.monotonic() - started
@@ -102,8 +104,8 @@ def _post(payload, deadline, *, host, path, auth, service):
     finally:
         if timer is not None:
             timer.cancel()
-    logger.warning("%s evaluation: provider HTTP %d %s %s", service, resp.status,
-                   provider or "-", (detail if service == "Groq" else "") or "-")
+    logger.warning("%s evaluation: provider HTTP %d %s", service, resp.status,
+                   provider if provider in _LOGGABLE_PROVIDER_CODES else "-")
     code = f"HTTP {resp.status} {provider}".strip()
     if resp.status == 429:
         later = f" Réessayez dans {wait} s." if re.fullmatch(r"\d{1,5}", wait) else ""

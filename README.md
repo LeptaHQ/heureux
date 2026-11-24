@@ -89,6 +89,10 @@ providers use the same evidence checks; optional feedback can be omitted
 without hiding a supported score. Temporary service failures are retried once with the same
 provider within the three-minute deadline. Groq can also use its one retry to
 recover from a writing schema rejection in JSON mode.
+In Render logs, filter for `writing evaluation` and the attempt ID from the
+bilan URL. The worker logs when grading starts and how long it took. If the
+report fails verification, the log names the failed field and a reason code.
+These logs omit the learner’s answer, prompt, model output, and API keys.
 With at least one provider configured, this command runs every available
 provider on the same invented writing sample, without using learner responses:
 
@@ -195,8 +199,9 @@ Zero Data Retention is turned on in its data controls.
 Heureux gives Groq three minutes to finish, counted across the whole reply, and logs the
 token counts when a bilan is slow or unfinished. If Groq is briefly unavailable or the
 connection drops, it resends the transcript once within that time. A failure message names
-Groq’s error code, such as `HTTP 400 json_validate_failed`, which is also logged on the server;
-a quota error also says when to try again whenever Groq does.
+Groq’s error code, such as `HTTP 400 json_validate_failed`. The server logs the
+HTTP status and recognized codes but not upstream error messages. A quota error
+also says when to try again whenever Groq does.
 The strict response schema avoids length and range bounds, so
 Heureux applies those limits after the reply instead. While it waits, the server sends a few blank keep-alive bytes so that a hosting
 proxy does not end the request before the bilan arrives.

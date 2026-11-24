@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import logging
 import threading
+import time
 import unicodedata
 from dataclasses import dataclass
 from datetime import timedelta
@@ -748,6 +749,12 @@ def run_evaluation(attempt_id, started_at, spec, provider=None):
         if attempt is None:
             return
         word_min, word_max = _attempt_limits(attempt, spec)
+        provider_name = provider or writing_evaluation.provider_for(spec.number)
+        if provider_name not in EVALUATION_PROVIDER_LABELS:
+            provider_name = "unknown"
+        log_context = f"task=ee{spec.number} provider={provider_name} attempt={attempt.pk}"
+        logger.info("writing evaluation started %s", log_context)
+        started = time.monotonic()
         try:
             report = writing_evaluation.score(
                 task_number=spec.number,
@@ -762,8 +769,22 @@ def run_evaluation(attempt_id, started_at, spec, provider=None):
             status = WritingSimulationEvaluationStatus.UNAVAILABLE
             error = str(exc)
             report = {}
-        except Exception:
-            logger.exception("%s evaluation worker failed", spec.task_label)
+            if isinstance(exc, writing_evaluation.UnverifiedReport):
+                logger.warning(
+                    "writing evaluation rejected %s field=%s reason=%s passages=%d elapsed_ms=%d",
+                    log_context, exc.field, exc.reason,
+                    exc.passage_count, (time.monotonic() - started) * 1000,
+                )
+            else:
+                logger.warning(
+                    "writing evaluation failed %s error_status=%d elapsed_ms=%d",
+                    log_context, exc.status, (time.monotonic() - started) * 1000,
+                )
+        except Exception as exc:
+            logger.error(
+                "writing evaluation worker failed %s error_type=%s elapsed_ms=%d",
+                log_context, type(exc).__name__, (time.monotonic() - started) * 1000,
+            )
             status = WritingSimulationEvaluationStatus.UNAVAILABLE
             error = "Le bilan est temporairement indisponible. Votre réponse reste disponible."
             report = {}
@@ -789,6 +810,11 @@ def run_evaluation(attempt_id, started_at, spec, provider=None):
                     "evaluation_error",
                     "evaluated_at",
                 ]
+            )
+        if status == WritingSimulationEvaluationStatus.READY:
+            logger.info(
+                "writing evaluation ready %s elapsed_ms=%d",
+                log_context, (time.monotonic() - started) * 1000,
             )
     finally:
         close_old_connections()

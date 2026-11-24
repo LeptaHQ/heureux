@@ -287,6 +287,17 @@ EE1_EVALUATION_PROVIDER = os.environ.get(
 if EE1_EVALUATION_PROVIDER not in {"gemini", "groq", "cloudflare"}:
     raise ImproperlyConfigured("EE1_EVALUATION_PROVIDER must be gemini, groq or cloudflare.")
 
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {"evaluation_console": {"class": "logging.StreamHandler"}},
+    "loggers": {
+        "study.views.writing_simulation": {
+            "handlers": ["evaluation_console"], "level": "INFO", "propagate": False,
+        },
+    },
+}
+
 # Narration is generated only after explicit cost confirmation, never on visits.
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "").strip()
 AI_PIN = os.environ.get("AI_PIN", "").strip()

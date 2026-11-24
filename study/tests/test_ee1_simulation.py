@@ -333,6 +333,7 @@ class EE1SimulationTests(TestCase):
                     self.assertEqual(cached.json()["report"], {"score": expected})
             thread.assert_not_called()
 
+    @override_settings(EE1_EVALUATION_PROVIDER="groq")
     def test_evaluation_worker_persists_ready_report_only_for_its_claim(self):
         self.client.post(self._start_url(), {"sujet_id": str(self.sujet.pk)})
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
@@ -352,12 +353,16 @@ class EE1SimulationTests(TestCase):
             ]
         )
 
-        with patch(
-            "study.simulation.writing_evaluation.score",
-            return_value={"cefr": "B2", "score": 12},
+        with (
+            patch.object(writing_evaluation, "score", return_value={"cefr": "B2", "score": 12}),
+            self.assertLogs(writing_simulation.logger, "INFO") as logs,
         ):
             writing_simulation.run_evaluation(attempt.pk, started_at, self.spec)
 
+        self.assertRegex(
+            logs.output[-1],
+            rf"writing evaluation ready task=ee1 provider=groq attempt={attempt.pk} elapsed_ms=\d+$",
+        )
         attempt.refresh_from_db()
         self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.READY)
         self.assertEqual(attempt.evaluation, {"cefr": "B2", "score": 12})
@@ -377,6 +382,42 @@ class EE1SimulationTests(TestCase):
         attempt.refresh_from_db()
         self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.PROCESSING)
         self.assertEqual(attempt.evaluation, {"new": True})
+
+    @override_settings(CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID=workers_account_id)
+    def test_evaluation_worker_logs_validation_failure_without_private_text(self):
+        self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
+        attempt = WritingSimulationAttempt.objects.get(user=self.owner)
+        body = "réponseprivée " + " ".join(["à"] * 59)
+        self.client.post(self._attempt_url(attempt), {"action": "submit", "body": body})
+        url = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        claim = self.client.post(url, data={"consent": True, "provider": "cloudflare"}, content_type="application/json")
+        self.assertEqual(claim.status_code, 202)
+        attempt.refresh_from_db()
+
+        private_citation = "private-model-output"
+        report = {**self._provider_report(), "gradeEvidenceIds": [private_citation]}
+        reply = json.dumps({"success": True, "result": {"response": report}}).encode()
+        with (
+            patch.object(evaluation, "_post", return_value=(reply, 1)),
+            self.assertLogs(writing_simulation.logger, "INFO") as logs,
+        ):
+            writing_simulation.run_evaluation(attempt.pk, attempt.evaluation_started_at, self.spec, "cloudflare")
+
+        context = f"task=ee1 provider=cloudflare attempt={attempt.pk}"
+        self.assertTrue(logs.output[0].endswith(f"writing evaluation started {context}"))
+        self.assertRegex(
+            logs.output[1],
+            rf"writing evaluation rejected {context} field=gradeEvidence\.evidence "
+            r"reason=no_matching_passages passages=1 elapsed_ms=\d+$",
+        )
+        for private in ("réponseprivée", self.sujet.prompt, private_citation, settings.CLOUDFLARE_WORKERS_API_KEY):
+            self.assertNotIn(private, "\n".join(logs.output))
+        payload = self.client.get(url, {"provider": "cloudflare"}).json()
+        self.assertEqual(payload["status"], WritingSimulationEvaluationStatus.UNAVAILABLE)
+        self.assertIsNone(payload["report"])
+        self.assertIn("n’a pas pu être vérifié", payload["error"])
+        attempt.refresh_from_db()
+        self.assertEqual(attempt.body, body)
 
     def _provider_report(self):
         return {
@@ -481,7 +522,7 @@ class EE1SimulationTests(TestCase):
         original = f"{greeting}\n\nÀ bientôt !"
         valid = {**self._provider_report(), "strengths": ["Not a structured strength"]}
         invalid = {**valid, "score": True}
-        rejected = b'{"error":{"code":"json_validate_failed"}}'
+        rejected = json.dumps({"error": {"code": "json_validate_failed", "message": original}}).encode()
 
         def completion(report):
             return json.dumps({"choices": [{
@@ -494,6 +535,7 @@ class EE1SimulationTests(TestCase):
             ([(400, rejected), (200, completion(invalid))], "n’a pas pu être vérifié"),
             ([(400, rejected), (400, rejected)], "json_validate_failed"),
             ([(400, b'{"error":{"code":"invalid_request_error"}}')], "invalid_request_error"),
+            ([(400, b'{"error":{"code":"private_upstream_code"}}')], "HTTP 400"),
         ):
             with self.subTest(expected=expected), patch.object(
                 evaluation, "HTTPSConnection", autospec=True,
@@ -521,9 +563,14 @@ class EE1SimulationTests(TestCase):
                     self.assertEqual(report["taskCompliance"][0]["quote"], greeting)
                     self.assertEqual(report["strengths"], [])
                 else:
-                    with self.assertLogs(level="WARNING"):
+                    with self.assertLogs(evaluation.logger, "WARNING") as logs:
                         with self.assertRaisesRegex(evaluation.EvaluationError, expected):
                             score()
+                    diagnostics = "\n".join(logs.output)
+                    self.assertNotIn(greeting, diagnostics)
+                    self.assertNotIn("private_upstream_code", diagnostics)
+                    if responses[0][1] == rejected:
+                        self.assertIn("provider HTTP 400 json_validate_failed", diagnostics)
                 requests = [json.loads(call.kwargs["body"]) for call in conn.request.call_args_list]
                 self.assertEqual([request["response_format"]["type"] for request in requests],
                                  ["json_schema", "json_object"][:len(responses)])

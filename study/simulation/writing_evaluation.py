@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import logging
 import unicodedata
 
 from django.conf import settings
@@ -12,8 +11,6 @@ from study.catalogue.loader import _ee_word_count, load_ee_ai_examiner_prompt
 
 from . import evaluation
 from .evidence import number_passages
-
-logger = logging.getLogger(__name__)
 
 _CEFR_BANDS = (
     (0, "A1 non atteint"),
@@ -101,7 +98,20 @@ _SCHEMA = _object(
 
 
 class ReportError(ValueError):
-    """The failing field name is safe to log; the field value is not."""
+    """Only fixed field names and reason codes belong in diagnostics."""
+
+    def __init__(self, field, reason):
+        self.field = field
+        self.reason = reason
+        super().__init__(field)
+
+
+class UnverifiedReport(evaluation.EvaluationError):
+    def __init__(self, error, passage_count):
+        self.field = error.field
+        self.reason = error.reason
+        self.passage_count = passage_count
+        super().__init__(502, _UNGROUNDED)
 
 
 def _text(value, limit, *, empty=False):
@@ -179,7 +189,7 @@ def ground(
 ):
     """Validate provider claims and discard any ungrounded optional detail."""
     if not isinstance(report, dict):
-        raise ReportError("report")
+        raise ReportError("report", "not_object")
     result = {"omitted": False, "omittedSections": [], "wordCount": word_count}
 
     def omit(section):
@@ -234,21 +244,26 @@ def ground(
     def grounded_excerpts(refs, limit, section):
         excerpts = checked_items(section, refs, limit, cited_quote)
         if not excerpts:
-            raise ReportError(f"{section}.evidence")
+            if not isinstance(refs, list):
+                reason = "citations_not_array"
+            elif not refs:
+                reason = "citations_empty"
+            else:
+                reason = "no_matching_passages"
+            raise ReportError(f"{section}.evidence", reason)
         return excerpts
 
     score = report.get("score")
     score_range = report.get("scoreRange")
     if type(score) is not int:
-        raise ReportError("score")
-    if (
-        not isinstance(score_range, dict)
-        or type(score_range.get("min")) is not int
-        or type(score_range.get("max")) is not int
-        or not 0 <= score_range["min"] <= score <= score_range["max"] <= 20
-    ):
-        raise ReportError("scoreRange")
-    minimum, maximum = score_range["min"], score_range["max"]
+        raise ReportError("score", "not_integer")
+    if not isinstance(score_range, dict):
+        raise ReportError("scoreRange", "not_object")
+    minimum, maximum = score_range.get("min"), score_range.get("max")
+    if type(minimum) is not int or type(maximum) is not int:
+        raise ReportError("scoreRange", "bounds_not_integers")
+    if not 0 <= minimum <= score <= maximum <= 20:
+        raise ReportError("scoreRange", "inconsistent_bounds")
     result.update(
         score=score,
         scoreRange={"min": minimum, "max": maximum},
@@ -272,19 +287,19 @@ def ground(
         "taskCompliance", report.get("taskCompliance"), 12, read_compliance, records=True,
     )
     if not result["taskCompliance"]:
-        raise ReportError("taskCompliance")
+        raise ReportError("taskCompliance", "no_verifiable_items")
     criteria = report.get("criteria")
     if not isinstance(criteria, dict):
-        raise ReportError("criteria")
+        raise ReportError("criteria", "not_object")
     result["criteria"] = []
     for key in _CRITERIA:
         item = criteria.get(key)
         section = f"criteria.{key}"
         if not isinstance(item, dict):
-            raise ReportError(section)
+            raise ReportError(section, "not_object")
         rating = _label(item.get("rating"), _RATINGS)
         if not rating:
-            raise ReportError(f"{section}.rating")
+            raise ReportError(f"{section}.rating", "unknown_rating")
         result["criteria"].append(
             {
                 "key": key,
@@ -414,5 +429,4 @@ def score(
             word_max=word_max,
         )
     except ReportError as exc:
-        logger.warning("%s: report failed validation at %s", schema_name, exc)
-        raise evaluation.EvaluationError(502, _UNGROUNDED) from None
+        raise UnverifiedReport(exc, len(evidence)) from None

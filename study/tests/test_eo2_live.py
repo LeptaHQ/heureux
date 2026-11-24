@@ -602,7 +602,8 @@ class GeminiLiveTests(TestCase):
             failed = self.post(url=self.eval_url, body=body)
         self.assert_private(failed, 502)
         self.assertIn("HTTP 503 internal_server_error", failed.json()["error"])
-        self.assertIn("The model is overloaded.", logs.output[0])
+        self.assertIn("provider HTTP 503 internal_server_error", logs.output[0])
+        self.assertNotIn("The model is overloaded.", "\n".join(logs.output))
         replies = iter([(400, b'{"error":{"message":"Invalid schema.","type":"invalid_request_error",'
                               b'"code":"json_validate_failed"}}')])
         rejected = self.post(url=self.eval_url, body=body)

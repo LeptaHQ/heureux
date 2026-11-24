@@ -32,7 +32,7 @@
     {% csrf_token %}
   </form>
   {% if evaluation_providers|length < 2 %}
-    <span id="writing-evaluation-disclosure" class="lv-assessment__aside">L’évaluation envoie la consigne et votre réponse à {{ evaluation_provider|title }}.</span>
+    <span id="writing-evaluation-disclosure" class="lv-assessment__aside">L’évaluation envoie la consigne et votre réponse à {{ evaluation_provider_label }}.</span>
   {% endif %}
 {% endblock %}
 {% block assessment_status %}Bilan non demandé.{% endblock %}

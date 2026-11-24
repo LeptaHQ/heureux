@@ -15,6 +15,7 @@ from django.views.decorators.debug import sensitive_variables
 
 MODEL = "openai/gpt-oss-120b"
 _GEMINI_MODEL = "gemini-3.8-flash"
+_WORKERS_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
 DEADLINE_SECONDS = 180
 _MAX_RESPONSE = 64_000
 _RETRY_MIN_SECONDS = 30
@@ -46,12 +47,13 @@ def checked_text(value, limit, *, empty=False):
 
 def _provider_error(raw):
     try:
-        error = json.loads(raw)["error"]
+        reply = json.loads(raw)
+        error = reply.get("error") or (reply.get("errors") or [{}])[0]
         code = error.get("code")
         if not isinstance(code, str) or not code:
             code = error.get("status") or error.get("type")
         message = error.get("message")
-    except (ValueError, KeyError, TypeError, AttributeError, RecursionError):
+    except (ValueError, KeyError, IndexError, TypeError, AttributeError, RecursionError):
         return "", ""
     code = code.lower() if isinstance(code, str) and re.fullmatch(r"[A-Za-z_]{1,40}", code) else ""
     return code, " ".join(message.split())[:300] if isinstance(message, str) else ""
@@ -116,8 +118,32 @@ def _post(payload, deadline, *, host, path, auth, service):
 
 
 @sensitive_variables()
+def _request_with_retry(payload, *, host, path, auth, service, retry_schema=False):
+    deadline = time.monotonic() + DEADLINE_SECONDS
+
+    def send():
+        return _post(
+            json.dumps(payload, ensure_ascii=False).encode(), deadline,
+            host=host, path=path, auth=auth, service=service,
+        )
+
+    try:
+        return send()
+    except EvaluationError as exc:
+        retry_json = retry_schema and exc.schema_rejected
+        if not (exc.retry or retry_json) or deadline - time.monotonic() < _RETRY_MIN_SECONDS:
+            raise
+        if retry_json:
+            schema = payload["response_format"]["json_schema"]["schema"]
+            payload["response_format"] = {"type": "json_object"}
+            payload["messages"][0]["content"] += "\nJSON schema: " + json.dumps(schema, separators=(",", ":"))
+        else:
+            time.sleep(1 + random.random())
+        return send()
+
+
+@sensitive_variables()
 def request_report(instruction, packet, schema, *, name="bilan", max_tokens=3584, retry_schema=False):
-    """Request and decode one report, with at most one retry within the deadline."""
     payload = {
         "model": MODEL,
         "messages": [
@@ -129,27 +155,11 @@ def request_report(instruction, packet, schema, *, name="bilan", max_tokens=3584
         # Groq counts this cap plus the prompt against the token rate limit.
         "reasoning_effort": "low", "include_reasoning": False, "max_completion_tokens": max_tokens,
     }
-    deadline = time.monotonic() + DEADLINE_SECONDS
-
-    def send():
-        return _post(
-            json.dumps(payload, ensure_ascii=False).encode(), deadline,
-            host="api.groq.com", path="/openai/v1/chat/completions",
-            auth={"Authorization": f"Bearer {settings.GROQ_API_KEY}"}, service="Groq",
-        )
-
-    try:
-        body, elapsed = send()
-    except EvaluationError as exc:
-        retry_json = retry_schema and exc.schema_rejected
-        if not (exc.retry or retry_json) or deadline - time.monotonic() < _RETRY_MIN_SECONDS:
-            raise
-        if retry_json:
-            payload["response_format"] = {"type": "json_object"}
-            payload["messages"][0]["content"] += "\nJSON schema: " + json.dumps(schema, separators=(",", ":"))
-        else:
-            time.sleep(1 + random.random())
-        body, elapsed = send()
+    body, elapsed = _request_with_retry(
+        payload, host="api.groq.com", path="/openai/v1/chat/completions",
+        auth={"Authorization": f"Bearer {settings.GROQ_API_KEY}"}, service="Groq",
+        retry_schema=retry_schema,
+    )
     try:
         reply = json.loads(body)
         choice, usage = reply["choices"][0], reply.get("usage") or {}
@@ -192,9 +202,8 @@ def request_gemini_report(instruction, packet, schema):
             "thinkingConfig": {"thinkingLevel": "LOW"},
         },
     }
-    body, _ = _post(
-        json.dumps(payload, ensure_ascii=False).encode(), time.monotonic() + DEADLINE_SECONDS,
-        host="generativelanguage.googleapis.com", path=f"/v1beta/models/{_GEMINI_MODEL}:generateContent",
+    body, _ = _request_with_retry(
+        payload, host="generativelanguage.googleapis.com", path=f"/v1beta/models/{_GEMINI_MODEL}:generateContent",
         auth={"x-goog-api-key": key}, service="Gemini",
     )
     try:
@@ -210,4 +219,43 @@ def request_gemini_report(instruction, packet, schema):
         return json.loads(content, object_pairs_hook=unique_fields)
     except (ValueError, KeyError, IndexError, TypeError, AttributeError, RecursionError):
         logger.warning("Gemini evaluation: could not decode the report")
+        raise EvaluationError(502, _UNREADABLE) from None
+
+
+def workers_available():
+    return bool(settings.CLOUDFLARE_WORKERS_API_KEY and re.fullmatch(r"[0-9a-fA-F]{32}", settings.CLOUDFLARE_ACCOUNT_ID))
+
+
+@sensitive_variables()
+def request_workers_report(instruction, packet, schema):
+    if not workers_available():
+        logger.warning("Cloudflare evaluation: missing token or invalid account ID")
+        raise EvaluationError(503, "Le service de bilan est indisponible. Votre travail reste disponible.")
+    body, _ = _request_with_retry(
+        {
+            "messages": [
+                {"role": "system", "content": instruction},
+                {"role": "user", "content": json.dumps(packet, ensure_ascii=False, separators=(",", ":"))},
+            ],
+            "response_format": {"type": "json_schema", "json_schema": schema},
+            "max_tokens": 4096,
+        },
+        host="api.cloudflare.com",
+        path=f"/client/v4/accounts/{settings.CLOUDFLARE_ACCOUNT_ID}/ai/run/{_WORKERS_MODEL}",
+        auth={"Authorization": f"Bearer {settings.CLOUDFLARE_WORKERS_API_KEY}"},
+        service="Cloudflare",
+    )
+    try:
+        reply = json.loads(body, object_pairs_hook=unique_fields)
+        if reply.get("success") is not True:
+            logger.warning("Cloudflare evaluation: provider declined the report")
+            raise EvaluationError(502, "Le service de bilan a refusé la demande. Votre travail reste disponible.")
+        report = reply["result"]["response"]
+        if isinstance(report, str):
+            report = json.loads(report, object_pairs_hook=unique_fields)
+        if not isinstance(report, dict):
+            raise ValueError
+        return report
+    except (ValueError, KeyError, TypeError, AttributeError, RecursionError):
+        logger.warning("Cloudflare evaluation: could not decode the report")
         raise EvaluationError(502, _UNREADABLE) from None

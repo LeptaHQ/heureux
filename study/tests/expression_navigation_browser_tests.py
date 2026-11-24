@@ -36,7 +36,10 @@ class ExpressionNavigationBrowserTests(StaticLiveServerTestCase):
         for part in ("eo", "ee"):
             for number in (1, 2, 3):
                 task = factories.make_task(factories.make_part(part), f"tache-{number}")
-                task.subtitle = f"Practice task {number}"
+                task.subtitle = (
+                    "Comparer des points de vue puis présenter et défendre sa propre opinion"
+                    if number == 3 else f"Practice task {number}"
+                )
                 task.save(update_fields=["subtitle"])
             factories.make_spine_card(user=self.user, theme=factories.make_theme(f"{part}-landing", task=task))
         self.client.force_login(self.user)
@@ -71,23 +74,32 @@ class ExpressionNavigationBrowserTests(StaticLiveServerTestCase):
                     self.assertEqual(batches, [])
                     page.close()
 
-    def test_pathway_cards_keep_their_design_with_a_saved_table_preference(self):
+    def test_compact_task_cards_keep_their_layout_with_a_saved_table_preference(self):
         context = self.context()
         context.add_init_script("localStorage.setItem('collectionViewMode', 'table')")
         page = context.new_page()
-        for width in (390, 1280):
+        for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 900})
             for part in ("orale", "ecrite"):
                 with self.subTest(width=width, part=part):
                     page.goto(f"{self.live_server_url}/expression/{part}/")
                     cards = page.locator(".deck--task")
                     expect(cards).to_have_count(3)
-                    for card in cards.all():
+                    icon_colors = cards.locator(".deck__icon .ui-icon").evaluate_all(
+                        "icons => icons.map(icon => getComputedStyle(icon).color)"
+                    )
+                    self.assertEqual(len(set(icon_colors)), 3)
+                    bounds = []
+                    for index, card in enumerate(cards.all()):
+                        expect(card).to_have_css("border-top-width", "0px")
                         expect(card.locator(".deck__subtitle")).to_be_visible()
-                        expect(card.locator(".deck__go")).to_be_visible()
-                        self.assertGreaterEqual(card.locator(".deck__icon").bounding_box()["width"], 44)
-                        if width == 1280:
-                            self.assertGreaterEqual(card.bounding_box()["height"], 264)
+                        arrow = card.locator(".deck__go")
+                        expect(arrow).to_be_visible()
+                        self.assertEqual(arrow.evaluate("el => getComputedStyle(el).borderTopWidth"), "0px")
+                        bounds.append(card.bounding_box())
+                        self.assertLessEqual(bounds[-1]["height"], 112 if width == 320 and index == 2 else 96)
+                    if width == 1280:
+                        self.assertAlmostEqual(bounds[0]["y"], bounds[2]["y"], delta=1)
                     self.assertLessEqual(
                         page.evaluate("document.documentElement.scrollWidth"), width,
                     )

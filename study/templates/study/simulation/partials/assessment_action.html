@@ -10,8 +10,8 @@
   <span class="lv-assessment__spinner" aria-hidden="true"></span>
   {% if evaluation_providers|length > 1 %}
     <div id="writing-models" class="custom-select__list lv-assessment__models" role="group" aria-label="Modèles d’évaluation" hidden>
-      {% for provider in evaluation_providers %}
-        <button class="custom-select__option" type="submit" form="writing-evaluation-form" name="provider" value="{{ provider }}" aria-pressed="{% if provider == evaluation_provider %}true{% else %}false{% endif %}">{{ provider|title }}{% include "study/shared/partials/ui_icon.html" with name="check" only %}</button>
+      {% for provider, label in evaluation_providers %}
+        <button class="custom-select__option" type="submit" form="writing-evaluation-form" name="provider" value="{{ provider }}" title="Évaluer avec {{ label }}" aria-pressed="{% if provider == evaluation_provider %}true{% else %}false{% endif %}">{{ label }}{% include "study/shared/partials/ui_icon.html" with name="check" only %}</button>
       {% endfor %}
     </div>
   {% endif %}

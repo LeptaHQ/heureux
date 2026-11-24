@@ -3,7 +3,6 @@
 import os
 from unittest import skipUnless
 
-from django.conf import settings
 from django.test import SimpleTestCase
 
 from study.catalogue.loader import _ee_word_count
@@ -13,7 +12,8 @@ from study.simulation import writing_evaluation
 @skipUnless(os.environ.get("RUN_WRITING_CALIBRATION") == "1", "Opt in to live writing calibration.")
 class WritingBilanCalibration(SimpleTestCase):
     def test_compare_ee1_providers_on_the_same_message(self):
-        self.assertTrue(settings.GEMINI_API_KEY and settings.GROQ_API_KEY, "Both provider keys are required.")
+        providers = sorted(writing_evaluation.available_providers())
+        self.assertTrue(providers, "Configure at least one writing evaluation provider.")
         subject = (
             "Un ami cherche une librairie pour acheter des livres d’occasion. "
             "Recommandez-lui une adresse et indiquez les horaires et les prix."
@@ -26,11 +26,12 @@ class WritingBilanCalibration(SimpleTestCase):
             "Si tu veux, on peut y aller ensemble samedi après le marché.\n\n"
             "À bientôt !"
         )
-        for provider in ("gemini", "groq"):
-            with self.subTest(provider=provider), self.settings(EE1_EVALUATION_PROVIDER=provider):
+        for provider in providers:
+            with self.subTest(provider=provider):
                 report = writing_evaluation.score(
                     task_number=1, subject=subject, response=response,
                     word_count=_ee_word_count(response), word_min=60, word_max=120,
+                    provider=provider,
                 )
                 self.assertTrue(report["gradeEvidence"])
                 self.assertTrue(all(quote in response for quote in report["gradeEvidence"]))

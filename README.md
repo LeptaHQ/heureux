@@ -60,8 +60,10 @@ they do not cache progress or change the page's private/no-store policy.
 
 The Expression hub and oral/written landing pages are metadata-only navigation:
 titles, descriptions, icons and links, without catalogue/progress/due counts or
-statistics requests. EO/EE task overviews aggregate the study progress they
-actually display without constructing full subject directories or review links.
+statistics requests. Oral and written task links use the same flat, compact layout
+regardless of the saved collection view. EO/EE task overviews aggregate only
+the study progress they display without constructing full subject directories
+or review links.
 **Simulation** sits between **Notes** and search in the main navigation and opens
 `/simulation/`. **Stats** is in the profile dropdown, above **Réglages**.
 EO2 and EO3 use one speaking simulator. EE1 and EE2 use one private writing
@@ -75,16 +77,20 @@ it verifies citations using numbered passages from the learner’s original word
 EE1 grading with Gemini 3.8 Flash uses the same `GEMINI_API_KEY` as the voice
 simulator. Check [Google’s data-use terms](https://aistudio.google.com/docs/terms)
 before grading learner responses: Google may use free-tier inputs to improve
-its models. Set `EE1_EVALUATION_PROVIDER=groq` to make Groq the default choice
-while keeping Gemini selectable. When more than one model is available, the EE1
+its models. To add **Workers** (Cloudflare Workers AI’s Llama 3.3 70B) to EE1, set `CLOUDFLARE_WORKERS_API_KEY` and
+`CLOUDFLARE_ACCOUNT_ID` on Render using the [Workers AI REST setup](https://developers.cloudflare.com/workers-ai/get-started/rest-api/).
+Heureux calls Workers AI directly; see [Cloudflare’s data-use terms](https://developers.cloudflare.com/workers-ai/platform/data-usage/).
+Set `EE1_EVALUATION_PROVIDER` to `gemini`, `groq`, or `cloudflare` to pick the
+default when configured. When more than one model is available, the EE1
 bilan’s sparkle button opens a model picker. Each report is saved separately;
 switching back opens the saved report without grading again. EE2 and oral
-grading stay on Groq. Only the selected provider receives the response. Both providers use the same evidence
-checks; optional feedback can be omitted without hiding a supported score.
-Groq still retries a writing schema rejection once in JSON mode within the
-same three-minute deadline.
-With both evaluation keys configured, the following command compares the
-providers on invented writing samples without using stored learner responses:
+grading stay on Groq. Only the selected provider receives the response. All
+providers use the same evidence checks; optional feedback can be omitted
+without hiding a supported score. Temporary service failures are retried once with the same
+provider within the three-minute deadline. Groq can also use its one retry to
+recover from a writing schema rejection in JSON mode.
+With at least one provider configured, this command runs every available
+provider on the same invented writing sample, without using learner responses:
 
 ```shell
 RUN_WRITING_CALIBRATION=1 python manage.py test study.tests.writing_bilan_calibration
@@ -630,7 +636,9 @@ note's original date position. Without JavaScript, full notes and pin forms
 remain available. Apply migration 0067 before deploying this feature.
 Throughout Heureux, form fields (including custom dropdowns) and modals have
 rounded corners without pill-shaped ends. Icon buttons are circular and text
-buttons are pill-shaped, including inside cards, toolbars, and dialogs. Sign-in,
+buttons are pill-shaped, including inside cards, toolbars, and dialogs.
+Standard text buttons, menus, and simulation actions share compact padding.
+Simulation actions retain a 44 px minimum height on touch devices. Sign-in,
 registration, and signed-in pages load the same versioned stylesheet.
 The shared audio PIN dialog uses compact cancel (×) and confirm (✓) controls.
 Note and translation pop-ups also round the DeepL and Google **G** action links.

@@ -575,6 +575,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
 
     @override_settings(
         EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="fixture-groq-key",
+        CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID="0123456789abcdef" * 2,
     )
     def test_written_simulation_debrief_retries_and_shows_corrections_before_proposal(self):
         task = factories.make_task(factories.make_part("ee"), "tache-1")
@@ -584,7 +585,9 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.page.get_by_role("button", name="Commencer la séance").click()
         body = "Je vous invite a dîner. " + " ".join(["Bonjour"] * 55)
         self.page.locator("#writing-body").fill(body)
-        self.page.get_by_role("button", name="Remettre la réponse").click()
+        submit = self.page.get_by_role("button", name="Remettre la réponse")
+        self.assertLessEqual(submit.evaluate("button => parseFloat(getComputedStyle(button).paddingInlineStart)"), 12)
+        submit.click()
         form = self.page.locator("#writing-evaluation-form")
         evaluation_url = form.get_attribute("data-evaluation-url")
         report = {
@@ -626,10 +629,10 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         models = self.page.get_by_role("group", name="Modèles d’évaluation")
         expect(models).to_be_hidden()
         trigger.click()
-        expect(models).to_have_text("Gemini Groq")
-        expect(models.get_by_role("button", name="Groq")).to_be_visible()
+        expect(models.get_by_role("button")).to_have_text(["Groq", "Gemini", "Workers"])
+        expect(models.get_by_role("button", name="Workers")).to_be_visible()
         self.page.keyboard.press("Tab")
-        expect(models.get_by_role("button", name="Gemini")).to_be_focused()
+        expect(models.get_by_role("button", name="Groq")).to_be_focused()
         self.page.keyboard.press("Escape")
         expect(models).to_be_hidden()
         expect(trigger).to_be_focused()
@@ -668,6 +671,13 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             self.assert_no_horizontal_overflow()
         expect(self.page.get_by_role("link", name="Étudier ce sujet").locator('[data-icon="book-open"]')).to_be_visible()
         expect(self.page.get_by_role("link", name="Retour à EE").locator('[data-icon="arrow-left"]')).to_be_visible()
+        self.page.set_viewport_size({"width": 390, "height": 900})
+        actions = self.page.get_by_role("navigation", name="Actions de fin de session")
+        retry = actions.get_by_role("link", name="Nouvelle simulation")
+        retry_box = retry.bounding_box()
+        self.assertLess(retry_box["width"], actions.bounding_box()["width"])
+        self.assertGreaterEqual(retry_box["height"], 44)
+        self.assertLessEqual(retry.evaluate("link => parseFloat(getComputedStyle(link).paddingInlineStart)"), 12)
         self.page.locator("#lv-assessment > summary").click()
         expect(trigger).to_be_visible()
         select_model("Groq")
@@ -15064,7 +15074,10 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             question_box["height"],
             delta=1,
         )
-        self.page.locator(".ce-choice", has_text="Choix B français 1").click()
+        choice = self.page.locator("button.ce-choice", has_text="Choix B français 1")
+        self.assertGreaterEqual(choice.bounding_box()["height"], 44)
+        self.assertLessEqual(choice.evaluate("el => parseFloat(getComputedStyle(el).paddingBlockStart)"), 6)
+        choice.click()
         self.page.get_by_role(
             "heading",
             name="A · Choix A français 1",

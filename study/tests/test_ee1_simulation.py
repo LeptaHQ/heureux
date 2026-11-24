@@ -23,6 +23,7 @@ from . import factories
 
 class EE1SimulationTests(TestCase):
     spec = writing_simulation.SPECS[1]
+    workers_account_id = "0123456789abcdef" * 2
 
     def setUp(self):
         self.part = factories.make_part("ee")
@@ -298,6 +299,16 @@ class EE1SimulationTests(TestCase):
         attempt.evaluation = {"score": 9}
         attempt.save(update_fields=["body", "status", "evaluation_status", "evaluation"])
         url = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        with self.settings(CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID=""):
+            self.assertNotContains(self.client.get(self._attempt_url(attempt)), "Évaluer avec Workers")
+            unavailable = self.client.post(
+                url, data={"consent": True, "provider": "cloudflare"}, content_type="application/json",
+            )
+            self.assertEqual(unavailable.status_code, 409)
+        with self.settings(CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID=self.workers_account_id):
+            page = self.client.get(self._attempt_url(attempt))
+            self.assertContains(page, "Évaluer avec Workers")
+            self.assertNotContains(page, settings.CLOUDFLARE_WORKERS_API_KEY)
         self.assertEqual(self.client.get(url, {"provider": "groq"}).json()["report"], {"score": 9})
         self.assertEqual(self.client.get(url, {"provider": "gemini"}).json()["status"], "not_requested")
 
@@ -566,6 +577,47 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(payload["generationConfig"]["responseJsonSchema"], writing_evaluation._SCHEMA)
 
     @override_settings(GEMINI_API_KEY="fixture-gemini-key")
+    def test_gemini_retries_a_transient_failure_once_with_the_same_request_and_deadline(self):
+        complete = json.dumps({"candidates": [{
+            "finishReason": "STOP",
+            "content": {"parts": [{"text": json.dumps({"score": 12})}]},
+        }]}).encode()
+        errors = {
+            503: b'{"error":{"code":503,"status":"UNAVAILABLE"}}',
+            429: b'{"error":{"code":429,"status":"RESOURCE_EXHAUSTED"}}',
+        }
+        for statuses in ((503, 200), (503, 503), (429,)):
+            with (
+                self.subTest(statuses=statuses),
+                patch.object(evaluation, "HTTPSConnection", autospec=True) as transport,
+                patch.object(evaluation, "_post", wraps=evaluation._post) as post,
+                patch.object(evaluation.time, "sleep") as backoff,
+                self.assertLogs(evaluation.logger, "WARNING"),
+            ):
+                conn = transport.return_value
+                conn.sock = None
+                upstream = conn.getresponse.return_value.__enter__.return_value
+                upstream.getheader.return_value = None
+                pending = iter(statuses)
+
+                def respond(*args, **kwargs):
+                    upstream.status = next(pending)
+                    upstream.read.return_value = errors.get(upstream.status, complete)
+
+                conn.request.side_effect = respond
+                if statuses[-1] == 200:
+                    self.assertEqual(evaluation.request_gemini_report("Rubric", {}, {}), {"score": 12})
+                else:
+                    with self.assertRaisesRegex(evaluation.EvaluationError, f"HTTP {statuses[-1]}"):
+                        evaluation.request_gemini_report("Rubric", {}, {})
+
+                self.assertEqual(post.call_count, len(statuses))
+                self.assertEqual(backoff.call_count, len(statuses) - 1)
+                self.assertEqual(post.call_args.kwargs["service"], "Gemini")
+                if len(statuses) == 2:
+                    self.assertEqual(post.call_args_list[0], post.call_args_list[1])
+
+    @override_settings(GEMINI_API_KEY="fixture-gemini-key")
     def test_gemini_does_not_grade_blocked_or_incomplete_responses(self):
         for reply, message in (
             ({"promptFeedback": {"blockReason": "SAFETY"}}, "Aucun bilan"),
@@ -585,3 +637,51 @@ class EE1SimulationTests(TestCase):
         with self.assertLogs(evaluation.logger, "WARNING"), self.assertRaises(evaluation.EvaluationError):
             evaluation.request_gemini_report("Rubric", {}, {})
         post.assert_not_called()
+
+    @override_settings(CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID=workers_account_id)
+    def test_workers_grades_with_the_same_rubric_and_evidence_checks(self):
+        provider_report = self._provider_report()
+        for response in (provider_report, json.dumps(provider_report)):
+            with self.subTest(response_type=type(response)), patch.object(
+                evaluation, "HTTPSConnection", autospec=True,
+            ) as transport:
+                conn = transport.return_value
+                conn.sock = None
+                upstream = conn.getresponse.return_value.__enter__.return_value
+                upstream.status = 200
+                upstream.read.return_value = json.dumps({"success": True, "result": {"response": response}}).encode()
+                report = writing_evaluation.score(
+                    task_number=1, subject=self.sujet.prompt, response="Bonjour",
+                    word_count=1, word_min=60, word_max=120, provider="cloudflare",
+                )
+
+                self.assertEqual((report["score"], report["gradeEvidence"]), (12, ["Bonjour"]))
+                transport.assert_called_once()
+                self.assertEqual(transport.call_args.args, ("api.cloudflare.com",))
+                request = conn.request.call_args
+                self.assertEqual(request.args, (
+                    "POST", f"/client/v4/accounts/{self.workers_account_id}/ai/run/@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+                ))
+                self.assertEqual(request.kwargs["headers"]["Authorization"], "Bearer fixture-workers-token")
+                payload = json.loads(request.kwargs["body"])
+                self.assertIn(load_ee_ai_examiner_prompt(1), payload["messages"][0]["content"])
+                self.assertEqual(json.loads(payload["messages"][1]["content"])["response"], "Bonjour")
+                self.assertEqual(payload["response_format"], {
+                    "type": "json_schema", "json_schema": writing_evaluation._SCHEMA,
+                })
+
+    @override_settings(CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID=workers_account_id)
+    def test_workers_rejects_unsuccessful_or_malformed_replies(self):
+        for reply, message in (
+            ({"success": False, "errors": [{"message": "private upstream detail"}]}, "refusé"),
+            ({"success": True, "result": {"response": "not JSON"}}, "illisible"),
+        ):
+            with (
+                self.subTest(message=message),
+                patch.object(evaluation, "_post", return_value=(json.dumps(reply).encode(), 1)) as post,
+                self.assertLogs(evaluation.logger, "WARNING") as logs,
+                self.assertRaisesRegex(evaluation.EvaluationError, message),
+            ):
+                evaluation.request_workers_report("Rubric", {}, {})
+            self.assertNotIn("private upstream detail", "\n".join(logs.output))
+            post.assert_called_once()

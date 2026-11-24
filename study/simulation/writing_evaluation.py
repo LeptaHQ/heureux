@@ -349,6 +349,7 @@ def available_providers():
         provider for provider, key in (
             ("gemini", settings.GEMINI_API_KEY),
             ("groq", settings.GROQ_API_KEY),
+            ("cloudflare", evaluation.workers_available()),
         ) if key
     }
 
@@ -392,11 +393,16 @@ def score(
         "subject": subject, "response": response, "passages": passages, "wordCount": word_count,
         "wordMin": word_min, "wordMax": word_max,
     }
-    if (provider or provider_for(task_number)) == "gemini":
+    provider = provider or provider_for(task_number)
+    if task_number == 1 and provider == "gemini":
         report = evaluation.request_gemini_report(instruction, packet, _SCHEMA)
-    else:
+    elif task_number == 1 and provider == "cloudflare":
+        report = evaluation.request_workers_report(instruction, packet, _SCHEMA)
+    elif provider == "groq":
         report = evaluation.request_report(instruction, packet, _SCHEMA, name=schema_name,
                                            max_tokens=4096, retry_schema=True)
+    else:
+        raise evaluation.EvaluationError(400, "Le modèle d’évaluation n’est pas disponible.")
     try:
         return ground(
             report,

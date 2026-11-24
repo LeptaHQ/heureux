@@ -106,7 +106,7 @@
 /* Buttons */
 .lv-primary, .lv-secondary {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
-  min-height: 3rem; padding: 0.65rem 1.45rem;
+  min-height: 2.375rem; padding: var(--padding-action);
   border-radius: 999px; font: inherit; font-size: 1.02rem; font-weight: 600; line-height: 1.2;
   text-decoration: none; cursor: pointer;
 }
@@ -119,7 +119,7 @@
 .lv-secondary:hover:not(:disabled) { background: var(--lv-tint); }
 .lv-secondary:disabled { border-color: var(--border); color: var(--text-faint); cursor: not-allowed; }
 .lv-secondary[aria-pressed="true"] { border-color: var(--warning); background: var(--warning-soft); color: var(--text); }
-.lv-quiet { padding: 0.45rem 0.2rem; border: 0; background: none; color: var(--text-soft); font: inherit; font-size: 0.95rem; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
+.lv-quiet { padding: 0.25rem 0.15rem; border: 0; background: none; color: var(--text-soft); font: inherit; font-size: 0.95rem; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
 .lv-quiet:hover { color: var(--text); }
 
 /* Notepad: lined paper, never sent. */
@@ -196,7 +196,7 @@
 .lv-studio[data-state="live"] .lv-status { color: var(--text); }
 .lv-studio[data-state="setup"] .lv-status { max-width: none; color: var(--warning); text-align: left; }
 .lv-actions { display: grid; gap: 0.55rem; width: 100%; }
-.lv-actions .lv-primary, .lv-actions .lv-secondary { width: 100%; padding-inline: 1rem; text-wrap: balance; }
+.lv-actions .lv-primary, .lv-actions .lv-secondary { width: 100%; text-wrap: balance; }
 #lv-call { width: 100%; }
 .lv-captions { border-top: 1px solid var(--lv-rule); text-align: left; }
 .lv-captions summary { padding: 0.7rem 0 0.2rem; color: var(--text-soft); font-size: 0.88rem; }
@@ -254,7 +254,7 @@
 .lv-assessment__action { display: inline-flex; align-items: center; gap: 0.4rem; }
 .lv-title-row:has(.lv-assessment__action:not([hidden])) { display: flex; align-items: center; gap: 0.65rem; }
 .lv-title-row .lv-assessment__action { position: relative; flex: none; }
-.lv-assessment__models { width: 9rem; }
+.lv-assessment__models { width: max-content; }
 .lv-assessment__models .custom-select__option {
   width: 100%; justify-content: space-between; border: 0; background: none; font-family: inherit;
 }
@@ -327,7 +327,7 @@
 .lv-transcript > summary { flex-wrap: wrap; }
 .lv-transcript > summary h2, .lv-num { color: var(--lv-action); }
 .lv-transcript > summary small { color: var(--text-soft); font-size: 0.86rem; font-weight: 400; }
-.lv-toggle, .lv-copy { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text); font: inherit; font-size: 0.86rem; line-height: 1.3; cursor: pointer; }
+.lv-toggle, .lv-copy { display: inline-flex; align-items: center; gap: 0.45rem; padding: var(--padding-action); border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text); font: inherit; font-size: 0.86rem; line-height: 1.3; cursor: pointer; }
 :is(.lv-toggle, .lv-copy):hover { border-color: var(--lv-rule); background: var(--lv-tint); }
 .lv-toggle { margin-block: 0 0.4rem; }
 .lv-turns { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
@@ -368,6 +368,9 @@ button.lv-mark[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--lv-rule); }
 .lv-done-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
 .lv-done-actions .lv-quiet { display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; }
 .lv-done-actions .lv-quiet .ui-icon { color: var(--lv-action); }
+@media (pointer: coarse) {
+  :is(.lv-primary, .lv-secondary, .lv-quiet, .lv-toggle, .lv-copy) { min-height: 2.75rem; }
+}
 .lv-unavailable { padding-top: 0.25rem; }
 
 /* Desktop: consigne first, console beside it. */
@@ -446,7 +449,6 @@ button.lv-mark[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--lv-rule); }
   .lv-studio[data-state="setup"] .lv-step__bar { display: none; }
   .lv-studio[data-state="setup"] .lv-step__name { font-size: 0.92rem; }
   #lv-level { font-size: 1.1rem; }
-  .lv-done-actions .lv-primary { flex: 1 1 100%; }
 }
 @media (max-width: 34rem) {
   .lv-criteria, .lv-criteria tbody { display: block; }

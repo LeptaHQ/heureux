@@ -41,6 +41,7 @@ MAX_BODY_LENGTH = 20_000
 EVALUATION_STALE_AFTER = timedelta(minutes=5)
 PICKER_STATUSES = {"new": "Sans séance", "done": "Déjà pratiqués"}
 PICKER_ORDERS = {"recent": "Dernière séance", "least": "Moins pratiqués d’abord"}
+EVALUATION_PROVIDER_LABELS = {"groq": "Groq", "gemini": "Gemini", "cloudflare": "Workers"}
 
 
 @dataclass(frozen=True)
@@ -524,7 +525,8 @@ def _result_context(attempt, spec):
         "word_max": word_max,
         "session_title_assessment": bool(attempt.body.strip()) and attempt.status != WritingSimulationAttemptStatus.ABANDONED,
         "evaluation_provider": provider,
-        "evaluation_providers": providers,
+        "evaluation_provider_label": EVALUATION_PROVIDER_LABELS[provider],
+        "evaluation_providers": [(key, EVALUATION_PROVIDER_LABELS[key]) for key in providers],
         "subject_url": (
             reverse("study:writing_sujet_detail", args=["ee", attempt.task.slug, attempt.sujet_id])
             if attempt.sujet_id else ""
@@ -682,7 +684,8 @@ def _ee1_reports(attempt):
 def _ee1_evaluation_options(attempt):
     default = writing_evaluation.provider_for(1)
     reports = _ee1_reports(attempt)
-    providers = tuple(sorted(writing_evaluation.available_providers() | reports.keys() or {default}))
+    available = writing_evaluation.available_providers() | reports.keys()
+    providers = tuple(key for key in EVALUATION_PROVIDER_LABELS if key in available) or (default,)
     last_provider = attempt.evaluation.get("provider")
     if last_provider not in providers:
         last_provider = default if default in reports else next(iter(reports), None)

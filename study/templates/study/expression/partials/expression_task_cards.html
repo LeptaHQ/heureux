@@ -1,5 +1,5 @@
 {% for t in tasks %}
-  <a class="deck card deck--task{% if not t.task.available %} deck--soon{% endif %}" style="--deck-color: {{ t.task.color }};" href="{% url 'study:task_detail' part.slug t.task.slug %}">
+  <a class="deck deck--task{% if not t.task.available %} deck--soon{% endif %}" data-expression-task="{{ t.task.slug }}" href="{% url 'study:task_detail' part.slug t.task.slug %}">
     <div class="deck__body">
       <div class="deck__title">
         <span class="deck__icon">{% include "study/shared/partials/ui_icon.html" with name=t.task.icon only %}</span>

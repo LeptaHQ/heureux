@@ -176,7 +176,7 @@ def request_report(instruction, packet, schema, *, name="bilan", max_tokens=3584
 
 @sensitive_variables()
 def request_gemini_report(instruction, packet, schema):
-    key = settings.GEMINI_EVALUATION_API_KEY
+    key = settings.GEMINI_API_KEY
     if not key:
         logger.warning("Gemini evaluation: no evaluation API key configured")
         raise EvaluationError(503, "Le service de bilan est indisponible. Votre travail reste disponible.")

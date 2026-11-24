@@ -728,7 +728,7 @@ class SmokeTests(TestCase):
         overview = self.client.get(reverse("study:task_detail", args=["eo", "tache-2"]))
         self.assertNotContains(overview, f'href="{reverse("study:eo_tache_two_interaction")}"')
         self.assertNotContains(overview, ">Interaction</a>")
-        with self.settings(GEMINI_LIVE_API_KEY="test-only", AI_PIN="test-pin"):
+        with self.settings(GEMINI_API_KEY="test-only", AI_PIN="test-pin"):
             for name, topic in (("study:eo_tache_two_live", "Choisir un atelier photo"),
                                 ("study:eo_tache_three_live", "Découvrir une ville")):
                 studio = self.client.get(reverse(name))

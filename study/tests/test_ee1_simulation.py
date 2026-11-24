@@ -259,7 +259,7 @@ class EE1SimulationTests(TestCase):
             "Le temps est écoulé",
         )
 
-    @override_settings(EE1_EVALUATION_PROVIDER="gemini", GEMINI_EVALUATION_API_KEY="fixture-evaluation-key", GROQ_API_KEY="")
+    @override_settings(EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="")
     def test_evaluation_requires_consent_for_the_disclosed_provider_and_claims_once(self):
         self.client.post(self._start_url(), {"sujet_id": str(self.sujet.pk)})
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
@@ -287,7 +287,7 @@ class EE1SimulationTests(TestCase):
         thread.assert_called_once()
 
     @override_settings(
-        EE1_EVALUATION_PROVIDER="gemini", GEMINI_EVALUATION_API_KEY="fixture-evaluation-key", GROQ_API_KEY="fixture-groq-key",
+        EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="fixture-groq-key",
     )
     def test_selecting_a_second_model_preserves_the_original_report(self):
         self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
@@ -315,7 +315,7 @@ class EE1SimulationTests(TestCase):
             writing_simulation.run_evaluation(attempt.pk, attempt.evaluation_started_at, self.spec, "gemini")
         self.assertEqual(score.call_args.kwargs["provider"], "gemini")
 
-        with self.settings(GEMINI_EVALUATION_API_KEY=""), patch("study.views.writing_simulation.threading.Thread") as thread:
+        with self.settings(GEMINI_API_KEY=""), patch("study.views.writing_simulation.threading.Thread") as thread:
             with self.captureOnCommitCallbacks(execute=True):
                 for provider, expected in (("gemini", 11), ("groq", 9)):
                     cached = self.client.post(url, data={"consent": True, "provider": provider}, content_type="application/json")
@@ -526,7 +526,7 @@ class EE1SimulationTests(TestCase):
                 if len(responses) == 2:
                     self.assertEqual(requests[0]["messages"][1], requests[1]["messages"][1])
 
-    @override_settings(EE1_EVALUATION_PROVIDER="gemini", GEMINI_EVALUATION_API_KEY="fixture-evaluation-key")
+    @override_settings(EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key")
     @patch.object(evaluation, "HTTPSConnection", autospec=True)
     def test_gemini_uses_the_writing_rubric_and_grounds_its_report(self, transport):
         conn = transport.return_value
@@ -555,7 +555,7 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(transport.call_args.args, ("generativelanguage.googleapis.com",))
         request = conn.request.call_args
         self.assertEqual(request.args, ("POST", "/v1beta/models/gemini-3.8-flash:generateContent"))
-        self.assertEqual(request.kwargs["headers"]["x-goog-api-key"], "fixture-evaluation-key")
+        self.assertEqual(request.kwargs["headers"]["x-goog-api-key"], settings.GEMINI_API_KEY)
         payload = json.loads(request.kwargs["body"])
         self.assertIn(load_ee_ai_examiner_prompt(1), payload["systemInstruction"]["parts"][0]["text"])
         self.assertEqual(json.loads(payload["contents"][0]["parts"][0]["text"]), {
@@ -565,7 +565,7 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(payload["generationConfig"]["responseMimeType"], "application/json")
         self.assertEqual(payload["generationConfig"]["responseJsonSchema"], writing_evaluation._SCHEMA)
 
-    @override_settings(GEMINI_EVALUATION_API_KEY="fixture-evaluation-key")
+    @override_settings(GEMINI_API_KEY="fixture-gemini-key")
     def test_gemini_does_not_grade_blocked_or_incomplete_responses(self):
         for reply, message in (
             ({"promptFeedback": {"blockReason": "SAFETY"}}, "Aucun bilan"),
@@ -579,9 +579,9 @@ class EE1SimulationTests(TestCase):
                     evaluation.request_gemini_report("Rubric", {}, {})
                 post.assert_called_once()
 
-    @override_settings(GEMINI_EVALUATION_API_KEY="", GEMINI_LIVE_API_KEY="fixture-voice-key")
+    @override_settings(GEMINI_API_KEY="")
     @patch.object(evaluation, "_post")
-    def test_gemini_grading_does_not_reuse_the_voice_pilot_key(self, post):
+    def test_gemini_grading_does_not_call_the_provider_without_a_key(self, post):
         with self.assertLogs(evaluation.logger, "WARNING"), self.assertRaises(evaluation.EvaluationError):
             evaluation.request_gemini_report("Rubric", {}, {})
         post.assert_not_called()

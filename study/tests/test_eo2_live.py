@@ -21,7 +21,7 @@ from . import factories
 PILOT_PIN = "test-audio-pin"
 
 
-@override_settings(GEMINI_LIVE_API_KEY="test-pilot-key", GROQ_API_KEY="test-groq-key", AI_PIN=PILOT_PIN)
+@override_settings(GEMINI_API_KEY="test-pilot-key", GROQ_API_KEY="test-groq-key", AI_PIN=PILOT_PIN)
 class GeminiLiveTests(TestCase):
     @classmethod
     def setUpTestData(cls):
@@ -72,7 +72,7 @@ class GeminiLiveTests(TestCase):
         self.assertEqual(policy.replace(" " + google_wss, ""), settings.CONTENT_SECURITY_POLICY)
         self.assertIn("microphone=(self)", page["Permissions-Policy"])
         self.assertIn("camera=()", page["Permissions-Policy"])
-        self.assertNotContains(page, settings.GEMINI_LIVE_API_KEY)
+        self.assertNotContains(page, settings.GEMINI_API_KEY)
         self.assertNotContains(page, PILOT_PIN)
 
         studio = self.client.get(self.studio)
@@ -82,7 +82,7 @@ class GeminiLiveTests(TestCase):
 
     def test_unavailable_simulation_has_no_fallback_or_microphone_access(self):
         for gate in (
-            {"GEMINI_LIVE_API_KEY": ""},
+            {"GEMINI_API_KEY": ""},
             {"AI_PIN": ""},
             {"AI_PIN": "x" * 129},
         ):
@@ -286,7 +286,7 @@ class GeminiLiveTests(TestCase):
         exchange = {"purpose": "exchange", "exchangeGrant": result["exchangeGrant"], "consent": True}
         self.assert_private(self.post(body=json.dumps(exchange)), 403)  # Not the generic workshop.
         self.assert_private(self.post(url=url, body=json.dumps({**exchange, "pin": PILOT_PIN})), 400)
-        with self.settings(GEMINI_LIVE_API_KEY=""):
+        with self.settings(GEMINI_API_KEY=""):
             self.assert_private(self.post(url=url, body=json.dumps(exchange)), 403)
         with patch("django.core.signing.time.time", return_value=timezone.now().timestamp() + 601):
             self.assert_private(self.post(url=url, body=json.dumps(exchange)), 403)
@@ -412,7 +412,7 @@ class GeminiLiveTests(TestCase):
         self.assert_private(self.post(url=self.eval_url, body=" " * (oral_evaluation.MAX_BODY + 1)), 400)
         self.assert_private(self.evaluate(pin=""), 403)
         self.assert_private(self.client.post(self.eval_url, {"consent": True}, content_type="application/json"), 403)
-        for key in ("GEMINI_LIVE_API_KEY", "GROQ_API_KEY"):
+        for key in ("GEMINI_API_KEY", "GROQ_API_KEY"):
             with self.settings(**{key: ""}):
                 self.assert_private(self.evaluate(), 403)
         transport.assert_not_called()
@@ -617,7 +617,7 @@ class GeminiLiveTests(TestCase):
         for invalid in ({"rows": rows}, {"rows": rows, "elapsed": -1}, {"rows": rows, "elapsed": 1.5},
                         {"rows": [{**self.rows[0], "interrupted": False}], "elapsed": 1}, {"rows": [self.rows[1]], "elapsed": 1}):
             self.assert_private(self.post(url=save_url, body=json.dumps(invalid)), 400)
-        with self.settings(GEMINI_LIVE_API_KEY=""):
+        with self.settings(GEMINI_API_KEY=""):
             self.assert_private(self.post(url=save_url, body=json.dumps({"rows": rows, "elapsed": 0})), 403)
         save_options = dict(url=save_url, body=json.dumps({"rows": rows, "elapsed": 95_000}),
                             HTTP_IDEMPOTENCY_KEY=str(uuid.uuid4()))
@@ -716,7 +716,7 @@ class GeminiLiveTests(TestCase):
         self.assertIn("microphone=(self)", page["Permissions-Policy"])
         self.assertIn("wss://generativelanguage.googleapis.com", page["Content-Security-Policy"])
         self.assertNotContains(page, response.body)
-        with self.settings(GEMINI_LIVE_API_KEY=""):
+        with self.settings(GEMINI_API_KEY=""):
             self.assert_no_live_policy(self.client.get(url))
         token = page.context["token_url"]
         first = self.post(url=token, body=json.dumps({"consent": True, "pin": PILOT_PIN, "purpose": "attempt"}))

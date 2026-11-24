@@ -72,10 +72,11 @@ shared evaluation code lives in `study/simulation/`.
 Writing sends the exact subject, the response, its word count and limits, and
 the task’s grading instructions to the disclosed provider. Like the oral grader,
 it verifies citations using numbered passages from the learner’s original words.
-Set `GEMINI_EVALUATION_API_KEY` on Render to use Gemini 3.8 Flash for new EE1
-evaluations. Use a separate [paid-tier Gemini API key](https://ai.google.dev/gemini-api/docs/billing),
-not the free-tier voice pilot key. Set `EE1_EVALUATION_PROVIDER=groq` to switch
-back for the default choice. When more than one model is available, the EE1
+EE1 grading with Gemini 3.8 Flash uses the same `GEMINI_API_KEY` as the voice
+simulator. Check [Google’s data-use terms](https://aistudio.google.com/docs/terms)
+before grading learner responses: Google may use free-tier inputs to improve
+its models. Set `EE1_EVALUATION_PROVIDER=groq` to make Groq the default choice
+while keeping Gemini selectable. When more than one model is available, the EE1
 bilan’s sparkle button opens a model picker. Each report is saved separately;
 switching back opens the saved report without grading again. EE2 and oral
 grading stay on Groq. Only the selected provider receives the response. Both providers use the same evidence
@@ -258,15 +259,15 @@ To enable the pilot for a test account:
    [model’s free tier](https://aistudio.google.com/docs/pricing#gemini-3.8-live)
    and availability in that project. Do not link a billing account or enable
    a paid tier to work around a quota error.
-2. Set `GEMINI_API_KEY` for the conversation and a [Groq key](https://console.groq.com/keys)
-   as `GROQ_API_KEY` for the bilan, **only in the server’s secret settings**. The pilot uses the existing
+2. Set `GEMINI_API_KEY` for the conversation and EE1 grading, and a [Groq key](https://console.groq.com/keys)
+   as `GROQ_API_KEY` for Groq bilans, **only in the server’s secret settings**. The voice pilot uses the existing
    `AI_PIN`; it needs neither an account-ID list nor an ElevenLabs API key.
    Restart the server. An operator must verify billing, age, region and the
    [provider’s terms](https://aistudio.google.com/docs/terms); Heureux does
    not check these. This is a private adult pilot in Canada and the US, not
    an opt-in for the general learner population. Share the PIN only with eligible
    testers trusted to authorize ElevenLabs generation too. Unset `GEMINI_API_KEY`
-   to stop new calls, or only `GROQ_API_KEY` to stop new bilans, without affecting narration.
+   to stop new Gemini calls, or only `GROQ_API_KEY` to stop new Groq bilans, without affecting narration.
 3. Sign in as an approved tester, choose an EO2 topic under **Simulation**,
    then select **Commencer la séance**. Heureux checks the PIN before reading the prompt
    and never sends the PIN to Google. The reading and the exchange use separate,

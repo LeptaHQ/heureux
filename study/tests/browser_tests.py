@@ -208,7 +208,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         )
         self.assertTrue(fits, f"{self.page.url}: {overflowing}")
 
-    @override_settings(GEMINI_LIVE_API_KEY="")
+    @override_settings(GEMINI_API_KEY="")
     def test_legacy_eo2_bookmarks_open_only_the_matching_unavailable_live_studio(self):
         task = factories.make_task(self.part, "tache-2")
         theme = factories.make_theme("sujets", task=task)
@@ -574,7 +574,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         return task_by_slug["eo/tache-2"]
 
     @override_settings(
-        EE1_EVALUATION_PROVIDER="gemini", GEMINI_EVALUATION_API_KEY="fixture-evaluation-key", GROQ_API_KEY="fixture-groq-key",
+        EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="fixture-groq-key",
     )
     def test_written_simulation_debrief_retries_and_shows_corrections_before_proposal(self):
         task = factories.make_task(factories.make_part("ee"), "tache-1")
@@ -7655,7 +7655,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
-    @override_settings(GEMINI_LIVE_API_KEY="fixture-not-a-key", AI_PIN="test-audio-pin")
+    @override_settings(GEMINI_API_KEY="fixture-not-a-key", AI_PIN="test-audio-pin")
     def test_eo3_vocabulary_removal_preserves_mobile_subject_progress(self):
         prompt = self.first.response.prompts.get(is_canonical=True)
         phrase = factories.make_phrase(tier=PhraseTier.SUBJECT)

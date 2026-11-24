@@ -8,7 +8,7 @@ from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation
 from . import factories
 
 
-@override_settings(GEMINI_LIVE_API_KEY="")
+@override_settings(GEMINI_API_KEY="")
 class TopicPracticeTests(TestCase):
     @classmethod
     def setUpTestData(cls):
@@ -28,7 +28,7 @@ class TopicPracticeTests(TestCase):
         self.live = reverse("study:eo_tache_two_live", args=["mai", 2, 8])
         self.rehearsal = reverse("study:eo2_rehearsal", args=[self.prompt.pk])
 
-    @override_settings(GEMINI_LIVE_API_KEY="test-key", AI_PIN="test-pin")
+    @override_settings(GEMINI_API_KEY="test-key", AI_PIN="test-pin")
     def test_topic_and_old_bookmarks_open_only_the_matching_simulation(self):
         picker = self.client.get(self.picker)
         photo = reverse("study:eo_tache_two_live")
@@ -63,7 +63,7 @@ class TopicPracticeTests(TestCase):
         self.client.force_login(self.other)
         self.assertNotContains(self.client.get(self.picker, {"status": "retry"}), self.live)
 
-    @override_settings(GEMINI_LIVE_API_KEY="test-key", AI_PIN="test-pin")
+    @override_settings(GEMINI_API_KEY="test-key", AI_PIN="test-pin")
     def test_existing_guided_attempt_and_saved_bilan_remain_private_and_count_once(self):
         key = self.prompt.content_key
         EO2PracticeAttempt.objects.create(user=self.user, subject_key=key, attempt=uuid.uuid4())

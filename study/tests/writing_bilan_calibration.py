@@ -13,7 +13,7 @@ from study.simulation import writing_evaluation
 @skipUnless(os.environ.get("RUN_WRITING_CALIBRATION") == "1", "Opt in to live writing calibration.")
 class WritingBilanCalibration(SimpleTestCase):
     def test_compare_ee1_providers_on_the_same_message(self):
-        self.assertTrue(settings.GEMINI_EVALUATION_API_KEY and settings.GROQ_API_KEY, "Both evaluation keys are required.")
+        self.assertTrue(settings.GEMINI_API_KEY and settings.GROQ_API_KEY, "Both provider keys are required.")
         subject = (
             "Un ami cherche une librairie pour acheter des livres d’occasion. "
             "Recommandez-lui une adresse et indiquez les horaires et les prix."

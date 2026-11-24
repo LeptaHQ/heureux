@@ -347,7 +347,7 @@ def provider_for(task_number):
 def available_providers():
     return {
         provider for provider, key in (
-            ("gemini", settings.GEMINI_EVALUATION_API_KEY),
+            ("gemini", settings.GEMINI_API_KEY),
             ("groq", settings.GROQ_API_KEY),
         ) if key
     }

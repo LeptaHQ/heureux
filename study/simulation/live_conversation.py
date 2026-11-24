@@ -82,7 +82,7 @@ def subject_instruction(subject: TacheTwoSubjectData, dialogue: TacheTwoDialogue
 
 def available_to(user, task):
     return bool(
-        settings.GEMINI_LIVE_API_KEY
+        settings.GEMINI_API_KEY
         and user.is_authenticated and user.is_active
         and 0 < len(settings.AI_PIN) <= 128
         and task and task.available and task.part.available
@@ -150,7 +150,7 @@ def _request_token(instruction: str) -> str | None:
                 "POST", "/v1beta/auth_tokens", body=json.dumps(payload).encode(),
                 headers={
                     "Content-Type": "application/json",
-                    "x-goog-api-key": settings.GEMINI_LIVE_API_KEY,
+                    "x-goog-api-key": settings.GEMINI_API_KEY,
                 },
             )
             with connection.getresponse() as response:

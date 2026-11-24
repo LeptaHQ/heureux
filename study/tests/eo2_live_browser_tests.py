@@ -89,7 +89,7 @@ class LiveConversationBrowserMixin:
 
         self.page.route("**" + reverse(studio + "_token", args=subject_args), fake_token)
         with override_settings(
-            GEMINI_LIVE_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN,
+            GEMINI_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN,
         ):
             if opinion and subject_args:
                 details = reverse("study:response_detail", args=("eo", "tache-3", *subject_args))
@@ -176,7 +176,7 @@ class LiveConversationBrowserMixin:
         self.page.get_by_role("link", name="Revenir à la fiche de ce sujet").click()
         expect(self.page).to_have_url(self.live_server_url + reverse("study:task_subject_detail", args=("eo", "tache-2", *args)))
 
-    @override_settings(GEMINI_LIVE_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN)
+    @override_settings(GEMINI_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN)
     def test_native_voice_opinion_reads_then_listens_until_deadline_and_keeps_last_words(self):
         prompt = self.first.response.prompts.get()
         prompt.text = "Vaut-il mieux découvrir une ville à pied plutôt qu’en voiture ?"
@@ -814,7 +814,7 @@ class LiveConversationBrowserMixin:
                 route.fulfill(json=report)
 
         # The settings stay on after the page loads so the exchange really reaches the save endpoint.
-        with override_settings(GEMINI_LIVE_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN):
+        with override_settings(GEMINI_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN):
             self.open_live_pilot()
             self.page.route("**" + reverse("study:eo_tache_two_live_evaluation"), fake_review)
             self.start_preparation()

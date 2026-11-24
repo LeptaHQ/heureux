@@ -83,9 +83,11 @@ it verifies citations using numbered passages from the learner’s original word
 EE1 grading with Gemini 3.8 Flash uses the same `GEMINI_API_KEY` as the voice
 simulator. Check [Google’s data-use terms](https://aistudio.google.com/docs/terms)
 before grading learner responses: Google may use free-tier inputs to improve
-its models. To add **Workers** (Cloudflare Workers AI’s Llama 3.3 70B) to EE1, set `CLOUDFLARE_WORKERS_API_KEY` and
+its models. To add **Workers** ([Gemma 4 26B on Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)) to EE1, set `CLOUDFLARE_WORKERS_API_KEY` and
 `CLOUDFLARE_ACCOUNT_ID` on Render using the [Workers AI REST setup](https://developers.cloudflare.com/workers-ai/get-started/rest-api/).
 Heureux calls Workers AI directly; see [Cloudflare’s data-use terms](https://developers.cloudflare.com/workers-ai/platform/data-usage/).
+Gemma uses the [Workers AI daily free allocation](https://developers.cloudflare.com/workers-ai/platform/pricing/).
+The model applies to new Workers reports; saved Workers bilans stay as they are.
 When Groq is configured, explicitly submitting a written answer starts its
 bilan automatically. The editor discloses this before submission. Saving a
 draft or running out of time does not send it. When more than one model is

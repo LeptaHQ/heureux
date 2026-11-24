@@ -460,7 +460,7 @@ class EE1SimulationTests(TestCase):
 
         private_citation = "private-model-output"
         report = {**self._provider_report(), "gradeEvidenceIds": [private_citation]}
-        reply = json.dumps({"success": True, "result": {"response": report}}).encode()
+        reply = json.dumps(self._workers_reply(json.dumps(report))).encode()
         with (
             patch.object(evaluation, "_post", return_value=(reply, 1)),
             self.assertLogs(writing_simulation.logger, "INFO") as logs,
@@ -504,6 +504,13 @@ class EE1SimulationTests(TestCase):
             "upgrades": [],
             "improvedResponse": "",
             "priorities": ["Préciser le but.", "Relier les idées.", "Relire les accords."],
+        }
+
+    @staticmethod
+    def _workers_reply(content, *, finish="stop", **message):
+        return {
+            "success": True,
+            "result": {"choices": [{"finish_reason": finish, "message": {"content": content, **message}}]},
         }
 
     def test_evaluation_grounding_requires_evidence_and_a_valid_score_range(self):
@@ -785,41 +792,43 @@ class EE1SimulationTests(TestCase):
 
     @override_settings(CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID=workers_account_id)
     def test_workers_grades_with_the_same_rubric_and_evidence_checks(self):
-        provider_report = self._provider_report()
-        for response in (provider_report, json.dumps(provider_report)):
-            with self.subTest(response_type=type(response)), patch.object(
-                evaluation, "HTTPSConnection", autospec=True,
-            ) as transport:
-                conn = transport.return_value
-                conn.sock = None
-                upstream = conn.getresponse.return_value.__enter__.return_value
-                upstream.status = 200
-                upstream.read.return_value = json.dumps({"success": True, "result": {"response": response}}).encode()
-                report = writing_evaluation.score(
-                    task_number=1, subject=self.sujet.prompt, response="Bonjour",
-                    word_count=1, word_min=60, word_max=120, provider="cloudflare",
-                )
+        reply = self._workers_reply(json.dumps(self._provider_report()), reasoning_content="Not assessment feedback.")
+        with patch.object(evaluation, "HTTPSConnection", autospec=True) as transport:
+            conn = transport.return_value
+            conn.sock = None
+            upstream = conn.getresponse.return_value.__enter__.return_value
+            upstream.status = 200
+            upstream.read.return_value = json.dumps(reply).encode()
+            report = writing_evaluation.score(
+                task_number=1, subject=self.sujet.prompt, response="Bonjour",
+                word_count=1, word_min=60, word_max=120, provider="cloudflare",
+            )
 
-                self.assertEqual((report["score"], report["gradeEvidence"]), (12, ["Bonjour"]))
-                transport.assert_called_once()
-                self.assertEqual(transport.call_args.args, ("api.cloudflare.com",))
-                request = conn.request.call_args
-                self.assertEqual(request.args, (
-                    "POST", f"/client/v4/accounts/{self.workers_account_id}/ai/run/@cf/meta/llama-3.3-70b-instruct-fp8-fast",
-                ))
-                self.assertEqual(request.kwargs["headers"]["Authorization"], "Bearer fixture-workers-token")
-                payload = json.loads(request.kwargs["body"])
-                self.assertIn(writing_evaluation._rubric(1), payload["messages"][0]["content"])
-                self.assertEqual(json.loads(payload["messages"][1]["content"])["response"], "Bonjour")
-                self.assertEqual(payload["response_format"], {
-                    "type": "json_schema", "json_schema": writing_evaluation._SCHEMA,
-                })
+        self.assertEqual((report["score"], report["gradeEvidence"]), (12, ["Bonjour"]))
+        transport.assert_called_once()
+        self.assertEqual(transport.call_args.args, ("api.cloudflare.com",))
+        request = conn.request.call_args
+        self.assertEqual(request.args, (
+            "POST", f"/client/v4/accounts/{self.workers_account_id}/ai/run/@cf/google/gemma-4-26b-a4b-it",
+        ))
+        self.assertEqual(request.kwargs["headers"]["Authorization"], "Bearer fixture-workers-token")
+        payload = json.loads(request.kwargs["body"])
+        self.assertIn(writing_evaluation._rubric(1), payload["messages"][0]["content"])
+        self.assertEqual(json.loads(payload["messages"][1]["content"])["response"], "Bonjour")
+        self.assertEqual(payload["response_format"], {
+            "type": "json_schema",
+            "json_schema": {"name": "ee1_bilan", "strict": True, "schema": writing_evaluation._SCHEMA},
+        })
+        self.assertIs(payload["store"], False)
 
     @override_settings(CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID=workers_account_id)
     def test_workers_rejects_unsuccessful_or_malformed_replies(self):
         for reply, message in (
             ({"success": False, "errors": [{"message": "private upstream detail"}]}, "refusé"),
-            ({"success": True, "result": {"response": "not JSON"}}, "illisible"),
+            (self._workers_reply("not JSON"), "illisible"),
+            (self._workers_reply('{"score":12,"score":15}'), "illisible"),
+            (self._workers_reply('{"score":12}', finish="length"), "incomplet"),
+            (self._workers_reply(None, finish="content_filter", refusal="private upstream detail"), "Aucun bilan"),
         ):
             with (
                 self.subTest(message=message),

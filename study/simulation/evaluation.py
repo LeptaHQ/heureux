@@ -15,7 +15,7 @@ from django.views.decorators.debug import sensitive_variables
 
 MODEL = "openai/gpt-oss-120b"
 _GEMINI_MODEL = "gemini-3.8-flash"
-_WORKERS_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+_WORKERS_MODEL = "@cf/google/gemma-4-26b-a4b-it"
 DEADLINE_SECONDS = 180
 _MAX_RESPONSE = 64_000
 _RETRY_MIN_SECONDS = 30
@@ -145,15 +145,43 @@ def _request_with_retry(payload, *, host, path, auth, service, retry_schema=Fals
 
 
 @sensitive_variables()
-def request_report(instruction, packet, schema, *, name="bilan", max_tokens=3584, retry_schema=False):
-    payload = {
-        "model": MODEL,
+def _chat_payload(instruction, packet, schema, name):
+    return {
         "messages": [
             {"role": "system", "content": instruction},
             {"role": "user", "content": json.dumps(packet, ensure_ascii=False, separators=(",", ":"))},
         ],
         "response_format": {"type": "json_schema", "json_schema": {
             "name": name, "strict": True, "schema": schema}},
+    }
+
+
+@sensitive_variables()
+def _chat_report(reply, elapsed, name):
+    choice, usage = reply["choices"][0], reply.get("usage") or {}
+    finish = choice.get("finish_reason")
+    if finish != "stop" or elapsed > _SLOW_SECONDS:
+        usage = usage if isinstance(usage, dict) else {}
+        tokens = {key: usage[key] for key in ("prompt_tokens", "completion_tokens") if type(usage.get(key)) is int}
+        details = usage.get("completion_tokens_details")
+        reasoning = details.get("reasoning_tokens") if isinstance(details, dict) else None
+        if type(reasoning) is int:
+            tokens["reasoning_tokens"] = reasoning
+        if finish not in ("stop", "length", "content_filter", "tool_calls"):
+            finish = "unknown"
+        logger.warning("%s: finish %s after %.0f s (tokens %s)", name, finish, elapsed, tokens)
+    if choice["message"].get("refusal"):
+        raise EvaluationError(422, "Aucun bilan n’a pu être établi.")
+    if finish != "stop":
+        raise EvaluationError(422, "Le bilan est incomplet. Aucune note globale n’a été attribuée.")
+    return json.loads(choice["message"]["content"], object_pairs_hook=unique_fields)
+
+
+@sensitive_variables()
+def request_report(instruction, packet, schema, *, name="bilan", max_tokens=3584, retry_schema=False):
+    payload = {
+        "model": MODEL,
+        **_chat_payload(instruction, packet, schema, name),
         # Groq counts this cap plus the prompt against the token rate limit.
         "reasoning_effort": "low", "include_reasoning": False, "max_completion_tokens": max_tokens,
     }
@@ -163,24 +191,7 @@ def request_report(instruction, packet, schema, *, name="bilan", max_tokens=3584
         retry_schema=retry_schema,
     )
     try:
-        reply = json.loads(body)
-        choice, usage = reply["choices"][0], reply.get("usage") or {}
-        finish = choice.get("finish_reason")
-        if finish != "stop" or elapsed > _SLOW_SECONDS:
-            usage = usage if isinstance(usage, dict) else {}
-            tokens = {key: usage[key] for key in ("prompt_tokens", "completion_tokens") if type(usage.get(key)) is int}
-            details = usage.get("completion_tokens_details")
-            reasoning = details.get("reasoning_tokens") if isinstance(details, dict) else None
-            if type(reasoning) is int:
-                tokens["reasoning_tokens"] = reasoning
-            if finish not in ("stop", "length", "content_filter", "tool_calls"):
-                finish = "unknown"
-            logger.warning("%s: finish %s after %.0f s (tokens %s)", name, finish, elapsed, tokens)
-        if choice["message"].get("refusal"):
-            raise EvaluationError(422, "Aucun bilan n’a pu être établi.")
-        if finish != "stop":
-            raise EvaluationError(422, "Le bilan est incomplet. Aucune note globale n’a été attribuée.")
-        return json.loads(choice["message"]["content"], object_pairs_hook=unique_fields)
+        return _chat_report(json.loads(body), elapsed, name)
     except (ValueError, KeyError, IndexError, TypeError, AttributeError, RecursionError):
         logger.warning("%s: could not decode the Groq report", name)
         raise EvaluationError(502, _UNREADABLE) from None
@@ -233,14 +244,11 @@ def request_workers_report(instruction, packet, schema):
     if not workers_available():
         logger.warning("Cloudflare evaluation: missing token or invalid account ID")
         raise EvaluationError(503, "Le service de bilan est indisponible. Votre travail reste disponible.")
-    body, _ = _request_with_retry(
+    body, elapsed = _request_with_retry(
         {
-            "messages": [
-                {"role": "system", "content": instruction},
-                {"role": "user", "content": json.dumps(packet, ensure_ascii=False, separators=(",", ":"))},
-            ],
-            "response_format": {"type": "json_schema", "json_schema": schema},
-            "max_tokens": 4096,
+            **_chat_payload(instruction, packet, schema, "ee1_bilan"),
+            "max_completion_tokens": 6144,
+            "store": False,
         },
         host="api.cloudflare.com",
         path=f"/client/v4/accounts/{settings.CLOUDFLARE_ACCOUNT_ID}/ai/run/{_WORKERS_MODEL}",
@@ -252,9 +260,7 @@ def request_workers_report(instruction, packet, schema):
         if reply.get("success") is not True:
             logger.warning("Cloudflare evaluation: provider declined the report")
             raise EvaluationError(502, "Le service de bilan a refusé la demande. Votre travail reste disponible.")
-        report = reply["result"]["response"]
-        if isinstance(report, str):
-            report = json.loads(report, object_pairs_hook=unique_fields)
+        report = _chat_report(reply["result"], elapsed, "Cloudflare Gemma evaluation")
         if not isinstance(report, dict):
             raise ValueError
         return report

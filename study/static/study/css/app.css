@@ -12124,16 +12124,15 @@ button.ce-choice:focus-visible .ce-choice__radio {
 .ee1-evaluation__section h3 { margin: 0; font-size: .96rem; }
 .ee1-evaluation__section :is(p, ul, ol) { margin: 0; }
 .ee1-evaluation__section li + li { margin-top: .35rem; }
-.ee1-evaluation__table { width: 100%; border-collapse: collapse; font-size: .92rem; }
-.ee1-evaluation__table :is(th, td) {
-  padding: .55rem .65rem;
+.ee1-evaluation__corrections { padding-inline-start: 1.25rem; }
+.ee1-evaluation__corrections:empty { display: none; }
+.ee1-evaluation__corrections li {
+  padding-block: .4rem;
   border-top: 1px solid var(--border);
-  text-align: left;
-  vertical-align: top;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
 }
-.ee1-evaluation__table th { font-weight: 650; }
-.ee1-compliance--met { color: var(--tone-success, var(--text)); }
-.ee1-compliance--missing { color: var(--tone-danger, var(--text)); }
+.ee1-evaluation__corrections p { color: var(--text-soft); }
 .eo2-topic-table tr[id] { scroll-margin-top: 5rem; }
 .eo2-topic-table :is(.subject-bookmark, .subject-completion-check) { display: grid; place-items: center; }
 .eo2-topic-table :is(th, td):not(:first-child) { width: 1%; text-align: center; white-space: nowrap; }
@@ -12158,8 +12157,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
   .ee1-writing-tools { order: 2; }
   .ee1-writing-form__actions { justify-content: flex-start; }
   .ee1-writing-form__actions .btn { flex: 1 1 auto; }
-  .ee1-evaluation__table { font-size: .85rem; }
-  .ee1-evaluation__table :is(th, td) { padding-inline: .35rem; }
 }
 
 @media (max-width: 760px) {

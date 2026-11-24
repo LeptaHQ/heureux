@@ -40,6 +40,11 @@ def _object(**fields):
     }
 
 
+_CITED_NOTES = {
+    "type": "array",
+    "items": _object(evidenceId=_ID, text={"type": "string"}),
+}
+
 _SCHEMA = _object(
     verdict={"type": "string"},
     score={"type": "integer"},
@@ -70,10 +75,8 @@ _SCHEMA = _object(
     },
     gradeRationale={"type": "string"},
     gradeEvidenceIds=_IDS,
-    strengths={
-        "type": "array",
-        "items": _object(evidenceId=_ID, text={"type": "string"}),
-    },
+    strengths=_CITED_NOTES,
+    verbFeedback=_CITED_NOTES,
     corrections={
         "type": "array",
         "items": _object(
@@ -316,15 +319,29 @@ def ground(
     if not result["confidence"]:
         omit("confidence")
 
-    result["strengths"] = checked_items("strengths", report.get("strengths"), 8, lambda item: {
-        "quote": cited_quote(item.get("evidenceId")), "text": _text(item.get("text"), 500),
-    }, records=True)
-    result["corrections"] = checked_items("corrections", report.get("corrections"), 12, lambda item: {
-        "before": excerpt(item.get("before"), 500),
-        "after": _text(item.get("after"), 500, empty=True),
-        "type": _text(item.get("type"), 80),
-        "why": _text(item.get("why"), 300),
-    }, records=True)
+    def read_note(item):
+        quote = cited_quote(item.get("evidenceId"))
+        text = _text(item.get("text"), 500)
+        if _normalise_for_match(text) == _normalise_for_match(quote):
+            raise ValueError
+        return {"quote": quote, "text": text}
+
+    for field, limit in (("strengths", 8), ("verbFeedback", 3)):
+        result[field] = checked_items(field, report.get(field), limit, read_note, records=True)
+
+    def read_correction(item):
+        before = excerpt(item.get("before"), 500)
+        after = _text(item.get("after"), 500, empty=True)
+        if before == after:
+            raise ValueError
+        return {
+            "before": before,
+            "after": after,
+            "type": _text(item.get("type"), 80),
+            "why": _text(item.get("why"), 500),
+        }
+
+    result["corrections"] = checked_items("corrections", report.get("corrections"), 12, read_correction, records=True)
 
     def read_relevance(item):
         decision = _label(item.get("decision"), _DECISIONS)
@@ -339,8 +356,6 @@ def ground(
     result["relevance"] = checked_items("relevance", report.get("relevance"), 16, read_relevance, records=True)
     for field, limit in (("upgrades", 8), ("priorities", 3)):
         result[field] = checked_items(field, report.get(field), limit, lambda value: _text(value, 500))
-    if len(result["priorities"]) < 3:
-        omit("priorities")
     try:
         improved = _text(report.get("improvedResponse"), 3000, empty=True)
         improved_count = _ee_word_count(improved)
@@ -369,6 +384,15 @@ def available_providers():
     }
 
 
+def _rubric(task_number):
+    prompt = load_ee_ai_examiner_prompt(task_number)
+    _, start, rest = prompt.partition("\nTASK FORMAT\n")
+    rubric, end, _ = rest.partition("\nMANDATORY WRITTEN REPORT\n")
+    if not (start and rubric.strip() and end):
+        raise ValueError(f"EE{task_number} examiner prompt is missing its rubric")
+    return start.strip() + "\n" + rubric.strip()
+
+
 @sensitive_variables()
 def score(
     *,
@@ -383,21 +407,60 @@ def score(
     schema_name = f"ee{task_number}_bilan"
     evidence = {}
     passages = [passage for passage in number_passages(response, evidence) if passage["id"] is not None]
+    tense_context = (
+        "Check that verb forms fit the message's time cues and purpose, such as recounting, "
+        "inviting, requesting, or describing plans."
+        if task_number == 1 else
+        "Check tense and aspect in narrated parts: ongoing background or habits may use the imparfait, "
+        "a completed event or bounded period may use the passé composé, and the plus-que-parfait can "
+        "mark events viewed from a later point in the past. Distinguish differences of meaning "
+        "(j'avais peur / j'ai eu peur) from actual errors. In opinions, recommendations or complaints, "
+        "judge tense and mood by the intent and governing expression, not by a narration template."
+    )
     instruction = (
-        load_ee_ai_examiner_prompt(task_number)
-        + "\n\nFor this API request the packet already contains the subject and response. "
-        "Evaluate it now using the rubric above. Return only the supplied JSON structure, without "
-        "Markdown headings or tables. The server computes CEFR, NCLC and the improved word count "
-        "from the score, range and revised text; do not return those as separate fields or "
-        "restate the final score or level in prose. Keep the verdict within 900 characters, "
-        "each criterion observation within 700 and the grade rationale within 1800. "
-        "Use the word limits in the packet. "
-        "Read the full response, including its paragraph breaks. For task compliance, criteria, "
-        "the grade rationale and strengths, refer to the numbered passages using their exact E… "
-        "identifiers, not copied quotations. Use an empty evidenceId for a Missing requirement if no "
-        "passage supports it. For corrections, still quote the exact original wording in before. "
-        "Keep the candidate's tu or vous when correcting a phrase unless the register itself is "
-        "inappropriate for the task. Do not penalize a proper name or accepted regional French. "
+        f"You are a strict but fair TCF Canada writing practice evaluator for Tâche {task_number}.\n\n"
+        + _rubric(task_number)
+        + "\n\nAPI REPORT\n"
+        "Follow these output instructions instead of any prose-report directions in the rubric. "
+        "Grade the supplied subject and response now. Return only the supplied JSON structure; "
+        "no Markdown. Address the learner directly in English; keep excerpts and revisions in French. "
+        "The server derives CEFR, NCLC and the improved word count and displays them separately. "
+        "In verdict, use one sentence: say what works and name the main weakness, if any. "
+        "Keep scores, ranges, confidence labels, CEFR and NCLC out of the prose. Use only score, "
+        "scoreRange and confidence for the estimate. In uncertainty, describe specific borderline evidence. "
+        "In gradeRationale, use evidence to explain what sets the response above a weaker performance "
+        "and what keeps it from a stronger one, as applicable, without naming the levels. "
+        "Do not merely repeat the verdict. Use the word limits in the packet. "
+        "Keep feedback concise and within these API caps even where the rubric asks for an exhaustive review. "
+        "Read the full response. In taskCompliance give a separate check for each explicit requirement "
+        "and for the format, audience and register, putting missing or partial items first. "
+        "Never penalize a detail the subject did not ask for. "
+        "For task compliance, criteria, grade rationale, strengths and verbFeedback, cite exact "
+        "numbered passage IDs. Use an empty evidenceId for a Missing requirement with no passage. "
+        "Use one or two relevant citations per criterion and explain what they show. Limit each "
+        "requirement check and relevance entry to one short sentence so the key feedback has room. "
+        "Give up to four strengths; say what each choice accomplishes instead of repeating the quote. "
+        f"{tense_context} "
+        "In verbFeedback, give up to three distinct, cited observations on tense, aspect or mood. "
+        "Quote the specific verb form, name it and explain its role in the timeline or how it fits "
+        "a governing expression. Reinforce good choices; do not require a more advanced form. "
+        "Put conjugation and agreement fixes in corrections without repeating their explanation here. "
+        "Review agreement, pronouns, articles, prepositions, sentence construction, spelling and "
+        "punctuation as well. In corrections, list up to twelve real fixes, most consequential first. "
+        "Use the shortest exact original wording that gives enough context in before. Give a specific "
+        "rule name in type and explain why the fix applies here in one or two sentences (up to 500 characters). "
+        "Group repeated errors instead of listing the same rule repeatedly. Keep optional rewrites in "
+        "upgrades, not corrections, and do not repeat fixes there. Check relevance sentence by sentence, "
+        "but report only meaningful Keep, Cut or Simplify decisions for this task and audience, with "
+        "short exact quotes. Use at most one Keep summary for lines that need no comment. "
+        "Judge register against the actual recipient: an informal message to a friend does not need "
+        "a more formal tone or closing. Keep tu or vous unless the relationship makes it inappropriate "
+        "or the learner switches forms for the same recipient. Distinguish plural vous from formal vous. "
+        "Preserve the learner's meaning and accept valid regional or stylistic variants. "
+        "Give up to three priorities, most useful first. For each, connect a real error, "
+        "omission, or choice to a concrete revision or a check the learner can repeat next time; do not "
+        "give generic advice or invent problems to fill slots. In improvedResponse, apply the key "
+        "fixes, fulfill the subject and stay within the word range; do not invent facts to decorate it. "
         "Judge the dominant performance; an isolated slip does not by itself cap the overall level. "
         "For each criterion use Limited, Developing, Adequate, Strong, or Excellent. Reserve "
         "Excellent for sustained control with no material weakness in that criterion. These are "

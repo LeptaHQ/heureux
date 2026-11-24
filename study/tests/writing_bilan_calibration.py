@@ -22,7 +22,8 @@ class WritingBilanCalibration(SimpleTestCase):
             "Salut Alex,\n\n"
             "Je te conseille La Page Verte, sur la place de la mairie. La librairie est ouverte "
             "du mardi au samedi, de 10 h à 18 h. Pour un roman de poche, comptes environ cinq euros. "
-            "Il y a aussi un rayon de bandes dessinées à l’étage, juste à côté des livres pour enfants.\n\n"
+            "Hier, j’y suis passé : il y avait peu de monde et j’ai acheter un roman. "
+            "Il y a aussi un rayon de bandes dessinées à l’étage.\n\n"
             "Si tu veux, on peut y aller ensemble samedi après le marché.\n\n"
             "À bientôt !"
         )
@@ -35,7 +36,11 @@ class WritingBilanCalibration(SimpleTestCase):
                 )
                 self.assertTrue(report["gradeEvidence"])
                 self.assertTrue(all(quote in response for quote in report["gradeEvidence"]))
+                self.assertTrue(report["verbFeedback"], "No grounded feedback on verb forms.")
+                self.assertTrue(all(note["quote"] in response for note in report["verbFeedback"]))
                 print(f"\n{provider}: {report['score']}/20 · {report['cefr']}")
                 print(report["gradeRationale"])
+                for note in report["verbFeedback"]:
+                    print(f"« {note['quote']} » — {note['text']}")
                 for correction in report["corrections"]:
                     print(f"{correction['before']} → {correction['after']}: {correction['why']}")

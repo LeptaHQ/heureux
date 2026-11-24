@@ -38,17 +38,41 @@
     return li;
   };
   const quote = (value) => {
-    const node = document.createElement("q");
-    node.textContent = value;
+    const node = text(document.createElement("q"), value);
+    node.lang = "fr";
     return node;
+  };
+  const citedNotes = (name, entries) => {
+    find(`${name}-section`).hidden = !entries.length;
+    list(find(name), entries, (entry) => {
+      const li = document.createElement("li");
+      li.append(quote(entry.quote), ` — ${entry.text}`);
+      return li;
+    });
+  };
+  const correction = (entry) => {
+    const li = document.createElement("li");
+    const change = document.createElement("div");
+    change.className = "lv-mark";
+    change.lang = "fr";
+    const original = text(document.createElement("span"), "Original : ");
+    const replacement = text(document.createElement("span"), "Correction : ");
+    original.className = replacement.className = "sr-only";
+    const arrow = text(document.createElement("span"), " → ");
+    arrow.setAttribute("aria-hidden", "true");
+    change.append(original, text(document.createElement("del"), entry.before), arrow, replacement,
+      entry.after ? text(document.createElement("ins"), entry.after) : text(document.createElement("span"), "À retirer"));
+    li.append(text(document.createElement("strong"), entry.type), change, text(document.createElement("p"), entry.why));
+    return li;
   };
 
   const showReport = (report) => {
     text(find("verdict"), report.verdict).hidden = !report.verdict;
-    const confidence = report.confidence ? ` · confiance ${report.confidence}` : "";
+    const confidenceLabels = { High: "élevée", Medium: "moyenne", Low: "faible" };
+    const confidence = confidenceLabels[report.confidence];
     text(
       find("score"),
-      `${report.cefr} · ${report.score}/20 · ${report.nclc} · ${report.scoreRange.min}–${report.scoreRange.max} (${report.nclcRange})${confidence}`,
+      `Fourchette indicative : ${report.scoreRange.min}–${report.scoreRange.max}/20 (${report.nclcRange})${confidence ? ` · confiance ${confidence}` : ""}`,
     );
     level.textContent = `${report.score}/20 · ${report.nclc} · ${report.cefr}`;
     level.classList.add("lv-level--scored");
@@ -64,9 +88,10 @@
       }, document.createDocumentFragment()));
     }
 
+    const statuses = { Met: "Satisfait", "Partly met": "Partiel", Missing: "Manquant" };
     list(find("compliance"), report.taskCompliance, (entry) => {
       const li = document.createElement("li");
-      li.textContent = `${entry.status} · ${entry.item} — ${entry.evidence}`;
+      li.append(text(document.createElement("strong"), entry.item), ` · ${statuses[entry.status] || entry.status} — ${entry.evidence}`);
       if (entry.quote) li.append(" ", quote(entry.quote));
       return li;
     });
@@ -99,37 +124,24 @@
       return row;
     });
 
-    const strengths = find("strengths-section");
-    strengths.hidden = !report.strengths.length;
-    list(find("strengths"), report.strengths, (entry) => {
-      const li = document.createElement("li");
-      li.append(quote(entry.quote), ` — ${entry.text}`);
-      return li;
-    });
+    citedNotes("verbs", report.verbFeedback || []);
+    citedNotes("strengths", report.strengths);
 
-    list(find("corrections"), report.corrections, (entry) => {
-      const row = document.createElement("tr");
-      row.insertCell().textContent = entry.before;
-      row.insertCell().textContent = entry.after;
-      row.insertCell().textContent = `${entry.type} — ${entry.why}`;
-      return row;
-    });
-    if (!report.corrections.length) {
-      const row = document.createElement("tr");
-      const cell = row.insertCell();
-      cell.colSpan = 3;
-      cell.textContent = report.omittedSections?.includes("corrections")
-        ? "Certaines corrections n’ont pas pu être vérifiées."
-        : "Aucune erreur objective claire relevée.";
-      find("corrections").append(row);
-    }
+    list(find("corrections"), report.corrections, correction);
+    const correctionsNote = find("corrections-note");
+    correctionsNote.hidden = Boolean(report.corrections.length);
+    correctionsNote.textContent = report.omittedSections?.includes("corrections")
+      ? "Certaines corrections n’ont pas pu être vérifiées."
+      : "Aucune erreur objective claire relevée.";
     find("review").hidden = false;
 
     const relevance = find("relevance-section");
     relevance.hidden = !report.relevance.length;
+    const decisions = { Keep: "Garder", Cut: "Retirer", Simplify: "Simplifier" };
     list(find("relevance"), report.relevance, (entry) => {
       const li = document.createElement("li");
-      li.textContent = `${entry.decision} · ${entry.quote || "La phrase"} — ${entry.why}`;
+      li.append(text(document.createElement("strong"), decisions[entry.decision] || entry.decision), " · ",
+        entry.quote ? quote(entry.quote) : "La phrase", ` — ${entry.why}`);
       return li;
     });
     const upgrades = find("upgrades-section");
@@ -148,7 +160,7 @@
       const warning = document.createElement("p");
       warning.className = "muted writing-validation-warning";
       warning.textContent = "Certains détails du bilan ont été abrégés ou écartés. La note s’appuie sur les passages vérifiés.";
-      result.prepend(warning);
+      result.append(warning);
     }
     result.hidden = false;
   };

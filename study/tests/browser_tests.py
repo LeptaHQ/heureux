@@ -583,7 +583,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         setup = reverse("study:ee1_simulation")
         self.page.goto(f"{self.live_server_url}{setup}?sujet_id={sujet.pk}")
         self.page.get_by_role("button", name="Commencer la séance").click()
-        body = "Je vous invite a dîner. " + " ".join(["Bonjour"] * 55)
+        body = "Je vous invite a dîner. J’aimerais que vous veniez samedi. " + " ".join(["Bonjour"] * 50)
         self.page.locator("#writing-body").fill(body)
         submit = self.page.get_by_role("button", name="Remettre la réponse")
         self.assertLessEqual(submit.evaluate("button => parseFloat(getComputedStyle(button).paddingInlineStart)"), 12)
@@ -595,13 +595,19 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             "scoreRange": {"min": 10, "max": 13}, "confidence": "",
             "verdict": "Le message est clair.", "uncertainty": "",
             "gradeRationale": "Le but est formulé dès le début.", "gradeEvidence": [],
-            "taskCompliance": [], "strengths": [],
+            "taskCompliance": [{"item": "Invitation", "status": "Met", "evidence": "You invite your friends to dinner.", "quote": "Je vous invite a dîner."}],
+            "strengths": [],
+            "verbFeedback": [{
+                "quote": "J’aimerais que vous veniez samedi.",
+                "text": "The subjunctive « veniez » fits the wish introduced by « j’aimerais que ».",
+            }],
             "criteria": [
                 {"key": "linguistic", "rating": "Developing", "evidence": "Il manque un accent.", "quotes": ["a dîner"]},
                 {"key": "sociolinguistic", "rating": "Excellent", "evidence": "Le ton est adapté.", "quotes": ["Je vous invite"]},
             ],
             "corrections": [{"before": "a dîner", "after": "à dîner", "type": "Orthographe", "why": "Il faut un accent."}],
-            "relevance": [], "upgrades": [], "priorities": [],
+            "relevance": [{"quote": "Je vous invite a dîner.", "decision": "Keep", "why": "The invitation is the purpose of the message."}],
+            "upgrades": [], "priorities": ["Write the preposition « à » before « dîner »."],
             "improvedResponse": "Bonjour !\n\nEst-ce que cela te dirait de venir dîner ?",
             "improvedWordCount": 11,
         }
@@ -611,7 +617,8 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             (202, {"status": "processing"}),
             (200, {"status": "ready", "report": report}),
             (200, {"status": "ready", "report": {
-                **report, "score": 11, "nclc": "NCLC 7",
+                **{key: value for key, value in report.items() if key != "verbFeedback"},
+                "score": 11, "nclc": "NCLC 7", "priorities": [],
                 "corrections": [{**report["corrections"][0], "why": "Accent grave sur la préposition."}],
                 "improvedResponse": "Salut !\n\nÇa te dirait de venir dîner chez moi ?",
             }}),
@@ -651,14 +658,22 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         select_model("Gemini")
         expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
         expect(self.page.locator("[data-writing-score]")).not_to_contain_text("confiance")
-        expect(self.page.get_by_role("heading", name="Au prochain essai")).to_have_count(0)
+        expect(self.page.get_by_role("heading", name="Au prochain essai")).to_be_visible()
+        expect(self.page.get_by_role("heading", name="Temps et modes")).to_be_visible()
+        expect(self.page.locator("[data-writing-verbs] q")).to_have_text("J’aimerais que vous veniez samedi.")
+        expect(self.page.locator("[data-writing-verbs]")).to_contain_text("The subjunctive « veniez »")
+        expect(self.page.locator("[data-writing-compliance] li")).to_contain_text("Invitation · Satisfait")
         criteria = self.page.locator("[data-writing-criteria]")
         for label, mark in (("Linguistique", "2/5"), ("Sociolinguistique", "5/5")):
             row = criteria.get_by_role("row").filter(
                 has=self.page.get_by_role("rowheader", name=label, exact=True),
             )
             expect(row.get_by_role("cell", name=mark, exact=True)).to_be_visible()
-        expect(self.page.locator("#lv-transcript tbody tr")).to_contain_text("à dîner")
+        corrections = self.page.locator("[data-writing-corrections]")
+        expect(corrections.locator("del")).to_have_text("a dîner")
+        expect(corrections.locator("ins")).to_have_text("à dîner")
+        expect(corrections.locator("strong")).to_have_text("Orthographe")
+        expect(self.page.locator("[data-writing-relevance] li")).to_contain_text("Garder")
         expect(proposal.locator("#lv-proposal-lines p")).to_have_text(report["improvedResponse"].split("\n\n"))
         for width in (320, 390, 1280):
             self.page.set_viewport_size({"width": width, "height": 900})
@@ -683,7 +698,9 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         select_model("Groq")
         expect(self.page.locator("#lv-level")).to_have_text("11/20 · NCLC 7 · B2")
         expect(self.page.locator("#lv-assessment")).to_have_attribute("open", "")
-        expect(self.page.locator("#lv-transcript tbody tr")).to_contain_text("Accent grave sur la préposition.")
+        expect(corrections).to_contain_text("Accent grave sur la préposition.")
+        expect(self.page.get_by_role("heading", name="Temps et modes")).to_have_count(0)
+        expect(self.page.get_by_role("heading", name="Au prochain essai")).to_have_count(0)
         expect(self.page.locator("#lv-transcript")).to_contain_text(body)
         expect(proposal.locator("#lv-proposal-lines p").last).to_have_text("Ça te dirait de venir dîner chez moi ?")
 

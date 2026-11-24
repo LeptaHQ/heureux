@@ -102,6 +102,10 @@ RUN_WRITING_CALIBRATION=1 python manage.py test study.tests.writing_bilan_calibr
 
 Writing criterion marks run from 1/5 (limited) to 5/5 (excellent); they are
 practice indicators and are not added up to produce the overall estimate.
+New writing bilans check the subject’s requirements individually. **Temps et
+modes** explains tense and mood choices using excerpts from the submitted
+answer. Corrections show the original wording, the fix and the rule; optional
+rewrites stay separate. Previously saved bilans are unchanged.
 In **Simulation → Expression orale → Tâche 2 → Choisir un sujet**, the Sujets table
 and its **Thème**, **Statut** and **Tri** filters let learners find a topic. Its title
 opens the exact publication; the **Séances** count opens its history. **Terminé** is

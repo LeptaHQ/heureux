@@ -44,6 +44,14 @@
     <h3>Au prochain essai</h3>
     <ol class="lv-assessment__evidence" data-writing-priorities></ol>
   </section>
+  <section class="lv-assessment__part" data-writing-verbs-section hidden>
+    <h3>Temps et modes</h3>
+    <ul class="lv-assessment__evidence" data-writing-verbs></ul>
+  </section>
+  <section class="lv-assessment__part">
+    <h3>Conformité à la tâche</h3>
+    <ul class="lv-assessment__evidence" data-writing-compliance></ul>
+  </section>
   <section class="lv-assessment__part" data-writing-strengths-section hidden>
     <h3 id="lv-assessment-strengths-title">{% include "study/shared/partials/ui_icon.html" with name="check" only %} Points forts</h3>
     <ul class="lv-assessment__evidence" data-writing-strengths></ul>
@@ -58,10 +66,6 @@
     <p data-writing-grade-rationale></p>
     <p class="lv-assessment__aside" data-writing-grade-evidence></p>
   </section>
-  <section class="lv-assessment__part">
-    <h3>Conformité à la tâche</h3>
-    <ul class="lv-assessment__evidence" data-writing-compliance></ul>
-  </section>
 {% endblock %}
 
 {% block report_review %}
@@ -73,21 +77,17 @@
     <div class="lv-proposal__prose markdown-prose" lang="fr">
       {% if attempt.body %}{{ attempt.body|markdown_prose }}{% else %}<p class="muted">Aucun texte n’a été enregistré.</p>{% endif %}
     </div>
-    <section class="ee1-evaluation__section" data-writing-review hidden>
-      <h3>Corrections</h3>
-      <div class="table-wrap">
-        <table class="ee1-evaluation__table" aria-label="Corrections de votre réponse">
-          <thead><tr><th scope="col">Original</th><th scope="col">Correction</th><th scope="col">Pourquoi</th></tr></thead>
-          <tbody data-writing-corrections></tbody>
-        </table>
-      </div>
+    <section class="ee1-evaluation__section" aria-labelledby="writing-corrections-title" data-writing-review hidden>
+      <h3 id="writing-corrections-title">Corrections</h3>
+      <ol class="ee1-evaluation__corrections" data-writing-corrections></ol>
+      <p class="muted" data-writing-corrections-note hidden></p>
       <div data-writing-relevance-section hidden>
         <h3>Pertinence et clarté</h3>
-        <ul data-writing-relevance></ul>
+        <ul class="lv-assessment__evidence" data-writing-relevance></ul>
       </div>
       <div data-writing-upgrades-section hidden>
         <h3>Améliorations facultatives</h3>
-        <ul data-writing-upgrades></ul>
+        <ul class="lv-assessment__evidence" data-writing-upgrades></ul>
       </div>
     </section>
     <details>
@@ -96,7 +96,8 @@
         <li>Ai-je répondu à chaque élément de la consigne&nbsp;?</li>
         <li>Le registre et le format conviennent-ils au destinataire&nbsp;?</li>
         <li>Mes idées sont-elles organisées et reliées&nbsp;?</li>
-        <li>Ai-je relu les accords, les accents et les prépositions&nbsp;?</li>
+        <li>Les temps correspondent-ils au moment des actions&nbsp;?</li>
+        <li>Ai-je relu les accords, les pronoms, les accents et les prépositions&nbsp;?</li>
       </ul>
     </details>
   </details>
@@ -112,5 +113,5 @@
   </a>
 {% endblock %}
 {% block scripts %}
-  <script src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=7"></script>
+  <script src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=8"></script>
 {% endblock %}

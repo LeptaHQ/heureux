@@ -7,7 +7,6 @@ from django.test import TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
-from study.catalogue.loader import load_ee_ai_examiner_prompt
 from study.models import (
     WritingSimulationAttempt,
     WritingSimulationAttemptStatus,
@@ -434,6 +433,7 @@ class EE1SimulationTests(TestCase):
             "gradeRationale": "Le texte montre un contrôle fonctionnel.",
             "gradeEvidenceIds": ["E99", "E1"],
             "strengths": [{"evidenceId": "E1", "text": "Ouverture claire."}],
+            "verbFeedback": [],
             "corrections": [],
             "relevance": [],
             "upgrades": [],
@@ -516,6 +516,36 @@ class EE1SimulationTests(TestCase):
             self.assertLessEqual(len(prose), limit)
         self.assertTrue({"strengths", "corrections", "improvedResponse"} <= set(result["omittedSections"]))
 
+    def test_verb_feedback_keeps_cited_explanations_without_repeating_the_quote(self):
+        response = "Il pleuvait quand nous sommes arrivés.\n\nNous avons acheter deux billets."
+        background, event = response.split("\n\n")
+        report = self._provider_report()
+        note = "« Pleuvait » is in the imparfait because it sets the scene for your arrival."
+        report["verbFeedback"] = [
+            {"evidenceId": "E1", "text": note},
+            {"evidenceId": "E99", "text": "This has no supporting passage."},
+            {"evidenceId": "E2", "text": event},
+        ]
+        report["corrections"] = [{
+            "before": "Nous avons acheter", "after": "Nous avons acheté",
+            "type": "Passé composé", "why": "After « avons », use the past participle « acheté », not the infinitive.",
+        }, {
+            "before": "deux billets", "after": "deux billets",
+            "type": "No change", "why": "This is not a correction.",
+        }]
+        report["priorities"] = ["After « avoir », recheck the past participle: « avons acheté »."]
+        with patch.object(evaluation, "request_report", return_value=report) as request:
+            result = writing_evaluation.score(
+                task_number=2, subject="Racontez votre visite au musée.",
+                response=response, word_count=11, word_min=120, word_max=150,
+            )
+        self.assertIn("a completed event or bounded period may use the passé composé", request.call_args.args[0])
+        self.assertEqual(result["verbFeedback"], [{"quote": background, "text": note}])
+        self.assertEqual(result["corrections"], report["corrections"][:1])
+        self.assertEqual(result["score"], 12)
+        self.assertEqual(result["priorities"], report["priorities"])
+        self.assertEqual(set(result["omittedSections"]), {"gradeEvidence", "verbFeedback", "corrections"})
+
     @override_settings(EE1_EVALUATION_PROVIDER="groq")
     def test_groq_reports_ground_evidence_in_strict_mode_and_after_schema_retry(self):
         greeting = "Bonjour, j’ai trouvé une salle de sport près de chez moi."
@@ -575,7 +605,10 @@ class EE1SimulationTests(TestCase):
                 self.assertEqual([request["response_format"]["type"] for request in requests],
                                  ["json_schema", "json_object"][:len(responses)])
                 system, user = requests[0]["messages"]
-                self.assertIn(load_ee_ai_examiner_prompt(1), system["content"])
+                self.assertIn("Choose CEFR first", system["content"])
+                self.assertIn("an informal message to a friend does not need a more formal tone", system["content"])
+                self.assertNotIn("MANDATORY WRITTEN REPORT", system["content"])
+                self.assertNotIn("wait silently", system["content"])
                 self.assertEqual(json.loads(user["content"]), {
                     "subject": self.sujet.prompt, "response": original,
                     "passages": [{"id": "E1", "text": greeting}, {"id": "E2", "text": "À bientôt !"}],
@@ -615,7 +648,7 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(request.args, ("POST", "/v1beta/models/gemini-3.8-flash:generateContent"))
         self.assertEqual(request.kwargs["headers"]["x-goog-api-key"], settings.GEMINI_API_KEY)
         payload = json.loads(request.kwargs["body"])
-        self.assertIn(load_ee_ai_examiner_prompt(1), payload["systemInstruction"]["parts"][0]["text"])
+        self.assertIn(writing_evaluation._rubric(1), payload["systemInstruction"]["parts"][0]["text"])
         self.assertEqual(json.loads(payload["contents"][0]["parts"][0]["text"]), {
             "subject": self.sujet.prompt, "response": "Bonjour", "passages": [{"id": "E1", "text": "Bonjour"}],
             "wordCount": 1, "wordMin": 60, "wordMax": 120,
@@ -711,7 +744,7 @@ class EE1SimulationTests(TestCase):
                 ))
                 self.assertEqual(request.kwargs["headers"]["Authorization"], "Bearer fixture-workers-token")
                 payload = json.loads(request.kwargs["body"])
-                self.assertIn(load_ee_ai_examiner_prompt(1), payload["messages"][0]["content"])
+                self.assertIn(writing_evaluation._rubric(1), payload["messages"][0]["content"])
                 self.assertEqual(json.loads(payload["messages"][1]["content"])["response"], "Bonjour")
                 self.assertEqual(payload["response_format"], {
                     "type": "json_schema", "json_schema": writing_evaluation._SCHEMA,

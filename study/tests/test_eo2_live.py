@@ -644,7 +644,7 @@ class GeminiLiveTests(TestCase):
         self.assertContains(page, f"<title>Simulation · {self.task.short_label} · Choisir un atelier photo · Séance enregistrée · Heureux</title>")
         self.assertEqual(page.context["saved_simulation"],
                          {"id": simulation.pk, "rows": rows, "elapsed": 95_000, "report": simulation.report})
-        self.assertEqual([(row["id"], row["status"]) for row in page.context["saved_simulations"]],
+        self.assertEqual([(row["id"], row["status"]) for row in page.context["saved_sessions"]],
                          [(unscored.pk, "insufficient"), (simulation.pk, "scored")])
         self.assertContains(page, 'id="lv-saved-simulation"')
         self.assertContains(page, "12/20 · NCLC 8")
@@ -685,6 +685,7 @@ class GeminiLiveTests(TestCase):
         delete_url = reverse("study:eo_tache_two_live_delete")
         page = self.client.get(self.live)
         self.assertEqual(page.context["delete_url"], delete_url)
+        self.assertTemplateUsed(page, "study/simulation/partials/saved_sessions.html")
         self.assertContains(page, f'name="simulation" value="{mine.pk}"')
 
         def delete(pk, url=delete_url):

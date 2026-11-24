@@ -3,7 +3,7 @@ from datetime import timedelta
 from unittest.mock import patch
 
 from django.conf import settings
-from django.test import TestCase, override_settings
+from django.test import Client, TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
@@ -134,6 +134,40 @@ class EE1SimulationTests(TestCase):
         self.assertContains(response, "12 minutes")
         self.assertContains(response, 'name="sujet_id"')
 
+    def test_saved_sessions_use_the_shared_history_and_can_only_be_deleted_by_the_owner(self):
+        self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
+        mine = WritingSimulationAttempt.objects.get(user=self.owner)
+        other = WritingSimulationAttempt.objects.create(user=self.other, task=self.task, deadline_at=mine.deadline_at)
+        self.client.post(self._attempt_url(mine), {"action": "submit", "body": " ".join(["Bonjour"] * 60)})
+        completion = WritingSujetCompletion.objects.create(user=self.owner, sujet=self.sujet)
+        query = {"sujet_id": self.other_sujet.pk}
+        setup = reverse("study:ee1_simulation", query=query)
+        delete = reverse("study:ee1_simulation_delete", query=query)
+        guarded = Client(enforce_csrf_checks=True)
+        guarded.force_login(self.owner)
+        page = guarded.get(setup)
+        self.assertTemplateUsed(page, "study/simulation/partials/saved_sessions.html")
+        self.assertContains(page, f'action="{delete}"')
+        self.assertContains(page, 'data-icon="trash"', count=1)
+        self.assertContains(page, "Sans bilan")
+        self.assertNotContains(page, "Remise")
+        self.assertNotContains(page, self._attempt_url(other))
+
+        WritingSimulationAttempt.objects.filter(pk=mine.pk).update(
+            evaluation_status=WritingSimulationEvaluationStatus.UNAVAILABLE,
+            evaluation={"provider": "gemini", "reports": {"groq": {"score": 12}}},
+        )
+        self.assertContains(guarded.get(setup), "Bilan disponible")
+        self.assertEqual(guarded.get(delete).status_code, 405)
+        self.assertEqual(guarded.post(delete, {"simulation": mine.pk}).status_code, 403)
+        csrf = guarded.cookies["csrftoken"].value
+        self.assertEqual(guarded.post(delete, {"simulation": other.pk, "csrfmiddlewaretoken": csrf}).status_code, 404)
+        self.assertEqual(self.client.post(reverse("study:ee2_simulation_delete"), {"simulation": mine.pk}).status_code, 404)
+        self.assertRedirects(guarded.post(delete, {"simulation": mine.pk, "csrfmiddlewaretoken": csrf}), setup)
+        self.assertFalse(WritingSimulationAttempt.objects.filter(pk=mine.pk).exists())
+        self.assertTrue(WritingSimulationAttempt.objects.filter(pk=other.pk).exists())
+        self.assertTrue(WritingSujetCompletion.objects.filter(pk=completion.pk).exists())
+
     @override_settings(EE1_SIMULATION_MINUTES=7)
     def test_duration_is_configurable_for_new_sessions(self):
         response = self.client.get(self._setup_url())
@@ -232,13 +266,14 @@ class EE1SimulationTests(TestCase):
             str(attempt.pk),
         )
 
+    @override_settings(GROQ_API_KEY="fixture-groq-key")
     def test_save_draft_and_expiry_preserve_the_written_text(self):
         self.client.post(self._start_url(), {"sujet_id": ""})
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
         draft = "Un brouillon encore incomplet."
         response = self.client.post(
             self._attempt_url(attempt),
-            {"action": "save", "body": draft},
+            {"action": "save", "body": draft, "evaluation_consent": "groq"},
         )
         self.assertRedirects(response, self._attempt_url(attempt) + "?saved=1")
 
@@ -247,24 +282,54 @@ class EE1SimulationTests(TestCase):
         attempt.save(update_fields=["deadline_at"])
         response = self.client.post(
             self._attempt_url(attempt),
-            {"action": "submit", "body": draft},
+            {"action": "submit", "body": draft, "evaluation_consent": "groq"},
         )
 
         self.assertRedirects(response, self._attempt_url(attempt))
         attempt.refresh_from_db()
         self.assertEqual(attempt.status, WritingSimulationAttemptStatus.EXPIRED)
+        self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.NOT_REQUESTED)
         self.assertEqual(attempt.body, draft)
         self.assertContains(
             self.client.get(self._attempt_url(attempt)),
             "Le temps est écoulé",
         )
 
+    @override_settings(EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="fixture-groq-key")
+    def test_submitting_the_disclosed_form_starts_groq_once(self):
+        self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
+        attempt = WritingSimulationAttempt.objects.get(user=self.owner)
+        url = self._attempt_url(attempt)
+        page = self.client.get(url)
+        self.assertContains(page, "Remettre la réponse envoie votre texte et la consigne à Groq pour le bilan.")
+        self.assertContains(page, 'name="evaluation_consent" value="groq"')
+
+        with patch("study.views.writing_simulation.threading.Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+            rejected = self.client.post(url, {"action": "submit", "body": "Trop court.", "evaluation_consent": "groq"})
+            self.assertEqual(rejected.status_code, 400)
+            data = {"action": "submit", "body": " ".join(["Bonjour"] * 60), "evaluation_consent": "groq"}
+            self.assertRedirects(self.client.post(url, data), url, fetch_redirect_response=False)
+            self.assertRedirects(self.client.post(url, data), url, fetch_redirect_response=False)
+
+        attempt.refresh_from_db()
+        self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.PROCESSING)
+        self.assertEqual(attempt.evaluation, {"provider": "groq", "reports": {}})
+        thread.assert_called_once_with(
+            target=writing_simulation.run_evaluation,
+            args=(attempt.pk, attempt.evaluation_started_at, self.spec, "groq"),
+            daemon=True,
+        )
+        self.assertContains(self.client.get(url), 'data-evaluation-provider="groq"')
+        status = self.client.get(reverse("study:ee1_simulation_evaluate", args=[attempt.pk]))
+        self.assertEqual(status.json()["status"], "processing")
+
     @override_settings(EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="")
     def test_evaluation_requires_consent_for_the_disclosed_provider_and_claims_once(self):
         self.client.post(self._start_url(), {"sujet_id": str(self.sujet.pk)})
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
         body = " ".join(["Bonjour"] * 60)
-        self.client.post(self._attempt_url(attempt), {"action": "submit", "body": body})
+        self.assertNotContains(self.client.get(self._attempt_url(attempt)), 'name="evaluation_consent"')
+        self.client.post(self._attempt_url(attempt), {"action": "submit", "body": body, "evaluation_consent": "groq"})
 
         evaluation_url = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
         self.assertContains(self.client.get(self._attempt_url(attempt)), "L’évaluation envoie la consigne et votre réponse à Gemini.")

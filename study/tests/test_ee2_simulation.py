@@ -70,7 +70,8 @@ class EE2SimulationTests(TestCase):
         setup = self.client.get(reverse("study:ee2_simulation"))
         self.assertContains(setup, reverse("study:ee2_simulation_attempt", args=[attempt.pk]))
 
-    def test_submission_uses_ee2_word_range(self):
+    @override_settings(GROQ_API_KEY="fixture-groq-key")
+    def test_submission_uses_ee2_word_range_and_starts_groq(self):
         self.client.post(
             reverse("study:ee2_simulation_start"),
             {"sujet_id": str(self.sujet.pk)},
@@ -86,10 +87,11 @@ class EE2SimulationTests(TestCase):
         self.assertEqual(attempt.status, WritingSimulationAttemptStatus.ACTIVE)
         self.assertContains(response, "entre 120 et 150 mots", status_code=400)
 
-        response = self.client.post(
-            reverse("study:ee2_simulation_attempt", args=[attempt.pk]),
-            {"action": "submit", "body": " ".join(["Bonjour"] * 120)},
-        )
+        with patch("study.views.writing_simulation.threading.Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+            response = self.client.post(
+                reverse("study:ee2_simulation_attempt", args=[attempt.pk]),
+                {"action": "submit", "body": " ".join(["Bonjour"] * 120), "evaluation_consent": "groq"},
+            )
         self.assertRedirects(
             response,
             reverse("study:ee2_simulation_attempt", args=[attempt.pk]),
@@ -97,6 +99,8 @@ class EE2SimulationTests(TestCase):
         attempt.refresh_from_db()
         self.assertEqual(attempt.status, WritingSimulationAttemptStatus.SUBMITTED)
         self.assertEqual(attempt.word_count, 120)
+        self.assertEqual(attempt.evaluation_status, "processing")
+        self.assertEqual(thread.call_args.kwargs["args"], (attempt.pk, attempt.evaluation_started_at, writing_simulation.SPECS[2], None))
 
     def test_timer_can_be_updated_from_the_active_attempt(self):
         self.client.post(

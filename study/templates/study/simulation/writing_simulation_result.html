@@ -35,7 +35,7 @@
     <span id="writing-evaluation-disclosure" class="lv-assessment__aside">L’évaluation envoie la consigne et votre réponse à {{ evaluation_provider_label }}.</span>
   {% endif %}
 {% endblock %}
-{% block assessment_status %}Bilan non demandé.{% endblock %}
+{% block assessment_status %}{% if attempt.evaluation_status == "processing" %}Bilan en préparation…{% elif attempt.evaluation_status == "not_requested" %}Bilan non demandé.{% endif %}{% endblock %}
 {% block assessment_result %}
   <p data-writing-verdict></p>
   <p class="lv-assessment__aside" data-writing-score></p>

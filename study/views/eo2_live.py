@@ -100,6 +100,12 @@ def oral_live(request, task_slug, **publication):
         saved = list(simulations.values(
             "id", "created_at", score=KT("report__score"), nclc=KT("report__nclc"), status=KT("report__scoreStatus"),
         )[:5])
+        for item in saved:
+            if item["status"] == "scored":
+                item["summary"] = f'{item["score"]}/20 · NCLC {item["nclc"]}'
+            else:
+                item["summary"] = "Bilan sans note" if item["status"] else "Sans bilan"
+            item["url"] = f'?simulation={item["id"]}'
         try:
             pk = uuid.UUID(request.GET.get("simulation", ""))
         except ValueError:
@@ -143,7 +149,7 @@ def oral_live(request, task_slug, **publication):
         "save_url": reverse(route + "_save", kwargs=publication),
         "evaluation_url": reverse(route + "_evaluation", kwargs=publication),
         "delete_url": subject_selection_url(reverse(route + "_delete", kwargs=publication), request),
-        "saved_simulations": saved,
+        "saved_sessions": saved,
         "saved_simulation": reopened and {
             "id": reopened["id"], "rows": reopened["rows"], "elapsed": reopened["elapsed_ms"], "report": reopened["report"],
         },

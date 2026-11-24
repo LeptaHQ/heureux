@@ -3,25 +3,15 @@
 {% block studio_classes %} ee1-session{% endblock %}
 {% block studio_attributes %}id="writing-session" data-state="setup"{% endblock %}
 {% block session_body %}
-    <form method="post" action="{{ start_url }}" class="lv-setup" aria-label="Lancer la séance">
-      {% csrf_token %}
-      <input type="hidden" name="sujet_id" value="{{ selected_sujet_id }}">
-      <button type="submit" class="lv-primary">
-        Commencer la séance
-        {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}
-      </button>
-      {% if attempts %}
-        <section class="lv-saved" aria-labelledby="writing-saved-title">
-          <h2 id="writing-saved-title">Séances enregistrées</h2>
-          <ul>
-            {% for item in attempts %}
-              <li>
-                <a href="{% url route_names.attempt item.pk %}">{{ item.started_at|date:"j M Y · H:i" }}</a>
-                <span>{{ item.get_status_display }}</span>
-              </li>
-            {% endfor %}
-          </ul>
-        </section>
-      {% endif %}
-    </form>
+    <section class="lv-setup" aria-label="Lancer la séance">
+      <form method="post" action="{{ start_url }}">
+        {% csrf_token %}
+        <input type="hidden" name="sujet_id" value="{{ selected_sujet_id }}">
+        <button type="submit" class="lv-primary">
+          Commencer la séance
+          {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}
+        </button>
+      </form>
+      {% include "study/simulation/partials/saved_sessions.html" %}
+    </section>
 {% endblock %}

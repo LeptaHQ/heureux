@@ -69,6 +69,8 @@ or review links.
 EO2 and EO3 use one speaking simulator. EE1 and EE2 use one private writing
 simulator, with frozen prompts, draft saving and task-specific word limits
 (60–120 and 120–150 respectively). EE3 still links to untimed subject practice.
+Oral and written studios use the same saved-session list. Its trash icon
+permanently deletes the chosen session and its bilan after confirmation.
 The session templates live under `study/templates/study/simulation/`, and the
 shared evaluation code lives in `study/simulation/`.
 Writing sends the exact subject, the response, its word count and limits, and
@@ -80,11 +82,13 @@ before grading learner responses: Google may use free-tier inputs to improve
 its models. To add **Workers** (Cloudflare Workers AI’s Llama 3.3 70B) to EE1, set `CLOUDFLARE_WORKERS_API_KEY` and
 `CLOUDFLARE_ACCOUNT_ID` on Render using the [Workers AI REST setup](https://developers.cloudflare.com/workers-ai/get-started/rest-api/).
 Heureux calls Workers AI directly; see [Cloudflare’s data-use terms](https://developers.cloudflare.com/workers-ai/platform/data-usage/).
-Set `EE1_EVALUATION_PROVIDER` to `gemini`, `groq`, or `cloudflare` to pick the
-default when configured. When more than one model is available, the EE1
-bilan’s sparkle button opens a model picker. Each report is saved separately;
-switching back opens the saved report without grading again. EE2 and oral
-grading stay on Groq. Only the selected provider receives the response. All
+When Groq is configured, explicitly submitting a written answer starts its
+bilan automatically. The editor discloses this before submission. Saving a
+draft or running out of time does not send it. When more than one model is
+available, the EE1 bilan’s sparkle button lets learners request another
+provider. Each report is saved separately; switching back opens the saved
+report without grading again. `EE1_EVALUATION_PROVIDER` sets the default for
+attempts that do not already have a provider. EE2 and oral grading use Groq. All
 providers use the same evidence checks; optional feedback can be omitted
 without hiding a supported score. Temporary service failures are retried once with the same
 provider within the three-minute deadline. Groq can also use its one retry to

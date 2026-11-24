@@ -573,6 +573,51 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         command._sync_cards(response_by_key, user=self.user)
         return task_by_slug["eo/tache-2"]
 
+    @override_settings(GROQ_API_KEY="")
+    def test_writing_simulation_uses_inline_timer_and_shared_delete_confirmation(self):
+        task = factories.make_task(factories.make_part("ee"), "tache-1")
+        sujet = factories.make_writing_sujet(task)
+        setup = self.live_server_url + reverse("study:ee1_simulation", query={"sujet_id": sujet.pk})
+        self.page.set_viewport_size({"width": 320, "height": 900})
+        self.page.goto(setup)
+        self.page.get_by_role("button", name="Commencer la séance").click()
+        for label, icon in (("Enregistrer le brouillon", "save"), ("Remettre la réponse", "check")):
+            button = self.page.get_by_role("button", name=label)
+            expect(button).to_have_text("")
+            svg = button.locator(f'[data-icon="{icon}"]')
+            expect(svg).to_be_visible()
+            self.assertGreater(svg.locator("use").evaluate("node => node.getBBox().width"), 0)
+        timer = self.page.locator(".ee1-timer-control")
+        apply = timer.get_by_role("button", name="Appliquer le temps")
+        expect(apply).to_be_hidden()
+        timer.locator("summary").click()
+        minutes = timer.get_by_role("spinbutton", name="Minutes")
+        seconds = timer.get_by_role("spinbutton", name="Secondes")
+        minutes.fill("7")
+        seconds.fill("30")
+        expect(apply).to_have_text("")
+        expect(apply.locator('[data-icon="check"]')).to_be_visible()
+        self.assertEqual(timer.locator("form").evaluate("el => getComputedStyle(el).position"), "static")
+        self.assertLessEqual(seconds.bounding_box()["x"] + seconds.bounding_box()["width"], apply.bounding_box()["x"])
+        self.assert_no_horizontal_overflow()
+        apply.click()
+        expect(timer).not_to_have_attribute("open", "")
+        expect(self.page.get_by_role("timer")).to_contain_text(re.compile(r"07:(29|30)"))
+
+        self.page.goto(setup)
+        saved = self.page.locator(".lv-saved li")
+        delete = saved.get_by_role("button", name="Supprimer la séance du")
+        expect(delete.locator('[data-icon="trash"]')).to_be_visible()
+        delete.click()
+        dialog = self.page.locator("[data-confirm-dialog]")
+        dialog.get_by_role("button", name="Annuler", exact=True).click()
+        expect(saved).to_have_count(1)
+        delete.click()
+        with self.page.expect_navigation():
+            dialog.locator("[data-confirm-accept]").click()
+        expect(saved).to_have_count(0)
+        self.assertEqual(self.page.url, setup)
+
     @override_settings(
         EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="fixture-groq-key",
         CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID="0123456789abcdef" * 2,
@@ -587,9 +632,8 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.page.locator("#writing-body").fill(body)
         submit = self.page.get_by_role("button", name="Remettre la réponse")
         self.assertLessEqual(submit.evaluate("button => parseFloat(getComputedStyle(button).paddingInlineStart)"), 12)
-        submit.click()
-        form = self.page.locator("#writing-evaluation-form")
-        evaluation_url = form.get_attribute("data-evaluation-url")
+        attempt_id = urlsplit(self.page.url).path.rstrip("/").rsplit("/", 1)[-1]
+        evaluation_url = reverse("study:ee1_simulation_evaluate", args=[attempt_id])
         report = {
             "score": 12, "cefr": "B2", "nclc": "NCLC 8", "nclcRange": "NCLC 7 à NCLC 8",
             "scoreRange": {"min": 10, "max": 13}, "confidence": "",
@@ -611,26 +655,37 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             "improvedResponse": "Bonjour !\n\nEst-ce que cela te dirait de venir dîner ?",
             "improvedWordCount": 11,
         }
+        groq_report = {
+            **{key: value for key, value in report.items() if key != "verbFeedback"},
+            "score": 11, "nclc": "NCLC 7", "priorities": [],
+            "corrections": [{**report["corrections"][0], "why": "Accent grave sur la préposition."}],
+            "improvedResponse": "Salut !\n\nÇa te dirait de venir dîner chez moi ?",
+        }
         replies = iter([
             (409, {"error": "Le service d’évaluation a changé. Rechargez la page avant de réessayer."}),
             (200, {"status": "unavailable", "error": "Le bilan est illisible. Votre réponse reste disponible."}),
             (202, {"status": "processing"}),
             (200, {"status": "ready", "report": report}),
-            (200, {"status": "ready", "report": {
-                **{key: value for key, value in report.items() if key != "verbFeedback"},
-                "score": 11, "nclc": "NCLC 7", "priorities": [],
-                "corrections": [{**report["corrections"][0], "why": "Accent grave sur la préposition."}],
-                "improvedResponse": "Salut !\n\nÇa te dirait de venir dîner chez moi ?",
-            }}),
         ])
 
         def evaluation_reply(route):
+            provider = (
+                parse_qs(urlsplit(route.request.url).query).get("provider", [None])[0]
+                if route.request.method == "GET" else route.request.post_data_json["provider"]
+            )
+            if provider == "groq":
+                route.fulfill(json={"status": "ready", "report": groq_report})
+                return
             status, payload = next(replies)
             route.fulfill(status=status, json=payload)
 
         self.page.route(re.compile(re.escape(evaluation_url) + r"(?:\?[^#]*)?$"), evaluation_reply)
+        with mock.patch("study.views.writing_simulation.run_evaluation") as worker:
+            submit.click()
+            expect(self.page.locator("#lv-level")).to_have_text("11/20 · NCLC 7 · B2")
+        worker.assert_called_once()
         proposal = self.page.locator("#lv-proposal")
-        expect(proposal).to_be_hidden()
+        expect(proposal).to_be_visible()
         title = self.page.get_by_role("heading", name="Bilan de votre session", exact=True)
         trigger = title.locator("..").get_by_role("button", name="Choisir le modèle d’évaluation")
         models = self.page.get_by_role("group", name="Modèles d’évaluation")
@@ -652,6 +707,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             select_model("Gemini")
         self.assertEqual(request.value.post_data_json, {"consent": True, "provider": "gemini"})
         expect(self.page.get_by_role("status").filter(has_text="Rechargez la page")).to_be_visible()
+        expect(proposal).to_be_hidden()
         select_model("Gemini")
         expect(self.page.get_by_role("status").filter(has_text="Le bilan est illisible")).to_be_visible()
         expect(self.page.locator("#lv-transcript")).to_contain_text(body)

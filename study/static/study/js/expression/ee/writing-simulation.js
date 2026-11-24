@@ -22,6 +22,8 @@
     if (remaining > 0 || submitted) return;
     submitted = true;
     output.textContent = "00:00";
+    const consent = form.elements.namedItem("evaluation_consent");
+    if (consent) consent.disabled = true;
     submit.click();
   };
 

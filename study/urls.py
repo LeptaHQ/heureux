@@ -41,6 +41,7 @@ def _writing_simulation_routes():
             ("", writing_simulation.setup, "setup"),
             ("sujets/", writing_simulation.subject_picker, "picker"),
             ("commencer/", writing_simulation.start, "start"),
+            ("supprimer/", writing_simulation.delete, "delete"),
             ("<uuid:attempt_id>/temps/", writing_simulation.update_timer, "timer"),
             ("<uuid:attempt_id>/bilan/", writing_simulation.evaluate, "evaluate"),
             ("<uuid:attempt_id>/", writing_simulation.attempt, "attempt"),

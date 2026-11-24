@@ -1,0 +1,23 @@
+{% if saved_sessions %}
+  <section class="lv-saved" aria-labelledby="lv-saved-title">
+    <h2 id="lv-saved-title">Séances enregistrées</h2>
+    <ul>
+      {% for item in saved_sessions %}
+        <li>
+          <a href="{{ item.url }}">{{ item.created_at|date:"j M Y · H:i" }}</a>
+          <span>{{ item.summary }}</span>
+          <form method="post" action="{{ delete_url }}"
+                data-confirm="Supprimer cette séance et son bilan ? Cette action est définitive."
+                data-confirm-label="Supprimer"
+                data-confirm-tone="danger">
+            {% csrf_token %}
+            <input type="hidden" name="simulation" value="{{ item.id }}">
+            <button class="icon-button btn--danger" type="submit" aria-label="Supprimer la séance du {{ item.created_at|date:'j M Y · H:i' }}" title="Supprimer">
+              {% include "study/shared/partials/ui_icon.html" with name="trash" only %}
+            </button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}

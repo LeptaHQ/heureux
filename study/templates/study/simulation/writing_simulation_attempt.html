@@ -6,6 +6,10 @@
 {% block studio_attributes %}id="writing-session" data-state="live" aria-labelledby="lv-title"{% endblock %}
 {% block session_body %}
     <div class="ee1-attempt__timerbar">
+      <div class="ee1-timer" data-writing-timer data-ee1-timer data-remaining="{{ remaining_seconds }}" role="timer" aria-live="polite">
+        <span class="ee1-timer__label">Temps restant</span>
+        <strong>--:--</strong>
+      </div>
       <details class="ee1-timer-control">
         <summary class="icon-button ee1-timer-control__toggle" title="Modifier le temps" aria-label="Modifier le temps">
           <span class="sr-only">Modifier le temps</span>
@@ -13,23 +17,19 @@
         </summary>
         <form method="post" action="{{ timer_url }}" class="ee1-timer-control__form">
           {% csrf_token %}
-          <div class="ee1-timer-control__fields">
-            <label>
-              <span>Minutes</span>
-              <input type="number" name="timer_minutes" min="0" max="1440" value="{{ remaining_minutes }}" inputmode="numeric">
-            </label>
-            <label>
-              <span>Secondes</span>
-              <input type="number" name="timer_seconds" min="0" max="59" value="{{ remaining_second_remainder }}" inputmode="numeric">
-            </label>
-          </div>
-          <button type="submit" class="btn btn--primary">Appliquer</button>
+          <label>
+            <span>Minutes</span>
+            <input type="number" name="timer_minutes" min="0" max="1440" value="{{ remaining_minutes }}" inputmode="numeric" required>
+          </label>
+          <label>
+            <span>Secondes</span>
+            <input type="number" name="timer_seconds" min="0" max="59" value="{{ remaining_second_remainder }}" inputmode="numeric" required>
+          </label>
+          <button type="submit" class="icon-button" aria-label="Appliquer le temps" title="Appliquer le temps">
+            {% include "study/shared/partials/ui_icon.html" with name="check" only %}
+          </button>
         </form>
       </details>
-      <div class="ee1-timer" data-writing-timer data-ee1-timer data-remaining="{{ remaining_seconds }}" role="timer" aria-live="polite">
-        <span class="ee1-timer__label">Temps restant</span>
-        <strong>--:--</strong>
-      </div>
     </div>
 
     {% if error %}<div class="auth-error" role="alert">{{ error }}</div>{% endif %}
@@ -45,6 +45,7 @@
 
     <form method="post" class="ee1-writing-form" data-writing-form data-ee1-form>
       {% csrf_token %}
+      {% if auto_evaluation %}<input type="hidden" name="evaluation_consent" value="groq">{% endif %}
       <div class="ee1-writing-field">
         <div class="ee1-writing-editor">
           <div class="ee1-writing-editor__input">
@@ -95,15 +96,15 @@
         </div>
       </div>
       <div class="ee1-writing-form__footer">
-        <p class="muted">Vous pouvez enregistrer un brouillon sans remettre la réponse.</p>
+        <p class="muted" id="writing-submit-note">
+          {% if auto_evaluation %}Remettre la réponse envoie votre texte et la consigne à Groq pour le bilan.{% else %}Vous pouvez enregistrer un brouillon sans remettre la réponse.{% endif %}
+        </p>
         <div class="ee1-writing-form__actions">
-          <button class="btn" type="submit" name="action" value="save">
+          <button class="icon-button" type="submit" name="action" value="save" aria-label="Enregistrer le brouillon" title="Enregistrer le brouillon">
             {% include "study/shared/partials/ui_icon.html" with name="save" only %}
-            Enregistrer
           </button>
-          <button class="btn btn--primary" type="submit" name="action" value="submit" data-writing-submit data-ee1-submit>
+          <button class="icon-button" type="submit" name="action" value="submit" aria-label="Remettre la réponse" aria-describedby="writing-submit-note" title="Remettre la réponse" data-writing-submit data-ee1-submit>
             {% include "study/shared/partials/ui_icon.html" with name="check" only %}
-            Remettre la réponse
           </button>
         </div>
       </div>
@@ -113,5 +114,5 @@
 {% block scripts %}
   {{ block.super }}
   <script src="{% static 'study/js/expression/ee/writing-word-count.js' %}?v=2"></script>
-  <script src="{% static 'study/js/expression/ee/writing-simulation.js' %}?v=2"></script>
+  <script src="{% static 'study/js/expression/ee/writing-simulation.js' %}?v=3"></script>
 {% endblock %}

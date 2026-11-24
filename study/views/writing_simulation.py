@@ -9,12 +9,13 @@ import time
 import unicodedata
 from dataclasses import dataclass
 from datetime import timedelta
+from uuid import UUID
 
 from django.conf import settings
 from django.core.paginator import Paginator
 from django.db import close_old_connections, transaction
-from django.db.models import Count, Max
-from django.http import HttpResponseBadRequest, JsonResponse
+from django.db.models import Count, Max, Q
+from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
@@ -79,6 +80,7 @@ class WritingSimulationSpec:
             "picker": f"study:ee{self.number}_subject_picker",
             "setup": f"study:{prefix}",
             "start": f"study:{prefix}_start",
+            "delete": f"study:{prefix}_delete",
             "attempt": f"study:{prefix}_attempt",
             "timer": f"study:{prefix}_timer",
             "evaluate": f"study:{prefix}_evaluate",
@@ -364,12 +366,28 @@ def _setup_context(request, spec, task):
         (sujet for sujet in subjects if str(sujet.pk) == selected_sujet_id),
         None,
     )
-    attempts = list(
+    attempts = (
         WritingSimulationAttempt.objects.filter(user=request.user, task=task)
-        .select_related("sujet")
-        .defer("body")
+        .only("status", "started_at", "deadline_at", "evaluation_status")
+        .annotate(has_saved_report=Q(evaluation__reports__has_any_keys=list(EVALUATION_PROVIDER_LABELS)))
         .order_by("-started_at", "-id")[:8]
     )
+    saved_sessions = []
+    now = timezone.now()
+    for item in attempts:
+        if item.status == WritingSimulationAttemptStatus.ABANDONED or (
+            item.status == WritingSimulationAttemptStatus.ACTIVE and item.deadline_at > now
+        ):
+            summary = item.get_status_display()
+        else:
+            has_report = item.evaluation_status == WritingSimulationEvaluationStatus.READY or item.has_saved_report
+            summary = "Bilan disponible" if has_report else "Sans bilan"
+        saved_sessions.append({
+            "id": item.pk,
+            "created_at": item.started_at,
+            "url": reverse(spec.route_names["attempt"], args=[item.pk]),
+            "summary": summary,
+        })
     return {
         **_session_context(
             spec,
@@ -377,10 +395,13 @@ def _setup_context(request, spec, task):
         ),
         "task": task,
         "categories": list(by_category.values()),
-        "attempts": attempts,
+        "saved_sessions": saved_sessions,
         "subject_count": len(subjects),
         "selected_sujet_id": selected_sujet_id,
         "start_url": reverse(spec.route_names["start"]),
+        "delete_url": reverse(
+            spec.route_names["delete"], query={"sujet_id": selected_sujet.pk} if selected_sujet else None,
+        ),
     }
 
 
@@ -460,6 +481,7 @@ def _attempt_context(attempt, spec, *, error="", now=None):
             "error": error,
             "saved": False,
             "timer_url": reverse(spec.route_names["timer"], args=[attempt.pk]),
+            "auto_evaluation": bool(settings.GROQ_API_KEY),
         }
     )
     return context
@@ -559,6 +581,23 @@ def _owned_attempts(request, spec):
 
 
 @never_cache
+@require_POST
+@csrf_protect
+def delete(request, spec):
+    try:
+        attempt_id = UUID(_single_post_value(request, "simulation"))
+    except ValueError:
+        raise Http404 from None
+    deleted, _ = _owned_attempts(request, spec).filter(pk=attempt_id).delete()
+    if not deleted:
+        raise Http404
+    sujet_id = request.GET.get("sujet_id", "")
+    return redirect(reverse(
+        spec.route_names["setup"], query={"sujet_id": sujet_id} if sujet_id.isdecimal() else None,
+    ))
+
+
+@never_cache
 @require_http_methods(["GET", "POST"])
 def attempt(request, spec, attempt_id):
     if request.method == "GET":
@@ -655,15 +694,11 @@ def attempt(request, spec, attempt_id):
             attempt.submitted_at = now
             attempt.last_saved_at = now
             attempt.word_count = word_count
-            attempt.save(
-                update_fields=[
-                    "body",
-                    "status",
-                    "submitted_at",
-                    "last_saved_at",
-                    "word_count",
-                ]
-            )
+            fields = ["body", "status", "submitted_at", "last_saved_at", "word_count"]
+            if settings.GROQ_API_KEY and request.POST.getlist("evaluation_consent") == ["groq"]:
+                _queue_evaluation(attempt, spec, "groq" if spec.number == 1 else None, now, update_fields=fields)
+            else:
+                attempt.save(update_fields=fields)
             return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
 
         attempt.body = body
@@ -879,28 +914,27 @@ def evaluate(request, spec, attempt_id):
                 {"error": "Ce modèle n’est pas disponible pour une nouvelle évaluation."},
                 status=409,
             )
-        attempt.evaluation = {"provider": provider, "reports": _ee1_reports(attempt)} if provider else {}
-        attempt.evaluation_status = WritingSimulationEvaluationStatus.PROCESSING
-        attempt.evaluation_error = ""
-        attempt.evaluation_started_at = now
-        attempt.evaluated_at = None
-        attempt.save(
-            update_fields=[
-                "evaluation_status",
-                "evaluation",
-                "evaluation_error",
-                "evaluation_started_at",
-                "evaluated_at",
-            ]
-        )
-        transaction.on_commit(
-            lambda attempt_id=attempt.pk, started_at=now: threading.Thread(
-                target=run_evaluation,
-                args=(attempt_id, started_at, spec, provider),
-                daemon=True,
-            ).start()
-        )
+        _queue_evaluation(attempt, spec, provider, now)
         return evaluation_json(attempt, status=202, provider=provider)
+
+
+def _queue_evaluation(attempt, spec, provider, now, *, update_fields=()):
+    attempt.evaluation = {"provider": provider, "reports": _ee1_reports(attempt)} if provider else {}
+    attempt.evaluation_status = WritingSimulationEvaluationStatus.PROCESSING
+    attempt.evaluation_error = ""
+    attempt.evaluation_started_at = now
+    attempt.evaluated_at = None
+    attempt.save(update_fields=[
+        *update_fields, "evaluation_status", "evaluation", "evaluation_error",
+        "evaluation_started_at", "evaluated_at",
+    ])
+    transaction.on_commit(
+        lambda attempt_id=attempt.pk: threading.Thread(
+            target=run_evaluation,
+            args=(attempt_id, now, spec, provider),
+            daemon=True,
+        ).start()
+    )
 
 
 def evaluation_json(attempt, *, status=200, provider=None):

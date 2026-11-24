@@ -1,0 +1,55 @@
+{% extends "study/shared/partials/table.html" %}
+{% block native_table_classes %} eo2-topic-table{% endblock %}
+{% block native_table_caption %}Sujets de simulation · {{ picker.kicker }}{% endblock %}
+{% block native_table_head %}
+  <thead><tr>
+    <th scope="col"{% if directory_selection.order == 'az' %} aria-sort="ascending"{% elif directory_selection.order == 'za' %} aria-sort="descending"{% endif %}>Sujet</th>
+    <th scope="col"{% if directory_selection.order == 'least' %} aria-sort="ascending"{% endif %}>Séances</th>
+    <th scope="col">{% if picker.kind == "ee1" %}Action{% else %}Terminé{% endif %}</th>
+  </tr></thead>
+{% endblock %}
+{% block native_table_body %}
+  <tbody>
+    {% for row in page %}
+      <tr class="t1-table__row" id="{% if picker.kind == 'ee1' or picker.kind == 'ee2' %}sujet-{{ row.sujet.pk }}{% else %}topic-{{ row.token }}{% endif %}">
+        <td class="t1-table__subject">
+          <div class="t1-table__subject-copy">
+            <div>
+              {% if picker.kind == "ee1" or picker.kind == "ee2" %}
+                <a aria-label="Choisir : {{ row.sujet.prompt }}" href="{{ row.setup_url }}">{{ row.sujet.prompt }}</a>
+                <span class="t1-table__subject-date">{{ row.sujet.category_label }}</span>
+              {% else %}
+                <a aria-label="Pratiquer : {{ row.topic.title }}" href="{{ row.topic.simulation_url }}">{{ row.topic.title }}</a>
+                <span class="t1-table__subject-date">{{ row.topic.theme }} · {{ row.topic.source }}</span>
+              {% endif %}
+            </div>
+            {% if picker.kind != "ee1" %}
+              {% url 'study:eo2_topic_status' row.token as status_url %}
+              <form class="subject-bookmark{% if row.retry %} is-bookmarked{% endif %}" method="post" action="{{ status_url }}{% querystring %}">
+                {% csrf_token %}<input type="hidden" name="field" value="retry"><input type="hidden" name="value" value="{{ row.retry|yesno:'0,1' }}">
+                {% include "study/shared/partials/subject_bookmark_button.html" with pressed=row.retry label=row.topic.title prefix="À refaire" remove="Retirer des sujets à refaire" add="Garder dans les sujets à refaire" only %}
+              </form>
+            {% endif %}
+          </div>
+        </td>
+        <td>
+          {% if picker.kind == "ee1" or picker.kind == "ee2" %}
+            {{ row.count }}
+          {% else %}
+            <a href="{% url 'study:eo2_topic_history' row.token %}" title="Voir l’historique">{{ row.count }}<span class="sr-only"> séance{% if row.count > 1 %}s{% endif %} · Historique de {{ row.topic.title }}</span></a>
+          {% endif %}
+        </td>
+        <td>
+          {% if picker.kind == "ee1" or picker.kind == "ee2" %}
+            <a class="btn btn--sm btn--primary" href="{{ row.setup_url }}">Choisir</a>
+          {% else %}
+            <form class="subject-completion-check{% if row.done %} is-complete{% endif %}" method="post" action="{{ status_url }}{% querystring %}">
+              {% csrf_token %}<input type="hidden" name="field" value="done"><input type="hidden" name="value" value="{{ row.done|yesno:'0,1' }}">
+              {% include "study/shared/partials/subject_completion_button.html" with completed=row.done label=row.topic.title only %}
+            </form>
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+{% endblock %}

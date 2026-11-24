@@ -1,0 +1,27 @@
+<div class="lv-topline">
+  <nav class="lv-back" aria-label="Retour">
+    <a href="{{ session_back_url }}" aria-label="{{ session_back_label }}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} {{ session_back_label }}</a>
+  </nav>
+  <p class="lv-brand">{% include "study/shared/partials/ui_icon.html" with name=session_brand_icon only %} {{ session_brand }}</p>
+</div>
+<header class="lv-head">
+  <p class="lv-kicker" id="{{ session_kicker_id|default:'lv-kicker' }}">{{ session_kicker }}</p>
+  <h1 id="{{ session_heading_id|default:'lv-title' }}" tabindex="-1">{{ session_title }}</h1>
+  <p class="lv-prompt" id="{{ session_prompt_id|default:'lv-prompt' }}">{{ session_prompt }}</p>
+  {% if session_selected_subject %}<p class="lv-selected-subject">Sujet choisi · {{ session_selected_subject }}</p>{% endif %}
+</header>
+<div class="lv-track">
+  <ol class="lv-steps" aria-label="Déroulé de la séance">
+    {% for step in session_steps %}
+      <li class="lv-step" data-step="{{ step.key }}">
+        <span class="lv-step__name">{{ step.name }}</span>
+        <span class="lv-step__meta">{{ step.meta }}</span>
+        <span class="lv-step__bar" aria-hidden="true"><i></i></span>
+        <span class="lv-step__about">{{ step.about }}</span>
+      </li>
+    {% endfor %}
+  </ol>
+  {% if session_show_clock %}
+    <div class="lv-time" id="lv-time" hidden><span id="lv-phase">Préparation</span><span id="lv-clock" role="timer" aria-label="Temps restant">02:00</span></div>
+  {% endif %}
+</div>

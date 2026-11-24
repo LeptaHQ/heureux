@@ -50,8 +50,10 @@ def track(request, part_slug):
         task = tasks.get(f"tache-{number}")
         if task is None:
             continue
-        if part_slug == "ee" and number == 1:
-            label, url = "Commencer la simulation", reverse("study:ee1_simulation")
+        if part_slug == "ee" and number in {1, 2}:
+            label, url = "Choisir un sujet", reverse(
+                f"study:ee{number}_subject_picker"
+            )
         elif part_slug == "ee":
             label, url = "Parcourir les sujets", reverse("study:task_browse", args=[part_slug, task.slug])
         elif number == 2:
@@ -61,7 +63,7 @@ def track(request, part_slug):
         rows.append({
             "number": number, "title": title, "format": format_label,
             "description": description, "label": label, "url": url,
-            "is_simulation": part_slug == "ee" and number == 1,
+            "is_simulation": part_slug == "ee" and number in {1, 2},
         })
     return render(request, "study/simulation/track.html", {
         "track": TRACKS[part_slug], "part_slug": part_slug, "rows": rows,

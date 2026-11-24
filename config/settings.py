@@ -268,6 +268,14 @@ TRANSLATION_TIMEOUT = float(os.environ.get("TRANSLATION_TIMEOUT", "8"))
 DEEPL_API_KEY = os.environ.get("DEEPL_API_KEY", "").strip()
 DEEPL_TARGET_LANG = os.environ.get("DEEPL_TARGET_LANG", "EN-GB").strip().upper() or "EN-GB"
 
+# Timed EE1 practice duration. Existing attempts keep their saved deadline.
+EE1_SIMULATION_MINUTES = env_int("EE1_SIMULATION_MINUTES", 12)
+if EE1_SIMULATION_MINUTES < 1:
+    raise ImproperlyConfigured("EE1_SIMULATION_MINUTES must be at least 1.")
+EE2_SIMULATION_MINUTES = env_int("EE2_SIMULATION_MINUTES", 20)
+if EE2_SIMULATION_MINUTES < 1:
+    raise ImproperlyConfigured("EE2_SIMULATION_MINUTES must be at least 1.")
+
 # Private EO2 pilot: never fall back to another key or model.
 GEMINI_LIVE_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 # The pilot's written bilan; the conversation itself stays on Gemini Live.

@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static study_speech %}
+{% block title %}Simulation · {{ simulation.label }} · En cours · Heureux{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=25">{% endblock %}
+
+{% block content %}
+<article class="lv-studio ee1-session ee1-simulation ee1-simulation--attempt" id="writing-session" data-state="live" aria-labelledby="lv-title">
+  <div class="lv-stage">
+    {% include "study/simulation/partials/session_header.html" %}
+    <div class="ee1-attempt__timerbar">
+      <details class="ee1-timer-control">
+        <summary class="icon-button" title="Modifier le temps" aria-label="Modifier le temps">
+          {% include "study/shared/partials/ui_icon.html" with name="clock" only %}
+        </summary>
+        <form method="post" action="{{ timer_url }}" class="ee1-timer-control__form">
+          {% csrf_token %}
+          <div class="ee1-timer-control__fields">
+            <label>
+              <span>Minutes</span>
+              <input type="number" name="timer_minutes" min="0" max="1440" value="{{ remaining_minutes }}" inputmode="numeric">
+            </label>
+            <label>
+              <span>Secondes</span>
+              <input type="number" name="timer_seconds" min="0" max="59" value="{{ remaining_second_remainder }}" inputmode="numeric">
+            </label>
+          </div>
+          <button type="submit" class="btn btn--primary">Appliquer</button>
+        </form>
+      </details>
+      <div class="ee1-timer" data-writing-timer data-ee1-timer data-remaining="{{ remaining_seconds }}" role="timer" aria-live="polite">
+        <span class="ee1-timer__label">Temps restant</span>
+        <strong>--:--</strong>
+      </div>
+    </div>
+
+    {% if error %}<div class="auth-error" role="alert">{{ error }}</div>{% endif %}
+    {% if request.GET.saved %}<div class="notice" role="status">Brouillon enregistré.</div>{% endif %}
+
+    <section class="card ee1-prompt-card" data-read-aloud-scope aria-labelledby="writing-prompt-title">
+      <div class="response-batches__head">
+        <div class="spine-label" id="writing-prompt-title">Consigne</div>
+        {% include "study/audio/partials/read_aloud_button.html" with label="Lire la consigne en français" compact=True button_class="icon-button" target="writing-prompt-text" annotation_exclude=True only %}
+      </div>
+      <p id="writing-prompt-text" data-read-aloud-text lang="fr" {% speech_attrs prompt private=False %}>{{ prompt }}</p>
+    </section>
+
+    <form method="post" class="ee1-writing-form" data-writing-form data-ee1-form>
+      {% csrf_token %}
+      <div class="ee1-writing-field">
+        <div class="ee1-writing-editor">
+          <div class="ee1-writing-editor__input">
+            <label for="writing-body">{{ simulation.response_label }}</label>
+            <textarea
+              id="writing-body"
+              name="body"
+              class="ee1-writing-textarea"
+              rows="18"
+              lang="fr"
+              wrap="soft"
+              autocomplete="off"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+              data-gramm="false"
+              data-gramm_editor="false"
+              data-enable-grammarly="false"
+              data-writing-word-input
+              data-word-min="{{ word_min }}"
+              data-word-max="{{ word_max }}"
+              maxlength="{{ max_body_length }}"
+              aria-describedby="writing-word-status writing-tools-note"
+              placeholder="{{ simulation.response_placeholder }}">{{ attempt.body }}</textarea>
+            <p id="writing-word-status" class="muted{% if error %} auth-error{% endif %}" data-writing-word-status aria-live="polite">
+              {{ word_count }} mots · objectif {{ word_min }}–{{ word_max }}
+            </p>
+          </div>
+          <aside class="ee1-writing-tools" aria-labelledby="writing-tools-title">
+            <div class="spine-label" id="writing-tools-title">Outils d’écriture</div>
+            <div class="ee1-writing-tools__count">
+              <span class="muted">Compteur de mots</span>
+              <strong data-writing-word-count-display>{{ word_count }}</strong>
+              <span class="muted">sur {{ word_max }} maximum</span>
+            </div>
+            <p id="writing-tools-note" class="ee1-writing-tools__note">
+              Pas de correction automatique ni de correcteur intégré.
+            </p>
+            <div class="ee1-writing-tools__section">
+              <h2>Caractères français</h2>
+              <div class="ee1-accent-grid" aria-label="Insérer un caractère français">
+                {% for character in "àâæçéèêëîïôœùûüÿÀÉÇ’«»" %}
+                  <button type="button" class="ee1-accent-button" data-writing-character="{{ character }}" data-ee1-character="{{ character }}" aria-label="Insérer {{ character }}">{{ character }}</button>
+                {% endfor %}
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <div class="ee1-writing-form__footer">
+        <p class="muted">Vous pouvez enregistrer un brouillon sans remettre la réponse.</p>
+        <div class="ee1-writing-form__actions">
+          <button class="btn" type="submit" name="action" value="save">
+            {% include "study/shared/partials/ui_icon.html" with name="save" only %}
+            Enregistrer
+          </button>
+          <button class="btn btn--primary" type="submit" name="action" value="submit" data-writing-submit data-ee1-submit>
+            Remettre la réponse
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</article>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/expression/ee/writing-word-count.js' %}?v=2"></script>
+  <script src="{% static 'study/js/expression/ee/writing-simulation.js' %}?v=1"></script>
+{% endblock %}

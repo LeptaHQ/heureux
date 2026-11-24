@@ -13,14 +13,21 @@
     const minimum = Number(input.dataset.wordMin || 0);
     const maximum = Number(input.dataset.wordMax || 0);
     const count = countWords(input.value);
-    const field = input.closest(".response-edit-field, .ee1-writing-field");
+    const field = input.closest?.(".response-edit-field, .ee1-writing-field");
+    const form = input.closest?.("[data-writing-form]");
+    const deferValidation = Boolean(form);
+    const showValidation = !deferValidation || form.dataset.validateOnSubmit === "true";
+    const invalid = count < minimum || count > maximum;
     const countDisplay = field?.querySelector("[data-writing-word-count-display]");
     const guidanceDisplay = field?.querySelector("[data-writing-word-guidance]");
     let guidance = "dans la limite";
     if (count < minimum) guidance = `${minimum - count} mot${minimum - count > 1 ? "s" : ""} à ajouter`;
     if (count > maximum) guidance = `${count - maximum} mot${count - maximum > 1 ? "s" : ""} à retirer`;
     status.textContent = `${count} mot${count > 1 ? "s" : ""} · ${guidance} · objectif ${minimum}–${maximum}`;
-    status.classList.toggle("auth-error", count > 0 && (count < minimum || count > maximum));
+    status.classList.toggle(
+      "auth-error",
+      showValidation && invalid && (deferValidation || count > 0),
+    );
     if (countDisplay) countDisplay.textContent = String(count);
     if (guidanceDisplay) {
       guidanceDisplay.textContent = count < minimum
@@ -28,7 +35,10 @@
         : count > maximum
           ? `${count - maximum} mot${count - maximum > 1 ? "s" : ""} à retirer.`
           : `Dans la limite · objectif ${minimum}–${maximum} mots.`;
-      guidanceDisplay.classList.toggle("auth-error", count > 0 && (count < minimum || count > maximum));
+      guidanceDisplay.classList.toggle(
+        "auth-error",
+        showValidation && invalid && (deferValidation || count > 0),
+      );
     }
   };
   const update = () => {
@@ -57,5 +67,13 @@
       "[data-writing-word-input], [data-writing-word-total-input]"
     )
     .forEach((input) => input.addEventListener("input", update));
+  document.querySelectorAll("[data-writing-form]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      if (event.submitter?.matches("[data-writing-submit]")) {
+        form.dataset.validateOnSubmit = "true";
+        update();
+      }
+    });
+  });
   update();
 })();

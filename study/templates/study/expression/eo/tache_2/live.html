@@ -1,46 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Simulation · {{ task.short_label }} · {{ subject.title|truncatechars:80 }}{% if saved_simulation %} · Séance enregistrée{% endif %} · Heureux{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=22">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=25">{% endblock %}
 {% block content %}
 <article class="lv-studio" id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
     data-token-url="{{ token_url }}" data-save-url="{{ save_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
     data-mode="{% if monologue %}opinion{% else %}interaction{% endif %}"
     data-scenario-prompt="{{ scenario_prompt }}">
-  <div class="lv-topline">
-    <nav class="lv-back" aria-label="Retour">
-      {% if subject_url %}<a href="{{ subject_url }}" aria-label="Revenir à la fiche de ce sujet">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Fiche du sujet</a>
-      {% elif monologue %}<a href="{% url 'study:task_browse' part.slug task.slug %}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Sujets de la tâche 3</a>
-      {% else %}<a href="{% url 'study:eo2_topic_picker' %}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Choisir un sujet</a>{% endif %}
-    </nav>
-    <p class="lv-brand">{% include "study/shared/partials/ui_icon.html" with name="headphones" only %} Studio oral · {{ task.short_label }}</p>
-  </div>
   <div class="lv-stage">
-    <header class="lv-head">
-      <p class="lv-kicker" id="lv-kicker">{% if monologue %}Expression d’un point de vue{% else %}Interaction{% endif %}</p>
-      <h1 id="lv-title" tabindex="-1">Simulation</h1>
-      <p class="lv-prompt" id="lv-prompt">{% if not gemini_live_available %}La simulation est indisponible pour le moment.{% elif monologue %}Écoutez la question, puis expliquez votre point de vue.{% else %}Écoutez la consigne, préparez vos questions, puis menez l’échange.{% endif %}</p>
-      {% if subject_url and not monologue %}<p class="lv-selected-subject">Sujet choisi · {{ subject.title }}</p>{% endif %}
-    </header>
+    {% include "study/simulation/partials/session_header.html" %}
     {% if gemini_live_available %}
-    <div class="lv-track">
-      <ol class="lv-steps" aria-label="Déroulé de la séance">
-        {% if monologue %}
-        <li class="lv-step" data-step="reading"><span class="lv-step__name">Consigne</span> <span class="lv-step__meta">sans préparation</span>
-          <span class="lv-step__bar" aria-hidden="true"><i></i></span><span class="lv-step__about">Écoutez la question, micro coupé.</span></li>
-        <li class="lv-step" data-step="live"><span class="lv-step__name">Point de vue</span> <span class="lv-step__meta">4 min 30</span>
-          <span class="lv-step__bar" aria-hidden="true"><i></i></span><span class="lv-step__about">Défendez votre opinion sans interruption.</span></li>
-        {% else %}
-        <li class="lv-step" data-step="prep"><span class="lv-step__name">Préparation</span> <span class="lv-step__meta">2 min</span>
-          <span class="lv-step__bar" aria-hidden="true"><i></i></span><span class="lv-step__about">Le chrono part une fois le sujet lu, micro coupé.</span></li>
-        <li class="lv-step" data-step="live"><span class="lv-step__name">Échange</span> <span class="lv-step__meta">3 min 30</span>
-          <span class="lv-step__bar" aria-hidden="true"><i></i></span><span class="lv-step__about">Vous menez la conversation à voix haute.</span></li>
-        {% endif %}
-        <li class="lv-step" data-step="done"><span class="lv-step__name">Bilan</span> <span class="lv-step__meta">à chaud</span>
-          <span class="lv-step__bar" aria-hidden="true"><i></i></span><span class="lv-step__about">Transcription et repères tirés de vos paroles.</span></li>
-      </ol>
-      <div class="lv-time" id="lv-time" hidden><span id="lv-phase">Préparation</span> <span id="lv-clock" role="timer" aria-label="Temps restant">02:00</span></div>
-    </div>
     <section id="lv-setup" class="lv-setup" aria-label="Lancer la séance">
       {% csrf_token %}
       <button type="button" class="lv-primary" id="lv-start" disabled>Commencer la séance {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>

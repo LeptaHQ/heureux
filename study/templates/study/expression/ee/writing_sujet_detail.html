@@ -37,8 +37,12 @@
 
   <div class="detail-grid">
     <div class="answer-columns">
-      {% url 'study:ee1_simulation' as ee1_simulation_url %}
-      {% include "study/expression/ee/partials/ee_subject_consigne.html" with title_id="ee-writing-subject-title" subject_text=prompt subject_source_id="ee-writing-subject-content" simulation_url=ee1_simulation_url simulation_subject_id=sujet.pk only %}
+      {% if task.slug == "tache-1" %}
+        {% url 'study:ee1_simulation' as ee_simulation_url %}
+      {% elif task.slug == "tache-2" %}
+        {% url 'study:ee2_simulation' as ee_simulation_url %}
+      {% endif %}
+      {% include "study/expression/ee/partials/ee_subject_consigne.html" with title_id="ee-writing-subject-title" subject_text=prompt subject_source_id="ee-writing-subject-content" simulation_url=ee_simulation_url simulation_subject_id=sujet.pk only %}
 
       {% if has_personal %}
         <section class="card section-card section-card--personal" data-read-aloud-scope aria-labelledby="t1-personal-label">

@@ -320,6 +320,8 @@ FRENCH_AUDIO_GENERATION_ENABLED=False
 FRENCH_AUDIO_CHARACTER_BUDGET=0
 DEEPL_API_KEY=<server secret>
 DEEPL_TARGET_LANG=EN-GB
+EE1_SIMULATION_MINUTES=12
+EE2_SIMULATION_MINUTES=20
 ```
 
 The selected voice ID is shown above, but code always uses the configured voice;
@@ -327,6 +329,9 @@ voice IDs are not secrets. Never put the API key in Git, chat, HTML or browser
 code. Already prepared audio plays without a provider key. The narration UI and
 sample switch default on; an explicit `False` disables them. No additional flag
 activation is required when the server already has the voice and key configured.
+`EE1_SIMULATION_MINUTES` and `EE2_SIMULATION_MINUTES` control the default
+durations of new EE simulation attempts; existing attempts keep their original
+deadlines. The defaults are 12 and 20 minutes.
 
 **First audition: no shell or deployment command required.** Open **EO Tâche 3 →
 Culture → Sujet 1** and click the faint play icon beside the progress badge.

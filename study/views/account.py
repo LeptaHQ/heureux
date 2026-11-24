@@ -585,6 +585,29 @@ def export_account(request):
         )
     session = ReviewSession.load(request.user)
     settings = Settings.load(request.user)
+    writing_simulation_attempts = [
+        {
+            "id": item.pk,
+            "task": item.task.slug if item.task else "",
+            "sujet": item.sujet.slug if item.sujet else item.snapshot.get("sujet_slug", ""),
+            "snapshot": item.snapshot,
+            "body": item.body,
+            "status": item.status,
+            "started_at": item.started_at,
+            "deadline_at": item.deadline_at,
+            "last_saved_at": item.last_saved_at,
+            "submitted_at": item.submitted_at,
+            "word_count": item.word_count,
+            "evaluation_status": item.evaluation_status,
+            "evaluation": item.evaluation,
+            "evaluation_error": item.evaluation_error,
+            "evaluation_started_at": item.evaluation_started_at,
+            "evaluated_at": item.evaluated_at,
+        }
+        for item in WritingSimulationAttempt.objects.filter(user=request.user)
+        .select_related("task", "sujet")
+        .order_by("started_at", "pk")
+    ]
     payload = {
         "format": "heureux-account-export",
         "version": ACCOUNT_EXPORT_VERSION,
@@ -696,28 +719,12 @@ def export_account(request):
             "subject_key", "done", "retry")),
         "eo2_simulation_history": list(EO2PracticeAttempt.objects.filter(user=request.user).order_by("created_at").values(
             "subject_key", "attempt", "vocal", "created_at", "live_simulation_id")),
+        "writing_simulation_attempts": writing_simulation_attempts,
         "ee1_simulation_attempts": [
-            {
-                "id": item.pk,
-                "task": item.task.slug if item.task else "",
-                "sujet": item.sujet.slug if item.sujet else item.snapshot.get("sujet_slug", ""),
-                "snapshot": item.snapshot,
-                "body": item.body,
-                "status": item.status,
-                "started_at": item.started_at,
-                "deadline_at": item.deadline_at,
-                "last_saved_at": item.last_saved_at,
-                "submitted_at": item.submitted_at,
-                "word_count": item.word_count,
-                "evaluation_status": item.evaluation_status,
-                "evaluation": item.evaluation,
-                "evaluation_error": item.evaluation_error,
-                "evaluation_started_at": item.evaluation_started_at,
-                "evaluated_at": item.evaluated_at,
-            }
-            for item in WritingSimulationAttempt.objects.filter(user=request.user)
-            .select_related("task", "sujet")
-            .order_by("started_at", "pk")
+            item for item in writing_simulation_attempts if item["task"] == "tache-1"
+        ],
+        "ee2_simulation_attempts": [
+            item for item in writing_simulation_attempts if item["task"] == "tache-2"
         ],
         "live_simulations": [
             {

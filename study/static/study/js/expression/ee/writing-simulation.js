@@ -1,7 +1,7 @@
 (() => {
-  const timer = document.querySelector("[data-ee1-timer]");
-  const form = document.querySelector("[data-ee1-form]");
-  const submit = document.querySelector("[data-ee1-submit]");
+  const timer = document.querySelector("[data-writing-timer]");
+  const form = document.querySelector("[data-writing-form]");
+  const submit = document.querySelector("[data-writing-submit]");
   if (!timer || !form || !submit) return;
 
   const output = timer.querySelector("strong");
@@ -29,12 +29,12 @@
   window.setInterval(render, 1000);
 
   if (input) {
-    form.querySelectorAll("[data-ee1-character]").forEach((button) => {
+    form.querySelectorAll("[data-writing-character]").forEach((button) => {
       button.addEventListener("click", () => {
         const start = input.selectionStart ?? input.value.length;
         const end = input.selectionEnd ?? start;
         input.focus();
-        input.setRangeText(button.dataset.ee1Character || "", start, end, "end");
+        input.setRangeText(button.dataset.writingCharacter || "", start, end, "end");
         input.dispatchEvent(new Event("input", { bubbles: true }));
       });
     });

@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+import unicodedata
 from pathlib import Path
 
 from study.catalogue.loader import _ee_word_count
@@ -14,6 +15,8 @@ logger = logging.getLogger(__name__)
 
 MODEL = oral_evaluation.MODEL
 MAX_RESPONSE = 64_000
+WORD_MIN = 60
+WORD_MAX = 120
 _PROMPT_PATH = (
     Path(__file__).resolve().parents[3]
     / "content"
@@ -161,15 +164,37 @@ def _range_nclc(minimum, maximum):
 
 
 def _locate(source, excerpt):
-    if not excerpt or excerpt not in source:
+    if not excerpt:
+        return None
+    source = _normalise_for_match(source)
+    excerpt = _normalise_for_match(excerpt)
+    if not excerpt:
         return None
     first = source.find(excerpt)
-    if source.find(excerpt, first + 1) >= 0:
-        return None
-    return first
+    return first if first >= 0 else None
 
 
-def ground(report, *, subject, response, word_count):
+def _normalise_for_match(value):
+    value = unicodedata.normalize("NFKC", value)
+    value = value.translate(str.maketrans({
+        "\u2018": "'",
+        "\u2019": "'",
+        "\u02bc": "'",
+        "\u201c": '"',
+        "\u201d": '"',
+    }))
+    return " ".join(value.split())
+
+
+def ground(
+    report,
+    *,
+    subject,
+    response,
+    word_count,
+    word_min=WORD_MIN,
+    word_max=WORD_MAX,
+):
     """Validate provider claims and discard any ungrounded optional detail."""
     if not isinstance(report, dict):
         raise ValueError
@@ -340,7 +365,7 @@ def ground(report, *, subject, response, word_count):
     improved_count = _ee_word_count(improved)
     if type(report["improvedWordCount"]) is not int:
         raise ValueError
-    if improved and not 60 <= improved_count <= 120:
+    if improved and not word_min <= improved_count <= word_max:
         omit("improvedResponse")
         improved = ""
         improved_count = 0
@@ -359,7 +384,16 @@ def ground(report, *, subject, response, word_count):
     return result
 
 
-def score(*, subject, response, word_count):
+def score(
+    *,
+    subject,
+    response,
+    word_count,
+    master_prompt=MASTER_PROMPT,
+    word_min=WORD_MIN,
+    word_max=WORD_MAX,
+    schema_name="ee1_bilan",
+):
     packet = {
         "subject": subject,
         "response": response,
@@ -371,7 +405,7 @@ def score(*, subject, response, word_count):
             "messages": [
                 {
                     "role": "system",
-                    "content": MASTER_PROMPT
+                    "content": master_prompt
                     + "\n\nReturn the report as strict JSON matching the supplied schema. "
                     "For every Met or Partly met task requirement, quote an exact "
                     "substring of the response in quote; for Missing, quote may be empty. "
@@ -386,7 +420,7 @@ def score(*, subject, response, word_count):
             ],
             "response_format": {
                 "type": "json_schema",
-                "json_schema": {"name": "ee1_bilan", "strict": True, "schema": _SCHEMA},
+                "json_schema": {"name": schema_name, "strict": True, "schema": _SCHEMA},
             },
             "reasoning_effort": "low",
             "include_reasoning": False,
@@ -410,6 +444,8 @@ def score(*, subject, response, word_count):
             subject=subject,
             response=response,
             word_count=word_count,
+            word_min=word_min,
+            word_max=word_max,
         )
     except oral_evaluation.EvaluationError:
         raise

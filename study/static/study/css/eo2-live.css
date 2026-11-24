@@ -30,7 +30,6 @@
 .lv-track {
   display: flex; align-items: stretch; gap: 1.25rem;
   padding: 0.85rem 0 0.95rem;
-  grid-row: 1;
   border-top: 2px solid var(--text);
   border-bottom: 1px solid var(--border);
   background: var(--bg);
@@ -58,7 +57,7 @@
 .lv-studio[data-state="setup"] .lv-step { flex: 1 1 0; }
 .lv-studio[data-state="setup"] .lv-step__name { color: var(--step-ink); }
 .lv-studio[data-state="setup"] .lv-step__bar { display: none; }
-.lv-studio[data-state="setup"] .lv-track { grid-row: 2; padding-block: 0.65rem; border-top: 1px solid var(--border); background: none; }
+.lv-studio[data-state="setup"] .lv-track { padding-block: 0.65rem; border-top: 1px solid var(--border); background: none; }
 .lv-studio[data-state="setup"] .lv-step__meta { color: var(--text-soft); white-space: normal; }
 .lv-step[aria-current="step"] { color: var(--text); }
 .lv-step[aria-current="step"] .lv-step__name { color: var(--step-ink); }
@@ -359,7 +358,11 @@ button.lv-mark[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--lv-rule); }
 
 /* Desktop: consigne first, console beside it. */
 @media (min-width: 56rem) {
-  .lv-studio[data-state="setup"] .lv-stage { grid-template-areas: "head" "track" "setup" "console"; }
+  .lv-studio[data-state="setup"] .lv-stage {
+    grid-template-areas: "topline" "head" "track" "setup" "console";
+  }
+  .lv-studio[data-state="setup"] .lv-topline { grid-area: topline; }
+  .lv-studio[data-state="setup"] .lv-track { grid-area: track; }
   .lv-setup .lv-primary { flex: none; }
   .lv-studio:is([data-state="loading"], [data-state="authorizing"], [data-state="reading"], [data-state="prep"], [data-state="connecting"], [data-state="live"]) .lv-stage {
     grid-template-columns: minmax(0, 1fr) minmax(17.5rem, 21rem); grid-template-areas: "track track" "head console" "notes console";
@@ -370,6 +373,18 @@ button.lv-mark[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--lv-rule); }
   .lv-studio[data-state="setup"] .lv-setup { grid-area: setup; }
   .lv-studio:not([data-state="done"]):not([data-state="unavailable"]) .lv-console { grid-area: console; }
   .lv-studio:not([data-state="done"]) .lv-notepad { grid-area: notes; }
+}
+@media (min-width: 56rem) {
+  .lv-studio.ee1-session[data-state="live"] .lv-stage {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: none;
+    grid-template-rows: none;
+    column-gap: 0;
+  }
+  .lv-studio.ee1-session[data-state="live"] :is(.lv-head, .lv-track) {
+    grid-area: auto;
+    grid-column: auto;
+  }
 }
 @media (min-width: 48rem) {
   .lv-studio[data-state="done"] .lv-stage { grid-template-columns: fit-content(36rem) minmax(0, 1fr); grid-template-areas: "track track" "head console" "done done"; column-gap: 1.25rem; }

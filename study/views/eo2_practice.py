@@ -133,10 +133,23 @@ def picker(request):
     elif order == "least":
         rows.sort(key=lambda r: r["count"])
     page = Paginator(rows, 15).get_page(request.GET.get("page"))
-    template = ("study/simulation/eo2_topic_results.html" if request.headers.get("X-Requested-With") == "fetch"
-                else "study/simulation/eo2_topics.html")
+    template = ("study/simulation/subject_picker_results.html" if request.headers.get("X-Requested-With") == "fetch"
+                else "study/simulation/subject_picker.html")
     return render(request, template, {
         "page": page, "total": total,
+        "picker": {
+            "back_url": reverse("study:simulation_track", args=["eo"]),
+            "back_label": "Expression orale",
+            "kicker": "Simulation · EO Tâche 2",
+            "title": "Choisir un sujet",
+            "heading_id": "eo2-title",
+            "intro": "Sélectionnez un sujet pour le pratiquer. Le marque-page le garde dans « À refaire ».",
+            "tone": "sim-tone--eo",
+            "kind": "eo2",
+            "topic_markers": True,
+            "results_id": "eo2-topic-results",
+            "show_status_summary": True,
+        },
         "directory_selection": {
             "themes": sorted(themes.items(), key=lambda item: _fold(item[1])), "theme": theme,
             "unavailable_theme": theme and theme not in themes, "query": query, "status": status, "order": order,

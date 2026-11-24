@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static study_markdown %}
+{% block title %}Simulation · {{ simulation.label }} · Bilan · Heureux{% endblock %}
+
+{% block content %}
+<main class="ee1-simulation ee1-simulation--result writing-simulation writing-simulation--result" aria-labelledby="writing-result-title">
+  <header class="ee1-simulation__head">
+    <p class="sim-kicker">EE · Tâche {{ simulation.number }} · Production écrite</p>
+    <h1 id="writing-result-title">Bilan de votre session</h1>
+    <p>
+      {% if attempt.status == "submitted" %}
+        {% if simulation.number == 1 %}Votre message a été remis dans le temps.{% else %}Votre production a été remise dans le temps.{% endif %}
+      {% elif attempt.status == "expired" %}
+        Le temps est écoulé ; votre brouillon a été conservé.
+      {% else %}
+        Cette session a été abandonnée et reste privée dans votre historique.
+      {% endif %}
+    </p>
+  </header>
+
+  <section class="ee1-result__summary" aria-label="Résumé de la session">
+    <div class="card"><span class="spine-label">Statut</span><strong>{{ attempt.get_status_display }}</strong></div>
+    <div class="card"><span class="spine-label">Mots</span><strong>{{ attempt.word_count|default:0 }} / {{ word_min }}–{{ word_max }}</strong></div>
+    <div class="card"><span class="spine-label">Sujet</span><strong>{{ attempt.snapshot.category_label }}</strong></div>
+  </section>
+
+  <div class="ee1-result__grid">
+    <section class="card ee1-result__response" aria-labelledby="writing-response-title">
+      <div class="response-batches__head">
+        <div class="spine-label" id="writing-response-title">{{ simulation.response_label }}</div>
+      </div>
+      {% if attempt.body %}
+        <div class="markdown-prose" lang="fr">{{ attempt.body|markdown_prose }}</div>
+      {% else %}
+        <p class="muted">Aucun texte n’a été enregistré.</p>
+      {% endif %}
+    </section>
+
+    <aside class="card ee1-result__review" aria-labelledby="writing-review-title">
+      <div class="spine-label" id="writing-review-title">À vérifier</div>
+      <ul class="ee1-checklist">
+        <li>Ai-je répondu à chaque élément de la consigne&nbsp;?</li>
+        <li>Le registre et le format conviennent-ils au destinataire&nbsp;?</li>
+        <li>Mes idées sont-elles organisées et reliées&nbsp;?</li>
+        <li>Ai-je relu les accords, les accents et les prépositions&nbsp;?</li>
+      </ul>
+    </aside>
+  </div>
+
+  {% if attempt.status == "submitted" or attempt.status == "expired" %}
+    <section
+      class="card ee1-evaluation"
+      data-writing-evaluation
+      data-ee1-evaluation
+      data-evaluation-url="{% url route_names.evaluate attempt_id=attempt.pk %}"
+      data-evaluation-status="{{ attempt.evaluation_status }}"
+      aria-labelledby="writing-evaluation-title"
+    >
+      <div class="response-batches__head">
+        <div>
+          <div class="spine-label" id="writing-evaluation-title">Bilan assisté</div>
+          <p class="muted">Une estimation d’entraînement, fondée uniquement sur ce sujet et votre réponse. Elle n’est pas une note officielle du TCF.</p>
+        </div>
+        <form data-writing-evaluation-form data-ee1-evaluation-form>
+          {% csrf_token %}
+          <button class="btn btn--primary" type="submit" data-writing-evaluate data-ee1-evaluate>
+            Évaluer ma réponse
+          </button>
+        </form>
+      </div>
+      <p class="notice" data-writing-evaluation-status data-ee1-evaluation-status role="status">Bilan non demandé.</p>
+      <div data-writing-evaluation-result data-ee1-evaluation-result hidden>
+        <div class="ee1-evaluation__verdict">
+          <strong data-writing-verdict data-ee1-verdict></strong>
+          <span data-writing-score data-ee1-score></span>
+        </div>
+        <p data-writing-uncertainty data-ee1-uncertainty></p>
+        <section class="ee1-evaluation__section" aria-labelledby="writing-compliance-title">
+          <h2 id="writing-compliance-title">Conformité à la tâche</h2>
+          <ul data-writing-compliance data-ee1-compliance></ul>
+        </section>
+        <section class="ee1-evaluation__section" aria-labelledby="writing-criteria-title">
+          <h2 id="writing-criteria-title">Critères FEI</h2>
+          <div class="table-wrap">
+            <table class="ee1-evaluation__table">
+              <thead><tr><th>Famille</th><th>Niveau</th><th>Constat</th></tr></thead>
+              <tbody data-writing-criteria data-ee1-criteria></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="ee1-evaluation__section">
+          <h2>Pourquoi cette estimation&nbsp;?</h2>
+          <p data-writing-grade-rationale data-ee1-grade-rationale></p>
+          <p class="muted" data-writing-grade-evidence></p>
+        </section>
+        <section class="ee1-evaluation__section" data-writing-strengths-section data-ee1-strengths-section hidden>
+          <h2>Ce qui fonctionne</h2>
+          <ul data-writing-strengths data-ee1-strengths></ul>
+        </section>
+        <section class="ee1-evaluation__section">
+          <h2>Corrections</h2>
+          <div class="table-wrap">
+            <table class="ee1-evaluation__table">
+              <thead><tr><th>Original</th><th>Correction</th><th>Pourquoi</th></tr></thead>
+              <tbody data-writing-corrections data-ee1-corrections></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="ee1-evaluation__section" data-writing-relevance-section data-ee1-relevance-section hidden>
+          <h2>Relevance et clarté</h2>
+          <ul data-writing-relevance data-ee1-relevance></ul>
+        </section>
+        <section class="ee1-evaluation__section" data-writing-upgrades-section data-ee1-upgrades-section hidden>
+          <h2>Améliorations facultatives</h2>
+          <ul data-writing-upgrades data-ee1-upgrades></ul>
+        </section>
+        <section class="ee1-evaluation__section" data-writing-improved-section data-ee1-improved-section hidden>
+          <h2>Réponse améliorée</h2>
+          <p class="ee1-evaluation__improved" lang="fr" data-writing-improved data-ee1-improved></p>
+          <p class="muted" data-writing-improved-count data-ee1-improved-count></p>
+        </section>
+        <section class="ee1-evaluation__section">
+          <h2>Priorités pour le prochain essai</h2>
+          <ol data-writing-priorities data-ee1-priorities></ol>
+        </section>
+      </div>
+    </section>
+  {% endif %}
+
+  <div class="ee1-result__actions">
+    <a class="btn btn--primary" href="{% url route_names.setup %}">Nouvelle simulation</a>
+    {% if attempt.sujet %}
+      <a class="btn" href="{% url 'study:writing_sujet_detail' 'ee' attempt.task.slug attempt.sujet.pk %}">Étudier ce sujet</a>
+    {% endif %}
+    <a class="btn" href="{% url 'study:simulation_track' 'ee' %}">Retour à EE</a>
+  </div>
+</main>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=1"></script>
+{% endblock %}

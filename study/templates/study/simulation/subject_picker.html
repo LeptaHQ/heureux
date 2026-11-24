@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ picker.kicker }} · {{ picker.title }} · Heureux{% endblock %}
+{% block content %}
+<section class="sim-page {{ picker.tone }}" aria-labelledby="{{ picker.heading_id }}">
+  <nav class="sim-back" aria-label="Retour"><a href="{{ picker.back_url }}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} {{ picker.back_label }}</a></nav>
+  <header class="sim-head">
+    <p class="sim-kicker">{% if picker.icon %}{% include "study/shared/partials/ui_icon.html" with name=picker.icon only %}{% endif %}{{ picker.kicker }}</p>
+    <h1 id="{{ picker.heading_id }}">{{ picker.title }}</h1>
+    <p>{{ picker.intro }}</p>
+  </header>
+  <div class="collection-toolbar">
+    {% include "study/shared/partials/subject_directory_search.html" with search_url=request.path %}
+  </div>
+  {% include "study/shared/partials/subject_directory_filters.html" %}
+  {% include "study/simulation/subject_picker_results.html" %}
+</section>
+{% endblock %}
+{% block scripts %}
+{% if picker.topic_markers %}<script defer src="{% static 'study/js/expression/eo/tache_2/topic-markers.js' %}?v=1"></script>{% endif %}
+{% endblock %}

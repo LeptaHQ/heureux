@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Simulation · {{ simulation.label }} · Heureux{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=25">{% endblock %}
+{% block content %}
+<article class="lv-studio ee1-session" id="writing-session" data-state="setup">
+  <div class="lv-stage">
+    {% include "study/simulation/partials/session_header.html" %}
+    <form method="post" action="{{ start_url }}" class="lv-setup" aria-label="Lancer la séance">
+      {% csrf_token %}
+      <input type="hidden" name="sujet_id" value="{{ selected_sujet_id }}">
+      <button type="submit" class="lv-primary">
+        Commencer la séance
+        {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}
+      </button>
+      {% if attempts %}
+        <section class="lv-saved" aria-labelledby="writing-saved-title">
+          <h2 id="writing-saved-title">Séances enregistrées</h2>
+          <ul>
+            {% for item in attempts %}
+              <li>
+                <a href="{% url route_names.attempt item.pk %}">{{ item.started_at|date:"j M Y · H:i" }}</a>
+                <span>{{ item.get_status_display }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
+    </form>
+  </div>
+</article>
+{% endblock %}

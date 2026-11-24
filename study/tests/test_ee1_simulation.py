@@ -1,7 +1,8 @@
 from datetime import timedelta
 from unittest.mock import patch
 
-from django.test import TestCase
+from django.conf import settings
+from django.test import TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
@@ -47,14 +48,72 @@ class EE1SimulationTests(TestCase):
     def _attempt_url(self, attempt):
         return reverse("study:ee1_simulation_attempt", args=[attempt.pk])
 
-    def test_setup_lists_subjects_and_is_in_simulation_area(self):
+    def test_subject_picker_reuses_directory_controls_and_filters_private_sessions(self):
+        response = self.client.get(reverse("study:ee1_subject_picker"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context["active_nav_area"], "simulation")
+        self.assertContains(response, "Choisir un sujet")
+        self.assertContains(response, "Rechercher un sujet ou un thème")
+        self.assertContains(response, "Sans séance")
+        self.assertContains(response, self.sujet.prompt)
+        self.assertContains(
+            response,
+            f'href="{reverse("study:ee1_simulation")}?sujet_id={self.sujet.pk}"',
+        )
+        fragment = self.client.get(
+            reverse("study:ee1_subject_picker"),
+            headers={"x-requested-with": "fetch"},
+        )
+        self.assertContains(fragment, 'id="ee1-topic-results"')
+        self.assertNotContains(fragment, "<html")
+
+        self.client.post(self._start_url(), {"sujet_id": str(self.sujet.pk)})
+        response = self.client.get(
+            reverse("study:ee1_subject_picker") + "?etat=new"
+        )
+        self.assertNotContains(response, self.sujet.prompt)
+        self.assertContains(response, self.other_sujet.prompt)
+
+        response = self.client.get(
+            reverse("study:ee1_subject_picker") + "?q=SORTIES&tri=az"
+        )
+        self.assertContains(response, self.other_sujet.prompt)
+        self.assertNotContains(response, self.sujet.prompt)
+        self.assertEqual(response.context["directory_selection"]["order"], "az")
+
+        self.client.force_login(self.other)
+        response = self.client.get(reverse("study:ee1_subject_picker"))
+        self.assertTrue(all(row["count"] == 0 for row in response.context["page"]))
+
+    @override_settings(EE1_SIMULATION_MINUTES=12)
+    def test_setup_reuses_the_shared_session_page(self):
         response = self.client.get(self._setup_url())
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context["active_nav_area"], "simulation")
-        self.assertContains(response, self.sujet.prompt)
+        self.assertContains(response, 'class="lv-studio ee1-session"')
+        self.assertContains(response, "Studio écrit · EE Tâche 1")
+        self.assertContains(response, "Expression écrite")
+        self.assertContains(response, 'data-step="live"')
+        self.assertContains(response, "Rédaction")
         self.assertContains(response, "60 à 120 mots")
-        self.assertContains(response, "20 minutes")
+        self.assertContains(response, "12 minutes")
+        self.assertContains(response, 'name="sujet_id"')
+
+    @override_settings(EE1_SIMULATION_MINUTES=7)
+    def test_duration_is_configurable_for_new_sessions(self):
+        response = self.client.get(self._setup_url())
+        self.assertContains(response, "7 minutes")
+        self.assertContains(response, "7 min")
+
+        self.client.post(self._start_url(), {"sujet_id": str(self.sujet.pk)})
+        attempt = WritingSimulationAttempt.objects.get(user=self.owner)
+        self.assertEqual(attempt.snapshot["simulation_minutes"], 7)
+        self.assertEqual(
+            attempt.deadline_at - attempt.started_at,
+            timedelta(minutes=7),
+        )
 
     def test_subject_page_links_to_the_same_subject_in_simulation(self):
         response = self.client.get(
@@ -75,6 +134,10 @@ class EE1SimulationTests(TestCase):
         self.assertRedirects(response, self._attempt_url(attempt))
         self.assertEqual(attempt.snapshot["prompt"], self.sujet.prompt)
         self.assertEqual(attempt.snapshot["word_min"], 60)
+        self.assertEqual(
+            attempt.snapshot["simulation_minutes"],
+            settings.EE1_SIMULATION_MINUTES,
+        )
         self.assertEqual(attempt.status, WritingSimulationAttemptStatus.ACTIVE)
 
         self.client.force_login(self.other)
@@ -85,9 +148,14 @@ class EE1SimulationTests(TestCase):
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
         response = self.client.get(self._attempt_url(attempt))
 
+        self.assertContains(response, 'class="lv-studio ee1-session ee1-simulation ee1-simulation--attempt"')
+        self.assertContains(response, "Studio écrit · EE Tâche 1")
+        self.assertContains(response, 'data-step="live"')
         self.assertContains(response, 'spellcheck="false"')
         self.assertContains(response, 'autocorrect="off"')
         self.assertContains(response, 'data-gramm="false"')
+        self.assertContains(response, 'class="ee1-writing-textarea"')
+        self.assertContains(response, 'maxlength="20000"')
         self.assertContains(response, "Caractères français")
         self.assertContains(response, 'data-ee1-character="é"')
         self.assertContains(response, 'data-writing-word-count-display')
@@ -219,6 +287,12 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(attempt.evaluation, {"new": True})
 
     def test_evaluation_grounding_rejects_a_score_outside_its_cefr_band(self):
+        self.assertIsNotNone(
+            evaluation._locate(
+                "J’ai déjà visité Montréal.\u00a0",
+                "J'ai déjà visité Montréal.",
+            )
+        )
         report = {
             "verdict": "Réponse claire.",
             "cefr": "B2",

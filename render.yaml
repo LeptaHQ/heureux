@@ -69,6 +69,11 @@ services:
       # Optional. Seconds to wait for DeepL/LibreTranslate (default 8).
       - key: TRANSLATION_TIMEOUT
         sync: false
+      # Optional. EE timed simulation durations in minutes.
+      - key: EE1_SIMULATION_MINUTES
+        sync: false
+      - key: EE2_SIMULATION_MINUTES
+        sync: false
       # --- ElevenLabs French voice -----------------------------------------
       # Required for any natural-voice audio (EO3 narration + read-aloud).
       - key: ELEVENLABS_API_KEY

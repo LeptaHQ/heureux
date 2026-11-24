@@ -735,7 +735,7 @@ class SmokeTests(TestCase):
         page = self.client.get(written)
         self.assertEqual(page.context["active_nav_area"], "simulation")
         self.assertContains(page, "Commencez par la simulation chronométrée de la Tâche 1")
-        self.assertContains(page, f'href="{reverse("study:ee1_simulation")}"')
+        self.assertContains(page, f'href="{reverse("study:ee1_subject_picker")}"')
         self.assertNotContains(page, f'href="{reverse("study:task_browse", args=["ee", "tache-2"])}"')
 
     def test_hierarchy_pages_render(self):

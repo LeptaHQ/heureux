@@ -31,8 +31,8 @@ class EE2SimulationTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Studio écrit · EE Tâche 2")
-        self.assertContains(response, "120 à 150 mots")
-        self.assertContains(response, "18 minutes")
+        self.assertContains(response, "120–150 mots")
+        self.assertContains(response, "18 min")
         self.assertContains(response, 'name="sujet_id"')
 
     def test_subject_picker_uses_the_shared_subject_table(self):

@@ -12,7 +12,7 @@
       {{ block.super }}
     {% else %}
       <div class="lv-unavailable">
-        <a class="lv-primary" href="{% url 'study:simulation_track' 'eo' %}">Retour aux tâches orales</a>
+        <a class="icon-button" href="{% url 'study:simulation_track' 'eo' %}" aria-label="Retour aux tâches orales" title="Retour aux tâches orales">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %}</a>
       </div>
     {% endif %}
 {% endblock %}
@@ -20,7 +20,7 @@
 {% block session_controls %}
     <section id="lv-setup" class="lv-setup" aria-label="Lancer la séance">
       {% csrf_token %}
-      <button type="button" class="lv-primary" id="lv-start" disabled>Commencer la séance {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
+      {% include "study/simulation/partials/start_action.html" with button_type="button" disabled=True only %}
       {% include "study/simulation/partials/saved_sessions.html" %}
     </section>
     <details class="lv-notepad" id="lv-notepad" hidden>
@@ -34,10 +34,10 @@
       <p class="lv-cue" id="lv-prep" hidden>Repérez trois ou quatre points à éclaircir.</p>
       {% include "study/simulation/partials/session_status.html" %}
       <div class="lv-actions">
-        <button type="button" class="lv-primary" id="lv-skip" hidden>Passer à l’échange&nbsp;· 3&nbsp;min&nbsp;30 {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
-        <button type="button" class="lv-secondary" id="lv-mute" hidden>Couper le micro</button>
-        <button type="button" class="lv-secondary" id="lv-resume-audio" hidden>Réactiver le son</button>
-        <button type="button" class="lv-quiet" id="lv-end" hidden>Terminer la séance</button>
+        <button type="button" class="icon-button lv-start-action" id="lv-skip" aria-label="Passer à l’échange" title="Passer à l’échange" hidden>{% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
+        <button type="button" class="icon-button" id="lv-mute" aria-label="Couper le micro" title="Couper le micro" aria-pressed="false" hidden>{% include "study/shared/partials/ui_icon.html" with name="microphone" only %}{% include "study/shared/partials/ui_icon.html" with name="microphone-off" icon_hidden=True only %}</button>
+        <button type="button" class="icon-button" id="lv-resume-audio" aria-label="Réactiver le son" title="Réactiver le son" hidden>{% include "study/shared/partials/ui_icon.html" with name="headphones" only %}</button>
+        <button type="button" class="icon-button" id="lv-end" aria-label="Terminer la séance" title="Terminer la séance" hidden>{% include "study/shared/partials/ui_icon.html" with name="stop" only %}</button>
       </div>
       <section id="lv-call" hidden aria-label="Échange vocal">
         <p id="lv-mic-signal" class="lv-status"></p>
@@ -53,14 +53,12 @@
 {% block debrief_notices %}
       <div id="lv-failed" class="lv-notice" hidden>
         {% include "study/shared/partials/ui_icon.html" with name="alert-triangle" only %}
-        <div><h2>Aucun bilan pour cette tentative</h2>
-          <p>Le micro n’a rien envoyé. Le motif est indiqué ci-dessus. Un nouvel essai reprend à la lecture du sujet.</p></div>
+        <h2>Aucun bilan pour cette tentative</h2>
       </div>
       <div id="lv-empty" class="lv-notice" hidden>
         {% include "study/shared/partials/ui_icon.html" with name="microphone" only %}
         <div><h2>Aucune parole transcrite</h2>
-          <p>Aucune parole n’a été transcrite. Il n’y a pas assez d’éléments pour un bilan&nbsp;: ni repères, ni estimation.</p>
-          <p>Si vous avez parlé, vérifiez le micro choisi par le navigateur, puis lancez un nouvel essai.</p></div>
+          <p>Vérifiez votre micro, puis réessayez.</p></div>
       </div>
 {% endblock %}
 {% block report_metrics %}
@@ -86,14 +84,14 @@
                 <thead><tr><th scope="col">Critère</th><th scope="col">Note</th><th scope="col">Observation</th></tr></thead>
                 <tbody id="lv-assessment-criteria"></tbody>
               </table>
-              <p class="lv-assessment__aside" id="lv-assessment-criteria-note">Chaque critère est noté sur 5, uniquement à partir de la transcription. La cohérence porte sur le fil des idées, pas sur le débit de parole. Ce n’est pas une note officielle du TCF.</p>
+              <p class="lv-assessment__aside" id="lv-assessment-criteria-note">Évaluation sur la transcription. La cohérence porte sur le fil des idées, pas sur le débit.</p>
               <p class="lv-assessment__aside" id="lv-assessment-legacy" hidden>Ce bilan a été enregistré avant l’ajout des citations par critère.</p>
             </section>
 {% endblock %}
 {% block report_review %}
           {% if monologue %}{% include "study/simulation/partials/proposal.html" %}{% endif %}
           <details id="lv-transcript" class="lv-transcript lv-report-card"><summary><h2>{% include "study/shared/partials/ui_icon.html" with name="microphone" only %} {% if monologue %}Votre prise de parole{% else %}Votre conversation{% endif %}</h2><small id="lv-count"></small></summary>
-            <button type="button" class="lv-toggle" id="lv-replies" aria-controls="lv-turns">{% include "study/shared/partials/ui_icon.html" with name="eye" only %} <span id="lv-replies-label">Afficher les réponses de l’interlocuteur</span></button>
+            <button type="button" class="icon-button" id="lv-replies" aria-label="Afficher les réponses de l’interlocuteur" title="Afficher les réponses de l’interlocuteur" aria-controls="lv-turns" aria-expanded="false">{% include "study/shared/partials/ui_icon.html" with name="eye" only %}{% include "study/shared/partials/ui_icon.html" with name="eye-off" icon_hidden=True only %}</button>
             <ol class="lv-turns" id="lv-turns" data-replies="hidden"></ol>
           </details>
           {% if not monologue %}{% include "study/simulation/partials/proposal.html" %}{% endif %}
@@ -102,7 +100,7 @@
         <p class="lv-fineprint">Ce bilan n’est pas une note officielle du TCF. La prononciation et l’accent ne sont pas évalués. Votre compte conserve les trente dernières séances de cette tâche, sans audio.</p>
 {% endblock %}
 {% block debrief_retry %}
-  <button type="button" class="lv-primary" id="lv-retry" hidden>Nouvel essai {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
+  <button type="button" class="icon-button" id="lv-retry" aria-label="Nouvel essai" title="Nouvel essai" hidden>{% include "study/shared/partials/ui_icon.html" with name="reset" only %}</button>
 {% endblock %}
 {% block session_footer %}
     <noscript><p>Activez JavaScript pour commencer la séance.</p></noscript>
@@ -111,8 +109,8 @@
 {% block scripts %}
 {{ block.super }}
 {% if gemini_live_available %}
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=19"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=10"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=19"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=21"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=11"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=21"></script>
 {% endif %}
 {% endblock %}

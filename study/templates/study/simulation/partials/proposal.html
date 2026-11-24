@@ -2,8 +2,14 @@
   <details class="lv-proposal__card lv-report-card" id="lv-proposal-card" open>
     <summary><h2 id="lv-proposal-title">{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %} Proposition</h2></summary>
     <div class="lv-proposal__tools">
-      <p>{% if written %}Une reformulation à partir de votre réponse. <span id="lv-proposal-count"></span>{% elif monologue %}Votre point de vue, reformulé pour l’oral.{% else %}Vos répliques, reformulées dans l’ordre de l’échange.{% endif %}</p>
-      {% if not written %}<button type="button" class="lv-copy" id="lv-proposal-copy">{% include "study/shared/partials/ui_icon.html" with name="copy" only %} <span id="lv-proposal-copy-label" aria-live="polite">Copier</span></button>{% endif %}
+      {% if written %}
+        <p id="lv-proposal-count"></p>
+      {% else %}
+        <button type="button" class="icon-button" id="lv-proposal-copy" aria-label="Copier" title="Copier">
+          {% include "study/shared/partials/ui_icon.html" with name="copy" only %}{% include "study/shared/partials/ui_icon.html" with name="check" icon_hidden=True only %}{% include "study/shared/partials/ui_icon.html" with name="alert-triangle" icon_hidden=True only %}
+        </button>
+        <span class="sr-only" id="lv-proposal-copy-label" aria-live="polite"></span>
+      {% endif %}
     </div>
     {% if monologue or written %}<div class="lv-proposal__prose" id="lv-proposal-lines" lang="fr"></div>
     {% else %}<ol class="lv-proposal__lines" id="lv-proposal-lines"></ol>{% endif %}

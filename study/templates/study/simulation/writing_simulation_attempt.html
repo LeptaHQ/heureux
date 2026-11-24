@@ -100,14 +100,12 @@
         </div>
       </div>
       <div class="ee1-writing-form__footer">
-        <p class="muted" id="writing-submit-note">
-          {% if auto_evaluation %}Remettre la réponse envoie votre texte et la consigne{% if documents %}, avec les deux documents,{% endif %} à Groq pour le bilan.{% else %}Vous pouvez enregistrer un brouillon sans remettre la réponse.{% endif %}
-        </p>
+        {% if auto_evaluation %}<p class="muted" id="writing-submit-note">Envoi à Groq : réponse, consigne{% if documents %} et documents{% endif %}.</p>{% endif %}
         <div class="ee1-writing-form__actions">
           <button class="icon-button" type="submit" name="action" value="save" formnovalidate aria-label="Enregistrer le brouillon" title="Enregistrer le brouillon">
             {% include "study/shared/partials/ui_icon.html" with name="save" only %}
           </button>
-          <button class="icon-button" type="submit" name="action" value="submit" formnovalidate aria-label="Remettre la réponse" aria-describedby="writing-submit-note" title="Remettre la réponse" data-writing-submit data-ee1-submit>
+          <button class="icon-button" type="submit" name="action" value="submit" formnovalidate aria-label="Remettre la réponse"{% if auto_evaluation %} aria-describedby="writing-submit-note"{% endif %} title="Remettre la réponse" data-writing-submit data-ee1-submit>
             {% include "study/shared/partials/ui_icon.html" with name="check" only %}
           </button>
           <button type="submit" name="action" value="expire" formnovalidate data-writing-expire hidden></button>

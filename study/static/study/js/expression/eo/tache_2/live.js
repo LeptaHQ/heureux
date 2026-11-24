@@ -123,6 +123,13 @@
     const value = `${input} · ${signal}`;
     if (by("mic-signal").textContent !== value) text("mic-signal",value);
   }
+  function showMute(muted) {
+    const button = by("mute");
+    button.title = muted ? "Rouvrir le micro" : "Couper le micro";
+    button.setAttribute("aria-pressed", String(muted));
+    button.querySelector('[data-icon="microphone"]').toggleAttribute("hidden", muted);
+    button.querySelector('[data-icon="microphone-off"]').toggleAttribute("hidden", !muted);
+  }
   function startMic(s) {
     s.micOpened = performance.now(); s.lastSignal = -Infinity;
     s.stream.getAudioTracks().forEach(t => { t.enabled = true; });
@@ -139,7 +146,7 @@
     };
     source.connect(capture); capture.connect(s.audio.destination);
     root.dataset.mic = "open";
-    text("mute","Couper le micro"); by("mute").setAttribute("aria-pressed","false");
+    showMute(false);
     text("status",opinion ? "Micro ouvert · développez votre point de vue. L’interlocuteur vous écoute en silence." :
       "Micro ouvert · transcription automatique. Vous pouvez interrompre votre interlocuteur.");
   }
@@ -361,11 +368,9 @@
     try {
       const response = await window.HeureuxAudioRequest(root.dataset.tokenUrl,requestOptions(s,{purpose:"attempt"}),{
         confirmBeforeSend:true, title:"Autoriser la simulation", action:"Autoriser cette simulation",
-        description:(opinion ? "La question sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant ma prise de parole" :
-          "La consigne sera lue sans micro. J’accepte d’envoyer ma voix à Google pendant l’échange") +
-          (root.dataset.autoGroqEvaluation === "1" ? ", puis sa transcription à Groq pour le bilan. " : ". ") +
-          "Heureux conserve la transcription et le bilan, pas l’audio. " +
-          "Je confirme avoir au moins 18 ans et participer depuis le Canada ou les États-Unis. Des personnes peuvent examiner l’échange pour améliorer les produits de Google.",
+        description:"Voix envoyée à Google (examen humain possible). " +
+          (root.dataset.autoGroqEvaluation === "1" ? "Transcription envoyée à Groq pour le bilan. " : "") +
+          "Heureux garde le texte et le bilan, pas l’audio. Je confirme : 18 ans ou plus, au Canada ou aux États-Unis.",
         onConfirm:() => {
           phase("loading","Ouverture"); text("status","Ouverture de la lecture · micro coupé.");
           clearTimeout(s.watchdog);
@@ -400,7 +405,7 @@
     const s = active; if (!s || !running(s)) return;
     if (!s.capture) { startMic(s); return; }
     cutMic(s); if (s.sock.readyState === WebSocket.OPEN) s.sock.send(JSON.stringify({realtimeInput:{audioStreamEnd:true}}));
-    text("mute","Rouvrir le micro"); by("mute").setAttribute("aria-pressed","true"); text("status","Micro coupé. Aucun son n’est envoyé.");
+    showMute(true); text("status","Micro coupé. Aucun son n’est envoyé.");
   };
   by("end").onclick = () => { if (active) endAttempt(active,"Vous avez mis fin à la séance."); };
   by("retry").onclick = () => {

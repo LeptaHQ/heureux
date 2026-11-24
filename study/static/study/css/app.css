@@ -11794,11 +11794,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
   line-height: 1.12;
   letter-spacing: -.045em;
 }
-.sim-head > p:last-child, .sim-path p, .sim-task p {
-  margin: .4rem 0 0;
-  color: var(--text-soft);
-  line-height: 1.5;
-}
 .sim-tone--eo { --sim-ink: var(--tone-oral); --sim-wash: var(--tone-oral-soft); }
 .sim-tone--ee { --sim-ink: var(--tone-expression); --sim-wash: var(--tone-expression-soft); }
 .sim-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
@@ -11828,18 +11823,13 @@ button.ce-choice:focus-visible .ce-choice__radio {
 }
 .sim-path__mark span { font-size: .78rem; letter-spacing: .14em; }
 .sim-path h2, .sim-task h2 { margin: .75rem 0 0; line-height: 1.22; letter-spacing: -.025em; }
-.sim-path h2 { font-size: 1.45rem; }
-.sim-path p { margin-bottom: 1rem; max-width: 40ch; }
+.sim-path h2 { margin-bottom: .6rem; font-size: 1.45rem; }
 .sim-path__action {
   display: inline-flex;
   align-items: center;
-  gap: .5rem;
-  margin-top: auto;
+  margin: auto 0 0 auto;
   color: var(--sim-ink);
-  font-size: .9rem;
-  font-weight: 700;
 }
-.sim-path:hover .sim-path__action, .sim-path:focus-visible .sim-path__action { text-decoration: underline; }
 .sim-back a { display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; font-size: .87rem; }
 .sim-tasks {
   display: grid;
@@ -11852,7 +11842,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
 .sim-task {
   display: flex;
   min-width: 0;
-  min-height: 15rem;
   flex-direction: column;
   padding: 1.1rem 1.15rem;
   border: 1px solid var(--border);
@@ -11866,33 +11855,9 @@ button.ce-choice:focus-visible .ce-choice__radio {
 }
 .sim-task__meta span:last-child { color: var(--text-soft); letter-spacing: normal; text-transform: none; }
 .sim-task h2 { margin-top: .9rem; font-size: 1.2rem; }
-.sim-task p { font-size: .9rem; margin-top: .18rem; }
-.sim-task__actions { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: auto; }
-.sim-task__link {
-  display: inline-flex;
-  align-items: center;
-  gap: .35rem;
-  min-height: 44px;
-  color: var(--text-soft);
-  font-size: .9rem;
-  font-weight: 700;
-}
-.sim-task__link .ui-icon {
-  width: 1rem;
-  height: 1rem;
-  opacity: 0;
-  transform: translateX(-.2rem);
-  transition: opacity .16s ease, transform .16s ease;
-}
-.sim-task:hover .sim-task__link,
-.sim-task__link:focus-visible { color: var(--sim-ink); }
-.sim-task:hover .sim-task__link .ui-icon,
-.sim-task__link:focus-visible .ui-icon {
-  opacity: 1;
-  transform: translateX(0);
-}
-@media (prefers-reduced-motion: reduce) {
-  .sim-task__link .ui-icon { transition: none; }
+.sim-task__actions { display: flex; justify-content: flex-end; margin-top: auto; padding-top: .25rem; }
+@media (pointer: coarse) {
+  .sim-task__actions .icon-button { width: 2.75rem; height: 2.75rem; }
 }
 .ee1-simulation {
   --ee1-ink: var(--tone-expression);
@@ -12112,11 +12077,11 @@ button.ce-choice:focus-visible .ce-choice__radio {
 .ee1-writing-form__footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 1rem;
   margin-top: .7rem;
 }
-.ee1-writing-form__footer p { margin: 0; }
+.ee1-writing-form__footer p { margin: 0 auto 0 0; }
 .ee1-writing-form__actions {
   display: flex;
   flex-wrap: wrap;

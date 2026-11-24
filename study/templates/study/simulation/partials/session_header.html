@@ -18,7 +18,7 @@
         <span class="lv-step__name">{{ step.name }}</span>
         <span class="lv-step__meta">{{ step.meta }}</span>
         <span class="lv-step__bar" aria-hidden="true"><i></i></span>
-        <span class="lv-step__about">{{ step.about }}</span>
+        {% if step.about %}<span class="lv-step__about">{{ step.about }}</span>{% endif %}
       </li>
     {% endfor %}
   </ol>

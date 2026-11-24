@@ -23,7 +23,7 @@
     {% csrf_token %}
   </form>
   {% if evaluation_providers|length < 2 %}
-    <span id="writing-evaluation-disclosure" class="lv-assessment__aside">L’évaluation envoie la consigne et votre réponse{% if documents %}, avec les deux documents,{% endif %} à {{ evaluation_provider_label }}.</span>
+    <span id="writing-evaluation-disclosure" class="lv-assessment__aside">Envoi à {{ evaluation_provider_label }} : réponse, consigne{% if documents %} et documents{% endif %}.</span>
   {% endif %}
 {% endblock %}
 {% block assessment_status %}{% if attempt.evaluation_status == "processing" %}Bilan en préparation…{% elif attempt.evaluation_status == "not_requested" %}Bilan non demandé.{% endif %}{% endblock %}
@@ -103,9 +103,7 @@
   <p class="lv-fineprint">Ce bilan n’est pas une note officielle du TCF.</p>
 {% endblock %}
 {% block debrief_retry %}
-  <a class="lv-primary" href="{% url route_names.setup %}">
-    Nouvelle simulation {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}
-  </a>
+  <a class="icon-button" href="{% url route_names.setup %}" aria-label="Nouvelle simulation" title="Nouvelle simulation">{% include "study/shared/partials/ui_icon.html" with name="reset" only %}</a>
 {% endblock %}
 {% block scripts %}
   {{ block.super }}

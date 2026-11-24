@@ -8,19 +8,15 @@
   <header class="sim-head">
     <p class="sim-kicker">{% include "study/shared/partials/ui_icon.html" with name=track.icon only %} {{ track.code }} · TCF Canada</p>
     <h1 id="sim-title">{{ track.title }}</h1>
-    <p>{% if part_slug == "ee" %}Choisissez une tâche pour rédiger en temps limité et consulter votre bilan.{% else %}Choisissez une tâche pour vous entraîner à votre rythme.{% endif %}</p>
   </header>
   <ol class="sim-tasks">
     {% for row in rows %}
       <li class="sim-task">
         <div class="sim-task__meta"><span>Tâche {{ row.number }}</span><span>{{ row.format }}</span></div>
         <h2>{{ row.title }}</h2>
-        <p>{{ row.description }}</p>
         <div class="sim-task__actions">
-          <a class="sim-task__link" href="{{ row.url }}">
-            {{ row.label }}
+          <a class="icon-button" href="{{ row.url }}" aria-label="{{ row.label }} · {{ track.code }} Tâche {{ row.number }}" title="{{ row.label }}">
             {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}
-            <span class="sr-only"> · {{ track.code }} Tâche {{ row.number }}</span>
           </a>
         </div>
       </li>

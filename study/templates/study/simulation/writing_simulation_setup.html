@@ -7,10 +7,7 @@
       <form method="post" action="{{ start_url }}">
         {% csrf_token %}
         <input type="hidden" name="sujet_id" value="{{ selected_sujet_id }}">
-        <button type="submit" class="lv-primary">
-          Commencer la séance
-          {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}
-        </button>
+        {% include "study/simulation/partials/start_action.html" with button_type="submit" only %}
       </form>
       {% include "study/simulation/partials/saved_sessions.html" %}
     </section>

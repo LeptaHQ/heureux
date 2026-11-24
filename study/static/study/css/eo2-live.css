@@ -16,7 +16,7 @@
 .lv-studio :is(a, button, input, textarea, summary):focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
 /* Phase changes focus this heading for screen readers; it is not a control. */
 #lv-title:focus { outline: none; }
-.lv-studio :is(.lv-brand, .lv-primary, .lv-secondary, .lv-orb, .lv-notice, .lv-toggle, .lv-copy) { --icon-color: currentColor; }
+.lv-studio :is(.lv-brand, .lv-orb, .lv-notice) { --icon-color: currentColor; }
 :where(.lv-studio) p { margin: 0; }
 
 /* Use the study breadcrumb and subject controls above the timed stage. */
@@ -81,6 +81,7 @@
 .lv-kicker { margin-bottom: 0.2rem; color: var(--tone-oral); font-size: 0.86rem; font-weight: 600; }
 .lv-head h1 { margin: 0; font-size: clamp(1.65rem, 1.3rem + 1.4vw, 2.25rem); line-height: 1.15; text-wrap: balance; }
 .lv-prompt { max-width: 44rem; margin-top: 0.4rem; color: var(--text-soft); font-size: 1.05rem; line-height: 1.5; }
+.lv-prompt:empty { display: none; }
 .lv-selected-subject { margin-top: 0.3rem; color: var(--text-soft); font-size: 0.92rem; }
 .lv-studio:not([data-state="setup"]):not([data-state="unavailable"]) .lv-selected-subject { display: none; }
 .lv-studio:is([data-state="loading"], [data-state="authorizing"], [data-state="reading"], [data-state="prep"], [data-state="connecting"], [data-state="live"]) .lv-head h1 { font-size: clamp(1.45rem, 1.15rem + 1.2vw, 2rem); }
@@ -91,7 +92,6 @@
 
 /* Setup (direct visit or after a cancel): one start action under the brief. */
 .lv-setup { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem 1.25rem; }
-.lv-setup .lv-primary { flex: 1 1 100%; }
 .lv-saved { flex: 1 1 100%; }
 .lv-saved h2 { margin: 0 0 0.35rem; color: var(--text-soft); font-size: 0.85rem; font-weight: 600; }
 .lv-saved ul { display: grid; gap: 0.3rem; margin: 0; padding: 0; list-style: none; }
@@ -104,23 +104,10 @@
 :is(.lv-status, .lv-assessment__status):empty { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 
 /* Buttons */
-.lv-primary, .lv-secondary {
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
-  min-height: 2.375rem; padding: var(--padding-action);
-  border-radius: 999px; font: inherit; font-size: 1.02rem; font-weight: 600; line-height: 1.2;
-  text-decoration: none; cursor: pointer;
-}
-.lv-primary { border: 2px solid var(--lv-action); background: var(--lv-action); color: var(--lv-action-ink); }
-.lv-primary:hover:not(:disabled) { border-color: color-mix(in srgb, var(--lv-action) 84%, var(--text)); background: color-mix(in srgb, var(--lv-action) 84%, var(--text)); }
-.lv-primary:disabled { border-color: var(--border); background: var(--surface-2); color: var(--text-faint); cursor: not-allowed; }
-.lv-primary .ui-icon { transition: transform 0.15s ease; }
-.lv-primary:hover:not(:disabled) .ui-icon { transform: translateX(3px); }
-.lv-secondary { border: 2px solid var(--lv-action); background: transparent; color: var(--lv-action); }
-.lv-secondary:hover:not(:disabled) { background: var(--lv-tint); }
-.lv-secondary:disabled { border-color: var(--border); color: var(--text-faint); cursor: not-allowed; }
-.lv-secondary[aria-pressed="true"] { border-color: var(--warning); background: var(--warning-soft); color: var(--text); }
-.lv-quiet { padding: 0.25rem 0.15rem; border: 0; background: none; color: var(--text-soft); font: inherit; font-size: 0.95rem; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
-.lv-quiet:hover { color: var(--text); }
+.lv-studio .lv-start-action { border-color: var(--lv-action); background: var(--lv-action); color: var(--lv-action-ink); }
+.lv-studio .lv-start-action:hover:not(:disabled) { background: color-mix(in srgb, var(--lv-action) 84%, var(--text)); }
+.lv-studio .lv-start-action:disabled { border-color: var(--border); background: var(--surface-2); color: var(--text-faint); cursor: not-allowed; }
+#lv-mute[aria-pressed="true"] { border-color: var(--warning); background: var(--warning-soft); color: var(--text); }
 
 /* Notepad: lined paper, never sent. */
 .lv-notepad { padding-top: 0.25rem; }
@@ -195,8 +182,7 @@
 .lv-status { max-width: 19rem; color: var(--text-soft); font-size: 0.92rem; line-height: 1.45; }
 .lv-studio[data-state="live"] .lv-status { color: var(--text); }
 .lv-studio[data-state="setup"] .lv-status { max-width: none; color: var(--warning); text-align: left; }
-.lv-actions { display: grid; gap: 0.55rem; width: 100%; }
-.lv-actions .lv-primary, .lv-actions .lv-secondary { width: 100%; text-wrap: balance; }
+.lv-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; }
 #lv-call { width: 100%; }
 .lv-captions { border-top: 1px solid var(--lv-rule); text-align: left; }
 .lv-captions summary { padding: 0.7rem 0 0.2rem; color: var(--text-soft); font-size: 0.88rem; }
@@ -327,9 +313,7 @@
 .lv-transcript > summary { flex-wrap: wrap; }
 .lv-transcript > summary h2, .lv-num { color: var(--lv-action); }
 .lv-transcript > summary small { color: var(--text-soft); font-size: 0.86rem; font-weight: 400; }
-.lv-toggle, .lv-copy { display: inline-flex; align-items: center; gap: 0.45rem; padding: var(--padding-action); border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text); font: inherit; font-size: 0.86rem; line-height: 1.3; cursor: pointer; }
-:is(.lv-toggle, .lv-copy):hover { border-color: var(--lv-rule); background: var(--lv-tint); }
-.lv-toggle { margin-block: 0 0.4rem; }
+#lv-replies { margin-bottom: 0.4rem; }
 .lv-turns { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
 .lv-turns[data-replies="hidden"] > li[data-speaker="model"] { display: none; }
 .lv-turns > li { padding-block: 0.45rem; border-top: 1px solid var(--border); }
@@ -356,20 +340,22 @@ button.lv-mark[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--lv-rule); }
 
 /* Proposal: the learner's own exchange, rewritten as a model to copy and rehearse. */
 .lv-proposal { display: grid; gap: 0.5rem; }
-.lv-proposal h2, .lv-proposal .lv-copy { color: var(--tone-comprehension); }
+.lv-proposal h2, #lv-proposal-copy { color: var(--tone-comprehension); }
 .lv-proposal__lines { display: grid; gap: 0.4rem; margin: 0; padding-left: 1.35rem; color: var(--text); font-size: 1.02rem; line-height: 1.6; overflow-wrap: anywhere; }
 .lv-proposal__lines li::marker { color: var(--tone-comprehension); font-size: 0.86rem; font-weight: 600; font-variant-numeric: tabular-nums; }
 .lv-proposal__prose { max-width: 68ch; font-size: 1.08rem; line-height: 1.65; overflow-wrap: anywhere; }
 .lv-proposal__prose p { margin: 0; }
 .lv-proposal__prose p + p { margin-top: 0.9em; }
 .lv-proposal__tools { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.4rem; color: var(--text-soft); font-size: 0.88rem; }
-.lv-proposal__tools p, .lv-proposal__tools .lv-copy { margin: 0; }
+.lv-proposal__tools p { margin: 0; }
+#lv-proposal-copy { margin-inline-start: auto; }
 .lv-fineprint { max-width: 46rem; color: var(--text-faint); font-size: 0.8rem; line-height: 1.5; }
-.lv-done-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
-.lv-done-actions .lv-quiet { display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; }
-.lv-done-actions .lv-quiet .ui-icon { color: var(--lv-action); }
+.lv-done-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; }
 @media (pointer: coarse) {
-  :is(.lv-primary, .lv-secondary, .lv-quiet, .lv-toggle, .lv-copy) { min-height: 2.75rem; }
+  .lv-studio :is(.lv-start-action, .lv-actions .icon-button, .lv-done-actions .icon-button, .lv-unavailable .icon-button, #lv-replies, #lv-proposal-copy) {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
 }
 .lv-unavailable { padding-top: 0.25rem; }
 
@@ -379,7 +365,6 @@ button.lv-mark[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--lv-rule); }
     grid-template-areas: "head" "track" "setup" "console";
   }
   .lv-studio[data-state="setup"] .lv-track { grid-area: track; }
-  .lv-setup .lv-primary { flex: none; }
   .lv-studio:is([data-state="loading"], [data-state="authorizing"], [data-state="reading"], [data-state="prep"], [data-state="connecting"], [data-state="live"]) .lv-stage {
     grid-template-columns: minmax(0, 1fr) minmax(17.5rem, 21rem); grid-template-areas: "track track" "head console" "notes console";
     grid-template-rows: auto auto 1fr; column-gap: clamp(2rem, 4.5vw, 4rem);

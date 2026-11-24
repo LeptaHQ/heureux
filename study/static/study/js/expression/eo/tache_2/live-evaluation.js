@@ -18,7 +18,11 @@
   let copied;
   const copyLabel = text => {
     clearTimeout(copied);
-    by("proposal-copy-label").textContent = text;
+    by("proposal-copy-label").textContent = text === "Copier" ? "" : text;
+    const icon = text === "Copié !" ? "check" : text === "Échec" ? "alert-triangle" : "copy";
+    by("proposal-copy").querySelectorAll("[data-icon]").forEach(node => {
+      node.toggleAttribute("hidden", node.dataset.icon !== icon);
+    });
     if (text !== "Copier") copied = setTimeout(() => copyLabel("Copier"), 2400);
   };
   by("proposal-copy").onclick = async () => {
@@ -210,7 +214,7 @@
       const response = await (useGrant ? fetch(root.dataset.evaluationUrl, options) :
         window.HeureuxAudioRequest(root.dataset.evaluationUrl, options, {
           title: "Demander le bilan", action: "Demander le bilan",
-          description: `La transcription de cette séance sera envoyée à ${label} pour le bilan.`,
+          description: `Transcription envoyée à ${label} pour le bilan.`,
           confirmBeforeSend: provider !== "groq",
         }));
       if (pending !== call) return;

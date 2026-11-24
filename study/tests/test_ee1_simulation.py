@@ -130,8 +130,8 @@ class EE1SimulationTests(TestCase):
         self.assertContains(response, "Expression écrite")
         self.assertContains(response, 'data-step="live"')
         self.assertContains(response, "Rédaction")
-        self.assertContains(response, "60 à 120 mots")
-        self.assertContains(response, "12 minutes")
+        self.assertContains(response, "60–120 mots")
+        self.assertContains(response, "12 min")
         self.assertContains(response, 'name="sujet_id"')
 
     def test_selected_subject_uses_the_study_navigation_with_simulation_destinations(self):
@@ -193,7 +193,6 @@ class EE1SimulationTests(TestCase):
     @override_settings(EE1_SIMULATION_MINUTES=7)
     def test_duration_is_configurable_for_new_sessions(self):
         response = self.client.get(self._setup_url())
-        self.assertContains(response, "7 minutes")
         self.assertContains(response, "7 min")
 
         self.client.post(self._start_url(), {"sujet_id": str(self.sujet.pk)})
@@ -284,7 +283,7 @@ class EE1SimulationTests(TestCase):
         self.assertContains(result, 'class="lv-studio ee1-session"')
         self.assertContains(result, 'class="lv-track"')
         self.assertContains(result, 'data-icon="target"')
-        self.assertContains(result, 'data-icon="arrow-right"')
+        self.assertContains(result, 'data-icon="reset"')
         self.assertContains(result, 'data-icon="book-open"')
         exported = self.client.get(reverse("study:export_account")).json()
         self.assertEqual(len(exported["ee1_simulation_attempts"]), 1)
@@ -328,7 +327,7 @@ class EE1SimulationTests(TestCase):
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
         url = self._attempt_url(attempt)
         page = self.client.get(url)
-        self.assertContains(page, "Remettre la réponse envoie votre texte et la consigne à Groq pour le bilan.")
+        self.assertContains(page, "Envoi à Groq : réponse, consigne.")
         self.assertContains(page, 'name="evaluation_consent" value="groq"')
 
         with patch("study.views.writing_simulation.threading.Thread") as thread, self.captureOnCommitCallbacks(execute=True):
@@ -359,7 +358,7 @@ class EE1SimulationTests(TestCase):
         self.client.post(self._attempt_url(attempt), {"action": "submit", "body": body, "evaluation_consent": "groq"})
 
         evaluation_url = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
-        self.assertContains(self.client.get(self._attempt_url(attempt)), "L’évaluation envoie la consigne et votre réponse à Gemini.")
+        self.assertContains(self.client.get(self._attempt_url(attempt)), "Envoi à Gemini : réponse, consigne.")
         self.assertEqual(self.client.post(evaluation_url, content_type="application/json", data="{}").status_code, 400)
         with patch("study.views.writing_simulation.threading.Thread") as thread:
             for consent in ({"consent": True}, {"consent": True, "provider": "groq"}):

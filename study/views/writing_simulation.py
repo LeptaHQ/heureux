@@ -54,8 +54,6 @@ class WritingSimulationSpec:
     minutes_setting: str
     response_label: str
     response_placeholder: str
-    session_prompt: str
-    picker_intro: str
 
     @property
     def task_slug(self):
@@ -64,6 +62,10 @@ class WritingSimulationSpec:
     @property
     def task_label(self):
         return f"EE Tâche {self.number}"
+
+    @property
+    def word_range(self):
+        return f"{self.word_min}–{self.word_max} mots"
 
     @property
     def route_prefix(self):
@@ -108,11 +110,6 @@ SPECS = {
         minutes_setting="EE1_SIMULATION_MINUTES",
         response_label="Votre message",
         response_placeholder="Rédigez votre message ici…",
-        session_prompt=(
-            "Rédigez un message clair, adapté au destinataire, en "
-            "{word_min} à {word_max} mots. Vous disposez de {minutes} minutes."
-        ),
-        picker_intro="Sélectionnez un sujet pour votre message de {word_min} à {word_max} mots.",
     ),
     2: WritingSimulationSpec(
         number=2,
@@ -121,11 +118,6 @@ SPECS = {
         minutes_setting="EE2_SIMULATION_MINUTES",
         response_label="Votre production",
         response_placeholder="Rédigez votre production ici…",
-        session_prompt=(
-            "Racontez l’expérience demandée et développez vos idées en "
-            "{word_min} à {word_max} mots. Vous disposez de {minutes} minutes."
-        ),
-        picker_intro="Sélectionnez un sujet pour votre production de {word_min} à {word_max} mots.",
     ),
     3: WritingSimulationSpec(
         number=3,
@@ -134,11 +126,6 @@ SPECS = {
         minutes_setting="EE3_SIMULATION_MINUTES",
         response_label="Votre production",
         response_placeholder="Reformulez les deux points de vue sans donner votre avis…",
-        session_prompt=(
-            "Comparez les deux documents sans donner votre avis, puis défendez votre point de vue. "
-            "Vous disposez de {minutes} minutes."
-        ),
-        picker_intro="Choisissez un sujet avec deux documents pour rédiger une synthèse et défendre votre point de vue.",
     ),
 }
 
@@ -203,25 +190,27 @@ def _writing_navigation(request, spec, task, subject_id, *, theme="", label="", 
     )
 
 
-def _session_steps(minutes):
+def _session_steps(spec, minutes):
+    word_limits = spec.word_range
+    if spec.number == 3:
+        synthesis, opinion = content_module.EE_TACHE_THREE_SECTION_LIMITS
+        word_limits = f"{synthesis[0]}–{synthesis[1]} mots · {opinion[0]}–{opinion[1]} mots"
     return [
         {
             "key": "reading",
             "name": "Consigne",
-            "meta": "à lire",
-            "about": "Prenez connaissance de la situation et du destinataire.",
+            "meta": "",
         },
         {
             "key": "live",
             "name": "Rédaction",
             "meta": f"{minutes} min",
-            "about": "Rédigez votre production sans correction automatique.",
+            "about": word_limits,
         },
         {
             "key": "done",
             "name": "Bilan",
-            "meta": "à chaud",
-            "about": "Relisez votre production et consultez votre session.",
+            "meta": "",
         },
     ]
 
@@ -230,7 +219,7 @@ def _session_context(
     spec,
     *,
     selected_subject="",
-    prompt=None,
+    prompt="",
     minutes=None,
 ):
     minutes = spec.minutes if minutes is None else minutes
@@ -242,13 +231,9 @@ def _session_context(
         "session_brand_icon": "pen-line",
         "session_brand": f"Studio écrit · {spec.task_label}",
         "session_kicker": "Expression écrite",
-        "session_prompt": prompt or spec.session_prompt.format(
-            word_min=spec.word_min,
-            word_max=spec.word_max,
-            minutes=minutes,
-        ),
+        "session_prompt": prompt,
         "session_selected_subject": selected_subject,
-        "session_steps": _session_steps(minutes),
+        "session_steps": _session_steps(spec, minutes),
         "session_show_clock": False,
     }
 
@@ -312,10 +297,7 @@ def subject_picker(request, spec):
         "kicker": f"Simulation · {spec.task_label}",
         "title": "Choisir un sujet",
         "heading_id": f"ee{spec.number}-title",
-        "intro": spec.picker_intro.format(
-            word_min=spec.word_min,
-            word_max=spec.word_max,
-        ),
+        "format": spec.word_range,
         "tone": "sim-tone--ee",
         "icon": "pen-line",
         "results_id": f"ee{spec.number}-topic-results",

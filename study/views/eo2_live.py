@@ -95,7 +95,7 @@ def opinion_picker(request):
         "back_url": reverse("study:simulation_track", args=["eo"]),
         "back_label": "Expression orale", "kicker": "Simulation · EO Tâche 3",
         "title": "Choisir un sujet", "heading_id": "eo3-title",
-        "intro": "Choisissez une question et défendez votre point de vue en 4 min 30, sans préparation.",
+        "format": "4 min 30 · sans préparation",
         "tone": "sim-tone--eo", "icon": "microphone", "results_id": "eo3-topic-results",
         "show_practice_summary": True,
     }
@@ -212,27 +212,17 @@ def oral_live(request, task_slug, **publication):
                     reopened["report"] = _oral_report(selected, selected_provider)
     if monologue:
         session_kicker = "Expression d’un point de vue"
-        session_prompt = (
-            "La simulation est indisponible pour le moment."
-            if not available
-            else "Écoutez la question, puis expliquez votre point de vue."
-        )
         session_steps = [
-            {"key": "reading", "name": "Consigne", "meta": "sans préparation", "about": "Écoutez la question, micro coupé."},
-            {"key": "live", "name": "Point de vue", "meta": "4 min 30", "about": "Défendez votre opinion sans interruption."},
-            {"key": "done", "name": "Bilan", "meta": "à chaud", "about": "Transcription et repères tirés de vos paroles."},
+            {"key": "reading", "name": "Consigne", "meta": "sans préparation"},
+            {"key": "live", "name": "Point de vue", "meta": "4 min 30"},
+            {"key": "done", "name": "Bilan", "meta": ""},
         ]
     else:
         session_kicker = "Interaction"
-        session_prompt = (
-            "La simulation est indisponible pour le moment."
-            if not available
-            else "Écoutez la consigne, préparez vos questions, puis menez l’échange."
-        )
         session_steps = [
             {"key": "prep", "name": "Préparation", "meta": "2 min", "about": "Le chrono part une fois le sujet lu, micro coupé."},
-            {"key": "live", "name": "Échange", "meta": "3 min 30", "about": "Vous menez la conversation à voix haute."},
-            {"key": "done", "name": "Bilan", "meta": "à chaud", "about": "Transcription et repères tirés de vos paroles."},
+            {"key": "live", "name": "Échange", "meta": "3 min 30"},
+            {"key": "done", "name": "Bilan", "meta": ""},
         ]
     navigation = _studio_navigation(request, task, subject, publication)
     return TemplateResponse(request, "study/simulation/oral_session.html", {
@@ -263,7 +253,7 @@ def oral_live(request, task_slug, **publication):
         "session_brand_icon": "headphones",
         "session_brand": f"Studio oral · {task.short_label}",
         "session_kicker": session_kicker,
-        "session_prompt": session_prompt,
+        "session_prompt": "" if available else "La simulation est indisponible pour le moment.",
         "session_selected_subject": subject.title if subject_url and not monologue else "",
         "session_steps": session_steps,
         "session_show_clock": True,

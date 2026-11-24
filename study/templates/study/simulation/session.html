@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=33">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=35">{% endblock %}
 {% block content %}
 <article class="lv-studio{% block studio_classes %}{% endblock %}" {% block studio_attributes %}{% endblock %}>
   <div class="lv-navigation" style="--subject-accent: {{ task.color }};">
@@ -48,9 +48,9 @@
         <nav class="lv-done-actions" aria-label="Actions de fin de session">
           {% block debrief_retry %}{% endblock %}
           {% if subject_url %}
-            <a class="lv-quiet" href="{{ subject_url }}">{% include "study/shared/partials/ui_icon.html" with name="book-open" only %} Étudier ce sujet</a>
+            <a class="icon-button" href="{{ subject_url }}" aria-label="Étudier ce sujet" title="Étudier ce sujet">{% include "study/shared/partials/ui_icon.html" with name="book-open" only %}</a>
           {% endif %}
-          <a class="lv-quiet" href="{{ debrief_back_url }}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} {{ debrief_back_label }}</a>
+          <a class="icon-button" href="{{ debrief_back_url }}" aria-label="{{ debrief_back_label }}" title="{{ debrief_back_label }}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %}</a>
         </nav>
       </section>
       {% block session_footer %}{% endblock %}

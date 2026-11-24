@@ -134,7 +134,12 @@
 
   function showReplies(on) {
     by("turns").dataset.replies = on ? "shown" : "hidden";
-    by("replies-label").textContent = `${on ? "Masquer" : "Afficher"} les réponses de l’interlocuteur`;
+    const button = by("replies");
+    button.title = `${on ? "Masquer" : "Afficher"} les réponses de l’interlocuteur`;
+    button.setAttribute("aria-label", button.title);
+    button.setAttribute("aria-expanded", String(on));
+    button.querySelector('[data-icon="eye"]').toggleAttribute("hidden", on);
+    button.querySelector('[data-icon="eye-off"]').toggleAttribute("hidden", !on);
   }
   by("replies").onclick = () => showReplies(by("turns").dataset.replies !== "shown");
 

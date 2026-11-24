@@ -737,7 +737,7 @@ class SmokeTests(TestCase):
                 self.assertContains(studio, f'<title>Simulation · {studio.context["task"].short_label} · {topic} · Heureux</title>')
         page = self.client.get(written)
         self.assertEqual(page.context["active_nav_area"], "simulation")
-        self.assertContains(page, "rédiger en temps limité")
+        self.assertContains(page, "60–120 mots")
         self.assertContains(page, f'href="{reverse("study:ee1_subject_picker")}"')
         self.assertNotContains(page, f'href="{reverse("study:ee2_subject_picker")}"')
         self.assertContains(page, f'href="{reverse("study:ee3_subject_picker")}"')

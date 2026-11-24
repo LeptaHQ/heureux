@@ -14,24 +14,20 @@ from study.navigation.routing import subject_selection_url
 TRACKS = {
     "ee": {
         "title": "Expression écrite", "icon": "pen-line", "code": "EE",
-        "intro": "Rédigez un message, racontez une expérience et comparez deux points de vue.",
-        "action": "Préparer une tâche écrite",
     },
     "eo": {
         "title": "Expression orale", "icon": "microphone", "code": "EO",
-        "intro": "Menez un échange ou défendez votre point de vue à voix haute.",
-        "action": "Choisir une tâche orale",
     },
 }
 TASK_FORMATS = {
     "eo": (
-        (2, "Interaction", "2 min + 3 min 30", "Préparez vos questions, puis menez l’échange."),
-        (3, "Expression d’un point de vue", "4 min 30", "Développez votre opinion sans temps de préparation."),
+        (2, "Interaction", "2 min + 3 min 30"),
+        (3, "Expression d’un point de vue", "4 min 30 · sans préparation"),
     ),
     "ee": (
-        (1, "Écrire un message", "60–120 mots", "Adressez votre message à la personne indiquée dans la consigne."),
-        (2, "Raconter une expérience", "120–150 mots", "Rédigez un récit pour les lecteurs auxquels vous vous adressez."),
-        (3, "Comparer deux points de vue", "120–180 mots", "Présentez les deux opinions, puis défendez la vôtre."),
+        (1, "Écrire un message", "60–120 mots"),
+        (2, "Raconter une expérience", "120–150 mots"),
+        (3, "Comparer deux points de vue", "120–180 mots"),
     ),
 }
 PICKER_STATUSES = {"new": "Sans séance", "done": "Déjà pratiqués"}
@@ -131,7 +127,7 @@ def track(request, part_slug):
         )
     }
     rows = []
-    for number, title, format_label, description in TASK_FORMATS[part_slug]:
+    for number, title, format_label in TASK_FORMATS[part_slug]:
         task = tasks.get(f"tache-{number}")
         if task is None:
             continue
@@ -145,7 +141,7 @@ def track(request, part_slug):
             label, url = "Choisir un sujet", reverse("study:eo3_topic_picker")
         rows.append({
             "number": number, "title": title, "format": format_label,
-            "description": description, "label": label, "url": url,
+            "label": label, "url": url,
             "is_simulation": part_slug == "ee",
         })
     return render(request, "study/simulation/track.html", {

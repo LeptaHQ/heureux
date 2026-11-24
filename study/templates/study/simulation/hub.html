@@ -5,18 +5,16 @@
   <header class="sim-head">
     <p class="sim-kicker">TCF Canada · Entraînement</p>
     <h1 id="sim-title">Simulation</h1>
-    <p>Choisissez l’oral ou l’écrit, puis la tâche que vous souhaitez travailler.</p>
   </header>
   <div class="sim-paths">
     {% for slug, track in tracks.items %}
-      <a class="sim-path sim-tone--{{ slug }}" href="{% url 'study:simulation_track' slug %}" aria-labelledby="sim-title-{{ slug }} sim-action-{{ slug }}">
+      <a class="sim-path sim-tone--{{ slug }}" href="{% url 'study:simulation_track' slug %}" aria-labelledby="sim-title-{{ slug }}">
         <div class="sim-path__mark" aria-hidden="true">
           {% include "study/shared/partials/ui_icon.html" with name=track.icon only %}
           <span>{{ track.code }}</span>
         </div>
         <h2 id="sim-title-{{ slug }}">{{ track.title }}</h2>
-        <p>{{ track.intro }}</p>
-        <span class="sim-path__action" id="sim-action-{{ slug }}">{{ track.action }} {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</span>
+        <span class="sim-path__action">{% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </a>
     {% endfor %}
   </div>

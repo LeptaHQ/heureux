@@ -2713,10 +2713,6 @@ def _ee_tache_two_theme_vocabulary_context(user, task):
         "vocabulary_description": (
             "Repères et formulations pour raconter une expérience."
         ),
-        "vocabulary_pathways_description": (
-            "Chaque thème rassemble des repères temporels, des verbes du "
-            "récit, des impressions et des recommandations."
-        ),
     }
 
 

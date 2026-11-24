@@ -5,7 +5,6 @@
 <header class="page-head">
   <p class="eyebrow"><a href="{% url 'study:notes_overview' %}">Notes</a> · Recherche privée</p>
   <h1>Rechercher dans mes notes</h1>
-  <p>Retrouvez un mot, une idée ou un passage parmi vos notes et surlignages.</p>
 </header>
 
 <form class="card annotation-search" method="get" role="search">
@@ -34,9 +33,8 @@
     <input type="checkbox" name="study" value="1" {% if study_only %}checked{% endif %}>
     <span>À étudier uniquement</span>
   </label>
-  <button class="btn btn--primary" type="submit">
-    <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
-    <span>Rechercher</span>
+  <button class="btn btn--primary btn--icon" type="submit" aria-label="Rechercher" title="Rechercher">
+    {% include "study/shared/partials/ui_icon.html" with name="search" icon_class="btn__icon" only %}
   </button>
 </form>
 

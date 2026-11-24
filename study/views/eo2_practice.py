@@ -144,7 +144,6 @@ def picker(request):
             "kicker": "Simulation · EO Tâche 2",
             "title": "Choisir un sujet",
             "heading_id": "eo2-title",
-            "intro": "Sélectionnez un sujet pour le pratiquer. Le marque-page le garde dans « À refaire ».",
             "tone": "sim-tone--eo",
             "kind": "eo2",
             "topic_markers": True,

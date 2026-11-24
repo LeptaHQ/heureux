@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=26">{% endblock %}
+{% block content %}
+<article class="lv-studio{% block studio_classes %}{% endblock %}" {% block studio_attributes %}{% endblock %}>
+  <div class="lv-stage">
+    {% include "study/simulation/partials/session_header.html" %}
+    {% block session_body %}
+      {% block session_controls %}{% endblock %}
+      <section id="lv-done" class="lv-done" {% block debrief_attributes %}aria-label="Bilan de la session"{% endblock %}>
+        {% block debrief_notices %}{% endblock %}
+        <div id="lv-report" class="lv-report"{% block report_visibility %}{% endblock %}>
+          <dl class="lv-glance">{% block report_metrics %}{% endblock %}</dl>
+          {% block assessment %}
+            <details id="lv-assessment" class="lv-assessment lv-report-card" aria-labelledby="lv-assessment-title" open>
+              <summary class="lv-assessment__score">
+                <h2 id="lv-assessment-title">{% include "study/shared/partials/ui_icon.html" with name="target" only %} Estimation d’entraînement</h2>
+                <strong id="lv-level">Non évalué</strong>
+              </summary>
+              <div class="lv-assessment__body">
+                <div id="lv-assessment-controls" class="lv-assessment__controls">
+                  {% block assessment_form %}{% endblock %}
+                  <span class="lv-assessment__action">
+                    <button class="icon-button" id="lv-assess" {% block assessment_button %}type="button" aria-label="Évaluer mon niveau" title="Évaluer mon niveau" disabled{% endblock %}>{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %}</button>
+                    <span class="lv-assessment__spinner" aria-hidden="true"></span>
+                  </span>
+                </div>
+                <p id="lv-assessment-status" class="lv-assessment__status" role="status">{% block assessment_status %}{% endblock %}</p>
+              </div>
+              <div id="lv-assessment-result" class="lv-assessment__result" hidden>{% block assessment_result %}{% endblock %}</div>
+            </details>
+          {% endblock %}
+          <div class="lv-talk">{% block report_review %}{% endblock %}</div>
+          {% block report_notes %}{% endblock %}
+        </div>
+        <nav class="lv-done-actions" aria-label="Actions de fin de session">
+          {% block debrief_retry %}{% endblock %}
+          {% if subject_url %}
+            <a class="lv-quiet" href="{{ subject_url }}">{% include "study/shared/partials/ui_icon.html" with name="book-open" only %} Étudier ce sujet</a>
+          {% endif %}
+          <a class="lv-quiet" href="{{ debrief_back_url }}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} {{ debrief_back_label }}</a>
+        </nav>
+      </section>
+      {% block session_footer %}{% endblock %}
+    {% endblock %}
+  </div>
+</article>
+{% endblock %}

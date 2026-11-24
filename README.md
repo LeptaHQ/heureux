@@ -72,6 +72,9 @@ exercise guide because FEI’s official 60 minutes cover all three written
 tasks. The other written tasks still link to their available subjects for
 untimed writing practice. Simulation tab titles identify the task and, for a
 subject-specific session, its topic.
+The written debrief follows the EO2 order in the shared session layout: the
+training estimate, the learner’s response with any verified corrections, then
+the proposed reformulation when available.
 In **Simulation → Expression orale → Tâche 2 → Choisir un sujet**, the Sujets table
 and its **Thème**, **Statut** and **Tri** filters let learners find a topic. Its title
 opens the exact publication; the **Séances** count opens its history. **Terminé** is

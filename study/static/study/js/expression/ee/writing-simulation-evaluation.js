@@ -1,33 +1,27 @@
 (() => {
   "use strict";
 
-  const root = document.querySelector("[data-writing-evaluation]");
-  if (!root) return;
+  const form = document.getElementById("writing-evaluation-form");
+  if (!form) return;
 
-  const form = root.querySelector("[data-writing-evaluation-form]");
-  const button = root.querySelector("[data-writing-evaluate]");
-  const buttonLabel = root.querySelector("[data-writing-evaluate-label]");
-  const summaryScore = root.querySelector("[data-writing-summary-score]");
-  const status = root.querySelector("[data-writing-evaluation-status]");
-  const result = root.querySelector("[data-writing-evaluation-result]");
-  const url = root.dataset.evaluationUrl;
-  const csrf = root.querySelector("[name=csrfmiddlewaretoken]")?.value;
+  const root = form.closest(".lv-report");
+  const by = (id) => document.getElementById(`lv-${id}`);
+  const button = by("assess");
+  const level = by("level");
+  const result = by("assessment-result");
+  const url = form.dataset.evaluationUrl;
+  const csrf = form.elements.csrfmiddlewaretoken.value;
   let poll;
 
   const find = (name) => root.querySelector(`[data-writing-${name}]`);
-  const setStatus = (text, tone = "") => {
-    status.textContent = text;
-    status.className = `lv-assessment__status${tone ? ` notice notice--${tone}` : ""}`;
+  const setStatus = (message, busy = false) => {
+    button.disabled = busy;
+    button.setAttribute("aria-busy", String(busy));
+    by("assessment-status").textContent = message;
   };
   const setButtonLabel = (label) => {
-    if (buttonLabel) {
-      buttonLabel.textContent = label;
-    } else {
-      button.textContent = label;
-    }
-  };
-  const setSummaryScore = (label) => {
-    if (summaryScore) summaryScore.textContent = label;
+    button.setAttribute("aria-label", label);
+    button.title = label;
   };
   const text = (parent, value) => {
     parent.textContent = value || "";
@@ -53,7 +47,8 @@
       find("score"),
       `${report.cefr} · ${report.score}/20 · ${report.nclc} · ${report.scoreRange.min}–${report.scoreRange.max} (${report.nclcRange}) · confiance ${report.confidence}`,
     );
-    setSummaryScore(`${report.score}/20 · ${report.nclc} · ${report.cefr}`);
+    level.textContent = `${report.score}/20 · ${report.nclc} · ${report.cefr}`;
+    level.classList.add("lv-level--scored");
     text(find("uncertainty"), report.uncertainty);
     text(find("grade-rationale"), report.gradeRationale);
     const gradeEvidence = find("grade-evidence");
@@ -80,7 +75,10 @@
     };
     list(find("criteria"), report.criteria, (entry) => {
       const row = document.createElement("tr");
-      row.insertCell().textContent = labels[entry.key] || entry.key;
+      const heading = document.createElement("th");
+      heading.scope = "row";
+      heading.textContent = labels[entry.key] || entry.key;
+      row.append(heading);
       row.insertCell().textContent = entry.rating;
       const evidence = row.insertCell();
       evidence.textContent = entry.evidence;
@@ -115,6 +113,7 @@
         : "Aucune erreur objective claire relevée.";
       find("corrections").append(row);
     }
+    find("review").hidden = false;
 
     const relevance = find("relevance-section");
     relevance.hidden = !report.relevance.length;
@@ -127,10 +126,10 @@
     upgrades.hidden = !report.upgrades.length;
     list(find("upgrades"), report.upgrades, item);
 
-    const improved = find("improved-section");
-    improved.hidden = !report.improvedResponse;
-    text(find("improved"), report.improvedResponse);
-    text(find("improved-count"), report.improvedResponse ? `${report.improvedWordCount} mots` : "");
+    const paragraphs = report.improvedResponse ? report.improvedResponse.split(/\r?\n[ \t]*\r?\n/) : [];
+    list(by("proposal-lines"), paragraphs, (value) => text(document.createElement("p"), value));
+    by("proposal").hidden = !paragraphs.length;
+    text(by("proposal-count"), paragraphs.length ? `${report.improvedWordCount} mots` : "");
     list(find("priorities"), report.priorities, item);
 
     if (report.omitted) {
@@ -144,29 +143,22 @@
   };
 
   const apply = (payload) => {
-    root.dataset.evaluationStatus = payload.status;
     if (payload.status === "ready" && payload.report) {
       showReport(payload.report);
-      button.disabled = false;
-      setButtonLabel("Réévaluer");
-      setStatus("Bilan disponible. Il s’agit d’une estimation d’entraînement, pas d’une note officielle.", "success");
+      by("assessment-controls").hidden = true;
+      setStatus("");
       return;
     }
     if (payload.status === "processing") {
-      button.disabled = true;
-      setSummaryScore("Bilan en préparation…");
-      setStatus("Bilan en préparation…");
+      setStatus("Bilan en préparation…", true);
       clearTimeout(poll);
       poll = setTimeout(fetchStatus, 1500);
       return;
     }
-    button.disabled = false;
     if (payload.status === "unavailable") {
-      setSummaryScore("Non évalué");
-      setStatus(payload.error || "Le bilan est temporairement indisponible. Vous pouvez réessayer.", "error");
+      setStatus(payload.error || "Le bilan est temporairement indisponible. Vous pouvez réessayer.");
       setButtonLabel("Réessayer");
     } else {
-      setSummaryScore("Non évalué");
       setStatus("Bilan non demandé.");
       setButtonLabel("Évaluer ma réponse");
     }
@@ -178,15 +170,14 @@
       if (!response.ok) throw new Error();
       apply(await response.json());
     } catch {
-      button.disabled = false;
-      setStatus("Impossible de lire l’état du bilan. Vous pouvez réessayer.", "error");
+      setStatus("Impossible de lire l’état du bilan. Vous pouvez réessayer.");
+      setButtonLabel("Réessayer");
     }
   };
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    button.disabled = true;
-    setStatus("Bilan en préparation…");
+    setStatus("Bilan en préparation…", true);
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -197,12 +188,12 @@
       if (!response.ok && response.status !== 202) throw new Error();
       apply(await response.json());
     } catch {
-      button.disabled = false;
-      setStatus("Le bilan est temporairement indisponible. Votre réponse reste disponible.", "error");
+      setStatus("Le bilan est temporairement indisponible. Votre réponse reste disponible.");
+      setButtonLabel("Réessayer");
     }
   });
 
-  if (root.dataset.evaluationStatus === "ready" || root.dataset.evaluationStatus === "processing") {
+  if (form.dataset.evaluationStatus !== "not_requested") {
     fetchStatus();
   }
 })();

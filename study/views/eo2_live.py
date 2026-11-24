@@ -149,6 +149,8 @@ def oral_live(request, task_slug, **publication):
         "scenario_prompt": subject.prompt,
         "subject": subject,
         "subject_url": subject_url,
+        "debrief_back_url": session_back_url if monologue else reverse("study:eo2_topic_picker"),
+        "debrief_back_label": "Choisir un autre sujet",
         "session_back_url": session_back_url,
         "session_back_label": session_back_label,
         "session_brand_icon": "headphones",

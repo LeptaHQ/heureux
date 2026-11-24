@@ -1,12 +1,10 @@
-{% extends "base.html" %}
+{% extends "study/simulation/session.html" %}
 {% load static study_speech %}
 {% block title %}Simulation · {{ simulation.label }} · En cours · Heureux{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=25">{% endblock %}
 
-{% block content %}
-<article class="lv-studio ee1-session ee1-simulation ee1-simulation--attempt" id="writing-session" data-state="live" aria-labelledby="lv-title">
-  <div class="lv-stage">
-    {% include "study/simulation/partials/session_header.html" %}
+{% block studio_classes %} ee1-session ee1-simulation ee1-simulation--attempt{% endblock %}
+{% block studio_attributes %}id="writing-session" data-state="live" aria-labelledby="lv-title"{% endblock %}
+{% block session_body %}
     <div class="ee1-attempt__timerbar">
       <details class="ee1-timer-control">
         <summary class="icon-button ee1-timer-control__toggle" title="Modifier le temps" aria-label="Modifier le temps">
@@ -110,8 +108,6 @@
         </div>
       </div>
     </form>
-  </div>
-</article>
 {% endblock %}
 
 {% block scripts %}

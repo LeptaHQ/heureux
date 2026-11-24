@@ -286,7 +286,8 @@
 .lv-criteria :is(th, td):last-child { padding-right: 0; }
 .lv-criteria thead th { padding-block: 0 0.3rem; border-top: 0; color: var(--text-soft); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .lv-criteria thead th:first-child { width: 32%; }
-.lv-criteria thead th:nth-child(2) { width: 3.9rem; }
+.lv-criteria thead th:nth-child(2) { width: var(--lv-criterion-width, 3.9rem); }
+.lv-studio[data-mode="writing"] .lv-criteria { --lv-criterion-width: 7rem; }
 .lv-criteria tbody th { color: var(--text); font-weight: 600; }
 .lv-criteria tbody td:nth-of-type(1) { color: var(--text); font-weight: 700; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
 .lv-criteria tbody td.lv-criterion-mark { color: var(--tone-stats); }
@@ -354,6 +355,8 @@ button.lv-mark[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--lv-rule); }
 .lv-proposal__tools p, .lv-proposal__tools .lv-copy { margin: 0; }
 .lv-fineprint { max-width: 46rem; color: var(--text-faint); font-size: 0.8rem; line-height: 1.5; }
 .lv-done-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
+.lv-done-actions .lv-quiet { display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; }
+.lv-done-actions .lv-quiet .ui-icon { color: var(--lv-action); }
 .lv-unavailable { padding-top: 0.25rem; }
 
 /* Desktop: consigne first, console beside it. */

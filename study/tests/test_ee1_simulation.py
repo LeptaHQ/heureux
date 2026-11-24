@@ -341,7 +341,7 @@ class EE1SimulationTests(TestCase):
                 for key in ("linguistic", "pragmatic", "sociolinguistic")
             },
             "gradeRationale": "Le texte montre un contrôle fonctionnel.",
-            "gradeEvidence": ["Bonjour"],
+            "gradeEvidence": ["Une citation introuvable", "Bonjour"],
             "strengths": [{"quote": "Bonjour", "text": "Ouverture claire."}],
             "corrections": [],
             "relevance": [],
@@ -357,6 +357,14 @@ class EE1SimulationTests(TestCase):
             word_count=1,
         )
         self.assertEqual(grounded["nclc"], "NCLC 8")
+        self.assertEqual(grounded["gradeEvidence"], ["Bonjour"])
+        self.assertIn("gradeEvidence", grounded["omittedSections"])
+        report["gradeEvidence"] = ["Une citation introuvable"]
+        with self.assertRaises(ValueError):
+            evaluation.ground(
+                report, subject=self.sujet.prompt, response="Bonjour", word_count=1,
+            )
+        report["gradeEvidence"] = ["Bonjour"]
         report["score"] = 14
         with self.assertRaises(ValueError):
             evaluation.ground(

@@ -573,6 +573,54 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         command._sync_cards(response_by_key, user=self.user)
         return task_by_slug["eo/tache-2"]
 
+    def test_written_simulation_debrief_retries_and_shows_corrections_before_proposal(self):
+        task = factories.make_task(factories.make_part("ee"), "tache-1")
+        sujet = factories.make_writing_sujet(task)
+        setup = reverse("study:ee1_simulation")
+        self.page.goto(f"{self.live_server_url}{setup}?sujet_id={sujet.pk}")
+        self.page.get_by_role("button", name="Commencer la séance").click()
+        body = "Je vous invite a dîner. " + " ".join(["Bonjour"] * 55)
+        self.page.locator("#writing-body").fill(body)
+        self.page.get_by_role("button", name="Remettre la réponse").click()
+        form = self.page.locator("#writing-evaluation-form")
+        evaluation_url = form.get_attribute("data-evaluation-url")
+        report = {
+            "score": 12, "cefr": "B2", "nclc": "NCLC 8", "nclcRange": "NCLC 7 à NCLC 8",
+            "scoreRange": {"min": 10, "max": 13}, "confidence": "Medium",
+            "verdict": "Le message est clair.", "uncertainty": "",
+            "gradeRationale": "Le but est formulé dès le début.", "gradeEvidence": [],
+            "taskCompliance": [], "strengths": [],
+            "criteria": [{"key": "linguistic", "rating": "Developing", "evidence": "Il manque un accent.", "quotes": ["a dîner"]}],
+            "corrections": [{"before": "a dîner", "after": "à dîner", "type": "Orthographe", "why": "Il faut un accent."}],
+            "relevance": [], "upgrades": [], "priorities": ["Relire les accents."],
+            "improvedResponse": "Bonjour !\n\nEst-ce que cela te dirait de venir dîner ?",
+            "improvedWordCount": 11,
+        }
+        replies = iter([
+            {"status": "unavailable", "error": "Le bilan est illisible. Votre réponse reste disponible."},
+            {"status": "processing"},
+            {"status": "ready", "report": report},
+        ])
+        self.page.route(f"**{evaluation_url}", lambda route: route.fulfill(json=next(replies)))
+        proposal = self.page.locator("#lv-proposal")
+        expect(proposal).to_be_hidden()
+        self.page.get_by_role("button", name="Évaluer ma réponse").click()
+        expect(self.page.get_by_role("status").filter(has_text="Le bilan est illisible")).to_be_visible()
+        expect(self.page.locator("#lv-transcript")).to_contain_text(body)
+        self.page.get_by_role("button", name="Réessayer").click()
+        expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
+        expect(self.page.get_by_role("row", name=re.compile("Linguistique Developing"))).to_be_visible()
+        expect(self.page.locator("#lv-transcript tbody tr")).to_contain_text("à dîner")
+        expect(proposal.locator("#lv-proposal-lines p")).to_have_text(report["improvedResponse"].split("\n\n"))
+        for width in (390, 1280):
+            self.page.set_viewport_size({"width": width, "height": 900})
+            cards = [self.page.locator(f"#lv-{name}").bounding_box()["y"] for name in ("assessment", "transcript", "proposal")]
+            self.assertLess(cards[0], cards[1])
+            self.assertLess(cards[1], cards[2])
+            self.assert_no_horizontal_overflow()
+        expect(self.page.get_by_role("link", name="Étudier ce sujet").locator('[data-icon="book-open"]')).to_be_visible()
+        expect(self.page.get_by_role("link", name="Retour à EE").locator('[data-icon="arrow-left"]')).to_be_visible()
+
     def test_writing_response_copy_buttons_copy_each_model_and_personal_text(self):
         self.context.add_init_script(
             """

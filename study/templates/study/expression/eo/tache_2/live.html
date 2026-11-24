@@ -1,15 +1,21 @@
-{% extends "base.html" %}
+{% extends "study/simulation/session.html" %}
 {% load static %}
 {% block title %}Simulation · {{ task.short_label }} · {{ subject.title|truncatechars:80 }}{% if saved_simulation %} · Séance enregistrée{% endif %} · Heureux{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=25">{% endblock %}
-{% block content %}
-<article class="lv-studio" id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
+{% block studio_attributes %}id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
     data-token-url="{{ token_url }}" data-save-url="{{ save_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
     data-mode="{% if monologue %}opinion{% else %}interaction{% endif %}"
-    data-scenario-prompt="{{ scenario_prompt }}">
-  <div class="lv-stage">
-    {% include "study/simulation/partials/session_header.html" %}
+    data-scenario-prompt="{{ scenario_prompt }}"{% endblock %}
+{% block session_body %}
     {% if gemini_live_available %}
+      {{ block.super }}
+    {% else %}
+      <div class="lv-unavailable">
+        <a class="lv-primary" href="{% url 'study:simulation_track' 'eo' %}">Retour aux tâches orales</a>
+      </div>
+    {% endif %}
+{% endblock %}
+
+{% block session_controls %}
     <section id="lv-setup" class="lv-setup" aria-label="Lancer la séance">
       {% csrf_token %}
       <button type="button" class="lv-primary" id="lv-start" disabled>Commencer la séance {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
@@ -58,7 +64,11 @@
         </details>
       </section>
     </aside>
-    <section id="lv-done" class="lv-done" hidden aria-label="Fin de séance">
+{% endblock %}
+
+{% block debrief_attributes %}hidden aria-label="Fin de séance"{% endblock %}
+{% block report_visibility %} hidden{% endblock %}
+{% block debrief_notices %}
       <div id="lv-failed" class="lv-notice" hidden>
         {% include "study/shared/partials/ui_icon.html" with name="alert-triangle" only %}
         <div><h2>Aucun bilan pour cette tentative</h2>
@@ -70,27 +80,13 @@
           <p>Aucune parole n’a été transcrite. Il n’y a pas assez d’éléments pour un bilan&nbsp;: ni repères, ni estimation.</p>
           <p>Si vous avez parlé, vérifiez le micro choisi par le navigateur, puis lancez un nouvel essai.</p></div>
       </div>
-      <div id="lv-report" class="lv-report" hidden>
-        <dl class="lv-glance">
+{% endblock %}
+{% block report_metrics %}
           <div><dt>Durée</dt><dd id="lv-fig-time">—</dd></div>
           <div><dt>{% if monologue %}Mots transcrits{% else %}Vos répliques{% endif %}</dt><dd id="lv-fig-turns">—</dd></div>
           <div class="lv-share" id="lv-share" hidden><dt>Part des mots</dt><dd><span>Vous <b id="lv-share-user"></b></span><span class="lv-share__bar" aria-hidden="true"><i id="lv-share-bar"></i></span><span>Interlocuteur <b id="lv-share-model"></b></span></dd></div>
-        </dl>
-        <details id="lv-assessment" class="lv-assessment lv-report-card" aria-labelledby="lv-assessment-title" open>
-          <summary class="lv-assessment__score">
-            <h2 id="lv-assessment-title">{% include "study/shared/partials/ui_icon.html" with name="target" only %} Estimation d’entraînement</h2>
-            <strong id="lv-level">Non évalué</strong>
-          </summary>
-          <div class="lv-assessment__body">
-            <div id="lv-assessment-controls" class="lv-assessment__controls">
-              <span class="lv-assessment__action">
-                <button type="button" class="icon-button" id="lv-assess" aria-label="Évaluer mon niveau" title="Évaluer mon niveau" disabled>{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %}</button>
-                <span class="lv-assessment__spinner" aria-hidden="true"></span>
-              </span>
-            </div>
-            <p id="lv-assessment-status" class="lv-assessment__status" role="status"></p>
-          </div>
-          <div id="lv-assessment-result" class="lv-assessment__result" hidden>
+{% endblock %}
+{% block assessment_result %}
             <p id="lv-assessment-reason"></p>
             <section class="lv-next-step" aria-labelledby="lv-next-title">
               <h3 id="lv-next-title">Au prochain essai</h3>
@@ -111,34 +107,24 @@
               <p class="lv-assessment__aside" id="lv-assessment-criteria-note">Chaque critère est noté sur 5, uniquement à partir de la transcription. La cohérence porte sur le fil des idées, pas sur le débit de parole. Ce n’est pas une note officielle du TCF.</p>
               <p class="lv-assessment__aside" id="lv-assessment-legacy" hidden>Ce bilan a été enregistré avant l’ajout des citations par critère.</p>
             </section>
-          </div>
-        </details>
-        <div class="lv-talk">
+{% endblock %}
+{% block report_review %}
           {% if monologue %}{% include "study/expression/partials/live_proposal.html" %}{% endif %}
           <details id="lv-transcript" class="lv-transcript lv-report-card"><summary><h2>{% include "study/shared/partials/ui_icon.html" with name="microphone" only %} {% if monologue %}Votre prise de parole{% else %}Votre conversation{% endif %}</h2><small id="lv-count"></small></summary>
             <button type="button" class="lv-toggle" id="lv-replies" aria-controls="lv-turns">{% include "study/shared/partials/ui_icon.html" with name="eye" only %} <span id="lv-replies-label">Afficher les réponses de l’interlocuteur</span></button>
             <ol class="lv-turns" id="lv-turns" data-replies="hidden"></ol>
           </details>
           {% if not monologue %}{% include "study/expression/partials/live_proposal.html" %}{% endif %}
-        </div>
+{% endblock %}
+{% block report_notes %}
         <p class="lv-fineprint">Ce bilan n’est pas une note officielle du TCF. La prononciation et l’accent ne sont pas évalués. Votre compte conserve les trente dernières séances de cette tâche, sans audio.</p>
-      </div>
-      <div class="lv-done-actions">
-        <button type="button" class="lv-primary" id="lv-retry" hidden>Nouvel essai {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
-        {% if subject_url %}<a class="lv-quiet" href="{{ subject_url }}">Retour à la fiche</a>
-        {% elif monologue %}<a class="lv-quiet" href="{% url 'study:task_browse' part.slug task.slug %}">Choisir un autre sujet</a>{% endif %}
-        {% if not monologue %}<a class="lv-quiet" href="{% url 'study:eo2_topic_picker' %}">Choisir un autre sujet</a>{% endif %}
-      </div>
-    </section>
+{% endblock %}
+{% block debrief_retry %}
+  <button type="button" class="lv-primary" id="lv-retry" hidden>Nouvel essai {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
+{% endblock %}
+{% block session_footer %}
     <noscript><p>Activez JavaScript pour commencer la séance.</p></noscript>
     {% if saved_simulation %}{{ saved_simulation|json_script:"lv-saved-simulation" }}{% endif %}
-    {% else %}
-    <div class="lv-unavailable">
-      <a class="lv-primary" href="{% url 'study:simulation_track' 'eo' %}">Retour aux tâches orales</a>
-    </div>
-    {% endif %}
-  </div>
-</article>
 {% endblock %}
 {% block scripts %}
 {% if gemini_live_available %}

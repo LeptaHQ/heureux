@@ -491,6 +491,12 @@ def _result_context(attempt, spec):
         "task": attempt.task,
         "word_min": word_min,
         "word_max": word_max,
+        "subject_url": (
+            reverse("study:writing_sujet_detail", args=["ee", attempt.task.slug, attempt.sujet_id])
+            if attempt.sujet_id else ""
+        ),
+        "debrief_back_url": reverse("study:simulation_track", args=["ee"]),
+        "debrief_back_label": "Retour à EE",
     })
     return context
 

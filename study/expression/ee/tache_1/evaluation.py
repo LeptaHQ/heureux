@@ -208,6 +208,20 @@ def ground(
         if section not in result["omittedSections"]:
             result["omittedSections"].append(section)
 
+    def grounded_excerpts(quotes, limit, section):
+        if not isinstance(quotes, list):
+            raise ValueError
+        excerpts = []
+        for value in quotes[:limit]:
+            quote = _text(value, 400, empty=True)
+            if _locate(response, quote) is None:
+                omit(section)
+            else:
+                excerpts.append(quote)
+        if not excerpts:
+            raise ValueError
+        return excerpts
+
     result["verdict"] = _text(report["verdict"], 900)
     result["cefr"] = _text(report["cefr"], 32)
     result["confidence"] = _text(report["confidence"], 16)
@@ -278,33 +292,16 @@ def ground(
         rating = _text(item["rating"], 20)
         if rating not in _RATINGS:
             raise ValueError
-        quotes = item["quotes"]
-        if not isinstance(quotes, list) or not quotes:
-            raise ValueError
-        grounded_quotes = []
-        for quote in quotes[:4]:
-            quote = _text(quote, 400)
-            if _locate(response, quote) is None:
-                raise ValueError
-            grounded_quotes.append(quote)
         result["criteria"].append(
             {
                 "key": key,
                 "rating": rating,
-                "quotes": grounded_quotes,
+                "quotes": grounded_excerpts(item["quotes"], 4, "criteria"),
                 "evidence": _text(item["evidence"], 700),
             }
         )
     result["gradeRationale"] = _text(report["gradeRationale"], 1800)
-    grade_evidence = report["gradeEvidence"]
-    if not isinstance(grade_evidence, list) or not grade_evidence:
-        raise ValueError
-    result["gradeEvidence"] = []
-    for quote in grade_evidence[:6]:
-        quote = _text(quote, 400)
-        if _locate(response, quote) is None:
-            raise ValueError
-        result["gradeEvidence"].append(quote)
+    result["gradeEvidence"] = grounded_excerpts(report["gradeEvidence"], 6, "gradeEvidence")
 
     result["strengths"] = []
     if not isinstance(report["strengths"], list):
@@ -366,10 +363,6 @@ def ground(
     if type(report["improvedWordCount"]) is not int:
         raise ValueError
     if improved and not word_min <= improved_count <= word_max:
-        omit("improvedResponse")
-        improved = ""
-        improved_count = 0
-    elif improved and report["improvedWordCount"] != improved_count:
         omit("improvedResponse")
         improved = ""
         improved_count = 0
@@ -437,6 +430,7 @@ def score(
         reply = json.loads(body)
         choice = reply["choices"][0]
         if choice.get("finish_reason") != "stop" or choice["message"].get("refusal"):
+            logger.warning("EE writing evaluation: provider did not return a complete report after %.1f s", elapsed)
             raise oral_evaluation.EvaluationError(422, _UNREADABLE)
         report = json.loads(choice["message"]["content"], object_pairs_hook=_unique)
         return ground(
@@ -450,5 +444,5 @@ def score(
     except oral_evaluation.EvaluationError:
         raise
     except (ValueError, KeyError, IndexError, TypeError, AttributeError, RecursionError):
-        logger.warning("EE1 evaluation: provider report failed grounding after %.1f s", elapsed)
+        logger.warning("EE writing evaluation: provider report failed grounding after %.1f s", elapsed)
         raise oral_evaluation.EvaluationError(502, _UNREADABLE) from None

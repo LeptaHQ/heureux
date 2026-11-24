@@ -573,6 +573,9 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         command._sync_cards(response_by_key, user=self.user)
         return task_by_slug["eo/tache-2"]
 
+    @override_settings(
+        EE1_EVALUATION_PROVIDER="gemini", GEMINI_EVALUATION_API_KEY="fixture-evaluation-key", GROQ_API_KEY="fixture-groq-key",
+    )
     def test_written_simulation_debrief_retries_and_shows_corrections_before_proposal(self):
         task = factories.make_task(factories.make_part("ee"), "tache-1")
         sujet = factories.make_writing_sujet(task)
@@ -590,38 +593,89 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             "verdict": "Le message est clair.", "uncertainty": "",
             "gradeRationale": "Le but est formulé dès le début.", "gradeEvidence": [],
             "taskCompliance": [], "strengths": [],
-            "criteria": [{"key": "linguistic", "rating": "Developing", "evidence": "Il manque un accent.", "quotes": ["a dîner"]}],
+            "criteria": [
+                {"key": "linguistic", "rating": "Developing", "evidence": "Il manque un accent.", "quotes": ["a dîner"]},
+                {"key": "sociolinguistic", "rating": "Excellent", "evidence": "Le ton est adapté.", "quotes": ["Je vous invite"]},
+            ],
             "corrections": [{"before": "a dîner", "after": "à dîner", "type": "Orthographe", "why": "Il faut un accent."}],
             "relevance": [], "upgrades": [], "priorities": [],
             "improvedResponse": "Bonjour !\n\nEst-ce que cela te dirait de venir dîner ?",
             "improvedWordCount": 11,
         }
         replies = iter([
-            {"status": "unavailable", "error": "Le bilan est illisible. Votre réponse reste disponible."},
-            {"status": "processing"},
-            {"status": "ready", "report": report},
+            (409, {"error": "Le service d’évaluation a changé. Rechargez la page avant de réessayer."}),
+            (200, {"status": "unavailable", "error": "Le bilan est illisible. Votre réponse reste disponible."}),
+            (202, {"status": "processing"}),
+            (200, {"status": "ready", "report": report}),
+            (200, {"status": "ready", "report": {
+                **report, "score": 11, "nclc": "NCLC 7",
+                "corrections": [{**report["corrections"][0], "why": "Accent grave sur la préposition."}],
+                "improvedResponse": "Salut !\n\nÇa te dirait de venir dîner chez moi ?",
+            }}),
         ])
-        self.page.route(f"**{evaluation_url}", lambda route: route.fulfill(json=next(replies)))
+
+        def evaluation_reply(route):
+            status, payload = next(replies)
+            route.fulfill(status=status, json=payload)
+
+        self.page.route(re.compile(re.escape(evaluation_url) + r"(?:\?[^#]*)?$"), evaluation_reply)
         proposal = self.page.locator("#lv-proposal")
         expect(proposal).to_be_hidden()
-        self.page.get_by_role("button", name="Évaluer ma réponse").click()
+        title = self.page.get_by_role("heading", name="Bilan de votre session", exact=True)
+        trigger = title.locator("..").get_by_role("button", name="Choisir le modèle d’évaluation")
+        models = self.page.get_by_role("group", name="Modèles d’évaluation")
+        expect(models).to_be_hidden()
+        trigger.click()
+        expect(models).to_have_text("Gemini Groq")
+        expect(models.get_by_role("button", name="Groq")).to_be_visible()
+        self.page.keyboard.press("Tab")
+        expect(models.get_by_role("button", name="Gemini")).to_be_focused()
+        self.page.keyboard.press("Escape")
+        expect(models).to_be_hidden()
+        expect(trigger).to_be_focused()
+
+        def select_model(name):
+            trigger.click()
+            models.get_by_role("button", name=name).click()
+
+        with self.page.expect_request(lambda request: request.method == "POST" and request.url.endswith(evaluation_url)) as request:
+            select_model("Gemini")
+        self.assertEqual(request.value.post_data_json, {"consent": True, "provider": "gemini"})
+        expect(self.page.get_by_role("status").filter(has_text="Rechargez la page")).to_be_visible()
+        select_model("Gemini")
         expect(self.page.get_by_role("status").filter(has_text="Le bilan est illisible")).to_be_visible()
         expect(self.page.locator("#lv-transcript")).to_contain_text(body)
-        self.page.get_by_role("button", name="Réessayer").click()
+        select_model("Gemini")
         expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
         expect(self.page.locator("[data-writing-score]")).not_to_contain_text("confiance")
         expect(self.page.get_by_role("heading", name="Au prochain essai")).to_have_count(0)
-        expect(self.page.get_by_role("row", name=re.compile("Linguistique Developing"))).to_be_visible()
+        criteria = self.page.locator("[data-writing-criteria]")
+        for label, mark in (("Linguistique", "2/5"), ("Sociolinguistique", "5/5")):
+            row = criteria.get_by_role("row").filter(
+                has=self.page.get_by_role("rowheader", name=label, exact=True),
+            )
+            expect(row.get_by_role("cell", name=mark, exact=True)).to_be_visible()
         expect(self.page.locator("#lv-transcript tbody tr")).to_contain_text("à dîner")
         expect(proposal.locator("#lv-proposal-lines p")).to_have_text(report["improvedResponse"].split("\n\n"))
-        for width in (390, 1280):
+        for width in (320, 390, 1280):
             self.page.set_viewport_size({"width": width, "height": 900})
             cards = [self.page.locator(f"#lv-{name}").bounding_box()["y"] for name in ("assessment", "transcript", "proposal")]
             self.assertLess(cards[0], cards[1])
             self.assertLess(cards[1], cards[2])
+            heading, sparkle = title.bounding_box(), trigger.bounding_box()
+            self.assertAlmostEqual(heading["y"] + heading["height"] / 2, sparkle["y"] + sparkle["height"] / 2, delta=1)
+            self.assertLessEqual(heading["x"] + heading["width"], sparkle["x"])
             self.assert_no_horizontal_overflow()
         expect(self.page.get_by_role("link", name="Étudier ce sujet").locator('[data-icon="book-open"]')).to_be_visible()
         expect(self.page.get_by_role("link", name="Retour à EE").locator('[data-icon="arrow-left"]')).to_be_visible()
+        self.page.locator("#lv-assessment > summary").click()
+        expect(trigger).to_be_visible()
+        select_model("Groq")
+        expect(self.page.locator("#lv-level")).to_have_text("11/20 · NCLC 7 · B2")
+        expect(self.page.locator("#lv-assessment")).to_have_attribute("open", "")
+        expect(self.page.locator("#lv-transcript tbody tr")).to_contain_text("Accent grave sur la préposition.")
+        expect(self.page.locator("#lv-transcript")).to_contain_text(body)
+        expect(proposal.locator("#lv-proposal-lines p").last).to_have_text("Ça te dirait de venir dîner chez moi ?")
 
     def test_writing_response_copy_buttons_copy_each_model_and_personal_text(self):
         self.context.add_init_script(

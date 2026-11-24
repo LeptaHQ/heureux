@@ -259,25 +259,68 @@ class EE1SimulationTests(TestCase):
             "Le temps est écoulé",
         )
 
-    def test_evaluation_requires_explicit_consent_and_claims_once(self):
+    @override_settings(EE1_EVALUATION_PROVIDER="gemini", GEMINI_EVALUATION_API_KEY="fixture-evaluation-key", GROQ_API_KEY="")
+    def test_evaluation_requires_consent_for_the_disclosed_provider_and_claims_once(self):
         self.client.post(self._start_url(), {"sujet_id": str(self.sujet.pk)})
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
         body = " ".join(["Bonjour"] * 60)
         self.client.post(self._attempt_url(attempt), {"action": "submit", "body": body})
 
         evaluation_url = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        self.assertContains(self.client.get(self._attempt_url(attempt)), "L’évaluation envoie la consigne et votre réponse à Gemini.")
         self.assertEqual(self.client.post(evaluation_url, content_type="application/json", data="{}").status_code, 400)
         with patch("study.views.writing_simulation.threading.Thread") as thread:
+            for consent in ({"consent": True}, {"consent": True, "provider": "groq"}):
+                rejected = self.client.post(evaluation_url, data=consent, content_type="application/json")
+                self.assertEqual(rejected.status_code, 409)
+            attempt.refresh_from_db()
+            self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.NOT_REQUESTED)
             with self.captureOnCommitCallbacks(execute=True):
                 response = self.client.post(
                     evaluation_url,
-                    data='{"consent": true}',
+                    data={"consent": True, "provider": "gemini"},
                     content_type="application/json",
                 )
         self.assertEqual(response.status_code, 202)
         attempt.refresh_from_db()
         self.assertEqual(attempt.evaluation_status, "processing")
         thread.assert_called_once()
+
+    @override_settings(
+        EE1_EVALUATION_PROVIDER="gemini", GEMINI_EVALUATION_API_KEY="fixture-evaluation-key", GROQ_API_KEY="fixture-groq-key",
+    )
+    def test_selecting_a_second_model_preserves_the_original_report(self):
+        self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
+        attempt = WritingSimulationAttempt.objects.get(user=self.owner)
+        attempt.body = " ".join(["Bonjour"] * 60)
+        attempt.status = WritingSimulationAttemptStatus.SUBMITTED
+        attempt.evaluation_status = WritingSimulationEvaluationStatus.READY
+        attempt.evaluation = {"score": 9}
+        attempt.save(update_fields=["body", "status", "evaluation_status", "evaluation"])
+        url = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        self.assertEqual(self.client.get(url, {"provider": "groq"}).json()["report"], {"score": 9})
+        self.assertEqual(self.client.get(url, {"provider": "gemini"}).json()["status"], "not_requested")
+
+        with patch("study.views.writing_simulation.threading.Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+            claim = self.client.post(url, data={"consent": True, "provider": "gemini"}, content_type="application/json")
+        self.assertEqual(claim.status_code, 202)
+        attempt.refresh_from_db()
+        thread.assert_called_once()
+        self.assertEqual(thread.call_args.kwargs["args"][-1], "gemini")
+        self.assertEqual(self.client.get(url, {"provider": "groq"}).json()["report"], {"score": 9})
+
+        with patch.object(writing_evaluation, "score", return_value={"score": 11}) as score:
+            writing_simulation.run_evaluation(attempt.pk, attempt.evaluation_started_at, self.spec, "groq")
+            score.assert_not_called()
+            writing_simulation.run_evaluation(attempt.pk, attempt.evaluation_started_at, self.spec, "gemini")
+        self.assertEqual(score.call_args.kwargs["provider"], "gemini")
+
+        with self.settings(GEMINI_EVALUATION_API_KEY=""), patch("study.views.writing_simulation.threading.Thread") as thread:
+            with self.captureOnCommitCallbacks(execute=True):
+                for provider, expected in (("gemini", 11), ("groq", 9)):
+                    cached = self.client.post(url, data={"consent": True, "provider": provider}, content_type="application/json")
+                    self.assertEqual(cached.json()["report"], {"score": expected})
+            thread.assert_not_called()
 
     def test_evaluation_worker_persists_ready_report_only_for_its_claim(self):
         self.client.post(self._start_url(), {"sujet_id": str(self.sujet.pk)})
@@ -421,6 +464,7 @@ class EE1SimulationTests(TestCase):
             self.assertLessEqual(len(prose), limit)
         self.assertTrue({"strengths", "corrections", "improvedResponse"} <= set(result["omittedSections"]))
 
+    @override_settings(EE1_EVALUATION_PROVIDER="groq")
     def test_groq_reports_ground_evidence_in_strict_mode_and_after_schema_retry(self):
         greeting = "Bonjour, j’ai trouvé une salle de sport près de chez moi."
         original = f"{greeting}\n\nÀ bientôt !"
@@ -481,3 +525,63 @@ class EE1SimulationTests(TestCase):
                 })
                 if len(responses) == 2:
                     self.assertEqual(requests[0]["messages"][1], requests[1]["messages"][1])
+
+    @override_settings(EE1_EVALUATION_PROVIDER="gemini", GEMINI_EVALUATION_API_KEY="fixture-evaluation-key")
+    @patch.object(evaluation, "HTTPSConnection", autospec=True)
+    def test_gemini_uses_the_writing_rubric_and_grounds_its_report(self, transport):
+        conn = transport.return_value
+        conn.sock = None
+        upstream = conn.getresponse.return_value.__enter__.return_value
+        upstream.status = 200
+        fixture = self._provider_report()
+        fixture["criteria"]["sociolinguistic"]["rating"] = "Excellent"
+        output = json.dumps(fixture)
+        upstream.read.return_value = json.dumps({"candidates": [{
+            "finishReason": "STOP",
+            "content": {"parts": [
+                {"thought": True, "text": "Not part of the report."},
+                {"text": output[:80]}, {"text": output[80:]},
+            ]},
+        }]}).encode()
+
+        report = writing_evaluation.score(
+            task_number=1, subject=self.sujet.prompt, response="Bonjour",
+            word_count=1, word_min=60, word_max=120,
+        )
+
+        self.assertEqual((report["score"], report["cefr"], report["gradeEvidence"]), (12, "B2", ["Bonjour"]))
+        self.assertEqual(report["criteria"][-1]["rating"], "Excellent")
+        transport.assert_called_once()
+        self.assertEqual(transport.call_args.args, ("generativelanguage.googleapis.com",))
+        request = conn.request.call_args
+        self.assertEqual(request.args, ("POST", "/v1beta/models/gemini-3.8-flash:generateContent"))
+        self.assertEqual(request.kwargs["headers"]["x-goog-api-key"], "fixture-evaluation-key")
+        payload = json.loads(request.kwargs["body"])
+        self.assertIn(load_ee_ai_examiner_prompt(1), payload["systemInstruction"]["parts"][0]["text"])
+        self.assertEqual(json.loads(payload["contents"][0]["parts"][0]["text"]), {
+            "subject": self.sujet.prompt, "response": "Bonjour", "passages": [{"id": "E1", "text": "Bonjour"}],
+            "wordCount": 1, "wordMin": 60, "wordMax": 120,
+        })
+        self.assertEqual(payload["generationConfig"]["responseMimeType"], "application/json")
+        self.assertEqual(payload["generationConfig"]["responseJsonSchema"], writing_evaluation._SCHEMA)
+
+    @override_settings(GEMINI_EVALUATION_API_KEY="fixture-evaluation-key")
+    def test_gemini_does_not_grade_blocked_or_incomplete_responses(self):
+        for reply, message in (
+            ({"promptFeedback": {"blockReason": "SAFETY"}}, "Aucun bilan"),
+            ({"candidates": [{"finishReason": "MAX_TOKENS"}]}, "incomplet"),
+            ({"candidates": [{"finishReason": "STOP", "content": {"parts": []}}]}, "illisible"),
+        ):
+            with self.subTest(message=message), patch.object(
+                evaluation, "_post", return_value=(json.dumps(reply).encode(), 1),
+            ) as post:
+                with self.assertRaisesRegex(evaluation.EvaluationError, message):
+                    evaluation.request_gemini_report("Rubric", {}, {})
+                post.assert_called_once()
+
+    @override_settings(GEMINI_EVALUATION_API_KEY="", GEMINI_LIVE_API_KEY="fixture-voice-key")
+    @patch.object(evaluation, "_post")
+    def test_gemini_grading_does_not_reuse_the_voice_pilot_key(self, post):
+        with self.assertLogs(evaluation.logger, "WARNING"), self.assertRaises(evaluation.EvaluationError):
+            evaluation.request_gemini_report("Rubric", {}, {})
+        post.assert_not_called()

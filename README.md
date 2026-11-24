@@ -69,14 +69,28 @@ simulator, with frozen prompts, draft saving and task-specific word limits
 (60–120 and 120–150 respectively). EE3 still links to untimed subject practice.
 The session templates live under `study/templates/study/simulation/`, and the
 shared evaluation code lives in `study/simulation/`.
-Both simulators use the same Groq request and decoding code; writing sends the
-exact subject, the response, its word count and limits, and the task’s grading
-instructions. Like the oral grader, it cites numbered passages from the learner’s
-original words instead of asking the model to reproduce the quotations. If Groq
-rejects the writing schema, Heureux retries once in JSON
-mode within the same three-minute deadline and still validates the report and
-its scoring evidence. Bad optional feedback is omitted without hiding an
-otherwise supported score.
+Writing sends the exact subject, the response, its word count and limits, and
+the task’s grading instructions to the disclosed provider. Like the oral grader,
+it verifies citations using numbered passages from the learner’s original words.
+Set `GEMINI_EVALUATION_API_KEY` on Render to use Gemini 3.8 Flash for new EE1
+evaluations. Use a separate [paid-tier Gemini API key](https://ai.google.dev/gemini-api/docs/billing),
+not the free-tier voice pilot key. Set `EE1_EVALUATION_PROVIDER=groq` to switch
+back for the default choice. When more than one model is available, the EE1
+bilan’s sparkle button opens a model picker. Each report is saved separately;
+switching back opens the saved report without grading again. EE2 and oral
+grading stay on Groq. Only the selected provider receives the response. Both providers use the same evidence
+checks; optional feedback can be omitted without hiding a supported score.
+Groq still retries a writing schema rejection once in JSON mode within the
+same three-minute deadline.
+With both evaluation keys configured, the following command compares the
+providers on invented writing samples without using stored learner responses:
+
+```shell
+RUN_WRITING_CALIBRATION=1 python manage.py test study.tests.writing_bilan_calibration
+```
+
+Writing criterion marks run from 1/5 (limited) to 5/5 (excellent); they are
+practice indicators and are not added up to produce the overall estimate.
 In **Simulation → Expression orale → Tâche 2 → Choisir un sujet**, the Sujets table
 and its **Thème**, **Statut** and **Tri** filters let learners find a topic. Its title
 opens the exact publication; the **Séances** count opens its history. **Terminé** is

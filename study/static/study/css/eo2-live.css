@@ -252,10 +252,21 @@
 .lv-assessment__body { display: grid; gap: 0.35rem; min-width: 0; }
 .lv-assessment__controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem 1rem; }
 .lv-assessment__action { display: inline-flex; align-items: center; gap: 0.4rem; }
+.lv-title-row:has(.lv-assessment__action:not([hidden])) { display: flex; align-items: center; gap: 0.65rem; }
+.lv-title-row .lv-assessment__action { position: relative; flex: none; }
+.lv-assessment__models { width: 9rem; }
+.lv-assessment__models .custom-select__option {
+  width: 100%; justify-content: space-between; border: 0; background: none; font-family: inherit;
+}
+.lv-assessment__models .custom-select__option:hover { background: var(--primary-soft); color: var(--primary); }
+.lv-assessment__models .custom-select__option:focus-visible { outline-offset: -2px; }
+.lv-assessment__models .custom-select__option:not([aria-pressed="true"]) .ui-icon { visibility: hidden; }
 .lv-assessment__spinner { visibility: hidden; width: 1rem; height: 1rem; box-sizing: border-box; border: 2px solid var(--border-strong); border-top-color: var(--lv-action); border-radius: 50%; }
 #lv-assess[aria-busy="true"] + .lv-assessment__spinner { visibility: visible; animation: lv-spin 0.8s linear infinite; }
-.lv-assessment .icon-button { --icon-color: currentColor; width: 2.75rem; height: 2.75rem; }
-.lv-assessment .icon-button:disabled { border-color: var(--border); background: var(--surface); color: var(--text-faint); cursor: not-allowed; }
+.lv-title-row .lv-assessment__spinner { position: absolute; inset: 0; margin: auto; pointer-events: none; }
+.lv-title-row #lv-assess[aria-busy="true"] .ui-icon { visibility: hidden; }
+:is(.lv-assessment, .lv-title-row) .icon-button { --icon-color: currentColor; width: 2.75rem; height: 2.75rem; }
+:is(.lv-assessment, .lv-title-row) .icon-button:disabled { border-color: var(--border); background: var(--surface); color: var(--text-faint); cursor: not-allowed; }
 .lv-assessment__status { color: var(--text); font-size: 0.9rem; line-height: 1.45; }
 .lv-assessment__result { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75rem; margin-top: 0.4rem; font-size: 0.96rem; line-height: 1.55; }
 #lv-assessment-reason { color: var(--text); }

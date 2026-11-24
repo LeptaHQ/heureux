@@ -25,14 +25,16 @@
 {% endblock %}
 
 {% block assessment %}
-  {% if attempt.body.strip and attempt.status != "abandoned" %}{{ block.super }}{% endif %}
+  {% if session_title_assessment %}{{ block.super }}{% endif %}
 {% endblock %}
-{% block assessment_form %}
-  <form id="writing-evaluation-form" data-evaluation-url="{% url route_names.evaluate attempt_id=attempt.pk %}" data-evaluation-status="{{ attempt.evaluation_status }}" hidden>
+{% block assessment_controls %}
+  <form id="writing-evaluation-form" data-evaluation-url="{% url route_names.evaluate attempt_id=attempt.pk %}" data-evaluation-status="{{ attempt.evaluation_status }}" data-evaluation-provider="{{ evaluation_provider }}" hidden>
     {% csrf_token %}
   </form>
+  {% if evaluation_providers|length < 2 %}
+    <span id="writing-evaluation-disclosure" class="lv-assessment__aside">L’évaluation envoie la consigne et votre réponse à {{ evaluation_provider|title }}.</span>
+  {% endif %}
 {% endblock %}
-{% block assessment_button %}type="submit" form="writing-evaluation-form" aria-label="Évaluer ma réponse" title="Évaluer ma réponse"{% endblock %}
 {% block assessment_status %}Bilan non demandé.{% endblock %}
 {% block assessment_result %}
   <p data-writing-verdict></p>
@@ -48,10 +50,11 @@
   </section>
   <section class="lv-assessment__part lv-assessment__marks">
     <h3 id="lv-assessment-criteria-title">Détail de la notation</h3>
-    <table class="lv-criteria" aria-labelledby="lv-assessment-criteria-title">
-      <thead><tr><th scope="col">Critère</th><th scope="col">Niveau</th><th scope="col">Observation</th></tr></thead>
+    <table class="lv-criteria" aria-labelledby="lv-assessment-criteria-title" aria-describedby="writing-criteria-note">
+      <thead><tr><th scope="col">Critère</th><th scope="col">Note</th><th scope="col">Observation</th></tr></thead>
       <tbody data-writing-criteria></tbody>
     </table>
+    <p class="lv-assessment__aside" id="writing-criteria-note">Repères d’entraînement : de 1/5 (limité) à 5/5 (excellent). Ces notes ne sont ni officielles ni additionnées pour calculer l’estimation globale.</p>
     <p data-writing-grade-rationale></p>
     <p class="lv-assessment__aside" data-writing-grade-evidence></p>
   </section>
@@ -109,5 +112,5 @@
   </a>
 {% endblock %}
 {% block scripts %}
-  <script src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=3"></script>
+  <script src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=7"></script>
 {% endblock %}

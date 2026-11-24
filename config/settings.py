@@ -278,7 +278,13 @@ if EE2_SIMULATION_MINUTES < 1:
 
 # Private EO2 pilot: never fall back to another key or model.
 GEMINI_LIVE_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
-# The pilot's written bilan; the conversation itself stays on Gemini Live.
+# Do not reuse the free-tier voice pilot key for learners' written submissions.
+GEMINI_EVALUATION_API_KEY = os.environ.get("GEMINI_EVALUATION_API_KEY", "").strip()
+EE1_EVALUATION_PROVIDER = os.environ.get(
+    "EE1_EVALUATION_PROVIDER", "gemini" if GEMINI_EVALUATION_API_KEY else "groq",
+).strip().lower()
+if EE1_EVALUATION_PROVIDER not in {"gemini", "groq"}:
+    raise ImproperlyConfigured("EE1_EVALUATION_PROVIDER must be gemini or groq.")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "").strip()
 
 # Narration is generated only after explicit cost confirmation, never on visits.

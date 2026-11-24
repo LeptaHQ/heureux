@@ -503,6 +503,10 @@ def _expire_if_needed(attempt, now=None):
 
 def _result_context(attempt, spec):
     word_min, word_max = _attempt_limits(attempt, spec)
+    if spec.number == 1:
+        providers, provider = _ee1_evaluation_options(attempt)
+    else:
+        providers, provider = (), writing_evaluation.provider_for(spec.number)
     context = _session_context(
         spec,
         title="Bilan de votre session",
@@ -518,6 +522,9 @@ def _result_context(attempt, spec):
         "task": attempt.task,
         "word_min": word_min,
         "word_max": word_max,
+        "session_title_assessment": bool(attempt.body.strip()) and attempt.status != WritingSimulationAttemptStatus.ABANDONED,
+        "evaluation_provider": provider,
+        "evaluation_providers": providers,
         "subject_url": (
             reverse("study:writing_sujet_detail", args=["ee", attempt.task.slug, attempt.sujet_id])
             if attempt.sujet_id else ""
@@ -665,9 +672,39 @@ def attempt(request, spec, attempt_id):
         )
 
 
-def _evaluation_payload(attempt):
+def _ee1_reports(attempt):
+    if "reports" in attempt.evaluation:
+        return attempt.evaluation["reports"]
+    # All writing reports saved before the model picker used Groq.
+    return {"groq": attempt.evaluation} if attempt.evaluation_status == WritingSimulationEvaluationStatus.READY else {}
+
+
+def _ee1_evaluation_options(attempt):
+    default = writing_evaluation.provider_for(1)
+    reports = _ee1_reports(attempt)
+    providers = tuple(sorted(writing_evaluation.available_providers() | reports.keys() or {default}))
+    last_provider = attempt.evaluation.get("provider")
+    if last_provider not in providers:
+        last_provider = default if default in reports else next(iter(reports), None)
+    if last_provider is None:
+        last_provider = default if default in providers else providers[0]
+    return providers, last_provider
+
+
+def _evaluation_payload(attempt, provider=None):
+    status = attempt.evaluation_status
+    report = attempt.evaluation if status == WritingSimulationEvaluationStatus.READY else None
+    if provider:
+        report = _ee1_reports(attempt).get(provider)
+        if report is not None:
+            status = WritingSimulationEvaluationStatus.READY
+        elif status == WritingSimulationEvaluationStatus.READY or (
+            status == WritingSimulationEvaluationStatus.UNAVAILABLE
+            and attempt.evaluation.get("provider") not in (None, provider)
+        ):
+            status = WritingSimulationEvaluationStatus.NOT_REQUESTED
     stale = (
-        attempt.evaluation_status == WritingSimulationEvaluationStatus.PROCESSING
+        status == WritingSimulationEvaluationStatus.PROCESSING
         and attempt.evaluation_started_at
         and timezone.now() - attempt.evaluation_started_at >= EVALUATION_STALE_AFTER
     )
@@ -675,34 +712,33 @@ def _evaluation_payload(attempt):
         "status": (
             WritingSimulationEvaluationStatus.UNAVAILABLE
             if stale
-            else attempt.evaluation_status
+            else status
         ),
-        "report": (
-            attempt.evaluation
-            if attempt.evaluation_status == WritingSimulationEvaluationStatus.READY
-            else None
-        ),
+        "report": report,
         "error": (
             "Le bilan précédent n’a pas abouti. Vous pouvez relancer l’évaluation."
             if stale
             else attempt.evaluation_error
-            if attempt.evaluation_status == WritingSimulationEvaluationStatus.UNAVAILABLE
+            if status == WritingSimulationEvaluationStatus.UNAVAILABLE
             else ""
         ),
         "retryable": stale
-        or attempt.evaluation_status == WritingSimulationEvaluationStatus.UNAVAILABLE,
+        or status == WritingSimulationEvaluationStatus.UNAVAILABLE,
     }
 
 
-def run_evaluation(attempt_id, started_at, spec):
+def run_evaluation(attempt_id, started_at, spec, provider=None):
+    claim = {
+        "pk": attempt_id,
+        "evaluation_status": WritingSimulationEvaluationStatus.PROCESSING,
+        "evaluation_started_at": started_at,
+    }
+    if provider:
+        claim["evaluation__provider"] = provider
     close_old_connections()
     try:
         attempt = (
-            WritingSimulationAttempt.objects.filter(
-                pk=attempt_id,
-                evaluation_status=WritingSimulationEvaluationStatus.PROCESSING,
-                evaluation_started_at=started_at,
-            )
+            WritingSimulationAttempt.objects.filter(**claim)
             .only("snapshot", "body", "word_count")
             .first()
         )
@@ -717,6 +753,7 @@ def run_evaluation(attempt_id, started_at, spec):
                 word_count=attempt.word_count or _ee_word_count(attempt.body),
                 word_min=word_min,
                 word_max=word_max,
+                **({"provider": provider} if provider else {}),
             )
         except EvaluationError as exc:
             status = WritingSimulationEvaluationStatus.UNAVAILABLE
@@ -731,15 +768,15 @@ def run_evaluation(attempt_id, started_at, spec):
             status = WritingSimulationEvaluationStatus.READY
             error = ""
         with transaction.atomic():
-            current = WritingSimulationAttempt.objects.select_for_update().filter(
-                pk=attempt_id,
-                evaluation_status=WritingSimulationEvaluationStatus.PROCESSING,
-                evaluation_started_at=started_at,
-            ).first()
+            current = WritingSimulationAttempt.objects.select_for_update().filter(**claim).first()
             if current is None:
                 return
             current.evaluation_status = status
-            current.evaluation = report
+            if provider:
+                if status == WritingSimulationEvaluationStatus.READY:
+                    current.evaluation["reports"][provider] = report
+            else:
+                current.evaluation = report
             current.evaluation_error = error
             current.evaluated_at = timezone.now()
             current.save(
@@ -765,7 +802,7 @@ def evaluate(request, spec, attempt_id):
             data = json.loads(request.body or b"{}")
         except (TypeError, ValueError):
             return HttpResponseBadRequest("Un consentement explicite est requis.")
-        if data != {"consent": True}:
+        if not isinstance(data, dict) or data.get("consent") is not True or data.keys() - {"consent", "provider"}:
             return HttpResponseBadRequest("Un consentement explicite est requis.")
     with transaction.atomic():
         attempt = get_object_or_404(
@@ -779,6 +816,14 @@ def evaluate(request, spec, attempt_id):
             return HttpResponseBadRequest("Cette réponse ne peut pas encore être évaluée.")
         if not attempt.body.strip():
             return HttpResponseBadRequest("Aucune réponse à évaluer.")
+        provider = None
+        if spec.number == 1:
+            providers, default = _ee1_evaluation_options(attempt)
+            provider = request.GET.get("provider", default) if request.method == "GET" else data.get("provider")
+            if provider not in providers:
+                return JsonResponse({"error": "Choisissez un modèle disponible avant de lancer l’évaluation."}, status=409)
+        elif request.method == "POST" and data.get("provider") not in (None, "groq"):
+            return HttpResponseBadRequest("Le modèle d’évaluation n’est pas disponible.")
         if request.method == "GET":
             if request.headers.get("Accept") == "text/html":
                 return render(
@@ -786,18 +831,27 @@ def evaluate(request, spec, attempt_id):
                     "study/simulation/writing_simulation_result.html",
                     _result_context(attempt, spec),
                 )
-            return evaluation_json(attempt)
-        if attempt.evaluation_status == WritingSimulationEvaluationStatus.READY:
-            return evaluation_json(attempt)
+            return evaluation_json(attempt, provider=provider)
+        cached = (
+            provider in _ee1_reports(attempt) if provider
+            else attempt.evaluation_status == WritingSimulationEvaluationStatus.READY
+        )
+        if cached:
+            return evaluation_json(attempt, provider=provider)
         now = timezone.now()
         if (
             attempt.evaluation_status == WritingSimulationEvaluationStatus.PROCESSING
             and attempt.evaluation_started_at
             and now - attempt.evaluation_started_at < EVALUATION_STALE_AFTER
         ):
-            return evaluation_json(attempt, status=202)
+            return evaluation_json(attempt, status=202, provider=provider)
+        if provider and provider not in writing_evaluation.available_providers():
+            return JsonResponse(
+                {"error": "Ce modèle n’est pas disponible pour une nouvelle évaluation."},
+                status=409,
+            )
+        attempt.evaluation = {"provider": provider, "reports": _ee1_reports(attempt)} if provider else {}
         attempt.evaluation_status = WritingSimulationEvaluationStatus.PROCESSING
-        attempt.evaluation = {}
         attempt.evaluation_error = ""
         attempt.evaluation_started_at = now
         attempt.evaluated_at = None
@@ -813,12 +867,12 @@ def evaluate(request, spec, attempt_id):
         transaction.on_commit(
             lambda attempt_id=attempt.pk, started_at=now: threading.Thread(
                 target=run_evaluation,
-                args=(attempt_id, started_at, spec),
+                args=(attempt_id, started_at, spec, provider),
                 daemon=True,
             ).start()
         )
-        return evaluation_json(attempt, status=202)
+        return evaluation_json(attempt, status=202, provider=provider)
 
 
-def evaluation_json(attempt, *, status=200):
-    return JsonResponse(_evaluation_payload(attempt), status=status)
+def evaluation_json(attempt, *, status=200, provider=None):
+    return JsonResponse(_evaluation_payload(attempt, provider), status=status)

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=26">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=30">{% endblock %}
 {% block content %}
 <article class="lv-studio{% block studio_classes %}{% endblock %}" {% block studio_attributes %}{% endblock %}>
   <div class="lv-stage">
@@ -18,13 +18,11 @@
                 <strong id="lv-level">Non évalué</strong>
               </summary>
               <div class="lv-assessment__body">
-                <div id="lv-assessment-controls" class="lv-assessment__controls">
-                  {% block assessment_form %}{% endblock %}
-                  <span class="lv-assessment__action">
-                    <button class="icon-button" id="lv-assess" {% block assessment_button %}type="button" aria-label="Évaluer mon niveau" title="Évaluer mon niveau" disabled{% endblock %}>{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %}</button>
-                    <span class="lv-assessment__spinner" aria-hidden="true"></span>
-                  </span>
-                </div>
+                {% block assessment_controls %}
+                  <div id="lv-assessment-controls" class="lv-assessment__controls">
+                    {% include "study/simulation/partials/assessment_action.html" %}
+                  </div>
+                {% endblock %}
                 <p id="lv-assessment-status" class="lv-assessment__status" role="status">{% block assessment_status %}{% endblock %}</p>
               </div>
               <div id="lv-assessment-result" class="lv-assessment__result" hidden>{% block assessment_result %}{% endblock %}</div>

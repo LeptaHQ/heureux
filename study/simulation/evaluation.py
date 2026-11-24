@@ -14,6 +14,7 @@ from django.conf import settings
 from django.views.decorators.debug import sensitive_variables
 
 MODEL = "openai/gpt-oss-120b"
+_GEMINI_MODEL = "gemini-3.8-flash"
 DEADLINE_SECONDS = 180
 _MAX_RESPONSE = 64_000
 _RETRY_MIN_SECONDS = 30
@@ -46,10 +47,13 @@ def checked_text(value, limit, *, empty=False):
 def _provider_error(raw):
     try:
         error = json.loads(raw)["error"]
-        code, message = error.get("code") or error.get("type"), error.get("message")
+        code = error.get("code")
+        if not isinstance(code, str) or not code:
+            code = error.get("status") or error.get("type")
+        message = error.get("message")
     except (ValueError, KeyError, TypeError, AttributeError, RecursionError):
         return "", ""
-    code = code if isinstance(code, str) and re.fullmatch(r"[a-z_]{1,40}", code) else ""
+    code = code.lower() if isinstance(code, str) and re.fullmatch(r"[A-Za-z_]{1,40}", code) else ""
     return code, " ".join(message.split())[:300] if isinstance(message, str) else ""
 
 
@@ -63,13 +67,12 @@ def _cut(sock, late):
 
 
 @sensitive_variables()
-def _post(payload, deadline):
+def _post(payload, deadline, *, host, path, auth, service):
     started = time.monotonic()
     late, timer = threading.Event(), None
     try:
-        with closing(HTTPSConnection("api.groq.com", timeout=deadline - started)) as conn:
-            conn.request("POST", "/openai/v1/chat/completions", body=payload,
-                         headers={"Content-Type": "application/json", "Authorization": f"Bearer {settings.GROQ_API_KEY}"})
+        with closing(HTTPSConnection(host, timeout=deadline - started)) as conn:
+            conn.request("POST", path, body=payload, headers={"Content-Type": "application/json", **auth})
             sock = conn.sock  # getresponse() can hand the socket over to the response.
             # A trickling reply must not keep renewing the read timeout.
             timer = threading.Timer(max(0, deadline - time.monotonic()), _cut, (sock, late))
@@ -88,16 +91,17 @@ def _post(payload, deadline):
     except (OSError, HTTPException) as exc:
         elapsed = time.monotonic() - started
         if not (isinstance(exc, TimeoutError) or late.is_set()):
-            logger.warning("Groq evaluation: connection %s after %.0f s", type(exc).__name__, elapsed)
+            logger.warning("%s evaluation: connection %s after %.0f s", service, type(exc).__name__, elapsed)
             raise EvaluationError(503, "Le service de bilan est inaccessible. Votre travail reste disponible.",
                                   retry=True) from None
-        logger.warning("Groq evaluation: no report after %.0f s", elapsed)
+        logger.warning("%s evaluation: no report after %.0f s", service, elapsed)
         raise EvaluationError(504, f"Le bilan n’est pas arrivé à temps (arrêt à {elapsed:.0f} s). "
                                    "Votre travail reste disponible.") from None
     finally:
         if timer is not None:
             timer.cancel()
-    logger.warning("Groq evaluation: provider HTTP %d %s %s", resp.status, provider or "-", detail or "-")
+    logger.warning("%s evaluation: provider HTTP %d %s %s", service, resp.status,
+                   provider or "-", (detail if service == "Groq" else "") or "-")
     code = f"HTTP {resp.status} {provider}".strip()
     if resp.status == 429:
         later = f" Réessayez dans {wait} s." if re.fullmatch(r"\d{1,5}", wait) else ""
@@ -107,7 +111,7 @@ def _post(payload, deadline):
                               retry=True)
     raise EvaluationError(
         502, f"La demande de bilan a été refusée ({code}). Votre travail reste disponible.",
-        schema_rejected=resp.status == 400 and provider == "json_validate_failed",
+        schema_rejected=service == "Groq" and resp.status == 400 and provider == "json_validate_failed",
     )
 
 
@@ -128,7 +132,11 @@ def request_report(instruction, packet, schema, *, name="bilan", max_tokens=3584
     deadline = time.monotonic() + DEADLINE_SECONDS
 
     def send():
-        return _post(json.dumps(payload, ensure_ascii=False).encode(), deadline)
+        return _post(
+            json.dumps(payload, ensure_ascii=False).encode(), deadline,
+            host="api.groq.com", path="/openai/v1/chat/completions",
+            auth={"Authorization": f"Bearer {settings.GROQ_API_KEY}"}, service="Groq",
+        )
 
     try:
         body, elapsed = send()
@@ -163,4 +171,43 @@ def request_report(instruction, packet, schema, *, name="bilan", max_tokens=3584
         return json.loads(choice["message"]["content"], object_pairs_hook=unique_fields)
     except (ValueError, KeyError, IndexError, TypeError, AttributeError, RecursionError):
         logger.warning("%s: could not decode the Groq report", name)
+        raise EvaluationError(502, _UNREADABLE) from None
+
+
+@sensitive_variables()
+def request_gemini_report(instruction, packet, schema):
+    key = settings.GEMINI_EVALUATION_API_KEY
+    if not key:
+        logger.warning("Gemini evaluation: no evaluation API key configured")
+        raise EvaluationError(503, "Le service de bilan est indisponible. Votre travail reste disponible.")
+    payload = {
+        "systemInstruction": {"parts": [{"text": instruction}]},
+        "contents": [{"role": "user", "parts": [
+            {"text": json.dumps(packet, ensure_ascii=False, separators=(",", ":"))},
+        ]}],
+        "generationConfig": {
+            "responseMimeType": "application/json",
+            "responseJsonSchema": schema,
+            "maxOutputTokens": 8192,
+            "thinkingConfig": {"thinkingLevel": "LOW"},
+        },
+    }
+    body, _ = _post(
+        json.dumps(payload, ensure_ascii=False).encode(), time.monotonic() + DEADLINE_SECONDS,
+        host="generativelanguage.googleapis.com", path=f"/v1beta/models/{_GEMINI_MODEL}:generateContent",
+        auth={"x-goog-api-key": key}, service="Gemini",
+    )
+    try:
+        reply = json.loads(body)
+        if (reply.get("promptFeedback") or {}).get("blockReason"):
+            raise EvaluationError(422, "Aucun bilan n’a pu être établi.")
+        candidate = reply["candidates"][0]
+        if candidate.get("finishReason") == "MAX_TOKENS":
+            raise EvaluationError(422, "Le bilan est incomplet. Aucune note globale n’a été attribuée.")
+        if candidate.get("finishReason") != "STOP":
+            raise EvaluationError(422, "Aucun bilan n’a pu être établi.")
+        content = "".join(part["text"] for part in candidate["content"]["parts"] if not part.get("thought"))
+        return json.loads(content, object_pairs_hook=unique_fields)
+    except (ValueError, KeyError, IndexError, TypeError, AttributeError, RecursionError):
+        logger.warning("Gemini evaluation: could not decode the report")
         raise EvaluationError(502, _UNREADABLE) from None

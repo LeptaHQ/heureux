@@ -6,7 +6,12 @@
 </div>
 <header class="lv-head">
   <p class="lv-kicker" id="{{ session_kicker_id|default:'lv-kicker' }}">{{ session_kicker }}</p>
-  <h1 id="{{ session_heading_id|default:'lv-title' }}" tabindex="-1">{{ session_title }}</h1>
+  <div class="lv-title-row">
+    <h1 id="{{ session_heading_id|default:'lv-title' }}" tabindex="-1">{{ session_title }}</h1>
+    {% if session_title_assessment %}
+      {% include "study/simulation/partials/assessment_action.html" %}
+    {% endif %}
+  </div>
   <p class="lv-prompt" id="{{ session_prompt_id|default:'lv-prompt' }}">{{ session_prompt }}</p>
   {% if session_selected_subject %}<p class="lv-selected-subject">Sujet choisi · {{ session_selected_subject }}</p>{% endif %}
 </header>

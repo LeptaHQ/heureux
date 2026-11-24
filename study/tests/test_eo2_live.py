@@ -761,6 +761,10 @@ class GeminiLiveTests(TestCase):
         page = self.client.get(url, {"deduplicate": "0"})
         self.assert_private(page, 200)
         self.assertEqual(page.context["scenario_prompt"], variant.text)
+        self.assertTemplateUsed(page, "study/expression/partials/subject_navigation.html")
+        nav = page.context["session_subject_nav"]
+        self.assertEqual((nav["position"], nav["total"]), (2, 2))
+        self.assertEqual(nav["previous"]["url"], reverse("study:eo_tache_three_live", args=[canonical.pk]) + "?deduplicate=0")
         self.assertEqual(page.context["subject_url"], reverse("study:response_detail", args=["eo", task.slug, variant.pk]) + "?deduplicate=0")
         self.assertIn("microphone=(self)", page["Permissions-Policy"])
         self.assertIn("wss://generativelanguage.googleapis.com", page["Content-Security-Policy"])

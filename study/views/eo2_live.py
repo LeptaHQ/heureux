@@ -25,8 +25,9 @@ from study.simulation import live_conversation, oral_evaluation
 from study.simulation.evaluation import DEADLINE_SECONDS, PROVIDER_LABELS, EvaluationError, available_providers
 from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation, Prompt
 from study.navigation.routing import subject_selection_url
+from .eo2_practice import practice_topics
 from .helpers import _route_task, tache_two_publication
-from .simulation import render_subject_picker, subject_picker_context
+from .simulation import render_subject_picker, studio_navigation, subject_picker_context
 
 
 DEFAULT_CONSIGNE = (
@@ -89,6 +90,7 @@ def opinion_picker(request):
     for prompt in prompts:
         rows.append(row(prompt.pk, prompt.text, prompt.theme.slug, prompt.theme.display_name, (prompt.pk,)))
     context = subject_picker_context(request, rows)
+    context["task"] = task
     context["picker"] = {
         "back_url": reverse("study:simulation_track", args=["eo"]),
         "back_label": "Expression orale", "kicker": "Simulation · EO Tâche 3",
@@ -125,6 +127,40 @@ def _live_subject(task, publication):
 
 def _route_name(task):
     return "study:eo_tache_three_live" if task.slug == "tache-3" else "study:eo_tache_two_live"
+
+
+def _studio_navigation(request, task, subject, publication):
+    if task.slug == "tache-3":
+        picker = "study:eo3_topic_picker"
+        selected = publication.get("prompt_id")
+        if not selected:
+            return studio_navigation(request, picker)
+        prompts = _opinion_prompts(task)
+        group = prompts.filter(pk=selected).values_list(
+            "theme_id", "theme__slug", "theme__display_name",
+        ).first()
+        if group is None:
+            return studio_navigation(request, picker)
+        theme_id, theme, label = group
+        siblings = prompts.filter(theme_id=theme_id).order_by("family__order", "family__name", "number", "pk")
+        return studio_navigation(
+            request, picker, theme=theme, label=label, selected=selected,
+            subjects=((pk, title, reverse(_route_name(task), args=[pk])) for pk, title in siblings.values_list("pk", "text")),
+        )
+    picker = "study:eo2_topic_picker"
+    topics = practice_topics() if publication else {}
+    topic = topics.get(subject.key)
+    if not topic:
+        return studio_navigation(request, picker)
+    siblings = [item for item in topics.values() if item.theme_slug == topic.theme_slug]
+    active = set(Prompt.objects.filter(
+        theme__task=task, is_active=True, response__is_active=True,
+        content_key__in=[item.key for item in siblings],
+    ).values_list("content_key", flat=True))
+    return studio_navigation(
+        request, picker, theme=topic.theme_slug, label=topic.theme, selected=topic.key,
+        subjects=((item.key, item.title, item.simulation_url) for item in siblings if item.key in active),
+    )
 
 
 @never_cache
@@ -175,8 +211,6 @@ def oral_live(request, task_slug, **publication):
                 if selected_provider in cached and selected_provider != "groq":
                     reopened["report"] = _oral_report(selected, selected_provider)
     if monologue:
-        session_back_url = reverse("study:eo3_topic_picker")
-        session_back_label = "Choisir un sujet"
         session_kicker = "Expression d’un point de vue"
         session_prompt = (
             "La simulation est indisponible pour le moment."
@@ -189,8 +223,6 @@ def oral_live(request, task_slug, **publication):
             {"key": "done", "name": "Bilan", "meta": "à chaud", "about": "Transcription et repères tirés de vos paroles."},
         ]
     else:
-        session_back_url = subject_url or reverse("study:eo2_topic_picker")
-        session_back_label = "Fiche du sujet" if subject_url else "Choisir un sujet"
         session_kicker = "Interaction"
         session_prompt = (
             "La simulation est indisponible pour le moment."
@@ -202,7 +234,9 @@ def oral_live(request, task_slug, **publication):
             {"key": "live", "name": "Échange", "meta": "3 min 30", "about": "Vous menez la conversation à voix haute."},
             {"key": "done", "name": "Bilan", "meta": "à chaud", "about": "Transcription et repères tirés de vos paroles."},
         ]
+    navigation = _studio_navigation(request, task, subject, publication)
     return TemplateResponse(request, "study/simulation/oral_session.html", {
+        **navigation,
         "part": task.part,
         "task": task,
         "gemini_live_available": available,
@@ -224,14 +258,11 @@ def oral_live(request, task_slug, **publication):
         "scenario_prompt": subject.prompt,
         "subject": subject,
         "subject_url": subject_url,
-        "debrief_back_url": session_back_url if monologue else reverse("study:eo2_topic_picker"),
+        "debrief_back_url": navigation["session_task_url"],
         "debrief_back_label": "Choisir un autre sujet",
-        "session_back_url": session_back_url,
-        "session_back_label": session_back_label,
         "session_brand_icon": "headphones",
         "session_brand": f"Studio oral · {task.short_label}",
         "session_kicker": session_kicker,
-        "session_title": "Simulation",
         "session_prompt": session_prompt,
         "session_selected_subject": subject.title if subject_url and not monologue else "",
         "session_steps": session_steps,

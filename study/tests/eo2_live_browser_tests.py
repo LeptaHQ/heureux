@@ -208,6 +208,9 @@ class LiveConversationBrowserMixin:
         expect(self.page).to_have_title(f"Simulation · {task.short_label} · {subject.title} · Heureux")
         expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation")
         expect(self.page.locator(".lv-selected-subject")).to_be_visible()
+        expect(self.page.get_by_role("navigation", name="Fil d’Ariane")).to_contain_text("EO")
+        expect(self.page.get_by_role("navigation", name="Navigation entre les sujets")).to_be_visible()
+        expect(self.page.locator("#prompt-select-top option[selected]")).to_contain_text(subject.title)
         self.page.set_viewport_size({"width": 1280, "height": 850})
         self.assertLess(self.page.locator("#lv-title").bounding_box()["y"], self.page.locator(".lv-steps").bounding_box()["y"])
         expect(self.pin_dialog).to_be_hidden()  # The PIN waits for « Commencer la séance ».
@@ -911,6 +914,7 @@ class LiveConversationBrowserMixin:
             saved.get_by_role("link").click()
             expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation")
             expect(self.page.locator("#lv-kicker")).to_have_text("Votre bilan")
+            expect(self.page.locator("#lv-status")).to_have_text("Séance enregistrée.")
             expect(level).to_have_text("12/20 · NCLC 8 · B2")
             expect(self.page.locator("#lv-assessment-legacy")).to_be_visible()
             expect(self.page.locator("#lv-assessment-criteria a")).to_have_count(0)

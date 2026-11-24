@@ -6,20 +6,11 @@
 
 {% block session_controls %}
   <aside class="lv-console" aria-label="État de la session">
-    <p class="lv-status">
-      {% if attempt.status == "submitted" %}
-        {% if simulation.number == 1 %}Votre message a été remis dans le temps.{% else %}Votre production a été remise dans le temps.{% endif %}
-      {% elif attempt.status == "expired" %}
-        Le temps est écoulé&nbsp;; votre brouillon a été conservé.
-      {% else %}
-        Cette session a été abandonnée et reste privée dans votre historique.
-      {% endif %}
-    </p>
+    {% include "study/simulation/partials/session_status.html" %}
   </aside>
 {% endblock %}
 
 {% block report_metrics %}
-  <div><dt>Statut</dt><dd>{{ attempt.get_status_display }}</dd></div>
   <div><dt>Mots</dt><dd>{{ attempt.word_count|default:0 }} / {{ word_min }}–{{ word_max }}</dd></div>
   <div><dt>Sujet</dt><dd>{{ attempt.snapshot.category_label }}</dd></div>
 {% endblock %}

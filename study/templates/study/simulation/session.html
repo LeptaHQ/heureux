@@ -1,8 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=32">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=33">{% endblock %}
 {% block content %}
 <article class="lv-studio{% block studio_classes %}{% endblock %}" {% block studio_attributes %}{% endblock %}>
+  <div class="lv-navigation" style="--subject-accent: {{ task.color }};">
+    {% include "study/expression/partials/task_breadcrumb.html" with task=task part=task.part task_url=session_task_url current=session_theme_label only %}
+    <div class="lv-topline">
+      <nav aria-label="Retour">{% include "study/expression/partials/subject_back.html" with back_url=session_back_url back_label=session_back_label only %}</nav>
+      <p class="lv-brand">{% include "study/shared/partials/ui_icon.html" with name=session_brand_icon only %} {{ session_brand }}</p>
+    </div>
+    {% if session_subject_nav %}
+      {% with nav=session_subject_nav %}
+        {% include "study/expression/partials/subject_navigation.html" with position=nav.position total=nav.total choices=nav.choices previous_url=nav.previous.url previous_title=nav.previous.label next_url=nav.next.url next_title=nav.next.label only %}
+      {% endwith %}
+    {% endif %}
+  </div>
   <div class="lv-stage">
     {% include "study/simulation/partials/session_header.html" %}
     {% block session_body %}

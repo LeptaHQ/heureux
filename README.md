@@ -73,6 +73,8 @@ limits. EE3 also freezes both source documents and checks its two sections
 separately: a 40–60-word synthesis and an 80–120-word supported opinion.
 Subjects with missing, invalid or duplicate source documents remain available
 for study but cannot start an EE3 simulation.
+Studios use the subject pages’ breadcrumb, theme back link and previous/next
+subject picker. The arrows open another subject’s studio without starting it.
 Oral and written studios use the same saved-session list. Its trash icon
 permanently deletes the chosen session and its bilan after confirmation.
 The session templates live under `study/templates/study/simulation/`, and the

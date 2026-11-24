@@ -10,10 +10,10 @@
 <article class="tache-two-subject-detail" style="--subject-accent: {{ task.color }};">
   <header class="tache-two-subject-detail__hero">
     <div class="tache-two-subject-detail__meta">
-      <a class="subject-page-back" href="{% subject_url 'study:task_browse' part.slug task.slug %}#theme-{{ subject_theme_slug }}">
-        {% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %}
-        {{ subject_theme_name }}
-      </a>
+      {% with fragment="theme-"|add:subject_theme_slug %}
+        {% subject_url 'study:task_browse' part.slug task.slug fragment=fragment as theme_url %}
+        {% include "study/expression/partials/subject_back.html" with back_url=theme_url back_label=subject_theme_name only %}
+      {% endwith %}
       <span>
         Sujet {{ subject_position }} sur {{ subject_total }} · {{ subject_questions|length }} questions préparées
         {% if response_content.is_personal %} · <span class="chip">Version personnelle</span>{% endif %}

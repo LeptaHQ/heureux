@@ -4,15 +4,8 @@
 
 {% block content %}
 <div class="ee-t1-page ee-t1-detail tache-two-subject-detail" style="--subject-accent: {{ task.color }};">
-  <div class="task-context" style="--task-accent: {{ task.color }};">
-    <a href="{% url 'study:expression' %}">Expression</a>
-    <span aria-hidden="true">›</span>
-    <a href="{% url 'study:part_detail' part.slug %}">{{ part.short_name }}</a>
-    <span aria-hidden="true">›</span>
-    <a href="{% subject_url 'study:task_browse' part.slug task.slug %}">{{ task.name }}</a>
-    <span aria-hidden="true">›</span>
-    <strong>{{ category_label }}</strong>
-  </div>
+  {% subject_url 'study:task_browse' part.slug task.slug as directory_url %}
+  {% include "study/expression/partials/task_breadcrumb.html" with task=task part=part task_url=directory_url current=category_label only %}
 
   {% if personal_saved %}<div class="notice">Votre version personnelle a été enregistrée.</div>{% endif %}
   {% if personal_reset %}<div class="notice">La réponse modèle est de nouveau affichée.</div>{% endif %}
@@ -20,10 +13,10 @@
 
   <header class="tache-two-subject-detail__hero">
     <div class="tache-two-subject-detail__meta">
-      <a class="subject-page-back" href="{% subject_url 'study:task_browse' part.slug task.slug %}#theme-{{ sujet.category }}">
-        {% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %}
-        {{ category_label }}
-      </a>
+      {% with fragment="theme-"|add:sujet.category %}
+        {% subject_url 'study:task_browse' part.slug task.slug fragment=fragment as theme_url %}
+        {% include "study/expression/partials/subject_back.html" with back_url=theme_url back_label=category_label only %}
+      {% endwith %}
       <span>
         {% if source %}{{ source.month_name }} {{ source.year }} · {% endif %}
         Sujet {{ position }} sur {{ total }}

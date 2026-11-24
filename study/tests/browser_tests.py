@@ -578,9 +578,19 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
     def test_writing_simulation_uses_inline_timer_and_shared_delete_confirmation(self):
         task = factories.make_task(factories.make_part("ee"), "tache-1")
         sujet = factories.make_writing_sujet(task)
+        next_sujet = factories.make_writing_sujet(
+            task, slug="deuxieme", category=sujet.category, order=sujet.order + 1,
+        )
         setup = self.live_server_url + reverse("study:ee1_simulation", query={"sujet_id": sujet.pk})
+        next_setup = self.live_server_url + reverse("study:ee1_simulation", query={"sujet_id": next_sujet.pk})
         self.page.set_viewport_size({"width": 320, "height": 900})
         self.page.goto(setup)
+        nav = self.page.get_by_role("navigation", name="Navigation entre les sujets")
+        nav.get_by_role("link", name=re.compile(r"^Sujet suivant")).click()
+        expect(self.page).to_have_url(next_setup)
+        nav.get_by_role("button", name=re.compile(r"Sujet 2 sur 2")).click()
+        nav.get_by_role("option", name=re.compile(r"^Sujet 1 ")).click()
+        expect(self.page).to_have_url(setup)
         self.page.get_by_role("button", name="Commencer la séance").click()
         self.page.locator("#writing-body").fill("Ce brouillon reste en place.")
         for label, icon in (("Enregistrer le brouillon", "save"), ("Remettre la réponse", "check")):
@@ -719,7 +729,11 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         worker.assert_called_once()
         proposal = self.page.locator("#lv-proposal")
         expect(proposal).to_be_visible()
-        title = self.page.get_by_role("heading", name="Bilan de votre session", exact=True)
+        title = self.page.get_by_role("heading", name="Simulation", exact=True)
+        expect(self.page.locator("#lv-kicker")).to_have_text("Votre bilan")
+        expect(self.page.locator("#lv-prompt")).to_have_text(sujet.prompt)
+        expect(self.page.locator("#lv-status")).to_have_text("Séance enregistrée.")
+        expect(self.page.get_by_role("navigation", name="Fil d’Ariane")).to_contain_text(sujet.category_label)
         trigger = title.locator("..").get_by_role("button", name="Choisir le modèle d’évaluation")
         models = self.page.get_by_role("group", name="Modèles d’évaluation")
         expect(models).to_be_hidden()

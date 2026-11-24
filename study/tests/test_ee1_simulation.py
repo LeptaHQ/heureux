@@ -134,6 +134,28 @@ class EE1SimulationTests(TestCase):
         self.assertContains(response, "12 minutes")
         self.assertContains(response, 'name="sujet_id"')
 
+    def test_selected_subject_uses_the_study_navigation_with_simulation_destinations(self):
+        next_sujet = factories.make_writing_sujet(
+            self.task, slug="anniversaire", category=self.sujet.category, order=self.sujet.order + 1,
+        )
+        setup = self.client.get(self._setup_url(), {"sujet_id": self.sujet.pk})
+        for component in ("task_breadcrumb", "subject_back", "subject_navigation"):
+            self.assertTemplateUsed(setup, f"study/expression/partials/{component}.html")
+        nav = setup.context["session_subject_nav"]
+        self.assertEqual((nav["position"], nav["total"]), (1, 2))
+        self.assertIsNone(nav["previous"])
+        self.assertEqual(nav["next"]["url"], reverse("study:ee1_simulation", query={"sujet_id": next_sujet.pk}))
+        self.assertContains(setup, 'data-short-label="Sujet 1 sur 2"')
+        self.assertNotContains(setup, self.other_sujet.prompt)
+        self.assertEqual(
+            setup.context["session_back_url"], reverse("study:ee1_subject_picker", query={"theme": self.sujet.category}),
+        )
+        self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
+        attempt = WritingSimulationAttempt.objects.get(user=self.owner)
+        legacy = {key: value for key, value in attempt.snapshot.items() if key != "category"}
+        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(snapshot=legacy)
+        self.assertEqual(self.client.get(self._attempt_url(attempt)).context["session_subject_nav"], nav)
+
     def test_saved_sessions_use_the_shared_history_and_can_only_be_deleted_by_the_owner(self):
         self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
         mine = WritingSimulationAttempt.objects.get(user=self.owner)
@@ -251,8 +273,13 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(attempt.status, WritingSimulationAttemptStatus.SUBMITTED)
         self.assertEqual(attempt.word_count, 60)
         result = self.client.get(self._attempt_url(attempt))
-        self.assertContains(result, "Bilan de votre session")
-        self.assertContains(result, "Votre message a été remis dans le temps.")
+        self.assertTemplateUsed(result, "study/simulation/partials/session_header.html")
+        self.assertTemplateUsed(result, "study/simulation/partials/session_status.html")
+        self.assertContains(result, 'tabindex="-1">Simulation</h1>')
+        self.assertContains(result, ">Votre bilan</p>")
+        self.assertContains(result, ">Séance enregistrée.</p>")
+        self.assertContains(result, self.sujet.prompt)
+        self.assertNotContains(result, "Une lecture concise")
         self.assertContains(result, "60 / 60–120")
         self.assertContains(result, 'class="lv-studio ee1-session"')
         self.assertContains(result, 'class="lv-track"')

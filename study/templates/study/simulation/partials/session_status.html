@@ -1,0 +1,3 @@
+{% with saved_label="Séance enregistrée." %}
+  <p id="lv-status" class="lv-status" role="status" data-saved-label="{{ saved_label }}">{% if session_saved %}{{ saved_label }}{% else %}{{ session_notice }}{% endif %}</p>
+{% endwith %}

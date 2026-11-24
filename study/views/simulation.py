@@ -8,6 +8,7 @@ from django.urls import reverse
 from django.views.decorators.http import require_safe
 
 from study.models import Task
+from study.navigation.routing import subject_selection_url
 
 
 TRACKS = {
@@ -86,6 +87,34 @@ def render_subject_picker(request, context):
         else "study/simulation/subject_picker.html"
     )
     return render(request, template, context)
+
+
+def studio_navigation(request, picker_route, *, theme="", label="", subjects=(), selected=None):
+    task_url = reverse(picker_route)
+    if not theme:
+        return {
+            "session_task_url": task_url,
+            "session_back_url": task_url,
+            "session_back_label": "Choisir un sujet",
+        }
+    context = {
+        "session_task_url": task_url,
+        "session_theme_label": label,
+        "session_back_url": reverse(picker_route, query={"theme": theme}),
+        "session_back_label": label,
+    }
+    choices = [
+        {"label": title, "url": subject_selection_url(url, request), "position": index, "selected": key == selected}
+        for index, (key, title, url) in enumerate(subjects, start=1)
+    ]
+    current = next((choice["position"] for choice in choices if choice["selected"]), None)
+    if current is not None:
+        context["session_subject_nav"] = {
+            "position": current, "total": len(choices), "choices": choices,
+            "previous": choices[current - 2] if current > 1 else None,
+            "next": choices[current] if current < len(choices) else None,
+        }
+    return context
 
 
 @require_safe

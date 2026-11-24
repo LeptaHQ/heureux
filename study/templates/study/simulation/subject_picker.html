@@ -3,6 +3,7 @@
 {% block title %}{{ picker.kicker }} · {{ picker.title }} · Heureux{% endblock %}
 {% block content %}
 <section class="sim-page {{ picker.tone }}" aria-labelledby="{{ picker.heading_id }}">
+  {% include "study/expression/partials/task_breadcrumb.html" with task=task part=task.part only %}
   <nav class="sim-back" aria-label="Retour"><a href="{{ picker.back_url }}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} {{ picker.back_label }}</a></nav>
   <header class="sim-head">
     <p class="sim-kicker">{% if picker.icon %}{% include "study/shared/partials/ui_icon.html" with name=picker.icon only %}{% endif %}{{ picker.kicker }}</p>

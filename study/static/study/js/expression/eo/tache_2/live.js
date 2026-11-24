@@ -58,7 +58,7 @@
     delete root.dataset.mic;
   }
   function bilanHeading() {
-    text("title", initialTitle); text("kicker", "Votre bilan");
+    text("title", initialTitle); text("kicker", by("kicker").dataset.debriefLabel);
   }
   function finish(s, message, ending = "interrupted") {
     if (!owns(s)) return;
@@ -346,7 +346,7 @@
   function reopen(saved) {
     phase("done","Séance enregistrée");
     root.dataset.ending = "normal";
-    bilanHeading(); text("prompt",debriefPrompt); text("status","Séance enregistrée.");
+    bilanHeading(); text("prompt",debriefPrompt); text("status",by("status").dataset.savedLabel);
     review.render(saved.rows,{elapsed:saved.elapsed,saved});
   }
   function setup() {

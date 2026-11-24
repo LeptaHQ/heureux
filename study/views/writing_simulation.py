@@ -37,7 +37,7 @@ from study.models import (
 from study.review.progress import writing_sujet_progress_by_id
 from study.simulation import writing_evaluation
 from study.simulation.evaluation import PROVIDER_LABELS, EvaluationError, available_providers
-from .simulation import render_subject_picker, subject_picker_context
+from .simulation import render_subject_picker, studio_navigation, subject_picker_context
 
 logger = logging.getLogger(__name__)
 
@@ -178,6 +178,31 @@ def _subject_id(value):
     return int(value) if 0 < len(value) <= 18 and value.isascii() and value.isdecimal() else None
 
 
+def _writing_navigation(request, spec, task, subject_id, *, theme="", label="", frozen_title=""):
+    picker = spec.route_names["picker"]
+    if not subject_id:
+        return studio_navigation(request, picker)
+    subjects = _subjects(task, spec)
+    if not theme:
+        fields = ("theme__slug", "theme__display_name") if spec.number == 3 else ("category", "category_label")
+        category = subjects.filter(pk=subject_id).values_list(*fields).first()
+        if not category:
+            return studio_navigation(request, picker)
+        theme, label = category
+    if spec.number == 3:
+        siblings = subjects.filter(theme__slug=theme).order_by("number", "pk").values_list("pk", "text")
+    else:
+        siblings = subjects.filter(category=theme).order_by("order", "pk").values_list("pk", "prompt")
+    setup_url = reverse(spec.route_names["setup"])
+    return studio_navigation(
+        request, picker, theme=theme, label=label, selected=subject_id,
+        subjects=(
+            (pk, frozen_title if pk == subject_id and frozen_title else text, f"{setup_url}?sujet_id={pk}")
+            for pk, text in siblings
+        ),
+    )
+
+
 def _session_steps(minutes):
     return [
         {
@@ -205,7 +230,6 @@ def _session_context(
     spec,
     *,
     selected_subject="",
-    title="Simulation",
     prompt=None,
     minutes=None,
 ):
@@ -215,12 +239,9 @@ def _session_context(
         "simulation": spec.context,
         **spec.context,
         "route_names": route_names,
-        "session_back_url": reverse(route_names["picker"]),
-        "session_back_label": "Choisir un sujet",
         "session_brand_icon": "pen-line",
         "session_brand": f"Studio écrit · {spec.task_label}",
         "session_kicker": "Expression écrite",
-        "session_title": title,
         "session_prompt": prompt or spec.session_prompt.format(
             word_min=spec.word_min,
             word_max=spec.word_max,
@@ -307,10 +328,21 @@ def subject_picker(request, spec):
 def _setup_context(request, spec, task):
     selected_sujet_id = request.GET.get("sujet_id", "")
     selected_sujet = None
+    category = {}
     if selected_sujet_id:
-        selected_sujet = _subjects(task, spec).filter(pk=_subject_id(selected_sujet_id)).first()
+        subjects = _subjects(task, spec)
+        if spec.number == 3:
+            subjects = subjects.select_related("theme").only("text", "theme__slug", "theme__display_name")
+        else:
+            subjects = subjects.only("prompt", "category", "category_label")
+        selected_sujet = subjects.filter(pk=_subject_id(selected_sujet_id)).first()
         if spec.number == 3 and selected_sujet is None:
             raise Http404
+        if selected_sujet:
+            category = (
+                {"theme": selected_sujet.theme.slug, "label": selected_sujet.theme.display_name}
+                if spec.number == 3 else {"theme": selected_sujet.category, "label": selected_sujet.category_label}
+            )
     attempts = (
         WritingSimulationAttempt.objects.filter(user=request.user, task=task)
         .only("status", "started_at", "deadline_at", "evaluation_status")
@@ -338,6 +370,7 @@ def _setup_context(request, spec, task):
             spec,
             selected_subject=(selected_sujet.text if spec.number == 3 else selected_sujet.prompt) if selected_sujet else "",
         ),
+        **_writing_navigation(request, spec, task, selected_sujet.pk if selected_sujet else None, **category),
         "task": task,
         "saved_sessions": saved_sessions,
         "selected_sujet_id": selected_sujet_id,
@@ -385,6 +418,7 @@ def start(request, spec):
         identity = {"prompt": sujet}
         snapshot = {
             "prompt": sujet.text, "prompt_key": sujet.content_key,
+            "category": sujet.theme.slug,
             "category_label": sujet.theme.display_name,
             "documents": [source.document1, source.document2],
         }
@@ -447,7 +481,15 @@ def _word_count(attempt):
     return _ee_word_count(attempt.body) + _ee_word_count(attempt.position_body)
 
 
-def _attempt_context(attempt, spec, *, error="", now=None):
+def _attempt_navigation(request, attempt, spec):
+    return _writing_navigation(
+        request, spec, attempt.task, attempt.prompt_id if spec.number == 3 else attempt.sujet_id,
+        theme=attempt.snapshot.get("category", ""), label=attempt.snapshot.get("category_label", ""),
+        frozen_title=attempt.snapshot.get("prompt", ""),
+    )
+
+
+def _attempt_context(request, attempt, spec, *, error="", now=None):
     now = now or timezone.now()
     remaining = max(0, math.ceil((attempt.deadline_at - now).total_seconds()))
     word_min, word_max = _attempt_limits(attempt, spec)
@@ -459,6 +501,7 @@ def _attempt_context(attempt, spec, *, error="", now=None):
     )
     context.update(
         {
+            **_attempt_navigation(request, attempt, spec),
             "attempt": attempt,
             "task": attempt.task,
             "prompt": content_module.ee_tache_three_instruction(prompt) if spec.number == 3 else prompt,
@@ -533,7 +576,7 @@ def _mark_expired(attempt, now):
     return False
 
 
-def _result_context(attempt, spec):
+def _result_context(request, attempt, spec):
     word_min, word_max = _attempt_limits(attempt, spec)
     if spec.number == 1:
         providers, provider = _ee1_evaluation_options(attempt)
@@ -544,19 +587,23 @@ def _result_context(attempt, spec):
         subject_url = reverse("study:writing_sujet_detail", args=["ee", attempt.task.slug, attempt.sujet_id])
     elif attempt.prompt_id:
         subject_url = reverse("study:response_detail", args=["ee", attempt.task.slug, attempt.prompt_id])
+    prompt = attempt.snapshot.get("prompt", "")
     context = _session_context(
         spec,
-        title="Bilan de votre session",
-        selected_subject=attempt.snapshot.get("prompt", ""),
+        prompt=content_module.ee_tache_three_instruction(prompt) if spec.number == 3 and prompt else prompt,
         minutes=attempt.snapshot.get("simulation_minutes", spec.minutes),
-        prompt=(
-            "Une lecture concise de votre production, de sa conformité à la consigne "
-            "et de ses priorités de progression."
-        ),
     )
+    notices = {
+        WritingSimulationAttemptStatus.EXPIRED: "Le temps est écoulé ; votre brouillon a été conservé.",
+        WritingSimulationAttemptStatus.ABANDONED: "Cette session a été abandonnée et reste privée dans votre historique.",
+    }
     context.update({
+        **_attempt_navigation(request, attempt, spec),
         "attempt": attempt,
         "task": attempt.task,
+        "session_is_debrief": True,
+        "session_saved": attempt.status == WritingSimulationAttemptStatus.SUBMITTED,
+        "session_notice": notices.get(attempt.status, ""),
         "word_min": word_min,
         "word_max": word_max,
         "session_title_assessment": _has_response(attempt) and attempt.status != WritingSimulationAttemptStatus.ABANDONED,
@@ -622,12 +669,12 @@ def attempt(request, spec, attempt_id):
             return render(
                 request,
                 "study/simulation/writing_simulation_result.html",
-                _result_context(attempt, spec),
+                _result_context(request, attempt, spec),
             )
         return render(
             request,
             "study/simulation/writing_simulation_attempt.html",
-            _attempt_context(attempt, spec, now=now),
+            _attempt_context(request, attempt, spec, now=now),
         )
 
     try:
@@ -651,6 +698,7 @@ def attempt(request, spec, attempt_id):
                 request,
                 "study/simulation/writing_simulation_attempt.html",
                 _attempt_context(
+                    request,
                     attempt,
                     spec,
                     error="Votre réponse est trop longue pour être enregistrée.",
@@ -702,7 +750,7 @@ def attempt(request, spec, attempt_id):
         return render(
             request,
             "study/simulation/writing_simulation_attempt.html",
-            _attempt_context(attempt, spec, error=error, now=now),
+            _attempt_context(request, attempt, spec, error=error, now=now),
             status=400,
         )
 
@@ -896,7 +944,7 @@ def evaluate(request, spec, attempt_id):
                 return render(
                     request,
                     "study/simulation/writing_simulation_result.html",
-                    _result_context(attempt, spec),
+                    _result_context(request, attempt, spec),
                 )
             return evaluation_json(attempt, provider=provider)
         cached = (

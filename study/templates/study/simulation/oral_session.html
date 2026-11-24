@@ -32,7 +32,7 @@
       <p class="lv-linked">{% if monologue %}À vous de parler{% else %}Interlocuteur en ligne{% endif %}</p>
       <div class="lv-orb" aria-hidden="true">{% include "study/shared/partials/ui_icon.html" with name="microphone" only %}{% include "study/shared/partials/ui_icon.html" with name="headphones" only %}</div>
       <p class="lv-cue" id="lv-prep" hidden>Repérez trois ou quatre points à éclaircir.</p>
-      <p id="lv-status" class="lv-status" role="status"></p>
+      {% include "study/simulation/partials/session_status.html" %}
       <div class="lv-actions">
         <button type="button" class="lv-primary" id="lv-skip" hidden>Passer à l’échange&nbsp;· 3&nbsp;min&nbsp;30 {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</button>
         <button type="button" class="lv-secondary" id="lv-mute" hidden>Couper le micro</button>
@@ -113,6 +113,6 @@
 {% if gemini_live_available %}
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=19"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=10"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=18"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=19"></script>
 {% endif %}
 {% endblock %}

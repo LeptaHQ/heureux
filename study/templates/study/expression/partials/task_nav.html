@@ -1,18 +1,11 @@
 {% load study_links %}
 {% if task and part %}
-<div class="task-context" style="--task-accent: {{ task.color }};">
-  <a href="{% url 'study:expression' %}">Expression</a>
-  <span aria-hidden="true">›</span>
-  <a href="{% url 'study:part_detail' part.slug %}">{{ part.short_name }}</a>
-  <span aria-hidden="true">›</span>
-  {% if memory_task and question_bank %}
-    <a href="{% url 'study:task_detail' part.slug task.slug %}">{{ task.name }}</a>
-    <span aria-hidden="true">›</span>
-    <strong>{{ question_bank.title }}</strong>
-  {% else %}
-    <strong>{{ task.name }}</strong>
-  {% endif %}
-</div>
+{% if memory_task and question_bank %}
+  {% url 'study:task_detail' part.slug task.slug as task_url %}
+  {% include "study/expression/partials/task_breadcrumb.html" with task=task part=part task_url=task_url current=question_bank.title only %}
+{% else %}
+  {% include "study/expression/partials/task_breadcrumb.html" with task=task part=part only %}
+{% endif %}
 <nav class="task-nav{% if memory_task or part.slug == 'eo' and task.slug == 'tache-1' or part.slug == 'eo' and task.slug == 'tache-2' %} task-nav--memories{% endif %}{% if part.slug == 'eo' and task.slug == 'tache-3' %} task-nav--eo-t3{% endif %}{% if part.slug == 'ee' and task.slug == 'tache-3' %} task-nav--ee-t3{% endif %}{% if compact %} task-nav--compact{% endif %}" style="--task-accent: {{ task.color }};" aria-label="Navigation de {{ task.name }}">
   {% if part.slug == 'eo' and task.slug == 'tache-1' %}
     <a class="{% if request.resolver_match.url_name == 'eo_tache_one_response' %}is-active{% endif %}"

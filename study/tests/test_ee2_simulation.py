@@ -150,7 +150,7 @@ class EE2SimulationTests(TestCase):
         attempt = WritingSimulationAttempt.objects.get(user=self.user)
         url = reverse("study:ee2_simulation_attempt", args=[attempt.pk])
         self.client.post(url, {"action": "submit", "body": " ".join(["Bonjour"] * 120)})
-        self.assertContains(self.client.get(url), "Bilan de votre session")
+        self.assertContains(self.client.get(url), ">Votre bilan</p>")
         self.assertEqual(
             self.client.get(reverse("study:ee1_simulation_attempt", args=[attempt.pk])).status_code, 404,
         )

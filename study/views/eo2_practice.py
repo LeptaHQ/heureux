@@ -43,7 +43,7 @@ PICKER_ORDERS = {"recent": "Dernière séance", "least": "Moins pratiqués d’a
 
 
 @lru_cache(maxsize=1)
-def _topics():
+def practice_topics():
     # Only publication metadata is shared; visibility and practice are read per request.
     themes, mapping = catalogue.tache_two_subject_themes()
     names = {theme.slug: theme.name for theme in themes}
@@ -78,7 +78,7 @@ def resolve_topic(request, token):
     if not token or len(token) > 18 or not token.isascii() or not token.isdecimal():
         raise Http404
     key = get_object_or_404(_prompts(task).only("content_key"), pk=int(token)).content_key
-    topic = _topics().get(key)
+    topic = practice_topics().get(key)
     if not topic:
         raise Http404
     return task, topic
@@ -110,7 +110,7 @@ def picker(request):
     rows = []
     total = done_total = retry_total = 0
     needle = _fold(query)
-    for topic in (PHOTO, *_topics().values()):
+    for topic in (PHOTO, *practice_topics().values()):
         token = ids.get(topic.key) if topic.key else PHOTO_TOKEN
         if not token:
             continue
@@ -137,7 +137,7 @@ def picker(request):
         rows.sort(key=lambda r: r["count"])
     page = Paginator(rows, 15).get_page(request.GET.get("page"))
     return render_subject_picker(request, {
-        "page": page, "total": total,
+        "task": task, "page": page, "total": total,
         "picker": {
             "back_url": reverse("study:simulation_track", args=["eo"]),
             "back_label": "Expression orale",

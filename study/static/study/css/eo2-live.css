@@ -16,13 +16,13 @@
 .lv-studio :is(a, button, input, textarea, summary):focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
 /* Phase changes focus this heading for screen readers; it is not a control. */
 #lv-title:focus { outline: none; }
-.lv-studio :is(.lv-back a, .lv-brand, .lv-primary, .lv-secondary, .lv-orb, .lv-notice, .lv-toggle, .lv-copy) { --icon-color: currentColor; }
+.lv-studio :is(.lv-brand, .lv-primary, .lv-secondary, .lv-orb, .lv-notice, .lv-toggle, .lv-copy) { --icon-color: currentColor; }
 :where(.lv-studio) p { margin: 0; }
 
-/* Top line */
+/* Use the study breadcrumb and subject controls above the timed stage. */
+.lv-navigation .task-context { flex-wrap: wrap; }
 .lv-topline { display: flex; align-items: center; justify-content: space-between; gap: 0.35rem 1rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
-.lv-back a { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0; color: var(--text-soft); font-size: 0.95rem; text-decoration: none; }
-.lv-back a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
+.lv-topline .subject-page-back { margin: 0; }
 .lv-brand { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--tone-oral); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
 .lv-brand .ui-icon { font-size: 1rem; }
 
@@ -376,9 +376,8 @@ button.lv-mark[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--lv-rule); }
 /* Desktop: consigne first, console beside it. */
 @media (min-width: 56rem) {
   .lv-studio[data-state="setup"] .lv-stage {
-    grid-template-areas: "topline" "head" "track" "setup" "console";
+    grid-template-areas: "head" "track" "setup" "console";
   }
-  .lv-studio[data-state="setup"] .lv-topline { grid-area: topline; }
   .lv-studio[data-state="setup"] .lv-track { grid-area: track; }
   .lv-setup .lv-primary { flex: none; }
   .lv-studio:is([data-state="loading"], [data-state="authorizing"], [data-state="reading"], [data-state="prep"], [data-state="connecting"], [data-state="live"]) .lv-stage {

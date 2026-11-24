@@ -85,7 +85,11 @@ class EE3SimulationTests(TestCase):
             task_number=3, subject=self.valid.sujet, response=synthesis, position=position,
             documents=[self.valid.document1, self.valid.document2], word_count=120, word_min=120, word_max=180,
         )
-        self.assertContains(self.client.get(url), position)
+        result = self.client.get(url)
+        self.assertContains(result, position)
+        self.assertContains(result, self.valid.sujet)
+        self.assertContains(result, "Dans une première partie de 40 à 60 mots")
+        self.assertEqual(result.context["session_subject_nav"]["total"], 1)
         self.assertEqual(self.client.get(reverse("study:export_account")).json()["writing_simulation_attempts"][0]["position_body"], position)
 
     @override_settings(GROQ_API_KEY="fixture-groq-key")

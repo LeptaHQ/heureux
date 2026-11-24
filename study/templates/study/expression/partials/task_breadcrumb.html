@@ -1,0 +1,13 @@
+<nav class="task-context" aria-label="Fil d’Ariane" style="--task-accent: {{ task.color }};">
+  <a href="{% url 'study:expression' %}">Expression</a>
+  <span aria-hidden="true">›</span>
+  <a href="{% url 'study:part_detail' part.slug %}">{{ part.short_name }}</a>
+  <span aria-hidden="true">›</span>
+  {% if current and task_url %}
+    <a href="{{ task_url }}">{{ task.name }}</a>
+    <span aria-hidden="true">›</span>
+    <strong aria-current="page">{{ current }}</strong>
+  {% else %}
+    <strong aria-current="page">{{ task.name }}</strong>
+  {% endif %}
+</nav>

@@ -1,7 +1,14 @@
 <nav class="task-context" aria-label="Fil d’Ariane" style="--task-accent: {{ task.color }};">
-  <a href="{% url 'study:expression' %}">Expression</a>
+  {% if simulation %}
+    {% url 'study:simulation' as root_url %}
+    {% url 'study:simulation_track' part.slug as part_url %}
+  {% else %}
+    {% url 'study:expression' as root_url %}
+    {% url 'study:part_detail' part.slug as part_url %}
+  {% endif %}
+  <a href="{{ root_url }}">{% if simulation %}Simulation{% else %}Expression{% endif %}</a>
   <span aria-hidden="true">›</span>
-  <a href="{% url 'study:part_detail' part.slug %}">{{ part.short_name }}</a>
+  <a href="{{ part_url }}">{{ part.short_name }}</a>
   <span aria-hidden="true">›</span>
   {% if current and task_url %}
     <a href="{{ task_url }}">{{ task.name }}</a>

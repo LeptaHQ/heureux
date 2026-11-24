@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
-{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=35">{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{% static 'study/css/eo2-live.css' %}?v=36">{% endblock %}
 {% block content %}
 <article class="lv-studio{% block studio_classes %}{% endblock %}" {% block studio_attributes %}{% endblock %}>
   <div class="lv-navigation" style="--subject-accent: {{ task.color }};">
-    {% include "study/expression/partials/task_breadcrumb.html" with task=task part=task.part task_url=session_task_url current=session_theme_label only %}
+    {% include "study/expression/partials/task_breadcrumb.html" with task=task part=task.part task_url=session_task_url current=session_theme_label simulation=True only %}
     <div class="lv-topline">
       <nav aria-label="Retour">{% include "study/expression/partials/subject_back.html" with back_url=session_back_url back_label=session_back_label only %}</nav>
       <p class="lv-brand">{% include "study/shared/partials/ui_icon.html" with name=session_brand_icon only %} {{ session_brand }}</p>
@@ -22,7 +22,15 @@
       <section id="lv-done" class="lv-done" {% block debrief_attributes %}aria-label="Bilan de la session"{% endblock %}>
         {% block debrief_notices %}{% endblock %}
         <div id="lv-report" class="lv-report"{% block report_visibility %}{% endblock %}>
-          <dl class="lv-glance">{% block report_metrics %}{% endblock %}</dl>
+          <details id="lv-subject" class="lv-subject lv-report-card" open>
+            <summary><h2>{% include "study/shared/partials/ui_icon.html" with name="file-text" only %} Sujet</h2></summary>
+            <div class="lv-subject__body">
+              <p id="lv-subject-prompt">{{ session_debrief_prompt|linebreaksbr }}</p>
+              {% block subject_documents %}{% endblock %}
+              <div id="lv-subject-status">{% if session_is_debrief %}{% include "study/simulation/partials/session_status.html" %}{% endif %}</div>
+              <dl class="lv-glance">{% block report_metrics %}{% endblock %}</dl>
+            </div>
+          </details>
           {% block assessment %}
             <details id="lv-assessment" class="lv-assessment lv-report-card" aria-labelledby="lv-assessment-title" open>
               <summary class="lv-assessment__score">

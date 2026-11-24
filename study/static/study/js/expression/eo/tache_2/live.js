@@ -60,6 +60,10 @@
   function bilanHeading() {
     text("title", initialTitle); text("kicker", by("kicker").dataset.debriefLabel);
   }
+  function showSubject() {
+    by("subject").open = true;
+    by("subject-status").append(by("status"));
+  }
   function finish(s, message, ending = "interrupted") {
     if (!owns(s)) return;
     const started = ["live","draining"].includes(state());
@@ -77,6 +81,7 @@
     if (reviewed && ending === "normal") bilanHeading();
     else text("title",!started ? (opinion ? "La prise de parole n’a pas commencé" : "L’échange n’a pas commencé") :
       reviewed ? "Votre bilan partiel" : "Pas de bilan pour cet essai");
+    if (reviewed) showSubject();
     text("prompt",debriefPrompt); text("status",message); show("failed",!started);
     text("user-words","—"); if (!opinion) text("ai-words","—"); by("notes").value = "";
     s.rows.length = 0; s.partial = {}; s.lastModel = null;
@@ -353,11 +358,13 @@
   function reopen(saved) {
     phase("done","Séance enregistrée");
     root.dataset.ending = "normal";
-    bilanHeading(); text("prompt",debriefPrompt); text("status",by("status").dataset.savedLabel);
-    review.render(saved.rows,{elapsed:saved.elapsed,saved});
+    bilanHeading(); text("prompt",debriefPrompt);
+    if (review.render(saved.rows,{elapsed:saved.elapsed,saved})) showSubject();
+    text("status",by("status").dataset.savedLabel);
   }
   function setup() {
     review.clear(); delete root.dataset.ending; delete root.dataset.mic;
+    by("console").querySelector(".lv-actions").before(by("status"));
     phase("setup","Avant la simulation"); display(prep); text("status",capable ? "" : "Ce navigateur ne permet pas l’appel vocal. Essayez un navigateur récent en HTTPS.");
     text("title",initialTitle); text("kicker",initialKicker); text("prompt",introduction);
     by("start").disabled = !capable; by("captions").open = false;

@@ -4,10 +4,8 @@
 {% block studio_classes %} ee1-session{% endblock %}
 {% block studio_attributes %}data-state="done" data-ending="{% if attempt.status == "submitted" %}normal{% else %}failed{% endif %}" data-mode="writing"{% endblock %}
 
-{% block session_controls %}
-  <aside class="lv-console" aria-label="État de la session">
-    {% include "study/simulation/partials/session_status.html" %}
-  </aside>
+{% block subject_documents %}
+  {% include "study/simulation/partials/writing_documents.html" %}
 {% endblock %}
 
 {% block report_metrics %}
@@ -65,7 +63,6 @@
       <h2>{% include "study/shared/partials/ui_icon.html" with name="file-text" only %} {{ simulation.response_label }}</h2>
       <small>{{ attempt.word_count|default:0 }} mots</small>
     </summary>
-    {% include "study/simulation/partials/writing_documents.html" %}
     {% for part in response_parts %}
       {% if documents %}<h3>{{ part.label }} · {{ part.count }} / {{ part.min }}–{{ part.max }} mots</h3>{% endif %}
       <div class="lv-proposal__prose markdown-prose" lang="fr">

@@ -254,6 +254,7 @@ def oral_live(request, task_slug, **publication):
         "session_brand": f"Studio oral · {task.short_label}",
         "session_kicker": session_kicker,
         "session_prompt": "" if available else "La simulation est indisponible pour le moment.",
+        "session_debrief_prompt": subject.prompt,
         "session_selected_subject": subject.title if subject_url and not monologue else "",
         "session_steps": session_steps,
         "session_show_clock": True,

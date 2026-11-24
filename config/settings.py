@@ -285,7 +285,7 @@ GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "").strip()
 CLOUDFLARE_WORKERS_API_KEY = os.environ.get("CLOUDFLARE_WORKERS_API_KEY", "").strip()
 CLOUDFLARE_ACCOUNT_ID = os.environ.get("CLOUDFLARE_ACCOUNT_ID", "").strip()
 EE1_EVALUATION_PROVIDER = os.environ.get(
-    "EE1_EVALUATION_PROVIDER", "gemini" if GEMINI_API_KEY else "groq",
+    "EE1_EVALUATION_PROVIDER", "groq",
 ).strip().lower()
 if EE1_EVALUATION_PROVIDER not in {"gemini", "groq", "cloudflare"}:
     raise ImproperlyConfigured("EE1_EVALUATION_PROVIDER must be gemini, groq or cloudflare.")

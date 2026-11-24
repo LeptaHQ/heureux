@@ -219,7 +219,6 @@ def _session_context(
     spec,
     *,
     selected_subject="",
-    prompt="",
     minutes=None,
 ):
     minutes = spec.minutes if minutes is None else minutes
@@ -231,7 +230,6 @@ def _session_context(
         "session_brand_icon": "pen-line",
         "session_brand": f"Studio écrit · {spec.task_label}",
         "session_kicker": "Expression écrite",
-        "session_prompt": prompt,
         "session_selected_subject": selected_subject,
         "session_steps": _session_steps(spec, minutes),
         "session_show_clock": False,
@@ -572,7 +570,6 @@ def _result_context(request, attempt, spec):
     prompt = attempt.snapshot.get("prompt", "")
     context = _session_context(
         spec,
-        prompt=content_module.ee_tache_three_instruction(prompt) if spec.number == 3 and prompt else prompt,
         minutes=attempt.snapshot.get("simulation_minutes", spec.minutes),
     )
     notices = {
@@ -584,6 +581,7 @@ def _result_context(request, attempt, spec):
         "attempt": attempt,
         "task": attempt.task,
         "session_is_debrief": True,
+        "session_debrief_prompt": content_module.ee_tache_three_instruction(prompt) if spec.number == 3 and prompt else prompt,
         "session_saved": attempt.status == WritingSimulationAttemptStatus.SUBMITTED,
         "session_notice": notices.get(attempt.status, ""),
         "word_min": word_min,
@@ -750,11 +748,15 @@ def _ee1_evaluation_options(attempt):
     available = available_providers() | reports.keys()
     providers = tuple(key for key in PROVIDER_LABELS if key in available) or (default,)
     last_provider = attempt.evaluation.get("provider")
-    if last_provider not in providers:
-        last_provider = default if default in reports else next(iter(reports), None)
-    if last_provider is None:
-        last_provider = default if default in providers else providers[0]
-    return providers, last_provider
+    if last_provider in providers and attempt.evaluation_status in (
+        WritingSimulationEvaluationStatus.PROCESSING, WritingSimulationEvaluationStatus.UNAVAILABLE,
+    ):
+        return providers, last_provider
+    if "groq" in reports:
+        return providers, "groq"
+    if reports:
+        return providers, last_provider if last_provider in reports else next(iter(reports))
+    return providers, default if default in providers else providers[0]
 
 
 def _evaluation_payload(attempt, provider=None):

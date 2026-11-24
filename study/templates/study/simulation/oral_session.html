@@ -28,7 +28,7 @@
       <label class="sr-only" for="lv-notes">Mes notes de préparation, non envoyées</label>
       <textarea id="lv-notes" maxlength="1600" rows="5" autocomplete="off" placeholder="Mots-clés, questions à poser…"></textarea>
     </details>
-    <aside class="lv-console" aria-label="Micro et commandes">
+    <aside id="lv-console" class="lv-console" aria-label="Micro et commandes">
       <p class="lv-linked">{% if monologue %}À vous de parler{% else %}Interlocuteur en ligne{% endif %}</p>
       <div class="lv-orb" aria-hidden="true">{% include "study/shared/partials/ui_icon.html" with name="microphone" only %}{% include "study/shared/partials/ui_icon.html" with name="headphones" only %}</div>
       <p class="lv-cue" id="lv-prep" hidden>Repérez trois ou quatre points à éclaircir.</p>
@@ -111,6 +111,6 @@
 {% if gemini_live_available %}
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=21"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=11"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=21"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=22"></script>
 {% endif %}
 {% endblock %}

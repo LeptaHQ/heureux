@@ -111,14 +111,14 @@
 
 /* Notepad: lined paper, never sent. */
 .lv-notepad { padding-top: 0.25rem; }
-.lv-notepad summary, .lv-captions summary, :is(.lv-transcript, .lv-proposal__card) > summary { display: flex; align-items: center; gap: 0.5rem; list-style: none; cursor: pointer; }
-:is(.lv-notepad, .lv-captions, .lv-transcript, .lv-assessment, .lv-proposal__card) > summary::-webkit-details-marker { display: none; }
-:is(.lv-notepad, .lv-captions, .lv-transcript, .lv-assessment, .lv-proposal__card) > summary::after {
+.lv-notepad summary, .lv-captions summary, .lv-report-card:not(.lv-assessment) > summary { display: flex; align-items: center; gap: 0.5rem; list-style: none; cursor: pointer; }
+:is(.lv-notepad, .lv-captions, .lv-report-card) > summary::-webkit-details-marker { display: none; }
+:is(.lv-notepad, .lv-captions, .lv-report-card) > summary::after {
   content: ""; width: 0.45rem; height: 0.45rem; margin-left: auto;
   border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
   transform: translateY(-0.12rem) rotate(45deg); transition: transform 0.15s ease;
 }
-:is(.lv-notepad, .lv-captions, .lv-transcript, .lv-assessment, .lv-proposal__card)[open] > summary::after { transform: translateY(0.12rem) rotate(-135deg); }
+:is(.lv-notepad, .lv-captions, .lv-report-card)[open] > summary::after { transform: translateY(0.12rem) rotate(-135deg); }
 .lv-notepad summary { padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-weight: 600; }
 .lv-notepad summary .ui-icon { color: var(--tone-notes); }
 .lv-notepad summary small { color: var(--text-faint); font-size: 0.82rem; font-weight: 400; }
@@ -211,6 +211,13 @@
 #lv-failed > .ui-icon { color: var(--warning); }
 .lv-report { display: grid; gap: 0.75rem; }
 
+.lv-studio[data-state="done"]:has(#lv-subject-status #lv-status) :is(.lv-head .lv-prompt, .lv-console) {
+  display: none;
+}
+.lv-subject { --lv-card-tint: var(--tone-notes-soft); --lv-card-ink: var(--tone-notes); }
+.lv-subject__body { display: grid; gap: 0.55rem; }
+#lv-subject-prompt { max-width: 72ch; line-height: 1.55; overflow-wrap: anywhere; }
+#lv-subject-status:empty { display: none; }
 .lv-assessment { --lv-card-tint: var(--tone-stats-soft); --lv-card-ink: var(--tone-stats); }
 .lv-transcript { --lv-card-tint: var(--tone-oral-soft); --lv-card-ink: var(--lv-action); }
 .lv-proposal__card { --lv-card-tint: var(--tone-comprehension-soft); --lv-card-ink: var(--tone-comprehension); }
@@ -230,7 +237,7 @@
 /* The level stays readable when the bilan is folded. */
 .lv-assessment__score { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0.15rem 1rem; list-style: none; cursor: pointer; }
 .lv-assessment__score::after { grid-column: 2; grid-row: 1 / span 2; }
-.lv-studio :is(.lv-assessment, .lv-transcript, .lv-proposal) summary h2 { display: flex; align-items: center; gap: 0.45rem; margin: 0; font-size: 1.1rem; font-weight: 600; line-height: 1.35; }
+.lv-report-card > summary h2 { display: flex; align-items: center; gap: 0.45rem; margin: 0; font-size: 1.1rem; font-weight: 600; line-height: 1.35; }
 .lv-assessment summary h2, .lv-assessment__marks h3 { color: var(--tone-stats); }
 #lv-level { color: var(--text-soft); font-size: 1.3rem; font-weight: 700; font-variant-numeric: tabular-nums lining-nums; line-height: 1.25; }
 #lv-level.lv-level--scored { color: var(--tone-stats); }

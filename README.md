@@ -75,6 +75,8 @@ Subjects with missing, invalid or duplicate source documents remain available
 for study but cannot start an EE3 simulation.
 Studios use the subject pages’ breadcrumb, theme back link and previous/next
 subject picker. The arrows open another subject’s studio without starting it.
+In both oral and written debriefs, the collapsible **Sujet** card groups the
+original consigne, session status and metrics.
 Icon-only actions have accessible labels; task titles, limits and timers remain
 visible.
 Oral and written studios use the same saved-session list. Its trash icon
@@ -97,8 +99,10 @@ bilan automatically. The editor discloses this before submission. Saving a
 draft or running out of time does not send it. When more than one model is
 available, the EE1 bilan’s sparkle button lets learners request another
 provider. Each report is saved separately; switching back opens the saved
-report without grading again. `EE1_EVALUATION_PROVIDER` sets the default for
-attempts that do not already have a provider. EE2 and EE3 grading uses Groq. All
+report without grading again. EE1 defaults to Groq and opens its saved report
+first when available. If only another provider has a saved report, that report
+opens instead. `EE1_EVALUATION_PROVIDER` can override the default for new manual
+evaluations. EE2 and EE3 grading uses Groq. All
 providers use the same evidence checks; optional feedback can be omitted
 without hiding a supported score. Temporary service failures are retried once with the same
 provider within the three-minute deadline. Groq can also use its one retry to

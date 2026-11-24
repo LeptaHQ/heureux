@@ -59,6 +59,9 @@ class EE1SimulationTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context["active_nav_area"], "simulation")
+        self.assertContains(response, f'<a href="{reverse("study:simulation")}">Simulation</a>', html=True)
+        self.assertContains(response, f'<a href="{reverse("study:simulation_track", args=["ee"])}">EE</a>', html=True)
+        self.assertContains(response, f'<strong aria-current="page">{self.task.name}</strong>', html=True)
         self.assertContains(response, "Choisir un sujet")
         self.assertContains(response, "Rechercher un sujet ou un thème")
         self.assertContains(response, "Sans séance")
@@ -415,6 +418,8 @@ class EE1SimulationTests(TestCase):
             score.assert_not_called()
             writing_simulation.run_evaluation(attempt.pk, attempt.evaluation_started_at, self.spec, "gemini")
         self.assertEqual(score.call_args.kwargs["provider"], "gemini")
+        self.assertContains(self.client.get(self._attempt_url(attempt)), 'data-evaluation-provider="groq"')
+        self.assertEqual(self.client.get(url).json()["report"], {"score": 9})
 
         with self.settings(GEMINI_API_KEY=""), patch("study.views.writing_simulation.threading.Thread") as thread:
             with self.captureOnCommitCallbacks(execute=True):
@@ -422,6 +427,11 @@ class EE1SimulationTests(TestCase):
                     cached = self.client.post(url, data={"consent": True, "provider": provider}, content_type="application/json")
                     self.assertEqual(cached.json()["report"], {"score": expected})
             thread.assert_not_called()
+
+        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
+            evaluation={"provider": "gemini", "reports": {"gemini": {"score": 11}}},
+        )
+        self.assertEqual(self.client.get(url).json()["report"], {"score": 11})
 
     @override_settings(EE1_EVALUATION_PROVIDER="groq")
     def test_evaluation_worker_persists_ready_report_only_for_its_claim(self):

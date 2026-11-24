@@ -8,15 +8,15 @@ from study.models import Task
 
 
 TRACKS = {
-    "eo": {
-        "title": "Expression orale", "icon": "microphone", "code": "EO",
-        "intro": "Menez un échange ou défendez votre point de vue à voix haute.",
-        "action": "Choisir une tâche orale",
-    },
     "ee": {
         "title": "Expression écrite", "icon": "pen-line", "code": "EE",
         "intro": "Rédigez un message, racontez une expérience et comparez deux points de vue.",
         "action": "Préparer une tâche écrite",
+    },
+    "eo": {
+        "title": "Expression orale", "icon": "microphone", "code": "EO",
+        "intro": "Menez un échange ou défendez votre point de vue à voix haute.",
+        "action": "Choisir une tâche orale",
     },
 }
 TASK_FORMATS = {

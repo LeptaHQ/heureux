@@ -713,6 +713,8 @@ class SmokeTests(TestCase):
         hub = self.client.get(reverse("study:simulation"))
         for track in (oral, written):
             self.assertContains(hub, f'href="{track}"')
+        hub_markup = hub.content.decode()
+        self.assertLess(hub_markup.index('id="sim-title-ee"'), hub_markup.index('id="sim-title-eo"'))
 
         for number in (1, 2, 3):
             factories.make_task(factories.make_part("eo"), f"tache-{number}")

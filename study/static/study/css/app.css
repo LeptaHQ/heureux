@@ -11893,8 +11893,19 @@ button.ce-choice:focus-visible .ce-choice__radio {
   margin: 0 0 1rem;
 }
 .ee1-timer-control { position: relative; }
-.ee1-timer-control > summary { cursor: pointer; }
+.ee1-timer-control > summary {
+  display: inline-grid;
+  cursor: pointer;
+  list-style: none;
+}
+.ee1-timer-control > summary::marker { content: ""; }
 .ee1-timer-control > summary::-webkit-details-marker { display: none; }
+.ee1-timer-control__toggle { color: var(--text-soft); }
+.ee1-timer-control__toggle:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-2);
+  color: var(--text);
+}
 .ee1-timer-control__form {
   position: absolute;
   top: calc(100% + .5rem);
@@ -11922,8 +11933,8 @@ button.ce-choice:focus-visible .ce-choice__radio {
   min-width: 8.5rem;
   padding: .65rem .8rem;
   border: 1px solid var(--border);
-  background: var(--ee1-wash);
-  color: var(--ee1-ink);
+  background: var(--surface-2);
+  color: var(--text-soft);
   text-align: center;
 }
 .ee1-timer__label {

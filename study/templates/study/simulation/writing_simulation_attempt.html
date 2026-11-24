@@ -9,7 +9,8 @@
     {% include "study/simulation/partials/session_header.html" %}
     <div class="ee1-attempt__timerbar">
       <details class="ee1-timer-control">
-        <summary class="icon-button" title="Modifier le temps" aria-label="Modifier le temps">
+        <summary class="icon-button ee1-timer-control__toggle" title="Modifier le temps" aria-label="Modifier le temps">
+          <span class="sr-only">Modifier le temps</span>
           {% include "study/shared/partials/ui_icon.html" with name="clock" only %}
         </summary>
         <form method="post" action="{{ timer_url }}" class="ee1-timer-control__form">
@@ -115,5 +116,5 @@
 {% block scripts %}
   {{ block.super }}
   <script src="{% static 'study/js/expression/ee/writing-word-count.js' %}?v=2"></script>
-  <script src="{% static 'study/js/expression/ee/writing-simulation.js' %}?v=1"></script>
+  <script src="{% static 'study/js/expression/ee/writing-simulation.js' %}?v=2"></script>
 {% endblock %}

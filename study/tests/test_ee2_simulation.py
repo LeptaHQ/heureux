@@ -108,6 +108,7 @@ class EE2SimulationTests(TestCase):
             reverse("study:ee2_simulation_attempt", args=[attempt.pk])
         )
         self.assertContains(editor, 'title="Modifier le temps"')
+        self.assertContains(editor, 'class="ui-icon" data-icon="clock"')
         self.assertNotContains(editor, "data-writing-word-guidance")
 
     def test_timer_rejects_invalid_seconds(self):

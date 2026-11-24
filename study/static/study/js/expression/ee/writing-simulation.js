@@ -18,7 +18,7 @@
     const minutes = Math.floor(remaining / 60);
     const seconds = remaining % 60;
     output.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-    timer.classList.toggle("is-warning", remaining > 0 && remaining <= 60);
+    timer.classList.toggle("is-warning", remaining > 0 && remaining < 180);
     if (remaining > 0 || submitted) return;
     submitted = true;
     output.textContent = "00:00";

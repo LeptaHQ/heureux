@@ -75,6 +75,9 @@ subject-specific session, its topic.
 The written debrief follows the EO2 order in the shared session layout: the
 training estimate, the learner’s response with any verified corrections, then
 the proposed reformulation when available.
+If Groq rejects the written report’s strict schema, Heureux retries once in
+JSON mode within the same three-minute deadline and applies the same checks to
+the score and its evidence.
 In **Simulation → Expression orale → Tâche 2 → Choisir un sujet**, the Sujets table
 and its **Thème**, **Statut** and **Tri** filters let learners find a topic. Its title
 opens the exact publication; the **Séances** count opens its history. **Terminé** is

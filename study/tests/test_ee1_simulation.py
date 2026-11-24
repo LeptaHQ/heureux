@@ -1,3 +1,4 @@
+import json
 from datetime import timedelta
 from unittest.mock import patch
 
@@ -319,14 +320,8 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.PROCESSING)
         self.assertEqual(attempt.evaluation, {"new": True})
 
-    def test_evaluation_grounding_rejects_a_score_outside_its_cefr_band(self):
-        self.assertIsNotNone(
-            evaluation._locate(
-                "J’ai déjà visité Montréal.\u00a0",
-                "J'ai déjà visité Montréal.",
-            )
-        )
-        report = {
+    def _provider_report(self):
+        return {
             "verdict": "Réponse claire.",
             "cefr": "B2",
             "score": 12,
@@ -350,12 +345,22 @@ class EE1SimulationTests(TestCase):
             "improvedWordCount": 0,
             "priorities": ["Préciser le but.", "Relier les idées.", "Relire les accords."],
         }
+
+    def test_evaluation_grounding_rejects_a_score_outside_its_cefr_band(self):
+        self.assertIsNotNone(
+            evaluation._locate(
+                "J’ai déjà visité Montréal.\u00a0",
+                "J'ai déjà visité Montréal.",
+            )
+        )
+        report = self._provider_report()
         grounded = evaluation.ground(
             report,
             subject=self.sujet.prompt,
             response="Bonjour",
             word_count=1,
         )
+
         self.assertEqual(grounded["nclc"], "NCLC 8")
         self.assertEqual(grounded["gradeEvidence"], ["Bonjour"])
         self.assertIn("gradeEvidence", grounded["omittedSections"])
@@ -373,3 +378,47 @@ class EE1SimulationTests(TestCase):
                 response="Bonjour",
                 word_count=1,
             )
+
+    def test_groq_schema_rejection_retries_once_and_checks_the_json_report(self):
+        valid = self._provider_report()
+        invalid = {**valid, "strengths": ["Not a structured strength"]}
+        rejected = b'{"error":{"code":"json_validate_failed"}}'
+
+        def completion(report):
+            return json.dumps({"choices": [{
+                "finish_reason": "stop", "message": {"content": json.dumps(report)},
+            }]}).encode()
+
+        for responses, expected in (
+            ([(400, rejected), (200, completion(valid))], "ready"),
+            ([(400, rejected), (200, completion(invalid))], "illisible"),
+            ([(400, rejected), (400, rejected)], "json_validate_failed"),
+            ([(400, b'{"error":{"code":"invalid_request_error"}}')], "invalid_request_error"),
+        ):
+            with self.subTest(expected=expected), patch.object(
+                evaluation.oral_evaluation, "HTTPSConnection", autospec=True,
+            ) as transport:
+                conn = transport.return_value
+                conn.sock = None
+                response = conn.getresponse.return_value.__enter__.return_value
+                remaining = iter(responses)
+
+                def respond(*args, **kwargs):
+                    response.status, response.read.return_value = next(remaining)
+
+                conn.request.side_effect = respond
+
+                def score():
+                    return evaluation.score(subject=self.sujet.prompt, response="Bonjour", word_count=1)
+
+                with self.assertLogs(level="WARNING"):
+                    if expected == "ready":
+                        self.assertEqual(score()["gradeEvidence"], ["Bonjour"])
+                    else:
+                        with self.assertRaisesRegex(evaluation.oral_evaluation.EvaluationError, expected):
+                            score()
+                requests = [json.loads(call.kwargs["body"]) for call in conn.request.call_args_list]
+                self.assertEqual([request["response_format"]["type"] for request in requests],
+                                 ["json_schema", "json_object"][:len(responses)])
+                if len(responses) == 2:
+                    self.assertEqual(requests[0]["messages"][1], requests[1]["messages"][1])

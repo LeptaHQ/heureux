@@ -195,8 +195,9 @@ _UNREADABLE = "La grille du bilan est illisible. Votre transcription reste dispo
 
 
 class EvaluationError(Exception):
-    def __init__(self, status, message, *, retry=False):
+    def __init__(self, status, message, *, retry=False, schema_rejected=False):
         self.status, self.retry = status, retry
+        self.schema_rejected = schema_rejected
         super().__init__(message)
 
 
@@ -561,7 +562,10 @@ def _post(payload, deadline):
     if resp.status >= 500:
         raise EvaluationError(502, f"Le bilan est momentanément indisponible ({code}). Votre transcription reste disponible.",
                               retry=True)
-    raise EvaluationError(502, f"La demande de bilan a été refusée ({code}). Votre transcription reste disponible.")
+    raise EvaluationError(
+        502, f"La demande de bilan a été refusée ({code}). Votre transcription reste disponible.",
+        schema_rejected=resp.status == 400 and provider == "json_validate_failed",
+    )
 
 
 # Runs off the request thread: no request, session or database access here.

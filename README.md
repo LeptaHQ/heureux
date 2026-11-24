@@ -64,20 +64,17 @@ statistics requests. EO/EE task overviews aggregate the study progress they
 actually display without constructing full subject directories or review links.
 **Simulation** sits between **Notes** and search in the main navigation and opens
 `/simulation/`. **Stats** is in the profile dropdown, above **Réglages**.
-The oral track opens the same speaking simulator for EO2 and EO3, with the
-timing and stages appropriate to each task. **EE Tâche 1** has a private,
-timed writing simulation with a frozen prompt, server-enforced 60–120-word
-limit, draft saving and a self-review bilan; its 20-minute timer is an
-exercise guide because FEI’s official 60 minutes cover all three written
-tasks. The other written tasks still link to their available subjects for
-untimed writing practice. Simulation tab titles identify the task and, for a
-subject-specific session, its topic.
-The written debrief follows the EO2 order in the shared session layout: the
-training estimate, the learner’s response with any verified corrections, then
-the proposed reformulation when available.
-If Groq rejects the written report’s strict schema, Heureux retries once in
-JSON mode within the same three-minute deadline and applies the same checks to
-the score and its evidence.
+EO2 and EO3 use one speaking simulator. EE1 and EE2 use one private writing
+simulator, with frozen prompts, draft saving and task-specific word limits
+(60–120 and 120–150 respectively). EE3 still links to untimed subject practice.
+The session templates live under `study/templates/study/simulation/`, and the
+shared evaluation code lives in `study/simulation/`.
+Both simulators use the same Groq request and decoding code; writing sends the
+exact subject, the response, its word count and limits, and the task’s grading
+instructions. If Groq rejects the writing schema, Heureux retries once in JSON
+mode within the same three-minute deadline and still validates the report and
+its scoring evidence. Bad optional feedback is omitted without hiding an
+otherwise supported score.
 In **Simulation → Expression orale → Tâche 2 → Choisir un sujet**, the Sujets table
 and its **Thème**, **Statut** and **Tri** filters let learners find a topic. Its title
 opens the exact publication; the **Séances** count opens its history. **Terminé** is

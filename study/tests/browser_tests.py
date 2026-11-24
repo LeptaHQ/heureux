@@ -586,13 +586,13 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         evaluation_url = form.get_attribute("data-evaluation-url")
         report = {
             "score": 12, "cefr": "B2", "nclc": "NCLC 8", "nclcRange": "NCLC 7 à NCLC 8",
-            "scoreRange": {"min": 10, "max": 13}, "confidence": "Medium",
+            "scoreRange": {"min": 10, "max": 13}, "confidence": "",
             "verdict": "Le message est clair.", "uncertainty": "",
             "gradeRationale": "Le but est formulé dès le début.", "gradeEvidence": [],
             "taskCompliance": [], "strengths": [],
             "criteria": [{"key": "linguistic", "rating": "Developing", "evidence": "Il manque un accent.", "quotes": ["a dîner"]}],
             "corrections": [{"before": "a dîner", "after": "à dîner", "type": "Orthographe", "why": "Il faut un accent."}],
-            "relevance": [], "upgrades": [], "priorities": ["Relire les accents."],
+            "relevance": [], "upgrades": [], "priorities": [],
             "improvedResponse": "Bonjour !\n\nEst-ce que cela te dirait de venir dîner ?",
             "improvedWordCount": 11,
         }
@@ -609,6 +609,8 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.locator("#lv-transcript")).to_contain_text(body)
         self.page.get_by_role("button", name="Réessayer").click()
         expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
+        expect(self.page.locator("[data-writing-score]")).not_to_contain_text("confiance")
+        expect(self.page.get_by_role("heading", name="Au prochain essai")).to_have_count(0)
         expect(self.page.get_by_role("row", name=re.compile("Linguistique Developing"))).to_be_visible()
         expect(self.page.locator("#lv-transcript tbody tr")).to_contain_text("à dîner")
         expect(proposal.locator("#lv-proposal-lines p")).to_have_text(report["improvedResponse"].split("\n\n"))

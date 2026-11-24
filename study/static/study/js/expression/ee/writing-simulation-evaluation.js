@@ -42,15 +42,16 @@
   };
 
   const showReport = (report) => {
-    text(find("verdict"), report.verdict);
+    text(find("verdict"), report.verdict).hidden = !report.verdict;
+    const confidence = report.confidence ? ` · confiance ${report.confidence}` : "";
     text(
       find("score"),
-      `${report.cefr} · ${report.score}/20 · ${report.nclc} · ${report.scoreRange.min}–${report.scoreRange.max} (${report.nclcRange}) · confiance ${report.confidence}`,
+      `${report.cefr} · ${report.score}/20 · ${report.nclc} · ${report.scoreRange.min}–${report.scoreRange.max} (${report.nclcRange})${confidence}`,
     );
     level.textContent = `${report.score}/20 · ${report.nclc} · ${report.cefr}`;
     level.classList.add("lv-level--scored");
-    text(find("uncertainty"), report.uncertainty);
-    text(find("grade-rationale"), report.gradeRationale);
+    text(find("uncertainty"), report.uncertainty).hidden = !report.uncertainty;
+    text(find("grade-rationale"), report.gradeRationale).hidden = !report.gradeRationale;
     const gradeEvidence = find("grade-evidence");
     gradeEvidence.replaceChildren();
     if (report.gradeEvidence?.length) {
@@ -131,12 +132,13 @@
     by("proposal").hidden = !paragraphs.length;
     text(by("proposal-count"), paragraphs.length ? `${report.improvedWordCount} mots` : "");
     list(find("priorities"), report.priorities, item);
+    find("priorities").closest(".lv-next-step").hidden = !report.priorities.length;
 
     if (report.omitted) {
       root.querySelector(".writing-validation-warning")?.remove();
       const warning = document.createElement("p");
       warning.className = "muted writing-validation-warning";
-      warning.textContent = "Certains éléments ont été écartés car ils ne pouvaient pas être vérifiés à partir de votre réponse.";
+      warning.textContent = "Certains détails du bilan ont été abrégés ou écartés. La note s’appuie sur les passages vérifiés.";
       result.prepend(warning);
     }
     result.hidden = false;

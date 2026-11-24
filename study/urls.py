@@ -1,7 +1,7 @@
 from django.urls import path, register_converter
 
 from . import views
-from .views import audio, course, ee1_simulation, ee2_simulation, eo2_live, eo2_practice, formulations, simulation
+from .views import audio, course, eo2_live, eo2_practice, formulations, simulation, writing_simulation
 
 
 class ExpressionPartConverter:
@@ -32,6 +32,21 @@ class OverviewPartConverter(ExpressionPartConverter):
 
 
 register_converter(ExpressionPartConverter, "expression_part")
+
+
+def _writing_simulation_routes():
+    for spec in writing_simulation.SPECS.values():
+        names = spec.route_names
+        for suffix, view, action in (
+            ("", writing_simulation.setup, "setup"),
+            ("sujets/", writing_simulation.subject_picker, "picker"),
+            ("commencer/", writing_simulation.start, "start"),
+            ("<uuid:attempt_id>/temps/", writing_simulation.update_timer, "timer"),
+            ("<uuid:attempt_id>/bilan/", writing_simulation.evaluate, "evaluate"),
+            ("<uuid:attempt_id>/", writing_simulation.attempt, "attempt"),
+        ):
+            yield path(f"simulation/ecrite/{spec.task_slug}/{suffix}", view, {"spec": spec},
+                       name=names[action].removeprefix("study:"))
 register_converter(OverviewPartConverter, "overview_part")
 
 app_name = "study"
@@ -144,26 +159,7 @@ urlpatterns = [
     path("expression/", views.expression_hub, name="expression"),
     path("simulation/", simulation.hub, name="simulation"),
     path("simulation/<expression_part:part_slug>/", simulation.track, name="simulation_track"),
-    path("simulation/ecrite/tache-1/", ee1_simulation.setup, name="ee1_simulation"),
-    path("simulation/ecrite/tache-1/sujets/", ee1_simulation.subject_picker, name="ee1_subject_picker"),
-    path("simulation/ecrite/tache-1/commencer/", ee1_simulation.start, name="ee1_simulation_start"),
-    path("simulation/ecrite/tache-1/<uuid:attempt_id>/temps/", ee1_simulation.update_timer, name="ee1_simulation_timer"),
-    path("simulation/ecrite/tache-1/<uuid:attempt_id>/bilan/", ee1_simulation.evaluate, name="ee1_simulation_evaluate"),
-    path(
-        "simulation/ecrite/tache-1/<uuid:attempt_id>/",
-        ee1_simulation.attempt,
-        name="ee1_simulation_attempt",
-    ),
-    path("simulation/ecrite/tache-2/", ee2_simulation.setup, name="ee2_simulation"),
-    path("simulation/ecrite/tache-2/sujets/", ee2_simulation.subject_picker, name="ee2_subject_picker"),
-    path("simulation/ecrite/tache-2/commencer/", ee2_simulation.start, name="ee2_simulation_start"),
-    path("simulation/ecrite/tache-2/<uuid:attempt_id>/temps/", ee2_simulation.update_timer, name="ee2_simulation_timer"),
-    path("simulation/ecrite/tache-2/<uuid:attempt_id>/bilan/", ee2_simulation.evaluate, name="ee2_simulation_evaluate"),
-    path(
-        "simulation/ecrite/tache-2/<uuid:attempt_id>/",
-        ee2_simulation.attempt,
-        name="ee2_simulation_attempt",
-    ),
+    *_writing_simulation_routes(),
     path("simulation/orale/tache-2/sujets/", eo2_practice.picker, name="eo2_topic_picker"),
     path("simulation/orale/tache-2/sujets/<slug:token>/statut/", eo2_practice.set_status, name="eo2_topic_status"),
     path("simulation/orale/tache-2/sujets/<slug:token>/historique/", eo2_practice.history, name="eo2_topic_history"),

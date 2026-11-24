@@ -7,19 +7,22 @@ from django.test import TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
+from study.catalogue.loader import load_ee_ai_examiner_prompt
 from study.models import (
     WritingSimulationAttempt,
     WritingSimulationAttemptStatus,
     WritingSimulationEvaluationStatus,
     WritingSujetCompletion,
 )
+from study.simulation import evaluation, writing_evaluation
+from study.views import writing_simulation
 
 from . import factories
-from study.expression.ee.tache_1 import evaluation
-from study.views import ee1_simulation
 
 
 class EE1SimulationTests(TestCase):
+    spec = writing_simulation.SPECS[1]
+
     def setUp(self):
         self.part = factories.make_part("ee")
         self.task = factories.make_task(self.part, "tache-1")
@@ -263,7 +266,7 @@ class EE1SimulationTests(TestCase):
 
         evaluation_url = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
         self.assertEqual(self.client.post(evaluation_url, content_type="application/json", data="{}").status_code, 400)
-        with patch("study.views.ee1_simulation.threading.Thread") as thread:
+        with patch("study.views.writing_simulation.threading.Thread") as thread:
             with self.captureOnCommitCallbacks(execute=True):
                 response = self.client.post(
                     evaluation_url,
@@ -295,10 +298,10 @@ class EE1SimulationTests(TestCase):
         )
 
         with patch(
-            "study.views.ee1_simulation.evaluation.score",
+            "study.simulation.writing_evaluation.score",
             return_value={"cefr": "B2", "score": 12},
         ):
-            ee1_simulation._run_evaluation(attempt.pk, started_at)
+            writing_simulation.run_evaluation(attempt.pk, started_at, self.spec)
 
         attempt.refresh_from_db()
         self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.READY)
@@ -312,10 +315,10 @@ class EE1SimulationTests(TestCase):
         attempt.evaluation = {"new": True}
         attempt.save(update_fields=["evaluation_status", "evaluation_started_at", "evaluation"])
         with patch(
-            "study.views.ee1_simulation.evaluation.score",
+            "study.simulation.writing_evaluation.score",
             return_value={"old": True},
         ):
-            ee1_simulation._run_evaluation(attempt.pk, started_at)
+            writing_simulation.run_evaluation(attempt.pk, started_at, self.spec)
         attempt.refresh_from_db()
         self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.PROCESSING)
         self.assertEqual(attempt.evaluation, {"new": True})
@@ -323,11 +326,8 @@ class EE1SimulationTests(TestCase):
     def _provider_report(self):
         return {
             "verdict": "Réponse claire.",
-            "cefr": "B2",
             "score": 12,
             "scoreRange": {"min": 10, "max": 13},
-            "nclc": "NCLC 8",
-            "nclcRange": "NCLC 7 à NCLC 8",
             "confidence": "Medium",
             "uncertainty": "Une seule tâche ne suffit pas.",
             "taskCompliance": [{"item": "But", "status": "Met", "quote": "Bonjour", "evidence": "Le message est adressé."}],
@@ -342,46 +342,81 @@ class EE1SimulationTests(TestCase):
             "relevance": [],
             "upgrades": [],
             "improvedResponse": "",
-            "improvedWordCount": 0,
             "priorities": ["Préciser le but.", "Relier les idées.", "Relire les accords."],
         }
 
-    def test_evaluation_grounding_rejects_a_score_outside_its_cefr_band(self):
+    def test_evaluation_grounding_requires_evidence_and_a_valid_score_range(self):
         self.assertIsNotNone(
-            evaluation._locate(
+            writing_evaluation._locate(
                 "J’ai déjà visité Montréal.\u00a0",
                 "J'ai déjà visité Montréal.",
             )
         )
+        packet = dict(subject=self.sujet.prompt, response="Bonjour", word_count=1, word_min=60, word_max=120)
         report = self._provider_report()
-        grounded = evaluation.ground(
-            report,
-            subject=self.sujet.prompt,
-            response="Bonjour",
-            word_count=1,
-        )
+        grounded = writing_evaluation.ground(report, **packet)
 
+        self.assertEqual(grounded["cefr"], "B2")
         self.assertEqual(grounded["nclc"], "NCLC 8")
         self.assertEqual(grounded["gradeEvidence"], ["Bonjour"])
         self.assertIn("gradeEvidence", grounded["omittedSections"])
         report["gradeEvidence"] = ["Une citation introuvable"]
-        with self.assertRaises(ValueError):
-            evaluation.ground(
-                report, subject=self.sujet.prompt, response="Bonjour", word_count=1,
-            )
+        with self.assertRaisesRegex(writing_evaluation.ReportError, r"gradeEvidence\.evidence"):
+            writing_evaluation.ground(report, **packet)
         report["gradeEvidence"] = ["Bonjour"]
+        report["criteria"]["linguistic"]["quotes"] = [None, "Texte absent"]
+        with self.assertRaisesRegex(writing_evaluation.ReportError, r"criteria\.linguistic\.evidence"):
+            writing_evaluation.ground(report, **packet)
+        report["criteria"]["linguistic"]["quotes"] = ["Bonjour"]
         report["score"] = 14
-        with self.assertRaises(ValueError):
-            evaluation.ground(
-                report,
-                subject=self.sujet.prompt,
-                response="Bonjour",
-                word_count=1,
-            )
+        with self.assertRaisesRegex(writing_evaluation.ReportError, "scoreRange"):
+            writing_evaluation.ground(report, **packet)
+
+    def test_unusable_optional_feedback_does_not_discard_a_supported_score(self):
+        report = self._provider_report()
+        report["criteria"]["linguistic"].update(
+            evidence="Observation détaillée. " * 40,
+            quotes=[42, "Bonjour"],
+        )
+        report.update(
+            verdict="Avis détaillé. " * 80,
+            confidence="Moyenne",
+            uncertainty=None,
+            gradeRationale="Justification détaillée. " * 100,
+            strengths=[{"quote": "Bonjour"}],
+            corrections=[
+                {"before": "Bonjour", "after": None, "type": "Registre", "why": "Salutation."},
+                {"before": "salu!", "after": "salut !", "type": "Orthographe", "why": "Il manque le t."},
+            ],
+            improvedResponse=None,
+            upgrades={"unexpected": True},
+            priorities=[None, "Relire les accords."],
+        )
+        result = writing_evaluation.ground(
+            report, subject=self.sujet.prompt, response="Bonjour, salu!", word_count=2, word_min=60, word_max=120,
+        )
+        self.assertEqual(result["score"], 12)
+        self.assertEqual(result["confidence"], "")
+        self.assertEqual(result["uncertainty"], "")
+        self.assertEqual(result["strengths"], [])
+        self.assertEqual(result["upgrades"], [])
+        self.assertEqual([item["after"] for item in result["corrections"]], ["salut !"])
+        self.assertEqual(result["priorities"], ["Relire les accords."])
+        self.assertEqual(result["improvedResponse"], "")
+        self.assertEqual(result["criteria"][0]["quotes"], ["Bonjour"])
+        for prose, phrase, limit in (
+            (result["verdict"], "Avis détaillé.", 900),
+            (result["gradeRationale"], "Justification détaillée.", 1800),
+            (result["criteria"][0]["evidence"], "Observation détaillée.", 700),
+        ):
+            self.assertTrue(prose.startswith(phrase))
+            self.assertTrue(prose.endswith("…"))
+            self.assertLessEqual(len(prose), limit)
+        self.assertTrue({"strengths", "corrections", "improvedResponse"} <= set(result["omittedSections"]))
 
     def test_groq_schema_rejection_retries_once_and_checks_the_json_report(self):
-        valid = self._provider_report()
-        invalid = {**valid, "strengths": ["Not a structured strength"]}
+        valid = {**self._provider_report(), "strengths": ["Not a structured strength"]}
+        invalid = {**valid, "score": True}
         rejected = b'{"error":{"code":"json_validate_failed"}}'
 
         def completion(report):
@@ -391,12 +426,12 @@ class EE1SimulationTests(TestCase):
 
         for responses, expected in (
             ([(400, rejected), (200, completion(valid))], "ready"),
-            ([(400, rejected), (200, completion(invalid))], "illisible"),
+            ([(400, rejected), (200, completion(invalid))], "n’a pas pu être vérifié"),
             ([(400, rejected), (400, rejected)], "json_validate_failed"),
             ([(400, b'{"error":{"code":"invalid_request_error"}}')], "invalid_request_error"),
         ):
             with self.subTest(expected=expected), patch.object(
-                evaluation.oral_evaluation, "HTTPSConnection", autospec=True,
+                evaluation, "HTTPSConnection", autospec=True,
             ) as transport:
                 conn = transport.return_value
                 conn.sock = None
@@ -409,16 +444,27 @@ class EE1SimulationTests(TestCase):
                 conn.request.side_effect = respond
 
                 def score():
-                    return evaluation.score(subject=self.sujet.prompt, response="Bonjour", word_count=1)
+                    return writing_evaluation.score(
+                        task_number=1, subject=self.sujet.prompt, response="Bonjour",
+                        word_count=1, word_min=60, word_max=120,
+                    )
 
                 with self.assertLogs(level="WARNING"):
                     if expected == "ready":
-                        self.assertEqual(score()["gradeEvidence"], ["Bonjour"])
+                        report = score()
+                        self.assertEqual(report["gradeEvidence"], ["Bonjour"])
+                        self.assertEqual(report["strengths"], [])
                     else:
-                        with self.assertRaisesRegex(evaluation.oral_evaluation.EvaluationError, expected):
+                        with self.assertRaisesRegex(evaluation.EvaluationError, expected):
                             score()
                 requests = [json.loads(call.kwargs["body"]) for call in conn.request.call_args_list]
                 self.assertEqual([request["response_format"]["type"] for request in requests],
                                  ["json_schema", "json_object"][:len(responses)])
+                system, user = requests[0]["messages"]
+                self.assertIn(load_ee_ai_examiner_prompt(1), system["content"])
+                self.assertEqual(json.loads(user["content"]), {
+                    "subject": self.sujet.prompt, "response": "Bonjour",
+                    "wordCount": 1, "wordMin": 60, "wordMax": 120,
+                })
                 if len(responses) == 2:
                     self.assertEqual(requests[0]["messages"][1], requests[1]["messages"][1])

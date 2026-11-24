@@ -13,7 +13,7 @@ from django.conf import settings
 from django.core.paginator import Paginator
 from django.db import close_old_connections, transaction
 from django.db.models import Count, Max
-from django.http import HttpResponseBadRequest
+from django.http import HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
@@ -32,6 +32,8 @@ from study.models import (
     WritingSujet,
 )
 from study.review.progress import writing_sujet_progress_by_id
+from study.simulation import writing_evaluation
+from study.simulation.evaluation import EvaluationError
 
 logger = logging.getLogger(__name__)
 
@@ -47,7 +49,6 @@ class WritingSimulationSpec:
     word_min: int
     word_max: int
     minutes_setting: str
-    evaluator: object
     response_label: str
     response_placeholder: str
     session_prompt: str
@@ -95,6 +96,36 @@ class WritingSimulationSpec:
         }
 
 
+SPECS = {
+    1: WritingSimulationSpec(
+        number=1,
+        word_min=60,
+        word_max=120,
+        minutes_setting="EE1_SIMULATION_MINUTES",
+        response_label="Votre message",
+        response_placeholder="Rédigez votre message ici…",
+        session_prompt=(
+            "Rédigez un message clair, adapté au destinataire, en "
+            "{word_min} à {word_max} mots. Vous disposez de {minutes} minutes."
+        ),
+        picker_intro="Sélectionnez un sujet pour votre message de {word_min} à {word_max} mots.",
+    ),
+    2: WritingSimulationSpec(
+        number=2,
+        word_min=120,
+        word_max=150,
+        minutes_setting="EE2_SIMULATION_MINUTES",
+        response_label="Votre production",
+        response_placeholder="Rédigez votre production ici…",
+        session_prompt=(
+            "Racontez l’expérience demandée et développez vos idées en "
+            "{word_min} à {word_max} mots. Vous disposez de {minutes} minutes."
+        ),
+        picker_intro="Sélectionnez un sujet pour votre production de {word_min} à {word_max} mots.",
+    ),
+}
+
+
 def task_for(spec):
     return get_object_or_404(
         Task.objects.select_related("part"),
@@ -122,8 +153,7 @@ def _fold(value):
     )
 
 
-def _session_steps(spec, *, done=False, minutes=None):
-    minutes = spec.minutes if minutes is None else minutes
+def _session_steps(minutes):
     return [
         {
             "key": "reading",
@@ -153,7 +183,6 @@ def _session_context(
     title="Simulation",
     prompt=None,
     minutes=None,
-    done=False,
 ):
     minutes = spec.minutes if minutes is None else minutes
     route_names = spec.route_names
@@ -173,7 +202,7 @@ def _session_context(
             minutes=minutes,
         ),
         "session_selected_subject": selected_subject,
-        "session_steps": _session_steps(spec, done=done, minutes=minutes),
+        "session_steps": _session_steps(minutes),
         "session_show_clock": False,
     }
 
@@ -447,8 +476,7 @@ def update_timer(request, spec, attempt_id):
         return HttpResponseBadRequest("Durée invalide.")
 
     attempt = get_object_or_404(
-        WritingSimulationAttempt.objects.select_for_update(of=("self",)),
-        user=request.user,
+        _owned_attempts(request, spec).select_for_update(of=("self",)),
         pk=attempt_id,
     )
     now = timezone.now()
@@ -484,7 +512,6 @@ def _result_context(attempt, spec):
             "Une lecture concise de votre production, de sa conformité à la consigne "
             "et de ses priorités de progression."
         ),
-        done=True,
     )
     context.update({
         "attempt": attempt,
@@ -515,16 +542,21 @@ def _attempt_limits(attempt, spec):
     return minimum, maximum
 
 
+def _owned_attempts(request, spec):
+    return WritingSimulationAttempt.objects.filter(
+        user=request.user, task__part__slug="ee", task__slug=spec.task_slug,
+    )
+
+
 @never_cache
 @require_http_methods(["GET", "POST"])
 def attempt(request, spec, attempt_id):
     if request.method == "GET":
         with transaction.atomic():
             attempt = get_object_or_404(
-                WritingSimulationAttempt.objects.select_for_update(of=("self",)).select_related(
+                _owned_attempts(request, spec).select_for_update(of=("self",)).select_related(
                     "task__part", "sujet"
                 ),
-                user=request.user,
                 pk=attempt_id,
             )
             _expire_if_needed(attempt)
@@ -550,10 +582,9 @@ def attempt(request, spec, attempt_id):
         return HttpResponseBadRequest("Action invalide.")
     with transaction.atomic():
         attempt = get_object_or_404(
-            WritingSimulationAttempt.objects.select_for_update(of=("self",)).select_related(
+            _owned_attempts(request, spec).select_for_update(of=("self",)).select_related(
                 "task__part", "sujet"
             ),
-            user=request.user,
             pk=attempt_id,
         )
         if attempt.status != WritingSimulationAttemptStatus.ACTIVE:
@@ -677,13 +708,17 @@ def run_evaluation(attempt_id, started_at, spec):
         )
         if attempt is None:
             return
+        word_min, word_max = _attempt_limits(attempt, spec)
         try:
-            report = spec.evaluator.score(
+            report = writing_evaluation.score(
+                task_number=spec.number,
                 subject=attempt.snapshot.get("prompt", ""),
                 response=attempt.body,
                 word_count=attempt.word_count or _ee_word_count(attempt.body),
+                word_min=word_min,
+                word_max=word_max,
             )
-        except spec.evaluator.oral_evaluation.EvaluationError as exc:
+        except EvaluationError as exc:
             status = WritingSimulationEvaluationStatus.UNAVAILABLE
             error = str(exc)
             report = {}
@@ -722,7 +757,7 @@ def run_evaluation(attempt_id, started_at, spec):
 @never_cache
 @require_http_methods(["GET", "POST"])
 @csrf_protect
-def evaluate(request, spec, attempt_id, *, thread_module=threading):
+def evaluate(request, spec, attempt_id):
     if request.method == "POST":
         if request.content_type != "application/json":
             return HttpResponseBadRequest("Un consentement explicite est requis.")
@@ -734,8 +769,7 @@ def evaluate(request, spec, attempt_id, *, thread_module=threading):
             return HttpResponseBadRequest("Un consentement explicite est requis.")
     with transaction.atomic():
         attempt = get_object_or_404(
-            WritingSimulationAttempt.objects.select_for_update(of=("self",)),
-            user=request.user,
+            _owned_attempts(request, spec).select_for_update(of=("self",)),
             pk=attempt_id,
         )
         if attempt.status not in {
@@ -777,7 +811,7 @@ def evaluate(request, spec, attempt_id, *, thread_module=threading):
             ]
         )
         transaction.on_commit(
-            lambda attempt_id=attempt.pk, started_at=now: thread_module.Thread(
+            lambda attempt_id=attempt.pk, started_at=now: threading.Thread(
                 target=run_evaluation,
                 args=(attempt_id, started_at, spec),
                 daemon=True,
@@ -787,6 +821,4 @@ def evaluate(request, spec, attempt_id, *, thread_module=threading):
 
 
 def evaluation_json(attempt, *, status=200):
-    from django.http import JsonResponse
-
     return JsonResponse(_evaluation_payload(attempt), status=status)

@@ -20,7 +20,8 @@ from django.views.decorators.http import require_GET, require_POST
 from study.audio.pins import AudioPinError
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
-from study.expression.eo.tache_2 import live_conversation, oral_evaluation
+from study.simulation import live_conversation, oral_evaluation
+from study.simulation.evaluation import DEADLINE_SECONDS, EvaluationError
 from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation, Prompt
 from study.navigation.routing import subject_selection_url
 from .helpers import _route_task, tache_two_publication
@@ -36,7 +37,7 @@ EO3_KEY_PREFIX = "eo3:"
 EVALUATION_GRACE_SECONDS = 20
 EVALUATION_KEEPALIVE_SECONDS = 10
 # The final keep-alive tick must still end before Gunicorn's 210 s worker timeout.
-EVALUATION_DEADLINE_SECONDS = 190
+EVALUATION_DEADLINE_SECONDS = DEADLINE_SECONDS + 10
 _EVALUATION_FAILED = {"error": "Le bilan a échoué. Votre transcription reste disponible."}
 _EVALUATION_LATE = {"error": "Le bilan n’est pas arrivé à temps. Votre transcription reste disponible."}
 # Each learner keeps their most recent exchanges, across subjects; older ones are deleted on save.
@@ -133,7 +134,7 @@ def oral_live(request, task_slug, **publication):
             {"key": "live", "name": "Échange", "meta": "3 min 30", "about": "Vous menez la conversation à voix haute."},
             {"key": "done", "name": "Bilan", "meta": "à chaud", "about": "Transcription et repères tirés de vos paroles."},
         ]
-    return TemplateResponse(request, "study/expression/eo/tache_2/live.html", {
+    return TemplateResponse(request, "study/simulation/oral_session.html", {
         "part": task.part,
         "task": task,
         "gemini_live_available": available,
@@ -256,7 +257,7 @@ def oral_live_save(request, task_slug, **publication):
         return JsonResponse({"error": "L’enregistrement n’est pas disponible."}, status=403)
     try:
         data = oral_evaluation.simulation_data(request.read(oral_evaluation.MAX_BODY + 1), monologue=monologue)
-    except oral_evaluation.EvaluationError as exc:
+    except EvaluationError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
     if not monologue:
         key = request.headers.get("Idempotency-Key")
@@ -324,7 +325,7 @@ def oral_live_evaluation(request, task_slug, **publication):
         oral_evaluation.authorize(request, task, data.get("pin"), grant=data.get("reviewGrant"), subject_key=subject.key)
     except AudioPinError as exc:
         return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
-    except oral_evaluation.EvaluationError as exc:
+    except EvaluationError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
     rows = data["rows"]
     simulation = None
@@ -356,7 +357,7 @@ def oral_live_evaluation(request, task_slug, **publication):
     def score():
         try:
             outcome.append((oral_evaluation.score(subject.prompt, rows, monologue=monologue), 200))
-        except oral_evaluation.EvaluationError as exc:
+        except EvaluationError as exc:
             outcome.append(({"error": str(exc)}, exc.status))
         finally:
             done.set()

@@ -30,7 +30,6 @@ from .comprehension import (
     comprehension_test_detail,
 )
 from .dashboard import dashboard, expression_hub
-from . import ee1_simulation, ee2_simulation
 from .learning import (
     learn,
     learn_lesson,

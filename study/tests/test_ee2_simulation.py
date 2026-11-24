@@ -5,7 +5,7 @@ from django.test import TestCase, override_settings
 from django.urls import reverse
 
 from study.models import WritingSimulationAttempt, WritingSimulationAttemptStatus
-from study.views import ee2_simulation
+from study.views import writing_simulation
 
 from . import factories
 
@@ -139,6 +139,20 @@ class EE2SimulationTests(TestCase):
 
         self.assertEqual(response.status_code, 400)
 
+    def test_attempt_cannot_be_opened_or_evaluated_under_another_task(self):
+        self.client.post(reverse("study:ee2_simulation_start"), {"sujet_id": self.sujet.pk})
+        attempt = WritingSimulationAttempt.objects.get(user=self.user)
+        url = reverse("study:ee2_simulation_attempt", args=[attempt.pk])
+        self.client.post(url, {"action": "submit", "body": " ".join(["Bonjour"] * 120)})
+        self.assertContains(self.client.get(url), "Bilan de votre session")
+        self.assertEqual(
+            self.client.get(reverse("study:ee1_simulation_attempt", args=[attempt.pk])).status_code, 404,
+        )
+        self.assertEqual(self.client.post(
+            reverse("study:ee1_simulation_evaluate", args=[attempt.pk]),
+            data={"consent": True}, content_type="application/json",
+        ).status_code, 404)
+
     def test_evaluation_worker_uses_ee2_evaluator(self):
         self.client.post(
             reverse("study:ee2_simulation_start"),
@@ -162,15 +176,18 @@ class EE2SimulationTests(TestCase):
         )
 
         with patch(
-            "study.views.ee2_simulation.evaluation.score",
+            "study.simulation.writing_evaluation.score",
             return_value={"cefr": "B1", "score": 6},
         ) as score:
-            ee2_simulation._run_evaluation(attempt.pk, started_at)
+            writing_simulation.run_evaluation(attempt.pk, started_at, writing_simulation.SPECS[2])
 
         score.assert_called_once_with(
+            task_number=2,
             subject=self.sujet.prompt,
             response=attempt.body,
             word_count=120,
+            word_min=120,
+            word_max=150,
         )
         attempt.refresh_from_db()
         self.assertEqual(attempt.evaluation_status, "ready")

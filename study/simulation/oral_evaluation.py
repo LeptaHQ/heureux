@@ -1,27 +1,20 @@
 """Assess a transcribed oral practice task and verify the feedback against learner speech."""
 
 import json
-import logging
-import random
 import re
-import socket
-import threading
-import time
 import uuid
-from contextlib import closing
-from http.client import HTTPException, HTTPSConnection
 
 from django.conf import settings
 from django.core import signing
 from django.views.decorators.debug import sensitive_variables
 
 from study.accounts.services import authorize_audio_generation
-from . import live_conversation
 
-MODEL = "openai/gpt-oss-120b"
+from . import live_conversation
+from .evaluation import EvaluationError, request_report, unique_fields
+from .evaluation import checked_text as _text
+
 MAX_BODY = 96_000
-_MAX_RESPONSE = 64_000
-logger = logging.getLogger(__name__)
 _CRITERIA = {
     "task": "Accomplissement de la tâche",
     "coherence": "Cohérence et fluidité",
@@ -186,34 +179,7 @@ _OPINION_SCHEMA = _object(
 # A dialogue rewrite maps to exact turns; a monologue is continuous prose.
 _DIALOGUE_SCHEMA = _object(**{**_OPINION_SCHEMA["properties"],
                               "proposal": {"type": "array", "items": _object(turnIndex=_INDEX, text=_STR)}})
-# One retry for a transient provider failure, inside the time the view waits for a report.
-_DEADLINE_SECONDS = 180
-_RETRY_MIN_SECONDS = 30
-# A slower report is logged with its token counts.
-_SLOW_SECONDS = 30
 _UNREADABLE = "La grille du bilan est illisible. Votre transcription reste disponible."
-
-
-class EvaluationError(Exception):
-    def __init__(self, status, message, *, retry=False, schema_rejected=False):
-        self.status, self.retry = status, retry
-        self.schema_rejected = schema_rejected
-        super().__init__(message)
-
-
-def _unique(pairs):
-    obj = dict(pairs)
-    if len(obj) != len(pairs):
-        raise ValueError
-    return obj
-
-
-def _text(value, limit, *, empty=False):
-    if not isinstance(value, str) or len(value) > limit or (not empty and not value.strip()):
-        raise ValueError
-    value.encode("utf-8")
-    return value
-
 
 def _rows(rows, flags=frozenset(), *, monologue=False):
     """Transcript rows as the debrief shows them; `flags` are optional keys that must be true."""
@@ -237,7 +203,7 @@ def request_data(body, *, monologue=False):
     try:
         if len(body) > MAX_BODY:
             raise ValueError
-        data = json.loads(body, object_pairs_hook=_unique)
+        data = json.loads(body, object_pairs_hook=unique_fields)
         if (not isinstance(data, dict) or data.keys() - {"consent", "rows", "pin", "reviewGrant", "simulation"}
                 or data.get("consent") is not True):
             raise ValueError
@@ -261,7 +227,7 @@ def simulation_data(body, *, monologue=False):
     try:
         if len(body) > MAX_BODY:
             raise ValueError
-        data = json.loads(body, object_pairs_hook=_unique)
+        data = json.loads(body, object_pairs_hook=unique_fields)
         if not isinstance(data, dict) or data.keys() != {"rows", "elapsed"}:
             raise ValueError
         if type(data["elapsed"]) is not int or not 0 <= data["elapsed"] <= (270_000 if monologue else 600_000):
@@ -499,109 +465,17 @@ def authorize(request, task, pin, *, grant, subject_key):
             raise EvaluationError(403, "L’autorisation du bilan a expiré. Votre transcription reste disponible.") from None
 
 
-def _provider_error(raw):
-    """The error code and message Groq returns, safe to log and to show as a code."""
-    try:
-        error = json.loads(raw)["error"]
-        code, message = error.get("code") or error.get("type"), error.get("message")
-    except (ValueError, KeyError, TypeError, AttributeError, RecursionError):
-        return "", ""
-    code = code if isinstance(code, str) and re.fullmatch(r"[a-z_]{1,40}", code) else ""
-    return code, " ".join(message.split())[:300] if isinstance(message, str) else ""
-
-
-def _cut(sock, late):
-    late.set()
-    try:
-        # The plain socket call: SSLSocket.shutdown would also drop the TLS state under the reading thread.
-        socket.socket.shutdown(sock, socket.SHUT_RDWR)
-    except OSError:
-        pass
-
-
-@sensitive_variables()
-def _post(payload, deadline):
-    started = time.monotonic()
-    late, timer = threading.Event(), None
-    try:
-        with closing(HTTPSConnection("api.groq.com", timeout=deadline - started)) as conn:
-            conn.request("POST", "/openai/v1/chat/completions", body=payload,
-                         headers={"Content-Type": "application/json", "Authorization": f"Bearer {settings.GROQ_API_KEY}"})
-            sock = conn.sock  # getresponse() can hand the socket over to the response.
-            # A read that keeps receiving bytes renews its own timeout; this ends it at the deadline.
-            timer = threading.Timer(max(0, deadline - time.monotonic()), _cut, (sock, late))
-            timer.daemon = True
-            timer.start()
-            with conn.getresponse() as resp:
-                if resp.status == 200:
-                    body = resp.read(_MAX_RESPONSE + 1)
-                    if late.is_set():
-                        raise TimeoutError
-                    if len(body) > _MAX_RESPONSE:
-                        raise EvaluationError(502, _UNREADABLE)
-                    return body, time.monotonic() - started
-                provider, detail = _provider_error(resp.read(16_000))
-                wait = resp.getheader("retry-after") or ""
-    except (OSError, HTTPException) as exc:
-        elapsed = time.monotonic() - started
-        if not (isinstance(exc, TimeoutError) or late.is_set()):
-            logger.warning("EO2 evaluation: connection %s after %.0f s", type(exc).__name__, elapsed)
-            raise EvaluationError(503, "Le service de bilan est inaccessible. Votre transcription reste disponible.",
-                                  retry=True) from None
-        logger.warning("EO2 evaluation: no report after %.0f s", elapsed)
-        raise EvaluationError(504, f"Le bilan n’est pas arrivé à temps (arrêt à {elapsed:.0f} s). "
-                                   "Votre transcription reste disponible.") from None
-    finally:
-        if timer is not None:
-            timer.cancel()
-    logger.warning("EO2 evaluation: provider HTTP %d %s %s", resp.status, provider or "-", detail or "-")
-    code = f"HTTP {resp.status} {provider}".strip()
-    if resp.status == 429:
-        later = f" Réessayez dans {wait} s." if re.fullmatch(r"\d{1,5}", wait) else ""
-        raise EvaluationError(429, f"Limite de demandes de bilan atteinte ({code}).{later} Votre transcription reste disponible.")
-    if resp.status >= 500:
-        raise EvaluationError(502, f"Le bilan est momentanément indisponible ({code}). Votre transcription reste disponible.",
-                              retry=True)
-    raise EvaluationError(
-        502, f"La demande de bilan a été refusée ({code}). Votre transcription reste disponible.",
-        schema_rejected=resp.status == 400 and provider == "json_validate_failed",
-    )
-
-
 # Runs off the request thread: no request, session or database access here.
 @sensitive_variables()
 def score(prompt, rows, *, monologue=False):
     instruction = _OPINION_INSTRUCTION if monologue else _INSTRUCTION
     transcript, evidence = _evidence_rows(rows)
-    payload = json.dumps({
-        "model": MODEL,
-        "messages": [{"role": "system", "content": instruction + "\n" + _EVIDENCE_INSTRUCTION}, {"role": "user", "content": json.dumps({
-            "consigne": prompt, "rows": transcript,
-        }, ensure_ascii=False, separators=(",", ":"))}],
-        "response_format": {"type": "json_schema", "json_schema": {
-            "name": "bilan", "strict": True, "schema": _OPINION_SCHEMA if monologue else _DIALOGUE_SCHEMA}},
-        # Groq's free tier counts this cap, plus a full exchange's ~4K-token prompt, against 8K tokens a minute.
-        "reasoning_effort": "low", "include_reasoning": False, "max_completion_tokens": 3584,
-    }).encode()
-    deadline = time.monotonic() + _DEADLINE_SECONDS
+    report = request_report(
+        instruction + "\n" + _EVIDENCE_INSTRUCTION,
+        {"consigne": prompt, "rows": transcript},
+        _OPINION_SCHEMA if monologue else _DIALOGUE_SCHEMA,
+    )
     try:
-        body, elapsed = _post(payload, deadline)
-    except EvaluationError as exc:
-        if not exc.retry or deadline - time.monotonic() < _RETRY_MIN_SECONDS:
-            raise
-        time.sleep(1 + random.random())
-        body, elapsed = _post(payload, deadline)
-    try:
-        reply = json.loads(body)
-        choice, usage = reply["choices"][0], reply.get("usage") or {}
-        finish = choice.get("finish_reason")
-        if finish != "stop" or elapsed > _SLOW_SECONDS:
-            logger.warning("EO2 evaluation: finish %s after %.0f s (tokens %s)", finish, elapsed, {key: usage.get(key) for key in
-                           ("prompt_tokens", "completion_tokens", "completion_tokens_details")})
-        if choice["message"].get("refusal"):
-            raise EvaluationError(422, "Aucun bilan n’a pu être établi pour cette transcription.")
-        if finish != "stop":
-            raise EvaluationError(422, "Le bilan est incomplet. Aucune note globale n’a été attribuée.")
-        return _ground(json.loads(choice["message"]["content"], object_pairs_hook=_unique), rows, evidence, monologue=monologue)
+        return _ground(report, rows, evidence, monologue=monologue)
     except (ValueError, KeyError, IndexError, TypeError, AttributeError, RecursionError):
         raise EvaluationError(502, _UNREADABLE) from None

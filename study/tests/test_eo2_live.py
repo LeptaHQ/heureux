@@ -12,7 +12,7 @@ from django.utils import timezone
 
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
-from study.expression.eo.tache_2 import live_conversation, oral_evaluation
+from study.simulation import evaluation, live_conversation, oral_evaluation
 from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation, LoginThrottle, Prompt
 from study.views import eo2_live
 from . import factories
@@ -63,7 +63,7 @@ class GeminiLiveTests(TestCase):
     def test_only_eligible_live_get_allows_google_wss_and_microphone(self):
         page = self.client.get(self.live)
         self.assert_private(page, 200)
-        self.assertTemplateUsed(page, "study/expression/eo/tache_2/live.html")
+        self.assertTemplateUsed(page, "study/simulation/oral_session.html")
         self.assertIs(page.context["gemini_live_available"], True)
         self.assertEqual((page.context["part"], page.context["task"]), (self.task.part, self.task))
         google_wss = "wss://generativelanguage.googleapis.com"
@@ -315,7 +315,7 @@ class GeminiLiveTests(TestCase):
         transport.assert_called_once()
 
     def evaluation_fixture(self):
-        transport = self.enterContext(patch.object(oral_evaluation, "HTTPSConnection", autospec=True))
+        transport = self.enterContext(patch.object(evaluation, "HTTPSConnection", autospec=True))
         self.eval_connection = transport.return_value
         self.eval_connection.sock = Mock()
         self.eval_response = self.eval_connection.getresponse.return_value.__enter__.return_value
@@ -587,7 +587,7 @@ class GeminiLiveTests(TestCase):
 
     def test_transient_provider_failure_retries_once_and_errors_name_the_provider_code(self):
         self.evaluation_fixture()
-        sleep = self.enterContext(patch.object(oral_evaluation.time, "sleep"))
+        sleep = self.enterContext(patch.object(evaluation.time, "sleep"))
         body = json.dumps({"rows": self.rows, "pin": PILOT_PIN, "consent": True})
         self.complete()
         unavailable = b'{"error":{"message":"The model is overloaded.","type":"internal_server_error"}}'
@@ -598,7 +598,7 @@ class GeminiLiveTests(TestCase):
         self.eval_connection.request.side_effect = reply
         self.assertEqual(self.post(url=self.eval_url, body=body).json()["score"], 12)
         replies = iter([(503, unavailable)] * 2)
-        with self.assertLogs(oral_evaluation.logger, "WARNING") as logs:
+        with self.assertLogs(evaluation.logger, "WARNING") as logs:
             failed = self.post(url=self.eval_url, body=body)
         self.assert_private(failed, 502)
         self.assertIn("HTTP 503 internal_server_error", failed.json()["error"])
@@ -839,7 +839,7 @@ class GeminiLiveTests(TestCase):
         self.eval_response.read.return_value = b'{"choices": []}'
         self.assert_private(self.post(url=self.eval_url, body=body), 502)
         self.complete("", finish="length")
-        with self.assertLogs(oral_evaluation.logger, "WARNING") as logs:
+        with self.assertLogs(evaluation.logger, "WARNING") as logs:
             self.assert_private(self.post(url=self.eval_url, body=body), 422)
         self.assertIn("finish length", logs.output[0])
         self.assertIn("'prompt_tokens': 3900", logs.output[0])
@@ -858,7 +858,7 @@ class GeminiLiveTests(TestCase):
         self.evaluation_fixture()
         body = json.dumps({"rows": self.rows, "pin": PILOT_PIN, "consent": True})
         self.complete()
-        with patch.object(oral_evaluation, "_MAX_RESPONSE", 100):
+        with patch.object(evaluation, "_MAX_RESPONSE", 100):
             self.assertIn("illisible", self.post(url=self.eval_url, body=body).json()["error"])
         near, far = socket.socketpair()
         self.addCleanup(far.close)
@@ -869,7 +869,7 @@ class GeminiLiveTests(TestCase):
             near.settimeout(5)  # Each fragment that arrives in time renews the read timeout.
             return near.recv(limit)
         self.eval_response.read = read
-        with patch.object(oral_evaluation, "_DEADLINE_SECONDS", 0.2), self.assertLogs(oral_evaluation.logger, "WARNING"):
+        with patch.object(evaluation, "DEADLINE_SECONDS", 0.2), self.assertLogs(evaluation.logger, "WARNING"):
             late = self.post(url=self.eval_url, body=body)
         self.assert_private(late, 504)
         self.assertIn("arrêt à 0 s", late.json()["error"])

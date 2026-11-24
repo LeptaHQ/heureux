@@ -14,9 +14,9 @@ from django.views.decorators.vary import vary_on_headers
 
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
-from study.expression.eo.tache_2 import live_conversation
 from study.models import EO2PracticeAttempt, EO2TopicStatus, Prompt
 from study.navigation.routing import subject_selection_url
+from study.simulation import live_conversation
 
 from .helpers import _route_task
 

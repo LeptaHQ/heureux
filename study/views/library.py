@@ -73,7 +73,7 @@ from study.notes.anchors import (
 )
 from study.expression.bookmarks import subject_bookmark_ids
 from study.expression.personalization import effective_response
-from study.expression.eo.tache_2 import live_conversation
+from study.simulation import live_conversation
 from study.expression.eo.tache_2.dialogues import (
     hint_section_presentation,
     prompt_note_presentation,

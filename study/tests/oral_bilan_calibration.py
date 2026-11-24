@@ -5,7 +5,7 @@ from unittest import skipUnless
 from django.conf import settings
 from django.test import SimpleTestCase
 
-from study.expression.eo.tache_2 import oral_evaluation
+from study.simulation import oral_evaluation
 
 
 @skipUnless(os.environ.get("RUN_GROQ_CALIBRATION") == "1", "Set RUN_GROQ_CALIBRATION=1 for live synthetic grading")

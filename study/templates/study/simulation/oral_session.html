@@ -109,12 +109,12 @@
             </section>
 {% endblock %}
 {% block report_review %}
-          {% if monologue %}{% include "study/expression/partials/live_proposal.html" %}{% endif %}
+          {% if monologue %}{% include "study/simulation/partials/proposal.html" %}{% endif %}
           <details id="lv-transcript" class="lv-transcript lv-report-card"><summary><h2>{% include "study/shared/partials/ui_icon.html" with name="microphone" only %} {% if monologue %}Votre prise de parole{% else %}Votre conversation{% endif %}</h2><small id="lv-count"></small></summary>
             <button type="button" class="lv-toggle" id="lv-replies" aria-controls="lv-turns">{% include "study/shared/partials/ui_icon.html" with name="eye" only %} <span id="lv-replies-label">Afficher les réponses de l’interlocuteur</span></button>
             <ol class="lv-turns" id="lv-turns" data-replies="hidden"></ol>
           </details>
-          {% if not monologue %}{% include "study/expression/partials/live_proposal.html" %}{% endif %}
+          {% if not monologue %}{% include "study/simulation/partials/proposal.html" %}{% endif %}
 {% endblock %}
 {% block report_notes %}
         <p class="lv-fineprint">Ce bilan n’est pas une note officielle du TCF. La prononciation et l’accent ne sont pas évalués. Votre compte conserve les trente dernières séances de cette tâche, sans audio.</p>

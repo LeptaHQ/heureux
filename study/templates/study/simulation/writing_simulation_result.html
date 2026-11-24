@@ -97,7 +97,7 @@
       </ul>
     </details>
   </details>
-  {% include "study/expression/partials/live_proposal.html" with written=True only %}
+  {% include "study/simulation/partials/proposal.html" with written=True only %}
 {% endblock %}
 
 {% block report_notes %}
@@ -109,5 +109,5 @@
   </a>
 {% endblock %}
 {% block scripts %}
-  <script src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=2"></script>
+  <script src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=3"></script>
 {% endblock %}

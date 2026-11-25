@@ -132,6 +132,9 @@ three-minute deadline. Groq can also
 use its one retry to recover from a writing schema rejection in JSON mode.
 If the writing worker stops during a restart, the unfinished report becomes
 retryable once its 45-second lease expires. Heureux does not resend it automatically.
+The writing and oral grading prompts ask the model to interpret the exact
+consigne first: purpose, role, register, required content, and time cues.
+They ask it to judge tense and mood in context before grading the original.
 Each writing provider returns the grade, corrections, and practice proposal in
 one generation request. Corrections come from the original and appear in source
 order. Strengths explain why a specific choice helps the reader. A **Développer**
@@ -148,9 +151,14 @@ unambiguous corrections and rephrasings. Older saved reports can still show the
 correction-only fallback without resending the text. Learners can copy the
 original or the proposal, and save their own edit. Edits are private,
 saved per model, and do not change the original, the corrections, or the grade.
-In Render logs, filter for `writing evaluation` and the attempt ID from the
-bilan URL. The worker logs when grading starts and how long it took. Slow
-Copilot calls also log separate session setup, reply, and cleanup durations.
+In Render logs, filter for `writing evaluation` or `oral evaluation` and the
+attempt ID. The worker reports time before it started (`queue_ms`) separately
+from its own `elapsed_ms`. `phases_ms` breaks down loading, grading, and saving.
+Within grading, `request` measures the provider call; Copilot also times
+credential resolution (`copilot_auth`, including any refresh) and SDK import
+before that call. The Copilot request breaks down session setup, time waiting
+for the final reply (SDK, network, and provider), decoding, and cleanup. Do not
+add nested phases to their parent totals. Browser polling is outside these timings.
 If the report fails verification, the log names the failed field and a reason code.
 These logs omit the learner’s answer, prompt, model output, and API keys.
 

@@ -26,18 +26,20 @@ RECONNECT = "Reconnectez votre compte GitHub pour utiliser Copilot."
 
 
 @sensitive_variables()
-def linked_report_transport(user_id, provider, link_id):
+def linked_report_transport(user_id, provider, link_id, *, timings=None):
     try:
-        token = github_copilot.access_token(user_id, link_id)
+        with evaluation.timed_phase(timings, "copilot_auth"):
+            token = github_copilot.access_token(user_id, link_id)
     except github_copilot.ReconnectRequired:
         raise evaluation.EvaluationError(403, RECONNECT) from None
     except github_copilot.ConnectionError:
         raise evaluation.EvaluationError(502, "La connexion à GitHub est temporairement indisponible.") from None
-    return report_transport(token, MODELS[provider][1])
+    return report_transport(token, MODELS[provider][1], timings=timings)
 
 
 @sensitive_variables()
-async def _request_report(token, model, instruction, packet, schema, deadline, *, measure):
+async def _request_report(token, model, instruction, packet, schema, deadline, *, measure, timings):
+    started = time.perf_counter()
     from copilot import CopilotClient, JsonRpcError, RuntimeConnection
     from copilot.rpc import PermissionDecisionReject
     from copilot.session_events import AssistantMessageData
@@ -45,7 +47,6 @@ async def _request_report(token, model, instruction, packet, schema, deadline, *
     remaining = deadline - time.monotonic()
     if remaining <= 0:
         raise TimeoutError
-    started = time.perf_counter()
     session_ready = reply_received = None
     with TemporaryDirectory(prefix="heureux-copilot-") as directory:
         runtime = RuntimeConnection.for_spawned_stdio(
@@ -92,28 +93,38 @@ async def _request_report(token, model, instruction, packet, schema, deadline, *
                 return report, credits
         finally:
             stopping = time.perf_counter()
-            await client.force_stop()
-            stopped = time.perf_counter()
-            if stopped - started >= evaluation._SLOW_SECONDS:
+            try:
+                await client.force_stop()
+            finally:
+                stopped = time.perf_counter()
                 session_ready = session_ready if session_ready is not None else stopping
                 reply_received = reply_received if reply_received is not None else stopping
-                logger.warning(
-                    "Slow Copilot evaluation model=%s session_ms=%d reply_ms=%d cleanup_ms=%d",
-                    model, (session_ready - started) * 1000, (reply_received - session_ready) * 1000,
-                    (stopped - stopping) * 1000,
-                )
+                session_ms = int((session_ready - started) * 1000)
+                reply_ms = int((reply_received - session_ready) * 1000)
+                cleanup_ms = int((stopped - stopping) * 1000)
+                if timings is not None:
+                    timings.update(
+                        session=session_ms, reply=reply_ms,
+                        decode=int((stopping - reply_received) * 1000), cleanup=cleanup_ms,
+                    )
+                if stopped - started >= evaluation._SLOW_SECONDS:
+                    logger.warning(
+                        "Slow Copilot evaluation model=%s session_ms=%d reply_ms=%d cleanup_ms=%d",
+                        model, session_ms, reply_ms, cleanup_ms,
+                    )
 
 
 @sensitive_variables()
-def report_transport(token, model, *, measure=False):
-    from copilot import JsonRpcError
+def report_transport(token, model, *, measure=False, timings=None):
+    with evaluation.timed_phase(timings, "sdk_import"):
+        from copilot import JsonRpcError
 
     @sensitive_variables()
     def request_report(provider, instruction, packet, schema, *, name, deadline, **_):
         started = time.monotonic()
         try:
             report, nano_credits = asyncio.run(
-                _request_report(token, model, instruction, packet, schema, deadline, measure=measure),
+                _request_report(token, model, instruction, packet, schema, deadline, measure=measure, timings=timings),
             )
         except TimeoutError:
             raise evaluation.EvaluationError(504, "Le bilan Copilot n’est pas arrivé à temps.") from None

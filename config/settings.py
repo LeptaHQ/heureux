@@ -306,6 +306,9 @@ LOGGING = {
         "study.views.writing_simulation": {
             "handlers": ["evaluation_console"], "level": "INFO", "propagate": False,
         },
+        "study.simulation.oral_jobs": {
+            "handlers": ["evaluation_console"], "level": "INFO", "propagate": False,
+        },
         "copilot": {"level": "CRITICAL", "propagate": False, "handlers": ["null"]},
     },
 }

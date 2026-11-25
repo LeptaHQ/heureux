@@ -7,7 +7,7 @@ import re
 import socket
 import threading
 import time
-from contextlib import closing
+from contextlib import closing, contextmanager
 from http.client import HTTPException, HTTPSConnection
 
 from django.conf import settings
@@ -37,6 +37,18 @@ class EvaluationError(Exception):
         self.schema_rejected = schema_rejected
         self.retry_after = retry_after
         super().__init__(message)
+
+
+@contextmanager
+def timed_phase(timings, phase):
+    if timings is None:
+        yield
+        return
+    started = time.perf_counter()
+    try:
+        yield
+    finally:
+        timings[phase] = int((time.perf_counter() - started) * 1000)
 
 
 def unique_fields(pairs):

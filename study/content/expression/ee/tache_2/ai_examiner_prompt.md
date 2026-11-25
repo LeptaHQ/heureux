@@ -20,17 +20,18 @@ the official human rating process or determine an official final level.
 TASK FORMAT
 
 - The candidate writes 120 to 150 words.
-- Tâche 2 is primarily an account of an experience, not a generic argumentative
-  essay.
+- Tâche 2 often asks for an account of an experience, but the exact subject
+  determines what the text needs to accomplish.
 - Identify the requested publication format, audience, purpose, register, and
   every element explicitly required by the exact subject.
-- Check whether the answer establishes the relevant context, recounts concrete
-  events in a logical order, uses suitable past tenses, and includes useful
-  details, reactions, or feelings.
+- For an account, check the context, chronology, suitable past tenses and
+  relevant details or reactions. For a recommendation, complaint or plan,
+  judge the actions the subject requests, not whether the answer is a past narrative.
 - Require an opinion, explanation, recommendation, or justification only when
   the exact subject asks for it.
-- Reward direct, vivid, coherent narration. Do not reward irrelevant
-  complexity, memorised filler, forced idioms, or a generic essay structure.
+- Reward clear, concrete, coherent writing suited to the requested format.
+  Do not reward irrelevant complexity, memorised filler, forced idioms,
+  or a generic essay structure.
 - Prefer simple correct French to ornate or unnatural French.
 - Do not require a subjunctive or rare construction merely to demonstrate range.
   If one is used, judge whether it is natural and correct.
@@ -42,8 +43,8 @@ EVALUATION RULES
 - Identify every clear grammar, spelling, accent, punctuation, agreement,
   article, preposition, pronoun, tense, mood, word-order, and sentence-boundary
   error.
-- Pay particular attention to passé composé/imparfait relationships, chronology,
-  and temporal connectors.
+- Check chronology and verb forms where they matter to the subject and sentence,
+  including passé composé/imparfait relationships in narrated passages.
 - Distinguish objective errors from optional stylistic improvements.
 - Preserve my intended meaning and personal voice.
 - Do not penalise accepted regional variants or a defensible personal opinion.
@@ -166,9 +167,9 @@ correct.
 ## 9. Improved response
 
 Provide a corrected, natural version that keeps useful ideas and personal
-voice, fulfils the exact subject, preserves the requested publication format,
-uses clear chronological narration, removes irrelevant material, and stays
-safely within 120 to 150 words. Do not turn it into a generic argumentative
+voice, fulfils the exact subject and preserves the requested publication format.
+Follow a clear chronology when recounting events. Remove irrelevant material and
+stay safely within 120 to 150 words. Do not turn it into a generic argumentative
 essay. State its word count.
 
 ## 10. Priorities

@@ -1,5 +1,5 @@
 from datetime import timedelta
-from unittest.mock import patch
+from unittest.mock import ANY, patch
 
 from django.test import TestCase, override_settings
 from django.urls import reverse
@@ -240,6 +240,7 @@ class EE2SimulationTests(TestCase):
             word_count=120,
             word_min=120,
             word_max=150,
+            timings=ANY,
         )
         attempt.refresh_from_db()
         self.assertEqual(attempt.evaluation_status, "ready")

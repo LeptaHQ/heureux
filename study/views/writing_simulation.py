@@ -40,7 +40,7 @@ from study.models import (
 from study.navigation.routing import subject_selection_url
 from study.review.progress import writing_sujet_progress_by_id
 from study.simulation import copilot_runtime, writing_evaluation
-from study.simulation.evaluation import PROVIDER_LABELS, EvaluationError, available_providers
+from study.simulation.evaluation import PROVIDER_LABELS, EvaluationError, available_providers, timed_phase
 from .simulation import (
     PickerSubject,
     picker_rows,
@@ -954,6 +954,8 @@ def _renew_evaluation_lease(claim, finished):
 
 
 def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_id=None):
+    worker_started = time.perf_counter()
+    queue_ms = max(0, int((timezone.now() - started_at).total_seconds() * 1000))
     claim = {
         "pk": attempt_id,
         "evaluation_status": WritingSimulationEvaluationStatus.PROCESSING,
@@ -962,16 +964,20 @@ def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_
     if provider:
         claim["evaluation__provider"] = provider
     finished = threading.Event()
-    close_old_connections()
+    timings = {}
+    log_context = None
+    persisted_status = "not_saved"
     try:
-        attempt = (
-            WritingSimulationAttempt.objects.filter(**claim)
-            .only(
-                "snapshot", "body", "position_body", "word_count", "user_id",
-                "evaluation_status", "evaluation_started_at", "evaluation_lease_until",
+        with timed_phase(timings, "load"):
+            close_old_connections()
+            attempt = (
+                WritingSimulationAttempt.objects.filter(**claim)
+                .only(
+                    "snapshot", "body", "position_body", "word_count", "user_id",
+                    "evaluation_status", "evaluation_started_at", "evaluation_lease_until",
+                )
+                .first()
             )
-            .first()
-        )
         if attempt is None or not _evaluation_in_progress(attempt, timezone.now()):
             return
         if attempt.evaluation_lease_until is not None:
@@ -984,23 +990,27 @@ def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_
         logger.info("writing evaluation started %s", log_context)
         started = time.monotonic()
         try:
-            options = {}
-            if provider in copilot_runtime.MODELS:
-                options["request_report"] = copilot_runtime.linked_report_transport(attempt.user_id, provider, copilot_link_id)
-            report = writing_evaluation.score(
-                task_number=spec.number,
-                subject=attempt.snapshot.get("prompt", ""),
-                response=attempt.body,
-                word_count=attempt.word_count or _word_count(attempt),
-                word_min=word_min,
-                word_max=word_max,
-                **({"provider": provider} if provider else {}),
-                **options,
-                **(
-                    {"position": attempt.position_body, "documents": attempt.snapshot.get("documents", ())}
-                    if spec.number == 3 else {}
-                ),
-            )
+            with timed_phase(timings, "grading"):
+                options = {}
+                if provider in copilot_runtime.MODELS:
+                    options["request_report"] = copilot_runtime.linked_report_transport(
+                        attempt.user_id, provider, copilot_link_id, timings=timings,
+                    )
+                report = writing_evaluation.score(
+                    task_number=spec.number,
+                    subject=attempt.snapshot.get("prompt", ""),
+                    response=attempt.body,
+                    word_count=attempt.word_count or _word_count(attempt),
+                    word_min=word_min,
+                    word_max=word_max,
+                    timings=timings,
+                    **({"provider": provider} if provider else {}),
+                    **options,
+                    **(
+                        {"position": attempt.position_body, "documents": attempt.snapshot.get("documents", ())}
+                        if spec.number == 3 else {}
+                    ),
+                )
         except EvaluationError as exc:
             status = WritingSimulationEvaluationStatus.UNAVAILABLE
             error = str(exc)
@@ -1027,7 +1037,7 @@ def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_
         else:
             status = WritingSimulationEvaluationStatus.READY
             error = ""
-        with transaction.atomic():
+        with timed_phase(timings, "save"), transaction.atomic():
             current = WritingSimulationAttempt.objects.select_for_update().filter(**claim).only("evaluation").first()
             if current is None:
                 return
@@ -1049,14 +1059,16 @@ def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_
                     "evaluated_at",
                 ]
             )
-        if status == WritingSimulationEvaluationStatus.READY:
-            logger.info(
-                "writing evaluation ready %s elapsed_ms=%d",
-                log_context, (time.monotonic() - started) * 1000,
-            )
+        persisted_status = status
     finally:
         finished.set()
         close_old_connections()
+        if log_context:
+            logger.info(
+                "writing evaluation %s %s elapsed_ms=%d queue_ms=%d phases_ms=%s",
+                persisted_status, log_context, (time.perf_counter() - worker_started) * 1000,
+                queue_ms, timings,
+            )
 
 
 def _valid_evaluation_provider(spec, provider):

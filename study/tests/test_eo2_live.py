@@ -4,7 +4,7 @@ import uuid
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
 from threading import Barrier, Event
-from unittest.mock import Mock, patch
+from unittest.mock import ANY, Mock, patch
 
 from django.conf import settings
 from django.db import connections
@@ -453,6 +453,9 @@ class GeminiLiveTests(TestCase):
         self.assertEqual(schema.count('"type": "object"'), schema.count('"additionalProperties": false'))  # Strict mode.
         system, user = payload["messages"]
         self.assertEqual(system["role"], "system")
+        instruction = system["content"]
+        self.assertLess(instruction.index("Lis d'abord la consigne exacte"), instruction.index("Puis lis l'échange en ordre"))
+        self.assertIn("le registre et les repères temporels", instruction)
         self.assertEqual(json.loads(user["content"]), {"consigne": page.context["subject"].prompt, "rows": [
             {"turnIndex": 0, "speaker": "user", "passages": [{"id": "E1", "text": first}]},
             {"turnIndex": 1, **self.rows[1]},
@@ -1009,7 +1012,11 @@ class GeminiLiveTests(TestCase):
         payload = json.loads(self.eval_connection.request.call_args.kwargs["body"])
         self.assertEqual(payload["response_format"]["json_schema"]["schema"]["properties"]["proposal"], {"type": "string"})
         system, user = payload["messages"]
-        self.assertIn("tâche 3", system["content"])
+        instruction = system["content"]
+        self.assertIn("tâche 3", instruction)
+        self.assertLess(instruction.index("Lis d'abord la question exacte"), instruction.index("relis chaque phrase"))
+        self.assertLess(instruction.index("relis chaque phrase"), instruction.index("criteria :"))
+        self.assertIn("un possible défaut de dictée", instruction)
         sent = json.loads(user["content"])
         self.assertEqual(sent["consigne"], page.context["scenario_prompt"])
         only_row, = sent["rows"]
@@ -1237,7 +1244,7 @@ class OralJobConcurrencyTests(TransactionTestCase):
                     runner.join(10)
             self.assertIsNotNone(runner)
             self.assertFalse(runner.is_alive())
-        scorer.assert_called_once_with(eo2_live.DEFAULT_CONSIGNE, self.rows, monologue=False, provider="groq")
+        scorer.assert_called_once_with(eo2_live.DEFAULT_CONSIGNE, self.rows, monologue=False, provider="groq", timings=ANY)
         self.assertEqual(self.client.get(self.url, self.query).json(), report)
 
     def test_concurrent_claims_and_expired_worker_cannot_overwrite_recovered_report(self):
@@ -1248,7 +1255,7 @@ class OralJobConcurrencyTests(TransactionTestCase):
         OralEvaluationJob.objects.filter(pk=expired.pk).update(lease_until=timezone.now() - timedelta(seconds=1))
         recovered, _ = oral_jobs._claim()
         self.assertNotEqual(expired.lease_id, recovered.lease_id)
-        oral_jobs._finish(expired, {"score": 4, "scoreStatus": "scored"}, 200)
+        self.assertFalse(oral_jobs._finish(expired, {"score": 4, "scoreStatus": "scored"}, 200))
         self.session.refresh_from_db()
         self.assertIsNone(self.session.report)
         report = {"score": 12, "scoreStatus": "scored"}

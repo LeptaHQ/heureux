@@ -1,5 +1,5 @@
 from datetime import timedelta
-from unittest.mock import patch
+from unittest.mock import ANY, patch
 
 from django.test import TestCase, override_settings
 from django.urls import reverse
@@ -85,7 +85,7 @@ class EE3SimulationTests(TestCase):
             worker["target"](*worker["args"])
         score.assert_called_once_with(
             task_number=3, provider="groq", subject=self.valid.sujet, response=synthesis, position=position,
-            documents=[self.valid.document1, self.valid.document2], word_count=120, word_min=120, word_max=180,
+            documents=[self.valid.document1, self.valid.document2], word_count=120, word_min=120, word_max=180, timings=ANY,
         )
         result = self.client.get(url)
         self.assertContains(result, position)
@@ -222,6 +222,7 @@ class EE3SimulationTests(TestCase):
         with patch.object(evaluation, "request_report", return_value=report) as request:
             result = writing_evaluation.score(**inputs)
             instruction, packet, schema = request.call_args.args
+            self.assertIn("Limit the synthesis to the sources; the learner's position may go beyond them", instruction)
             self.assertIn("assess fidelity to document 1 and document 2 separately", instruction)
             self.assertIn("improvedResponse: [Neutral synthesis of both documents", instruction)
             self.assertIn("improvedPosition: [Learner's position developed", instruction)

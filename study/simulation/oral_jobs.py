@@ -1,5 +1,6 @@
 import logging
 import threading
+import time
 import uuid
 from datetime import timedelta
 
@@ -11,7 +12,7 @@ from django.views.decorators.debug import sensitive_variables
 
 from study.models import LiveSimulation, OralEvaluationJob, Task
 from study.simulation import copilot_runtime, oral_evaluation
-from study.simulation.evaluation import DEADLINE_SECONDS, EvaluationError, available_providers
+from study.simulation.evaluation import DEADLINE_SECONDS, EvaluationError, available_providers, timed_phase
 
 EO3_KEY_PREFIX = "eo3:"
 LEASE_DURATION = timedelta(seconds=DEADLINE_SECONDS + 30)
@@ -80,7 +81,7 @@ def _source(job):
 
 
 @sensitive_variables()
-def _evaluate(job, source):
+def _evaluate(job, source, *, timings=None):
     if source is None:
         return {"error": "Le bilan n’est pas disponible."}, 403
     prompt, rows, monologue, user_id = source
@@ -88,10 +89,14 @@ def _evaluate(job, source):
         options = {}
         if job.provider in copilot_runtime.MODELS:
             try:
-                options["request_report"] = copilot_runtime.linked_report_transport(user_id, job.provider, job.copilot_link_id)
+                options["request_report"] = copilot_runtime.linked_report_transport(
+                    user_id, job.provider, job.copilot_link_id, timings=timings,
+                )
             finally:
                 connections.close_all()
-        return oral_evaluation.score(prompt, rows, monologue=monologue, provider=job.provider, **options), 200
+        return oral_evaluation.score(
+            prompt, rows, monologue=monologue, provider=job.provider, timings=timings, **options,
+        ), 200
     except EvaluationError as exc:
         return {"error": str(exc)}, exc.status
     except Exception as exc:
@@ -103,15 +108,14 @@ def _evaluate(job, source):
 def _finish(job, body, status):
     leased = pending_jobs().filter(pk=job.pk, lease_id=job.lease_id)
     if status != 200:
-        leased.update(error_status=status, error=body["error"])
-        return
+        return bool(leased.update(error_status=status, error=body["error"]))
     field = "report" if job.provider == "groq" else "provider_reports"
     session = LiveSimulation.objects.select_for_update(of=("self",)).only(field).filter(
         pk=job.simulation_id, user__is_active=True,
     ).first()
     current = leased.select_for_update().first()
     if current is None:
-        return
+        return False
     if session is not None:
         previous = session.report if job.provider == "groq" else session.provider_reports.get(job.provider)
         if not previous or (previous.get("scoreStatus") == "incomplete" and body.get("scoreStatus") == "scored"):
@@ -121,6 +125,31 @@ def _finish(job, body, status):
                 session.provider_reports[job.provider] = body
             session.save(update_fields=[field])
     current.delete()
+    return session is not None
+
+
+@sensitive_variables()
+def _run(job):
+    started = time.perf_counter()
+    queue_ms = max(0, int((timezone.now() - job.queued_at).total_seconds() * 1000))
+    timings = {}
+    persisted_status = None
+    try:
+        with timed_phase(timings, "load"):
+            source = _source(job)
+            connections.close_all()
+        with timed_phase(timings, "grading"):
+            body, status = _evaluate(job, source, timings=timings)
+        with timed_phase(timings, "save"):
+            if _finish(job, body, status):
+                persisted_status = status
+    finally:
+        provider = job.provider if job.provider in oral_evaluation.PROVIDER_LABELS else "unknown"
+        logger.info(
+            "oral evaluation provider=%s attempt=%s status=%s elapsed_ms=%d queue_ms=%d phases_ms=%s",
+            provider, job.simulation_id, persisted_status or "not_saved",
+            (time.perf_counter() - started) * 1000, queue_ms, timings,
+        )
 
 
 def _drain():
@@ -130,11 +159,11 @@ def _drain():
         while True:
             _changed.clear()
             job, next_lease = _claim()
-            source = _source(job) if job else None
-            connections.close_all()
             if job:
-                _finish(job, *_evaluate(job, source))
-            elif next_lease:
+                _run(job)
+                continue
+            connections.close_all()
+            if next_lease:
                 _changed.wait(max(0, (next_lease - timezone.now()).total_seconds()))
             else:
                 with _lock:

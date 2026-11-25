@@ -2,7 +2,7 @@ import base64
 import hashlib
 from datetime import timedelta
 from urllib.parse import parse_qs, urlsplit
-from unittest.mock import Mock, patch
+from unittest.mock import ANY, Mock, patch
 
 import httpx
 from django.test import Client, TestCase, override_settings
@@ -262,7 +262,9 @@ class GitHubCopilotTests(TestCase):
             patch.object(writing_simulation, "close_old_connections"),
         ):
             writing_simulation.run_evaluation(*selected["args"], **selected["kwargs"])
-            transport.assert_called_once_with("ghu_fixture", "gpt-6.2-astra")
+            timings = score.call_args.kwargs["timings"]
+            transport.assert_called_once_with("ghu_fixture", "gpt-6.2-astra", timings=timings)
+            self.assertIn("copilot_auth", timings)
             self.assertIs(score.call_args.kwargs["request_report"], transport.return_value)
         with self.assertNumQueries(3):
             saved = self.client.get(endpoint, {"provider": "copilot-astra"})
@@ -386,7 +388,7 @@ class GitHubCopilotTests(TestCase):
                 ):
                     worker = thread.call_args.kwargs
                     worker["target"](*worker["args"], **worker["kwargs"])
-                runtime.assert_called_once_with("ghu_fixture", "mai-code-2-flash")
+                runtime.assert_called_once_with("ghu_fixture", "mai-code-2-flash", timings=ANY)
                 runtime.return_value.assert_called_once()
                 provider, _, packet, schema = runtime.return_value.call_args.args
                 self.assertEqual(provider, "copilot-mai")
@@ -493,13 +495,21 @@ class GitHubCopilotTests(TestCase):
                 with (
                     patch.object(copilot_runtime, "report_transport", return_value=Mock(return_value=report)) as runtime,
                     patch.object(oral_jobs.connections, "close_all"),
+                    self.assertLogs(oral_jobs.logger, "INFO") as logs,
                 ):
-                    oral_jobs._finish(job, *oral_jobs._evaluate(job, oral_jobs._source(job)))
-                runtime.assert_called_once_with("ghu_fixture", "mai-code-2-flash")
+                    oral_jobs._run(job)
+                runtime.assert_called_once_with("ghu_fixture", "mai-code-2-flash", timings=ANY)
                 runtime.return_value.assert_called_once()
                 args = runtime.return_value.call_args
                 self.assertEqual(args.kwargs["name"], f"eo{number}_bilan")
                 self.assertEqual(args.args[2], {"consigne": session.snapshot["prompt"], "rows": transcript})
+                self.assertRegex(
+                    logs.output[-1],
+                    rf"oral evaluation provider=copilot-mai attempt={session.pk} status=200 elapsed_ms=\d+ queue_ms=\d+ ",
+                )
+                self.assertEqual(set(logs.records[-1].args[-1]), {"load", "copilot_auth", "request", "grading", "save"})
+                for private in (opening, session.snapshot["prompt"], "ghu_fixture", report["reason"]):
+                    self.assertNotIn(private, "\n".join(logs.output))
                 query = {"simulation": str(session.pk), "provider": "copilot-mai"}
                 ready = self.client.get(endpoint, query)
                 self.assertEqual(ready.status_code, 200, ready.content)
@@ -573,7 +583,7 @@ class GitHubCopilotTests(TestCase):
         OralEvaluationJob.objects.filter(pk=started.pk).update(lease_until=timezone.now() - timedelta(seconds=1))
         recovered, _ = oral_jobs._claim()
         self.assertIsNone(recovered)
-        oral_jobs._finish(started, {"score": 12, "scoreStatus": "scored"}, 200)
+        self.assertFalse(oral_jobs._finish(started, {"score": 12, "scoreStatus": "scored"}, 200))
         failed = self.client.get(reverse("study:eo_tache_two_live_evaluation"), {
             "simulation": str(session.pk), "provider": "copilot-mai",
         })
@@ -597,9 +607,17 @@ class GitHubCopilotTests(TestCase):
             patch.object(github_copilot.httpx, "post", return_value=revoked),
             patch.object(copilot_runtime, "report_transport") as transport,
             patch.object(writing_simulation, "close_old_connections"),
+            self.assertLogs(writing_simulation.logger, "INFO") as logs,
         ):
             writing_simulation.run_evaluation(*queued["args"], **queued["kwargs"])
         transport.assert_not_called()
+        self.assertRegex(
+            logs.output[-1],
+            rf"writing evaluation unavailable task=ee1 provider=copilot-mai attempt={attempt.pk} "
+            r"elapsed_ms=\d+ queue_ms=\d+ ",
+        )
+        self.assertEqual(set(logs.records[-1].args[-1]), {"load", "copilot_auth", "grading", "save"})
+        self.assertNotIn("ghr_fixture", "\n".join(logs.output))
         self.assertFalse(GitHubCopilotConnection.objects.filter(pk=link.pk).exists())
 
         status = self.client.get(endpoint, query)

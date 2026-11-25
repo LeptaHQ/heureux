@@ -27,8 +27,8 @@ class CopilotCalibrationTests(SimpleTestCase):
             data=AssistantMessageData(content=content, message_id="fixture"),
         )
 
-    def _request(self, deadline):
-        transport = copilot_runtime.report_transport("fixture-token", "fixture-model")
+    def _request(self, deadline, *, timings=None):
+        transport = copilot_runtime.report_transport("fixture-token", "fixture-model", timings=timings)
         return transport(
             "copilot", "Grade the invented response.", {"response": "Bonjour Camille !"},
             {"type": "object"}, name="ee1_bilan", deadline=deadline,
@@ -54,17 +54,21 @@ class CopilotCalibrationTests(SimpleTestCase):
 
     def test_rejects_an_ambiguous_report_and_closes_the_runtime(self):
         self._reply('{"score":12,"score":16}')
+        timings = {}
         with self.assertRaisesMessage(evaluation.EvaluationError, "Le bilan Copilot est illisible."):
-            self._request(time.monotonic() + 10)
+            self._request(time.monotonic() + 10, timings=timings)
         self.client.force_stop.assert_awaited_once()
+        self.assertIn("cleanup", timings)
 
     def test_slow_reports_log_separate_runtime_and_response_timings(self):
         self._reply('{"score":12}')
+        timings = {}
         with (
-            patch.object(copilot_runtime.time, "perf_counter", side_effect=[0, 0.125, 40.125, 40.25, 40.375]),
+            patch.object(copilot_runtime.time, "perf_counter", side_effect=[0, 0.25, 0.5, 0.625, 40.625, 40.75, 40.875]),
             self.assertLogs(copilot_runtime.logger, "WARNING") as logs,
         ):
-            self.assertEqual(self._request(time.monotonic() + 10), {"score": 12})
+            self.assertEqual(self._request(time.monotonic() + 10, timings=timings), {"score": 12})
+        self.assertEqual(timings, {"sdk_import": 250, "session": 125, "reply": 40000, "decode": 125, "cleanup": 125})
         self.assertEqual(
             [record.getMessage() for record in logs.records],
             ["Slow Copilot evaluation model=fixture-model session_ms=125 reply_ms=40000 cleanup_ms=125"],

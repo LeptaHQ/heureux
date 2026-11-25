@@ -606,8 +606,9 @@ class EE1SimulationTests(TestCase):
 
         self.assertRegex(
             logs.output[-1],
-            rf"writing evaluation ready task=ee1 provider=groq attempt={attempt.pk} elapsed_ms=\d+$",
+            rf"writing evaluation ready task=ee1 provider=groq attempt={attempt.pk} elapsed_ms=\d+ queue_ms=\d+ ",
         )
+        self.assertEqual(set(logs.records[-1].args[-1]), {"load", "grading", "save"})
         attempt.refresh_from_db()
         self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.READY)
         self.assertEqual(attempt.evaluation, {"cefr": "B2", "score": 12})
@@ -657,6 +658,7 @@ class EE1SimulationTests(TestCase):
             rf"writing evaluation rejected {context} field=gradeEvidence\.evidence "
             r"reason=no_matching_passages passages=1 elapsed_ms=\d+$",
         )
+        self.assertEqual(set(logs.records[-1].args[-1]), {"load", "request", "grading", "save"})
         for private in ("réponseprivée", self.sujet.prompt, private_citation, settings.CLOUDFLARE_WORKERS_API_KEY):
             self.assertNotIn(private, "\n".join(logs.output))
         payload = self.client.get(url, {"provider": "cloudflare"}).json()
@@ -994,7 +996,10 @@ class EE1SimulationTests(TestCase):
                 task_number=2, subject="Racontez votre visite au musée.",
                 response=response, word_count=11, word_min=120, word_max=150,
             )
-        self.assertIn("a completed event or bounded period may use the passé composé", request.call_args.args[0])
+        request.assert_called_once()
+        instruction = request.call_args.args[0]
+        self.assertIn("a completed event or bounded period may use the passé composé", instruction)
+        self.assertIn("judge the actions the subject requests, not whether the answer is a past narrative", instruction)
         self.assertEqual(result["verbFeedback"], [{"quote": background, "text": note}])
         self.assertEqual(result["corrections"], report["corrections"][:1])
         self.assertEqual(result["score"], 12)
@@ -1043,9 +1048,18 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(call.kwargs["host"], "api.groq.com")
         self.assertEqual(payload["model"], "qwen/qwen3.8-27b")
         self.assertEqual(payload["reasoning_effort"], "none")
-        self.assertTrue(payload["response_format"]["json_schema"]["strict"])
-        self.assertIn("Repair every Missing or Partly met item", payload["messages"][0]["content"])
-        self.assertIn("turn a vague claim into a concrete reason", payload["messages"][0]["content"])
+        schema = payload["response_format"]["json_schema"]
+        self.assertTrue(schema["strict"])
+        instruction = payload["messages"][0]["content"]
+        self.assertLess(instruction.index("READ THE CONSIGNE FIRST"), instruction.index("Then read the entire original"))
+        self.assertLess(instruction.index("taskCompliance: List"), instruction.index("corrections: Go through"))
+        self.assertLess(instruction.index("corrections: Go through"), instruction.index("Now give score"))
+        fields = schema["schema"]["required"]
+        self.assertLess(fields.index("taskCompliance"), fields.index("corrections"))
+        self.assertLess(fields.index("corrections"), fields.index("score"))
+        self.assertIn("does not need matching tenses", instruction)
+        self.assertIn("Repair every Missing or Partly met item", instruction)
+        self.assertIn("turn a vague claim into a concrete reason", instruction)
         packet = json.loads(payload["messages"][1]["content"])
         self.assertEqual(packet["response"], response)
         self.assertEqual(packet["subject"], subject)

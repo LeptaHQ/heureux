@@ -110,8 +110,8 @@ answer without sending it. Saving a draft or abandoning a session never
 sends it. The timer counts past zero and leaves the draft open; changing the
 timer cannot overwrite a newer draft saved in another tab.
 
-The EE1 bilan’s sparkle button lets learners request another available
-provider. The current report stays visible until the chosen model returns
+The EE1 bilan’s sparkle button lets learners choose Groq or Workers when
+available. The current report stays visible until the chosen model returns
 one, and switching back opens the saved report without grading again.
 On reopening, EE1 prefers the saved Groq report when available.
 Status checks become less frequent while a report is in progress. All

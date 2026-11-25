@@ -572,7 +572,12 @@ class EE1SimulationTests(TestCase):
         WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
             evaluation={"provider": "gemini", "reports": {"gemini": {"score": 11}}},
         )
-        self.assertEqual(self.client.get(url).json()["report"], {"score": 11})
+        with self.settings(CLOUDFLARE_WORKERS_API_KEY="", GEMINI_API_KEY=""):
+            page = self.client.get(self._attempt_url(attempt))
+            self.assertContains(page, 'data-evaluation-provider="gemini"')
+            self.assertContains(page, "Évaluer avec Groq")
+            self.assertNotContains(page, "Évaluer avec Gemini")
+            self.assertEqual(self.client.get(url).json()["report"], {"score": 11})
 
     @override_settings(EE1_EVALUATION_PROVIDER="groq")
     def test_evaluation_worker_persists_ready_report_only_for_its_claim(self):

@@ -603,8 +603,10 @@ def _result_context(request, attempt, spec):
     word_min, word_max = _attempt_limits(attempt, spec)
     if spec.number == 1:
         providers, provider = _ee1_evaluation_options(attempt)
+        providers = tuple(key for key in providers if key != "gemini")
     else:
         providers, provider = (), writing_evaluation.provider_for(spec.number)
+    force_model_picker = len(providers) == 1 and provider not in providers
     subject_url = ""
     if attempt.sujet_id:
         subject_url = reverse("study:writing_sujet_detail", args=["ee", attempt.task.slug, attempt.sujet_id])
@@ -617,6 +619,8 @@ def _result_context(request, attempt, spec):
     )
     submitted = attempt.status == WritingSimulationAttemptStatus.SUBMITTED
     configured = _writing_providers(spec)
+    if writing_evaluation.provider_for(spec.number) != "gemini":
+        configured.discard("gemini")
     can_assess = submitted and _has_response(attempt)
     can_load_evaluation = bool(configured) or attempt.evaluation_status in (
         WritingSimulationEvaluationStatus.PROCESSING, WritingSimulationEvaluationStatus.READY,
@@ -634,7 +638,8 @@ def _result_context(request, attempt, spec):
         "word_max": word_max,
         "show_evaluation": can_assess,
         "can_load_evaluation": can_load_evaluation,
-        "session_title_assessment": can_assess and (bool(configured) or len(providers) > 1),
+        "session_title_assessment": can_assess and (bool(configured) or len(providers) > 1 or force_model_picker),
+        "assessment_force_model_picker": force_model_picker,
         "evaluation_provider": provider,
         "evaluation_provider_label": _EVALUATION_SEND_LABELS[provider],
         "evaluation_providers": [(key, PROVIDER_LABELS[key]) for key in providers],

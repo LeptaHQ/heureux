@@ -1,6 +1,6 @@
 <div class="lv-assessment__action"{% if assessment_action_hidden and session_title_assessment %} id="lv-assessment-controls" hidden{% endif %}>
   <button class="icon-button" id="lv-assess"
-    {% if evaluation_providers|length > 1 %}
+    {% if evaluation_providers|length > 1 or assessment_force_model_picker %}
       type="button" aria-label="Choisir le modèle d’évaluation" title="Choisir le modèle d’évaluation" aria-expanded="false" aria-controls="lv-assessment-models"
     {% elif assessment_form_id %}
       type="submit" form="{{ assessment_form_id }}" aria-label="Évaluer ma réponse" aria-describedby="writing-evaluation-disclosure" title="Évaluer ma réponse"
@@ -8,7 +8,7 @@
       type="button" aria-label="Évaluer mon niveau" title="Évaluer mon niveau" disabled
     {% endif %}>{% include "study/shared/partials/ui_icon.html" with name="sparkles" only %}</button>
   <span class="lv-assessment__spinner" aria-hidden="true"></span>
-  {% if evaluation_providers|length > 1 %}
+  {% if evaluation_providers|length > 1 or assessment_force_model_picker %}
     <div id="lv-assessment-models" class="custom-select__list lv-assessment__models" role="group" aria-label="Modèles d’évaluation" hidden>
       {% for provider, label in evaluation_providers %}
         <button class="custom-select__option" type="button" value="{{ provider }}" title="Évaluer avec {{ label }}" aria-pressed="{% if provider == evaluation_provider %}true{% else %}false{% endif %}">{{ label }}{% include "study/shared/partials/ui_icon.html" with name="check" only %}</button>

@@ -281,10 +281,8 @@
 .lv-next-step:has(p:empty), :is(#lv-assessment-reason, .lv-assessment__evidence):empty { display: none; }
 .lv-citation { color: var(--lv-action); text-decoration: underline; text-underline-offset: 0.18em; overflow-wrap: anywhere; }
 .lv-criteria .lv-citation { display: block; margin-top: 0.25rem; }
-.lv-criteria [data-writing-criteria] .lv-citation { display: inline; }
-.lv-assessment__citations > summary { color: var(--lv-action); cursor: pointer; }
-:is(.lv-turns, [data-writing-passages]) > li:target { outline: 2px solid var(--tone-oral); outline-offset: -2px; }
-:is(.lv-turns, [data-writing-passages]) > li[id] { scroll-margin-top: calc(var(--lv-top) + 1rem); }
+.lv-turns > li:target { outline: 2px solid var(--tone-oral); outline-offset: -2px; }
+.lv-turns > li[id] { scroll-margin-top: calc(var(--lv-top) + 1rem); }
 
 /* Scoring detail: a real table; its rows stack on narrow screens so nothing scrolls sideways. */
 .lv-criteria { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 0.88rem; line-height: 1.45; }

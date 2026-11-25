@@ -22,7 +22,7 @@
     {% csrf_token %}
   </form>
   {% endif %}
-  {% if session_title_assessment and evaluation_providers|length < 2 %}
+  {% if session_title_assessment and evaluation_providers|length < 2 and not assessment_force_model_picker %}
     <span id="writing-evaluation-disclosure" class="lv-assessment__aside">Envoi à {{ evaluation_provider_label }} : réponse, consigne{% if documents %} et documents{% endif %}.</span>
   {% endif %}
 {% endblock %}
@@ -47,10 +47,6 @@
     <h3 id="lv-assessment-strengths-title">{% include "study/shared/partials/ui_icon.html" with name="check" only %} Points forts et repères</h3>
     <ul class="lv-assessment__evidence" data-writing-strengths></ul>
   </section>
-  <details class="lv-assessment__citations" data-writing-evidence hidden>
-    <summary>Passages cités</summary>
-    <ol class="lv-assessment__evidence" data-writing-passages></ol>
-  </details>
   <section class="lv-assessment__part lv-next-step">
     <h3>Au prochain essai</h3>
     <ol class="lv-assessment__evidence" data-writing-priorities></ol>
@@ -83,5 +79,5 @@
 {% endblock %}
 {% block scripts %}
   {{ block.super }}
-  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=14"></script>
+  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=15"></script>
 {% endblock %}

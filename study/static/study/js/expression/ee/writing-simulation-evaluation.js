@@ -61,24 +61,7 @@
     return li;
   };
 
-  const showReport = (report, provider) => {
-    const passages = new Map();
-    const evidence = find("evidence");
-    const passageId = (number) => `lv-writing-passage-${provider}-${number}`;
-    const cite = (target, excerpts) => {
-      for (const excerpt of new Set(excerpts)) {
-        if (!excerpt) continue;
-        if (!passages.has(excerpt)) passages.set(excerpt, passages.size + 1);
-        if (!target) continue;
-        const number = passages.get(excerpt);
-        const link = text(document.createElement("a"), `[${number}]`);
-        link.className = "lv-citation";
-        link.href = `#${passageId(number)}`;
-        link.setAttribute("aria-label", `Voir le passage cité ${number}`);
-        link.onclick = () => { evidence.open = true; };
-        target.append(" ", link);
-      }
-    };
+  const showReport = (report) => {
     text(find("verdict"), report.verdict).hidden = !report.verdict;
     const confidenceLabels = { High: "élevée", Medium: "moyenne", Low: "faible" };
     const confidence = confidenceLabels[report.confidence];
@@ -93,7 +76,6 @@
     list(find("compliance"), report.taskCompliance, (entry) => {
       const li = document.createElement("li");
       li.append(text(document.createElement("strong"), entry.item), ` · ${statuses[entry.status] || entry.status} — ${entry.evidence}`);
-      cite(li, [entry.quote]);
       return li;
     });
 
@@ -110,30 +92,15 @@
       row.append(heading);
       const rating = text(row.insertCell(), entry.rating || "Non évalué");
       if (entry.rating) rating.lang = "en";
-      cite(text(row.insertCell(), entry.evidence), entry.quotes);
+      text(row.insertCell(), entry.evidence);
       return row;
     });
 
-    const rationale = text(find("grade-rationale"), report.gradeRationale);
-    rationale.hidden = !report.gradeRationale;
-    cite(rationale.hidden ? null : rationale, report.gradeEvidence);
+    text(find("grade-rationale"), report.gradeRationale).hidden = !report.gradeRationale;
 
     const notes = [...report.strengths, ...(report.verbFeedback || [])];
     find("strengths-section").hidden = !notes.length;
-    list(find("strengths"), notes, (entry) => {
-      const li = item(entry.text);
-      cite(li, [entry.quote]);
-      return li;
-    });
-
-    list(find("passages"), [...passages], ([excerpt, number]) => {
-      const li = document.createElement("li");
-      li.id = passageId(number);
-      li.append(quote(excerpt));
-      return li;
-    });
-    evidence.hidden = !passages.size;
-    evidence.open = false;
+    list(find("strengths"), notes, (entry) => item(entry.text));
 
     list(find("corrections"), report.corrections, correction);
     const correctionsNote = find("corrections-note");
@@ -183,7 +150,7 @@
     clearTimeout(poll);
     if (payload.status !== "processing") pollDelay = 1500;
     if (payload.status === "ready" && payload.report) {
-      showReport(payload.report, provider);
+      showReport(payload.report);
       picker?.select(provider);
       if (button && !picker) {
         button.closest(".lv-assessment__action").hidden = true;

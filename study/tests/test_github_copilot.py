@@ -42,8 +42,11 @@ class GitHubCopilotTests(TestCase):
 
     def _start_link(self, **data):
         response = self.client.post(self.authorize, data, secure=True)
-        self.assertEqual(response.status_code, 302)
-        url = urlsplit(response.url)
+        authorization_url = response.context["authorization_url"]
+        self.assertContains(response, f'<a class="btn" href="{authorization_url}">Continuer vers GitHub</a>', html=True)
+        self.assertEqual(response["Referrer-Policy"], "no-referrer")
+        self.assertIn("no-store", response["Cache-Control"])
+        url = urlsplit(authorization_url)
         self.assertEqual((url.hostname, url.path), ("github.com", "/login/oauth/authorize"))
         return {key: values[0] for key, values in parse_qs(url.query).items()}
 
@@ -74,6 +77,7 @@ class GitHubCopilotTests(TestCase):
         self.assertContains(page, f'action="{self.authorize}"', count=1)
         menu = page.content.decode().split('class="nav__menu"', 1)[1].split("</details>", 1)[0]
         self.assertIn("Connecter GitHub", menu)
+        self.assertIn('data-icon="github"', menu)
         self.assertIn(f'name="attempt_id" value="{attempt.pk}"', menu)
         query = self._start_link(attempt_id=attempt.pk)
         self.assertEqual(query["scope"], "offline_access")

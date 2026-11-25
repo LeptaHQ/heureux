@@ -1108,16 +1108,6 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   font-size: 0.9rem;
   text-overflow: ellipsis;
 }
-.nav__menu a:hover,
-.nav__menu button:hover {
-  background: var(--bg-soft);
-  color: var(--text);
-  text-decoration: none;
-}
-.nav__menu a.is-active {
-  background: var(--primary-soft);
-  color: var(--primary);
-}
 .nav__menu-divider {
   height: 1px;
   margin: 0.2rem 0.35rem;
@@ -14357,15 +14347,14 @@ body[data-active-area="stats"] {
   background: var(--tone-home-soft);
   color: var(--tone-home);
 }
-.nav__menu a:hover,
-.nav__menu button:hover,
 .nav__menu a.is-active {
-  background: color-mix(in srgb, var(--area-soft) 78%, var(--surface));
   color: var(--area-accent);
+  font-weight: 700;
 }
-.nav__menu form button:hover {
-  background: var(--accent-soft);
-  color: var(--accent);
+.nav__menu :is(a, button):is(:hover, :focus-visible) {
+  color: var(--area-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 :is(

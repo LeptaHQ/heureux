@@ -9,7 +9,7 @@ from urllib.parse import urlencode
 from uuid import UUID
 
 from django.http import Http404
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.utils.crypto import constant_time_compare
 from django.views.decorators.cache import never_cache
@@ -74,7 +74,10 @@ def authorize(request):
         "state": state, "code_challenge": challenge, "code_challenge_method": "S256",
         "scope": "offline_access", "allow_signup": "false",
     })
-    response = redirect(f"{github_copilot.AUTHORIZE_URL}?{query}")
+    # End the same-origin form submission before navigating to GitHub.
+    response = render(request, "study/account/github_copilot_authorize.html", {
+        "authorization_url": f"{github_copilot.AUTHORIZE_URL}?{query}",
+    })
     response["Referrer-Policy"] = "no-referrer"
     return response
 

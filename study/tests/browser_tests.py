@@ -575,6 +575,39 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         command._sync_cards(response_by_key, user=self.user)
         return task_by_slug["eo/tache-2"]
 
+    def test_account_menu_continues_to_github_under_the_same_origin_form_policy(self):
+        self.page.set_viewport_size({"width": 1183, "height": 844})
+        requests = []
+
+        def github(route):
+            requests.append(route.request)
+            route.fulfill(status=200, content_type="text/html", body="<h1>Authorize Heureux</h1>")
+
+        self.page.route(re.compile(r"^https://github\.com/login/oauth/authorize\?"), github)
+        with self.settings(
+            DEBUG=True,
+            COPILOT_GITHUB_CLIENT_ID="fixture-client",
+            COPILOT_GITHUB_CLIENT_SECRET="fixture-secret",
+            COPILOT_GITHUB_CALLBACK_URL=self.live_server_url + reverse("study:github_copilot_callback"),
+            COPILOT_TOKEN_ENCRYPTION_KEY="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        ):
+            start = self.page.goto(self.live_server_url + reverse("study:settings"))
+            self.assertIn("form-action 'self'", start.headers["content-security-policy"])
+            self.page.get_by_label("Compte et réglages").click()
+            menu = self.page.locator(".nav__menu")
+            connect = menu.get_by_role("button", name="Connecter GitHub")
+            for item in (menu.get_by_role("link", name="Stats"), menu.get_by_role("link", name="Réglages"), connect):
+                item.hover()
+                expect(item).to_have_css("background-color", "rgba(0, 0, 0, 0)")
+                expect(item).to_have_css("text-decoration-line", "underline")
+            connect.click()
+            expect(self.page.get_by_role("heading", name="Authorize Heureux")).to_be_visible(timeout=5000)
+
+        request, = requests
+        self.assertEqual(request.method, "GET")
+        self.assertIsNone(request.post_data)
+        self.assertEqual(parse_qs(urlsplit(request.url).query)["code_challenge_method"], ["S256"])
+
     @override_settings(GROQ_API_KEY="")
     def test_writing_simulation_uses_inline_timer_and_shared_delete_confirmation(self):
         task = factories.make_task(factories.make_part("ee"), "tache-1")

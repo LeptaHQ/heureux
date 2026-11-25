@@ -17,8 +17,19 @@ services:
     # deployment work once in the build instead of on every cold start.
     # Only Render runs this. Vercel's builder is far from the Neon database, so
     # its import took ~5 minutes while this build waited on the import lock.
-    buildCommand: 'pip install -r requirements.txt && if [ -n "$COPILOT_GITHUB_CLIENT_ID" ]; then python -m copilot download-runtime; fi && python manage.py collectstatic --noinput && python manage.py deploy_database'
-    startCommand: "gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --log-file -"
+    # Bundle Copilot with the app so a missing home cache cannot trigger extraction in a web worker.
+    buildCommand: |
+      set -e
+      pip install -r requirements.txt
+      if [ -n "$COPILOT_GITHUB_CLIENT_ID" ]; then
+        COPILOT_CLI_EXTRACT_DIR="$PWD/.copilot-runtime" COPILOT_SKIP_CLI_DOWNLOAD=0 \
+          python -m copilot download-runtime --force
+      fi
+      python manage.py collectstatic --noinput
+      python manage.py deploy_database
+    startCommand: >-
+      env COPILOT_CLI_EXTRACT_DIR="$PWD/.copilot-runtime" COPILOT_SKIP_CLI_DOWNLOAD=1
+      gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --log-file -
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.15

@@ -151,7 +151,9 @@ These logs omit the learner’s answer, prompt, model output, and API keys.
    `COPILOT_GITHUB_CLIENT_SECRET`, `COPILOT_GITHUB_CALLBACK_URL` (the exact
    registered callback), and `COPILOT_TOKEN_ENCRYPTION_KEY` (a dedicated,
    stable Fernet key; generate it privately). Save and deploy the service.
-   The build downloads the pinned Copilot runtime when a client ID is configured.
+   The build bundles the pinned Copilot runtime with the app when a client ID
+   is configured. Web workers do not download it. If you manage the Render
+   service manually, use both the build and start commands from `render.yaml`.
 3. Sign into Heureux as usual. In the account dropdown, choose **Connecter GitHub**
    and authorize the app. You return to the Heureux page you connected from.
    In an EE1 bilan, use the sparkle menu to request a report. Model access depends

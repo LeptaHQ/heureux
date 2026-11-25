@@ -36,6 +36,9 @@ staticfiles/
 # Environment
 .env
 
+# Copilot runtime
+/.copilot-runtime/
+
 # OS / editor
 .DS_Store
 *.swp

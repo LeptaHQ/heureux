@@ -199,6 +199,7 @@ class GitHubCopilotTests(TestCase):
             writing_simulation.run_evaluation(*selected["args"], **selected["kwargs"])
             transport.assert_called_once_with("ghu_fixture", "gpt-6.2-astra")
             self.assertIs(score.call_args.kwargs["request_report"], transport.return_value)
+        self.assertEqual(self.client.get(endpoint, {"provider": "copilot-astra"}).json()["report"], report)
         attempt.refresh_from_db()
         self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.READY)
         self.assertIsNone(attempt.evaluation_lease_until)
@@ -273,3 +274,45 @@ class GitHubCopilotTests(TestCase):
             with self.assertRaisesMessage(evaluation.EvaluationError, "Reconnectez votre compte GitHub"):
                 writing_simulation._copilot_transport(self.user.pk, "copilot-mai", old_link_id)
         transport.assert_not_called()
+
+    def test_revoked_link_does_not_hide_the_failed_bilan_status(self):
+        link = self._link()
+        attempt = self._attempt()
+        endpoint = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        query = {"provider": "copilot-mai"}
+        consent = {"consent": True, **query}
+        with patch.object(writing_simulation.threading, "Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+            self.assertEqual(self.client.post(endpoint, consent, content_type="application/json").status_code, 202)
+        self.assertEqual(self.client.get(endpoint, query).json()["status"], "processing")
+
+        GitHubCopilotConnection.objects.filter(pk=link.pk).update(access_expires_at=timezone.now() - timedelta(seconds=1))
+        queued = thread.call_args.kwargs
+        revoked = httpx.Response(200, json={"error": "bad_refresh_token"})
+        with (
+            patch.object(github_copilot.httpx, "post", return_value=revoked),
+            patch.object(copilot_runtime, "report_transport") as transport,
+            patch.object(writing_simulation, "close_old_connections"),
+        ):
+            writing_simulation.run_evaluation(*queued["args"], **queued["kwargs"])
+        transport.assert_not_called()
+        self.assertFalse(GitHubCopilotConnection.objects.filter(pk=link.pk).exists())
+
+        status = self.client.get(endpoint, query)
+        self.assertEqual(status.status_code, 200, status.content)
+        self.assertEqual(status.json(), {
+            "status": "unavailable",
+            "report": None,
+            "error": "Reconnectez votre compte GitHub pour utiliser Copilot.",
+            "retryable": True,
+        })
+        self.assertEqual(self.client.get(endpoint).json(), status.json())
+        page = self.client.get(reverse("study:ee1_simulation_attempt", args=[attempt.pk]))
+        self.assertContains(page, 'data-evaluation-provider="copilot-mai"')
+        self.assertContains(page, "Choisir le modèle d’évaluation")
+        self.assertContains(page, "Évaluer avec Groq")
+        self.assertNotContains(page, "Évaluer avec MAI")
+        for provider in ("copilot-opus", "not-a-model"):
+            self.assertEqual(self.client.get(endpoint, {"provider": provider}).status_code, 400)
+        self.assertEqual(self.client.post(endpoint, consent, content_type="application/json").status_code, 409)
+        self.client.force_login(self.other)
+        self.assertEqual(self.client.get(endpoint, query).status_code, 404)

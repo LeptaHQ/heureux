@@ -50,6 +50,9 @@ from study.models import (
     ReviewSession,
     SubjectBookmark,
     Task,
+    WritingSimulationAttempt,
+    WritingSimulationAttemptStatus,
+    WritingSimulationEvaluationStatus,
     WritingSujet,
 )
 from study.navigation.routing import prompt_detail_url, response_detail_url, review_url, theme_detail_url
@@ -967,6 +970,38 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.assertEqual(original.text_content(), body)
         expect(proposal.get_by_role("heading", name="Version corrigée")).to_be_visible()
         self.assertEqual(proposal.locator("#lv-proposal-lines p").all_text_contents(), corrected.split("\n\n"))
+
+    @override_settings(
+        GROQ_API_KEY="", GEMINI_API_KEY="", CLOUDFLARE_WORKERS_API_KEY="", COPILOT_GITHUB_CLIENT_ID="",
+    )
+    def test_copilot_bilan_shows_reconnect_guidance_on_poll_and_reload(self):
+        task = factories.make_task(factories.make_part("ee"), "tache-1")
+        body = "Bonjour Camille, veux-tu venir dîner samedi ?"
+        attempt = WritingSimulationAttempt.objects.create(
+            user=self.user, task=task, deadline_at=timezone.now(),
+            status=WritingSimulationAttemptStatus.SUBMITTED,
+            snapshot={"prompt": "Invitez un ami."}, body=body,
+            evaluation={"provider": "copilot-mai", "reports": {}},
+            evaluation_status=WritingSimulationEvaluationStatus.PROCESSING,
+            evaluation_started_at=timezone.now(),
+        )
+        page = reverse("study:ee1_simulation_attempt", args=[attempt.pk])
+        endpoint = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint) as polling:
+            self.page.goto(self.live_server_url + page)
+        self.assertEqual(polling.value.json()["status"], "processing")
+        status = self.page.locator("#lv-assessment-status")
+        expect(status).to_have_text("Bilan en préparation…")
+
+        message = "Reconnectez votre compte GitHub pour utiliser Copilot."
+        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
+            evaluation_status=WritingSimulationEvaluationStatus.UNAVAILABLE, evaluation_error=message,
+        )
+        expect(status).to_have_text(message)
+        self.page.reload()
+        expect(status).to_have_text(message)
+        expect(self.page.locator("#lv-assess")).to_have_count(0)
+        expect(self.page.locator("#lv-transcript .lv-written-response")).to_have_text(body)
 
     def test_writing_response_copy_buttons_copy_each_model_and_personal_text(self):
         self.context.add_init_script(

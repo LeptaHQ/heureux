@@ -643,7 +643,9 @@ def _result_context(request, attempt, spec):
     configured = _writing_providers(spec, copilot_connected=copilot_connected)
     can_assess = submitted and _has_response(attempt)
     can_load_evaluation = bool(configured) or attempt.evaluation_status in (
-        WritingSimulationEvaluationStatus.PROCESSING, WritingSimulationEvaluationStatus.READY,
+        WritingSimulationEvaluationStatus.PROCESSING,
+        WritingSimulationEvaluationStatus.READY,
+        WritingSimulationEvaluationStatus.UNAVAILABLE,
     ) or (spec.number == 1 and bool(_ee1_reports(attempt)))
     context.update({
         **_attempt_navigation(request, attempt, spec),
@@ -820,11 +822,10 @@ def _ee1_evaluation_options(attempt, *, copilot_connected=False):
     reports = _ee1_reports(attempt)
     configured = _writing_providers(SPECS[1], copilot_connected=copilot_connected)
     available = configured | reports.keys()
+    providers = tuple(key for key in _WRITING_LABELS if key in available)
     last_provider = attempt.evaluation.get("provider")
-    if last_provider in _WRITING_LABELS and attempt.evaluation_status == WritingSimulationEvaluationStatus.PROCESSING:
-        available.add(last_provider)
-    providers = tuple(key for key in _WRITING_LABELS if key in available) or (default,)
-    if last_provider in providers and attempt.evaluation_status in (
+    # A previous job's status remains readable even when its model can't be selected.
+    if last_provider in _WRITING_LABELS and attempt.evaluation_status in (
         WritingSimulationEvaluationStatus.PROCESSING, WritingSimulationEvaluationStatus.UNAVAILABLE,
     ):
         return providers, last_provider
@@ -836,7 +837,7 @@ def _ee1_evaluation_options(attempt, *, copilot_connected=False):
         return providers, last_provider if last_provider in reports else next(iter(reports))
     return providers, (
         copilot_runtime.DEFAULT if copilot_connected
-        else _auto_evaluation_provider(SPECS[1], configured=configured) or providers[0]
+        else _auto_evaluation_provider(SPECS[1], configured=configured) or default
     )
 
 
@@ -1066,7 +1067,7 @@ def evaluate(request, spec, attempt_id):
                 attempt, copilot_connected=bool(github_copilot.active_link_id(request)),
             )
             provider = request.GET.get("provider", default)
-            if provider not in providers:
+            if provider != default and provider not in providers:
                 return JsonResponse({"error": "Modèle d’évaluation invalide."}, status=400)
         return evaluation_json(attempt, spec, provider=provider)
 

@@ -234,14 +234,34 @@ class EE3SimulationTests(TestCase):
             self.assertEqual(result["improvedResponse"], "")
             report["corrections"] = []
             report["improvedResponse"] = (
-                f"Le premier document cite un prix de 35 euros. {second_view} "
-                "Les deux auteurs abordent ainsi la question de l’accès à la lecture : l’un évoque le coût "
-                "de l’achat, tandis que l’autre rappelle qu’il existe une solution sans achat."
+                f"Le premier document cite un prix de 35 euros. {second_view} {synthesis} "
+                "L’un évoque le coût de l’achat, tandis que l’autre rappelle qu’il existe une solution sans achat."
             )
+            report["improvedPosition"] = (
+                f"{position} À mes yeux, un voyage est un bon moment pour lire. Quand je pars le matin, je n’ai "
+                "pas toujours envie de regarder mon téléphone. Avec un roman, je peux rester concentré sur une "
+                "seule histoire et reprendre ma lecture le soir. Si j’ai oublié mon livre, je peux en emprunter "
+                "un à la bibliothèque avant le prochain trajet. La lecture me donne ainsi une bonne raison "
+                "de mettre mon écran de côté."
+            )
+            development = {
+                "quote": position, "decision": "Develop",
+                "replacement": "Je préfère lire un livre dans le train : je profite ainsi du trajet pour me détendre.",
+                "why": "Support your preference with a specific benefit of reading while travelling.",
+            }
+            report["relevance"] = [
+                {"quote": synthesis, "decision": "Develop",
+                 "replacement": "Selon les auteurs, emprunter reste la meilleure solution pour lire régulièrement.",
+                 "why": "A neutral synthesis should not add this judgment."},
+                development,
+            ]
             request.reset_mock()
             accepted = writing_evaluation.score(**inputs)
             request.assert_called_once()
-            self.assertEqual(accepted["improvedParts"], [report["improvedResponse"], report["improvedPosition"]])
+            self.assertEqual(accepted["improvedParts"], [
+                report["improvedResponse"], report["improvedPosition"].replace(position, development["replacement"]),
+            ])
+            self.assertEqual(accepted["relevance"], [development])
             self.assertEqual(accepted["taskCompliance"][0]["status"], "Missing")
             request.return_value = {**report, "improvedResponse": report["improvedResponse"].replace(
                 second_view, "Les deux auteurs s’adressent à des lecteurs qui réfléchissent à leurs habitudes.",

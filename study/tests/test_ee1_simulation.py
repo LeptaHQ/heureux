@@ -1045,6 +1045,7 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(payload["reasoning_effort"], "none")
         self.assertTrue(payload["response_format"]["json_schema"]["strict"])
         self.assertIn("Repair every Missing or Partly met item", payload["messages"][0]["content"])
+        self.assertIn("turn a vague claim into a concrete reason", payload["messages"][0]["content"])
         packet = json.loads(payload["messages"][1]["content"])
         self.assertEqual(packet["response"], response)
         self.assertEqual(packet["subject"], subject)
@@ -1136,20 +1137,21 @@ class EE1SimulationTests(TestCase):
         response = (
             "Salut Inès,\n\nJe te conseille l’atelier du centre culturel. Les cours sont adapté à tous les niveaux. "
             "On y propose des cours pour dessiner. Chaque séance dure 50 minutes, trois fois par semaine. "
-            "L’inscription coûte 18 $ et le matériel est compris. Tu peux te renseigner à l’accueil avant de "
-            "prendre une décision. Je peux aussi t’accompagner pour ta première séance.\n\nÀ bientôt,\nNora"
+            "L’inscription coûte 18 $ et le matériel est compris, ce qui est pratique. "
+            "Tu peux te renseigner à l’accueil avant de prendre une décision. "
+            "Je peux aussi t’accompagner pour ta première séance.\n\nÀ bientôt,\nNora"
         )
         location = "L’atelier a lieu dans la salle d’arts, au rez-de-chaussée."
         fixed = response.replace("sont adapté ", "sont adaptés ")
         simplified = "Les séances durent 50 minutes et ont lieu trois fois par semaine."
-        rephrased = "des cours de dessin"
+        developed = "le matériel est compris : tu n’as donc pas besoin de l’acheter séparément."
         suggestions = [
             {"quote": "Chaque séance dure 50 minutes, trois fois par semaine.", "decision": "Simplify",
              "replacement": simplified, "why": "Separate duration from frequency."},
-            {"quote": "des cours pour dessiner", "decision": "Rephrase",
-             "replacement": rephrased, "why": "Name the subject of the course directly."},
+            {"quote": "le matériel est compris, ce qui est pratique.", "decision": "Develop",
+             "replacement": developed, "why": "Explain what Inès gains from having materials included."},
         ]
-        applied = fixed.replace(suggestions[0]["quote"], simplified).replace(suggestions[1]["quote"], rephrased)
+        applied = fixed.replace(suggestions[0]["quote"], simplified).replace(suggestions[1]["quote"], developed)
         complete = applied.replace("L’inscription", f"{location} L’inscription")
         report = {
             **self._provider_report(), "gradeEvidenceIds": ["E1"],
@@ -1189,6 +1191,7 @@ class EE1SimulationTests(TestCase):
                 self.assertEqual(result.get("proposalFromSuggestions", False), is_fallback)
                 self.assertEqual(result["taskCompliance"][0]["status"], "Missing")
                 self.assertEqual(result["priorities"], report["priorities"])
+                self.assertEqual(result["relevance"], suggestions)
                 self.assertEqual(result["score"], report["score"])
                 self.assertEqual(result["corrections"], report["corrections"])
 
@@ -1204,21 +1207,29 @@ class EE1SimulationTests(TestCase):
                 "item": "Retour ensemble", "status": "Missing", "evidenceId": "",
                 "evidence": "You do not suggest going home together.", "proposalQuote": reunion,
             }],
-            relevance=[
-                {"quote": original, "decision": "Rephrase", "replacement": "On pourra se retrouver sans difficulté",
-                 "why": "Describe how easy it is to meet."},
-                {"quote": "samedi soir", "decision": "Rephrase", "replacement": "dimanche soir",
-                 "why": "An unsupported date change."},
-            ],
         )
-        with patch.object(evaluation, "request_provider_report", return_value=report) as request:
-            result = writing_evaluation.score(**inputs, provider=copilot_runtime.DEFAULT)
+        for decision in ("Rephrase", "Develop"):
+            suggestion = {
+                "quote": original, "decision": decision,
+                "replacement": "On pourra se retrouver sans difficulté près de la sortie",
+                "why": "Give your guest a concrete point of reference for meeting up.",
+            }
+            report["relevance"] = [
+                suggestion,
+                {"quote": "samedi soir", "decision": decision, "replacement": "dimanche soir",
+                 "why": "An unsupported date change."},
+            ]
+            with (
+                self.subTest(decision=decision),
+                patch.object(evaluation, "request_provider_report", return_value=report) as request,
+            ):
+                result = writing_evaluation.score(**inputs, provider=copilot_runtime.DEFAULT)
 
-        request.assert_called_once()
-        self.assertEqual(result["improvedResponse"], draft)
-        self.assertEqual(result["relevance"], report["relevance"][:1])
-        self.assertEqual(result["proposalTarget"], "NCLC 7")
-        self.assertEqual(result["score"], report["score"])
+                request.assert_called_once()
+                self.assertEqual(result["improvedResponse"], draft)
+                self.assertEqual(result["relevance"], [suggestion] if decision == "Rephrase" else [])
+                self.assertEqual(result["proposalTarget"], "NCLC 7")
+                self.assertEqual(result["score"], report["score"])
 
     def test_enriched_proposal_can_offer_to_verify_a_flagged_detail_but_cannot_guess_it(self):
         original = (

@@ -193,7 +193,7 @@
       ? "Certaines corrections n’ont pas pu être vérifiées."
       : "Aucune erreur objective claire relevée.";
 
-    const decisions = { Cut: "Retirer", Simplify: "Simplifier", Rephrase: "Reformuler" };
+    const decisions = { Develop: "Développer", Cut: "Retirer", Simplify: "Simplifier", Rephrase: "Reformuler" };
     const suggestions = [
       ...report.relevance.filter((entry) => entry.decision !== "Keep").map((entry) => {
         const li = document.createElement("li");

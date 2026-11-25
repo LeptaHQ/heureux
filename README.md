@@ -135,12 +135,14 @@ If the writing worker stops during a restart, the unfinished report becomes
 retryable once its 45-second lease expires. Heureux does not resend it automatically.
 Each writing provider returns the grade, corrections, and practice proposal in
 one generation request. Corrections come from the original and appear in source
-order. The complete proposal aims at NCLC 7 and answers every part of the task,
-including requirements missing from the original, without guessing facts or
-changing the learner’s grade. The model uses the next-time checks and optional
-edits when writing the proposal. The app checks the word limits, checkable facts,
-grounded corrections, and evidence for repaired gaps. It can apply unambiguous
-suggested rephrasings locally without another request.
+order. Strengths explain why a specific choice helps the reader. A **Développer**
+suggestion shows how to turn a vague claim into a reason or benefit. It appears
+only when the proposal uses that wording. The complete proposal aims at NCLC 7
+and answers every part of the task, including requirements missing from the
+original, without guessing facts or changing the learner’s grade. The model uses
+the next-time checks and optional edits when writing the proposal. The app checks
+the word limits, checkable facts, grounded corrections, and evidence for repaired
+gaps. It can apply unambiguous suggested edits locally without another request.
 If a complete proposal cannot be verified, Heureux can show a partial copy with
 unambiguous corrections and rephrasings. Older saved reports can still show the
 correction-only fallback without resending the text. Learners can copy the

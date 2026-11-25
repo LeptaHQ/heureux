@@ -139,6 +139,25 @@ provider on the same invented writing sample, without using learner responses:
 RUN_WRITING_CALIBRATION=1 python manage.py test study.tests.writing_bilan_calibration
 ```
 
+For a local Copilot comparison, install the optional pilot dependencies. Supply
+`COPILOT_GITHUB_TOKEN` in your shell using a GitHub token authorized for Copilot
+requests; do not save it in the repository. Set `COPILOT_CALIBRATION_MODEL` to
+**Astra** (GPT-6.2 Astra), **MAI** (MAI Code 2 Flash), or **Opus** (Claude Opus 5.5).
+The pilot defaults to **MAI** and requires access to the selected model.
+
+```shell
+python -m pip install -r requirements-copilot-pilot.txt
+RUN_WRITING_CALIBRATION=copilot python manage.py test study.tests.writing_bilan_calibration
+```
+
+Only Copilot receives this run’s invented subject and answer, grading
+instructions, and proposed revision if it needs proofreading. The pilot
+uses your Copilot credits, reports duration and reported usage in the terminal,
+and does not touch learner accounts, simulation history, or repositories.
+It cleans up its temporary SDK session state; GitHub’s
+[model data handling](https://docs.github.com/en/copilot/reference/ai-models/model-hosting)
+still applies to hosted inference. This is not a learner-facing provider.
+
 Writing criteria use qualitative ratings from **Limited** to **Excellent**.
 The headline shows a suggested practice range out of 20 for this task, not
 a calibrated interval or an official NCLC or TCF result. Bilans check the

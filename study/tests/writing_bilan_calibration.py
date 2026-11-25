@@ -1,7 +1,9 @@
 """Opt-in live comparison using invented writing, never a saved learner response."""
 
 import os
+from contextlib import nullcontext
 from unittest import skipUnless
+from unittest.mock import patch
 
 from django.test import SimpleTestCase
 
@@ -9,10 +11,34 @@ from study.catalogue.loader import _ee_word_count
 from study.simulation import evaluation, writing_evaluation
 
 
-@skipUnless(os.environ.get("RUN_WRITING_CALIBRATION") == "1", "Opt in to live writing calibration.")
+_RUN = os.environ.get("RUN_WRITING_CALIBRATION")
+_COPILOT_MODELS = {
+    "Astra": "gpt-6.2-astra",
+    "MAI": "mai-code-2-flash",
+    "Opus": "claude-opus-5.5",
+}
+
+
+@skipUnless(_RUN in {"1", "copilot"}, "Opt in to live writing calibration.")
 class WritingBilanCalibration(SimpleTestCase):
     def test_compare_ee1_providers_on_the_same_message(self):
-        providers = sorted(evaluation.available_providers())
+        transport = nullcontext()
+        if _RUN == "copilot":
+            token = os.environ.get("COPILOT_GITHUB_TOKEN", "").strip()
+            self.assertTrue(bool(token), "Set COPILOT_GITHUB_TOKEN for the opt-in Copilot pilot.")
+            model = os.environ.get("COPILOT_CALIBRATION_MODEL", "MAI")
+            self.assertIn(model, _COPILOT_MODELS, "Choose Astra, MAI, or Opus for the Copilot pilot.")
+            try:
+                from .copilot_calibration import report_transport
+
+                transport = patch.object(evaluation, "request_provider_report", report_transport(token, _COPILOT_MODELS[model]))
+            except ModuleNotFoundError as exc:
+                if exc.name != "copilot":
+                    raise
+                self.fail("Install requirements-copilot-pilot.txt to run the Copilot pilot.")
+            providers = ["copilot"]
+        else:
+            providers = sorted(evaluation.available_providers())
         self.assertTrue(providers, "Configure at least one writing evaluation provider.")
         subject = (
             "Un ami cherche une librairie pour acheter des livres d’occasion. "
@@ -28,7 +54,7 @@ class WritingBilanCalibration(SimpleTestCase):
             "À bientôt !"
         )
         for provider in providers:
-            with self.subTest(provider=provider):
+            with self.subTest(provider=provider), transport:
                 report = writing_evaluation.score(
                     task_number=1, subject=subject, response=response,
                     word_count=_ee_word_count(response), word_min=60, word_max=120,
@@ -44,3 +70,5 @@ class WritingBilanCalibration(SimpleTestCase):
                     print(f"« {note['quote']} » — {note['text']}")
                 for correction in report["corrections"]:
                     print(f"{correction['before']} → {correction['after']}: {correction['why']}")
+                if provider == "copilot":
+                    self.assertTrue(report["improvedResponse"], "No verified proposal after the proofreading pass.")

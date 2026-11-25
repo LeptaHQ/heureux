@@ -8,11 +8,34 @@
         <p class="muted" data-writing-corrections-note hidden></p>
       </section>
       <section id="lv-proposal-rewrite" class="ee1-evaluation__section" aria-labelledby="lv-proposal-rewrite-title" hidden>
-        <div class="lv-proposal__tools">
+        <div class="lv-proposal__tools lv-writing-proposal-tools">
           <h3 id="lv-proposal-rewrite-title">Version révisée</h3>
-          <p id="lv-proposal-count"></p>
+          <div class="lv-writing-tools">
+            <p id="lv-proposal-count"></p>
+            {% include "study/expression/partials/response_copy_button.html" with source_id="writing-proposal-copy" label="Copier la proposition" label_hidden=True only %}
+            <button type="button" class="icon-button" data-writing-proposal-edit aria-label="Modifier la proposition" title="Modifier la proposition" aria-controls="writing-proposal-editor" aria-expanded="false">
+              {% include "study/shared/partials/ui_icon.html" with name="pencil" only %}
+            </button>
+          </div>
         </div>
+        <script type="application/json" id="writing-proposal-copy"></script>
         <div class="lv-proposal__prose" id="lv-proposal-lines" lang="fr"></div>
+        <form id="writing-proposal-editor" data-writing-proposal-editor hidden>
+          <fieldset class="lv-writing-editor ee1-writing-field">
+            {% for part in response_parts %}
+              <div class="ee1-writing-editor__input">
+                <label for="writing-proposal-{{ forloop.counter }}">{% if response_parts|length == 1 %}Votre version{% else %}{{ part.label }}{% endif %}</label>
+                <textarea id="writing-proposal-{{ forloop.counter }}" rows="6" lang="fr" spellcheck="false"
+                          maxlength="{{ max_body_length }}" required></textarea>
+              </div>
+            {% endfor %}
+            <div class="ee1-writing-form__actions">
+              <button type="button" class="btn btn--ghost" data-writing-proposal-cancel>Annuler</button>
+              <button type="submit" class="btn btn--primary" aria-label="Enregistrer la proposition">Enregistrer</button>
+            </div>
+          </fieldset>
+        </form>
+        <p class="muted" data-writing-proposal-status role="status"></p>
       </section>
       <p class="muted" data-writing-rewrite-note hidden></p>
       <section class="ee1-evaluation__section" aria-labelledby="writing-suggestions-title" data-writing-suggestions-section hidden>

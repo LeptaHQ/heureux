@@ -182,9 +182,13 @@ class EE3SimulationTests(TestCase):
                 {"before": "lectur", "after": "lecture"}, {"before": "livr", "after": "livre"},
             ]},
         )
-        report = self.client.get(reverse("study:ee3_simulation_evaluate", args=[attempt.pk])).json()["report"]
+        endpoint = reverse("study:ee3_simulation_evaluate", args=[attempt.pk])
+        report = self.client.get(endpoint).json()["report"]
         self.assertTrue(report["proposalFromCorrections"])
         self.assertEqual(report["improvedParts"], [synthesis.replace("lectur", "lecture"), position.replace("livr", "livre")])
+        incomplete = self.client.patch(endpoint, {"provider": "groq", "parts": ["Une seule partie."]},
+                                       content_type="application/json")
+        self.assertEqual(incomplete.status_code, 400)
 
     def test_grading_cannot_cite_documents_and_checks_both_proposal_lengths(self):
         synthesis = "Les deux auteurs comparent les avantages de la lecture."
@@ -211,8 +215,8 @@ class EE3SimulationTests(TestCase):
             result = writing_evaluation.score(**inputs)
             instruction, packet, schema = request.call_args.args
             self.assertIn("assess fidelity to document 1 and document 2 separately", instruction)
-            self.assertIn("improvedResponse: [Neutral synthesis of both documents]", instruction)
-            self.assertIn("improvedPosition: [Supported personal position]", instruction)
+            self.assertIn("improvedResponse: [Neutral synthesis of both documents", instruction)
+            self.assertIn("improvedPosition: [Learner's position developed", instruction)
             self.assertEqual(packet["documents"], list(documents))
             self.assertEqual(packet["sections"]["synthesis"]["passages"], [{"id": "E1", "text": synthesis}])
             self.assertEqual(packet["sections"]["position"]["passages"], [{"id": "E2", "text": position}])
@@ -220,22 +224,18 @@ class EE3SimulationTests(TestCase):
             self.assertEqual(result["gradeEvidence"], [synthesis, position])
             self.assertEqual(result["corrections"], [])
             self.assertEqual(result["improvedResponse"], "")
+            report["corrections"] = []
             report["improvedResponse"] = "Le premier document cite un prix de 35 euros. " + " ".join(["comparaison"] * 31)
+            request.reset_mock()
             accepted = writing_evaluation.score(**inputs)
+            request.assert_called_once()
             self.assertEqual(accepted["improvedParts"], [report["improvedResponse"], report["improvedPosition"]])
             self.assertEqual(accepted["improvedWordCount"], 121)
-            instruction, review, schema = request.call_args.args
-            self.assertIn("check the synthesis against both documents", instruction)
-            self.assertEqual(review["documents"], list(documents))
-            self.assertEqual(review["sections"]["position"]["original"], position)
-            self.assertEqual(schema["required"], ["improvedResponse", "improvedPosition"])
-            request.side_effect = [report, {**report, "improvedResponse": report["improvedResponse"].replace("35", "45")}]
-            with self.assertLogs(writing_evaluation.logger, "WARNING"):
-                inaccurate = writing_evaluation.score(**inputs)
+            request.return_value = {**report, "improvedResponse": report["improvedResponse"].replace("35", "45")}
+            inaccurate = writing_evaluation.score(**inputs)
             self.assertEqual((inaccurate["score"], inaccurate["improvedResponse"]), (12, ""))
-            request.side_effect = [report, {"improvedResponse": report["improvedResponse"], "improvedPosition": ""}]
-            with self.assertLogs(writing_evaluation.logger, "WARNING"):
-                incomplete = writing_evaluation.score(**inputs)
+            request.return_value = {**report, "improvedPosition": ""}
+            incomplete = writing_evaluation.score(**inputs)
             self.assertEqual(incomplete["score"], 12)
             self.assertEqual(incomplete["improvedResponse"], "")
             self.assertNotIn("improvedParts", incomplete)

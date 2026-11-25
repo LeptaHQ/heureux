@@ -608,6 +608,7 @@ def export_account(request):
             "word_count": item.word_count,
             "evaluation_status": item.evaluation_status,
             "evaluation": item.evaluation,
+            **({"proposal_edits": item.proposal_edits} if item.proposal_edits else {}),
             "evaluation_error": item.evaluation_error,
             "evaluation_started_at": item.evaluation_started_at,
             "evaluated_at": item.evaluated_at,

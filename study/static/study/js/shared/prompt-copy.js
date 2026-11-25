@@ -17,17 +17,19 @@
   var toastTimer = null;
 
   function readPayload(sourceId) {
-    if (Object.prototype.hasOwnProperty.call(payloadCache, sourceId)) {
-      return payloadCache[sourceId];
-    }
-
     var source = document.getElementById(sourceId);
     if (!source) {
       throw new Error("Copy source not found: " + sourceId);
     }
 
-    var payload = JSON.parse(source.textContent);
-    payloadCache[sourceId] = payload;
+    var raw = source.textContent;
+    var cached = payloadCache[sourceId];
+    if (cached && cached.raw === raw) {
+      return cached.payload;
+    }
+
+    var payload = JSON.parse(raw);
+    payloadCache[sourceId] = { raw: raw, payload: payload };
     return payload;
   }
 

@@ -1,5 +1,4 @@
 import json
-from contextlib import nullcontext
 from datetime import timedelta
 from unittest.mock import patch
 
@@ -450,16 +449,14 @@ class EE1SimulationTests(TestCase):
         busy = self.client.post(bilan, data={"consent": True, "provider": "groq"}, content_type="application/json")
         self.assertEqual(busy.status_code, 409)
 
-        report = {**self._provider_report(), "gradeEvidenceIds": []}
+        report = {**self._provider_report(), "gradeEvidenceIds": [], "improvedResponse": data["body"]}
         reply = json.dumps(self._workers_reply(json.dumps(report))).encode()
-        proofread = json.dumps(self._workers_reply(json.dumps({"improvedResponse": data["body"]}))).encode()
-        with patch.object(evaluation, "_post", side_effect=[(reply, 86), (proofread, 1)]) as call:
+        with patch.object(evaluation, "_post", return_value=(reply, 86)) as call:
             writing_simulation.run_evaluation(*thread.call_args.kwargs["args"])
-        first, second = call.call_args_list
-        request = json.loads(first.args[0])
+        call.assert_called_once()
+        request = json.loads(call.call_args.args[0])
         packet = json.loads(request["messages"][1]["content"])
         self.assertEqual(packet["response"], data["body"])
-        self.assertEqual(json.loads(json.loads(second.args[0])["messages"][1]["content"])["original"], data["body"])
         grounded = self.client.get(bilan).json()
         self.assertEqual(grounded["status"], "ready")
         self.assertEqual(grounded["report"]["score"], 12)
@@ -817,6 +814,45 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(result["corrections"], valid)
         self.assertEqual(result["omittedSections"], ["corrections"])
 
+    def test_all_grounded_corrections_are_kept_in_the_order_of_the_original(self):
+        lines = [
+            ("Je vien samedi.", "vien", "viens"),
+            ("J'ai réserver une salle.", "réserver", "réservé"),
+            ("Elle est tres grande.", "tres", "très"),
+            ("Les fenêtre donnent sur la rue.", "fenêtre", "fenêtres"),
+            ("Nous somme près du métro.", "somme", "sommes"),
+            ("Le trajet et facile.", "et facile", "est facile"),
+            ("Tu peux venir a pied.", "a pied", "à pied"),
+            ("Il fait tres frais le soir.", "tres", "très"),
+            ("Apporte un menteau.", "menteau", "manteau"),
+            ("Vous pouver aussi venir en bus.", "pouver", "pouvez"),
+            ("Le terminus se trouve derière la gare.", "derière", "derrière"),
+            ("Des amis serons là.", "serons", "seront"),
+            ("On mangera ensenble.", "ensenble", "ensemble"),
+            ("Appèle-moi en arrivant.", "Appèle-moi", "Appelle-moi"),
+        ]
+        response = "\n".join(line for line, _, _ in lines)
+        corrections = [
+            {"before": before, "after": after, "type": "Langue", "why": "Correction de la forme."}
+            for _, before, after in lines
+        ]
+        report = {
+            **self._provider_report(), "gradeEvidenceIds": ["E1"],
+            "corrections": list(reversed(corrections)),
+        }
+        with patch.object(evaluation, "request_provider_report", return_value=report) as request:
+            result = writing_evaluation.score(
+                task_number=1, subject=self.sujet.prompt, response=response,
+                word_count=_ee_word_count(response), word_min=60, word_max=120, provider="groq",
+            )
+        request.assert_called_once()
+        instruction = request.call_args.args[1]
+        self.assertIn("learner's ORIGINAL line by line", instruction)
+        self.assertIn("including repeated occurrences", instruction)
+        self.assertEqual(result["corrections"], corrections)
+        self.assertNotIn("corrections", result["omittedSections"])
+        self.assertIn("Appelle-moi en arrivant.", result["improvedResponse"])
+
     @override_settings(GROQ_API_KEY="")
     def test_saved_report_without_a_rewrite_shows_only_unambiguous_corrections_in_a_full_copy(self):
         self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
@@ -851,6 +887,76 @@ class EE1SimulationTests(TestCase):
         attempt.refresh_from_db()
         self.assertEqual((attempt.body, attempt.evaluation), (body, report))
 
+    def test_proposal_edits_stay_with_their_model_without_regrading(self):
+        self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
+        attempt = WritingSimulationAttempt.objects.get(user=self.owner)
+        endpoint = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        body = "Bonjour,\n\nJe vous invite chez moi samedi."
+        reports = {
+            "groq": {"score": 12, "improvedResponse": "Bonjour, voulez-vous venir samedi ?"},
+            "copilot-mai": {"score": 13, "improvedResponse": "Bonjour, êtes-vous disponible samedi ?"},
+        }
+        evaluation_data = {"provider": "copilot-astra", "reports": reports}
+        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
+            status=WritingSimulationAttemptStatus.SUBMITTED, body=body,
+            evaluation_status=WritingSimulationEvaluationStatus.PROCESSING,
+            evaluation_started_at=timezone.now(), evaluation=evaluation_data,
+        )
+        edits = {
+            "groq": ["  Bienvenue !\n\nOn se retrouve chez moi.  "],
+            "copilot-mai": ["On se retrouve samedi pour dîner."],
+        }
+        with patch("study.views.writing_simulation.threading.Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+            for provider, parts in edits.items():
+                saved = self.client.patch(endpoint, {"provider": provider, "parts": parts}, content_type="application/json")
+                self.assertEqual(saved.status_code, 200)
+                self.assertEqual(saved.json()["proposalEdit"], {"parts": parts, "wordCount": _ee_word_count(parts[0])})
+        thread.assert_not_called()
+        for provider, parts in edits.items():
+            with self.assertNumQueries(3):
+                result = self.client.get(endpoint, {"provider": provider}).json()
+            self.assertEqual(result["status"], "ready")
+            self.assertEqual(result["proposalEdit"]["parts"], parts)
+            self.assertEqual(result["report"], reports[provider])
+        pending = self.client.get(endpoint, {"provider": "copilot-astra"}).json()
+        self.assertEqual(pending["status"], "processing")
+        self.assertNotIn("proposalEdit", pending)
+        attempt.refresh_from_db()
+        self.assertEqual((attempt.body, attempt.evaluation), (body, evaluation_data))
+        account = self.client.get(reverse("study:export_account")).json()
+        self.assertEqual(account["writing_simulation_attempts"][0]["proposal_edits"], attempt.proposal_edits)
+
+    def test_proposal_edit_requires_valid_text_csrf_and_an_owned_saved_proposal(self):
+        self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
+        attempt = WritingSimulationAttempt.objects.get(user=self.owner)
+        endpoint = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        payload = {"provider": "groq", "parts": ["Mon texte."]}
+        self.assertEqual(self.client.patch(endpoint, payload, content_type="application/json").status_code, 409)
+        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
+            status=WritingSimulationAttemptStatus.SUBMITTED,
+            evaluation_status=WritingSimulationEvaluationStatus.READY, evaluation={"score": 12, "improvedResponse": ""},
+        )
+        self.assertEqual(self.client.patch(endpoint, payload, content_type="application/json").status_code, 409)
+        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
+            evaluation={"score": 12, "improvedResponse": "Bonjour !"},
+        )
+        for case, changes in (
+            ("invalid provider type", {"provider": []}),
+            ("blank", {"parts": ["\n  "]}),
+            ("invalid JSON text for PostgreSQL", {"parts": ["A\0B"]}),
+            ("over the save limit", {"parts": ["é" * (writing_simulation.MAX_BODY_LENGTH + 1)]}),
+        ):
+            with self.subTest(case=case):
+                response = self.client.patch(endpoint, {**payload, **changes}, content_type="application/json")
+                self.assertEqual(response.status_code, 400)
+        secured = Client(enforce_csrf_checks=True)
+        secured.force_login(self.owner)
+        self.assertEqual(secured.patch(endpoint, payload, content_type="application/json").status_code, 403)
+        self.client.force_login(self.other)
+        self.assertEqual(self.client.patch(endpoint, payload, content_type="application/json").status_code, 404)
+        attempt.refresh_from_db()
+        self.assertEqual(attempt.proposal_edits, {})
+
     def test_verb_feedback_keeps_cited_explanations_without_repeating_the_quote(self):
         response = "Il pleuvait quand nous sommes arrivés.\n\nNous avons acheter deux billets."
         background, event = response.split("\n\n")
@@ -879,61 +985,41 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(result["corrections"], report["corrections"][:1])
         self.assertEqual(result["score"], 12)
         self.assertEqual(result["priorities"], report["priorities"])
-        self.assertEqual(set(result["omittedSections"]), {"gradeEvidence", "verbFeedback", "corrections"})
+        self.assertEqual(set(result["omittedSections"]), {"gradeEvidence", "verbFeedback", "corrections", "improvedResponse"})
 
-    def test_qwen_proofreads_proposal_without_changing_the_supported_grade(self):
+    @override_settings(GROQ_API_KEY="fixture-groq-key")
+    def test_qwen_returns_an_enriched_proposal_without_changing_the_supported_grade(self):
         response = (
             "Salut Alex, merci pour ta aide pendant mon absence. Peux-tu arroser les plantes mercredi et samedi ? "
             "J’ai laissé l’arrosoir près du balcon. Pour le chien, les croquettes sont dans le placard de la cuisine. "
             "Tu peux le sortir après le travail. Le facteur passe le matin ; laisse le courrier sur la table. "
             "Si tu as une question, appelle-moi. Merci encore pour ta aide. À bientôt !"
         )
-        corrected = response.replace("ta aide", "ton aide")
-
-        def completion(value):
-            return json.dumps({"choices": [{
-                "finish_reason": "stop", "message": {"content": json.dumps(value)},
-            }]}).encode(), 1
-
-        for draft, revision, expected in (
-            (response, {"improvedResponse": corrected}, corrected),
-            ("", {"improvedResponse": corrected}, corrected),
-            ("Merci pour ton aide.", {"improvedResponse": corrected}, corrected),
-            (response, {"improvedResponse": corrected.replace("mercredi", "jeudi")}, ""),
-            (response, {"improvedResponse": ""}, ""),
-            (response, {"improvedResponse": "Merci pour ton aide."}, ""),
-            (response, evaluation.EvaluationError(504, "La relecture n’a pas abouti."), ""),
-        ):
-            report = {**self._provider_report(), "improvedResponse": draft}
-            with (
-                self.subTest(draft_words=_ee_word_count(draft), expected=bool(expected), revision=type(revision).__name__),
-                patch.object(evaluation, "_post", side_effect=[
-                    completion(report),
-                    revision if isinstance(revision, evaluation.EvaluationError) else completion(revision),
-                ]) as request,
-                nullcontext() if expected else self.assertLogs(writing_evaluation.logger, "WARNING"),
-            ):
-                result = writing_evaluation.score(
-                    task_number=1, subject=self.sujet.prompt, response=response,
-                    word_count=_ee_word_count(response), word_min=60, word_max=120, provider="groq",
-                )
-                self.assertEqual(result["score"], 12)
-                self.assertEqual(result["improvedResponse"], expected)
-                self.assertEqual("improvedResponse" in result["omittedSections"], not expected)
-                first, proofread = request.call_args_list
-                grade_payload, review_payload = (json.loads(call.args[0]) for call in (first, proofread))
-                for call, payload in ((first, grade_payload), (proofread, review_payload)):
-                    self.assertEqual(call.kwargs["host"], "api.groq.com")
-                    self.assertEqual(payload["model"], "qwen/qwen3.8-27b")
-                    self.assertEqual(payload["reasoning_effort"], "none")
-                    self.assertNotIn("include_reasoning", payload)
-                    self.assertTrue(payload["response_format"]["json_schema"]["strict"])
-                review_packet = json.loads(review_payload["messages"][1]["content"])
-                self.assertEqual(review_packet["original"], response)
-                self.assertEqual(review_packet["proposal"], response if draft == response else "")
-                review_schema = review_payload["response_format"]["json_schema"]["schema"]
-                self.assertEqual(review_schema["required"], ["improvedResponse"])
-                self.assertLess(proofread.args[1], first.args[1])
+        corrected = response.replace("ta aide", "ton aide").replace(
+            "Si tu as une question", "Dis-moi si tu peux t’en occuper. Si tu as une question",
+        )
+        report = {**self._provider_report(), "improvedResponse": corrected, "gradeEvidenceIds": ["E1"]}
+        completion = json.dumps({"choices": [{
+            "finish_reason": "stop", "message": {"content": json.dumps(report)},
+        }]}).encode()
+        with patch.object(evaluation, "_post", return_value=(completion, 1)) as request:
+            result = writing_evaluation.score(
+                task_number=1, subject="Demandez à un ami de s’occuper de votre maison pendant votre absence.",
+                response=response, word_count=_ee_word_count(response), word_min=60, word_max=120, provider="groq",
+            )
+        request.assert_called_once()
+        call = request.call_args
+        payload = json.loads(call.args[0])
+        self.assertEqual(call.kwargs["host"], "api.groq.com")
+        self.assertEqual(payload["model"], "qwen/qwen3.8-27b")
+        self.assertEqual(payload["reasoning_effort"], "none")
+        self.assertTrue(payload["response_format"]["json_schema"]["strict"])
+        packet = json.loads(payload["messages"][1]["content"])
+        self.assertEqual(packet["response"], response)
+        self.assertTrue(all(quote in response for quote in result["gradeEvidence"]))
+        self.assertEqual(result["score"], report["score"])
+        self.assertEqual(result["improvedResponse"], corrected)
+        self.assertEqual(result["proposalTarget"], "NCLC 7")
 
     def _copilot_proposal(self):
         response = (
@@ -996,15 +1082,49 @@ class EE1SimulationTests(TestCase):
             ):
                 result = writing_evaluation.score(**inputs, provider=provider)
                 request.assert_called_once()
-                self.assertEqual(result["improvedResponse"], "")
-                attempt = WritingSimulationAttempt(
-                    body=inputs["response"], evaluation_status=WritingSimulationEvaluationStatus.READY,
-                    evaluation={"provider": provider, "reports": {provider: result}},
-                )
-                saved_report = writing_simulation._evaluation_payload(attempt, self.spec, provider)["report"]
-                self.assertEqual(saved_report["score"], report["score"])
-                self.assertEqual(saved_report["improvedResponse"], revised)
-                self.assertTrue(saved_report["proposalFromCorrections"])
+                self.assertEqual(result["score"], report["score"])
+                self.assertEqual(result["improvedResponse"], revised)
+                self.assertTrue(result["proposalFromCorrections"])
+                self.assertNotIn("proposalTarget", result)
+
+    def test_enriched_proposal_can_offer_to_verify_a_flagged_detail_but_cannot_guess_it(self):
+        original = (
+            "Bonsoir,\n\nJe vends mon projecteur pour 150 $. Il est en bon état et je fournis le câble "
+            "d’alimentation. La lampe fonctionne encore 4 minutes. Je m’en servais pour regarder des films "
+            "dans mon salon. Le prix est négociable. Je peux vous montrer comment installer le projecteur "
+            "et le ranger après chaque utilisation. Si cela vous intéresse, envoyez-moi un message.\n\nCamille"
+        )
+        revised = (
+            "Bonjour,\n\nJe vends mon projecteur en bon état avec son câble d’alimentation. "
+            "C’est une option pratique pour regarder des films à la maison. Je peux vous montrer comment "
+            "l’installer et vérifier avec vous l’état de la lampe lors d’un essai jeudi. "
+            "Vous pourrez ainsi juger de la qualité de l’image.\n\n"
+            "J’en demande 150 $, mais le prix est négociable. Si vous êtes intéressé, écrivez-moi pour "
+            "convenir d’un rendez-vous.\n\nCamille"
+        )
+        cut = {"quote": "La lampe fonctionne encore 4 minutes.", "decision": "Cut",
+               "why": "Verify the remaining lamp life before including this figure."}
+        for draft, relevance, expected in (
+            (revised, [cut], revised),
+            (revised, [], ""),
+            (revised.replace("l’état de la lampe", "s’il reste au moins 400 minutes d’autonomie"), [cut], ""),
+            (revised.replace("150 $", "un prix modique"), [cut], ""),
+        ):
+            with self.subTest(expected_valid=bool(expected), draft=draft, relevance=relevance):
+                report = {
+                    **self._provider_report(), "gradeEvidenceIds": ["E1"],
+                    "improvedResponse": draft, "relevance": relevance,
+                }
+                with patch.object(evaluation, "request_provider_report", return_value=report) as request:
+                    result = writing_evaluation.score(
+                        task_number=1, provider=copilot_runtime.DEFAULT,
+                        subject="Rédigez une annonce pour vendre votre projecteur. Un essai est possible jeudi.",
+                        response=original, word_count=_ee_word_count(original), word_min=60, word_max=120,
+                    )
+                request.assert_called_once()
+                self.assertEqual(result["improvedResponse"], expected)
+                self.assertEqual(result["relevance"], relevance)
+                self.assertEqual(result["score"], report["score"])
 
     @override_settings(EE1_EVALUATION_PROVIDER="groq")
     def test_groq_reports_ground_evidence_in_strict_mode_and_after_schema_retry(self):

@@ -804,6 +804,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             "priorities": ["Write the preposition « à » before « dîner »."],
             "improvedResponse": "Bonjour !\n\nEst-ce que cela te dirait de venir dîner ?",
             "improvedWordCount": 11,
+            "proposalTarget": "NCLC 7",
         }
         corrected = body.replace("a dîner", "à dîner")
         groq_report = {
@@ -937,6 +938,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(suggestions).not_to_contain_text("Garder")
         expect(self.page.get_by_text("À vérifier", exact=True)).to_have_count(0)
         expect(proposal.get_by_role("heading", name="Version révisée")).to_be_visible()
+        expect(proposal.get_by_text("Exemple d’entraînement · objectif NCLC 7.")).to_be_visible()
         expect(proposal.locator("#lv-proposal-lines p")).to_have_text(report["improvedResponse"].split("\n\n"))
         for width in (320, 390, 1280):
             self.page.set_viewport_size({"width": width, "height": 900})
@@ -969,7 +971,85 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.get_by_role("heading", name="Au prochain essai")).to_have_count(0)
         self.assertEqual(original.text_content(), body)
         expect(proposal.get_by_role("heading", name="Version corrigée")).to_be_visible()
+        expect(proposal.get_by_text("Exemple d’entraînement · objectif NCLC 7.")).to_have_count(0)
         self.assertEqual(proposal.locator("#lv-proposal-lines p").all_text_contents(), corrected.split("\n\n"))
+
+    @override_settings(GROQ_API_KEY="")
+    def test_written_proposal_editor_saves_a_private_copy_and_copies_both_versions(self):
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              value: { writeText: text => {
+                window.__copiedResponse = text;
+                return Promise.resolve();
+              }}
+            });
+            """
+        )
+        task = factories.make_task(factories.make_part("ee"), "tache-3")
+        originals = ("  Les textes parlent de la lectur.\r\n<Résumé>  ", "Je préfère lire un livr dans le train.")
+        corrections = [
+            {"before": before, "after": after, "type": "Orthographe", "why": "Mot incomplet."}
+            for before, after in (("lectur", "lecture"), ("livr", "livre"))
+        ]
+        report = {
+            "score": 12, "taskCompliance": [], "criteria": [], "strengths": [],
+            "corrections": corrections, "relevance": [], "upgrades": [], "priorities": [],
+            "improvedResponse": "",
+        }
+        attempt = WritingSimulationAttempt.objects.create(
+            user=self.user, task=task, deadline_at=timezone.now(), status=WritingSimulationAttemptStatus.SUBMITTED,
+            snapshot={"prompt": "Comparez les deux points de vue.", "documents": ["Document A", "Document B"]},
+            body=originals[0], position_body=originals[1],
+            evaluation_status=WritingSimulationEvaluationStatus.READY, evaluation=report,
+        )
+        url = reverse("study:ee3_simulation_attempt", args=[attempt.pk])
+        endpoint = reverse("study:ee3_simulation_evaluate", args=[attempt.pk])
+        self.page.set_viewport_size({"width": 320, "height": 900})
+        self.page.goto(self.live_server_url + url)
+        proposal = self.page.locator("#lv-proposal")
+        expect(proposal.get_by_role("heading", name="Version corrigée")).to_be_visible()
+        self.page.get_by_role("button", name="Copier ma réponse").click()
+        self.assertEqual(self.page.evaluate("window.__copiedResponse"), "\n\n".join(originals))
+        copy = proposal.locator('[data-prompt-copy-source="writing-proposal-copy"]')
+        copy.click()
+        corrected = ("  Les textes parlent de la lecture.\n<Résumé>  ", "Je préfère lire un livre dans le train.")
+        self.assertEqual(self.page.evaluate("window.__copiedResponse"), "\n\n".join(corrected))
+
+        edit = proposal.get_by_role("button", name="Modifier la proposition")
+        edit.click()
+        synthesis = proposal.get_by_role("textbox", name="Synthèse neutre")
+        opinion = proposal.get_by_role("textbox", name="Point de vue argumenté")
+        expect(synthesis).to_be_focused()
+        expect(synthesis).to_have_value(corrected[0])
+        expect(opinion).to_have_value(corrected[1])
+        synthesis.fill("Ce brouillon sera annulé.")
+        proposal.get_by_role("button", name="Annuler").click()
+        expect(edit).to_be_focused()
+        edit.click()
+        expect(synthesis).to_have_value(corrected[0])
+        revised = ("  Les textes opposent deux façons de lire.\n<Résumé>  ", "Pour ma part, je lis en voyage.")
+        synthesis.fill(revised[0])
+        opinion.fill(revised[1])
+        self.assert_no_horizontal_overflow()
+        save = proposal.get_by_role("button", name="Enregistrer la proposition")
+        self.page.route("**" + endpoint, lambda route: route.fulfill(status=503, body=""))
+        save.click()
+        expect(proposal.get_by_role("status")).to_contain_text("Vos modifications sont toujours dans l’éditeur.")
+        expect(opinion).to_have_value(revised[1])
+        self.page.unroute("**" + endpoint)
+        save.click()
+        expect(proposal.get_by_role("status")).to_have_text("Votre version a été enregistrée.")
+        expect(proposal.get_by_role("heading", name="Version personnalisée")).to_be_visible()
+        expect(self.page.locator("#lv-level")).to_have_text("12/20")
+        copy.click()
+        self.assertEqual(self.page.evaluate("window.__copiedResponse"), "\n\n".join(revised))
+
+        self.page.reload()
+        expect(proposal.get_by_role("heading", name="Version personnalisée")).to_be_visible()
+        self.assertEqual(proposal.locator("#lv-proposal-lines p").all_text_contents(), list(revised))
+        attempt.refresh_from_db()
+        self.assertEqual((attempt.body, attempt.position_body, attempt.evaluation), (*originals, report))
 
     def test_linked_ee1_submit_starts_polling_mai_without_a_second_action(self):
         task = factories.make_task(factories.make_part("ee"), "tache-1")
@@ -980,6 +1060,12 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         page = reverse("study:ee1_simulation_attempt", args=[attempt.pk])
         endpoint = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
         body = " ".join(["Bonjour"] * 60)
+        self.page.clock.install()
+        self.page.clock.pause_at(self.page.evaluate("Date.now() + 10000"))
+
+        def bilan_response(response):
+            return urlsplit(response.url).path == endpoint
+
         with (
             mock.patch("study.accounts.github_copilot.active_link_id", return_value=42),
             mock.patch("study.views.writing_simulation.run_evaluation") as worker,
@@ -987,17 +1073,20 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             self.page.goto(self.live_server_url + page)
             self.page.locator("#writing-body").fill(body)
             submit = self.page.get_by_role("button", name="Remettre la réponse")
-            expect(submit).to_have_accessible_description(
-                "À la remise, votre réponse et la consigne sont envoyées à MAI via GitHub Copilot. "
-                "Le bilan utilise vos crédits Copilot."
-            )
-            with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint) as polling:
+            expect(self.page.locator("#writing-submit-note")).to_have_count(0)
+            expect(submit).not_to_have_attribute("aria-describedby", "writing-submit-note")
+            with self.page.expect_response(bilan_response) as polling:
                 submit.click()
             self.assertEqual(polling.value.request.method, "GET")
             self.assertEqual(parse_qs(urlsplit(polling.value.url).query), {"provider": ["copilot-mai"]})
             self.assertEqual(polling.value.json()["status"], "processing")
             expect(self.page.locator("#lv-assessment-status")).to_have_text("Bilan en préparation…")
             expect(self.page.locator("#lv-transcript .lv-written-response")).to_have_text(body)
+            expect(self.page.locator("#lv-assess")).to_have_attribute("aria-busy", "true")
+            for delay in (1500, 3000, 4000):
+                with self.page.expect_response(bilan_response, timeout=5000) as next_status:
+                    self.page.clock.run_for(delay)
+                self.assertEqual(next_status.value.json()["status"], "processing")
         worker.assert_called_once()
         self.assertEqual(worker.call_args.args[-1], "copilot-mai")
         self.assertEqual(worker.call_args.kwargs, {"copilot_link_id": 42})

@@ -80,8 +80,14 @@
         <p class="muted">Aucun texte n’a été enregistré.</p>
       {% endif %}
     {% endfor %}
+    {% if response_copy %}
+      <div class="lv-writing-tools lv-writing-tools--original">
+        {% include "study/expression/partials/response_copy_button.html" with source_id="writing-original-copy" label="Copier ma réponse" label_hidden=True only %}
+      </div>
+      {{ response_copy|json_script:"writing-original-copy" }}
+    {% endif %}
   </details>
-  {% include "study/simulation/partials/proposal.html" with written=True only %}
+  {% include "study/simulation/partials/proposal.html" with written=True response_parts=response_parts max_body_length=max_body_length only %}
 {% endblock %}
 
 {% block report_notes %}
@@ -92,5 +98,6 @@
 {% endblock %}
 {% block scripts %}
   {{ block.super }}
-  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=18"></script>
+  <script defer src="{% static 'study/js/shared/prompt-copy.js' %}?v=4"></script>
+  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=19"></script>
 {% endblock %}

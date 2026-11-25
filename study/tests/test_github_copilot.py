@@ -165,7 +165,7 @@ class GitHubCopilotTests(TestCase):
                 github_copilot.access_token(self.user.pk, link.pk)
         self.assertFalse(GitHubCopilotConnection.objects.filter(pk=link.pk).exists())
 
-    def test_ee1_submission_starts_mai_once_for_the_disclosed_link(self):
+    def test_ee1_submission_starts_mai_once_for_the_link_in_the_editor(self):
         link = self._link()
         attempt = self._attempt(submitted=False)
         page = reverse("study:ee1_simulation_attempt", args=[attempt.pk])
@@ -201,6 +201,9 @@ class GitHubCopilotTests(TestCase):
         )
         thread.return_value.start.assert_called_once()
         self.assertEqual(attempt.body, data["body"])
+        with self.assertNumQueries(3):
+            polling = self.client.get(endpoint, {"provider": "copilot-mai"})
+        self.assertEqual(polling.json()["status"], "processing")
         self.assertEqual(self.client.get(endpoint).json()["status"], "processing")
         self.assertContains(self.client.get(page), 'data-evaluation-provider="copilot-mai"')
 
@@ -258,7 +261,9 @@ class GitHubCopilotTests(TestCase):
             writing_simulation.run_evaluation(*selected["args"], **selected["kwargs"])
             transport.assert_called_once_with("ghu_fixture", "gpt-6.2-astra")
             self.assertIs(score.call_args.kwargs["request_report"], transport.return_value)
-        self.assertEqual(self.client.get(endpoint, {"provider": "copilot-astra"}).json()["report"], report)
+        with self.assertNumQueries(3):
+            saved = self.client.get(endpoint, {"provider": "copilot-astra"})
+        self.assertEqual(saved.json()["report"], report)
         attempt.refresh_from_db()
         self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.READY)
         self.assertIsNone(attempt.evaluation_lease_until)

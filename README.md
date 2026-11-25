@@ -100,8 +100,8 @@ its models. To configure **Workers** ([Gemma 4 26B on Cloudflare Workers AI](htt
 Heureux calls Workers AI directly; see [Cloudflare’s data-use terms](https://developers.cloudflare.com/workers-ai/platform/data-usage/).
 Gemma uses the [Workers AI daily free allocation](https://developers.cloudflare.com/workers-ai/platform/pricing/).
 The model applies to new Workers reports; saved Workers bilans stay as they are.
-Submitting a written answer starts its bilan with the provider named in the
-editor. New Groq writing bilans and their proofreading pass use
+Submitting a written answer starts its bilan with the configured provider.
+New Groq writing bilans use
 [Qwen 3.8 27B](https://console.groq.com/docs/model/qwen/qwen3.8-27b); saved bilans
 are not regraded. EE1 defaults to Groq when configured, otherwise to Workers
 if available. `EE1_EVALUATION_PROVIDER` can override the EE1 preference; EE2
@@ -114,31 +114,33 @@ without changing the saved response.
 
 The EE1 bilan’s sparkle button lets learners choose Groq or Workers when
 available. With GitHub connected, explicitly submitting EE1 starts **MAI**
-automatically, using that GitHub account’s Copilot credits as disclosed in the
-editor. The sparkle button offers **Astra**, **MAI**, and **Opus** for manual
-requests. If the disclosed provider or GitHub connection changes before
-submission, the answer is saved without automatically sending it.
+automatically, using that GitHub account’s Copilot credits. The sparkle button
+offers **Astra**, **MAI**, and **Opus** for manual requests. If the provider or
+GitHub connection changes after the editor opens, the answer is saved without
+automatically sending it.
 The current report stays visible until the chosen model returns
 one, and switching back opens the saved report without grading again.
 On reopening, EE1 opens the last saved Copilot model or prefers the saved Groq
 report when available. Disconnecting GitHub leaves existing reports intact.
-Status checks become less frequent while a report is in progress. All
-providers use the same evidence checks. When the three criteria already
-provide verified citations, they can also support the grade rationale
+Status checks back off to once every four seconds while a report is in progress.
+Reading an existing EE1 job or saved report does not recheck GitHub
+connectivity. All writing providers use the same evidence checks. When the three
+criteria already provide verified citations, they can also support the grade rationale
 without a separate citation list. Temporary service failures are retried
 once with the same provider within the three-minute deadline. Groq can also
 use its one retry to recover from a writing schema rejection in JSON mode.
 If the writing worker stops during a restart, the unfinished report becomes
 retryable once its 45-second lease expires. Heureux does not resend it automatically.
-Copilot returns the grade and a complete corrected answer in one request,
-without a separate proofreading call. The revision is checked against the word
-limits, checkable facts, and grounded corrections. Other writing providers
-still get a separate proofreading request within the same deadline; if there
-is no usable draft, the proofreader starts from the original answer. When no
-usable revision comes back, Heureux can show a corrected copy that applies
-unambiguous corrections to the original wording, without applying optional
-suggestions. This fallback works for saved reports too, without resending the
-text or changing the grade.
+Each writing provider returns the grade, corrections, and practice proposal in
+one generation request. Corrections come from the original and appear in source
+order. The complete proposal aims at NCLC 7: it adds useful development without
+guessing missing facts or changing the learner’s grade. The proposal must meet
+the word limits and pass checks for checkable facts and grounded corrections.
+If it does not, Heureux can show a correction-only copy that applies unambiguous
+edits to the original. This fallback also works for saved reports, without
+resending the text. Learners can copy the original or the proposal, and save
+their own edit to the revised or correction-only version. Edits are private,
+saved per model, and do not change the original, the corrections, or the grade.
 In Render logs, filter for `writing evaluation` and the attempt ID from the
 bilan URL. The worker logs when grading starts and how long it took. If the
 report fails verification, the log names the failed field and a reason code.

@@ -12,14 +12,29 @@
   const picker = button && window.HeureuxAssessmentPicker(button, (provider) => requestEvaluation(provider));
   const initialProvider = form.dataset.evaluationProvider;
   const url = form.dataset.evaluationUrl;
-  let poll, pollDelay = 1500;
-
   const find = (name) => root.querySelector(`[data-writing-${name}]`);
+  const editor = find("proposal-editor");
+  const editButton = find("proposal-edit");
+  const editStatus = find("proposal-status");
+  const editFields = [...editor.querySelectorAll("textarea")];
+  const fieldset = editor.querySelector("fieldset");
+  const copySource = document.getElementById("writing-proposal-copy");
+  const copyButton = root.querySelector('[data-prompt-copy-source="writing-proposal-copy"]');
+  const csrfToken = () => window.HeureuxCsrfToken?.() || form.elements.csrfmiddlewaretoken.value;
+  let poll, pollDelay = 1500, awaitingReport = false;
+  let current, proposalParts;
+
+  const syncControls = () => {
+    const editing = !editor.hidden;
+    if (button) button.disabled = awaitingReport || editing;
+    editButton.disabled = awaitingReport || editing;
+    editButton.setAttribute("aria-expanded", String(editing));
+    copyButton.hidden = editing;
+  };
   const setStatus = (message, busy = false) => {
-    if (button) {
-      button.disabled = busy;
-      button.setAttribute("aria-busy", String(busy));
-    }
+    awaitingReport = busy;
+    syncControls();
+    if (button) button.setAttribute("aria-busy", String(busy));
     by("assessment-status").textContent = message;
   };
   const setButtonLabel = (label) => {
@@ -60,7 +75,80 @@
     return li;
   };
 
-  const showReport = (report) => {
+  const renderProposal = (report, edit) => {
+    const paragraphs = (value) => value.split(/\r?\n[ \t]*\r?\n/).map((part) => text(document.createElement("p"), part));
+    proposalParts = edit?.parts || (report.improvedParts?.length
+      ? report.improvedParts : report.improvedResponse ? [report.improvedResponse] : []);
+    const proposal = proposalParts.length === 2
+      ? proposalParts.flatMap((part, index) => [
+        text(document.createElement("h3"), index ? "Point de vue argumenté" : "Synthèse neutre"),
+        ...paragraphs(part),
+      ])
+      : proposalParts.flatMap(paragraphs);
+    by("proposal-lines").replaceChildren(...proposal);
+    by("proposal-rewrite").hidden = !proposal.length;
+    editButton.hidden = proposalParts.length !== editFields.length;
+    text(copySource, proposal.length ? JSON.stringify(proposalParts.join("\n\n")) : "");
+    text(by("proposal-rewrite-title"), edit ? "Version personnalisée" :
+      report.proposalFromCorrections ? "Version corrigée" : "Version révisée");
+    const rewriteNote = find("rewrite-note");
+    text(rewriteNote, edit ? "Vous avez modifié cette version. L’estimation porte toujours sur votre réponse originale." :
+      report.proposalFromCorrections ? "Corrections appliquées au texte original, sans réécriture." :
+      !proposal.length ? "Aucune version révisée n’a pu être vérifiée." :
+      report.proposalTarget ? `Exemple d’entraînement · objectif ${report.proposalTarget}.` : "");
+    rewriteNote.hidden = !rewriteNote.textContent;
+    text(by("proposal-count"), proposal.length ? `${edit?.wordCount ?? report.improvedWordCount} mots` : "");
+  };
+
+  const toggleEditor = (open) => {
+    editor.hidden = !open;
+    by("proposal-lines").hidden = open;
+    syncControls();
+    (open ? editFields[0] : editButton).focus();
+  };
+  editButton.addEventListener("click", () => {
+    picker?.close();
+    editFields.forEach((field, index) => { field.value = proposalParts[index]; });
+    text(editStatus, "");
+    toggleEditor(true);
+  });
+  find("proposal-cancel").addEventListener("click", () => {
+    text(editStatus, "");
+    toggleEditor(false);
+  });
+  editor.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (editor.hidden || fieldset.disabled) return;
+    const parts = editFields.map((field) => field.value);
+    const {report, provider} = current;
+    const saveError = "Impossible d’enregistrer la proposition. Vos modifications sont toujours dans l’éditeur.";
+    fieldset.disabled = true;
+    text(editStatus, "Enregistrement…");
+    try {
+      const response = await fetch(url, {
+        method: "PATCH",
+        credentials: "same-origin",
+        headers: { "X-CSRFToken": csrfToken(), "Content-Type": "application/json" },
+        body: JSON.stringify({ provider, parts }),
+      });
+      const payload = await response.json();
+      if (!response.ok || !payload.proposalEdit) {
+        text(editStatus, payload.error || saveError);
+        return;
+      }
+      renderProposal(report, payload.proposalEdit);
+      toggleEditor(false);
+      text(editStatus, "Votre version a été enregistrée.");
+    } catch {
+      text(editStatus, saveError);
+    } finally {
+      fieldset.disabled = false;
+    }
+  });
+
+  const showReport = (report, provider, edit) => {
+    current = {report, provider};
+    text(editStatus, "");
     text(find("verdict"), report.verdict).hidden = !report.verdict;
     const {min, max} = report.scoreRange || {min: report.score, max: report.score};
     level.textContent = min === max ? `${min}/20` : `${min}–${max}/20`;
@@ -117,21 +205,7 @@
     find("suggestions-section").hidden = !suggestions.length;
     find("suggestions").replaceChildren(...suggestions);
 
-    const paragraphs = (value) => value.split(/\r?\n[ \t]*\r?\n/).map((part) => text(document.createElement("p"), part));
-    const proposal = report.improvedParts?.length
-      ? report.improvedParts.flatMap((part, index) => [
-        text(document.createElement("h3"), index ? "Point de vue argumenté" : "Synthèse neutre"),
-        ...paragraphs(part),
-      ])
-      : report.improvedResponse ? paragraphs(report.improvedResponse) : [];
-    by("proposal-lines").replaceChildren(...proposal);
-    by("proposal-rewrite").hidden = !proposal.length;
-    text(by("proposal-rewrite-title"), report.proposalFromCorrections ? "Version corrigée" : "Version révisée");
-    const rewriteNote = find("rewrite-note");
-    text(rewriteNote, report.proposalFromCorrections ? "Corrections appliquées au texte original, sans réécriture." :
-      !proposal.length ? "Aucune version révisée n’a pu être vérifiée." : "");
-    rewriteNote.hidden = !rewriteNote.textContent;
-    text(by("proposal-count"), proposal.length ? `${report.improvedWordCount} mots` : "");
+    renderProposal(report, edit);
     by("proposal").hidden = false;
     list(find("priorities"), report.priorities, item);
     find("priorities").closest(".lv-next-step").hidden = !report.priorities.length;
@@ -150,7 +224,7 @@
     clearTimeout(poll);
     if (payload.status !== "processing") pollDelay = 1500;
     if (payload.status === "ready" && payload.report) {
-      showReport(payload.report);
+      showReport(payload.report, provider, payload.proposalEdit);
       picker?.select(provider);
       if (button && !picker) {
         button.closest(".lv-assessment__action").hidden = true;
@@ -163,7 +237,7 @@
     if (payload.status === "processing") {
       setStatus("Bilan en préparation…", true);
       poll = setTimeout(() => fetchStatus(provider), pollDelay);
-      pollDelay = Math.min(8000, pollDelay * 2);
+      pollDelay = Math.min(4000, pollDelay * 2);
       return;
     }
     if (payload.status === "unavailable") {
@@ -206,16 +280,16 @@
   };
 
   async function requestEvaluation(provider = initialProvider) {
+    if (awaitingReport || !editor.hidden) return;
     clearTimeout(poll);
     pollDelay = 1500;
     by("assessment").open = true;
     setStatus("Bilan en préparation…", true);
     try {
-      const csrf = window.HeureuxCsrfToken?.() || form.elements.csrfmiddlewaretoken.value;
       const response = await fetch(url, {
         method: "POST",
         credentials: "same-origin",
-        headers: { "X-CSRFToken": csrf, "Content-Type": "application/json" },
+        headers: { "X-CSRFToken": csrfToken(), "Content-Type": "application/json" },
         body: JSON.stringify({ consent: true, provider }),
       });
       if (response.status === 409) {
@@ -235,7 +309,7 @@
   });
 
   if (form.dataset.evaluationStatus !== "not_requested") {
-    if (button) button.disabled = true;
+    setStatus(by("assessment-status").textContent, true);
     fetchStatus(initialProvider);
   }
 })();

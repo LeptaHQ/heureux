@@ -358,6 +358,11 @@ button.lv-mark[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--lv-rule); }
 .lv-proposal__prose p + p { margin-top: 0.9em; }
 .lv-proposal__tools { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.4rem; color: var(--text-soft); font-size: 0.88rem; }
 .lv-proposal__tools p { margin: 0; }
+.lv-writing-tools, .lv-writing-proposal-tools { flex-wrap: wrap; }
+.lv-writing-tools { display: flex; align-items: center; gap: 0.45rem; }
+.lv-writing-tools--original { justify-content: flex-end; margin-top: 0.45rem; }
+.lv-writing-editor { display: grid; gap: 0.75rem; min-width: 0; margin: 0; padding: 0; border: 0; }
+.lv-proposal .lv-writing-editor textarea { min-height: 8rem; }
 #lv-proposal-copy { margin-inline-start: auto; }
 .lv-fineprint { max-width: 46rem; color: var(--text-faint); font-size: 0.8rem; line-height: 1.5; }
 .lv-done-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; }

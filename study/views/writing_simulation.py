@@ -63,6 +63,7 @@ _DRAFT_CONFLICT = (
 )
 _EVALUATION_FIELDS = (
     "status", "evaluation_status", "evaluation", "evaluation_started_at", "evaluation_lease_until", "evaluation_error",
+    "proposal_edits",
 )
 _WRITING_LABELS = {**PROVIDER_LABELS, **copilot_runtime.LABELS}
 _EVALUATION_SEND_LABELS = {**_WRITING_LABELS, "groq": "Groq (Qwen 3.8 27B)"}
@@ -648,6 +649,7 @@ def _result_context(request, attempt, spec):
         WritingSimulationEvaluationStatus.READY,
         WritingSimulationEvaluationStatus.UNAVAILABLE,
     ) or (spec.number == 1 and bool(_ee1_reports(attempt)))
+    response_parts = _response_parts(attempt, spec)
     context.update({
         **_attempt_navigation(request, attempt, spec),
         "attempt": attempt,
@@ -668,7 +670,9 @@ def _result_context(request, attempt, spec):
         "evaluation_providers": [(key, _WRITING_LABELS[key]) for key in providers],
         "assessment_form_id": "writing-evaluation-form",
         "subject_url": subject_selection_url(subject_url, request) if subject_url else "",
-        "response_parts": _response_parts(attempt, spec),
+        "response_parts": response_parts,
+        "response_copy": "\n\n".join(part["text"] for part in response_parts if part["text"].strip()),
+        "max_body_length": MAX_BODY_LENGTH,
         "documents": attempt.snapshot.get("documents", ()),
         "debrief_back_url": reverse("study:simulation_track", args=["ee"]),
         "debrief_back_label": "Retour à EE",
@@ -824,6 +828,14 @@ def _ee1_reports(attempt):
     return {"groq": attempt.evaluation} if attempt.evaluation_status == WritingSimulationEvaluationStatus.READY else {}
 
 
+def _ee1_job_provider(attempt):
+    provider = attempt.evaluation.get("provider")
+    if provider in _WRITING_LABELS and attempt.evaluation_status in (
+        WritingSimulationEvaluationStatus.PROCESSING, WritingSimulationEvaluationStatus.UNAVAILABLE,
+    ):
+        return provider
+
+
 def _ee1_evaluation_options(attempt, *, copilot_connected=False):
     default = writing_evaluation.provider_for(1)
     reports = _ee1_reports(attempt)
@@ -832,10 +844,8 @@ def _ee1_evaluation_options(attempt, *, copilot_connected=False):
     providers = tuple(key for key in _WRITING_LABELS if key in available)
     last_provider = attempt.evaluation.get("provider")
     # A previous job's status remains readable even when its model can't be selected.
-    if last_provider in _WRITING_LABELS and attempt.evaluation_status in (
-        WritingSimulationEvaluationStatus.PROCESSING, WritingSimulationEvaluationStatus.UNAVAILABLE,
-    ):
-        return providers, last_provider
+    if job_provider := _ee1_job_provider(attempt):
+        return providers, job_provider
     if last_provider in copilot_runtime.MODELS and last_provider in reports:
         return providers, last_provider
     if "groq" in reports:
@@ -895,7 +905,10 @@ def _evaluation_payload(attempt, spec, provider=None):
         status == WritingSimulationEvaluationStatus.PROCESSING
         and not _evaluation_in_progress(attempt, timezone.now())
     )
-    if report and report.get("corrections") and not (report.get("improvedResponse") or report.get("improvedParts")):
+    if (
+        report and report.get("corrections") and "proposalFromCorrections" not in report
+        and not (report.get("improvedResponse") or report.get("improvedParts"))
+    ):
         fields = {"body", "position_body"} if spec.number == 3 else {"body"}
         deferred = fields & attempt.get_deferred_fields()
         if deferred:
@@ -908,7 +921,7 @@ def _evaluation_payload(attempt, spec, provider=None):
             position=attempt.position_body if spec.number == 3 else None,
         )
         report = {**report, **proposal}
-    return {
+    payload = {
         "status": (
             WritingSimulationEvaluationStatus.UNAVAILABLE
             if stale
@@ -925,6 +938,9 @@ def _evaluation_payload(attempt, spec, provider=None):
         "retryable": stale
         or status == WritingSimulationEvaluationStatus.UNAVAILABLE,
     }
+    if report and (edit := attempt.proposal_edits.get(provider or "groq")):
+        payload["proposalEdit"] = edit
+    return payload
 
 
 @sensitive_variables()
@@ -1060,23 +1076,66 @@ def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_
         close_old_connections()
 
 
+@sensitive_variables()
+def _save_proposal_edit(request, spec, attempts, attempt_id):
+    invalid = "Le texte de la proposition est invalide."
+    try:
+        data = json.loads(request.body) if request.content_type == "application/json" else None
+        if not isinstance(data, dict) or data.keys() != {"provider", "parts"}:
+            raise ValueError
+        provider, parts = data["provider"], data["parts"]
+        if not isinstance(provider, str) or provider not in (_WRITING_LABELS if spec.number == 1 else ("groq",)):
+            raise ValueError
+        if (
+            not isinstance(parts, list) or len(parts) != (2 if spec.number == 3 else 1)
+            or any(not isinstance(part, str) or not part.strip() or "\0" in part for part in parts)
+        ):
+            raise ValueError
+        for part in parts:
+            part.encode("utf-8")
+    except ValueError:
+        return JsonResponse({"error": invalid}, status=400)
+    if sum(map(len, parts)) > MAX_BODY_LENGTH:
+        return JsonResponse({"error": "La proposition est trop longue pour être enregistrée."}, status=400)
+
+    with transaction.atomic():
+        attempt = get_object_or_404(attempts.select_for_update(of=("self",)), pk=attempt_id)
+        report = (
+            _evaluation_payload(attempt, spec, provider if spec.number == 1 else None)["report"]
+            if attempt.status == WritingSimulationAttemptStatus.SUBMITTED else None
+        )
+        if not report or not report.get("improvedParts" if spec.number == 3 else "improvedResponse"):
+            return JsonResponse({"error": "Aucune proposition à modifier pour ce modèle."}, status=409)
+        edit = {"parts": parts, "wordCount": sum(map(_ee_word_count, parts))}
+        attempt.proposal_edits[provider] = edit
+        attempts.filter(pk=attempt.pk).update(proposal_edits=attempt.proposal_edits)
+    return JsonResponse({"proposalEdit": edit})
+
+
 @never_cache
-@require_http_methods(["GET", "POST"])
+@require_http_methods(["GET", "POST", "PATCH"])
 @csrf_protect
 def evaluate(request, spec, attempt_id):
     attempts = _owned_attempts(request, spec).only(*_EVALUATION_FIELDS)
+    if request.method == "PATCH":
+        return _save_proposal_edit(request, spec, attempts, attempt_id)
     if request.method == "GET":
         attempt = get_object_or_404(attempts, pk=attempt_id)
         if attempt.status != WritingSimulationAttemptStatus.SUBMITTED:
             return HttpResponseBadRequest("Cette réponse ne peut pas encore être évaluée.")
         provider = None
         if spec.number == 1:
-            providers, default = _ee1_evaluation_options(
-                attempt, copilot_connected=bool(github_copilot.active_link_id(request)),
-            )
-            provider = request.GET.get("provider", default)
-            if provider != default and provider not in providers:
-                return JsonResponse({"error": "Modèle d’évaluation invalide."}, status=400)
+            provider = request.GET.get("provider")
+            if provider not in _WRITING_LABELS or (
+                provider != _ee1_job_provider(attempt) and provider not in _ee1_reports(attempt)
+            ):
+                providers, default = _ee1_evaluation_options(
+                    attempt, copilot_connected=bool(github_copilot.active_link_id(request)),
+                )
+                if provider is None:
+                    provider = default
+                elif provider != default and provider not in providers:
+                    return JsonResponse({"error": "Modèle d’évaluation invalide."}, status=400)
         return evaluation_json(attempt, spec, provider=provider)
 
     if request.content_type != "application/json":

@@ -491,6 +491,7 @@ class WritingSimulationAttempt(models.Model):
         default=WritingSimulationEvaluationStatus.NOT_REQUESTED,
     )
     evaluation = models.JSONField(default=dict)
+    proposal_edits = models.JSONField(default=dict, db_default={})
     evaluation_error = models.TextField(blank=True)
     evaluation_started_at = models.DateTimeField(null=True, blank=True)
     evaluation_lease_until = models.DateTimeField(null=True, blank=True)

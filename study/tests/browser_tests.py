@@ -1068,14 +1068,20 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.assertEqual((attempt.body, attempt.position_body, attempt.evaluation), (*originals, report))
 
     def test_linked_ee1_submit_starts_polling_mai_without_a_second_action(self):
-        task = factories.make_task(factories.make_part("ee"), "tache-1")
+        self._assert_linked_writing_submit_starts_mai(1, 60)
+
+    def test_linked_ee2_submit_starts_polling_mai_without_a_second_action(self):
+        self._assert_linked_writing_submit_starts_mai(2, 120)
+
+    def _assert_linked_writing_submit_starts_mai(self, number, words):
+        task = factories.make_task(factories.make_part("ee"), f"tache-{number}")
         attempt = WritingSimulationAttempt.objects.create(
             user=self.user, task=task, deadline_at=timezone.now(), status=WritingSimulationAttemptStatus.ACTIVE,
             snapshot={"prompt": "Invitez un ami."},
         )
-        page = reverse("study:ee1_simulation_attempt", args=[attempt.pk])
-        endpoint = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
-        body = " ".join(["Bonjour"] * 60)
+        page = reverse(f"study:ee{number}_simulation_attempt", args=[attempt.pk])
+        endpoint = reverse(f"study:ee{number}_simulation_evaluate", args=[attempt.pk])
+        body = " ".join(["bonjour"] * words)
         self.page.clock.install()
         self.page.clock.pause_at(self.page.evaluate("Date.now() + 10000"))
 

@@ -10,8 +10,11 @@ from django.urls import reverse
 from django.utils import timezone
 
 from study.accounts import github_copilot
-from study.models import GitHubCopilotConnection, WritingSimulationAttempt, WritingSimulationEvaluationStatus
-from study.simulation import copilot_runtime, evaluation
+from study.models import (
+    GitHubCopilotConnection, LiveSimulation, OralEvaluationJob,
+    WritingSimulationAttempt, WritingSimulationEvaluationStatus,
+)
+from study.simulation import copilot_runtime, evaluation, live_conversation, oral_jobs
 from study.views import writing_simulation
 
 from . import factories
@@ -291,7 +294,7 @@ class GitHubCopilotTests(TestCase):
 
         WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(evaluation_lease_until=timezone.now())
         with (
-            patch.object(writing_simulation, "_copilot_transport") as transport,
+            patch.object(copilot_runtime, "linked_report_transport") as transport,
             patch.object(writing_simulation, "close_old_connections"),
         ):
             claim = thread.call_args.kwargs
@@ -336,8 +339,246 @@ class GitHubCopilotTests(TestCase):
         self._link()
         with patch.object(copilot_runtime, "report_transport") as transport:
             with self.assertRaisesMessage(evaluation.EvaluationError, "Reconnectez votre compte GitHub"):
-                writing_simulation._copilot_transport(self.user.pk, "copilot-mai", old_link_id)
+                copilot_runtime.linked_report_transport(self.user.pk, "copilot-mai", old_link_id)
         transport.assert_not_called()
+
+    def test_copilot_submission_scores_ee2_and_ee3_and_saves_proposals_per_model(self):
+        link = self._link()
+        for number, body_count, position_count in ((2, 120, 0), (3, 40, 80)):
+            with self.subTest(task=number):
+                task = factories.make_task(self.task.part, f"tache-{number}")
+                body = " ".join(["lecture"] * body_count)
+                position = " ".join(["avis"] * position_count)
+                snapshot = {"prompt": "Répondez à la consigne."}
+                if number == 3:
+                    snapshot["documents"] = ["La lecture détend.", "La lecture enrichit le vocabulaire."]
+                attempt = WritingSimulationAttempt.objects.create(
+                    user=self.user, task=task, deadline_at=timezone.now(), status="active", snapshot=snapshot,
+                )
+                page = reverse(f"study:ee{number}_simulation_attempt", args=[attempt.pk])
+                endpoint = reverse(f"study:ee{number}_simulation_evaluate", args=[attempt.pk])
+                editor = self.client.get(page)
+                self.assertEqual(editor.context["auto_evaluation"], "copilot-mai")
+                with patch.object(writing_simulation.threading, "Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+                    submitted = self.client.post(page, {
+                        "action": "submit", "body": body, "position_body": position,
+                        "draft_revision": editor.context["draft_revision"],
+                        "evaluation_consent": "copilot-mai", "evaluation_link": str(link.pk),
+                    })
+                self.assertRedirects(submitted, page, fetch_redirect_response=False)
+                thread.assert_called_once()
+                self.assertEqual(thread.call_args.kwargs["kwargs"], {"copilot_link_id": link.pk})
+                options = self.client.get(page).context
+                self.assertEqual(options["evaluation_providers"], list(copilot_runtime.LABELS.items()))
+                self.assertEqual(options["evaluation_provider"], "copilot-mai")
+                report = {
+                    "score": 12, "scoreRange": {"min": 11, "max": 13}, "gradeEvidenceIds": [],
+                    "taskCompliance": [{"item": "But", "status": "Met", "evidenceId": "E1", "evidence": "Réponse présente."}],
+                    "criteria": {
+                        key: {"rating": "Adequate", "evidenceIds": ["E1"], "evidence": "Réponse claire."}
+                        for key in ("linguistic", "pragmatic", "sociolinguistic")
+                    },
+                    "improvedResponse": body, "improvedPosition": position, "corrections": [], "relevance": [],
+                }
+                with (
+                    patch.object(copilot_runtime, "report_transport", return_value=Mock(return_value=report)) as runtime,
+                    patch.object(writing_simulation, "close_old_connections"),
+                ):
+                    worker = thread.call_args.kwargs
+                    worker["target"](*worker["args"], **worker["kwargs"])
+                runtime.assert_called_once_with("ghu_fixture", "mai-code-2-flash")
+                runtime.return_value.assert_called_once()
+                provider, _, packet, schema = runtime.return_value.call_args.args
+                self.assertEqual(provider, "copilot-mai")
+                if number == 3:
+                    self.assertEqual(packet["documents"], snapshot["documents"])
+                    self.assertEqual([section["text"] for section in packet["sections"].values()], [body, position])
+                    self.assertIn("improvedPosition", schema["required"])
+                else:
+                    self.assertEqual(packet["response"], body)
+                self.assertEqual(packet["subject"], snapshot["prompt"])
+                query = {"provider": "copilot-mai"}
+                with self.assertNumQueries(3):
+                    ready = self.client.get(endpoint, query)
+                self.assertEqual(ready.status_code, 200, ready.content)
+                self.assertEqual(ready.json()["status"], "ready")
+                self.assertEqual(ready.json()["report"]["score"], 12)
+                self.assertEqual(ready.json()["report"]["proposalTarget"], "NCLC 7")
+                parts = ["Mon exemple révisé."] + (["Mon avis révisé."] if position else [])
+                edit = self.client.patch(endpoint, {**query, "parts": parts}, content_type="application/json")
+                self.assertEqual(edit.status_code, 200, edit.content)
+                self.assertEqual(edit.json()["proposalEdit"]["parts"], parts)
+                self.assertEqual(self.client.get(endpoint, query).json()["proposalEdit"]["parts"], parts)
+
+    def test_ee2_preserves_a_flat_groq_report_when_switching_to_copilot(self):
+        self._link()
+        task = factories.make_task(self.task.part, "tache-2")
+        previous = {"score": 10}
+        attempt = WritingSimulationAttempt.objects.create(
+            user=self.user, task=task, deadline_at=timezone.now(), status="submitted",
+            body="Mon texte.", snapshot={"prompt": "Racontez votre visite."},
+            evaluation_status="ready", evaluation=previous,
+        )
+        endpoint = reverse("study:ee2_simulation_evaluate", args=[attempt.pk])
+        consent = {"consent": True, "provider": "copilot-opus"}
+        with patch.object(writing_simulation.threading, "Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+            self.assertEqual(self.client.post(endpoint, consent, content_type="application/json").status_code, 202)
+        thread.assert_called_once()
+        self.client.post(self.disconnect)
+        self.assertEqual(self.client.get(endpoint, {"provider": "groq"}).json()["report"], previous)
+        self.assertEqual(self.client.get(endpoint, {"provider": "copilot-opus"}).json()["status"], "processing")
+        self.assertEqual(self.client.post(endpoint, consent, content_type="application/json").status_code, 409)
+
+    @override_settings(GEMINI_API_KEY="fixture-voice", AI_PIN="fixture-pin")
+    def test_copilot_oral_launch_grant_queues_mai_only_for_its_saved_attempt(self):
+        link = self._link()
+        part = factories.make_part("eo")
+        saved_reports = []
+        for number, route in ((2, "eo_tache_two_live"), (3, "eo_tache_three_live")):
+            with self.subTest(task=number):
+                factories.make_task(part, f"tache-{number}")
+                page = self.client.get(reverse(f"study:{route}"))
+                self.assertContains(page, 'data-auto-evaluation="copilot-mai"')
+                self.assertEqual(page.context["evaluation_providers"], list(copilot_runtime.LABELS.items()))
+                with patch.object(live_conversation, "_request_token", return_value="auth_tokens/fixture"):
+                    launch = self.client.post(page.context["token_url"], {
+                        "purpose": "attempt", "consent": True, "pin": "fixture-pin",
+                        "reviewProvider": "copilot-mai", "reviewLink": str(link.pk),
+                    }, content_type="application/json").json()
+                    exchange = self.client.post(page.context["token_url"], {
+                        "purpose": "exchange", "consent": True, "exchangeGrant": launch["exchangeGrant"],
+                    }, content_type="application/json").json()
+                opening = "Je préfère découvrir le quartier à pied parce que les petites rues sont calmes et agréables."
+                rows = [{"speaker": "user", "text": opening}]
+                transcript = [{"turnIndex": 0, "speaker": "user", "passages": [{"id": "E1", "text": opening}]}]
+                if number == 2:
+                    reply = "Notre visite se fait à pied."
+                    question = "La visite passe-t-elle près du parc ?"
+                    rows.extend([{"speaker": "model", "text": reply}, {"speaker": "user", "text": question}])
+                    transcript.extend([
+                        {"turnIndex": 1, "speaker": "model", "text": reply},
+                        {"turnIndex": 2, "speaker": "user", "passages": [{"id": "E2", "text": question}]},
+                    ])
+                saved = self.client.post(page.context["save_url"], {
+                    "elapsed": 1000, "rows": rows, "snapshotGrant": launch["snapshotGrant"],
+                }, content_type="application/json")
+                self.assertEqual(saved.status_code, 201)
+                session = LiveSimulation.objects.get(pk=saved.json()["id"])
+                other_session = LiveSimulation.objects.create(
+                    user=self.user, subject_key=session.subject_key, rows=rows,
+                    snapshot={"prompt": session.snapshot["prompt"]},
+                )
+                endpoint = page.context["evaluation_url"]
+                consent = {
+                    "consent": True, "provider": "copilot-mai", "rows": rows,
+                    "simulation": str(session.pk), "reviewGrant": exchange["reviewGrant"],
+                }
+                with patch.object(oral_jobs, "wake"), self.captureOnCommitCallbacks(execute=True):
+                    invalid = self.client.post(endpoint, {**consent, "simulation": str(other_session.pk)},
+                                               content_type="application/json")
+                    self.assertEqual(invalid.status_code, 403)
+                    for _ in range(2):
+                        self.assertEqual(self.client.post(endpoint, consent, content_type="application/json").status_code, 202)
+                job, _ = oral_jobs._claim()
+                self.assertEqual((job.simulation_id, job.copilot_link_id), (session.pk, link.pk))
+                report = {
+                    "reason": "Vous exprimez une préférence.", "criteria": {
+                        key: {"points": 3, "evidenceId": "E2" if number == 2 and key == "coherence" else "E1",
+                              "why": "Ce passage montre votre intention."}
+                        for key in ("task", "coherence", "lexicon", "grammar")
+                    },
+                    "strengths": [], "corrections": [], "proposal": "" if number == 3 else [],
+                    "next": "Donnez une raison à votre choix.",
+                }
+                with (
+                    patch.object(copilot_runtime, "report_transport", return_value=Mock(return_value=report)) as runtime,
+                    patch.object(oral_jobs.connections, "close_all"),
+                ):
+                    oral_jobs._finish(job, *oral_jobs._evaluate(job, oral_jobs._source(job)))
+                runtime.assert_called_once_with("ghu_fixture", "mai-code-2-flash")
+                runtime.return_value.assert_called_once()
+                args = runtime.return_value.call_args
+                self.assertEqual(args.kwargs["name"], f"eo{number}_bilan")
+                self.assertEqual(args.args[2], {"consigne": session.snapshot["prompt"], "rows": transcript})
+                query = {"simulation": str(session.pk), "provider": "copilot-mai"}
+                ready = self.client.get(endpoint, query)
+                self.assertEqual(ready.status_code, 200, ready.content)
+                self.assertEqual((ready.json()["scoreStatus"], ready.json()["score"]), ("scored", 12))
+                self.assertEqual(self.client.get(reverse(f"study:{route}"), {"simulation": session.pk}).context[
+                    "evaluation_provider"
+                ], "copilot-mai")
+                self.assertFalse(OralEvaluationJob.objects.filter(simulation=other_session).exists())
+                saved_reports.append((endpoint, query, ready.json()))
+        self.client.post(self.disconnect)
+        for endpoint, query, report in saved_reports:
+            self.assertEqual(self.client.get(endpoint, query).json(), report)
+        self.client.force_login(self.other)
+        for endpoint, query, _ in saved_reports:
+            self.assertEqual(self.client.get(endpoint, query).status_code, 404)
+
+    @override_settings(GEMINI_API_KEY="fixture-voice", AI_PIN="fixture-pin")
+    def test_oral_launch_with_a_stale_link_does_not_authorize_an_automatic_bilan(self):
+        previous = self._link()
+        old_link_id = previous.pk
+        previous.delete()
+        self._link(github_user_id=456)
+        factories.make_task(factories.make_part("eo"), "tache-2")
+        endpoint = reverse("study:eo_tache_two_live_token")
+        with patch.object(live_conversation, "_request_token", return_value="auth_tokens/fixture"):
+            launch = self.client.post(endpoint, {
+                "purpose": "attempt", "consent": True, "pin": "fixture-pin",
+                "reviewProvider": "copilot-mai", "reviewLink": str(old_link_id),
+            }, content_type="application/json")
+            self.assertEqual(launch.status_code, 200, launch.content)
+            exchange = self.client.post(endpoint, {
+                "purpose": "exchange", "consent": True, "exchangeGrant": launch.json()["exchangeGrant"],
+            }, content_type="application/json")
+        self.assertEqual(exchange.status_code, 200, exchange.content)
+        self.assertNotIn("reviewGrant", exchange.json())
+
+    @override_settings(AI_PIN="fixture-pin")
+    def test_oral_manual_job_cannot_switch_links_after_queueing(self):
+        link = self._link()
+        factories.make_task(factories.make_part("eo"), "tache-2")
+        session = LiveSimulation.objects.create(
+            user=self.user, rows=[{"speaker": "user", "text": "Combien coûte le cours ?"}],
+            snapshot={"prompt": "Renseignez-vous sur un cours."},
+        )
+        endpoint = reverse("study:eo_tache_two_live_evaluation")
+        query = {"provider": "copilot-opus", "simulation": str(session.pk)}
+        with patch.object(oral_jobs, "wake"), self.captureOnCommitCallbacks(execute=True):
+            queued = self.client.post(endpoint, {**query, "consent": True, "pin": "fixture-pin", "rows": session.rows},
+                                      content_type="application/json")
+        self.assertEqual(queued.status_code, 202)
+        self.client.post(self.disconnect)
+        self._link(github_user_id=456)
+        job, _ = oral_jobs._claim()
+        self.assertEqual(job.copilot_link_id, link.pk)
+        with patch.object(copilot_runtime, "report_transport") as runtime, patch.object(oral_jobs.connections, "close_all"):
+            oral_jobs._finish(job, *oral_jobs._evaluate(job, oral_jobs._source(job)))
+        runtime.assert_not_called()
+        failed = self.client.get(endpoint, query)
+        self.assertEqual(failed.status_code, 403)
+        self.assertIn("Reconnectez votre compte GitHub", failed.json()["error"])
+
+    def test_oral_copilot_claim_expires_without_a_second_execution(self):
+        link = self._link()
+        factories.make_task(factories.make_part("eo"), "tache-2")
+        session = LiveSimulation.objects.create(
+            user=self.user, rows=[{"speaker": "user", "text": "Combien coûte le cours ?"}],
+            snapshot={"prompt": "Renseignez-vous sur un cours."},
+        )
+        session.evaluation_jobs.create(provider="copilot-mai", copilot_link_id=link.pk)
+        started, _ = oral_jobs._claim()
+        OralEvaluationJob.objects.filter(pk=started.pk).update(lease_until=timezone.now() - timedelta(seconds=1))
+        recovered, _ = oral_jobs._claim()
+        self.assertIsNone(recovered)
+        oral_jobs._finish(started, {"score": 12, "scoreStatus": "scored"}, 200)
+        failed = self.client.get(reverse("study:eo_tache_two_live_evaluation"), {
+            "simulation": str(session.pk), "provider": "copilot-mai",
+        })
+        self.assertEqual(failed.status_code, 504, failed.content)
+        self.assertEqual(failed.json()["status"], "unavailable")
 
     def test_revoked_link_does_not_hide_the_failed_bilan_status(self):
         link = self._link()

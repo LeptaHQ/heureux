@@ -67,7 +67,7 @@ class CopilotCalibrationTests(SimpleTestCase):
             self.assertEqual(self._request(time.monotonic() + 10), {"score": 12})
         self.assertEqual(
             [record.getMessage() for record in logs.records],
-            ["Slow Copilot writing evaluation model=fixture-model session_ms=125 reply_ms=40000 cleanup_ms=125"],
+            ["Slow Copilot evaluation model=fixture-model session_ms=125 reply_ms=40000 cleanup_ms=125"],
         )
 
     def test_an_expired_request_never_starts_the_runtime(self):

@@ -1133,6 +1133,56 @@ class EE1SimulationTests(TestCase):
                 self.assertTrue(result["proposalFromCorrections"])
                 self.assertNotIn("proposalTarget", result)
 
+    def test_role_play_proposal_answers_the_assigned_friend_about_the_assigned_school(self):
+        subject = (
+            "Tu as suivi un cours au centre de langues Les Tilleuls. Réponds à ton amie Inès et décris-lui "
+            "l’école : la salle, le matériel et le professeur."
+        )
+        wrong_school = "J’ai suivi un cours à l’Institut du Parc."
+        original = (
+            f"Salut Léo,\n\n{wrong_school} Le professeur expliquait bien les exercices. Après le cours, "
+            "nous avons pratiqué à deux. On a pu se poser des questions et corriger nos réponses ensemble.\n\n"
+            "À bientôt,\nNora"
+        )
+        room = "La salle est lumineuse et les tables sont disposées en cercle."
+        materials = "On utilise des fiches et des enregistrements pour s’entraîner à écouter et à parler."
+        revised = (
+            f"Salut Inès,\n\nJ’ai bien suivi un cours au centre de langues Les Tilleuls. {room} {materials}\n\n"
+            "Le professeur expliquait bien les exercices. Après le cours, nous avons pratiqué à deux : "
+            "on a pu se poser des questions et corriger nos réponses ensemble. Si tu aimes apprendre "
+            "en discutant, je pense que ce cours te plaira.\n\nÀ bientôt,\nNora"
+        )
+        report = {
+            **self._provider_report(), "gradeEvidenceIds": ["E1"], "improvedResponse": revised,
+            "taskCompliance": [
+                {"item": item, "status": "Missing", "evidenceId": "", "evidence": "You did not include this detail.",
+                 "proposalQuote": quote}
+                for item, quote in (("Salle de cours", room), ("Matériel", materials))
+            ],
+            "relevance": [
+                {"quote": "Salut Léo,", "decision": "Cut", "replacement": "", "why": "The subject addresses Inès."},
+                {"quote": wrong_school, "decision": "Cut", "replacement": "", "why": "Use the school named in the task."},
+            ],
+        }
+        inputs = dict(task_number=1, subject=subject, response=original, word_count=_ee_word_count(original),
+                      word_min=60, word_max=120, provider="copilot-astra")
+        with patch.object(evaluation, "request_provider_report", return_value=report) as request:
+            result = writing_evaluation.score(**inputs)
+            request.assert_called_once()
+            instruction = request.call_args.args[1]
+            self.assertIn("Use the setting, role and recipient assigned by the subject", instruction)
+            self.assertIn("Quote the actual detail in proposalQuote, not a promise to look it up", instruction)
+            self.assertEqual(result["improvedResponse"], revised)
+            self.assertEqual(result["proposalTarget"], "NCLC 7")
+            self.assertEqual(result["score"], report["score"])
+            self.assertTrue(all(quote in original for quote in result["gradeEvidence"]))
+            self.assertEqual([item["status"] for item in result["taskCompliance"]], ["Missing", "Missing"])
+
+            request.return_value = {**report, "relevance": report["relevance"][1:]}
+            ungrounded = writing_evaluation.score(**inputs)
+            self.assertEqual(ungrounded["improvedResponse"], "")
+            self.assertEqual(ungrounded["score"], report["score"])
+
     def test_writing_proposal_applies_suggestions_and_demonstrates_priorities(self):
         response = (
             "Salut Inès,\n\nJe te conseille l’atelier du centre culturel. Les cours sont adapté à tous les niveaux. "

@@ -1,4 +1,4 @@
-"""Isolated GitHub Copilot inference for writing bilans."""
+"""Isolated GitHub Copilot inference for simulation bilans."""
 
 import asyncio
 import json
@@ -8,6 +8,8 @@ import time
 from tempfile import TemporaryDirectory
 
 from django.views.decorators.debug import sensitive_variables
+
+from study.accounts import github_copilot
 
 from . import evaluation
 
@@ -20,6 +22,18 @@ MODELS = {
 }
 LABELS = {key: label for key, (label, _) in MODELS.items()}
 DEFAULT = "copilot-mai"
+RECONNECT = "Reconnectez votre compte GitHub pour utiliser Copilot."
+
+
+@sensitive_variables()
+def linked_report_transport(user_id, provider, link_id):
+    try:
+        token = github_copilot.access_token(user_id, link_id)
+    except github_copilot.ReconnectRequired:
+        raise evaluation.EvaluationError(403, RECONNECT) from None
+    except github_copilot.ConnectionError:
+        raise evaluation.EvaluationError(502, "La connexion à GitHub est temporairement indisponible.") from None
+    return report_transport(token, MODELS[provider][1])
 
 
 @sensitive_variables()
@@ -84,7 +98,7 @@ async def _request_report(token, model, instruction, packet, schema, deadline, *
                 session_ready = session_ready if session_ready is not None else stopping
                 reply_received = reply_received if reply_received is not None else stopping
                 logger.warning(
-                    "Slow Copilot writing evaluation model=%s session_ms=%d reply_ms=%d cleanup_ms=%d",
+                    "Slow Copilot evaluation model=%s session_ms=%d reply_ms=%d cleanup_ms=%d",
                     model, (session_ready - started) * 1000, (reply_received - session_ready) * 1000,
                     (stopped - stopping) * 1000,
                 )

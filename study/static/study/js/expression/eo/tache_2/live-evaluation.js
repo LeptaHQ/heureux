@@ -225,7 +225,7 @@
         response = await (useGrant ? fetch(root.dataset.evaluationUrl, options) :
           window.HeureuxAudioRequest(root.dataset.evaluationUrl, options, {
             title: "Demander le bilan", action: "Demander le bilan",
-            description: `Transcription envoyée à ${label} pour le bilan.`,
+            description: `Transcription envoyée à ${label}${provider.startsWith("copilot-") ? " via GitHub Copilot" : ""} pour le bilan.`,
             confirmBeforeSend: true,
           }));
       }

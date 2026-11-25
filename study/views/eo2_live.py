@@ -23,8 +23,9 @@ from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
 from study.models import EO2PracticeAttempt, LiveSimulation, OralEvaluationJob, Prompt
 from study.navigation.routing import subject_selection_url
-from study.simulation import live_conversation, oral_evaluation, oral_jobs
-from study.simulation.evaluation import PROVIDER_LABELS, EvaluationError, available_providers
+from study.simulation import copilot_runtime, live_conversation, oral_evaluation, oral_jobs
+from study.simulation.evaluation import EvaluationError
+from study.simulation.oral_evaluation import PROVIDER_LABELS
 from study.simulation.oral_jobs import EO3_KEY_PREFIX
 from .eo2_practice import practice_topics, topic_prompts, write_topic_status
 from .helpers import _route_task, tache_two_publication
@@ -43,8 +44,8 @@ DEFAULT_CONSIGNE = (
     "Demandez-moi des renseignements pour choisir une formule qui vous convient."
 )
 OPINION_CONSIGNE = "Est-il préférable de découvrir une ville à pied plutôt qu’en voiture ? Pourquoi ?"
-ORAL_ALTERNATE_PROVIDERS = ("gemini", "cloudflare")
-ORAL_AUTOMATIC_PROVIDERS = ("cloudflare", "groq")
+ORAL_ALTERNATE_PROVIDERS = tuple(provider for provider in PROVIDER_LABELS if provider != "groq")
+ORAL_AUTOMATIC_PROVIDERS = (copilot_runtime.DEFAULT, "cloudflare", "groq")
 # Each learner keeps their most recent exchanges, across subjects; older ones are deleted on save.
 SAVED_SIMULATIONS = 30
 
@@ -215,7 +216,9 @@ def oral_live(request, task_slug, **publication):
     route = _route_name(task)
     monologue = task.slug == "tache-3"
     subject_url = subject_selection_url(subject.detail_url, request) if subject.detail_url else ""
-    configured = available_providers() if live_conversation.pin_available_to(request.user, task) else set()
+    configured, link_id = (
+        oral_evaluation.providers_for(request) if live_conversation.pin_available_to(request.user, task) else (set(), None)
+    )
     auto_provider = next((provider for provider in ORAL_AUTOMATIC_PROVIDERS if provider in configured), "")
     selected_provider = auto_provider or next((provider for provider in PROVIDER_LABELS if provider in configured), "groq")
     can_assess = bool(configured) and (not reopened or bool(reopened["snapshot"].get("prompt")))
@@ -225,7 +228,9 @@ def oral_live(request, task_slug, **publication):
         if reopened["report"]:
             cached.add("groq")
         providers.update(cached)
-        selected_provider = next((provider for provider in PROVIDER_LABELS if provider in cached), selected_provider)
+        selected_provider = next(
+            (provider for provider in (copilot_runtime.DEFAULT, *PROVIDER_LABELS) if provider in cached), selected_provider,
+        )
         if selected_provider in cached and selected_provider != "groq":
             reopened["report"] = _oral_report(selected, selected_provider)
         saved_prompt = reopened["snapshot"].get("prompt") or "Consigne d’origine non enregistrée."
@@ -275,7 +280,8 @@ def oral_live(request, task_slug, **publication):
         "evaluation_providers": [(key, label) for key, label in PROVIDER_LABELS.items() if key in providers],
         "evaluation_enabled": can_assess,
         "auto_evaluation": auto_provider,
-        "auto_evaluation_label": PROVIDER_LABELS.get(auto_provider, ""),
+        "auto_evaluation_label": "MAI via GitHub Copilot" if link_id is not None else PROVIDER_LABELS.get(auto_provider, ""),
+        "auto_evaluation_link_id": link_id,
         "session_title_assessment": bool(available or reopened) and len(providers) > 1,
         "assessment_action_hidden": True,
         "delete_url": _oral_history_url(request, route + "_delete", publication),
@@ -313,10 +319,16 @@ def _session_request(request):
     if not isinstance(pairs, tuple):
         return None
     data = dict(pairs)
-    if (len(data) != len(pairs) or data.keys() - {"consent", "pin", "purpose", "exchangeGrant", "reviewProvider"} or data.get("consent") is not True
+    if (len(data) != len(pairs)
+            or data.keys() - {"consent", "pin", "purpose", "exchangeGrant", "reviewProvider", "reviewLink"}
+            or data.get("consent") is not True
             or ("purpose" in data and data["purpose"] not in ("attempt", "exchange", "read_prompt"))):
         return None
     if "reviewProvider" in data and (data.get("purpose") != "attempt" or data["reviewProvider"] not in ORAL_AUTOMATIC_PROVIDERS):
+        return None
+    if "reviewLink" in data and (
+        data.get("reviewProvider") != copilot_runtime.DEFAULT or not isinstance(data["reviewLink"], str)
+    ):
         return None
     if data.get("purpose") == "exchange":
         grant = data.get("exchangeGrant")
@@ -400,8 +412,14 @@ def oral_live_token(request, task_slug, **publication):
     result = {"token": token, "model": live_conversation.MODEL}
     if purpose == "attempt":
         requested_provider = data.get("reviewProvider", "")
+        configured, link_id = oral_evaluation.providers_for(request) if requested_provider else ((), None)
+        authorized = requested_provider in configured and (link_id is None or data.get("reviewLink") == str(link_id))
         nonce = str(uuid.uuid4())
-        exchange = {"nonce": nonce, "provider": requested_provider if requested_provider in available_providers() else ""}
+        exchange = {"nonce": nonce, "provider": requested_provider if authorized else ""}
+        snapshot_review = {}
+        if authorized and link_id is not None:
+            exchange["reviewLink"] = link_id
+            snapshot_review["review_attempt"] = nonce
         if monologue:
             exchange["prompt"] = subject.prompt
         else:
@@ -411,10 +429,13 @@ def oral_live_token(request, task_slug, **publication):
         )
         result["snapshot"] = {"prompt": subject.prompt, "title": subject.title}
         result["snapshotGrant"] = live_conversation.grant_signer(request, key, purpose="snapshot").sign_object(
-            {**result["snapshot"], "attempt": nonce}, compress=True,
+            {**result["snapshot"], "attempt": nonce, **snapshot_review}, compress=True,
         )
     elif exchange.get("provider"):
-        result["reviewGrant"] = live_conversation.issue_grant(request, key, purpose=f"review:{exchange['provider']}")
+        purpose = oral_evaluation.review_purpose(
+            exchange["provider"], link_id=exchange.get("reviewLink"), attempt=exchange["nonce"],
+        )
+        result["reviewGrant"] = live_conversation.issue_grant(request, key, purpose=purpose)
     return JsonResponse(result)
 
 
@@ -443,7 +464,10 @@ def oral_live_save(request, task_slug, **publication):
     if not monologue:
         idempotency_key = request.headers.get("Idempotency-Key")
         try:
-            attempt_id = uuid.uuid4() if idempotency_key is None else uuid.UUID(idempotency_key)
+            if snapshot.get("review_attempt") and signed_attempt:
+                attempt_id = signed_attempt
+            else:
+                attempt_id = uuid.uuid4() if idempotency_key is None else uuid.UUID(idempotency_key)
         except ValueError:
             return JsonResponse({"error": "Identifiant de séance invalide."}, status=400)
         attempt, created = EO2PracticeAttempt.objects.get_or_create(
@@ -557,8 +581,9 @@ def oral_live_evaluation(request, task_slug, **publication):
         if not session.snapshot.get("prompt"):
             return JsonResponse({"error": "La consigne d’origine n’a pas été conservée."}, status=409)
         try:
-            oral_evaluation.authorize(
+            link_id = oral_evaluation.authorize(
                 request, task, data.get("pin"), grant=data.get("reviewGrant"), subject_key=key, provider=provider,
+                attempt=session.snapshot.get("review_attempt"),
             )
         except AudioPinError as exc:
             return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
@@ -566,7 +591,7 @@ def oral_live_evaluation(request, task_slug, **publication):
             return JsonResponse({"error": str(exc)}, status=exc.status)
         if job:
             job.delete()
-        session.evaluation_jobs.create(provider=provider)
+        session.evaluation_jobs.create(provider=provider, copilot_link_id=link_id)
         transaction.on_commit(oral_jobs.wake, robust=True)
     return JsonResponse({"status": "processing"}, status=202)
 

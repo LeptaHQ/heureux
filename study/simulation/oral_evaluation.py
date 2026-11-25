@@ -2,20 +2,23 @@
 
 import json
 import re
+import time
 import uuid
 
 from django.core import signing
 from django.views.decorators.debug import sensitive_variables
 
+from study.accounts import github_copilot
 from study.accounts.services import authorize_audio_generation
 
-from . import live_conversation
-from .evaluation import PROVIDER_LABELS, EvaluationError, available_providers, request_provider_report, unique_fields
+from . import copilot_runtime, evaluation, live_conversation
+from .evaluation import EvaluationError, available_providers, request_provider_report, unique_fields
 from .evaluation import checked_text as _text
 from .evidence import number_passages
 from .proposal import faithful_rewrite
 
 MAX_BODY = 96_000
+PROVIDER_LABELS = {**evaluation.PROVIDER_LABELS, **copilot_runtime.LABELS}
 _CRITERIA = {
     "task": "Accomplissement de la tâche",
     "coherence": "Cohérence et fluidité",
@@ -439,30 +442,51 @@ def _ground(report, rows, evidence, *, monologue=False):
     return result
 
 
+def providers_for(request):
+    link_id = github_copilot.active_link_id(request)
+    return (set(copilot_runtime.MODELS) if link_id is not None else available_providers()), link_id
+
+
+def review_purpose(provider, *, link_id=None, attempt=None):
+    if provider in copilot_runtime.MODELS:
+        return f"review:{provider}:{link_id}:{attempt}"
+    return f"review:{provider}"
+
+
 @sensitive_variables()
-def authorize(request, task, pin, *, grant, subject_key, provider="groq"):
-    if not (live_conversation.pin_available_to(request.user, task) and provider in available_providers()):
+def authorize(request, task, pin, *, grant, subject_key, provider, attempt=None):
+    if not live_conversation.pin_available_to(request.user, task):
         raise EvaluationError(403, "Le bilan n’est pas disponible.")
+    configured, link_id = providers_for(request)
+    if provider not in configured:
+        raise EvaluationError(
+            403, copilot_runtime.RECONNECT if provider in copilot_runtime.MODELS else "Le bilan n’est pas disponible.",
+        )
     if grant is None:
         authorize_audio_generation(request, pin)
     else:
         try:
-            live_conversation.grant_signer(request, subject_key, purpose=f"review:{provider}").unsign(grant, max_age=3600)
+            purpose = review_purpose(provider, link_id=link_id, attempt=attempt)
+            live_conversation.grant_signer(request, subject_key, purpose=purpose).unsign(grant, max_age=3600)
         except signing.BadSignature:
             raise EvaluationError(403, "L’autorisation du bilan a expiré. Votre transcription reste disponible.") from None
+    return link_id
 
 
 # Runs off the request thread: no request, session or database access here.
 @sensitive_variables()
-def score(prompt, rows, *, monologue=False, provider="groq"):
+def score(prompt, rows, *, monologue=False, provider="groq", request_report=None):
     instruction = _OPINION_INSTRUCTION if monologue else _INSTRUCTION
     transcript, evidence = _evidence_rows(rows)
-    report = request_provider_report(
+    deadline = None if request_report is None else time.monotonic() + evaluation.DEADLINE_SECONDS
+    transport = request_provider_report if request_report is None else request_report
+    report = transport(
         provider,
         instruction + "\n" + _EVIDENCE_INSTRUCTION,
         {"consigne": prompt, "rows": transcript},
         _OPINION_SCHEMA if monologue else _DIALOGUE_SCHEMA,
-        name=("eo3_bilan" if monologue else "eo2_bilan") if provider == "cloudflare" else "bilan",
+        name=("eo3_bilan" if monologue else "eo2_bilan") if provider != "groq" else "bilan",
+        deadline=deadline,
         retry_schema=provider == "groq",
     )
     try:

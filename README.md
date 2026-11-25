@@ -105,30 +105,29 @@ New Groq writing bilans use
 [Qwen 3.8 27B](https://console.groq.com/docs/model/qwen/qwen3.8-27b); saved bilans
 are not regraded. EE1 defaults to Groq when configured, otherwise to Workers
 if available. `EE1_EVALUATION_PROVIDER` can override the EE1 preference; EE2
-and EE3 use Groq only. If there is no automatic grader, submission saves the
+and EE3 use Groq when GitHub is not linked. If there is no automatic grader, submission saves the
 answer without sending it. Saving a draft or abandoning a session never
 sends it. The timer counts past zero and leaves the draft open; changing the
 timer cannot overwrite a newer draft saved in another tab. If another tab
 has already finished, any unsaved text is shown separately so it can be copied
 without changing the saved response.
 
-The EE1 bilan’s sparkle button lets learners choose Groq or Workers when
-available. With GitHub connected, explicitly submitting EE1 starts **MAI**
-automatically, using that GitHub account’s Copilot credits. The sparkle button
-offers **Astra**, **MAI**, and **Opus** for manual requests. If the provider or
+With GitHub connected, explicitly submitting EE1, EE2, or EE3 starts **MAI**
+automatically, using that GitHub account’s Copilot credits. The bilan’s sparkle
+button offers **Astra**, **MAI**, and **Opus** for manual requests. If the provider or
 GitHub connection changes after the editor opens, the answer is saved without
 automatically sending it.
 The current report stays visible until the chosen model returns
 one, and switching back opens the saved report without grading again.
-On reopening, EE1 opens the last saved Copilot model or prefers the saved Groq
+On reopening, the studio opens the last saved Copilot model or prefers the saved Groq
 report when available. Disconnecting GitHub leaves existing reports intact.
 Status checks back off to once every four seconds while a report is in progress.
 A stalled status read times out after eight seconds and can retry without
 starting another evaluation. Reopening a ready report skips the status request.
-Reading an existing EE1 job or saved report via the status endpoint does not
+Reading an existing writing job or saved report via the status endpoint does not
 recheck GitHub connectivity. All writing providers use the same evidence checks.
 The three criteria’s verified citations can also support the grade rationale.
-Temporary service failures are retried once with the same provider within the
+Non-Copilot transports can retry a temporary failure once within the
 three-minute deadline. Groq can also
 use its one retry to recover from a writing schema rejection in JSON mode.
 If the writing worker stops during a restart, the unfinished report becomes
@@ -138,9 +137,10 @@ one generation request. Corrections come from the original and appear in source
 order. Strengths explain why a specific choice helps the reader. A **Développer**
 suggestion shows how to turn a vague claim into a reason or benefit. It appears
 only when the proposal uses that wording. The complete proposal aims at NCLC 7
-and answers every part of the task, including requirements missing from the
-original, without guessing facts or changing the learner’s grade. The model uses
-the next-time checks and optional edits when writing the proposal. The app checks
+and answers every part of the assigned scenario without changing the learner’s
+grade. It can supply ordinary descriptive details in an assigned fictional role,
+but does not guess checkable facts or add sources to the EE3 synthesis. The model
+uses the next-time checks and optional edits when writing the proposal. The app checks
 the word limits, checkable facts, grounded corrections, and evidence for repaired
 gaps. It can apply unambiguous suggested edits locally without another request.
 If a complete proposal cannot be verified, Heureux can show a partial copy with
@@ -171,8 +171,10 @@ These logs omit the learner’s answer, prompt, model output, and API keys.
    service manually, use both the build and start commands from `render.yaml`.
 3. Sign into Heureux as usual. In the account dropdown, choose **Connecter GitHub**
    and authorize the app. You return to the Heureux page you connected from.
-   Submit an EE1 response to automatically request a MAI bilan. Use the sparkle
-   menu to request another model. Model access depends on your Copilot subscription.
+   Submit a writing response (EE1, EE2, or EE3), or complete an EO2 or EO3 voice
+   session after authorizing its review, to automatically request a MAI bilan.
+   Use the sparkle menu to request another model. Model access depends on your
+   Copilot subscription.
 
 Heureux stores only the linked GitHub user ID, encrypted tokens and their
 expiration dates. No token is exposed to the page or included in the account
@@ -307,13 +309,13 @@ word or phrase can be located unambiguously in that learner turn.
 Strengths are illustrated with real questions or follow-ups from the exchange.
 Unmarked text is not a blanket endorsement, and a spelling difference is not a pronunciation error. An interrupted
 call can show the portion received; no learner speech means no assessment.
-At the end, Heureux requests a bilan from the provider named in the launch
-consent: Workers if configured, otherwise Groq if available. The sparkle
-button beside the oral bilan title lets learners choose another configured
-model. A new provider requires separate consent, and opening a saved report
-does not resend the transcript. A spinner shows when evaluation is in
-progress. For Groq, Heureux sends only the original consigne and both
-speakers’ transcribed words (not audio or notes)
+At the end of EO2 or EO3, Heureux requests a bilan from the provider named in
+the launch consent: MAI via GitHub Copilot when linked, otherwise Workers if
+configured or Groq if available. The sparkle button offers Astra, MAI and Opus
+when linked, or the configured grading providers otherwise. A new model requires
+separate consent, and opening a saved report does not resend the transcript.
+Copilot receives the original consigne and transcript, never audio or notes;
+Gemini Live still handles the voice session. For Groq, the same text goes
 to [`openai/gpt-oss-120b`](https://console.groq.com/docs/model/openai/gpt-oss-120b) on Groq,
 which [may log them for up to 30 days](https://console.groq.com/docs/your-data) unless
 Zero Data Retention is turned on in its data controls.
@@ -329,9 +331,10 @@ can also use the one retry in JSON mode. The server queues oral grading in the
 database and immediately returns a status for the browser to check instead of
 holding a web request open. Reopening a session checks its pending job without
 resending the transcript. Queued work survives a restart and resumes when the
-service is awake. If a worker stops during a provider call, its expired job can
-be sent once more; a late result from the first worker cannot overwrite the
-recovered result.
+service is awake. An expired non-Copilot job can be sent once more; a late result
+from the first worker cannot overwrite the recovered result. A Copilot job
+cannot switch GitHub accounts after queueing or run again after an expired
+claim without a new request.
 The debrief shows four practice marks **out of 5**: task completion, coherence
 and flow of ideas, lexical precision, and grammatical accuracy. Each mark uses
 Tâche 2 descriptors with indicative CEFR anchors (1 ≈ A2 up to 5 ≈ C2), and its
@@ -352,7 +355,7 @@ change and why. The bilan also includes a **Proposition**: the learner’s
 own turns, rewritten in order as a polished model they can copy and rehearse.
 The reviewer receives both speakers’ captured turns in order, even when partner
 replies are hidden in the UI. Each proposed line must point to the corresponding
-learner turn. Groq is asked to keep questions as questions and personal answers
+learner turn. The grader is asked to keep questions as questions and personal answers
 as answers, preserving who did what and what was known at that point in the
 conversation. A proposal may be omitted if the turn references do not match or
 if it changes a checkable detail such as a quantity. These checks do not prove
@@ -415,7 +418,8 @@ To enable the pilot for a test account:
    short-lived, single-use Google tokens. The exchange token is minted after
    microphone permission, so none of its lifetime is lost during preparation.
    The automatic review uses a separate, time-limited authorization bound to the
-   same signed-in session and subject. During the exchange, microphone audio
+   same signed-in session and subject. For Copilot, it also binds the provider,
+   GitHub link and exact saved attempt. During the exchange, microphone audio
    travels directly to Google, which may retain and review
    free-tier content. Use fictional details. No real recording is needed to
    run the automated tests.
@@ -434,7 +438,7 @@ use the headphones on a subject page to practise that exact question. The same
 opt-in voice pilot reads the question with the microphone off. Once the reading
 finishes and the microphone is ready, speak for up to **4:30**, without preparation
 or interviewer interruptions. The microphone stops at the deadline or when you
-end the session. The Groq debrief evaluates the position, supporting reasons,
+end the session. The debrief evaluates the position, supporting reasons,
 coherence and language of the transcribed intervention, not pronunciation.
 The debrief keeps the question visible while the last captions arrive. Its
 **Proposition** is a connected French rewrite of what the learner actually

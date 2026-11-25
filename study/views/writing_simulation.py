@@ -624,12 +624,10 @@ def _finished_attempt_response(request, attempt, spec, draft):
 
 def _result_context(request, attempt, spec):
     word_min, word_max = _attempt_limits(attempt, spec)
-    copilot_connected = spec.number == 1 and bool(github_copilot.active_link_id(request))
-    if spec.number == 1:
-        providers, provider = _ee1_evaluation_options(attempt, copilot_connected=copilot_connected)
-        providers = tuple(copilot_runtime.MODELS) if copilot_connected else tuple(key for key in providers if key != "gemini")
-    else:
-        providers, provider = (), writing_evaluation.provider_for(spec.number)
+    copilot_connected = bool(github_copilot.active_link_id(request))
+    configured = _writing_providers(spec, copilot_connected=copilot_connected)
+    providers, provider = _evaluation_options(attempt, spec, configured=configured)
+    providers = tuple(copilot_runtime.MODELS) if copilot_connected else tuple(key for key in providers if key != "gemini")
     force_model_picker = len(providers) == 1 and provider not in providers
     subject_url = ""
     if attempt.sujet_id:
@@ -642,13 +640,12 @@ def _result_context(request, attempt, spec):
         minutes=attempt.snapshot.get("simulation_minutes", spec.minutes),
     )
     submitted = attempt.status == WritingSimulationAttemptStatus.SUBMITTED
-    configured = _writing_providers(spec, copilot_connected=copilot_connected)
     can_assess = submitted and _has_response(attempt)
     can_load_evaluation = bool(configured) or attempt.evaluation_status in (
         WritingSimulationEvaluationStatus.PROCESSING,
         WritingSimulationEvaluationStatus.READY,
         WritingSimulationEvaluationStatus.UNAVAILABLE,
-    ) or (spec.number == 1 and bool(_ee1_reports(attempt)))
+    ) or bool(_evaluation_reports(attempt))
     response_parts = _response_parts(attempt, spec)
     context.update({
         **_attempt_navigation(request, attempt, spec),
@@ -678,7 +675,7 @@ def _result_context(request, attempt, spec):
         "debrief_back_label": "Retour à EE",
     })
     if can_assess and attempt.evaluation_status == WritingSimulationEvaluationStatus.READY:
-        saved = _evaluation_payload(attempt, spec, provider if spec.number == 1 else None)
+        saved = _evaluation_payload(attempt, spec, provider)
         if saved["report"]:
             context["saved_evaluation"] = saved
     return context
@@ -810,8 +807,7 @@ def attempt(request, spec, attempt_id):
                 and request.POST.getlist("evaluation_link") == ([str(link_id)] if link_id is not None else [])
             ):
                 _queue_evaluation(
-                    attempt, spec, provider if spec.number == 1 else None, now,
-                    update_fields=fields, copilot_link_id=link_id,
+                    attempt, spec, provider, now, update_fields=fields, copilot_link_id=link_id,
                 )
             else:
                 attempt.save(update_fields=fields)
@@ -825,30 +821,28 @@ def attempt(request, spec, attempt_id):
         )
 
 
-def _ee1_reports(attempt):
+def _evaluation_reports(attempt):
     if "reports" in attempt.evaluation:
         return attempt.evaluation["reports"]
     # All writing reports saved before the model picker used Groq.
     return {"groq": attempt.evaluation} if attempt.evaluation_status == WritingSimulationEvaluationStatus.READY else {}
 
 
-def _ee1_job_provider(attempt):
-    provider = attempt.evaluation.get("provider")
+def _evaluation_job_provider(attempt):
+    provider = attempt.evaluation.get("provider", "groq")
     if provider in _WRITING_LABELS and attempt.evaluation_status in (
         WritingSimulationEvaluationStatus.PROCESSING, WritingSimulationEvaluationStatus.UNAVAILABLE,
     ):
         return provider
 
 
-def _ee1_evaluation_options(attempt, *, copilot_connected=False):
-    default = writing_evaluation.provider_for(1)
-    reports = _ee1_reports(attempt)
-    configured = _writing_providers(SPECS[1], copilot_connected=copilot_connected)
+def _evaluation_options(attempt, spec, *, configured):
+    reports = _evaluation_reports(attempt)
     available = configured | reports.keys()
     providers = tuple(key for key in _WRITING_LABELS if key in available)
     last_provider = attempt.evaluation.get("provider")
     # A previous job's status remains readable even when its model can't be selected.
-    if job_provider := _ee1_job_provider(attempt):
+    if job_provider := _evaluation_job_provider(attempt):
         return providers, job_provider
     if last_provider in copilot_runtime.MODELS and last_provider in reports:
         return providers, last_provider
@@ -856,14 +850,11 @@ def _ee1_evaluation_options(attempt, *, copilot_connected=False):
         return providers, "groq"
     if reports:
         return providers, last_provider if last_provider in reports else next(iter(reports))
-    return providers, (
-        copilot_runtime.DEFAULT if copilot_connected
-        else _auto_evaluation_provider(SPECS[1], configured=configured) or default
-    )
+    return providers, _auto_evaluation_provider(spec, configured=configured) or writing_evaluation.provider_for(spec.number)
 
 
 def _writing_providers(spec, *, copilot_connected=False):
-    if spec.number == 1 and copilot_connected:
+    if copilot_connected:
         return set(copilot_runtime.MODELS)
     configured = available_providers()
     if spec.number != 1:
@@ -877,11 +868,12 @@ def _auto_evaluation_provider(spec, *, configured=None):
     if configured is None:
         configured = _writing_providers(spec)
     preferred = writing_evaluation.provider_for(spec.number)
-    return next((provider for provider in (preferred, "groq", "cloudflare") if provider in configured), "")
+    return next((provider for provider in (copilot_runtime.DEFAULT, preferred, "groq", "cloudflare")
+                 if provider in configured), "")
 
 
 def _automatic_evaluation_for(request, spec):
-    link_id = github_copilot.active_link_id(request) if spec.number == 1 else None
+    link_id = github_copilot.active_link_id(request)
     if link_id is not None:
         return copilot_runtime.DEFAULT, link_id
     return _auto_evaluation_provider(spec), None
@@ -896,15 +888,13 @@ def _evaluation_in_progress(attempt, now):
     )
 
 
-def _evaluation_payload(attempt, spec, provider=None):
+def _evaluation_payload(attempt, spec, provider):
     status = attempt.evaluation_status
-    report = attempt.evaluation if status == WritingSimulationEvaluationStatus.READY else None
-    if provider:
-        report = _ee1_reports(attempt).get(provider)
-        if report is not None:
-            status = WritingSimulationEvaluationStatus.READY
-        elif status == WritingSimulationEvaluationStatus.READY or attempt.evaluation.get("provider") not in (None, provider):
-            status = WritingSimulationEvaluationStatus.NOT_REQUESTED
+    report = _evaluation_reports(attempt).get(provider)
+    if report is not None:
+        status = WritingSimulationEvaluationStatus.READY
+    elif provider != _evaluation_job_provider(attempt):
+        status = WritingSimulationEvaluationStatus.NOT_REQUESTED
     stale = (
         status == WritingSimulationEvaluationStatus.PROCESSING
         and not _evaluation_in_progress(attempt, timezone.now())
@@ -942,20 +932,9 @@ def _evaluation_payload(attempt, spec, provider=None):
         "retryable": stale
         or status == WritingSimulationEvaluationStatus.UNAVAILABLE,
     }
-    if report and (edit := attempt.proposal_edits.get(provider or "groq")):
+    if report and (edit := attempt.proposal_edits.get(provider)):
         payload["proposalEdit"] = edit
     return payload
-
-
-@sensitive_variables()
-def _copilot_transport(user_id, provider, link_id):
-    try:
-        token = github_copilot.access_token(user_id, link_id)
-    except github_copilot.ReconnectRequired:
-        raise EvaluationError(403, "Reconnectez votre compte GitHub pour utiliser Copilot.") from None
-    except github_copilot.ConnectionError:
-        raise EvaluationError(502, "La connexion à GitHub est temporairement indisponible.") from None
-    return copilot_runtime.report_transport(token, copilot_runtime.MODELS[provider][1])
 
 
 def _renew_evaluation_lease(claim, finished):
@@ -1007,7 +986,7 @@ def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_
         try:
             options = {}
             if provider in copilot_runtime.MODELS:
-                options["request_report"] = _copilot_transport(attempt.user_id, provider, copilot_link_id)
+                options["request_report"] = copilot_runtime.linked_report_transport(attempt.user_id, provider, copilot_link_id)
             report = writing_evaluation.score(
                 task_number=spec.number,
                 subject=attempt.snapshot.get("prompt", ""),
@@ -1080,6 +1059,12 @@ def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_
         close_old_connections()
 
 
+def _valid_evaluation_provider(spec, provider):
+    return isinstance(provider, str) and (
+        provider in _WRITING_LABELS if spec.number == 1 else provider == "groq" or provider in copilot_runtime.MODELS
+    )
+
+
 @sensitive_variables()
 def _save_proposal_edit(request, spec, attempts, attempt_id):
     invalid = "Le texte de la proposition est invalide."
@@ -1088,7 +1073,7 @@ def _save_proposal_edit(request, spec, attempts, attempt_id):
         if not isinstance(data, dict) or data.keys() != {"provider", "parts"}:
             raise ValueError
         provider, parts = data["provider"], data["parts"]
-        if not isinstance(provider, str) or provider not in (_WRITING_LABELS if spec.number == 1 else ("groq",)):
+        if not _valid_evaluation_provider(spec, provider):
             raise ValueError
         if (
             not isinstance(parts, list) or len(parts) != (2 if spec.number == 3 else 1)
@@ -1105,7 +1090,7 @@ def _save_proposal_edit(request, spec, attempts, attempt_id):
     with transaction.atomic():
         attempt = get_object_or_404(attempts.select_for_update(of=("self",)), pk=attempt_id)
         report = (
-            _evaluation_payload(attempt, spec, provider if spec.number == 1 else None)["report"]
+            _evaluation_payload(attempt, spec, provider)["report"]
             if attempt.status == WritingSimulationAttemptStatus.SUBMITTED else None
         )
         if not report or not report.get("improvedParts" if spec.number == 3 else "improvedResponse"):
@@ -1127,19 +1112,18 @@ def evaluate(request, spec, attempt_id):
         attempt = get_object_or_404(attempts, pk=attempt_id)
         if attempt.status != WritingSimulationAttemptStatus.SUBMITTED:
             return HttpResponseBadRequest("Cette réponse ne peut pas encore être évaluée.")
-        provider = None
-        if spec.number == 1:
-            provider = request.GET.get("provider")
-            if provider not in _WRITING_LABELS or (
-                provider != _ee1_job_provider(attempt) and provider not in _ee1_reports(attempt)
-            ):
-                providers, default = _ee1_evaluation_options(
-                    attempt, copilot_connected=bool(github_copilot.active_link_id(request)),
-                )
-                if provider is None:
-                    provider = default
-                elif provider != default and provider not in providers:
-                    return JsonResponse({"error": "Modèle d’évaluation invalide."}, status=400)
+        provider = request.GET.get("provider")
+        if provider is not None and not _valid_evaluation_provider(spec, provider):
+            return JsonResponse({"error": "Modèle d’évaluation invalide."}, status=400)
+        if provider is None or (
+            provider != _evaluation_job_provider(attempt) and provider not in _evaluation_reports(attempt)
+        ):
+            configured = _writing_providers(spec, copilot_connected=bool(github_copilot.active_link_id(request)))
+            providers, default = _evaluation_options(attempt, spec, configured=configured)
+            if provider is None:
+                provider = default
+            elif provider != default and provider not in providers:
+                return JsonResponse({"error": "Modèle d’évaluation invalide."}, status=400)
         return evaluation_json(attempt, spec, provider=provider)
 
     if request.content_type != "application/json":
@@ -1161,37 +1145,30 @@ def evaluate(request, spec, attempt_id):
             return HttpResponseBadRequest("Cette réponse ne peut pas encore être évaluée.")
         if not _has_response(attempt):
             return HttpResponseBadRequest("Aucune réponse à évaluer.")
-        provider = None
-        copilot_link_id = None
-        if spec.number == 1:
-            copilot_link_id = github_copilot.active_link_id(request)
-            providers, _ = _ee1_evaluation_options(attempt, copilot_connected=bool(copilot_link_id))
-            provider = data.get("provider")
-            if provider not in providers:
-                return JsonResponse({"error": "Choisissez un modèle disponible avant de lancer l’évaluation."}, status=409)
-        elif data.get("provider") not in (None, "groq"):
-            return HttpResponseBadRequest("Le modèle d’évaluation n’est pas disponible.")
-        cached = (
-            provider in _ee1_reports(attempt) if provider
-            else attempt.evaluation_status == WritingSimulationEvaluationStatus.READY
-        )
-        if cached:
+        provider = data.get("provider")
+        if provider is None and spec.number != 1:
+            provider = "groq"  # Legacy EE2 and EE3 requests did not need to name Groq.
+        if not _valid_evaluation_provider(spec, provider):
+            return JsonResponse({"error": "Choisissez un modèle disponible avant de lancer l’évaluation."},
+                                status=409 if spec.number == 1 else 400)
+        if provider in _evaluation_reports(attempt):
             return evaluation_json(attempt, spec, provider=provider)
-        if (provider or "groq") not in _writing_providers(spec, copilot_connected=bool(copilot_link_id)):
+        link_id = github_copilot.active_link_id(request)
+        if provider not in _writing_providers(spec, copilot_connected=bool(link_id)):
             return JsonResponse(
                 {"error": "Ce modèle n’est pas disponible pour une nouvelle évaluation."},
                 status=409,
             )
         if _evaluation_in_progress(attempt, now):
-            if provider and provider != attempt.evaluation.get("provider"):
+            if provider != _evaluation_job_provider(attempt):
                 return JsonResponse({"error": "Un autre bilan est déjà en cours."}, status=409)
             return evaluation_json(attempt, spec, status=202, provider=provider)
-        _queue_evaluation(attempt, spec, provider, now, copilot_link_id=copilot_link_id)
+        _queue_evaluation(attempt, spec, provider, now, copilot_link_id=link_id)
         return evaluation_json(attempt, spec, status=202, provider=provider)
 
 
 def _queue_evaluation(attempt, spec, provider, now, *, update_fields=(), copilot_link_id=None):
-    attempt.evaluation = {"provider": provider, "reports": _ee1_reports(attempt)} if provider else {}
+    attempt.evaluation = {"provider": provider, "reports": _evaluation_reports(attempt)}
     attempt.evaluation_status = WritingSimulationEvaluationStatus.PROCESSING
     attempt.evaluation_error = ""
     attempt.evaluation_started_at = now
@@ -1211,5 +1188,5 @@ def _queue_evaluation(attempt, spec, provider, now, *, update_fields=(), copilot
     )
 
 
-def evaluation_json(attempt, spec, *, status=200, provider=None):
+def evaluation_json(attempt, spec, *, provider, status=200):
     return JsonResponse(_evaluation_payload(attempt, spec, provider), status=status)

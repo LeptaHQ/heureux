@@ -812,6 +812,39 @@ class LiveConversationBrowserMixin:
             expect(self.page.locator("#lv-time")).to_be_hidden()
         self.assertEqual(self.page.evaluate("[probe.calls,probe.sockets.length]"), [0, 0])
 
+    def test_linked_voice_consent_enqueues_mai_for_the_saved_transcript(self):
+        self.enterContext(patch("study.accounts.github_copilot.active_link_id", return_value=42))
+        self.enterContext(patch("study.simulation.oral_jobs.wake"))
+        self.open_live_pilot()
+        endpoint = reverse("study:eo_tache_two_live_evaluation")
+        self.page.unroute("**" + endpoint)
+        self.start.click()
+        expect(self.pin_dialog).to_contain_text("Transcription envoyée à MAI via GitHub Copilot")
+        self.submit_live_pin()
+        self.finish_prompt()
+        self.page.locator("#lv-skip").click()
+        expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
+        words = "Combien coûte la visite du quartier ?"
+        self.page.evaluate("""words => {
+          const ws = probe.sockets[0];
+          ws.receive({setupComplete:{}});
+          ws.receive({serverContent:{inputTranscription:{text:words},turnComplete:true}});
+        }""", words)
+        with self.page.expect_response(
+            lambda response: urlsplit(response.url).path == endpoint and response.request.method == "POST",
+        ) as review:
+            self.page.locator("#lv-end").click()
+        self.assertEqual(self.token_requests[0]["reviewProvider"], "copilot-mai")
+        self.assertEqual(self.token_requests[0]["reviewLink"], "42")
+        self.assertEqual(review.value.status, 202)
+        sent = review.value.request.post_data_json
+        self.assertEqual(sent["reviewGrant"], self.token_replies["exchange"]["reviewGrant"])
+        self.assertNotIn("pin", sent)
+        self.assertEqual(sent["rows"], [{"speaker": "user", "text": words}])
+        job = OralEvaluationJob.objects.get(simulation_id=sent["simulation"])
+        self.assertEqual((job.provider, job.copilot_link_id), ("copilot-mai", 42))
+        self.assertEqual(job.simulation.rows[0]["text"], words)
+
     def test_native_voice_review_starts_itself_and_retries_on_the_captured_transcript(self):
         self.open_live_pilot()
         calls, polls = [], []

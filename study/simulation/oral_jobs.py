@@ -10,7 +10,7 @@ from django.utils import timezone
 from django.views.decorators.debug import sensitive_variables
 
 from study.models import LiveSimulation, OralEvaluationJob, Task
-from study.simulation import oral_evaluation
+from study.simulation import copilot_runtime, oral_evaluation
 from study.simulation.evaluation import DEADLINE_SECONDS, EvaluationError, available_providers
 
 EO3_KEY_PREFIX = "eo3:"
@@ -52,7 +52,7 @@ def _claim():
             ).order_by("queued_at", "pk").first()
             if job is None:
                 return None, pending_jobs().aggregate(earliest=Min("lease_until"))["earliest"]
-            if job.executions >= MAX_EXECUTIONS:
+            if job.executions >= (1 if job.provider in copilot_runtime.MODELS else MAX_EXECUTIONS):
                 OralEvaluationJob.objects.filter(pk=job.pk).update(error_status=504, error=LATE)
                 continue
             job.lease_id = uuid.uuid4()
@@ -65,8 +65,10 @@ def _claim():
 def _source(job):
     snapshot = LiveSimulation.objects.filter(
         pk=job.simulation_id, user__is_active=True,
-    ).values("snapshot", "rows", "subject_key").first()
-    if not snapshot or not 0 < len(settings.AI_PIN) <= 128 or job.provider not in available_providers():
+    ).values("snapshot", "rows", "subject_key", "user_id").first()
+    if not snapshot or not 0 < len(settings.AI_PIN) <= 128:
+        return None
+    if job.provider not in copilot_runtime.MODELS and job.provider not in available_providers():
         return None
     monologue = snapshot["subject_key"].startswith(EO3_KEY_PREFIX)
     if not snapshot["snapshot"].get("prompt") or not Task.objects.filter(
@@ -74,16 +76,22 @@ def _source(job):
     ).exists():
         return None
     rows = [{"speaker": row["speaker"], "text": row["text"]} for row in snapshot["rows"]]
-    return snapshot["snapshot"]["prompt"], rows, monologue
+    return snapshot["snapshot"]["prompt"], rows, monologue, snapshot["user_id"]
 
 
 @sensitive_variables()
 def _evaluate(job, source):
     if source is None:
         return {"error": "Le bilan n’est pas disponible."}, 403
-    prompt, rows, monologue = source
+    prompt, rows, monologue, user_id = source
     try:
-        return oral_evaluation.score(prompt, rows, monologue=monologue, provider=job.provider), 200
+        options = {}
+        if job.provider in copilot_runtime.MODELS:
+            try:
+                options["request_report"] = copilot_runtime.linked_report_transport(user_id, job.provider, job.copilot_link_id)
+            finally:
+                connections.close_all()
+        return oral_evaluation.score(prompt, rows, monologue=monologue, provider=job.provider, **options), 200
     except EvaluationError as exc:
         return {"error": str(exc)}, exc.status
     except Exception as exc:

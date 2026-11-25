@@ -84,7 +84,7 @@ class EE3SimulationTests(TestCase):
             worker = thread.call_args.kwargs
             worker["target"](*worker["args"])
         score.assert_called_once_with(
-            task_number=3, subject=self.valid.sujet, response=synthesis, position=position,
+            task_number=3, provider="groq", subject=self.valid.sujet, response=synthesis, position=position,
             documents=[self.valid.document1, self.valid.document2], word_count=120, word_min=120, word_max=180,
         )
         result = self.client.get(url)

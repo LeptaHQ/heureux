@@ -44,19 +44,19 @@ def _words(text):
     return set(re.findall(r"\b[a-z]+(?:-[a-z]+)*\b", _fold(text)))
 
 
-def faithful_rewrite(original, revised, *, reference="", reference_only=False, required_facts_from=None):
+def faithful_rewrite(original, revised, *, reference="", reference_only=False, required_from=None):
     """Keep checkable facts; EE3 synthesis may replace mistakes with source facts."""
     original_facts = _facts(original)
     reference_facts = _facts(reference)
-    required = original_facts if required_facts_from is None else _facts(required_facts_from)
+    required = original_facts if required_from is None else _facts(required_from)
     if reference_only:
         required &= reference_facts
     allowed = reference_facts if reference_only else original_facts | reference_facts
     if not required <= _facts(revised) <= allowed:
         return False
     original_words, reference_words, revised_words = map(_words, (original, reference, revised))
-    original_names = _names(original)
-    required_names = original_names & reference_words if reference_only else original_names
+    kept_names = _names(original if required_from is None else required_from)
+    required_names = kept_names & reference_words if reference_only else kept_names
     allowed_names = reference_words if reference_only else original_words | reference_words
     if not required_names <= revised_words or not _names(revised) <= allowed_names:
         return False

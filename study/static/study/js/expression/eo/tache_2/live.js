@@ -390,7 +390,8 @@
     if (!capable || active || state() !== "setup") return;
     const s = active = {abort:new AbortController(),playing:new Set(),rows:[],partial:{},cursor:0};
     try {
-      const request = {purpose:"attempt", ...(autoProvider && {reviewProvider:autoProvider})};
+      const reviewLink = root.dataset.autoEvaluationLink;
+      const request = {purpose:"attempt", ...(autoProvider && {reviewProvider:autoProvider}), ...(reviewLink && {reviewLink})};
       const response = await window.HeureuxAudioRequest(root.dataset.tokenUrl,requestOptions(s,request),{
         confirmBeforeSend:true, title:"Autoriser la simulation", action:"Autoriser cette simulation",
         description:"Voix envoyée à Google (examen humain possible). " +

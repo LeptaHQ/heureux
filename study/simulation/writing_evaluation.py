@@ -14,7 +14,7 @@ from django.views.decorators.debug import sensitive_variables
 
 from study.catalogue.loader import EE_TACHE_THREE_SECTION_LIMITS, _ee_word_count, load_ee_ai_examiner_prompt
 
-from . import evaluation
+from . import copilot_runtime, evaluation
 from .evidence import number_passages
 from .proposal import faithful_rewrite
 
@@ -583,7 +583,7 @@ def _proposal_is_usable(result, subject, response, position, documents):
                 kept = pattern.sub(" ", kept, count=1)
     # Exact, explained cuts can omit a value; they cannot authorize a new value.
     return (
-        faithful_rewrite(response, result["improvedResponse"], reference=subject, required_facts_from=kept)
+        faithful_rewrite(response, result["improvedResponse"], reference=subject, required_from=kept)
         and _applies_corrections(response, result["improvedResponse"], result["corrections"])
     )
 
@@ -656,6 +656,11 @@ def score(
             "improvedPosition: [Learner's position developed with a concrete reason or clearly hypothetical example]. "
             "Keep each section within its own limits. Use only the documents for the synthesis."
         )
+        proposal_facts = (
+            "Use facts from the learner or task; make new examples or arrangements explicitly hypothetical or proposed. "
+            "Preserve reliable facts, names, signature and intent where compatible with the task. "
+            "Offer to confirm an unknown fact rather than inventing it. "
+        )
     else:
         packet.update(
             response=response,
@@ -672,6 +677,16 @@ def score(
             "judge tense and mood by the intent and governing expression, not by a narration template."
         )
         proposal_fields = "improvedResponse: [Complete corrected answer within the task's word limits]."
+        proposal_facts = (
+            "Use the setting, role and recipient assigned by the subject, even if the learner used a different one. "
+            "Keep compatible facts, intent and signature; mark a conflicting span as an exact Cut. "
+            "In an assigned fictional role, supply plausible everyday details where needed. For example, describe "
+            "the classroom and materials directly instead of promising to find out about them. "
+            "Quote the actual detail in proposalQuote, not a promise to look it up. "
+            "Present new arrangements as proposals and examples outside the given role as hypothetical. "
+            "Do not guess prices, dates, addresses or other checkable facts. For an unknown real-world fact, "
+            "an offer to verify it may help, but it does not replace a description the task asks you to give. "
+        )
     instruction = (
         f"You are a strict but fair TCF Canada writing practice evaluator for Tâche {task_number}.\n\n"
         + _rubric(task_number)
@@ -729,16 +744,14 @@ def score(
         "match the wording actually used. Show the result of following each next-time check without restating "
         "the advice. Put required content first, use natural paragraphs and a consistent register, and develop "
         "the learner's ideas with useful details. Trim filler to fit the limit, not required content. "
-        "Use facts from the learner or task; make new examples or arrangements explicitly hypothetical or "
-        "proposed. Preserve reliable facts, names, signature and intent where compatible with the task. "
-        "Offer to confirm an unknown fact rather than "
-        "inventing it. No report labels or Markdown. If no faithful complete answer is possible, leave the "
+        f"{proposal_facts}"
+        "No report labels or Markdown. If no faithful complete answer is possible, leave the "
         "revision empty; do not present an incomplete rewrite as a model answer."
     )
+    if task_number != 1 and provider != "groq" and (provider not in copilot_runtime.MODELS or request_report is None):
+        raise evaluation.EvaluationError(400, "Le modèle d’évaluation n’est pas disponible.")
     if request_report is None:
         request_report = evaluation.request_provider_report
-    if task_number != 1 and provider != "groq":
-        raise evaluation.EvaluationError(400, "Le modèle d’évaluation n’est pas disponible.")
     deadline = time.monotonic() + evaluation.DEADLINE_SECONDS
     report = request_report(
         provider, instruction, packet, schema, name=schema_name, model=evaluation.QWEN_MODEL,

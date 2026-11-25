@@ -103,7 +103,7 @@ class EE2SimulationTests(TestCase):
         self.assertEqual(attempt.status, WritingSimulationAttemptStatus.SUBMITTED)
         self.assertEqual(attempt.word_count, 120)
         self.assertEqual(attempt.evaluation_status, "processing")
-        self.assertEqual(thread.call_args.kwargs["args"], (attempt.pk, attempt.evaluation_started_at, writing_simulation.SPECS[2], None))
+        self.assertEqual(thread.call_args.kwargs["args"], (attempt.pk, attempt.evaluation_started_at, writing_simulation.SPECS[2], "groq"))
 
     def test_timer_can_be_updated_from_the_active_attempt(self):
         self.client.post(

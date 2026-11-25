@@ -19,5 +19,14 @@
         </li>
       {% endfor %}
     </ul>
+    {% with page=saved_sessions_page %}
+      {% if page.has_other_pages %}
+        <nav class="collection-pagination" aria-label="Pagination des séances">
+          {% if page.has_previous %}<a class="btn" rel="prev" href="{% querystring seances=page.previous_page_number %}#lv-saved-title">Précédent</a>{% endif %}
+          <span>Page {{ page.number }} sur {{ page.paginator.num_pages }}</span>
+          {% if page.has_next %}<a class="btn" rel="next" href="{% querystring seances=page.next_page_number %}#lv-saved-title">Suivant</a>{% endif %}
+        </nav>
+      {% endif %}
+    {% endwith %}
   </section>
 {% endif %}

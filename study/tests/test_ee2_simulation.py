@@ -78,9 +78,11 @@ class EE2SimulationTests(TestCase):
             {"sujet_id": str(self.sujet.pk)},
         )
         attempt = WritingSimulationAttempt.objects.get(user=self.user)
+        url = reverse("study:ee2_simulation_attempt", args=[attempt.pk])
+        revision = self.client.get(url).context["draft_revision"]
         response = self.client.post(
-            reverse("study:ee2_simulation_attempt", args=[attempt.pk]),
-            {"action": "submit", "body": " ".join(["Bonjour"] * 119)},
+            url,
+            {"action": "submit", "body": " ".join(["Bonjour"] * 119), "draft_revision": revision},
         )
 
         self.assertEqual(response.status_code, 400)
@@ -90,8 +92,8 @@ class EE2SimulationTests(TestCase):
 
         with patch("study.views.writing_simulation.threading.Thread") as thread, self.captureOnCommitCallbacks(execute=True):
             response = self.client.post(
-                reverse("study:ee2_simulation_attempt", args=[attempt.pk]),
-                {"action": "submit", "body": " ".join(["Bonjour"] * 120), "evaluation_consent": "groq"},
+                url,
+                {"action": "submit", "body": " ".join(["Bonjour"] * 120), "evaluation_consent": "groq", "draft_revision": revision},
             )
         self.assertRedirects(
             response,
@@ -110,11 +112,13 @@ class EE2SimulationTests(TestCase):
         )
         attempt = WritingSimulationAttempt.objects.get(user=self.user)
         now = attempt.started_at + timedelta(minutes=1)
+        url = reverse("study:ee2_simulation_attempt", args=[attempt.pk])
+        revision = self.client.get(url).context["draft_revision"]
 
         with patch("study.views.writing_simulation.timezone.now", return_value=now):
             response = self.client.post(
                 reverse("study:ee2_simulation_timer", args=[attempt.pk]),
-                {"timer_minutes": "7", "timer_seconds": "30", "body": "Mon brouillon en cours."},
+                {"timer_minutes": "7", "timer_seconds": "30", "body": "Mon brouillon en cours.", "draft_revision": revision},
             )
 
         self.assertRedirects(
@@ -130,6 +134,28 @@ class EE2SimulationTests(TestCase):
         self.assertContains(editor, 'title="Modifier le temps"')
         self.assertContains(editor, 'class="ui-icon" data-icon="clock"')
         self.assertNotContains(editor, "data-writing-word-guidance")
+
+    def test_stale_timer_keeps_the_saved_draft_and_the_other_tabs_text(self):
+        self.client.post(reverse("study:ee2_simulation_start"), {"sujet_id": self.sujet.pk})
+        attempt = WritingSimulationAttempt.objects.get(user=self.user)
+        url = reverse("study:ee2_simulation_attempt", args=[attempt.pk])
+        timer = reverse("study:ee2_simulation_timer", args=[attempt.pk])
+        old_revision = self.client.get(url).context["draft_revision"]
+        newest, stale = "Mon brouillon déjà enregistré.", "Mes changements dans un autre onglet."
+        self.assertRedirects(self.client.post(url, {
+            "action": "save", "body": newest, "draft_revision": old_revision,
+        }), url + "?saved=1")
+
+        rejected = self.client.post(timer, {
+            "timer_minutes": "7", "timer_seconds": "30", "body": stale, "draft_revision": old_revision,
+        })
+        self.assertContains(rejected, stale, status_code=409)
+        self.assertContains(rejected, "Recharger le brouillon enregistré", status_code=409)
+        self.assertNotContains(rejected, newest, status_code=409)
+        deadline = attempt.deadline_at
+        attempt.refresh_from_db()
+        self.assertEqual((attempt.body, attempt.deadline_at), (newest, deadline))
+        self.assertContains(self.client.get(url), newest)
 
     def test_timer_rejects_invalid_seconds(self):
         self.client.post(
@@ -149,7 +175,10 @@ class EE2SimulationTests(TestCase):
         self.client.post(reverse("study:ee2_simulation_start"), {"sujet_id": self.sujet.pk})
         attempt = WritingSimulationAttempt.objects.get(user=self.user)
         url = reverse("study:ee2_simulation_attempt", args=[attempt.pk])
-        self.client.post(url, {"action": "submit", "body": " ".join(["Bonjour"] * 120)})
+        self.client.post(url, {
+            "action": "submit", "body": " ".join(["Bonjour"] * 120),
+            "draft_revision": self.client.get(url).context["draft_revision"],
+        })
         self.assertContains(self.client.get(url), ">Votre bilan</p>")
         self.assertEqual(
             self.client.get(reverse("study:ee1_simulation_attempt", args=[attempt.pk])).status_code, 404,
@@ -158,6 +187,23 @@ class EE2SimulationTests(TestCase):
             reverse("study:ee1_simulation_evaluate", args=[attempt.pk]),
             data={"consent": True}, content_type="application/json",
         ).status_code, 404)
+
+    @override_settings(GROQ_API_KEY="", CLOUDFLARE_WORKERS_API_KEY="fixture-workers",
+                       CLOUDFLARE_ACCOUNT_ID="0123456789abcdef" * 2)
+    def test_missing_ee2_grader_does_not_offer_or_start_a_bilan(self):
+        self.client.post(reverse("study:ee2_simulation_start"), {"sujet_id": self.sujet.pk})
+        attempt = WritingSimulationAttempt.objects.get(user=self.user)
+        url = reverse("study:ee2_simulation_attempt", args=[attempt.pk])
+        page = self.client.get(url)
+        self.assertNotContains(page, 'name="evaluation_consent"')
+        self.assertRedirects(self.client.post(url, {
+            "action": "submit", "body": " ".join(["Bonjour"] * 120), "draft_revision": page.context["draft_revision"],
+        }), url)
+        self.assertContains(self.client.get(url), "aucun modèle d’évaluation n’est configuré")
+        endpoint = reverse("study:ee2_simulation_evaluate", args=[attempt.pk])
+        with patch("study.views.writing_simulation.threading.Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+            self.assertEqual(self.client.post(endpoint, {"consent": True}, content_type="application/json").status_code, 409)
+        thread.assert_not_called()
 
     def test_evaluation_worker_uses_ee2_evaluator(self):
         self.client.post(

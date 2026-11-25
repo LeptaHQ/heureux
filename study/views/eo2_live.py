@@ -4,7 +4,10 @@ import threading
 import time
 import uuid
 from dataclasses import dataclass
+from datetime import datetime, timedelta
+from itertools import chain
 
+from django.core import signing
 from django.db import DatabaseError, transaction
 from django.db.models import Count, Max, Q
 from django.db.models.fields.json import KT
@@ -12,6 +15,7 @@ from django.http import Http404, JsonResponse, StreamingHttpResponse
 from django.shortcuts import get_object_or_404, redirect
 from django.template.response import TemplateResponse
 from django.urls import reverse
+from django.utils import timezone
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect, ensure_csrf_cookie
 from django.views.decorators.debug import sensitive_post_parameters, sensitive_variables
@@ -27,7 +31,14 @@ from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation, Pro
 from study.navigation.routing import subject_selection_url
 from .eo2_practice import practice_topics
 from .helpers import _route_task, tache_two_publication
-from .simulation import render_subject_picker, studio_navigation, subject_picker_context
+from .simulation import (
+    PickerSubject,
+    picker_rows,
+    render_subject_picker,
+    saved_session_context,
+    studio_navigation,
+    subject_picker_context,
+)
 
 
 DEFAULT_CONSIGNE = (
@@ -37,6 +48,7 @@ DEFAULT_CONSIGNE = (
 OPINION_CONSIGNE = "Est-il préférable de découvrir une ville à pied plutôt qu’en voiture ? Pourquoi ?"
 EO3_KEY_PREFIX = "eo3:"
 ORAL_ALTERNATE_PROVIDERS = ("gemini", "cloudflare")
+ORAL_AUTOMATIC_PROVIDERS = ("cloudflare", "groq")
 # A quick report keeps its real HTTP status; a slower one streams keep-alive spaces first.
 EVALUATION_GRACE_SECONDS = 20
 EVALUATION_KEEPALIVE_SECONDS = 10
@@ -75,21 +87,25 @@ def opinion_picker(request):
         ).values("subject_key").annotate(count=Count("pk"), latest=Max("created_at"))
     }
 
-    def row(token, title, theme, label, args):
-        stats = counts.get(f"{EO3_KEY_PREFIX}{token}", {})
+    prompts = _opinion_prompts(task).order_by("theme__name", "number", "pk").values_list(
+        "pk", "text", "theme__slug", "theme__display_name",
+    )
+    training = PickerSubject(f"{EO3_KEY_PREFIX}default", OPINION_CONSIGNE, "entrainement",
+                             "Sujet d’entraînement", "Sujet d’entraînement")
+    subjects = chain((training,), (
+        PickerSubject(f"{EO3_KEY_PREFIX}{pk}", title, theme, label, label)
+        for pk, title, theme, label in prompts.iterator()
+    ))
+    context = subject_picker_context(request, subjects, counts)
+
+    def row_for(subject):
+        token = subject.key.removeprefix(EO3_KEY_PREFIX)
         return {
-            "row_id": f"topic-{token}", "title": title, "theme": theme, "theme_label": label,
-            "caption": label, "url": reverse("study:eo_tache_three_live", args=args),
-            "count": stats.get("count", 0), "latest": stats.get("latest"),
+            "row_id": f"topic-{token}",
+            "url": reverse("study:eo_tache_three_live", args=() if token == "default" else (token,)),
         }
 
-    rows = [row("default", OPINION_CONSIGNE, "entrainement", "Sujet d’entraînement", ())]
-    prompts = _opinion_prompts(task).select_related("theme").only(
-        "text", "theme__slug", "theme__display_name",
-    ).order_by("theme__name", "number", "pk")
-    for prompt in prompts:
-        rows.append(row(prompt.pk, prompt.text, prompt.theme.slug, prompt.theme.display_name, (prompt.pk,)))
-    context = subject_picker_context(request, rows)
+    picker_rows(context, counts, row_for)
     context["task"] = task
     context["picker"] = {
         "back_url": reverse("study:simulation_track", args=["eo"]),
@@ -129,6 +145,16 @@ def _route_name(task):
     return "study:eo_tache_three_live" if task.slug == "tache-3" else "study:eo_tache_two_live"
 
 
+def _subject_key(task_slug, publication):
+    if task_slug == "tache-3":
+        return f"{EO3_KEY_PREFIX}{publication.get('prompt_id', 'default')}"
+    if publication:
+        return tache_two_subject_content_key(
+            publication["month_slug"], publication["batch_number"], publication["subject_number"],
+        )
+    return ""
+
+
 def _studio_navigation(request, task, subject, publication):
     if task.slug == "tache-3":
         picker = "study:eo3_topic_picker"
@@ -163,53 +189,73 @@ def _studio_navigation(request, task, subject, publication):
     )
 
 
+def _oral_history_url(request, route, publication, **query):
+    if "seances" in request.GET:
+        query["seances"] = request.GET["seances"]
+    return subject_selection_url(reverse(route, kwargs=publication, query=query), request)
+
+
 @never_cache
 @require_GET
 @ensure_csrf_cookie
 def oral_live(request, task_slug, **publication):
     task = _route_task("eo", task_slug, request=request)
-    subject = _live_subject(task, publication)
+    key = _subject_key(task_slug, publication)
+    simulations = LiveSimulation.objects.filter(user=request.user, subject_key=key)
+    try:
+        pk = uuid.UUID(request.GET.get("simulation", ""))
+    except ValueError:
+        pk = None
+    reopened = None
+    if pk:
+        selected = simulations.filter(pk=pk)
+        reopened = selected.values(
+            "id", "rows", "elapsed_ms", "report", "snapshot",
+            **{f"has_{provider}": Q(provider_reports__has_key=provider) for provider in ORAL_ALTERNATE_PROVIDERS},
+        ).first()
+    try:
+        subject = _live_subject(task, publication)
+    except Http404:
+        if not reopened:
+            raise
+        subject = LiveSubject(key, "Sujet enregistré", "")
+        available = False
+    else:
+        available = live_conversation.available_to(request.user, task)
     route = _route_name(task)
-    available = live_conversation.available_to(request.user, task)
     monologue = task.slug == "tache-3"
     subject_url = subject_selection_url(subject.detail_url, request) if subject.detail_url else ""
-    saved, reopened = [], None
-    configured = available_providers()
-    providers = set(configured)
-    selected_provider = next((key for key in PROVIDER_LABELS if key in configured), "groq")
-    if available:
-        simulations = LiveSimulation.objects.filter(user=request.user, subject_key=subject.key)
-        # Only the figures the list shows, not each stored transcript and report.
-        saved = list(simulations.values(
-            "id", "created_at", score=KT("report__score"), nclc=KT("report__nclc"), status=KT("report__scoreStatus"),
-            has_alternate=Q(provider_reports__has_any_keys=ORAL_ALTERNATE_PROVIDERS),
-        )[:5])
-        for item in saved:
-            if item["status"] == "scored":
-                item["summary"] = f'{item["score"]}/20 · NCLC {item["nclc"]}'
-            elif item["has_alternate"]:
-                item["summary"] = "Bilan disponible"
-            else:
-                item["summary"] = "Bilan sans note" if item["status"] else "Sans bilan"
-            item["url"] = f'?simulation={item["id"]}'
-        try:
-            pk = uuid.UUID(request.GET.get("simulation", ""))
-        except ValueError:
-            pk = None
-        if pk:
-            selected = simulations.filter(pk=pk)
-            reopened = selected.values(
-                "id", "rows", "elapsed_ms", "report",
-                **{f"has_{key}": Q(provider_reports__has_key=key) for key in ORAL_ALTERNATE_PROVIDERS},
-            ).first()
-            if reopened:
-                cached = {key for key in ORAL_ALTERNATE_PROVIDERS if reopened[f"has_{key}"]}
-                if reopened["report"]:
-                    cached.add("groq")
-                providers.update(cached)
-                selected_provider = next((key for key in PROVIDER_LABELS if key in cached), selected_provider)
-                if selected_provider in cached and selected_provider != "groq":
-                    reopened["report"] = _oral_report(selected, selected_provider)
+    configured = available_providers() if live_conversation.pin_available_to(request.user, task) else set()
+    auto_provider = next((provider for provider in ORAL_AUTOMATIC_PROVIDERS if provider in configured), "")
+    selected_provider = auto_provider or next((provider for provider in PROVIDER_LABELS if provider in configured), "groq")
+    can_assess = bool(configured) and (not reopened or bool(reopened["snapshot"].get("prompt")))
+    providers = set(configured) if can_assess else set()
+    if reopened:
+        cached = {provider for provider in ORAL_ALTERNATE_PROVIDERS if reopened[f"has_{provider}"]}
+        if reopened["report"]:
+            cached.add("groq")
+        providers.update(cached)
+        selected_provider = next((provider for provider in PROVIDER_LABELS if provider in cached), selected_provider)
+        if selected_provider in cached and selected_provider != "groq":
+            reopened["report"] = _oral_report(selected, selected_provider)
+        saved_prompt = reopened["snapshot"].get("prompt") or "Consigne d’origine non enregistrée."
+        subject = LiveSubject(key, reopened["snapshot"].get("title", subject.title),
+                              saved_prompt, subject.detail_url)
+
+    def saved_row(item):
+        if item["status"] == "scored":
+            item["summary"] = f'{item["score"]}/20 · NCLC {item["nclc"]}'
+        elif item["has_alternate"]:
+            item["summary"] = "Bilan disponible"
+        else:
+            item["summary"] = "Bilan sans note" if item["status"] else "Sans bilan"
+        item["url"] = _oral_history_url(request, route, publication, simulation=item["id"])
+        return item
+
+    history = saved_session_context(request, simulations.values(
+        "id", "created_at", score=KT("report__score"), nclc=KT("report__nclc"), status=KT("report__scoreStatus"),
+        has_alternate=Q(provider_reports__has_any_keys=ORAL_ALTERNATE_PROVIDERS),
+    ), saved_row)
     if monologue:
         session_kicker = "Expression d’un point de vue"
         session_steps = [
@@ -237,11 +283,13 @@ def oral_live(request, task_slug, **publication):
         "evaluation_provider": selected_provider,
         "evaluation_provider_label": PROVIDER_LABELS[selected_provider],
         "evaluation_providers": [(key, label) for key, label in PROVIDER_LABELS.items() if key in providers],
-        "auto_groq_evaluation": "groq" in configured,
-        "session_title_assessment": available and len(providers) > 1,
+        "evaluation_enabled": can_assess,
+        "auto_evaluation": auto_provider,
+        "auto_evaluation_label": PROVIDER_LABELS.get(auto_provider, ""),
+        "session_title_assessment": bool(available or reopened) and len(providers) > 1,
         "assessment_action_hidden": True,
-        "delete_url": subject_selection_url(reverse(route + "_delete", kwargs=publication), request),
-        "saved_sessions": saved,
+        "delete_url": _oral_history_url(request, route + "_delete", publication),
+        **history,
         "saved_simulation": reopened and {
             "id": reopened["id"], "rows": reopened["rows"], "elapsed": reopened["elapsed_ms"], "report": reopened["report"],
         },
@@ -274,8 +322,10 @@ def _session_request(request):
     if not isinstance(pairs, tuple):
         return None
     data = dict(pairs)
-    if (len(data) != len(pairs) or data.keys() - {"consent", "pin", "purpose", "exchangeGrant"} or data.get("consent") is not True
+    if (len(data) != len(pairs) or data.keys() - {"consent", "pin", "purpose", "exchangeGrant", "reviewProvider"} or data.get("consent") is not True
             or ("purpose" in data and data["purpose"] not in ("attempt", "exchange", "read_prompt"))):
+        return None
+    if "reviewProvider" in data and (data.get("purpose") != "attempt" or data["reviewProvider"] not in ORAL_AUTOMATIC_PROVIDERS):
         return None
     if data.get("purpose") == "exchange":
         grant = data.get("exchangeGrant")
@@ -323,17 +373,27 @@ def oral_live_token(request, task_slug, **publication):
     elif subject.role:
         instruction = live_conversation.subject_instruction(subject.role, catalogue.tache_two_dialogues()[key])
     try:
-        token = live_conversation.mint_token(request, task, data.get("pin"), instruction=instruction,
-                                      exchange_grant=data.get("exchangeGrant"), subject_key=key)
+        token, review_provider = live_conversation.mint_token(
+            request, task, data.get("pin"), instruction=instruction,
+            exchange_grant=data.get("exchangeGrant"), subject_key=key,
+        )
     except AudioPinError as exc:
         return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
     except live_conversation.LiveTokenError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
     result = {"token": token, "model": live_conversation.MODEL}
     if purpose == "attempt":
-        result["exchangeGrant"] = live_conversation.issue_grant(request, key, purpose="exchange")
-    elif purpose == "exchange":
-        result["reviewGrant"] = live_conversation.issue_grant(request, key, purpose="review")
+        requested_provider = data.get("reviewProvider", "")
+        result["exchangeGrant"] = live_conversation.issue_grant(
+            request, key, purpose="exchange",
+            review_provider=requested_provider if requested_provider in available_providers() else "",
+        )
+        result["snapshot"] = {"prompt": subject.prompt, "title": subject.title}
+        result["snapshotGrant"] = live_conversation.grant_signer(request, key, purpose="snapshot").sign_object(
+            result["snapshot"], compress=True,
+        )
+    elif review_provider:
+        result["reviewGrant"] = live_conversation.issue_grant(request, key, purpose=f"review:{review_provider}")
     return JsonResponse(result)
 
 
@@ -346,37 +406,40 @@ def oral_live_token(request, task_slug, **publication):
 def oral_live_save(request, task_slug, **publication):
     if request.content_type != "application/json":
         return JsonResponse({"error": "Un objet JSON est requis."}, status=415)
-    task = _route_task("eo", task_slug, request=request)
-    subject = _live_subject(task, publication)
+    _route_task("eo", task_slug, request=request)
+    key = _subject_key(task_slug, publication)
     monologue = task_slug == "tache-3"
-    if not live_conversation.available_to(request.user, task):
-        return JsonResponse({"error": "L’enregistrement n’est pas disponible."}, status=403)
     try:
         data = oral_evaluation.simulation_data(request.read(oral_evaluation.MAX_BODY + 1), monologue=monologue)
+        snapshot = live_conversation.grant_signer(request, key, purpose="snapshot").unsign_object(
+            data["snapshotGrant"], max_age=3600,
+        )
     except EvaluationError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
+    except signing.BadSignature:
+        return JsonResponse({"error": "L’autorisation de cette séance n’est plus valide."}, status=403)
     if not monologue:
-        key = request.headers.get("Idempotency-Key")
+        idempotency_key = request.headers.get("Idempotency-Key")
         try:
-            attempt_id = uuid.uuid4() if key is None else uuid.UUID(key)
+            attempt_id = uuid.uuid4() if idempotency_key is None else uuid.UUID(idempotency_key)
         except ValueError:
             return JsonResponse({"error": "Identifiant de séance invalide."}, status=400)
         attempt, created = EO2PracticeAttempt.objects.get_or_create(
-            user=request.user, attempt=attempt_id, defaults={"subject_key": subject.key, "vocal": True},
+            user=request.user, attempt=attempt_id, defaults={"subject_key": key, "vocal": True},
         )
         if not created:
-            if not attempt.vocal or attempt.subject_key != subject.key:
+            if not attempt.vocal or attempt.subject_key != key:
                 return JsonResponse({"error": "Cette séance appartient à un autre exercice."}, status=409)
             if not attempt.live_simulation_id:
                 return JsonResponse({"error": "Cette transcription n’est plus conservée."}, status=410)
             return JsonResponse({"id": str(attempt.live_simulation_id)}, status=201)
     simulation = LiveSimulation.objects.create(
-        user=request.user, subject_key=subject.key, rows=data["rows"], elapsed_ms=data["elapsed"],
+        user=request.user, subject_key=key, snapshot=snapshot, rows=data["rows"], elapsed_ms=data["elapsed"],
     )
     if not monologue:
         attempt.live_simulation = simulation
         attempt.save(update_fields=["live_simulation"])
-        EO2TopicStatus.objects.update_or_create(user=request.user, subject_key=subject.key, defaults={"done": True})
+        EO2TopicStatus.objects.update_or_create(user=request.user, subject_key=key, defaults={"done": True})
     history = LiveSimulation.objects.filter(user=request.user)
     scope = {"subject_key__startswith": EO3_KEY_PREFIX}
     history = history.filter(**scope) if monologue else history.exclude(**scope)
@@ -392,17 +455,17 @@ def oral_live_save(request, task_slug, **publication):
 @transaction.atomic
 def oral_live_delete(request, task_slug, **publication):
     task = _route_task("eo", task_slug, request=request)
-    subject = _live_subject(task, publication)
+    key = _subject_key(task_slug, publication)
     try:
         pk = uuid.UUID(request.POST.get("simulation", ""))
     except ValueError:
         raise Http404
     # Explicit deletion also forgets the occurrence; automatic transcript expiry does not.
-    EO2PracticeAttempt.objects.filter(user=request.user, subject_key=subject.key, live_simulation_id=pk).delete()
-    deleted, _ = LiveSimulation.objects.filter(pk=pk, user=request.user, subject_key=subject.key).delete()
+    EO2PracticeAttempt.objects.filter(user=request.user, subject_key=key, live_simulation_id=pk).delete()
+    deleted, _ = LiveSimulation.objects.filter(pk=pk, user=request.user, subject_key=key).delete()
     if not deleted:
         raise Http404
-    return redirect(subject_selection_url(reverse(_route_name(task), kwargs=publication), request))
+    return redirect(_oral_history_url(request, _route_name(task), publication))
 
 
 @never_cache
@@ -412,8 +475,8 @@ def oral_live_delete(request, task_slug, **publication):
 @sensitive_variables()
 def oral_live_evaluation(request, task_slug, **publication):
     task = _route_task("eo", task_slug, request=request)
-    subject = _live_subject(task, publication)
-    sessions = LiveSimulation.objects.filter(user=request.user, subject_key=subject.key)
+    key = _subject_key(task_slug, publication)
+    sessions = LiveSimulation.objects.filter(user=request.user, subject_key=key)
     if request.method == "GET":
         provider = request.GET.get("provider", "groq")
         try:
@@ -422,7 +485,12 @@ def oral_live_evaluation(request, task_slug, **publication):
             return JsonResponse({"error": "Identifiant de séance invalide."}, status=400)
         if provider not in PROVIDER_LABELS:
             return JsonResponse({"error": "Modèle d’évaluation invalide."}, status=400)
-        report = _oral_report(sessions.filter(pk=pk), provider)
+        selected = sessions.filter(pk=pk)
+        report = _oral_report(selected, provider)
+        if (not report or report.get("scoreStatus") == "incomplete") and _claim_active(
+            selected.values_list(f"evaluation_claims__{provider}", flat=True).first(), timezone.now(),
+        ):
+            return JsonResponse({"status": "processing"}, status=202)
         if report is None:
             return JsonResponse({"error": "Aucun bilan enregistré pour ce modèle."}, status=404)
         return JsonResponse(report)
@@ -432,47 +500,79 @@ def oral_live_evaluation(request, task_slug, **publication):
     try:
         data = oral_evaluation.request_data(request.read(oral_evaluation.MAX_BODY + 1), monologue=monologue)
         provider = data.get("provider", "groq")
-        oral_evaluation.authorize(
-            request, task, data.get("pin"), grant=data.get("reviewGrant"), subject_key=subject.key, provider=provider,
-        )
-    except AudioPinError as exc:
-        return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
+        rows = data["rows"]
+        scored_session = None
+        claim = None
+
+        def authorization_error():
+            try:
+                oral_evaluation.authorize(
+                    request, task, data.get("pin"), grant=data.get("reviewGrant"), subject_key=key, provider=provider,
+                )
+            except AudioPinError as exc:
+                return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
+            except EvaluationError as exc:
+                return JsonResponse({"error": str(exc)}, status=exc.status)
+
+        if "simulation" in data:
+            scored_session = sessions.filter(pk=data["simulation"])
+            with transaction.atomic():
+                session = get_object_or_404(scored_session.select_for_update())
+                original = [{"speaker": row["speaker"], "text": row["text"]} for row in session.rows]
+                if original != rows:
+                    return JsonResponse({"error": "Cette transcription ne correspond pas à la séance enregistrée."}, status=400)
+                previous = _stored_report(session, provider)
+                if previous and previous.get("scoreStatus") != "incomplete":
+                    return JsonResponse(previous)
+                if _claim_active(session.evaluation_claims.get(provider), timezone.now()):
+                    return JsonResponse({"status": "processing"}, status=202)
+                prompt = session.snapshot.get("prompt")
+                if not prompt:
+                    return JsonResponse({"error": "La consigne d’origine n’a pas été conservée."}, status=409)
+                if error := authorization_error():
+                    return error
+                claim = timezone.now().isoformat()
+                session.evaluation_claims[provider] = claim
+                session.save(update_fields=["evaluation_claims"])
+        else:
+            prompt = _live_subject(task, publication).prompt
+            if not live_conversation.available_to(request.user, task):
+                raise EvaluationError(403, "Le bilan n’est pas disponible.")
+            if error := authorization_error():
+                return error
     except EvaluationError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
-    rows = data["rows"]
-    scored_session = None
-    if "simulation" in data:
-        selected = sessions.filter(pk=data["simulation"])
-        saved = selected.values_list("rows", flat=True).first()
-        # Only the exchange that was saved may carry this report.
-        if saved and [{"speaker": row["speaker"], "text": row["text"]} for row in saved] == rows:
-            scored_session = selected
     outcome, done = [], threading.Event()
 
     def keep(body, status):
         # Runs on the request thread, which owns the database connection.
-        if status == 200 and scored_session is not None:
+        if scored_session is not None:
             try:
                 with transaction.atomic():
                     field = "report" if provider == "groq" else "provider_reports"
-                    session = scored_session.select_for_update().only(field).first()
-                    if session is None:
+                    session = scored_session.select_for_update().only(field, "evaluation_claims").first()
+                    if session is None or session.evaluation_claims.get(provider) != claim:
                         return body
-                    saved = session.report if provider == "groq" else session.provider_reports.get(provider)
-                    if saved and not (saved.get("scoreStatus") == "incomplete" and body.get("scoreStatus") == "scored"):
-                        return {**saved, "previousReportKept": True}
-                    if provider == "groq":
-                        session.report = body
-                    else:
-                        session.provider_reports[provider] = body
-                    session.save(update_fields=[field])
+                    del session.evaluation_claims[provider]
+                    fields = ["evaluation_claims"]
+                    if status == 200:
+                        saved = _stored_report(session, provider)
+                        if saved and body.get("scoreStatus") != "scored":
+                            body = {**saved, "previousReportKept": True}
+                        else:
+                            if provider == "groq":
+                                session.report = body
+                            else:
+                                session.provider_reports[provider] = body
+                            fields.append(field)
+                    session.save(update_fields=fields)
             except DatabaseError:
                 logger.exception("Oral evaluation: report not saved")
         return body
 
     def score():
         try:
-            outcome.append((oral_evaluation.score(subject.prompt, rows, monologue=monologue, provider=provider), 200))
+            outcome.append((oral_evaluation.score(prompt, rows, monologue=monologue, provider=provider), 200))
         except EvaluationError as exc:
             outcome.append(({"error": str(exc)}, exc.status))
         finally:
@@ -500,7 +600,7 @@ def oral_live_evaluation(request, task_slug, **publication):
             body, status = _EVALUATION_LATE, 504
         else:
             body, status = outcome[0] if outcome else (_EVALUATION_FAILED, 500)
-            body = keep(body, status)
+        body = keep(body, status)
         yield json.dumps(body if status == 200 else {**body, "status": status}).encode()
 
     request.META.pop("HTTP_ACCEPT_ENCODING", None)  # GZipMiddleware would hold the spaces back.
@@ -510,3 +610,11 @@ def oral_live_evaluation(request, task_slug, **publication):
 def _oral_report(sessions, provider):
     field = "report" if provider == "groq" else f"provider_reports__{provider}"
     return sessions.values_list(field, flat=True).first()
+
+
+def _stored_report(session, provider):
+    return session.report if provider == "groq" else session.provider_reports.get(provider)
+
+
+def _claim_active(claim, now):
+    return bool(claim and now - datetime.fromisoformat(claim) < timedelta(seconds=EVALUATION_DEADLINE_SECONDS))

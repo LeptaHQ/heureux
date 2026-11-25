@@ -2,16 +2,18 @@
 {% load static %}
 {% block title %}Simulation · {{ task.short_label }} · {{ subject.title|truncatechars:80 }}{% if saved_simulation %} · Séance enregistrée{% endif %} · Heureux{% endblock %}
 {% block studio_attributes %}id="live-studio" data-state="{% if gemini_live_available %}setup{% else %}unavailable{% endif %}"
+    data-voice-available="{{ gemini_live_available|yesno:'1,0' }}" data-evaluation-enabled="{{ evaluation_enabled|yesno:'1,0' }}"
     data-token-url="{{ token_url }}" data-save-url="{{ save_url }}" data-evaluation-url="{{ evaluation_url }}" data-worklet="{% static 'study/js/expression/eo/tache_2/live-capture.js' %}"
     data-evaluation-provider="{{ evaluation_provider }}" data-evaluation-provider-label="{{ evaluation_provider_label }}"
-    data-auto-groq-evaluation="{{ auto_groq_evaluation|yesno:'1,0' }}"
+    data-auto-evaluation="{{ auto_evaluation }}" data-auto-evaluation-label="{{ auto_evaluation_label }}"
     data-mode="{% if monologue %}opinion{% else %}interaction{% endif %}"
     data-scenario-prompt="{{ scenario_prompt }}"{% endblock %}
 {% block session_body %}
-    {% if gemini_live_available %}
+    {% if gemini_live_available or saved_simulation %}
       {{ block.super }}
     {% else %}
       <div class="lv-unavailable">
+        {% include "study/simulation/partials/saved_sessions.html" %}
         <a class="icon-button" href="{% url 'study:simulation_track' 'eo' %}" aria-label="Retour aux tâches orales" title="Retour aux tâches orales">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %}</a>
       </div>
     {% endif %}
@@ -100,7 +102,9 @@
         <p class="lv-fineprint">Ce bilan n’est pas une note officielle du TCF. La prononciation et l’accent ne sont pas évalués. Votre compte conserve les trente dernières séances de cette tâche, sans audio.</p>
 {% endblock %}
 {% block debrief_retry %}
-  <button type="button" class="icon-button" id="lv-retry" aria-label="Nouvel essai" title="Nouvel essai" hidden>{% include "study/shared/partials/ui_icon.html" with name="reset" only %}</button>
+  {% with label=gemini_live_available|yesno:"Nouvel essai,Retour à l’historique" %}
+  <button type="button" class="icon-button" id="lv-retry" aria-label="{{ label }}" title="{{ label }}" hidden>{% include "study/shared/partials/ui_icon.html" with name="reset" only %}</button>
+  {% endwith %}
 {% endblock %}
 {% block session_footer %}
     <noscript><p>Activez JavaScript pour commencer la séance.</p></noscript>
@@ -108,9 +112,9 @@
 {% endblock %}
 {% block scripts %}
 {{ block.super }}
-{% if gemini_live_available %}
-<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=21"></script>
+{% if gemini_live_available or saved_simulation %}
+<script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=23"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=11"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=22"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=24"></script>
 {% endif %}
 {% endblock %}

@@ -1,7 +1,8 @@
-"""Shared timed simulation views for EE Tâche 1 and Tâche 2."""
+"""Shared timed simulation views for the three writing tasks."""
 
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import math
@@ -37,13 +38,25 @@ from study.models import (
 from study.review.progress import writing_sujet_progress_by_id
 from study.simulation import writing_evaluation
 from study.simulation.evaluation import PROVIDER_LABELS, EvaluationError, available_providers
-from .simulation import render_subject_picker, studio_navigation, subject_picker_context
+from .simulation import (
+    PickerSubject,
+    picker_rows,
+    render_subject_picker,
+    saved_session_context,
+    studio_navigation,
+    subject_picker_context,
+)
 
 logger = logging.getLogger(__name__)
 
 MAX_BODY_LENGTH = 20_000
 EVALUATION_STALE_AFTER = timedelta(minutes=5)
 _FINISHED_FIELDS = ("status", "submitted_at", "word_count")
+_DRAFT_CONFLICT = (
+    "Un autre onglet a enregistré un brouillon plus récent. Votre texte est affiché ci-dessous, "
+    "mais n’a pas été enregistré. Rechargez le brouillon enregistré ou relisez votre texte avant de l’enregistrer à nouveau."
+)
+_EVALUATION_FIELDS = ("status", "evaluation_status", "evaluation", "evaluation_started_at", "evaluation_error")
 
 
 @dataclass(frozen=True)
@@ -251,43 +264,47 @@ def subject_picker(request, spec):
         .values(subject_field)
         .annotate(count=Count("pk"), latest=Max("started_at"))
     }
-    rows = []
     if comparison:
-        subjects = subjects.select_related("theme").only(
-            "text", "content_key", "theme__slug", "theme__display_name",
-        ).order_by("theme__name", "number", "pk")
+        sources = catalogue.ee_tache_three_sources_by_key()
+        publications = subjects.order_by("theme__name", "number", "pk").values_list(
+            "pk", "text", "theme__slug", "theme__display_name", "content_key",
+        )
+
+        def comparison_subjects():
+            for pk, title, theme, label, content_key in publications.iterator():
+                month, source = sources[content_key]
+                yield PickerSubject(pk, title, theme, label, f"{label} · {month.name} · {source.combinaison}")
+
+        entries = comparison_subjects()
     else:
-        subjects = subjects.only("category", "category_label", "prompt", "slug").order_by("category_label", "order", "pk")
+        publications = subjects.order_by("category_label", "order", "pk").values_list(
+            "pk", "prompt", "category", "category_label",
+        )
+        entries = (PickerSubject(pk, title, theme, label, label) for pk, title, theme, label in publications.iterator())
     setup_url = reverse(spec.route_names["setup"])
-    sources = catalogue.ee_tache_three_sources_by_key() if comparison else {}
-    for sujet in subjects:
-        summary = attempts.get(sujet.pk, {})
-        caption = sujet.theme.display_name if comparison else sujet.category_label
-        if comparison:
-            month, source = sources[sujet.content_key]
-            publication = f"{caption} · {month.name} · {source.combinaison}"
-        else:
-            publication = caption
-        rows.append({
-            "sujet": sujet,
-            "row_id": f"sujet-{sujet.pk}",
-            "title": sujet.text if comparison else sujet.prompt,
-            "theme": sujet.theme.slug if comparison else sujet.category,
-            "theme_label": caption, "caption": publication,
-            "url": f"{setup_url}?sujet_id={sujet.pk}",
-            "count": summary.get("count", 0), "latest": summary.get("latest"),
-        })
-    context = subject_picker_context(request, rows)
+    context = subject_picker_context(request, entries, attempts)
+    picker_rows(context, attempts, lambda entry: {
+        "row_id": f"sujet-{entry.key}", "url": f"{setup_url}?sujet_id={entry.key}", "subject_id": entry.key,
+    })
     page_rows = context["page"].object_list
-    if not comparison:
+    if not comparison and page_rows:
+        visible = subjects.only("prompt", "slug").in_bulk([row["subject_id"] for row in page_rows])
         canonical_slugs = content_module.ee_writing_canonical_slug_by_slug(spec.number)
-        ids_by_slug = {row["sujet"].slug: row["sujet"].pk for row in rows}
+        ids_by_slug = dict(subjects.filter(
+            slug__in={canonical_slugs.get(sujet.slug) for sujet in visible.values()},
+        ).values_list("slug", "pk"))
         for row in page_rows:
-            sujet = row["sujet"]
+            sujet = visible.get(row["subject_id"])
+            if sujet is None:
+                continue
+            row["sujet"] = sujet
             row["progress_sujet_id"] = ids_by_slug.get(canonical_slugs.get(sujet.slug), sujet.pk)
-        progress = writing_sujet_progress_by_id(request.user, {row["progress_sujet_id"] for row in page_rows}, task_id=task.pk)
+        progress = writing_sujet_progress_by_id(
+            request.user, {row["progress_sujet_id"] for row in page_rows if "sujet" in row}, task_id=task.pk,
+        )
         for row in page_rows:
-            row["progress"] = progress[row["progress_sujet_id"]]
+            if "sujet" in row:
+                row["progress"] = progress[row["progress_sujet_id"]]
     context["task"] = task
     context["picker"] = {
         "back_url": reverse("study:simulation_track", args=["ee"]),
@@ -330,21 +347,24 @@ def _setup_context(request, spec, task):
     attempts = (
         attempts.only("status", "started_at", "evaluation_status")
         .annotate(has_saved_report=Q(evaluation__reports__has_any_keys=list(PROVIDER_LABELS)))
-        .order_by("-started_at", "-id")[:8]
+        .order_by("-started_at", "-id")
     )
-    saved_sessions = []
-    for item in attempts:
+
+    def saved_row(item):
         if item.status in {WritingSimulationAttemptStatus.ABANDONED, WritingSimulationAttemptStatus.ACTIVE}:
             summary = item.get_status_display()
         else:
             has_report = item.evaluation_status == WritingSimulationEvaluationStatus.READY or item.has_saved_report
             summary = "Bilan disponible" if has_report else "Sans bilan"
-        saved_sessions.append({
+        return {
             "id": item.pk,
             "created_at": item.started_at,
             "url": reverse(spec.route_names["attempt"], args=[item.pk]),
             "summary": summary,
-        })
+        }
+    delete_query = {"sujet_id": selected_sujet.pk} if selected_sujet else {}
+    if "seances" in request.GET:
+        delete_query["seances"] = request.GET["seances"]
     return {
         **_session_context(
             spec,
@@ -352,12 +372,10 @@ def _setup_context(request, spec, task):
         ),
         **_writing_navigation(request, spec, task, selected_sujet.pk if selected_sujet else None, **category),
         "task": task,
-        "saved_sessions": saved_sessions,
+        **saved_session_context(request, attempts, saved_row),
         "selected_sujet_id": selected_sujet_id,
         "start_url": reverse(spec.route_names["start"]),
-        "delete_url": reverse(
-            spec.route_names["delete"], query={"sujet_id": selected_sujet.pk} if selected_sujet else None,
-        ),
+        "delete_url": reverse(spec.route_names["delete"], query=delete_query),
     }
 
 
@@ -453,6 +471,19 @@ def _draft_fields(request, spec):
     return fields
 
 
+def _draft_revision(attempt):
+    text = json.dumps([attempt.body, attempt.position_body], ensure_ascii=True)
+    return hashlib.sha256(text.encode()).hexdigest()
+
+
+def _apply_draft(attempt, draft, submitted_revision):
+    revision = _draft_revision(attempt)
+    conflict = submitted_revision != revision and any(getattr(attempt, field) != value for field, value in draft.items())
+    for field, value in draft.items():
+        setattr(attempt, field, value)
+    return revision, conflict
+
+
 def _has_response(attempt):
     return bool(attempt.body.strip() or attempt.position_body.strip())
 
@@ -469,12 +500,13 @@ def _attempt_navigation(request, attempt, spec):
     )
 
 
-def _attempt_context(request, attempt, spec, *, error="", now=None):
+def _attempt_context(request, attempt, spec, *, error="", now=None, revision=None, draft_conflict=False):
     now = now or timezone.now()
     remaining = math.ceil((attempt.deadline_at - now).total_seconds())
     minutes, seconds = divmod(max(0, remaining), 60)
     word_min, word_max = _attempt_limits(attempt, spec)
     prompt = attempt.snapshot.get("prompt", "")
+    provider = _auto_evaluation_provider(spec)
     context = _session_context(
         spec,
         selected_subject=attempt.snapshot.get("prompt", ""),
@@ -497,9 +529,11 @@ def _attempt_context(request, attempt, spec, *, error="", now=None):
             "word_max": word_max,
             "max_body_length": MAX_BODY_LENGTH,
             "error": error,
-            "saved": False,
+            "draft_revision": _draft_revision(attempt) if revision is None else revision,
+            "draft_conflict": draft_conflict,
             "timer_url": reverse(spec.route_names["timer"], args=[attempt.pk]),
-            "auto_evaluation": bool(settings.GROQ_API_KEY),
+            "auto_evaluation": provider,
+            "auto_evaluation_label": PROVIDER_LABELS.get(provider, ""),
         }
     )
     return context
@@ -518,28 +552,36 @@ def update_timer(request, spec, attempt_id):
         return HttpResponseBadRequest("Durée invalide.")
     try:
         draft = _draft_fields(request, spec) if "body" in request.POST or "position_body" in request.POST else {}
+        submitted_revision = _single_post_value(request, "draft_revision") if draft else ""
     except ValueError as exc:
         return HttpResponseBadRequest(str(exc))
     if sum(map(len, draft.values())) > MAX_BODY_LENGTH:
         return HttpResponseBadRequest("Votre réponse est trop longue pour être enregistrée.")
 
     attempt = get_object_or_404(
-        _owned_attempts(request, spec).select_for_update(of=("self",)),
+        _owned_attempts(request, spec).select_for_update(of=("self",)).select_related("task__part"),
         pk=attempt_id,
     )
     now = timezone.now()
     if attempt.status != WritingSimulationAttemptStatus.ACTIVE:
         return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
     fields = list(draft)
-    for field, value in draft.items():
-        setattr(attempt, field, value)
     if draft:
+        revision, conflict = _apply_draft(attempt, draft, submitted_revision)
+        if conflict:
+            return _render_draft_conflict(request, attempt, spec, revision)
         attempt.last_saved_at = now
         fields.append("last_saved_at")
     attempt.deadline_at = now + timedelta(minutes=minutes, seconds=seconds)
     fields.append("deadline_at")
     attempt.save(update_fields=fields)
     return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
+
+
+def _render_draft_conflict(request, attempt, spec, revision):
+    return render(request, "study/simulation/writing_simulation_attempt.html", _attempt_context(
+        request, attempt, spec, error=_DRAFT_CONFLICT, revision=revision, draft_conflict=True,
+    ), status=409)
 
 
 def _result_context(request, attempt, spec):
@@ -558,21 +600,26 @@ def _result_context(request, attempt, spec):
         spec,
         minutes=attempt.snapshot.get("simulation_minutes", spec.minutes),
     )
-    notices = {
-        WritingSimulationAttemptStatus.EXPIRED: "Le temps est écoulé ; votre brouillon a été conservé.",
-        WritingSimulationAttemptStatus.ABANDONED: "Cette session a été abandonnée et reste privée dans votre historique.",
-    }
+    submitted = attempt.status == WritingSimulationAttemptStatus.SUBMITTED
+    configured = _writing_providers(spec)
+    can_assess = submitted and _has_response(attempt)
+    can_load_evaluation = bool(configured) or attempt.evaluation_status in (
+        WritingSimulationEvaluationStatus.PROCESSING, WritingSimulationEvaluationStatus.READY,
+    ) or (spec.number == 1 and bool(_ee1_reports(attempt)))
     context.update({
         **_attempt_navigation(request, attempt, spec),
         "attempt": attempt,
         "task": attempt.task,
         "session_is_debrief": True,
         "session_debrief_prompt": content_module.ee_tache_three_instruction(prompt) if spec.number == 3 and prompt else prompt,
-        "session_saved": attempt.status == WritingSimulationAttemptStatus.SUBMITTED,
-        "session_notice": notices.get(attempt.status, ""),
+        "session_saved": submitted,
+        "session_notice": "Cette session a été abandonnée et reste privée dans votre historique."
+        if attempt.status == WritingSimulationAttemptStatus.ABANDONED else "",
         "word_min": word_min,
         "word_max": word_max,
-        "session_title_assessment": _has_response(attempt) and attempt.status != WritingSimulationAttemptStatus.ABANDONED,
+        "show_evaluation": can_assess,
+        "can_load_evaluation": can_load_evaluation,
+        "session_title_assessment": can_assess and (bool(configured) or len(providers) > 1),
         "evaluation_provider": provider,
         "evaluation_provider_label": PROVIDER_LABELS[provider],
         "evaluation_providers": [(key, PROVIDER_LABELS[key]) for key in providers],
@@ -617,10 +664,11 @@ def delete(request, spec):
     deleted, _ = _owned_attempts(request, spec).filter(pk=attempt_id).delete()
     if not deleted:
         raise Http404
-    sujet_id = request.GET.get("sujet_id", "")
-    return redirect(reverse(
-        spec.route_names["setup"], query={"sujet_id": sujet_id} if sujet_id.isdecimal() else None,
-    ))
+    query = {
+        key: request.GET[key] for key in ("sujet_id", "seances")
+        if request.GET.get(key, "").isdecimal()
+    }
+    return redirect(reverse(spec.route_names["setup"], query=query))
 
 
 @never_cache
@@ -643,9 +691,10 @@ def attempt(request, spec, attempt_id):
     try:
         action = _single_post_value(request, "action")
         draft = _draft_fields(request, spec)
+        submitted_revision = _single_post_value(request, "draft_revision")
     except ValueError as exc:
         return HttpResponseBadRequest(str(exc))
-    if action not in {"save", "submit", "abandon", "expire"}:
+    if action not in {"save", "submit", "abandon"}:
         return HttpResponseBadRequest("Action invalide.")
     with transaction.atomic():
         attempt = get_object_or_404(
@@ -654,8 +703,9 @@ def attempt(request, spec, attempt_id):
         )
         if attempt.status != WritingSimulationAttemptStatus.ACTIVE:
             return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
-        for field, value in draft.items():
-            setattr(attempt, field, value)
+        revision, conflict = _apply_draft(attempt, draft, submitted_revision)
+        if conflict:
+            return _render_draft_conflict(request, attempt, spec, revision)
         if sum(map(len, draft.values())) > MAX_BODY_LENGTH:
             return render(
                 request,
@@ -665,6 +715,7 @@ def attempt(request, spec, attempt_id):
                     attempt,
                     spec,
                     error="Votre réponse est trop longue pour être enregistrée.",
+                    revision=revision,
                 ),
                 status=400,
             )
@@ -672,8 +723,7 @@ def attempt(request, spec, attempt_id):
         now = timezone.now()
         attempt.last_saved_at = now
         fields = [*draft, "last_saved_at"]
-        # Older tabs posted "expire" at zero. Keep it as a draft save, not a submission.
-        if action in {"save", "expire"}:
+        if action == "save":
             attempt.save(update_fields=fields)
             return redirect(
                 reverse(spec.route_names["attempt"], args=[attempt.pk]) + "?saved=1"
@@ -701,8 +751,9 @@ def attempt(request, spec, attempt_id):
             attempt.submitted_at = now
             attempt.word_count = _word_count(attempt)
             fields.extend(_FINISHED_FIELDS)
-            if settings.GROQ_API_KEY and request.POST.getlist("evaluation_consent") == ["groq"]:
-                _queue_evaluation(attempt, spec, "groq" if spec.number == 1 else None, now, update_fields=fields)
+            provider = _auto_evaluation_provider(spec)
+            if provider and request.POST.getlist("evaluation_consent") == [provider]:
+                _queue_evaluation(attempt, spec, provider if spec.number == 1 else None, now, update_fields=fields)
             else:
                 attempt.save(update_fields=fields)
             return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
@@ -710,7 +761,7 @@ def attempt(request, spec, attempt_id):
         return render(
             request,
             "study/simulation/writing_simulation_attempt.html",
-            _attempt_context(request, attempt, spec, error=error, now=now),
+            _attempt_context(request, attempt, spec, error=error, now=now, revision=revision),
             status=400,
         )
 
@@ -726,8 +777,10 @@ def _ee1_evaluation_options(attempt):
     default = writing_evaluation.provider_for(1)
     reports = _ee1_reports(attempt)
     available = available_providers() | reports.keys()
-    providers = tuple(key for key in PROVIDER_LABELS if key in available) or (default,)
     last_provider = attempt.evaluation.get("provider")
+    if last_provider in PROVIDER_LABELS and attempt.evaluation_status == WritingSimulationEvaluationStatus.PROCESSING:
+        available.add(last_provider)
+    providers = tuple(key for key in PROVIDER_LABELS if key in available) or (default,)
     if last_provider in providers and attempt.evaluation_status in (
         WritingSimulationEvaluationStatus.PROCESSING, WritingSimulationEvaluationStatus.UNAVAILABLE,
     ):
@@ -739,6 +792,17 @@ def _ee1_evaluation_options(attempt):
     return providers, default if default in providers else providers[0]
 
 
+def _writing_providers(spec):
+    configured = available_providers()
+    return configured if spec.number == 1 else configured & {"groq"}
+
+
+def _auto_evaluation_provider(spec):
+    configured = _writing_providers(spec)
+    preferred = writing_evaluation.provider_for(spec.number)
+    return next((provider for provider in (preferred, "groq") if provider in configured), "")
+
+
 def _evaluation_payload(attempt, provider=None):
     status = attempt.evaluation_status
     report = attempt.evaluation if status == WritingSimulationEvaluationStatus.READY else None
@@ -746,10 +810,7 @@ def _evaluation_payload(attempt, provider=None):
         report = _ee1_reports(attempt).get(provider)
         if report is not None:
             status = WritingSimulationEvaluationStatus.READY
-        elif status == WritingSimulationEvaluationStatus.READY or (
-            status == WritingSimulationEvaluationStatus.UNAVAILABLE
-            and attempt.evaluation.get("provider") not in (None, provider)
-        ):
+        elif status == WritingSimulationEvaluationStatus.READY or attempt.evaluation.get("provider") not in (None, provider):
             status = WritingSimulationEvaluationStatus.NOT_REQUESTED
     stale = (
         status == WritingSimulationEvaluationStatus.PROCESSING
@@ -840,7 +901,7 @@ def run_evaluation(attempt_id, started_at, spec, provider=None):
             status = WritingSimulationEvaluationStatus.READY
             error = ""
         with transaction.atomic():
-            current = WritingSimulationAttempt.objects.select_for_update().filter(**claim).first()
+            current = WritingSimulationAttempt.objects.select_for_update().filter(**claim).only("evaluation").first()
             if current is None:
                 return
             current.evaluation_status = status
@@ -872,61 +933,65 @@ def run_evaluation(attempt_id, started_at, spec, provider=None):
 @require_http_methods(["GET", "POST"])
 @csrf_protect
 def evaluate(request, spec, attempt_id):
-    if request.method == "POST":
-        if request.content_type != "application/json":
-            return HttpResponseBadRequest("Un consentement explicite est requis.")
-        try:
-            data = json.loads(request.body or b"{}")
-        except (TypeError, ValueError):
-            return HttpResponseBadRequest("Un consentement explicite est requis.")
-        if not isinstance(data, dict) or data.get("consent") is not True or data.keys() - {"consent", "provider"}:
-            return HttpResponseBadRequest("Un consentement explicite est requis.")
+    attempts = _owned_attempts(request, spec).only(*_EVALUATION_FIELDS)
+    if request.method == "GET":
+        attempt = get_object_or_404(attempts, pk=attempt_id)
+        if attempt.status != WritingSimulationAttemptStatus.SUBMITTED:
+            return HttpResponseBadRequest("Cette réponse ne peut pas encore être évaluée.")
+        provider = None
+        if spec.number == 1:
+            providers, default = _ee1_evaluation_options(attempt)
+            provider = request.GET.get("provider", default)
+            if provider not in providers:
+                return JsonResponse({"error": "Modèle d’évaluation invalide."}, status=400)
+        return evaluation_json(attempt, provider=provider)
+
+    if request.content_type != "application/json":
+        return HttpResponseBadRequest("Un consentement explicite est requis.")
+    try:
+        data = json.loads(request.body or b"{}")
+    except (TypeError, ValueError):
+        return HttpResponseBadRequest("Un consentement explicite est requis.")
+    if not isinstance(data, dict) or data.get("consent") is not True or data.keys() - {"consent", "provider"}:
+        return HttpResponseBadRequest("Un consentement explicite est requis.")
+
     with transaction.atomic():
         attempt = get_object_or_404(
-            _owned_attempts(request, spec).select_for_update(of=("self",)),
+            attempts.select_for_update(of=("self",)).only(*_EVALUATION_FIELDS, "body", "position_body"),
             pk=attempt_id,
         )
         now = timezone.now()
-        if attempt.status not in {
-            WritingSimulationAttemptStatus.SUBMITTED,
-            WritingSimulationAttemptStatus.EXPIRED,
-        }:
+        if attempt.status != WritingSimulationAttemptStatus.SUBMITTED:
             return HttpResponseBadRequest("Cette réponse ne peut pas encore être évaluée.")
         if not _has_response(attempt):
             return HttpResponseBadRequest("Aucune réponse à évaluer.")
         provider = None
         if spec.number == 1:
-            providers, default = _ee1_evaluation_options(attempt)
-            provider = request.GET.get("provider", default) if request.method == "GET" else data.get("provider")
+            providers, _ = _ee1_evaluation_options(attempt)
+            provider = data.get("provider")
             if provider not in providers:
                 return JsonResponse({"error": "Choisissez un modèle disponible avant de lancer l’évaluation."}, status=409)
-        elif request.method == "POST" and data.get("provider") not in (None, "groq"):
+        elif data.get("provider") not in (None, "groq"):
             return HttpResponseBadRequest("Le modèle d’évaluation n’est pas disponible.")
-        if request.method == "GET":
-            if request.headers.get("Accept") == "text/html":
-                return render(
-                    request,
-                    "study/simulation/writing_simulation_result.html",
-                    _result_context(request, attempt, spec),
-                )
-            return evaluation_json(attempt, provider=provider)
         cached = (
             provider in _ee1_reports(attempt) if provider
             else attempt.evaluation_status == WritingSimulationEvaluationStatus.READY
         )
         if cached:
             return evaluation_json(attempt, provider=provider)
+        if (provider or "groq") not in _writing_providers(spec):
+            return JsonResponse(
+                {"error": "Ce modèle n’est pas disponible pour une nouvelle évaluation."},
+                status=409,
+            )
         if (
             attempt.evaluation_status == WritingSimulationEvaluationStatus.PROCESSING
             and attempt.evaluation_started_at
             and now - attempt.evaluation_started_at < EVALUATION_STALE_AFTER
         ):
+            if provider and provider != attempt.evaluation.get("provider"):
+                return JsonResponse({"error": "Un autre bilan est déjà en cours."}, status=409)
             return evaluation_json(attempt, status=202, provider=provider)
-        if provider and provider not in available_providers():
-            return JsonResponse(
-                {"error": "Ce modèle n’est pas disponible pour une nouvelle évaluation."},
-                status=409,
-            )
         _queue_evaluation(attempt, spec, provider, now)
         return evaluation_json(attempt, status=202, provider=provider)
 

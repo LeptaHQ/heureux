@@ -9,30 +9,22 @@
   const button = by("assess");
   const level = by("level");
   const result = by("assessment-result");
-  const picker = window.HeureuxAssessmentPicker(button, (provider) => {
-    if (provider !== form.dataset.evaluationProvider) {
-      form.dataset.evaluationProvider = provider;
-      picker.select(provider);
-      result.hidden = true;
-      find("review").hidden = true;
-      by("proposal").hidden = true;
-      level.classList.remove("lv-level--scored");
-      level.textContent = "Non évalué";
-    }
-    requestEvaluation();
-  });
+  const picker = button && window.HeureuxAssessmentPicker(button, (provider) => requestEvaluation(provider));
+  const initialProvider = form.dataset.evaluationProvider;
   const url = form.dataset.evaluationUrl;
   const csrf = form.elements.csrfmiddlewaretoken.value;
-  let poll;
+  let poll, pollDelay = 1500;
 
   const find = (name) => root.querySelector(`[data-writing-${name}]`);
   const setStatus = (message, busy = false) => {
-    button.disabled = busy;
-    button.setAttribute("aria-busy", String(busy));
+    if (button) {
+      button.disabled = busy;
+      button.setAttribute("aria-busy", String(busy));
+    }
     by("assessment-status").textContent = message;
   };
   const setButtonLabel = (label) => {
-    if (picker) return;
+    if (!button || picker) return;
     button.setAttribute("aria-label", label);
     button.title = label;
   };
@@ -182,20 +174,24 @@
     result.hidden = false;
   };
 
-  const apply = (payload) => {
+  const apply = (payload, provider) => {
+    clearTimeout(poll);
+    if (payload.status !== "processing") pollDelay = 1500;
     if (payload.status === "ready" && payload.report) {
       showReport(payload.report);
-      if (!picker) {
+      picker?.select(provider);
+      if (button && !picker) {
         button.closest(".lv-assessment__action").hidden = true;
-        document.getElementById("writing-evaluation-disclosure").hidden = true;
+        const disclosure = document.getElementById("writing-evaluation-disclosure");
+        if (disclosure) disclosure.hidden = true;
       }
       setStatus("");
       return;
     }
     if (payload.status === "processing") {
       setStatus("Bilan en préparation…", true);
-      clearTimeout(poll);
-      poll = setTimeout(fetchStatus, 1500);
+      poll = setTimeout(() => fetchStatus(provider), pollDelay);
+      pollDelay = Math.min(8000, pollDelay * 2);
       return;
     }
     if (payload.status === "unavailable") {
@@ -207,20 +203,22 @@
     }
   };
 
-  const fetchStatus = async () => {
+  const fetchStatus = async (provider) => {
     try {
       const endpoint = new URL(url, location.href);
-      if (picker) endpoint.searchParams.set("provider", form.dataset.evaluationProvider);
+      endpoint.searchParams.set("provider", provider);
       const response = await fetch(endpoint, { credentials: "same-origin", cache: "no-store" });
       if (!response.ok) throw new Error();
-      apply(await response.json());
+      apply(await response.json(), provider);
     } catch {
       setStatus("Impossible de lire l’état du bilan. Vous pouvez réessayer.");
       setButtonLabel("Réessayer");
     }
   };
 
-  async function requestEvaluation() {
+  async function requestEvaluation(provider = initialProvider) {
+    clearTimeout(poll);
+    pollDelay = 1500;
     by("assessment").open = true;
     setStatus("Bilan en préparation…", true);
     try {
@@ -228,14 +226,14 @@
         method: "POST",
         credentials: "same-origin",
         headers: { "X-CSRFToken": csrf, "Content-Type": "application/json" },
-        body: JSON.stringify({ consent: true, provider: form.dataset.evaluationProvider }),
+        body: JSON.stringify({ consent: true, provider }),
       });
       if (response.status === 409) {
         setStatus((await response.json()).error);
         return;
       }
       if (!response.ok) throw new Error();
-      apply(await response.json());
+      apply(await response.json(), provider);
     } catch {
       setStatus("Le bilan est temporairement indisponible. Votre réponse reste disponible.");
       setButtonLabel("Réessayer");
@@ -247,6 +245,7 @@
   });
 
   if (form.dataset.evaluationStatus !== "not_requested") {
-    fetchStatus();
+    if (button) button.disabled = true;
+    fetchStatus(initialProvider);
   }
 })();

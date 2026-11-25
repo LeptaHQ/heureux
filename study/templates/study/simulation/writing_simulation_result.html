@@ -14,17 +14,19 @@
 {% endblock %}
 
 {% block assessment %}
-  {% if session_title_assessment %}{{ block.super }}{% endif %}
+  {% if show_evaluation %}{{ block.super }}{% endif %}
 {% endblock %}
 {% block assessment_controls %}
+  {% if can_load_evaluation %}
   <form id="writing-evaluation-form" data-evaluation-url="{% url route_names.evaluate attempt_id=attempt.pk %}" data-evaluation-status="{{ attempt.evaluation_status }}" data-evaluation-provider="{{ evaluation_provider }}" hidden>
     {% csrf_token %}
   </form>
-  {% if evaluation_providers|length < 2 %}
+  {% endif %}
+  {% if session_title_assessment and evaluation_providers|length < 2 %}
     <span id="writing-evaluation-disclosure" class="lv-assessment__aside">Envoi à {{ evaluation_provider_label }} : réponse, consigne{% if documents %} et documents{% endif %}.</span>
   {% endif %}
 {% endblock %}
-{% block assessment_status %}{% if attempt.evaluation_status == "processing" %}Bilan en préparation…{% elif attempt.evaluation_status == "not_requested" %}Bilan non demandé.{% endif %}{% endblock %}
+{% block assessment_status %}{% if not can_load_evaluation %}Bilan indisponible : aucun modèle d’évaluation n’est configuré.{% elif attempt.evaluation_status == "processing" %}Bilan en préparation…{% elif attempt.evaluation_status == "not_requested" %}Bilan non demandé.{% endif %}{% endblock %}
 {% block assessment_result %}
   <p data-writing-verdict></p>
   <p class="lv-assessment__aside" data-writing-score></p>
@@ -104,5 +106,5 @@
 {% endblock %}
 {% block scripts %}
   {{ block.super }}
-  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=10"></script>
+  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=12"></script>
 {% endblock %}

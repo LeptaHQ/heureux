@@ -3,7 +3,9 @@ from datetime import timedelta
 from unittest.mock import patch
 
 from django.conf import settings
+from django.db import connection
 from django.test import Client, TestCase, override_settings
+from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils import timezone
 
@@ -53,6 +55,9 @@ class EE1SimulationTests(TestCase):
 
     def _attempt_url(self, attempt):
         return reverse("study:ee1_simulation_attempt", args=[attempt.pk])
+
+    def _revision(self, attempt):
+        return self.client.get(self._attempt_url(attempt)).context["draft_revision"]
 
     def test_subject_picker_reuses_directory_controls_and_filters_private_sessions(self):
         response = self.client.get(reverse("study:ee1_subject_picker"))
@@ -122,6 +127,17 @@ class EE1SimulationTests(TestCase):
             count=2,
         )
 
+    def test_subject_picker_loads_progress_for_the_visible_page(self):
+        for index in range(16):
+            factories.make_writing_sujet(self.task, slug=f"invit-{index}", prompt=f"Événement {index:02}", order=index + 3)
+        with patch.object(
+            writing_simulation, "writing_sujet_progress_by_id", wraps=writing_simulation.writing_sujet_progress_by_id,
+        ) as progress:
+            page = self.client.get(reverse("study:ee1_subject_picker"), {"q": "evenement", "tri": "za", "page": 2})
+        row, = page.context["page"]
+        self.assertEqual(row["title"], "Événement 00")
+        self.assertEqual(progress.call_args.args[1], {row["subject_id"]})
+
     @override_settings(EE1_SIMULATION_MINUTES=12)
     def test_setup_reuses_the_shared_session_page(self):
         response = self.client.get(self._setup_url())
@@ -169,7 +185,9 @@ class EE1SimulationTests(TestCase):
         other = WritingSimulationAttempt.objects.create(
             user=self.other, task=self.task, sujet=self.sujet, deadline_at=mine.deadline_at,
         )
-        self.client.post(self._attempt_url(mine), {"action": "submit", "body": " ".join(["Bonjour"] * 60)})
+        self.client.post(self._attempt_url(mine), {
+            "action": "submit", "body": " ".join(["Bonjour"] * 60), "draft_revision": self._revision(mine),
+        })
         completion = WritingSujetCompletion.objects.create(user=self.owner, sujet=self.sujet)
         query = {"sujet_id": self.sujet.pk}
         setup = reverse("study:ee1_simulation", query=query)
@@ -263,9 +281,10 @@ class EE1SimulationTests(TestCase):
     def test_submission_requires_word_limit_then_shows_private_bilan(self):
         self.client.post(self._start_url(), {"sujet_id": str(self.sujet.pk)})
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
+        revision = self._revision(attempt)
         response = self.client.post(
             self._attempt_url(attempt),
-            {"action": "submit", "body": "Trop court."},
+            {"action": "submit", "body": "Trop court.", "draft_revision": revision},
         )
 
         self.assertEqual(response.status_code, 400)
@@ -276,7 +295,7 @@ class EE1SimulationTests(TestCase):
         body = " ".join(["Bonjour"] * 60)
         response = self.client.post(
             self._attempt_url(attempt),
-            {"action": "submit", "body": body},
+            {"action": "submit", "body": body, "draft_revision": revision},
         )
 
         self.assertRedirects(response, self._attempt_url(attempt))
@@ -311,7 +330,7 @@ class EE1SimulationTests(TestCase):
         draft = "Un brouillon encore incomplet."
         response = self.client.post(
             self._attempt_url(attempt),
-            {"action": "save", "body": draft, "evaluation_consent": "groq"},
+            {"action": "save", "body": draft, "evaluation_consent": "groq", "draft_revision": self._revision(attempt)},
         )
         self.assertRedirects(response, self._attempt_url(attempt) + "?saved=1")
 
@@ -324,9 +343,12 @@ class EE1SimulationTests(TestCase):
         self.assertLess(editor.context["remaining_seconds"], 0)
         self.assertEqual((editor.context["remaining_minutes"], editor.context["remaining_second_remainder"]), (0, 0))
         self.assertEqual(self.client.get(reverse("study:ee1_simulation_evaluate", args=[attempt.pk])).status_code, 400)
+        revision = editor.context["draft_revision"]
 
         with patch("study.views.writing_simulation.threading.Thread") as thread, self.captureOnCommitCallbacks(execute=True):
-            rejected = self.client.post(url, {"action": "submit", "body": draft, "evaluation_consent": "groq"})
+            rejected = self.client.post(url, {
+                "action": "submit", "body": draft, "evaluation_consent": "groq", "draft_revision": revision,
+            })
             self.assertContains(rejected, "entre 60 et 120 mots", status_code=400)
             thread.assert_not_called()
             attempt.refresh_from_db()
@@ -335,7 +357,9 @@ class EE1SimulationTests(TestCase):
             self.assertEqual(attempt.body, draft)
 
             body = " ".join(["Bonjour"] * 60)
-            response = self.client.post(url, {"action": "submit", "body": body, "evaluation_consent": "groq"})
+            response = self.client.post(url, {
+                "action": "submit", "body": body, "evaluation_consent": "groq", "draft_revision": revision,
+            })
             self.assertRedirects(response, url, fetch_redirect_response=False)
         thread.assert_called_once()
         attempt.refresh_from_db()
@@ -344,41 +368,70 @@ class EE1SimulationTests(TestCase):
         self.assertGreater(attempt.submitted_at, attempt.deadline_at)
         self.assertEqual(attempt.body, body)
 
-    @override_settings(EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="fixture-groq-key")
-    def test_submitting_the_disclosed_form_starts_groq_once(self):
+    @override_settings(
+        EE1_EVALUATION_PROVIDER="cloudflare", GROQ_API_KEY="fixture-groq-key",
+        CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID=workers_account_id,
+    )
+    def test_submitting_the_disclosed_form_starts_workers_once_and_saves_the_bilan(self):
         self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
         url = self._attempt_url(attempt)
         page = self.client.get(url)
-        self.assertContains(page, "Envoi à Groq : réponse, consigne.")
-        self.assertContains(page, 'name="evaluation_consent" value="groq"')
+        self.assertContains(page, "Envoi à Workers : réponse, consigne.")
+        self.assertContains(page, 'name="evaluation_consent" value="cloudflare"')
+        revision = page.context["draft_revision"]
 
         with patch("study.views.writing_simulation.threading.Thread") as thread, self.captureOnCommitCallbacks(execute=True):
-            rejected = self.client.post(url, {"action": "submit", "body": "Trop court.", "evaluation_consent": "groq"})
+            rejected = self.client.post(url, {
+                "action": "submit", "body": "Trop court.", "evaluation_consent": "cloudflare", "draft_revision": revision,
+            })
             self.assertEqual(rejected.status_code, 400)
-            data = {"action": "submit", "body": " ".join(["Bonjour"] * 60), "evaluation_consent": "groq"}
+            data = {
+                "action": "submit", "body": " ".join(["Bonjour"] * 60),
+                "evaluation_consent": "cloudflare", "draft_revision": revision,
+            }
             self.assertRedirects(self.client.post(url, data), url, fetch_redirect_response=False)
             self.assertRedirects(self.client.post(url, data), url, fetch_redirect_response=False)
 
         attempt.refresh_from_db()
         self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.PROCESSING)
-        self.assertEqual(attempt.evaluation, {"provider": "groq", "reports": {}})
+        self.assertEqual(attempt.evaluation, {"provider": "cloudflare", "reports": {}})
         thread.assert_called_once_with(
             target=writing_simulation.run_evaluation,
-            args=(attempt.pk, attempt.evaluation_started_at, self.spec, "groq"),
+            args=(attempt.pk, attempt.evaluation_started_at, self.spec, "cloudflare"),
             daemon=True,
         )
-        self.assertContains(self.client.get(url), 'data-evaluation-provider="groq"')
-        status = self.client.get(reverse("study:ee1_simulation_evaluate", args=[attempt.pk]))
+        self.assertContains(self.client.get(url), 'data-evaluation-provider="cloudflare"')
+        bilan = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        with CaptureQueriesContext(connection) as reads:
+            status = self.client.get(bilan)
         self.assertEqual(status.json()["status"], "processing")
+        attempt_query, = [query["sql"] for query in reads if WritingSimulationAttempt._meta.db_table in query["sql"]]
+        for field in ("body", "position_body", "snapshot"):
+            self.assertNotIn(f'"{field}"', attempt_query)
+        busy = self.client.post(bilan, data={"consent": True, "provider": "groq"}, content_type="application/json")
+        self.assertEqual(busy.status_code, 409)
+
+        report = {**self._provider_report(), "gradeEvidenceIds": []}
+        reply = json.dumps(self._workers_reply(json.dumps(report))).encode()
+        with patch.object(evaluation, "_post", return_value=(reply, 86)) as call:
+            writing_simulation.run_evaluation(*thread.call_args.kwargs["args"])
+        call.assert_called_once()
+        grounded = self.client.get(bilan).json()
+        self.assertEqual(grounded["status"], "ready")
+        self.assertEqual(grounded["report"]["score"], 12)
+        self.assertTrue(data["body"].startswith(grounded["report"]["gradeEvidence"][0]))
 
     @override_settings(EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="")
     def test_evaluation_requires_consent_for_the_disclosed_provider_and_claims_once(self):
         self.client.post(self._start_url(), {"sujet_id": str(self.sujet.pk)})
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
         body = " ".join(["Bonjour"] * 60)
-        self.assertNotContains(self.client.get(self._attempt_url(attempt)), 'name="evaluation_consent"')
-        self.client.post(self._attempt_url(attempt), {"action": "submit", "body": body, "evaluation_consent": "groq"})
+        page = self.client.get(self._attempt_url(attempt))
+        self.assertContains(page, 'name="evaluation_consent" value="gemini"')
+        self.client.post(self._attempt_url(attempt), {
+            "action": "submit", "body": body, "evaluation_consent": "groq", "draft_revision": page.context["draft_revision"],
+        })
 
         evaluation_url = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
         self.assertContains(self.client.get(self._attempt_url(attempt)), "Envoi à Gemini : réponse, consigne.")
@@ -508,7 +561,9 @@ class EE1SimulationTests(TestCase):
         self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
         body = "réponseprivée " + " ".join(["à"] * 59)
-        self.client.post(self._attempt_url(attempt), {"action": "submit", "body": body})
+        self.client.post(self._attempt_url(attempt), {
+            "action": "submit", "body": body, "draft_revision": self._revision(attempt),
+        })
         url = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
         claim = self.client.post(url, data={"consent": True, "provider": "cloudflare"}, content_type="application/json")
         self.assertEqual(claim.status_code, 202)

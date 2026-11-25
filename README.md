@@ -81,7 +81,7 @@ Icon-only actions have accessible labels; task titles, limits and timers remain
 visible.
 Oral and written studios use the same saved-session list. Its trash icon
 permanently deletes the chosen session and its bilan after confirmation.
-On a selected subject, the list only shows sessions for that exact consigne.
+On a selected subject, the list shows its sessions eight at a time.
 The session templates live under `study/templates/study/simulation/`, and the
 shared evaluation code lives in `study/simulation/`.
 Writing sends the exact subject, the response, its word count and limits, and
@@ -90,25 +90,28 @@ it verifies citations using numbered passages from the learner’s original word
 EE1 grading with Gemini 3.8 Flash uses the same `GEMINI_API_KEY` as the voice
 simulator. Check [Google’s data-use terms](https://aistudio.google.com/docs/terms)
 before grading learner responses: Google may use free-tier inputs to improve
-its models. To add **Workers** ([Gemma 4 26B on Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)) to the EE1 and oral bilans, set `CLOUDFLARE_WORKERS_API_KEY` and
+its models. To configure **Workers** ([Gemma 4 26B on Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)) for EE1 and oral bilans, set `CLOUDFLARE_WORKERS_API_KEY` and
 `CLOUDFLARE_ACCOUNT_ID` on Render using the [Workers AI REST setup](https://developers.cloudflare.com/workers-ai/get-started/rest-api/).
 Heureux calls Workers AI directly; see [Cloudflare’s data-use terms](https://developers.cloudflare.com/workers-ai/platform/data-usage/).
 Gemma uses the [Workers AI daily free allocation](https://developers.cloudflare.com/workers-ai/platform/pricing/).
 The model applies to new Workers reports; saved Workers bilans stay as they are.
-When Groq is configured, explicitly submitting a written answer starts its
-bilan automatically. The editor discloses this before submission. Saving a
-draft does not send it. At zero, the writing timer counts into negative time
-and leaves the draft open until you act. When more than one model is
-available, the EE1 bilan’s sparkle button lets learners request another
-provider. Each report is saved separately; switching back opens the saved
-report without grading again. EE1 defaults to Groq and opens its saved report
-first when available. If only another provider has a saved report, that report
-opens instead. `EE1_EVALUATION_PROVIDER` can override the default for new manual
-evaluations. EE2 and EE3 grading uses Groq. All
-providers use the same evidence checks; optional feedback can be omitted
-without hiding a supported score. Temporary service failures are retried once with the same
-provider within the three-minute deadline. Groq can also use its one retry to
-recover from a writing schema rejection in JSON mode.
+Submitting a written answer starts its bilan with the provider named in the
+editor. EE1 defaults to Workers when configured, otherwise to Groq if
+available. `EE1_EVALUATION_PROVIDER` can override the EE1 preference; EE2 and
+EE3 still use Groq. If there is no automatic grader, submission saves the
+answer without sending it. Saving a draft or abandoning a session never
+sends it. The timer counts past zero and leaves the draft open; changing the
+timer cannot overwrite a newer draft saved in another tab.
+
+The EE1 bilan’s sparkle button lets learners request another available
+provider. The current report stays visible until the chosen model returns
+one, and switching back opens the saved report without grading again.
+Status checks become less frequent while a report is in progress. All
+providers use the same evidence checks. When the three criteria already
+provide verified citations, they can also support the grade rationale
+without a separate citation list. Temporary service failures are retried
+once with the same provider within the three-minute deadline. Groq can also
+use its one retry to recover from a writing schema rejection in JSON mode.
 In Render logs, filter for `writing evaluation` and the attempt ID from the
 bilan URL. The worker logs when grading starts and how long it took. If the
 report fails verification, the log names the failed field and a reason code.
@@ -212,13 +215,13 @@ word or phrase can be located unambiguously in that learner turn.
 Strengths are illustrated with real questions or follow-ups from the exchange.
 Unmarked text is not a blanket endorsement, and a spelling difference is not a pronunciation error. An interrupted
 call can show the portion received; no learner speech means no assessment.
-When time is up, Heureux starts a Groq evaluation automatically if Groq is configured:
-the consent given before the exchange covers sending its transcript to Groq. The sparkle button
-beside the oral bilan title uses the same model picker as EE1. Choose Groq, Gemini, or Workers
-when configured; requesting a new Gemini or Workers report asks permission to send the
-transcript to that provider before sending it. Each provider’s saved report opens without resending
-the transcript. A spinner shows when an evaluation is in progress. For Groq, Heureux sends only the
-published consigne and both speakers’ transcribed words (not audio or notes)
+At the end, Heureux requests a bilan from the provider named in the launch
+consent: Workers if configured, otherwise Groq if available. The sparkle
+button beside the oral bilan title lets learners choose another configured
+model. A new provider requires separate consent, and opening a saved report
+does not resend the transcript. A spinner shows when evaluation is in
+progress. For Groq, Heureux sends only the original consigne and both
+speakers’ transcribed words (not audio or notes)
 to [`openai/gpt-oss-120b`](https://console.groq.com/docs/model/openai/gpt-oss-120b) on Groq,
 which [may log them for up to 30 days](https://console.groq.com/docs/your-data) unless
 Zero Data Retention is turned on in its data controls.
@@ -238,7 +241,7 @@ note says what the exchange showed and what would earn the next mark. Heureux ad
 for one **total out of 20** and maps it to **NCLC** and **CEFR**. This is a
 practice rubric, not official TCF weighting. **Au prochain essai** gives one
 action to practise, with an example specific to the task. In both studios, Heureux
-labels short, unchanged passages of learner speech before grading. Groq selects
+labels short, unchanged passages of learner speech before grading. The grader selects
 an ID for each mark and strength; Heureux displays the original passage linked to
 its turn. Partner speech is context only and has no selectable IDs. This verifies
 who said the words, not whether the grader interpreted them correctly. Feedback
@@ -271,12 +274,14 @@ RUN_GROQ_CALIBRATION=1 python manage.py test study.tests.oral_bilan_calibration
 Conversions follow the [TCF speaking scale](https://www.france-education-international.fr/document/grilleniveauxtcf)
 and the [IRCC TCF Canada speaking table](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html#level).
 This estimates one transcribed task, not pronunciation or the official
-three-task speaking result. If Groq is unavailable, the transcript remains
-available without a new score. Heureux never saves the audio. It saves the transcript when the
-exchange ends and adds the bilan once it arrives, keeping the learner’s thirty most
-recent sessions. The setup screen lists the five latest for that subject under
-**Séances enregistrées**. Reopening one shows its stored bilan and corrections without
-calling Groq again. If it has no bilan yet, the sparkle icon requests one with the PIN.
+three-task speaking result. If the disclosed grader is unavailable, the transcript
+remains available without a new score. Heureux never saves the audio. It saves the
+transcript and original consigne when the exercise ends and adds the bilan once it
+arrives, keeping the learner’s thirty most recent sessions per task. The setup
+screen lists that subject’s retained sessions under **Séances enregistrées**.
+Reopening one shows its stored bilan and corrections without calling the grader or
+opening the microphone. If it has no bilan yet and its original consigne is saved,
+the sparkle icon requests one with the PIN.
 On a partial rubric the same icon, **Réévaluer le bilan**, requests a fresh assessment
 of that transcript without repeating the simulation. Only a complete new rubric
 replaces the saved partial one; marks from separate assessments are never combined.

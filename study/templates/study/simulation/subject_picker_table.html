@@ -30,8 +30,10 @@
         <td>
           {% if picker.topic_markers %}
             <a href="{% url 'study:eo2_topic_history' row.token %}" title="Voir l’historique">{{ row.count }}<span class="sr-only"> séance{% if row.count > 1 %}s{% endif %} · Historique de {{ row.topic.title }}</span></a>
+          {% elif row.count %}
+            <a href="{{ row.url }}#lv-saved-title" title="Voir l’historique">{{ row.count }}<span class="sr-only"> séance{{ row.count|pluralize }} · Historique de {{ row.title }}</span></a>
           {% else %}
-            {{ row.count }}
+            0
           {% endif %}
         </td>
         {% if picker.writing_progress or picker.topic_markers %}

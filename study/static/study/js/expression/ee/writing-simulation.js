@@ -20,6 +20,23 @@
   render();
   window.setInterval(render, 1000);
 
+  let confirmed = false;
+  form.addEventListener("submit", async (event) => {
+    const button = event.submitter;
+    if (button?.value !== "abandon" || confirmed) return;
+    event.preventDefault();
+    const ok = await window.HeureuxConfirm({
+      message: button.dataset.confirm,
+      label: button.dataset.confirmLabel,
+      tone: button.dataset.confirmTone,
+    });
+    if (ok) {
+      confirmed = true;
+      form.requestSubmit(button);
+      confirmed = false;
+    }
+  });
+
   if (input) {
     form.querySelectorAll("[data-writing-word-input]").forEach((field) => {
       field.addEventListener("focus", () => { input = field; });

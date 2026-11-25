@@ -729,7 +729,7 @@ def export_account(request):
         ],
         "live_simulations": [
             {
-                "id": item.pk, "subject_key": item.subject_key, "rows": item.rows,
+                "id": item.pk, "subject_key": item.subject_key, "rows": item.rows, "snapshot": item.snapshot,
                 "elapsed_ms": item.elapsed_ms, "report": item.report, "created_at": item.created_at,
                 **({"provider_reports": item.provider_reports} if item.provider_reports else {}),
             }

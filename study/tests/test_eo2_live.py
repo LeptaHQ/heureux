@@ -51,6 +51,11 @@ class GeminiLiveTests(TestCase):
             HTTP_X_CSRFTOKEN=self.client.cookies[settings.CSRF_COOKIE_NAME].value, **extra,
         )
 
+    def attempt_token(self, url=None, **extra):
+        response = self.post(url=url, body=json.dumps({"purpose": "attempt", "pin": PILOT_PIN, "consent": True, **extra}))
+        self.assert_private(response, 200)
+        return response.json()
+
     def assert_private(self, response, status):
         self.assertEqual(response.status_code, status)
         self.assertIn("no-store", response["Cache-Control"])
@@ -272,10 +277,9 @@ class GeminiLiveTests(TestCase):
         Prompt.objects.filter(response=entry).update(content_key=key)
         page = self.client.get(reverse("study:eo_tache_two_live", args=args))
         url = page.context["token_url"]
-        response = self.post(url=url, body=json.dumps({"purpose": "attempt", "pin": PILOT_PIN, "consent": True}))
-        self.assert_private(response, 200)
-        result = response.json()
-        self.assertEqual(set(result), {"token", "model", "exchangeGrant"})
+        result = self.attempt_token(url, reviewProvider="groq")
+        self.assertEqual(set(result), {"token", "model", "exchangeGrant", "snapshot", "snapshotGrant"})
+        self.assertEqual(result["snapshot"]["prompt"], page.context["scenario_prompt"])
         self.transport.assert_called_once()  # No speaking token while the subject is read.
         def instruction():
             return json.loads(self.connection.request.call_args.kwargs["body"])["bidiGenerateContentSetup"]["systemInstruction"]["parts"][0]["text"]
@@ -423,6 +427,13 @@ class GeminiLiveTests(TestCase):
         self.assertIn("Réessayez dans 7 s.", self.evaluate().json()["error"])
         self.eval_response.status = 200
         self.assert_private(self.evaluate(), 200)
+        self.assertEqual(transport.call_count, 7)
+        saved = LiveSimulation.objects.create(
+            user=self.reviewer, rows=self.rows, snapshot={"prompt": eo2_live.DEFAULT_CONSIGNE},
+        )
+        for _ in range(5):
+            self.assert_private(self.evaluate(simulation=str(saved.pk), pin="incorrect"), 403)
+        self.assert_private(self.evaluate(simulation=str(saved.pk), pin=PILOT_PIN), 429)
         self.assertEqual(transport.call_count, 7)
         self.client.logout()
         self.assert_private(self.client.post(self.eval_url, content_type="application/json"), 401)
@@ -612,18 +623,20 @@ class GeminiLiveTests(TestCase):
         self.assertEqual((self.eval_connection.request.call_count, sleep.call_count), (5, 2))
 
     def test_saved_exchange_keeps_its_report_and_reopens_only_for_its_owner(self):
-        self.evaluation_fixture()
+        transport = self.evaluation_fixture()
         save_url = reverse("study:eo_tache_two_live_save")
         rows = [self.rows[0], {**self.rows[1], "interrupted": True}, self.rows[2]]
+        grant = self.attempt_token()["snapshotGrant"]
+        self.assert_private(self.post(url=save_url, body=json.dumps({"rows": rows, "elapsed": 0})), 400)
         for invalid in ({"rows": rows}, {"rows": rows, "elapsed": -1}, {"rows": rows, "elapsed": 1.5},
                         {"rows": [{**self.rows[0], "interrupted": False}], "elapsed": 1}, {"rows": [self.rows[1]], "elapsed": 1}):
-            self.assert_private(self.post(url=save_url, body=json.dumps(invalid)), 400)
-        with self.settings(GEMINI_API_KEY=""):
-            self.assert_private(self.post(url=save_url, body=json.dumps({"rows": rows, "elapsed": 0})), 403)
-        save_options = dict(url=save_url, body=json.dumps({"rows": rows, "elapsed": 95_000}),
+            self.assert_private(self.post(url=save_url, body=json.dumps({**invalid, "snapshotGrant": grant})), 400)
+        self.assert_private(self.post(url=save_url, body=json.dumps({"rows": rows, "elapsed": 0, "snapshotGrant": "fake"})), 403)
+        save_options = dict(url=save_url, body=json.dumps({"rows": rows, "elapsed": 95_000, "snapshotGrant": grant}),
                             HTTP_IDEMPOTENCY_KEY=str(uuid.uuid4()))
-        saved = self.post(**save_options)
-        self.assert_private(saved, 201)
+        with self.settings(GEMINI_API_KEY=""):
+            saved = self.post(**save_options)
+            self.assert_private(saved, 201)
         self.assertEqual(self.post(**save_options).json(), saved.json())
         self.assertEqual(EO2PracticeAttempt.objects.filter(user=self.reviewer).count(), 1)
         simulation = LiveSimulation.objects.get(pk=saved.json()["id"])
@@ -631,12 +644,20 @@ class GeminiLiveTests(TestCase):
                          (self.reviewer, "", rows, 95_000, None))
         other = LiveSimulation.objects.create(user=self.other, rows=rows)
         # Neither another learner's exchange nor a different transcript can receive this report.
-        self.evaluate(simulation=str(other.pk))
-        self.evaluate(simulation=str(simulation.pk), rows=[*self.rows[:2], {"speaker": "user", "text": "Et le samedi ?"}])
+        self.assert_private(self.evaluate(simulation=str(other.pk)), 404)
+        self.assert_private(self.evaluate(simulation=str(simulation.pk), rows=[
+            *self.rows[:2], {"speaker": "user", "text": "Et le samedi ?"},
+        ]), 400)
         self.assertFalse(LiveSimulation.objects.exclude(report=None).exists())
         self.assertEqual(self.evaluate(simulation=str(simulation.pk)).json()["score"], 12)
         simulation.refresh_from_db()
         self.assertEqual(simulation.report["score"], 12)
+        with self.settings(GROQ_API_KEY="", GEMINI_API_KEY="", AI_PIN=""):
+            self.assertEqual(self.evaluate(simulation=str(simulation.pk), pin="").json(), simulation.report)
+            offline = self.client.get(self.live, {"simulation": simulation.pk})
+            self.assert_no_live_policy(offline)
+            self.assertEqual(offline.context["saved_simulation"]["report"], simulation.report)
+        transport.assert_called_once()
         unscored = LiveSimulation.objects.create(user=self.reviewer, rows=rows,
                                                  report={"score": None, "nclc": None, "scoreStatus": "insufficient"})
 
@@ -655,7 +676,11 @@ class GeminiLiveTests(TestCase):
 
         LiveSimulation.objects.filter(pk=simulation.pk).update(created_at=timezone.now() - timedelta(days=1))
         with patch.object(eo2_live, "SAVED_SIMULATIONS", 2):
-            kept = {uuid.UUID(self.post(url=save_url, body=json.dumps({"rows": rows, "elapsed": 0})).json()["id"]) for _ in range(2)}
+            kept = {
+                uuid.UUID(self.post(url=save_url, body=json.dumps({
+                    "rows": rows, "elapsed": 0, "snapshotGrant": grant,
+                })).json()["id"]) for _ in range(2)
+            }
         self.assertEqual(set(LiveSimulation.objects.filter(user=self.reviewer).values_list("pk", flat=True)), kept)
         account = Client()
         account.force_login(self.reviewer)
@@ -675,14 +700,19 @@ class GeminiLiveTests(TestCase):
     @override_settings(CLOUDFLARE_WORKERS_API_KEY="fixture-workers", CLOUDFLARE_ACCOUNT_ID="0123456789abcdef" * 2)
     def test_alternate_oral_reports_require_separate_consent_and_do_not_replace_groq(self):
         self.evaluation_fixture()
-        simulation = LiveSimulation.objects.create(user=self.reviewer, rows=self.rows)
+        launch = self.client.get(self.live)
+        self.assertEqual(launch.context["auto_evaluation"], "cloudflare")
+        token = self.attempt_token(reviewProvider=launch.context["auto_evaluation"])
+        grant = self.post(body=json.dumps({
+            "purpose": "exchange", "exchangeGrant": token["exchangeGrant"], "consent": True,
+        })).json()["reviewGrant"]
+        simulation = LiveSimulation.objects.create(user=self.reviewer, rows=self.rows, snapshot=token["snapshot"])
         default = self.evaluate(simulation=str(simulation.pk)).json()
         page = self.client.get(self.live, {"simulation": simulation.pk})
         self.assertTemplateUsed(page, "study/simulation/partials/assessment_action.html")
         self.assertEqual(page.context["evaluation_providers"], [
             ("groq", "Groq"), ("gemini", "Gemini"), ("cloudflare", "Workers"),
         ])
-        grant = live_conversation.issue_grant(page.wsgi_request, "", purpose="review")
         body = {"consent": True, "provider": "gemini", "rows": self.rows, "simulation": str(simulation.pk)}
         reports = {}
         with patch.object(evaluation, "request_gemini_report", return_value=self.report) as gemini:
@@ -696,7 +726,9 @@ class GeminiLiveTests(TestCase):
             self.assertEqual(gemini.call_args.args[2], oral_evaluation._DIALOGUE_SCHEMA)
         workers_report = {**self.report, "reason": "Bilan Workers gardé à part."}
         with patch.object(evaluation, "request_workers_report", return_value=workers_report) as workers:
-            response = self.evaluate(provider="cloudflare", simulation=str(simulation.pk))
+            response = self.post(url=self.eval_url, body=json.dumps({
+                **body, "provider": "cloudflare", "reviewGrant": grant,
+            }))
             self.assert_private(response, 200)
             reports["cloudflare"] = response.json()
             workers.assert_called_once()
@@ -788,22 +820,53 @@ class GeminiLiveTests(TestCase):
         self.assertEqual(self.client.get(url).status_code, 404)
         self.assertEqual(self.post(grant, url=token).status_code, 404)
 
+    @override_settings(GEMINI_API_KEY="", GROQ_API_KEY="", AI_PIN="")
+    def test_older_opinion_sessions_are_listed_and_can_be_reopened_without_voice(self):
+        task = factories.make_task(self.task.part, "tache-3")
+        prompt = factories.make_response(theme=factories.make_theme("opinion-history", task=task)).prompts.get()
+        args = (prompt.pk,)
+        sessions = LiveSimulation.objects.bulk_create([
+            LiveSimulation(
+                user=self.reviewer, subject_key=f"eo3:{prompt.pk}",
+                rows=[{"speaker": "user", "text": "Je préfère marcher."}], snapshot={"prompt": prompt.text},
+            )
+            for _ in range(9)
+        ])
+        url = reverse("study:eo_tache_three_live", args=args)
+        first = self.client.get(url)
+        self.assertContains(first, "?seances=2#lv-saved-title")
+        self.assertNotContains(first, str(sessions[0].pk))
+        page = self.client.get(url, {"seances": 2})
+        oldest, = page.context["saved_sessions"]
+        self.assertEqual(oldest["id"], sessions[0].pk)
+        reopened = self.client.get(oldest["url"])
+        self.assert_no_live_policy(reopened)
+        self.assertEqual(reopened.context["saved_simulation"]["rows"], sessions[0].rows)
+
     def test_single_opinion_can_be_saved_scored_and_reopened_without_a_partner(self):
-        factories.make_task(self.task.part, "tache-3")
+        task = factories.make_task(self.task.part, "tache-3")
+        theme = factories.make_theme("opinion", task=task)
+        prompt = factories.make_response(theme=theme).prompts.get()
+        url = reverse("study:eo_tache_three_live", args=[prompt.pk])
         self.evaluation_fixture()
-        page = self.client.get(reverse("study:eo_tache_three_live"))
+        page = self.client.get(url)
+        token = self.attempt_token(page.context["token_url"])
+        prompt.text = "Nouvelle consigne affichée après la lecture."
+        prompt.save(update_fields=["text"])
         sentence = "À pied, on peut observer les bâtiments et prendre le temps de discuter avec les habitants. "
         rows = [{"speaker": "user", "text": (sentence * 48).strip()}]
         self.assertGreater(len(rows[0]["text"]), 4000)
         previous = LiveSimulation.objects.create(user=self.reviewer, rows=self.rows)
         save = page.context["save_url"]
+        draft = {"rows": rows, "elapsed": 270000, "snapshotGrant": token["snapshotGrant"]}
+        self.assert_private(self.post(url=reverse("study:eo_tache_three_live_save"), body=json.dumps(draft)), 403)
         with patch.object(eo2_live, "SAVED_SIMULATIONS", 1):
-            saved = self.post(url=save, body=json.dumps({"rows": rows, "elapsed": 270000}))
+            saved = self.post(url=save, body=json.dumps(draft))
         self.assert_private(saved, 201)
         self.assertTrue(LiveSimulation.objects.filter(pk=previous.pk).exists())
         pk = saved.json()["id"]
         self.assertIsNone(self.client.get(self.live, {"simulation": pk}).context["saved_simulation"])
-        self.assert_private(self.post(url=save, body=json.dumps({"rows": self.rows, "elapsed": 1000})), 400)
+        self.assert_private(self.post(url=save, body=json.dumps({**draft, "rows": self.rows, "elapsed": 1000})), 400)
         for mark in self.report["criteria"].values():
             mark.update(evidenceId="E1", why="Votre exemple explique l’intérêt de la marche.")
         paragraph = (sentence * 5).strip()  # One developed paragraph can exceed the old per-turn limit.
@@ -822,8 +885,10 @@ class GeminiLiveTests(TestCase):
         only_row, = sent["rows"]
         self.assertEqual(" ".join(p["text"] for p in only_row["passages"]), rows[0]["text"])
         self.assertEqual(result.json()["criteria"][0]["quote"], sentence.strip())
-        reopened = self.client.get(reverse("study:eo_tache_three_live"), {"simulation": pk})
+        reopened = self.client.get(url, {"simulation": pk})
         self.assertEqual(reopened.context["saved_simulation"]["report"], result.json())
+        self.assertEqual(reopened.context["scenario_prompt"], token["snapshot"]["prompt"])
+        self.assertEqual(reopened.context["session_debrief_prompt"], token["snapshot"]["prompt"])
         self.report["proposal"] = " "
         brief = self.evaluate(url=page.context["evaluation_url"], rows=[{"speaker": "user", "text": "Oui, bien sûr."}])
         self.assertEqual(brief.json()["proposal"], [])
@@ -857,7 +922,9 @@ class GeminiLiveTests(TestCase):
 
     def test_only_a_complete_reassessment_replaces_the_saved_partial_report(self):
         self.evaluation_fixture()
-        session = LiveSimulation.objects.create(user=self.reviewer, rows=self.rows)
+        session = LiveSimulation.objects.create(
+            user=self.reviewer, rows=self.rows, snapshot={"prompt": eo2_live.DEFAULT_CONSIGNE},
+        )
         params = {"simulation": str(session.pk)}
         lexicon = self.report["criteria"]["lexicon"]
         lexicon["evidenceId"] = "E999"
@@ -880,7 +947,27 @@ class GeminiLiveTests(TestCase):
         session.refresh_from_db()
         self.assertEqual((completed["score"], completed), (12, session.report))
         lexicon["evidenceId"] = "E999"
-        self.assertEqual(self.evaluate(**params).json(), {**completed, "previousReportKept": True})
+        calls = self.eval_connection.request.call_count
+        self.assertEqual(self.evaluate(**params).json(), completed)
+        self.assertEqual(self.eval_connection.request.call_count, calls)
+
+    def test_existing_oral_claim_is_read_without_starting_another_grader(self):
+        transport = self.evaluation_fixture()
+        session = LiveSimulation.objects.create(
+            user=self.reviewer, rows=self.rows, snapshot={"prompt": eo2_live.DEFAULT_CONSIGNE},
+            evaluation_claims={"groq": timezone.now().isoformat()},
+        )
+        query = {"simulation": str(session.pk)}
+        self.assert_private(self.evaluate(**query), 202)
+        self.assertEqual(self.client.get(self.eval_url, query).json(), {"status": "processing"})
+        transport.assert_not_called()
+        session.evaluation_claims["groq"] = (timezone.now() - timedelta(minutes=5)).isoformat()
+        session.save(update_fields=["evaluation_claims"])
+        self.eval_response.status = 400
+        self.assert_private(self.evaluate(**query), 502)
+        session.refresh_from_db()
+        self.assertFalse(session.evaluation_claims)
+        self.assert_private(self.client.get(self.eval_url, query), 404)
 
     def test_unreadable_unfinished_or_refused_reports_do_not_retry(self):
         self.evaluation_fixture()
@@ -942,7 +1029,9 @@ class GeminiLiveTests(TestCase):
             self.assertEqual(next(chunks), b" ")  # Sent before Groq answers, so the proxy sees activity.
             release.set()
             self.assertEqual(json.loads(b"".join(chunks))["score"], 12)
-            simulation = LiveSimulation.objects.create(user=self.reviewer, rows=self.rows)
+            simulation = LiveSimulation.objects.create(
+                user=self.reviewer, rows=self.rows, snapshot={"prompt": eo2_live.DEFAULT_CONSIGNE},
+            )
             release.clear()
             left = self.post(url=self.eval_url, body=json.dumps({**json.loads(body), "simulation": str(simulation.pk)}))
             self.assertEqual(next(iter(left.streaming_content)), b" ")

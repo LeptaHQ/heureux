@@ -44,7 +44,7 @@ class TopicPracticeTests(TestCase):
             self.assertEqual(session.context["subject"].title, history.context["topic"].title)
             for step in ("Préparation", "Échange", "Bilan"):
                 self.assertContains(session, f'class="lv-step__name">{step}</span>')
-            for obsolete in ("Gemini", "simulateur guidé", "Au clavier", self.rehearsal):
+            for obsolete in ("simulateur guidé", "Au clavier", self.rehearsal):
                 self.assertNotContains(session, obsolete)
         self.assertFalse(EO2PracticeAttempt.objects.exists())
 
@@ -52,18 +52,18 @@ class TopicPracticeTests(TestCase):
         self.assertEqual(self.client.post(self.status, {"field": "done", "value": "1"}).status_code, 302)
         self.client.post(self.status, {"field": "retry", "value": "1"})
         for mark in ("done", "retry", "new"):
-            self.assertContains(self.client.get(self.picker, {"status": mark}), self.live)
+            self.assertContains(self.client.get(self.picker, {"etat": mark}), self.live)
         self.client.post(self.status, {"field": "done", "value": "0"})
-        self.assertNotContains(self.client.get(self.picker, {"status": "done"}), self.live)
+        self.assertNotContains(self.client.get(self.picker, {"etat": "done"}), self.live)
         self.assertEqual(self.client.get(self.history).context["page"].paginator.count, 0)
         self.assertFalse(EO2PracticeAttempt.objects.exists())
         current = EO2TopicStatus.objects.get(user=self.user, subject_key=self.prompt.content_key)
         self.assertFalse(current.done)
         self.assertTrue(current.retry)
         self.client.force_login(self.other)
-        self.assertNotContains(self.client.get(self.picker, {"status": "retry"}), self.live)
+        self.assertNotContains(self.client.get(self.picker, {"etat": "retry"}), self.live)
 
-    @override_settings(GEMINI_API_KEY="test-key", AI_PIN="test-pin")
+    @override_settings(GEMINI_API_KEY="", AI_PIN="")
     def test_existing_guided_attempt_and_saved_bilan_remain_private_and_count_once(self):
         key = self.prompt.content_key
         EO2PracticeAttempt.objects.create(user=self.user, subject_key=key, attempt=uuid.uuid4())

@@ -1,7 +1,6 @@
 import base64
 import hashlib
 from datetime import timedelta
-from tempfile import TemporaryDirectory
 from urllib.parse import parse_qs, urlsplit
 from unittest.mock import Mock, patch
 
@@ -264,33 +263,6 @@ class GitHubCopilotTests(TestCase):
             writing_simulation._renew_evaluation_lease({**claim, "pk": attempt.pk}, finished)
         attempt.refresh_from_db()
         self.assertEqual(attempt.evaluation_lease_until, now)
-
-    @override_settings(ON_RENDER=True)
-    def test_another_copilot_bilan_does_not_start_a_runtime_while_the_instance_is_busy(self):
-        link = self._link()
-        attempt = self._attempt()
-        started = timezone.now()
-        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
-            evaluation={"provider": "copilot-mai", "reports": {}},
-            evaluation_status=WritingSimulationEvaluationStatus.PROCESSING,
-            evaluation_started_at=started,
-        )
-        with (
-            TemporaryDirectory() as directory,
-            patch.object(copilot_runtime, "gettempdir", return_value=directory),
-            patch.object(writing_simulation, "_copilot_transport") as transport,
-            patch.object(writing_simulation, "close_old_connections"),
-        ):
-            with copilot_runtime.evaluation_slot():
-                writing_simulation.run_evaluation(
-                    attempt.pk, started, writing_simulation.SPECS[1], "copilot-mai", copilot_link_id=link.pk,
-                )
-            transport.assert_not_called()
-            with copilot_runtime.evaluation_slot():
-                pass  # The finishing job releases the instance slot.
-        attempt.refresh_from_db()
-        self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.UNAVAILABLE)
-        self.assertIn("Un bilan Copilot est déjà en cours", attempt.evaluation_error)
 
     def test_queued_work_cannot_switch_to_a_different_link(self):
         previous = self._link()

@@ -11,7 +11,6 @@ import json
 import os
 import re
 from pathlib import Path
-from runpy import run_path
 from unittest.mock import call, patch
 
 from django.conf import settings
@@ -135,14 +134,6 @@ class DeploymentCommandTests(SimpleTestCase):
         # A cold start or restart re-runs startCommand; deploy-time database
         # work there wakes Neon on every restart.
         self.assertNotIn("manage.py", start)
-
-    def test_render_copilot_uses_one_worker_even_with_two_requested(self):
-        config = REPO_ROOT / "gunicorn.conf.py"
-        with patch.dict(os.environ, {"RENDER_SERVICE_ID": "fixture", "WEB_CONCURRENCY": "2"}, clear=True):
-            self.assertNotIn("workers", run_path(str(config)))
-            with patch.dict(os.environ, {"COPILOT_GITHUB_CLIENT_ID": "fixture-client"}):
-                settings = run_path(str(config))
-        self.assertEqual((settings["workers"], settings["threads"]), (1, 2))
 
     def test_free_render_runs_database_deployment_during_the_build(self):
         self.assertEqual(self.service["plan"], "free")

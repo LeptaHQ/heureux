@@ -971,6 +971,37 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(proposal.get_by_role("heading", name="Version corrigée")).to_be_visible()
         self.assertEqual(proposal.locator("#lv-proposal-lines p").all_text_contents(), corrected.split("\n\n"))
 
+    def test_linked_ee1_submit_starts_polling_mai_without_a_second_action(self):
+        task = factories.make_task(factories.make_part("ee"), "tache-1")
+        attempt = WritingSimulationAttempt.objects.create(
+            user=self.user, task=task, deadline_at=timezone.now(), status=WritingSimulationAttemptStatus.ACTIVE,
+            snapshot={"prompt": "Invitez un ami."},
+        )
+        page = reverse("study:ee1_simulation_attempt", args=[attempt.pk])
+        endpoint = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        body = " ".join(["Bonjour"] * 60)
+        with (
+            mock.patch("study.accounts.github_copilot.active_link_id", return_value=42),
+            mock.patch("study.views.writing_simulation.run_evaluation") as worker,
+        ):
+            self.page.goto(self.live_server_url + page)
+            self.page.locator("#writing-body").fill(body)
+            submit = self.page.get_by_role("button", name="Remettre la réponse")
+            expect(submit).to_have_accessible_description(
+                "À la remise, votre réponse et la consigne sont envoyées à MAI via GitHub Copilot. "
+                "Le bilan utilise vos crédits Copilot."
+            )
+            with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint) as polling:
+                submit.click()
+            self.assertEqual(polling.value.request.method, "GET")
+            self.assertEqual(parse_qs(urlsplit(polling.value.url).query), {"provider": ["copilot-mai"]})
+            self.assertEqual(polling.value.json()["status"], "processing")
+            expect(self.page.locator("#lv-assessment-status")).to_have_text("Bilan en préparation…")
+            expect(self.page.locator("#lv-transcript .lv-written-response")).to_have_text(body)
+        worker.assert_called_once()
+        self.assertEqual(worker.call_args.args[-1], "copilot-mai")
+        self.assertEqual(worker.call_args.kwargs, {"copilot_link_id": 42})
+
     @override_settings(
         GROQ_API_KEY="", GEMINI_API_KEY="", CLOUDFLARE_WORKERS_API_KEY="", COPILOT_GITHUB_CLIENT_ID="",
     )

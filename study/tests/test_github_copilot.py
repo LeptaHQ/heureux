@@ -57,10 +57,10 @@ class GitHubCopilotTests(TestCase):
             "expires_in": 28800, "refresh_token_expires_in": 15897600,
         }
 
-    def _link(self):
+    def _link(self, github_user_id=123):
         config = github_copilot.configuration()
         fields = github_copilot._encrypted_fields(config, ("ghu_fixture", "ghr_fixture", 28800, 15897600))
-        return GitHubCopilotConnection.objects.create(user=self.user, github_user_id=123, **fields)
+        return GitHubCopilotConnection.objects.create(user=self.user, github_user_id=github_user_id, **fields)
 
     def _attempt(self, *, submitted=True):
         return WritingSimulationAttempt.objects.create(
@@ -165,13 +165,72 @@ class GitHubCopilotTests(TestCase):
                 github_copilot.access_token(self.user.pk, link.pk)
         self.assertFalse(GitHubCopilotConnection.objects.filter(pk=link.pk).exists())
 
+    def test_ee1_submission_starts_mai_once_for_the_disclosed_link(self):
+        link = self._link()
+        attempt = self._attempt(submitted=False)
+        page = reverse("study:ee1_simulation_attempt", args=[attempt.pk])
+        endpoint = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        editor = self.client.get(page)
+        self.assertContains(editor, 'name="evaluation_consent" value="copilot-mai"')
+        self.assertContains(editor, f'name="evaluation_link" value="{link.pk}"')
+        data = {
+            "body": attempt.body, "draft_revision": editor.context["draft_revision"],
+            "evaluation_consent": editor.context["auto_evaluation"],
+            "evaluation_link": editor.context["auto_evaluation_link_id"],
+        }
+        with patch.object(writing_simulation.threading, "Thread") as thread:
+            with self.captureOnCommitCallbacks(execute=True):
+                for action in ("save", "expire"):
+                    self.assertRedirects(
+                        self.client.post(page, {**data, "action": action}), page + "?saved=1",
+                        fetch_redirect_response=False,
+                    )
+                invalid = self.client.post(page, {**data, "action": "submit", "body": "Bonjour."})
+                self.assertEqual(invalid.status_code, 400)
+            thread.assert_not_called()
+            with self.captureOnCommitCallbacks(execute=True):
+                for _ in range(2):
+                    self.assertRedirects(
+                        self.client.post(page, {**data, "action": "submit"}), page, fetch_redirect_response=False,
+                    )
+        attempt.refresh_from_db()
+        thread.assert_called_once_with(
+            target=writing_simulation.run_evaluation,
+            args=(attempt.pk, attempt.evaluation_started_at, writing_simulation.SPECS[1], "copilot-mai"),
+            kwargs={"copilot_link_id": link.pk}, daemon=True,
+        )
+        thread.return_value.start.assert_called_once()
+        self.assertEqual(attempt.body, data["body"])
+        self.assertEqual(self.client.get(endpoint).json()["status"], "processing")
+        self.assertContains(self.client.get(page), 'data-evaluation-provider="copilot-mai"')
+
+    def test_ee1_submission_does_not_send_on_an_unlinked_or_replaced_consent(self):
+        for reconnect in (False, True):
+            with self.subTest(reconnected=reconnect):
+                self._link()
+                attempt = self._attempt(submitted=False)
+                page = reverse("study:ee1_simulation_attempt", args=[attempt.pk])
+                editor = self.client.get(page)
+                self.client.post(self.disconnect)
+                if reconnect:
+                    self._link(github_user_id=456)
+                with patch.object(writing_simulation.threading, "Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+                    self.assertRedirects(self.client.post(page, {
+                        "action": "submit", "body": attempt.body, "draft_revision": editor.context["draft_revision"],
+                        "evaluation_consent": editor.context["auto_evaluation"],
+                        "evaluation_link": editor.context["auto_evaluation_link_id"],
+                    }), page, fetch_redirect_response=False)
+                thread.assert_not_called()
+                attempt.refresh_from_db()
+                self.assertEqual(attempt.status, "submitted")
+                self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.NOT_REQUESTED)
+
     def test_linked_bilan_selects_only_three_models_and_keeps_saved_reports_after_unlink(self):
         link = self._link()
         attempt = self._attempt(submitted=False)
         page = reverse("study:ee1_simulation_attempt", args=[attempt.pk])
         endpoint = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
         editor = self.client.get(page)
-        self.assertNotContains(editor, 'name="evaluation_consent"')
         with patch.object(writing_simulation.threading, "Thread") as thread, self.captureOnCommitCallbacks(execute=True):
             self.assertRedirects(self.client.post(page, {
                 "body": attempt.body, "action": "submit", "draft_revision": editor.context["draft_revision"],

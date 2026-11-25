@@ -48,6 +48,7 @@
       {% csrf_token %}
       <input type="hidden" name="draft_revision" value="{{ draft_revision }}">
       {% if auto_evaluation %}<input type="hidden" name="evaluation_consent" value="{{ auto_evaluation }}">{% endif %}
+      {% if auto_evaluation_link_id %}<input type="hidden" name="evaluation_link" value="{{ auto_evaluation_link_id }}">{% endif %}
       <div class="ee1-writing-field">
         <div class="ee1-writing-editor">
           <div class="ee1-writing-editor__parts">
@@ -102,7 +103,15 @@
         </div>
       </div>
       <div class="ee1-writing-form__footer">
-        {% if auto_evaluation %}<p class="muted" id="writing-submit-note">Envoi à {{ auto_evaluation_label }} : réponse, consigne{% if documents %} et documents{% endif %}.</p>{% endif %}
+        {% if auto_evaluation %}
+          <p class="muted" id="writing-submit-note">
+            {% if auto_evaluation_link_id %}
+              À la remise, votre réponse et la consigne sont envoyées à {{ auto_evaluation_label }} via GitHub Copilot. Le bilan utilise vos crédits Copilot.
+            {% else %}
+              Envoi à {{ auto_evaluation_label }} : réponse, consigne{% if documents %} et documents{% endif %}.
+            {% endif %}
+          </p>
+        {% endif %}
         <div class="ee1-writing-form__actions">
           <button class="icon-button btn--danger" type="submit" name="action" value="abandon" formnovalidate
                   aria-label="Abandonner la séance" title="Abandonner la séance"

@@ -113,9 +113,11 @@ has already finished, any unsaved text is shown separately so it can be copied
 without changing the saved response.
 
 The EE1 bilan’s sparkle button lets learners choose Groq or Workers when
-available. With GitHub connected, new bilans use **Astra**, **MAI**, or **Opus**
-instead. Submitting while connected saves the answer without sending it; selecting a
-model requests grading and proofreading using that GitHub account’s Copilot credits.
+available. With GitHub connected, explicitly submitting EE1 starts **MAI**
+automatically, using that GitHub account’s Copilot credits as disclosed in the
+editor. The sparkle button offers **Astra**, **MAI**, and **Opus** for manual
+requests. If the disclosed provider or GitHub connection changes before
+submission, the answer is saved without automatically sending it.
 The current report stays visible until the chosen model returns
 one, and switching back opens the saved report without grading again.
 On reopening, EE1 opens the last saved Copilot model or prefers the saved Groq
@@ -128,12 +130,15 @@ once with the same provider within the three-minute deadline. Groq can also
 use its one retry to recover from a writing schema rejection in JSON mode.
 If the writing worker stops during a restart, the unfinished report becomes
 retryable once its 45-second lease expires. Heureux does not resend it automatically.
-New writing proposals get a separate proofreading pass with the selected
-provider within that same deadline. If the grade contains no usable draft, the
-proofreader starts from the original answer. If no faithful rewrite comes
-back, Heureux can show a corrected copy that applies unambiguous corrections
-to the original wording, without applying optional suggestions. This fallback
-works for saved reports too, without resending the text or changing the grade.
+Copilot returns the grade and a complete corrected answer in one request,
+without a separate proofreading call. The revision is checked against the word
+limits, checkable facts, and grounded corrections. Other writing providers
+still get a separate proofreading request within the same deadline; if there
+is no usable draft, the proofreader starts from the original answer. When no
+usable revision comes back, Heureux can show a corrected copy that applies
+unambiguous corrections to the original wording, without applying optional
+suggestions. This fallback works for saved reports too, without resending the
+text or changing the grade.
 In Render logs, filter for `writing evaluation` and the attempt ID from the
 bilan URL. The worker logs when grading starts and how long it took. If the
 report fails verification, the log names the failed field and a reason code.
@@ -156,12 +161,12 @@ These logs omit the learner’s answer, prompt, model output, and API keys.
    service manually, use both the build and start commands from `render.yaml`.
 3. Sign into Heureux as usual. In the account dropdown, choose **Connecter GitHub**
    and authorize the app. You return to the Heureux page you connected from.
-   In an EE1 bilan, use the sparkle menu to request a report. Model access depends
-   on your Copilot subscription.
+   Submit an EE1 response to automatically request a MAI bilan. Use the sparkle
+   menu to request another model. Model access depends on your Copilot subscription.
 
 Heureux stores only the linked GitHub user ID, encrypted tokens and their
 expiration dates. No token is exposed to the page or included in the account
-export. Only the grading and proofreading inputs go to Copilot; see
+export. Only the grading inputs go to Copilot; see
 GitHub’s [model data handling](https://docs.github.com/en/copilot/reference/ai-models/model-hosting).
 Reports are saved in Heureux, not in GitHub. **Déconnecter GitHub** removes the
 local credentials; you can also revoke authorization in GitHub’s **Applications**
@@ -193,10 +198,9 @@ python -m pip install -r requirements-copilot-pilot.txt
 RUN_WRITING_CALIBRATION=copilot python manage.py test study.tests.writing_bilan_calibration
 ```
 
-Only Copilot receives this run’s invented subject and answer, grading
-instructions, and proposed revision if it needs proofreading. The pilot
-uses your Copilot credits, reports duration and reported usage in the terminal,
-and does not touch learner accounts, simulation history, or repositories.
+The pilot sends the invented subject, answer, and grading instructions to
+Copilot. It uses your Copilot credits, displays duration and usage in the
+terminal, and does not touch learner accounts, simulation history, or repositories.
 It cleans up its temporary SDK session state; GitHub’s
 [model data handling](https://docs.github.com/en/copilot/reference/ai-models/model-hosting)
 still applies to hosted inference. This is not a learner-facing provider.

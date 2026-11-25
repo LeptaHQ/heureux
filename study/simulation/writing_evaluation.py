@@ -13,7 +13,7 @@ from django.views.decorators.debug import sensitive_variables
 
 from study.catalogue.loader import EE_TACHE_THREE_SECTION_LIMITS, _ee_word_count, load_ee_ai_examiner_prompt
 
-from . import evaluation
+from . import copilot_runtime, evaluation
 from .evidence import number_passages
 from .proposal import faithful_rewrite
 
@@ -212,6 +212,13 @@ def _proposal(report, word_min, word_max, *, split):
     return result
 
 
+def _span_pattern(text):
+    return re.compile(
+        (r"(?<!\w)" if text[0].isalnum() else "") + re.escape(text)
+        + (r"(?!\w)" if text[-1].isalnum() else "")
+    )
+
+
 @sensitive_variables()
 def proposal_from_corrections(corrections, response, *, position=None):
     if not isinstance(corrections, list):
@@ -230,10 +237,7 @@ def proposal_from_corrections(corrections, response, *, position=None):
             continue
         if before == after or not faithful_rewrite(before, after):
             continue
-        pattern = re.compile(
-            (r"(?<!\w)" if before[0].isalnum() else "") + re.escape(before)
-            + (r"(?!\w)" if before[-1].isalnum() else "")
-        )
+        pattern = _span_pattern(before)
         matches = [(index, match.span()) for index, original in enumerate(originals) for match in pattern.finditer(original)]
         if len(matches) == 1:
             index, (start, end) = matches[0]
@@ -476,6 +480,35 @@ def _rubric(task_number):
 
 
 @sensitive_variables()
+def _copilot_revision_is_usable(result, packet):
+    original, draft = packet["response"], result["improvedResponse"]
+    if (
+        "corrections" in result["omittedSections"]
+        or not faithful_rewrite(original, draft, reference=packet["subject"])
+    ):
+        return False
+    original, draft = map(_normalise_for_match, (original, draft))
+    for correction in result["corrections"]:
+        before = _normalise_for_match(correction["before"])
+        after = _normalise_for_match(correction["after"])
+        if not before or before == after:
+            continue
+        pattern = _span_pattern(before)
+        original_count = len(pattern.findall(original))
+        # A form can also be correct elsewhere; it need not disappear entirely.
+        if original_count and len(pattern.findall(draft)) >= original_count:
+            return False
+    return True
+
+
+def _omit_proposal(result):
+    result.pop("improvedParts", None)
+    result.update(improvedResponse="", improvedWordCount=0, omitted=True)
+    if "improvedResponse" not in result["omittedSections"]:
+        result["omittedSections"].append("improvedResponse")
+
+
+@sensitive_variables()
 def _review_proposal(result, provider, packet, deadline, *, task_number, request_report):
     split = task_number == 3
     if not result["improvedResponse"] and not (
@@ -542,10 +575,7 @@ def _review_proposal(result, provider, packet, deadline, *, task_number, request
             result["omittedSections"].remove("improvedResponse")
             result["omitted"] = bool(result["omittedSections"])
         return
-    result.pop("improvedParts", None)
-    result.update(improvedResponse="", improvedWordCount=0, omitted=True)
-    if "improvedResponse" not in result["omittedSections"]:
-        result["omittedSections"].append("improvedResponse")
+    _omit_proposal(result)
 
 
 @sensitive_variables()
@@ -562,6 +592,8 @@ def score(
     documents=(),
     request_report=None,
 ):
+    provider = provider or provider_for(task_number)
+    copilot = task_number == 1 and provider in copilot_runtime.MODELS
     schema_name = f"ee{task_number}_bilan"
     evidence = {}
     packet = {"subject": subject, "wordCount": word_count, "wordMin": word_min, "wordMax": word_max}
@@ -610,6 +642,8 @@ def score(
             "judge tense and mood by the intent and governing expression, not by a narration template."
         )
         proposal_fields = "improvedResponse: [Complete corrected answer within the task's word limits]."
+        if copilot:
+            proposal_fields += " Include the entire corrected answer even when only small changes are needed."
     instruction = (
         f"You are a strict but fair TCF Canada writing practice evaluator for Tâche {task_number}.\n\n"
         + _rubric(task_number)
@@ -655,7 +689,6 @@ def score(
         "identified above, most useful first]. Compare only genuinely different forms when teaching a "
         "rule; do not invent a problem to fill a slot."
     )
-    provider = provider or provider_for(task_number)
     if request_report is None:
         request_report = evaluation.request_provider_report
     if task_number != 1 and provider != "groq":
@@ -679,5 +712,9 @@ def score(
         )
     except ReportError as exc:
         raise UnverifiedReport(exc, len(evidence)) from None
-    _review_proposal(result, provider, packet, deadline, task_number=task_number, request_report=request_report)
+    if copilot:
+        if result["improvedResponse"] and not _copilot_revision_is_usable(result, packet):
+            _omit_proposal(result)
+    else:
+        _review_proposal(result, provider, packet, deadline, task_number=task_number, request_report=request_report)
     return result

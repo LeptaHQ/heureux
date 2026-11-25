@@ -12,7 +12,7 @@ from study.simulation import copilot_runtime, evaluation, writing_evaluation
 
 
 _RUN = os.environ.get("RUN_WRITING_CALIBRATION")
-_COPILOT_MODELS = dict(copilot_runtime.MODELS.values())
+_COPILOT_MODELS = {label: (provider, model) for provider, (label, model) in copilot_runtime.MODELS.items()}
 
 
 @skipUnless(_RUN in {"1", "copilot"}, "Opt in to live writing calibration.")
@@ -24,10 +24,11 @@ class WritingBilanCalibration(SimpleTestCase):
             self.assertTrue(bool(token), "Set COPILOT_GITHUB_TOKEN for the opt-in Copilot pilot.")
             model = os.environ.get("COPILOT_CALIBRATION_MODEL", "MAI")
             self.assertIn(model, _COPILOT_MODELS, "Choose Astra, MAI, or Opus for the Copilot pilot.")
+            provider, model_id = _COPILOT_MODELS[model]
             transport = patch.object(evaluation, "request_provider_report", copilot_runtime.report_transport(
-                token, _COPILOT_MODELS[model], measure=True,
+                token, model_id, measure=True,
             ))
-            providers = ["copilot"]
+            providers = [provider]
         else:
             providers = sorted(evaluation.available_providers())
         self.assertTrue(providers, "Configure at least one writing evaluation provider.")
@@ -61,5 +62,5 @@ class WritingBilanCalibration(SimpleTestCase):
                     print(f"« {note['quote']} » — {note['text']}")
                 for correction in report["corrections"]:
                     print(f"{correction['before']} → {correction['after']}: {correction['why']}")
-                if provider == "copilot":
-                    self.assertTrue(report["improvedResponse"], "No verified proposal after the proofreading pass.")
+                if provider in copilot_runtime.MODELS:
+                    self.assertTrue(report["improvedResponse"], "No usable Copilot proposal.")

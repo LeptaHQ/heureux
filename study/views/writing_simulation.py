@@ -528,7 +528,7 @@ def _attempt_context(request, attempt, spec, *, error="", now=None, revision=Non
     minutes, seconds = divmod(max(0, remaining), 60)
     word_min, word_max = _attempt_limits(attempt, spec)
     prompt = attempt.snapshot.get("prompt", "")
-    provider = _automatic_provider_for(request, spec)
+    provider, link_id = _automatic_evaluation_for(request, spec)
     context = _session_context(
         spec,
         selected_subject=attempt.snapshot.get("prompt", ""),
@@ -556,6 +556,7 @@ def _attempt_context(request, attempt, spec, *, error="", now=None, revision=Non
             "timer_url": subject_selection_url(reverse(spec.route_names["timer"], args=[attempt.pk]), request),
             "auto_evaluation": provider,
             "auto_evaluation_label": _EVALUATION_SEND_LABELS.get(provider, ""),
+            "auto_evaluation_link_id": str(link_id) if link_id is not None else "",
         }
     )
     return context
@@ -795,9 +796,15 @@ def attempt(request, spec, attempt_id):
             attempt.submitted_at = now
             attempt.word_count = _word_count(attempt)
             fields.extend(_FINISHED_FIELDS)
-            provider = _automatic_provider_for(request, spec)
-            if provider and request.POST.getlist("evaluation_consent") == [provider]:
-                _queue_evaluation(attempt, spec, provider if spec.number == 1 else None, now, update_fields=fields)
+            provider, link_id = _automatic_evaluation_for(request, spec)
+            if (
+                provider and request.POST.getlist("evaluation_consent") == [provider]
+                and request.POST.getlist("evaluation_link") == ([str(link_id)] if link_id is not None else [])
+            ):
+                _queue_evaluation(
+                    attempt, spec, provider if spec.number == 1 else None, now,
+                    update_fields=fields, copilot_link_id=link_id,
+                )
             else:
                 attempt.save(update_fields=fields)
             return redirect(_attempt_url(request, spec, attempt.pk))
@@ -859,10 +866,11 @@ def _auto_evaluation_provider(spec, *, configured=None):
     return next((provider for provider in (preferred, "groq", "cloudflare") if provider in configured), "")
 
 
-def _automatic_provider_for(request, spec):
-    if spec.number == 1 and github_copilot.active_link_id(request):
-        return ""
-    return _auto_evaluation_provider(spec)
+def _automatic_evaluation_for(request, spec):
+    link_id = github_copilot.active_link_id(request) if spec.number == 1 else None
+    if link_id is not None:
+        return copilot_runtime.DEFAULT, link_id
+    return _auto_evaluation_provider(spec), None
 
 
 def _evaluation_in_progress(attempt, now):

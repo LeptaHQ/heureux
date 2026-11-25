@@ -17,7 +17,7 @@ from study.models import (
     WritingSimulationEvaluationStatus,
     WritingSujetCompletion,
 )
-from study.simulation import evaluation, writing_evaluation
+from study.simulation import copilot_runtime, evaluation, writing_evaluation
 from study.simulation.evidence import number_passages
 from study.views import writing_simulation
 
@@ -934,6 +934,77 @@ class EE1SimulationTests(TestCase):
                 review_schema = review_payload["response_format"]["json_schema"]["schema"]
                 self.assertEqual(review_schema["required"], ["improvedResponse"])
                 self.assertLess(proofread.args[1], first.args[1])
+
+    def _copilot_proposal(self):
+        response = (
+            "Salut Alex,\n\nJe t’invite à ma fête samedi soir. La salle est bien desservi par le métro et elle est tres "
+            "proche de la sortie principale. Une fois dehors, traverse la rue et cherche la porte bleue. Tu pourras "
+            "laisser ton manteau à l’entrée. Si tu veux venir avec une amie, dis-le-moi avant vendredi.\n\nÀ bientôt,\nNora"
+        )
+        revised = response.replace("desservi", "desservie").replace("tres", "très")
+        report = {
+            **self._provider_report(), "gradeEvidenceIds": ["E1"], "improvedResponse": revised,
+            "corrections": [
+                {"before": "desservi", "after": "desservie", "type": "Accord", "why": "Accord avec « salle »."},
+                {"before": "tres", "after": "très", "type": "Orthographe", "why": "Accent grave sur « très »."},
+            ],
+        }
+        inputs = {
+            "task_number": 1, "subject": self.sujet.prompt, "response": response,
+            "word_count": _ee_word_count(response), "word_min": 60, "word_max": 120,
+        }
+        return inputs, report
+
+    def test_copilot_models_return_a_complete_locally_checked_revision_in_one_call(self):
+        inputs, report = self._copilot_proposal()
+        inputs["response"] = inputs["response"].replace(
+            "Une fois dehors, traverse la rue", "Le quartier est bien desservi. Une fois dehors, traverse la rue",
+        )
+        inputs["word_count"] = _ee_word_count(inputs["response"])
+        report["improvedResponse"] = report["improvedResponse"].replace(
+            "Une fois dehors, traverse la rue", "Le quartier est bien desservi. À la sortie, traverse la rue",
+        )
+        for provider in copilot_runtime.MODELS:
+            with (
+                self.subTest(provider=provider),
+                patch.object(evaluation, "request_provider_report", return_value=report) as request,
+            ):
+                result = writing_evaluation.score(**inputs, provider=provider)
+                request.assert_called_once()
+                self.assertEqual(request.call_args.kwargs["name"], "ee1_bilan")
+                self.assertEqual(result["improvedResponse"], report["improvedResponse"])
+                self.assertEqual(result["scoreRange"], report["scoreRange"])
+                self.assertEqual(result["score"], report["score"])
+
+    def test_copilot_uses_a_correction_only_copy_for_missing_or_invalid_revisions_without_a_second_request(self):
+        inputs, report = self._copilot_proposal()
+        revised = report["improvedResponse"]
+        report_changes = {
+            "missing proposal": {"improvedResponse": ""},
+            "too short": {"improvedResponse": "Salut Alex !"},
+            "missed correction": {"improvedResponse": revised.replace("très", "tres")},
+            "changed fact": {"improvedResponse": revised.replace("samedi", "dimanche")},
+            "ungrounded correction": {"corrections": [*report["corrections"], {
+                "before": "chambre", "after": "chambres", "type": "Accord", "why": "Pluriel.",
+            }]},
+        }
+        provider = copilot_runtime.DEFAULT
+        for case, changes in report_changes.items():
+            with (
+                self.subTest(case=case),
+                patch.object(evaluation, "request_provider_report", return_value={**report, **changes}) as request,
+            ):
+                result = writing_evaluation.score(**inputs, provider=provider)
+                request.assert_called_once()
+                self.assertEqual(result["improvedResponse"], "")
+                attempt = WritingSimulationAttempt(
+                    body=inputs["response"], evaluation_status=WritingSimulationEvaluationStatus.READY,
+                    evaluation={"provider": provider, "reports": {provider: result}},
+                )
+                saved_report = writing_simulation._evaluation_payload(attempt, self.spec, provider)["report"]
+                self.assertEqual(saved_report["score"], report["score"])
+                self.assertEqual(saved_report["improvedResponse"], revised)
+                self.assertTrue(saved_report["proposalFromCorrections"])
 
     @override_settings(EE1_EVALUATION_PROVIDER="groq")
     def test_groq_reports_ground_evidence_in_strict_mode_and_after_schema_retry(self):

@@ -5,13 +5,14 @@ import hashlib
 import logging
 import secrets
 import time
-from urllib.parse import urlencode
+from urllib.parse import parse_qsl, urlencode, urlsplit
 from uuid import UUID
 
 from django.http import Http404
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.utils.crypto import constant_time_compare
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_variables
@@ -35,11 +36,25 @@ def notice(request):
     return _NOTICES.get(request.GET.get("copilot", ""), "")
 
 
-def _return(attempt_id, status):
-    route = "study:ee1_simulation_attempt" if attempt_id else "study:settings"
-    response = redirect(reverse(route, args=[attempt_id] if attempt_id else (), query={"copilot": status}))
+def _local_return_path(value):
+    if (
+        len(value) <= 4096 and value.startswith("/") and not value.startswith("//")
+        and url_has_allowed_host_and_scheme(value, allowed_hosts=set())
+    ):
+        return value
+    return reverse("study:settings")
+
+
+def _return(path, status):
+    parts = urlsplit(_local_return_path(path))
+    query = [(key, value) for key, value in parse_qsl(parts.query, keep_blank_values=True) if key != "copilot"]
+    response = redirect(parts._replace(query=urlencode([*query, ("copilot", status)])).geturl())
     response["Referrer-Policy"] = "no-referrer"
     return response
+
+
+def _legacy_attempt_path(attempt_id):
+    return reverse("study:ee1_simulation_attempt", args=[attempt_id]) if attempt_id else ""
 
 
 @never_cache
@@ -50,8 +65,9 @@ def authorize(request):
     config = github_copilot.configuration()
     if config is None:
         raise Http404
-    attempt_id = request.POST.get("attempt_id", "")
-    if attempt_id:
+    next_path = request.POST.get("next", "")
+    if not next_path and (attempt_id := request.POST.get("attempt_id")):
+        # A page opened before the deploy still submits its attempt ID.
         try:
             attempt_id = str(UUID(attempt_id))
         except ValueError:
@@ -61,13 +77,15 @@ def authorize(request):
             status=WritingSimulationAttemptStatus.SUBMITTED,
         ).exists():
             raise Http404
+        next_path = _legacy_attempt_path(attempt_id)
+    next_path = _local_return_path(next_path)
     if request.build_absolute_uri(reverse("study:github_copilot_callback")) != config.callback_url:
-        return _return(attempt_id, "origin")
+        return _return(next_path, "origin")
     state, verifier = secrets.token_urlsafe(32), secrets.token_urlsafe(48)
     challenge = base64.urlsafe_b64encode(hashlib.sha256(verifier.encode()).digest()).decode().rstrip("=")
     request.session[_FLOW] = {
         "state": state, "verifier": verifier, "user": request.user.pk,
-        "started": int(time.time()), "attempt": attempt_id,
+        "started": int(time.time()), "next": next_path,
     }
     query = urlencode({
         "client_id": config.client_id, "redirect_uri": config.callback_url,
@@ -97,15 +115,16 @@ def callback(request):
     ):
         return _return("", "failed")
     del request.session[_FLOW]
+    next_path = flow.get("next") or _legacy_attempt_path(flow.get("attempt"))
     code = request.GET.getlist("code")
     if "error" in request.GET or len(code) != 1 or not 0 < len(code[0]) <= 1024:
-        return _return(flow["attempt"], "failed")
+        return _return(next_path, "failed")
     try:
         linked = github_copilot.connect(request.user, config, code[0], flow["verifier"])
     except github_copilot.ConnectionError:
         logger.warning("GitHub Copilot authorization could not be completed")
-        return _return(flow["attempt"], "failed")
-    return _return(flow["attempt"], "connected" if linked else "other")
+        return _return(next_path, "failed")
+    return _return(next_path, "connected" if linked else "other")
 
 
 @never_cache

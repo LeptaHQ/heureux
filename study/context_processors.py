@@ -4,6 +4,7 @@ from django.conf import settings
 
 from .accounts import github_copilot
 from .models import ReviewSession
+from .views.github_copilot import notice as copilot_notice
 from .views.helpers import active_task_for_request
 
 
@@ -229,6 +230,7 @@ def study_globals(request):
         "annotation_task": task,
         "content_task": task,
         "active_nav_area": _active_nav_area(request),
+        "copilot_notice": copilot_notice(request),
         "nav_connect_github": (
             github_copilot.configuration() is not None and not github_copilot.active_link_id(request)
         ),

@@ -126,6 +126,8 @@ provide verified citations, they can also support the grade rationale
 without a separate citation list. Temporary service failures are retried
 once with the same provider within the three-minute deadline. Groq can also
 use its one retry to recover from a writing schema rejection in JSON mode.
+If the writing worker stops during a restart, the unfinished report becomes
+retryable once its 45-second lease expires. Heureux does not resend it automatically.
 New writing proposals get a separate proofreading pass with the selected
 provider within that same deadline. If the grade contains no usable draft, the
 proofreader starts from the original answer. If no faithful rewrite comes
@@ -151,9 +153,9 @@ These logs omit the learner’s answer, prompt, model output, and API keys.
    stable Fernet key; generate it privately). Save and deploy the service.
    The build downloads the pinned Copilot runtime when a client ID is configured.
 3. Sign into Heureux as usual. In the account dropdown, choose **Connecter GitHub**
-   and authorize the app. If you connect from an EE1 bilan, you return to that same
-   bilan. Use the sparkle menu to request a report. Model access depends on your
-   Copilot subscription.
+   and authorize the app. You return to the Heureux page you connected from.
+   In an EE1 bilan, use the sparkle menu to request a report. Model access depends
+   on your Copilot subscription.
 
 Heureux stores only the linked GitHub user ID, encrypted tokens and their
 expiration dates. No token is exposed to the page or included in the account

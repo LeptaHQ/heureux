@@ -164,9 +164,7 @@
             {% if nav_connect_github %}
               <form method="post" action="{% url 'study:github_copilot_authorize' %}">
                 {% csrf_token %}
-                {% if request.resolver_match.url_name == 'ee1_simulation_attempt' and attempt.status == 'submitted' %}
-                  <input type="hidden" name="attempt_id" value="{{ attempt.pk }}">
-                {% endif %}
+                <input type="hidden" name="next" value="{{ request.get_full_path }}" data-github-copilot-next>
                 <button type="submit">
                   <span>Connecter GitHub</span>
                   {% include "study/shared/partials/ui_icon.html" with name="github" only %}
@@ -213,6 +211,7 @@
     </div>
   {% endif %}
   <main id="main" class="container">
+    {% if copilot_notice %}<p class="notice" role="status">{{ copilot_notice }}</p>{% endif %}
     {% block content %}{% endblock %}
   </main>
   <footer class="site-footer">
@@ -440,7 +439,7 @@
   <script src="{% static 'study/js/expression/eo/tache_3/eo3-audio.js' %}?v=12"></script>
   <script src="{% static 'study/js/expression/eo/tache_3/eo3-cached-reader.js' %}?v=3"></script>
   <script src="{% static 'study/js/review/flashcards.js' %}?v=5"></script>
-  <script src="{% static 'study/js/app.js' %}?v=79"></script>
+  <script src="{% static 'study/js/app.js' %}?v=80"></script>
   <script src="{% static 'study/js/notes/selection-toolbar.js' %}?v=21"></script>
   <script src="{% static 'study/js/notes/annotations.js' %}?v=45"></script>
   <script src="{% static 'study/js/expression/eo/tache_2/eo2-question-languages.js' %}?v=2"></script>

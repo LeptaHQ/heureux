@@ -578,21 +578,27 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
     def test_account_menu_continues_to_github_under_the_same_origin_form_policy(self):
         self.page.set_viewport_size({"width": 1183, "height": 844})
         requests = []
+        settings_url = self.live_server_url + reverse("study:settings")
+        callback = reverse("study:github_copilot_callback")
 
         def github(route):
             requests.append(route.request)
             route.fulfill(status=200, content_type="text/html", body="<h1>Authorize Heureux</h1>")
 
         self.page.route(re.compile(r"^https://github\.com/login/oauth/authorize\?"), github)
-        with self.settings(
-            DEBUG=True,
-            COPILOT_GITHUB_CLIENT_ID="fixture-client",
-            COPILOT_GITHUB_CLIENT_SECRET="fixture-secret",
-            COPILOT_GITHUB_CALLBACK_URL=self.live_server_url + reverse("study:github_copilot_callback"),
-            COPILOT_TOKEN_ENCRYPTION_KEY="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        with (
+            self.settings(
+                DEBUG=True,
+                COPILOT_GITHUB_CLIENT_ID="fixture-client",
+                COPILOT_GITHUB_CLIENT_SECRET="fixture-secret",
+                COPILOT_GITHUB_CALLBACK_URL=self.live_server_url + callback,
+                COPILOT_TOKEN_ENCRYPTION_KEY="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+            ),
+            mock.patch("study.accounts.github_copilot.connect", return_value=True),
         ):
-            start = self.page.goto(self.live_server_url + reverse("study:settings"))
+            start = self.page.goto(settings_url)
             self.assertIn("form-action 'self'", start.headers["content-security-policy"])
+            self.page.evaluate("history.replaceState(null, '', '?theme=culture#main')")
             self.page.get_by_label("Compte et réglages").click()
             menu = self.page.locator(".nav__menu")
             connect = menu.get_by_role("button", name="Connecter GitHub")
@@ -602,11 +608,16 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 expect(item).to_have_css("text-decoration-line", "underline")
             connect.click()
             expect(self.page.get_by_role("heading", name="Authorize Heureux")).to_be_visible(timeout=5000)
+            request, = requests
+            query = parse_qs(urlsplit(request.url).query)
+            self.page.goto(self.live_server_url + reverse(
+                "study:github_copilot_callback", query={"code": "fixture-code", "state": query["state"][0]},
+            ))
+            expect(self.page).to_have_url(settings_url + "?theme=culture&copilot=connected#main")
 
-        request, = requests
         self.assertEqual(request.method, "GET")
         self.assertIsNone(request.post_data)
-        self.assertEqual(parse_qs(urlsplit(request.url).query)["code_challenge_method"], ["S256"])
+        self.assertEqual(query["code_challenge_method"], ["S256"])
 
     @override_settings(GROQ_API_KEY="")
     def test_writing_simulation_uses_inline_timer_and_shared_delete_confirmation(self):
@@ -802,10 +813,12 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             "improvedResponse": corrected, "improvedWordCount": len(corrected.split()), "proposalFromCorrections": True,
         }
         csrf_probe = []
+        workers_requests = []
         replies = iter([
             None,
             (200, {"status": "unavailable", "error": "Le bilan est illisible. Votre réponse reste disponible."}),
             (202, {"status": "processing"}),
+            (502, {}),
             (200, {"status": "ready", "report": report}),
         ])
 
@@ -817,6 +830,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             if provider == "groq":
                 route.fulfill(json={"status": "ready", "report": groq_report})
                 return
+            workers_requests.append(route.request.method)
             reply = next(replies)
             if reply is None:
                 response = route.fetch()
@@ -888,7 +902,9 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.get_by_role("status").filter(has_text="Le bilan est illisible")).to_be_visible()
         self.assertEqual(original.text_content(), body)
         select_model("Workers")
+        expect(self.page.get_by_role("status").filter(has_text="Vérification de l’état du bilan")).to_be_visible()
         expect(self.page.locator("#lv-level")).to_have_text("10–13/20")
+        self.assertEqual(workers_requests, ["POST", "POST", "POST", "GET", "GET"])
         expect(self.page.locator("[data-writing-score]")).to_contain_text("NCLC 7 à NCLC 8")
         expect(self.page.locator("[data-writing-score]")).not_to_contain_text("confiance")
         expect(self.page.get_by_role("heading", name="Au prochain essai")).to_be_visible()

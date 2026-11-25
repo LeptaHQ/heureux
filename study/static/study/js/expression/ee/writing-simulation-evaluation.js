@@ -175,15 +175,32 @@
     }
   };
 
-  const fetchStatus = async (provider) => {
+  const statusReadError = "Impossible de lire l’état du bilan. Vous pouvez réessayer.";
+  const fetchStatus = async (provider, failures = 0) => {
     try {
       const endpoint = new URL(url, location.href);
       endpoint.searchParams.set("provider", provider);
       const response = await fetch(endpoint, { credentials: "same-origin", cache: "no-store" });
-      if (!response.ok) throw new Error();
+      if (response.redirected || response.status === 401) {
+        setStatus("Reconnectez-vous à Heureux pour consulter le bilan.");
+        setButtonLabel("Vérifier le bilan");
+        return;
+      }
+      if (!response.ok) {
+        if (response.status >= 500 || response.status === 429) throw new Error();
+        const payload = await response.json().catch(() => null);
+        setStatus(payload?.error || statusReadError);
+        setButtonLabel("Réessayer");
+        return;
+      }
       apply(await response.json(), provider);
     } catch {
-      setStatus("Impossible de lire l’état du bilan. Vous pouvez réessayer.");
+      if (failures < 3) {
+        setStatus("Vérification de l’état du bilan…", true);
+        poll = setTimeout(() => fetchStatus(provider, failures + 1), 1500 * 2 ** failures);
+        return;
+      }
+      setStatus(statusReadError);
       setButtonLabel("Réessayer");
     }
   };

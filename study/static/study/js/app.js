@@ -97,6 +97,10 @@
   });
   document.addEventListener("submit", function (event) {
     syncCsrfTokens(event.target);
+    var githubReturn = event.target.querySelector("[data-github-copilot-next]");
+    if (githubReturn) {
+      githubReturn.value = location.pathname + location.search + location.hash;
+    }
   }, true);
 
   /* ---------- Theme toggle ---------- */

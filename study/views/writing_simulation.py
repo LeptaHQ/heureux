@@ -13,7 +13,7 @@ from datetime import timedelta
 from uuid import UUID
 
 from django.conf import settings
-from django.db import close_old_connections, transaction
+from django.db import DatabaseError, close_old_connections, connections, transaction
 from django.db.models import Count, Max, Q
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -41,7 +41,6 @@ from study.navigation.routing import subject_selection_url
 from study.review.progress import writing_sujet_progress_by_id
 from study.simulation import copilot_runtime, writing_evaluation
 from study.simulation.evaluation import PROVIDER_LABELS, EvaluationError, available_providers
-from .github_copilot import notice as copilot_notice
 from .simulation import (
     PickerSubject,
     picker_rows,
@@ -55,12 +54,16 @@ logger = logging.getLogger(__name__)
 
 MAX_BODY_LENGTH = 20_000
 EVALUATION_STALE_AFTER = timedelta(minutes=5)
+EVALUATION_LEASE = timedelta(seconds=45)
+_EVALUATION_HEARTBEAT_SECONDS = 15
 _FINISHED_FIELDS = ("status", "submitted_at", "word_count")
 _DRAFT_CONFLICT = (
     "Un autre onglet a enregistré un brouillon plus récent. Votre texte est affiché ci-dessous, "
     "mais n’a pas été enregistré. Rechargez le brouillon enregistré ou relisez votre texte avant de l’enregistrer à nouveau."
 )
-_EVALUATION_FIELDS = ("status", "evaluation_status", "evaluation", "evaluation_started_at", "evaluation_error")
+_EVALUATION_FIELDS = (
+    "status", "evaluation_status", "evaluation", "evaluation_started_at", "evaluation_lease_until", "evaluation_error",
+)
 _WRITING_LABELS = {**PROVIDER_LABELS, **copilot_runtime.LABELS}
 _EVALUATION_SEND_LABELS = {**_WRITING_LABELS, "groq": "Groq (Qwen 3.8 27B)"}
 
@@ -657,8 +660,6 @@ def _result_context(request, attempt, spec):
         "can_load_evaluation": can_load_evaluation,
         "session_title_assessment": can_assess and (bool(configured) or len(providers) > 1 or force_model_picker),
         "assessment_force_model_picker": force_model_picker,
-        "copilot_notice": copilot_notice(request) if spec.number == 1 else "",
-        "assessment_copilot_disclosure": copilot_connected,
         "evaluation_provider": provider,
         "evaluation_provider_label": _EVALUATION_SEND_LABELS[provider],
         "evaluation_providers": [(key, _WRITING_LABELS[key]) for key in providers],
@@ -863,6 +864,15 @@ def _automatic_provider_for(request, spec):
     return _auto_evaluation_provider(spec)
 
 
+def _evaluation_in_progress(attempt, now):
+    return (
+        attempt.evaluation_status == WritingSimulationEvaluationStatus.PROCESSING
+        and attempt.evaluation_started_at is not None
+        and now - attempt.evaluation_started_at < EVALUATION_STALE_AFTER
+        and (attempt.evaluation_lease_until is None or attempt.evaluation_lease_until > now)
+    )
+
+
 def _evaluation_payload(attempt, spec, provider=None):
     status = attempt.evaluation_status
     report = attempt.evaluation if status == WritingSimulationEvaluationStatus.READY else None
@@ -874,8 +884,7 @@ def _evaluation_payload(attempt, spec, provider=None):
             status = WritingSimulationEvaluationStatus.NOT_REQUESTED
     stale = (
         status == WritingSimulationEvaluationStatus.PROCESSING
-        and attempt.evaluation_started_at
-        and timezone.now() - attempt.evaluation_started_at >= EVALUATION_STALE_AFTER
+        and not _evaluation_in_progress(attempt, timezone.now())
     )
     if report and report.get("corrections") and not (report.get("improvedResponse") or report.get("improvedParts")):
         fields = {"body", "position_body"} if spec.number == 3 else {"body"}
@@ -920,6 +929,22 @@ def _copilot_transport(user_id, provider, link_id):
     return copilot_runtime.report_transport(token, copilot_runtime.MODELS[provider][1])
 
 
+def _renew_evaluation_lease(claim, finished):
+    try:
+        while not finished.wait(_EVALUATION_HEARTBEAT_SECONDS):
+            now = timezone.now()
+            if now - claim["evaluation_started_at"] >= EVALUATION_STALE_AFTER:
+                break
+            if not WritingSimulationAttempt.objects.filter(**claim, evaluation_lease_until__gt=now).update(
+                evaluation_lease_until=now + EVALUATION_LEASE,
+            ):
+                break
+    except DatabaseError as exc:
+        logger.warning("Writing evaluation heartbeat stopped attempt=%s error_type=%s", claim["pk"], type(exc).__name__)
+    finally:
+        connections.close_all()
+
+
 def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_id=None):
     claim = {
         "pk": attempt_id,
@@ -928,15 +953,21 @@ def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_
     }
     if provider:
         claim["evaluation__provider"] = provider
+    finished = threading.Event()
     close_old_connections()
     try:
         attempt = (
             WritingSimulationAttempt.objects.filter(**claim)
-            .only("snapshot", "body", "position_body", "word_count", "user_id")
+            .only(
+                "snapshot", "body", "position_body", "word_count", "user_id",
+                "evaluation_status", "evaluation_started_at", "evaluation_lease_until",
+            )
             .first()
         )
-        if attempt is None:
+        if attempt is None or not _evaluation_in_progress(attempt, timezone.now()):
             return
+        if attempt.evaluation_lease_until is not None:
+            threading.Thread(target=_renew_evaluation_lease, args=(claim, finished), daemon=True).start()
         word_min, word_max = _attempt_limits(attempt, spec)
         provider_name = provider or writing_evaluation.provider_for(spec.number)
         if provider_name not in _WRITING_LABELS:
@@ -993,6 +1024,7 @@ def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_
             if current is None:
                 return
             current.evaluation_status = status
+            current.evaluation_lease_until = None
             if provider:
                 if status == WritingSimulationEvaluationStatus.READY:
                     current.evaluation["reports"][provider] = report
@@ -1003,6 +1035,7 @@ def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_
             current.save(
                 update_fields=[
                     "evaluation_status",
+                    "evaluation_lease_until",
                     "evaluation",
                     "evaluation_error",
                     "evaluated_at",
@@ -1014,6 +1047,7 @@ def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_
                 log_context, (time.monotonic() - started) * 1000,
             )
     finally:
+        finished.set()
         close_old_connections()
 
 
@@ -1076,11 +1110,7 @@ def evaluate(request, spec, attempt_id):
                 {"error": "Ce modèle n’est pas disponible pour une nouvelle évaluation."},
                 status=409,
             )
-        if (
-            attempt.evaluation_status == WritingSimulationEvaluationStatus.PROCESSING
-            and attempt.evaluation_started_at
-            and now - attempt.evaluation_started_at < EVALUATION_STALE_AFTER
-        ):
+        if _evaluation_in_progress(attempt, now):
             if provider and provider != attempt.evaluation.get("provider"):
                 return JsonResponse({"error": "Un autre bilan est déjà en cours."}, status=409)
             return evaluation_json(attempt, spec, status=202, provider=provider)
@@ -1093,10 +1123,11 @@ def _queue_evaluation(attempt, spec, provider, now, *, update_fields=(), copilot
     attempt.evaluation_status = WritingSimulationEvaluationStatus.PROCESSING
     attempt.evaluation_error = ""
     attempt.evaluation_started_at = now
+    attempt.evaluation_lease_until = now + EVALUATION_LEASE
     attempt.evaluated_at = None
     attempt.save(update_fields=[
         *update_fields, "evaluation_status", "evaluation", "evaluation_error",
-        "evaluation_started_at", "evaluated_at",
+        "evaluation_started_at", "evaluation_lease_until", "evaluated_at",
     ])
     transaction.on_commit(
         lambda attempt_id=attempt.pk: threading.Thread(

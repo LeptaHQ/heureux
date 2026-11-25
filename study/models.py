@@ -493,6 +493,7 @@ class WritingSimulationAttempt(models.Model):
     evaluation = models.JSONField(default=dict)
     evaluation_error = models.TextField(blank=True)
     evaluation_started_at = models.DateTimeField(null=True, blank=True)
+    evaluation_lease_until = models.DateTimeField(null=True, blank=True)
     evaluated_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:

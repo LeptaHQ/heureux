@@ -5,7 +5,6 @@
 {% block studio_attributes %}data-state="done" data-ending="{% if attempt.status == "submitted" %}normal{% else %}failed{% endif %}" data-mode="writing"{% endblock %}
 
 {% block debrief_notices %}
-  {% if copilot_notice %}<p class="notice" role="status">{{ copilot_notice }}</p>{% endif %}
   {% if unsaved_parts %}
     <section class="lv-report-card" aria-labelledby="writing-unsaved-title">
       <h2 id="writing-unsaved-title">Votre texte non enregistré</h2>
@@ -93,5 +92,5 @@
 {% endblock %}
 {% block scripts %}
   {{ block.super }}
-  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=17"></script>
+  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=18"></script>
 {% endblock %}

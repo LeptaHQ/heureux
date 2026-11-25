@@ -2,7 +2,7 @@ import base64
 import hashlib
 from datetime import timedelta
 from urllib.parse import parse_qs, urlsplit
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 import httpx
 from django.test import Client, TestCase, override_settings
@@ -78,8 +78,8 @@ class GitHubCopilotTests(TestCase):
         menu = page.content.decode().split('class="nav__menu"', 1)[1].split("</details>", 1)[0]
         self.assertIn("Connecter GitHub", menu)
         self.assertIn('data-icon="github"', menu)
-        self.assertIn(f'name="attempt_id" value="{attempt.pk}"', menu)
-        query = self._start_link(attempt_id=attempt.pk)
+        self.assertIn(f'name="next" value="{url}"', menu)
+        query = self._start_link(next=url)
         self.assertEqual(query["scope"], "offline_access")
         self.assertEqual(query["code_challenge_method"], "S256")
         self.assertNotIn(str(attempt.pk), str(query))
@@ -108,6 +108,25 @@ class GitHubCopilotTests(TestCase):
         settings_page = self.client.get(self.settings_url)
         self.assertContains(settings_page, "Déconnecter GitHub")
         self.assertNotContains(settings_page, f'action="{self.authorize}"')
+
+    def test_connections_started_on_a_subject_list_keep_its_filters_and_show_the_notice(self):
+        page = reverse("study:ee1_subject_picker")
+        filters = "q=invitation&deduplicate=0"
+        origin = f"{page}?{filters}"
+        self.assertContains(self.client.get(origin), f'name="next" value="{page}?q=invitation&amp;deduplicate=0"')
+        with patch.object(github_copilot, "connect", return_value=True):
+            query = self._start_link(next=origin)
+            self.assertNotIn("next", query)
+            callback = self.client.get(self.callback, {"code": "fixture-code", "state": query["state"]}, secure=True)
+        self.assertRedirects(callback, f"{origin}&copilot=connected")
+        self.assertContains(self.client.get(callback.url), "Compte GitHub connecté.", count=1)
+
+    def test_off_site_return_paths_fall_back_to_settings(self):
+        for target in ("https://example.com/", "//example.com/"):
+            with self.subTest(target=target), patch.object(github_copilot, "connect", return_value=True):
+                query = self._start_link(next=target)
+                callback = self.client.get(self.callback, {"code": "fixture-code", "state": query["state"]}, secure=True)
+                self.assertRedirects(callback, self.settings_url + "?copilot=connected", fetch_redirect_response=False)
 
     def test_forged_and_expired_callbacks_never_exchange_a_code(self):
         with patch.object(github_copilot, "connect") as connect:
@@ -162,7 +181,7 @@ class GitHubCopilotTests(TestCase):
             result = self.client.get(page)
             self.assertEqual(result.context["evaluation_providers"], list(copilot_runtime.LABELS.items()))
             self.assertEqual(result.context["evaluation_provider"], "copilot-mai")
-            self.assertContains(result, "utilise vos crédits")
+            self.assertNotContains(result, "utilise vos crédits")
             rejected = self.client.post(endpoint, {"consent": True, "provider": "groq"}, content_type="application/json")
             self.assertEqual(rejected.status_code, 409)
             payload = {"consent": True, "provider": "copilot-astra"}
@@ -182,6 +201,7 @@ class GitHubCopilotTests(TestCase):
             self.assertIs(score.call_args.kwargs["request_report"], transport.return_value)
         attempt.refresh_from_db()
         self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.READY)
+        self.assertIsNone(attempt.evaluation_lease_until)
         self.client.post(self.disconnect)
         self.assertFalse(GitHubCopilotConnection.objects.exists())
         self.assertEqual(self.client.get(endpoint, {"provider": "copilot-astra"}).json()["report"], report)
@@ -191,6 +211,58 @@ class GitHubCopilotTests(TestCase):
         }, content_type="application/json").status_code, 409)
         self.client.force_login(self.other)
         self.assertEqual(self.client.get(endpoint, {"provider": "copilot-astra"}).status_code, 404)
+
+    def test_interrupted_bilan_stops_polling_and_only_retries_after_an_explicit_request(self):
+        self._link()
+        attempt = self._attempt()
+        endpoint = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        astra = {"consent": True, "provider": "copilot-astra"}
+        mai = {"consent": True, "provider": "copilot-mai"}
+        with patch.object(writing_simulation.threading, "Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+            self.assertEqual(self.client.post(endpoint, astra, content_type="application/json").status_code, 202)
+            self.assertEqual(self.client.post(endpoint, mai, content_type="application/json").status_code, 409)
+            self.assertEqual(self.client.get(endpoint, {"provider": "copilot-astra"}).json()["status"], "processing")
+        thread.assert_called_once()
+
+        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(evaluation_lease_until=timezone.now())
+        with (
+            patch.object(writing_simulation, "_copilot_transport") as transport,
+            patch.object(writing_simulation, "close_old_connections"),
+        ):
+            claim = thread.call_args.kwargs
+            writing_simulation.run_evaluation(*claim["args"], **claim["kwargs"])
+        transport.assert_not_called()
+        with patch.object(writing_simulation.threading, "Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+            status = self.client.get(endpoint, {"provider": "copilot-astra"}).json()
+            self.assertEqual(status["status"], "unavailable")
+            self.assertTrue(status["retryable"])
+            thread.assert_not_called()
+            self.assertEqual(self.client.post(endpoint, mai, content_type="application/json").status_code, 202)
+        thread.assert_called_once()
+        attempt.refresh_from_db()
+        self.assertEqual(attempt.evaluation["provider"], "copilot-mai")
+        self.assertGreater(attempt.evaluation_lease_until, timezone.now())
+
+    def test_worker_renews_a_live_claim_but_cannot_revive_an_expired_one(self):
+        attempt = self._attempt()
+        now = timezone.now()
+        claim = {"evaluation_status": "processing", "evaluation_started_at": now - timedelta(seconds=20)}
+        attempts = WritingSimulationAttempt.objects.filter(pk=attempt.pk)
+        attempts.update(**claim, evaluation_lease_until=now + timedelta(seconds=25))
+        with (
+            patch.object(writing_simulation.timezone, "now", return_value=now),
+            patch.object(writing_simulation.connections, "close_all"),
+        ):
+            finished = Mock()
+            finished.wait.side_effect = [False, True]
+            writing_simulation._renew_evaluation_lease({**claim, "pk": attempt.pk}, finished)
+            attempt.refresh_from_db()
+            self.assertEqual(attempt.evaluation_lease_until, now + writing_simulation.EVALUATION_LEASE)
+            attempts.update(evaluation_lease_until=now)
+            finished.wait.side_effect = [False, True]
+            writing_simulation._renew_evaluation_lease({**claim, "pk": attempt.pk}, finished)
+        attempt.refresh_from_db()
+        self.assertEqual(attempt.evaluation_lease_until, now)
 
     def test_queued_work_cannot_switch_to_a_different_link(self):
         previous = self._link()

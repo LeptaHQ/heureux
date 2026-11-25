@@ -542,6 +542,23 @@ class WritingSimulationAttempt(models.Model):
         return f"{self.user_id} · EE · {self.status}"
 
 
+class WritingSimulationRetry(models.Model):
+    """A private simulation bookmark shared by equivalent writing subjects."""
+
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="writing_simulation_retries",
+    )
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    subject_key = models.CharField(max_length=120)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["user", "task", "subject_key"], name="writing_sim_one_retry"),
+        ]
+
+
 class SubjectBookmark(models.Model):
     """A learner's saved subject, independent of study progress."""
 

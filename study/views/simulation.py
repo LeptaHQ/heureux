@@ -51,11 +51,13 @@ def _fold(value):
     return "".join(c for c in unicodedata.normalize("NFKD", value.casefold()) if not unicodedata.combining(c))
 
 
-def subject_picker_context(request, subjects, attempts, *, markers=None):
+def subject_picker_context(request, subjects, attempts, *, markers=None, retry_groups=None):
     query = request.GET.get("q", "").strip()[:120]
     theme = request.GET.get("theme", "")
     status = request.GET.get("etat", request.GET.get("status", "") if markers is not None else "")
     statuses = MARKER_STATUSES if markers is not None else PICKER_STATUSES
+    if retry_groups is not None:
+        statuses = {**statuses, "retry": MARKER_STATUSES["retry"]}
     if status not in statuses:
         status = ""
     order = request.GET.get("tri", "")
@@ -71,7 +73,8 @@ def subject_picker_context(request, subjects, attempts, *, markers=None):
         total.add(key)
         practiced = subject.key in attempts
         mark = markers.get(subject.group, ()) if markers is not None else ()
-        done, retry = "done" in mark, "retry" in mark
+        done = "done" in mark
+        retry = "retry" in mark or (retry_groups is not None and subject.group in retry_groups)
         if practiced:
             practiced_total.add(key)
         if done:

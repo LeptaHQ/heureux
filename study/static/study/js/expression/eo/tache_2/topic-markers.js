@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const results = document.getElementById("eo2-topic-results");
+  const results = document.querySelector("[data-simulation-topic-markers]");
   const toast = document.querySelector("[data-subject-progress-toast]");
   if (!results || !toast || !window.fetch) return;
   let pending = 0, revision = 0, refreshNeeded = false;

@@ -36,7 +36,8 @@ class EE2SimulationTests(TestCase):
         self.assertContains(response, 'name="sujet_id"')
 
     def test_subject_picker_uses_the_shared_subject_table(self):
-        response = self.client.get(reverse("study:ee2_subject_picker"))
+        picker = reverse("study:ee2_subject_picker")
+        response = self.client.get(picker)
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, self.sujet.prompt)
@@ -45,9 +46,19 @@ class EE2SimulationTests(TestCase):
             f'href="{reverse("study:ee2_simulation")}?sujet_id={self.sujet.pk}"',
         )
         self.assertContains(response, 'data-writing-sujet-completion-form')
+        self.assertContains(response, f'aria-label="À refaire : {self.sujet.prompt}"')
+        self.assertContains(response, '<option value="retry">À refaire</option>', html=True)
         self.assertNotContains(response, ">Choisir</a>")
         self.assertNotContains(response, ">Choisir</button>")
         self.assertNotContains(response, ">Action<")
+
+        endpoint = reverse("study:ee2_subject_retry", args=[self.sujet.pk], query={"etat": "retry", "deduplicate": "0"})
+        return_url = f"{picker}?etat=retry&deduplicate=0#sujet-{self.sujet.pk}"
+        self.assertEqual(self.client.post(endpoint, {"field": "done", "value": "1"}).status_code, 400)
+        self.assertRedirects(self.client.post(endpoint, {"field": "retry", "value": "1"}), return_url)
+        marked = self.client.get(return_url)
+        self.assertContains(marked, 'class="subject-bookmark is-bookmarked"', count=1)
+        self.assertEqual(marked.context["practiced_total"], 0)
 
     @override_settings(EE2_SIMULATION_MINUTES=9)
     def test_start_freezes_ee2_prompt_and_configured_duration(self):

@@ -40,6 +40,7 @@ def _writing_simulation_routes():
         for suffix, view, action in (
             ("", writing_simulation.setup, "setup"),
             ("sujets/", writing_simulation.subject_picker, "picker"),
+            ("sujets/<int:subject_id>/statut/", writing_simulation.set_subject_retry, "retry"),
             ("commencer/", writing_simulation.start, "start"),
             ("supprimer/", writing_simulation.delete, "delete"),
             ("<uuid:attempt_id>/temps/", writing_simulation.update_timer, "timer"),

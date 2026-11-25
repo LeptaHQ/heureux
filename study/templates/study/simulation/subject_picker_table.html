@@ -19,11 +19,10 @@
               <a aria-label="Pratiquer : {{ row.title }}" href="{% subject_link row.url %}">{{ row.title }}</a>
               <span class="t1-table__subject-date">{{ row.caption }}</span>
             </div>
-            {% if picker.kind == "eo2" %}
-              {% url 'study:eo2_topic_status' row.token as status_url %}
-              <form class="subject-bookmark{% if row.retry %} is-bookmarked{% endif %}" method="post" action="{{ status_url }}{% querystring %}">
+            {% if picker.retry_markers %}
+              <form class="subject-bookmark{% if row.retry %} is-bookmarked{% endif %}" method="post" action="{{ row.status_url }}{% querystring %}">
                 {% csrf_token %}<input type="hidden" name="field" value="retry"><input type="hidden" name="value" value="{{ row.retry|yesno:'0,1' }}">
-                {% include "study/shared/partials/subject_bookmark_button.html" with pressed=row.retry label=row.topic.title prefix="À refaire" remove="Retirer des sujets à refaire" add="Garder dans les sujets à refaire" only %}
+                {% include "study/shared/partials/subject_bookmark_button.html" with pressed=row.retry label=row.title prefix="À refaire" remove="Retirer des sujets à refaire" add="Garder dans les sujets à refaire" only %}
               </form>
             {% endif %}
           </div>
@@ -42,7 +41,7 @@
           {% if picker.writing_progress %}
             {% include "study/expression/ee/partials/writing_sujet_completion_form.html" with sujet=row.sujet completed=row.progress.explicitly_completed progress_sujet_id=row.progress_sujet_id subject_label=row.sujet.prompt part=task.part task=task %}
           {% else %}
-            <form class="subject-completion-check{% if row.done %} is-complete{% endif %}" method="post" action="{{ status_url }}{% querystring %}">
+            <form class="subject-completion-check{% if row.done %} is-complete{% endif %}" method="post" action="{{ row.status_url }}{% querystring %}">
               {% csrf_token %}<input type="hidden" name="field" value="done"><input type="hidden" name="value" value="{{ row.done|yesno:'0,1' }}">
               {% include "study/shared/partials/subject_completion_button.html" with completed=row.done label=row.topic.title only %}
             </form>

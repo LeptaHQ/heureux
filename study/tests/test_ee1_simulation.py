@@ -14,6 +14,7 @@ from study.models import (
     WritingSimulationAttempt,
     WritingSimulationAttemptStatus,
     WritingSimulationEvaluationStatus,
+    WritingSimulationRetry,
     WritingSujetCompletion,
 )
 from study.simulation import copilot_runtime, evaluation, writing_evaluation
@@ -120,11 +121,19 @@ class EE1SimulationTests(TestCase):
             },
         ):
             url = reverse("study:ee1_subject_picker")
+            alias_retry = reverse("study:ee1_subject_retry", args=[self.other_sujet.pk])
+            self.client.post(alias_retry, {"field": "retry", "value": "1"})
             response = self.client.get(url)
             publications = self.client.get(url, {"deduplicate": "0"})
-            filtered = self.client.get(url, {"q": self.other_sujet.prompt}, headers={"x-requested-with": "fetch"})
+            filtered = self.client.get(
+                url, {"q": self.other_sujet.prompt, "etat": "retry"}, headers={"x-requested-with": "fetch"},
+            )
+            retry = reverse("study:ee1_subject_retry", args=[self.sujet.pk])
+            self.client.post(retry, {"field": "retry", "value": "0"})
+            cleared = self.client.get(url, {"etat": "retry"})
 
         self.assertEqual(response.context["total"], 1)
+        self.assertEqual(response.context["retry_total"], 1)
         self.assertTemplateUsed(response, "study/shared/partials/subject_deduplication_toggle.html")
         self.assertContains(response, 'aria-checked="true"', count=1)
         self.assertNotContains(response, self.other_sujet.prompt)
@@ -137,6 +146,39 @@ class EE1SimulationTests(TestCase):
         )
         self.assertContains(filtered, self.other_sujet.prompt)
         self.assertNotContains(filtered, self.sujet.prompt)
+        self.assertContains(publications, 'class="subject-bookmark is-bookmarked"', count=2)
+        self.assertContains(cleared, "Aucun sujet")
+        self.assertTrue(WritingSujetCompletion.objects.filter(user=self.owner, sujet=self.sujet).exists())
+
+    def test_subject_retry_is_private_and_independent_of_attempts(self):
+        picker = reverse("study:ee1_subject_picker")
+        endpoint = reverse("study:ee1_subject_retry", args=[self.sujet.pk])
+        filters = {"etat": "retry"}
+        change = {"field": "retry", "value": "1"}
+        headers = {"x-requested-with": "fetch"}
+        self.assertEqual(self.client.get(endpoint).status_code, 405)
+        secured = Client(enforce_csrf_checks=True)
+        secured.force_login(self.owner)
+        self.assertEqual(secured.post(endpoint, change).status_code, 403)
+        for _ in range(2):
+            self.assertEqual(self.client.post(endpoint, change, headers=headers).json(), {"field": "retry", "value": True})
+
+        flagged = self.client.get(picker, filters, headers=headers)
+        row, = flagged.context["page"]
+        self.assertEqual((row["subject_id"], row["count"]), (self.sujet.pk, 0))
+        self.assertContains(flagged, 'class="subject-bookmark is-bookmarked"', count=1)
+        self.assertIn("private", flagged["Cache-Control"])
+        self.assertNotContains(flagged, self.other_sujet.prompt)
+        export = reverse("study:export_account")
+        self.assertEqual(self.client.get(export).json()["writing_simulation_retries"], [
+            {"task": self.task.slug, "subject_key": self.sujet.slug},
+        ])
+
+        self.client.force_login(self.other)
+        self.assertContains(self.client.get(picker, filters), "Aucun sujet")
+        self.client.post(endpoint, {**change, "value": "0"}, headers=headers)
+        self.assertEqual(self.client.get(export).json()["writing_simulation_retries"], [])
+        self.assertTrue(WritingSimulationRetry.objects.filter(user=self.owner, task=self.task).exists())
 
     def test_subject_picker_loads_progress_for_the_visible_page(self):
         for index in range(16):

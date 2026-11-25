@@ -35,6 +35,7 @@ from study.models import (
     WritingSimulationAttempt,
     WritingSimulationAttemptStatus,
     WritingSimulationEvaluationStatus,
+    WritingSimulationRetry,
     WritingSujet,
 )
 from study.navigation.routing import subject_selection_url
@@ -103,6 +104,7 @@ class WritingSimulationSpec:
         prefix = self.route_prefix
         return {
             "picker": f"study:ee{self.number}_subject_picker",
+            "retry": f"study:ee{self.number}_subject_retry",
             "setup": f"study:{prefix}",
             "start": f"study:{prefix}_start",
             "delete": f"study:{prefix}_delete",
@@ -270,6 +272,7 @@ def _session_context(
 
 
 @require_GET
+@never_cache
 @vary_on_headers("X-Requested-With")
 def subject_picker(request, spec):
     task = task_for(spec)
@@ -287,7 +290,7 @@ def subject_picker(request, spec):
     if comparison:
         sources = catalogue.ee_tache_three_sources_by_key()
         publications = subjects.order_by("theme__name", "number", "pk").values_list(
-            "pk", "text", "theme__slug", "theme__display_name", "content_key", "response_id",
+            "pk", "text", "theme__slug", "theme__display_name", "content_key", "response__content_key",
         )
 
         def comparison_subjects():
@@ -306,9 +309,13 @@ def subject_picker(request, spec):
             for pk, title, theme, label, slug in publications.iterator()
         )
     setup_url = reverse(spec.route_names["setup"])
-    context = subject_picker_context(request, entries, attempts)
+    retries = set(
+        WritingSimulationRetry.objects.filter(user=request.user, task=task).values_list("subject_key", flat=True)
+    )
+    context = subject_picker_context(request, entries, attempts, retry_groups=retries)
     picker_rows(context, attempts, lambda entry: {
         "row_id": f"sujet-{entry.key}", "url": f"{setup_url}?sujet_id={entry.key}", "subject_id": entry.key,
+        "status_url": reverse(spec.route_names["retry"], args=[entry.key]), "retry": entry.group in retries,
     })
     page_rows = context["page"].object_list
     if not comparison and page_rows:
@@ -340,9 +347,36 @@ def subject_picker(request, spec):
         "icon": "pen-line",
         "results_id": f"ee{spec.number}-topic-results",
         "writing_progress": not comparison,
+        "retry_markers": True,
         "show_practice_summary": True,
     }
     return render_subject_picker(request, context)
+
+
+@require_POST
+@csrf_protect
+def set_subject_retry(request, spec, subject_id):
+    task = task_for(spec)
+    background = request.headers.get("X-Requested-With") == "fetch"
+    values = request.POST.getlist("value")
+    if request.POST.getlist("field") != ["retry"] or values not in (["0"], ["1"]):
+        message = "Statut non reconnu."
+        return JsonResponse({"error": message}, status=400) if background else HttpResponseBadRequest(message)
+
+    comparison = spec.number == 3
+    group_field = "response__content_key" if comparison else "slug"
+    key = get_object_or_404(_subjects(task, spec).values_list(group_field, flat=True), pk=subject_id)
+    if not comparison:
+        key = content_module.ee_writing_canonical_slug_by_slug(spec.number).get(key, key)
+    marker = {"user": request.user, "task": task, "subject_key": key}
+    retry = values == ["1"]
+    if retry:
+        WritingSimulationRetry.objects.get_or_create(**marker)
+    else:
+        WritingSimulationRetry.objects.filter(**marker).delete()
+    if background:
+        return JsonResponse({"field": "retry", "value": retry})
+    return redirect(reverse(spec.route_names["picker"], query=request.GET, fragment=f"sujet-{subject_id}"))
 
 
 def _setup_context(request, spec, task):

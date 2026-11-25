@@ -45,6 +45,8 @@ class EE3SimulationTests(TestCase):
         self.assertTemplateUsed(picker, "study/simulation/subject_picker_table.html")
         self.assertContains(picker, reverse("study:ee3_simulation", query={"sujet_id": self.prompt.pk}))
         self.assertNotContains(picker, reverse("study:ee3_simulation", query={"sujet_id": self.invalid_prompt.pk}))
+        invalid_retry = reverse("study:ee3_subject_retry", args=[self.invalid_prompt.pk])
+        self.assertEqual(self.client.post(invalid_retry, {"field": "retry", "value": "1"}).status_code, 404)
         self.assertEqual(self.client.post(self.start_url, {"sujet_id": self.invalid_prompt.pk}).status_code, 404)
         attempt, url = self.start()
         self.assertEqual(attempt.deadline_at - attempt.started_at, timedelta(minutes=30))
@@ -156,9 +158,16 @@ class EE3SimulationTests(TestCase):
         other.response = self.prompt.response
         other.is_canonical = False
         other.save(update_fields=["response", "is_canonical"])
+        retry = reverse("study:ee3_subject_retry", args=[other.pk])
+        self.assertEqual(self.client.post(retry, {"field": "retry", "value": "1"}).status_code, 302)
+        picker_url = reverse("study:ee3_subject_picker")
+        rows = self.client.get(picker_url, {"etat": "retry", "deduplicate": "0"}).context["page"]
+        self.assertEqual({row["subject_id"]: row["count"] for row in rows}, {self.prompt.pk: 1, other.pk: 0})
+
         self.client.post(self.start_url, {"sujet_id": other.pk})
-        picker = self.client.get(reverse("study:ee3_subject_picker"))
+        picker = self.client.get(picker_url, {"etat": "retry"})
         self.assertEqual((picker.context["total"], picker.context["practiced_total"]), (1, 1))
+        self.assertContains(picker, 'class="subject-bookmark is-bookmarked"', count=1)
         page = self.client.get(reverse("study:ee3_simulation"), {"sujet_id": self.prompt.pk})
         self.assertEqual([item["id"] for item in page.context["saved_sessions"]], [attempt.pk])
         for _ in range(8):

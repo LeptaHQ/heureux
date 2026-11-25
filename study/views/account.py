@@ -75,7 +75,7 @@ from .review import (
 from study.learning.practice import lock_course_user, public_snapshot
 from study.simulation.oral_jobs import lock_simulations
 
-ACCOUNT_EXPORT_VERSION = 13
+ACCOUNT_EXPORT_VERSION = 14
 
 
 def _auth_redirect(request):
@@ -729,6 +729,12 @@ def export_account(request):
         "eo2_simulation_history": list(EO2PracticeAttempt.objects.filter(user=request.user).order_by("created_at").values(
             "subject_key", "attempt", "vocal", "created_at", "live_simulation_id")),
         "writing_simulation_attempts": writing_simulation_attempts,
+        "writing_simulation_retries": [
+            {"task": row["task__slug"], "subject_key": row["subject_key"]}
+            for row in request.user.writing_simulation_retries.order_by("task__slug", "subject_key").values(
+                "task__slug", "subject_key",
+            )
+        ],
         "ee1_simulation_attempts": [
             item for item in writing_simulation_attempts if item["task"] == "tache-1"
         ],

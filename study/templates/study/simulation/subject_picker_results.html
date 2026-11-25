@@ -1,6 +1,6 @@
-<div id="{{ picker.results_id }}" data-status="{{ directory_selection.status }}">
+<div id="{{ picker.results_id }}" data-status="{{ directory_selection.status }}"{% if picker.retry_markers %} data-simulation-topic-markers{% endif %}>
   {% if page.paginator.count %}
-    <p class="oral-sujet-result-count">{{ page.paginator.count }} sujet{{ page.paginator.count|pluralize }}{% if directory_selection.active %} sur {{ total }}{% elif picker.show_status_summary %} · <span data-total="done">{{ done_total }}</span> <span data-done-label>terminé{% if done_total > 1 %}s{% endif %}</span> · <span data-total="retry">{{ retry_total }}</span> à refaire{% elif picker.show_practice_summary %} · {{ practiced_total }} déjà pratiqué{{ practiced_total|pluralize }}{% endif %}</p>
+    <p class="oral-sujet-result-count">{{ page.paginator.count }} sujet{{ page.paginator.count|pluralize }}{% if directory_selection.active %} sur {{ total }}{% elif picker.show_status_summary %} · <span data-total="done">{{ done_total }}</span> <span data-done-label>terminé{% if done_total > 1 %}s{% endif %}</span> · <span data-total="retry">{{ retry_total }}</span> à refaire{% elif picker.show_practice_summary %} · {{ practiced_total }} déjà pratiqué{{ practiced_total|pluralize }}{% if picker.retry_markers %} · {{ retry_total }} à refaire{% endif %}{% endif %}</p>
     {% include "study/simulation/subject_picker_table.html" %}
     {% include "study/simulation/eo2_pager.html" %}
   {% else %}

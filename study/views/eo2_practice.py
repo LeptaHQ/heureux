@@ -129,6 +129,7 @@ def picker(request):
         mark = markers.get(subject.group, ())
         return {
             "topic": topic, "token": token, "row_id": f"topic-{token}", "url": topic.simulation_url,
+            "status_url": reverse("study:eo2_topic_status", args=[token]),
             "done": "done" in mark, "retry": "retry" in mark,
         }
 
@@ -142,8 +143,8 @@ def picker(request):
             "title": "Choisir un sujet",
             "heading_id": "eo2-title",
             "tone": "sim-tone--eo",
-            "kind": "eo2",
             "topic_markers": True,
+            "retry_markers": True,
             "results_id": "eo2-topic-results",
             "show_status_summary": True,
         },

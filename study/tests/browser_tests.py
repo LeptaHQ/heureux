@@ -279,6 +279,35 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.assertEqual(self.page.url, filtered)
         self.assertTrue(self.page.evaluate("window.pickerDocument"))
 
+    def test_writing_picker_saves_and_filters_retry_without_changing_completion(self):
+        task = factories.make_task(factories.make_part("ee"), "tache-1")
+        sujet = factories.make_writing_sujet(task, slug="invitation", prompt="Invitez une amie à dîner.")
+        picker = self.live_server_url + reverse("study:ee1_subject_picker")
+        self.page.goto(picker)
+        row = self.page.locator(f"#sujet-{sujet.pk}")
+        done = row.get_by_role("checkbox")
+        retry = row.get_by_role("button", name=f"À refaire : {sujet.prompt}")
+        self.click_subject_marker(done)
+        expect(done).to_be_checked()
+        expect(retry).to_have_attribute("aria-pressed", "false")
+
+        retry.click()
+        expect(self.page.locator(".oral-sujet-result-count")).to_contain_text("1 à refaire")
+        expect(done).to_be_checked()
+        self.assertTrue(self.page.evaluate("window.sameSubjectDocument"))
+
+        filtered = picker + "?etat=retry&deduplicate=0"
+        self.page.goto(filtered)
+        self.page.evaluate("window.pickerDocument = true")
+        expect(retry).to_have_attribute("aria-pressed", "true")
+        retry.click()
+        expect(row).to_have_count(0)
+        self.assertEqual(self.page.url, filtered)
+        self.assertTrue(self.page.evaluate("window.pickerDocument"))
+        self.page.goto(picker)
+        expect(done).to_be_checked()
+        expect(retry).to_have_attribute("aria-pressed", "false")
+
     def test_service_worker_retries_failed_assets_and_preserves_other_caches(self):
         worker = self.client.get("/sw.js").content.decode()
         result = self.page.evaluate(

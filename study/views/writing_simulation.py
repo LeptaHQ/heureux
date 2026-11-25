@@ -8,6 +8,7 @@ import logging
 import math
 import threading
 import time
+from contextlib import nullcontext
 from dataclasses import dataclass
 from datetime import timedelta
 from uuid import UUID
@@ -976,23 +977,25 @@ def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_
         logger.info("writing evaluation started %s", log_context)
         started = time.monotonic()
         try:
-            options = {}
-            if provider in copilot_runtime.MODELS:
-                options["request_report"] = _copilot_transport(attempt.user_id, provider, copilot_link_id)
-            report = writing_evaluation.score(
-                task_number=spec.number,
-                subject=attempt.snapshot.get("prompt", ""),
-                response=attempt.body,
-                word_count=attempt.word_count or _word_count(attempt),
-                word_min=word_min,
-                word_max=word_max,
-                **({"provider": provider} if provider else {}),
-                **options,
-                **(
-                    {"position": attempt.position_body, "documents": attempt.snapshot.get("documents", ())}
-                    if spec.number == 3 else {}
-                ),
-            )
+            copilot = provider in copilot_runtime.MODELS
+            with copilot_runtime.evaluation_slot() if copilot else nullcontext():
+                options = {}
+                if copilot:
+                    options["request_report"] = _copilot_transport(attempt.user_id, provider, copilot_link_id)
+                report = writing_evaluation.score(
+                    task_number=spec.number,
+                    subject=attempt.snapshot.get("prompt", ""),
+                    response=attempt.body,
+                    word_count=attempt.word_count or _word_count(attempt),
+                    word_min=word_min,
+                    word_max=word_max,
+                    **({"provider": provider} if provider else {}),
+                    **options,
+                    **(
+                        {"position": attempt.position_body, "documents": attempt.snapshot.get("documents", ())}
+                        if spec.number == 3 else {}
+                    ),
+                )
         except EvaluationError as exc:
             status = WritingSimulationEvaluationStatus.UNAVAILABLE
             error = str(exc)

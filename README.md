@@ -165,6 +165,11 @@ Reports are saved in Heureux, not in GitHub. **Déconnecter GitHub** removes the
 local credentials; you can also revoke authorization in GitHub’s **Applications**
 settings. Rotating the encryption key requires existing users to reconnect.
 
+With Copilot configured on Render, Gunicorn uses one web worker with two request
+threads to leave more memory for the Copilot runtime. Each instance accepts one
+Copilot bilan at a time, including proofreading. A concurrent request can be
+retried manually and does not send an answer or spend credits.
+
 Generate the encryption key in a private terminal, then enter it directly in Render:
 
 ```shell

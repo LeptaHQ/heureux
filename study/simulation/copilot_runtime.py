@@ -4,8 +4,10 @@ import asyncio
 import json
 import os
 import time
-from tempfile import TemporaryDirectory
+from contextlib import contextmanager
+from tempfile import TemporaryDirectory, gettempdir
 
+from django.conf import settings
 from django.views.decorators.debug import sensitive_variables
 
 from . import evaluation
@@ -17,6 +19,26 @@ MODELS = {
 }
 LABELS = {key: label for key, (label, _) in MODELS.items()}
 DEFAULT = "copilot-mai"
+
+
+@contextmanager
+def evaluation_slot():
+    if not settings.ON_RENDER:
+        yield
+        return
+
+    import fcntl
+
+    path = os.path.join(gettempdir(), "heureux-copilot-evaluation.lock")
+    descriptor = os.open(path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
+    with os.fdopen(descriptor, "r+b") as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            raise evaluation.EvaluationError(
+                503, "Un bilan Copilot est déjà en cours. Réessayez dans un instant.",
+            ) from None
+        yield
 
 
 @sensitive_variables()

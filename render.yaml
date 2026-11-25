@@ -31,6 +31,7 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: WEB_CONCURRENCY
+        # gunicorn.conf.py uses one threaded worker when Copilot is configured.
         value: "2"
       # Keep a pooled connection only as long as a gunicorn worker really
       # reuses it, so Neon's compute can autosuspend between bursts of traffic.

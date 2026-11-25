@@ -463,6 +463,33 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(grounded["report"]["score"], 12)
         self.assertTrue(data["body"].lstrip().startswith(grounded["report"]["gradeEvidence"][0]))
 
+    @override_settings(
+        EE1_EVALUATION_PROVIDER="groq", GROQ_API_KEY="fixture-groq-key", GEMINI_API_KEY="",
+        CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID=workers_account_id,
+    )
+    def test_workers_fallback_is_disclosed_and_does_not_reuse_qwen_consent(self):
+        self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
+        attempt = WritingSimulationAttempt.objects.get(user=self.owner)
+        url = self._attempt_url(attempt)
+        qwen_page = self.client.get(url)
+        self.assertContains(qwen_page, "Envoi à Groq (Qwen 3.8 27B) : réponse, consigne.")
+
+        with self.settings(GROQ_API_KEY=""), patch("study.views.writing_simulation.threading.Thread") as thread:
+            page = self.client.get(url)
+            self.assertContains(page, "Envoi à Workers : réponse, consigne.")
+            self.assertContains(page, 'name="evaluation_consent" value="cloudflare"')
+            with self.captureOnCommitCallbacks(execute=True):
+                submitted = self.client.post(url, {
+                    "action": "submit", "body": " ".join(["Bonjour"] * 60),
+                    "evaluation_consent": "groq", "draft_revision": qwen_page.context["draft_revision"],
+                })
+            self.assertRedirects(submitted, url)
+            thread.assert_not_called()
+
+        attempt.refresh_from_db()
+        self.assertEqual(attempt.status, WritingSimulationAttemptStatus.SUBMITTED)
+        self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.NOT_REQUESTED)
+
     @override_settings(EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="")
     def test_evaluation_requires_consent_for_the_disclosed_provider_and_claims_once(self):
         self.client.post(self._start_url(), {"sujet_id": str(self.sujet.pk)})
@@ -794,7 +821,7 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(result["priorities"], report["priorities"])
         self.assertEqual(set(result["omittedSections"]), {"gradeEvidence", "verbFeedback", "corrections"})
 
-    def test_proofreads_proposal_without_changing_the_supported_grade(self):
+    def test_qwen_proofreads_proposal_without_changing_the_supported_grade(self):
         response = (
             "Salut Alex, merci pour ta aide pendant mon absence. Peux-tu arroser les plantes mercredi et samedi ? "
             "J’ai laissé l’arrosoir près du balcon. Pour le chien, les croquettes sont dans le placard de la cuisine. "
@@ -803,6 +830,12 @@ class EE1SimulationTests(TestCase):
         )
         report = {**self._provider_report(), "improvedResponse": response}
         corrected = response.replace("ta aide", "ton aide")
+
+        def completion(value):
+            return json.dumps({"choices": [{
+                "finish_reason": "stop", "message": {"content": json.dumps(value)},
+            }]}).encode(), 1
+
         for revision, expected in (
             ({"improvedResponse": corrected}, corrected),
             ({"improvedResponse": ""}, ""),
@@ -811,7 +844,10 @@ class EE1SimulationTests(TestCase):
         ):
             with (
                 self.subTest(expected=bool(expected), revision=type(revision).__name__),
-                patch.object(evaluation, "request_provider_report", side_effect=[report, revision]) as request,
+                patch.object(evaluation, "_post", side_effect=[
+                    completion(report),
+                    revision if isinstance(revision, evaluation.EvaluationError) else completion(revision),
+                ]) as request,
                 nullcontext() if expected else self.assertLogs(writing_evaluation.logger, "WARNING"),
             ):
                 result = writing_evaluation.score(
@@ -822,11 +858,19 @@ class EE1SimulationTests(TestCase):
                 self.assertEqual(result["improvedResponse"], expected)
                 self.assertEqual("improvedResponse" in result["omittedSections"], not expected)
                 first, proofread = request.call_args_list
-                self.assertEqual(proofread.args[0], first.args[0])
-                self.assertEqual(proofread.args[2]["original"], response)
-                self.assertEqual(proofread.args[2]["proposal"], response)
-                self.assertEqual(proofread.args[3]["required"], ["improvedResponse"])
-                self.assertLess(proofread.kwargs["deadline"], first.kwargs["deadline"])
+                grade_payload, review_payload = (json.loads(call.args[0]) for call in (first, proofread))
+                for call, payload in ((first, grade_payload), (proofread, review_payload)):
+                    self.assertEqual(call.kwargs["host"], "api.groq.com")
+                    self.assertEqual(payload["model"], "qwen/qwen3.8-27b")
+                    self.assertEqual(payload["reasoning_effort"], "none")
+                    self.assertNotIn("include_reasoning", payload)
+                    self.assertTrue(payload["response_format"]["json_schema"]["strict"])
+                review_packet = json.loads(review_payload["messages"][1]["content"])
+                self.assertEqual(review_packet["original"], response)
+                self.assertEqual(review_packet["proposal"], response)
+                review_schema = review_payload["response_format"]["json_schema"]["schema"]
+                self.assertEqual(review_schema["required"], ["improvedResponse"])
+                self.assertLess(proofread.args[1], first.args[1])
 
     @override_settings(EE1_EVALUATION_PROVIDER="groq")
     def test_groq_reports_ground_evidence_in_strict_mode_and_after_schema_retry(self):
@@ -889,6 +933,9 @@ class EE1SimulationTests(TestCase):
                 system, user = requests[0]["messages"]
                 self.assertIn("Choose CEFR first", system["content"])
                 self.assertIn("an informal message to a friend does not need a more formal tone", system["content"])
+                self.assertIn("FILL-IN REPORT TEMPLATE", system["content"])
+                self.assertIn("improvedResponse: [Complete corrected answer", system["content"])
+                self.assertNotIn("improvedPosition", system["content"])
                 self.assertNotIn("MANDATORY WRITTEN REPORT", system["content"])
                 self.assertNotIn("wait silently", system["content"])
                 self.assertEqual(json.loads(user["content"]), {

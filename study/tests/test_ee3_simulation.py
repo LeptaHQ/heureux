@@ -167,6 +167,8 @@ class EE3SimulationTests(TestCase):
             result = writing_evaluation.score(**inputs)
             instruction, packet, schema = request.call_args.args
             self.assertIn("assess fidelity to document 1 and document 2 separately", instruction)
+            self.assertIn("improvedResponse: [Neutral synthesis of both documents]", instruction)
+            self.assertIn("improvedPosition: [Supported personal position]", instruction)
             self.assertEqual(packet["documents"], list(documents))
             self.assertEqual(packet["sections"]["synthesis"]["passages"], [{"id": "E1", "text": synthesis}])
             self.assertEqual(packet["sections"]["position"]["passages"], [{"id": "E2", "text": position}])

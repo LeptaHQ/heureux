@@ -14,6 +14,7 @@ from django.conf import settings
 from django.views.decorators.debug import sensitive_variables
 
 MODEL = "openai/gpt-oss-120b"
+QWEN_MODEL = "qwen/qwen3.8-27b"
 _GEMINI_MODEL = "gemini-3.8-flash"
 _WORKERS_MODEL = "@cf/google/gemma-4-26b-a4b-it"
 PROVIDER_LABELS = {"groq": "Groq", "gemini": "Gemini", "cloudflare": "Workers"}
@@ -200,13 +201,19 @@ def _chat_report(reply, elapsed, name):
 
 
 @sensitive_variables()
-def request_report(instruction, packet, schema, *, name="bilan", max_tokens=3584, retry_schema=False, deadline=None):
+def request_report(
+    instruction, packet, schema, *, name="bilan", max_tokens=3584, retry_schema=False, deadline=None, model=MODEL,
+):
     payload = {
-        "model": MODEL,
+        "model": model,
         **_chat_payload(instruction, packet, schema, name),
         # Groq counts this cap plus the prompt against the token rate limit.
-        "reasoning_effort": "low", "include_reasoning": False, "max_completion_tokens": max_tokens,
+        "max_completion_tokens": max_tokens,
     }
+    if model == QWEN_MODEL:
+        payload["reasoning_effort"] = "none"
+    else:
+        payload.update(reasoning_effort="low", include_reasoning=False)
     body, elapsed = _request_with_retry(
         payload, host="api.groq.com", path="/openai/v1/chat/completions",
         auth={"Authorization": f"Bearer {settings.GROQ_API_KEY}"}, service="Groq",

@@ -58,6 +58,7 @@ _DRAFT_CONFLICT = (
     "mais n’a pas été enregistré. Rechargez le brouillon enregistré ou relisez votre texte avant de l’enregistrer à nouveau."
 )
 _EVALUATION_FIELDS = ("status", "evaluation_status", "evaluation", "evaluation_started_at", "evaluation_error")
+_EVALUATION_SEND_LABELS = {**PROVIDER_LABELS, "groq": "Groq (Qwen 3.8 27B)"}
 
 
 @dataclass(frozen=True)
@@ -547,7 +548,7 @@ def _attempt_context(request, attempt, spec, *, error="", now=None, revision=Non
             "draft_conflict": draft_conflict,
             "timer_url": subject_selection_url(reverse(spec.route_names["timer"], args=[attempt.pk]), request),
             "auto_evaluation": provider,
-            "auto_evaluation_label": PROVIDER_LABELS.get(provider, ""),
+            "auto_evaluation_label": _EVALUATION_SEND_LABELS.get(provider, ""),
         }
     )
     return context
@@ -635,7 +636,7 @@ def _result_context(request, attempt, spec):
         "can_load_evaluation": can_load_evaluation,
         "session_title_assessment": can_assess and (bool(configured) or len(providers) > 1),
         "evaluation_provider": provider,
-        "evaluation_provider_label": PROVIDER_LABELS[provider],
+        "evaluation_provider_label": _EVALUATION_SEND_LABELS[provider],
         "evaluation_providers": [(key, PROVIDER_LABELS[key]) for key in providers],
         "assessment_form_id": "writing-evaluation-form",
         "subject_url": subject_selection_url(subject_url, request) if subject_url else "",
@@ -792,7 +793,8 @@ def _ee1_reports(attempt):
 def _ee1_evaluation_options(attempt):
     default = writing_evaluation.provider_for(1)
     reports = _ee1_reports(attempt)
-    available = available_providers() | reports.keys()
+    configured = _writing_providers(SPECS[1])
+    available = configured | reports.keys()
     last_provider = attempt.evaluation.get("provider")
     if last_provider in PROVIDER_LABELS and attempt.evaluation_status == WritingSimulationEvaluationStatus.PROCESSING:
         available.add(last_provider)
@@ -805,7 +807,7 @@ def _ee1_evaluation_options(attempt):
         return providers, "groq"
     if reports:
         return providers, last_provider if last_provider in reports else next(iter(reports))
-    return providers, default if default in providers else providers[0]
+    return providers, _auto_evaluation_provider(SPECS[1], configured=configured) or providers[0]
 
 
 def _writing_providers(spec):
@@ -813,10 +815,11 @@ def _writing_providers(spec):
     return configured if spec.number == 1 else configured & {"groq"}
 
 
-def _auto_evaluation_provider(spec):
-    configured = _writing_providers(spec)
+def _auto_evaluation_provider(spec, *, configured=None):
+    if configured is None:
+        configured = _writing_providers(spec)
     preferred = writing_evaluation.provider_for(spec.number)
-    return next((provider for provider in (preferred, "groq") if provider in configured), "")
+    return next((provider for provider in (preferred, "groq", "cloudflare") if provider in configured), "")
 
 
 def _evaluation_payload(attempt, provider=None):

@@ -31,31 +31,29 @@
   <p data-writing-verdict></p>
   <p class="lv-assessment__aside" data-writing-score></p>
   <p data-writing-uncertainty></p>
-  <section class="lv-assessment__part lv-next-step">
-    <h3>Au prochain essai</h3>
-    <ol class="lv-assessment__evidence" data-writing-priorities></ol>
-  </section>
-  <section class="lv-assessment__part" data-writing-verbs-section hidden>
-    <h3>Temps et modes</h3>
-    <ul class="lv-assessment__evidence" data-writing-verbs></ul>
-  </section>
   <section class="lv-assessment__part">
     <h3>Conformité à la tâche</h3>
     <ul class="lv-assessment__evidence" data-writing-compliance></ul>
   </section>
-  <section class="lv-assessment__part" data-writing-strengths-section hidden>
-    <h3 id="lv-assessment-strengths-title">{% include "study/shared/partials/ui_icon.html" with name="check" only %} Points forts</h3>
-    <ul class="lv-assessment__evidence" data-writing-strengths></ul>
-  </section>
   <section class="lv-assessment__part lv-assessment__marks">
-    <h3 id="lv-assessment-criteria-title">Détail de la notation</h3>
-    <table class="lv-criteria" aria-labelledby="lv-assessment-criteria-title" aria-describedby="writing-criteria-note">
-      <thead><tr><th scope="col">Critère</th><th scope="col">Note</th><th scope="col">Observation</th></tr></thead>
+    <h3 id="lv-assessment-criteria-title">Critères d’évaluation</h3>
+    <table class="lv-criteria" aria-labelledby="lv-assessment-criteria-title">
+      <thead><tr><th scope="col">Critère</th><th scope="col">Appréciation</th><th scope="col">Observation</th></tr></thead>
       <tbody data-writing-criteria></tbody>
     </table>
-    <p class="lv-assessment__aside" id="writing-criteria-note">Repères d’entraînement : de 1/5 (limité) à 5/5 (excellent). Ces notes ne sont ni officielles ni additionnées pour calculer l’estimation globale.</p>
     <p data-writing-grade-rationale></p>
-    <p class="lv-assessment__aside" data-writing-grade-evidence></p>
+  </section>
+  <section class="lv-assessment__part" data-writing-strengths-section hidden>
+    <h3 id="lv-assessment-strengths-title">{% include "study/shared/partials/ui_icon.html" with name="check" only %} Points forts et repères</h3>
+    <ul class="lv-assessment__evidence" data-writing-strengths></ul>
+  </section>
+  <details class="lv-assessment__citations" data-writing-evidence hidden>
+    <summary>Passages cités</summary>
+    <ol class="lv-assessment__evidence" data-writing-passages></ol>
+  </details>
+  <section class="lv-assessment__part lv-next-step">
+    <h3>Au prochain essai</h3>
+    <ol class="lv-assessment__evidence" data-writing-priorities></ol>
   </section>
 {% endblock %}
 
@@ -75,16 +73,6 @@
     {% endfor %}
   </details>
   {% include "study/simulation/partials/proposal.html" with written=True only %}
-  <details>
-    <summary>À vérifier</summary>
-    <ul class="ee1-checklist">
-      <li>Ai-je répondu à chaque élément de la consigne&nbsp;?</li>
-      <li>Le registre et le format conviennent-ils au destinataire&nbsp;?</li>
-      <li>Mes idées sont-elles organisées et reliées&nbsp;?</li>
-      <li>Les temps correspondent-ils au moment des actions&nbsp;?</li>
-      <li>Ai-je relu les accords, les pronoms, les accents et les prépositions&nbsp;?</li>
-    </ul>
-  </details>
 {% endblock %}
 
 {% block report_notes %}
@@ -95,5 +83,5 @@
 {% endblock %}
 {% block scripts %}
   {{ block.super }}
-  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=13"></script>
+  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=14"></script>
 {% endblock %}

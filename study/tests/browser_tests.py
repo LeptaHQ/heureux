@@ -704,7 +704,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
 
     @override_settings(
-        EE1_EVALUATION_PROVIDER="cloudflare", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="fixture-groq-key",
+        EE1_EVALUATION_PROVIDER="groq", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="fixture-groq-key",
         CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID="0123456789abcdef" * 2,
     )
     def test_written_simulation_debrief_retries_and_separates_original_from_edits(self):
@@ -713,13 +713,15 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         setup = reverse("study:ee1_simulation")
         self.page.goto(f"{self.live_server_url}{setup}?sujet_id={sujet.pk}")
         self.page.get_by_role("button", name="Démarrer", exact=True).click()
+        invitation = "Je vous invite a dîner."
+        wish = "J’aimerais que vous veniez samedi."
         body = (
-            "  Je vous invite a dîner.\nJ’aimerais que vous veniez samedi.\n\n"
+            f"  {invitation}\n{wish}\n\n"
             "**Bonjour** " + " ".join(["Bonjour"] * 50) + "\n<Nora>\n  "
         )
         self.page.locator("#writing-body").fill(body)
         submit = self.page.get_by_role("button", name="Remettre la réponse")
-        expect(submit).to_have_accessible_description("Envoi à Workers : réponse, consigne.")
+        expect(submit).to_have_accessible_description("Envoi à Groq (Qwen 3.8 27B) : réponse, consigne.")
         self.assertLessEqual(submit.evaluate("button => parseFloat(getComputedStyle(button).paddingInlineStart)"), 12)
         attempt_id = urlsplit(self.page.url).path.rstrip("/").rsplit("/", 1)[-1]
         evaluation_url = reverse("study:ee1_simulation_evaluate", args=[attempt_id])
@@ -727,27 +729,38 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             "score": 12, "cefr": "B2", "nclc": "NCLC 8", "nclcRange": "NCLC 7 à NCLC 8",
             "scoreRange": {"min": 10, "max": 13}, "confidence": "",
             "verdict": "Le message est clair.", "uncertainty": "",
-            "gradeRationale": "Le but est formulé dès le début.", "gradeEvidence": [],
-            "taskCompliance": [{"item": "Invitation", "status": "Met", "evidence": "You invite your friends to dinner.", "quote": "Je vous invite a dîner."}],
-            "strengths": [],
+            "gradeRationale": "Le but est formulé dès le début.", "gradeEvidence": [invitation, wish],
+            "taskCompliance": [
+                {"item": "Invitation", "status": "Met", "evidence": "You invite your friends to dinner.", "quote": invitation},
+                {"item": "Heure", "status": "Missing", "evidence": "There is no time for dinner.", "quote": ""},
+            ],
+            "strengths": [{"quote": invitation, "text": "You state your invitation directly."}],
             "verbFeedback": [{
-                "quote": "J’aimerais que vous veniez samedi.",
+                "quote": wish,
                 "text": "The subjunctive « veniez » fits the wish introduced by « j’aimerais que ».",
             }],
             "criteria": [
-                {"key": "linguistic", "rating": "Developing", "evidence": "Il manque un accent.", "quotes": ["a dîner"]},
-                {"key": "sociolinguistic", "rating": "Excellent", "evidence": "Le ton est adapté.", "quotes": ["Je vous invite"]},
+                {"key": "linguistic", "rating": "Adequate", "evidence": "Il manque un accent.", "quotes": [invitation, wish]},
+                {"key": "pragmatic", "rating": "Strong", "evidence": "Le but est clair.", "quotes": [invitation]},
+                {"key": "sociolinguistic", "rating": "Strong", "evidence": "Le ton est adapté.", "quotes": [wish]},
             ],
             "corrections": [{"before": "a dîner", "after": "à dîner", "type": "Orthographe", "why": "Il faut un accent."}],
-            "relevance": [{"quote": "Je vous invite a dîner.", "decision": "Keep", "why": "The invitation is the purpose of the message."}],
-            "upgrades": [], "priorities": ["Write the preposition « à » before « dîner »."],
+            "relevance": [
+                {"quote": invitation, "decision": "Keep", "why": "The invitation is the purpose of the message."},
+                {"quote": "Bonjour Bonjour", "decision": "Cut", "why": "One greeting is enough."},
+            ],
+            "upgrades": ["Try « Ça vous dit ? » if you want to ask for a reply."],
+            "priorities": ["Write the preposition « à » before « dîner »."],
             "improvedResponse": "Bonjour !\n\nEst-ce que cela te dirait de venir dîner ?",
             "improvedWordCount": 11,
         }
-        workers_report = {
+        groq_report = {
             **{key: value for key, value in report.items() if key != "verbFeedback"},
             "score": 11, "nclc": "NCLC 7", "priorities": [],
+            "gradeRationale": "", "gradeEvidence": [invitation], "strengths": [],
+            "criteria": [{**entry, "quotes": [invitation]} for entry in report["criteria"]],
             "corrections": [{**report["corrections"][0], "why": "Accent grave sur la préposition."}],
+            "relevance": report["relevance"][:1], "upgrades": [],
             "improvedResponse": "", "improvedWordCount": 0,
         }
         replies = iter([
@@ -762,8 +775,8 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 parse_qs(urlsplit(route.request.url).query).get("provider", [None])[0]
                 if route.request.method == "GET" else route.request.post_data_json["provider"]
             )
-            if provider == "cloudflare":
-                route.fulfill(json={"status": "ready", "report": workers_report})
+            if provider == "groq":
+                route.fulfill(json={"status": "ready", "report": groq_report})
                 return
             status, payload = next(replies)
             route.fulfill(status=status, json=payload)
@@ -773,7 +786,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             submit.click()
             expect(self.page.locator("#lv-level")).to_have_text("11/20 · NCLC 7 · B2")
         worker.assert_called_once()
-        self.assertEqual(worker.call_args.args[-1], "cloudflare")
+        self.assertEqual(worker.call_args.args[-1], "groq")
         proposal = self.page.locator("#lv-proposal")
         original = self.page.locator("#lv-transcript .lv-written-response")
         self.assertEqual(original.text_content(), body)
@@ -829,21 +842,42 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
         expect(self.page.locator("[data-writing-score]")).not_to_contain_text("confiance")
         expect(self.page.get_by_role("heading", name="Au prochain essai")).to_be_visible()
-        expect(self.page.get_by_role("heading", name="Temps et modes")).to_be_visible()
-        expect(self.page.locator("[data-writing-verbs] q")).to_have_text("J’aimerais que vous veniez samedi.")
-        expect(self.page.locator("[data-writing-verbs]")).to_contain_text("The subjunctive « veniez »")
-        expect(self.page.locator("[data-writing-compliance] li")).to_contain_text("Invitation · Satisfait")
+        notes = self.page.locator("[data-writing-strengths]")
+        expect(notes.locator("li")).to_contain_text(["You state your invitation directly.", "The subjunctive « veniez »"])
+        expect(self.page.get_by_role("heading", name="Temps et modes")).to_have_count(0)
+        compliance = self.page.locator("[data-writing-compliance]")
+        expect(compliance.locator("li")).to_contain_text(["Invitation · Satisfait", "Heure · Manquant"])
+        expect(compliance.get_by_role("link")).to_have_count(1)
         criteria = self.page.locator("[data-writing-criteria]")
-        for label, mark in (("Linguistique", "2/5"), ("Sociolinguistique", "5/5")):
+        for label, rating in (("Linguistique", "Adequate"), ("Pragmatique", "Strong"), ("Sociolinguistique", "Strong")):
             row = criteria.get_by_role("row").filter(
                 has=self.page.get_by_role("rowheader", name=label, exact=True),
             )
-            expect(row.get_by_role("cell", name=mark, exact=True)).to_be_visible()
+            expect(row.get_by_role("cell", name=rating, exact=True)).to_be_visible()
+        assessment = self.page.locator("#lv-assessment")
+        expect(assessment).not_to_contain_text("/5")
+        evidence = assessment.locator("[data-writing-evidence]")
+        excerpts = evidence.locator("q")
+        expect(assessment.locator("q")).to_have_count(2)
+        expect(excerpts).to_have_text([invitation, wish])
+        expect(excerpts.first).to_be_hidden()
+        first_ref = compliance.get_by_role("link").get_attribute("href")
+        for section in (criteria.get_by_role("row").first, notes, assessment.locator("[data-writing-grade-rationale]")):
+            expect(section.get_by_role("link", name="Voir le passage cité 1")).to_have_attribute("href", first_ref)
+        wish_ref = notes.get_by_role("link", name="Voir le passage cité 2")
+        wish_target = wish_ref.get_attribute("href")
+        wish_ref.press("Enter")
+        expect(evidence).to_have_attribute("open", "")
+        expect(self.page.locator(f"{wish_target}:target")).to_have_text(wish)
+        expect(excerpts.last).to_be_in_viewport()
         corrections = proposal.locator("[data-writing-corrections]")
         expect(corrections.locator("del")).to_have_text("a dîner")
         expect(corrections.locator("ins")).to_have_text("à dîner")
         expect(corrections.locator("strong")).to_have_text("Orthographe")
-        expect(self.page.locator("[data-writing-relevance] li")).to_contain_text("Garder")
+        suggestions = proposal.locator("[data-writing-suggestions]")
+        expect(suggestions.locator("li")).to_contain_text(["One greeting is enough.", "Try « Ça vous dit ? »"])
+        expect(suggestions).not_to_contain_text("Garder")
+        expect(self.page.get_by_text("À vérifier", exact=True)).to_have_count(0)
         expect(proposal.locator("#lv-proposal-lines p")).to_have_text(report["improvedResponse"].split("\n\n"))
         for width in (320, 390, 1280):
             self.page.set_viewport_size({"width": width, "height": 900})
@@ -867,11 +901,15 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(retry.locator('[data-icon="reset"]')).to_be_visible()
         self.page.locator("#lv-assessment > summary").click()
         expect(trigger).to_be_visible()
-        select_model("Workers")
+        select_model("Groq")
         expect(self.page.locator("#lv-level")).to_have_text("11/20 · NCLC 7 · B2")
         expect(self.page.locator("#lv-assessment")).to_have_attribute("open", "")
         expect(corrections).to_contain_text("Accent grave sur la préposition.")
-        expect(self.page.get_by_role("heading", name="Temps et modes")).to_have_count(0)
+        expect(notes).to_be_hidden()
+        expect(suggestions).to_be_hidden()
+        expect(evidence).not_to_have_attribute("open", "")
+        expect(excerpts).to_have_text([invitation])
+        expect(self.page.locator(wish_target)).to_have_count(0)
         expect(self.page.get_by_role("heading", name="Au prochain essai")).to_have_count(0)
         self.assertEqual(original.text_content(), body)
         expect(proposal.locator("#lv-proposal-rewrite")).to_be_hidden()

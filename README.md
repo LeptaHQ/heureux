@@ -99,9 +99,11 @@ Heureux calls Workers AI directly; see [Cloudflare’s data-use terms](https://d
 Gemma uses the [Workers AI daily free allocation](https://developers.cloudflare.com/workers-ai/platform/pricing/).
 The model applies to new Workers reports; saved Workers bilans stay as they are.
 Submitting a written answer starts its bilan with the provider named in the
-editor. EE1 defaults to Workers when configured, otherwise to Groq if
-available. `EE1_EVALUATION_PROVIDER` can override the EE1 preference; EE2 and
-EE3 still use Groq. If there is no automatic grader, submission saves the
+editor. New Groq writing bilans and their proofreading pass use
+[Qwen 3.8 27B](https://console.groq.com/docs/model/qwen/qwen3.8-27b); saved bilans
+are not regraded. EE1 defaults to Groq when configured, otherwise to Workers
+if available. `EE1_EVALUATION_PROVIDER` can override the EE1 preference; EE2
+and EE3 use Groq only. If there is no automatic grader, submission saves the
 answer without sending it. Saving a draft or abandoning a session never
 sends it. The timer counts past zero and leaves the draft open; changing the
 timer cannot overwrite a newer draft saved in another tab.

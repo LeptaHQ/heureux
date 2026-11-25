@@ -45,14 +45,6 @@
     node.lang = "fr";
     return node;
   };
-  const citedNotes = (name, entries) => {
-    find(`${name}-section`).hidden = !entries.length;
-    list(find(name), entries, (entry) => {
-      const li = document.createElement("li");
-      li.append(quote(entry.quote), ` — ${entry.text}`);
-      return li;
-    });
-  };
   const correction = (entry) => {
     const li = document.createElement("li");
     const change = document.createElement("div");
@@ -69,7 +61,24 @@
     return li;
   };
 
-  const showReport = (report) => {
+  const showReport = (report, provider) => {
+    const passages = new Map();
+    const evidence = find("evidence");
+    const passageId = (number) => `lv-writing-passage-${provider}-${number}`;
+    const cite = (target, excerpts) => {
+      for (const excerpt of new Set(excerpts)) {
+        if (!excerpt) continue;
+        if (!passages.has(excerpt)) passages.set(excerpt, passages.size + 1);
+        if (!target) continue;
+        const number = passages.get(excerpt);
+        const link = text(document.createElement("a"), `[${number}]`);
+        link.className = "lv-citation";
+        link.href = `#${passageId(number)}`;
+        link.setAttribute("aria-label", `Voir le passage cité ${number}`);
+        link.onclick = () => { evidence.open = true; };
+        target.append(" ", link);
+      }
+    };
     text(find("verdict"), report.verdict).hidden = !report.verdict;
     const confidenceLabels = { High: "élevée", Medium: "moyenne", Low: "faible" };
     const confidence = confidenceLabels[report.confidence];
@@ -80,22 +89,11 @@
     level.textContent = `${report.score}/20 · ${report.nclc} · ${report.cefr}`;
     level.classList.add("lv-level--scored");
     text(find("uncertainty"), report.uncertainty).hidden = !report.uncertainty;
-    text(find("grade-rationale"), report.gradeRationale).hidden = !report.gradeRationale;
-    const gradeEvidence = find("grade-evidence");
-    gradeEvidence.replaceChildren();
-    if (report.gradeEvidence?.length) {
-      gradeEvidence.append("Preuves : ", report.gradeEvidence.map(quote).reduce((parent, node, index) => {
-        if (index) parent.append(", ");
-        parent.append(node);
-        return parent;
-      }, document.createDocumentFragment()));
-    }
-
     const statuses = { Met: "Satisfait", "Partly met": "Partiel", Missing: "Manquant" };
     list(find("compliance"), report.taskCompliance, (entry) => {
       const li = document.createElement("li");
       li.append(text(document.createElement("strong"), entry.item), ` · ${statuses[entry.status] || entry.status} — ${entry.evidence}`);
-      if (entry.quote) li.append(" ", quote(entry.quote));
+      cite(li, [entry.quote]);
       return li;
     });
 
@@ -104,31 +102,38 @@
       pragmatic: "Pragmatique",
       sociolinguistic: "Sociolinguistique",
     };
-    const ratings = ["Limited", "Developing", "Adequate", "Strong", "Excellent"];
     list(find("criteria"), report.criteria, (entry) => {
       const row = document.createElement("tr");
       const heading = document.createElement("th");
       heading.scope = "row";
       heading.textContent = labels[entry.key] || entry.key;
       row.append(heading);
-      const points = ratings.indexOf(entry.rating) + 1;
-      const mark = row.insertCell();
-      mark.textContent = points ? `${points}/5` : "Non évalué";
-      if (points) {
-        mark.className = "lv-criterion-mark";
-        mark.style.setProperty("--lv-mark", `${points * 20}%`);
-      }
-      const evidence = row.insertCell();
-      evidence.textContent = entry.evidence;
-      if (entry.quotes?.length) evidence.append(" ", entry.quotes.map(quote).reduce((parent, node) => {
-        parent.append(node, " ");
-        return parent;
-      }, document.createDocumentFragment()));
+      const rating = text(row.insertCell(), entry.rating || "Non évalué");
+      if (entry.rating) rating.lang = "en";
+      cite(text(row.insertCell(), entry.evidence), entry.quotes);
       return row;
     });
 
-    citedNotes("verbs", report.verbFeedback || []);
-    citedNotes("strengths", report.strengths);
+    const rationale = text(find("grade-rationale"), report.gradeRationale);
+    rationale.hidden = !report.gradeRationale;
+    cite(rationale.hidden ? null : rationale, report.gradeEvidence);
+
+    const notes = [...report.strengths, ...(report.verbFeedback || [])];
+    find("strengths-section").hidden = !notes.length;
+    list(find("strengths"), notes, (entry) => {
+      const li = item(entry.text);
+      cite(li, [entry.quote]);
+      return li;
+    });
+
+    list(find("passages"), [...passages], ([excerpt, number]) => {
+      const li = document.createElement("li");
+      li.id = passageId(number);
+      li.append(quote(excerpt));
+      return li;
+    });
+    evidence.hidden = !passages.size;
+    evidence.open = false;
 
     list(find("corrections"), report.corrections, correction);
     const correctionsNote = find("corrections-note");
@@ -137,18 +142,18 @@
       ? "Certaines corrections n’ont pas pu être vérifiées."
       : "Aucune erreur objective claire relevée.";
 
-    const relevance = find("relevance-section");
-    relevance.hidden = !report.relevance.length;
-    const decisions = { Keep: "Garder", Cut: "Retirer", Simplify: "Simplifier" };
-    list(find("relevance"), report.relevance, (entry) => {
-      const li = document.createElement("li");
-      li.append(text(document.createElement("strong"), decisions[entry.decision] || entry.decision), " · ",
-        entry.quote ? quote(entry.quote) : "La phrase", ` — ${entry.why}`);
-      return li;
-    });
-    const upgrades = find("upgrades-section");
-    upgrades.hidden = !report.upgrades.length;
-    list(find("upgrades"), report.upgrades, item);
+    const decisions = { Cut: "Retirer", Simplify: "Simplifier" };
+    const suggestions = [
+      ...report.relevance.filter((entry) => entry.decision !== "Keep").map((entry) => {
+        const li = document.createElement("li");
+        li.append(text(document.createElement("strong"), decisions[entry.decision] || entry.decision), " · ",
+          entry.quote ? quote(entry.quote) : "La phrase", ` — ${entry.why}`);
+        return li;
+      }),
+      ...report.upgrades.map(item),
+    ];
+    find("suggestions-section").hidden = !suggestions.length;
+    find("suggestions").replaceChildren(...suggestions);
 
     const paragraphs = (value) => value.split(/\r?\n[ \t]*\r?\n/).map((part) => text(document.createElement("p"), part));
     const proposal = report.improvedParts?.length
@@ -178,7 +183,7 @@
     clearTimeout(poll);
     if (payload.status !== "processing") pollDelay = 1500;
     if (payload.status === "ready" && payload.report) {
-      showReport(payload.report);
+      showReport(payload.report, provider);
       picker?.select(provider);
       if (button && !picker) {
         button.closest(".lv-assessment__action").hidden = true;

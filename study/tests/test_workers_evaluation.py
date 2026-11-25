@@ -73,7 +73,10 @@ class WorkersEvaluationTests(SimpleTestCase):
 
     def _score_writing(self, report, *, passages=None):
         response = "\n\n".join(self.learner_passages if passages is None else passages)
-        self._responses([(200, self._complete(report), None)])
+        self._responses([
+            (200, self._complete(report), None),
+            (200, self._complete({"improvedResponse": response}), None),
+        ])
         return writing_evaluation.score(
             task_number=1, subject="Invitez une amie chez vous pour un repas.",
             response=response, word_count=len(response.split()), word_min=60, word_max=120,
@@ -106,7 +109,7 @@ class WorkersEvaluationTests(SimpleTestCase):
                     passages += ("Tu peux également venir avec ton frère si cela vous convient.",)
                     report["criteria"]["sociolinguistic"]["evidenceIds"].append("E7")
                 with (
-                    patch.object(evaluation.time, "monotonic", side_effect=[0, 0, 0, 86]),
+                    patch.object(evaluation.time, "monotonic", side_effect=[0, 0, 0, 86, 86, 86, 86, 87]),
                     self.assertLogs(evaluation.logger, "WARNING") as logs,
                 ):
                     result = self._score_writing(report, passages=passages)
@@ -115,10 +118,13 @@ class WorkersEvaluationTests(SimpleTestCase):
                 self.assertEqual(result["gradeEvidence"], list(self.learner_passages))
                 self.assertFalse(result["omitted"])
                 self.assertIn("finish stop after 86 s", "\n".join(logs.output))
-                payload = json.loads(self.conn.request.call_args.kwargs["body"])
+                grade, review = self.conn.request.call_args_list
+                payload = json.loads(grade.kwargs["body"])
                 self.assertEqual(len(json.loads(payload["messages"][1]["content"])["passages"]), len(passages))
                 self.assertNotIn("chat_template_kwargs", payload)
-                self.conn.request.assert_called_once()
+                packet = json.loads(json.loads(review.kwargs["body"])["messages"][1]["content"])
+                self.assertEqual(packet["proposal"], "")
+                self.assertEqual(result["improvedResponse"], packet["original"])
                 self.backoff.assert_not_called()
 
     def test_empty_grade_summary_cannot_replace_unsupported_criteria(self):

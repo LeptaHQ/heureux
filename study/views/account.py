@@ -72,6 +72,7 @@ from .review import (
     _save_review_session,
 )
 from study.learning.practice import lock_course_user, public_snapshot
+from study.simulation.oral_jobs import lock_simulations
 
 ACCOUNT_EXPORT_VERSION = 13
 
@@ -367,7 +368,9 @@ def reset_progress(request):
         CourseAttempt.objects.filter(user=request.user).delete()
         CourseProduction.objects.filter(user=request.user).delete()
         WritingSimulationAttempt.objects.filter(user=request.user).delete()
-        LiveSimulation.objects.filter(user=request.user).delete()
+        simulations = LiveSimulation.objects.filter(user=request.user)
+        lock_simulations(simulations)
+        simulations.delete()
         EO2PracticeAttempt.objects.filter(user=request.user).delete()
         EO2TopicStatus.objects.filter(user=request.user).update(done=False)
         MemoryQuestionProgress.objects.filter(user=request.user).delete()
@@ -844,6 +847,7 @@ def delete_account(request):
     user = request.user
     with transaction.atomic():
         lock_course_user(user)
+        lock_simulations(LiveSimulation.objects.filter(user=user))
         user.delete()
     auth_logout(request)
     return redirect(reverse("study:login") + "?deleted=1")

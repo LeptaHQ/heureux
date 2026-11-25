@@ -7,7 +7,7 @@
   const by = id => document.getElementById("lv-" + id);
   const button = by("assess");
   if (!button) return;
-  const late = "Le bilan n’est pas arrivé à temps. Vous pouvez réessayer dans cet onglet.";
+  const late = "Le bilan n’est pas arrivé à temps. Vous pouvez réessayer depuis cette séance.";
   const picker = window.HeureuxAssessmentPicker(button, (provider, label) => assess(provider, label));
   const reports = new Map();
   let rows, onResult, pending, grant, snapshotGrant, simulation, elapsed, attemptId, displayedProvider;
@@ -110,7 +110,7 @@
   }
 
   // Reopen the stored report without sending the transcript again.
-  function bind(transcript, paint, {elapsed: spoken = 0, id = null, report = null} = {}) {
+  function bind(transcript, paint, {elapsed: spoken = 0, id = null, report = null, pendingProvider = null} = {}) {
     pending?.abort();
     pending = null;
     rows = transcript;
@@ -145,10 +145,12 @@
       status(canAssess ? "Pas encore de bilan : touchez ✨ pour le demander." :
         "Bilan indisponible. Votre transcription reste disponible.");
     } else assess(provider, root.dataset.autoEvaluationLabel, true);
+    if (pendingProvider) assess(pendingProvider, "", false, true);
   }
   const post = (call, body) => ({
     method: "POST", credentials: "same-origin", mode: "same-origin", cache: "no-store", redirect: "error", signal: call.signal,
-    headers: {"Content-Type": "application/json", "X-CSRFToken": root.querySelector('[name="csrfmiddlewaretoken"]').value},
+    headers: {"Content-Type": "application/json",
+      "X-CSRFToken": window.HeureuxCsrfToken?.() || root.querySelector('[name="csrfmiddlewaretoken"]').value},
     body: JSON.stringify(body)
   });
   // Saving is not aborted by « Nouvel essai », so a quickly dismissed exchange still reaches the account.
@@ -163,10 +165,10 @@
       return null;
     }
   }
-  async function assess(provider, label, automatic = false) {
+  async function assess(provider, label, automatic = false, resume = false) {
     if (!rows || pending) return;
     const existing = reports.get(provider);
-    if (existing && existing.scoreStatus !== "incomplete") {
+    if (!resume && existing && existing.scoreStatus !== "incomplete") {
       status(show(existing, provider));
       return;
     }
@@ -202,36 +204,42 @@
           picker ? "Choisissez un modèle pour demander le bilan." : "Touchez ✨ pour demander le bilan.");
         return;
       }
-      if (!automatic && simulation && provider !== displayedProvider) {
-        const url = new URL(root.dataset.evaluationUrl, location.href);
-        url.searchParams.set("simulation", simulation);
-        url.searchParams.set("provider", provider);
-        const cached = await fetch(url, {credentials: "same-origin", cache: "no-store", signal: call.signal});
+      const url = new URL(root.dataset.evaluationUrl, location.href);
+      url.searchParams.set("simulation", simulation);
+      url.searchParams.set("provider", provider);
+      const readStatus = () => fetch(url, {credentials: "same-origin", cache: "no-store", signal: call.signal});
+      let response;
+      if (resume || (!automatic && provider !== displayedProvider)) {
+        const cached = await readStatus();
         if (pending !== call) return;
-        if (cached.status === 202) {
-          done("Ce bilan est déjà en cours. Consultez-le de nouveau dans un instant.");
-          return;
+        if (cached.ok || resume) response = cached;
+        else if (cached.status !== 404) {
+          if ((await cached.json()).status !== "unavailable") throw new Error();
+          if (pending !== call) return;
         }
-        if (cached.ok) {
-          const report = await cached.json();
-          if (pending === call) done(show(report, provider));
-          return;
-        }
-        if (cached.status !== 404) throw new Error();
       }
-      const useGrant = provider === autoProvider && grant;
-      const options = post(call, {consent: true, rows: rows.map(({speaker, text}) => ({speaker, text})),
-        ...(provider !== "groq" && {provider}), ...(simulation && {simulation}),
-        ...(useGrant && {reviewGrant: grant})});
-      const response = await (useGrant ? fetch(root.dataset.evaluationUrl, options) :
-        window.HeureuxAudioRequest(root.dataset.evaluationUrl, options, {
-          title: "Demander le bilan", action: "Demander le bilan",
-          description: `Transcription envoyée à ${label} pour le bilan.`,
-          confirmBeforeSend: true,
-        }));
+      const useGrant = !response && provider === autoProvider && grant;
+      if (!response) {
+        const options = post(call, {consent: true, simulation, rows: rows.map(({speaker, text}) => ({speaker, text})),
+          ...(provider !== "groq" && {provider}), ...(useGrant && {reviewGrant: grant})});
+        response = await (useGrant ? fetch(root.dataset.evaluationUrl, options) :
+          window.HeureuxAudioRequest(root.dataset.evaluationUrl, options, {
+            title: "Demander le bilan", action: "Demander le bilan",
+            description: `Transcription envoyée à ${label} pour le bilan.`,
+            confirmBeforeSend: true,
+          }));
+      }
+      let delay = 1000;
+      const pollUntil = Date.now() + 300000;
+      while (pending === call && response.status === 202 && Date.now() < pollUntil) {
+        await new Promise(resolve => setTimeout(resolve, delay));
+        if (pending !== call) return;
+        response = await readStatus();
+        delay = Math.min(8000, delay * 2);
+      }
       if (pending !== call) return;
       if (response.status === 202) {
-        done("Ce bilan est déjà en cours. Consultez-le de nouveau dans un instant.");
+        status("Bilan toujours en préparation. Vous pouvez revenir à cette séance plus tard.");
         return;
       }
       if (!response.ok) {
@@ -250,7 +258,6 @@
       }
       const report = await response.json();
       if (pending !== call) return;
-      // A slow report arrives after keep-alive spaces, so its failure is in the body, not the HTTP status.
       if (typeof report.error === "string") {
         done(report.error);
         return;
@@ -258,7 +265,7 @@
       done(show(report, provider));
     } catch (error) {
       if (pending === call) done(error.name === "AbortError" ? "Bilan annulé. Aucune note attribuée." :
-        "Impossible de recevoir le bilan. Gardez cet onglet ouvert : votre transcription reste disponible.");
+        "Impossible de recevoir le bilan. Votre transcription reste disponible.");
     } finally {
       if (pending === call) {
         pending = null;

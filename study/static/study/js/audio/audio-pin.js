@@ -86,6 +86,7 @@
     }
     var original = JSON.parse(options.body);
     function askThenSend(message) {
+      if (prompt && prompt.onPrompt && !(options.signal && options.signal.aborted)) prompt.onPrompt();
       return requestPin(message, options.signal, prompt).then(function (value) {
         if (value === null || (options.signal && options.signal.aborted)) throw cancelled();
         return send(value);

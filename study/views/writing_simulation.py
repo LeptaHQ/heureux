@@ -579,7 +579,7 @@ def update_timer(request, spec, attempt_id):
     )
     now = timezone.now()
     if attempt.status != WritingSimulationAttemptStatus.ACTIVE:
-        return redirect(_attempt_url(request, spec, attempt.pk))
+        return _finished_attempt_response(request, attempt, spec, draft)
     fields = list(draft)
     if draft:
         revision, conflict = _apply_draft(attempt, draft, submitted_revision)
@@ -597,6 +597,20 @@ def _render_draft_conflict(request, attempt, spec, revision):
     return render(request, "study/simulation/writing_simulation_attempt.html", _attempt_context(
         request, attempt, spec, error=_DRAFT_CONFLICT, revision=revision, draft_conflict=True,
     ), status=409)
+
+
+def _finished_attempt_response(request, attempt, spec, draft):
+    if not any(getattr(attempt, field) != value for field, value in draft.items()):
+        return redirect(_attempt_url(request, spec, attempt.pk))
+    if sum(map(len, draft.values())) > MAX_BODY_LENGTH:
+        return HttpResponseBadRequest("Votre réponse est trop longue pour être enregistrée.")
+    context = _result_context(request, attempt, spec)
+    if context["session_saved"]:
+        context.update(session_saved=False, session_notice="Une réponse est déjà enregistrée pour cette séance.")
+    context["unsaved_parts"] = [
+        {**part, "text": draft[part["field"]]} for part in context["response_parts"] if part["field"] in draft
+    ]
+    return render(request, "study/simulation/writing_simulation_result.html", context, status=409)
 
 
 def _result_context(request, attempt, spec):
@@ -619,8 +633,6 @@ def _result_context(request, attempt, spec):
     )
     submitted = attempt.status == WritingSimulationAttemptStatus.SUBMITTED
     configured = _writing_providers(spec)
-    if writing_evaluation.provider_for(spec.number) != "gemini":
-        configured.discard("gemini")
     can_assess = submitted and _has_response(attempt)
     can_load_evaluation = bool(configured) or attempt.evaluation_status in (
         WritingSimulationEvaluationStatus.PROCESSING, WritingSimulationEvaluationStatus.READY,
@@ -725,7 +737,7 @@ def attempt(request, spec, attempt_id):
             pk=attempt_id,
         )
         if attempt.status != WritingSimulationAttemptStatus.ACTIVE:
-            return redirect(_attempt_url(request, spec, attempt.pk))
+            return _finished_attempt_response(request, attempt, spec, draft)
         # Older timers sent no revision. Accept their drafts only if they cannot overwrite a saved one.
         if action == "expire" and not submitted_revision and not (attempt.body or attempt.position_body):
             submitted_revision = _draft_revision(attempt)
@@ -817,7 +829,11 @@ def _ee1_evaluation_options(attempt):
 
 def _writing_providers(spec):
     configured = available_providers()
-    return configured if spec.number == 1 else configured & {"groq"}
+    if spec.number != 1:
+        return configured & {"groq"}
+    if writing_evaluation.provider_for(1) != "gemini":
+        configured.discard("gemini")
+    return configured
 
 
 def _auto_evaluation_provider(spec, *, configured=None):
@@ -827,7 +843,7 @@ def _auto_evaluation_provider(spec, *, configured=None):
     return next((provider for provider in (preferred, "groq", "cloudflare") if provider in configured), "")
 
 
-def _evaluation_payload(attempt, provider=None):
+def _evaluation_payload(attempt, spec, provider=None):
     status = attempt.evaluation_status
     report = attempt.evaluation if status == WritingSimulationEvaluationStatus.READY else None
     if provider:
@@ -841,6 +857,19 @@ def _evaluation_payload(attempt, provider=None):
         and attempt.evaluation_started_at
         and timezone.now() - attempt.evaluation_started_at >= EVALUATION_STALE_AFTER
     )
+    if report and report.get("corrections") and not (report.get("improvedResponse") or report.get("improvedParts")):
+        fields = {"body", "position_body"} if spec.number == 3 else {"body"}
+        deferred = fields & attempt.get_deferred_fields()
+        if deferred:
+            try:
+                attempt.refresh_from_db(fields=deferred)
+            except WritingSimulationAttempt.DoesNotExist as exc:
+                raise Http404 from exc
+        proposal = writing_evaluation.proposal_from_corrections(
+            report["corrections"], attempt.body,
+            position=attempt.position_body if spec.number == 3 else None,
+        )
+        report = {**report, **proposal}
     return {
         "status": (
             WritingSimulationEvaluationStatus.UNAVAILABLE
@@ -968,7 +997,7 @@ def evaluate(request, spec, attempt_id):
             provider = request.GET.get("provider", default)
             if provider not in providers:
                 return JsonResponse({"error": "Modèle d’évaluation invalide."}, status=400)
-        return evaluation_json(attempt, provider=provider)
+        return evaluation_json(attempt, spec, provider=provider)
 
     if request.content_type != "application/json":
         return HttpResponseBadRequest("Un consentement explicite est requis.")
@@ -1002,7 +1031,7 @@ def evaluate(request, spec, attempt_id):
             else attempt.evaluation_status == WritingSimulationEvaluationStatus.READY
         )
         if cached:
-            return evaluation_json(attempt, provider=provider)
+            return evaluation_json(attempt, spec, provider=provider)
         if (provider or "groq") not in _writing_providers(spec):
             return JsonResponse(
                 {"error": "Ce modèle n’est pas disponible pour une nouvelle évaluation."},
@@ -1015,9 +1044,9 @@ def evaluate(request, spec, attempt_id):
         ):
             if provider and provider != attempt.evaluation.get("provider"):
                 return JsonResponse({"error": "Un autre bilan est déjà en cours."}, status=409)
-            return evaluation_json(attempt, status=202, provider=provider)
+            return evaluation_json(attempt, spec, status=202, provider=provider)
         _queue_evaluation(attempt, spec, provider, now)
-        return evaluation_json(attempt, status=202, provider=provider)
+        return evaluation_json(attempt, spec, status=202, provider=provider)
 
 
 def _queue_evaluation(attempt, spec, provider, now, *, update_fields=()):
@@ -1039,5 +1068,5 @@ def _queue_evaluation(attempt, spec, provider, now, *, update_fields=()):
     )
 
 
-def evaluation_json(attempt, *, status=200, provider=None):
-    return JsonResponse(_evaluation_payload(attempt, provider), status=status)
+def evaluation_json(attempt, spec, *, status=200, provider=None):
+    return JsonResponse(_evaluation_payload(attempt, spec, provider), status=status)

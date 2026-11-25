@@ -171,7 +171,7 @@
     window.HeureuxEO2Evaluation?.bind(rows, annotations => {
       const marked = feedback(rows, annotations);
       if (annotations.length && marked) by("transcript").open = true;
-    }, {elapsed, id: saved?.id, report: saved?.report});
+    }, {elapsed, id: saved?.id, report: saved?.report, pendingProvider: saved?.pendingProvider});
     return true;
   }
   window.HeureuxEO2LiveReview = {render, clear};

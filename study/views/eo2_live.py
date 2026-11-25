@@ -1,17 +1,13 @@
 import json
-import logging
-import threading
-import time
 import uuid
 from dataclasses import dataclass
-from datetime import datetime, timedelta
 from itertools import chain
 
 from django.core import signing
-from django.db import DatabaseError, transaction
+from django.db import transaction
 from django.db.models import Count, Max, Q
 from django.db.models.fields.json import KT
-from django.http import Http404, JsonResponse, StreamingHttpResponse
+from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect
 from django.template.response import TemplateResponse
 from django.urls import reverse
@@ -25,10 +21,11 @@ from django.views.decorators.vary import vary_on_headers
 from study.audio.pins import AudioPinError
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
-from study.simulation import live_conversation, oral_evaluation
-from study.simulation.evaluation import DEADLINE_SECONDS, PROVIDER_LABELS, EvaluationError, available_providers
-from study.models import EO2PracticeAttempt, LiveSimulation, Prompt
+from study.models import EO2PracticeAttempt, LiveSimulation, OralEvaluationJob, Prompt
 from study.navigation.routing import subject_selection_url
+from study.simulation import live_conversation, oral_evaluation, oral_jobs
+from study.simulation.evaluation import PROVIDER_LABELS, EvaluationError, available_providers
+from study.simulation.oral_jobs import EO3_KEY_PREFIX
 from .eo2_practice import practice_topics, topic_prompts, write_topic_status
 from .helpers import _route_task, tache_two_publication
 from .simulation import (
@@ -46,21 +43,10 @@ DEFAULT_CONSIGNE = (
     "Demandez-moi des renseignements pour choisir une formule qui vous convient."
 )
 OPINION_CONSIGNE = "Est-il préférable de découvrir une ville à pied plutôt qu’en voiture ? Pourquoi ?"
-EO3_KEY_PREFIX = "eo3:"
 ORAL_ALTERNATE_PROVIDERS = ("gemini", "cloudflare")
 ORAL_AUTOMATIC_PROVIDERS = ("cloudflare", "groq")
-# A quick report keeps its real HTTP status; a slower one streams keep-alive spaces first.
-EVALUATION_GRACE_SECONDS = 20
-EVALUATION_KEEPALIVE_SECONDS = 10
-# The final keep-alive tick must still end before Gunicorn's 210 s worker timeout.
-EVALUATION_DEADLINE_SECONDS = DEADLINE_SECONDS + 10
-_EVALUATION_FAILED = {"error": "Le bilan a échoué. Votre transcription reste disponible."}
-_EVALUATION_LATE = {"error": "Le bilan n’est pas arrivé à temps. Votre transcription reste disponible."}
 # Each learner keeps their most recent exchanges, across subjects; older ones are deleted on save.
 SAVED_SIMULATIONS = 30
-
-logger = logging.getLogger(__name__)
-
 
 @dataclass(frozen=True)
 class LiveSubject:
@@ -207,8 +193,12 @@ def oral_live(request, task_slug, **publication):
     except ValueError:
         pk = None
     reopened = None
+    pending_provider = None
     if pk:
         selected = simulations.filter(pk=pk)
+        pending_provider = oral_jobs.pending_jobs().filter(simulation__in=selected).order_by("queued_at").values_list(
+            "provider", flat=True,
+        ).first()
         reopened = selected.values(
             "id", "rows", "elapsed_ms", "report", "snapshot",
             **{f"has_{provider}": Q(provider_reports__has_key=provider) for provider in ORAL_ALTERNATE_PROVIDERS},
@@ -292,6 +282,7 @@ def oral_live(request, task_slug, **publication):
         **history,
         "saved_simulation": reopened and {
             "id": reopened["id"], "rows": reopened["rows"], "elapsed": reopened["elapsed_ms"], "report": reopened["report"],
+            **({"pendingProvider": pending_provider} if pending_provider else {}),
         },
         "scenario_prompt": subject.prompt,
         "subject": subject,
@@ -312,8 +303,8 @@ def oral_live(request, task_slug, **publication):
 @sensitive_variables()
 def _session_request(request):
     # Only small authorization payloads, never learner content.
-    body = request.read(2049)
-    if len(body) > 2048:
+    body = request.read(16_385)
+    if len(body) > 16_384:
         return None
     try:
         pairs = json.loads(body, object_pairs_hook=tuple)
@@ -329,9 +320,9 @@ def _session_request(request):
         return None
     if data.get("purpose") == "exchange":
         grant = data.get("exchangeGrant")
-        if "pin" in data or not isinstance(grant, str) or not grant.isascii() or not 1 <= len(grant) <= 256:
+        if "pin" in data or not isinstance(grant, str) or not grant.isascii() or not 1 <= len(grant) <= 12_000:
             return None
-    elif "exchangeGrant" in data:
+    elif "exchangeGrant" in data or len(body) > 2048:
         return None
     if "pin" in data:
         if not isinstance(data["pin"], str):
@@ -341,6 +332,17 @@ def _session_request(request):
         except UnicodeEncodeError:
             return None
     return data
+
+
+def _dialogue_instruction(subject):
+    return (live_conversation.subject_instruction(subject.role, catalogue.tache_two_dialogues()[subject.key])
+            if subject.role else None)
+
+
+def _opinion_instruction(prompt):
+    return ("Vous écoutez une prise de position en français, en continu. Gardez le silence, "
+            "même pendant les pauses. Ne posez pas de questions et ne corrigez pas le candidat.\n"
+            "Question posée : " + prompt)
 
 
 @never_cache
@@ -355,28 +357,42 @@ def oral_live_token(request, task_slug, **publication):
     if data is None:
         return JsonResponse({"error": "Un consentement explicite est requis."}, status=400)
     task = _route_task("eo", task_slug, request=request)
-    instruction = None
+    key = _subject_key(task_slug, publication)
     purpose = data.get("purpose")
-    subject = _live_subject(task, publication)
-    key = subject.key
-    if purpose in ("attempt", "read_prompt"):
-        instruction = (
-            "Vous êtes le lecteur d’une consigne de français, pas l’interlocuteur. "
-            "À la demande de lecture, lisez uniquement le passage suivant en français, "
-            "mot pour mot, sans introduction, commentaire, réponse ni suggestion. Puis taisez-vous.\n"
-            + subject.prompt
-        )
-    elif task.slug == "tache-3":
-        instruction = ("Vous écoutez une prise de position en français, en continu. Gardez le silence, "
-                       "même pendant les pauses. Ne posez pas de questions et ne corrigez pas le candidat.\n"
-                       "Question posée : " + subject.prompt)
-    elif subject.role:
-        instruction = live_conversation.subject_instruction(subject.role, catalogue.tache_two_dialogues()[key])
+    monologue = task_slug == "tache-3"
+    exchange = {}
     try:
-        token, review_provider = live_conversation.mint_token(
-            request, task, data.get("pin"), instruction=instruction,
-            exchange_grant=data.get("exchangeGrant"), subject_key=key,
+        if purpose == "exchange":
+            exchange = live_conversation.grant_signer(request, key, purpose="exchange").unsign_object(
+                data["exchangeGrant"], max_age=600,
+            )
+            if monologue:
+                instruction = _opinion_instruction(exchange["prompt"])
+            else:
+                try:
+                    instruction = _dialogue_instruction(_live_subject(task, publication))
+                except Http404:
+                    instruction = None
+                if exchange["version"] != live_conversation.instruction_version(instruction):
+                    return JsonResponse({"error": "La consigne a changé. Relancez la simulation."}, status=409)
+        else:
+            subject = _live_subject(task, publication)
+            if purpose in ("attempt", "read_prompt"):
+                instruction = (
+                    "Vous êtes le lecteur d’une consigne de français, pas l’interlocuteur. "
+                    "À la demande de lecture, lisez uniquement le passage suivant en français, "
+                    "mot pour mot, sans introduction, commentaire, réponse ni suggestion. Puis taisez-vous.\n"
+                    + subject.prompt
+                )
+            else:
+                instruction = _opinion_instruction(subject.prompt) if monologue else _dialogue_instruction(subject)
+        token = live_conversation.mint_token(
+            request, task, data.get("pin"), instruction=instruction, exchange_nonce=exchange.get("nonce"),
         )
+    except (signing.BadSignature, ValueError, KeyError):
+        if purpose != "exchange":
+            raise
+        return JsonResponse({"error": "L’autorisation de cet échange n’est plus valide. Relancez la simulation."}, status=403)
     except AudioPinError as exc:
         return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
     except live_conversation.LiveTokenError as exc:
@@ -384,16 +400,21 @@ def oral_live_token(request, task_slug, **publication):
     result = {"token": token, "model": live_conversation.MODEL}
     if purpose == "attempt":
         requested_provider = data.get("reviewProvider", "")
-        result["exchangeGrant"] = live_conversation.issue_grant(
-            request, key, purpose="exchange",
-            review_provider=requested_provider if requested_provider in available_providers() else "",
+        nonce = str(uuid.uuid4())
+        exchange = {"nonce": nonce, "provider": requested_provider if requested_provider in available_providers() else ""}
+        if monologue:
+            exchange["prompt"] = subject.prompt
+        else:
+            exchange["version"] = live_conversation.instruction_version(_dialogue_instruction(subject))
+        result["exchangeGrant"] = live_conversation.grant_signer(request, key, purpose="exchange").sign_object(
+            exchange, compress=True,
         )
         result["snapshot"] = {"prompt": subject.prompt, "title": subject.title}
         result["snapshotGrant"] = live_conversation.grant_signer(request, key, purpose="snapshot").sign_object(
-            result["snapshot"], compress=True,
+            {**result["snapshot"], "attempt": nonce}, compress=True,
         )
-    elif review_provider:
-        result["reviewGrant"] = live_conversation.issue_grant(request, key, purpose=f"review:{review_provider}")
+    elif exchange.get("provider"):
+        result["reviewGrant"] = live_conversation.issue_grant(request, key, purpose=f"review:{exchange['provider']}")
     return JsonResponse(result)
 
 
@@ -414,6 +435,7 @@ def oral_live_save(request, task_slug, **publication):
         snapshot = live_conversation.grant_signer(request, key, purpose="snapshot").unsign_object(
             data["snapshotGrant"], max_age=3600,
         )
+        signed_attempt = uuid.UUID(snapshot.pop("attempt")) if "attempt" in snapshot else None
     except EvaluationError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
     except signing.BadSignature:
@@ -433,9 +455,17 @@ def oral_live_save(request, task_slug, **publication):
             if not attempt.live_simulation_id:
                 return JsonResponse({"error": "Cette transcription n’est plus conservée."}, status=410)
             return JsonResponse({"id": str(attempt.live_simulation_id)}, status=201)
-    simulation = LiveSimulation.objects.create(
-        user=request.user, subject_key=key, snapshot=snapshot, rows=data["rows"], elapsed_ms=data["elapsed"],
-    )
+    fields = dict(user=request.user, subject_key=key, snapshot=snapshot, rows=data["rows"], elapsed_ms=data["elapsed"])
+    if monologue and signed_attempt:
+        simulation, created = LiveSimulation.objects.get_or_create(pk=signed_attempt, defaults=fields)
+        if not created:
+            if simulation.user_id != request.user.pk or simulation.subject_key != key:
+                raise Http404
+            if (simulation.rows, simulation.elapsed_ms) != (data["rows"], data["elapsed"]):
+                return JsonResponse({"error": "Cette séance est déjà enregistrée avec une autre transcription."}, status=409)
+            return JsonResponse({"id": str(simulation.pk)}, status=201)
+    else:
+        simulation = LiveSimulation.objects.create(**fields)
     if not monologue:
         attempt.live_simulation = simulation
         attempt.save(update_fields=["live_simulation"])
@@ -445,7 +475,9 @@ def oral_live_save(request, task_slug, **publication):
     history = history.filter(**scope) if monologue else history.exclude(**scope)
     stale = list(history.values_list("pk", flat=True)[SAVED_SIMULATIONS:])
     if stale:
-        LiveSimulation.objects.filter(pk__in=stale).delete()
+        expired = LiveSimulation.objects.filter(pk__in=stale)
+        oral_jobs.lock_simulations(expired)
+        expired.delete()
     return JsonResponse({"id": str(simulation.pk)}, status=201)
 
 
@@ -460,11 +492,12 @@ def oral_live_delete(request, task_slug, **publication):
         pk = uuid.UUID(request.POST.get("simulation", ""))
     except ValueError:
         raise Http404
+    selected = LiveSimulation.objects.filter(pk=pk, user=request.user, subject_key=key)
+    if not oral_jobs.lock_simulations(selected):
+        raise Http404
     # Explicit deletion also forgets the occurrence; automatic transcript expiry does not.
     EO2PracticeAttempt.objects.filter(user=request.user, subject_key=key, live_simulation_id=pk).delete()
-    deleted, _ = LiveSimulation.objects.filter(pk=pk, user=request.user, subject_key=key).delete()
-    if not deleted:
-        raise Http404
+    selected.delete()
     return redirect(_oral_history_url(request, _route_name(task), publication))
 
 
@@ -486,125 +519,56 @@ def oral_live_evaluation(request, task_slug, **publication):
         if provider not in PROVIDER_LABELS:
             return JsonResponse({"error": "Modèle d’évaluation invalide."}, status=400)
         selected = sessions.filter(pk=pk)
-        report = _oral_report(selected, provider)
-        if (not report or report.get("scoreStatus") == "incomplete") and _claim_active(
-            selected.values_list(f"evaluation_claims__{provider}", flat=True).first(), timezone.now(),
-        ):
+        job = OralEvaluationJob.objects.filter(simulation__in=selected, provider=provider).first()
+        if job:
+            if job.error_status:
+                return JsonResponse({"status": "unavailable", "error": job.error}, status=job.error_status)
+            if job.lease_until is None or job.lease_until <= timezone.now():
+                oral_jobs.wake()
             return JsonResponse({"status": "processing"}, status=202)
+        report = _oral_report(selected, provider)
         if report is None:
             return JsonResponse({"error": "Aucun bilan enregistré pour ce modèle."}, status=404)
         return JsonResponse(report)
     if request.content_type != "application/json":
         return JsonResponse({"error": "Un objet JSON est requis."}, status=415)
-    monologue = task_slug == "tache-3"
     try:
-        data = oral_evaluation.request_data(request.read(oral_evaluation.MAX_BODY + 1), monologue=monologue)
+        data = oral_evaluation.request_data(
+            request.read(oral_evaluation.MAX_BODY + 1), monologue=task_slug == "tache-3",
+        )
         provider = data.get("provider", "groq")
-        rows = data["rows"]
-        scored_session = None
-        claim = None
-
-        def authorization_error():
-            try:
-                oral_evaluation.authorize(
-                    request, task, data.get("pin"), grant=data.get("reviewGrant"), subject_key=key, provider=provider,
-                )
-            except AudioPinError as exc:
-                return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
-            except EvaluationError as exc:
-                return JsonResponse({"error": str(exc)}, status=exc.status)
-
-        if "simulation" in data:
-            scored_session = sessions.filter(pk=data["simulation"])
-            with transaction.atomic():
-                session = get_object_or_404(scored_session.select_for_update())
-                original = [{"speaker": row["speaker"], "text": row["text"]} for row in session.rows]
-                if original != rows:
-                    return JsonResponse({"error": "Cette transcription ne correspond pas à la séance enregistrée."}, status=400)
-                previous = _stored_report(session, provider)
-                if previous and previous.get("scoreStatus") != "incomplete":
-                    return JsonResponse(previous)
-                if _claim_active(session.evaluation_claims.get(provider), timezone.now()):
-                    return JsonResponse({"status": "processing"}, status=202)
-                prompt = session.snapshot.get("prompt")
-                if not prompt:
-                    return JsonResponse({"error": "La consigne d’origine n’a pas été conservée."}, status=409)
-                if error := authorization_error():
-                    return error
-                claim = timezone.now().isoformat()
-                session.evaluation_claims[provider] = claim
-                session.save(update_fields=["evaluation_claims"])
-        else:
-            prompt = _live_subject(task, publication).prompt
-            if not live_conversation.available_to(request.user, task):
-                raise EvaluationError(403, "Le bilan n’est pas disponible.")
-            if error := authorization_error():
-                return error
     except EvaluationError as exc:
         return JsonResponse({"error": str(exc)}, status=exc.status)
-    outcome, done = [], threading.Event()
-
-    def keep(body, status):
-        # Runs on the request thread, which owns the database connection.
-        if scored_session is not None:
-            try:
-                with transaction.atomic():
-                    field = "report" if provider == "groq" else "provider_reports"
-                    session = scored_session.select_for_update().only(field, "evaluation_claims").first()
-                    if session is None or session.evaluation_claims.get(provider) != claim:
-                        return body
-                    del session.evaluation_claims[provider]
-                    fields = ["evaluation_claims"]
-                    if status == 200:
-                        saved = _stored_report(session, provider)
-                        if saved and body.get("scoreStatus") != "scored":
-                            body = {**saved, "previousReportKept": True}
-                        else:
-                            if provider == "groq":
-                                session.report = body
-                            else:
-                                session.provider_reports[provider] = body
-                            fields.append(field)
-                    session.save(update_fields=fields)
-            except DatabaseError:
-                logger.exception("Oral evaluation: report not saved")
-        return body
-
-    def score():
+    if "simulation" not in data:
+        return JsonResponse({"error": "Enregistrez la transcription avant de demander un bilan."}, status=400)
+    with transaction.atomic():
+        session = get_object_or_404(sessions.select_for_update(), pk=data["simulation"])
+        original = [{"speaker": row["speaker"], "text": row["text"]} for row in session.rows]
+        if original != data["rows"]:
+            return JsonResponse({"error": "Cette transcription ne correspond pas à la séance enregistrée."}, status=400)
+        previous = _stored_report(session, provider)
+        if previous and previous.get("scoreStatus") != "incomplete":
+            return JsonResponse(previous)
+        job = session.evaluation_jobs.filter(provider=provider).first()
+        if job and not job.error_status:
+            if job.lease_until is None or job.lease_until <= timezone.now():
+                transaction.on_commit(oral_jobs.wake, robust=True)
+            return JsonResponse({"status": "processing"}, status=202)
+        if not session.snapshot.get("prompt"):
+            return JsonResponse({"error": "La consigne d’origine n’a pas été conservée."}, status=409)
         try:
-            outcome.append((oral_evaluation.score(prompt, rows, monologue=monologue, provider=provider), 200))
+            oral_evaluation.authorize(
+                request, task, data.get("pin"), grant=data.get("reviewGrant"), subject_key=key, provider=provider,
+            )
+        except AudioPinError as exc:
+            return JsonResponse({"error": exc.code, "message": str(exc)}, status=exc.status)
         except EvaluationError as exc:
-            outcome.append(({"error": str(exc)}, exc.status))
-        finally:
-            done.set()
-
-    deadline = time.monotonic() + EVALUATION_DEADLINE_SECONDS
-    threading.Thread(target=score, daemon=True).start()
-    if done.wait(EVALUATION_GRACE_SECONDS):
-        body, status = outcome[0] if outcome else (_EVALUATION_FAILED, 500)
-        return JsonResponse(keep(body, status), status=status)
-
-    # Render's Cloudflare edge drops a request that sends nothing for 100 s (HTTP 524).
-    # Send the headers now, then JSON-insignificant spaces until the grader answers.
-    def keep_alive():
-        try:
-            yield b" "
-            while not done.wait(EVALUATION_KEEPALIVE_SECONDS) and time.monotonic() < deadline:
-                yield b" "
-        except GeneratorExit:
-            # The learner left mid-report; its saved exchange still receives the answer.
-            if scored_session is not None and done.wait(max(0, deadline - time.monotonic())) and outcome:
-                keep(*outcome[0])
-            raise
-        if not done.is_set():
-            body, status = _EVALUATION_LATE, 504
-        else:
-            body, status = outcome[0] if outcome else (_EVALUATION_FAILED, 500)
-        body = keep(body, status)
-        yield json.dumps(body if status == 200 else {**body, "status": status}).encode()
-
-    request.META.pop("HTTP_ACCEPT_ENCODING", None)  # GZipMiddleware would hold the spaces back.
-    return StreamingHttpResponse(keep_alive(), content_type="application/json")
+            return JsonResponse({"error": str(exc)}, status=exc.status)
+        if job:
+            job.delete()
+        session.evaluation_jobs.create(provider=provider)
+        transaction.on_commit(oral_jobs.wake, robust=True)
+    return JsonResponse({"status": "processing"}, status=202)
 
 
 def _oral_report(sessions, provider):
@@ -614,7 +578,3 @@ def _oral_report(sessions, provider):
 
 def _stored_report(session, provider):
     return session.report if provider == "groq" else session.provider_reports.get(provider)
-
-
-def _claim_active(claim, now):
-    return bool(claim and now - datetime.fromisoformat(claim) < timedelta(seconds=EVALUATION_DEADLINE_SECONDS))

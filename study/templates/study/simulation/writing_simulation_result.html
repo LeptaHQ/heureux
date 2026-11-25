@@ -4,6 +4,19 @@
 {% block studio_classes %} ee1-session{% endblock %}
 {% block studio_attributes %}data-state="done" data-ending="{% if attempt.status == "submitted" %}normal{% else %}failed{% endif %}" data-mode="writing"{% endblock %}
 
+{% block debrief_notices %}
+  {% if unsaved_parts %}
+    <section class="lv-report-card" aria-labelledby="writing-unsaved-title">
+      <h2 id="writing-unsaved-title">Votre texte non enregistré</h2>
+      <p class="auth-error" role="alert">Cette séance est déjà terminée. Vos modifications n’ont pas été enregistrées. Copiez-les avant de quitter cette page.</p>
+      {% for part in unsaved_parts %}
+        {% if documents %}<h3>{{ part.label }}</h3>{% endif %}
+        {% if part.text %}<div class="lv-written-response" lang="fr">{{ part.text }}</div>{% endif %}
+      {% endfor %}
+    </section>
+  {% endif %}
+{% endblock %}
+
 {% block subject_documents %}
   {% include "study/simulation/partials/writing_documents.html" %}
 {% endblock %}
@@ -79,5 +92,5 @@
 {% endblock %}
 {% block scripts %}
   {{ block.super }}
-  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=15"></script>
+  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=17"></script>
 {% endblock %}

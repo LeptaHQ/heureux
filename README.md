@@ -108,7 +108,9 @@ if available. `EE1_EVALUATION_PROVIDER` can override the EE1 preference; EE2
 and EE3 use Groq only. If there is no automatic grader, submission saves the
 answer without sending it. Saving a draft or abandoning a session never
 sends it. The timer counts past zero and leaves the draft open; changing the
-timer cannot overwrite a newer draft saved in another tab.
+timer cannot overwrite a newer draft saved in another tab. If another tab
+has already finished, any unsaved text is shown separately so it can be copied
+without changing the saved response.
 
 The EE1 bilan’s sparkle button lets learners choose Groq or Workers when
 available. The current report stays visible until the chosen model returns
@@ -121,8 +123,11 @@ without a separate citation list. Temporary service failures are retried
 once with the same provider within the three-minute deadline. Groq can also
 use its one retry to recover from a writing schema rejection in JSON mode.
 New writing proposals get a separate proofreading pass with the selected
-provider within that same deadline. If proofreading fails, the proposal is
-omitted without changing the grade. Saved reports are not rewritten.
+provider within that same deadline. If the grade contains no usable draft, the
+proofreader starts from the original answer. If no faithful rewrite comes
+back, Heureux can show a corrected copy that applies unambiguous corrections
+to the original wording, without applying optional suggestions. This fallback
+works for saved reports too, without resending the text or changing the grade.
 In Render logs, filter for `writing evaluation` and the attempt ID from the
 bilan URL. The worker logs when grading starts and how long it took. If the
 report fails verification, the log names the failed field and a reason code.
@@ -134,12 +139,12 @@ provider on the same invented writing sample, without using learner responses:
 RUN_WRITING_CALIBRATION=1 python manage.py test study.tests.writing_bilan_calibration
 ```
 
-Writing criterion marks run from 1/5 (limited) to 5/5 (excellent); they are
-practice indicators and are not added up to produce the overall estimate.
-New writing bilans check the subject’s requirements individually. **Temps et
-modes** explains tense and mood choices using excerpts from the submitted
-answer. Corrections show the original wording, the fix and the rule; optional
-rewrites stay separate. Previously saved bilans are unchanged.
+Writing criteria use qualitative ratings from **Limited** to **Excellent**.
+The headline shows a suggested practice range out of 20 for this task, not
+a calibrated interval or an official NCLC or TCF result. Bilans check the
+subject’s requirements individually and verify citations without displaying
+citation IDs. Corrections show the original wording, the fix and the rule;
+optional rewrites stay separate.
 In **Simulation → Expression orale → Tâche 2 → Choisir un sujet**, the Sujets table
 and its **Thème**, **Statut** and **Tri** filters let learners find a topic. Its title
 opens the exact publication; the **Séances** count opens its history. **Terminé** is
@@ -243,8 +248,14 @@ Groq’s error code, such as `HTTP 400 json_validate_failed`. The server logs th
 HTTP status and recognized codes but not upstream error messages. A quota error
 also says when to try again whenever Groq does.
 The strict response schema avoids length and range bounds, so
-Heureux applies those limits after the reply instead. While it waits, the server sends a few blank keep-alive bytes so that a hosting
-proxy does not end the request before the bilan arrives.
+Heureux applies those limits after the reply instead. A strict schema rejection
+can also use the one retry in JSON mode. The server queues oral grading in the
+database and immediately returns a status for the browser to check instead of
+holding a web request open. Reopening a session checks its pending job without
+resending the transcript. Queued work survives a restart and resumes when the
+service is awake. If a worker stops during a provider call, its expired job can
+be sent once more; a late result from the first worker cannot overwrite the
+recovered result.
 The debrief shows four practice marks **out of 5**: task completion, coherence
 and flow of ideas, lexical precision, and grammatical accuracy. Each mark uses
 Tâche 2 descriptors with indicative CEFR anchors (1 ≈ A2 up to 5 ≈ C2), and its
@@ -267,8 +278,9 @@ The reviewer receives both speakers’ captured turns in order, even when partne
 replies are hidden in the UI. Each proposed line must point to the corresponding
 learner turn. Groq is asked to keep questions as questions and personal answers
 as answers, preserving who did what and what was known at that point in the
-conversation. If the turn references do not match, the proposal is omitted;
-matching references do not themselves verify a paraphrase’s meaning.
+conversation. A proposal may be omitted if the turn references do not match or
+if it changes a checkable detail such as a quantity. These checks do not prove
+that a paraphrase preserves the learner’s meaning.
 An unverifiable edit, strength or proposal is left out without discarding
 a supported score. An incomplete rubric is not extrapolated to a total.
 Pronunciation, pace and accent are not assessed from text.

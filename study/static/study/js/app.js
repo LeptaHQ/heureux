@@ -79,6 +79,7 @@
     var match = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/);
     return match ? decodeURIComponent(match[1]) : "";
   }
+  window.HeureuxCsrfToken = currentCsrfToken;
 
   function syncCsrfTokens(scope) {
     var token = currentCsrfToken();

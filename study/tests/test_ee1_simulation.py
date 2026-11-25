@@ -452,12 +452,14 @@ class EE1SimulationTests(TestCase):
 
         report = {**self._provider_report(), "gradeEvidenceIds": []}
         reply = json.dumps(self._workers_reply(json.dumps(report))).encode()
-        with patch.object(evaluation, "_post", return_value=(reply, 86)) as call:
+        proofread = json.dumps(self._workers_reply(json.dumps({"improvedResponse": data["body"]}))).encode()
+        with patch.object(evaluation, "_post", side_effect=[(reply, 86), (proofread, 1)]) as call:
             writing_simulation.run_evaluation(*thread.call_args.kwargs["args"])
-        call.assert_called_once()
-        request = json.loads(call.call_args.args[0])
+        first, second = call.call_args_list
+        request = json.loads(first.args[0])
         packet = json.loads(request["messages"][1]["content"])
         self.assertEqual(packet["response"], data["body"])
+        self.assertEqual(json.loads(json.loads(second.args[0])["messages"][1]["content"])["original"], data["body"])
         grounded = self.client.get(bilan).json()
         self.assertEqual(grounded["status"], "ready")
         self.assertEqual(grounded["report"]["score"], 12)
@@ -726,6 +728,25 @@ class EE1SimulationTests(TestCase):
         with self.assertRaisesRegex(writing_evaluation.ReportError, "scoreRange"):
             writing_evaluation.ground(report, **packet)
 
+    def test_blank_or_contradictory_rubric_cannot_support_a_writing_grade(self):
+        answer = "Bonjour, je t’invite samedi."
+        evidence = {}
+        number_passages(answer, evidence)
+        inputs = dict(subject=self.sujet.prompt, response=answer, evidence=evidence, word_count=4, word_min=60, word_max=120)
+        for score, rating, observation, field, reason in (
+            (19, "Limited", "La langue n’est pas maîtrisée.", "score", "contradictory_criteria"),
+            (4, "Excellent", "La réponse est pleinement maîtrisée.", "score", "contradictory_criteria"),
+            (12, "Adequate", "   ", "criteria.linguistic.observation", "empty"),
+        ):
+            with self.subTest(score=score, rating=rating):
+                report = self._provider_report()
+                report.update(score=score, scoreRange={"min": score - 1, "max": score + 1})
+                for criterion in report["criteria"].values():
+                    criterion.update(rating=rating, evidence=observation)
+                with self.assertRaises(writing_evaluation.ReportError) as error:
+                    writing_evaluation.ground(report, **inputs)
+                self.assertEqual((error.exception.field, error.exception.reason), (field, reason))
+
     def test_unusable_optional_feedback_does_not_discard_a_supported_score(self):
         report = self._provider_report()
         report["criteria"]["linguistic"].update(
@@ -796,6 +817,40 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(result["corrections"], valid)
         self.assertEqual(result["omittedSections"], ["corrections"])
 
+    @override_settings(GROQ_API_KEY="")
+    def test_saved_report_without_a_rewrite_shows_only_unambiguous_corrections_in_a_full_copy(self):
+        self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
+        attempt = WritingSimulationAttempt.objects.get(user=self.owner)
+        body = (
+            "Bonjour,\n\nJe vous écris au sujet du numero 123. Je souhaite que vous m’envoyer un remplacement. "
+            "Le produit est defecteux. Le colis est resté à couvert. Le carton est lui aussi defecteux. "
+            "Merci de me dire comment faire pour le retour et de me communiquer les documents nécessaires. "
+            "Je peux déposer le colis en magasin si vous le préférez.\n\nCordialement,\nCamille"
+        )
+        self.assertRedirects(self.client.post(self._attempt_url(attempt), {
+            "action": "submit", "body": body, "draft_revision": self._revision(attempt),
+        }), self._attempt_url(attempt))
+        report = {"score": 12, "improvedResponse": "", "corrections": [
+            {"before": before, "after": after, "type": "Fixture", "why": "Exemple de correction."}
+            for before, after in (
+                ("numero", "numéro"), ("defecteux", "défectueux"), ("123", "456"),
+                ("vert", "bleu"), ("m’envoyer", "m’envoyiez"), ("envoyer", "envoyez"),
+            )
+        ]}
+        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
+            evaluation_status=WritingSimulationEvaluationStatus.READY, evaluation=report,
+        )
+        with patch.object(evaluation, "request_provider_report") as provider:
+            result = self.client.get(reverse("study:ee1_simulation_evaluate", args=[attempt.pk]), {"provider": "groq"})
+        provider.assert_not_called()
+        corrected = body.replace("numero", "numéro")
+        self.assertEqual(result.json()["report"], {
+            **report, "improvedResponse": corrected, "improvedWordCount": _ee_word_count(corrected),
+            "proposalFromCorrections": True,
+        })
+        attempt.refresh_from_db()
+        self.assertEqual((attempt.body, attempt.evaluation), (body, report))
+
     def test_verb_feedback_keeps_cited_explanations_without_repeating_the_quote(self):
         response = "Il pleuvait quand nous sommes arrivés.\n\nNous avons acheter deux billets."
         background, event = response.split("\n\n")
@@ -833,7 +888,6 @@ class EE1SimulationTests(TestCase):
             "Tu peux le sortir après le travail. Le facteur passe le matin ; laisse le courrier sur la table. "
             "Si tu as une question, appelle-moi. Merci encore pour ta aide. À bientôt !"
         )
-        report = {**self._provider_report(), "improvedResponse": response}
         corrected = response.replace("ta aide", "ton aide")
 
         def completion(value):
@@ -841,14 +895,18 @@ class EE1SimulationTests(TestCase):
                 "finish_reason": "stop", "message": {"content": json.dumps(value)},
             }]}).encode(), 1
 
-        for revision, expected in (
-            ({"improvedResponse": corrected}, corrected),
-            ({"improvedResponse": ""}, ""),
-            ({"improvedResponse": "Merci pour ton aide."}, ""),
-            (evaluation.EvaluationError(504, "La relecture n’a pas abouti."), ""),
+        for draft, revision, expected in (
+            (response, {"improvedResponse": corrected}, corrected),
+            ("", {"improvedResponse": corrected}, corrected),
+            ("Merci pour ton aide.", {"improvedResponse": corrected}, corrected),
+            (response, {"improvedResponse": corrected.replace("mercredi", "jeudi")}, ""),
+            (response, {"improvedResponse": ""}, ""),
+            (response, {"improvedResponse": "Merci pour ton aide."}, ""),
+            (response, evaluation.EvaluationError(504, "La relecture n’a pas abouti."), ""),
         ):
+            report = {**self._provider_report(), "improvedResponse": draft}
             with (
-                self.subTest(expected=bool(expected), revision=type(revision).__name__),
+                self.subTest(draft_words=_ee_word_count(draft), expected=bool(expected), revision=type(revision).__name__),
                 patch.object(evaluation, "_post", side_effect=[
                     completion(report),
                     revision if isinstance(revision, evaluation.EvaluationError) else completion(revision),
@@ -872,7 +930,7 @@ class EE1SimulationTests(TestCase):
                     self.assertTrue(payload["response_format"]["json_schema"]["strict"])
                 review_packet = json.loads(review_payload["messages"][1]["content"])
                 self.assertEqual(review_packet["original"], response)
-                self.assertEqual(review_packet["proposal"], response)
+                self.assertEqual(review_packet["proposal"], response if draft == response else "")
                 review_schema = review_payload["response_format"]["json_schema"]["schema"]
                 self.assertEqual(review_schema["required"], ["improvedResponse"])
                 self.assertLess(proofread.args[1], first.args[1])

@@ -13,6 +13,7 @@ from . import live_conversation
 from .evaluation import PROVIDER_LABELS, EvaluationError, available_providers, request_provider_report, unique_fields
 from .evaluation import checked_text as _text
 from .evidence import number_passages
+from .proposal import faithful_rewrite
 
 MAX_BODY = 96_000
 _CRITERIA = {
@@ -361,7 +362,9 @@ def _ground(report, rows, evidence, *, monologue=False):
         proposal = report.get("proposal")
         if monologue:
             prose = _text(proposal, 8000, empty=True).replace("\r\n", "\n").strip()
-            result["proposal"] = [" ".join(p.splitlines()) for p in re.split(r"\n[ \t\n]*\n", prose)] if prose else []
+            if prose and not faithful_rewrite("\n".join(rows[i]["text"] for i in sorted(learners)), prose):
+                raise ValueError
+            result["proposal"] = [" ".join(p.splitlines()) for p in re.split(r"\n[ \t]*\n", prose)] if prose else []
         else:
             if not isinstance(proposal, list):
                 raise ValueError
@@ -371,7 +374,14 @@ def _ground(report, rows, evidence, *, monologue=False):
             if lines and (not all(isinstance(line, dict) and type(line.get("turnIndex")) is int for line in lines)
                     or [line["turnIndex"] for line in lines] != sorted(learners)[:16]):
                 raise ValueError
-            result["proposal"] = [_text(line.get("text"), 400).strip() for line in lines]
+            rewritten = [_text(line.get("text"), 400).strip() for line in lines]
+            if not all(
+                faithful_rewrite(rows[line["turnIndex"]]["text"], text,
+                                reference="\n".join(row["text"] for row in rows[:line["turnIndex"]]))
+                for line, text in zip(lines, rewritten)
+            ):
+                raise ValueError
+            result["proposal"] = rewritten
     except ValueError:
         result["omitted"] = True
 
@@ -453,6 +463,7 @@ def score(prompt, rows, *, monologue=False, provider="groq"):
         {"consigne": prompt, "rows": transcript},
         _OPINION_SCHEMA if monologue else _DIALOGUE_SCHEMA,
         name=("eo3_bilan" if monologue else "eo2_bilan") if provider == "cloudflare" else "bilan",
+        retry_schema=provider == "groq",
     )
     try:
         return _ground(report, rows, evidence, monologue=monologue)

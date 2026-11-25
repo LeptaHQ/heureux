@@ -19,6 +19,7 @@
   const initialKicker = by("kicker").textContent;
   let debriefPrompt = root.dataset.scenarioPrompt;
   const stepOf = {reading:"reading",prep:"prep",connecting:"live",live:"live",done:"done"};
+  const audioPhases = ["loading","reading","connecting","live"];
   let active;
   const state = () => root.dataset.state;
   const owns = s => active === s;
@@ -30,7 +31,7 @@
     show("time",next === "prep" || next === "live");
     show("notepad",!opinion && ["prep","connecting","live"].includes(next));
     show("mute",next === "live"); show("end",!["setup","draining","done"].includes(next));
-    if (!["connecting","live"].includes(next)) show("resume-audio",false);
+    if (!audioPhases.includes(next)) show("resume-audio",false);
     text("phase",label);
     for (const step of root.querySelectorAll(".lv-step")) {
       if (step.dataset.step === stepOf[next]) step.setAttribute("aria-current","step");
@@ -158,10 +159,12 @@
       "Micro ouvert · transcription automatique. Vous pouvez interrompre votre interlocuteur.");
   }
   function audioReady(s) {
-    if (!owns(s) || !s.handshake || !["connecting","live"].includes(state())) return;
+    if (!owns(s) || !audioPhases.includes(state())) return;
     const suspended = s.audio.state !== "running";
     show("resume-audio",suspended);
     if (suspended) { text("status","Le téléphone a suspendu le son. Touchez « Réactiver le son »."); return; }
+    if (state() === "reading") { text("status","Lecture du sujet · micro coupé, chronomètre arrêté."); return; }
+    if (!s.handshake) return;
     if (state() === "live") { text("status",s.capture ? "Micro ouvert · transcription automatique." : "Micro coupé."); return; }
     const track = s.stream.getAudioTracks()[0];
     if (!track || track.readyState !== "live") {
@@ -233,20 +236,30 @@
         cutSound(s);
         caption(s,"model",turn.outputTranscription);
         if (s.lastModel) s.lastModel.interrupted = true;
-        // A new learner utterance can already be in progress when the barge-in arrives.
-        if (s.lastModel && s.rows.at(-1) === s.lastModel) delete s.partial.user;
         delete s.partial.model; s.lastModel = null;
+        s.modelStarted = false;
         caption(s,"user",turn.inputTranscription);
       } else {
-        if (turn.modelTurn || turn.outputTranscription?.text) s.awaitingInterruptedEnd = false;
-        caption(s,"user",turn.inputTranscription); caption(s,"model",turn.outputTranscription);
+        caption(s,"user",turn.inputTranscription);
+        if (turn.modelTurn || turn.outputTranscription?.text) {
+          s.awaitingInterruptedEnd = false;
+          if (!s.modelStarted) {
+            // Audio can precede its captions, and a learner can speak before the interruption event.
+            delete s.partial.user;
+            s.modelStarted = true;
+            s.lastModel = s.partial.model = {speaker:"model",text:""};
+            s.rows.push(s.lastModel);
+          }
+        }
+        caption(s,"model",turn.outputTranscription);
       }
       if (!turn.interrupted) for (const part of turn.modelTurn?.parts || []) {
         if (part.inlineData?.mimeType?.startsWith("audio/pcm")) play(s,part.inlineData.data);
       }
       if (turn.turnComplete) {
-        // The interrupted model turn can end after the learner has already started talking.
-        if (!s.awaitingInterruptedEnd) s.partial = {};
+        delete s.partial.model;
+        if (!s.modelStarted && !s.awaitingInterruptedEnd) delete s.partial.user;
+        s.modelStarted = false;
         s.lastModel = null; s.awaitingInterruptedEnd = false;
       }
     } catch { finish(s,"Réponse vocale illisible. La connexion et le micro ont été fermés."); }
@@ -257,13 +270,15 @@
     s.sock.close(); s.sock = null;
   }
   function requestOptions(s, body) {
+    const csrf = window.HeureuxCsrfToken?.() || root.querySelector('[name="csrfmiddlewaretoken"]').value;
     return {method:"POST",credentials:"same-origin",mode:"same-origin",cache:"no-store",redirect:"error",
-      headers:{"Content-Type":"application/json","X-CSRFToken":root.querySelector('[name="csrfmiddlewaretoken"]').value},
+      headers:{"Content-Type":"application/json","X-CSRFToken":csrf},
       body:JSON.stringify({consent:true,...body}),signal:s.abort.signal};
   }
   function tokenError(s, response) {
     finish(s,response.status === 429 ? "Limite de tentatives atteinte. Réessayez plus tard." :
-      response.status === 403 ? "L’autorisation de cette séance n’est plus valide." :
+      response.status === 409 ? "La consigne a changé. Rechargez la page avant de recommencer." :
+      response.status === 403 ? "L’autorisation de cette séance n’est plus valide. Relancez la simulation." :
       "La simulation est indisponible pour le moment.");
   }
   function openSocket(s, {token, model}) {
@@ -278,7 +293,7 @@
     debriefPrompt = config.snapshot.prompt;
     text("title","Votre consigne"); text("prompt",debriefPrompt);
     text("subject-prompt",debriefPrompt);
-    text("status","Lecture du sujet · micro coupé, chronomètre arrêté.");
+    audioReady(s);
     by("title").focus();
     const socket = openSocket(s,config);
     const failed = () => finish(s,"La lecture du sujet n’a pas abouti. " +
@@ -331,7 +346,6 @@
         t.onunmute = () => audioReady(s);
         t.onended = () => finish(s,"Le microphone s’est déconnecté. Vérifiez vos écouteurs ou essayez sans Bluetooth.");
       });
-      s.audio.onstatechange = () => audioReady(s);
       clearTimeout(s.watchdog);
       s.watchdog = setTimeout(() => finish(s,"La connexion n’a pas abouti. Aucun nouvel essai automatique."),30000);
       text("status","Connexion au studio · le chronomètre est arrêté.");
@@ -382,11 +396,17 @@
         description:"Voix envoyée à Google (examen humain possible). " +
           (autoProvider ? `Transcription envoyée à ${root.dataset.autoEvaluationLabel} pour le bilan. ` : "") +
           "Heureux garde le texte et le bilan, pas l’audio. Je confirme : 18 ans ou plus, au Canada ou aux États-Unis.",
+        onPrompt:() => {
+          clearTimeout(s.watchdog);
+          phase("setup","Avant la simulation");
+          text("status","");
+        },
         onConfirm:() => {
           phase("loading","Ouverture"); text("status","Ouverture de la lecture · micro coupé.");
           clearTimeout(s.watchdog);
           s.watchdog = setTimeout(() => finish(s,"La lecture n’a pas pu démarrer. Aucun chronomètre n’a été lancé."),30000);
           s.audio ??= new Audio();
+          s.audio.onstatechange = () => audioReady(s);
           return s.audio.resume();
         }
       });
@@ -435,7 +455,9 @@
     setup(); by("title").focus();
   };
   document.addEventListener("visibilitychange",() => {
-    if (document.hidden && active) finish(active,"Séance fermée : vous avez quitté l’onglet.");
+    if (document.hidden && active && !["setup","draining"].includes(state())) {
+      finish(active,"Séance fermée : vous avez quitté l’onglet.");
+    }
   });
   window.addEventListener("pagehide",() => { if (active) finish(active,"Séance fermée."); setup(); });
   // Keep the session timeline below the site's sticky navigation.

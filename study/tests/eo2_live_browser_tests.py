@@ -1,12 +1,13 @@
 import json
 import re
 from unittest.mock import patch
+from urllib.parse import parse_qs, urlsplit
 
 from django.test import override_settings
 from django.urls import reverse
 from playwright.sync_api import expect
 
-from study.models import LiveSimulation
+from study.models import LiveSimulation, OralEvaluationJob
 from study.simulation import live_conversation
 from study.views.helpers import tache_two_publication
 
@@ -324,12 +325,18 @@ class LiveConversationBrowserMixin:
         expect(self.page.locator(".lv-track")).to_be_hidden()
         expect(self.page.locator(".lv-orb")).to_be_hidden()
         self.assert_no_horizontal_overflow()
+        self.page.evaluate("""() => {
+          Object.defineProperty(document, 'hidden', {configurable:true, value:true});
+          document.dispatchEvent(new Event('visibilitychange'));
+        }""")
+        self.assertEqual(self.page.evaluate("[probe.track.readyState, probe.sockets[0].readyState]"), ["ended", 1])
         self.page.clock.fast_forward(1_500)
         self.page.evaluate("text => probe.sockets[0].receive({serverContent:{inputTranscription:{text}}})", last_words)
         self.page.clock.fast_forward(1_200)
         self.page.evaluate("text => probe.sockets[0].receive({serverContent:{inputTranscription:{text,finished:true}}})", ending)
         with self.page.expect_request(evaluation):
             self.page.evaluate("probe.sockets[0].onclose({wasClean:true})")
+        self.page.evaluate("delete document.hidden")
         expect(self.page.locator("#lv-level")).to_have_text("Bilan en préparation…")
         expect(self.page.locator("#lv-assessment-status")).to_be_visible()
         subject_card = self.page.locator("#lv-subject")
@@ -457,18 +464,20 @@ class LiveConversationBrowserMixin:
         }""")
         self.assertEqual(audio, ["audio/pcm;rate=16000", 2048, True])
         self.page.evaluate("""probe.sockets[0].receive({serverContent:{
-          inputTranscription:{text:'Le samedi ?'}, outputTranscription:{text:'À dix heures.'},
+          inputTranscription:{text:'Le samedi ?'},
           modelTurn:{parts:[{inlineData:{mimeType:'audio/pcm;rate=24000',data:btoa('\\0'.repeat(96000))}}]}
         }})""")
         self.assertEqual(self.page.evaluate("probe.played.at(-1).buffer.sampleRate"), 24000)
         self.page.locator("#lv-captions summary").click()
-        expect(self.page.locator("#lv-ai-words")).to_have_text("À dix heures.")
         self.page.evaluate("""() => {
           const send = serverContent => probe.sockets[0].receive({serverContent});
-          send({interrupted:true, inputTranscription:{text:"Et le "}});
+          send({inputTranscription:{text:"Et le "}});
+          send({outputTranscription:{text:"À dix heures."}});
+          send({interrupted:true});
           send({turnComplete:true});
           send({inputTranscription:{text:"dimanche ?",finished:true}});
         }""")
+        expect(self.page.locator("#lv-ai-words")).to_have_text("À dix heures.")
         self.assertTrue(self.page.evaluate("probe.played.at(-1).wasStopped && probe.track.enabled"))
         mute = self.page.get_by_role("button", name="Couper le micro")
         expect(mute).to_have_text("")
@@ -734,6 +743,23 @@ class LiveConversationBrowserMixin:
         self.assertEqual(self.page.evaluate("[probe.calls,probe.readers.length,probe.sockets.length]"), [0, 0, 0])
         self.assertEqual(self.token_requests, [])
 
+    def test_native_voice_pin_retry_survives_a_slow_entry_and_tab_switch(self):
+        self.open_live_pilot()
+        self.page.clock.install()
+        self.start.click()
+        self.submit_live_pin("incorrect")
+        expect(self.pin_dialog.get_by_role("alert")).to_have_text("Code incorrect.")
+        self.page.clock.fast_forward(31_000)
+        self.page.evaluate("""() => {
+          Object.defineProperty(document, 'hidden', {configurable:true, value:true});
+          document.dispatchEvent(new Event('visibilitychange'));
+          delete document.hidden;
+        }""")
+        expect(self.pin_dialog).to_be_visible()
+        self.submit_live_pin()
+        self.finish_prompt()
+        self.assertEqual(self.page.evaluate("[probe.calls,probe.readers.length]"), [0, 1])
+
     def test_native_voice_prep_waits_for_last_audible_chunk_after_turn_complete(self):
         self.open_live_pilot()
         self.page.clock.install()
@@ -760,7 +786,7 @@ class LiveConversationBrowserMixin:
         expect(self.page.locator("#lv-time")).to_be_hidden()
         self.assertEqual(self.page.evaluate("probe.readingMessages.filter(m => m.realtimeInput)"),
                          [{"realtimeInput": {"text": "Lisez la consigne."}}])
-        self.page.evaluate("probe.audio.resume()")
+        self.page.get_by_role("button", name="Réactiver le son").click()
         expect(self.page.locator("#lv-prep")).to_be_visible()
         expect(self.page.locator("#lv-clock")).to_have_text("02:00")
         self.assertEqual(self.page.evaluate("probe.calls"), 0)
@@ -788,7 +814,7 @@ class LiveConversationBrowserMixin:
 
     def test_native_voice_review_starts_itself_and_retries_on_the_captured_transcript(self):
         self.open_live_pilot()
-        calls = []
+        calls, polls = [], []
         original = "📷 Et si je veux prend deux appareils ?"
         report = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "reason": "Vous comparez les options.",
                   "criteria": [{"label": label, "score": score, "why": why} for label, score, why in (
@@ -805,18 +831,26 @@ class LiveConversationBrowserMixin:
                                "Et si je veux prendre deux appareils, le tarif change-t-il ?"]}
 
         def fake_review(route):
+            if route.request.method == "GET":
+                polls.append(parse_qs(urlsplit(route.request.url).query))
+                if len(calls) == 1:
+                    route.fulfill(status=404, json={"error": "Aucun bilan."})
+                elif len(calls) == 2:
+                    route.fulfill(status=502, json={"status": "unavailable", "error": "Échec du bilan."})
+                else:
+                    route.fulfill(json=report)
+                return
             body = route.request.post_data_json
             calls.append(body)
             if body.get("reviewGrant") != self.token_replies["exchange"]["reviewGrant"] or "pin" in body:
                 route.fulfill(status=403, json={"error": "missing grant"})
             elif len(calls) == 1:
                 route.fulfill(status=429, json={"error": "Quota atteint."})
-            elif len(calls) == 2:  # A slow report streams keep-alive spaces, then its error.
-                route.fulfill(content_type="application/json", body="  " + json.dumps({"error": "Délai.", "status": 504}))
             else:
-                route.fulfill(json=report)
+                route.fulfill(status=202, json={"status": "processing"})
 
-        self.page.route("**" + reverse("study:eo_tache_two_live_evaluation"), fake_review)
+        endpoint = reverse("study:eo_tache_two_live_evaluation")
+        self.page.route(re.compile(re.escape(endpoint) + r"(?:\?[^#]*)?$"), fake_review)
         self.start_preparation()
         self.page.locator("#lv-skip").click()
         expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
@@ -843,7 +877,7 @@ class LiveConversationBrowserMixin:
         expect(self.page.locator("#lv-turns")).to_contain_text("Combien coûte le prêt")
         self.page.locator("#lv-assessment summary").click()
         self.choose_oral_grader("Groq")  # Folded while Groq works, the bilan reopens on the answer.
-        expect(status).to_contain_text("Délai.")  # A timeout after keep-alive spaces arrives in the body.
+        expect(status).to_contain_text("Échec du bilan.")
         expect(status).to_be_visible()
         expect(level).to_have_text("Non évalué")
         self.choose_oral_grader("Groq")
@@ -876,9 +910,36 @@ class LiveConversationBrowserMixin:
         expect(level).to_be_visible()
         self.assert_no_horizontal_overflow()
         self.assertEqual(len(calls), 3)
+        self.assertEqual(polls, [{"provider": ["groq"], "simulation": [calls[0]["simulation"]]}] * 4)
         self.assertTrue(calls[0]["rows"] == calls[1]["rows"] == calls[2]["rows"])
         self.assertEqual(calls[2]["rows"][-1], {"speaker": "user", "text": original})
         self.assertEqual(self.page.evaluate("[probe.calls,probe.track.readyState]"), [1, "ended"])
+
+    @override_settings(GROQ_API_KEY="fixture-groq", AI_PIN=PILOT_PIN)
+    def test_oral_bilan_reopens_a_queued_review_without_resending_the_transcript(self):
+        factories.make_task(self.part, "tache-2")
+        saved = LiveSimulation.objects.create(
+            user=self.user, rows=[{"speaker": "user", "text": "Combien coûte le prêt ?"}],
+            snapshot={"prompt": "Demandez des renseignements sur les ateliers."},
+        )
+        OralEvaluationJob.objects.create(simulation=saved, provider="groq")
+        report = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "reason": "Bilan terminé.",
+                  "criteria": [], "evidence": [], "annotations": [], "next": "", "proposal": []}
+        requests = []
+
+        def fake_status(route):
+            requests.append((route.request.method, parse_qs(urlsplit(route.request.url).query)))
+            if len(requests) == 1:
+                route.fulfill(status=202, json={"status": "processing"})
+            else:
+                route.fulfill(json=report)
+
+        endpoint = reverse("study:eo_tache_two_live_evaluation")
+        self.page.route(re.compile(re.escape(endpoint) + r"(?:\?[^#]*)?$"), fake_status)
+        self.page.goto(self.live_server_url + reverse("study:eo_tache_two_live", query={"simulation": saved.pk}))
+        expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
+        self.assertEqual(requests, [("GET", {"provider": ["groq"], "simulation": [str(saved.pk)]})] * 2)
+        expect(self.page.locator("[data-audio-pin-dialog]")).to_be_hidden()
 
     def test_native_voice_saved_exchange_reopens_on_its_stored_report(self):
         report = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "reason": "Vous comparez les options.",

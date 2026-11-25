@@ -117,6 +117,35 @@ class EE3SimulationTests(TestCase):
         self.assertGreater(editor.context["remaining_seconds"], 0)
         self.assertContains(editor, attempt.position_body)
 
+    @override_settings(GROQ_API_KEY="")
+    def test_finalized_session_preserves_unsaved_text_from_other_tabs(self):
+        attempt, url = self.start()
+        revision = self.client.get(url).context["draft_revision"]
+        response = {"body": " ".join(["synthèse"] * 40), "position_body": " ".join(["opinion"] * 80)}
+        self.assertRedirects(self.client.post(url, {
+            "action": "submit", **response, "draft_revision": revision,
+        }), url)
+        attempt.refresh_from_db()
+        timer = reverse("study:ee3_simulation_timer", args=[attempt.pk])
+        draft = {"body": "  Mon autre synthèse.\n\n<texte>  ", "position_body": "\nMon autre avis.\n "}
+
+        for endpoint, extra in (
+            (url, {"action": "save"}),
+            (url, {"action": "submit"}),
+            (timer, {"timer_minutes": "7", "timer_seconds": "30"}),
+        ):
+            with self.subTest(endpoint=endpoint, extra=extra):
+                rejected = self.client.post(endpoint, {**draft, **extra, "draft_revision": revision})
+                self.assertContains(rejected, "Vos modifications n’ont pas été enregistrées.", status_code=409)
+                self.assertContains(rejected, "&lt;texte&gt;", status_code=409)
+                self.assertContains(rejected, ">Une réponse est déjà enregistrée pour cette séance.</p>", status_code=409)
+                self.assertEqual({part["field"]: part["text"] for part in rejected.context["unsaved_parts"]}, draft)
+                self.assertRedirects(self.client.post(endpoint, {**response, **extra, "draft_revision": revision}), url)
+        deadline = attempt.deadline_at
+        attempt.refresh_from_db()
+        self.assertEqual((attempt.body, attempt.position_body, attempt.deadline_at, attempt.status),
+                         (response["body"], response["position_body"], deadline, WritingSimulationAttemptStatus.SUBMITTED))
+
     def test_equivalent_comparison_prompts_are_listed_once_but_keep_separate_history(self):
         attempt, _ = self.start()
         other_source = next(
@@ -142,10 +171,25 @@ class EE3SimulationTests(TestCase):
         self.assertEqual(older.context["delete_url"], delete)
         self.assertRedirects(self.client.post(delete, {"simulation": attempt.pk}), older_url)
 
+    def test_corrected_copy_keeps_synthesis_and_opinion_separate(self):
+        attempt, _ = self.start()
+        synthesis = "Les deux auteurs comparent les avantages de la lectur."
+        position = "Je préfère lire un livr dans le train."
+        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
+            status=WritingSimulationAttemptStatus.SUBMITTED,
+            body=synthesis, position_body=position, evaluation_status=WritingSimulationEvaluationStatus.READY,
+            evaluation={"score": 12, "improvedResponse": "", "corrections": [
+                {"before": "lectur", "after": "lecture"}, {"before": "livr", "after": "livre"},
+            ]},
+        )
+        report = self.client.get(reverse("study:ee3_simulation_evaluate", args=[attempt.pk])).json()["report"]
+        self.assertTrue(report["proposalFromCorrections"])
+        self.assertEqual(report["improvedParts"], [synthesis.replace("lectur", "lecture"), position.replace("livr", "livre")])
+
     def test_grading_cannot_cite_documents_and_checks_both_proposal_lengths(self):
         synthesis = "Les deux auteurs comparent les avantages de la lecture."
         position = "Je préfère lire un livre dans le train."
-        documents = ("Une affirmation réservée au premier document.", "Une autre opinion figure dans le second.")
+        documents = ("Le prix indiqué dans le premier document est de 35 euros.", "Une autre opinion figure dans le second.")
         report = {
             "score": 12, "scoreRange": {"min": 11, "max": 13},
             "gradeEvidenceIds": ["E1", "E2"],
@@ -176,7 +220,7 @@ class EE3SimulationTests(TestCase):
             self.assertEqual(result["gradeEvidence"], [synthesis, position])
             self.assertEqual(result["corrections"], [])
             self.assertEqual(result["improvedResponse"], "")
-            report["improvedResponse"] += " comparaison"
+            report["improvedResponse"] = "Le premier document cite un prix de 35 euros. " + " ".join(["comparaison"] * 31)
             accepted = writing_evaluation.score(**inputs)
             self.assertEqual(accepted["improvedParts"], [report["improvedResponse"], report["improvedPosition"]])
             self.assertEqual(accepted["improvedWordCount"], 121)
@@ -185,6 +229,10 @@ class EE3SimulationTests(TestCase):
             self.assertEqual(review["documents"], list(documents))
             self.assertEqual(review["sections"]["position"]["original"], position)
             self.assertEqual(schema["required"], ["improvedResponse", "improvedPosition"])
+            request.side_effect = [report, {**report, "improvedResponse": report["improvedResponse"].replace("35", "45")}]
+            with self.assertLogs(writing_evaluation.logger, "WARNING"):
+                inaccurate = writing_evaluation.score(**inputs)
+            self.assertEqual((inaccurate["score"], inaccurate["improvedResponse"]), (12, ""))
             request.side_effect = [report, {"improvedResponse": report["improvedResponse"], "improvedPosition": ""}]
             with self.assertLogs(writing_evaluation.logger, "WARNING"):
                 incomplete = writing_evaluation.score(**inputs)

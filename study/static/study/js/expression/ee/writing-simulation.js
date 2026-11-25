@@ -5,11 +5,13 @@
 
   const output = timer.querySelector("strong");
   const initialRemaining = Number(timer.dataset.remaining || 0) * 1000;
-  const startedAt = window.performance.now();
+  const startedWall = Date.now();
+  const startedMono = window.performance.now();
   let input = form.querySelector("[data-writing-word-input]");
 
   const render = () => {
-    const remaining = Math.ceil((initialRemaining - (window.performance.now() - startedAt)) / 1000);
+    const elapsedMs = Math.max(0, Date.now() - startedWall, window.performance.now() - startedMono);
+    const remaining = Math.ceil((initialRemaining - elapsedMs) / 1000);
     const elapsed = Math.abs(remaining);
     const minutes = Math.floor(elapsed / 60);
     const seconds = elapsed % 60;
@@ -19,6 +21,8 @@
 
   render();
   window.setInterval(render, 1000);
+  window.addEventListener("pageshow", render);
+  document.addEventListener("visibilitychange", render);
 
   let confirmed = false;
   form.addEventListener("submit", async (event) => {

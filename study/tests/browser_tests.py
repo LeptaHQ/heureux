@@ -9,6 +9,7 @@ from threading import Event
 from unittest import mock
 from urllib.parse import parse_qs, quote, unquote, urlsplit
 
+from django.conf import settings
 from django.contrib.sessions.models import Session
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.core.cache import cache
@@ -667,6 +668,9 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(timer).to_contain_text(re.compile(r"-00:0[23]"))
         self.page.clock.fast_forward(3000)
         expect(timer).to_contain_text(re.compile(r"-00:0[56]"))
+        self.page.clock.set_system_time(self.page.evaluate("new Date(Date.now() + 5000).toISOString()"))
+        self.page.evaluate("window.dispatchEvent(new Event('pageshow'))")
+        expect(timer).to_contain_text(re.compile(r"-00:1[01]"))
         expect(self.page).to_have_url(url)
         expect(draft).to_have_value("Mon brouillon reste modifiable.")
         expect(draft).to_be_editable()
@@ -754,17 +758,19 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             "improvedResponse": "Bonjour !\n\nEst-ce que cela te dirait de venir dîner ?",
             "improvedWordCount": 11,
         }
+        corrected = body.replace("a dîner", "à dîner")
         groq_report = {
             **{key: value for key, value in report.items() if key != "verbFeedback"},
-            "score": 11, "nclc": "NCLC 7", "priorities": [],
+            "score": 11, "scoreRange": {"min": 10, "max": 12}, "nclc": "NCLC 7", "priorities": [],
             "gradeRationale": "", "gradeEvidence": [invitation], "strengths": [],
             "criteria": [{**entry, "quotes": [invitation]} for entry in report["criteria"]],
             "corrections": [{**report["corrections"][0], "why": "Accent grave sur la préposition."}],
             "relevance": report["relevance"][:1], "upgrades": [],
-            "improvedResponse": "", "improvedWordCount": 0,
+            "improvedResponse": corrected, "improvedWordCount": len(corrected.split()), "proposalFromCorrections": True,
         }
+        csrf_probe = []
         replies = iter([
-            (409, {"error": "Le service d’évaluation a changé. Rechargez la page avant de réessayer."}),
+            None,
             (200, {"status": "unavailable", "error": "Le bilan est illisible. Votre réponse reste disponible."}),
             (202, {"status": "processing"}),
             (200, {"status": "ready", "report": report}),
@@ -778,13 +784,19 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             if provider == "groq":
                 route.fulfill(json={"status": "ready", "report": groq_report})
                 return
-            status, payload = next(replies)
-            route.fulfill(status=status, json=payload)
+            reply = next(replies)
+            if reply is None:
+                response = route.fetch()
+                csrf_probe.append(response.status)
+                route.fulfill(response=response)
+            else:
+                status, payload = reply
+                route.fulfill(status=status, json=payload)
 
         self.page.route(re.compile(re.escape(evaluation_url) + r"(?:\?[^#]*)?$"), evaluation_reply)
         with mock.patch("study.views.writing_simulation.run_evaluation") as worker:
             submit.click()
-            expect(self.page.locator("#lv-level")).to_have_text("11/20 · NCLC 7 · B2")
+            expect(self.page.locator("#lv-level")).to_have_text("10–12/20")
         worker.assert_called_once()
         self.assertEqual(worker.call_args.args[-1], "groq")
         proposal = self.page.locator("#lv-proposal")
@@ -794,7 +806,8 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.locator("#lv-transcript [data-writing-corrections]")).to_have_count(0)
         expect(proposal).to_be_visible()
         expect(proposal.locator("[data-writing-corrections] ins")).to_have_text("à dîner")
-        expect(proposal.locator("#lv-proposal-rewrite")).to_be_hidden()
+        expect(proposal.get_by_role("heading", name="Version corrigée")).to_be_visible()
+        self.assertEqual(proposal.locator("#lv-proposal-lines p").all_text_contents(), corrected.split("\n\n"))
         title = self.page.get_by_role("heading", name="Simulation", exact=True)
         expect(self.page.locator("#lv-kicker")).to_have_text("Votre bilan")
         subject_card = self.page.locator("#lv-subject")
@@ -829,17 +842,21 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             trigger.click()
             models.get_by_role("button", name=name).click()
 
+        csrf = next(cookie for cookie in self.context.cookies(self.live_server_url) if cookie["name"] == settings.CSRF_COOKIE_NAME)
+        self.context.add_cookies([{**csrf, "value": "a" * 32}])
         with self.page.expect_request(lambda request: request.method == "POST" and request.url.endswith(evaluation_url)) as request:
             select_model("Workers")
         self.assertEqual(request.value.post_data_json, {"consent": True, "provider": "cloudflare"})
-        expect(self.page.get_by_role("status").filter(has_text="Rechargez la page")).to_be_visible()
+        expect(self.page.get_by_role("status").filter(has_text="Un autre bilan est déjà en cours.")).to_be_visible()
+        self.assertEqual(csrf_probe, [409])  # The rotated cookie passed Django's real CSRF check.
         expect(proposal).to_be_visible()
-        expect(self.page.locator("#lv-level")).to_have_text("11/20 · NCLC 7 · B2")
+        expect(self.page.locator("#lv-level")).to_have_text("10–12/20")
         select_model("Workers")
         expect(self.page.get_by_role("status").filter(has_text="Le bilan est illisible")).to_be_visible()
         self.assertEqual(original.text_content(), body)
         select_model("Workers")
-        expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
+        expect(self.page.locator("#lv-level")).to_have_text("10–13/20")
+        expect(self.page.locator("[data-writing-score]")).to_contain_text("NCLC 7 à NCLC 8")
         expect(self.page.locator("[data-writing-score]")).not_to_contain_text("confiance")
         expect(self.page.get_by_role("heading", name="Au prochain essai")).to_be_visible()
         notes = self.page.locator("[data-writing-strengths]")
@@ -867,6 +884,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(suggestions.locator("li")).to_contain_text(["One greeting is enough.", "Try « Ça vous dit ? »"])
         expect(suggestions).not_to_contain_text("Garder")
         expect(self.page.get_by_text("À vérifier", exact=True)).to_have_count(0)
+        expect(proposal.get_by_role("heading", name="Version révisée")).to_be_visible()
         expect(proposal.locator("#lv-proposal-lines p")).to_have_text(report["improvedResponse"].split("\n\n"))
         for width in (320, 390, 1280):
             self.page.set_viewport_size({"width": width, "height": 900})
@@ -891,15 +909,15 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.page.locator("#lv-assessment > summary").click()
         expect(trigger).to_be_visible()
         select_model("Groq")
-        expect(self.page.locator("#lv-level")).to_have_text("11/20 · NCLC 7 · B2")
+        expect(self.page.locator("#lv-level")).to_have_text("10–12/20")
         expect(self.page.locator("#lv-assessment")).to_have_attribute("open", "")
         expect(corrections).to_contain_text("Accent grave sur la préposition.")
         expect(notes).to_be_hidden()
         expect(suggestions).to_be_hidden()
         expect(self.page.get_by_role("heading", name="Au prochain essai")).to_have_count(0)
         self.assertEqual(original.text_content(), body)
-        expect(proposal.locator("#lv-proposal-rewrite")).to_be_hidden()
-        expect(proposal.locator("#lv-proposal-lines p")).to_have_count(0)
+        expect(proposal.get_by_role("heading", name="Version corrigée")).to_be_visible()
+        self.assertEqual(proposal.locator("#lv-proposal-lines p").all_text_contents(), corrected.split("\n\n"))
 
     def test_writing_response_copy_buttons_copy_each_model_and_personal_text(self):
         self.context.add_init_script(

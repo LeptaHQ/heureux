@@ -1013,6 +1013,25 @@ class LiveSimulation(models.Model):
         ]
 
 
+class OralEvaluationJob(models.Model):
+    simulation = models.ForeignKey(LiveSimulation, on_delete=models.CASCADE, related_name="evaluation_jobs")
+    provider = models.CharField(max_length=16)
+    queued_at = models.DateTimeField(default=timezone.now)
+    lease_id = models.UUIDField(null=True)
+    lease_until = models.DateTimeField(null=True)
+    executions = models.PositiveSmallIntegerField(default=0)
+    error_status = models.PositiveSmallIntegerField(default=0)
+    error = models.CharField(max_length=500, blank=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["simulation", "provider"], name="oral_eval_one_job_per_provider"),
+        ]
+        indexes = [
+            models.Index(fields=["queued_at"], condition=Q(error_status=0), name="oral_eval_pending_jobs"),
+        ]
+
+
 class EO2TopicStatus(models.Model):
     """Simulation checklist, independent of ordinary subject study progress."""
 

@@ -12,7 +12,6 @@
   const picker = button && window.HeureuxAssessmentPicker(button, (provider) => requestEvaluation(provider));
   const initialProvider = form.dataset.evaluationProvider;
   const url = form.dataset.evaluationUrl;
-  const csrf = form.elements.csrfmiddlewaretoken.value;
   let poll, pollDelay = 1500;
 
   const find = (name) => root.querySelector(`[data-writing-${name}]`);
@@ -63,13 +62,9 @@
 
   const showReport = (report) => {
     text(find("verdict"), report.verdict).hidden = !report.verdict;
-    const confidenceLabels = { High: "élevée", Medium: "moyenne", Low: "faible" };
-    const confidence = confidenceLabels[report.confidence];
-    text(
-      find("score"),
-      `Fourchette indicative : ${report.scoreRange.min}–${report.scoreRange.max}/20 (${report.nclcRange})${confidence ? ` · confiance ${confidence}` : ""}`,
-    );
-    level.textContent = `${report.score}/20 · ${report.nclc} · ${report.cefr}`;
+    const {min, max} = report.scoreRange || {min: report.score, max: report.score};
+    level.textContent = min === max ? `${min}/20` : `${min}–${max}/20`;
+    text(find("score"), report.nclcRange ? `Repère sur cette tâche : ${report.nclcRange}` : "").hidden = !report.nclcRange;
     level.classList.add("lv-level--scored");
     text(find("uncertainty"), report.uncertainty).hidden = !report.uncertainty;
     const statuses = { Met: "Satisfait", "Partly met": "Partiel", Missing: "Manquant" };
@@ -131,6 +126,11 @@
       : report.improvedResponse ? paragraphs(report.improvedResponse) : [];
     by("proposal-lines").replaceChildren(...proposal);
     by("proposal-rewrite").hidden = !proposal.length;
+    text(by("proposal-rewrite-title"), report.proposalFromCorrections ? "Version corrigée" : "Version révisée");
+    const rewriteNote = find("rewrite-note");
+    text(rewriteNote, report.proposalFromCorrections ? "Corrections appliquées au texte original, sans réécriture." :
+      !proposal.length ? "Aucune version révisée n’a pu être vérifiée." : "");
+    rewriteNote.hidden = !rewriteNote.textContent;
     text(by("proposal-count"), proposal.length ? `${report.improvedWordCount} mots` : "");
     by("proposal").hidden = false;
     list(find("priorities"), report.priorities, item);
@@ -140,7 +140,7 @@
     if (report.omitted) {
       const warning = document.createElement("p");
       warning.className = "muted writing-validation-warning";
-      warning.textContent = "Certains détails du bilan ont été abrégés ou écartés. La note s’appuie sur les passages vérifiés.";
+      warning.textContent = "Certains détails du bilan ont été abrégés ou écartés.";
       result.append(warning);
     }
     result.hidden = false;
@@ -194,6 +194,7 @@
     by("assessment").open = true;
     setStatus("Bilan en préparation…", true);
     try {
+      const csrf = window.HeureuxCsrfToken?.() || form.elements.csrfmiddlewaretoken.value;
       const response = await fetch(url, {
         method: "POST",
         credentials: "same-origin",

@@ -6,8 +6,10 @@
   const text = (id, value) => { by(id).textContent = value; };
   const show = (id, visible) => { by(id).hidden = !visible; };
   const wsURL = "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContentConstrained";
+  const voice = root.dataset.voiceAvailable === "1";
+  const autoProvider = root.dataset.autoEvaluation;
   const Audio = window.AudioContext || window.webkitAudioContext;
-  const capable = Boolean(window.isSecureContext && navigator.mediaDevices?.getUserMedia && Audio && window.AudioWorkletNode);
+  const capable = Boolean(voice && window.isSecureContext && navigator.mediaDevices?.getUserMedia && Audio && window.AudioWorkletNode);
   const opinion = root.dataset.mode === "opinion";
   const prep = 120000, live = opinion ? 270000 : 210000;
   const timeLabel = opinion ? "4 min 30" : "3 min 30";
@@ -15,7 +17,7 @@
   const introduction = by("prompt").textContent;
   const initialTitle = by("title").textContent;
   const initialKicker = by("kicker").textContent;
-  const debriefPrompt = root.dataset.scenarioPrompt;
+  let debriefPrompt = root.dataset.scenarioPrompt;
   const stepOf = {reading:"reading",prep:"prep",connecting:"live",live:"live",done:"done"};
   let active;
   const state = () => root.dataset.state;
@@ -24,7 +26,7 @@
     root.dataset.state = next;
     for (const id of ["setup","prep","done"]) show(id,next === id);
     show("call",next === "live");
-    show("start",next === "setup"); show("skip",next === "prep"); show("retry",next === "done");
+    show("start",next === "setup" && voice); show("skip",next === "prep"); show("retry",next === "done");
     show("time",next === "prep" || next === "live");
     show("notepad",!opinion && ["prep","connecting","live"].includes(next));
     show("mute",next === "live"); show("end",!["setup","draining","done"].includes(next));
@@ -273,7 +275,9 @@
   }
   function readPrompt(s, config) {
     phase("reading","Lecture du sujet");
-    text("title","Votre consigne"); text("prompt",root.dataset.scenarioPrompt);
+    debriefPrompt = config.snapshot.prompt;
+    text("title","Votre consigne"); text("prompt",debriefPrompt);
+    text("subject-prompt",debriefPrompt);
     text("status","Lecture du sujet · micro coupé, chronomètre arrêté.");
     by("title").focus();
     const socket = openSocket(s,config);
@@ -337,8 +341,7 @@
       if (!response.ok) { tokenError(s,response); return; }
       const config = await response.json();
       if (!owns(s)) return;
-      if (typeof config.reviewGrant !== "string" || !config.reviewGrant) throw new Error("Autorisation invalide");
-      window.HeureuxEO2Evaluation?.setGrant(config.reviewGrant);
+      window.HeureuxEO2Evaluation?.setGrant(typeof config.reviewGrant === "string" ? config.reviewGrant : null);
       const socket = openSocket(s,config);
       socket.onmessage = e => receive(s,e.data);
       const disconnected = () => finish(s,"Connexion vocale interrompue ou quota indisponible. Le micro est coupé.");
@@ -354,7 +357,7 @@
         "Impossible d’ouvrir le micro ou la connexion vocale.");
     }
   }
-  // A saved exchange opens on its debrief; its report is the stored one, not a new Groq call.
+  // A saved exchange opens on its debrief without calling the grader.
   function reopen(saved) {
     phase("done","Séance enregistrée");
     root.dataset.ending = "normal";
@@ -365,7 +368,7 @@
   function setup() {
     review.clear(); delete root.dataset.ending; delete root.dataset.mic;
     by("console").querySelector(".lv-actions").before(by("status"));
-    phase("setup","Avant la simulation"); display(prep); text("status",capable ? "" : "Ce navigateur ne permet pas l’appel vocal. Essayez un navigateur récent en HTTPS.");
+    phase("setup","Avant la simulation"); display(prep); text("status",capable || !voice ? "" : "Ce navigateur ne permet pas l’appel vocal. Essayez un navigateur récent en HTTPS.");
     text("title",initialTitle); text("kicker",initialKicker); text("prompt",introduction);
     by("start").disabled = !capable; by("captions").open = false;
   }
@@ -373,10 +376,11 @@
     if (!capable || active || state() !== "setup") return;
     const s = active = {abort:new AbortController(),playing:new Set(),rows:[],partial:{},cursor:0};
     try {
-      const response = await window.HeureuxAudioRequest(root.dataset.tokenUrl,requestOptions(s,{purpose:"attempt"}),{
+      const request = {purpose:"attempt", ...(autoProvider && {reviewProvider:autoProvider})};
+      const response = await window.HeureuxAudioRequest(root.dataset.tokenUrl,requestOptions(s,request),{
         confirmBeforeSend:true, title:"Autoriser la simulation", action:"Autoriser cette simulation",
         description:"Voix envoyée à Google (examen humain possible). " +
-          (root.dataset.autoGroqEvaluation === "1" ? "Transcription envoyée à Groq pour le bilan. " : "") +
+          (autoProvider ? `Transcription envoyée à ${root.dataset.autoEvaluationLabel} pour le bilan. ` : "") +
           "Heureux garde le texte et le bilan, pas l’audio. Je confirme : 18 ans ou plus, au Canada ou aux États-Unis.",
         onConfirm:() => {
           phase("loading","Ouverture"); text("status","Ouverture de la lecture · micro coupé.");
@@ -390,8 +394,11 @@
       if (!response.ok) { tokenError(s,response); return; }
       const config = await response.json();
       if (!owns(s)) return;
-      if (typeof config.exchangeGrant !== "string" || !config.exchangeGrant) throw new Error("Autorisation invalide");
+      if (typeof config.exchangeGrant !== "string" || !config.exchangeGrant ||
+          typeof config.snapshotGrant !== "string" || !config.snapshotGrant ||
+          typeof config.snapshot?.prompt !== "string" || !config.snapshot.prompt) throw new Error("Autorisation invalide");
       s.exchangeGrant = config.exchangeGrant;
+      window.HeureuxEO2Evaluation?.setSnapshotGrant(config.snapshotGrant);
       await s.audio.audioWorklet.addModule(root.dataset.worklet);
       if (!owns(s)) return;
       clearTimeout(s.watchdog); readPrompt(s,config);
@@ -415,13 +422,16 @@
     showMute(true); text("status","Micro coupé. Aucun son n’est envoyé.");
   };
   by("end").onclick = () => { if (active) endAttempt(active,"Vous avez mis fin à la séance."); };
+  const saved = by("saved-simulation");
   by("retry").onclick = () => {
     const url = new URL(location.href);
-    if (url.searchParams.has("simulation") || url.hash.startsWith("#lv-")) {
-      url.searchParams.delete("simulation");
-      url.hash = "";
-      history.replaceState(history.state,"",url);
+    url.searchParams.delete("simulation");
+    if (url.hash.startsWith("#lv-")) url.hash = "";
+    if (saved) {
+      location.assign(url);
+      return;
     }
+    if (url.href !== location.href) history.replaceState(history.state,"",url);
     setup(); by("title").focus();
   };
   document.addEventListener("visibilitychange",() => {
@@ -433,6 +443,5 @@
   const pin = () => root.style.setProperty("--lv-top",`${nav ? Math.round(nav.getBoundingClientRect().height) : 0}px`);
   window.addEventListener("resize",pin); pin();
   setup();
-  const saved = by("saved-simulation");
   if (saved) reopen(JSON.parse(saved.textContent));
 })();

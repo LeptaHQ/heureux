@@ -624,12 +624,23 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.get_by_role("timer")).to_contain_text(re.compile(r"07:(29|30)"))
         expect(self.page.locator("#writing-body")).to_have_value("Ce brouillon reste en place.")
 
+        draft = "Même abandonné, mon dernier texte reste disponible."
+        self.page.locator("#writing-body").fill(draft)
+        abandon = self.page.get_by_role("button", name="Abandonner la séance")
+        dialog = self.page.locator("[data-confirm-dialog]")
+        abandon.click()
+        dialog.get_by_role("button", name="Annuler", exact=True).click()
+        expect(self.page.locator("#writing-body")).to_have_value(draft)
+        abandon.click()
+        dialog.get_by_role("button", name="Abandonner", exact=True).click()
+        expect(self.page.get_by_text("Cette session a été abandonnée", exact=False)).to_be_visible()
+        expect(self.page.locator("#lv-transcript")).to_contain_text(draft)
+
         self.page.goto(setup)
         saved = self.page.locator(".lv-saved li")
         delete = saved.get_by_role("button", name="Supprimer la séance du")
         expect(delete.locator('[data-icon="trash"]')).to_be_visible()
         delete.click()
-        dialog = self.page.locator("[data-confirm-dialog]")
         dialog.get_by_role("button", name="Annuler", exact=True).click()
         expect(saved).to_have_count(1)
         delete.click()
@@ -693,7 +704,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
 
     @override_settings(
-        EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="fixture-groq-key",
+        EE1_EVALUATION_PROVIDER="cloudflare", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="fixture-groq-key",
         CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID="0123456789abcdef" * 2,
     )
     def test_written_simulation_debrief_retries_and_shows_corrections_before_proposal(self):
@@ -705,6 +716,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         body = "Je vous invite a dîner. J’aimerais que vous veniez samedi. " + " ".join(["Bonjour"] * 50)
         self.page.locator("#writing-body").fill(body)
         submit = self.page.get_by_role("button", name="Remettre la réponse")
+        expect(submit).to_have_accessible_description("Envoi à Workers : réponse, consigne.")
         self.assertLessEqual(submit.evaluate("button => parseFloat(getComputedStyle(button).paddingInlineStart)"), 12)
         attempt_id = urlsplit(self.page.url).path.rstrip("/").rsplit("/", 1)[-1]
         evaluation_url = reverse("study:ee1_simulation_evaluate", args=[attempt_id])
@@ -729,7 +741,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             "improvedResponse": "Bonjour !\n\nEst-ce que cela te dirait de venir dîner ?",
             "improvedWordCount": 11,
         }
-        groq_report = {
+        workers_report = {
             **{key: value for key, value in report.items() if key != "verbFeedback"},
             "score": 11, "nclc": "NCLC 7", "priorities": [],
             "corrections": [{**report["corrections"][0], "why": "Accent grave sur la préposition."}],
@@ -747,8 +759,8 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 parse_qs(urlsplit(route.request.url).query).get("provider", [None])[0]
                 if route.request.method == "GET" else route.request.post_data_json["provider"]
             )
-            if provider == "groq":
-                route.fulfill(json={"status": "ready", "report": groq_report})
+            if provider == "cloudflare":
+                route.fulfill(json={"status": "ready", "report": workers_report})
                 return
             status, payload = next(replies)
             route.fulfill(status=status, json=payload)
@@ -758,6 +770,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             submit.click()
             expect(self.page.locator("#lv-level")).to_have_text("11/20 · NCLC 7 · B2")
         worker.assert_called_once()
+        self.assertEqual(worker.call_args.args[-1], "cloudflare")
         proposal = self.page.locator("#lv-proposal")
         expect(proposal).to_be_visible()
         title = self.page.get_by_role("heading", name="Simulation", exact=True)
@@ -798,7 +811,8 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             select_model("Gemini")
         self.assertEqual(request.value.post_data_json, {"consent": True, "provider": "gemini"})
         expect(self.page.get_by_role("status").filter(has_text="Rechargez la page")).to_be_visible()
-        expect(proposal).to_be_hidden()
+        expect(proposal).to_be_visible()
+        expect(self.page.locator("#lv-level")).to_have_text("11/20 · NCLC 7 · B2")
         select_model("Gemini")
         expect(self.page.get_by_role("status").filter(has_text="Le bilan est illisible")).to_be_visible()
         expect(self.page.locator("#lv-transcript")).to_contain_text(body)
@@ -844,7 +858,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(retry.locator('[data-icon="reset"]')).to_be_visible()
         self.page.locator("#lv-assessment > summary").click()
         expect(trigger).to_be_visible()
-        select_model("Groq")
+        select_model("Workers")
         expect(self.page.locator("#lv-level")).to_have_text("11/20 · NCLC 7 · B2")
         expect(self.page.locator("#lv-assessment")).to_have_attribute("open", "")
         expect(corrections).to_contain_text("Accent grave sur la préposition.")

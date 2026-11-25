@@ -1,6 +1,5 @@
 """A learner's EO2 simulation checklist and topic-specific history."""
 
-import unicodedata
 from dataclasses import dataclass
 from functools import lru_cache
 
@@ -16,10 +15,9 @@ from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
 from study.models import EO2PracticeAttempt, EO2TopicStatus, Prompt
 from study.navigation.routing import subject_selection_url
-from study.simulation import live_conversation
 
 from .helpers import _route_task
-from .simulation import picker_subjects, render_subject_picker
+from .simulation import PickerSubject, picker_rows, render_subject_picker, subject_picker_context
 
 
 @dataclass(frozen=True)
@@ -38,8 +36,6 @@ class Topic:
 
 PHOTO = Topic("", "Choisir un atelier photo", (), "Sujet d’entraînement", "Loisirs, clubs & jeux", "loisirs-clubs-jeux")
 PHOTO_TOKEN = "atelier-photo"
-PICKER_STATUSES = {"new": "Sans séance", "done": "Terminés", "not-done": "Non terminés", "retry": "À refaire"}
-PICKER_ORDERS = {"recent": "Dernière séance", "least": "Moins pratiqués d’abord"}
 
 
 @lru_cache(maxsize=1)
@@ -74,10 +70,11 @@ def topic_prompts(task):
 def write_topic_status(user, task, subject_key, *, field, value):
     keys = [subject_key]
     if subject_key:
-        group = topic_prompts(task).filter(content_key=subject_key).values("response_id")
-        keys = Prompt.objects.filter(
-            theme__task=task, response_id__in=group, content_key__startswith="tache2:",
-        ).order_by("content_key").values_list("content_key", flat=True)
+        prompts = Prompt.objects.filter(theme__task=task, content_key__startswith="tache2:")
+        group = prompts.filter(content_key=subject_key).values("response_id")
+        # A signed session can finish after its publication has been removed.
+        equivalents = prompts.filter(response_id__in=group).order_by("content_key").values_list("content_key", flat=True)
+        keys = list(equivalents) or keys
     EO2TopicStatus.objects.bulk_create(
         [EO2TopicStatus(user=user, subject_key=key, **{field: value}) for key in keys],
         update_conflicts=True, unique_fields=["user", "subject_key"], update_fields=[field],
@@ -97,10 +94,6 @@ def resolve_topic(request, token):
     return task, topic
 
 
-def _fold(value):
-    return "".join(c for c in unicodedata.normalize("NFKD", value.casefold()) if not unicodedata.combining(c))
-
-
 @require_GET
 @vary_on_headers("X-Requested-With")
 def picker(request):
@@ -110,61 +103,38 @@ def picker(request):
         for key, pk, response_id in topic_prompts(task).order_by().values_list("content_key", "pk", "response_id")
     }
     publications[""] = (PHOTO_TOKEN, PHOTO_TOKEN)
-    done_groups, retry_groups = set(), set()
+    markers = {}
     for key, done, retry in EO2TopicStatus.objects.filter(user=request.user).values_list("subject_key", "done", "retry"):
         if key in publications:
-            group = publications[key][1]
+            mark = markers.setdefault(publications[key][1], set())
             if done:
-                done_groups.add(group)
+                mark.add("done")
             if retry:
-                retry_groups.add(group)
+                mark.add("retry")
     attempts = {
         row["subject_key"]: row for row in EO2PracticeAttempt.objects.filter(user=request.user)
         .values("subject_key").annotate(count=Count("pk"), latest=Max("created_at"))
     }
-    query = request.GET.get("q", "").strip()[:120]
-    theme = request.GET.get("theme", "")
-    status = request.GET.get("etat", request.GET.get("status", ""))
-    if status not in PICKER_STATUSES:
-        status = ""
-    order = request.GET.get("tri", "")
-    if order not in ("az", "za") and order not in PICKER_ORDERS:
-        order = ""
-    themes = {}
-    rows = []
-    needle = _fold(query)
-    for topic in (PHOTO, *practice_topics().values()):
-        publication = publications.get(topic.key)
-        if publication is None:
-            continue
-        token, group = publication
-        done, retry = group in done_groups, group in retry_groups
-        themes[topic.theme_slug] = topic.theme
-        summary = attempts.get(topic.key, {})
-        rows.append({"topic": topic, "token": token, "done": done, "retry": retry,
-                     "subject_group": group,
-                     "count": summary.get("count", 0), "latest": summary.get("latest"),
-                     "row_id": f"topic-{token}", "title": topic.title, "url": topic.simulation_url,
-                     "caption": f"{topic.theme} · {topic.source}"})
-    total = len(picker_subjects(request, rows))
-    done_total = len(picker_subjects(request, (row for row in rows if row["done"])))
-    retry_total = len(picker_subjects(request, (row for row in rows if row["retry"])))
-    rows = picker_subjects(request, (
-        row for row in rows if not (
-            (theme and row["topic"].theme_slug != theme) or (status == "new" and row["count"])
-            or (status == "done" and not row["done"]) or (status == "not-done" and row["done"])
-            or (status == "retry" and not row["retry"]) or (needle and needle not in _fold(f'{row["title"]} {row["caption"]}'))
-        )
-    ))
-    if order in ("az", "za"):
-        rows.sort(key=lambda r: _fold(r["topic"].title), reverse=order == "za")
-    elif order == "recent":
-        rows.sort(key=lambda r: (r["latest"] is not None, r["latest"]), reverse=True)
-    elif order == "least":
-        rows.sort(key=lambda r: r["count"])
-    page = Paginator(rows, 15).get_page(request.GET.get("page"))
+    topics = practice_topics()
+    subjects = (
+        PickerSubject(topic.key, topic.title, topic.theme_slug, topic.theme, f"{topic.theme} · {topic.source}",
+                      publications[topic.key][1])
+        for topic in (PHOTO, *topics.values()) if topic.key in publications
+    )
+    context = subject_picker_context(request, subjects, attempts, markers=markers)
+
+    def row_for(subject):
+        key = subject.key
+        topic, token = (topics[key] if key else PHOTO), publications[key][0]
+        mark = markers.get(subject.group, ())
+        return {
+            "topic": topic, "token": token, "row_id": f"topic-{token}", "url": topic.simulation_url,
+            "done": "done" in mark, "retry": "retry" in mark,
+        }
+
+    picker_rows(context, attempts, row_for)
     return render_subject_picker(request, {
-        "task": task, "page": page, "total": total,
+        **context, "task": task,
         "picker": {
             "back_url": reverse("study:simulation_track", args=["eo"]),
             "back_label": "Expression orale",
@@ -177,13 +147,6 @@ def picker(request):
             "results_id": "eo2-topic-results",
             "show_status_summary": True,
         },
-        "directory_selection": {
-            "themes": sorted(themes.items(), key=lambda item: _fold(item[1])), "theme": theme,
-            "unavailable_theme": theme and theme not in themes, "query": query, "status": status, "order": order,
-            "active": bool(theme or query or status or order),
-            "status_choices": PICKER_STATUSES.items(), "extra_orders": PICKER_ORDERS.items(),
-        },
-        "done_total": done_total, "retry_total": retry_total,
     })
 
 
@@ -214,7 +177,7 @@ def legacy_rehearsal(request, prompt_id):
 
 @require_GET
 def history(request, token):
-    task, topic = resolve_topic(request, token)
+    _, topic = resolve_topic(request, token)
     rows = EO2PracticeAttempt.objects.filter(user=request.user, subject_key=topic.key).order_by(
         "-created_at", "-pk").values("created_at", "vocal", "live_simulation_id")
     page = Paginator(rows, 20).get_page(request.GET.get("page"))
@@ -224,5 +187,4 @@ def history(request, token):
             row["simulation_url"] = f'{url}?simulation={row["live_simulation_id"]}'
     return render(request, "study/simulation/eo2_history.html", {
         "topic": topic, "page": page,
-        "can_reopen": live_conversation.available_to(request.user, task),
     })

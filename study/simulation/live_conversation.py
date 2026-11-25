@@ -80,13 +80,16 @@ def subject_instruction(subject: TacheTwoSubjectData, dialogue: TacheTwoDialogue
     )
 
 
-def available_to(user, task):
+def pin_available_to(user, task):
     return bool(
-        settings.GEMINI_API_KEY
-        and user.is_authenticated and user.is_active
+        user.is_authenticated and user.is_active
         and 0 < len(settings.AI_PIN) <= 128
         and task and task.available and task.part.available
     )
+
+
+def available_to(user, task):
+    return bool(settings.GEMINI_API_KEY and pin_available_to(user, task))
 
 
 class LiveTokenError(Exception):
@@ -100,28 +103,33 @@ def grant_signer(request, subject_key, *, purpose):
     return signing.TimestampSigner(salt=f"eo2:{purpose}:{request.user.pk}:{request.session.session_key}:{subject_key}")
 
 
-def issue_grant(request, subject_key, *, purpose):
-    return grant_signer(request, subject_key, purpose=purpose).sign(get_random_string(24))
+def issue_grant(request, subject_key, *, purpose, review_provider=""):
+    value = get_random_string(24)
+    if review_provider:
+        value = f"{value}.{review_provider}"
+    return grant_signer(request, subject_key, purpose=purpose).sign(value)
 
 
 @sensitive_variables("pin", "exchange_grant")
 def mint_token(request, task, pin, *, instruction=None, exchange_grant=None, subject_key=""):
     if not available_to(request.user, task):
         raise LiveTokenError(403, "La simulation est indisponible pour le moment.")
+    review_provider = ""
     if exchange_grant is None:
         authorize_audio_generation(request, pin)
     else:
         try:
-            nonce = grant_signer(request, subject_key, purpose="exchange").unsign(exchange_grant, max_age=600)
+            value = grant_signer(request, subject_key, purpose="exchange").unsign(exchange_grant, max_age=600)
         except signing.BadSignature:
             raise LiveTokenError(403, "L’autorisation de cet échange n’est plus valide.") from None
+        nonce, _, review_provider = value.partition(".")
         # A single atomic redemption; the 15-minute lock outlives the 10-minute grant.
         if reserve_throttled_action(account_throttle_key(nonce, purpose="eo2-exchange-grant"), limit=1):
             raise LiveTokenError(403, "Cette autorisation a déjà été utilisée.")
     token = _request_token(_RECEPTION if instruction is None else instruction)
     if token is None:
         raise LiveTokenError(503, "Le service vocal est indisponible pour le moment.")
-    return token
+    return token, review_provider
 
 
 def _request_token(instruction: str) -> str | None:

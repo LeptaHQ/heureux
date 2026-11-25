@@ -342,7 +342,13 @@ def ground(
                 "evidence": display_text(f"{section}.observation", item.get("evidence"), 700),
             }
         )
-    result["gradeEvidence"] = grounded_excerpts(report.get("gradeEvidenceIds"), 6, "gradeEvidence")
+    grade_ids = report.get("gradeEvidenceIds")
+    if isinstance(grade_ids, list) and not grade_ids:
+        result["gradeEvidence"] = list(dict.fromkeys(
+            quote for item in result["criteria"] for quote in item["quotes"]
+        ))[:6]
+    else:
+        result["gradeEvidence"] = grounded_excerpts(grade_ids, 6, "gradeEvidence")
 
     for field, limit in (("verdict", 900), ("uncertainty", 900), ("gradeRationale", 1800)):
         result[field] = display_text(field, report.get(field), limit)
@@ -536,9 +542,11 @@ def score(
         "Read the full response. In taskCompliance give a separate check for each explicit requirement "
         "and for the format, audience and register, putting missing or partial items first. "
         "Never penalize a detail the subject did not ask for. "
-        "For task compliance, criteria, grade rationale, strengths and verbFeedback, cite exact "
+        "For task compliance, criteria, strengths and verbFeedback, cite exact "
         "numbered passage IDs. Use an empty evidenceId for a Missing requirement with no passage. "
-        "Use one or two relevant citations per criterion and explain what they show. Limit each "
+        "Use one or two relevant citations per criterion and explain what they show. "
+        "If those criterion citations also support gradeRationale, use [] for gradeEvidenceIds; "
+        "otherwise cite up to six numbered passage IDs there. Limit each "
         "requirement check and relevance entry to one short sentence so the key feedback has room. "
         "Give up to four strengths; say what each choice accomplishes instead of repeating the quote. "
         f"{task_guidance} "

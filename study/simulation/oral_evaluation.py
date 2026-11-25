@@ -230,8 +230,9 @@ def simulation_data(body, *, monologue=False):
         if len(body) > MAX_BODY:
             raise ValueError
         data = json.loads(body, object_pairs_hook=unique_fields)
-        if not isinstance(data, dict) or data.keys() != {"rows", "elapsed"}:
+        if not isinstance(data, dict) or data.keys() != {"rows", "elapsed", "snapshotGrant"}:
             raise ValueError
+        _text(data["snapshotGrant"], 12_000)
         if type(data["elapsed"]) is not int or not 0 <= data["elapsed"] <= (270_000 if monologue else 600_000):
             raise ValueError
         _rows(data["rows"], frozenset({"interrupted"}), monologue=monologue)
@@ -430,15 +431,13 @@ def _ground(report, rows, evidence, *, monologue=False):
 
 @sensitive_variables()
 def authorize(request, task, pin, *, grant, subject_key, provider="groq"):
-    if not (live_conversation.available_to(request.user, task) and provider in available_providers()):
+    if not (live_conversation.pin_available_to(request.user, task) and provider in available_providers()):
         raise EvaluationError(403, "Le bilan n’est pas disponible.")
-    if grant is not None and provider != "groq":
-        raise EvaluationError(403, "Confirmez l’envoi à ce service avec votre code PIN.")
     if grant is None:
-        authorize_audio_generation(request, pin)  # Studio tabs opened before the one-PIN rollout.
+        authorize_audio_generation(request, pin)
     else:
         try:
-            live_conversation.grant_signer(request, subject_key, purpose="review").unsign(grant, max_age=3600)
+            live_conversation.grant_signer(request, subject_key, purpose=f"review:{provider}").unsign(grant, max_age=3600)
         except signing.BadSignature:
             raise EvaluationError(403, "L’autorisation du bilan a expiré. Votre transcription reste disponible.") from None
 

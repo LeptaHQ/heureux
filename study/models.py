@@ -998,10 +998,12 @@ class LiveSimulation(models.Model):
         related_name="live_simulations",
     )
     subject_key = models.CharField(max_length=120, blank=True)
+    snapshot = models.JSONField(default=dict)
     rows = models.JSONField()
     elapsed_ms = models.PositiveIntegerField(default=0)
     report = models.JSONField(null=True, blank=True)
     provider_reports = models.JSONField(default=dict, blank=True)
+    evaluation_claims = models.JSONField(default=dict, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
 
     class Meta:

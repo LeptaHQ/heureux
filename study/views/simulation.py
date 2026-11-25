@@ -1,7 +1,8 @@
 """Entry points and subject selection for the simulation studios."""
 
 import unicodedata
-from operator import itemgetter
+from dataclasses import dataclass
+from operator import attrgetter, itemgetter
 
 from django.core.paginator import Paginator
 from django.shortcuts import render
@@ -32,57 +33,101 @@ TASK_FORMATS = {
     ),
 }
 PICKER_STATUSES = {"new": "Sans séance", "done": "Déjà pratiqués"}
+MARKER_STATUSES = {"new": "Sans séance", "done": "Terminés", "not-done": "Non terminés", "retry": "À refaire"}
 PICKER_ORDERS = {"recent": "Dernière séance", "least": "Moins pratiqués d’abord"}
+
+
+@dataclass(frozen=True)
+class PickerSubject:
+    key: str | int
+    title: str
+    theme: str
+    theme_label: str
+    caption: str
+    group: str | int
 
 
 def _fold(value):
     return "".join(c for c in unicodedata.normalize("NFKD", value.casefold()) if not unicodedata.combining(c))
 
 
-def picker_subjects(request, rows):
-    if request.GET.get("deduplicate", "1") != "1":
-        return list(rows)
-    return list(subject_representatives(rows, key=itemgetter("subject_group")).values())
-
-
-def subject_picker_context(request, rows):
+def subject_picker_context(request, subjects, attempts, *, markers=None):
     query = request.GET.get("q", "").strip()[:120]
     theme = request.GET.get("theme", "")
-    status = request.GET.get("etat", "")
-    if status not in PICKER_STATUSES:
+    status = request.GET.get("etat", request.GET.get("status", "") if markers is not None else "")
+    statuses = MARKER_STATUSES if markers is not None else PICKER_STATUSES
+    if status not in statuses:
         status = ""
     order = request.GET.get("tri", "")
     if order not in {"az", "za", *PICKER_ORDERS}:
         order = ""
     needle = _fold(query)
-    themes = {row["theme"]: row["theme_label"] for row in rows}
-    filtered = [
-        row for row in rows if not (
-            (theme and row["theme"] != theme)
-            or (status == "new" and row["count"])
-            or (status == "done" and not row["count"])
-            or (needle and needle not in _fold(f'{row["title"]} {row["caption"]}'))
-        )
-    ]
-    filtered = picker_subjects(request, filtered)
+    deduplicate = request.GET.get("deduplicate", "1") == "1"
+    themes, filtered = {}, []
+    total, practiced_total, done_total, retry_total = set(), set(), set(), set()
+    for subject in subjects:
+        key = subject.group if deduplicate else subject.key
+        themes[subject.theme] = subject.theme_label
+        total.add(key)
+        practiced = subject.key in attempts
+        mark = markers.get(subject.group, ()) if markers is not None else ()
+        done, retry = "done" in mark, "retry" in mark
+        if practiced:
+            practiced_total.add(key)
+        if done:
+            done_total.add(key)
+        if retry:
+            retry_total.add(key)
+        complete = done if markers is not None else practiced
+        if ((theme and subject.theme != theme)
+                or (status == "new" and practiced)
+                or (status == "done" and not complete)
+                or (status == "not-done" and done)
+                or (status == "retry" and not retry)
+                or (needle and needle not in _fold(f"{subject.title} {subject.caption}"))):
+            continue
+        filtered.append(subject)
+    if deduplicate:
+        filtered = list(subject_representatives(filtered, key=attrgetter("group")).values())
     if order in {"az", "za"}:
-        filtered.sort(key=lambda row: _fold(row["title"]), reverse=order == "za")
+        filtered.sort(key=lambda subject: _fold(subject.title), reverse=order == "za")
     elif order == "recent":
-        filtered.sort(key=lambda row: (row["latest"] is not None, row["latest"]), reverse=True)
+        def recency(subject):
+            latest = attempts.get(subject.key, {}).get("latest")
+            return latest is not None, latest
+        filtered.sort(key=recency, reverse=True)
     elif order == "least":
-        filtered.sort(key=lambda row: row["count"])
+        filtered.sort(key=lambda subject: attempts.get(subject.key, {}).get("count", 0))
     return {
         "page": Paginator(filtered, 15).get_page(request.GET.get("page")),
-        "total": len(picker_subjects(request, rows)),
-        "practiced_total": len(picker_subjects(request, (row for row in rows if row["count"]))),
+        "total": len(total),
+        "practiced_total": len(practiced_total), "done_total": len(done_total), "retry_total": len(retry_total),
         "directory_selection": {
             "themes": sorted(themes.items(), key=lambda item: _fold(item[1])),
             "theme": theme, "unavailable_theme": theme and theme not in themes,
             "query": query, "status": status, "order": order,
             "active": bool(theme or query or status or order),
-            "status_choices": PICKER_STATUSES.items(), "extra_orders": PICKER_ORDERS.items(),
+            "status_choices": statuses.items(), "extra_orders": PICKER_ORDERS.items(),
         },
     }
+
+
+def picker_rows(context, attempts, row_for):
+    page = context["page"]
+    page.object_list = [
+        {
+            "title": subject.title, "caption": subject.caption,
+            "count": attempts.get(subject.key, {}).get("count", 0),
+            **row_for(subject),
+        }
+        for subject in page.object_list
+    ]
+
+
+def saved_session_context(request, sessions, row_for):
+    page = Paginator(sessions, 8).get_page(request.GET.get("seances"))
+    page.object_list = [row_for(session) for session in page.object_list]
+    return {"saved_sessions": page.object_list, "saved_sessions_page": page}
 
 
 def render_subject_picker(request, context):

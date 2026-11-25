@@ -60,6 +60,7 @@ class EE3SimulationTests(TestCase):
         self.assertContains(page, "40–60")
         self.assertContains(page, "80–120")
         self.assertNotContains(page, "Nouveau sujet")
+        revision = page.context["draft_revision"]
 
         synthesis = " ".join(["synthèse"] * 40)
         position = " ".join(["opinion"] * 80)
@@ -67,12 +68,13 @@ class EE3SimulationTests(TestCase):
             ({"body": synthesis.rsplit(maxsplit=1)[0], "position_body": position + " opinion"}, "entre 40 et 60 mots"),
             ({"body": synthesis + " synthèse", "position_body": position.rsplit(maxsplit=1)[0]}, "entre 80 et 120 mots"),
         ):
-            rejected = self.client.post(url, {"action": "submit", **data})
+            rejected = self.client.post(url, {"action": "submit", "draft_revision": revision, **data})
             self.assertContains(rejected, error, status_code=400)
 
         with patch("study.views.writing_simulation.threading.Thread") as thread, self.captureOnCommitCallbacks(execute=True):
             submitted = self.client.post(url, {
                 "action": "submit", "body": synthesis, "position_body": position, "evaluation_consent": "groq",
+                "draft_revision": revision,
             })
         self.assertRedirects(submitted, url)
         attempt.refresh_from_db()
@@ -93,14 +95,16 @@ class EE3SimulationTests(TestCase):
         self.assertEqual(self.client.get(reverse("study:export_account")).json()["writing_simulation_attempts"][0]["position_body"], position)
 
     @override_settings(GROQ_API_KEY="fixture-groq-key")
-    def test_overtime_saves_both_sections_and_ignores_legacy_auto_submission(self):
+    def test_overtime_saves_both_sections_without_automatically_grading(self):
         attempt, url = self.start()
         WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(deadline_at=timezone.now() - timedelta(seconds=1))
+        revision = self.client.get(url).context["draft_revision"]
         with patch("study.views.writing_simulation.threading.Thread") as thread, self.captureOnCommitCallbacks(execute=True):
             self.assertRedirects(self.client.post(url, {
-                "action": "expire", "body": "Le premier document oppose deux idées.",
+                "action": "save", "body": "Le premier document oppose deux idées.",
                 "position_body": "Je défends cette idée.",
                 "evaluation_consent": "groq",
+                "draft_revision": revision,
             }), url + "?saved=1")
         thread.assert_not_called()
         attempt.refresh_from_db()
@@ -128,6 +132,15 @@ class EE3SimulationTests(TestCase):
         self.assertEqual((picker.context["total"], picker.context["practiced_total"]), (1, 1))
         page = self.client.get(reverse("study:ee3_simulation"), {"sujet_id": self.prompt.pk})
         self.assertEqual([item["id"] for item in page.context["saved_sessions"]], [attempt.pk])
+        for _ in range(8):
+            self.client.post(self.start_url, {"sujet_id": self.prompt.pk})
+        query = {"sujet_id": self.prompt.pk, "seances": 2}
+        older_url = reverse("study:ee3_simulation", query=query)
+        older = self.client.get(older_url)
+        self.assertEqual([item["id"] for item in older.context["saved_sessions"]], [attempt.pk])
+        delete = reverse("study:ee3_simulation_delete", query=query)
+        self.assertEqual(older.context["delete_url"], delete)
+        self.assertRedirects(self.client.post(delete, {"simulation": attempt.pk}), older_url)
 
     def test_grading_cannot_cite_documents_and_checks_both_proposal_lengths(self):
         synthesis = "Les deux auteurs comparent les avantages de la lecture."

@@ -22,17 +22,19 @@ _MAX_RESPONSE = 64_000
 _RETRY_MIN_SECONDS = 30
 _SLOW_SECONDS = 30
 _UNREADABLE = "Le bilan est illisible. Vous pouvez réessayer."
+_WORKERS_ERROR_CODES = {"3007", "3008", "3036", "3040"}
 _LOGGABLE_PROVIDER_CODES = {
     "internal_server_error", "invalid_request_error", "json_validate_failed", "permission_denied",
     "rate_limit_exceeded", "resource_exhausted", "unauthenticated", "unavailable",
-}
+} | _WORKERS_ERROR_CODES
 logger = logging.getLogger(__name__)
 
 
 class EvaluationError(Exception):
-    def __init__(self, status, message, *, retry=False, schema_rejected=False):
+    def __init__(self, status, message, *, retry=False, schema_rejected=False, retry_after=None):
         self.status, self.retry = status, retry
         self.schema_rejected = schema_rejected
+        self.retry_after = retry_after
         super().__init__(message)
 
 
@@ -50,11 +52,13 @@ def checked_text(value, limit, *, empty=False):
     return value
 
 
-def _provider_error_code(raw):
+def _provider_error_code(raw, *, service=""):
     try:
         reply = json.loads(raw)
         error = reply.get("error") or (reply.get("errors") or [{}])[0]
         code = error.get("code")
+        if service == "Cloudflare" and type(code) in (int, str) and str(code) in _WORKERS_ERROR_CODES:
+            return str(code)
         if not isinstance(code, str) or not code:
             code = error.get("status") or error.get("type")
     except (ValueError, KeyError, IndexError, TypeError, AttributeError, RecursionError):
@@ -74,6 +78,8 @@ def _cut(sock, late):
 @sensitive_variables()
 def _post(payload, deadline, *, host, path, auth, service):
     started = time.monotonic()
+    if started >= deadline:
+        raise EvaluationError(504, "Le délai du bilan est écoulé. Votre travail reste disponible.")
     late, timer = threading.Event(), None
     try:
         with closing(HTTPSConnection(host, timeout=deadline - started)) as conn:
@@ -91,7 +97,7 @@ def _post(payload, deadline, *, host, path, auth, service):
                     if len(body) > _MAX_RESPONSE:
                         raise EvaluationError(502, _UNREADABLE)
                     return body, time.monotonic() - started
-                provider = _provider_error_code(resp.read(16_000))
+                provider = _provider_error_code(resp.read(16_000), service=service)
                 wait = resp.getheader("retry-after") or ""
     except (OSError, HTTPException) as exc:
         elapsed = time.monotonic() - started
@@ -108,12 +114,21 @@ def _post(payload, deadline, *, host, path, auth, service):
     logger.warning("%s evaluation: provider HTTP %d %s", service, resp.status,
                    provider if provider in _LOGGABLE_PROVIDER_CODES else "-")
     code = f"HTTP {resp.status} {provider}".strip()
+    wait_seconds = int(wait) if service == "Cloudflare" and re.fullmatch(r"\d{1,5}", wait) else None
+    # Do not bypass Retry-After dates or other values we cannot safely interpret.
+    retry_workers = (
+        service == "Cloudflare"
+        and (resp.status, provider) in {(408, "3007"), (408, "3008"), (429, "3040")}
+        and (not wait or wait_seconds is not None)
+    )
+    retry_after = (wait_seconds or 0) if retry_workers else None
     if resp.status == 429:
         later = f" Réessayez dans {wait} s." if re.fullmatch(r"\d{1,5}", wait) else ""
-        raise EvaluationError(429, f"Limite de demandes de bilan atteinte ({code}).{later} Votre travail reste disponible.")
-    if resp.status >= 500:
+        raise EvaluationError(429, f"Limite de demandes de bilan atteinte ({code}).{later} Votre travail reste disponible.",
+                              retry=retry_workers, retry_after=retry_after)
+    if resp.status >= 500 or retry_workers:
         raise EvaluationError(502, f"Le bilan est momentanément indisponible ({code}). Votre travail reste disponible.",
-                              retry=True)
+                              retry=True, retry_after=retry_after)
     raise EvaluationError(
         502, f"La demande de bilan a été refusée ({code}). Votre travail reste disponible.",
         schema_rejected=service == "Groq" and resp.status == 400 and provider == "json_validate_failed",
@@ -126,8 +141,6 @@ def _request_with_retry(payload, *, host, path, auth, service, retry_schema=Fals
         deadline = time.monotonic() + DEADLINE_SECONDS
 
     def send():
-        if time.monotonic() >= deadline:
-            raise EvaluationError(504, "Le délai du bilan est écoulé. Votre travail reste disponible.")
         return _post(
             json.dumps(payload, ensure_ascii=False).encode(), deadline,
             host=host, path=path, auth=auth, service=service,
@@ -144,7 +157,12 @@ def _request_with_retry(payload, *, host, path, auth, service, retry_schema=Fals
             payload["response_format"] = {"type": "json_object"}
             payload["messages"][0]["content"] += "\nJSON schema: " + json.dumps(schema, separators=(",", ":"))
         else:
-            time.sleep(1 + random.random())
+            delay = max(1 + random.random(), exc.retry_after or 0)
+            if exc.retry_after is not None and deadline - time.monotonic() - delay < _RETRY_MIN_SECONDS:
+                raise
+            time.sleep(delay)
+            if exc.retry_after is not None and deadline - time.monotonic() < _RETRY_MIN_SECONDS:
+                raise
         return send()
 
 
@@ -268,7 +286,7 @@ def request_workers_report(instruction, packet, schema, *, name="ee1_bilan", dea
         if not isinstance(report, dict):
             raise ValueError
         return report
-    except (ValueError, KeyError, TypeError, AttributeError, RecursionError):
+    except (ValueError, KeyError, IndexError, TypeError, AttributeError, RecursionError):
         logger.warning("Cloudflare evaluation: could not decode the report")
         raise EvaluationError(502, _UNREADABLE) from None
 

@@ -1,11 +1,13 @@
 import json
 import re
+from unittest.mock import patch
 
 from django.test import override_settings
 from django.urls import reverse
 from playwright.sync_api import expect
 
 from study.models import LiveSimulation
+from study.simulation import live_conversation
 from study.views.helpers import tache_two_publication
 
 from . import factories
@@ -31,6 +33,7 @@ class LiveConversationBrowserMixin:
         workers = {**groq, "score": 10, "nclc": "7", "reason": "Bilan Workers."}
         saved = LiveSimulation.objects.create(
             user=self.user, rows=rows, report=groq, provider_reports={"cloudflare": workers},
+            snapshot={"prompt": "Demandez des renseignements sur les ateliers."},
         )
         posts = []
         endpoint = reverse("study:eo_tache_two_live_evaluation")
@@ -70,9 +73,13 @@ class LiveConversationBrowserMixin:
             "consent": True, "provider": "gemini", "pin": PILOT_PIN, "simulation": str(saved.pk), "rows": rows,
         }])
 
-    def open_live_pilot(self, *, subject_args=(), opinion=False):
+    def open_live_pilot(self, *, subject_args=(), opinion=False, workers=False):
         """Real Web Audio and worklet; synthetic input and a local stand-in for Gemini."""
-        self.enterContext(override_settings(GROQ_API_KEY="fixture-groq-key"))
+        self.enterContext(override_settings(
+            GROQ_API_KEY="fixture-groq-key", GEMINI_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN,
+            CLOUDFLARE_WORKERS_API_KEY="fixture-workers" if workers else "",
+            CLOUDFLARE_ACCOUNT_ID="0123456789abcdef" * 2 if workers else "",
+        ))
         self.opinion = opinion
         studio = "study:eo_tache_three_live" if opinion else "study:eo_tache_two_live"
         factories.make_task(self.part, "tache-3" if opinion else "tache-2")
@@ -124,56 +131,54 @@ class LiveConversationBrowserMixin:
           close() { this.readyState=3; }
         };""")
         self.token_requests = []
+        self.token_replies = {}
         self.mint_status = 200
 
         def fake_token(route):
             body = route.request.post_data_json
             self.token_requests.append(body)
-            if body.get("purpose") == "exchange" and body == {
-                "consent": True, "purpose": "exchange", "exchangeGrant": "fixture-exchange",
-            }:
-                token, grant = "exchange", {"reviewGrant": "fixture-review"}
-            elif body.get("purpose") == "attempt" and body.get("pin") == PILOT_PIN:
-                token, grant = "reader", {"exchangeGrant": "fixture-exchange"}
-            else:
-                code = "pin_invalid" if body.get("pin") else "pin_required"
-                route.fulfill(status=403, json={"error": code, "message": "Code PIN incorrect."})
+            if self.mint_status != 200:
+                route.fulfill(status=self.mint_status, json={})
                 return
-            route.fulfill(status=self.mint_status, json={
-                "model": "models/gemini-3.8-live", "token": "auth_tokens/" + token, **grant,
-            })
+            purpose = body["purpose"]
+            token = "auth_tokens/exchange" if purpose == "exchange" else "auth_tokens/reader"
+            with patch.object(live_conversation, "_request_token", return_value=token):
+                response = route.fetch()
+            if response.ok:
+                self.token_replies[purpose] = response.json()
+            route.fulfill(response=response)
 
         self.page.route("**" + reverse(studio + "_token", args=subject_args), fake_token)
-        with override_settings(
-            GEMINI_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN,
-        ):
-            if opinion and subject_args:
-                details = reverse("study:response_detail", args=("eo", "tache-3", *subject_args))
-                self.page.goto(self.live_server_url + details)
-                self.page.get_by_role("link", name="Simuler la tâche 3 sur ce sujet").click()
-            elif subject_args:
-                details = reverse("study:task_subject_detail", args=("eo", "tache-2", *subject_args))
-                self.page.goto(self.live_server_url + details)
-                self.selected_consigne = self.page.locator("#tache-two-subject-prompt").text_content()
-                prompt = self.page.locator(".tache-two-consigne")
-                launch = prompt.get_by_role("link", name="Lancer la conversation sur ce sujet")
-                copy = prompt.locator("[data-prompt-copy]")
-                expect(copy).to_have_accessible_name(re.compile(r"^Copier la consigne"))
-                self.assertEqual(prompt.locator(".tache-two-consigne__actions [data-icon]").evaluate_all(
-                    "icons => icons.map(icon => icon.dataset.icon)"), ["headphones", "copy"])
-                expect(launch).to_have_text("")
-                expect(copy.locator("[data-prompt-copy-label]")).to_have_class("sr-only")
-                self.assertLess(launch.bounding_box()["x"], copy.bounding_box()["x"])
-                self.page.evaluate("""Object.defineProperty(navigator, 'clipboard', {
-                    configurable:true, value:{writeText: async text => { window.copiedPrompt = text; }}
-                })""")
-                copy.click()
-                expect(copy).to_have_class(re.compile(r"\bis-copied\b"))
-                self.assertEqual(self.page.evaluate("window.copiedPrompt"), json.loads(self.selected_consigne))
-                self.assert_no_horizontal_overflow()
-                launch.click()
-            else:
-                self.page.goto(self.live_server_url + reverse(studio))
+        self.page.route("**" + reverse(studio + "_evaluation", args=subject_args), lambda route: route.fulfill(
+            status=503, json={"error": "Le service de bilan est indisponible."},
+        ))
+        if opinion and subject_args:
+            details = reverse("study:response_detail", args=("eo", "tache-3", *subject_args))
+            self.page.goto(self.live_server_url + details)
+            self.page.get_by_role("link", name="Simuler la tâche 3 sur ce sujet").click()
+        elif subject_args:
+            details = reverse("study:task_subject_detail", args=("eo", "tache-2", *subject_args))
+            self.page.goto(self.live_server_url + details)
+            self.selected_consigne = self.page.locator("#tache-two-subject-prompt").text_content()
+            prompt = self.page.locator(".tache-two-consigne")
+            launch = prompt.get_by_role("link", name="Lancer la conversation sur ce sujet")
+            copy = prompt.locator("[data-prompt-copy]")
+            expect(copy).to_have_accessible_name(re.compile(r"^Copier la consigne"))
+            self.assertEqual(prompt.locator(".tache-two-consigne__actions [data-icon]").evaluate_all(
+                "icons => icons.map(icon => icon.dataset.icon)"), ["headphones", "copy"])
+            expect(launch).to_have_text("")
+            expect(copy.locator("[data-prompt-copy-label]")).to_have_class("sr-only")
+            self.assertLess(launch.bounding_box()["x"], copy.bounding_box()["x"])
+            self.page.evaluate("""Object.defineProperty(navigator, 'clipboard', {
+                configurable:true, value:{writeText: async text => { window.copiedPrompt = text; }}
+            })""")
+            copy.click()
+            expect(copy).to_have_class(re.compile(r"\bis-copied\b"))
+            self.assertEqual(self.page.evaluate("window.copiedPrompt"), json.loads(self.selected_consigne))
+            self.assert_no_horizontal_overflow()
+            launch.click()
+        else:
+            self.page.goto(self.live_server_url + reverse(studio))
         self.start = self.page.locator("#lv-start")
         self.pin_dialog = self.page.locator("[data-audio-pin-dialog]")
 
@@ -238,13 +243,12 @@ class LiveConversationBrowserMixin:
         self.page.locator("#lv-done").get_by_role("link", name="Étudier ce sujet").click()
         expect(self.page).to_have_url(self.live_server_url + reverse("study:task_subject_detail", args=("eo", "tache-2", *args)))
 
-    @override_settings(GEMINI_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN)
     def test_native_voice_opinion_reads_then_listens_until_deadline_and_keeps_last_words(self):
         prompt = self.first.response.prompts.get()
         prompt.text = "Vaut-il mieux découvrir une ville à pied plutôt qu’en voiture ?"
         prompt.save(update_fields=["text"])
         args = (prompt.pk,)
-        self.open_live_pilot(opinion=True, subject_args=args)
+        self.open_live_pilot(opinion=True, subject_args=args, workers=True)
         expect(self.page).to_have_title(f"Simulation · {self.task.short_label} · {prompt.text} · Heureux")
         expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation")
         self.page.set_viewport_size({"width": 390, "height": 844})
@@ -278,6 +282,7 @@ class LiveConversationBrowserMixin:
         self.page.clock.install(time="2026-03-16T10:00:00Z")
         self.page.clock.pause_at("2026-03-16T10:00:05Z")
         self.start.click()
+        expect(self.pin_dialog).to_contain_text("Transcription envoyée à Workers pour le bilan.")
         self.submit_live_pin()
         expect(self.page.locator("html")).to_have_attribute("data-reader", "true")
         expect(self.page.locator("#lv-prompt")).to_have_text(prompt.text)
@@ -337,8 +342,11 @@ class LiveConversationBrowserMixin:
         saved = LiveSimulation.objects.get(user=self.user)
         self.assertEqual((saved.subject_key, saved.elapsed_ms, saved.rows),
                          (f"eo3:{prompt.pk}", 270_000, [{"speaker": "user", "text": spoken + last_words + ending}]))
-        self.assertEqual(calls[0].request.post_data_json,
-                         {"rows": saved.rows, "simulation": str(saved.pk), "consent": True, "reviewGrant": "fixture-review"})
+        self.assertEqual(saved.snapshot["prompt"], prompt.text)
+        self.assertEqual(calls[0].request.post_data_json, {
+            "rows": saved.rows, "simulation": str(saved.pk), "consent": True, "provider": "cloudflare",
+            "reviewGrant": self.token_replies["exchange"]["reviewGrant"],
+        })
         self.assertEqual(len(self.token_requests), 2)
         expect(self.page.locator("#lv-fig-turns")).to_have_text(str(len((spoken + last_words + ending).split())))
         expect(self.page.locator("#lv-share")).to_be_hidden()
@@ -419,14 +427,18 @@ class LiveConversationBrowserMixin:
         expect(self.pin_dialog).to_contain_text("18 ans ou plus, au Canada ou aux États-Unis.")
         self.assertEqual(self.token_requests, [])
         self.submit_live_pin("incorrect")
-        expect(self.pin_dialog.get_by_role("alert")).to_have_text("Code PIN incorrect.")
+        expect(self.pin_dialog.get_by_role("alert")).to_have_text("Code incorrect.")
         self.assertEqual(self.page.evaluate("[probe.calls,probe.readers.length,probe.sockets.length]"), [0, 0, 0])
         self.submit_live_pin()
         self.finish_prompt()
-        self.assertEqual(self.token_requests[-1], {"consent": True, "purpose": "attempt", "pin": PILOT_PIN})
+        self.assertEqual(self.token_requests[-1], {
+            "consent": True, "purpose": "attempt", "pin": PILOT_PIN, "reviewProvider": "groq",
+        })
         self.page.evaluate("document.getElementById('lv-skip').click(); document.getElementById('lv-skip').click()")
         expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
-        self.assertEqual(self.token_requests[-1], {"consent": True, "purpose": "exchange", "exchangeGrant": "fixture-exchange"})
+        self.assertEqual(self.token_requests[-1], {
+            "consent": True, "purpose": "exchange", "exchangeGrant": self.token_replies["attempt"]["exchangeGrant"],
+        })
         self.assertEqual(len(self.token_requests), 3)  # Bad PIN, corrected PIN, one exchange.
         self.assertEqual(self.page.evaluate("[probe.calls,probe.sockets.length]"), [1, 1])
         self.assertNotIn(PILOT_PIN, self.page.evaluate("probe.readers[0].url + probe.sockets[0].url + JSON.stringify([probe.readingMessages,probe.sent])"))
@@ -795,7 +807,7 @@ class LiveConversationBrowserMixin:
         def fake_review(route):
             body = route.request.post_data_json
             calls.append(body)
-            if body.get("reviewGrant") != "fixture-review" or "pin" in body:
+            if body.get("reviewGrant") != self.token_replies["exchange"]["reviewGrant"] or "pin" in body:
                 route.fulfill(status=403, json={"error": "missing grant"})
             elif len(calls) == 1:
                 route.fulfill(status=429, json={"error": "Quota atteint."})
@@ -887,41 +899,40 @@ class LiveConversationBrowserMixin:
             else:
                 route.fulfill(json=report)
 
-        # The settings stay on after the page loads so the exchange really reaches the save endpoint.
-        with override_settings(GEMINI_API_KEY="fixture-not-a-key", AI_PIN=PILOT_PIN):
-            self.open_live_pilot()
-            self.page.route("**" + reverse("study:eo_tache_two_live_evaluation"), fake_review)
-            self.start_preparation()
-            self.page.locator("#lv-skip").click()
-            expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
-            self.page.evaluate("""() => {
-              const ws = probe.sockets[0];
-              ws.receive({setupComplete:{}});
-              ws.receive({serverContent:{inputTranscription:{text:'Je veux prend un appareil.'},
-                outputTranscription:{text:'Lequel ?'},turnComplete:true}});
-            }""")
-            self.page.locator("#lv-end").click()
-            button, level, status = (self.page.locator("#lv-" + key) for key in ("assess", "level", "assessment-status"))
-            expect(status).to_have_text("Quota atteint.")
-            simulation = LiveSimulation.objects.get(user=self.user)
-            self.assertEqual(simulation.rows, [{"speaker": "user", "text": "Je veux prend un appareil."},
-                                               {"speaker": "model", "text": "Lequel ?"}])
-            self.assertEqual(calls[0]["simulation"], str(simulation.pk))
-            self.assertIn(f"simulation={simulation.pk}", self.page.url)
+        self.open_live_pilot()
+        self.page.route("**" + reverse("study:eo_tache_two_live_evaluation"), fake_review)
+        self.start_preparation()
+        self.page.locator("#lv-skip").click()
+        expect(self.page.locator("html")).to_have_attribute("data-handshake", "true")
+        self.page.evaluate("""() => {
+          const ws = probe.sockets[0];
+          ws.receive({setupComplete:{}});
+          ws.receive({serverContent:{inputTranscription:{text:'Je veux prend un appareil.'},
+            outputTranscription:{text:'Lequel ?'},turnComplete:true}});
+        }""")
+        self.page.locator("#lv-end").click()
+        button, level, status = (self.page.locator("#lv-" + key) for key in ("assess", "level", "assessment-status"))
+        expect(status).to_have_text("Quota atteint.")
+        simulation = LiveSimulation.objects.get(user=self.user)
+        self.assertEqual(simulation.rows, [{"speaker": "user", "text": "Je veux prend un appareil."},
+                                           {"speaker": "model", "text": "Lequel ?"}])
+        self.assertEqual(calls[0]["simulation"], str(simulation.pk))
+        self.assertIn(f"simulation={simulation.pk}", self.page.url)
 
-            self.page.reload()
-            expect(self.page.locator("#lv-turns")).to_contain_text("Je veux prend un appareil.")
-            expect(status).to_have_text("Pas encore de bilan pour cet échange : touchez ✨ pour le demander.")
-            expect(level).to_have_text("Non évalué")
-            self.choose_oral_grader("Groq")
-            expect(self.pin_dialog.get_by_role("heading")).to_have_text("Demander le bilan")
-            self.pin_dialog.get_by_label("Code", exact=True).fill(PILOT_PIN)
-            self.pin_dialog.get_by_role("button", name="Demander le bilan").click()
-            expect(level).to_have_text("12/20 · NCLC 8 · B2")
-            self.assertEqual((calls[-1]["simulation"], "reviewGrant" in calls[-1]), (str(simulation.pk), False))
+        self.page.reload()
+        expect(self.page.locator("#lv-turns")).to_contain_text("Je veux prend un appareil.")
+        expect(status).to_have_text("Pas encore de bilan : touchez ✨ pour le demander.")
+        expect(level).to_have_text("Non évalué")
+        self.choose_oral_grader("Groq")
+        expect(self.pin_dialog.get_by_role("heading")).to_have_text("Demander le bilan")
+        self.pin_dialog.get_by_label("Code", exact=True).fill(PILOT_PIN)
+        self.pin_dialog.get_by_role("button", name="Demander le bilan").click()
+        expect(level).to_have_text("12/20 · NCLC 8 · B2")
+        self.assertEqual((calls[-1]["simulation"], "reviewGrant" in calls[-1]), (str(simulation.pk), False))
 
-            LiveSimulation.objects.filter(pk=simulation.pk).update(report=report)
-            reviews = len(calls)
+        LiveSimulation.objects.filter(pk=simulation.pk).update(report=report)
+        reviews = len(calls)
+        with override_settings(GEMINI_API_KEY="", GROQ_API_KEY="", AI_PIN=""):
             self.page.goto(self.live_server_url + reverse("study:eo_tache_two_live"))
             saved = self.page.locator(".lv-saved li")
             expect(saved).to_have_count(1)
@@ -930,6 +941,7 @@ class LiveConversationBrowserMixin:
             expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation")
             expect(self.page.locator("#lv-kicker")).to_have_text("Votre bilan")
             expect(self.page.locator("#lv-subject #lv-status")).to_have_text("Séance enregistrée.")
+            expect(self.start).to_be_hidden()
             expect(level).to_have_text("12/20 · NCLC 8 · B2")
             expect(self.page.locator("#lv-assessment-legacy")).to_be_visible()
             expect(self.page.locator("#lv-assessment-criteria a")).to_have_count(0)
@@ -941,32 +953,32 @@ class LiveConversationBrowserMixin:
             self.assertEqual(len(calls), reviews)
             self.assert_no_horizontal_overflow()
 
-            partial = {**report, "score": None, "scoreStatus": "incomplete", "nclc": None, "cefr": None,
-                       "evidenceVersion": 1, "criteria": [{"label": "Précision lexicale", "score": None,
-                                                           "why": "La citation proposée ne correspond pas à vos paroles."}]}
-            LiveSimulation.objects.filter(pk=simulation.pk).update(report=partial)
-            self.page.reload()
-            expect(level).to_have_text("Grille partielle · pas de total")
-            row = self.page.get_by_role("row").filter(has=self.page.get_by_role("rowheader", name="Précision lexicale"))
-            expect(row.get_by_role("cell", name="Non évalué", exact=True)).to_be_visible()
-            self.assertEqual(len(calls), reviews)  # Opening old or partial feedback never resubmits it.
-            self.choose_oral_grader("Groq")
-            self.pin_dialog.get_by_label("Code", exact=True).fill(PILOT_PIN)
-            self.pin_dialog.get_by_role("button", name="Demander le bilan").click()
-            expect(level).to_have_text("12/20 · NCLC 8 · B2")
-            expect(button).to_be_visible()
-            self.assertEqual(calls[-1]["rows"], simulation.rows)
-            self.assertEqual(self.page.evaluate("probe.calls"), 0)
+        partial = {**report, "score": None, "scoreStatus": "incomplete", "nclc": None, "cefr": None,
+                   "evidenceVersion": 1, "criteria": [{"label": "Précision lexicale", "score": None,
+                                                       "why": "La citation proposée ne correspond pas à vos paroles."}]}
+        LiveSimulation.objects.filter(pk=simulation.pk).update(report=partial)
+        self.page.reload()
+        expect(level).to_have_text("Grille partielle · pas de total")
+        row = self.page.get_by_role("row").filter(has=self.page.get_by_role("rowheader", name="Précision lexicale"))
+        expect(row.get_by_role("cell", name="Non évalué", exact=True)).to_be_visible()
+        self.assertEqual(len(calls), reviews)  # Opening old or partial feedback never resubmits it.
+        self.choose_oral_grader("Groq")
+        self.pin_dialog.get_by_label("Code", exact=True).fill(PILOT_PIN)
+        self.pin_dialog.get_by_role("button", name="Demander le bilan").click()
+        expect(level).to_have_text("12/20 · NCLC 8 · B2")
+        expect(button).to_be_visible()
+        self.assertEqual(calls[-1]["rows"], simulation.rows)
+        self.assertEqual(self.page.evaluate("probe.calls"), 0)
 
-            self.page.goto(self.live_server_url + reverse("study:eo_tache_two_live"))
-            delete = saved.get_by_role("button", name="Supprimer la séance du")
-            expect(delete.locator('[data-icon="trash"]')).to_be_visible()
-            delete.click()
-            dialog = self.page.locator("[data-confirm-dialog]")
-            dialog.get_by_role("button", name="Annuler", exact=True).click()
-            expect(saved).to_have_count(1)
-            delete.click()
-            with self.page.expect_navigation():
-                dialog.locator("[data-confirm-accept]").click()
-            expect(saved).to_have_count(0)
-            self.assertFalse(LiveSimulation.objects.filter(user=self.user).exists())
+        self.page.goto(self.live_server_url + reverse("study:eo_tache_two_live"))
+        delete = saved.get_by_role("button", name="Supprimer la séance du")
+        expect(delete.locator('[data-icon="trash"]')).to_be_visible()
+        delete.click()
+        dialog = self.page.locator("[data-confirm-dialog]")
+        dialog.get_by_role("button", name="Annuler", exact=True).click()
+        expect(saved).to_have_count(1)
+        delete.click()
+        with self.page.expect_navigation():
+            dialog.locator("[data-confirm-accept]").click()
+        expect(saved).to_have_count(0)
+        self.assertFalse(LiveSimulation.objects.filter(user=self.user).exists())

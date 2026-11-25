@@ -1,5 +1,5 @@
 {% extends "study/simulation/session.html" %}
-{% load static study_speech %}
+{% load static study_links study_speech %}
 {% block title %}Simulation · {{ simulation.label }} · En cours · Heureux{% endblock %}
 
 {% block studio_classes %} ee1-session ee1-simulation ee1-simulation--attempt{% endblock %}
@@ -32,7 +32,8 @@
     </div>
 
     {% if error %}<div class="auth-error" role="alert">{{ error }}</div>{% endif %}
-    {% if request.GET.saved %}<div class="notice" role="status">Brouillon enregistré.</div>{% endif %}
+    {% if draft_conflict %}<a class="btn" href="{% subject_url route_names.attempt attempt.pk %}">Recharger le brouillon enregistré</a>{% endif %}
+    {% if request.GET.saved and not error %}<div class="notice" role="status">Brouillon enregistré.</div>{% endif %}
 
     <section class="card ee1-prompt-card" data-read-aloud-scope aria-labelledby="writing-prompt-title">
       <div class="response-batches__head">
@@ -45,7 +46,8 @@
 
     <form id="writing-form" method="post" class="ee1-writing-form" data-writing-form data-ee1-form>
       {% csrf_token %}
-      {% if auto_evaluation %}<input type="hidden" name="evaluation_consent" value="groq">{% endif %}
+      <input type="hidden" name="draft_revision" value="{{ draft_revision }}">
+      {% if auto_evaluation %}<input type="hidden" name="evaluation_consent" value="{{ auto_evaluation }}">{% endif %}
       <div class="ee1-writing-field">
         <div class="ee1-writing-editor">
           <div class="ee1-writing-editor__parts">
@@ -100,8 +102,14 @@
         </div>
       </div>
       <div class="ee1-writing-form__footer">
-        {% if auto_evaluation %}<p class="muted" id="writing-submit-note">Envoi à Groq : réponse, consigne{% if documents %} et documents{% endif %}.</p>{% endif %}
+        {% if auto_evaluation %}<p class="muted" id="writing-submit-note">Envoi à {{ auto_evaluation_label }} : réponse, consigne{% if documents %} et documents{% endif %}.</p>{% endif %}
         <div class="ee1-writing-form__actions">
+          <button class="icon-button btn--danger" type="submit" name="action" value="abandon" formnovalidate
+                  aria-label="Abandonner la séance" title="Abandonner la séance"
+                  data-confirm="Abandonner cette séance ? Votre brouillon reste privé dans l’historique."
+                  data-confirm-label="Abandonner" data-confirm-tone="danger">
+            {% include "study/shared/partials/ui_icon.html" with name="stop" only %}
+          </button>
           <button class="icon-button" type="submit" name="action" value="save" formnovalidate aria-label="Enregistrer le brouillon" title="Enregistrer le brouillon">
             {% include "study/shared/partials/ui_icon.html" with name="save" only %}
           </button>
@@ -116,5 +124,5 @@
 {% block scripts %}
   {{ block.super }}
   <script src="{% static 'study/js/expression/ee/writing-word-count.js' %}?v=3"></script>
-  <script src="{% static 'study/js/expression/ee/writing-simulation.js' %}?v=5"></script>
+  <script src="{% static 'study/js/expression/ee/writing-simulation.js' %}?v=6"></script>
 {% endblock %}

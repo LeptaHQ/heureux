@@ -5,6 +5,7 @@ import json
 import logging
 import os
 import time
+from contextlib import contextmanager
 from tempfile import TemporaryDirectory
 
 from django.views.decorators.debug import sensitive_variables
@@ -24,6 +25,20 @@ LABELS = {key: label for key, (label, _) in MODELS.items()}
 DEFAULT = "copilot-mai"
 RECONNECT = "Reconnectez votre compte GitHub pour utiliser Copilot."
 
+_REPLY_MILESTONES = {
+    "user.message": "sdk_message_at",
+    "assistant.turn_start": "turn_start_at",
+    "model.call_start": "model_start_at",
+    "model.call_finished": "model_finish_at",
+    "model.call_failure": "model_failure_at",
+    "assistant.turn_retry": "turn_retry_at",
+    "assistant.message_delta": "first_output_at",
+    "assistant.message": "message_at",
+    "assistant.turn_end": "turn_end_at",
+    "session.idle": "idle_at",
+    "session.error": "error_at",
+}
+
 
 @sensitive_variables()
 def linked_report_transport(user_id, provider, link_id, *, timings=None):
@@ -35,6 +50,27 @@ def linked_report_transport(user_id, provider, link_id, *, timings=None):
     except github_copilot.ConnectionError:
         raise evaluation.EvaluationError(502, "La connexion à GitHub est temporairement indisponible.") from None
     return report_transport(token, MODELS[provider][1], timings=timings)
+
+
+@contextmanager
+def _trace_reply(session, timings, started):
+    if timings is None:
+        yield
+        return
+
+    def observe(event):
+        milestone = _REPLY_MILESTONES.get(event.type.value)
+        if milestone and not event.agent_id and milestone not in timings:
+            elapsed = int((time.perf_counter() - started) * 1000)
+            timings[milestone] = elapsed
+            if milestone == "message_at":
+                timings.setdefault("first_output_at", elapsed)
+
+    unsubscribe = session.on(observe)
+    try:
+        yield
+    finally:
+        unsubscribe()
 
 
 @sensitive_variables()
@@ -59,23 +95,28 @@ async def _request_report(token, model, instruction, packet, schema, deadline, *
         )
         try:
             async with asyncio.timeout(remaining):
-                session = await client.create_session(
-                    model=model,
-                    system_message={"mode": "append", "content": instruction},
-                    enable_config_discovery=False,
-                    instructions={"skip_custom_instructions": True},
-                    git={"enable_host_git_operations": False},
-                    tools={"available_tools": []},
-                    permissions={"on_request": lambda *_: PermissionDecisionReject()},
-                    github={"telemetry_enabled": False},
-                )
+                if timings is not None:
+                    with evaluation.timed_phase(timings, "runtime_start"):
+                        await client.start()
+                with evaluation.timed_phase(timings, "session_create"):
+                    session = await client.create_session(
+                        model=model,
+                        system_message={"mode": "append", "content": instruction},
+                        enable_config_discovery=False,
+                        instructions={"skip_custom_instructions": True},
+                        git={"enable_host_git_operations": False},
+                        tools={"available_tools": []},
+                        permissions={"on_request": lambda *_: PermissionDecisionReject()},
+                        github={"telemetry_enabled": False},
+                    )
                 session_ready = time.perf_counter()
-                reply = await session.send_and_wait(
-                    json.dumps(packet, ensure_ascii=False, separators=(",", ":")),
-                    response_schema=schema,
-                    timeout=max(0, deadline - time.monotonic()),
-                )
-                reply_received = time.perf_counter()
+                with _trace_reply(session, timings, session_ready):
+                    reply = await session.send_and_wait(
+                        json.dumps(packet, ensure_ascii=False, separators=(",", ":")),
+                        response_schema=schema,
+                        timeout=max(0, deadline - time.monotonic()),
+                    )
+                    reply_received = time.perf_counter()
                 if reply is None or not isinstance(reply.data, AssistantMessageData):
                     raise ValueError
                 content = reply.data.content

@@ -156,9 +156,14 @@ attempt ID. The worker reports time before it started (`queue_ms`) separately
 from its own `elapsed_ms`. `phases_ms` breaks down loading, grading, and saving.
 Within grading, `request` measures the provider call; Copilot also times
 credential resolution (`copilot_auth`, including any refresh) and SDK import
-before that call. The Copilot request breaks down session setup, time waiting
-for the final reply (SDK, network, and provider), decoding, and cleanup. Do not
-add nested phases to their parent totals. Browser polling is outside these timings.
+before that call. `session` includes `runtime_start` (launch and connect) and
+`session_create`. `reply` measures the wait for the SDK to report turn completion
+(SDK, network, and provider), before decoding and cleanup. The `*_at` milestones
+are first observed SDK events in milliseconds from session readiness, not extra
+durations. Compare `model_start_at`, `first_output_at`, `message_at`, `turn_end_at`,
+and `idle_at` with `reply` to see where a wait occurred. Not all runtimes emit
+every event; a missing milestone is not proof that its stage never ran.
+Browser polling is outside these timings.
 If the report fails verification, the log names the failed field and a reason code.
 These logs omit the learner’s answer, prompt, model output, and API keys.
 

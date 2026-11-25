@@ -93,7 +93,8 @@
       report.proposalFromCorrections ? "Version corrigée" : "Version révisée");
     const rewriteNote = find("rewrite-note");
     text(rewriteNote, edit ? "Vous avez modifié cette version. L’estimation porte toujours sur votre réponse originale." :
-      report.proposalFromCorrections ? "Corrections appliquées au texte original, sans réécriture." :
+      report.proposalFromSuggestions ? "Corrections et reformulations appliquées. La réponse à la consigne peut rester incomplète." :
+      report.proposalFromCorrections ? "Corrections appliquées. La réponse à la consigne peut rester incomplète." :
       !proposal.length ? "Aucune version révisée n’a pu être vérifiée." :
       report.proposalTarget ? `Exemple d’entraînement · objectif ${report.proposalTarget}.` : "");
     rewriteNote.hidden = !rewriteNote.textContent;
@@ -192,12 +193,14 @@
       ? "Certaines corrections n’ont pas pu être vérifiées."
       : "Aucune erreur objective claire relevée.";
 
-    const decisions = { Cut: "Retirer", Simplify: "Simplifier" };
+    const decisions = { Cut: "Retirer", Simplify: "Simplifier", Rephrase: "Reformuler" };
     const suggestions = [
       ...report.relevance.filter((entry) => entry.decision !== "Keep").map((entry) => {
         const li = document.createElement("li");
         li.append(text(document.createElement("strong"), decisions[entry.decision] || entry.decision), " · ",
-          entry.quote ? quote(entry.quote) : "La phrase", ` — ${entry.why}`);
+          entry.quote ? quote(entry.quote) : "La phrase");
+        if (entry.replacement) li.append(" → ", quote(entry.replacement));
+        li.append(` — ${entry.why}`);
         return li;
       }),
       ...report.upgrades.map(item),

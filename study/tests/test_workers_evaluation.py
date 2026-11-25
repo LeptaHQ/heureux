@@ -67,7 +67,6 @@ class WorkersEvaluationTests(SimpleTestCase):
             "verbFeedback": [],
             "corrections": [],
             "relevance": [],
-            "upgrades": [],
             "improvedResponse": "",
             "priorities": [],
         }

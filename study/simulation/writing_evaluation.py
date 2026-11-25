@@ -32,7 +32,8 @@ _CEFR_BANDS = (
 _CRITERIA = ("linguistic", "pragmatic", "sociolinguistic")
 _RATINGS = {"Excellent", "Strong", "Adequate", "Developing", "Limited"}
 _STATUSES = {"Met", "Partly met", "Missing"}
-_DECISIONS = {"Keep", "Cut", "Simplify"}
+_DECISIONS = {"Keep", "Cut", "Simplify", "Rephrase"}
+_REPLACEMENTS = {"Simplify", "Rephrase"}
 _CONFIDENCE = {"High", "Medium", "Low"}
 _UNGROUNDED = "Le bilan n’a pas pu être vérifié. Votre réponse reste disponible."
 _ID = {"type": "string"}
@@ -100,12 +101,12 @@ _SCHEMA = _object(
         "items": _object(
             quote={"type": "string"},
             decision={"type": "string"},
+            replacement={"type": "string"},
             why={"type": "string"},
         ),
     },
-    upgrades={"type": "array", "items": {"type": "string"}},
-    improvedResponse={"type": "string"},
     priorities={"type": "array", "items": {"type": "string"}},
+    improvedResponse={"type": "string"},
 )
 _EE3_SCHEMA = _object(**_SCHEMA["properties"], improvedPosition={"type": "string"})
 _PROPOSAL_TARGET = "NCLC 7"
@@ -197,10 +198,15 @@ def _proposal(report, word_min, word_max, *, split):
     parts = [_text(report.get("improvedResponse"), 3000, empty=True)]
     if split:
         parts.append(_text(report.get("improvedPosition"), 3000, empty=True))
+    return _proposal_from_parts(parts, word_min, word_max)
+
+
+def _proposal_from_parts(parts, word_min, word_max):
     counts = [_ee_word_count(part) for part in parts]
     total = sum(counts)
+    split = len(parts) == 2
     if any(parts) and (
-        not word_min <= total <= word_max
+        any(len(part) > 3000 for part in parts) or not word_min <= total <= word_max
         or (split and not all(
             minimum <= count <= maximum
             for count, (minimum, maximum) in zip(counts, EE_TACHE_THREE_SECTION_LIMITS)
@@ -213,11 +219,64 @@ def _proposal(report, word_min, word_max, *, split):
     return result
 
 
+def _check_proposal_coverage(proposal, report, result):
+    if "taskCompliance" in result["omittedSections"]:
+        raise ValueError
+    parts = proposal.get("improvedParts", (proposal["improvedResponse"],))
+    for item, check in zip(report["taskCompliance"], result["taskCompliance"]):
+        if check["status"] != "Met":
+            quote = _text(item.get("proposalQuote"), 300)
+            if not any(_locate(part, quote) is not None for part in parts):
+                raise ValueError
+
+
 def _span_pattern(text):
     return re.compile(
         (r"(?<!\w)" if text[0].isalnum() else "") + re.escape(text)
         + (r"(?!\w)" if text[-1].isalnum() else "")
     )
+
+
+@sensitive_variables()
+def _apply_local_edits(parts, changes, *, source=None):
+    def spans(pattern, texts):
+        return [(index, match.span()) for index, text in enumerate(texts) for match in pattern.finditer(text)]
+
+    edits = [set() for _ in parts]
+    for change in changes:
+        if not isinstance(change, dict):
+            continue
+        try:
+            before = normalize_newlines(evaluation.checked_text(change.get("before"), 500))
+            after = normalize_newlines(evaluation.checked_text(change.get("after"), 500, empty=True))
+        except ValueError:
+            continue
+        if before == after or not faithful_rewrite(before, after):
+            continue
+        pattern = _span_pattern(before)
+        matches = spans(pattern, parts)
+        if len(matches) != 1:
+            continue
+        index, (start, end) = matches[0]
+        if source is not None:
+            original_matches = spans(pattern, source)
+            if (
+                len(original_matches) != 1 or original_matches[0][0] != index
+                or _span_pattern(after).search(parts[index])
+            ):
+                continue
+        edits[index].add((start, end, after))
+
+    revised = []
+    for original, changes in zip(parts, edits):
+        text = original
+        for change in sorted(changes, reverse=True):
+            start, end, replacement = change
+            if any(start < other[1] and other[0] < end for other in changes if other != change):
+                continue
+            text = text[:start] + replacement + text[end:]
+        revised.append(text if text.strip() and faithful_rewrite(original, text) else original)
+    return revised
 
 
 @sensitive_variables()
@@ -227,32 +286,7 @@ def proposal_from_corrections(corrections, response, *, position=None):
     originals = [normalize_newlines(response)]
     if position is not None:
         originals.append(normalize_newlines(position))
-    edits = [set() for _ in originals]
-    for correction in corrections:
-        if not isinstance(correction, dict):
-            continue
-        try:
-            before = normalize_newlines(evaluation.checked_text(correction.get("before"), 500))
-            after = normalize_newlines(evaluation.checked_text(correction.get("after"), 500, empty=True))
-        except ValueError:
-            continue
-        if before == after or not faithful_rewrite(before, after):
-            continue
-        pattern = _span_pattern(before)
-        matches = [(index, match.span()) for index, original in enumerate(originals) for match in pattern.finditer(original)]
-        if len(matches) == 1:
-            index, (start, end) = matches[0]
-            edits[index].add((start, end, after))
-
-    revised = []
-    for original, changes in zip(originals, edits):
-        text = original
-        for change in sorted(changes, reverse=True):
-            start, end, replacement = change
-            if any(start < other[1] and other[0] < end for other in changes if other != change):
-                continue
-            text = text[:start] + replacement + text[end:]
-        revised.append(text if text.strip() and faithful_rewrite(original, text) else original)
+    revised = _apply_local_edits(originals, corrections)
     if revised == originals:
         return {}
     return {
@@ -459,27 +493,25 @@ def ground(
         decision = _label(item.get("decision"), _DECISIONS)
         if not decision:
             raise ValueError
-        return {
+        entry = {
             "quote": excerpt(item.get("quote"), 500, empty=True),
             "decision": decision,
             "why": _text(item.get("why"), 500),
         }
+        if decision in _REPLACEMENTS:
+            replacement = _text(item.get("replacement"), 500)
+            if not entry["quote"] or entry["quote"] == replacement or not faithful_rewrite(entry["quote"], replacement):
+                raise ValueError
+            entry["replacement"] = replacement
+        return entry
 
     result["relevance"] = checked_items("relevance", report.get("relevance"), 16, read_relevance, records=True)
-    for field, limit in (("upgrades", 8), ("priorities", 3)):
-        result[field] = checked_items(field, report.get(field), limit, lambda value: _text(value, 500))
+    result["upgrades"] = checked_items("upgrades", report.get("upgrades", []), 8, lambda value: _text(value, 500))
+    result["priorities"] = checked_items("priorities", report.get("priorities"), 3, lambda value: _text(value, 500))
     try:
         proposal = _proposal(report, word_min, word_max, split=position is not None)
         if proposal["improvedResponse"]:
-            if "taskCompliance" in result["omittedSections"]:
-                raise ValueError
-            parts = proposal.get("improvedParts", (proposal["improvedResponse"],))
-            for item, check in zip(report["taskCompliance"], result["taskCompliance"]):
-                if check["status"] == "Met":
-                    continue
-                quote = _text(item.get("proposalQuote"), 300)
-                if not any(_locate(part, quote) is not None for part in parts):
-                    raise ValueError
+            _check_proposal_coverage(proposal, report, result)
         result.update(proposal)
     except ValueError:
         omit("improvedResponse")
@@ -544,6 +576,27 @@ def _proposal_is_usable(result, subject, response, position, documents):
         faithful_rewrite(response, result["improvedResponse"], reference=subject, required_facts_from=kept)
         and _applies_corrections(response, result["improvedResponse"], result["corrections"])
     )
+
+
+@sensitive_variables()
+def _proposal_with_suggestions(result, originals, word_min, word_max):
+    protected = [
+        _span_pattern(before) for correction in result["corrections"]
+        if (before := _normalise_for_match(correction["before"]))
+    ]
+    changes = [
+        {"before": entry["quote"], "after": replacement}
+        for entry in result["relevance"] if (replacement := entry.get("replacement"))
+        and not any(pattern.search(_normalise_for_match(replacement)) for pattern in protected)
+    ]
+    if not changes:
+        return {}
+    parts = result.get("improvedParts", [result["improvedResponse"]]) if result["improvedResponse"] else originals
+    parts = list(map(normalize_newlines, parts))
+    revised = _apply_local_edits(parts, changes, source=originals)
+    if revised == parts:
+        return {}
+    return _proposal_from_parts(revised, word_min, word_max)
 
 
 @sensitive_variables()
@@ -645,24 +698,26 @@ def score(
         "enough context to locate it), after (actual fix), type (specific rule) and why (one short explanation). "
         "If fixes overlap, show the complete fix for that span in one row. Check each fix in its full sentence. "
         "Do not list accepted variants, optional rephrasing, or details added only in the proposal.\n"
-        "6. relevance and upgrades: Up to two material suggestions total, separate from corrections. "
-        "For relevance give quote (short exact excerpt), decision (Cut or Simplify, not Keep) and why. "
-        "For upgrades, give a short original phrase, a different option and why it helps. Match the "
-        "recipient: an informal message to a friend does not need a more formal tone or closing. Keep "
-        "appropriate tu or vous, including plural vous. For a message or account, if an uncertain or irrelevant "
-        "specific must be left out, mark its exact original clause as Cut and explain why or what to verify.\n"
-        f"7. {proposal_fields} Aim at a solid {_PROPOSAL_TARGET} in the proposal only, never in the grade. "
+        "6. relevance: Up to two useful optional edits, separate from corrections. Give quote (short exact "
+        "original span that occurs once), decision (Cut, Simplify, or Rephrase), replacement (exact French "
+        "wording to use in context, empty for Cut), and why. Choose non-overlapping edits that preserve meaning "
+        "and suit the recipient: an informal message to a friend does not need a more formal tone or closing. "
+        "Keep the appropriate tu or vous, including plural vous. If an uncertain or irrelevant "
+        "specific in a message or account must go, mark its exact clause as Cut and explain what to verify.\n"
+        "7. priorities: Up to three brief next-time checks tied to a correction or unmet requirement above. "
+        "Choose actionable checks whose result you will demonstrate in the answer, not extra text to paste in it. "
+        "Don't invent problems to fill slots or contrast equivalent forms.\n"
+        f"8. {proposal_fields} Aim at a solid {_PROPOSAL_TARGET} in the proposal only, never in the grade. "
         "Repair every Missing or Partly met item in the answer itself. Before returning, check the revised "
-        "text against the exact subject and every checklist item, including those already Met. Put required "
-        "content before optional enrichment. Apply the corrections, use natural paragraphs and a consistent "
-        "register, and develop the learner's ideas with useful details. Use facts from the learner or task; "
+        "text against the exact subject and every checklist item, including those already Met. Apply the "
+        "corrections and every optional edit you recommend; if you use different wording, make replacement "
+        "match the wording actually used. Show the result of following each next-time check without restating "
+        "the advice. Put required content first, use natural paragraphs and a consistent register, and develop "
+        "the learner's ideas with useful details. Use facts from the learner or task; "
         "make new examples or arrangements explicitly hypothetical or proposed. Preserve reliable facts, names, "
         "signature and intent where compatible with the task. Offer to confirm an unknown fact rather than "
         "inventing it. No report labels or Markdown. If no faithful complete answer is possible, leave the "
-        "revision empty; do not present an incomplete rewrite as a model answer.\n"
-        "8. priorities: [Up to three brief next-time checks tied to a correction or unmet requirement "
-        "identified above, most useful first]. Compare only genuinely different forms when teaching a "
-        "rule; do not invent a problem to fill a slot."
+        "revision empty; do not present an incomplete rewrite as a model answer."
     )
     if request_report is None:
         request_report = evaluation.request_provider_report
@@ -696,4 +751,19 @@ def score(
             result["omittedSections"].append("improvedResponse")
         result["omitted"] = True
         result.update(proposal_from_corrections(result["corrections"], response, position=position))
+    originals = [normalize_newlines(response)]
+    if position is not None:
+        originals.append(normalize_newlines(position))
+    try:
+        suggested = _proposal_with_suggestions(result, originals, word_min, word_max)
+        if suggested and "proposalTarget" in result:
+            _check_proposal_coverage(suggested, report, result)
+            if not _proposal_is_usable({**result, **suggested}, subject, response, position, documents):
+                suggested = {}
+    except ValueError:
+        suggested = {}
+    if suggested:
+        if "proposalTarget" not in result:
+            suggested.update(proposalFromCorrections=True, proposalFromSuggestions=True)
+        result.update(suggested)
     return result

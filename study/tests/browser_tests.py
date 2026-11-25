@@ -799,6 +799,8 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             "relevance": [
                 {"quote": invitation, "decision": "Keep", "why": "The invitation is the purpose of the message."},
                 {"quote": "Bonjour Bonjour", "decision": "Cut", "why": "One greeting is enough."},
+                {"quote": wish, "decision": "Rephrase", "replacement": "Est-ce que cela te dirait de venir dîner ?",
+                 "why": "A more direct invitation."},
             ],
             "upgrades": ["Try « Ça vous dit ? » if you want to ask for a reply."],
             "priorities": ["Write the preposition « à » before « dîner »."],
@@ -934,7 +936,11 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(corrections.locator("ins")).to_have_text("à dîner")
         expect(corrections.locator("strong")).to_have_text("Orthographe")
         suggestions = proposal.locator("[data-writing-suggestions]")
-        expect(suggestions.locator("li")).to_contain_text(["One greeting is enough.", "Try « Ça vous dit ? »"])
+        expect(suggestions.locator("li")).to_contain_text([
+            "One greeting is enough.", "A more direct invitation.", "Try « Ça vous dit ? »",
+        ])
+        expect(suggestions.get_by_text("Reformuler")).to_be_visible()
+        expect(suggestions.locator("q")).to_have_text(["Bonjour Bonjour", wish, report["relevance"][2]["replacement"]])
         expect(suggestions).not_to_contain_text("Garder")
         expect(self.page.get_by_text("À vérifier", exact=True)).to_have_count(0)
         expect(proposal.get_by_role("heading", name="Version révisée")).to_be_visible()
@@ -1009,6 +1015,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.page.goto(self.live_server_url + url)
         proposal = self.page.locator("#lv-proposal")
         expect(proposal.get_by_role("heading", name="Version corrigée")).to_be_visible()
+        expect(proposal.locator("[data-writing-rewrite-note]")).to_contain_text("La réponse à la consigne peut rester incomplète.")
         self.page.get_by_role("button", name="Copier ma réponse").click()
         self.assertEqual(self.page.evaluate("window.__copiedResponse"), "\n\n".join(originals))
         copy = proposal.locator('[data-prompt-copy-source="writing-proposal-copy"]')

@@ -137,13 +137,14 @@ Each writing provider returns the grade, corrections, and practice proposal in
 one generation request. Corrections come from the original and appear in source
 order. The complete proposal aims at NCLC 7 and answers every part of the task,
 including requirements missing from the original, without guessing facts or
-changing the learner’s grade. The app checks word limits, checkable facts,
-grounded corrections, and that each claimed repair has a matching excerpt in
-the proposal.
-If it does not, Heureux can show a correction-only copy that applies unambiguous
-edits to the original. This fallback also works for saved reports, without
-resending the text. Learners can copy the original or the proposal, and save
-their own edit to the revised or correction-only version. Edits are private,
+changing the learner’s grade. The model uses the next-time checks and optional
+edits when writing the proposal. The app checks the word limits, checkable facts,
+grounded corrections, and evidence for repaired gaps. It can apply unambiguous
+suggested rephrasings locally without another request.
+If a complete proposal cannot be verified, Heureux can show a partial copy with
+unambiguous corrections and rephrasings. Older saved reports can still show the
+correction-only fallback without resending the text. Learners can copy the
+original or the proposal, and save their own edit. Edits are private,
 saved per model, and do not change the original, the corrections, or the grade.
 In Render logs, filter for `writing evaluation` and the attempt ID from the
 bilan URL. The worker logs when grading starts and how long it took. Slow

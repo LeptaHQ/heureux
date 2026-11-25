@@ -687,7 +687,6 @@ class EE1SimulationTests(TestCase):
             "verbFeedback": [],
             "corrections": [],
             "relevance": [],
-            "upgrades": [],
             "improvedResponse": "",
             "priorities": ["Préciser le but.", "Relier les idées.", "Relire les accords."],
         }
@@ -1133,6 +1132,94 @@ class EE1SimulationTests(TestCase):
                 self.assertTrue(result["proposalFromCorrections"])
                 self.assertNotIn("proposalTarget", result)
 
+    def test_writing_proposal_applies_suggestions_and_demonstrates_priorities(self):
+        response = (
+            "Salut Inès,\n\nJe te conseille l’atelier du centre culturel. Les cours sont adapté à tous les niveaux. "
+            "On y propose des cours pour dessiner. Chaque séance dure 50 minutes, trois fois par semaine. "
+            "L’inscription coûte 18 $ et le matériel est compris. Tu peux te renseigner à l’accueil avant de "
+            "prendre une décision. Je peux aussi t’accompagner pour ta première séance.\n\nÀ bientôt,\nNora"
+        )
+        location = "L’atelier a lieu dans la salle d’arts, au rez-de-chaussée."
+        fixed = response.replace("sont adapté ", "sont adaptés ")
+        simplified = "Les séances durent 50 minutes et ont lieu trois fois par semaine."
+        rephrased = "des cours de dessin"
+        suggestions = [
+            {"quote": "Chaque séance dure 50 minutes, trois fois par semaine.", "decision": "Simplify",
+             "replacement": simplified, "why": "Separate duration from frequency."},
+            {"quote": "des cours pour dessiner", "decision": "Rephrase",
+             "replacement": rephrased, "why": "Name the subject of the course directly."},
+        ]
+        applied = fixed.replace(suggestions[0]["quote"], simplified).replace(suggestions[1]["quote"], rephrased)
+        complete = applied.replace("L’inscription", f"{location} L’inscription")
+        report = {
+            **self._provider_report(), "gradeEvidenceIds": ["E1"],
+            "taskCompliance": [{
+                "item": "Lieu exact", "status": "Missing", "evidenceId": "",
+                "evidence": "You name the centre but not the room.", "proposalQuote": location,
+            }],
+            "corrections": [{
+                "before": "sont adapté", "after": "sont adaptés", "type": "Accord",
+                "why": "Agree the participle with « cours ».",
+            }],
+            "relevance": suggestions,
+            "priorities": ["Give the exact location.", "Check agreement with the plural subject."],
+        }
+        inputs = dict(
+            task_number=1, provider=copilot_runtime.DEFAULT, response=response,
+            subject="Recommandez cet atelier de dessin au centre culturel et indiquez son lieu exact, sa fréquence et son tarif. "
+                    "Les séances se tiennent dans la salle d’arts, au rez-de-chaussée.",
+            word_count=_ee_word_count(response), word_min=60, word_max=120,
+        )
+        for case, draft, expected, is_fallback in (
+            ("model applies all advice", complete, complete, False),
+            ("local edit of full proposal", fixed.replace("L’inscription", f"{location} L’inscription"), complete, False),
+            ("local edit of partial copy", fixed, applied, True),
+        ):
+            with (
+                self.subTest(case=case),
+                patch.object(
+                    evaluation, "request_provider_report", return_value={**report, "improvedResponse": draft},
+                ) as request,
+            ):
+                result = writing_evaluation.score(**inputs)
+                request.assert_called_once()
+                self.assertEqual(result["improvedResponse"], expected)
+                self.assertEqual(result["improvedWordCount"], _ee_word_count(expected))
+                self.assertEqual(result.get("proposalFromCorrections", False), is_fallback)
+                self.assertEqual(result.get("proposalFromSuggestions", False), is_fallback)
+                self.assertEqual(result["taskCompliance"][0]["status"], "Missing")
+                self.assertEqual(result["priorities"], report["priorities"])
+                self.assertEqual(result["score"], report["score"])
+                self.assertEqual(result["corrections"], report["corrections"])
+
+    def test_suggestions_do_not_replace_facts_or_invalidate_a_complete_proposal(self):
+        inputs, report = self._copilot_proposal()
+        inputs["subject"] += " Proposez de rentrer ensemble."
+        original = "On pourra ainsi se retrouver facilement"
+        reunion = f"{original} et rentrer ensemble."
+        draft = report["improvedResponse"].replace(f"{original}.", reunion)
+        report.update(
+            improvedResponse=draft,
+            taskCompliance=[{
+                "item": "Retour ensemble", "status": "Missing", "evidenceId": "",
+                "evidence": "You do not suggest going home together.", "proposalQuote": reunion,
+            }],
+            relevance=[
+                {"quote": original, "decision": "Rephrase", "replacement": "On pourra se retrouver sans difficulté",
+                 "why": "Describe how easy it is to meet."},
+                {"quote": "samedi soir", "decision": "Rephrase", "replacement": "dimanche soir",
+                 "why": "An unsupported date change."},
+            ],
+        )
+        with patch.object(evaluation, "request_provider_report", return_value=report) as request:
+            result = writing_evaluation.score(**inputs, provider=copilot_runtime.DEFAULT)
+
+        request.assert_called_once()
+        self.assertEqual(result["improvedResponse"], draft)
+        self.assertEqual(result["relevance"], report["relevance"][:1])
+        self.assertEqual(result["proposalTarget"], "NCLC 7")
+        self.assertEqual(result["score"], report["score"])
+
     def test_enriched_proposal_can_offer_to_verify_a_flagged_detail_but_cannot_guess_it(self):
         original = (
             "Bonsoir,\n\nJe vends mon projecteur pour 150 $. Il est en bon état et je fournis le câble "
@@ -1159,7 +1246,7 @@ class EE1SimulationTests(TestCase):
             with self.subTest(expected_valid=bool(expected), draft=draft, relevance=relevance):
                 report = {
                     **self._provider_report(), "gradeEvidenceIds": ["E1"],
-                    "improvedResponse": draft, "relevance": relevance,
+                    "improvedResponse": draft, "relevance": [{**entry, "replacement": ""} for entry in relevance],
                 }
                 with patch.object(evaluation, "request_provider_report", return_value=report) as request:
                     result = writing_evaluation.score(

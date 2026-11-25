@@ -8,15 +8,11 @@ from unittest.mock import patch
 from django.test import SimpleTestCase
 
 from study.catalogue.loader import _ee_word_count
-from study.simulation import evaluation, writing_evaluation
+from study.simulation import copilot_runtime, evaluation, writing_evaluation
 
 
 _RUN = os.environ.get("RUN_WRITING_CALIBRATION")
-_COPILOT_MODELS = {
-    "Astra": "gpt-6.2-astra",
-    "MAI": "mai-code-2-flash",
-    "Opus": "claude-opus-5.5",
-}
+_COPILOT_MODELS = dict(copilot_runtime.MODELS.values())
 
 
 @skipUnless(_RUN in {"1", "copilot"}, "Opt in to live writing calibration.")
@@ -28,14 +24,9 @@ class WritingBilanCalibration(SimpleTestCase):
             self.assertTrue(bool(token), "Set COPILOT_GITHUB_TOKEN for the opt-in Copilot pilot.")
             model = os.environ.get("COPILOT_CALIBRATION_MODEL", "MAI")
             self.assertIn(model, _COPILOT_MODELS, "Choose Astra, MAI, or Opus for the Copilot pilot.")
-            try:
-                from .copilot_calibration import report_transport
-
-                transport = patch.object(evaluation, "request_provider_report", report_transport(token, _COPILOT_MODELS[model]))
-            except ModuleNotFoundError as exc:
-                if exc.name != "copilot":
-                    raise
-                self.fail("Install requirements-copilot-pilot.txt to run the Copilot pilot.")
+            transport = patch.object(evaluation, "request_provider_report", copilot_runtime.report_transport(
+                token, _COPILOT_MODELS[model], measure=True,
+            ))
             providers = ["copilot"]
         else:
             providers = sorted(evaluation.available_providers())

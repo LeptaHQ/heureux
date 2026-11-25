@@ -8,9 +8,7 @@ from unittest.mock import AsyncMock, patch
 
 from django.test import SimpleTestCase
 
-from study.simulation import evaluation
-
-from . import copilot_calibration
+from study.simulation import copilot_runtime, evaluation
 
 
 @skipUnless(find_spec("copilot") is not None, "Install the optional Copilot pilot SDK.")
@@ -30,7 +28,7 @@ class CopilotCalibrationTests(SimpleTestCase):
         )
 
     def _request(self, deadline):
-        transport = copilot_calibration.report_transport("fixture-token", "fixture-model")
+        transport = copilot_runtime.report_transport("fixture-token", "fixture-model")
         return transport(
             "copilot", "Grade the invented response.", {"response": "Bonjour Camille !"},
             {"type": "object"}, name="ee1_bilan", deadline=deadline,
@@ -56,11 +54,11 @@ class CopilotCalibrationTests(SimpleTestCase):
 
     def test_rejects_an_ambiguous_report_and_closes_the_runtime(self):
         self._reply('{"score":12,"score":16}')
-        with self.assertRaisesMessage(evaluation.EvaluationError, "unreadable report"):
+        with self.assertRaisesMessage(evaluation.EvaluationError, "Le bilan Copilot est illisible."):
             self._request(time.monotonic() + 10)
         self.client.force_stop.assert_awaited_once()
 
     def test_an_expired_request_never_starts_the_runtime(self):
-        with self.assertRaisesMessage(evaluation.EvaluationError, "timed out"):
+        with self.assertRaisesMessage(evaluation.EvaluationError, "Le bilan Copilot n’est pas arrivé à temps."):
             self._request(time.monotonic() - 1)
         self.client_factory.assert_not_called()

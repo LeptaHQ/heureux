@@ -419,6 +419,18 @@ class WritingSujetCompletion(models.Model):
         return f"{self.user} · {self.sujet} · completed"
 
 
+class GitHubCopilotConnection(models.Model):
+    user = models.OneToOneField(
+        django_settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="github_copilot_connection",
+    )
+    github_user_id = models.PositiveBigIntegerField()
+    encrypted_tokens = models.BinaryField()
+    access_expires_at = models.DateTimeField()
+    refresh_expires_at = models.DateTimeField()
+
+
 class WritingSimulationAttemptStatus(models.TextChoices):
     ACTIVE = "active", "En cours"
     SUBMITTED = "submitted", "Remise"

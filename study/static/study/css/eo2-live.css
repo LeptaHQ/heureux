@@ -248,6 +248,7 @@
 .lv-title-row:has(.lv-assessment__action:not([hidden])) { display: flex; align-items: center; gap: 0.65rem; }
 .lv-title-row .lv-assessment__action { position: relative; flex: none; }
 .lv-assessment__models { width: max-content; }
+.lv-assessment__model-note { max-width: 15rem; margin: 0; padding: 0.45rem 0.6rem; }
 .lv-assessment__models .custom-select__option {
   width: 100%; justify-content: space-between; border: 0; background: none; font-family: inherit;
 }

@@ -1,7 +1,7 @@
 from django.urls import path, register_converter
 
 from . import views
-from .views import audio, course, eo2_live, eo2_practice, formulations, simulation, writing_simulation
+from .views import audio, course, eo2_live, eo2_practice, formulations, github_copilot, simulation, writing_simulation
 
 
 class ExpressionPartConverter:
@@ -97,6 +97,9 @@ urlpatterns = [
         name="recovery_codes",
     ),
     path("compte/deconnexion/", views.logout_view, name="logout"),
+    path("compte/github/connecter/", github_copilot.authorize, name="github_copilot_authorize"),
+    path("compte/github/retour/", github_copilot.callback, name="github_copilot_callback"),
+    path("compte/github/deconnecter/", github_copilot.disconnect, name="github_copilot_disconnect"),
     path(
         "compte/parametres/",
         views.settings_view,

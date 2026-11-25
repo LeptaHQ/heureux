@@ -161,6 +161,18 @@
               Stats <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nav-icon-stats"></use></svg>
             </a>
             <a href="{% url 'study:settings' %}" class="{% if request.resolver_match.url_name == 'settings' or request.resolver_match.url_name == 'change_pin' or request.resolver_match.url_name == 'regenerate_recovery_codes' or request.resolver_match.url_name == 'reset_progress' or request.resolver_match.url_name == 'delete_account' %}is-active{% endif %}">Réglages</a>
+            {% if nav_connect_github %}
+              <form method="post" action="{% url 'study:github_copilot_authorize' %}">
+                {% csrf_token %}
+                {% if request.resolver_match.url_name == 'ee1_simulation_attempt' and attempt.status == 'submitted' %}
+                  <input type="hidden" name="attempt_id" value="{{ attempt.pk }}">
+                {% endif %}
+                <button type="submit">
+                  <span>Connecter GitHub</span>
+                  {% include "study/shared/partials/ui_icon.html" with name="external-link" only %}
+                </button>
+              </form>
+            {% endif %}
             <button type="button" data-theme-toggle>
               <span>Apparence</span>
               <span class="nav__theme-glyph" aria-hidden="true">

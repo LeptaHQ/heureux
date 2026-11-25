@@ -21,6 +21,7 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.debug import sensitive_post_parameters
 from django.views.decorators.http import require_GET, require_POST
 
+from study.accounts import github_copilot
 from study.accounts.services import (
     authenticate_with_throttle,
     generate_recovery_codes,
@@ -71,6 +72,7 @@ from .review import (
     _locked_review_session,
     _save_review_session,
 )
+from .github_copilot import notice as copilot_notice
 from study.learning.practice import lock_course_user, public_snapshot
 from study.simulation.oral_jobs import lock_simulations
 
@@ -231,7 +233,11 @@ def logout_view(request):
 
 
 def _settings_context(request, **overrides):
+    copilot_link = github_copilot.link_status(request)
     context = {
+        "copilot_linked": copilot_link is not None,
+        "copilot_expired": copilot_link is not None and copilot_link[1] <= timezone.now(),
+        "copilot_notice": copilot_notice(request),
         "was_reset": request.GET.get("reset") == "1",
         "was_unsuspended": request.GET.get("unsuspended") == "1",
         "pin_changed": request.GET.get("pin_changed") == "1",

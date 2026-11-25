@@ -476,7 +476,7 @@ def _rubric(task_number):
 
 
 @sensitive_variables()
-def _review_proposal(result, provider, packet, deadline, *, task_number):
+def _review_proposal(result, provider, packet, deadline, *, task_number, request_report):
     split = task_number == 3
     if not result["improvedResponse"] and not (
         packet["wordMin"] <= packet["wordCount"] <= packet["wordMax"]
@@ -513,7 +513,7 @@ def _review_proposal(result, provider, packet, deadline, *, task_number):
         "If the proposed answer cannot be corrected faithfully, return empty strings."
     )
     try:
-        reviewed = evaluation.request_provider_report(
+        reviewed = request_report(
             provider, instruction, review_packet, _object(**fields),
             name=f"ee{task_number}_proofread", model=evaluation.QWEN_MODEL, max_tokens=1536,
             deadline=min(deadline, time.monotonic() + _PROPOSAL_REVIEW_SECONDS),
@@ -560,6 +560,7 @@ def score(
     provider=None,
     position=None,
     documents=(),
+    request_report=None,
 ):
     schema_name = f"ee{task_number}_bilan"
     evidence = {}
@@ -655,10 +656,12 @@ def score(
         "rule; do not invent a problem to fill a slot."
     )
     provider = provider or provider_for(task_number)
+    if request_report is None:
+        request_report = evaluation.request_provider_report
     if task_number != 1 and provider != "groq":
         raise evaluation.EvaluationError(400, "Le modèle d’évaluation n’est pas disponible.")
     deadline = time.monotonic() + evaluation.DEADLINE_SECONDS
-    report = evaluation.request_provider_report(
+    report = request_report(
         provider, instruction, packet, schema, name=schema_name, model=evaluation.QWEN_MODEL,
         max_tokens=4096, retry_schema=True,
         deadline=deadline,
@@ -676,5 +679,5 @@ def score(
         )
     except ReportError as exc:
         raise UnverifiedReport(exc, len(evidence)) from None
-    _review_proposal(result, provider, packet, deadline, task_number=task_number)
+    _review_proposal(result, provider, packet, deadline, task_number=task_number, request_report=request_report)
     return result

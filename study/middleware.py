@@ -8,7 +8,7 @@ from django.db import connection
 from django.http import JsonResponse
 from django.contrib.auth.views import redirect_to_login
 from django.conf import settings
-from django.urls import Resolver404, resolve
+from django.urls import Resolver404, resolve, reverse
 from django.utils.cache import patch_cache_control
 
 HEALTH_CHECK_PATH = "/healthz"
@@ -150,11 +150,10 @@ class AuthenticationRequiredMiddleware:
             response = JsonResponse({"error": "Reconnectez-vous au compte pilote."}, status=401)
             patch_cache_control(response, private=True, no_store=True)
             return response
-        login_target = (
-            "/revision/"
-            if request.path.startswith("/revision/")
-            else request.get_full_path()
-        )
+        if match.view_name == "study:github_copilot_callback":
+            login_target = reverse("study:settings")
+        else:
+            login_target = "/revision/" if request.path.startswith("/revision/") else request.get_full_path()
         login_redirect = redirect_to_login(login_target)
         patch_cache_control(login_redirect, private=True, no_store=True)
         if request.path.startswith("/revision/") and request.headers.get(

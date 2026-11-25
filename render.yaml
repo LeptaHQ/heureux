@@ -17,7 +17,7 @@ services:
     # deployment work once in the build instead of on every cold start.
     # Only Render runs this. Vercel's builder is far from the Neon database, so
     # its import took ~5 minutes while this build waited on the import lock.
-    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py deploy_database"
+    buildCommand: 'pip install -r requirements.txt && if [ -n "$COPILOT_GITHUB_CLIENT_ID" ]; then python -m copilot download-runtime; fi && python manage.py collectstatic --noinput && python manage.py deploy_database'
     startCommand: "gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --log-file -"
     envVars:
       - key: PYTHON_VERSION
@@ -48,6 +48,15 @@ services:
       - key: ALLOWED_HOSTS
         sync: false
       - key: CSRF_TRUSTED_ORIGINS
+        sync: false
+      # Optional GitHub App user authorization for EE1.
+      - key: COPILOT_GITHUB_CLIENT_ID
+        sync: false
+      - key: COPILOT_GITHUB_CLIENT_SECRET
+        sync: false
+      - key: COPILOT_GITHUB_CALLBACK_URL
+        sync: false
+      - key: COPILOT_TOKEN_ENCRYPTION_KEY
         sync: false
       # --- Selection translation -------------------------------------------
       # The translate panel asks DeepL (through this server) first, then falls

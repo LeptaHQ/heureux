@@ -113,9 +113,13 @@ has already finished, any unsaved text is shown separately so it can be copied
 without changing the saved response.
 
 The EE1 bilan’s sparkle button lets learners choose Groq or Workers when
-available. The current report stays visible until the chosen model returns
+available. With GitHub connected, new bilans use **Astra**, **MAI**, or **Opus**
+instead. Submitting while connected saves the answer without sending it; selecting a
+model requests grading and proofreading using that GitHub account’s Copilot credits.
+The current report stays visible until the chosen model returns
 one, and switching back opens the saved report without grading again.
-On reopening, EE1 prefers the saved Groq report when available.
+On reopening, EE1 opens the last saved Copilot model or prefers the saved Groq
+report when available. Disconnecting GitHub leaves existing reports intact.
 Status checks become less frequent while a report is in progress. All
 providers use the same evidence checks. When the three criteria already
 provide verified citations, they can also support the grade rationale
@@ -132,6 +136,41 @@ In Render logs, filter for `writing evaluation` and the attempt ID from the
 bilan URL. The worker logs when grading starts and how long it took. If the
 report fails verification, the log names the failed field and a reason code.
 These logs omit the learner’s answer, prompt, model output, and API keys.
+
+### Connect GitHub to an existing Heureux account
+
+1. [Register a GitHub App](https://docs.github.com/en/apps/creating-github-apps/registering-a-github-app/registering-a-github-app)
+   under the account or organization that will manage Heureux. Set the homepage
+   to your Heureux origin and the callback to that origin plus `/compte/github/retour/`.
+   Keep expiring user tokens enabled. Disable webhooks and do not grant repository
+   or organization permissions; [user authorization](https://docs.github.com/en/copilot/how-tos/copilot-sdk/setup/github-oauth)
+   does not use a repository installation or an organization-billed token.
+2. In Render’s **Environment** tab, add `COPILOT_GITHUB_CLIENT_ID`,
+   `COPILOT_GITHUB_CLIENT_SECRET`, `COPILOT_GITHUB_CALLBACK_URL` (the exact
+   registered callback), and `COPILOT_TOKEN_ENCRYPTION_KEY` (a dedicated,
+   stable Fernet key; generate it privately). Save and deploy the service.
+   The build downloads the pinned Copilot runtime when a client ID is configured.
+3. Sign into Heureux as usual. In the account dropdown, choose **Connecter GitHub**
+   and authorize the app. If you connect from an EE1 bilan, you return to that same
+   bilan. Use the sparkle menu to request a report. Model access depends on your
+   Copilot subscription.
+
+Heureux stores only the linked GitHub user ID, encrypted tokens and their
+expiration dates. No token is exposed to the page or included in the account
+export. Only the grading and proofreading inputs go to Copilot; see
+GitHub’s [model data handling](https://docs.github.com/en/copilot/reference/ai-models/model-hosting).
+Reports are saved in Heureux, not in GitHub. **Déconnecter GitHub** removes the
+local credentials; you can also revoke authorization in GitHub’s **Applications**
+settings. Rotating the encryption key requires existing users to reconnect.
+
+Generate the encryption key in a private terminal, then enter it directly in Render:
+
+```shell
+python -c 'from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())'
+```
+
+### Compare graders locally
+
 With at least one provider configured, this command runs every available
 provider on the same invented writing sample, without using learner responses:
 

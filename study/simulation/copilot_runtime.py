@@ -1,16 +1,26 @@
-"""Copilot transport for the synthetic EE1 calibration only."""
+"""Isolated GitHub Copilot inference for writing bilans."""
 
 import asyncio
 import json
-import logging
 import os
 import time
 from tempfile import TemporaryDirectory
 
-from study.simulation import evaluation
+from django.views.decorators.debug import sensitive_variables
+
+from . import evaluation
+
+MODELS = {
+    "copilot-astra": ("Astra", "gpt-6.2-astra"),
+    "copilot-mai": ("MAI", "mai-code-2-flash"),
+    "copilot-opus": ("Opus", "claude-opus-5.5"),
+}
+LABELS = {key: label for key, (label, _) in MODELS.items()}
+DEFAULT = "copilot-mai"
 
 
-async def _request_report(token, model, instruction, packet, schema, deadline):
+@sensitive_variables()
+async def _request_report(token, model, instruction, packet, schema, deadline, *, measure):
     from copilot import CopilotClient, JsonRpcError, RuntimeConnection
     from copilot.rpc import PermissionDecisionReject
     from copilot.session_events import AssistantMessageData
@@ -18,7 +28,7 @@ async def _request_report(token, model, instruction, packet, schema, deadline):
     remaining = deadline - time.monotonic()
     if remaining <= 0:
         raise TimeoutError
-    with TemporaryDirectory(prefix="heureux-copilot-pilot-") as directory:
+    with TemporaryDirectory(prefix="heureux-copilot-") as directory:
         runtime = RuntimeConnection.for_spawned_stdio(
             base_directory=directory,
             working_directory=directory,
@@ -53,7 +63,7 @@ async def _request_report(token, model, instruction, packet, schema, deadline):
                 if not isinstance(report, dict):
                     raise ValueError
                 credits = None
-                if deadline - time.monotonic() > 1:
+                if measure and deadline - time.monotonic() > 1:
                     try:
                         credits = (await session.rpc.usage.get_metrics(timeout=1)).total_nano_aiu
                     except (JsonRpcError, TimeoutError):
@@ -63,29 +73,28 @@ async def _request_report(token, model, instruction, packet, schema, deadline):
             await client.force_stop()
 
 
-def report_transport(token, model):
+@sensitive_variables()
+def report_transport(token, model, *, measure=False):
     from copilot import JsonRpcError
 
+    @sensitive_variables()
     def request_report(provider, instruction, packet, schema, *, name, deadline, **_):
         started = time.monotonic()
-        sdk_logger = logging.getLogger("copilot")
-        previous_level = sdk_logger.level
-        # SDK diagnostics can include raw service errors. Keep only the messages below.
-        sdk_logger.setLevel(logging.CRITICAL + 1)
         try:
-            report, nano_credits = asyncio.run(_request_report(token, model, instruction, packet, schema, deadline))
+            report, nano_credits = asyncio.run(
+                _request_report(token, model, instruction, packet, schema, deadline, measure=measure),
+            )
         except TimeoutError:
-            raise evaluation.EvaluationError(504, "Copilot pilot timed out.") from None
+            raise evaluation.EvaluationError(504, "Le bilan Copilot n’est pas arrivé à temps.") from None
         except (ValueError, RecursionError):
-            raise evaluation.EvaluationError(502, "Copilot pilot returned an unreadable report.") from None
-        except (JsonRpcError, OSError, RuntimeError) as exc:
+            raise evaluation.EvaluationError(502, "Le bilan Copilot est illisible.") from None
+        except (JsonRpcError, OSError, RuntimeError):
             raise evaluation.EvaluationError(
-                502, f"Copilot pilot request failed ({type(exc).__name__}). Check authentication and model access.",
+                502, "Ce modèle Copilot n’a pas répondu. Vérifiez la connexion GitHub et l’accès au modèle.",
             ) from None
-        finally:
-            sdk_logger.setLevel(previous_level)
-        usage = "credits not reported" if nano_credits is None else f"{nano_credits / 1e9:.4f} AI credits"
-        print(f"{provider} {name}: {time.monotonic() - started:.1f} s · {usage}")
+        if measure:
+            usage = "credits not reported" if nano_credits is None else f"{nano_credits / 1e9:.4f} AI credits"
+            print(f"{provider} {name}: {time.monotonic() - started:.1f} s · {usage}")
         return report
 
     return request_report

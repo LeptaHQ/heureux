@@ -2,6 +2,7 @@
 
 from django.conf import settings
 
+from .accounts import github_copilot
 from .models import ReviewSession
 from .views.helpers import active_task_for_request
 
@@ -211,8 +212,8 @@ def _active_nav_area(request):
 def study_globals(request):
     """The handful of values every authenticated study page's shell needs.
 
-    This runs on every page, so it stays free of aggregates: the navigation
-    renders plain links, and each page computes the counts it displays itself.
+    This runs on every page, so it stays free of aggregates. Individual pages
+    compute the counts they display themselves.
     """
     match = request.resolver_match
     if (
@@ -228,6 +229,9 @@ def study_globals(request):
         "annotation_task": task,
         "content_task": task,
         "active_nav_area": _active_nav_area(request),
+        "nav_connect_github": (
+            github_copilot.configuration() is not None and not github_copilot.active_link_id(request)
+        ),
         "french_audio_enabled": settings.FRENCH_AUDIO_ENABLED,
         "french_audio_configured": bool(settings.ELEVENLABS_VOICE_ID),
         "translation_server_first": bool(settings.DEEPL_API_KEY),

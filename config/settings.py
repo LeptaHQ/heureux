@@ -290,14 +290,23 @@ EE1_EVALUATION_PROVIDER = os.environ.get(
 if EE1_EVALUATION_PROVIDER not in {"gemini", "groq", "cloudflare"}:
     raise ImproperlyConfigured("EE1_EVALUATION_PROVIDER must be gemini, groq or cloudflare.")
 
+COPILOT_GITHUB_CLIENT_ID = os.environ.get("COPILOT_GITHUB_CLIENT_ID", "").strip()
+COPILOT_GITHUB_CLIENT_SECRET = os.environ.get("COPILOT_GITHUB_CLIENT_SECRET", "").strip()
+COPILOT_GITHUB_CALLBACK_URL = os.environ.get("COPILOT_GITHUB_CALLBACK_URL", "").strip()
+COPILOT_TOKEN_ENCRYPTION_KEY = os.environ.get("COPILOT_TOKEN_ENCRYPTION_KEY", "").strip()
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
-    "handlers": {"evaluation_console": {"class": "logging.StreamHandler"}},
+    "handlers": {
+        "evaluation_console": {"class": "logging.StreamHandler"},
+        "null": {"class": "logging.NullHandler"},
+    },
     "loggers": {
         "study.views.writing_simulation": {
             "handlers": ["evaluation_console"], "level": "INFO", "propagate": False,
         },
+        "copilot": {"level": "CRITICAL", "propagate": False, "handlers": ["null"]},
     },
 }
 

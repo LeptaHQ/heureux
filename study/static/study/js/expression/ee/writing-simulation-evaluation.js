@@ -251,10 +251,12 @@
 
   const statusReadError = "Impossible de lire l’état du bilan. Vous pouvez réessayer.";
   const fetchStatus = async (provider, failures = 0) => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
     try {
       const endpoint = new URL(url, location.href);
       endpoint.searchParams.set("provider", provider);
-      const response = await fetch(endpoint, { credentials: "same-origin", cache: "no-store" });
+      const response = await fetch(endpoint, { credentials: "same-origin", cache: "no-store", signal: controller.signal });
       if (response.redirected || response.status === 401) {
         setStatus("Reconnectez-vous à Heureux pour consulter le bilan.");
         setButtonLabel("Vérifier le bilan");
@@ -276,6 +278,8 @@
       }
       setStatus(statusReadError);
       setButtonLabel("Réessayer");
+    } finally {
+      clearTimeout(timeout);
     }
   };
 
@@ -308,7 +312,10 @@
     requestEvaluation();
   });
 
-  if (form.dataset.evaluationStatus !== "not_requested") {
+  const saved = document.getElementById("writing-saved-evaluation");
+  if (saved) {
+    apply(JSON.parse(saved.textContent), initialProvider);
+  } else if (form.dataset.evaluationStatus !== "not_requested") {
     setStatus(by("assessment-status").textContent, true);
     fetchStatus(initialProvider);
   }

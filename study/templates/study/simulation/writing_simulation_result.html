@@ -34,6 +34,7 @@
   <form id="writing-evaluation-form" data-evaluation-url="{% url route_names.evaluate attempt_id=attempt.pk %}" data-evaluation-status="{{ attempt.evaluation_status }}" data-evaluation-provider="{{ evaluation_provider }}" hidden>
     {% csrf_token %}
   </form>
+  {% if saved_evaluation %}{{ saved_evaluation|json_script:"writing-saved-evaluation" }}{% endif %}
   {% endif %}
   {% if session_title_assessment and evaluation_providers|length < 2 and not assessment_force_model_picker %}
     <span id="writing-evaluation-disclosure" class="lv-assessment__aside">Envoi à {{ evaluation_provider_label }} : réponse, consigne{% if documents %} et documents{% endif %}.</span>
@@ -99,5 +100,5 @@
 {% block scripts %}
   {{ block.super }}
   <script defer src="{% static 'study/js/shared/prompt-copy.js' %}?v=4"></script>
-  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=19"></script>
+  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=20"></script>
 {% endblock %}

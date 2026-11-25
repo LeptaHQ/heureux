@@ -673,7 +673,10 @@ class EE1SimulationTests(TestCase):
             "scoreRange": {"min": 10, "max": 13},
             "confidence": "Medium",
             "uncertainty": "Une seule tâche ne suffit pas.",
-            "taskCompliance": [{"item": "But", "status": "Met", "evidenceId": "E1", "evidence": "Le message est adressé."}],
+            "taskCompliance": [{
+                "item": "But", "status": "Met", "evidenceId": "E1",
+                "evidence": "Le message est adressé.", "proposalQuote": "",
+            }],
             "criteria": {
                 key: {"rating": "Adequate", "evidenceIds": ["E1"], "evidence": "Le passage est exploitable."}
                 for key in ("linguistic", "pragmatic", "sociolinguistic")
@@ -926,6 +929,18 @@ class EE1SimulationTests(TestCase):
         account = self.client.get(reverse("study:export_account")).json()
         self.assertEqual(account["writing_simulation_attempts"][0]["proposal_edits"], attempt.proposal_edits)
 
+        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
+            evaluation_status=WritingSimulationEvaluationStatus.READY,
+            evaluation={**evaluation_data, "provider": "copilot-mai"},
+        )
+        url = self._attempt_url(attempt)
+        page = self.client.get(url)
+        self.assertIn("no-store", page.headers["Cache-Control"])
+        self.assertEqual(page.context["saved_evaluation"]["report"], reports["copilot-mai"])
+        self.assertEqual(page.context["saved_evaluation"]["proposalEdit"]["parts"], edits["copilot-mai"])
+        self.client.force_login(self.other)
+        self.assertEqual(self.client.get(url).status_code, 404)
+
     def test_proposal_edit_requires_valid_text_csrf_and_an_owned_saved_proposal(self):
         self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
@@ -988,24 +1003,40 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(set(result["omittedSections"]), {"gradeEvidence", "verbFeedback", "corrections", "improvedResponse"})
 
     @override_settings(GROQ_API_KEY="fixture-groq-key")
-    def test_qwen_returns_an_enriched_proposal_without_changing_the_supported_grade(self):
+    def test_qwen_completes_missing_task_requirements_without_changing_the_supported_grade(self):
+        subject = (
+            "Demandez à un ami de s’occuper de votre maison pendant votre absence. "
+            "Proposez un moyen de lui remettre les clés et demandez-lui de confirmer sa disponibilité."
+        )
         response = (
             "Salut Alex, merci pour ta aide pendant mon absence. Peux-tu arroser les plantes mercredi et samedi ? "
             "J’ai laissé l’arrosoir près du balcon. Pour le chien, les croquettes sont dans le placard de la cuisine. "
             "Tu peux le sortir après le travail. Le facteur passe le matin ; laisse le courrier sur la table. "
             "Si tu as une question, appelle-moi. Merci encore pour ta aide. À bientôt !"
         )
+        key_offer = "Pour les clés, je te propose de passer chez moi avant mon départ."
         corrected = response.replace("ta aide", "ton aide").replace(
-            "Si tu as une question", "Dis-moi si tu peux t’en occuper. Si tu as une question",
+            "Si tu as une question", f"{key_offer} Dis-moi si tu es disponible. Si tu as une question",
         )
-        report = {**self._provider_report(), "improvedResponse": corrected, "gradeEvidenceIds": ["E1"]}
+        report = {
+            **self._provider_report(), "improvedResponse": corrected, "gradeEvidenceIds": ["E1"],
+            "taskCompliance": [
+                {"item": "Remise des clés", "status": "Missing", "evidenceId": "",
+                 "evidence": "The original does not say how to hand over the keys.", "proposalQuote": key_offer},
+                {"item": "Confirmation de la disponibilité", "status": "Partly met", "evidenceId": "E2",
+                 "evidence": "You ask for help but not for confirmation.",
+                 "proposalQuote": "Dis-moi si tu es disponible."},
+                {"item": "Consignes pour la maison", "status": "Met", "evidenceId": "E2",
+                 "evidence": "You explain when to water the plants.", "proposalQuote": ""},
+            ],
+        }
         completion = json.dumps({"choices": [{
             "finish_reason": "stop", "message": {"content": json.dumps(report)},
         }]}).encode()
         with patch.object(evaluation, "_post", return_value=(completion, 1)) as request:
             result = writing_evaluation.score(
-                task_number=1, subject="Demandez à un ami de s’occuper de votre maison pendant votre absence.",
-                response=response, word_count=_ee_word_count(response), word_min=60, word_max=120, provider="groq",
+                task_number=1, subject=subject, response=response, word_count=_ee_word_count(response),
+                word_min=60, word_max=120, provider="groq",
             )
         request.assert_called_once()
         call = request.call_args
@@ -1014,10 +1045,15 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(payload["model"], "qwen/qwen3.8-27b")
         self.assertEqual(payload["reasoning_effort"], "none")
         self.assertTrue(payload["response_format"]["json_schema"]["strict"])
+        self.assertIn("Repair every Missing or Partly met item", payload["messages"][0]["content"])
         packet = json.loads(payload["messages"][1]["content"])
         self.assertEqual(packet["response"], response)
+        self.assertEqual(packet["subject"], subject)
         self.assertTrue(all(quote in response for quote in result["gradeEvidence"]))
         self.assertEqual(result["score"], report["score"])
+        self.assertEqual([item["status"] for item in result["taskCompliance"]], ["Missing", "Partly met", "Met"])
+        self.assertEqual(result["taskCompliance"][0]["quote"], "")
+        self.assertNotIn("proposalQuote", result["taskCompliance"][0])
         self.assertEqual(result["improvedResponse"], corrected)
         self.assertEqual(result["proposalTarget"], "NCLC 7")
 
@@ -1025,7 +1061,8 @@ class EE1SimulationTests(TestCase):
         response = (
             "Salut Alex,\n\nJe t’invite à ma fête samedi soir. La salle est bien desservi par le métro et elle est tres "
             "proche de la sortie principale. Une fois dehors, traverse la rue et cherche la porte bleue. Tu pourras "
-            "laisser ton manteau à l’entrée. Si tu veux venir avec une amie, dis-le-moi avant vendredi.\n\nÀ bientôt,\nNora"
+            "laisser ton manteau à l’entrée. On pourra ainsi se retrouver facilement. "
+            "Si tu veux venir avec une amie, dis-le-moi avant vendredi.\n\nÀ bientôt,\nNora"
         )
         revised = response.replace("desservi", "desservie").replace("tres", "très")
         report = {
@@ -1064,12 +1101,21 @@ class EE1SimulationTests(TestCase):
 
     def test_copilot_uses_a_correction_only_copy_for_missing_or_invalid_revisions_without_a_second_request(self):
         inputs, report = self._copilot_proposal()
+        inputs["subject"] += " Proposez de rentrer ensemble."
         revised = report["improvedResponse"]
+        missing_requirement = {
+            "item": "Proposer un retour ensemble", "status": "Missing", "evidenceId": "",
+            "evidence": "You do not suggest going home together.",
+        }
         report_changes = {
             "missing proposal": {"improvedResponse": ""},
             "too short": {"improvedResponse": "Salut Alex !"},
             "missed correction": {"improvedResponse": revised.replace("très", "tres")},
             "changed fact": {"improvedResponse": revised.replace("samedi", "dimanche")},
+            "missing proposal evidence": {"taskCompliance": [*report["taskCompliance"], missing_requirement]},
+            "invented proposal evidence": {"taskCompliance": [
+                *report["taskCompliance"], {**missing_requirement, "proposalQuote": "On pourrait rentrer ensemble."},
+            ]},
             "ungrounded correction": {"corrections": [*report["corrections"], {
                 "before": "chambre", "after": "chambres", "type": "Accord", "why": "Pluriel.",
             }]},

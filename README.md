@@ -123,27 +123,32 @@ one, and switching back opens the saved report without grading again.
 On reopening, EE1 opens the last saved Copilot model or prefers the saved Groq
 report when available. Disconnecting GitHub leaves existing reports intact.
 Status checks back off to once every four seconds while a report is in progress.
-Reading an existing EE1 job or saved report does not recheck GitHub
-connectivity. All writing providers use the same evidence checks. When the three
-criteria already provide verified citations, they can also support the grade rationale
-without a separate citation list. Temporary service failures are retried
-once with the same provider within the three-minute deadline. Groq can also
+A stalled status read times out after eight seconds and can retry without
+starting another evaluation. Reopening a ready report skips the status request.
+Reading an existing EE1 job or saved report via the status endpoint does not
+recheck GitHub connectivity. All writing providers use the same evidence checks.
+The three criteria’s verified citations can also support the grade rationale.
+Temporary service failures are retried once with the same provider within the
+three-minute deadline. Groq can also
 use its one retry to recover from a writing schema rejection in JSON mode.
 If the writing worker stops during a restart, the unfinished report becomes
 retryable once its 45-second lease expires. Heureux does not resend it automatically.
 Each writing provider returns the grade, corrections, and practice proposal in
 one generation request. Corrections come from the original and appear in source
-order. The complete proposal aims at NCLC 7: it adds useful development without
-guessing missing facts or changing the learner’s grade. The proposal must meet
-the word limits and pass checks for checkable facts and grounded corrections.
+order. The complete proposal aims at NCLC 7 and answers every part of the task,
+including requirements missing from the original, without guessing facts or
+changing the learner’s grade. The app checks word limits, checkable facts,
+grounded corrections, and that each claimed repair has a matching excerpt in
+the proposal.
 If it does not, Heureux can show a correction-only copy that applies unambiguous
 edits to the original. This fallback also works for saved reports, without
 resending the text. Learners can copy the original or the proposal, and save
 their own edit to the revised or correction-only version. Edits are private,
 saved per model, and do not change the original, the corrections, or the grade.
 In Render logs, filter for `writing evaluation` and the attempt ID from the
-bilan URL. The worker logs when grading starts and how long it took. If the
-report fails verification, the log names the failed field and a reason code.
+bilan URL. The worker logs when grading starts and how long it took. Slow
+Copilot calls also log separate session setup, reply, and cleanup durations.
+If the report fails verification, the log names the failed field and a reason code.
 These logs omit the learner’s answer, prompt, model output, and API keys.
 
 ### Connect GitHub to an existing Heureux account

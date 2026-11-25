@@ -2,6 +2,7 @@
 
 import asyncio
 import json
+import logging
 import os
 import time
 from tempfile import TemporaryDirectory
@@ -9,6 +10,8 @@ from tempfile import TemporaryDirectory
 from django.views.decorators.debug import sensitive_variables
 
 from . import evaluation
+
+logger = logging.getLogger(__name__)
 
 MODELS = {
     "copilot-astra": ("Astra", "gpt-6.2-astra"),
@@ -28,6 +31,8 @@ async def _request_report(token, model, instruction, packet, schema, deadline, *
     remaining = deadline - time.monotonic()
     if remaining <= 0:
         raise TimeoutError
+    started = time.perf_counter()
+    session_ready = reply_received = None
     with TemporaryDirectory(prefix="heureux-copilot-") as directory:
         runtime = RuntimeConnection.for_spawned_stdio(
             base_directory=directory,
@@ -49,11 +54,13 @@ async def _request_report(token, model, instruction, packet, schema, deadline, *
                     permissions={"on_request": lambda *_: PermissionDecisionReject()},
                     github={"telemetry_enabled": False},
                 )
+                session_ready = time.perf_counter()
                 reply = await session.send_and_wait(
                     json.dumps(packet, ensure_ascii=False, separators=(",", ":")),
                     response_schema=schema,
                     timeout=max(0, deadline - time.monotonic()),
                 )
+                reply_received = time.perf_counter()
                 if reply is None or not isinstance(reply.data, AssistantMessageData):
                     raise ValueError
                 content = reply.data.content
@@ -70,7 +77,17 @@ async def _request_report(token, model, instruction, packet, schema, deadline, *
                         pass
                 return report, credits
         finally:
+            stopping = time.perf_counter()
             await client.force_stop()
+            stopped = time.perf_counter()
+            if stopped - started >= evaluation._SLOW_SECONDS:
+                session_ready = session_ready if session_ready is not None else stopping
+                reply_received = reply_received if reply_received is not None else stopping
+                logger.warning(
+                    "Slow Copilot writing evaluation model=%s session_ms=%d reply_ms=%d cleanup_ms=%d",
+                    model, (session_ready - started) * 1000, (reply_received - session_ready) * 1000,
+                    (stopped - stopping) * 1000,
+                )
 
 
 @sensitive_variables()

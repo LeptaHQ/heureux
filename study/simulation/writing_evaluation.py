@@ -66,6 +66,7 @@ _SCHEMA = _object(
             status={"type": "string", "enum": sorted(_STATUSES)},
             evidenceId=_ID,
             evidence={"type": "string"},
+            proposalQuote={"type": "string"},
         ),
     },
     criteria={
@@ -468,7 +469,18 @@ def ground(
     for field, limit in (("upgrades", 8), ("priorities", 3)):
         result[field] = checked_items(field, report.get(field), limit, lambda value: _text(value, 500))
     try:
-        result.update(_proposal(report, word_min, word_max, split=position is not None))
+        proposal = _proposal(report, word_min, word_max, split=position is not None)
+        if proposal["improvedResponse"]:
+            if "taskCompliance" in result["omittedSections"]:
+                raise ValueError
+            parts = proposal.get("improvedParts", (proposal["improvedResponse"],))
+            for item, check in zip(report["taskCompliance"], result["taskCompliance"]):
+                if check["status"] == "Met":
+                    continue
+                quote = _text(item.get("proposalQuote"), 300)
+                if not any(_locate(part, quote) is not None for part in parts):
+                    raise ValueError
+        result.update(proposal)
     except ValueError:
         omit("improvedResponse")
         result.update(improvedResponse="", improvedWordCount=0)
@@ -611,11 +623,14 @@ def score(
         "Use score, scoreRange and confidence (High, Medium, Low) for the diagnostic estimate. "
         "Judge the dominant performance, not one slip. Keep scores, CEFR and NCLC out of the prose. "
         "uncertainty: [Specific reason the estimate is borderline, or an empty string].\n"
-        "2. taskCompliance: For each explicit requirement, fill item, status (Met, Partly met, Missing), "
-        "evidence (one short observation) and evidenceId (one supporting passage ID; empty only for "
-        "Missing with no passage). Put gaps first. Include format, audience and register; group overlapping "
-        "checks to stay within twelve rows. Never penalize an unstated requirement. Flag any content "
-        "inconsistency here and say what to verify rather than guessing a replacement.\n"
+        "2. taskCompliance: List every explicit requirement, including format, audience and register. "
+        "Group only overlapping checks, up to twelve rows. For the ORIGINAL, give item, status (Met, Partly met, "
+        "Missing), evidence (a short observation) and evidenceId (a supporting passage ID, empty if Missing "
+        "with no passage). Put gaps first. Flag content inconsistencies and say what to verify. "
+        "Do not invent requirements. "
+        "For each Missing or Partly met row, give proposalQuote: a short verbatim excerpt from the revised "
+        "section that addresses the gap. Use an empty string for Met rows or when there is no proposal. "
+        "Do not use the proposal as evidence for the original.\n"
         "3. criteria: For each of linguistic, pragmatic and sociolinguistic, fill rating (Limited, "
         "Developing, Adequate, Strong, Excellent), evidence (one short reason) and evidenceIds "
         "(one or two supporting IDs, required for each criterion). Reserve Excellent for sustained "
@@ -636,15 +651,15 @@ def score(
         "recipient: an informal message to a friend does not need a more formal tone or closing. Keep "
         "appropriate tu or vous, including plural vous. For a message or account, if an uncertain or irrelevant "
         "specific must be left out, mark its exact original clause as Cut and explain why or what to verify.\n"
-        f"7. {proposal_fields} Write a complete model answer aiming at a solid {_PROPOSAL_TARGET}; this target "
-        "is for the proposal only and must never influence the original's grade. Apply the corrections, organize "
-        "the answer into natural paragraphs, and use precise everyday vocabulary and a consistent register for "
-        "the recipient. Satisfy the exact subject and develop the learner's ideas with useful additions, such as "
-        "a concrete benefit, reason, comparison, or next step. Use details supplied by the learner or the task. "
-        "Make hypothetical examples or proposed arrangements explicit; don't present them as real events or "
-        "confirmed facts. Preserve the learner's intent, reliable facts, names and signature. If a necessary "
-        "detail is unknown, ask for it or offer to confirm it rather than guessing a number, time, or place. "
-        "Do not add report labels or Markdown. Leave the revision empty only if no faithful answer is possible.\n"
+        f"7. {proposal_fields} Aim at a solid {_PROPOSAL_TARGET} in the proposal only, never in the grade. "
+        "Repair every Missing or Partly met item in the answer itself. Before returning, check the revised "
+        "text against the exact subject and every checklist item, including those already Met. Put required "
+        "content before optional enrichment. Apply the corrections, use natural paragraphs and a consistent "
+        "register, and develop the learner's ideas with useful details. Use facts from the learner or task; "
+        "make new examples or arrangements explicitly hypothetical or proposed. Preserve reliable facts, names, "
+        "signature and intent where compatible with the task. Offer to confirm an unknown fact rather than "
+        "inventing it. No report labels or Markdown. If no faithful complete answer is possible, leave the "
+        "revision empty; do not present an incomplete rewrite as a model answer.\n"
         "8. priorities: [Up to three brief next-time checks tied to a correction or unmet requirement "
         "identified above, most useful first]. Compare only genuinely different forms when teaching a "
         "rule; do not invent a problem to fill a slot."

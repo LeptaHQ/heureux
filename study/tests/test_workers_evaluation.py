@@ -51,6 +51,7 @@ class WorkersEvaluationTests(SimpleTestCase):
             "uncertainty": "",
             "taskCompliance": [{
                 "item": "Invitation", "status": "Met", "evidenceId": "E1", "evidence": "You invite your friend.",
+                "proposalQuote": "",
             }],
             "criteria": {
                 key: {"rating": "Adequate", "evidenceIds": refs, "evidence": "These passages support the assessment."}

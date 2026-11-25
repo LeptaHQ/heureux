@@ -1045,8 +1045,16 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         copy.click()
         self.assertEqual(self.page.evaluate("window.__copiedResponse"), "\n\n".join(revised))
 
+        status_reads = []
+
+        def block_status(route):
+            status_reads.append(route.request.method)
+            route.abort()
+
+        self.page.route(lambda url: urlsplit(url).path == endpoint, block_status)
         self.page.reload()
         expect(proposal.get_by_role("heading", name="Version personnalisée")).to_be_visible()
+        self.assertEqual(status_reads, [])
         self.assertEqual(proposal.locator("#lv-proposal-lines p").all_text_contents(), list(revised))
         attempt.refresh_from_db()
         self.assertEqual((attempt.body, attempt.position_body, attempt.evaluation), (*originals, report))
@@ -1107,16 +1115,37 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         )
         page = reverse("study:ee1_simulation_attempt", args=[attempt.pk])
         endpoint = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        self.page.clock.install()
+        self.page.clock.pause_at(self.page.evaluate("Date.now() + 10000"))
         with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint) as polling:
             self.page.goto(self.live_server_url + page)
         self.assertEqual(polling.value.json()["status"], "processing")
         status = self.page.locator("#lv-assessment-status")
         expect(status).to_have_text("Bilan en préparation…")
 
+        self.page.evaluate(
+            """endpoint => {
+              const originalFetch = window.fetch;
+              window.fetch = (url, options) => {
+                if (new URL(url, location.href).pathname !== endpoint) return originalFetch(url, options);
+                window.fetch = originalFetch;
+                return new Promise((resolve, reject) => {
+                  options.signal?.addEventListener("abort", reject, {once: true});
+                });
+              };
+            }""",
+            endpoint,
+        )
+        self.page.clock.run_for(1500)
         message = "Reconnectez votre compte GitHub pour utiliser Copilot."
         WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
             evaluation_status=WritingSimulationEvaluationStatus.UNAVAILABLE, evaluation_error=message,
         )
+        self.page.clock.run_for(8000)
+        expect(status).to_have_text("Vérification de l’état du bilan…")
+        with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint) as retry:
+            self.page.clock.run_for(1500)
+        self.assertEqual(retry.value.request.method, "GET")
         expect(status).to_have_text(message)
         self.page.reload()
         expect(status).to_have_text(message)

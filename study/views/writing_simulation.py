@@ -677,6 +677,10 @@ def _result_context(request, attempt, spec):
         "debrief_back_url": reverse("study:simulation_track", args=["ee"]),
         "debrief_back_label": "Retour à EE",
     })
+    if can_assess and attempt.evaluation_status == WritingSimulationEvaluationStatus.READY:
+        saved = _evaluation_payload(attempt, spec, provider if spec.number == 1 else None)
+        if saved["report"]:
+            context["saved_evaluation"] = saved
     return context
 
 

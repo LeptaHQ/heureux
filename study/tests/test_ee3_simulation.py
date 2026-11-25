@@ -193,11 +193,19 @@ class EE3SimulationTests(TestCase):
     def test_grading_cannot_cite_documents_and_checks_both_proposal_lengths(self):
         synthesis = "Les deux auteurs comparent les avantages de la lecture."
         position = "Je préfère lire un livre dans le train."
-        documents = ("Le prix indiqué dans le premier document est de 35 euros.", "Une autre opinion figure dans le second.")
+        documents = (
+            "Le premier texte indique que les livres neufs peuvent coûter 35 euros.",
+            "La bibliothèque permet de lire sans acheter de livres, selon le second texte.",
+        )
+        second_view = "Le second met en avant la possibilité d’emprunter ses livres à la bibliothèque."
         report = {
             "score": 12, "scoreRange": {"min": 11, "max": 13},
             "gradeEvidenceIds": ["E1", "E2"],
-            "taskCompliance": [{"item": "Neutralité", "status": "Met", "evidenceId": "E1", "evidence": "Neutre."}],
+            "taskCompliance": [
+                {"item": "Document 2", "status": "Missing", "evidenceId": "",
+                 "evidence": "The original does not explain the second view.", "proposalQuote": second_view},
+                {"item": "Neutralité", "status": "Met", "evidenceId": "E1", "evidence": "Neutre.", "proposalQuote": ""},
+            ],
             "criteria": {
                 key: {"rating": "Adequate", "evidenceIds": ["E1", "E2"], "evidence": "Clair."}
                 for key in ("linguistic", "pragmatic", "sociolinguistic")
@@ -225,12 +233,21 @@ class EE3SimulationTests(TestCase):
             self.assertEqual(result["corrections"], [])
             self.assertEqual(result["improvedResponse"], "")
             report["corrections"] = []
-            report["improvedResponse"] = "Le premier document cite un prix de 35 euros. " + " ".join(["comparaison"] * 31)
+            report["improvedResponse"] = (
+                f"Le premier document cite un prix de 35 euros. {second_view} "
+                "Les deux auteurs abordent ainsi la question de l’accès à la lecture : l’un évoque le coût "
+                "de l’achat, tandis que l’autre rappelle qu’il existe une solution sans achat."
+            )
             request.reset_mock()
             accepted = writing_evaluation.score(**inputs)
             request.assert_called_once()
             self.assertEqual(accepted["improvedParts"], [report["improvedResponse"], report["improvedPosition"]])
-            self.assertEqual(accepted["improvedWordCount"], 121)
+            self.assertEqual(accepted["taskCompliance"][0]["status"], "Missing")
+            request.return_value = {**report, "improvedResponse": report["improvedResponse"].replace(
+                second_view, "Les deux auteurs s’adressent à des lecteurs qui réfléchissent à leurs habitudes.",
+            )}
+            missing_source = writing_evaluation.score(**inputs)
+            self.assertEqual((missing_source["score"], missing_source["improvedResponse"]), (12, ""))
             request.return_value = {**report, "improvedResponse": report["improvedResponse"].replace("35", "45")}
             inaccurate = writing_evaluation.score(**inputs)
             self.assertEqual((inaccurate["score"], inaccurate["improvedResponse"]), (12, ""))

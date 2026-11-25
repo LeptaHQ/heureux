@@ -58,6 +58,18 @@ class CopilotCalibrationTests(SimpleTestCase):
             self._request(time.monotonic() + 10)
         self.client.force_stop.assert_awaited_once()
 
+    def test_slow_reports_log_separate_runtime_and_response_timings(self):
+        self._reply('{"score":12}')
+        with (
+            patch.object(copilot_runtime.time, "perf_counter", side_effect=[0, 0.125, 40.125, 40.25, 40.375]),
+            self.assertLogs(copilot_runtime.logger, "WARNING") as logs,
+        ):
+            self.assertEqual(self._request(time.monotonic() + 10), {"score": 12})
+        self.assertEqual(
+            [record.getMessage() for record in logs.records],
+            ["Slow Copilot writing evaluation model=fixture-model session_ms=125 reply_ms=40000 cleanup_ms=125"],
+        )
+
     def test_an_expired_request_never_starts_the_runtime(self):
         with self.assertRaisesMessage(evaluation.EvaluationError, "Le bilan Copilot n’est pas arrivé à temps."):
             self._request(time.monotonic() - 1)

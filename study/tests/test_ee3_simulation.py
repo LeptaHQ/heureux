@@ -93,22 +93,36 @@ class EE3SimulationTests(TestCase):
         self.assertEqual(self.client.get(reverse("study:export_account")).json()["writing_simulation_attempts"][0]["position_body"], position)
 
     @override_settings(GROQ_API_KEY="fixture-groq-key")
-    def test_expiry_read_does_not_discard_the_last_draft_or_start_grading(self):
+    def test_overtime_saves_both_sections_and_ignores_legacy_auto_submission(self):
         attempt, url = self.start()
         WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(deadline_at=timezone.now() - timedelta(seconds=1))
-        self.assertContains(self.client.get(url), "Le temps est écoulé")
         with patch("study.views.writing_simulation.threading.Thread") as thread, self.captureOnCommitCallbacks(execute=True):
             self.assertRedirects(self.client.post(url, {
-                "action": "expire", "body": "", "position_body": "Je défends cette idée.",
+                "action": "expire", "body": "Le premier document oppose deux idées.",
+                "position_body": "Je défends cette idée.",
                 "evaluation_consent": "groq",
-            }), url)
+            }), url + "?saved=1")
         thread.assert_not_called()
         attempt.refresh_from_db()
-        self.assertEqual(attempt.status, WritingSimulationAttemptStatus.EXPIRED)
+        self.assertEqual(attempt.status, WritingSimulationAttemptStatus.ACTIVE)
+        self.assertEqual(attempt.body, "Le premier document oppose deux idées.")
         self.assertEqual(attempt.position_body, "Je défends cette idée.")
-        self.assertContains(self.client.get(url), 'id="writing-evaluation-form"')
-        status = self.client.get(reverse("study:ee3_simulation_evaluate", args=[attempt.pk]))
-        self.assertEqual(status.json()["status"], "not_requested")
+        timer = reverse("study:ee3_simulation_timer", args=[attempt.pk])
+        self.assertRedirects(self.client.post(timer, {"timer_minutes": "1", "timer_seconds": "30"}), url)
+        editor = self.client.get(url)
+        self.assertGreater(editor.context["remaining_seconds"], 0)
+        self.assertContains(editor, attempt.position_body)
+
+    def test_history_is_specific_to_the_selected_comparison_prompt(self):
+        attempt, _ = self.start()
+        other_source = next(
+            source for _, source in catalogue.ee_tache_three_sources_by_key().values()
+            if source.has_usable_documents and source.content_key != self.prompt.content_key
+        )
+        other = self.make_prompt(self.prompt.theme, other_source)
+        self.client.post(self.start_url, {"sujet_id": other.pk})
+        page = self.client.get(reverse("study:ee3_simulation"), {"sujet_id": self.prompt.pk})
+        self.assertEqual([item["id"] for item in page.context["saved_sessions"]], [attempt.pk])
 
     def test_grading_cannot_cite_documents_and_checks_both_proposal_lengths(self):
         synthesis = "Les deux auteurs comparent les avantages de la lecture."

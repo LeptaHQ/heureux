@@ -81,6 +81,7 @@ Icon-only actions have accessible labels; task titles, limits and timers remain
 visible.
 Oral and written studios use the same saved-session list. Its trash icon
 permanently deletes the chosen session and its bilan after confirmation.
+On a selected subject, the list only shows sessions for that exact consigne.
 The session templates live under `study/templates/study/simulation/`, and the
 shared evaluation code lives in `study/simulation/`.
 Writing sends the exact subject, the response, its word count and limits, and
@@ -96,7 +97,8 @@ Gemma uses the [Workers AI daily free allocation](https://developers.cloudflare.
 The model applies to new Workers reports; saved Workers bilans stay as they are.
 When Groq is configured, explicitly submitting a written answer starts its
 bilan automatically. The editor discloses this before submission. Saving a
-draft or running out of time does not send it. When more than one model is
+draft does not send it. At zero, the writing timer counts into negative time
+and leaves the draft open until you act. When more than one model is
 available, the EE1 bilan’s sparkle button lets learners request another
 provider. Each report is saved separately; switching back opens the saved
 report without grading again. EE1 defaults to Groq and opens its saved report

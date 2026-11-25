@@ -631,6 +631,30 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(saved).to_have_count(0)
         self.assertEqual(self.page.url, setup)
 
+    def test_writing_timer_counts_negative_without_posting_or_leaving_the_editor(self):
+        task = factories.make_task(factories.make_part("ee"), "tache-1")
+        sujet = factories.make_writing_sujet(task)
+        self.page.clock.install()
+        self.page.goto(self.live_server_url + reverse("study:ee1_simulation", query={"sujet_id": sujet.pk}))
+        self.page.get_by_role("button", name="Commencer la séance").click()
+        url = self.page.url
+        draft = self.page.locator("#writing-body")
+        draft.fill("Mon brouillon reste modifiable.")
+        timer = self.page.get_by_role("timer")
+        posts = []
+        self.page.on("request", lambda request: posts.append(request.url) if request.method == "POST" else None)
+        remaining = int(timer.get_attribute("data-remaining"))
+
+        self.page.clock.fast_forward((remaining + 2) * 1000)
+        expect(timer).to_contain_text(re.compile(r"-00:0[23]"))
+        self.page.clock.fast_forward(3000)
+        expect(timer).to_contain_text(re.compile(r"-00:0[56]"))
+        expect(self.page).to_have_url(url)
+        expect(draft).to_have_value("Mon brouillon reste modifiable.")
+        expect(draft).to_be_editable()
+        expect(self.page.get_by_role("button", name="Remettre la réponse")).to_be_enabled()
+        self.assertEqual(posts, [])
+
     @override_settings(GROQ_API_KEY="")
     def test_comparison_studio_counts_and_preserves_each_section(self):
         task = factories.make_task(factories.make_part("ee"), "tache-3")

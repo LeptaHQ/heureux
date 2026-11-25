@@ -1,28 +1,20 @@
 (() => {
   const timer = document.querySelector("[data-writing-timer]");
   const form = document.querySelector("[data-writing-form]");
-  const expire = document.querySelector("[data-writing-expire]");
-  if (!timer || !form || !expire) return;
+  if (!timer || !form) return;
 
   const output = timer.querySelector("strong");
   const initialRemaining = Number(timer.dataset.remaining || 0) * 1000;
   const startedAt = window.performance.now();
   let input = form.querySelector("[data-writing-word-input]");
-  let submitted = false;
 
   const render = () => {
-    const remaining = Math.max(
-      0,
-      Math.ceil((initialRemaining - (window.performance.now() - startedAt)) / 1000),
-    );
-    const minutes = Math.floor(remaining / 60);
-    const seconds = remaining % 60;
-    output.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-    timer.classList.toggle("is-warning", remaining > 0 && remaining < 180);
-    if (remaining > 0 || submitted) return;
-    submitted = true;
-    output.textContent = "00:00";
-    form.requestSubmit(expire);
+    const remaining = Math.ceil((initialRemaining - (window.performance.now() - startedAt)) / 1000);
+    const elapsed = Math.abs(remaining);
+    const minutes = Math.floor(elapsed / 60);
+    const seconds = elapsed % 60;
+    output.textContent = `${remaining < 0 ? "-" : ""}${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    timer.classList.toggle("is-warning", remaining < 180);
   };
 
   render();

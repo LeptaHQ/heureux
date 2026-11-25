@@ -159,13 +159,19 @@ class EE1SimulationTests(TestCase):
         WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(snapshot=legacy)
         self.assertEqual(self.client.get(self._attempt_url(attempt)).context["session_subject_nav"], nav)
 
-    def test_saved_sessions_use_the_shared_history_and_can_only_be_deleted_by_the_owner(self):
+    def test_saved_sessions_match_the_selected_subject_and_can_only_be_deleted_by_the_owner(self):
         self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
         mine = WritingSimulationAttempt.objects.get(user=self.owner)
-        other = WritingSimulationAttempt.objects.create(user=self.other, task=self.task, deadline_at=mine.deadline_at)
+        sibling = factories.make_writing_sujet(self.task, slug="another-invitation", category=self.sujet.category)
+        unrelated = WritingSimulationAttempt.objects.create(
+            user=self.owner, task=self.task, sujet=sibling, deadline_at=mine.deadline_at,
+        )
+        other = WritingSimulationAttempt.objects.create(
+            user=self.other, task=self.task, sujet=self.sujet, deadline_at=mine.deadline_at,
+        )
         self.client.post(self._attempt_url(mine), {"action": "submit", "body": " ".join(["Bonjour"] * 60)})
         completion = WritingSujetCompletion.objects.create(user=self.owner, sujet=self.sujet)
-        query = {"sujet_id": self.other_sujet.pk}
+        query = {"sujet_id": self.sujet.pk}
         setup = reverse("study:ee1_simulation", query=query)
         delete = reverse("study:ee1_simulation_delete", query=query)
         guarded = Client(enforce_csrf_checks=True)
@@ -177,6 +183,8 @@ class EE1SimulationTests(TestCase):
         self.assertContains(page, "Sans bilan")
         self.assertNotContains(page, "Remise")
         self.assertNotContains(page, self._attempt_url(other))
+        self.assertNotContains(page, self._attempt_url(unrelated))
+        self.assertContains(guarded.get(self._setup_url()), self._attempt_url(unrelated))
 
         WritingSimulationAttempt.objects.filter(pk=mine.pk).update(
             evaluation_status=WritingSimulationEvaluationStatus.UNAVAILABLE,
@@ -190,6 +198,7 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(self.client.post(reverse("study:ee2_simulation_delete"), {"simulation": mine.pk}).status_code, 404)
         self.assertRedirects(guarded.post(delete, {"simulation": mine.pk, "csrfmiddlewaretoken": csrf}), setup)
         self.assertFalse(WritingSimulationAttempt.objects.filter(pk=mine.pk).exists())
+        self.assertTrue(WritingSimulationAttempt.objects.filter(pk=unrelated.pk).exists())
         self.assertTrue(WritingSimulationAttempt.objects.filter(pk=other.pk).exists())
         self.assertTrue(WritingSujetCompletion.objects.filter(pk=completion.pk).exists())
 
@@ -296,7 +305,7 @@ class EE1SimulationTests(TestCase):
         )
 
     @override_settings(GROQ_API_KEY="fixture-groq-key")
-    def test_save_draft_and_expiry_preserve_the_written_text(self):
+    def test_overtime_keeps_the_editor_and_requires_manual_submission(self):
         self.client.post(self._start_url(), {"sujet_id": ""})
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
         draft = "Un brouillon encore incomplet."
@@ -307,22 +316,33 @@ class EE1SimulationTests(TestCase):
         self.assertRedirects(response, self._attempt_url(attempt) + "?saved=1")
 
         attempt.refresh_from_db()
-        attempt.deadline_at = timezone.now() - timedelta(seconds=1)
+        attempt.deadline_at = timezone.now() - timedelta(seconds=12)
         attempt.save(update_fields=["deadline_at"])
-        response = self.client.post(
-            self._attempt_url(attempt),
-            {"action": "submit", "body": draft, "evaluation_consent": "groq"},
-        )
+        url = self._attempt_url(attempt)
+        editor = self.client.get(url)
+        self.assertTemplateUsed(editor, "study/simulation/writing_simulation_attempt.html")
+        self.assertLess(editor.context["remaining_seconds"], 0)
+        self.assertEqual((editor.context["remaining_minutes"], editor.context["remaining_second_remainder"]), (0, 0))
+        self.assertEqual(self.client.get(reverse("study:ee1_simulation_evaluate", args=[attempt.pk])).status_code, 400)
 
-        self.assertRedirects(response, self._attempt_url(attempt))
+        with patch("study.views.writing_simulation.threading.Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+            rejected = self.client.post(url, {"action": "submit", "body": draft, "evaluation_consent": "groq"})
+            self.assertContains(rejected, "entre 60 et 120 mots", status_code=400)
+            thread.assert_not_called()
+            attempt.refresh_from_db()
+            self.assertEqual(attempt.status, WritingSimulationAttemptStatus.ACTIVE)
+            self.assertIsNone(attempt.submitted_at)
+            self.assertEqual(attempt.body, draft)
+
+            body = " ".join(["Bonjour"] * 60)
+            response = self.client.post(url, {"action": "submit", "body": body, "evaluation_consent": "groq"})
+            self.assertRedirects(response, url, fetch_redirect_response=False)
+        thread.assert_called_once()
         attempt.refresh_from_db()
-        self.assertEqual(attempt.status, WritingSimulationAttemptStatus.EXPIRED)
-        self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.NOT_REQUESTED)
-        self.assertEqual(attempt.body, draft)
-        self.assertContains(
-            self.client.get(self._attempt_url(attempt)),
-            "Le temps est écoulé",
-        )
+        self.assertEqual(attempt.status, WritingSimulationAttemptStatus.SUBMITTED)
+        self.assertEqual(attempt.evaluation_status, WritingSimulationEvaluationStatus.PROCESSING)
+        self.assertGreater(attempt.submitted_at, attempt.deadline_at)
+        self.assertEqual(attempt.body, body)
 
     @override_settings(EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="fixture-groq-key")
     def test_submitting_the_disclosed_form_starts_groq_once(self):

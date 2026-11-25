@@ -108,7 +108,6 @@
           <button class="icon-button" type="submit" name="action" value="submit" formnovalidate aria-label="Remettre la réponse"{% if auto_evaluation %} aria-describedby="writing-submit-note"{% endif %} title="Remettre la réponse" data-writing-submit data-ee1-submit>
             {% include "study/shared/partials/ui_icon.html" with name="check" only %}
           </button>
-          <button type="submit" name="action" value="expire" formnovalidate data-writing-expire hidden></button>
         </div>
       </div>
     </form>
@@ -117,5 +116,5 @@
 {% block scripts %}
   {{ block.super }}
   <script src="{% static 'study/js/expression/ee/writing-word-count.js' %}?v=3"></script>
-  <script src="{% static 'study/js/expression/ee/writing-simulation.js' %}?v=4"></script>
+  <script src="{% static 'study/js/expression/ee/writing-simulation.js' %}?v=5"></script>
 {% endblock %}

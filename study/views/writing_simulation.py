@@ -323,18 +323,18 @@ def _setup_context(request, spec, task):
                 {"theme": selected_sujet.theme.slug, "label": selected_sujet.theme.display_name}
                 if spec.number == 3 else {"theme": selected_sujet.category, "label": selected_sujet.category_label}
             )
+    attempts = WritingSimulationAttempt.objects.filter(user=request.user, task=task)
+    if selected_sujet:
+        field = "prompt_id" if spec.number == 3 else "sujet_id"
+        attempts = attempts.filter(**{field: selected_sujet.pk})
     attempts = (
-        WritingSimulationAttempt.objects.filter(user=request.user, task=task)
-        .only("status", "started_at", "deadline_at", "evaluation_status")
+        attempts.only("status", "started_at", "evaluation_status")
         .annotate(has_saved_report=Q(evaluation__reports__has_any_keys=list(PROVIDER_LABELS)))
         .order_by("-started_at", "-id")[:8]
     )
     saved_sessions = []
-    now = timezone.now()
     for item in attempts:
-        if item.status == WritingSimulationAttemptStatus.ABANDONED or (
-            item.status == WritingSimulationAttemptStatus.ACTIVE and item.deadline_at > now
-        ):
+        if item.status in {WritingSimulationAttemptStatus.ABANDONED, WritingSimulationAttemptStatus.ACTIVE}:
             summary = item.get_status_display()
         else:
             has_report = item.evaluation_status == WritingSimulationEvaluationStatus.READY or item.has_saved_report
@@ -471,7 +471,8 @@ def _attempt_navigation(request, attempt, spec):
 
 def _attempt_context(request, attempt, spec, *, error="", now=None):
     now = now or timezone.now()
-    remaining = max(0, math.ceil((attempt.deadline_at - now).total_seconds()))
+    remaining = math.ceil((attempt.deadline_at - now).total_seconds())
+    minutes, seconds = divmod(max(0, remaining), 60)
     word_min, word_max = _attempt_limits(attempt, spec)
     prompt = attempt.snapshot.get("prompt", "")
     context = _session_context(
@@ -487,8 +488,8 @@ def _attempt_context(request, attempt, spec, *, error="", now=None):
             "prompt": content_module.ee_tache_three_instruction(prompt) if spec.number == 3 else prompt,
             "category_label": attempt.snapshot.get("category_label", ""),
             "remaining_seconds": remaining,
-            "remaining_minutes": remaining // 60,
-            "remaining_second_remainder": remaining % 60,
+            "remaining_minutes": minutes,
+            "remaining_second_remainder": seconds,
             "word_count": _word_count(attempt),
             "response_parts": _response_parts(attempt, spec),
             "documents": attempt.snapshot.get("documents", ()),
@@ -535,25 +536,10 @@ def update_timer(request, spec, attempt_id):
     if draft:
         attempt.last_saved_at = now
         fields.append("last_saved_at")
-    if attempt.deadline_at > now:
-        attempt.deadline_at = now + timedelta(minutes=minutes, seconds=seconds)
-        fields.append("deadline_at")
-    if _mark_expired(attempt, now):
-        fields.extend(_FINISHED_FIELDS)
+    attempt.deadline_at = now + timedelta(minutes=minutes, seconds=seconds)
+    fields.append("deadline_at")
     attempt.save(update_fields=fields)
     return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
-
-
-def _mark_expired(attempt, now):
-    if (
-        attempt.status == WritingSimulationAttemptStatus.ACTIVE
-        and attempt.deadline_at <= now
-    ):
-        attempt.status = WritingSimulationAttemptStatus.EXPIRED
-        attempt.submitted_at = now
-        attempt.word_count = _word_count(attempt)
-        return True
-    return False
 
 
 def _result_context(request, attempt, spec):
@@ -642,9 +628,6 @@ def delete(request, spec):
 def attempt(request, spec, attempt_id):
     if request.method == "GET":
         attempt = get_object_or_404(_owned_attempts(request, spec).select_related("task__part"), pk=attempt_id)
-        # A read must not freeze the old draft before the editor's last POST arrives.
-        now = timezone.now()
-        _mark_expired(attempt, now)
         if attempt.status != WritingSimulationAttemptStatus.ACTIVE:
             return render(
                 request,
@@ -654,7 +637,7 @@ def attempt(request, spec, attempt_id):
         return render(
             request,
             "study/simulation/writing_simulation_attempt.html",
-            _attempt_context(request, attempt, spec, now=now),
+            _attempt_context(request, attempt, spec),
         )
 
     try:
@@ -689,10 +672,7 @@ def attempt(request, spec, attempt_id):
         now = timezone.now()
         attempt.last_saved_at = now
         fields = [*draft, "last_saved_at"]
-        if _mark_expired(attempt, now):
-            attempt.save(update_fields=[*fields, *_FINISHED_FIELDS])
-            return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
-
+        # Older tabs posted "expire" at zero. Keep it as a draft save, not a submission.
         if action in {"save", "expire"}:
             attempt.save(update_fields=fields)
             return redirect(
@@ -907,7 +887,6 @@ def evaluate(request, spec, attempt_id):
             pk=attempt_id,
         )
         now = timezone.now()
-        expired = _mark_expired(attempt, now)
         if attempt.status not in {
             WritingSimulationAttemptStatus.SUBMITTED,
             WritingSimulationAttemptStatus.EXPIRED,
@@ -948,7 +927,7 @@ def evaluate(request, spec, attempt_id):
                 {"error": "Ce modèle n’est pas disponible pour une nouvelle évaluation."},
                 status=409,
             )
-        _queue_evaluation(attempt, spec, provider, now, update_fields=_FINISHED_FIELDS if expired else ())
+        _queue_evaluation(attempt, spec, provider, now)
         return evaluation_json(attempt, status=202, provider=provider)
 
 

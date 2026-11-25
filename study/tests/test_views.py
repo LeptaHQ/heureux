@@ -866,7 +866,7 @@ class SmokeTests(TestCase):
             '<span class="deck__subtitle">Exprimer un avis</span>',
             html=True,
         )
-        self.assertContains(response, "Contenu en préparation", count=1)
+        self.assertContains(response, '<span class="badge-soon">À venir</span>', count=1, html=True)
         self.assertContains(response, "deck__go", count=1)
 
     def test_review_deck_uses_the_shared_flashcard_standard(self):

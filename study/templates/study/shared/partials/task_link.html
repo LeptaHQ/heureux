@@ -1,0 +1,14 @@
+<a class="deck deck--task{% if not task.available %} deck--soon{% endif %}" data-expression-task="{{ task.slug }}" href="{{ url }}">
+  <div class="deck__body">
+    <div class="deck__title">
+      <span class="deck__icon">{% include "study/shared/partials/ui_icon.html" with name=task.icon only %}</span>
+      <span class="deck__name">{{ task.name }}{% if format_label %} <small>· {{ format_label }}</small>{% endif %}</span>
+      <span class="deck__subtitle">{{ subtitle }}</span>
+    </div>
+    {% if task.available %}
+      <span class="deck__go" aria-hidden="true">{% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</span>
+    {% else %}
+      <div class="deck__status-cell"><span class="badge-soon">À venir</span></div>
+    {% endif %}
+  </div>
+</a>

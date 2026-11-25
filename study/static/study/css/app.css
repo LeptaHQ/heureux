@@ -11777,7 +11777,7 @@ button.ce-choice:focus-visible .ce-choice__radio {
 /* Simulation destinations and task selector. */
 .sim-page { max-width: 58rem; margin-inline: auto; }
 .sim-head { margin: .5rem 0 1.25rem; }
-.sim-kicker, .sim-task__meta, .sim-path__mark {
+.sim-kicker, .sim-path__mark {
   display: flex;
   align-items: center;
   gap: .5rem;
@@ -11822,8 +11822,7 @@ button.ce-choice:focus-visible .ce-choice__radio {
   border: 1px solid color-mix(in srgb, var(--sim-ink) 28%, var(--sim-wash));
 }
 .sim-path__mark span { font-size: .78rem; letter-spacing: .14em; }
-.sim-path h2, .sim-task h2 { margin: .75rem 0 0; line-height: 1.22; letter-spacing: -.025em; }
-.sim-path h2 { margin-bottom: .6rem; font-size: 1.45rem; }
+.sim-path h2 { margin: .75rem 0 .6rem; font-size: 1.45rem; line-height: 1.22; letter-spacing: -.025em; }
 .sim-path__action {
   display: inline-flex;
   align-items: center;
@@ -11831,34 +11830,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
   color: var(--sim-ink);
 }
 .sim-back a { display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; font-size: .87rem; }
-.sim-tasks {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.sim-task {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  padding: 1.1rem 1.15rem;
-  border: 1px solid var(--border);
-  background: var(--surface);
-}
-.sim-task__meta {
-  justify-content: space-between;
-  color: var(--text-soft);
-  padding-bottom: .7rem;
-  border-bottom: 1px solid var(--border);
-}
-.sim-task__meta span:last-child { color: var(--text-soft); letter-spacing: normal; text-transform: none; }
-.sim-task h2 { margin-top: .9rem; font-size: 1.2rem; }
-.sim-task__actions { display: flex; justify-content: flex-end; margin-top: auto; padding-top: .25rem; }
-@media (pointer: coarse) {
-  .sim-task__actions .icon-button { width: 2.75rem; height: 2.75rem; }
-}
 .ee1-simulation {
   --ee1-ink: var(--tone-expression);
   --ee1-wash: var(--tone-expression-soft);
@@ -14721,6 +14692,11 @@ html[data-collection-view-mode="table"]
   grid-area: name;
   color: var(--text);
   font: 650 1.13rem/1.2 var(--font-serif);
+}
+.grid--tasks .deck__name small {
+  color: var(--text-soft);
+  font-size: 0.8rem;
+  font-weight: 400;
 }
 .grid--tasks .deck__subtitle {
   grid-area: subtitle;

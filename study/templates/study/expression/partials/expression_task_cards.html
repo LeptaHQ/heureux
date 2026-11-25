@@ -1,16 +1,4 @@
 {% for t in tasks %}
-  <a class="deck deck--task{% if not t.task.available %} deck--soon{% endif %}" data-expression-task="{{ t.task.slug }}" href="{% url 'study:task_detail' part.slug t.task.slug %}">
-    <div class="deck__body">
-      <div class="deck__title">
-        <span class="deck__icon">{% include "study/shared/partials/ui_icon.html" with name=t.task.icon only %}</span>
-        <span class="deck__name">{{ t.task.name }}</span>
-        <span class="deck__subtitle">{{ t.task.subtitle }}</span>
-      </div>
-      {% if t.task.available %}
-        <span class="deck__go" aria-hidden="true">{% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}</span>
-      {% else %}
-        <div class="deck__status-cell"><span class="badge-soon">À venir</span></div>
-      {% endif %}
-    </div>
-  </a>
+  {% url 'study:task_detail' part.slug t.task.slug as task_url %}
+  {% include "study/shared/partials/task_link.html" with task=t.task subtitle=t.task.subtitle url=task_url only %}
 {% endfor %}

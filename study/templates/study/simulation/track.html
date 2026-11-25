@@ -9,20 +9,14 @@
     <p class="sim-kicker">{% include "study/shared/partials/ui_icon.html" with name=track.icon only %} {{ track.code }} · TCF Canada</p>
     <h1 id="sim-title">{{ track.title }}</h1>
   </header>
-  <ol class="sim-tasks">
-    {% for row in rows %}
-      <li class="sim-task">
-        <div class="sim-task__meta"><span>Tâche {{ row.number }}</span><span>{{ row.format }}</span></div>
-        <h2>{{ row.title }}</h2>
-        <div class="sim-task__actions">
-          <a class="icon-button" href="{{ row.url }}" aria-label="{{ row.label }} · {{ track.code }} Tâche {{ row.number }}" title="{{ row.label }}">
-            {% include "study/shared/partials/ui_icon.html" with name="arrow-right" only %}
-          </a>
-        </div>
-      </li>
-    {% empty %}
-      <li class="muted">Aucune tâche disponible pour le moment.</li>
-    {% endfor %}
-  </ol>
+  {% if rows %}
+    <div class="grid grid--decks grid--tasks">
+      {% for row in rows %}
+        {% include "study/shared/partials/task_link.html" with task=row.task subtitle=row.title format_label=row.format url=row.url only %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="muted">Aucune tâche disponible pour le moment.</p>
+  {% endif %}
 </section>
 {% endblock %}

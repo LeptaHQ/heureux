@@ -106,6 +106,34 @@ class ExpressionNavigationBrowserTests(StaticLiveServerTestCase):
                     self.assertEqual(page.evaluate("localStorage.getItem('collectionViewMode')"), "table")
                     expect(page.locator(".progress, .deck__meta")).to_have_count(0)
 
+    def test_simulation_uses_the_compact_task_links_with_its_own_formats_and_destinations(self):
+        page = self.context().new_page()
+        tracks = (
+            ("ee", ("60–120 mots", "120–150 mots", "120–180 mots"), "ee1_subject_picker"),
+            ("eo", ("2 min + 3 min 30", "4 min 30 · sans préparation"), "eo2_topic_picker"),
+        )
+        for width in (320, 1280):
+            page.set_viewport_size({"width": width, "height": 900})
+            for part, formats, picker in tracks:
+                with self.subTest(width=width, part=part):
+                    page.goto(self.live_server_url + reverse("study:simulation_track", args=[part]))
+                    links = page.locator(".grid--tasks").get_by_role("link")
+                    expect(links).to_have_count(len(formats))
+                    for link, format_label in zip(links.all(), formats):
+                        expect(link).to_contain_text(format_label)
+                        expect(link).to_have_css("border-top-width", "0px")
+                    first, last = links.first.bounding_box(), links.last.bounding_box()
+                    if width == 1280:
+                        self.assertAlmostEqual(first["y"], last["y"], delta=1)
+                        self.assertLessEqual(last["height"], 72)
+                    else:
+                        self.assertGreater(last["y"], first["y"])
+                    self.assertLessEqual(page.evaluate("document.documentElement.scrollWidth"), width)
+                    links.first.focus()
+                    expect(links.first.locator(".deck__go")).to_have_css("opacity", "1")
+                    page.keyboard.press("Enter")
+                    expect(page).to_have_url(self.live_server_url + reverse(f"study:{picker}"))
+
     def test_oral_task_two_keeps_cards_without_statistics_or_retired_practice(self):
         page = self.context().new_page()
         for width in (390, 1280):

@@ -196,17 +196,11 @@ def track(request, part_slug):
         if task is None:
             continue
         if part_slug == "ee":
-            label, url = "Choisir un sujet", reverse(
-                f"study:ee{number}_subject_picker"
-            )
-        elif number == 2:
-            label, url = "Choisir un sujet", reverse("study:eo2_topic_picker")
+            url = reverse(f"study:ee{number}_subject_picker")
         else:
-            label, url = "Choisir un sujet", reverse("study:eo3_topic_picker")
+            url = reverse(f"study:eo{number}_topic_picker")
         rows.append({
-            "number": number, "title": title, "format": format_label,
-            "label": label, "url": url,
-            "is_simulation": part_slug == "ee",
+            "task": task, "title": title, "format": format_label, "url": url,
         })
     return render(request, "study/simulation/track.html", {
         "track": TRACKS[part_slug], "part_slug": part_slug, "rows": rows,

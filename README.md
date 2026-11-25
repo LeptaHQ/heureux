@@ -65,7 +65,9 @@ regardless of the saved collection view. EO/EE task overviews aggregate only
 the study progress they display without constructing full subject directories
 or review links.
 **Simulation** sits between **Notes** and search in the main navigation and opens
-`/simulation/`. **Stats** is in the profile dropdown, above **Réglages**.
+`/simulation/`. Its written and oral tracks reuse the compact Expression task
+links and show the word limits or timings. **Stats** is in the profile dropdown,
+above **Réglages**.
 EO2 and EO3 use one speaking simulator. EO3 opens the selected question and
 allows 4 min 30 of speaking without preparation. All three EE tasks use one
 private writing simulator with frozen prompts, draft saving and task-specific

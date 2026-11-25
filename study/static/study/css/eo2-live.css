@@ -350,7 +350,10 @@ button.lv-mark[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--lv-rule); }
 .lv-proposal h2, #lv-proposal-copy { color: var(--tone-comprehension); }
 .lv-proposal__lines { display: grid; gap: 0.4rem; margin: 0; padding-left: 1.35rem; color: var(--text); font-size: 1.02rem; line-height: 1.6; overflow-wrap: anywhere; }
 .lv-proposal__lines li::marker { color: var(--tone-comprehension); font-size: 0.86rem; font-weight: 600; font-variant-numeric: tabular-nums; }
-.lv-proposal__prose { max-width: 68ch; font-size: 1.08rem; line-height: 1.65; overflow-wrap: anywhere; }
+.lv-proposal__prose, .lv-written-response { max-width: 68ch; font-size: 1.08rem; line-height: 1.65; overflow-wrap: anywhere; }
+.lv-studio[data-mode="writing"] :is(.lv-proposal__prose, .lv-written-response, .lv-mark del, .lv-mark ins) {
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
 .lv-proposal__prose p { margin: 0; }
 .lv-proposal__prose p + p { margin-top: 0.9em; }
 .lv-proposal__tools { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.4rem; color: var(--text-soft); font-size: 0.88rem; }

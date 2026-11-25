@@ -763,8 +763,6 @@ def attempt(request, spec, attempt_id):
                     error = f"{part['label']} doit compter entre {part['min']} et {part['max']} mots."
                     break
         if not error:
-            for field, value in draft.items():
-                setattr(attempt, field, value.strip())
             attempt.status = WritingSimulationAttemptStatus.SUBMITTED
             attempt.submitted_at = now
             attempt.word_count = _word_count(attempt)

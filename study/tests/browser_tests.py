@@ -707,13 +707,16 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         EE1_EVALUATION_PROVIDER="cloudflare", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="fixture-groq-key",
         CLOUDFLARE_WORKERS_API_KEY="fixture-workers-token", CLOUDFLARE_ACCOUNT_ID="0123456789abcdef" * 2,
     )
-    def test_written_simulation_debrief_retries_and_shows_corrections_before_proposal(self):
+    def test_written_simulation_debrief_retries_and_separates_original_from_edits(self):
         task = factories.make_task(factories.make_part("ee"), "tache-1")
         sujet = factories.make_writing_sujet(task)
         setup = reverse("study:ee1_simulation")
         self.page.goto(f"{self.live_server_url}{setup}?sujet_id={sujet.pk}")
         self.page.get_by_role("button", name="Démarrer", exact=True).click()
-        body = "Je vous invite a dîner. J’aimerais que vous veniez samedi. " + " ".join(["Bonjour"] * 50)
+        body = (
+            "  Je vous invite a dîner.\nJ’aimerais que vous veniez samedi.\n\n"
+            "**Bonjour** " + " ".join(["Bonjour"] * 50) + "\n<Nora>\n  "
+        )
         self.page.locator("#writing-body").fill(body)
         submit = self.page.get_by_role("button", name="Remettre la réponse")
         expect(submit).to_have_accessible_description("Envoi à Workers : réponse, consigne.")
@@ -745,7 +748,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             **{key: value for key, value in report.items() if key != "verbFeedback"},
             "score": 11, "nclc": "NCLC 7", "priorities": [],
             "corrections": [{**report["corrections"][0], "why": "Accent grave sur la préposition."}],
-            "improvedResponse": "Salut !\n\nÇa te dirait de venir dîner chez moi ?",
+            "improvedResponse": "", "improvedWordCount": 0,
         }
         replies = iter([
             (409, {"error": "Le service d’évaluation a changé. Rechargez la page avant de réessayer."}),
@@ -772,7 +775,13 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         worker.assert_called_once()
         self.assertEqual(worker.call_args.args[-1], "cloudflare")
         proposal = self.page.locator("#lv-proposal")
+        original = self.page.locator("#lv-transcript .lv-written-response")
+        self.assertEqual(original.text_content(), body)
+        expect(original).to_have_css("white-space", "pre-wrap")
+        expect(self.page.locator("#lv-transcript [data-writing-corrections]")).to_have_count(0)
         expect(proposal).to_be_visible()
+        expect(proposal.locator("[data-writing-corrections] ins")).to_have_text("à dîner")
+        expect(proposal.locator("#lv-proposal-rewrite")).to_be_hidden()
         title = self.page.get_by_role("heading", name="Simulation", exact=True)
         expect(self.page.locator("#lv-kicker")).to_have_text("Votre bilan")
         subject_card = self.page.locator("#lv-subject")
@@ -815,7 +824,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.locator("#lv-level")).to_have_text("11/20 · NCLC 7 · B2")
         select_model("Gemini")
         expect(self.page.get_by_role("status").filter(has_text="Le bilan est illisible")).to_be_visible()
-        expect(self.page.locator("#lv-transcript")).to_contain_text(body)
+        self.assertEqual(original.text_content(), body)
         select_model("Gemini")
         expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
         expect(self.page.locator("[data-writing-score]")).not_to_contain_text("confiance")
@@ -830,7 +839,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 has=self.page.get_by_role("rowheader", name=label, exact=True),
             )
             expect(row.get_by_role("cell", name=mark, exact=True)).to_be_visible()
-        corrections = self.page.locator("[data-writing-corrections]")
+        corrections = proposal.locator("[data-writing-corrections]")
         expect(corrections.locator("del")).to_have_text("a dîner")
         expect(corrections.locator("ins")).to_have_text("à dîner")
         expect(corrections.locator("strong")).to_have_text("Orthographe")
@@ -864,8 +873,9 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(corrections).to_contain_text("Accent grave sur la préposition.")
         expect(self.page.get_by_role("heading", name="Temps et modes")).to_have_count(0)
         expect(self.page.get_by_role("heading", name="Au prochain essai")).to_have_count(0)
-        expect(self.page.locator("#lv-transcript")).to_contain_text(body)
-        expect(proposal.locator("#lv-proposal-lines p").last).to_have_text("Ça te dirait de venir dîner chez moi ?")
+        self.assertEqual(original.text_content(), body)
+        expect(proposal.locator("#lv-proposal-rewrite")).to_be_hidden()
+        expect(proposal.locator("#lv-proposal-lines p")).to_have_count(0)
 
     def test_writing_response_copy_buttons_copy_each_model_and_personal_text(self):
         self.context.add_init_script(

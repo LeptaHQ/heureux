@@ -34,12 +34,24 @@ TASK FORMAT
 EVALUATION RULES
 
 - Assess only the response I provide.
-- Quote my exact wording before proposing a correction.
+- Quote my exact wording, including punctuation and line breaks, before
+  proposing a correction. A line break already separates sentences or a
+  closing from a signature; do not report a missing space there.
 - Identify every clear grammar, spelling, accent, punctuation, agreement,
   article, preposition, pronoun, tense, mood, word-order, and sentence-boundary
   error.
-- Distinguish objective errors from optional stylistic improvements.
-- Preserve my intended meaning and personal voice.
+- Check the proposed replacement in the full sentence. For example, "Je
+  souhaite que vous veniez" requires the subjunctive, but "Je sais que vous
+  venez" uses the indicative. The governing expression, not "que" alone,
+  determines the mood. Briefly explain the rule that applies to my sentence.
+- Keep optional wording changes out of corrections and do not lower the score
+  for leaving them as written. Explain what works in a specific, encouraging
+  way so I know what to keep.
+- Preserve my intended meaning, facts, names, and personal voice. Do not guess
+  that an unfamiliar name is a typo or remove initials on a signature line.
+- Flag details that conflict with each other or the subject as content issues,
+  not grammar mistakes. If a fact is uncertain, say what to verify rather than
+  inventing a replacement.
 - Do not penalise accepted regional variants or a defensible personal choice.
 - FEI defines one word as any set of signs between two spaces and publishes no
   explicit exclusion for greetings, closings, or signatures. For this practice

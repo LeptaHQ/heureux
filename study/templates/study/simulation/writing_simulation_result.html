@@ -1,5 +1,5 @@
 {% extends "study/simulation/session.html" %}
-{% load static study_markdown %}
+{% load static %}
 {% block title %}Simulation · {{ simulation.label }} · Bilan · Heureux{% endblock %}
 {% block studio_classes %} ee1-session{% endblock %}
 {% block studio_attributes %}data-state="done" data-ending="{% if attempt.status == "submitted" %}normal{% else %}failed{% endif %}" data-mode="writing"{% endblock %}
@@ -67,35 +67,24 @@
     </summary>
     {% for part in response_parts %}
       {% if documents %}<h3>{{ part.label }} · {{ part.count }} / {{ part.min }}–{{ part.max }} mots</h3>{% endif %}
-      <div class="lv-proposal__prose markdown-prose" lang="fr">
-        {% if part.text %}{{ part.text|markdown_prose }}{% else %}<p class="muted">Aucun texte n’a été enregistré.</p>{% endif %}
-      </div>
+      {% if part.text %}
+        <div class="lv-written-response" lang="fr">{{ part.text }}</div>
+      {% else %}
+        <p class="muted">Aucun texte n’a été enregistré.</p>
+      {% endif %}
     {% endfor %}
-    <section class="ee1-evaluation__section" aria-labelledby="writing-corrections-title" data-writing-review hidden>
-      <h3 id="writing-corrections-title">Corrections</h3>
-      <ol class="ee1-evaluation__corrections" data-writing-corrections></ol>
-      <p class="muted" data-writing-corrections-note hidden></p>
-      <div data-writing-relevance-section hidden>
-        <h3>Pertinence et clarté</h3>
-        <ul class="lv-assessment__evidence" data-writing-relevance></ul>
-      </div>
-      <div data-writing-upgrades-section hidden>
-        <h3>Améliorations facultatives</h3>
-        <ul class="lv-assessment__evidence" data-writing-upgrades></ul>
-      </div>
-    </section>
-    <details>
-      <summary>À vérifier</summary>
-      <ul class="ee1-checklist">
-        <li>Ai-je répondu à chaque élément de la consigne&nbsp;?</li>
-        <li>Le registre et le format conviennent-ils au destinataire&nbsp;?</li>
-        <li>Mes idées sont-elles organisées et reliées&nbsp;?</li>
-        <li>Les temps correspondent-ils au moment des actions&nbsp;?</li>
-        <li>Ai-je relu les accords, les pronoms, les accents et les prépositions&nbsp;?</li>
-      </ul>
-    </details>
   </details>
   {% include "study/simulation/partials/proposal.html" with written=True only %}
+  <details>
+    <summary>À vérifier</summary>
+    <ul class="ee1-checklist">
+      <li>Ai-je répondu à chaque élément de la consigne&nbsp;?</li>
+      <li>Le registre et le format conviennent-ils au destinataire&nbsp;?</li>
+      <li>Mes idées sont-elles organisées et reliées&nbsp;?</li>
+      <li>Les temps correspondent-ils au moment des actions&nbsp;?</li>
+      <li>Ai-je relu les accords, les pronoms, les accents et les prépositions&nbsp;?</li>
+    </ul>
+  </details>
 {% endblock %}
 
 {% block report_notes %}
@@ -106,5 +95,5 @@
 {% endblock %}
 {% block scripts %}
   {{ block.super }}
-  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=12"></script>
+  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=13"></script>
 {% endblock %}

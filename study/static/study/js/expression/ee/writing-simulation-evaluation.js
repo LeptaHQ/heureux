@@ -136,7 +136,6 @@
     correctionsNote.textContent = report.omittedSections?.includes("corrections")
       ? "Certaines corrections n’ont pas pu être vérifiées."
       : "Aucune erreur objective claire relevée.";
-    find("review").hidden = false;
 
     const relevance = find("relevance-section");
     relevance.hidden = !report.relevance.length;
@@ -159,8 +158,9 @@
       ])
       : report.improvedResponse ? paragraphs(report.improvedResponse) : [];
     by("proposal-lines").replaceChildren(...proposal);
-    by("proposal").hidden = !proposal.length;
+    by("proposal-rewrite").hidden = !proposal.length;
     text(by("proposal-count"), proposal.length ? `${report.improvedWordCount} mots` : "");
+    by("proposal").hidden = false;
     list(find("priorities"), report.priorities, item);
     find("priorities").closest(".lv-next-step").hidden = !report.priorities.length;
 

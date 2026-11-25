@@ -425,7 +425,7 @@ class EE1SimulationTests(TestCase):
             })
             self.assertEqual(rejected.status_code, 400)
             data = {
-                "action": "submit", "body": " ".join(["Bonjour"] * 60),
+                "action": "submit", "body": "  " + " ".join(["Bonjour"] * 60) + "\n",
                 "evaluation_consent": "cloudflare", "draft_revision": revision,
             }
             self.assertRedirects(self.client.post(url, data), url, fetch_redirect_response=False)
@@ -455,10 +455,13 @@ class EE1SimulationTests(TestCase):
         with patch.object(evaluation, "_post", return_value=(reply, 86)) as call:
             writing_simulation.run_evaluation(*thread.call_args.kwargs["args"])
         call.assert_called_once()
+        request = json.loads(call.call_args.args[0])
+        packet = json.loads(request["messages"][1]["content"])
+        self.assertEqual(packet["response"], data["body"])
         grounded = self.client.get(bilan).json()
         self.assertEqual(grounded["status"], "ready")
         self.assertEqual(grounded["report"]["score"], 12)
-        self.assertTrue(data["body"].startswith(grounded["report"]["gradeEvidence"][0]))
+        self.assertTrue(data["body"].lstrip().startswith(grounded["report"]["gradeEvidence"][0]))
 
     @override_settings(EE1_EVALUATION_PROVIDER="gemini", GEMINI_API_KEY="fixture-gemini-key", GROQ_API_KEY="")
     def test_evaluation_requires_consent_for_the_disclosed_provider_and_claims_once(self):
@@ -736,6 +739,30 @@ class EE1SimulationTests(TestCase):
             self.assertTrue(prose.endswith("…"))
             self.assertLessEqual(len(prose), limit)
         self.assertTrue({"strengths", "corrections", "improvedResponse"} <= set(result["omittedSections"]))
+
+    def test_corrections_preserve_the_source_line_breaks(self):
+        response = "Salut!\r\nJe passerai bientot.\r\n\r\nN."
+        evidence = {}
+        number_passages(response, evidence)
+        invented = {
+            "before": "Salut! Je", "after": "Salut ! Je",
+            "type": "Ponctuation", "why": "This quote replaces the actual line break with a space.",
+        }
+        valid = [
+            {"before": "Salut!\nJe", "after": "Salut !\nJe",
+             "type": "Typographie", "why": "Add the French space before the exclamation mark."},
+            {"before": "bientot", "after": "bientôt",
+             "type": "Orthographe", "why": "Add the circumflex to « bientôt »."},
+        ]
+        report = {**self._provider_report(), "gradeEvidenceIds": ["E1"], "corrections": [invented, *valid]}
+
+        result = writing_evaluation.ground(
+            report, subject=self.sujet.prompt, response=response, evidence=evidence,
+            word_count=5, word_min=60, word_max=120,
+        )
+
+        self.assertEqual(result["corrections"], valid)
+        self.assertEqual(result["omittedSections"], ["corrections"])
 
     def test_verb_feedback_keeps_cited_explanations_without_repeating_the_quote(self):
         response = "Il pleuvait quand nous sommes arrivés.\n\nNous avons acheter deux billets."

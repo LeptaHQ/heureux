@@ -1,4 +1,5 @@
 import json
+from contextlib import nullcontext
 from datetime import timedelta
 from unittest.mock import patch
 
@@ -7,6 +8,7 @@ from django.test import Client, TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
+from study.catalogue.loader import _ee_word_count
 from study.models import (
     WritingSimulationAttempt,
     WritingSimulationAttemptStatus,
@@ -104,7 +106,7 @@ class EE1SimulationTests(TestCase):
         response = self.client.get(reverse("study:ee1_subject_picker"))
         self.assertTrue(all(row["count"] == 0 for row in response.context["page"]))
 
-    def test_subject_picker_uses_canonical_completion_for_equivalent_subjects(self):
+    def test_subject_picker_deduplicates_equivalent_subjects_and_keeps_canonical_completion(self):
         WritingSujetCompletion.objects.create(user=self.owner, sujet=self.sujet)
         with patch(
             "study.views.writing_simulation.content_module.ee_writing_canonical_slug_by_slug",
@@ -113,14 +115,24 @@ class EE1SimulationTests(TestCase):
                 self.other_sujet.slug: self.sujet.slug,
             },
         ):
-            response = self.client.get(reverse("study:ee1_subject_picker"))
+            url = reverse("study:ee1_subject_picker")
+            response = self.client.get(url)
+            publications = self.client.get(url, {"deduplicate": "0"})
+            filtered = self.client.get(url, {"q": self.other_sujet.prompt}, headers={"x-requested-with": "fetch"})
 
-        self.assertContains(response, 'aria-checked="true"', count=2)
+        self.assertEqual(response.context["total"], 1)
+        self.assertTemplateUsed(response, "study/shared/partials/subject_deduplication_toggle.html")
+        self.assertContains(response, 'aria-checked="true"', count=1)
+        self.assertNotContains(response, self.other_sujet.prompt)
+        self.assertContains(publications, 'aria-checked="true"', count=2)
+        self.assertContains(publications, f"sujet_id={self.other_sujet.pk}&amp;deduplicate=0")
         self.assertContains(
-            response,
+            publications,
             f'data-writing-sujet-id="{self.sujet.pk}"',
             count=2,
         )
+        self.assertContains(filtered, self.other_sujet.prompt)
+        self.assertNotContains(filtered, self.sujet.prompt)
 
     @override_settings(EE1_SIMULATION_MINUTES=12)
     def test_setup_reuses_the_shared_session_page(self):
@@ -141,7 +153,16 @@ class EE1SimulationTests(TestCase):
         next_sujet = factories.make_writing_sujet(
             self.task, slug="anniversaire", category=self.sujet.category, order=self.sujet.order + 1,
         )
-        setup = self.client.get(self._setup_url(), {"sujet_id": self.sujet.pk})
+        alias = factories.make_writing_sujet(
+            self.task, slug="invitation-variante", category=self.sujet.category, order=self.sujet.order + 2,
+        )
+        with patch.object(
+            writing_simulation.content_module, "ee_writing_canonical_slug_by_slug", return_value={alias.slug: self.sujet.slug},
+        ):
+            setup = self.client.get(self._setup_url(), {"sujet_id": self.sujet.pk})
+            equivalent = self.client.get(self._setup_url(), {"sujet_id": alias.pk})
+        self.assertEqual(equivalent.context["session_subject_nav"]["total"], 2)
+        self.assertEqual(equivalent.context["session_subject_nav"]["choices"][0]["label"], alias.prompt)
         for component in ("task_breadcrumb", "subject_back", "subject_navigation"):
             self.assertTemplateUsed(setup, f"study/expression/partials/{component}.html")
         nav = setup.context["session_subject_nav"]
@@ -157,7 +178,10 @@ class EE1SimulationTests(TestCase):
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)
         legacy = {key: value for key, value in attempt.snapshot.items() if key != "category"}
         WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(snapshot=legacy)
-        self.assertEqual(self.client.get(self._attempt_url(attempt)).context["session_subject_nav"], nav)
+        with patch.object(
+            writing_simulation.content_module, "ee_writing_canonical_slug_by_slug", return_value={alias.slug: self.sujet.slug},
+        ):
+            self.assertEqual(self.client.get(self._attempt_url(attempt)).context["session_subject_nav"], nav)
 
     def test_saved_sessions_match_the_selected_subject_and_can_only_be_deleted_by_the_owner(self):
         self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
@@ -673,6 +697,40 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(result["score"], 12)
         self.assertEqual(result["priorities"], report["priorities"])
         self.assertEqual(set(result["omittedSections"]), {"gradeEvidence", "verbFeedback", "corrections"})
+
+    def test_proofreads_proposal_without_changing_the_supported_grade(self):
+        response = (
+            "Salut Alex, merci pour ta aide pendant mon absence. Peux-tu arroser les plantes mercredi et samedi ? "
+            "J’ai laissé l’arrosoir près du balcon. Pour le chien, les croquettes sont dans le placard de la cuisine. "
+            "Tu peux le sortir après le travail. Le facteur passe le matin ; laisse le courrier sur la table. "
+            "Si tu as une question, appelle-moi. Merci encore pour ta aide. À bientôt !"
+        )
+        report = {**self._provider_report(), "improvedResponse": response}
+        corrected = response.replace("ta aide", "ton aide")
+        for revision, expected in (
+            ({"improvedResponse": corrected}, corrected),
+            ({"improvedResponse": ""}, ""),
+            ({"improvedResponse": "Merci pour ton aide."}, ""),
+            (evaluation.EvaluationError(504, "La relecture n’a pas abouti."), ""),
+        ):
+            with (
+                self.subTest(expected=bool(expected), revision=type(revision).__name__),
+                patch.object(evaluation, "request_provider_report", side_effect=[report, revision]) as request,
+                nullcontext() if expected else self.assertLogs(writing_evaluation.logger, "WARNING"),
+            ):
+                result = writing_evaluation.score(
+                    task_number=1, subject=self.sujet.prompt, response=response,
+                    word_count=_ee_word_count(response), word_min=60, word_max=120, provider="groq",
+                )
+                self.assertEqual(result["score"], 12)
+                self.assertEqual(result["improvedResponse"], expected)
+                self.assertEqual("improvedResponse" in result["omittedSections"], not expected)
+                first, proofread = request.call_args_list
+                self.assertEqual(proofread.args[0], first.args[0])
+                self.assertEqual(proofread.args[2]["original"], response)
+                self.assertEqual(proofread.args[2]["proposal"], response)
+                self.assertEqual(proofread.args[3]["required"], ["improvedResponse"])
+                self.assertLess(proofread.kwargs["deadline"], first.kwargs["deadline"])
 
     @override_settings(EE1_EVALUATION_PROVIDER="groq")
     def test_groq_reports_ground_evidence_in_strict_mode_and_after_schema_retry(self):

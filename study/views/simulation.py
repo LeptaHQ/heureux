@@ -1,6 +1,7 @@
 """Entry points and subject selection for the simulation studios."""
 
 import unicodedata
+from operator import itemgetter
 
 from django.core.paginator import Paginator
 from django.shortcuts import render
@@ -8,7 +9,7 @@ from django.urls import reverse
 from django.views.decorators.http import require_safe
 
 from study.models import Task
-from study.navigation.routing import subject_selection_url
+from study.navigation.routing import subject_representatives, subject_selection_url
 
 
 TRACKS = {
@@ -38,6 +39,12 @@ def _fold(value):
     return "".join(c for c in unicodedata.normalize("NFKD", value.casefold()) if not unicodedata.combining(c))
 
 
+def picker_subjects(request, rows):
+    if request.GET.get("deduplicate", "1") != "1":
+        return list(rows)
+    return list(subject_representatives(rows, key=itemgetter("subject_group")).values())
+
+
 def subject_picker_context(request, rows):
     query = request.GET.get("q", "").strip()[:120]
     theme = request.GET.get("theme", "")
@@ -57,6 +64,7 @@ def subject_picker_context(request, rows):
             or (needle and needle not in _fold(f'{row["title"]} {row["caption"]}'))
         )
     ]
+    filtered = picker_subjects(request, filtered)
     if order in {"az", "za"}:
         filtered.sort(key=lambda row: _fold(row["title"]), reverse=order == "za")
     elif order == "recent":
@@ -65,8 +73,8 @@ def subject_picker_context(request, rows):
         filtered.sort(key=lambda row: row["count"])
     return {
         "page": Paginator(filtered, 15).get_page(request.GET.get("page")),
-        "total": len(rows),
-        "practiced_total": sum(bool(row["count"]) for row in rows),
+        "total": len(picker_subjects(request, rows)),
+        "practiced_total": len(picker_subjects(request, (row for row in rows if row["count"]))),
         "directory_selection": {
             "themes": sorted(themes.items(), key=lambda item: _fold(item[1])),
             "theme": theme, "unavailable_theme": theme and theme not in themes,
@@ -82,11 +90,15 @@ def render_subject_picker(request, context):
         "study/simulation/subject_picker_results.html" if request.headers.get("X-Requested-With") == "fetch"
         else "study/simulation/subject_picker.html"
     )
-    return render(request, template, context)
+    return render(request, template, {
+        **context,
+        "subject_deduplication_available": True,
+        "deduplicate_subjects": request.GET.get("deduplicate", "1") == "1",
+    })
 
 
 def studio_navigation(request, picker_route, *, theme="", label="", subjects=(), selected=None):
-    task_url = reverse(picker_route)
+    task_url = subject_selection_url(reverse(picker_route), request)
     if not theme:
         return {
             "session_task_url": task_url,
@@ -96,12 +108,19 @@ def studio_navigation(request, picker_route, *, theme="", label="", subjects=(),
     context = {
         "session_task_url": task_url,
         "session_theme_label": label,
-        "session_back_url": reverse(picker_route, query={"theme": theme}),
+        "session_back_url": subject_selection_url(reverse(picker_route, query={"theme": theme}), request),
         "session_back_label": label,
     }
+    subjects = list(subjects)
+    if request.GET.get("deduplicate", "1") == "1":
+        representatives = subject_representatives(subjects, key=itemgetter(1))
+        current_subject = next((row for row in subjects if row[0] == selected), None)
+        if current_subject is not None:
+            representatives[current_subject[1]] = current_subject
+        subjects = representatives.values()
     choices = [
         {"label": title, "url": subject_selection_url(url, request), "position": index, "selected": key == selected}
-        for index, (key, title, url) in enumerate(subjects, start=1)
+        for index, (key, _, title, url) in enumerate(subjects, start=1)
     ]
     current = next((choice["position"] for choice in choices if choice["selected"]), None)
     if current is not None:

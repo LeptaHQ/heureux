@@ -1,3 +1,4 @@
-<button type="{{ button_type }}" class="icon-button lv-start-action" id="lv-start" aria-label="Commencer la séance" title="Commencer la séance"{% if disabled %} disabled{% endif %}>
-  {% include "study/shared/partials/ui_icon.html" with name="play" only %}
+<button type="{{ button_type }}" class="btn btn--primary" id="lv-start"{% if disabled %} disabled{% endif %}>
+  {% include "study/shared/partials/ui_icon.html" with name="play" icon_class="btn__icon" only %}
+  Démarrer
 </button>

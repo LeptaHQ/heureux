@@ -121,10 +121,13 @@ def _post(payload, deadline, *, host, path, auth, service):
 
 
 @sensitive_variables()
-def _request_with_retry(payload, *, host, path, auth, service, retry_schema=False):
-    deadline = time.monotonic() + DEADLINE_SECONDS
+def _request_with_retry(payload, *, host, path, auth, service, retry_schema=False, deadline=None):
+    if deadline is None:
+        deadline = time.monotonic() + DEADLINE_SECONDS
 
     def send():
+        if time.monotonic() >= deadline:
+            raise EvaluationError(504, "Le délai du bilan est écoulé. Votre travail reste disponible.")
         return _post(
             json.dumps(payload, ensure_ascii=False).encode(), deadline,
             host=host, path=path, auth=auth, service=service,
@@ -179,7 +182,7 @@ def _chat_report(reply, elapsed, name):
 
 
 @sensitive_variables()
-def request_report(instruction, packet, schema, *, name="bilan", max_tokens=3584, retry_schema=False):
+def request_report(instruction, packet, schema, *, name="bilan", max_tokens=3584, retry_schema=False, deadline=None):
     payload = {
         "model": MODEL,
         **_chat_payload(instruction, packet, schema, name),
@@ -189,7 +192,7 @@ def request_report(instruction, packet, schema, *, name="bilan", max_tokens=3584
     body, elapsed = _request_with_retry(
         payload, host="api.groq.com", path="/openai/v1/chat/completions",
         auth={"Authorization": f"Bearer {settings.GROQ_API_KEY}"}, service="Groq",
-        retry_schema=retry_schema,
+        retry_schema=retry_schema, deadline=deadline,
     )
     try:
         return _chat_report(json.loads(body), elapsed, name)
@@ -199,7 +202,7 @@ def request_report(instruction, packet, schema, *, name="bilan", max_tokens=3584
 
 
 @sensitive_variables()
-def request_gemini_report(instruction, packet, schema):
+def request_gemini_report(instruction, packet, schema, *, deadline=None):
     key = settings.GEMINI_API_KEY
     if not key:
         logger.warning("Gemini evaluation: no evaluation API key configured")
@@ -218,7 +221,7 @@ def request_gemini_report(instruction, packet, schema):
     }
     body, _ = _request_with_retry(
         payload, host="generativelanguage.googleapis.com", path=f"/v1beta/models/{_GEMINI_MODEL}:generateContent",
-        auth={"x-goog-api-key": key}, service="Gemini",
+        auth={"x-goog-api-key": key}, service="Gemini", deadline=deadline,
     )
     try:
         reply = json.loads(body)
@@ -241,7 +244,7 @@ def workers_available():
 
 
 @sensitive_variables()
-def request_workers_report(instruction, packet, schema, *, name="ee1_bilan"):
+def request_workers_report(instruction, packet, schema, *, name="ee1_bilan", deadline=None):
     if not workers_available():
         logger.warning("Cloudflare evaluation: missing token or invalid account ID")
         raise EvaluationError(503, "Le service de bilan est indisponible. Votre travail reste disponible.")
@@ -254,7 +257,7 @@ def request_workers_report(instruction, packet, schema, *, name="ee1_bilan"):
         host="api.cloudflare.com",
         path=f"/client/v4/accounts/{settings.CLOUDFLARE_ACCOUNT_ID}/ai/run/{_WORKERS_MODEL}",
         auth={"Authorization": f"Bearer {settings.CLOUDFLARE_WORKERS_API_KEY}"},
-        service="Cloudflare",
+        service="Cloudflare", deadline=deadline,
     )
     try:
         reply = json.loads(body, object_pairs_hook=unique_fields)
@@ -281,11 +284,11 @@ def available_providers():
 
 
 @sensitive_variables()
-def request_provider_report(provider, instruction, packet, schema, *, name="bilan", **groq_options):
+def request_provider_report(provider, instruction, packet, schema, *, name="bilan", deadline=None, **groq_options):
     if provider == "groq":
-        return request_report(instruction, packet, schema, name=name, **groq_options)
+        return request_report(instruction, packet, schema, name=name, deadline=deadline, **groq_options)
     if provider == "gemini":
-        return request_gemini_report(instruction, packet, schema)
+        return request_gemini_report(instruction, packet, schema, deadline=deadline)
     if provider == "cloudflare":
-        return request_workers_report(instruction, packet, schema, name=name)
+        return request_workers_report(instruction, packet, schema, name=name, deadline=deadline)
     raise EvaluationError(400, "Le modèle d’évaluation n’est pas disponible.")

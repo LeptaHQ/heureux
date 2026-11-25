@@ -1,18 +1,19 @@
 {% extends "base.html" %}
+{% load study_links %}
 {% block title %}Simulation · EO Tâche 2 · {{ topic.title }} · Historique · Heureux{% endblock %}
 {% block content %}
 <section class="sim-page sim-tone--eo" aria-labelledby="history-title">
-  <nav class="sim-back" aria-label="Retour"><a href="{% url 'study:eo2_topic_picker' %}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Choisir un sujet</a></nav>
+  <nav class="sim-back" aria-label="Retour"><a href="{% subject_url 'study:eo2_topic_picker' %}">{% include "study/shared/partials/ui_icon.html" with name="arrow-left" only %} Choisir un sujet</a></nav>
   <header class="sim-head">
     <p class="sim-kicker">EO Tâche 2 · Historique</p><h1 id="history-title">{{ topic.title }}</h1>
     <p>{{ page.paginator.count }} séance{% if page.paginator.count > 1 %}s{% endif %} de simulation · {{ topic.source }}</p>
   </header>
-  <a class="btn btn--primary" href="{{ topic.simulation_url }}">Pratiquer ce sujet</a>
+  <a class="btn btn--primary" href="{% subject_link topic.simulation_url %}">Pratiquer ce sujet</a>
   <ol class="eo2-history-list">
     {% for entry in page %}
       <li><time datetime="{{ entry.created_at|date:'c' }}">{{ entry.created_at|date:"j F Y · H:i" }}</time>
         <span>{{ entry.vocal|yesno:"Simulation,Ancien entraînement guidé" }}</span>
-        {% if can_reopen and entry.live_simulation_id %}<a href="{{ topic.simulation_url }}?simulation={{ entry.live_simulation_id }}">Revoir la séance</a>{% endif %}</li>
+        {% if can_reopen and entry.live_simulation_id %}<a href="{% subject_link entry.simulation_url %}">Revoir la séance</a>{% endif %}</li>
     {% empty %}<li>Pas encore de séance enregistrée sur ce sujet.</li>{% endfor %}
   </ol>
   {% include "study/simulation/eo2_pager.html" %}

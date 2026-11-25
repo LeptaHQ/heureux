@@ -25,14 +25,6 @@
     }
   }
 
-  function count(field, delta) {
-    const total = results.querySelector(`[data-total="${field}"]`);
-    if (!total) return;
-    const n = Number(total.textContent) + delta;
-    total.textContent = String(n);
-    if (field === "done") results.querySelector("[data-done-label]").textContent = n > 1 ? "terminés" : "terminé";
-  }
-
   async function refreshFilteredList(version) {
     try {
       const response = await fetch(location.href, {
@@ -83,9 +75,7 @@
       if (!response.ok) throw new Error();
       const saved = await response.json();
       if (saved.field !== field || saved.value !== checked) throw new Error();
-      count(field, checked ? 1 : -1);
-      const status = results.dataset.status;
-      if (status === field || (status === "not-done" && field === "done")) refreshNeeded = true;
+      refreshNeeded = true;
     } catch {
       mark(form, !checked);
       message(`Modification non confirmée pour « ${form.closest("tr").querySelector(".t1-table__subject a").textContent} ». Réessayez.`);

@@ -23,9 +23,9 @@ from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
 from study.simulation import live_conversation, oral_evaluation
 from study.simulation.evaluation import DEADLINE_SECONDS, PROVIDER_LABELS, EvaluationError, available_providers
-from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation, Prompt
+from study.models import EO2PracticeAttempt, LiveSimulation, Prompt
 from study.navigation.routing import subject_selection_url
-from .eo2_practice import practice_topics
+from .eo2_practice import practice_topics, topic_prompts, write_topic_status
 from .helpers import _route_task, tache_two_publication
 from .simulation import render_subject_picker, studio_navigation, subject_picker_context
 
@@ -75,20 +75,20 @@ def opinion_picker(request):
         ).values("subject_key").annotate(count=Count("pk"), latest=Max("created_at"))
     }
 
-    def row(token, title, theme, label, args):
+    def row(token, group, title, theme, label, args):
         stats = counts.get(f"{EO3_KEY_PREFIX}{token}", {})
         return {
-            "row_id": f"topic-{token}", "title": title, "theme": theme, "theme_label": label,
+            "row_id": f"topic-{token}", "subject_group": group, "title": title, "theme": theme, "theme_label": label,
             "caption": label, "url": reverse("study:eo_tache_three_live", args=args),
             "count": stats.get("count", 0), "latest": stats.get("latest"),
         }
 
-    rows = [row("default", OPINION_CONSIGNE, "entrainement", "Sujet d’entraînement", ())]
+    rows = [row("default", "default", OPINION_CONSIGNE, "entrainement", "Sujet d’entraînement", ())]
     prompts = _opinion_prompts(task).select_related("theme").only(
-        "text", "theme__slug", "theme__display_name",
+        "text", "response_id", "theme__slug", "theme__display_name",
     ).order_by("theme__name", "number", "pk")
     for prompt in prompts:
-        rows.append(row(prompt.pk, prompt.text, prompt.theme.slug, prompt.theme.display_name, (prompt.pk,)))
+        rows.append(row(prompt.pk, prompt.response_id, prompt.text, prompt.theme.slug, prompt.theme.display_name, (prompt.pk,)))
     context = subject_picker_context(request, rows)
     context["task"] = task
     context["picker"] = {
@@ -116,9 +116,7 @@ def _live_subject(task, publication):
     month_slug, batch_number, subject_number = (publication[k] for k in ("month_slug", "batch_number", "subject_number"))
     _, _, subject = tache_two_publication(month_slug, batch_number, subject_number)
     key = tache_two_subject_content_key(month_slug, batch_number, subject_number)
-    if not Prompt.objects.filter(
-        theme__task=task, content_key=key, is_active=True, response__is_active=True,
-    ).exists():
+    if not topic_prompts(task).filter(content_key=key).exists():
         raise Http404
     return LiveSubject(key, subject.title, subject.prompt, reverse("study:task_subject_detail", kwargs={
         "part_slug": "eo", "task_slug": task.slug, **publication,
@@ -145,7 +143,10 @@ def _studio_navigation(request, task, subject, publication):
         siblings = prompts.filter(theme_id=theme_id).order_by("family__order", "family__name", "number", "pk")
         return studio_navigation(
             request, picker, theme=theme, label=label, selected=selected,
-            subjects=((pk, title, reverse(_route_name(task), args=[pk])) for pk, title in siblings.values_list("pk", "text")),
+            subjects=(
+                (pk, group, title, reverse(_route_name(task), args=[pk]))
+                for pk, group, title in siblings.values_list("pk", "response_id", "text")
+            ),
         )
     picker = "study:eo2_topic_picker"
     topics = practice_topics() if publication else {}
@@ -153,13 +154,12 @@ def _studio_navigation(request, task, subject, publication):
     if not topic:
         return studio_navigation(request, picker)
     siblings = [item for item in topics.values() if item.theme_slug == topic.theme_slug]
-    active = set(Prompt.objects.filter(
-        theme__task=task, is_active=True, response__is_active=True,
+    active = dict(topic_prompts(task).filter(
         content_key__in=[item.key for item in siblings],
-    ).values_list("content_key", flat=True))
+    ).order_by().values_list("content_key", "response_id"))
     return studio_navigation(
         request, picker, theme=topic.theme_slug, label=topic.theme, selected=topic.key,
-        subjects=((item.key, item.title, item.simulation_url) for item in siblings if item.key in active),
+        subjects=((item.key, active[item.key], item.title, item.simulation_url) for item in siblings if item.key in active),
     )
 
 
@@ -191,7 +191,7 @@ def oral_live(request, task_slug, **publication):
                 item["summary"] = "Bilan disponible"
             else:
                 item["summary"] = "Bilan sans note" if item["status"] else "Sans bilan"
-            item["url"] = f'?simulation={item["id"]}'
+            item["url"] = subject_selection_url(f'?simulation={item["id"]}', request)
         try:
             pk = uuid.UUID(request.GET.get("simulation", ""))
         except ValueError:
@@ -376,7 +376,7 @@ def oral_live_save(request, task_slug, **publication):
     if not monologue:
         attempt.live_simulation = simulation
         attempt.save(update_fields=["live_simulation"])
-        EO2TopicStatus.objects.update_or_create(user=request.user, subject_key=subject.key, defaults={"done": True})
+        write_topic_status(request.user, task, subject.key, field="done", value=True)
     history = LiveSimulation.objects.filter(user=request.user)
     scope = {"subject_key__startswith": EO3_KEY_PREFIX}
     history = history.filter(**scope) if monologue else history.exclude(**scope)

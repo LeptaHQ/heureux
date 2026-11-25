@@ -1,4 +1,5 @@
 {% extends "study/shared/partials/table.html" %}
+{% load study_links %}
 {% block native_table_classes %} eo2-topic-table{% endblock %}
 {% block native_table_caption %}Sujets de simulation · {{ picker.kicker }}{% endblock %}
 {% block native_table_head %}
@@ -15,7 +16,7 @@
         <td class="t1-table__subject">
           <div class="t1-table__subject-copy">
             <div>
-              <a aria-label="Pratiquer : {{ row.title }}" href="{{ row.url }}">{{ row.title }}</a>
+              <a aria-label="Pratiquer : {{ row.title }}" href="{% subject_link row.url %}">{{ row.title }}</a>
               <span class="t1-table__subject-date">{{ row.caption }}</span>
             </div>
             {% if picker.kind == "eo2" %}
@@ -29,7 +30,7 @@
         </td>
         <td>
           {% if picker.topic_markers %}
-            <a href="{% url 'study:eo2_topic_history' row.token %}" title="Voir l’historique">{{ row.count }}<span class="sr-only"> séance{% if row.count > 1 %}s{% endif %} · Historique de {{ row.topic.title }}</span></a>
+            <a href="{% subject_url 'study:eo2_topic_history' row.token %}" title="Voir l’historique">{{ row.count }}<span class="sr-only"> séance{% if row.count > 1 %}s{% endif %} · Historique de {{ row.topic.title }}</span></a>
           {% else %}
             {{ row.count }}
           {% endif %}

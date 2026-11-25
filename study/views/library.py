@@ -2782,10 +2782,7 @@ def _ee_tache_two_theme_vocabulary_detail(request, task, theme):
 
 def _subject_navigation_items(items, *, key, deduplicate):
     if deduplicate:
-        representatives = {}
-        for item in items:
-            representatives.setdefault(key(item), item)
-        items = list(representatives.values())
+        items = list(routing.subject_representatives(items, key=key).values())
     return items
 
 

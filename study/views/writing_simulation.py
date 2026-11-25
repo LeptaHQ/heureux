@@ -34,6 +34,7 @@ from study.models import (
     WritingSimulationEvaluationStatus,
     WritingSujet,
 )
+from study.navigation.routing import subject_selection_url
 from study.review.progress import writing_sujet_progress_by_id
 from study.simulation import writing_evaluation
 from study.simulation.evaluation import PROVIDER_LABELS, EvaluationError, available_providers
@@ -165,6 +166,13 @@ def _subject_id(value):
     return int(value) if 0 < len(value) <= 18 and value.isascii() and value.isdecimal() else None
 
 
+def _attempt_url(request, spec, attempt_id, *, saved=False):
+    return subject_selection_url(
+        reverse(spec.route_names["attempt"], args=[attempt_id], query={"saved": 1} if saved else None),
+        request,
+    )
+
+
 def _writing_navigation(request, spec, task, subject_id, *, theme="", label="", frozen_title=""):
     picker = spec.route_names["picker"]
     if not subject_id:
@@ -177,15 +185,18 @@ def _writing_navigation(request, spec, task, subject_id, *, theme="", label="", 
             return studio_navigation(request, picker)
         theme, label = category
     if spec.number == 3:
-        siblings = subjects.filter(theme__slug=theme).order_by("number", "pk").values_list("pk", "text")
+        siblings = subjects.filter(theme__slug=theme).order_by("number", "pk").values_list("pk", "text", "response_id")
+        canonical = {}
     else:
-        siblings = subjects.filter(category=theme).order_by("order", "pk").values_list("pk", "prompt")
+        siblings = subjects.filter(category=theme).order_by("order", "pk").values_list("pk", "prompt", "slug")
+        canonical = content_module.ee_writing_canonical_slug_by_slug(spec.number)
     setup_url = reverse(spec.route_names["setup"])
     return studio_navigation(
         request, picker, theme=theme, label=label, selected=subject_id,
         subjects=(
-            (pk, frozen_title if pk == subject_id and frozen_title else text, f"{setup_url}?sujet_id={pk}")
-            for pk, text in siblings
+            (pk, canonical.get(group, group), frozen_title if pk == subject_id and frozen_title else text,
+             f"{setup_url}?sujet_id={pk}")
+            for pk, text, group in siblings
         ),
     )
 
@@ -254,10 +265,12 @@ def subject_picker(request, spec):
     rows = []
     if comparison:
         subjects = subjects.select_related("theme").only(
-            "text", "content_key", "theme__slug", "theme__display_name",
+            "text", "content_key", "response_id", "theme__slug", "theme__display_name",
         ).order_by("theme__name", "number", "pk")
+        canonical_slugs = {}
     else:
         subjects = subjects.only("category", "category_label", "prompt", "slug").order_by("category_label", "order", "pk")
+        canonical_slugs = content_module.ee_writing_canonical_slug_by_slug(spec.number)
     setup_url = reverse(spec.route_names["setup"])
     sources = catalogue.ee_tache_three_sources_by_key() if comparison else {}
     for sujet in subjects:
@@ -270,6 +283,7 @@ def subject_picker(request, spec):
             publication = caption
         rows.append({
             "sujet": sujet,
+            "subject_group": sujet.response_id if comparison else canonical_slugs.get(sujet.slug, sujet.slug),
             "row_id": f"sujet-{sujet.pk}",
             "title": sujet.text if comparison else sujet.prompt,
             "theme": sujet.theme.slug if comparison else sujet.category,
@@ -280,11 +294,10 @@ def subject_picker(request, spec):
     context = subject_picker_context(request, rows)
     page_rows = context["page"].object_list
     if not comparison:
-        canonical_slugs = content_module.ee_writing_canonical_slug_by_slug(spec.number)
         ids_by_slug = {row["sujet"].slug: row["sujet"].pk for row in rows}
         for row in page_rows:
             sujet = row["sujet"]
-            row["progress_sujet_id"] = ids_by_slug.get(canonical_slugs.get(sujet.slug), sujet.pk)
+            row["progress_sujet_id"] = ids_by_slug.get(row["subject_group"], sujet.pk)
         progress = writing_sujet_progress_by_id(request.user, {row["progress_sujet_id"] for row in page_rows}, task_id=task.pk)
         for row in page_rows:
             row["progress"] = progress[row["progress_sujet_id"]]
@@ -342,7 +355,7 @@ def _setup_context(request, spec, task):
         saved_sessions.append({
             "id": item.pk,
             "created_at": item.started_at,
-            "url": reverse(spec.route_names["attempt"], args=[item.pk]),
+            "url": _attempt_url(request, spec, item.pk),
             "summary": summary,
         })
     return {
@@ -354,10 +367,10 @@ def _setup_context(request, spec, task):
         "task": task,
         "saved_sessions": saved_sessions,
         "selected_sujet_id": selected_sujet_id,
-        "start_url": reverse(spec.route_names["start"]),
-        "delete_url": reverse(
+        "start_url": subject_selection_url(reverse(spec.route_names["start"]), request),
+        "delete_url": subject_selection_url(reverse(
             spec.route_names["delete"], query={"sujet_id": selected_sujet.pk} if selected_sujet else None,
-        ),
+        ), request),
     }
 
 
@@ -422,7 +435,7 @@ def start(request, spec):
         started_at=now,
         deadline_at=now + timedelta(minutes=spec.minutes),
     )
-    return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
+    return redirect(_attempt_url(request, spec, attempt.pk))
 
 
 def _response_parts(attempt, spec):
@@ -498,7 +511,7 @@ def _attempt_context(request, attempt, spec, *, error="", now=None):
             "max_body_length": MAX_BODY_LENGTH,
             "error": error,
             "saved": False,
-            "timer_url": reverse(spec.route_names["timer"], args=[attempt.pk]),
+            "timer_url": subject_selection_url(reverse(spec.route_names["timer"], args=[attempt.pk]), request),
             "auto_evaluation": bool(settings.GROQ_API_KEY),
         }
     )
@@ -529,7 +542,7 @@ def update_timer(request, spec, attempt_id):
     )
     now = timezone.now()
     if attempt.status != WritingSimulationAttemptStatus.ACTIVE:
-        return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
+        return redirect(_attempt_url(request, spec, attempt.pk))
     fields = list(draft)
     for field, value in draft.items():
         setattr(attempt, field, value)
@@ -539,7 +552,7 @@ def update_timer(request, spec, attempt_id):
     attempt.deadline_at = now + timedelta(minutes=minutes, seconds=seconds)
     fields.append("deadline_at")
     attempt.save(update_fields=fields)
-    return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
+    return redirect(_attempt_url(request, spec, attempt.pk))
 
 
 def _result_context(request, attempt, spec):
@@ -577,7 +590,7 @@ def _result_context(request, attempt, spec):
         "evaluation_provider_label": PROVIDER_LABELS[provider],
         "evaluation_providers": [(key, PROVIDER_LABELS[key]) for key in providers],
         "assessment_form_id": "writing-evaluation-form",
-        "subject_url": subject_url,
+        "subject_url": subject_selection_url(subject_url, request) if subject_url else "",
         "response_parts": _response_parts(attempt, spec),
         "documents": attempt.snapshot.get("documents", ()),
         "debrief_back_url": reverse("study:simulation_track", args=["ee"]),
@@ -618,9 +631,9 @@ def delete(request, spec):
     if not deleted:
         raise Http404
     sujet_id = request.GET.get("sujet_id", "")
-    return redirect(reverse(
+    return redirect(subject_selection_url(reverse(
         spec.route_names["setup"], query={"sujet_id": sujet_id} if sujet_id.isdecimal() else None,
-    ))
+    ), request))
 
 
 @never_cache
@@ -653,7 +666,7 @@ def attempt(request, spec, attempt_id):
             pk=attempt_id,
         )
         if attempt.status != WritingSimulationAttemptStatus.ACTIVE:
-            return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
+            return redirect(_attempt_url(request, spec, attempt.pk))
         for field, value in draft.items():
             setattr(attempt, field, value)
         if sum(map(len, draft.values())) > MAX_BODY_LENGTH:
@@ -675,16 +688,14 @@ def attempt(request, spec, attempt_id):
         # Older tabs posted "expire" at zero. Keep it as a draft save, not a submission.
         if action in {"save", "expire"}:
             attempt.save(update_fields=fields)
-            return redirect(
-                reverse(spec.route_names["attempt"], args=[attempt.pk]) + "?saved=1"
-            )
+            return redirect(_attempt_url(request, spec, attempt.pk, saved=True))
 
         if action == "abandon":
             attempt.status = WritingSimulationAttemptStatus.ABANDONED
             attempt.submitted_at = now
             attempt.word_count = _word_count(attempt)
             attempt.save(update_fields=[*fields, *_FINISHED_FIELDS])
-            return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
+            return redirect(_attempt_url(request, spec, attempt.pk))
 
         error = ""
         if spec.number != 3 and not attempt.body.strip():
@@ -705,7 +716,7 @@ def attempt(request, spec, attempt_id):
                 _queue_evaluation(attempt, spec, "groq" if spec.number == 1 else None, now, update_fields=fields)
             else:
                 attempt.save(update_fields=fields)
-            return redirect(spec.route_names["attempt"], attempt_id=attempt.pk)
+            return redirect(_attempt_url(request, spec, attempt.pk))
 
         return render(
             request,

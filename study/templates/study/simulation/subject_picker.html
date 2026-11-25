@@ -11,6 +11,7 @@
   </header>
   <div class="collection-toolbar">
     {% include "study/shared/partials/subject_directory_search.html" with search_url=request.path %}
+    {% include "study/shared/partials/subject_deduplication_toggle.html" %}
   </div>
   {% include "study/shared/partials/subject_directory_filters.html" %}
   {% include "study/simulation/subject_picker_results.html" %}
@@ -18,5 +19,5 @@
 {% endblock %}
 {% block scripts %}
 {% include "study/expression/partials/subject_progress_script.html" %}
-{% if picker.topic_markers %}<script defer src="{% static 'study/js/expression/eo/tache_2/topic-markers.js' %}?v=1"></script>{% endif %}
+{% if picker.topic_markers %}<script defer src="{% static 'study/js/expression/eo/tache_2/topic-markers.js' %}?v=2"></script>{% endif %}
 {% endblock %}

@@ -113,14 +113,19 @@ class EE3SimulationTests(TestCase):
         self.assertGreater(editor.context["remaining_seconds"], 0)
         self.assertContains(editor, attempt.position_body)
 
-    def test_history_is_specific_to_the_selected_comparison_prompt(self):
+    def test_equivalent_comparison_prompts_are_listed_once_but_keep_separate_history(self):
         attempt, _ = self.start()
         other_source = next(
             source for _, source in catalogue.ee_tache_three_sources_by_key().values()
             if source.has_usable_documents and source.content_key != self.prompt.content_key
         )
         other = self.make_prompt(self.prompt.theme, other_source)
+        other.response = self.prompt.response
+        other.is_canonical = False
+        other.save(update_fields=["response", "is_canonical"])
         self.client.post(self.start_url, {"sujet_id": other.pk})
+        picker = self.client.get(reverse("study:ee3_subject_picker"))
+        self.assertEqual((picker.context["total"], picker.context["practiced_total"]), (1, 1))
         page = self.client.get(reverse("study:ee3_simulation"), {"sujet_id": self.prompt.pk})
         self.assertEqual([item["id"] for item in page.context["saved_sessions"]], [attempt.pk])
 
@@ -160,3 +165,14 @@ class EE3SimulationTests(TestCase):
             accepted = writing_evaluation.score(**inputs)
             self.assertEqual(accepted["improvedParts"], [report["improvedResponse"], report["improvedPosition"]])
             self.assertEqual(accepted["improvedWordCount"], 121)
+            instruction, review, schema = request.call_args.args
+            self.assertIn("check the synthesis against both documents", instruction)
+            self.assertEqual(review["documents"], list(documents))
+            self.assertEqual(review["sections"]["position"]["original"], position)
+            self.assertEqual(schema["required"], ["improvedResponse", "improvedPosition"])
+            request.side_effect = [report, {"improvedResponse": report["improvedResponse"], "improvedPosition": ""}]
+            with self.assertLogs(writing_evaluation.logger, "WARNING"):
+                incomplete = writing_evaluation.score(**inputs)
+            self.assertEqual(incomplete["score"], 12)
+            self.assertEqual(incomplete["improvedResponse"], "")
+            self.assertNotIn("improvedParts", incomplete)

@@ -4,7 +4,7 @@ from django.test import TestCase, override_settings
 from django.urls import reverse
 
 from study.catalogue.loader import tache_two_subject_content_key
-from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation
+from study.models import EO2PracticeAttempt, EO2TopicStatus, LiveSimulation, Prompt
 from . import factories
 
 
@@ -44,9 +44,27 @@ class TopicPracticeTests(TestCase):
             self.assertEqual(session.context["subject"].title, history.context["topic"].title)
             for step in ("Préparation", "Échange", "Bilan"):
                 self.assertContains(session, f'class="lv-step__name">{step}</span>')
-            for obsolete in ("Gemini", "simulateur guidé", "Au clavier", self.rehearsal):
+            for obsolete in ("simulateur guidé", "Au clavier", self.rehearsal):
                 self.assertNotContains(session, obsolete)
         self.assertFalse(EO2PracticeAttempt.objects.exists())
+
+    def test_equivalent_publications_share_markers_but_not_session_counts(self):
+        alias = Prompt.objects.create(
+            theme=self.prompt.theme, response=self.prompt.response, family=self.prompt.family,
+            number=self.prompt.number + 1, content_key=tache_two_subject_content_key("octobre", 5, 21),
+            text="Autre publication",
+        )
+        EO2TopicStatus.objects.create(user=self.user, subject_key=alias.content_key, done=True, retry=True)
+        EO2PracticeAttempt.objects.create(user=self.user, subject_key=alias.content_key, attempt=uuid.uuid4())
+        grouped = self.client.get(self.picker)
+        self.assertEqual((grouped.context["total"], grouped.context["done_total"], grouped.context["retry_total"]), (2, 1, 1))
+        published = self.client.get(self.picker, {"deduplicate": "0"})
+        rows = {row["token"]: row for row in published.context["page"]}
+        self.assertTrue(all(rows[pk]["done"] and rows[pk]["retry"] for pk in (self.prompt.pk, alias.pk)))
+        self.assertEqual((rows[self.prompt.pk]["count"], rows[alias.pk]["count"]), (0, 1))
+        self.client.post(self.status, {"field": "done", "value": "0"})
+        self.assertFalse(EO2TopicStatus.objects.filter(user=self.user, done=True).exists())
+        self.assertEqual(self.client.get(self.picker).context["retry_total"], 1)
 
     def test_markers_are_independent_of_each_other_and_actual_sessions(self):
         self.assertEqual(self.client.post(self.status, {"field": "done", "value": "1"}).status_code, 302)

@@ -57,6 +57,14 @@ def subject_selection_url(url: str, request) -> str:
     return urlunsplit(parts._replace(query=urlencode(query)))
 
 
+def subject_representatives(items, *, key):
+    """Keep the first eligible publication for each equivalent subject."""
+    representatives = {}
+    for item in items:
+        representatives.setdefault(key(item), item)
+    return representatives
+
+
 def prompt_detail_url(prompt: Prompt) -> str:
     task = prompt.theme.task
     if task is None:

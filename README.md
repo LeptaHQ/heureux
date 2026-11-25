@@ -75,6 +75,9 @@ Subjects with missing, invalid or duplicate source documents remain available
 for study but cannot start an EE3 simulation.
 Studios use the subject pages’ breadcrumb, theme back link and previous/next
 subject picker. The arrows open another subject’s studio without starting it.
+The existing **Dédupliquer** control is on by default in subject lists and
+next/previous navigation. Equivalent publications share completion and retry
+markers; each saved session still belongs to its exact consigne.
 In both oral and written debriefs, the collapsible **Sujet** card groups the
 original consigne, session status and metrics.
 Icon-only actions have accessible labels; task titles, limits and timers remain
@@ -109,6 +112,9 @@ providers use the same evidence checks; optional feedback can be omitted
 without hiding a supported score. Temporary service failures are retried once with the same
 provider within the three-minute deadline. Groq can also use its one retry to
 recover from a writing schema rejection in JSON mode.
+New writing proposals get a separate proofreading pass with the selected
+provider within that same deadline. If proofreading fails, the proposal is
+omitted without changing the grade. Saved reports are not rewritten.
 In Render logs, filter for `writing evaluation` and the attempt ID from the
 bilan URL. The worker logs when grading starts and how long it took. If the
 report fails verification, the log names the failed field and a reason code.
@@ -190,7 +196,7 @@ says so instead of opening a different exercise.
 
 In the photo-workshop scenario, a French-speaking receptionist answers the
 learner’s questions about two workshops. The interlocutor can be interrupted
-and may misunderstand or invent facts. **Commencer la séance** opens the consent and PIN dialog.
+and may misunderstand or invent facts. **Démarrer** opens the consent and PIN dialog.
 Enter the PIN once for the attempt. Gemini reads the selected French prompt
 with the microphone off and both clocks stopped. When playback finishes,
 the **2:00** preparation countdown starts automatically. Skip the remaining
@@ -306,7 +312,7 @@ To enable the pilot for a test account:
    testers trusted to authorize ElevenLabs generation too. Unset `GEMINI_API_KEY`
    to stop new Gemini calls, or only `GROQ_API_KEY` to stop new Groq bilans, without affecting narration.
 3. Sign in as an approved tester, choose an EO2 topic under **Simulation**,
-   then select **Commencer la séance**. Heureux checks the PIN before reading the prompt
+   then select **Démarrer**. Heureux checks the PIN before reading the prompt
    and never sends the PIN to Google. The reading and the exchange use separate,
    short-lived, single-use Google tokens. The exchange token is minted after
    microphone permission, so none of its lifetime is lost during preparation.

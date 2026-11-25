@@ -207,8 +207,8 @@ class LiveConversationBrowserMixin:
         subject = tache_two_publication(*args)[2]
         expect(self.page).to_have_title(f"Simulation · {task.short_label} · {subject.title} · Heureux")
         expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation")
-        expect(self.start).to_have_accessible_name("Commencer la séance")
-        expect(self.start).to_have_text("")
+        expect(self.start).to_have_accessible_name("Démarrer")
+        expect(self.start).to_have_text("Démarrer")
         expect(self.start.locator('[data-icon="play"]')).to_be_visible()
         expect(self.page.locator(".lv-selected-subject")).to_be_visible()
         expect(self.page.get_by_role("navigation", name="Fil d’Ariane")).to_contain_text("EO")
@@ -216,7 +216,7 @@ class LiveConversationBrowserMixin:
         expect(self.page.locator("#prompt-select-top option[selected]")).to_contain_text(subject.title)
         self.page.set_viewport_size({"width": 1280, "height": 850})
         self.assertLess(self.page.locator("#lv-title").bounding_box()["y"], self.page.locator(".lv-steps").bounding_box()["y"])
-        expect(self.pin_dialog).to_be_hidden()  # The PIN waits for « Commencer la séance ».
+        expect(self.pin_dialog).to_be_hidden()  # The PIN waits for « Démarrer ».
         self.assertEqual(self.token_requests, [])
         self.start.click()
         self.submit_live_pin()

@@ -754,10 +754,15 @@ class GeminiLiveTests(TestCase):
         LiveSimulation.objects.create(
             user=self.reviewer, subject_key=f"eo3:{variant.pk}", rows=[{"speaker": "user", "text": "Je préfère marcher."}],
         )
-        self.assertTemplateUsed(self.client.get(picker), "study/simulation/subject_picker_table.html")
+        catalogue_page = self.client.get(picker)
+        self.assertTemplateUsed(catalogue_page, "study/simulation/subject_picker_table.html")
+        self.assertEqual(catalogue_page.context["total"], 2)  # Training subject plus one publication for the pair.
+        self.assertNotContains(catalogue_page, url)
         practiced = self.client.get(picker, {"etat": "done"}, headers={"x-requested-with": "fetch"})
         self.assertContains(practiced, url)
         self.assertNotContains(practiced, reverse("study:eo_tache_three_live", args=[canonical.pk]))
+        default = self.client.get(url).context["session_subject_nav"]
+        self.assertEqual((default["position"], default["total"], default["choices"][0]["label"]), (1, 1, variant.text))
         page = self.client.get(url, {"deduplicate": "0"})
         self.assert_private(page, 200)
         self.assertEqual(page.context["scenario_prompt"], variant.text)

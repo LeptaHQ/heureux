@@ -17,6 +17,7 @@ from .evaluation import checked_text as _text
 from .evidence import number_passages
 from .proposal import faithful_rewrite
 
+GRADER_VERSION = 0
 MAX_BODY = 96_000
 PROVIDER_LABELS = {**evaluation.PROVIDER_LABELS, **copilot_runtime.LABELS}
 _CRITERIA = {
@@ -215,8 +216,11 @@ def request_data(body, *, monologue=False):
         if len(body) > MAX_BODY:
             raise ValueError
         data = json.loads(body, object_pairs_hook=unique_fields)
-        if (not isinstance(data, dict) or data.keys() - {"consent", "rows", "pin", "reviewGrant", "simulation", "provider"}
+        if (not isinstance(data, dict)
+                or data.keys() - {"consent", "rows", "pin", "reviewGrant", "simulation", "provider", "refresh"}
                 or data.get("consent") is not True):
+            raise ValueError
+        if "refresh" in data and (data["refresh"] is not True or "reviewGrant" in data):
             raise ValueError
         if not isinstance(data.get("provider", "groq"), str) or data.get("provider", "groq") not in PROVIDER_LABELS:
             raise ValueError
@@ -498,6 +502,8 @@ def score(prompt, rows, *, monologue=False, provider="groq", request_report=None
             retry_schema=provider == "groq",
         )
     try:
-        return _ground(report, rows, evidence, monologue=monologue)
+        result = _ground(report, rows, evidence, monologue=monologue)
     except (ValueError, KeyError, IndexError, TypeError, AttributeError, RecursionError):
         raise EvaluationError(502, _UNREADABLE) from None
+    result["graderVersion"] = GRADER_VERSION
+    return result

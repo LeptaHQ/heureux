@@ -10,6 +10,7 @@
   const level = by("level");
   const result = by("assessment-result");
   const picker = button && window.HeureuxAssessmentPicker(button, (provider) => requestEvaluation(provider));
+  const refresh = window.HeureuxAssessmentRefresh((provider) => requestEvaluation(provider, true));
   const initialProvider = form.dataset.evaluationProvider;
   const url = form.dataset.evaluationUrl;
   const find = (name) => root.querySelector(`[data-writing-${name}]`);
@@ -27,6 +28,7 @@
   const syncControls = () => {
     const editing = !editor.hidden;
     if (button) button.disabled = awaitingReport || editing;
+    refresh?.setBusy(awaitingReport || editing);
     editButton.disabled = awaitingReport || editing;
     editButton.setAttribute("aria-expanded", String(editing));
     copyButton.hidden = editing;
@@ -152,6 +154,7 @@
 
   const showReport = (report, provider, edit) => {
     current = {report, provider};
+    refresh?.select(report, provider, provider === initialProvider ? form.dataset.evaluationLabel : picker?.label(provider));
     text(editStatus, "");
     text(find("verdict"), report.verdict).hidden = !report.verdict;
     const {min, max} = report.scoreRange || {min: report.score, max: report.score};
@@ -233,7 +236,9 @@
   const apply = (payload, provider) => {
     clearTimeout(poll);
     if (payload.status !== "processing") pollDelay = 1500;
-    if (payload.status === "ready" && payload.report) {
+    const updating = payload.report && current?.provider === provider;
+    const updated = updating && (current.report.graderVersion ?? null) !== (payload.report.graderVersion ?? null);
+    if (payload.report && (payload.status === "ready" || !updating)) {
       showReport(payload.report, provider, payload.proposalEdit);
       picker?.select(provider);
       if (button && !picker) {
@@ -241,11 +246,13 @@
         const disclosure = document.getElementById("writing-evaluation-disclosure");
         if (disclosure) disclosure.hidden = true;
       }
-      setStatus("");
+    }
+    if (payload.status === "ready" && payload.report) {
+      setStatus(updated ? "Bilan actualisé." : "");
       return;
     }
     if (payload.status === "processing") {
-      setStatus("Bilan en préparation…", true);
+      setStatus(payload.report ? "Actualisation du bilan…" : "Bilan en préparation…", true);
       poll = setTimeout(() => fetchStatus(provider), pollDelay);
       pollDelay = Math.min(4000, pollDelay * 2);
       return;
@@ -293,18 +300,18 @@
     }
   };
 
-  async function requestEvaluation(provider = initialProvider) {
+  async function requestEvaluation(provider = initialProvider, updating = false) {
     if (awaitingReport || !editor.hidden) return;
     clearTimeout(poll);
     pollDelay = 1500;
     by("assessment").open = true;
-    setStatus("Bilan en préparation…", true);
+    setStatus(updating ? "Actualisation du bilan…" : "Bilan en préparation…", true);
     try {
       const response = await fetch(url, {
         method: "POST",
         credentials: "same-origin",
         headers: { "X-CSRFToken": csrfToken(), "Content-Type": "application/json" },
-        body: JSON.stringify({ consent: true, provider }),
+        body: JSON.stringify({ consent: true, provider, ...(updating && { refresh: true }) }),
       });
       if (response.status === 409) {
         setStatus((await response.json()).error);

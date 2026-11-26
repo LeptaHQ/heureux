@@ -20,6 +20,8 @@ from .proposal import faithful_rewrite
 
 logger = logging.getLogger(__name__)
 
+GRADER_VERSION = 0
+
 _CEFR_BANDS = (
     (0, "A1 non atteint"),
     (1, "A1"),
@@ -842,4 +844,5 @@ def score(
         if entry["decision"] != "Develop"
         or _span_pattern(_normalise_for_match(entry["replacement"])).search(revised_section)
     ]
+    result["graderVersion"] = GRADER_VERSION
     return result

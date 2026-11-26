@@ -9,12 +9,14 @@
   if (!button) return;
   const late = "Le bilan n’est pas arrivé à temps. Vous pouvez réessayer depuis cette séance.";
   const picker = window.HeureuxAssessmentPicker(button, (provider, label) => assess(provider, label));
+  const refreshControls = window.HeureuxAssessmentRefresh((provider, label) => assess(provider, label, {refresh: true}));
   const reports = new Map();
   let rows, onResult, pending, grant, snapshotGrant, simulation, elapsed, attemptId, displayedProvider;
-  const status = (text, busy = false) => {
+  const status = (text, busy = false, refreshing = false) => {
     button.setAttribute("aria-busy", String(busy));
+    refreshControls?.setBusy(busy);
     const message = by("assessment-status");
-    message.classList.toggle("sr-only", busy && !opinion);
+    message.classList.toggle("sr-only", busy && !opinion && !refreshing);
     message.textContent = text;
   };
   let copied;
@@ -64,6 +66,7 @@
     reports.set(provider, report);
     displayedProvider = provider;
     picker?.select(provider);
+    const canRefresh = refreshControls?.select(report, provider, picker?.label(provider) || root.dataset.evaluationProviderLabel);
     const current = report.evidenceVersion === 1;
     const retry = report.scoreStatus === "incomplete";
     by("level").classList.toggle("lv-level--scored", Number.isInteger(report.score) && report.scoreStatus !== "incomplete");
@@ -102,7 +105,7 @@
     }
     onResult(report.annotations);
     propose(report.proposal || []);
-    if (opinion && report.proposal?.length && report.score !== null && !report.omitted) by("assessment").open = false;
+    if (opinion && report.proposal?.length && report.score !== null && !report.omitted && !canRefresh) by("assessment").open = false;
     if (report.previousReportKept && retry) return "La nouvelle évaluation reste incomplète. Votre bilan précédent a été conservé.";
     if (retry && canAssess) return "Vous pouvez demander une nouvelle évaluation de cette transcription avec ✨.";
     return report.omitted ? "Les éléments non vérifiables ont été écartés." :
@@ -119,6 +122,7 @@
     elapsed = Math.round(spoken);
     reports.clear();
     displayedProvider = null;
+    refreshControls?.select(null);
     const provider = !id && grant ? autoProvider : root.dataset.evaluationProvider;
     picker?.close();
     picker?.select(provider);
@@ -144,8 +148,8 @@
       by("assessment-controls").hidden = !canAssess;
       status(canAssess ? "Pas encore de bilan : touchez ✨ pour le demander." :
         "Bilan indisponible. Votre transcription reste disponible.");
-    } else assess(provider, root.dataset.autoEvaluationLabel, true);
-    if (pendingProvider) assess(pendingProvider, "", false, true);
+    } else assess(provider, root.dataset.autoEvaluationLabel, {automatic: true});
+    if (pendingProvider) assess(pendingProvider, "", {resume: true});
   }
   const post = (call, body) => ({
     method: "POST", credentials: "same-origin", mode: "same-origin", cache: "no-store", redirect: "error", signal: call.signal,
@@ -165,20 +169,23 @@
       return null;
     }
   }
-  async function assess(provider, label, automatic = false, resume = false) {
+  async function assess(provider, label, {automatic = false, resume = false, refresh = false} = {}) {
     if (!rows || pending) return;
     const existing = reports.get(provider);
-    if (!resume && existing && existing.scoreStatus !== "incomplete") {
+    if (!resume && !refresh && existing && existing.scoreStatus !== "incomplete") {
       status(show(existing, provider));
       return;
     }
+    const refreshing = refresh || (resume && refreshControls?.isOutdated(existing));
     const call = pending = new AbortController();
     button.disabled = true;
     if (opinion && by("assessment-result").hidden) by("level").textContent = "Bilan en préparation…";
-    status(opinion ? "Vous pouvez déjà relire votre transcription ci-dessous." : "Préparation de votre bilan…", true);
+    if (refreshing) by("assessment").open = true;
+    status(refreshing ? "Actualisation du bilan…" : opinion ? "Vous pouvez déjà relire votre transcription ci-dessous." :
+      "Préparation de votre bilan…", true, refreshing);
     // Keep an existing report visible until the chosen model returns a result.
     const done = text => {
-      if (!opinion || by("assessment-result").hidden || !simulation) by("assessment").open = true;
+      if (refreshing || !opinion || by("assessment-result").hidden || !simulation) by("assessment").open = true;
       if (opinion && by("assessment-result").hidden) by("level").textContent = "Bilan indisponible";
       status(simulation ? text : `${text} Cette séance n’a pas pu être enregistrée.`);
     };
@@ -209,7 +216,7 @@
       url.searchParams.set("provider", provider);
       const readStatus = () => fetch(url, {credentials: "same-origin", cache: "no-store", signal: call.signal});
       let response;
-      if (resume || (!automatic && provider !== displayedProvider)) {
+      if (resume || (!automatic && !refresh && provider !== displayedProvider)) {
         const cached = await readStatus();
         if (pending !== call) return;
         if (cached.ok || resume) response = cached;
@@ -218,13 +225,14 @@
           if (pending !== call) return;
         }
       }
-      const useGrant = !response && provider === autoProvider && grant;
+      const useGrant = !response && !refresh && provider === autoProvider && grant;
       if (!response) {
         const options = post(call, {consent: true, simulation, rows: rows.map(({speaker, text}) => ({speaker, text})),
-          ...(provider !== "groq" && {provider}), ...(useGrant && {reviewGrant: grant})});
+          ...(provider !== "groq" && {provider}), ...(useGrant && {reviewGrant: grant}), ...(refresh && {refresh: true})});
+        const action = refresh ? "Actualiser le bilan" : "Demander le bilan";
         response = await (useGrant ? fetch(root.dataset.evaluationUrl, options) :
           window.HeureuxAudioRequest(root.dataset.evaluationUrl, options, {
-            title: "Demander le bilan", action: "Demander le bilan",
+            title: action, action,
             description: `Transcription envoyée à ${label}${provider.startsWith("copilot-") ? " via GitHub Copilot" : ""} pour le bilan.`,
             confirmBeforeSend: true,
           }));
@@ -256,15 +264,19 @@
           `Le service de bilan n’a pas répondu correctement (HTTP ${response.status}). Votre transcription reste disponible.`);
         return;
       }
-      const report = await response.json();
+      const {refreshError, ...report} = await response.json();
       if (pending !== call) return;
       if (typeof report.error === "string") {
         done(report.error);
         return;
       }
-      done(show(report, provider));
+      const updated = existing && (existing.graderVersion ?? null) !== (report.graderVersion ?? null);
+      const message = show(report, provider);
+      const unchanged = refreshing && refreshControls?.isOutdated(report);
+      done(refreshError || (unchanged ? "Le bilan n’a pas pu être actualisé. Votre bilan enregistré reste disponible." :
+        updated ? "Bilan actualisé." : message));
     } catch (error) {
-      if (pending === call) done(error.name === "AbortError" ? "Bilan annulé. Aucune note attribuée." :
+      if (pending === call) done(error.name === "AbortError" ? (refresh ? "Actualisation annulée." : "Bilan annulé. Aucune note attribuée.") :
         "Impossible de recevoir le bilan. Votre transcription reste disponible.");
     } finally {
       if (pending === call) {

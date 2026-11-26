@@ -790,6 +790,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
     def test_written_simulation_debrief_retries_and_separates_original_from_edits(self):
         task = factories.make_task(factories.make_part("ee"), "tache-1")
         sujet = factories.make_writing_sujet(task)
+        next_sujet = factories.make_writing_sujet(task)
         setup = reverse("study:ee1_simulation")
         self.page.goto(f"{self.live_server_url}{setup}?sujet_id={sujet.pk}")
         self.page.get_by_role("button", name="Démarrer", exact=True).click()
@@ -1022,6 +1023,13 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(proposal.get_by_text("Exemple d’entraînement · objectif NCLC 7.")).to_have_count(0)
         self.assertEqual(proposal.locator("#lv-proposal-lines p").all_text_contents(), corrected.split("\n\n"))
 
+        retry.click()
+        expect(self.page).to_have_url(self.live_server_url + reverse("study:ee1_subject_picker"))
+        self.page.get_by_role("link", name=f"Pratiquer : {next_sujet.prompt}", exact=True).click()
+        self.page.get_by_role("button", name="Démarrer", exact=True).click()
+        expect(self.page.locator("#writing-prompt-text")).to_have_text(next_sujet.prompt)
+        expect(self.page.locator("#writing-body")).to_have_value("")
+
     @override_settings(GROQ_API_KEY="")
     def test_written_proposal_editor_saves_a_private_copy_and_copies_both_versions(self):
         self.context.add_init_script(
@@ -1057,6 +1065,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.page.goto(self.live_server_url + url)
         proposal = self.page.locator("#lv-proposal")
         expect(proposal.get_by_role("heading", name="Version corrigée")).to_be_visible()
+        expect(self.page.get_by_role("button", name="Actualiser le bilan")).to_be_hidden()
         expect(proposal.locator("[data-writing-rewrite-note]")).to_contain_text("La réponse à la consigne peut rester incomplète.")
         self.page.get_by_role("button", name="Copier ma réponse").click()
         self.assertEqual(self.page.evaluate("window.__copiedResponse"), "\n\n".join(originals))
@@ -1107,6 +1116,64 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         self.assertEqual(proposal.locator("#lv-proposal-lines p").all_text_contents(), list(revised))
         attempt.refresh_from_db()
         self.assertEqual((attempt.body, attempt.position_body, attempt.evaluation), (*originals, report))
+
+    @override_settings(GROQ_API_KEY="fixture-groq")
+    def test_written_bilan_refresh_keeps_the_saved_proposal_and_replaces_the_grade(self):
+        task = factories.make_task(factories.make_part("ee"), "tache-3")
+        previous = {
+            "score": 10, "taskCompliance": [], "criteria": [], "strengths": [],
+            "corrections": [], "relevance": [], "upgrades": [], "priorities": [],
+            "improvedParts": ["Synthèse proposée.", "Argument proposé."],
+        }
+        edits = ["Ma synthèse personnelle.", "Mon argument personnel."]
+        attempt = WritingSimulationAttempt.objects.create(
+            user=self.user, task=task, deadline_at=timezone.now(), status=WritingSimulationAttemptStatus.SUBMITTED,
+            snapshot={"prompt": "Comparez les deux points de vue.", "documents": ["Document A", "Document B"]},
+            body="Les textes parlent de la lecture.", position_body="Je préfère lire pendant le trajet.",
+            evaluation_status=WritingSimulationEvaluationStatus.READY, evaluation=previous,
+            proposal_edits={"groq": {"parts": edits, "wordCount": 6}},
+        )
+        page = reverse("study:ee3_simulation_attempt", args=[attempt.pk])
+        endpoint = reverse("study:ee3_simulation_evaluate", args=[attempt.pk])
+        reads = []
+        self.page.on("request", lambda request: reads.append(request.method) if urlsplit(request.url).path == endpoint else None)
+        self.page.clock.install()
+        self.page.clock.pause_at(self.page.evaluate("Date.now() + 10000"))
+        with mock.patch("study.views.writing_simulation.run_evaluation") as worker:
+            self.page.goto(self.live_server_url + page)
+            refresh = self.page.get_by_role("button", name="Actualiser le bilan")
+            expect(refresh).to_have_accessible_description(re.compile("Groq.*réponse, consigne et documents"))
+            expect(self.page.locator("#lv-level")).to_have_text("10/20")
+            self.assertEqual(reads, [])
+
+            for report in (None, {**previous, "score": 13, "graderVersion": 0}):
+                with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint) as queued:
+                    refresh.click()
+                self.assertEqual(queued.value.status, 202)
+                self.assertEqual(queued.value.request.post_data_json, {"consent": True, "provider": "groq", "refresh": True})
+                expect(refresh).to_be_disabled()
+                expect(self.page.locator("#lv-assessment-status")).to_have_text("Actualisation du bilan…")
+                expect(self.page.locator("#lv-level")).to_have_text("10/20")
+                expect(self.page.locator("#lv-proposal-lines p")).to_have_text(edits)
+                if report is None:
+                    fields = {"evaluation_status": WritingSimulationEvaluationStatus.UNAVAILABLE,
+                              "evaluation_error": "Le bilan n’est pas arrivé à temps."}
+                else:
+                    fields = {"evaluation_status": WritingSimulationEvaluationStatus.READY,
+                              "evaluation": {"provider": "groq", "reports": {"groq": report}}}
+                WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(**fields)
+                with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint):
+                    self.page.clock.run_for(1500)
+                if report is None:
+                    expect(self.page.locator("#lv-assessment-status")).to_contain_text("n’est pas arrivé à temps")
+                    expect(refresh).to_be_enabled()
+
+            expect(self.page.locator("#lv-level")).to_have_text("13/20")
+            expect(self.page.locator("#lv-assessment-status")).to_have_text("Bilan actualisé.")
+            expect(refresh).to_be_hidden()
+            expect(self.page.locator("#lv-proposal-lines p")).to_have_text(edits)
+        self.assertEqual(worker.call_count, 2)
+        self.assertEqual(reads, ["POST", "GET", "POST", "GET"])
 
     def test_linked_ee1_submit_starts_polling_mai_without_a_second_action(self):
         self._assert_linked_writing_submit_starts_mai(1, 60)

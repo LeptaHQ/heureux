@@ -26,8 +26,36 @@
     }));
     return {
       close: () => toggle(false),
+      label: (provider) => choices.find((choice) => choice.value === provider)?.textContent.trim(),
       select: (provider) => choices.forEach((choice) =>
         choice.setAttribute("aria-pressed", String(choice.value === provider))),
+    };
+  };
+
+  window.HeureuxAssessmentRefresh = (request) => {
+    const controls = document.getElementById("lv-assessment-refresh");
+    if (!controls) return null;
+    const button = controls.querySelector("button");
+    const disclosure = controls.querySelector("[data-refresh-inputs]");
+    const providers = controls.dataset.providers.split(" ");
+    const version = Number(controls.dataset.graderVersion);
+    const isOutdated = (report) => Boolean(report) &&
+      (report.graderVersion == null || (Number.isInteger(report.graderVersion) && report.graderVersion < version));
+    let provider, label;
+    button.addEventListener("click", () => request(provider, label));
+    return {
+      isOutdated,
+      select(report, selected, name) {
+        provider = selected;
+        label = name;
+        controls.hidden = !providers.includes(provider) || !isOutdated(report);
+        if (disclosure && !controls.hidden) {
+          const via = provider.startsWith("copilot-") ? " via GitHub Copilot" : "";
+          disclosure.textContent = `Envoi à ${label}${via} : ${disclosure.dataset.refreshInputs}.`;
+        }
+        return !controls.hidden;
+      },
+      setBusy: (busy) => { button.disabled = busy; },
     };
   };
 })();

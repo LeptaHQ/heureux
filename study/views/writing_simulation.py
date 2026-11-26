@@ -41,7 +41,9 @@ from study.models import (
 from study.navigation.routing import subject_selection_url
 from study.review.progress import writing_sujet_progress_by_id
 from study.simulation import copilot_runtime, writing_evaluation
-from study.simulation.evaluation import PROVIDER_LABELS, EvaluationError, available_providers, timed_phase
+from study.simulation.evaluation import (
+    PROVIDER_LABELS, REFRESH_FAILED, EvaluationError, available_providers, is_older_report, timed_phase,
+)
 from .simulation import (
     PickerSubject,
     picker_rows,
@@ -699,6 +701,9 @@ def _result_context(request, attempt, spec):
         "evaluation_provider": provider,
         "evaluation_provider_label": _EVALUATION_SEND_LABELS[provider],
         "evaluation_providers": [(key, _WRITING_LABELS[key]) for key in providers],
+        "evaluation_refresh_providers": sorted(configured) if prompt else (),
+        "evaluation_refresh_inputs": "réponse, consigne et documents" if spec.number == 3 else "réponse, consigne",
+        "grader_version": writing_evaluation.GRADER_VERSION,
         "assessment_form_id": "writing-evaluation-form",
         "subject_url": subject_selection_url(subject_url, request) if subject_url else "",
         "response_parts": response_parts,
@@ -708,10 +713,8 @@ def _result_context(request, attempt, spec):
         "debrief_back_url": reverse("study:simulation_track", args=["ee"]),
         "debrief_back_label": "Retour à EE",
     })
-    if can_assess and attempt.evaluation_status == WritingSimulationEvaluationStatus.READY:
-        saved = _evaluation_payload(attempt, spec, provider)
-        if saved["report"]:
-            context["saved_evaluation"] = saved
+    if can_assess and provider in _evaluation_reports(attempt):
+        context["saved_evaluation"] = _evaluation_payload(attempt, spec, provider)
     return context
 
 
@@ -925,10 +928,9 @@ def _evaluation_in_progress(attempt, now):
 def _evaluation_payload(attempt, spec, provider):
     status = attempt.evaluation_status
     report = _evaluation_reports(attempt).get(provider)
-    if report is not None:
-        status = WritingSimulationEvaluationStatus.READY
-    elif provider != _evaluation_job_provider(attempt):
-        status = WritingSimulationEvaluationStatus.NOT_REQUESTED
+    if provider != _evaluation_job_provider(attempt):
+        status = (WritingSimulationEvaluationStatus.READY if report is not None
+                  else WritingSimulationEvaluationStatus.NOT_REQUESTED)
     stale = (
         status == WritingSimulationEvaluationStatus.PROCESSING
         and not _evaluation_in_progress(attempt, timezone.now())
@@ -1075,13 +1077,18 @@ def run_evaluation(attempt_id, started_at, spec, provider=None, *, copilot_link_
             current = WritingSimulationAttempt.objects.select_for_update().filter(**claim).only("evaluation").first()
             if current is None:
                 return
-            current.evaluation_status = status
-            current.evaluation_lease_until = None
             if provider:
                 if status == WritingSimulationEvaluationStatus.READY:
-                    current.evaluation["reports"][provider] = report
+                    reports = current.evaluation["reports"]
+                    previous = reports.get(provider)
+                    if previous is not None and not is_older_report(previous, report.get("graderVersion")):
+                        status, error = WritingSimulationEvaluationStatus.UNAVAILABLE, REFRESH_FAILED
+                    else:
+                        reports[provider] = report
             else:
                 current.evaluation = report
+            current.evaluation_status = status
+            current.evaluation_lease_until = None
             current.evaluation_error = error
             current.evaluated_at = timezone.now()
             current.save(
@@ -1178,8 +1185,13 @@ def evaluate(request, spec, attempt_id):
         data = json.loads(request.body or b"{}")
     except (TypeError, ValueError):
         return HttpResponseBadRequest("Un consentement explicite est requis.")
-    if not isinstance(data, dict) or data.get("consent") is not True or data.keys() - {"consent", "provider"}:
+    if (
+        not isinstance(data, dict) or data.get("consent") is not True
+        or data.keys() - {"consent", "provider", "refresh"}
+        or ("refresh" in data and data["refresh"] is not True)
+    ):
         return HttpResponseBadRequest("Un consentement explicite est requis.")
+    refresh = data.get("refresh", False)
 
     with transaction.atomic():
         attempt = get_object_or_404(
@@ -1192,12 +1204,15 @@ def evaluate(request, spec, attempt_id):
         if not _has_response(attempt):
             return HttpResponseBadRequest("Aucune réponse à évaluer.")
         provider = data.get("provider")
-        if provider is None and spec.number != 1:
+        if provider is None and spec.number != 1 and not refresh:
             provider = "groq"  # Legacy EE2 and EE3 requests did not need to name Groq.
         if not _valid_evaluation_provider(spec, provider):
             return JsonResponse({"error": "Choisissez un modèle disponible avant de lancer l’évaluation."},
                                 status=409 if spec.number == 1 else 400)
-        if provider in _evaluation_reports(attempt):
+        saved = _evaluation_reports(attempt).get(provider)
+        if refresh and saved is None:
+            return JsonResponse({"error": "Aucun bilan à actualiser pour ce modèle."}, status=409)
+        if saved is not None and not (refresh and is_older_report(saved, writing_evaluation.GRADER_VERSION)):
             return evaluation_json(attempt, spec, provider=provider)
         link_id = github_copilot.active_link_id(request)
         if provider not in _writing_providers(spec, copilot_connected=bool(link_id)):
@@ -1209,6 +1224,8 @@ def evaluate(request, spec, attempt_id):
             if provider != _evaluation_job_provider(attempt):
                 return JsonResponse({"error": "Un autre bilan est déjà en cours."}, status=409)
             return evaluation_json(attempt, spec, status=202, provider=provider)
+        if refresh and not attempt.snapshot.get("prompt"):
+            return JsonResponse({"error": "La consigne d’origine n’a pas été conservée."}, status=409)
         _queue_evaluation(attempt, spec, provider, now, copilot_link_id=link_id)
         return evaluation_json(attempt, spec, status=202, provider=provider)
 

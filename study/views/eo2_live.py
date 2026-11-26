@@ -5,7 +5,7 @@ from itertools import chain
 
 from django.core import signing
 from django.db import transaction
-from django.db.models import Count, Max, Q
+from django.db.models import Count, FilteredRelation, Max, Q
 from django.db.models.fields.json import KT
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect
@@ -21,10 +21,10 @@ from django.views.decorators.vary import vary_on_headers
 from study.audio.pins import AudioPinError
 from study.catalogue import registry as catalogue
 from study.catalogue.loader import tache_two_subject_content_key
-from study.models import EO2PracticeAttempt, LiveSimulation, OralEvaluationJob, Prompt
+from study.models import EO2PracticeAttempt, LiveSimulation, Prompt
 from study.navigation.routing import subject_selection_url
 from study.simulation import copilot_runtime, live_conversation, oral_evaluation, oral_jobs
-from study.simulation.evaluation import EvaluationError
+from study.simulation.evaluation import EvaluationError, is_older_report
 from study.simulation.oral_evaluation import PROVIDER_LABELS
 from study.simulation.oral_jobs import EO3_KEY_PREFIX
 from .eo2_practice import practice_topics, topic_prompts, write_topic_status
@@ -232,7 +232,7 @@ def oral_live(request, task_slug, **publication):
             (provider for provider in (copilot_runtime.DEFAULT, *PROVIDER_LABELS) if provider in cached), selected_provider,
         )
         if selected_provider in cached and selected_provider != "groq":
-            reopened["report"] = _oral_report(selected, selected_provider)
+            reopened["report"] = selected.values_list(_oral_report_field(selected_provider), flat=True).first()
         saved_prompt = reopened["snapshot"].get("prompt") or "Consigne d’origine non enregistrée."
         subject = LiveSubject(key, reopened["snapshot"].get("title", subject.title),
                               saved_prompt, subject.detail_url)
@@ -278,6 +278,8 @@ def oral_live(request, task_slug, **publication):
         "evaluation_provider": selected_provider,
         "evaluation_provider_label": PROVIDER_LABELS[selected_provider],
         "evaluation_providers": [(key, label) for key, label in PROVIDER_LABELS.items() if key in providers],
+        "evaluation_refresh_providers": sorted(configured) if can_assess else (),
+        "grader_version": oral_evaluation.GRADER_VERSION,
         "evaluation_enabled": can_assess,
         "auto_evaluation": auto_provider,
         "auto_evaluation_label": "MAI via GitHub Copilot" if link_id is not None else PROVIDER_LABELS.get(auto_provider, ""),
@@ -542,18 +544,26 @@ def oral_live_evaluation(request, task_slug, **publication):
             return JsonResponse({"error": "Identifiant de séance invalide."}, status=400)
         if provider not in PROVIDER_LABELS:
             return JsonResponse({"error": "Modèle d’évaluation invalide."}, status=400)
-        selected = sessions.filter(pk=pk)
-        job = OralEvaluationJob.objects.filter(simulation__in=selected, provider=provider).first()
-        if job:
-            if job.error_status:
-                return JsonResponse({"status": "unavailable", "error": job.error}, status=job.error_status)
-            if job.lease_until is None or job.lease_until <= timezone.now():
-                oral_jobs.wake()
-            return JsonResponse({"status": "processing"}, status=202)
-        report = _oral_report(selected, provider)
-        if report is None:
-            return JsonResponse({"error": "Aucun bilan enregistré pour ce modèle."}, status=404)
-        return JsonResponse(report)
+        # Read the report and job together so a finishing retry cannot pair a new report with an earlier error.
+        saved = sessions.filter(pk=pk).annotate(
+            job=FilteredRelation("evaluation_jobs", condition=Q(evaluation_jobs__provider=provider)),
+        ).values_list(
+            _oral_report_field(provider), "job__error_status", "job__error", "job__lease_until", "job__refresh_version",
+        ).first()
+        if saved is not None:
+            report, error_status, error, lease_until, refresh_version = saved
+            if error_status == 0:
+                if lease_until is None or lease_until <= timezone.now():
+                    oral_jobs.wake()
+                return JsonResponse({"status": "processing"}, status=202)
+            if error_status:
+                if refresh_version is None or not report:
+                    return JsonResponse({"status": "unavailable", "error": error}, status=error_status)
+                if is_older_report(report, refresh_version):
+                    return JsonResponse({**report, "refreshError": error})
+            if report is not None:
+                return JsonResponse(report)
+        return JsonResponse({"error": "Aucun bilan enregistré pour ce modèle."}, status=404)
     if request.content_type != "application/json":
         return JsonResponse({"error": "Un objet JSON est requis."}, status=415)
     try:
@@ -571,7 +581,13 @@ def oral_live_evaluation(request, task_slug, **publication):
         if original != data["rows"]:
             return JsonResponse({"error": "Cette transcription ne correspond pas à la séance enregistrée."}, status=400)
         previous = _stored_report(session, provider)
-        if previous and previous.get("scoreStatus") != "incomplete":
+        refresh_version = oral_evaluation.GRADER_VERSION if data.get("refresh") else None
+        if refresh_version is not None:
+            if not previous:
+                return JsonResponse({"error": "Aucun bilan à actualiser pour ce modèle."}, status=409)
+            if not is_older_report(previous, refresh_version):
+                return JsonResponse(previous)
+        elif previous and previous.get("scoreStatus") != "incomplete":
             return JsonResponse(previous)
         job = session.evaluation_jobs.filter(provider=provider).first()
         if job and not job.error_status:
@@ -591,14 +607,13 @@ def oral_live_evaluation(request, task_slug, **publication):
             return JsonResponse({"error": str(exc)}, status=exc.status)
         if job:
             job.delete()
-        session.evaluation_jobs.create(provider=provider, copilot_link_id=link_id)
+        session.evaluation_jobs.create(provider=provider, copilot_link_id=link_id, refresh_version=refresh_version)
         transaction.on_commit(oral_jobs.wake, robust=True)
     return JsonResponse({"status": "processing"}, status=202)
 
 
-def _oral_report(sessions, provider):
-    field = "report" if provider == "groq" else f"provider_reports__{provider}"
-    return sessions.values_list(field, flat=True).first()
+def _oral_report_field(provider):
+    return "report" if provider == "groq" else f"provider_reports__{provider}"
 
 
 def _stored_report(session, provider):

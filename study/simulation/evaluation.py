@@ -19,6 +19,7 @@ _GEMINI_MODEL = "gemini-3.8-flash"
 _WORKERS_MODEL = "@cf/google/gemma-4-26b-a4b-it"
 PROVIDER_LABELS = {"groq": "Groq", "gemini": "Gemini", "cloudflare": "Workers"}
 DEADLINE_SECONDS = 180
+REFRESH_FAILED = "Le bilan n’a pas pu être actualisé. Votre bilan enregistré reste disponible."
 _MAX_RESPONSE = 64_000
 _RETRY_MIN_SECONDS = 30
 _SLOW_SECONDS = 30
@@ -37,6 +38,13 @@ class EvaluationError(Exception):
         self.schema_rejected = schema_rejected
         self.retry_after = retry_after
         super().__init__(message)
+
+
+def is_older_report(report, grader_version):
+    if not report or type(grader_version) is not int:
+        return False
+    version = report.get("graderVersion")
+    return version is None or (type(version) is int and version < grader_version)
 
 
 @contextmanager

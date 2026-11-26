@@ -8,7 +8,7 @@ from django.urls import reverse
 from playwright.sync_api import expect
 
 from study.models import LiveSimulation, OralEvaluationJob
-from study.simulation import live_conversation
+from study.simulation import live_conversation, oral_jobs
 from study.views.helpers import tache_two_publication
 
 from . import factories
@@ -266,7 +266,7 @@ class LiveConversationBrowserMixin:
         spoken = "Moi, je préfère marcher, parce qu’on peut s’arrêter, euh, on voit les petits détails. "
         last_words = "Une fois, j’ai vu une cour derrière le marché. Mais ma sœur, elle peut pas marcher longtemps, "
         ending = "alors avec elle on prend la voiture."
-        report = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "evidenceVersion": 1,
+        report = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "evidenceVersion": 1, "graderVersion": 0,
                   "reason": "Vous expliquez pourquoi vous préférez marcher, puis précisez quand vous choisissez la voiture.",
                   "next": "Après l’exemple du marché, revenez à votre idée : « En voiture, je n’aurais pas remarqué cette cour. »",
                   "criteria": [{"label": label, "score": 3, "why": why, "turnIndex": 0, "quote": quote} for label, why, quote in (
@@ -973,6 +973,65 @@ class LiveConversationBrowserMixin:
         expect(self.page.locator("#lv-level")).to_have_text("12/20 · NCLC 8 · B2")
         self.assertEqual(requests, [("GET", {"provider": ["groq"], "simulation": [str(saved.pk)]})] * 2)
         expect(self.page.locator("[data-audio-pin-dialog]")).to_be_hidden()
+
+    @override_settings(GROQ_API_KEY="fixture-groq", AI_PIN=PILOT_PIN)
+    def test_oral_bilan_refresh_requires_confirmation_and_preserves_feedback_until_ready(self):
+        factories.make_task(self.part, "tache-2")
+        rows = [{"speaker": "user", "text": "Combien coûte le prêt ?"}]
+        previous = {"score": 10, "scoreStatus": "scored", "nclc": "7", "cefr": "B2", "reason": "Bilan d’origine.",
+                    "criteria": [], "evidence": [], "annotations": [], "next": "", "proposal": []}
+        saved = LiveSimulation.objects.create(
+            user=self.user, rows=rows, report=previous,
+            snapshot={"prompt": "Demandez des renseignements sur les ateliers."},
+        )
+        endpoint = reverse("study:eo_tache_two_live_evaluation")
+        url = reverse("study:eo_tache_two_live", query={"simulation": saved.pk})
+        requests = []
+        self.page.on("request", lambda request: requests.append(request.method) if urlsplit(request.url).path == endpoint else None)
+        self.page.clock.install()
+        self.page.clock.pause_at(self.page.evaluate("Date.now() + 10000"))
+        self.page.goto(self.live_server_url + url)
+        refresh = self.page.locator("#lv-assessment-refresh").get_by_role("button", name="Actualiser le bilan")
+        pin = self.page.locator("[data-audio-pin-dialog]")
+        level = self.page.locator("#lv-level")
+        status = self.page.locator("#lv-assessment-status")
+        current = {**previous, "score": 12, "nclc": "8", "graderVersion": 0}
+
+        with patch.object(oral_jobs, "wake"):
+            for index, outcome in enumerate((({"error": "Bilan hors délai."}, 504), (current, 200))):
+                before_consent = list(requests)
+                refresh.click()
+                expect(pin.get_by_role("heading")).to_have_text("Actualiser le bilan")
+                expect(pin).to_contain_text("Transcription envoyée à Groq")
+                self.assertEqual(requests, before_consent)
+                pin.get_by_label("Code", exact=True).fill(PILOT_PIN)
+                with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint) as queued:
+                    pin.get_by_role("button", name="Actualiser le bilan").click()
+                self.assertEqual(queued.value.status, 202)
+                self.assertEqual(queued.value.request.post_data_json, {
+                    "consent": True, "simulation": str(saved.pk), "rows": rows, "refresh": True, "pin": PILOT_PIN,
+                })
+                if index == 0:
+                    with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint) as resumed:
+                        self.page.reload()
+                    self.assertEqual((resumed.value.request.method, resumed.value.status), ("GET", 202))
+                expect(refresh).to_be_disabled()
+                expect(status).to_have_text("Actualisation du bilan…")
+                expect(level).to_have_text("10/20 · NCLC 7 · B2")
+                job, _ = oral_jobs._claim()
+                oral_jobs._finish(job, *outcome)
+                with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint):
+                    self.page.clock.run_for(1000)
+                if index == 0:
+                    expect(status).to_have_text("Bilan hors délai.")
+                    expect(refresh).to_be_enabled()
+                    expect(level).to_have_text("10/20 · NCLC 7 · B2")
+
+        expect(level).to_have_text("12/20 · NCLC 8 · B2")
+        expect(status).to_have_text("Bilan actualisé.")
+        expect(refresh).to_be_hidden()
+        expect(self.page.locator("#lv-turns")).to_contain_text(rows[0]["text"])
+        self.assertEqual(requests, ["POST", "GET", "GET", "POST", "GET"])
 
     def test_native_voice_saved_exchange_reopens_on_its_stored_report(self):
         report = {"score": 12, "scoreStatus": "scored", "nclc": "8", "cefr": "B2", "reason": "Vous comparez les options.",

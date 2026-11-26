@@ -984,6 +984,77 @@ class EE1SimulationTests(TestCase):
         self.client.force_login(self.other)
         self.assertEqual(self.client.get(url).status_code, 404)
 
+    @override_settings(EE1_EVALUATION_PROVIDER="groq", GROQ_API_KEY="fixture-groq-key")
+    def test_refresh_replaces_the_selected_writing_bilan_only_on_success(self):
+        self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
+        attempt = WritingSimulationAttempt.objects.get(user=self.owner)
+        endpoint = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        query = {"provider": "groq"}
+        consent = {**query, "consent": True}
+        refresh = {**consent, "refresh": True}
+        inputs, provider_report = self._copilot_proposal()
+        body = inputs["response"]
+        previous = {"score": 10, "graderVersion": None, "improvedResponse": "Proposition d’origine."}
+        other_model = {"score": 11, "graderVersion": 0}
+        edits = {"groq": {"parts": ["Mon texte à garder."], "wordCount": 4}}
+        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
+            status=WritingSimulationAttemptStatus.SUBMITTED, body=body, word_count=inputs["word_count"],
+            evaluation_status=WritingSimulationEvaluationStatus.READY,
+            evaluation={"provider": "groq", "reports": {"groq": previous, "cloudflare": other_model}},
+            proposal_edits=edits,
+        )
+        self.sujet.prompt = "Une nouvelle consigne pour les prochains essais."
+        self.sujet.save(update_fields=["prompt"])
+
+        def post(data):
+            return self.client.post(endpoint, data, content_type="application/json")
+
+        with patch.object(writing_simulation.threading, "Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+            self.assertEqual(self.client.get(endpoint, query).json()["report"], previous)
+            self.assertEqual(post(consent).json()["report"], previous)
+            self.assertEqual(post({**refresh, "consent": False}).status_code, 400)
+            self.assertEqual(post({**refresh, "provider": "copilot-astra"}).status_code, 409)
+            thread.assert_not_called()
+
+        for outcome in ("timeout", "unversioned", "success"):
+            with (
+                patch.object(writing_simulation.threading, "Thread") as thread,
+                self.captureOnCommitCallbacks(execute=True),
+            ):
+                for response in (post(refresh), post(refresh), self.client.get(endpoint, query)):
+                    self.assertIn(response.status_code, (200, 202))
+                    self.assertEqual(response.json()["status"], "processing")
+                    self.assertEqual(response.json()["report"], previous)
+                reopened = self.client.get(self._attempt_url(attempt)).context["saved_evaluation"]
+                self.assertEqual((reopened["status"], reopened["proposalEdit"]), ("processing", edits["groq"]))
+            thread.assert_called_once()
+            claim = thread.call_args.kwargs
+            error = evaluation.EvaluationError(504, "Bilan hors délai.") if outcome == "timeout" else None
+            with (
+                patch.object(writing_simulation, "close_old_connections"),
+                patch.object(writing_evaluation, "GRADER_VERSION", None if outcome == "unversioned" else 0),
+                patch.object(evaluation, "request_provider_report", return_value=provider_report, side_effect=error) as request,
+            ):
+                writing_simulation.run_evaluation(*claim["args"], **claim.get("kwargs", {}))
+            request.assert_called_once()
+            packet = request.call_args.args[2]
+            self.assertEqual((packet["subject"], packet["response"]), (attempt.snapshot["prompt"], body))
+            if outcome != "success":
+                failed = self.client.get(endpoint, query).json()
+                self.assertEqual((failed["status"], failed["report"]), ("unavailable", previous))
+                self.assertTrue(failed["retryable"])
+
+        attempt.refresh_from_db()
+        current = attempt.evaluation["reports"]["groq"]
+        self.assertEqual((current["graderVersion"], current["score"]), (0, provider_report["score"]))
+        self.assertEqual(attempt.evaluation["reports"], {"groq": current, "cloudflare": other_model})
+        self.assertEqual((attempt.body, attempt.proposal_edits), (body, edits))
+        with patch.object(writing_simulation.threading, "Thread") as thread, self.captureOnCommitCallbacks(execute=True):
+            self.assertEqual(post(refresh).json()["report"], current)
+        thread.assert_not_called()
+        self.client.force_login(self.other)
+        self.assertEqual(post(refresh).status_code, 404)
+
     def test_proposal_edit_requires_valid_text_csrf_and_an_owned_saved_proposal(self):
         self.client.post(self._start_url(), {"sujet_id": self.sujet.pk})
         attempt = WritingSimulationAttempt.objects.get(user=self.owner)

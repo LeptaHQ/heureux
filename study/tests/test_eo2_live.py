@@ -467,6 +467,69 @@ class GeminiLiveTests(TestCase):
         self.assertEqual(self.evaluate(url=url, simulation=simulation).json(), report)
         self.eval_connection.request.assert_called_once()
 
+    def test_refresh_requires_fresh_consent_and_replaces_only_a_verified_oral_bilan(self):
+        self.evaluation_fixture()
+        previous = {**self.ground(), "reason": "Bilan oral d’origine."}
+        other_model = {"score": 11, "graderVersion": 0}
+        session = self.review_session(self.rows, report=previous, provider_reports={"cloudflare": other_model})
+        subject = "La consigne conservée lors de la séance."
+        LiveSimulation.objects.filter(pk=session.pk).update(snapshot={"prompt": subject})
+        query = {"simulation": str(session.pk)}
+        data = {**query, "rows": self.rows, "consent": True, "refresh": True}
+
+        def post(**changes):
+            return self.post(url=self.eval_url, body=json.dumps({**data, **changes}))
+
+        def status():
+            return self.client.get(self.eval_url, query)
+
+        self.assertEqual(status().json(), previous)
+        self.assertEqual(self.evaluate(simulation=str(session.pk)).json(), previous)
+        self.assert_private(post(), 403)
+        self.assert_private(post(reviewGrant="signed-for-an-earlier-run"), 400)
+        self.assert_private(post(consent=False, pin=PILOT_PIN), 400)
+        self.assertFalse(OralEvaluationJob.objects.exists())
+        self.eval_connection.request.assert_not_called()
+
+        with patch.object(oral_evaluation, "GRADER_VERSION", 1):
+            self.assert_private(post(pin=PILOT_PIN), 202)
+        self.finish_job(session.pk)
+        self.eval_connection.request.assert_not_called()
+        self.assertTrue(status().json()["refreshError"])
+        session.refresh_from_db()
+        self.assertEqual(session.report, previous)
+
+        for outcome in ("timeout", "incomplete", "success"):
+            with self.subTest(outcome=outcome):
+                self.eval_connection.request.side_effect = TimeoutError() if outcome == "timeout" else None
+                raw = self.report
+                if outcome == "incomplete":
+                    raw = {**raw, "criteria": {**raw["criteria"], "task": {**raw["criteria"]["task"], "evidenceId": "E99"}}}
+                self.complete(json.dumps(raw))
+                self.assert_private(post(pin=PILOT_PIN), 202)
+                self.assert_private(post(pin=PILOT_PIN), 202)
+                self.assert_private(status(), 202)
+                self.assertEqual(OralEvaluationJob.objects.filter(simulation=session, provider="groq").count(), 1)
+                self.finish_job(session.pk)
+                session.refresh_from_db()
+                self.assertEqual(session.provider_reports, {"cloudflare": other_model})
+                current = status().json()
+                if outcome != "success":
+                    self.assertTrue(current.pop("refreshError"))
+                    self.assertEqual(current, previous)
+                    self.assertEqual(session.report, previous)
+                else:
+                    self.assertEqual((current["graderVersion"], current["reason"]), (0, raw["reason"]))
+                    self.assertEqual(session.report, current)
+        sent = json.loads(self.eval_connection.request.call_args.kwargs["body"])
+        self.assertEqual(json.loads(sent["messages"][1]["content"])["consigne"], subject)
+        self.assertEqual(session.rows, self.rows)
+        self.assertFalse(OralEvaluationJob.objects.exists())
+        self.assertEqual(post(pin=PILOT_PIN).json(), session.report)
+        self.assertEqual(self.eval_connection.request.call_count, 3)
+        self.client.force_login(self.other)
+        self.assert_private(post(pin=PILOT_PIN), 404)
+
     def test_review_gates_invalid_input_quota_and_auth(self):
         transport = self.evaluation_fixture()
         for changes in ({"consent": False}, {"notes": "private"}, {"rows": [self.rows[1]]},
@@ -1197,8 +1260,8 @@ class OralJobConcurrencyTests(TransactionTestCase):
         self.url = reverse("study:eo_tache_two_live_evaluation")
         self.query = {"simulation": str(self.session.pk)}
 
-    def enqueue(self, client):
-        return client.post(self.url, {**self.query, "consent": True, "pin": PILOT_PIN, "rows": self.rows},
+    def enqueue(self, client, **options):
+        return client.post(self.url, {**self.query, "consent": True, "pin": PILOT_PIN, "rows": self.rows, **options},
                            content_type="application/json")
 
     def concurrently(self, operation):
@@ -1215,9 +1278,11 @@ class OralJobConcurrencyTests(TransactionTestCase):
             requests = [pool.submit(run) for _ in range(2)]
             return [request.result(timeout=10) for request in requests]
 
-    def test_concurrent_posts_return_before_the_single_provider_call_completes(self):
+    def test_concurrent_refreshes_return_before_the_single_provider_call_completes(self):
         scoring, release = Event(), Event()
-        report = {"score": 12, "scoreStatus": "scored"}
+        previous = {"score": 10, "scoreStatus": "scored"}
+        LiveSimulation.objects.filter(pk=self.session.pk).update(report=previous)
+        report = {"score": 12, "scoreStatus": "scored", "graderVersion": 0}
 
         def grade(*args, **kwargs):
             scoring.set()
@@ -1228,7 +1293,7 @@ class OralJobConcurrencyTests(TransactionTestCase):
         def post():
             client = Client()
             client.cookies = self.client.cookies.copy()
-            return self.enqueue(client)
+            return self.enqueue(client, refresh=True)
 
         with patch.object(oral_evaluation, "score", side_effect=grade) as scorer:
             try:
@@ -1237,6 +1302,8 @@ class OralJobConcurrencyTests(TransactionTestCase):
                 self.assertTrue(scoring.wait(10))
                 self.assertEqual(self.client.get(self.url, self.query).status_code, 202)
                 self.assertEqual(OralEvaluationJob.objects.filter(simulation=self.session).count(), 1)
+                self.session.refresh_from_db()
+                self.assertEqual(self.session.report, previous)
             finally:
                 runner = oral_jobs._runner
                 release.set()

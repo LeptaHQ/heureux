@@ -1048,6 +1048,7 @@ class OralEvaluationJob(models.Model):
     simulation = models.ForeignKey(LiveSimulation, on_delete=models.CASCADE, related_name="evaluation_jobs")
     provider = models.CharField(max_length=16)
     copilot_link_id = models.PositiveBigIntegerField(null=True)
+    refresh_version = models.PositiveIntegerField(null=True)
     queued_at = models.DateTimeField(default=timezone.now)
     lease_id = models.UUIDField(null=True)
     lease_until = models.DateTimeField(null=True)

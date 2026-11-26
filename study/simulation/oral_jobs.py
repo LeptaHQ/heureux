@@ -12,7 +12,9 @@ from django.views.decorators.debug import sensitive_variables
 
 from study.models import LiveSimulation, OralEvaluationJob, Task
 from study.simulation import copilot_runtime, oral_evaluation
-from study.simulation.evaluation import DEADLINE_SECONDS, EvaluationError, available_providers, timed_phase
+from study.simulation.evaluation import (
+    DEADLINE_SECONDS, REFRESH_FAILED, EvaluationError, available_providers, is_older_report, timed_phase,
+)
 
 EO3_KEY_PREFIX = "eo3:"
 LEASE_DURATION = timedelta(seconds=DEADLINE_SECONDS + 30)
@@ -84,6 +86,8 @@ def _source(job):
 def _evaluate(job, source, *, timings=None):
     if source is None:
         return {"error": "Le bilan n’est pas disponible."}, 403
+    if job.refresh_version is not None and oral_evaluation.GRADER_VERSION < job.refresh_version:
+        return {"error": REFRESH_FAILED}, 503
     prompt, rows, monologue, user_id = source
     try:
         options = {}
@@ -108,24 +112,40 @@ def _evaluate(job, source, *, timings=None):
 def _finish(job, body, status):
     leased = pending_jobs().filter(pk=job.pk, lease_id=job.lease_id)
     if status != 200:
-        return bool(leased.update(error_status=status, error=body["error"]))
+        return status if leased.update(error_status=status, error=body["error"]) else None
     field = "report" if job.provider == "groq" else "provider_reports"
     session = LiveSimulation.objects.select_for_update(of=("self",)).only(field).filter(
         pk=job.simulation_id, user__is_active=True,
     ).first()
     current = leased.select_for_update().first()
     if current is None:
-        return False
+        return None
     if session is not None:
         previous = session.report if job.provider == "groq" else session.provider_reports.get(job.provider)
-        if not previous or (previous.get("scoreStatus") == "incomplete" and body.get("scoreStatus") == "scored"):
+        replace = not previous or (
+            previous and previous.get("scoreStatus") == "incomplete" and body.get("scoreStatus") == "scored"
+            and not is_older_report(body, previous.get("graderVersion"))
+        )
+        if current.refresh_version is not None:
+            version = body.get("graderVersion")
+            score_status = body.get("scoreStatus")
+            if not (
+                type(version) is int and version >= current.refresh_version and is_older_report(previous, version)
+                and (score_status == "scored" or (score_status == "insufficient" and previous.get("score") is None))
+            ):
+                current.error_status = 502
+                current.error = REFRESH_FAILED
+                current.save(update_fields=["error_status", "error"])
+                return current.error_status
+            replace = True
+        if replace:
             if job.provider == "groq":
                 session.report = body
             else:
                 session.provider_reports[job.provider] = body
             session.save(update_fields=[field])
     current.delete()
-    return session is not None
+    return status if session is not None else None
 
 
 @sensitive_variables()
@@ -141,8 +161,7 @@ def _run(job):
         with timed_phase(timings, "grading"):
             body, status = _evaluate(job, source, timings=timings)
         with timed_phase(timings, "save"):
-            if _finish(job, body, status):
-                persisted_status = status
+            persisted_status = _finish(job, body, status)
     finally:
         provider = job.provider if job.provider in oral_evaluation.PROVIDER_LABELS else "unknown"
         logger.info(

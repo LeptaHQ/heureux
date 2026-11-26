@@ -31,7 +31,7 @@
 {% endblock %}
 {% block assessment_controls %}
   {% if can_load_evaluation %}
-  <form id="writing-evaluation-form" data-evaluation-url="{% url route_names.evaluate attempt_id=attempt.pk %}" data-evaluation-status="{{ attempt.evaluation_status }}" data-evaluation-provider="{{ evaluation_provider }}" hidden>
+  <form id="writing-evaluation-form" data-evaluation-url="{% url route_names.evaluate attempt_id=attempt.pk %}" data-evaluation-status="{{ attempt.evaluation_status }}" data-evaluation-provider="{{ evaluation_provider }}" data-evaluation-label="{{ evaluation_provider_label }}" hidden>
     {% csrf_token %}
   </form>
   {% if saved_evaluation %}{{ saved_evaluation|json_script:"writing-saved-evaluation" }}{% endif %}
@@ -95,10 +95,10 @@
   <p class="lv-fineprint">Ce bilan n’est pas une note officielle du TCF.</p>
 {% endblock %}
 {% block debrief_retry %}
-  <a class="icon-button" href="{% url route_names.setup %}" aria-label="Nouvelle simulation" title="Nouvelle simulation">{% include "study/shared/partials/ui_icon.html" with name="reset" only %}</a>
+  <a class="icon-button" href="{{ session_task_url }}" aria-label="Nouvelle simulation" title="Nouvelle simulation">{% include "study/shared/partials/ui_icon.html" with name="reset" only %}</a>
 {% endblock %}
 {% block scripts %}
   {{ block.super }}
   <script defer src="{% static 'study/js/shared/prompt-copy.js' %}?v=4"></script>
-  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=23"></script>
+  <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=24"></script>
 {% endblock %}

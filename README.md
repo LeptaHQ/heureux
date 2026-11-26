@@ -151,6 +151,15 @@ unambiguous corrections and rephrasings. Older saved reports can still show the
 correction-only fallback without resending the text. Learners can copy the
 original or the proposal, and save their own edit. Edits are private,
 saved per model, and do not change the original, the corrections, or the grade.
+
+Saved writing and oral bilans record their grader version, starting at `0`.
+Unversioned reports are treated as older. **Actualiser le bilan** runs the
+current grader on the same saved attempt, for the selected available model only.
+Opening a report does not regenerate it. A successful refresh replaces that
+model's report without keeping a copy; a failure leaves the report intact.
+Personal proposal edits are independent of refreshes. Bump `GRADER_VERSION`
+in the relevant grader when a change warrants refreshing its existing bilans.
+
 In Render logs, filter for `writing evaluation` or `oral evaluation` and the
 attempt ID. The worker reports time before it started (`queue_ms`) separately
 from its own `elapsed_ms`. `phases_ms` breaks down loading, grading, and saving.

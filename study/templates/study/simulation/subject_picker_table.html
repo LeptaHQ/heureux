@@ -20,10 +20,7 @@
               <span class="t1-table__subject-date">{{ row.caption }}</span>
             </div>
             {% if picker.retry_markers %}
-              <form class="subject-bookmark{% if row.retry %} is-bookmarked{% endif %}" method="post" action="{{ row.status_url }}{% querystring %}">
-                {% csrf_token %}<input type="hidden" name="field" value="retry"><input type="hidden" name="value" value="{{ row.retry|yesno:'0,1' }}">
-                {% include "study/shared/partials/subject_bookmark_button.html" with pressed=row.retry label=row.title prefix="À refaire" remove="Retirer des sujets à refaire" add="Garder dans les sujets à refaire" only %}
-              </form>
+              {% include "study/simulation/partials/subject_retry_form.html" with status_url=row.status_url retry=row.retry subject_label=row.title picker_filters=True %}
             {% endif %}
           </div>
         </td>

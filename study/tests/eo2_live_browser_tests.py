@@ -221,7 +221,8 @@ class LiveConversationBrowserMixin:
         expect(self.page.get_by_role("navigation", name="Navigation entre les sujets")).to_be_visible()
         expect(self.page.locator("#prompt-select-top option[selected]")).to_contain_text(subject.title)
         self.page.set_viewport_size({"width": 1280, "height": 850})
-        self.assertLess(self.page.locator("#lv-title").bounding_box()["y"], self.page.locator(".lv-steps").bounding_box()["y"])
+        self.assertLess(self.page.locator(".lv-steps").bounding_box()["y"], self.page.locator("#lv-title").bounding_box()["y"])
+        expect(self.page.locator('.lv-step[aria-current="step"]')).to_have_attribute("data-step", "prep")
         expect(self.pin_dialog).to_be_hidden()  # The PIN waits for « Démarrer ».
         self.assertEqual(self.token_requests, [])
         self.start.click()
@@ -254,7 +255,8 @@ class LiveConversationBrowserMixin:
         expect(self.page.get_by_role("heading", level=1)).to_have_text("Simulation")
         self.page.set_viewport_size({"width": 390, "height": 844})
         self.page.evaluate("document.documentElement.dataset.theme = 'dark'")
-        self.assertLess(self.page.locator("#lv-title").bounding_box()["y"], self.page.locator(".lv-steps").bounding_box()["y"])
+        self.assertLess(self.page.locator(".lv-steps").bounding_box()["y"], self.page.locator("#lv-title").bounding_box()["y"])
+        expect(self.page.locator('.lv-step[aria-current="step"]')).to_have_attribute("data-step", "reading")
         self.assert_no_horizontal_overflow()
         expect(self.page).to_have_url(self.live_server_url + reverse("study:eo_tache_three_live", args=args))
         paragraphs = [
@@ -322,7 +324,8 @@ class LiveConversationBrowserMixin:
                          ["ended", True])
         expect(self.page.get_by_role("heading", name="Temps écoulé")).to_be_visible()
         expect(self.page.locator("#lv-status")).to_contain_text("Le micro est coupé")
-        expect(self.page.locator(".lv-track")).to_be_hidden()
+        expect(self.page.locator(".lv-track")).to_be_visible()
+        expect(self.page.locator('.lv-step[aria-current="step"]')).to_have_attribute("data-step", "live")
         expect(self.page.locator(".lv-orb")).to_be_hidden()
         self.assert_no_horizontal_overflow()
         self.page.evaluate("""() => {
@@ -339,6 +342,7 @@ class LiveConversationBrowserMixin:
         self.page.evaluate("delete document.hidden")
         expect(self.page.locator("#lv-level")).to_have_text("Bilan en préparation…")
         expect(self.page.locator("#lv-assessment-status")).to_be_visible()
+        expect(self.page.locator('.lv-step[aria-current="step"]')).to_have_attribute("data-step", "done")
         subject_card = self.page.locator("#lv-subject")
         expect(subject_card.locator("#lv-subject-prompt")).to_have_text(prompt.text)
         expect(subject_card.locator("#lv-status")).to_be_visible()

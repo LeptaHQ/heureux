@@ -11823,8 +11823,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
 .ee1-simulation {
   --ee1-ink: var(--tone-expression);
   --ee1-wash: var(--tone-expression-soft);
-  max-width: 62rem;
-  margin-inline: auto;
 }
 .ee1-simulation__head { margin: .5rem 0 1.25rem; }
 .ee1-simulation__head h1 {
@@ -11838,10 +11836,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
   margin: .45rem 0 0;
   color: var(--text-soft);
   line-height: 1.5;
-}
-.ee1-prompt-card {
-  padding: clamp(1rem, 2.3vw, 1.35rem);
-  background: var(--surface);
 }
 .ee1-checklist {
   display: grid;
@@ -11918,12 +11912,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
   font-variant-numeric: tabular-nums;
 }
 .ee1-timer.is-warning { border-color: var(--danger, #b42318); color: var(--danger, #b42318); }
-.ee1-prompt-card { margin-bottom: 1rem; }
-.ee1-prompt-card p {
-  margin: .65rem 0 0;
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
 .ee1-source-documents { margin-block: .75rem; }
 .ee1-source-documents summary { cursor: pointer; font-weight: 650; }
 .ee1-writing-editor__parts { display: grid; min-width: 0; gap: .75rem; }

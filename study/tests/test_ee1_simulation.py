@@ -150,6 +150,41 @@ class EE1SimulationTests(TestCase):
         self.assertContains(cleared, "Aucun sujet")
         self.assertTrue(WritingSujetCompletion.objects.filter(user=self.owner, sujet=self.sujet).exists())
 
+    def test_bilan_uses_private_markers_for_the_attempts_equivalent_subject(self):
+        subject = dict(
+            task=self.task, sujet=self.other_sujet, deadline_at=timezone.now(),
+            snapshot={"prompt": self.other_sujet.prompt},
+        )
+        attempt = WritingSimulationAttempt.objects.create(user=self.owner, **subject)
+        url = self._attempt_url(attempt)
+        self.assertNotContains(self.client.get(url), 'aria-label="Progression du sujet"')
+        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
+            status=WritingSimulationAttemptStatus.SUBMITTED,
+        )
+        WritingSujetCompletion.objects.create(user=self.owner, sujet=self.sujet)
+        WritingSimulationRetry.objects.create(user=self.owner, task=self.task, subject_key=self.sujet.slug)
+        with patch(
+            "study.views.writing_simulation.content_module.ee_writing_canonical_slug_by_slug",
+            return_value={self.other_sujet.slug: self.sujet.slug},
+        ):
+            bilan = self.client.get(url)
+            self.assertContains(bilan, reverse("study:ee1_subject_retry", args=[self.other_sujet.pk]))
+            self.assertContains(bilan, f'data-writing-sujet-id="{self.sujet.pk}"')
+            self.assertContains(bilan, 'aria-checked="true"', count=1)
+            self.assertContains(bilan, 'class="subject-bookmark is-bookmarked"', count=1)
+            self.client.force_login(self.other)
+            self.assertEqual(self.client.get(url).status_code, 404)
+            other_attempt = WritingSimulationAttempt.objects.create(
+                user=self.other, status=WritingSimulationAttemptStatus.SUBMITTED, **subject,
+            )
+            other_url = self._attempt_url(other_attempt)
+            other_bilan = self.client.get(other_url)
+            self.assertContains(other_bilan, 'aria-checked="false"', count=1)
+            self.assertNotContains(other_bilan, 'class="subject-bookmark is-bookmarked"')
+            self.other_sujet.is_active = False
+            self.other_sujet.save(update_fields=["is_active"])
+            self.assertNotContains(self.client.get(other_url), 'aria-label="Progression du sujet"')
+
     def test_subject_retry_is_private_and_independent_of_attempts(self):
         picker = reverse("study:ee1_subject_picker")
         endpoint = reverse("study:ee1_subject_retry", args=[self.sujet.pk])
@@ -199,8 +234,7 @@ class EE1SimulationTests(TestCase):
         self.assertEqual(response.context["active_nav_area"], "simulation")
         self.assertContains(response, 'class="lv-studio ee1-session"')
         self.assertContains(response, "Studio écrit · EE Tâche 1")
-        self.assertContains(response, "Expression écrite")
-        self.assertContains(response, 'data-step="live"')
+        self.assertContains(response, 'data-step="reading" aria-current="step"')
         self.assertContains(response, "Rédaction")
         self.assertContains(response, "60–120 mots")
         self.assertContains(response, "12 min")
@@ -371,7 +405,7 @@ class EE1SimulationTests(TestCase):
         self.assertTemplateUsed(result, "study/simulation/partials/session_header.html")
         self.assertTemplateUsed(result, "study/simulation/partials/session_status.html")
         self.assertContains(result, 'tabindex="-1">Simulation</h1>')
-        self.assertContains(result, ">Votre bilan</p>")
+        self.assertContains(result, ">Bilan</p>")
         self.assertContains(result, ">Séance enregistrée.</p>")
         self.assertContains(result, self.sujet.prompt)
         self.assertNotContains(result, "Une lecture concise")

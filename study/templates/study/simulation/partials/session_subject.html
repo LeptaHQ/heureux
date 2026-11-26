@@ -1,0 +1,27 @@
+{% load study_speech %}
+<details id="lv-subject" class="lv-subject lv-report-card" open>
+  <summary><h2>{% include "study/shared/partials/ui_icon.html" with name="file-text" only %} Sujet</h2></summary>
+  <div class="lv-subject__body"{% if read_prompt %} data-read-aloud-scope{% endif %}>
+    {% if read_prompt and session_debrief_prompt %}
+      <div class="lv-subject__consigne">
+        <p id="writing-prompt-text" data-read-aloud-text lang="fr" {% speech_attrs session_debrief_prompt private=False %}>{{ session_debrief_prompt|linebreaksbr }}</p>
+        {% include "study/audio/partials/read_aloud_button.html" with label="Lire la consigne en français" compact=True button_class="icon-button" target="writing-prompt-text" annotation_exclude=True only %}
+      </div>
+    {% else %}
+      <p id="lv-subject-prompt" lang="fr">{{ session_debrief_prompt|default:"Aucun sujet sélectionné."|linebreaksbr }}</p>
+    {% endif %}
+    {% include "study/simulation/partials/writing_documents.html" with expanded=documents_expanded %}
+    <div id="lv-subject-status">{% if session_is_debrief %}{% include "study/simulation/partials/session_status.html" %}{% endif %}</div>
+    <dl class="lv-glance">
+      {% if session_show_clock %}
+        <div><dt>Durée</dt><dd id="lv-fig-time">—</dd></div>
+        <div><dt>{% if monologue %}Mots transcrits{% else %}Vos répliques{% endif %}</dt><dd id="lv-fig-turns">—</dd></div>
+        <div class="lv-share" id="lv-share" hidden><dt>Part des mots</dt><dd><span>Vous <b id="lv-share-user"></b></span><span class="lv-share__bar" aria-hidden="true"><i id="lv-share-bar"></i></span><span>Interlocuteur <b id="lv-share-model"></b></span></dd></div>
+      {% else %}
+        <div><dt>Mots</dt><dd>{% if session_is_debrief %}{{ attempt.word_count|default:0 }} / {% endif %}{{ word_min }}–{{ word_max }}{% if not session_is_debrief %} mots{% endif %}</dd></div>
+        {% if session_subject_label %}<div><dt>Sujet</dt><dd>{{ session_subject_label }}</dd></div>{% endif %}
+        {% if session_section_limits and not session_is_debrief %}<div><dt>Sections</dt><dd>{{ session_section_limits }}</dd></div>{% endif %}
+      {% endif %}
+    </dl>
+  </div>
+</details>

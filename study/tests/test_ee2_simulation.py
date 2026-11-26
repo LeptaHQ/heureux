@@ -190,7 +190,7 @@ class EE2SimulationTests(TestCase):
             "action": "submit", "body": " ".join(["Bonjour"] * 120),
             "draft_revision": self.client.get(url).context["draft_revision"],
         })
-        self.assertContains(self.client.get(url), ">Votre bilan</p>")
+        self.assertContains(self.client.get(url), ">Bilan</p>")
         self.assertEqual(
             self.client.get(reverse("study:ee1_simulation_attempt", args=[attempt.pk])).status_code, 404,
         )

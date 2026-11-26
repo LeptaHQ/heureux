@@ -14,7 +14,7 @@ from uuid import UUID
 
 from django.conf import settings
 from django.db import DatabaseError, close_old_connections, connections, transaction
-from django.db.models import Count, Max, Q
+from django.db.models import Count, Exists, Max, OuterRef, Q
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -37,6 +37,7 @@ from study.models import (
     WritingSimulationEvaluationStatus,
     WritingSimulationRetry,
     WritingSujet,
+    WritingSujetCompletion,
 )
 from study.navigation.routing import subject_selection_url
 from study.review.progress import writing_sujet_progress_by_id
@@ -192,6 +193,14 @@ def _subject_id(value):
     return int(value) if 0 < len(value) <= 18 and value.isascii() and value.isdecimal() else None
 
 
+def _subject_retry_group(task, spec, subject_id):
+    group_field = "response__content_key" if spec.number == 3 else "slug"
+    key = _subjects(task, spec).filter(pk=subject_id).values_list(group_field, flat=True).first()
+    if key is None or spec.number == 3:
+        return key
+    return content_module.ee_writing_canonical_slug_by_slug(spec.number).get(key, key)
+
+
 def _attempt_url(request, spec, attempt_id, *, saved=False):
     return subject_selection_url(
         reverse(spec.route_names["attempt"], args=[attempt_id], query={"saved": 1} if saved else None),
@@ -227,11 +236,7 @@ def _writing_navigation(request, spec, task, subject_id, *, theme="", label="", 
     )
 
 
-def _session_steps(spec, minutes):
-    word_limits = spec.word_range
-    if spec.number == 3:
-        synthesis, opinion = content_module.EE_TACHE_THREE_SECTION_LIMITS
-        word_limits = f"{synthesis[0]}–{synthesis[1]} mots · {opinion[0]}–{opinion[1]} mots"
+def _session_steps(minutes):
     return [
         {
             "key": "reading",
@@ -242,7 +247,6 @@ def _session_steps(spec, minutes):
             "key": "live",
             "name": "Rédaction",
             "meta": f"{minutes} min",
-            "about": word_limits,
         },
         {
             "key": "done",
@@ -255,21 +259,25 @@ def _session_steps(spec, minutes):
 def _session_context(
     spec,
     *,
-    selected_subject="",
+    step,
+    prompt="",
     minutes=None,
 ):
     minutes = spec.minutes if minutes is None else minutes
-    route_names = spec.route_names
+    steps = _session_steps(minutes)
     return {
         "simulation": spec.context,
         **spec.context,
-        "route_names": route_names,
+        "route_names": spec.route_names,
         "session_brand_icon": "pen-line",
         "session_brand": f"Studio écrit · {spec.task_label}",
-        "session_kicker": "Expression écrite",
-        "session_selected_subject": selected_subject,
-        "session_steps": _session_steps(spec, minutes),
-        "session_show_clock": False,
+        "session_kicker": next(item["name"] for item in steps if item["key"] == step),
+        "session_step": step,
+        "session_debrief_prompt": content_module.ee_tache_three_instruction(prompt) if spec.number == 3 and prompt else prompt,
+        "session_steps": steps,
+        "session_section_limits": " · ".join(
+            f"{minimum}–{maximum} mots" for minimum, maximum in content_module.EE_TACHE_THREE_SECTION_LIMITS
+        ) if spec.number == 3 else "",
     }
 
 
@@ -365,11 +373,9 @@ def set_subject_retry(request, spec, subject_id):
         message = "Statut non reconnu."
         return JsonResponse({"error": message}, status=400) if background else HttpResponseBadRequest(message)
 
-    comparison = spec.number == 3
-    group_field = "response__content_key" if comparison else "slug"
-    key = get_object_or_404(_subjects(task, spec).values_list(group_field, flat=True), pk=subject_id)
-    if not comparison:
-        key = content_module.ee_writing_canonical_slug_by_slug(spec.number).get(key, key)
+    key = _subject_retry_group(task, spec, subject_id)
+    if key is None:
+        raise Http404
     marker = {"user": request.user, "task": task, "subject_key": key}
     retry = values == ["1"]
     if retry:
@@ -385,10 +391,11 @@ def _setup_context(request, spec, task):
     selected_sujet_id = request.GET.get("sujet_id", "")
     selected_sujet = None
     category = {}
+    prompt, documents = "", ()
     if selected_sujet_id:
         subjects = _subjects(task, spec)
         if spec.number == 3:
-            subjects = subjects.select_related("theme").only("text", "theme__slug", "theme__display_name")
+            subjects = subjects.select_related("theme").only("text", "content_key", "theme__slug", "theme__display_name")
         else:
             subjects = subjects.only("prompt", "category", "category_label")
         selected_sujet = subjects.filter(pk=_subject_id(selected_sujet_id)).first()
@@ -399,6 +406,11 @@ def _setup_context(request, spec, task):
                 {"theme": selected_sujet.theme.slug, "label": selected_sujet.theme.display_name}
                 if spec.number == 3 else {"theme": selected_sujet.category, "label": selected_sujet.category_label}
             )
+            if spec.number == 3:
+                _, source = catalogue.ee_tache_three_sources_by_key()[selected_sujet.content_key]
+                prompt, documents = selected_sujet.text, (source.document1, source.document2)
+            else:
+                prompt = selected_sujet.prompt
     attempts = WritingSimulationAttempt.objects.filter(user=request.user, task=task)
     if selected_sujet:
         field = "prompt_id" if spec.number == 3 else "sujet_id"
@@ -425,12 +437,11 @@ def _setup_context(request, spec, task):
     if "seances" in request.GET:
         delete_query["seances"] = request.GET["seances"]
     return {
-        **_session_context(
-            spec,
-            selected_subject=(selected_sujet.text if spec.number == 3 else selected_sujet.prompt) if selected_sujet else "",
-        ),
+        **_session_context(spec, step="reading", prompt=prompt),
         **_writing_navigation(request, spec, task, selected_sujet.pk if selected_sujet else None, **category),
         "task": task,
+        "documents": documents,
+        "session_subject_label": category.get("label", ""),
         **saved_session_context(request, attempts, saved_row),
         "selected_sujet_id": selected_sujet_id,
         "start_url": subject_selection_url(reverse(spec.route_names["start"]), request),
@@ -564,11 +575,11 @@ def _attempt_context(request, attempt, spec, *, error="", now=None, revision=Non
     remaining = math.ceil((attempt.deadline_at - now).total_seconds())
     minutes, seconds = divmod(max(0, remaining), 60)
     word_min, word_max = _attempt_limits(attempt, spec)
-    prompt = attempt.snapshot.get("prompt", "")
     provider, link_id = _automatic_evaluation_for(request, spec)
     context = _session_context(
         spec,
-        selected_subject=attempt.snapshot.get("prompt", ""),
+        step="live",
+        prompt=attempt.snapshot.get("prompt", ""),
         minutes=attempt.snapshot.get("simulation_minutes", spec.minutes),
     )
     context.update(
@@ -576,14 +587,14 @@ def _attempt_context(request, attempt, spec, *, error="", now=None, revision=Non
             **_attempt_navigation(request, attempt, spec),
             "attempt": attempt,
             "task": attempt.task,
-            "prompt": content_module.ee_tache_three_instruction(prompt) if spec.number == 3 else prompt,
-            "category_label": attempt.snapshot.get("category_label", ""),
+            "session_subject_label": attempt.snapshot.get("category_label", ""),
             "remaining_seconds": remaining,
             "remaining_minutes": minutes,
             "remaining_second_remainder": seconds,
             "word_count": _word_count(attempt),
             "response_parts": _response_parts(attempt, spec),
             "documents": attempt.snapshot.get("documents", ()),
+            "documents_expanded": True,
             "word_min": word_min,
             "word_max": word_max,
             "max_body_length": MAX_BODY_LENGTH,
@@ -658,6 +669,26 @@ def _finished_attempt_response(request, attempt, spec, draft):
     return render(request, "study/simulation/writing_simulation_result.html", context, status=409)
 
 
+def _result_subject_markers(request, attempt, spec):
+    subject_id = attempt.prompt_id if spec.number == 3 else attempt.sujet_id
+    if not subject_id:
+        return None
+    key = _subject_retry_group(attempt.task, spec, subject_id)
+    if key is None:
+        return None
+    markers = {
+        "retry_url": reverse(spec.route_names["retry"], args=[subject_id]),
+        "retry": WritingSimulationRetry.objects.filter(
+            user=request.user, task=attempt.task, subject_key=key,
+        ).exists(),
+    }
+    if spec.number != 3:
+        markers["completion_sujet"] = _subjects(attempt.task, spec).filter(slug=key).only("id").annotate(
+            explicitly_completed=Exists(WritingSujetCompletion.objects.filter(user=request.user, sujet_id=OuterRef("pk"))),
+        ).first()
+    return markers
+
+
 def _result_context(request, attempt, spec):
     word_min, word_max = _attempt_limits(attempt, spec)
     copilot_connected = bool(github_copilot.active_link_id(request))
@@ -673,6 +704,8 @@ def _result_context(request, attempt, spec):
     prompt = attempt.snapshot.get("prompt", "")
     context = _session_context(
         spec,
+        step="done",
+        prompt=prompt,
         minutes=attempt.snapshot.get("simulation_minutes", spec.minutes),
     )
     submitted = attempt.status == WritingSimulationAttemptStatus.SUBMITTED
@@ -688,7 +721,8 @@ def _result_context(request, attempt, spec):
         "attempt": attempt,
         "task": attempt.task,
         "session_is_debrief": True,
-        "session_debrief_prompt": content_module.ee_tache_three_instruction(prompt) if spec.number == 3 and prompt else prompt,
+        "session_markers": _result_subject_markers(request, attempt, spec),
+        "session_subject_label": attempt.snapshot.get("category_label", ""),
         "session_saved": submitted,
         "session_notice": "Cette session a été abandonnée et reste privée dans votre historique."
         if attempt.status == WritingSimulationAttemptStatus.ABANDONED else "",

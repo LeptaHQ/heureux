@@ -80,8 +80,13 @@ subject picker. The arrows open another subject’s studio without starting it.
 The existing **Dédupliquer** control is on by default in subject lists and
 next/previous navigation. Equivalent publications share completion and retry
 markers; each saved session still belongs to its exact consigne.
-In both oral and written debriefs, the collapsible **Sujet** card groups the
-original consigne, session status and metrics.
+The shared stage bar stays above the studio title. In writing, **Consigne →
+Rédaction → Bilan** marks the current stage without skipping ahead. Each
+writing stage uses the same collapsible **Sujet** card; its bilan adds the
+session status and metrics. The writing bilan’s heading also offers **À refaire**
+and, for EE1/EE2, **Terminé**, using the same subject markers as the picker
+without changing or rerunning the bilan. Oral bilans use the same subject card
+with transcript metrics.
 Icon-only actions have accessible labels; task titles, limits and timers remain
 visible.
 Oral and written studios use the same saved-session list. Its trash icon

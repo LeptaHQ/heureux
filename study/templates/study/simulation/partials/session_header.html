@@ -1,7 +1,19 @@
+<div class="lv-track">
+  <ol class="lv-steps" aria-label="Déroulé de la séance">
+    {% for step in session_steps %}
+      <li class="lv-step" data-step="{{ step.key }}"{% if step.key == session_step %} aria-current="step"{% endif %}>
+        <span class="lv-step__name">{{ step.name }}</span>
+        <span class="lv-step__meta">{{ step.meta }}</span>
+        <span class="lv-step__bar" aria-hidden="true"><i></i></span>
+      </li>
+    {% endfor %}
+  </ol>
+  {% if session_show_clock %}
+    <div class="lv-time" id="lv-time" hidden><span id="lv-phase">Préparation</span><span id="lv-clock" role="timer" aria-label="Temps restant">02:00</span></div>
+  {% endif %}
+</div>
 <header class="lv-head">
-  {% with debrief_label="Votre bilan" %}
-    <p class="lv-kicker" id="{{ session_kicker_id|default:'lv-kicker' }}" data-debrief-label="{{ debrief_label }}">{% if session_is_debrief %}{{ debrief_label }}{% else %}{{ session_kicker }}{% endif %}</p>
-  {% endwith %}
+  <p class="lv-kicker" id="{{ session_kicker_id|default:'lv-kicker' }}" data-debrief-label="Votre bilan">{{ session_kicker }}</p>
   <div class="lv-title-row">
     <h1 id="{{ session_heading_id|default:'lv-title' }}" tabindex="-1">Simulation</h1>
     {% if session_title_assessment %}
@@ -13,22 +25,15 @@
         <button class="icon-button" type="button" title="Actualiser le bilan"{% if evaluation_refresh_inputs %} aria-describedby="lv-refresh-disclosure"{% endif %}>{% include "study/shared/partials/ui_icon.html" with name="reset" only %}</button>
       </div>
     {% endif %}
+    {% if session_markers %}
+      <div class="lv-heading-markers" role="group" aria-label="Progression du sujet" data-simulation-topic-markers>
+        {% include "study/simulation/partials/subject_retry_form.html" with status_url=session_markers.retry_url retry=session_markers.retry subject_label=session_debrief_prompt %}
+        {% if session_markers.completion_sujet %}
+          {% include "study/expression/ee/partials/writing_sujet_completion_form.html" with sujet=session_markers.completion_sujet completed=session_markers.completion_sujet.explicitly_completed subject_label=session_debrief_prompt part=task.part %}
+        {% endif %}
+      </div>
+    {% endif %}
   </div>
   <p class="lv-prompt" id="{{ session_prompt_id|default:'lv-prompt' }}">{{ session_prompt }}</p>
   {% if session_selected_subject %}<p class="lv-selected-subject">Sujet choisi · {{ session_selected_subject }}</p>{% endif %}
 </header>
-<div class="lv-track">
-  <ol class="lv-steps" aria-label="Déroulé de la séance">
-    {% for step in session_steps %}
-      <li class="lv-step" data-step="{{ step.key }}">
-        <span class="lv-step__name">{{ step.name }}</span>
-        <span class="lv-step__meta">{{ step.meta }}</span>
-        <span class="lv-step__bar" aria-hidden="true"><i></i></span>
-        {% if step.about %}<span class="lv-step__about">{{ step.about }}</span>{% endif %}
-      </li>
-    {% endfor %}
-  </ol>
-  {% if session_show_clock %}
-    <div class="lv-time" id="lv-time" hidden><span id="lv-phase">Préparation</span><span id="lv-clock" role="timer" aria-label="Temps restant">02:00</span></div>
-  {% endif %}
-</div>

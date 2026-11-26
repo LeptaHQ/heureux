@@ -57,6 +57,7 @@
     const form = event.target;
     const field = form.elements.field?.value;
     if (field !== "done" && field !== "retry") return;
+    const row = form.closest("tr");
     event.preventDefault();
     const button = form.querySelector("button");
     if (button.hasAttribute("aria-busy")) return;
@@ -75,10 +76,12 @@
       if (!response.ok) throw new Error();
       const saved = await response.json();
       if (saved.field !== field || saved.value !== checked) throw new Error();
-      refreshNeeded = true;
+      if (row) refreshNeeded = true;
     } catch {
       mark(form, !checked);
-      message(`Modification non confirmée pour « ${form.closest("tr").querySelector(".t1-table__subject a").textContent} ». Réessayez.`);
+      const subject = row?.querySelector(".t1-table__subject a")?.textContent;
+      message(subject ? `Modification non confirmée pour « ${subject} ». Réessayez.` :
+        "Impossible d’enregistrer cette progression. Réessayez.");
     } finally {
       button.removeAttribute("aria-busy");
       button.removeAttribute("aria-disabled");

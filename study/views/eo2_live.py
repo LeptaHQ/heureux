@@ -261,7 +261,7 @@ def oral_live(request, task_slug, **publication):
     else:
         session_kicker = "Interaction"
         session_steps = [
-            {"key": "prep", "name": "Préparation", "meta": "2 min", "about": "Le chrono part une fois le sujet lu, micro coupé."},
+            {"key": "prep", "name": "Préparation", "meta": "2 min"},
             {"key": "live", "name": "Échange", "meta": "3 min 30"},
             {"key": "done", "name": "Bilan", "meta": ""},
         ]
@@ -304,6 +304,7 @@ def oral_live(request, task_slug, **publication):
         "session_debrief_prompt": subject.prompt,
         "session_selected_subject": subject.title if subject_url and not monologue else "",
         "session_steps": session_steps,
+        "session_step": "done" if reopened else session_steps[0]["key"],
         "session_show_clock": True,
     })
 

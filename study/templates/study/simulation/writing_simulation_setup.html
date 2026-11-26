@@ -1,7 +1,7 @@
 {% extends "study/simulation/session.html" %}
 {% block title %}Simulation · {{ simulation.label }} · Heureux{% endblock %}
 {% block studio_classes %} ee1-session{% endblock %}
-{% block studio_attributes %}id="writing-session" data-state="setup"{% endblock %}
+{% block studio_attributes %}id="writing-session" data-state="setup" data-mode="writing" aria-labelledby="lv-title"{% endblock %}
 {% block session_body %}
     <section class="lv-setup" aria-label="Lancer la séance">
       <form method="post" action="{{ start_url }}">

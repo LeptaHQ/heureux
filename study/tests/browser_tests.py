@@ -309,6 +309,74 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(done).to_be_checked()
         expect(retry).to_have_attribute("aria-pressed", "false")
 
+    def test_writing_bilan_markers_stay_on_the_heading_and_save_without_grading(self):
+        task = factories.make_task(factories.make_part("ee"), "tache-1")
+        sujet = factories.make_writing_sujet(task, slug="invitation", prompt="Invitez une amie à dîner.")
+        provider = "copilot-mai"
+        report = {
+            "score": 12, "graderVersion": writing_evaluation.GRADER_VERSION - 1,
+            "taskCompliance": [], "criteria": [], "strengths": [], "corrections": [],
+            "relevance": [], "upgrades": [], "priorities": [],
+        }
+        attempt = WritingSimulationAttempt.objects.create(
+            user=self.user, task=task, sujet=sujet, deadline_at=timezone.now(),
+            status=WritingSimulationAttemptStatus.SUBMITTED,
+            snapshot={"prompt": sujet.prompt}, body="Je t’invite à dîner samedi.",
+            evaluation_status=WritingSimulationEvaluationStatus.READY,
+            evaluation={"provider": provider, "reports": {provider: report}},
+            proposal_edits={provider: {"parts": ["Ma proposition."], "wordCount": 2}},
+        )
+        url = self.live_server_url + reverse("study:ee1_simulation_attempt", args=[attempt.pk])
+        evaluation = reverse("study:ee1_simulation_evaluate", args=[attempt.pk])
+        retry_url = reverse("study:ee1_subject_retry", args=[sujet.pk])
+        reads = []
+        self.page.on("request", lambda request: reads.append(request.method) if urlsplit(request.url).path == evaluation else None)
+        with mock.patch("study.accounts.github_copilot.active_link_id", return_value=42):
+            self.page.goto(url)
+            title = self.page.locator(".lv-title-row")
+            heading = title.get_by_role("heading", name="Simulation")
+            model_picker = title.get_by_role("button", name="Choisir le modèle d’évaluation")
+            refresh = title.get_by_role("button", name="Actualiser le bilan")
+            retry = title.get_by_role("button", name=f"À refaire : {sujet.prompt}")
+            done = title.get_by_role("checkbox")
+            for width in (1100, 320):
+                self.page.set_viewport_size({"width": width, "height": 900})
+                boxes = [button.bounding_box() for button in (heading, model_picker, refresh, retry, done)]
+                centers = [box["y"] + box["height"] / 2 for box in boxes]
+                self.assertLessEqual(max(centers) - min(centers), 1, f"Title wraps at {width}px: {boxes}")
+                for left, right in zip(boxes, boxes[1:]):
+                    self.assertLessEqual(left["x"] + left["width"], right["x"])
+                done_box, row_box = boxes[-1], title.bounding_box()
+                self.assertAlmostEqual(done_box["x"] + done_box["width"], row_box["x"] + row_box["width"], delta=1)
+                self.assert_no_horizontal_overflow()
+
+            retry_pattern = "**" + retry_url
+            self.page.route(retry_pattern, lambda route: route.fulfill(status=503, body=""))
+            retry.click()
+            expect(self.page.locator("[data-subject-progress-toast]")).to_contain_text("Réessayez.")
+            expect(retry).to_have_attribute("aria-pressed", "false")
+            self.page.unroute(retry_pattern)
+
+            with self.page.expect_response(lambda response: urlsplit(response.url).path == retry_url) as saved:
+                retry.click()
+            self.assertEqual(saved.value.json(), {"field": "retry", "value": True})
+            expect(retry).not_to_have_attribute("aria-busy", "true")
+            expect(retry).to_be_focused()
+            expect(done).not_to_be_checked()
+            self.click_subject_marker(done)
+            expect(done).to_be_checked()
+            expect(retry).to_have_attribute("aria-pressed", "true")
+            expect(self.page.locator("#lv-level")).to_have_text("12/20")
+            expect(self.page.locator("#lv-proposal-lines p")).to_have_text("Ma proposition.")
+
+            self.page.reload()
+            expect(retry).to_have_attribute("aria-pressed", "true")
+            expect(done).to_be_checked()
+            expect(model_picker).to_be_visible()
+            expect(refresh).to_be_visible()
+            self.assertEqual(self.page.url, url)
+            self.assertEqual(reads, [])
+
     def test_service_worker_retries_failed_assets_and_preserves_other_caches(self):
         worker = self.client.get("/sw.js").content.decode()
         result = self.page.evaluate(
@@ -663,6 +731,25 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         next_setup = self.live_server_url + reverse("study:ee1_simulation", query={"sujet_id": next_sujet.pk})
         self.page.set_viewport_size({"width": 320, "height": 900})
         self.page.goto(setup)
+
+        def stage_layout(label, key):
+            track = self.page.get_by_role("list", name="Déroulé de la séance")
+            title = self.page.locator("#lv-title")
+            expect(track.locator(".lv-step__name")).to_have_text(["Consigne", "Rédaction", "Bilan"])
+            expect(track.locator('[aria-current="step"]')).to_have_attribute("data-step", key)
+            expect(self.page.locator("#lv-kicker")).to_have_text(label)
+            expect(title).to_have_text("Simulation")
+            subject = self.page.locator("#lv-subject")
+            expect(subject.locator("summary")).to_have_text("Sujet")
+            expect(subject.locator("p").first).to_have_text(sujet.prompt)
+            bar = track.locator('[aria-current="step"] .lv-step__bar')
+            self.assertAlmostEqual(bar.bounding_box()["width"], bar.locator("i").bounding_box()["width"], delta=1)
+            self.assertLess(track.bounding_box()["y"], title.bounding_box()["y"])
+            self.assertLess(title.bounding_box()["y"], subject.bounding_box()["y"])
+            self.assert_no_horizontal_overflow()
+            return title.evaluate("node => [node.offsetLeft, getComputedStyle(node).color, getComputedStyle(node).fontSize]")
+
+        shared_heading = stage_layout("Consigne", "reading")
         nav = self.page.get_by_role("navigation", name="Navigation entre les sujets")
         nav.get_by_role("link", name=re.compile(r"^Sujet suivant")).click()
         expect(self.page).to_have_url(next_setup)
@@ -677,6 +764,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(start).to_have_text("Démarrer")
         expect(start.locator('[data-icon="play"]')).to_be_visible()
         start.click()
+        self.assertEqual(stage_layout("Rédaction", "live"), shared_heading)
         self.page.locator("#writing-body").fill("Ce brouillon reste en place.")
         for label, icon in (("Enregistrer le brouillon", "save"), ("Remettre la réponse", "check")):
             button = self.page.get_by_role("button", name=label)
@@ -713,6 +801,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         dialog.get_by_role("button", name="Abandonner", exact=True).click()
         expect(self.page.get_by_text("Cette session a été abandonnée", exact=False)).to_be_visible()
         expect(self.page.locator("#lv-transcript")).to_contain_text(draft)
+        self.assertEqual(stage_layout("Bilan", "done"), shared_heading)
 
         self.page.goto(setup)
         saved = self.page.locator(".lv-saved li")
@@ -905,7 +994,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(proposal.locator("[data-writing-rewrite-note]")).to_contain_text("Vérifiez les points signalés")
         self.assertEqual(proposal.locator("#lv-proposal-lines p").all_text_contents(), corrected.split("\n\n"))
         title = self.page.get_by_role("heading", name="Simulation", exact=True)
-        expect(self.page.locator("#lv-kicker")).to_have_text("Votre bilan")
+        expect(self.page.locator("#lv-kicker")).to_have_text("Bilan")
         subject_card = self.page.locator("#lv-subject")
         prompt = subject_card.locator("#lv-subject-prompt")
         expect(prompt).to_have_text(sujet.prompt)

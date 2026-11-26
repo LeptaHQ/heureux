@@ -24,6 +24,7 @@
     <section id="lv-setup" class="lv-setup" aria-label="Lancer la séance">
       {% csrf_token %}
       {% include "study/simulation/partials/start_action.html" with button_type="button" disabled=True only %}
+      {% if not monologue %}<p class="lv-setup-note">Le chrono part une fois le sujet lu, micro coupé.</p>{% endif %}
       {% include "study/simulation/partials/saved_sessions.html" %}
     </section>
     <details class="lv-notepad" id="lv-notepad" hidden>
@@ -63,11 +64,6 @@
         <div><h2>Aucune parole transcrite</h2>
           <p>Vérifiez votre micro, puis réessayez.</p></div>
       </div>
-{% endblock %}
-{% block report_metrics %}
-          <div><dt>Durée</dt><dd id="lv-fig-time">—</dd></div>
-          <div><dt>{% if monologue %}Mots transcrits{% else %}Vos répliques{% endif %}</dt><dd id="lv-fig-turns">—</dd></div>
-          <div class="lv-share" id="lv-share" hidden><dt>Part des mots</dt><dd><span>Vous <b id="lv-share-user"></b></span><span class="lv-share__bar" aria-hidden="true"><i id="lv-share-bar"></i></span><span>Interlocuteur <b id="lv-share-model"></b></span></dd></div>
 {% endblock %}
 {% block assessment_result %}
             <p id="lv-assessment-reason"></p>
@@ -116,6 +112,6 @@
 {% if gemini_live_available or saved_simulation %}
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-evaluation.js' %}?v=26"></script>
 <script defer src="{% static 'study/js/expression/eo/tache_2/live-review.js' %}?v=12"></script>
-<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=26"></script>
+<script defer src="{% static 'study/js/expression/eo/tache_2/live.js' %}?v=27"></script>
 {% endif %}
 {% endblock %}

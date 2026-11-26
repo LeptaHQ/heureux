@@ -17,15 +17,6 @@
   {% endif %}
 {% endblock %}
 
-{% block subject_documents %}
-  {% include "study/simulation/partials/writing_documents.html" %}
-{% endblock %}
-
-{% block report_metrics %}
-  <div><dt>Mots</dt><dd>{{ attempt.word_count|default:0 }} / {{ word_min }}–{{ word_max }}</dd></div>
-  <div><dt>Sujet</dt><dd>{{ attempt.snapshot.category_label }}</dd></div>
-{% endblock %}
-
 {% block assessment %}
   {% if show_evaluation %}{{ block.super }}{% endif %}
 {% endblock %}
@@ -102,6 +93,8 @@
 {% endblock %}
 {% block scripts %}
   {{ block.super }}
+  {% if session_markers.completion_sujet %}{% include "study/expression/partials/subject_progress_script.html" %}{% endif %}
+  {% if session_markers %}<script defer src="{% static 'study/js/expression/eo/tache_2/topic-markers.js' %}?v=4"></script>{% endif %}
   <script defer src="{% static 'study/js/shared/prompt-copy.js' %}?v=4"></script>
   <script defer src="{% static 'study/js/expression/ee/writing-simulation-evaluation.js' %}?v=25"></script>
 {% endblock %}

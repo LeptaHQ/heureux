@@ -18,7 +18,9 @@
   const initialTitle = by("title").textContent;
   const initialKicker = by("kicker").textContent;
   let debriefPrompt = root.dataset.scenarioPrompt;
-  const stepOf = {reading:"reading",prep:"prep",connecting:"live",live:"live",done:"done"};
+  const firstStep = opinion ? "reading" : "prep";
+  const stepOf = {setup:firstStep,authorizing:firstStep,loading:firstStep,reading:firstStep,prep:"prep",
+    connecting:"live",live:"live",draining:"live",done:"done"};
   const audioPhases = ["loading","reading","connecting","live"];
   let active;
   const state = () => root.dataset.state;

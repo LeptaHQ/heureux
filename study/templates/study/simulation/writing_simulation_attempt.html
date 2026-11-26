@@ -1,9 +1,9 @@
 {% extends "study/simulation/session.html" %}
-{% load static study_links study_speech %}
+{% load static study_links %}
 {% block title %}Simulation · {{ simulation.label }} · En cours · Heureux{% endblock %}
 
 {% block studio_classes %} ee1-session ee1-simulation ee1-simulation--attempt{% endblock %}
-{% block studio_attributes %}id="writing-session" data-state="live" aria-labelledby="lv-title"{% endblock %}
+{% block studio_attributes %}id="writing-session" data-state="live" data-mode="writing" aria-labelledby="lv-title"{% endblock %}
 {% block session_body %}
     <div class="ee1-attempt__timerbar">
       <div class="ee1-timer" data-writing-timer data-ee1-timer data-remaining="{{ remaining_seconds }}" role="timer" aria-live="polite">
@@ -34,15 +34,6 @@
     {% if error %}<div class="auth-error" role="alert">{{ error }}</div>{% endif %}
     {% if draft_conflict %}<a class="btn" href="{% subject_url route_names.attempt attempt.pk %}">Recharger le brouillon enregistré</a>{% endif %}
     {% if request.GET.saved and not error %}<div class="notice" role="status">Brouillon enregistré.</div>{% endif %}
-
-    <section class="card ee1-prompt-card" data-read-aloud-scope aria-labelledby="writing-prompt-title">
-      <div class="response-batches__head">
-        <div class="spine-label" id="writing-prompt-title">Consigne</div>
-        {% include "study/audio/partials/read_aloud_button.html" with label="Lire la consigne en français" compact=True button_class="icon-button" target="writing-prompt-text" annotation_exclude=True only %}
-      </div>
-      <p id="writing-prompt-text" data-read-aloud-text lang="fr" {% speech_attrs prompt private=False %}>{{ prompt|linebreaksbr }}</p>
-      {% include "study/simulation/partials/writing_documents.html" with expanded=True %}
-    </section>
 
     <form id="writing-form" method="post" class="ee1-writing-form" data-writing-form data-ee1-form>
       {% csrf_token %}

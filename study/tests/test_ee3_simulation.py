@@ -48,6 +48,10 @@ class EE3SimulationTests(TestCase):
         invalid_retry = reverse("study:ee3_subject_retry", args=[self.invalid_prompt.pk])
         self.assertEqual(self.client.post(invalid_retry, {"field": "retry", "value": "1"}).status_code, 404)
         self.assertEqual(self.client.post(self.start_url, {"sujet_id": self.invalid_prompt.pk}).status_code, 404)
+        setup = self.client.get(reverse("study:ee3_simulation", query={"sujet_id": self.prompt.pk}))
+        self.assertContains(setup, self.valid.sujet)
+        self.assertEqual(setup.context["documents"], (self.valid.document1, self.valid.document2))
+        self.assertFalse(WritingSimulationAttempt.objects.filter(user=self.user).exists())
         attempt, url = self.start()
         self.assertEqual(attempt.deadline_at - attempt.started_at, timedelta(minutes=30))
         self.assertEqual(attempt.prompt_id, self.prompt.pk)
@@ -149,7 +153,7 @@ class EE3SimulationTests(TestCase):
                          (response["body"], response["position_body"], deadline, WritingSimulationAttemptStatus.SUBMITTED))
 
     def test_equivalent_comparison_prompts_are_listed_once_but_keep_separate_history(self):
-        attempt, _ = self.start()
+        attempt, attempt_url = self.start()
         other_source = next(
             source for _, source in catalogue.ee_tache_three_sources_by_key().values()
             if source.has_usable_documents and source.content_key != self.prompt.content_key
@@ -163,6 +167,12 @@ class EE3SimulationTests(TestCase):
         picker_url = reverse("study:ee3_subject_picker")
         rows = self.client.get(picker_url, {"etat": "retry", "deduplicate": "0"}).context["page"]
         self.assertEqual({row["subject_id"]: row["count"] for row in rows}, {self.prompt.pk: 1, other.pk: 0})
+
+        WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(status=WritingSimulationAttemptStatus.SUBMITTED)
+        bilan = self.client.get(attempt_url)
+        self.assertContains(bilan, 'class="subject-bookmark is-bookmarked"', count=1)
+        self.assertContains(bilan, reverse("study:ee3_subject_retry", args=[self.prompt.pk]))
+        self.assertNotContains(bilan, 'data-writing-sujet-completion-form')
 
         self.client.post(self.start_url, {"sujet_id": other.pk})
         picker = self.client.get(picker_url, {"etat": "retry"})

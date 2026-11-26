@@ -1,0 +1,4 @@
+<form class="subject-bookmark{% if retry %} is-bookmarked{% endif %}" method="post" action="{{ status_url }}{% if picker_filters %}{% querystring %}{% endif %}">
+  {% csrf_token %}<input type="hidden" name="field" value="retry"><input type="hidden" name="value" value="{{ retry|yesno:'0,1' }}">
+  {% include "study/shared/partials/subject_bookmark_button.html" with pressed=retry label=subject_label prefix="À refaire" remove="Retirer des sujets à refaire" add="Garder dans les sujets à refaire" only %}
+</form>

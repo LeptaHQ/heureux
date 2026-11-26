@@ -59,19 +59,22 @@
     node.lang = "fr";
     return node;
   };
-  const correction = (entry) => {
+  const refinementLabels = { Context: "Contexte", Rephrase: "Fluidité", Simplify: "Clarté" };
+  const isRefinement = (entry) => entry.replacement && Object.hasOwn(refinementLabels, entry.decision);
+  const correction = ({ before, after, type, why, optional }) => {
     const li = document.createElement("li");
     const change = document.createElement("div");
     change.className = "lv-mark";
     change.lang = "fr";
     const original = text(document.createElement("span"), "Original : ");
-    const replacement = text(document.createElement("span"), "Correction : ");
+    const replacement = text(document.createElement("span"), optional ? "Suggestion : " : "Correction : ");
     original.className = replacement.className = "sr-only";
     const arrow = text(document.createElement("span"), " → ");
     arrow.setAttribute("aria-hidden", "true");
-    change.append(original, text(document.createElement("del"), entry.before), arrow, replacement,
-      entry.after ? text(document.createElement("ins"), entry.after) : text(document.createElement("span"), "À retirer"));
-    li.append(text(document.createElement("strong"), entry.type), change, text(document.createElement("p"), entry.why));
+    const wording = (tag, value) => optional ? quote(value) : text(document.createElement(tag), value);
+    change.append(original, wording("del", before), arrow, replacement,
+      after ? wording("ins", after) : text(document.createElement("span"), "À retirer"));
+    li.append(text(document.createElement("strong"), type), change, text(document.createElement("p"), why));
     return li;
   };
 
@@ -186,7 +189,11 @@
     find("strengths-section").hidden = !notes.length;
     list(find("strengths"), notes, (entry) => item(entry.text));
 
-    list(find("corrections"), report.corrections, correction);
+    const refinements = report.relevance.filter(isRefinement).map((entry) => ({
+      before: entry.quote, after: entry.replacement, why: entry.why,
+      type: `${refinementLabels[entry.decision]} · facultatif`, optional: true,
+    }));
+    list(find("corrections"), [...report.corrections, ...refinements], correction);
     const correctionsNote = find("corrections-note");
     correctionsNote.hidden = Boolean(report.corrections.length);
     correctionsNote.textContent = report.omittedSections?.includes("corrections")
@@ -195,7 +202,7 @@
 
     const decisions = { Develop: "Développer", Cut: "Retirer", Simplify: "Simplifier", Rephrase: "Reformuler" };
     const suggestions = [
-      ...report.relevance.filter((entry) => entry.decision !== "Keep").map((entry) => {
+      ...report.relevance.filter((entry) => entry.decision !== "Keep" && !isRefinement(entry)).map((entry) => {
         const li = document.createElement("li");
         li.append(text(document.createElement("strong"), decisions[entry.decision] || entry.decision), " · ",
           entry.quote ? quote(entry.quote) : "La phrase");

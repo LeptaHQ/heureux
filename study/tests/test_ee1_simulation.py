@@ -1102,6 +1102,8 @@ class EE1SimulationTests(TestCase):
         self.assertIn("does not need matching tenses", instruction)
         self.assertIn("Repair every Missing or Partly met item", instruction)
         self.assertIn("turn a vague claim into a concrete reason", instruction)
+        self.assertIn("Don't count optional improvements as errors", instruction)
+        self.assertIn("Ground Context edits in the consigne or response", instruction)
         packet = json.loads(payload["messages"][1]["content"])
         self.assertEqual(packet["response"], response)
         self.assertEqual(packet["subject"], subject)
@@ -1300,6 +1302,76 @@ class EE1SimulationTests(TestCase):
                 self.assertEqual(result["relevance"], suggestions)
                 self.assertEqual(result["score"], report["score"])
                 self.assertEqual(result["corrections"], report["corrections"])
+
+    def test_writing_distinguishes_context_and_fluency_from_required_fixes(self):
+        response = (
+            "Salut les amis,\n\nPour mon anniversaire, j’aimerais recevoir un pull de Puma et un chapeau de Reebok. "
+            "Je préférais les deux en couleur verte et une taille moyenne me convient pour le pull. "
+            "Vous m’avez dit que vous n’aviez pas encore choisi, alors je vous donne quelques idées. "
+            "Ne vous sentez pas obligés : le plus important pour moi, c’est de vous voir samedi. "
+            "Merci encore pour le cadeaux !\n\nCamille"
+        )
+        corrections = [
+            {"before": "préférais", "after": "préférerais", "type": "Conditionnel",
+             "why": "You are expressing a preference for upcoming gifts, not a past preference."},
+            {"before": "le cadeaux", "after": "les cadeaux", "type": "Accord",
+             "why": "Use the plural article with « cadeaux »."},
+        ]
+        refinements = [
+            {"quote": "un pull de Puma", "decision": "Rephrase", "replacement": "un pull Puma",
+             "why": "Putting the brand right after the garment is more natural."},
+            {"quote": "un chapeau de Reebok", "decision": "Rephrase", "replacement": "un chapeau Reebok",
+             "why": "Name the brand without changing the type of hat."},
+            {"quote": "en couleur verte", "decision": "Simplify", "replacement": "en vert",
+             "why": "The shorter phrase already names the colour."},
+            {"quote": "Merci encore", "decision": "Context", "replacement": "Merci d’avance",
+             "why": "This fits because you are thanking friends for gifts they have not chosen yet."},
+        ]
+        report = {
+            **self._provider_report(), "gradeEvidenceIds": ["E1"], "corrections": corrections,
+            "relevance": [
+                {"quote": "Merci encore pour le cadeaux", "decision": "Context",
+                 "replacement": "Merci d’avance pour les cadeaux", "why": "Overlaps the required agreement fix."},
+                *refinements,
+                {"quote": "pull de Puma", "decision": "Simplify", "replacement": "pull Puma",
+                 "why": "Repeats the brand suggestion."},
+                {"quote": "pull", "decision": "Rephrase", "replacement": "chandail",
+                 "why": "This span has more than one possible location."},
+                {"quote": "samedi", "decision": "Context", "replacement": "dimanche",
+                 "why": "An unsupported date change."},
+            ],
+        }
+        inputs = dict(
+            task_number=1, provider=copilot_runtime.DEFAULT, response=response,
+            subject="Vos amis n’ont pas encore acheté vos cadeaux. Dites ce qui vous ferait plaisir, "
+                    "en précisant la taille et la couleur.",
+            word_count=_ee_word_count(response), word_min=60, word_max=120,
+        )
+        corrected = response.replace("préférais", "préférerais").replace("le cadeaux", "les cadeaux")
+        polished = corrected
+        for edit in refinements:
+            polished = polished.replace(edit["quote"], edit["replacement"])
+        for draft, expected, fallback in (
+            (corrected.replace("en couleur verte", "de couleur verte"),
+             polished.replace("en vert", "de couleur verte"), False),
+            ("", polished, True),
+        ):
+            with (
+                self.subTest(fallback=fallback),
+                patch.object(
+                    evaluation, "request_provider_report", return_value={**report, "improvedResponse": draft},
+                ) as request,
+            ):
+                result = writing_evaluation.score(**inputs)
+                request.assert_called_once()
+                self.assertEqual(request.call_args.args[2]["response"], response)
+                self.assertEqual(result["corrections"], corrections)
+                self.assertEqual(result["relevance"], refinements)
+                self.assertIn("relevance", result["omittedSections"])
+                self.assertEqual(result["improvedResponse"], expected)
+                self.assertEqual(result.get("proposalTarget"), None if fallback else "NCLC 7")
+                self.assertEqual(result.get("proposalFromSuggestions", False), fallback)
+                self.assertEqual(result["score"], report["score"])
 
     def test_suggestions_do_not_replace_facts_or_invalidate_a_complete_proposal(self):
         inputs, report = self._copilot_proposal()

@@ -32,7 +32,8 @@ _CEFR_BANDS = (
 _CRITERIA = ("linguistic", "pragmatic", "sociolinguistic")
 _RATINGS = {"Excellent", "Strong", "Adequate", "Developing", "Limited"}
 _STATUSES = {"Met", "Partly met", "Missing"}
-_REPLACEMENTS = {"Develop", "Simplify", "Rephrase"}
+_REFINEMENTS = {"Context", "Rephrase", "Simplify"}
+_REPLACEMENTS = _REFINEMENTS | {"Develop"}
 _DECISIONS = _REPLACEMENTS | {"Keep", "Cut"}
 _CONFIDENCE = {"High", "Medium", "Low"}
 _UNGROUNDED = "Le bilan n’a pas pu être vérifié. Votre réponse reste disponible."
@@ -237,11 +238,12 @@ def _span_pattern(text):
     )
 
 
+def _matching_spans(pattern, texts):
+    return [(index, match.span()) for index, text in enumerate(texts) for match in pattern.finditer(text)]
+
+
 @sensitive_variables()
 def _apply_local_edits(parts, changes, *, source=None):
-    def spans(pattern, texts):
-        return [(index, match.span()) for index, text in enumerate(texts) for match in pattern.finditer(text)]
-
     edits = [set() for _ in parts]
     for change in changes:
         if not isinstance(change, dict):
@@ -254,12 +256,12 @@ def _apply_local_edits(parts, changes, *, source=None):
         if before == after or not faithful_rewrite(before, after):
             continue
         pattern = _span_pattern(before)
-        matches = spans(pattern, parts)
+        matches = _matching_spans(pattern, parts)
         if len(matches) != 1:
             continue
         index, (start, end) = matches[0]
         if source is not None:
-            original_matches = spans(pattern, source)
+            original_matches = _matching_spans(pattern, source)
             if (
                 len(original_matches) != 1 or original_matches[0][0] != index
                 or _span_pattern(after).search(parts[index])
@@ -488,6 +490,7 @@ def ground(
 
     corrections = checked_items("corrections", report.get("corrections"), None, read_correction, records=True)
     result["corrections"] = [correction for _, correction in sorted(corrections, key=lambda row: row[0])]
+    occupied = [(index, (start, start + len(correction["before"]))) for (index, start), correction in corrections]
 
     def read_relevance(item):
         decision = _label(item.get("decision"), _DECISIONS)
@@ -500,16 +503,30 @@ def ground(
         }
         if decision in _REPLACEMENTS:
             replacement = _text(item.get("replacement"), 500)
-            if not entry["quote"] or entry["quote"] == replacement or not faithful_rewrite(entry["quote"], replacement):
+            if (
+                not entry["quote"]
+                or _normalise_for_match(entry["quote"]) == _normalise_for_match(replacement)
+                or not faithful_rewrite(entry["quote"], replacement)
+            ):
                 raise ValueError
             entry["replacement"] = replacement
+        if decision in _REFINEMENTS:
+            matches = _matching_spans(_span_pattern(normalize_newlines(entry["quote"])), correction_sources)
+            if len(matches) != 1:
+                raise ValueError
+            index, (start, end) = matches[0]
+            if any(
+                section == index and start < occupied_end and occupied_start < end
+                for section, (occupied_start, occupied_end) in occupied
+            ):
+                raise ValueError
+            occupied.append(matches[0])
         if decision == "Develop":
             # In EE3, develop the learner's position, not the neutral synthesis.
             quote = _normalise_for_match(entry["quote"])
             pattern = _span_pattern(quote)
             if (
-                quote == _normalise_for_match(entry["replacement"])
-                or len(pattern.findall(_normalise_for_match(sections[-1]))) != 1
+                len(pattern.findall(_normalise_for_match(sections[-1]))) != 1
                 or any(pattern.search(_normalise_for_match(part)) for part in sections[:-1])
             ):
                 raise ValueError
@@ -720,7 +737,9 @@ def score(
         "error, including repeated occurrences, in source order. For each use before (exact original span with "
         "enough context to locate it), after (actual fix), type (specific rule) and why (one short explanation). "
         "If fixes overlap, show the complete fix for that span in one row. Check each fix in its full sentence. "
-        "Do not list accepted variants, optional rephrasing, or details added only in the proposal.\n"
+        "Put improvements to valid wording in relevance, not corrections. If a sentence needs a fix and could "
+        "also read more naturally, use separate spans where possible: fix the verb form, then separately "
+        "suggest a smoother expression for the colour. Don't count optional improvements as errors.\n"
         "3. criteria: For each of linguistic, pragmatic and sociolinguistic, fill rating (Limited, "
         "Developing, Adequate, Strong, Excellent), evidence (one short reason) and evidenceIds "
         "(one or two supporting IDs, required for each criterion). Reserve Excellent for sustained "
@@ -736,10 +755,17 @@ def score(
         "gradeRationale: [One sentence explaining what sets the estimate apart from a weaker or stronger "
         "performance, only if not already said]. Use [] in gradeEvidenceIds to reuse criterion citations; "
         "otherwise give up to six supporting IDs.\n"
-        "6. relevance: Up to two useful optional edits, separate from corrections. Give quote (short exact "
-        "original span that occurs once), decision (Develop, Cut, Simplify, or Rephrase), replacement (exact "
-        "French wording to use in context, empty for Cut), and why (explain what improves for the reader). "
-        "When useful, prefer one Develop edit to surface polish: turn a vague claim into a concrete reason, "
+        "6. relevance: Look beyond errors for wording that is valid but would work better for this reader. "
+        "Give up to eight short local refinements, only where useful. Use Context for a better fit with the "
+        "situation, timing, recipient or intent; Rephrase for more idiomatic word choice or smoother flow; "
+        "Simplify for a clearer or more concise expression. Ground Context edits in the consigne or response. "
+        "For example, « en couleur bleue » can become "
+        "« en bleu », and « merci d'avance » fits an explicitly future favour, not one already done. "
+        "Don't change a « chapeau » into a « casquette » or guess a size label. Keep a synthesis neutral "
+        "and faithful to the sources. Also give up to two Develop or Cut edits if useful. For each edit, "
+        "give quote (short exact original span that occurs once), decision, replacement (French wording "
+        "that fits in the original sentence, empty for Cut), and why (one sentence on what improves). "
+        "For a Develop edit, turn a vague claim into a concrete reason, "
         "benefit or example. Quote the detail you develop, not just a generic phrase like « c'est pratique ». "
         "Explain what follows from the learner's details without turning it into an unsupported fact or promise. "
         "Choose edits that do not overlap one another or a correction, preserve the learner's facts and intent "
@@ -752,8 +778,9 @@ def score(
         f"8. {proposal_fields} Aim at a solid {_PROPOSAL_TARGET} in the proposal only, never in the grade. "
         "Repair every Missing or Partly met item in the answer itself. Before returning, check the revised "
         "text against the exact subject and every checklist item, including those already Met. Apply the "
-        "corrections and every optional edit you recommend; if you use different wording, make replacement "
-        "match the wording actually used. Show the result of following each next-time check without restating "
+        "corrections and demonstrate the recommended edits where they fit without losing required content. "
+        "If you use different wording for an edit, make replacement match the wording actually used. "
+        "Show the result of following each next-time check without restating "
         "the advice. Put required content first, use natural paragraphs and a consistent register, and develop "
         "the learner's ideas with useful details. Trim filler to fit the limit, not required content. "
         f"{proposal_facts}"

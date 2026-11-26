@@ -796,9 +796,15 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         invitation = "Je vous invite a dîner."
         wish = "J’aimerais que vous veniez samedi."
         developed = "J’aimerais que vous veniez samedi : on aura le temps de discuter autour du repas."
+        colour, fluent_colour = "en couleur bleue", "en bleu"
+        thanks, advance_thanks = "Merci encore", "Merci d’avance"
         body = (
-            f"  {invitation}\n{wish}\n\n"
+            f"  {invitation}\n{wish}\nLa salle sera décorée {colour}.\n{thanks} de me confirmer votre présence.\n\n"
             "**Bonjour** " + " ".join(["Bonjour"] * 50) + "\n<Nora>\n  "
+        )
+        revised = (
+            f"Bonjour !\n\n{developed}\n\nLa salle sera décorée {fluent_colour}. "
+            f"{advance_thanks} de me confirmer votre présence."
         )
         self.page.locator("#writing-body").fill(body)
         submit = self.page.get_by_role("button", name="Remettre la réponse")
@@ -831,11 +837,15 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 {"quote": "Bonjour Bonjour", "decision": "Cut", "why": "One greeting is enough."},
                 {"quote": wish, "decision": "Develop", "replacement": developed,
                  "why": "Explain why you’d like to have your friends over: to spend time together."},
+                {"quote": colour, "decision": "Rephrase", "replacement": fluent_colour,
+                 "why": "The shorter colour phrase is more natural."},
+                {"quote": thanks, "decision": "Context", "replacement": advance_thanks,
+                 "why": "You’re asking for a reply that hasn’t come yet."},
             ],
             "upgrades": ["Try « Ça vous dit ? » if you want to ask for a reply."],
             "priorities": ["Write the preposition « à » before « dîner »."],
-            "improvedResponse": f"Bonjour !\n\n{developed}",
-            "improvedWordCount": 15,
+            "improvedResponse": revised,
+            "improvedWordCount": len(revised.split()),
             "proposalTarget": "NCLC 7",
         }
         corrected = body.replace("a dîner", "à dîner")
@@ -964,7 +974,8 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         corrections = proposal.locator("[data-writing-corrections]")
         expect(corrections.locator("del")).to_have_text("a dîner")
         expect(corrections.locator("ins")).to_have_text("à dîner")
-        expect(corrections.locator("strong")).to_have_text("Orthographe")
+        expect(corrections.locator("strong")).to_have_text(["Orthographe", "Fluidité · facultatif", "Contexte · facultatif"])
+        expect(corrections.locator("q")).to_have_text([colour, fluent_colour, thanks, advance_thanks])
         suggestions = proposal.locator("[data-writing-suggestions]")
         expect(suggestions.locator("li")).to_contain_text([
             "One greeting is enough.", "to spend time together.", "Try « Ça vous dit ? »",
@@ -1002,6 +1013,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.locator("#lv-level")).to_have_text("10–12/20")
         expect(self.page.locator("#lv-assessment")).to_have_attribute("open", "")
         expect(corrections).to_contain_text("Accent grave sur la préposition.")
+        expect(corrections.locator("q")).to_have_count(0)
         expect(notes).to_be_hidden()
         expect(suggestions).to_be_hidden()
         expect(self.page.get_by_role("heading", name="Au prochain essai")).to_have_count(0)

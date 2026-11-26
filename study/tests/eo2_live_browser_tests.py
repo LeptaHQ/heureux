@@ -974,7 +974,7 @@ class LiveConversationBrowserMixin:
         self.assertEqual(requests, [("GET", {"provider": ["groq"], "simulation": [str(saved.pk)]})] * 2)
         expect(self.page.locator("[data-audio-pin-dialog]")).to_be_hidden()
 
-    @override_settings(GROQ_API_KEY="fixture-groq", AI_PIN=PILOT_PIN)
+    @override_settings(GROQ_API_KEY="fixture-groq", GEMINI_API_KEY="", CLOUDFLARE_WORKERS_API_KEY="", AI_PIN=PILOT_PIN)
     def test_oral_bilan_refresh_requires_confirmation_and_preserves_feedback_until_ready(self):
         factories.make_task(self.part, "tache-2")
         rows = [{"speaker": "user", "text": "Combien coûte le prêt ?"}]
@@ -991,7 +991,9 @@ class LiveConversationBrowserMixin:
         self.page.clock.install()
         self.page.clock.pause_at(self.page.evaluate("Date.now() + 10000"))
         self.page.goto(self.live_server_url + url)
-        refresh = self.page.locator("#lv-assessment-refresh").get_by_role("button", name="Actualiser le bilan")
+        refresh = self.page.locator(".lv-title-row").get_by_role("button", name="Actualiser le bilan")
+        expect(refresh.locator('[data-icon="reset"]')).to_be_visible()
+        expect(self.page.locator("#lv-assess")).to_be_hidden()
         pin = self.page.locator("[data-audio-pin-dialog]")
         level = self.page.locator("#lv-level")
         status = self.page.locator("#lv-assessment-status")

@@ -45,15 +45,6 @@
                   </div>
                   {% endif %}
                 {% endblock %}
-                {% if evaluation_refresh_providers %}
-                  <div id="lv-assessment-refresh" class="lv-assessment__controls" data-grader-version="{{ grader_version|stringformat:'d' }}"
-                       data-providers="{{ evaluation_refresh_providers|join:' ' }}" hidden>
-                    <button class="btn btn--ghost" type="button"{% if evaluation_refresh_inputs %} aria-describedby="lv-refresh-disclosure"{% endif %}>Actualiser le bilan</button>
-                    {% if evaluation_refresh_inputs %}
-                      <p id="lv-refresh-disclosure" class="lv-assessment__aside" data-refresh-inputs="{{ evaluation_refresh_inputs }}"></p>
-                    {% endif %}
-                  </div>
-                {% endif %}
                 <p id="lv-assessment-status" class="lv-assessment__status" role="status">{% block assessment_status %}{% endblock %}</p>
               </div>
               <div id="lv-assessment-result" class="lv-assessment__result" hidden>{% block assessment_result %}{% endblock %}</div>
@@ -77,5 +68,5 @@
 {% endblock %}
 {% block scripts %}
   {{ block.super }}
-  <script defer src="{% static 'study/js/simulation/assessment-picker.js' %}?v=2"></script>
+  <script defer src="{% static 'study/js/simulation/assessment-picker.js' %}?v=3"></script>
 {% endblock %}

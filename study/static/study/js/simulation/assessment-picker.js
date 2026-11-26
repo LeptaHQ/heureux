@@ -36,7 +36,7 @@
     const controls = document.getElementById("lv-assessment-refresh");
     if (!controls) return null;
     const button = controls.querySelector("button");
-    const disclosure = controls.querySelector("[data-refresh-inputs]");
+    const disclosure = document.getElementById("lv-refresh-disclosure");
     const providers = controls.dataset.providers.split(" ");
     const version = Number(controls.dataset.graderVersion);
     const isOutdated = (report) => Boolean(report) &&
@@ -49,9 +49,12 @@
         provider = selected;
         label = name;
         controls.hidden = !providers.includes(provider) || !isOutdated(report);
-        if (disclosure && !controls.hidden) {
-          const via = provider.startsWith("copilot-") ? " via GitHub Copilot" : "";
-          disclosure.textContent = `Envoi à ${label}${via} : ${disclosure.dataset.refreshInputs}.`;
+        if (disclosure) {
+          disclosure.hidden = controls.hidden;
+          if (!disclosure.hidden) {
+            const via = provider.startsWith("copilot-") ? " via GitHub Copilot" : "";
+            disclosure.textContent = `Envoi à ${label}${via} : ${disclosure.dataset.refreshInputs}.`;
+          }
         }
         return !controls.hidden;
       },

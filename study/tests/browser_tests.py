@@ -1117,9 +1117,9 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         attempt.refresh_from_db()
         self.assertEqual((attempt.body, attempt.position_body, attempt.evaluation), (*originals, report))
 
-    @override_settings(GROQ_API_KEY="fixture-groq")
     def test_written_bilan_refresh_keeps_the_saved_proposal_and_replaces_the_grade(self):
         task = factories.make_task(factories.make_part("ee"), "tache-3")
+        provider = "copilot-mai"
         previous = {
             "score": 10, "taskCompliance": [], "criteria": [], "strengths": [],
             "corrections": [], "relevance": [], "upgrades": [], "priorities": [],
@@ -1130,19 +1130,34 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             user=self.user, task=task, deadline_at=timezone.now(), status=WritingSimulationAttemptStatus.SUBMITTED,
             snapshot={"prompt": "Comparez les deux points de vue.", "documents": ["Document A", "Document B"]},
             body="Les textes parlent de la lecture.", position_body="Je préfère lire pendant le trajet.",
-            evaluation_status=WritingSimulationEvaluationStatus.READY, evaluation=previous,
-            proposal_edits={"groq": {"parts": edits, "wordCount": 6}},
+            evaluation_status=WritingSimulationEvaluationStatus.READY,
+            evaluation={"provider": provider, "reports": {provider: previous}},
+            proposal_edits={provider: {"parts": edits, "wordCount": 6}},
         )
         page = reverse("study:ee3_simulation_attempt", args=[attempt.pk])
         endpoint = reverse("study:ee3_simulation_evaluate", args=[attempt.pk])
         reads = []
         self.page.on("request", lambda request: reads.append(request.method) if urlsplit(request.url).path == endpoint else None)
+        self.page.set_viewport_size({"width": 320, "height": 900})
         self.page.clock.install()
         self.page.clock.pause_at(self.page.evaluate("Date.now() + 10000"))
-        with mock.patch("study.views.writing_simulation.run_evaluation") as worker:
+        with (
+            mock.patch("study.accounts.github_copilot.active_link_id", return_value=42),
+            mock.patch("study.views.writing_simulation.run_evaluation") as worker,
+        ):
             self.page.goto(self.live_server_url + page)
-            refresh = self.page.get_by_role("button", name="Actualiser le bilan")
-            expect(refresh).to_have_accessible_description(re.compile("Groq.*réponse, consigne et documents"))
+            title = self.page.locator(".lv-title-row")
+            model_picker = title.get_by_role("button", name="Choisir le modèle d’évaluation")
+            refresh = title.get_by_role("button", name="Actualiser le bilan")
+            expect(model_picker).to_be_visible()
+            expect(refresh.locator('[data-icon="reset"]')).to_be_visible()
+            expect(refresh).to_have_text("")
+            self.assertIsNone(refresh.get_attribute("aria-label"))
+            expect(refresh).to_have_accessible_description("Envoi à MAI via GitHub Copilot : réponse, consigne et documents.")
+            picker_box, refresh_box = model_picker.bounding_box(), refresh.bounding_box()
+            self.assertLess(picker_box["x"], refresh_box["x"])
+            self.assertAlmostEqual(picker_box["y"], refresh_box["y"], delta=1)
+            self.assert_no_horizontal_overflow()
             expect(self.page.locator("#lv-level")).to_have_text("10/20")
             self.assertEqual(reads, [])
 
@@ -1150,7 +1165,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                 with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint) as queued:
                     refresh.click()
                 self.assertEqual(queued.value.status, 202)
-                self.assertEqual(queued.value.request.post_data_json, {"consent": True, "provider": "groq", "refresh": True})
+                self.assertEqual(queued.value.request.post_data_json, {"consent": True, "provider": provider, "refresh": True})
                 expect(refresh).to_be_disabled()
                 expect(self.page.locator("#lv-assessment-status")).to_have_text("Actualisation du bilan…")
                 expect(self.page.locator("#lv-level")).to_have_text("10/20")
@@ -1160,7 +1175,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
                               "evaluation_error": "Le bilan n’est pas arrivé à temps."}
                 else:
                     fields = {"evaluation_status": WritingSimulationEvaluationStatus.READY,
-                              "evaluation": {"provider": "groq", "reports": {"groq": report}}}
+                              "evaluation": {"provider": provider, "reports": {provider: report}}}
                 WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(**fields)
                 with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint):
                     self.page.clock.run_for(1500)

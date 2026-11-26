@@ -7,6 +7,12 @@
     {% if session_title_assessment %}
       {% include "study/simulation/partials/assessment_action.html" %}
     {% endif %}
+    {% if evaluation_refresh_providers %}
+      <div id="lv-assessment-refresh" class="lv-assessment__action" data-grader-version="{{ grader_version|stringformat:'d' }}"
+           data-providers="{{ evaluation_refresh_providers|join:' ' }}" hidden>
+        <button class="icon-button" type="button" title="Actualiser le bilan"{% if evaluation_refresh_inputs %} aria-describedby="lv-refresh-disclosure"{% endif %}>{% include "study/shared/partials/ui_icon.html" with name="reset" only %}</button>
+      </div>
+    {% endif %}
   </div>
   <p class="lv-prompt" id="{{ session_prompt_id|default:'lv-prompt' }}">{{ session_prompt }}</p>
   {% if session_selected_subject %}<p class="lv-selected-subject">Sujet choisi · {{ session_selected_subject }}</p>{% endif %}

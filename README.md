@@ -137,19 +137,23 @@ consigne first: purpose, role, register, required content, and time cues.
 They ask it to judge tense and mood in context before grading the original.
 Each writing provider returns the grade, corrections, and practice proposal in
 one generation request. Corrections come from the original and appear in source
-order. Strengths explain why a specific choice helps the reader. A **Développer**
+order. Next-time checks give a short French example or a concrete content check.
+Off-topic asides go under relevance, not as extra checklist requirements.
+Strengths explain why a specific choice helps the reader. A **Développer**
 suggestion shows how to turn a vague claim into a reason or benefit. It appears
 only when the proposal uses that wording. The complete proposal aims at NCLC 7
 and answers every part of the assigned scenario without changing the learner’s
 grade. It can supply ordinary descriptive details in an assigned fictional role,
-but does not guess checkable facts or add sources to the EE3 synthesis. The model
+or propose an event date when the task leaves that choice to the writer. It
+does not guess existing facts or add sources to the EE3 synthesis. The model
 uses the next-time checks and optional edits when writing the proposal. The app checks
 the word limits, checkable facts, grounded corrections, and evidence for repaired
 gaps. It can apply unambiguous suggested edits locally without another request.
-If a complete proposal cannot be verified, Heureux can show a partial copy with
-unambiguous corrections and rephrasings. Older saved reports can still show the
-correction-only fallback without resending the text. Learners can copy the
-original or the proposal, and save their own edit. Edits are private,
+If a complete proposal cannot be verified, Heureux applies local corrections and
+rephrasings only if the original already met the task requirements. Otherwise,
+it shows the grade and feedback without a revised answer. Older saved reports can
+still show the correction-only fallback without resending the text. Learners can
+copy the original or the proposal, and save their own edit. Edits are private,
 saved per model, and do not change the original, the corrections, or the grade.
 
 Saved writing and oral bilans record their grader version, starting at `0`.
@@ -157,8 +161,9 @@ Unversioned reports are treated as older. **Actualiser le bilan** runs the
 current grader on the same saved attempt, for the selected available model only.
 Opening a report does not regenerate it. A successful refresh replaces that
 model's report without keeping a copy; a failure leaves the report intact.
-Personal proposal edits are independent of refreshes. Bump `GRADER_VERSION`
-in the relevant grader when a change warrants refreshing its existing bilans.
+A saved personal proposal stays visible and editable even if the new report has
+no verified draft. Bump `GRADER_VERSION` in the relevant grader when a change
+warrants refreshing its existing bilans.
 
 In Render logs, filter for `writing evaluation` or `oral evaluation` and the
 attempt ID. The worker reports time before it started (`queue_ms`) separately

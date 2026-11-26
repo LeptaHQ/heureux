@@ -56,6 +56,7 @@ from study.models import (
     WritingSujet,
 )
 from study.navigation.routing import prompt_detail_url, response_detail_url, review_url, theme_detail_url
+from study.simulation import writing_evaluation
 
 from . import factories
 from .browser_server import BrowserLiveServerThread
@@ -1117,13 +1118,17 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         attempt.refresh_from_db()
         self.assertEqual((attempt.body, attempt.position_body, attempt.evaluation), (*originals, report))
 
-    def test_written_bilan_refresh_keeps_the_saved_proposal_and_replaces_the_grade(self):
+    def test_written_bilan_refresh_keeps_the_saved_proposal_editable_without_a_new_draft(self):
         task = factories.make_task(factories.make_part("ee"), "tache-3")
         provider = "copilot-mai"
         previous = {
             "score": 10, "taskCompliance": [], "criteria": [], "strengths": [],
             "corrections": [], "relevance": [], "upgrades": [], "priorities": [],
             "improvedParts": ["Synthèse proposée.", "Argument proposé."],
+        }
+        current = {
+            **previous, "score": 13, "graderVersion": writing_evaluation.GRADER_VERSION,
+            "improvedParts": [], "improvedResponse": "",
         }
         edits = ["Ma synthèse personnelle.", "Mon argument personnel."]
         attempt = WritingSimulationAttempt.objects.create(
@@ -1161,7 +1166,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             expect(self.page.locator("#lv-level")).to_have_text("10/20")
             self.assertEqual(reads, [])
 
-            for report in (None, {**previous, "score": 13, "graderVersion": 0}):
+            for report in (None, current):
                 with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint) as queued:
                     refresh.click()
                 self.assertEqual(queued.value.status, 202)
@@ -1186,9 +1191,23 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
             expect(self.page.locator("#lv-level")).to_have_text("13/20")
             expect(self.page.locator("#lv-assessment-status")).to_have_text("Bilan actualisé.")
             expect(refresh).to_be_hidden()
-            expect(self.page.locator("#lv-proposal-lines p")).to_have_text(edits)
+            proposal = self.page.locator("#lv-proposal")
+            expect(proposal.get_by_role("heading", name="Version personnalisée")).to_be_visible()
+            expect(proposal.locator("#lv-proposal-lines p")).to_have_text(edits)
+            proposal.get_by_role("button", name="Modifier la proposition").click()
+            expect(proposal.get_by_role("textbox", name="Synthèse neutre")).to_have_value(edits[0])
+            opinion = proposal.get_by_role("textbox", name="Point de vue argumenté")
+            expect(opinion).to_have_value(edits[1])
+            updated_opinion = "Je préfère lire pendant mes déplacements."
+            opinion.fill(updated_opinion)
+            with self.page.expect_response(lambda response: urlsplit(response.url).path == endpoint) as saved:
+                proposal.get_by_role("button", name="Enregistrer la proposition").click()
+            self.assertEqual(saved.value.status, 200)
+            expect(proposal.get_by_role("status")).to_have_text("Votre version a été enregistrée.")
+            self.page.reload()
+            expect(proposal.locator("#lv-proposal-lines p")).to_have_text([edits[0], updated_opinion])
         self.assertEqual(worker.call_count, 2)
-        self.assertEqual(reads, ["POST", "GET", "POST", "GET"])
+        self.assertEqual(reads, ["POST", "GET", "POST", "GET", "PATCH"])
 
     def test_linked_ee1_submit_starts_polling_mai_without_a_second_action(self):
         self._assert_linked_writing_submit_starts_mai(1, 60)

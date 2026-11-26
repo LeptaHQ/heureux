@@ -20,7 +20,7 @@ from .proposal import faithful_rewrite
 
 logger = logging.getLogger(__name__)
 
-GRADER_VERSION = 0
+GRADER_VERSION = 1
 
 _CEFR_BANDS = (
     (0, "A1 non atteint"),
@@ -113,6 +113,22 @@ _SCHEMA = _object(
 )
 _EE3_SCHEMA = _object(**_SCHEMA["properties"], improvedPosition={"type": "string"})
 _PROPOSAL_TARGET = "NCLC 7"
+
+_WEEKDAYS = r"lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche"
+_MONTHS = r"janvier|f[ée]vrier|mars|avril|mai|juin|juillet|ao[uû]t|septembre|octobre|novembre|d[ée]cembre"
+_DAY = r"(?:1er|0?[1-9]|[12][0-9]|3[01])"
+_DAY_MONTH = rf"{_DAY} (?:{_MONTHS})"
+_DATE = rf"(?:{_DAY_MONTH}|(?:{_WEEKDAYS})(?: {_DAY_MONTH})?|demain|aujourd'hui|[0-9]{{1,2}}/[0-9]{{1,2}})"
+_DATE_ITEM = re.compile(r"\bdate\b", re.I)
+_EVENT_DAY = re.compile(rf"\b{_DATE}\b", re.I)
+_DATE_CUE = re.compile(rf"\b(?:{_DATE}|{_MONTHS})\b", re.I)
+_REPLY = re.compile(r"\b(?:reply|rsvp|deadline|date limite|r[ée]pond\w*|r[ée]ponses?|confirm\w*(?!\s+que\b))\b", re.I)
+_REPLY_DEADLINE = re.compile(
+    rf"{_REPLY.pattern}[^.!?;]*?\b(?:avant|d'ici|au plus tard) (?:le )?(?P<date>{_DATE})\b", re.I,
+)
+_PROPOSED_DATE = re.compile(
+    rf"Je (?:te|vous) propose de [^.!?;]{{1,80}}? le (?P<date>(?:(?:{_WEEKDAYS}) )?{_DAY_MONTH})\b", re.I,
+)
 
 
 class ReportError(ValueError):
@@ -222,15 +238,53 @@ def _proposal_from_parts(parts, word_min, word_max):
     return result
 
 
-def _check_proposal_coverage(proposal, report, result):
+def _check_proposal_coverage(result, report, originals):
     if "taskCompliance" in result["omittedSections"]:
         raise ValueError
-    parts = proposal.get("improvedParts", (proposal["improvedResponse"],))
+    parts = result.get("improvedParts", (result["improvedResponse"],))
+    date_quotes = []
     for item, check in zip(report["taskCompliance"], result["taskCompliance"]):
         if check["status"] != "Met":
             quote = _text(item.get("proposalQuote"), 300)
-            if not any(_locate(part, quote) is not None for part in parts):
+            if (
+                not any(_locate(part, quote) is not None for part in parts)
+                or any(_locate(original, quote) is not None for original in originals)
+            ):
                 raise ValueError
+            if len(originals) == 1 and _DATE_ITEM.search(check["item"]) and not _REPLY.search(check["item"]):
+                if not _EVENT_DAY.search(_normalise_for_match(quote)) or _REPLY.search(quote):
+                    raise ValueError
+                date_quotes.append(quote)
+    return date_quotes
+
+
+def _draft_for_fidelity(draft, date_quotes, original, subject):
+    if not date_quotes:
+        return draft
+    sources = tuple(map(_normalise_for_match, (original, subject)))
+    if any(_DATE_CUE.search(_REPLY_DEADLINE.sub("", source)) for source in sources):
+        return draft
+    for quote in map(_normalise_for_match, date_quotes):
+        proposed = _PROPOSED_DATE.match(quote)
+        if proposed:
+            normalised = _normalise_for_match(draft)
+            matches = list(_span_pattern(quote).finditer(normalised))
+            if len(matches) == 1:
+                day, month = proposed["date"].casefold().split()[-2:]
+                day = int(day.removesuffix("er"))
+                in_same_month = re.compile(rf"\b({_DAY}) {re.escape(month)}\b", re.I)
+                for source in sources:
+                    for deadline in _REPLY_DEADLINE.finditer(source):
+                        if (
+                            (limit := in_same_month.search(deadline["date"]))
+                            and day < int(limit[1].casefold().removesuffix("er"))
+                        ):
+                            raise ValueError
+                # Exempt only the date in this proposal, not the same values elsewhere in the draft.
+                start, end = proposed.span("date")
+                offset = matches[0].start()
+                return normalised[:offset + start] + normalised[offset + end:]
+    return draft
 
 
 def _span_pattern(text):
@@ -538,10 +592,7 @@ def ground(
     result["upgrades"] = checked_items("upgrades", report.get("upgrades", []), 8, lambda value: _text(value, 500))
     result["priorities"] = checked_items("priorities", report.get("priorities"), 3, lambda value: _text(value, 500))
     try:
-        proposal = _proposal(report, word_min, word_max, split=position is not None)
-        if proposal["improvedResponse"]:
-            _check_proposal_coverage(proposal, report, result)
-        result.update(proposal)
+        result.update(_proposal(report, word_min, word_max, split=position is not None))
     except ValueError:
         omit("improvedResponse")
         result.update(improvedResponse="", improvedWordCount=0)
@@ -581,10 +632,17 @@ def _applies_corrections(original, draft, corrections):
 
 
 @sensitive_variables()
-def _proposal_is_usable(result, subject, response, position, documents):
-    if "corrections" in result["omittedSections"]:
+def _proposal_is_usable(result, report, subject, originals, documents):
+    if not result["improvedResponse"] or "corrections" in result["omittedSections"]:
         return False
-    if position is not None:
+    response, draft = originals[0], result["improvedResponse"]
+    try:
+        date_quotes = _check_proposal_coverage(result, report, originals)
+        checked_draft = _draft_for_fidelity(draft, date_quotes, response, subject)
+    except ValueError:
+        return False
+    if len(originals) == 2:
+        position = originals[1]
         synthesis, opinion = result["improvedParts"]
         reference = "\n".join(documents)
         return (
@@ -594,7 +652,7 @@ def _proposal_is_usable(result, subject, response, position, documents):
                 f"{response}\n\n{position}", result["improvedResponse"], result["corrections"],
             )
         )
-    kept = normalize_newlines(response)
+    kept = response
     for entry in result["relevance"]:
         if entry["decision"] == "Cut" and entry["quote"]:
             pattern = _span_pattern(normalize_newlines(entry["quote"]))
@@ -602,8 +660,8 @@ def _proposal_is_usable(result, subject, response, position, documents):
                 kept = pattern.sub(" ", kept, count=1)
     # Exact, explained cuts can omit a value; they cannot authorize a new value.
     return (
-        faithful_rewrite(response, result["improvedResponse"], reference=subject, required_from=kept)
-        and _applies_corrections(response, result["improvedResponse"], result["corrections"])
+        faithful_rewrite(response, checked_draft, reference=subject, required_from=kept)
+        and _applies_corrections(response, draft, result["corrections"])
     )
 
 
@@ -705,7 +763,12 @@ def score(
             "the classroom and materials directly instead of promising to find out about them. "
             "Quote the actual detail in proposalQuote, not a promise to look it up. "
             "Present new arrangements as proposals and examples outside the given role as hypothetical. "
-            "Do not guess prices, dates, addresses or other checkable facts. For an unknown real-world fact, "
+            "Give the event date its own checklist row, separate from the time and reply deadline. If the task "
+            "leaves a required event date for the writer to choose, propose a specific day and month after "
+            "any reply deadline (e.g. « Je vous propose de nous retrouver le 14 juin. »). "
+            "Use 'date' in that checklist item and quote the whole proposal sentence, not the reply deadline. "
+            "Do not replace an assigned date or guess existing dates, prices, addresses or other checkable facts. "
+            "For an unknown real-world fact, "
             "an offer to verify it may help, but it does not replace a description the task asks you to give. "
         )
     instruction = (
@@ -731,14 +794,18 @@ def score(
         "Group only overlapping checks, up to twelve rows. For the ORIGINAL, give item, status (Met, Partly met, "
         "Missing), evidence (a short observation) and evidenceId (a supporting passage ID, empty if Missing "
         "with no passage). Put gaps first. Flag content inconsistencies and say what to verify. "
-        "Do not invent requirements. "
+        "Do not turn tangents into checklist requirements. Put advice to cut an off-topic detail in relevance. "
+        "If it crowds out required content, assess the actual requirement that was not fulfilled. "
         "For each Missing or Partly met row, give proposalQuote: a short verbatim excerpt from the revised "
-        "section that addresses the gap. Use an empty string for Met rows or when there is no proposal. "
+        "section that shows the new or changed wording that fills that specific gap. "
+        "Use an empty string for Met rows or when there is no proposal. "
         "Do not use the proposal as evidence for the original.\n"
         "2. corrections: Go through the learner's ORIGINAL line by line from start to finish. List every real "
-        "error, including repeated occurrences, in source order. For each use before (exact original span with "
-        "enough context to locate it), after (actual fix), type (specific rule) and why (one short explanation). "
+        "error, including repeated occurrences, in source order. For each use before (shortest exact original "
+        "span that shows the error in context), after (actual fix), type (specific rule) and why (one short explanation). "
         "If fixes overlap, show the complete fix for that span in one row. Check each fix in its full sentence. "
+        "When another natural fix teaches something useful, mention it in why as an option, not a rule: "
+        "both « donc on part » and « on part donc » can work. "
         "Put improvements to valid wording in relevance, not corrections. If a sentence needs a fix and could "
         "also read more naturally, use separate spans where possible: fix the verb form, then separately "
         "suggest a smoother expression for the colour. Don't count optional improvements as errors.\n"
@@ -763,6 +830,7 @@ def score(
         "Simplify for a clearer or more concise expression. Ground Context edits in the consigne or response. "
         "For example, « en couleur bleue » can become "
         "« en bleu », and « merci d'avance » fits an explicitly future favour, not one already done. "
+        "Explain precision gains: « remplacer » is more specific than « changer » when one item takes the place of another. "
         "Don't change a « chapeau » into a « casquette » or guess a size label. Keep a synthesis neutral "
         "and faithful to the sources. Also give up to two Develop or Cut edits if useful. For each edit, "
         "give quote (short exact original span that occurs once), decision, replacement (French wording "
@@ -773,10 +841,12 @@ def score(
         "Choose edits that do not overlap one another or a correction, preserve the learner's facts and intent "
         "and suit the recipient: an informal message to a friend does not need a more formal tone or closing. "
         "Keep the appropriate tu or vous, including plural vous. If an uncertain or irrelevant "
-        "specific in a message or account must go, mark its exact clause as Cut and explain what to verify.\n"
+        "specific in a message or account must go, mark its exact clause as Cut and say why or what to verify.\n"
         "7. priorities: Up to three brief next-time checks tied to a correction or unmet requirement above. "
-        "Choose actionable checks whose result you will demonstrate in the answer, not extra text to paste in it. "
-        "Don't invent problems to fill slots or contrast equivalent forms.\n"
+        "Make each transferable: use one short French example or contrast to practise a rule, or a concrete "
+        "question to check required content. For a future condition, « Si tu es libre, on commencera demain » "
+        "shows the present after si and the future in the main clause. Don't repeat the explanation or invent "
+        "problems to fill slots.\n"
         f"8. {proposal_fields} Aim at a solid {_PROPOSAL_TARGET} in the proposal only, never in the grade. "
         "Repair every Missing or Partly met item in the answer itself. Before returning, check the revised "
         "text against the exact subject and every checklist item, including those already Met. Apply the "
@@ -813,7 +883,13 @@ def score(
         )
     except ReportError as exc:
         raise UnverifiedReport(exc, len(evidence)) from None
-    if result["improvedResponse"] and _proposal_is_usable(result, subject, response, position, documents):
+    originals = [normalize_newlines(response)]
+    if position is not None:
+        originals.append(normalize_newlines(position))
+    requirements_met = "taskCompliance" not in result["omittedSections"] and all(
+        item["status"] == "Met" for item in result["taskCompliance"]
+    )
+    if _proposal_is_usable(result, report, subject, originals, documents):
         result["proposalTarget"] = _PROPOSAL_TARGET
     else:
         result.pop("improvedParts", None)
@@ -821,19 +897,19 @@ def score(
         if "improvedResponse" not in result["omittedSections"]:
             result["omittedSections"].append("improvedResponse")
         result["omitted"] = True
-        result.update(proposal_from_corrections(result["corrections"], response, position=position))
-    originals = [normalize_newlines(response)]
-    if position is not None:
-        originals.append(normalize_newlines(position))
+        if requirements_met:
+            result.update(proposal_from_corrections(result["corrections"], response, position=position))
     try:
-        suggested = _proposal_with_suggestions(result, originals, word_min, word_max)
-        if suggested and "proposalTarget" in result:
-            _check_proposal_coverage(suggested, report, result)
-            if not _proposal_is_usable({**result, **suggested}, subject, response, position, documents):
-                suggested = {}
+        suggested = (
+            _proposal_with_suggestions(result, originals, word_min, word_max)
+            if result["improvedResponse"] or requirements_met else {}
+        )
     except ValueError:
         suggested = {}
-    if suggested:
+    if suggested and (
+        "proposalTarget" not in result
+        or _proposal_is_usable({**result, **suggested}, report, subject, originals, documents)
+    ):
         if "proposalTarget" not in result:
             suggested.update(proposalFromCorrections=True, proposalFromSuggestions=True)
         result.update(suggested)

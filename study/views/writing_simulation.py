@@ -1146,7 +1146,8 @@ def _save_proposal_edit(request, spec, attempts, attempt_id):
             _evaluation_payload(attempt, spec, provider)["report"]
             if attempt.status == WritingSimulationAttemptStatus.SUBMITTED else None
         )
-        if not report or not report.get("improvedParts" if spec.number == 3 else "improvedResponse"):
+        proposal_field = "improvedParts" if spec.number == 3 else "improvedResponse"
+        if not report or not (attempt.proposal_edits.get(provider) or report.get(proposal_field)):
             return JsonResponse({"error": "Aucune proposition à modifier pour ce modèle."}, status=409)
         edit = {"parts": parts, "wordCount": sum(map(_ee_word_count, parts))}
         attempt.proposal_edits[provider] = edit

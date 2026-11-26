@@ -994,8 +994,9 @@ class EE1SimulationTests(TestCase):
         refresh = {**consent, "refresh": True}
         inputs, provider_report = self._copilot_proposal()
         body = inputs["response"]
-        previous = {"score": 10, "graderVersion": None, "improvedResponse": "Proposition d’origine."}
-        other_model = {"score": 11, "graderVersion": 0}
+        current_version = writing_evaluation.GRADER_VERSION
+        previous = {"score": 10, "graderVersion": 0, "improvedResponse": "Proposition d’origine."}
+        other_model = {"score": 11, "graderVersion": current_version}
         edits = {"groq": {"parts": ["Mon texte à garder."], "wordCount": 4}}
         WritingSimulationAttempt.objects.filter(pk=attempt.pk).update(
             status=WritingSimulationAttemptStatus.SUBMITTED, body=body, word_count=inputs["word_count"],
@@ -1032,7 +1033,7 @@ class EE1SimulationTests(TestCase):
             error = evaluation.EvaluationError(504, "Bilan hors délai.") if outcome == "timeout" else None
             with (
                 patch.object(writing_simulation, "close_old_connections"),
-                patch.object(writing_evaluation, "GRADER_VERSION", None if outcome == "unversioned" else 0),
+                patch.object(writing_evaluation, "GRADER_VERSION", None if outcome == "unversioned" else current_version),
                 patch.object(evaluation, "request_provider_report", return_value=provider_report, side_effect=error) as request,
             ):
                 writing_simulation.run_evaluation(*claim["args"], **claim.get("kwargs", {}))
@@ -1046,7 +1047,7 @@ class EE1SimulationTests(TestCase):
 
         attempt.refresh_from_db()
         current = attempt.evaluation["reports"]["groq"]
-        self.assertEqual((current["graderVersion"], current["score"]), (0, provider_report["score"]))
+        self.assertEqual((current["graderVersion"], current["score"]), (current_version, provider_report["score"]))
         self.assertEqual(attempt.evaluation["reports"], {"groq": current, "cloudflare": other_model})
         self.assertEqual((attempt.body, attempt.proposal_edits), (body, edits))
         with patch.object(writing_simulation.threading, "Thread") as thread, self.captureOnCommitCallbacks(execute=True):
@@ -1171,10 +1172,12 @@ class EE1SimulationTests(TestCase):
         self.assertLess(fields.index("taskCompliance"), fields.index("corrections"))
         self.assertLess(fields.index("corrections"), fields.index("score"))
         self.assertIn("does not need matching tenses", instruction)
+        self.assertIn("Do not turn tangents into checklist requirements", instruction)
         self.assertIn("Repair every Missing or Partly met item", instruction)
         self.assertIn("turn a vague claim into a concrete reason", instruction)
         self.assertIn("Don't count optional improvements as errors", instruction)
         self.assertIn("Ground Context edits in the consigne or response", instruction)
+        self.assertIn("use one short French example or contrast to practise a rule", instruction)
         packet = json.loads(payload["messages"][1]["content"])
         self.assertEqual(packet["response"], response)
         self.assertEqual(packet["subject"], subject)
@@ -1228,9 +1231,75 @@ class EE1SimulationTests(TestCase):
                 self.assertEqual(result["scoreRange"], report["scoreRange"])
                 self.assertEqual(result["score"], report["score"])
 
-    def test_copilot_uses_a_correction_only_copy_for_missing_or_invalid_revisions_without_a_second_request(self):
+    def test_writing_proposal_supplies_a_missing_invitation_date_without_changing_given_facts(self):
+        deadline = "avant vendredi"
+        response = (
+            "Bonjour à toutes et à tous,\n\nJe voudrais vous inviter au Bistrot du Canal pour fêter la fin de mon stage. "
+            "Nous pourrons manger ensemble de 19 h à 21 h et profiter de la musique. Le menu coûte 25 $ par personne. "
+            f"Merci de me confirme votre présence {deadline} afin que je puisse réserver une table.\n\nCamille"
+        )
+        inputs = dict(
+            task_number=1, provider=copilot_runtime.DEFAULT, response=response,
+            subject="Invitez vos collègues à dîner pour fêter votre départ. Indiquez la date, le lieu et l’heure du repas.",
+            word_count=_ee_word_count(response), word_min=60, word_max=120,
+        )
+        corrected = response.replace("me confirme", "me confirmer")
+        date = "Je vous propose de nous retrouver le 14 juin."
+        revised = corrected.replace("Nous pourrons", f"{date} Nous pourrons")
+        report = {
+            **self._provider_report(), "gradeEvidenceIds": ["E1"],
+            "taskCompliance": [{
+                "item": "Date du dîner", "status": "Missing", "evidenceId": "",
+                "evidence": "The reply deadline does not tell your colleagues when dinner is.",
+                "proposalQuote": date,
+            }],
+            "corrections": [{
+                "before": "me confirme", "after": "me confirmer", "type": "Infinitif", "why": "Infinitif après « de ».",
+            }],
+        }
+        invented_date = "J’ai réservé une table le 14 juin."
+        for case, draft, quote, expected in (
+            ("writer can propose a date", revised, date, revised),
+            ("new claim about a reservation", revised.replace(date, invented_date), invented_date, ""),
+            ("another fact changes", revised.replace("25 $", "30 $"), date, ""),
+            ("new day reused as a price", revised.replace("25 $", "25 $ plus un supplément de 14 $"), date, ""),
+            ("date still missing", corrected, date, ""),
+            ("reply deadline is not the event date", corrected, f"Merci de me confirmer votre présence {deadline}", ""),
+        ):
+            with self.subTest(case=case):
+                supplied = {**report, "improvedResponse": draft, "taskCompliance": [
+                    {**report["taskCompliance"][0], "proposalQuote": quote},
+                ]}
+                with patch.object(evaluation, "request_provider_report", return_value=supplied) as request:
+                    result = writing_evaluation.score(**inputs)
+                request.assert_called_once()
+                self.assertEqual(result["improvedResponse"], expected)
+                self.assertEqual(result.get("proposalTarget"), "NCLC 7" if expected else None)
+                self.assertFalse(result.get("proposalFromCorrections", False))
+                self.assertEqual(result["taskCompliance"][0]["status"], "Missing")
+                self.assertEqual(result["corrections"], report["corrections"])
+                self.assertEqual(result["score"], report["score"])
+        for case, subject_suffix, reply_by, accepted in (
+            ("assigned date is not a choice", " Le repas est prévu le 12 juin.", deadline, False),
+            ("assigned date can fill the gap", " Le repas est prévu le 14 juin.", deadline, True),
+            ("dinner after reply deadline", "", "avant le 12 juin", True),
+            ("dinner before reply deadline", "", "avant le 20 juin", False),
+        ):
+            draft = revised.replace(deadline, reply_by)
+            original = response.replace(deadline, reply_by)
+            with (
+                self.subTest(case=case),
+                patch.object(evaluation, "request_provider_report", return_value={**report, "improvedResponse": draft}),
+            ):
+                result = writing_evaluation.score(**{
+                    **inputs, "subject": inputs["subject"] + subject_suffix,
+                    "response": original, "word_count": _ee_word_count(original),
+                })
+                self.assertEqual(result["improvedResponse"], draft if accepted else "")
+                self.assertEqual(result["score"], report["score"])
+
+    def test_copilot_uses_a_correction_only_copy_only_if_no_requirements_are_missing(self):
         inputs, report = self._copilot_proposal()
-        inputs["subject"] += " Proposez de rentrer ensemble."
         revised = report["improvedResponse"]
         missing_requirement = {
             "item": "Proposer un retour ensemble", "status": "Missing", "evidenceId": "",
@@ -1245,21 +1314,26 @@ class EE1SimulationTests(TestCase):
             "invented proposal evidence": {"taskCompliance": [
                 *report["taskCompliance"], {**missing_requirement, "proposalQuote": "On pourrait rentrer ensemble."},
             ]},
+            "unchanged passage cannot fill a gap": {"taskCompliance": [
+                *report["taskCompliance"], {**missing_requirement, "proposalQuote": "On pourra ainsi se retrouver facilement."},
+            ]},
             "ungrounded correction": {"corrections": [*report["corrections"], {
                 "before": "chambre", "after": "chambres", "type": "Accord", "why": "Pluriel.",
             }]},
         }
         provider = copilot_runtime.DEFAULT
         for case, changes in report_changes.items():
+            fallback = "taskCompliance" not in changes
+            subject = inputs["subject"] + ("" if fallback else " Proposez de rentrer ensemble.")
             with (
                 self.subTest(case=case),
                 patch.object(evaluation, "request_provider_report", return_value={**report, **changes}) as request,
             ):
-                result = writing_evaluation.score(**inputs, provider=provider)
+                result = writing_evaluation.score(**{**inputs, "subject": subject}, provider=provider)
                 request.assert_called_once()
                 self.assertEqual(result["score"], report["score"])
-                self.assertEqual(result["improvedResponse"], revised)
-                self.assertTrue(result["proposalFromCorrections"])
+                self.assertEqual(result["improvedResponse"], revised if fallback else "")
+                self.assertEqual(result["proposalFromCorrections"], fallback)
                 self.assertNotIn("proposalTarget", result)
 
     def test_role_play_proposal_answers_the_assigned_friend_about_the_assigned_school(self):
@@ -1351,10 +1425,10 @@ class EE1SimulationTests(TestCase):
                     "Les séances se tiennent dans la salle d’arts, au rez-de-chaussée.",
             word_count=_ee_word_count(response), word_min=60, word_max=120,
         )
-        for case, draft, expected, is_fallback in (
-            ("model applies all advice", complete, complete, False),
-            ("local edit of full proposal", fixed.replace("L’inscription", f"{location} L’inscription"), complete, False),
-            ("local edit of partial copy", fixed, applied, True),
+        for case, draft, expected in (
+            ("model applies all advice", complete, complete),
+            ("local edit of full proposal", fixed.replace("L’inscription", f"{location} L’inscription"), complete),
+            ("partial copy would leave the location unanswered", fixed, ""),
         ):
             with (
                 self.subTest(case=case),
@@ -1366,11 +1440,11 @@ class EE1SimulationTests(TestCase):
                 request.assert_called_once()
                 self.assertEqual(result["improvedResponse"], expected)
                 self.assertEqual(result["improvedWordCount"], _ee_word_count(expected))
-                self.assertEqual(result.get("proposalFromCorrections", False), is_fallback)
-                self.assertEqual(result.get("proposalFromSuggestions", False), is_fallback)
+                self.assertFalse(result.get("proposalFromCorrections", False))
+                self.assertFalse(result.get("proposalFromSuggestions", False))
                 self.assertEqual(result["taskCompliance"][0]["status"], "Missing")
                 self.assertEqual(result["priorities"], report["priorities"])
-                self.assertEqual(result["relevance"], suggestions)
+                self.assertEqual(result["relevance"], suggestions if expected else suggestions[:1])
                 self.assertEqual(result["score"], report["score"])
                 self.assertEqual(result["corrections"], report["corrections"])
 

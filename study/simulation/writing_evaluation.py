@@ -20,7 +20,7 @@ from .proposal import faithful_rewrite
 
 logger = logging.getLogger(__name__)
 
-GRADER_VERSION = 1
+GRADER_VERSION = 2
 
 _CEFR_BANDS = (
     (0, "A1 non atteint"),
@@ -298,6 +298,16 @@ def _matching_spans(pattern, texts):
     return [(index, match.span()) for index, text in enumerate(texts) for match in pattern.finditer(text)]
 
 
+def _includes_edit(original, edit, nested):
+    start, end, replacement = edit
+    left, right, fix = nested
+    return (
+        (start, end) != (left, right) and start <= left and right <= end
+        and not _span_pattern(original[left:right]).search(replacement)
+        and (not fix or _span_pattern(fix).search(replacement))
+    )
+
+
 @sensitive_variables()
 def _apply_local_edits(parts, changes, *, source=None):
     edits = [set() for _ in parts]
@@ -320,7 +330,7 @@ def _apply_local_edits(parts, changes, *, source=None):
             original_matches = _matching_spans(pattern, source)
             if (
                 len(original_matches) != 1 or original_matches[0][0] != index
-                or _span_pattern(after).search(parts[index])
+                or (after and _span_pattern(after).search(parts[index]))
             ):
                 continue
         edits[index].add((start, end, after))
@@ -330,7 +340,10 @@ def _apply_local_edits(parts, changes, *, source=None):
         text = original
         for change in sorted(changes, reverse=True):
             start, end, replacement = change
-            if any(start < other[1] and other[0] < end for other in changes if other != change):
+            if any(
+                start < other[1] and other[0] < end and not _includes_edit(original, change, other)
+                for other in changes if other != change
+            ):
                 continue
             text = text[:start] + replacement + text[end:]
         revised.append(text if text.strip() and faithful_rewrite(original, text) else original)
@@ -666,6 +679,21 @@ def _proposal_is_usable(result, report, subject, originals, documents):
 
 
 @sensitive_variables()
+def _proposal_with_edits(result, originals, changes, word_min, word_max):
+    if not changes:
+        return {}
+    parts = result.get("improvedParts", [result["improvedResponse"]]) if result["improvedResponse"] else originals
+    parts = list(map(normalize_newlines, parts))
+    revised = _apply_local_edits(parts, changes, source=originals)
+    if revised == parts:
+        return {}
+    try:
+        return _proposal_from_parts(revised, word_min, word_max)
+    except ValueError:
+        return {}
+
+
+@sensitive_variables()
 def _proposal_with_suggestions(result, originals, word_min, word_max):
     protected = [
         _span_pattern(before) for correction in result["corrections"]
@@ -676,14 +704,7 @@ def _proposal_with_suggestions(result, originals, word_min, word_max):
         for entry in result["relevance"] if (replacement := entry.get("replacement"))
         and not any(pattern.search(_normalise_for_match(replacement)) for pattern in protected)
     ]
-    if not changes:
-        return {}
-    parts = result.get("improvedParts", [result["improvedResponse"]]) if result["improvedResponse"] else originals
-    parts = list(map(normalize_newlines, parts))
-    revised = _apply_local_edits(parts, changes, source=originals)
-    if revised == parts:
-        return {}
-    return _proposal_from_parts(revised, word_min, word_max)
+    return _proposal_with_edits(result, originals, changes, word_min, word_max)
 
 
 @sensitive_variables()
@@ -886,10 +907,13 @@ def score(
     originals = [normalize_newlines(response)]
     if position is not None:
         originals.append(normalize_newlines(position))
-    requirements_met = "taskCompliance" not in result["omittedSections"] and all(
-        item["status"] == "Met" for item in result["taskCompliance"]
-    )
-    if _proposal_is_usable(result, report, subject, originals, documents):
+    usable = _proposal_is_usable(result, report, subject, originals, documents)
+    if not usable and result["improvedResponse"]:
+        repaired = _proposal_with_edits(result, originals, result["corrections"], word_min, word_max)
+        if repaired and _proposal_is_usable({**result, **repaired}, report, subject, originals, documents):
+            result.update(repaired)
+            usable = True
+    if usable:
         result["proposalTarget"] = _PROPOSAL_TARGET
     else:
         result.pop("improvedParts", None)
@@ -897,15 +921,8 @@ def score(
         if "improvedResponse" not in result["omittedSections"]:
             result["omittedSections"].append("improvedResponse")
         result["omitted"] = True
-        if requirements_met:
-            result.update(proposal_from_corrections(result["corrections"], response, position=position))
-    try:
-        suggested = (
-            _proposal_with_suggestions(result, originals, word_min, word_max)
-            if result["improvedResponse"] or requirements_met else {}
-        )
-    except ValueError:
-        suggested = {}
+        result.update(proposal_from_corrections(result["corrections"], response, position=position))
+    suggested = _proposal_with_suggestions(result, originals, word_min, word_max)
     if suggested and (
         "proposalTarget" not in result
         or _proposal_is_usable({**result, **suggested}, report, subject, originals, documents)

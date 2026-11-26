@@ -148,12 +148,11 @@ or propose an event date when the task leaves that choice to the writer. It
 does not guess existing facts or add sources to the EE3 synthesis. The model
 uses the next-time checks and optional edits when writing the proposal. The app checks
 the word limits, checkable facts, grounded corrections, and evidence for repaired
-gaps. It can apply unambiguous suggested edits locally without another request.
-If a complete proposal cannot be verified, Heureux applies local corrections and
-rephrasings only if the original already met the task requirements. Otherwise,
-it shows the grade and feedback without a revised answer. Older saved reports can
-still show the correction-only fallback without resending the text. Learners can
-copy the original or the proposal, and save their own edit. Edits are private,
+gaps. It can apply unambiguous corrections and suggestions locally and verify
+the result without another request. If a complete proposal cannot be verified,
+Heureux can still show a local correction of the original, labeled **Version
+partielle** when task requirements remain to be checked or completed. Learners
+can copy the original or the proposal, and save their own edit. Edits are private,
 saved per model, and do not change the original, the corrections, or the grade.
 
 Saved writing and oral bilans record their grader version, starting at `0`.

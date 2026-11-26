@@ -94,13 +94,16 @@
     by("proposal-rewrite").hidden = !proposal.length;
     editButton.hidden = proposalParts.length !== editFields.length;
     text(copySource, proposal.length ? JSON.stringify(proposalParts.join("\n\n")) : "");
+    const partial = report.proposalFromCorrections && (report.omittedSections?.includes("taskCompliance") ||
+      report.taskCompliance.some((entry) => entry.status !== "Met"));
     text(by("proposal-rewrite-title"), edit ? "Version personnalisée" :
-      report.proposalFromCorrections ? "Version corrigée" : "Version révisée");
+      partial ? "Version partielle" : report.proposalFromCorrections ? "Version corrigée" : "Version révisée");
     const rewriteNote = find("rewrite-note");
     text(rewriteNote, edit ? "Vous avez modifié cette version. L’estimation porte toujours sur votre réponse originale." :
+      partial ? "Seules les corrections et reformulations vérifiées sont appliquées. Vérifiez les points signalés dans « Conformité à la tâche »." :
       report.proposalFromSuggestions ? "Corrections et reformulations appliquées. La réponse à la consigne peut rester incomplète." :
       report.proposalFromCorrections ? "Corrections appliquées. La réponse à la consigne peut rester incomplète." :
-      !proposal.length ? "Aucune version révisée n’a pu être vérifiée." :
+      !proposal.length ? "Aucune version complète n’a pu être vérifiée." :
       report.proposalTarget ? `Exemple d’entraînement · objectif ${report.proposalTarget}.` : "");
     rewriteNote.hidden = !rewriteNote.textContent;
     text(by("proposal-count"), proposal.length ? `${edit?.wordCount ?? report.improvedWordCount} mots` : "");

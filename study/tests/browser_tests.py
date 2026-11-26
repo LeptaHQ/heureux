@@ -901,7 +901,8 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(self.page.locator("#lv-transcript [data-writing-corrections]")).to_have_count(0)
         expect(proposal).to_be_visible()
         expect(proposal.locator("[data-writing-corrections] ins")).to_have_text("à dîner")
-        expect(proposal.get_by_role("heading", name="Version corrigée")).to_be_visible()
+        expect(proposal.get_by_role("heading", name="Version partielle")).to_be_visible()
+        expect(proposal.locator("[data-writing-rewrite-note]")).to_contain_text("Vérifiez les points signalés")
         self.assertEqual(proposal.locator("#lv-proposal-lines p").all_text_contents(), corrected.split("\n\n"))
         title = self.page.get_by_role("heading", name="Simulation", exact=True)
         expect(self.page.locator("#lv-kicker")).to_have_text("Votre bilan")
@@ -1020,7 +1021,7 @@ class BrowserTests(LiveConversationBrowserMixin, StaticLiveServerTestCase):
         expect(suggestions).to_be_hidden()
         expect(self.page.get_by_role("heading", name="Au prochain essai")).to_have_count(0)
         self.assertEqual(original.text_content(), body)
-        expect(proposal.get_by_role("heading", name="Version corrigée")).to_be_visible()
+        expect(proposal.get_by_role("heading", name="Version partielle")).to_be_visible()
         expect(proposal.get_by_text("Exemple d’entraînement · objectif NCLC 7.")).to_have_count(0)
         self.assertEqual(proposal.locator("#lv-proposal-lines p").all_text_contents(), corrected.split("\n\n"))
 
